@@ -1,0 +1,7 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - rscadd: "Added an option to clear the Blood Pack's label."
+  - imageadd: "Added various labels for the blood pack."
