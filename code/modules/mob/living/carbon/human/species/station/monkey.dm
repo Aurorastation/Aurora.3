@@ -21,7 +21,6 @@
 	eyes = "blank_eyes"
 
 	gibbed_anim = "gibbed-m"
-	dusted_anim = "dust-m"
 
 	death_message = "lets out a faint chimper as it collapses and stops moving..."
 	death_message_range = 7

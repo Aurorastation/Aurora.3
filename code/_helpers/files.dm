@@ -29,7 +29,7 @@
 	for(var/file in args)
 		send_rsc(src, file, null)
 
-/client/proc/browse_files(root="data/logs/", max_iterations=10, list/valid_extensions=list(".txt",".log",".htm"))
+/client/proc/browse_files(root="data/logs/", max_iterations=10, list/valid_extensions=list(".txt",".log",".htm", ".json"))
 	var/path = root
 
 	for(var/i=0, i<max_iterations, i++)
@@ -49,8 +49,12 @@
 		if(copytext(path,-1,0) != "/")		//didn't choose a directory, no need to iterate again
 			break
 
-	var/extension = copytext(path,-4,0)
-	if( !fexists(path) || !(extension in valid_extensions) )
+	var/valid_extension = FALSE
+	for(var/e in valid_extensions)
+		if(findtext(path, e, -(length(e))))
+			valid_extension = TRUE
+
+	if( !fexists(path) || !valid_extension )
 		to_chat(src, "<span class='warning'>Error: browse_files(): File not found/Invalid file([path]).</span>")
 		return
 

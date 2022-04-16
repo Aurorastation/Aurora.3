@@ -71,7 +71,6 @@
 
 /obj/item/organ/internal/liver/handle_regeneration()
 	if(..())
-		testing("Liver regenerating!")
 		if(!owner.total_radiation && damage > 0)
 			if(damage < min_broken_damage)
 				heal_damage(0.2)

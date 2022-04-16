@@ -39,6 +39,7 @@
 	taste_sensitivity = TASTE_NUMB
 	mob_size = 12	//Worker gestalts are 150kg
 	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
+	dust_remains_type = /obj/effect/decal/cleanable/ash
 	gluttonous = GLUT_ITEM_ANYTHING|GLUT_SMALLER
 	stomach_capacity = 10 //Big boys.
 	blurb = "A mysterious plant-like race hailing from the depths of space. Dionae (D. Primis) are a rather strange, cryptic species in comparison to the rest found in the \

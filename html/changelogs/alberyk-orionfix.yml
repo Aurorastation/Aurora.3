@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the Orion Express having the wrong description in game."

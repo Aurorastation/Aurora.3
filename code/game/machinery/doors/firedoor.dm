@@ -485,8 +485,8 @@
 
 				do_set_light = TRUE
 
-		if (hashatch)
-			if (hatchstate && hatch_image)
+		if (hashatch && hatch_image)
+			if (hatchstate)
 				hatch_image.icon_state = "[hatchstyle]_open"
 			else
 				hatch_image.icon_state = hatchstyle
@@ -540,12 +540,3 @@
 		if(istype(destination)) SSair.tiles_to_update += destination
 		return 1
 */
-
-/obj/machinery/door/firedoor/multi_tile
-	icon = 'icons/obj/doors/DoorHazard2x1.dmi'
-	width = 2
-	dir = EAST
-	enable_smart_generation = FALSE
-
-	open_sound = 'sound/machines/firewideopen.ogg'
-	close_sound = 'sound/machines/firewideclose.ogg'
