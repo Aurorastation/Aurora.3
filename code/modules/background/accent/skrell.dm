@@ -38,6 +38,6 @@
 /datum/accent/skrell/genner
 	name = ACCENT_GENNER
 	description = "The Skrell have utilised Generation Ships for long-distance colonisation since they began to explore outside of their solar system. These ships come in a large variety \
-	of designs depending on which era of Skrell history they were built, but all of them were built with self-sufficiency and low maintenance costs in mind. These ships are typically designed \ 
+	of designs depending on which era of Skrell history they were built, but all of them were built with self-sufficiency and low maintenance costs in mind. These ships are typically designed \
 	to traverse space for centuries, and are given the tools and resources needed to ensure the ship and its passengers arrive at their intended destination with little to no outside support."
 	tag_icon = "skrell_genner"
