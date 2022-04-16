@@ -210,13 +210,9 @@
 	return
 
 /obj/machinery/smartfridge/machinery_process()
-	if(stat & (BROKEN|NOPOWER) || !anchored)
+	if(stat & (BROKEN|NOPOWER))
 		seconds_electrified = 0
-		update_use_power(0)
 		return
-
-	update_use_power(1)
-
 	if(seconds_electrified > 0)
 		seconds_electrified--
 	if(shoot_inventory && prob(2))
@@ -245,13 +241,13 @@
 	update_icon()
 
 /obj/machinery/smartfridge/power_change()
-	var/old_stat = stat
 	..()
-	if(old_stat != stat)
-		update_icon()
+	if(!anchored)
+		stat |= NOPOWER
+	update_icon()
 
 /obj/machinery/smartfridge/update_icon()
-	if(stat & (BROKEN|NOPOWER) || !anchored)
+	if(stat & (BROKEN|NOPOWER))
 		icon_state = icon_off
 	else
 		icon_state = icon_on
@@ -274,6 +270,7 @@
 		anchored = !anchored
 		user.visible_message("\The [user] [anchored ? "secures" : "unsecures"] the bolts holding \the [src] to the floor.", "You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.")
 		playsound(get_turf(src), O.usesound, 50, 1)
+		power_change()
 		return
 
 	if(O.ismultitool()||O.iswirecutter())
@@ -313,10 +310,6 @@
 
 	if(stat & NOPOWER)
 		to_chat(user, SPAN_NOTICE("[src] is unpowered and useless."))
-		return
-	
-	if(!anchored)
-		to_chat(user, SPAN_WARNING("[src] has locked down its contents to secure them, and refuses to open until it detects that it is anchored to the floor."))
 		return
 
 	if(accept_check(O))
@@ -400,8 +393,6 @@
 	return data
 
 /obj/machinery/smartfridge/Topic(href, href_list)
-	if(stat & (NOPOWER|BROKEN) || !anchored)
-		return FALSE
 	if(..())
 		return TRUE
 
