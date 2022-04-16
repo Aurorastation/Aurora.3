@@ -42,10 +42,10 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/tie_hair)
 
-	//todomatt: rename this fkin variable
-	origins_data = list(
+	possible_origins = list(
 		/decl/origin_item/culture/biesel,
-		/decl/origin_item/culture/solarian
+		/decl/origin_item/culture/solarian,
+		/decl/origin_item/culture/dominia
 	)
 
 	zombie_type = SPECIES_ZOMBIE

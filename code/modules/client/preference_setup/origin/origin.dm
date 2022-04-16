@@ -67,6 +67,8 @@
 	)
 
 //Maybe turn accents/religion/citizenship into decls?
+//Todo: remove species accent/citizenship lists.
+//Maybe todo: add a proc that returns the default/most common accent/religion/citizenship for a certain origin so we don't have to do list[1].
 /datum/category_item/player_setup_item/origin/sanitize_character(var/sql_load = 0)
 	var/datum/species/S = all_species[pref.species]
 	var/decl/origin_item/CI = S.get_default_culture()
@@ -74,24 +76,28 @@
 		pref.culture = "[CI]"
 	var/decl/origin_item/culture/our_culture = decls_repository.get_decl(text2path(pref.culture))
 	if(!istext(pref.origin))
-		var/decl/origin_item/OI = S.get_default_origin(CI)
+		var/decl/origin_item/OI = pick(our_culture.possible_origins)
 		pref.origin = "[OI]"
 	else
 		var/decl/origin_item/origin/origin_check = text2path(pref.origin)
-		if(!origin_check in our_culture.possible_origins)
+		if(!(origin_check in our_culture.possible_origins))
 			to_client_chat(SPAN_WARNING("Your origin has been reset due to it being incompatible with your culture!"))
-			var/decl/origin_item/OI = S.get_default_origin(CI)
+			var/decl/origin_item/OI = pick(our_culture.possible_origins)
 			pref.origin = "[OI]"
+	var/decl/origin_item/origin/our_origin = decls_repository.get_decl(text2path(pref.origin))
 	if(!pref.citizenship)
-		pref.citizenship = S.default_citizenship
+		pref.citizenship = our_origin.possible_citizenships[1]
 	if(!pref.religion)
-		pref.religion = RELIGION_NONE
-	if(!(pref.citizenship in S.allowed_citizenships))
-		pref.citizenship = S.default_citizenship
-	if(!(pref.religion in S.allowed_religions))
-		pref.religion = RELIGION_NONE
-	if(!(pref.accent in S.allowed_accents))
-		pref.accent	= S.default_accent
+		pref.religion = our_origin.possible_religions[1]
+	if(!(pref.citizenship in our_origin.possible_citizenships))
+		to_client_chat(SPAN_WARNING("Your previous citizenship is invalid for this origin! Resetting."))
+		pref.citizenship = our_origin.possible_citizenships[1]
+	if(!(pref.religion in our_origin.possible_religions))
+		to_client_chat(SPAN_WARNING("Your previous religion is invalid for this origin! Resetting."))
+		pref.religion = our_origin.possible_religions[1]
+	if(!(pref.accent in our_origin.possible_accents))
+		to_client_chat(SPAN_WARNING("Your previous accent is invalid for this origin! Resetting."))
+		pref.accent	= our_origin.possible_accents[1]
 	pref.economic_status = sanitize_inlist(pref.economic_status, ECONOMIC_POSITIONS, initial(pref.economic_status))
 
 /datum/category_item/player_setup_item/origin/content(var/mob/user)
@@ -103,11 +109,11 @@
 	dat += "<b>Culture: </b><a href='?src=\ref[src];open_culture_menu=1'>[CL.name]</a><br>"
 	dat += "<i>- [CL.desc]</i><hr>"
 	if(CL.important_information)
-		dat += "<i>- <span class='danger'>[CL.important_information]</span></i>"
+		dat += "<br><i>- <font color=red>[CL.important_information]</font></i>"
 	dat += "<b>Origin: </b><a href='?src=\ref[src];open_origin_menu=1'>[OR.name]</a><br>"
 	dat += "<i>- [OR.desc]</i>"
 	if(OR.important_information)
-		dat += "<i>- <span class='danger'>[OR.important_information]</span></i>"
+		dat += "<br><i>- <font color=red>[OR.important_information]</font></i>"
 	dat += "<hr>"
 	dat += "<b>Economic Status:</b> <a href='?src=\ref[src];economic_status=1'>[pref.economic_status]</a><br/>"
 	dat += "<b>Citizenship:</b> <a href='?src=\ref[src];citizenship=1'>[pref.citizenship]</a><br/>"
@@ -119,7 +125,7 @@
 	var/datum/species/S = all_species[pref.species]
 	if(href_list["open_culture_menu"])
 		var/list/options = list()
-		var/list/possible_cultures = decls_repository.get_decls(S.origins_data)
+		var/list/possible_cultures = decls_repository.get_decls(S.possible_origins)
 		for(var/decl_type in possible_cultures) //todomatt: delete this tag?
 			var/decl/origin_item/culture/CL = possible_cultures[decl_type]
 			options[CL.name] = CL
@@ -144,6 +150,7 @@
 
 	if(href_list["set_culture_data"])
 		pref.culture = html_decode(href_list["set_culture_data"])
+		sanitize_character()
 		return TOPIC_REFRESH
 
 	if(href_list["set_origin_data"])
@@ -199,7 +206,7 @@
 	var/dat = "<html><center><b>[OI.name]</center></b>"
 	dat += "<hr>[OI.desc]<br>"
 	if(OI.important_information)
-		dat += "<span class='danger'>[OI.important_information]</span>"
+		dat += "<font color=red><i>[OI.important_information]</i></font>"
 	dat += "<br><center>\[<a href='?src=\ref[src];[topic_data]=[html_encode(OI.type)]'>Select</a>\]</center>"
 	dat += "</html>"
 	origin_win.set_content(dat)

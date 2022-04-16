@@ -1,16 +1,23 @@
-#define RELIGIONS_SOLARIAN list(RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER)
+#define RELIGIONS_SOLARIAN list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER, RELIGION_TRINARY)
 #define CITIZENSHIPS_SOLARIAN list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION)
 
 /decl/origin_item/culture/solarian
 	name = "Solarian"
-	desc = "YOU ARE RACIST AS FUCK PLACEHOLDER PLACEHOLDER YELL AT MATT IF THIS SOMEHOW GETS ON LIVE"
+	desc = "Despite the loss of much of its territory during the Solarian Collapse of 2463, most of those that fall under the general umbrella of Solarian culture are citizens or belong to statelets affiliated with the Alliance of Sovereign Solarian Nations (ASSN). By and large, Solarians are generally perceived as xenophobic, nationalistic, and militarist. Non-humans, aside from skrell, are generally rare on Solarian worlds, and many that do reside on them are treated as second-class citizens at best."
 	possible_origins = list(
 		/decl/origin_item/origin/sol_system,
 		/decl/origin_item/origin/earth,
 		/decl/origin_item/origin/venus,
 		/decl/origin_item/origin/mars, 
 		/decl/origin_item/origin/jupiter,
-		/decl/origin_item/origin/pluto
+		/decl/origin_item/origin/pluto,
+		/decl/origin_item/origin/eridani,
+		/decl/origin_item/origin/middle_ring,
+		/decl/origin_item/origin/new_hai_phong,
+		/decl/origin_item/origin/silversun,
+		/decl/origin_item/origin/outer_ring,
+		/decl/origin_item/origin/konyang,
+		/decl/origin_item/origin/visegrad
 	)
 
 /decl/origin_item/origin/sol_system
@@ -23,7 +30,7 @@
 
 /decl/origin_item/origin/earth
 	name = "Earth"
-	desc = "Perhaps the single most important planet in the Orion Spur, Earth is the homeworld of humanity. Most megacorporations originated on Earth, and many still operate from it. Expensive climate restoration efforts undertaken by the Solarian Alliance in cooperation with Zeng-Hu Pharmaceuticals have restored much of Earth’s climate, though the scars of humanity’s industrialization can still be seen across its surface."
+	desc = "Perhaps the single most important planet in the Orion Spur, Earth is the homeworld of humanity. Most megacorporations originated on Earth, and many still operate from it. Expensive climate restoration efforts undertaken by the Solarian Alliance in cooperation with Zeng-Hu Pharmaceuticals have restored much of Earth's climate, though the scars of humanity's industrialization can still be seen across its surface."
 	possible_accents = list(ACCENT_EARTH)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
@@ -52,7 +59,59 @@
 /decl/origin_item/origin/pluto
 	name = "Pluto"
 	desc = "One of the last bodies in the Sol System to be colonized, Pluto's economy is centered around Helium-3 mining and refinement. Originally colonized by the Union of Soviet Socialist Republics, Pluto has retained much of its Soviet-bloc influences up to the present day. Going abroad from Pluto is often a slow process: one must either navigate the Party bureaucracy that defines much of life on the planet, or enter (and win) the Party's labour lottery."
-	important_information = "Pluto's unique status as a colony established by the USSR and its unique system of government that is distrustful of outsiders from \"corporate influenced,\" places, characters born on Pluto will have names and appearances characteristic of the peoples native to the Eastern European or Baltic republics in the USSR, Russia, the Caucasus Mountains, or Central Asia. Only native Plutonians may select the Plutonian accent. This is enforceable by server moderators and admins."
+	important_information = "Pluto's unique status as a colony established by the USSR and its unique system of government that is distrustful of outsiders from \"corporate influenced,\" places, <b>characters born on Pluto will have names and appearances characteristic of the peoples native to the Eastern European or Baltic republics in the USSR, Russia, the Caucasus Mountains, or Central Asia.</b> Only native Plutonians may select the Plutonian accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_PLUTO)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
+	possible_religions = RELIGIONS_SOLARIAN
+
+/decl/origin_item/origin/eridani
+	name = "Eridani Corporate Federation"
+	desc = "The Eridani Corporate Federation is an autonomous member of the Solarian Alliance that is infamous abroad for its starkly divided society and extreme levels of corporate involvement in daily life. Corporations touch every aspect of Eridani, and its society is divided between corporate “Suits” that work for its companies and non-citizen \"Dregs\" that live off the scraps of society. Between the two, \"Reinstated Dregs\" chart an awkward balance: too corporate to be Dregs, but not corporate enough to be Suits."
+	important_information = "<b>Due to Epsilon Eridani being originally settled by colonists of West and Central African descent, human characters born in the Eridani Corporate Federation must have names and appearances consistent with the indigenous peoples of these regions as any human moving to the ECF would assimilate into the dominant cultures and ethnic groups of the federation. Eridani dregs have developed cultures of abstract or unconventional names however and this is tolerated.</b> Only native Eridanians may select the Eridanian accents. This is enforceable by server moderators and admins."
+	possible_accents = list(ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ERIDANIREINSTATED)
+	possible_citizenships = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
+	possible_religions = RELIGIONS_SOLARIAN
+
+/decl/origin_item/origin/middle_ring
+	name = "Middle Ring"
+	desc = "The Middle Ring of the Solarian Alliance was partially lost in the Solarian Collapse, but the Alliance retains much of its influence in this region."
+	possible_accents = list(ACCENT_SOL)
+	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_religions = RELIGIONS_SOLARIAN
+
+/decl/origin_item/origin/new_hai_phong
+	name = "New Hai Phong"
+	desc = "Originally intended to be a mining colony, New Hai Phong has since become one of the industrial centers of the modern Alliance thanks to Hephaestus Industries. Space on New Hai Phong is at a premium, which has led to a communal style of living centered around blockfams — small organizational units consisting of several families living in close proximity. Corruption is a massive issue on the planet and dissent against Hephaestus has been growing in recent years. Respiratory issues plague many residents of New Hai Phong thanks to the harsh environment of the planet."
+	important_information = "<b>Due to the ethnic make-up of its original settlers and ability for the massive New Hai Phongese population to absorb immigrants into its culture via assimilation, characters born on New Hai Phong must have names and appearances consistent with the peoples of Southeast Asia.</b> Only characters native to New Hai Phong may take the New Hai Phongese accent. This is enforceable by server moderators and admins."
+	possible_accents = list(ACCENT_PHONG)
+	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_religions = RELIGIONS_SOLARIAN
+
+/decl/origin_item/origin/silversun
+	name = "Silversun"
+	desc = "The most sought-after vacation spot in the Alliance, Silversun is dominated by Idris Incorporated. It is culturally and politically divided between the Originals - the first settlers of the planet that predate the involvement of Idris Incorporated - and the Expatriates - those affiliated with Idris Incorporated that now reside on the planet. Tensions have only grown worse following the Solarian Collapse and the formation of the Stellar Corporate Conglomerate, yet Idris' PR machine has managed to keep the planet the Alliance's best vacation destination."
+	possible_accents = list(ACCENT_SILVERSUN_ORIGINAL, ACCENT_SILVERSUN_EXPATRIATE)
+	possible_citizenships = CITIZENSHIPS_SOLARIAN
+	possible_religions = RELIGIONS_SOLARIAN
+
+/decl/origin_item/origin/outer_ring
+	name = "Outer Ring"
+	desc = " The furthest zone of the Alliance's reach, almost all of the Outer Ring fell away from the Alliance's control during the Solarian Collapse. Much of this region was annexed by the Coalition of Colonies or the Republic of Biesel."
+	possible_accents = list(ACCENT_SOL)
+	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_religions = RELIGIONS_SOLARIAN
+
+/decl/origin_item/origin/konyang
+	name = "Konyang"
+	desc = "A Solarian planet until very recently, Konyang is one of the youngest members of the Coalition of Colonies. The planet is famous for its robotics industry, which has resulted in a large amount of synthetic residents on the planet itself. The human population of Konyang still retains much of its Earther heritage."
+	important_information = "<b>Because of the ethnic make-up of Konyang's original settlers and assimilation of immigrants into the native population during the first AI boom, human characters born on Konyang will have appearances consistent with the people of China, the Korean Peninsula, and Japanese Islands.</b> Only native Konyangers or Konyang-made IPCs may select the Konyanger accent. This is enforceable by server moderators and admins. "
+	possible_accents = list(ACCENT_KONYAN)
+	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_religions = RELIGIONS_SOLARIAN
+
+/decl/origin_item/origin/visegrad
+	name = "Visegrad"
+	desc = "You're racist and you love paprika or something. Also you are being UAV'd by Danse. This is a placeholder and should not be live. Yell at Matt if it is. I blame reviewers."
+	possible_accents = list(ACCENT_VISEGRAD)
+	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = RELIGIONS_SOLARIAN

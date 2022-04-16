@@ -266,7 +266,7 @@
 	var/default_f_style = "Shaved"
 	var/default_g_style = "None"
 
-	var/list/origins_data = list(
+	var/list/possible_origins = list(
 		/decl/origin_item/culture/biesel
 	)
 
@@ -834,9 +834,5 @@
 
 //Mostly sanitization helpers.
 /datum/species/proc/get_default_culture()
-	var/list/possible_cultures = origins_data
+	var/list/possible_cultures = possible_origins
 	return pick(possible_cultures)
-
-/datum/species/proc/get_default_origin(var/culture_path)
-	var/decl/origin_item/culture/CR = decls_repository.get_decl(culture_path)
-	return pick(CR.possible_origins)
