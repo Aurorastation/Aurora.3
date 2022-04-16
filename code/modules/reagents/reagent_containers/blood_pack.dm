@@ -170,7 +170,7 @@
 		if(blood_name == "Cancel")
 			return
 		var/obj/item/i = user.get_active_hand()
-		if(!i.ispen() || !in_range(user, src)) //Checks to see if pen is still held or bloodback is in range
+		if(!i.ispen() || !in_range(user, src)) //Checks to see if pen is still held or bloodpack is in range
 			return
 		if(blood_name == "Clear")
 			blood_type = null
