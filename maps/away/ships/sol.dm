@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/sfa_patrol_ship
 	name = "SFA Patrol Ship"
-	description = "A naval ship belonging to the now all-but-defunct Southern Fleet Administration, a Solarian warlord state."
+	description = "An auxiliary naval ship belonging to the now all-but-defunct Southern Fleet Administration, a Solarian warlord state."
 	suffix = "ships/sfa_patrol_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	spawn_weight = 1
@@ -10,12 +10,12 @@
 
 /obj/effect/overmap/visitable/sector/sfa_patrol_ship
 	name = "faint ship activity"
-	desc = "A sector with faint hints of previous military ship presence."
+	desc = "A sector with faint hints of previous auxiliary military ship presence."
 	in_space = 1
 
 /decl/submap_archetype/sfa_patrol_ship
 	map = "SFA Patrol Ship"
-	descriptor = "A naval ship belonging to the now all-but-defunct Southern Fleet Administration, a Solarian warlord state."
+	descriptor = "An auxiliary naval ship belonging to the now all-but-defunct Southern Fleet Administration, a Solarian warlord state."
 
 //areas
 
@@ -31,7 +31,7 @@
 
 /obj/effect/overmap/visitable/ship/landable/sfa_patrol_ship
 	name = "SFA Patrol Ship"
-	desc = "A naval ship belonging to the now all-but-defunct Southern Fleet Administration, a Solarian warlord state."
+	desc = "An auxiliary naval ship belonging to the now all-but-defunct Southern Fleet Administration, a Solarian warlord state."
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
