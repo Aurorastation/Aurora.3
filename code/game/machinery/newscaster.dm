@@ -850,7 +850,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		switch(screen)
 			if(0) //Cover
 				dat+="<DIV ALIGN='center'><B><FONT SIZE=6>The Griffon</font></B></div>"
-				dat+="<DIV ALIGN='center'><FONT SIZE=2>[current_map.company_name]-standard newspaper, for use on [current_map.company_name]� Space Facilities</font></div><HR>"
+				dat+="<DIV ALIGN='center'><FONT SIZE=2>[current_map.company_name]-standard newspaper, for use on [current_map.company_name] Vessels.</font></div><HR>"
 				if(isemptylist(src.news_content))
 					if(src.important_message)
 						dat+="Contents:<BR><ul><B><span class='warning'>**</span>Important Security Announcement<span class='warning'>**</span></B> <FONT SIZE=2>\[page [src.pages+2]\]</font><BR></ul>"
