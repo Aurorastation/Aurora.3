@@ -353,7 +353,7 @@
 	attack_hand(user)
 
 /obj/machinery/smartfridge/attack_hand(mob/user)
-	if(stat & (NOPOWER|BROKEN) || !anchored)
+	if(stat & (NOPOWER|BROKEN))
 		return
 	wires.Interact(user)
 	ui_interact(user)
