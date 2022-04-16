@@ -1,7 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed Medical Stationbounds being unable to perform organ transplants."
-  - bugfix: "Removed a debug message as liver regenerates"
