@@ -77,6 +77,8 @@
 		var/mob/living/carbon/human/M = H
 		if(M.shoes?.item_flags & LIGHTSTEP)
 			return
+		if(M.incapacitated())
+			return
 		if(tipped)
 			if(M.m_intent == M_RUN && M.a_intent == I_HURT)
 				if(breath_mask)
@@ -494,6 +496,9 @@
 	return attack_hand(user)
 
 /obj/machinery/iv_drip/attack_hand(mob/user as mob)
+	if(user.incapacitated())
+		to_chat(usr, SPAN_WARNING("You are in no shape to do this."))
+		return
 	if(tipped)
 		usr.visible_message("<b>[usr]</b> pulls \the [src] upright.", "You pull \the [src] upright.")
 		icon_state = "iv_stand"
