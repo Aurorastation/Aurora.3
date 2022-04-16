@@ -768,6 +768,25 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		log_admin("[key_name(usr)] used gibself.",admin_key=key_name(usr))
 		message_admins("<span class='notice'>[key_name_admin(usr)] used gibself.</span>", 1)
 		feedback_add_details("admin_verb","GIBS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/cmd_admin_dust(mob/M as mob in mob_list)
+	set category = "Special Verbs"
+	set name = "Turn to dust"
+
+	if(!check_rights(R_ADMIN|R_FUN))
+		return
+
+	var/confirm = alert(src, "You sure?", "Confirm", "Yes", "No")
+	if(confirm != "Yes")
+		if(istype(mob, /mob/abstract/observer))
+			return
+		else
+			mob.dust()
+
+	log_admin("[key_name(usr)] has annihilated [key_name(M)]")
+	message_admins("[key_name_admin(usr)] has annihilated [key_name_admin(M)]")
+	feedback_add_details("admin_verb","DUST") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /*
 /client/proc/cmd_manual_ban()
 	set name = "Manual Ban"
