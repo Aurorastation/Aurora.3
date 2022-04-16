@@ -278,7 +278,7 @@
 /datum/gear/accessory/holobadge
 	display_name = "badge, holographic"
 	path = /obj/item/clothing/accessory/badge/holo
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet")
+	allowed_roles = list("Head of Security", "Investigator", "Warden", "Security Officer", "Security Cadet")
 
 /datum/gear/accessory/holobadge/New()
 	..()
