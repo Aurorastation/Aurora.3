@@ -3,7 +3,7 @@
 /datum/ghostspawner/human/sfa_navy_crewman
 	short_name = "sfa_navy_crewman"
 	name = "SFA Navy Crewman"
-	desc = "Crew the Southern Fleet Administration patrol ship. Figure out what to do now that the warlord you serve is dead."
+	desc = "Crew the Southern Fleet Administration auxiliary patrol ship. Figure out what to do now that the warlord you serve is dead."
 	tags = list("External")
 	mob_name_prefix = "PO3. "
 
@@ -41,7 +41,7 @@
 /datum/ghostspawner/human/sfa_navy_officer
 	short_name = "sfa_navy_officer"
 	name = "SFA Navy Officer"
-	desc = "Pilot and command a Southern Fleet Administration patrol ship. Figure out what to do now that the warlord you serve is dead."
+	desc = "Pilot and command a Southern Fleet Administration auxiliary patrol ship. Figure out what to do now that the warlord you serve is dead."
 	tags = list("External")
 	mob_name_prefix = "ENS. "
 
@@ -78,7 +78,7 @@
 /datum/ghostspawner/human/sfa_marine
 	short_name = "sfa_marine"
 	name = "SFA Marine"
-	desc = "Protect the Southern Fleet Administration ship. Figure out what to do now that the warlord you serve is dead."
+	desc = "Protect the Southern Fleet Administration auxiliary patrol ship. Figure out what to do now that the warlord you serve is dead."
 	tags = list("External")
 	mob_name_prefix = "Pfc. "
 
