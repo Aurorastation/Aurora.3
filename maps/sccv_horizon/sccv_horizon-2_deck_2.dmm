@@ -9291,7 +9291,6 @@
 	_wifi_id = "chapel_driver";
 	id = "chapel_driver"
 	},
-/obj/machinery/shield_diffuser,
 /turf/simulated/floor/reinforced,
 /area/chapel/office)
 "fRg" = (
