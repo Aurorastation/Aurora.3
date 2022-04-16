@@ -1233,7 +1233,12 @@ mob/living/carbon/human/proc/change_monitor()
 	set src in view(1)
 
 	var/mob/living/M = usr
-	if(!M || usr == src)
+	if(!istype(M))
+		to_chat(usr, SPAN_WARNING("You aren't allowed to rename \the [src]."))
+		return
+	 
+	if(usr == src)
+		to_chat(usr, SPAN_WARNING("You're a simple creature, you can't rename yourself!"))
 		return
 
 	if(can_name(M))
