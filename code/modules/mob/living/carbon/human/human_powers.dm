@@ -1232,7 +1232,7 @@ mob/living/carbon/human/proc/change_monitor()
 	set category = "IC"
 	set src in view(1)
 
-	var/mob/living/M = usr
+	var/mob/living/carbon/M = usr
 	if(!istype(M))
 		to_chat(usr, SPAN_WARNING("You aren't allowed to rename \the [src]."))
 		return
