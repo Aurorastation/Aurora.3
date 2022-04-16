@@ -3657,7 +3657,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
 	},
-/obj/structure/closet/walllocker/emerglocker/west,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/toilet)
 "ih" = (
@@ -4861,10 +4861,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"kZ" = (
-/obj/machinery/recharge_station,
-/turf/simulated/floor/tiled/freezer,
-/area/crew_quarters/toilet)
 "la" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -20289,12 +20285,6 @@
 "Wm" = (
 /turf/template_noop,
 /area/template_noop)
-"Wn" = (
-/obj/machinery/door/airlock/freezer{
-	name = "Unit 3"
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/crew_quarters/toilet)
 "Wp" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -20796,6 +20786,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/structure/closet/walllocker/emerglocker/north,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/toilet)
 "XN" = (
@@ -35867,8 +35858,8 @@ mf
 mf
 dY
 xF
-xF
-xF
+at
+at
 at
 Gy
 YS
@@ -36068,9 +36059,9 @@ EU
 mH
 mH
 mH
-Wn
-kZ
 xF
+at
+at
 at
 Gy
 AL
@@ -36270,8 +36261,8 @@ bD
 IA
 mH
 Wj
-rq
-rq
+xF
+xF
 xF
 at
 uA
