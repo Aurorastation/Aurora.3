@@ -10,7 +10,7 @@
 
 /obj/effect/overmap/visitable/sector/tcfl_peacekeeper_ship
 	name = "faint ship activity"
-	desc = "A sector with faint hints of previous military ship presence."
+	desc = "A sector with faint hints of previous auxiliary military ship presence."
 	in_space = 1
 
 /decl/submap_archetype/tcfl_peacekeeper_ship
