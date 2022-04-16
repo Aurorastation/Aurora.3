@@ -10,16 +10,15 @@ var/list/floating_chat_colors = list()
 /atom/movable/proc/set_floating_chat_color(color)
 	floating_chat_colors[name] = color
 
-/atom/movable/proc/animate_chat(message, datum/language/language, small, list/show_to, duration, override_color)
+/atom/movable/proc/animate_chat(message, datum/language/language, fontsize, list/show_to, duration, override_color)
 	set waitfor = FALSE
 
 	var/style	//additional style params for the message
-	var/fontsize = 6
-	if(small)
-		fontsize = 5
 	var/limit = 50
-	if(copytext(message, length(message) - 1) == "!!")
+	if(copytext(message, length(message) - 1) == "!!" && fontsize < 8)
 		fontsize = 8
+
+	if(fontsize >= 8)
 		limit = 30
 		style += "font-weight: bold;"
 

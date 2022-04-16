@@ -53,8 +53,8 @@
 		icon_living = "horror_alt"
 		icon_dead = "horror_alt_dead"
 
-/mob/living/simple_animal/hostile/true_changeling/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+/mob/living/simple_animal/hostile/true_changeling/do_animate_chat(var/message, var/datum/language/language, var/font_size, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, font_size, show_to, duration)
 
 /mob/living/simple_animal/hostile/true_changeling/Life()
 	..()

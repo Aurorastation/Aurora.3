@@ -338,6 +338,7 @@
 /obj/screen/mecha/toggle/megaspeakers/toggled()
 	toggled = !toggled
 	owner.loudening = toggled
+	owner.handle_loudening_signals()
 	var/main_color = owner.loudening ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 5px;\">VOLUME</span>"
 	notify_user(usr, SPAN_NOTICE("You [owner.loudening ? "activate" : "deactivate"] \the [owner]'s integrated megaspeakers."))
