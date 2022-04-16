@@ -72,7 +72,7 @@
 /datum/ghostspawner/human/ee_crewman
 	short_name = "ee_crewman"
 	name = "Einstein Engines Crewman"
-	desc = "Crew the Einstein Engines research (or more accurately, spy) ship. Collect intelligence on the SCCV Horizon, all while maintaining plausible deniability."
+	desc = "Crew the Einstein Engines research (or more accurately, spy) ship. Collect intelligence on the SCCV Horizon, all while maintaining plausible deniability. Not an antagonist! Do not act as such."
 	tags = list("External")
 
 	spawnpoints = list("ee_crewman")
@@ -108,7 +108,7 @@
 /datum/ghostspawner/human/ee_research_officer
 	short_name = "ee_research_officer"
 	name = "Einstein Engines Research Officer"
-	desc = "Command the Einstein Engines research (or more accurately, spy) ship. Collect intelligence on the SCCV Horizon, all while maintaining plausible deniability."
+	desc = "Command the Einstein Engines research (or more accurately, spy) ship. Collect intelligence on the SCCV Horizon, all while maintaining plausible deniability. Not an antagonist! Do not act as such."
 	tags = list("External")
 
 	spawnpoints = list("ee_research_officer")
