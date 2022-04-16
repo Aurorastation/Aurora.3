@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/tcfl_peacekeeper_ship
 	name = "TCFL Peacekeeper Ship"
-	description = "A light patrol ship operated by the Tau Ceti Foreign Legion. This one appears to be performing peacekeeper duties."
+	description = "An auxiliary patrol ship operated by the Tau Ceti Foreign Legion. This one appears to be performing peacekeeper duties."
 	suffix = "ships/tcfl_peacekeeper_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	spawn_weight = 1
@@ -15,7 +15,7 @@
 
 /decl/submap_archetype/tcfl_peacekeeper_ship
 	map = "TCFL Peacekeeper Ship"
-	descriptor = "A light patrol ship operated by the Tau Ceti Foreign Legion. This one appears to be performing peacekeeper duties."
+	descriptor = "An auxiliary patrol ship operated by the Tau Ceti Foreign Legion. This one appears to be performing peacekeeper duties."
 
 //areas
 
@@ -31,7 +31,7 @@
 
 /obj/effect/overmap/visitable/ship/landable/tcfl_peacekeeper_ship
 	name = "TCFL Peacekeeper Ship"
-	desc = "A light patrol ship operated by the Tau Ceti Foreign Legion. This one appears to be performing peacekeeper duties."
+	desc = "An auxiliary patrol ship operated by the Tau Ceti Foreign Legion. This one appears to be performing peacekeeper duties."
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
