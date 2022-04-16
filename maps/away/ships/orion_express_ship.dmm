@@ -246,10 +246,6 @@
 /obj/item/pizzabox/meat,
 /turf/simulated/floor/wood,
 /area/shuttle/orion_express_ship)
-"dKJ" = (
-/obj/machinery/cryopod,
-/turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
 "dQZ" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/machinery/light/small,
@@ -297,10 +293,10 @@
 /turf/simulated/floor/carpet,
 /area/shuttle/orion_express_ship)
 "eCV" = (
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/shuttle/orion_express_ship)
 "eIb" = (
@@ -310,7 +306,7 @@
 /turf/simulated/floor,
 /area/shuttle/orion_express_ship)
 "eMT" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor,
 /area/shuttle/orion_express_ship)
 "eTH" = (
@@ -387,24 +383,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "orion_traveler_port";
-	name = "interior access button";
-	pixel_x = 24;
-	pixel_y = -8
-	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
-"fXG" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "orion_traveler_in"
-	},
-/turf/simulated/floor,
 /area/shuttle/orion_express_ship)
 "fZq" = (
 /obj/machinery/door/airlock/mining{
@@ -446,14 +425,6 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/orion_express_ship)
-"gNV" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "orion_traveler_pump"
-	},
-/turf/simulated/floor,
-/area/shuttle/orion_express_ship)
 "gNW" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -475,11 +446,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "hdb" = (
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
 	layer = 2.8
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/shuttle/orion_express_ship)
 "heP" = (
@@ -509,19 +480,6 @@
 "huE" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
-"hzn" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1380;
-	id_tag = "orion_traveler_port";
-	layer = 3.3;
-	pixel_y = 28;
-	tag_airpump = "orion_traveler_pump";
-	tag_chamber_sensor = "orion_traveler_sensor";
-	tag_exterior_door = "orion_traveler_out";
-	tag_interior_door = "orion_traveler_in"
-	},
-/turf/simulated/floor,
 /area/shuttle/orion_express_ship)
 "hBd" = (
 /obj/structure/table/standard,
@@ -678,7 +636,6 @@
 "lpe" = (
 /obj/effect/shuttle_landmark/orion_express_shuttle/hangar,
 /obj/effect/overmap/visitable/ship/landable/orion_express_shuttle,
-/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
 "lri" = (
@@ -686,14 +643,6 @@
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
-	},
-/turf/simulated/floor,
-/area/shuttle/orion_express_ship)
-"lsi" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "orion_traveler_out"
 	},
 /turf/simulated/floor,
 /area/shuttle/orion_express_ship)
@@ -794,30 +743,6 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_express_ship)
-"nBz" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "orion_traveler_in"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/turf/simulated/floor,
-/area/shuttle/orion_express_ship)
-"nJz" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "orion_traveler_pump"
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "orion_traveler_sensor";
-	pixel_y = 26
-	},
-/turf/simulated/floor,
-/area/shuttle/orion_express_ship)
 "nMV" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
@@ -852,7 +777,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
 "ogz" = (
@@ -864,17 +789,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_express_ship)
-"oEN" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "orion_traveler_port";
-	name = "exterior access button";
-	pixel_x = -24;
-	pixel_y = -10
-	},
-/turf/template_noop,
-/area/space)
 "pbp" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -982,11 +896,11 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_express_ship)
 "qil" = (
+/obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/suit_storage_unit,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "que" = (
@@ -1032,10 +946,8 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
 "spX" = (
-/obj/structure/table/rack,
-/obj/random/voidsuit/no_nanotrasen,
-/obj/random/voidsuit/no_nanotrasen,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/wood,
 /area/shuttle/orion_express_ship)
 "szY" = (
 /obj/machinery/shipsensors/weak,
@@ -1083,10 +995,6 @@
 /obj/effect/shuttle_landmark/orion_express_ship/start,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
-"tjM" = (
-/obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
 "tra" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(201)
@@ -1109,6 +1017,7 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_express_ship)
 "uwT" = (
+/obj/effect/map_effect/airlock/w_to_e/long/square,
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
@@ -32224,7 +32133,7 @@ ccm
 ccm
 qil
 ccm
-spX
+ccm
 atj
 riA
 lFg
@@ -32751,7 +32660,7 @@ uaE
 uaE
 iNo
 wmd
-wmd
+spX
 wmd
 dHA
 riA
@@ -33526,7 +33435,7 @@ ccm
 ccm
 ccm
 sGi
-tjM
+ccm
 fnE
 bci
 gNW
@@ -35575,7 +35484,7 @@ ccm
 ccm
 pJZ
 riA
-dKJ
+uNN
 wmd
 riA
 xRX
@@ -36085,8 +35994,8 @@ xRX
 riA
 riA
 gNW
-nBz
-fXG
+mkb
+mkb
 uwT
 riA
 xRX
@@ -36342,8 +36251,8 @@ xRX
 xRX
 xRX
 gNW
-nJz
-gNV
+mkb
+mkb
 gNW
 xRX
 xRX
@@ -36599,7 +36508,7 @@ xRX
 xRX
 xRX
 gNW
-hzn
+mkb
 mkb
 gNW
 xRX
@@ -36856,8 +36765,8 @@ xRX
 xRX
 xRX
 gNW
-lsi
-lsi
+mkb
+mkb
 gNW
 xRX
 xRX
@@ -37112,7 +37021,7 @@ xRX
 xRX
 xRX
 xRX
-oEN
+xRX
 xRX
 xRX
 xRX
