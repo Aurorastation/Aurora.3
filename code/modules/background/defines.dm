@@ -126,7 +126,7 @@
 #define ACCENT_ALIOSE "Aliose"
 #define ACCENT_AWEIJI "Aweiji"
 #define ACCENT_TRAVERSE "Traverse"
-#define ACCENT_TRAVERSE "Genner"
+#define ACCENT_GENNER "Generational Ship"
 
 #define ACCENT_ROOTSONG "Rootsong"
 #define ACCENT_VOIDSONG "Voidsong"
