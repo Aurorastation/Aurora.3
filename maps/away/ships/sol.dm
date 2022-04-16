@@ -10,7 +10,7 @@
 
 /obj/effect/overmap/visitable/sector/sfa_patrol_ship
 	name = "faint ship activity"
-	desc = "A sector with faint hints of previous auxiliary military ship presence."
+	desc = "A sector with faint hints of previous military auxiliary ship presence."
 	in_space = 1
 
 /decl/submap_archetype/sfa_patrol_ship
