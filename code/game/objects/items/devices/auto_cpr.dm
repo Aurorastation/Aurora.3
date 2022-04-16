@@ -1,6 +1,6 @@
 /obj/item/auto_cpr
 	name = "auto-compressor"
-	desc = "A device that gives regular compression to the victim's ribcage, used in case of urgent heart issues."
+	desc = "A device that gives regular compression to the patient's ribcage, used in case of urgent heart issues."
 	icon = 'icons/obj/auto_cpr.dmi'
 	icon_state = "pumper"
 	w_class = ITEMSIZE_NORMAL
