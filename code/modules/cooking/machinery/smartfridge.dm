@@ -236,10 +236,6 @@
 		I.reagents.add_thermal_energy(thermal_energy_change)
 		use_power(active_power_usage)
 
-/obj/machinery/smartfridge/update_use_power(var/new_use_power)
-	..()
-	update_icon()
-
 /obj/machinery/smartfridge/power_change()
 	..()
 	if(!anchored)
