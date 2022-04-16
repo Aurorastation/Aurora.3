@@ -3579,12 +3579,6 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
-"cam" = (
-/obj/machinery/atm{
-	pixel_x = 32
-	},
-/turf/simulated/wall,
-/area/crew_quarters/bar)
 "can" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/floor_decal/industrial/warning{
@@ -7240,7 +7234,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_mining{
+/obj/machinery/door/airlock/glass_research{
 	name = "Mech Bay";
 	req_access = list(29)
 	},
@@ -17760,6 +17754,10 @@
 /area/security/checkpoint2)
 "leh" = (
 /obj/machinery/door/firedoor,
+/obj/machinery/atm{
+	pixel_x = -32;
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "len" = (
@@ -22355,8 +22353,7 @@
 	},
 /obj/structure/sign/double/barsign{
 	dir = 4;
-	pixel_x = -64;
-	req_access = list(25)
+	pixel_x = -64
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -23385,7 +23382,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/turf/simulated/open,
+/turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "oBZ" = (
 /obj/structure/cable/green{
@@ -23967,7 +23964,7 @@
 	pixel_x = 5;
 	pixel_y = 13
 	},
-/obj/item/stamp/op{
+/obj/item/stamp{
 	pixel_x = -5;
 	pixel_y = 13
 	},
@@ -31105,10 +31102,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "tlX" = (
-/obj/machinery/door/window/southright{
-	name = "Mech Bay";
-	req_access = list(29)
-	},
+/obj/machinery/door/window/southright,
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
 "tmG" = (
@@ -35347,10 +35341,7 @@
 /turf/simulated/floor/carpet,
 /area/library)
 "vNZ" = (
-/obj/machinery/door/window/southleft{
-	name = "Mech Bay";
-	req_access = list(29)
-	},
+/obj/machinery/door/window/southleft,
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
 "vOb" = (
@@ -37201,7 +37192,9 @@
 /obj/structure/table/standard,
 /obj/item/book/manual/wiki/security_space_law,
 /obj/item/folder/sec,
-/obj/item/stamp/warden,
+/obj/item/stamp{
+	name = "warden's rubber stamp"
+	},
 /obj/machinery/firealarm/south{
 	pixel_x = -32
 	},
@@ -59283,7 +59276,7 @@ due
 bsQ
 swH
 exU
-cam
+sKJ
 gul
 oUu
 pFr
