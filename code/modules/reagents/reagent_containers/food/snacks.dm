@@ -198,10 +198,7 @@
 					to_chat(user, SPAN_WARNING("You already have \the [src] on \the [U]."))
 					return
 
-				user.visible_message( \
-					"\The [user] scoops up some of \the [src] with \the [U]!", \
-					SPAN_NOTICE("You scoop up some of \the [src] with \the [U]!") \
-				)
+				to_chat(user, SPAN_NOTICE("You scoop up some of \the [src] with \the [U]."))
 
 				bitecount++
 				U.cut_overlays()

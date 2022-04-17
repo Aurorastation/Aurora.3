@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - tweak: "Scooping up and eating food with a utensil no longer displays that fact to everyone in view."
