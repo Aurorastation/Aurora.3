@@ -10,6 +10,7 @@
 	door_anim_squish = 0.26
 	door_hinge = 9.5
 	door_anim_time = 2.7
+	store_mobs = FALSE
 	density = FALSE
 	anchored = TRUE
 	wall_mounted = TRUE
@@ -64,3 +65,10 @@
 	name = "first-aid closet"
 	desc = "It's wall-mounted storage unit for first aid supplies."
 	icon_state = "medical_wall"
+
+/obj/structure/closet/walllocker/medical/secure
+	desc = "It's a secure wall-mounted storage unit for first aid supplies."
+	icon_door = "medical_wall_secure"
+	icon_door_override = TRUE
+	secure = TRUE
+	req_access = list(access_medical_equip)

@@ -340,17 +340,6 @@
 	new /obj/item/pen (src)
 	new /obj/item/storage/briefcase(src)
 
-/obj/structure/closet/secure_closet/wall
-	name = "wall locker"
-	req_access = list(access_security)
-	icon = 'icons/obj/walllocker.dmi'
-	icon_state = "walllocker"
-	icon_door = "walllocker_secure"
-	door_anim_time = 0
-	density = TRUE
-	//too small to put a man in
-	large = FALSE
-
 /obj/structure/closet/secure_closet/bridge_crew
 	name = "bridge crew's locker"
 	req_access = list(access_bridge_crew)

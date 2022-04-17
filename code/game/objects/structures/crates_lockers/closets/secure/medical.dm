@@ -188,16 +188,3 @@
 	new /obj/item/storage/box/beakers(src)
 	new /obj/item/storage/bag/chemistry(src)
 	new /obj/item/storage/bag/chemistry(src)
-
-/obj/structure/closet/secure_closet/medical_wall
-	name = "first aid closet"
-	desc = "It's a secure wall-mounted storage unit for first aid supplies."
-	icon = 'icons/obj/walllocker.dmi'
-	icon_state = "medical_wall"
-	icon_door = "medical_wall_secure"
-	door_anim_time = 0
-	store_mobs = FALSE
-	anchored = TRUE
-	density = FALSE
-	wall_mounted = TRUE
-	req_access = list(access_medical_equip)

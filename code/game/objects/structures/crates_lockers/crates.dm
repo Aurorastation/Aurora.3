@@ -409,6 +409,7 @@
 	name = "weapons crate"
 	desc = "A secure weapons crate."
 	icon_state = "syndi_secure_crate"
+	icon_door_override = TRUE
 	icon_door = "syndi_crate"
 
 /obj/structure/closet/crate/secure/weapon/alt

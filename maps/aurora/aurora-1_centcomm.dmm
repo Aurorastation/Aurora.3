@@ -5975,7 +5975,7 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = -33;
 	pixel_y = 3;
@@ -13121,7 +13121,7 @@
 /obj/machinery/sleeper{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = 30;
 	pixel_y = -1;
@@ -23768,7 +23768,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = -33;
 	pixel_y = 34;
@@ -30483,7 +30483,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "pEo" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = -29;
 	pixel_y = 30;
@@ -37823,7 +37823,7 @@
 	dir = 4;
 	pixel_x = 11
 	},
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "medical supplies";
 	pixel_x = 28;
 	req_access = null

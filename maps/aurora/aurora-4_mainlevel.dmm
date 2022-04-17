@@ -31248,7 +31248,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/icu)
 "bca" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
 	pixel_y = 32
 	},
@@ -32048,7 +32048,7 @@
 /turf/simulated/floor/plating,
 /area/medical/icu)
 "bdC" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
 	pixel_x = -32
 	},
@@ -35912,7 +35912,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bke" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "Medication Closet";
 	pixel_x = -32
 	},
@@ -42628,7 +42628,7 @@
 /area/medical/first_responder)
 "bxx" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
 	pixel_y = 32
 	},
@@ -42659,7 +42659,7 @@
 /area/medical/first_responder)
 "bxz" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "Medication Closet";
 	pixel_y = 32
 	},
@@ -64234,7 +64234,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	desc = "It's a secure wall-mounted storage unit for first aid supplies. It looks neglected.";
 	name = "Dusty Medication Closet";
 	pixel_x = -32
