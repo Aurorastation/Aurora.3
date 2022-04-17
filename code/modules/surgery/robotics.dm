@@ -232,7 +232,8 @@
 /decl/surgery_step/robotics/repair_burn
 	name = "Repair burns"
 	allowed_tools = list(
-		/obj/item/stack/cable_coil = 100
+		/obj/item/stack/cable_coil = 100,
+		/obj/item/stack/cable_coil/cyborg = 100
 	)
 
 	min_duration = 50

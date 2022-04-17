@@ -2491,7 +2491,7 @@
 /turf/simulated/wall/r_wall,
 /area/bridge/bridge_crew)
 "fy" = (
-/obj/structure/bed/stool/chair/padded/black{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -7769,6 +7769,10 @@
 /obj/structure/table/glass,
 /obj/machinery/reagentgrinder{
 	pixel_y = 7
+	},
+/obj/item/roller{
+	pixel_x = -1;
+	pixel_y = 14
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)

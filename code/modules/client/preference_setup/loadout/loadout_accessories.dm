@@ -278,7 +278,7 @@
 /datum/gear/accessory/holobadge
 	display_name = "badge, holographic"
 	path = /obj/item/clothing/accessory/badge/holo
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet")
+	allowed_roles = list("Head of Security", "Investigator", "Warden", "Security Officer", "Security Cadet")
 
 /datum/gear/accessory/holobadge/New()
 	..()
@@ -419,6 +419,12 @@
 	passcard["passcard, konyang"] = /obj/item/clothing/accessory/badge/passcard/konyang
 	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	gear_tweaks += new /datum/gear_tweak/path(passcard)
+
+/datum/gear/accessory/workvisa
+	display_name = "republic of biesel work visa"
+	description = "A work visa issued to those who work in the Republic of Biesel, but who do not have a Biesellite citizenship."
+	path = /obj/item/clothing/accessory/badge/passcard/workvisa
+	cost = 0
 
 /datum/gear/accessory/passport
 	display_name = "human passport selection"

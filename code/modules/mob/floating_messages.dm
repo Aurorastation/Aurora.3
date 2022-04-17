@@ -10,16 +10,15 @@ var/list/floating_chat_colors = list()
 /atom/movable/proc/set_floating_chat_color(color)
 	floating_chat_colors[name] = color
 
-/atom/movable/proc/animate_chat(message, datum/language/language, small, list/show_to, duration, override_color)
+/atom/movable/proc/animate_chat(message, datum/language/language, fontsize, list/show_to, duration, override_color)
 	set waitfor = FALSE
 
 	var/style	//additional style params for the message
-	var/fontsize = 6
-	if(small)
-		fontsize = 5
 	var/limit = 50
-	if(copytext(message, length(message) - 1) == "!!")
+	if(copytext(message, length(message) - 1) == "!!" && fontsize < 8)
 		fontsize = 8
+
+	if(fontsize >= 8)
 		limit = 30
 		style += "font-weight: bold;"
 
@@ -63,7 +62,7 @@ var/list/floating_chat_colors = list()
 
 	style = "font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [size]px; [style]"
 	I.maptext = "<center><span style=\"[style]\">[message]</span></center>"
-	animate(I, 1, alpha = 255, pixel_y = 16)
+	animate(I, 1, alpha = 255, pixel_y = 23)
 
 	for(var/image/old in holder.stored_chat_text)
 		animate(old, 2, pixel_y = old.pixel_y + 8)
