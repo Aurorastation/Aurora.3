@@ -20087,7 +20087,6 @@
 /area/centcom/legion/hangar5)
 "aWt" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -20105,7 +20104,6 @@
 /area/centcom/legion/hangar5)
 "aWu" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -22224,7 +22222,6 @@
 /area/centcom/legion/hangar5)
 "baU" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -22326,7 +22323,6 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -25804,7 +25800,6 @@
 /area/centcom/legion/hangar5)
 "bhX" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -26134,7 +26129,6 @@
 "bio" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/trashcart{
-	icon_state = "trashcartopen";
 	opened = 1
 	},
 /obj/item/trash/koisbar{

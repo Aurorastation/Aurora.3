@@ -21250,7 +21250,6 @@
 /area/centcom/legion)
 "bCj" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -21561,7 +21560,6 @@
 "crr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/trashcart{
-	icon_state = "trashcartopen";
 	opened = 1
 	},
 /obj/item/trash/koisbar{
@@ -23152,7 +23150,6 @@
 /area/centcom/legion)
 "fSo" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -25755,7 +25752,6 @@
 /area/shuttle/merchant/start)
 "kVO" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},

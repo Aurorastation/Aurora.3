@@ -8302,7 +8302,6 @@
 "hnN" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/closet/crate/trashcart{
-	icon_state = "trashcartopen";
 	opened = 1
 	},
 /turf/simulated/floor/plating,
