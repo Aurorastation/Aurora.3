@@ -124,6 +124,16 @@
 							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_PLUTO, ACCENT_ASSUNZIONE, ACCENT_VALKYRIE)
 	allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM, RELIGION_LUCEISM)
 
+	possible_cultures = list(
+		/decl/origin_item/culture/ipc_sol,
+		/decl/origin_item/culture/ipc_elyra,
+		/decl/origin_item/culture/ipc_coalition,
+		/decl/origin_item/culture/ipc_tau_ceti,
+		/decl/origin_item/culture/golden_deep,
+		/decl/origin_item/culture/megacorporate,
+		/decl/origin_item/culture/scrapper
+	)
+
 	alterable_internal_organs = list()
 
 	// Special snowflake machine vars.

@@ -776,8 +776,19 @@
 			if(G.faction && G.faction != H.employer_faction)
 				permitted = FALSE
 
+			if(islist(G.culture_restriction))
+				var/decl/origin_item/culture/our_culture = text2path(prefs.culture)
+				if(!(our_culture in G.culture_restriction))
+					permitted = FALSE
+
+			if(islist(G.origin_restriction))
+				var/decl/origin_item/origin/our_origin = text2path(prefs.origin)
+				if(!(our_origin in G.origin_restriction))
+					permitted = FALSE
+
+
 			if(!permitted)
-				to_chat(H, "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>")
+				to_chat(H, "<span class='warning'>Your current job, culture, origin or whitelist status does not permit you to spawn with [thing]!</span>")
 				continue
 
 			if(G.slot && !(G.slot in custom_equip_slots))
@@ -930,8 +941,18 @@
 			if(G.faction && G.faction != H.employer_faction)
 				permitted = FALSE
 
+			if(islist(G.culture_restriction))
+				var/decl/origin_item/culture/our_culture = text2path(prefs.culture)
+				if(!(our_culture in G.culture_restriction))
+					permitted = FALSE
+
+			if(islist(G.origin_restriction))
+				var/decl/origin_item/origin/our_origin = text2path(prefs.origin)
+				if(!(our_origin in G.origin_restriction))
+					permitted = FALSE
+
 			if(!permitted)
-				to_chat(H, SPAN_WARNING("Your current job or whitelist status does not permit you to spawn with [thing]!"))
+				to_chat(H, SPAN_WARNING("Your current job, culture, origin or whitelist status does not permit you to spawn with [thing]!"))
 				continue
 
 			var/metadata

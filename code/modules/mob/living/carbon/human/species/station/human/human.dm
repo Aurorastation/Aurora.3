@@ -43,7 +43,7 @@
 		/mob/living/carbon/human/proc/tie_hair)
 
 	possible_cultures = list(
-		/decl/origin_item/culture/biesel,
+		/decl/origin_item/culture/biesellite,
 		/decl/origin_item/culture/solarian,
 		/decl/origin_item/culture/dominia,
 		/decl/origin_item/culture/coalition
