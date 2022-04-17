@@ -83,12 +83,12 @@
 					log_unit_test("Unlocked icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 			// Opened
 			if(initial(closet_path.icon_door_override))
-				state = "[initial(closet_path.icon_door)][closet_state_suffixes["open"]]"
+				state = "[initial(closet_path.icon_door)][closet_state_suffixes["opened"]]"
 				if(!(state in closet_states))
 					missing_states += 1
 					log_unit_test("Opened icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 			else
-				state = "[initial(closet_path.icon_state)][closet_state_suffixes["open"]]"
+				state = "[initial(closet_path.icon_state)][closet_state_suffixes["opened"]]"
 				if(!(state in closet_states))
 					missing_states += 1
 					log_unit_test("Opened icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
