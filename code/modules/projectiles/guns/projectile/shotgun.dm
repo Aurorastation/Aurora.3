@@ -111,8 +111,8 @@
 
 /obj/item/gun/projectile/shotgun/pump/combat/sol
 	name = "naval shotgun"
-	desc = "A Malella-type 12-gauge breaching shotgun commonly found in the hands of the Sol Alliance. Made by Zavodskoi Interstellar."
-	icon = 'icons/obj/guns/malella.dmi'
+	desc = "A compact combat shotgun manufactured by Zavodskoi Interstellar for the Solarian Armed Forces, the M63 is most frequently employed by assaulters fighting in close-quarters environments, though it is also uncommonly used as a defensive weapon by Navy crewmen. Chambered in 12 gauge."
+	icon = 'icons/obj/guns/sol_shotgun.dmi'
 	icon_state = "malella"
 	item_state = "malella"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
