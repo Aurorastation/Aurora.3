@@ -2,8 +2,8 @@
 //not sure if there's an immediate place for secure wall lockers, but i'm sure the players will think of something
 
 /obj/structure/closet/walllocker
+	name = "wall locker"
 	desc = "A wall mounted storage locker."
-	name = "Wall Locker"
 	icon = 'icons/obj/walllocker.dmi'
 	icon_state = "walllocker" //...man, how OLD is this $#!?
 	door_anim_angle = 108
@@ -14,6 +14,8 @@
 	density = FALSE
 	anchored = TRUE
 	wall_mounted = TRUE
+
+/obj/structure/closet/walllocker/secure
 
 /obj/structure/closet/walllocker/emerglocker
 	name = "emergency locker"
