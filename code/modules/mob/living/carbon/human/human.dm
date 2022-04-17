@@ -96,6 +96,10 @@
 	if(length(species.unarmed_attacks))
 		set_default_attack(species.unarmed_attacks[1])
 
+	if(isnull(culture) || isnull(origin))
+		culture = decls_repository.get_decl(/decl/origin_item/culture/unknown)
+		origin = decls_repository.get_decl(/decl/origin_item/origin/unknown)
+
 /mob/living/carbon/human/Destroy()
 	human_mob_list -= src
 	intent_listener -= src

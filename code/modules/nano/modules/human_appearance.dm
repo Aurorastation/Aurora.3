@@ -11,6 +11,8 @@
 	var/list/valid_pronouns = list()
 	var/list/valid_hairstyles = list()
 	var/list/valid_facial_hairstyles = list()
+	var/list/valid_cultures = list()
+	var/list/valid_origins = list()
 	var/list/valid_accents = list()
 	var/list/valid_languages = list()
 
@@ -118,8 +120,30 @@
 				if(owner.change_eye_color(r_eyes, g_eyes, b_eyes))
 					update_dna()
 					return 1
+	if(href_list["culture"])
+		if(can_change(APPEARANCE_CULTURE))
+			var/new_culture_id = href_list["culture"]
+			var/decl/origin_item/culture/new_culture = valid_cultures[new_culture_id]
+			owner.culture = new_culture
+			if(!(owner.origin in new_culture.possible_origins))
+				owner.origin = decls_repository.get_decl(pick(new_culture.possible_origins))
+			clear_and_generate_data()
+			return 1
+	if(href_list["origin"])
+		if(can_change(APPEARANCE_CULTURE))
+			var/new_origin_id = href_list["origin"]
+			var/decl/origin_item/origin/new_origin = valid_origins[new_origin_id]
+			owner.origin = new_origin
+			if(!(owner.accent in new_origin.possible_accents))
+				owner.accent = new_origin.possible_accents[1]
+			if(!(owner.religion in new_origin.possible_religions))
+				owner.religion = new_origin.possible_religions[1]
+			if(!(owner.citizenship in new_origin.possible_religions))
+				owner.citizenship = new_origin.possible_citizenships[1]
+			clear_and_generate_data()
+			return 1
 	if(href_list["accent"])
-		if(can_change(APPEARANCE_ACCENT) && (href_list["accent"] in valid_accents))
+		if(can_change(APPEARANCE_CULTURE))
 			if(owner.set_accent(href_list["accent"]))
 				clear_and_generate_data()
 			return 1
@@ -157,8 +181,13 @@
 	data["valid_gender"] = valid_genders
 	data["valid_pronouns"] = valid_pronouns
 
+	
+	data["change_culture"] = can_change(APPEARANCE_CULTURE)
+	data["owner_culture"] = owner.culture.name
+	data["valid_cultures"] = valid_cultures
+	data["owner_origin"] = owner.origin.name
+	data["valid_origins"] = valid_origins
 	data["owner_accent"] = owner.accent
-	data["change_accent"] = can_change(APPEARANCE_ACCENT)
 	data["valid_accents"] = valid_accents
 
 	var/list/owner_languages = list()
@@ -223,6 +252,8 @@
 	valid_pronouns = list()
 	valid_hairstyles = list()
 	valid_facial_hairstyles = list()
+	valid_cultures = list()
+	valid_origins = list()
 	valid_accents = list()
 	valid_languages = list()
 	generate_data()
@@ -241,7 +272,14 @@
 		valid_hairstyles = owner.generate_valid_hairstyles(check_gender = 1)
 	if(!length(valid_facial_hairstyles))
 		valid_facial_hairstyles = owner.generate_valid_facial_hairstyles()
-	if(!length(valid_accents) && length(owner.species.allowed_accents))
-		valid_accents = owner.species.allowed_accents.Copy()
+	if(!length(valid_cultures))
+		for(var/culture in owner.species.possible_cultures)
+			var/decl/origin_item/culture/CI = decls_repository.get_decl(culture)
+			valid_cultures[CI.name] = CI
+		var/decl/origin_item/culture/OC = owner.culture
+		for(var/origin in OC.possible_origins)
+			var/decl/origin_item/origin/OI = decls_repository.get_decl(origin)
+			valid_origins[OI.name] = OI
+		valid_accents = owner.origin.possible_accents
 	if(!length(valid_languages))
 		valid_languages = owner.generate_valid_languages()
