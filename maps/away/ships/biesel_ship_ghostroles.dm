@@ -98,6 +98,7 @@
 
 	uniform = /obj/item/clothing/under/legion/pilot
 	head = /obj/item/clothing/head/helmet/pilot/legion
+	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
 	accessory = /obj/item/clothing/accessory/storage/webbingharness/pouches/ert
 	back = /obj/item/storage/backpack/legion
