@@ -1,0 +1,32 @@
+/decl/origin_item/culture/non_federation
+	name = "Non-Federation Skrell"
+	desc = "Sol skrell how"
+	possible_origins = list(
+		/decl/origin_item/origin/skrell_alliance,
+		/decl/origin_item/origin/skrell_biesel,
+		/decl/origin_item/origin/skrell_coalition
+	)
+
+/decl/origin_item/origin/skrell_alliance
+	name = "Sol Alliance" //skrell with dreg accent how
+	desc = "With first contact with Humanity, many Skrell elected to move into human space. The Jargon Federation and the Sol Alliance have been historic allies, and a large majority of Skrell living outside of the Federation calls the Sol Alliance home."
+	important_information = "The Jargon Federation is known to use its relationship with the Sol Alliance to step in when Skrell citizens are deemed dangerous to its national security."
+	possible_accents = list(ACCENT_SKRELL, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_VENUS, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_EUROPA, ACCENT_MICTLAN)
+	possible_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_EUM)
+	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
+
+/decl/origin_item/origin/skrell_biesel
+	name = "Republic of Biesel"
+	desc = "With first contact with Humanity, many Skrell elected to move into human space. The Republic of Biesel has a considerable population of Skrell as it was a former Sol Alliance colony, and the population has only increased with the acceptance of former Sol Alliance planets into the Republic. The Republic of Biesel is also a popular destination for those fleeing the Jargon Federation as there is precedence for the Republic to refuse to deport Federation Skrell if they join the Tau Ceti Foreign Legion."
+	important_information = "Skrell living in the Republic of Biesel are protected from deportation to the Jargon Federation if they renounce their Jargon citizenship and join the Tau Ceti Foreign Legion."
+	possible_accents = list(ACCENT_SKRELL, ACCENT_VALKYRIE, ACCENT_GIBSON, ACCENT_CETI)
+	possible_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_EUM)
+	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
+
+/decl/origin_item/origin/skrell_coalition
+	name = "Coalition of Colonies"
+	desc = "With first contact with Humanity, many Skrell elected to move into human space. The Coalition of Colonies does not have a large population of Skrell, although it is popular amongst those who wish to avoid Jargon authorities or otherwise flee the Federation."
+	important_information = "The Jargon Federation still monitors non-citizen Skrell living abroad, and is known to request deportation or otherwise detain reputable threats to its national security. The response to these requests depends on the planet in question due to the Coalition’s decentralised nature."
+	possible_accents = list(ACCENT_SKRELL, ACCENT_COC)
+	possible_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_EUM)
+	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)

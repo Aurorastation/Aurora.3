@@ -165,7 +165,8 @@
 			return TOPIC_REFRESH
 
 	if(href_list["citizenship"])
-		var/choice = input(user, "Please choose your current citizenship.", "Character Preference", pref.citizenship) as null|anything in S.allowed_citizenships
+		var/decl/origin_item/origin/our_origin = decls_repository.get_decl(text2path(pref.origin))
+		var/choice = input(user, "Please choose your current citizenship.", "Character Preference", pref.citizenship) as null|anything in our_origin.possible_citizenships
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		show_citizenship_menu(user, choice)
@@ -177,7 +178,8 @@
 		return TOPIC_REFRESH
 
 	if(href_list["religion"])
-		var/choice = input(user, "Please choose a religion.", "Character Preference", pref.religion) as null|anything in S.allowed_religions
+		var/decl/origin_item/origin/our_origin = decls_repository.get_decl(text2path(pref.origin))
+		var/choice = input(user, "Please choose a religion.", "Character Preference", pref.religion) as null|anything in our_origin.possible_religions
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		show_religion_menu(user, choice)
@@ -189,8 +191,8 @@
 		return TOPIC_REFRESH
 
 	if(href_list["accent"])
-		var/decl/origin_item/origin/OI = decls_repository.get_decl(text2path(pref.origin))
-		var/choice = input(user, "Please choose an accent.", "Character Preference", pref.accent) as null|anything in OI.possible_accents
+		var/decl/origin_item/origin/our_origin = decls_repository.get_decl(text2path(pref.origin))
+		var/choice = input(user, "Please choose an accent.", "Character Preference", pref.accent) as null|anything in our_origin.possible_accents
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		show_accent_menu(user, choice)

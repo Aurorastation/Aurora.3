@@ -425,6 +425,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.rlimb_data.Cut()
 			pref.body_markings.Cut()
 
+			pref.culture = "[pick(mob_species.possible_origins)]"
+			var/decl/origin_item/culture/OC = decls_repository.get_decl(text2path(pref.culture))
+			pref.origin = "[pick(OC.possible_origins)]"
+			var/decl/origin_item/origin/OO = decls_repository.get_decl(text2path(pref.origin))
+			pref.accent = OO.possible_accents[1]
+			pref.citizenship = OO.possible_citizenships[1]
+			pref.religion = OO.possible_religions[1]
+
 			// Follows roughly the same way hair does above, but for gradient styles
 			var/global/list/valid_gradients = list()
 
