@@ -63,6 +63,11 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/list/roundstart_callbacks
 
+	// Pre-game ready menu handling
+	var/total_players = 0
+	var/total_players_ready = 0
+	var/list/ready_player_jobs
+
 /datum/controller/subsystem/ticker/New()
 	NEW_SS_GLOBAL(SSticker)
 
@@ -129,6 +134,9 @@ var/datum/controller/subsystem/ticker/SSticker
 /datum/controller/subsystem/ticker/proc/pregame_tick()
 	if (round_progressing)
 		pregame_timeleft--
+
+	total_players = length(player_list)
+	total_players_ready = LAZYLEN(ready_player_jobs)
 
 	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == config.vote_autogamemode_timeleft)
 		if (!SSvote.time_remaining)
@@ -322,6 +330,47 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	return 1
 
+/datum/controller/subsystem/ticker/proc/setup_player_ready_list()
+	// One big loop at the start once SSticker comes up to catch anyone who readied before-hand
+	// Afterward the list updates on a per-user basis in menu.dm and logout.dm
+	if(current_state >= GAME_STATE_PLAYING || !SSjobs)
+		return // how
+
+	for(var/mob/abstract/new_player/NP in player_list)
+		if(NP.ready)
+			update_ready_list(NP)
+
+	total_players_ready = LAZYLEN(ready_player_jobs)
+
+/datum/controller/subsystem/ticker/proc/update_ready_list(var/mob/abstract/new_player/NP)
+	if(current_state >= GAME_STATE_PLAYING || !SSjobs || !istype(NP))
+		return // don't bother once the game has started
+
+	if(NP.ready)
+		ready_player(NP.client.prefs)
+	else
+		unready_player(NP.last_ready_name)
+
+	// TODO: (maybe) -- sort the list by name/job? subdivide into sections? better handling than this hackjob?
+
+/datum/controller/subsystem/ticker/proc/get_readied_player(var/char_name)
+	return LAZYACCESS(ready_player_jobs, char_name)
+
+/datum/controller/subsystem/ticker/proc/ready_player(var/datum/preferences/prefs)
+	if(current_state >= GAME_STATE_PLAYING || !SSjobs || !istype(prefs))
+		return
+
+	var/ready_job = prefs.return_chosen_high_job(TRUE)
+	LAZYSET(ready_player_jobs, prefs.real_name, ready_job ? ready_job : "N/A")
+	total_players_ready = LAZYLEN(ready_player_jobs)
+
+/datum/controller/subsystem/ticker/proc/unready_player(var/name)
+	if(current_state >= GAME_STATE_PLAYING || !SSjobs || isnull(name))
+		return
+
+	LAZYREMOVE(ready_player_jobs, name)
+	total_players_ready = LAZYLEN(ready_player_jobs)
+
 /datum/controller/subsystem/ticker/proc/send_tip_of_the_round()
 	var/m
 	if(selected_tip)
@@ -353,6 +402,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	else
 		var/mc_init_time = round(Master.initialization_time_taken, 1)
 		var/dynamic_time = LOBBY_TIME - mc_init_time
+		total_players = length(player_list)
+		LAZYINITLIST(ready_player_jobs)
 
 		if (dynamic_time <= config.vote_autogamemode_timeleft)
 			pregame_timeleft = config.vote_autogamemode_timeleft + 10
@@ -360,6 +411,9 @@ var/datum/controller/subsystem/ticker/SSticker
 		else
 			pregame_timeleft = dynamic_time
 			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was greater than configured autogamemode time, not clamping.")
+
+		setup_player_ready_list()
+		total_players_ready = length(ready_player_jobs)
 
 	to_world("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>")
 	to_world("Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")

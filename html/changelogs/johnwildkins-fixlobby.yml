@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - refactor: "The list of readied players has been optimized, lowering pre-game server load."

@@ -48,6 +48,12 @@
 
 /datum/preferences/proc/load_character(slot)
 	var/savefile/S
+	var/readied = FALSE
+	// have to do these shenanigans because the char. name is changing
+	if(SSticker && SSticker.get_readied_player(real_name))
+		readied = TRUE
+		SSticker.unready_player(real_name)
+
 	if (!config.sql_saves)
 		if (!path)
 			return 0
@@ -74,6 +80,9 @@
 		loaded_character = S
 	else
 		save_preferences()
+
+	if(SSticker && readied)
+		SSticker.ready_player(src)
 
 	return 1
 

@@ -234,6 +234,9 @@
 			return
 
 		ready = readying
+		if(ready)
+			last_ready_name = client.prefs.real_name
+		SSticker.update_ready_list(src)
 	else
 		ready = FALSE
 
