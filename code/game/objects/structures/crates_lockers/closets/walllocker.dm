@@ -15,8 +15,6 @@
 	anchored = TRUE
 	wall_mounted = TRUE
 
-/obj/structure/closet/walllocker/secure
-
 /obj/structure/closet/walllocker/emerglocker
 	name = "emergency locker"
 	desc = "A wall mounted locker with emergency supplies."
