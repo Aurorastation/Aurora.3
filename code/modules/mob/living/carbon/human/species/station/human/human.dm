@@ -42,7 +42,7 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/tie_hair)
 
-	possible_origins = list(
+	possible_cultures = list(
 		/decl/origin_item/culture/biesel,
 		/decl/origin_item/culture/solarian,
 		/decl/origin_item/culture/dominia,

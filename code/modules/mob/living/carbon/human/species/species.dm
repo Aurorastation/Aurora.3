@@ -266,8 +266,8 @@
 	var/default_f_style = "Shaved"
 	var/default_g_style = "None"
 
-	var/list/possible_origins = list(
-		/decl/origin_item/culture/biesel
+	var/list/possible_cultures = list(
+		/decl/origin_item/culture/unknown
 	)
 
 	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)

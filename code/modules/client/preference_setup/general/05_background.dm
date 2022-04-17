@@ -27,7 +27,6 @@
 
 /datum/category_item/player_setup_item/general/background/gather_load_parameters()
 	return list(
-		"id" = pref.current_character,
 		"char_id" = pref.current_character
 	)
 
@@ -47,7 +46,6 @@
 		"records_medical" = pref.med_record,
 		"records_security" = pref.sec_record,
 		"char_id" = pref.current_character,
-		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
