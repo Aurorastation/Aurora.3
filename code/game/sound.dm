@@ -123,7 +123,7 @@
 	var/turf/source_turf = get_turf(source)
 	var/list/mobs = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(source_turf, world.view, mobs, objs, ONLY_GHOSTS_IN_VIEW)
+	get_mobs_or_objs_in_view(source_turf, world.view, mobs, objs, ONLY_GHOSTS_IN_VIEW)
 
 	for (var/MM in mobs)
 		var/mob/M = MM

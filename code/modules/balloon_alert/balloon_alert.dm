@@ -17,7 +17,7 @@
 
 	var/list/hearers = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(get_turf(src), vision_distance, hearers, objs, ONLY_GHOSTS_IN_VIEW)
+	get_mobs_or_objs_in_view(get_turf(src), vision_distance, hearers, objs, ONLY_GHOSTS_IN_VIEW)
 	hearers -= ignored_mobs
 
 	for(var/mob/hearer as anything in hearers - src)
