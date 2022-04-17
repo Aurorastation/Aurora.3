@@ -8129,25 +8129,24 @@
 "fdh" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/machinery/reagentgrinder{
-	pixel_x = 6;
-	pixel_y = 9
-	},
 /obj/item/material/knife{
 	layer = 2.99;
-	pixel_x = -9;
-	pixel_y = -14
+	pixel_x = -12;
+	pixel_y = -26
 	},
 /obj/item/storage/box/produce{
 	layer = 2.99;
 	pixel_x = 3;
-	pixel_y = -11
+	pixel_y = -18
 	},
 /obj/machinery/camera/network/service{
 	c_tag = "Dinner - Kitchen";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/appliance/mixer/candy{
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "fdE" = (
@@ -17526,16 +17525,6 @@
 /obj/effect/landmark/engine_setup/smes,
 /turf/simulated/floor/plating,
 /area/engineering/smes)
-"kWN" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/holomenu,
-/obj/item/holomenu{
-	pixel_x = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "kXm" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -20541,8 +20530,8 @@
 /area/security/brig)
 "mOH" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/chem_heater,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/chem_heater,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "mOS" = (
@@ -32734,15 +32723,9 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/stack/material/cardboard{
-	amount = 10;
-	pixel_x = 1;
-	pixel_y = 2
-	},
-/obj/item/stack/material/cardboard{
-	amount = 10;
-	pixel_x = 1;
-	pixel_y = 2
+/obj/machinery/reagentgrinder{
+	pixel_x = 4;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -37117,6 +37100,20 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
+/obj/item/stack/material/cardboard{
+	amount = 10;
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/stack/material/cardboard{
+	amount = 10;
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/holomenu,
+/obj/item/holomenu{
+	pixel_x = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "wEc" = (
@@ -61403,7 +61400,7 @@ qDU
 rGj
 aSg
 rGj
-kWN
+kPz
 bHs
 eOl
 gfj
