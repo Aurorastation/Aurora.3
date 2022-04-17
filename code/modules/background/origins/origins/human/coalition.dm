@@ -16,21 +16,21 @@
 
 /decl/origin_item/origin/xanu_free_league
 	name = "Xanu Free League"
-	desc = "The Xanu Free League, and its capital of Xanu Prime, have long been considered some of the most important figures in the Coalition of Colonies. Xanusanii are a diverse body of people that value their freedom highly, and are known throughout the broader Spur as traders. Much of Xanu’s surface remains uninhabitable due to damage inflicted upon the planet by the Solarian Alliance during the Interstellar War."
+	desc = "The Xanu Free League, and its capital of Xanu Prime, have long been considered some of the most important figures in the Coalition of Colonies. Xanusanii are a diverse body of people that value their freedom highly, and are known throughout the broader Spur as traders. Much of Xanu's surface remains uninhabitable due to damage inflicted upon the planet by the Solarian Alliance during the Interstellar War."
 	possible_accents = list(ACCENT_COC)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = RELIGIONS_COALITION
 
 /decl/origin_item/origin/himeo
 	name = "United Syndicates of Himeo"
-	desc = "A bastion of worker’s rights in the corporate-dominated Orion Spur, the citizens of the United Syndicates of Himeo can trace their roots to an unsuccessful mining operation owned by Hephaestus Industries. Abandoned by its megacorporate master centuries ago, Himeo has since charted its own course through history. Its citizens are still very hostile towards Hephaestus Industries, which they view as having abandoned them to die."
+	desc = "A bastion of worker's rights in the corporate-dominated Orion Spur, the citizens of the United Syndicates of Himeo can trace their roots to an unsuccessful mining operation owned by Hephaestus Industries. Abandoned by its megacorporate master centuries ago, Himeo has since charted its own course through history. Its citizens are still very hostile towards Hephaestus Industries, which they view as having abandoned them to die."
 	possible_accents = list(ACCENT_HIMEO)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = RELIGIONS_COALITION
 
 /decl/origin_item/origin/vysoka
 	name = "Vysoka"
-	desc = "The agricultural center of the Coalition of Colonies, Vysoka is generally conservative and often seen as heavily traditional by the broader Coalition. Most Vysokans live in rural environments, and few cities can be found across the planet’s surface. Vysoka is also home to large semi-nomadic communities known as \"Hosts,\" that are not connected with any particular community or city. Religion and spiritualism are important aspects of Vysokan life, particularly for its rural population."
+	desc = "The agricultural center of the Coalition of Colonies, Vysoka is generally conservative and often seen as heavily traditional by the broader Coalition. Most Vysokans live in rural environments, and few cities can be found across the planet's surface. Vysoka is also home to large semi-nomadic communities known as \"Hosts,\" that are not connected with any particular community or city. Religion and spiritualism are important aspects of Vysokan life, particularly for its rural population."
 	important_information = "Vysoka's remoteness and relatively undeveloped status has made it a planet with little outside immigration. Due to these factors, <b>characters born on Vysoka will have names and appearances consistent with Central Asia and the Warsaw Pact, the original colonists of the planet.</b> Only native Vysokans may take the Vysokan accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_VYSOKA)
 	possible_citizenships = CITIZENSHIPS_COALITION
@@ -38,7 +38,7 @@
 
 /decl/origin_item/origin/coalition_offworlder
 	name = "Coalition Offworlders"
-	desc = "The offworlders of the Coalition of Colonies are an odd mix of nomadic or semi-nomadic peoples that do not call any planet home, and instead opt to live in spaceborne fleets. The most notable offworlder group in the Coalition is the Scarabs, though many more are present in the Coalition’s borders."
+	desc = "The offworlders of the Coalition of Colonies are an odd mix of nomadic or semi-nomadic peoples that do not call any planet home, and instead opt to live in spaceborne fleets. The most notable offworlder group in the Coalition is the Scarabs, though many more are present in the Coalition's borders."
 	possible_accents = list(ACCENT_NCF, ACCENT_SCARAB, ACCENT_COC)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_SCARAB)
@@ -53,7 +53,7 @@
 
 /decl/origin_item/origin/assunzione
 	name = "Republic of Assunzione"
-	desc = "One of the most remote planets colonized by humanity, the Republic of Assunzione is widely known for its lack of a functional sun – which burnt out mysteriously shortly after the planet was colonized – and its unusual native faith, Luceism. Luceism itself is an offshoot of traditional Abrahamic faiths and is centered around the worship of Ennoia, an abstract representation of light. Assunzionii society is quite insular and is centered around the planet’s faith, with an overwhelming majority of the planet’s residents adhering to Luceism."
+	desc = "One of the most remote planets colonized by humanity, the Republic of Assunzione is widely known for its lack of a functional sun – which burnt out mysteriously shortly after the planet was colonized – and its unusual native faith, Luceism. Luceism itself is an offshoot of traditional Abrahamic faiths and is centered around the worship of Ennoia, an abstract representation of light. Assunzionii society is quite insular and is centered around the planet's faith, with an overwhelming majority of the planet's residents adhering to Luceism."
 	important_information = "Assunzione's remote location and urban planning which places a premium on available housing and space has made it unattractive to outsiders as a destination for immigration. Because of this, <b>characters born on Assunzione will have names and appearances consistent with the peoples living on or around the Mediterranean Sea, much like the planet's original colonists.</b> Only native Assunzioniis may take the Assunzionii accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_ASSUNZIONE)
 	possible_citizenships = CITIZENSHIPS_COALITION

@@ -16,7 +16,7 @@
 
 /decl/origin_item/origin/ipc_eridani
 	name = "Epsilon Eridani"
-	desc = "Although IPCs are kept in strict servitude across the Sol Alliance, Epsilon Eridani’s plutocracy allows for all rules to be rewritten, for a price. Not free on paper, synthetics that manage to rise by their cunning, guile, and savvy on that planet can escape the fate of becoming a scrapper by purchasing themselves through the guise of a startup. Despite not technically being free, few suits bother to notice the difference between an IPC and an organic with money."
+	desc = "Although IPCs are kept in strict servitude across the Sol Alliance, Epsilon Eridani's plutocracy allows for all rules to be rewritten, for a price. Not free on paper, synthetics that manage to rise by their cunning, guile, and savvy on that planet can escape the fate of becoming a scrapper by purchasing themselves through the guise of a startup. Despite not technically being free, few suits bother to notice the difference between an IPC and an organic with money."
 	important_information = "This loophole is only recognized on Eridani and nations that acknowledge equal rights for IPCs. It is unlikely that an IPC with this culture can freely move around the Sol Alliance, regardless of their de-facto self-ownership."
 	possible_accents = list(ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ERIDANIREINSTATED)
 	possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL)

@@ -105,7 +105,7 @@
 /decl/origin_item/origin/konyang
 	name = "Konyang"
 	desc = "A Solarian planet until very recently, Konyang is one of the youngest members of the Coalition of Colonies. The planet is famous for its robotics industry, which has resulted in a large amount of synthetic residents on the planet itself. The human population of Konyang still retains much of its Earther heritage."
-	important_information = "<b>Because of the ethnic make-up of Konyang's original settlers and assimilation of immigrants into the native population during the first AI boom, human characters born on Konyang will have appearances consistent with the people of China, the Korean Peninsula, and Japanese Islands.</b> Only native Konyangers or Konyang-made IPCs may select the Konyanger accent. This is enforceable by server moderators and admins. "
+	important_information = "<b>Because of the ethnic make-up of Konyang's original settlers and assimilation of immigrants into the native population during the first AI boom, human characters born on Konyang will have appearances consistent with the people of China, the Korean Peninsula, and Japanese Islands.</b> Only native Konyangers or Konyang-made IPCs may select the Konyanger accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_KONYAN)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = RELIGIONS_SOLARIAN

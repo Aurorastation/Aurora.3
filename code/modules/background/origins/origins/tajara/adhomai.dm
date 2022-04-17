@@ -58,7 +58,7 @@
 
 /decl/origin_item/origin/south_harrmasir
 	name = "Southern Harr'masir"
-	desc = "Southern Harr'masir is characterized by its fertile plains and low population density. Due to being one of the last areas to be colonized by the Tajara, it's known for its wilderness and the ruggedness of its settlers. Cattle are the lifeblood of the South Harr’masir region; a large part of its population is employed in the husbandry industry. A regional fascination emerged around the M'sai and Hharar herders with these rugged survivalists becoming idolized by the people."
+	desc = "Southern Harr'masir is characterized by its fertile plains and low population density. Due to being one of the last areas to be colonized by the Tajara, it's known for its wilderness and the ruggedness of its settlers. Cattle are the lifeblood of the South Harr'masir region; a large part of its population is employed in the husbandry industry. A regional fascination emerged around the M'sai and Hharar herders with these rugged survivalists becoming idolized by the people."
 	possible_accents = list(ACCENT_LOWHARRSIIK, ACCENT_RURALDELVAHHI)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI

@@ -26,7 +26,7 @@
 /decl/origin_item/origin/skrell_coalition
 	name = "Coalition of Colonies"
 	desc = "With first contact with Humanity, many Skrell elected to move into human space. The Coalition of Colonies does not have a large population of Skrell, although it is popular amongst those who wish to avoid Jargon authorities or otherwise flee the Federation."
-	important_information = "The Jargon Federation still monitors non-citizen Skrell living abroad, and is known to request deportation or otherwise detain reputable threats to its national security. The response to these requests depends on the planet in question due to the Coalition’s decentralised nature."
+	important_information = "The Jargon Federation still monitors non-citizen Skrell living abroad, and is known to request deportation or otherwise detain reputable threats to its national security. The response to these requests depends on the planet in question due to the Coalition's decentralised nature."
 	possible_accents = list(ACCENT_SKRELL, ACCENT_COC)
 	possible_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_EUM)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
