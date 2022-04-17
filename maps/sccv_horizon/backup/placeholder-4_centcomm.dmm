@@ -10856,8 +10856,7 @@
 	},
 /area/centcom/specops)
 "aAS" = (
-/obj/structure/closet{
-	icon_state = "syndicate1";
+/obj/structure/closet/gimmick{
 	name = "emergency response team wardrobe"
 	},
 /obj/item/clothing/under/ert,
@@ -11093,8 +11092,7 @@
 	},
 /area/centcom/specops)
 "aBm" = (
-/obj/structure/closet{
-	icon_state = "syndicate1";
+/obj/structure/closet/gimmick{
 	name = "emergency response team wardrobe"
 	},
 /obj/item/clothing/under/ert,
