@@ -29,8 +29,6 @@
 /turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, var/ignore_override)
 	if (!N)
 		return
-	if(!use_preloader && N == type) // Don't no-op if the map loader requires it to be reconstructed
-		return src
 
 	// This makes sure that turfs are not changed to space when there's a multi-z turf below
 	if(ispath(N, /turf/space) && HasBelow(z) && !ignore_override)
@@ -63,23 +61,24 @@
 		regenerate_ao()
 #endif
 
-	recalc_atom_opacity()
-	lighting_overlay = old_lighting_overlay
-	if (lighting_overlay && lighting_overlay.loc != src)
-		// This is a hack, but I can't figure out why the fuck they're not on the correct turf in the first place.
-		lighting_overlay.forceMove(src, harderforce = TRUE)
+	if(lighting_overlays_initialized)
+		recalc_atom_opacity()
+		lighting_overlay = old_lighting_overlay
+		if (lighting_overlay && lighting_overlay.loc != src)
+			// This is a hack, but I can't figure out why the fuck they're not on the correct turf in the first place.
+			lighting_overlay.forceMove(src, harderforce = TRUE)
 
-	affecting_lights = old_affecting_lights
-	corners = old_corners
+		affecting_lights = old_affecting_lights
+		corners = old_corners
 
-	if ((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
-		reconsider_lights()
+		if ((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
+			reconsider_lights()
 
-	if (dynamic_lighting != old_dynamic_lighting)
-		if (dynamic_lighting)
-			lighting_build_overlay()
-		else
-			lighting_clear_overlay()
+		if (dynamic_lighting != old_dynamic_lighting)
+			if (dynamic_lighting)
+				lighting_build_overlay()
+			else
+				lighting_clear_overlay()
 
 	if (config.starlight)
 		for (var/turf/space/S in RANGE_TURFS(1, src))
@@ -107,7 +106,7 @@
 	for(var/image/I as anything in W.blueprints)
 		I.loc = W
 		I.plane = 0
-	
+
 	W.decals = old_decals
 
 	W.post_change()

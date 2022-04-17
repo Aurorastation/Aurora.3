@@ -109,7 +109,13 @@
 		/datum/shuttle/autodock/ferry/merchant_aurora,
 		/datum/shuttle/autodock/ferry/autoreturn/ccia,
 		/datum/shuttle/autodock/overmap/orion_express_shuttle,
-		/datum/shuttle/autodock/overmap/orion_express_ship
+		/datum/shuttle/autodock/overmap/orion_express_ship,
+		/datum/shuttle/autodock/overmap/sfa_patrol_ship,
+		/datum/shuttle/autodock/overmap/sfa_shuttle,
+		/datum/shuttle/autodock/overmap/tcfl_peacekeeper_ship,
+		/datum/shuttle/autodock/overmap/tcfl_shuttle,
+		/datum/shuttle/autodock/overmap/ee_spy_ship,
+		/datum/shuttle/autodock/overmap/ee_shuttle
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship

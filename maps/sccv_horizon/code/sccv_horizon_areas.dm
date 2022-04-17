@@ -157,6 +157,7 @@
 
 /area/operations/lower/machinist
 	name = "Machinist Workshop"
+	icon_state = "machinist_workshop"
 
 /area/operations/lobby
 	name = "Operations Lobby"

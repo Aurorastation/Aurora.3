@@ -479,10 +479,6 @@
 	if(..())
 		return
 
-	if(stat & (NOPOWER|BROKEN))
-		return 0 // don't update UIs attached to this object
-
-	usr.set_machine(src)
 
 	switch(href_list["button"])
 		if( "import_incident" )

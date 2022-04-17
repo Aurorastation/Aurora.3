@@ -1,14 +1,12 @@
 /datum/faction/orin_express
 	name = "Orion Express"
 	description = {"<p>
-	Hephaestus Industries, a sprawling and diverse mega-corporation
-	focused on engineering and manufacturing on a massive scale, found their start
-	as a conglomerate of several aerospace companies in the 22nd century. Initially
-	funded by sales of new designs for warp technology, the company fell on hard times
-	during the Second Great Depression in the late 23rd century. Receiving bailouts
-	from SolGov and securing several crucial production contracts, they have slowly
-	worked their way to become the dominant manufacturing mega-corporation in the
-	Sol Alliance, pioneering interstellar logistics and construction on an awe-inspiring scale.
+	Founded in 2464, the Orion Express is a corporation designed to handle logistics for the
+	Stellar Corporate Conglomerate in the wake of the Phoron Scarcity and the sudden issues
+	the Conglomeration of the megacorporations presented. It consists of its main branch, dedicated
+	to cargo services and transport, but also features a fledgling robotics division, mainly focused
+	on industrial synthetics to aid in its logistics missions. The Orion Express is expected to become an
+	integral part of the Stellar Corporate Conglomerate’s future through delivering supplies and merchandise throughout the Orion Spur.
 	</p>
 	<p>Orion Express employees can be in the following departments:
 	<ul>

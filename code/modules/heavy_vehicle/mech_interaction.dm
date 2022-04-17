@@ -236,6 +236,7 @@
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
 	sync_access()
+	handle_loudening_signals(user)
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
@@ -274,6 +275,7 @@
 		set_intent(I_HURT)
 		LAZYREMOVE(pilots, user)
 		UNSETEMPTY(pilots)
+	handle_loudening_signals(user, TRUE)
 
 /mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction)
 	if(!can_move(user))
@@ -664,13 +666,13 @@
 				if(toggle_lock())
 					say("Hatch [hatch_locked ? "locked" : "unlocked"].")
 				return
-			
+
 			// unlink the leader to get a new one
 			if(findtext(text, "unlink"))
 				unassign_leader()
 				say("Leader dropped, awaiting new leader.")
 				return
-			
+
 			// stop following who you were assigned to follow
 			if(findtext(text, "stop"))
 				unassign_following()
@@ -707,3 +709,31 @@
 							say("Following [ID.registered_name].")
 							break
 				return
+
+/mob/living/heavy_vehicle/proc/handle_loudening_signals(var/specific_mob = null, var/disable = FALSE)
+	if(loudening && !disable)
+		if(specific_mob)
+			RegisterSignal(specific_mob, COMSIG_SAY_MODIFIER, .proc/modify_say)
+			return
+		for(var/mob/M as anything in pilots)
+			RegisterSignal(M, COMSIG_SAY_MODIFIER, .proc/modify_say)
+	else
+		if(specific_mob)
+			UnregisterSignal(specific_mob, COMSIG_SAY_MODIFIER)
+			return
+		for(var/mob/M as anything in pilots)
+			UnregisterSignal(M, COMSIG_SAY_MODIFIER)
+
+// For any future devs, you can add a sound here if you want, it just needs to be deep and rumbly - geeves
+/mob/living/heavy_vehicle/proc/modify_say(var/mob/M, var/list/say_modifiers)
+	if(say_modifiers[SAY_MOD_FONT_SIZE] < FONT_SIZE_LARGE)
+		say_modifiers[SAY_MOD_FONT_SIZE] = FONT_SIZE_LARGE
+	say_modifiers[SAY_MOD_VERB] = "broadcasts"
+
+	var/turf/T = get_turf(src)
+	if(T)
+		for(var/mob/living/carbon/human/H in range(T, 2) - M)
+			if(get_dist(T, H) < 1) // within one tile
+				H.earpain(3, TRUE, 2)
+			else
+				H.earpain(2, TRUE, 2)

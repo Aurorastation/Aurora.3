@@ -75,7 +75,7 @@
 		return TOPIC_NOACTION
 
 	if (href_list["viewing"])
-		if(usr && !isAI(usr))
+		if(usr)
 			viewing_overmap(usr) ? unlook(usr) : look(usr)
 		return TOPIC_REFRESH
 
@@ -86,7 +86,7 @@
 	if(sensors)
 		if (href_list["range"])
 			var/nrange = input("Set new sensors range", "Sensor range", sensors.range) as num|null
-			if(!CanInteract(usr, physical_state))
+			if(!CanInteract(usr, default_state))
 				return TOPIC_NOACTION
 			if (nrange)
 				sensors.set_range(Clamp(nrange, 1, world.view))

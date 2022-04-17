@@ -2491,7 +2491,7 @@
 /turf/simulated/wall/r_wall,
 /area/bridge/bridge_crew)
 "fy" = (
-/obj/structure/bed/stool/chair/padded/black{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -7770,6 +7770,10 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 7
 	},
+/obj/item/roller{
+	pixel_x = -1;
+	pixel_y = 14
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
 "rM" = (
@@ -12446,6 +12450,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
+"DZ" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/starboard)
 "Ea" = (
 /obj/machinery/door/airlock/hatch{
 	desc = "It opens and closes. It has a small sign engraved: Bunker capacity: 6. Only facility's Command Staff is permitted.";
@@ -16266,9 +16277,6 @@
 /area/security/vacantoffice2)
 "Nj" = (
 /obj/structure/flora/pottedplant/random,
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "Nl" = (
@@ -16606,6 +16614,7 @@
 	name = "corkboard";
 	pixel_y = -26
 	},
+/obj/machinery/light,
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "NV" = (
@@ -44916,7 +44925,7 @@ Od
 Tu
 Fz
 RJ
-BW
+DZ
 vx
 Oa
 Mt

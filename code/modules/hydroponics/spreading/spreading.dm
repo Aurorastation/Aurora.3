@@ -45,6 +45,7 @@
 	icon = 'icons/obj/hydroponics_growing.dmi'
 	icon_state = "bush4-1"
 	layer = 3
+	flags = PROXMOVE
 	pass_flags = PASSTABLE
 	mouse_opacity = 2
 

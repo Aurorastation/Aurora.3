@@ -56,6 +56,7 @@
 
 	respawn_type = ANIMAL
 	remains_type = /obj/effect/decal/cleanable/ash
+	dust_remains_type = /obj/effect/decal/cleanable/ash
 	death_message = "dissolves into ash..."
 	death_message_range = 7
 
