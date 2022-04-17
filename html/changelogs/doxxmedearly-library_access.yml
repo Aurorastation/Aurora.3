@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes:
+  - bugfix: "The windoor to the library desk now requires the correct access to open."
