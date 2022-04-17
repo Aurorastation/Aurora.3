@@ -881,7 +881,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(!delay && !tool_start_check(user, amount))
 		return
 
-	delay *= toolspeed
+	delay /= toolspeed
 
 	// Play tool sound at the beginning of tool usage.
 	play_tool_sound(target, volume)
