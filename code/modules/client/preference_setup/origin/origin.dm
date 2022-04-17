@@ -125,7 +125,7 @@
 	var/datum/species/S = all_species[pref.species]
 	if(href_list["open_culture_menu"])
 		var/list/options = list()
-		var/list/possible_cultures = decls_repository.get_decls(S.possible_origins)
+		var/list/possible_cultures = decls_repository.get_decls(S.possible_cultures)
 		for(var/decl_type in possible_cultures) //todomatt: delete this tag?
 			var/decl/origin_item/culture/CL = possible_cultures[decl_type]
 			options[CL.name] = CL

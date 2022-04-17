@@ -425,7 +425,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.rlimb_data.Cut()
 			pref.body_markings.Cut()
 
-			pref.culture = "[pick(mob_species.possible_origins)]"
+			pref.culture = "[pick(mob_species.possible_cultures)]"
 			var/decl/origin_item/culture/OC = decls_repository.get_decl(text2path(pref.culture))
 			pref.origin = "[pick(OC.possible_origins)]"
 			var/decl/origin_item/origin/OO = decls_repository.get_decl(text2path(pref.origin))

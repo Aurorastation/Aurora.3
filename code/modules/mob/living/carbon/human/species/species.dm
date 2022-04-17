@@ -834,5 +834,4 @@
 
 //Mostly sanitization helpers.
 /datum/species/proc/get_default_culture()
-	var/list/possible_cultures = possible_origins
 	return pick(possible_cultures)
