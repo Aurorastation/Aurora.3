@@ -35,6 +35,7 @@
 	ethanol_resistance = -1//Can't get drunk
 	radiation_mod = 0	// not affected by radiation
 	remains_type = /obj/effect/decal/remains/robot
+	dust_remains_type = /obj/effect/decal/remains/robot/burned
 
 	hud_type = /datum/hud_data/ipc
 

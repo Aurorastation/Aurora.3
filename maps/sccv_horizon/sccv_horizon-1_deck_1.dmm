@@ -13534,6 +13534,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/landmark/start{
+	name = "Machinist"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
 "mfk" = (

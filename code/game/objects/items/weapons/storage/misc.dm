@@ -56,8 +56,9 @@
 
 //cigarette papers
 /obj/item/storage/box/fancy/cigpaper
-	name = "\improper Gen. Eric cigarette paper"
-	desc = "A ubiquitous brand of cigarette paper, allegedly endorsed by 24th century war hero General Eric Osmundsun for rolling your own cigarettes. Osmundsun died in a freak kayak accident. As it ate him alive during his last campaign. It was pretty freaky."
+	name = "\improper callistean classic cigarette paper"
+	desc = "A now-ubiquitous brand of cigarette paper, originated on Callisto and produced by Cigaco, a Getmore subsidiary. It was first available only on Callisto, but \
+			is now found in every corner of the galaxy due to its low cost and relatively good value."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpaperbook_generic"
 	item_state = "cigpacket"
@@ -93,7 +94,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	w_class = ITEMSIZE_SMALL
-	starts_with = list(/obj/item/paper/cig/filter = 10)
+	starts_with = list(/obj/item/cigarette_filter = 10)
 	make_exact_fit()
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
