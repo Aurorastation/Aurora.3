@@ -1,7 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a new hideout exoplanet ruin, available to explore."
-  - bugfix: "Fixed ruin site selection + budgeting."
