@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - tweak: "Shuttles now undock/land on things in 20s rather than 90s."

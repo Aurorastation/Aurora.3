@@ -100,7 +100,7 @@
 
 /datum/shuttle/autodock/overmap/tcfl_shuttle
 	name = "TCFL Shuttle"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/tcfl_shuttle)
 	current_location = "nav_hangar_tcfl"
 	landmark_transition = "nav_transit_tcfl"
