@@ -2638,6 +2638,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/material/ashtray/glass,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "byq" = (
@@ -3750,8 +3751,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "cgd" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/vending/dinnerware,
@@ -6944,9 +6943,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -23666,15 +23662,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "oKf" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/disposal/small/west,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
+/obj/machinery/light/small,
+/obj/machinery/vending/cigarette,
+/turf/simulated/floor/lino/grey,
+/area/crew_quarters/bar)
 "oKE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -25169,10 +25160,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
@@ -25207,7 +25194,6 @@
 	icon_state = "1-8"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -26695,9 +26681,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/machinery/requests_console{
@@ -29285,7 +29268,6 @@
 "sbK" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -32229,6 +32211,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
+"tUd" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/sink/kitchen{
+	dir = 8;
+	pixel_x = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "tUR" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled/ramp,
@@ -32726,6 +32717,14 @@
 /obj/machinery/reagentgrinder{
 	pixel_x = 4;
 	pixel_y = 6
+	},
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = -6;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = -6;
+	pixel_y = -1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -33256,7 +33255,6 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -34881,19 +34879,17 @@
 /area/maintenance/wing/starboard)
 "vxK" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/sink/kitchen{
-	pixel_y = 24
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/disposal/small/south,
+/obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "vxL" = (
@@ -35171,7 +35167,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/smes/tesla)
 "vGT" = (
-/obj/machinery/vending/cigarette,
+/obj/machinery/vending/dinnerware/plastic,
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/cafeteria)
 "vHp" = (
@@ -58573,7 +58569,7 @@ wRk
 vFQ
 iDE
 jjF
-jCt
+oKf
 eeQ
 xer
 qgN
@@ -60993,11 +60989,11 @@ pFU
 sbK
 pGu
 uws
-oKf
+uPW
 dVv
 rGX
 rGX
-cgd
+rGX
 afA
 xer
 qgN
@@ -61195,7 +61191,7 @@ esy
 rGj
 vTk
 uNs
-kPz
+cgd
 vOt
 vTk
 wmc
@@ -62205,7 +62201,7 @@ qPo
 rGj
 rGj
 rGj
-rGj
+tUd
 oCG
 uta
 tIB
@@ -62412,7 +62408,7 @@ vTd
 wfR
 qFQ
 qFQ
-fFX
+xSg
 xer
 qgN
 qgN
