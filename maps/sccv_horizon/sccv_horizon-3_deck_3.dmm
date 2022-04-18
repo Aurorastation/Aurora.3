@@ -80,6 +80,7 @@
 	pictures_left = 30
 	},
 /obj/item/storage/slide_projector,
+/obj/item/material/ashtray/bronze,
 /turf/simulated/floor/carpet,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
