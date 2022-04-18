@@ -5661,6 +5661,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "eYb" = (
@@ -7686,6 +7689,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "gBA" = (
@@ -9338,6 +9344,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light/small,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "idY" = (
@@ -11676,6 +11685,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "kqF" = (
@@ -13489,6 +13499,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "lTz" = (
@@ -16259,6 +16272,9 @@
 	name = "east bump";
 	pixel_x = 24
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "ort" = (
@@ -17654,6 +17670,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "pMA" = (
@@ -25262,6 +25279,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "wCf" = (
@@ -25286,7 +25306,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /mob/living/silicon/robot/drone/construction/matriarch,
-/obj/machinery/firealarm/north,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "wGn" = (
@@ -25676,6 +25695,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "wXB" = (
