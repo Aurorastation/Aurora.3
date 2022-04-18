@@ -120,7 +120,8 @@
 
 /decl/origin_item/origin/visegrad
 	name = "Visegrad"
-	desc = "You're racist and you love paprika or something. Also you are being UAV'd by Danse. This is a placeholder and should not be live. Yell at Matt if it is. I blame reviewers."
+	desc = "Originally a penal colony of the United Soviet Socialist Republics, Visegrad's society is generally divided between the urban and rural population. Visegradi are often stereotyped as gloomy and distrustful people, thanks to the planet's origins as a Soviet penal colony and a history of intrusive government observation programs. Visegradi culture additionally has a heavy emphasis on luck and fatalism, and many that go abroad bring their superstitions with them."
+	important_information = "Due to Visegrad's history as a former penal colony housing Eastern European political dissidents and its current status as the de facto capital of a warlord state hostile to outsiders, <b>characters born on Visegrad will have names and appearances consistent with the peoples of Non-Soviet Eastern Europe, East Germany, and the Non-Yugoslav & non-Greek Balkans.</b> Only native Visegradis may take the Visegradi accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_VISEGRAD)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = RELIGIONS_SOLARIAN
