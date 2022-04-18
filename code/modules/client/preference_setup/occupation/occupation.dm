@@ -320,29 +320,25 @@
 	if(!job)
 		return FALSE
 
-	var/mob/abstract/new_player/NP = user
-
 	if(role == "Assistant")
 		if(pref.job_civilian_low & job.flag)
 			pref.job_civilian_low &= ~job.flag
 		else
 			pref.job_civilian_low |= job.flag
 
-		if(istype(NP) && NP.ready)
-			SSticker.update_ready_list(NP)
+		SSticker.cycle_player(user, job)
 		return TRUE
 
-	if(pref.GetJobDepartment(job, 1) & job.flag)
+	if(pref.GetJobDepartment(job, 1) & job.flag) // HIGH -> NONE
 		SetJobDepartment(job, 1)
-	else if(pref.GetJobDepartment(job, 2) & job.flag)
+		SSticker.cycle_player(user, job)
+	else if(pref.GetJobDepartment(job, 2) & job.flag) // MED -> HIGH
 		SetJobDepartment(job, 2)
-	else if(pref.GetJobDepartment(job, 3) & job.flag)
+		SSticker.cycle_player(user, job)
+	else if(pref.GetJobDepartment(job, 3) & job.flag) // LOW -> MED
 		SetJobDepartment(job, 3)
-	else//job = Never
+	else // NONE -> LOW
 		SetJobDepartment(job, 4)
-
-	if(istype(NP) && NP.ready)
-		SSticker.update_ready_list(NP)
 
 	return 1
 

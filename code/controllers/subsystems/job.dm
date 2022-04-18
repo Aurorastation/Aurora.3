@@ -38,6 +38,8 @@
 
 	ProcessSanitizationQueue()
 
+	SSticker.setup_player_ready_list()
+
 /datum/controller/subsystem/jobs/Recover()
 	occupations = SSjobs.occupations
 	unassigned = SSjobs.unassigned

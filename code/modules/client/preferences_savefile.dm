@@ -48,11 +48,11 @@
 
 /datum/preferences/proc/load_character(slot)
 	var/savefile/S
-	var/readied = FALSE
-	// have to do these shenanigans because the char. name is changing
-	if(SSticker && SSticker.get_readied_player(real_name))
+	var/mob/abstract/new_player/NP = src.client.mob
+	var/readied
+	if(istype(NP) && NP.ready)
 		readied = TRUE
-		SSticker.unready_player(real_name)
+		SSticker.update_ready_list(NP, force_urdy=TRUE)
 
 	if (!config.sql_saves)
 		if (!path)
@@ -81,8 +81,8 @@
 	else
 		save_preferences()
 
-	if(SSticker && readied)
-		SSticker.ready_player(src)
+	if(istype(NP) && readied)
+		SSticker.update_ready_list(NP)
 
 	return 1
 
