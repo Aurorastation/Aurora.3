@@ -1,6 +1,0 @@
-author: Llywelwyn
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes date when using 'save chat log'. Now gives the correct month and date."
