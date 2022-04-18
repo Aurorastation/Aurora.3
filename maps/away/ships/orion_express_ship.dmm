@@ -676,7 +676,9 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_express_ship)
 "lpe" = (
-/obj/effect/shuttle_landmark/orion_express_shuttle/hangar,
+/obj/effect/shuttle_landmark/orion_express_shuttle/hangar{
+	movable_flags = null
+	},
 /obj/effect/overmap/visitable/ship/landable/orion_express_shuttle,
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/shuttle/black,
