@@ -7,6 +7,7 @@
 	possible_origins = list(
 		/decl/origin_item/origin/sol_system,
 		/decl/origin_item/origin/earth,
+		/decl/origin_item/origin/luna,
 		/decl/origin_item/origin/venus,
 		/decl/origin_item/origin/mars, 
 		/decl/origin_item/origin/jupiter,
@@ -33,6 +34,13 @@
 	name = "Earth"
 	desc = "Perhaps the single most important planet in the Orion Spur, Earth is the homeworld of humanity. Most megacorporations originated on Earth, and many still operate from it. Expensive climate restoration efforts undertaken by the Solarian Alliance in cooperation with Zeng-Hu Pharmaceuticals have restored much of Earth's climate, though the scars of humanity's industrialization can still be seen across its surface."
 	possible_accents = list(ACCENT_EARTH)
+	possible_citizenships = CITIZENSHIPS_SOLARIAN
+	possible_religions = RELIGIONS_SOLARIAN
+
+/decl/origin_item/origin/luna
+	name = "Luna"
+	desc = " Earth’s only natural satellite, Luna is humanity’s oldest colony and one of the Solarian Alliance’s wealthiest member states. While not every Lunarian is wealthy, and a significant working class population exists, much of the moon’s population is stereotyped as being wealthy beyond what most can imagine. Lunarians are often stereotyped as haughty, arrogant people who are incredibly prideful and constantly brag about their origins on Luna."
+	possible_accents = list(ACCENT_LUNA)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN
 
