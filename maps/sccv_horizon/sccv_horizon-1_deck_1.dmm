@@ -2960,18 +2960,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
-"cIE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/sign/electricshock{
-	name = "\improper CAUTION: HEAVY MACHINERY IN USE"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos)
 "cIU" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
@@ -47634,7 +47622,7 @@ hWb
 aph
 sXy
 mzL
-cIE
+pZd
 wIO
 lRH
 eNU
