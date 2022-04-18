@@ -1445,6 +1445,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "dj" = (
@@ -11002,6 +11003,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "zY" = (
