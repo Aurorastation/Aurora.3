@@ -104,7 +104,7 @@
 	shuttle_area = list(/area/shuttle/tcfl_shuttle)
 	dock_target = "tcfl_shuttle"
 	current_location = "nav_hangar_tcfl"
-	landmark_transition = "nav_hangar_tcfl"
+	landmark_transition = "nav_transit_tcfl"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_tcfl"
