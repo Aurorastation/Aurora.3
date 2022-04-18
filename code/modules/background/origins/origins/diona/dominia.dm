@@ -8,7 +8,7 @@
 /decl/origin_item/origin/dominia_grown
 	name = "Dominia Grown"
 	desc = "Dionae who were originally grown in and influenced by the Empire of Dominia."
-	important_information = "Dionae grown within Dominian space are expected to adhere strictly to Dominian law and religion. They are also subject to a system that randomly selects them for a position they are expected to work in for their entire life such as a menial worker for a noble house, although on rare occasion they may be assigned a much more influential position such as a priest or diplomat, although they will still spend decades working as an aid or intern until being allowed in the full-time position, and even then, will still be monitored closely to ensure they’re only a boon to the Empire."
+	important_information = "Dionae grown within Dominian space are expected to adhere strictly to Dominian law and religion. They are also subject to a system that randomly selects them for a position they are expected to work in for their entire life such as a menial worker for a noble house, although on rare occasion they may be assigned a much more influential position such as a priest or diplomat, although they will still spend decades working as an aid or intern until being allowed in the full-time position, and even then, will still be monitored closely to ensure they're only a boon to the Empire."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
 	possible_citizenships = list(CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_MOROZ, RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
