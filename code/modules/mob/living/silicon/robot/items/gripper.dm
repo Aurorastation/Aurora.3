@@ -34,7 +34,6 @@
 	var/obj/item/wrapped
 
 	var/force_holder
-	var/just_dropped = FALSE //When set to 1, the gripper has just dropped its item, and should not attempt to trigger anything
 
 /obj/item/gripper/examine(var/mob/user)
 	..()
@@ -176,9 +175,8 @@
 		grip_item(target, user)
 	else if (istype(target, /obj/machinery/mining)) // to prevent them from activating it by accident
 		return
-	else if (!just_dropped)
+	else
 		target.attack_ai(user)
-	just_dropped = FALSE
 
 /obj/item/gripper/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	if(wrapped)
