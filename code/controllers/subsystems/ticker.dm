@@ -343,7 +343,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	total_players_ready = LAZYLEN(ready_player_jobs)
 
 /datum/controller/subsystem/ticker/proc/update_ready_list(var/mob/abstract/new_player/NP)
-	if(current_state >= GAME_STATE_PLAYING || !SSjobs || !istype(NP))
+	if(current_state >= GAME_STATE_PLAYING || !SSjobs)
 		return // don't bother once the game has started
 
 	if(NP.ready)
