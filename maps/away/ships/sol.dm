@@ -102,7 +102,6 @@
 	name = "SFA Shuttle"
 	move_time = 90
 	shuttle_area = list(/area/shuttle/sfa_shuttle)
-	dock_target = "sfa_shuttle"
 	current_location = "nav_hangar_sfa"
 	landmark_transition = "nav_transit_sfa"
 	range = 1
