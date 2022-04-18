@@ -321,10 +321,10 @@
 			O.forceMove(src)
 			beaker = O
 			updateUsrDialog()
-		return TRUE
+		. = TRUE
 	else if(processing)
 		to_chat(user, SPAN_NOTICE("\The [src] is currently processing."))
-		return TRUE
+		. = TRUE
 	else if(istype(O, /obj/item/storage/bag/plants))
 		var/i = 0
 		var/obj/item/storage/bag/P = O
@@ -344,12 +344,10 @@
 
 			if(i < capacity)
 				to_chat(user, SPAN_NOTICE("You empty \the [O] into \the [src]."))
-		return TRUE
-
-
+		. = TRUE
 	else if(!istype(O, /obj/item/reagent_containers/food/snacks/grown))
 		to_chat(user, SPAN_NOTICE("You cannot put this in \the [src]."))
-		return TRUE
+		. = TRUE
 	else
 		var/i = 0
 		for(var/obj/item/reagent_containers/food/snacks/grown/G in contents)
@@ -360,7 +358,7 @@
 			user.remove_from_mob(O)
 			O.forceMove(src)
 			to_chat(user, SPAN_NOTICE("You put \the [O] in \the [src]"))
-		return TRUE
+			. = TRUE
 	update_icon()
 
 /obj/machinery/biogenerator/interact(mob/user as mob)
