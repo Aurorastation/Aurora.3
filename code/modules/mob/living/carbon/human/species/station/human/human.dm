@@ -47,7 +47,8 @@
 		/decl/origin_item/culture/biesellite,
 		/decl/origin_item/culture/solarian,
 		/decl/origin_item/culture/dominia,
-		/decl/origin_item/culture/coalition
+		/decl/origin_item/culture/coalition,
+		/decl/origin_item/culture/elyran
 	)
 
 	zombie_type = SPECIES_ZOMBIE

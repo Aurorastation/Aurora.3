@@ -9,7 +9,8 @@
 
 /decl/origin_item/origin/ipc_sol_system
 	name = "Sol Alliance"
-	desc = "Coming from the very centre of human space, IPC from the worlds of the Alliance are made with servitude in mind. The prospect of freedom does not exist for the vast majority of synthetics from there, and many have behavioural inhibitors installed as hardware. Memory wiping and retooling ensure strict adherence to discipline and efficiency, an attribute many IPC carry with them in their lives."
+	desc = "IPCs are ubiquitous in the Sol Alliance, especially on urbanized planets, with synthetics serving as manual labour for both households, corporations, and the government and armed forces. IPCs within the Alliance are expected to be subservient to organics, and in many cases, are programmed in such a way that makes this behaviour not only enforced, but preferred."
+	important_information = "Seeking citizenship within the Sol Alliance is impossible, as such, many IPCs are forced to flee to the Republic of Biesel or seek the sympathy of their owners for freedom."
 	possible_accents = ACCENTS_ALL_IPC_SOL
 	possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN

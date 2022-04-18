@@ -6,9 +6,11 @@
 	desc = "The Empire of Dominia (often simply referred to as \"the Empire\") is an autocratic monarchy that is heavily influenced by its state religion, the Moroz Holy Tribunal, which is often regarded as an offshoot of old Earth faiths. Imperial society is sharply divided between Morozians, which are themselves divided between noble Primaries and commoner Secondaries, and Ma'zals, which make up the population of its conquered worlds. Militaristic and expansionist, the Empire has been increasingly brought into conflict with its neighbors: the Serene Republic of Elyra and Coalition of Colonies. Dominians are often stereotyped as militant, religious, and egotistical."
 	possible_origins = list(
 		/decl/origin_item/origin/moroz,
+		/decl/origin_item/origin/fisanduh,
 		/decl/origin_item/origin/imperial_core_worlds,
 		/decl/origin_item/origin/novi_jadran,
-		/decl/origin_item/origin/imperial_frontier
+		/decl/origin_item/origin/imperial_frontier,
+		/decl/origin_item/origin/dominian_exile
 	)
 
 /decl/origin_item/origin/moroz
@@ -17,6 +19,13 @@
 	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH, ACCENT_FISANDUH)
 	possible_citizenships = CITIZENSHIPS_DOMINIA
 	possible_religions = RELIGIONS_DOMINIA
+
+/decl/origin_item/origin/fisanduh
+	name = "Fisanduh"
+	desc = "A mountainous region of Moroz that is technically under Imperial control, Fisanduh has long been a zone of conflict between the Dominian military and the remains of the Confederated States of Fisanduh, the democratic state that once controlled the region. Fisanduh has been devastated by decades of war and insurgency, with stretches of land rendered uninhabitable by artillery exchanges during the War of Moroz and an economy stuck in freefall."
+	possible_accents = list(ACCENT_FISANDUH)
+	possible_citizenships = list(CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_SOL)
+	possible_religions = list(RELIGION_MOROZ, RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SHINTO, RELIGION_OTHER)
 
 /decl/origin_item/origin/imperial_core_worlds
 	name = "Imperial Core Worlds"
@@ -39,3 +48,10 @@
 	possible_citizenships = CITIZENSHIPS_DOMINIA
 	possible_religions = list(RELIGION_NONE, RELIGION_MOROZ, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER)
 
+/decl/origin_item/origin/dominian_exile
+	name = "Dominian Exile"
+	desc = "PLACEHOLDER"
+	important_information = "This origin is for the purposes of playing Edict Breakers that have fled the Empire of Dominia's justice. It is <b>NOT</b> an excuse to play a character with a Dominian accent that is totally divorced from the Empire."
+	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH)
+	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_religions = list(RELIGION_MOROZ, RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SHINTO, RELIGION_OTHER)

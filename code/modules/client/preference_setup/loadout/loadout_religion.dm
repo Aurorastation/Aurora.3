@@ -90,7 +90,6 @@
 /datum/gear/religion/dominia/accessory
 	display_name = "tribunal necklace"
 	path = /obj/item/clothing/accessory/dominia
-	culture_restriction = list(/decl/origin_item/culture/dominia)
 
 /datum/gear/religion/dominia/medical
 	display_name = "tribunalist medical beret"

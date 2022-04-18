@@ -3,7 +3,7 @@
 
 /decl/origin_item/culture/federation
 	name = "Federation Skrell"
-	desc = "You love watching characters with art get killed on Tup events. Placeholder. Yell at Matt if this goes through."
+	desc = "The Jargon Federation was first formed in 900 CE to unite the Skrell diaspora on Qerrbalak and its initial colonies, and formed again in 2192 CE with the disappearance of Glorsh-Omega. The Federation throughout the centuries has always had the main goal of uplifting the Skrell species as a whole, resulting in a culture that places importance on family, success, and working as a collective for the betterment of Skrellkind."
 	possible_origins = list(
 		/decl/origin_item/origin/jargon_core_worlds,
 		/decl/origin_item/origin/traverse,
