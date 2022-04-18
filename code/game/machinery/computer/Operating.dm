@@ -135,7 +135,8 @@
 			to_chat(user, SPAN_NOTICE("No Patient Detected"))
 
 /obj/machinery/computer/operating/Topic(href, href_list)
-	..()
+	if(..())
+		return TRUE
 	if(href_list["action"])
 		switch(href_list["action"])
 			if("update")
@@ -154,8 +155,6 @@
 			if("print_new")
 				print_new()
 				usr.visible_message("\The [src] beeps, printing a new [input_scan] after a moment.")
-	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
-		usr.set_machine(src)
 	return
 
 /obj/machinery/computer/operating/machinery_process()

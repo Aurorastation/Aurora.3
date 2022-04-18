@@ -961,6 +961,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpaper_generic"
 	w_class = ITEMSIZE_TINY
+	can_fold = FALSE
 
 /obj/item/paper/cig/attackby(obj/item/P as obj, mob/user as mob)
 	if(istype(P, /obj/item/flame) || P.iswelder())
@@ -975,25 +976,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A thin piece of trident branded paper used to make fine smokables."
 	icon_state = "cigpaper_fine"
 
-/obj/item/paper/cig/filter
+/obj/item/cigarette_filter
 	name = "cigarette filter"
 	desc = "A small nub like filter for cigarettes."
+	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigfilter"
 	w_class = ITEMSIZE_TINY
 
-/obj/item/paper/cig/filter/attackby(obj/item/P as obj, mob/user as mob)
-	if(istype(P, /obj/item/flame) || P.iswelder())
-		..()
-	else
-		return //no writing on filters now
-
-/obj/item/paper/cig/attack_self(mob/living/user as mob)
-	if(user.a_intent == I_HURT)
-		..()
-		return
-	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
-		user.show_message(SPAN_ALERT("The cigarette paper is too small to fold into a plane."))
-		return
+/obj/item/cigarette_filter/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/clothing/mask/smokable/cigarette/rolled))
+		var/obj/item/clothing/mask/smokable/cigarette/rolled/CR = I
+		return CR.attackby(src, user)
+	. = ..()
+	
 
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco
@@ -1016,17 +1011,17 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	plantname = "puretobacco"
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/paper/cig/filter))
+	if(istype(I, /obj/item/cigarette_filter))
 		if(filter)
-			to_chat(user, SPAN_WARNING("[src] already has a filter!"))
+			to_chat(user, SPAN_WARNING("\The [src] already has a filter!"))
 			return
 		if(lit)
-			to_chat(user, SPAN_WARNING("[src] is lit already!"))
+			to_chat(user, SPAN_WARNING("\The [src] is lit already!"))
 			return
 		if(user.unEquip(I))
-			to_chat(user, SPAN_NOTICE("You stick [I] into \the [src]"))
+			user.visible_message(SPAN_NOTICE("[user] sticks a cigarette filter into \the [src]."), SPAN_NOTICE("You stick a cigarette filter into \the [src]."))
 			playsound(src, 'sound/items/drop/gloves.ogg', 25, 1)
-			filter = 1
+			filter = TRUE
 			name = "filtered [name]"
 			update_icon()
 			qdel(I)
@@ -1034,15 +1029,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	..()
 
 /obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/I, mob/user)
-	if(is_type_in_list(I, list(/obj/item/paper/cig/, /obj/item/paper/)))
+	if(istype(I, /obj/item/paper))
 		if(!dry)
-			to_chat(user, SPAN_WARNING("You need to dry [src] first!"))
+			to_chat(user, SPAN_WARNING("You need to dry \the [src] first!"))
 			return
 		if(user.unEquip(I))
 			var/obj/item/clothing/mask/smokable/cigarette/rolled/R = new(get_turf(src))
 			R.chem_volume = reagents.total_volume
 			reagents.trans_to_holder(R.reagents, R.chem_volume)
-			to_chat(user, SPAN_NOTICE("You roll \the [src] into \the [I]"))
+			user.visible_message(SPAN_NOTICE("[user] rolls a cigarette in their hands with \the [I] and [src]."), SPAN_NOTICE("You roll a cigarette in your hands with \the [I] and [src]."))
 			playsound(src, 'sound/bureaucracy/paperfold.ogg', 25, 1)
 			user.put_in_active_hand(R)
 			qdel(I)

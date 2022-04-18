@@ -47,7 +47,7 @@
 
 /obj/item/clothing/head/caphat/bridge_crew
 	name = "bridge crew cap"
-	desc = "A stylish cap issued to the SCC bridge crew."
+	desc = "A stylish cap issued to the bridge crew of SCC vessels."
 	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
 	contained_sprite = TRUE
 	icon_state = "bridge_officer_cap"

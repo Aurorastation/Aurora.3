@@ -211,6 +211,10 @@
 	. = ..()
 	expend()
 
+/obj/item/ammo_casing/a762/blank
+	desc = "A 7.62mm blank casing."
+	projectile_type = /obj/item/projectile/bullet/blank
+
 /obj/item/ammo_casing/a145
 	name = "shell casing"
 	desc = "A 14.5mm shell."
