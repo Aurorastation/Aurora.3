@@ -37,8 +37,7 @@
 	
 /datum/accent/skrell/genner
 	name = ACCENT_GENNER
-	description = "The Skrell have utilised Generation Ships for long-distance colonisation since they began to explore outside of their solar system. These ships come in a large \
-	variety of designs depending on which era of Skrell history they were built, but all of them were built with self-sufficiency and low maintenance costs in mind. These ships are \
-	typically designed to traverse space for centuries, and are given the tools and resources needed to ensure the ship and its passengers arrive at their intended destination with \
-	little to no outside support."
+	description = "The Generation Fleet accent is actually a catch-all term for the various accents that have developed aboard the Generation Fleets of the Jargon Federation. \
+	As a result of being separated from their planet of origin for generations, these accents don't have much in common with any modern Skrell accent, and are usually \
+	described as sounding 'older' by other Skrell."
 	tag_icon = "skrell_genner"
