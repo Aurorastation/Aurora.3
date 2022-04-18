@@ -26,7 +26,8 @@
 /decl/origin_item/origin/ipc_konyang
 	name = "Konyang"
 	desc = "The birthplace of the positronic brain, Konyang has embraced IPC as equals, integrating them into a mixed society of synthetics and humans. Ownership of IPC is forbidden, leaving them able to freely develop and express themselves as citizens with full rights and access to all levels of society. Synthetics native to Konyang tend to strongly adhere to local cultural standards, assuming the same protective attitude towards strangers like their human counterparts."
+	important_information = "Naming conventions are relaxed on Konyang, with some IPC taking a clearly synthetic name, while others adopt names similar to humans, with both a first and surname."
 	possible_accents = list(ACCENT_KONYAN)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_NONE)
-	possible_religions = list(RELIGION_NONE, RELIGION_TRINARY, RELIGION_BUDDHISM, RELIGION_SHINTO)
+	possible_religions = list(RELIGION_NONE, RELIGION_TRINARY, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_TAOISM)
 
