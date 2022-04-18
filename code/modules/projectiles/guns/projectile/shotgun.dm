@@ -110,7 +110,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
 
 /obj/item/gun/projectile/shotgun/pump/combat/sol
-	name = "naval shotgun"
+	name = "solarian combat shotgun"
 	desc = "A compact combat shotgun manufactured by Zavodskoi Interstellar for the Solarian Armed Forces, the M63 is most frequently employed by assaulters fighting in close-quarters environments, though it is also uncommonly used as a defensive weapon by Navy crewmen. Chambered in 12 gauge."
 	icon = 'icons/obj/guns/sol_shotgun.dmi'
 	icon_state = "malella"
