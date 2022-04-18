@@ -16683,13 +16683,13 @@
 /area/hydroponics/garden)
 "kuS" = (
 /obj/machinery/door/window/southright,
-/obj/structure/window/reinforced/tinted{
+/obj/structure/curtain/open/shower,
+/obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/machinery/shower{
-	pixel_y = 32
+	pixel_y = 24
 	},
-/obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/security/main)
 "kvd" = (
@@ -29163,13 +29163,13 @@
 /area/security/brig)
 "rXh" = (
 /obj/machinery/door/window/southleft,
-/obj/structure/window/reinforced/tinted{
-	dir = 4
-	},
 /obj/machinery/shower{
-	pixel_y = 32
+	pixel_y = 24
 	},
 /obj/structure/curtain/open/shower,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/security/main)
 "rXm" = (
