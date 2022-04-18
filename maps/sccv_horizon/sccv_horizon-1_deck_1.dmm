@@ -27006,9 +27006,6 @@
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
 "xVk" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
