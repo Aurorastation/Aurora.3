@@ -2304,6 +2304,15 @@
 	},
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
+"bnQ" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/computer/guestpass{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/central_two)
 "boE" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -7409,6 +7418,9 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
+	},
+/obj/machinery/computer/guestpass{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -36497,6 +36509,24 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/operations/mail_room)
+"wou" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/computer/guestpass{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/hallway)
 "wox" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -59875,7 +59905,7 @@ fHo
 ntN
 gDw
 wPF
-cDV
+bnQ
 cDV
 mFs
 mWs
@@ -64712,7 +64742,7 @@ cNU
 uFM
 eUj
 cNU
-dDS
+wou
 rnA
 uTr
 uTr

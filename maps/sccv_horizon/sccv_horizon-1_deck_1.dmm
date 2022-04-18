@@ -24940,6 +24940,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/guestpass{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid/interstitial)
 "wIM" = (

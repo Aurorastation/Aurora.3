@@ -16228,6 +16228,15 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
+"MG" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/computer/guestpass{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/starboard)
 "MH" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -44569,7 +44578,7 @@ Ji
 co
 Ou
 Uq
-CN
+MG
 vx
 MA
 Rk
