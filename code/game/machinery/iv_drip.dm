@@ -431,61 +431,61 @@
 /obj/machinery/iv_drip/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/reagent_containers/blood/ripped))
 		to_chat(user, "You can't use a ripped bloodpack.")
-		return
+		return TRUE
 	if(istype(W, /obj/item/reagent_containers))
 		if(beaker)
 			to_chat(user, "There is already a reagent container loaded!")
-			return
+			return TRUE
 		usr.drop_from_inventory(W, src)
 		beaker = W
 		usr.visible_message(SPAN_NOTICE("[usr] attaches \the [W] to \the [src]."), SPAN_NOTICE("You attach \the [W] to \the [src]."))
 		update_icon()
-		return
+		return TRUE
 	if(istype(W, /obj/item/clothing/mask/breath))
 		if(is_type_in_list(W, mask_blacklist))
 			to_chat(usr, "\The [W] is incompatible with \the [src].")
-			return
+			return TRUE
 		if(breath_mask)
 			to_chat(usr, "There is already a mask installed.")
-			return
+			return TRUE
 		usr.drop_from_inventory(W, src)
 		breath_mask = W
 		usr.visible_message(SPAN_NOTICE("[usr] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
 		update_icon()
-		return
+		return TRUE
 	if(istype(W, /obj/item/tank))
 		if(is_type_in_list(W, tank_blacklist))
 			to_chat(usr, "\The [W] is incompatible with \the [src].")
-			return
+			return TRUE
 		if(tank)
 			to_chat(usr, "There is already a tank installed!")
-			return
+			return TRUE
 		if(istype(W, /obj/item/tank/phoron))
 			if(tipped)
 				to_chat(usr, "You're not sure how to place \the [W] in the fallen [src].")
-				return
+				return TRUE
 		usr.drop_from_inventory(W, src)
 		tank = W
 		usr.visible_message(SPAN_NOTICE("[usr] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
 		update_icon()
-		return
+		return TRUE
 	if(W.iswrench())
 		if(!tank)
 			to_chat(usr, "There isn't a tank installed for you to secure!")
-			return
+			return TRUE
 		if(tank_type == "phoron")
 			to_chat(usr, "You can't properly secure this type of tank to \the [src]!")
-			return
+			return TRUE
 		usr.visible_message(
 			SPAN_NOTICE("[usr] [is_loose ? "tightens" : "loosens"] the nuts on [src]."),
 			SPAN_NOTICE("You [is_loose ? "tighten" : "loosen"] the nuts on [src], [is_loose ? "securing \the [tank]" : "allowing \the [tank] to be removed"]."))
 		playsound(src.loc, "sound/items/wrench.ogg", 50, 1)
 		is_loose = !is_loose
-		return
+		return TRUE
 	if(default_deconstruction_screwdriver(user, W))
-		return
+		return TRUE
 	if(default_part_replacement(user, W))
-		return
+		return TRUE
 	return ..()
 
 /obj/machinery/iv_drip/attack_ai(mob/user as mob)

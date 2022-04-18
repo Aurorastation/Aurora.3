@@ -39,17 +39,15 @@
 
 /obj/machinery/computer/message_monitor/attackby(obj/item/O as obj, mob/living/user as mob)
 	if(stat & (NOPOWER|BROKEN))
-		..()
-		return
+		return ..()
 	if(!istype(user))
-		return
+		return TRUE
 	if(O.isscrewdriver() && emag)
 		//Stops people from just unscrewing the monitor and putting it back to get the console working again.
 		to_chat(user, "<span class='warning'>It is too hot to mess with!</span>")
-		return
+		return TRUE
 
-	..()
-	return
+	return ..()
 
 /obj/machinery/computer/message_monitor/emag_act(var/remaining_charges, var/mob/user)
 	// Will create sparks and print out the console's password. You will then have to wait a while for the console to be back online.

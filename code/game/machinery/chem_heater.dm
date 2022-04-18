@@ -31,26 +31,26 @@
 
 /obj/machinery/chem_heater/attackby(obj/item/O, mob/user)
 	if(default_deconstruction_screwdriver(user, O))
-		return
+		return TRUE
 	if(default_deconstruction_crowbar(user, O))
-		return
+		return TRUE
 	if(default_part_replacement(user, O))
-		return
+		return TRUE
 	if(istype(O, /obj/item/reagent_containers/glass) || istype(O, /obj/item/reagent_containers/food))
 		if(container)
 			to_chat(user, SPAN_WARNING("There is already \a [container] on \the [src]!"))
-			return
+			return TRUE
 
 		var/obj/item/reagent_containers/RC = O
 		if(!RC.is_open_container())
 			to_chat(user, SPAN_WARNING("You don't see how \the [src] could heat up the reagents in \the [RC]."))
-			return
+			return TRUE
 
 		container =  RC
 		user.drop_from_inventory(RC,src)
 		to_chat(user, SPAN_NOTICE("You set \the [RC] in \the [src]."))
 		updateUsrDialog()
-		return
+		return TRUE
 
 /obj/machinery/chem_heater/interact(mob/user as mob)
 	if(stat & BROKEN)

@@ -75,13 +75,14 @@
 /obj/machinery/sleeper/mounted/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/reagent_containers/glass))
 		if(!user.unEquip(I, src))
-			return
+			return TRUE
 
 		if(beaker)
 			beaker.forceMove(get_turf(src))
 			user.visible_message("<span class='notice'>\The [user] removes \the [beaker] from \the [src].</span>", "<span class='notice'>You remove \the [beaker] from \the [src].</span>")
 		beaker = I
 		user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
+		return TRUE
 
 /obj/item/mecha_equipment/crisis_drone
 	name = "crisis dronebay"

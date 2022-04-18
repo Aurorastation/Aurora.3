@@ -37,13 +37,14 @@
 		if(src.allowed(user))
 			covered = !covered //Enable / Disable the forcefield
 		update_use_power(covered + 1) //Update the power usage
+		return TRUE
 	else
 		if(covered && (stat & NOPOWER)) //Only bounce off if its powered (i.e. shield active)
-			..()
+			return ..()
 		else
 			user.visible_message("<span class='danger'>[src] has been hit by [user] with [W], but it bounces off the forcefield.</span>","<span class='danger'>You hit [src] with [W], but it bounces off the forcefield.</span>","You hear something boucing off a forcefield.")
+			return TRUE
 	update_icon()
-	return
 
 /obj/machinery/case_button/attack_hand(mob/user as mob)
 	if(!covered)

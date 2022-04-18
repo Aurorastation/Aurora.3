@@ -111,3 +111,4 @@
 				var/B = new src.circuit.build_path ( src.loc )
 				src.circuit.construct(B)
 				qdel(src)
+	return TRUE

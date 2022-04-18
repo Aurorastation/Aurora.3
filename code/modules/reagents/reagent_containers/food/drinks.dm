@@ -515,16 +515,16 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	if(istype(W, /obj/item/reagent_containers/food/drinks/flask/flask_cup))
 		if(cup)
 			to_chat(user, SPAN_WARNING("\The [src] already has a cap."))
-			return
+			return TRUE
 		if(W.reagents.total_volume + reagents.total_volume > volume)
 			to_chat(user, SPAN_WARNING("There's too much fluid in both the cap and the flask!"))
-			return
+			return TRUE
 		to_chat(user, SPAN_NOTICE("You put the cap onto \the [src]."))
 		user.drop_from_inventory(W, src)
 		cup = W
 		cup.reagents.trans_to_holder(reagents, cup.reagents.total_volume)
 		update_icon()
-		return
+		return TRUE
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/update_icon()

@@ -87,7 +87,7 @@
 		if(paymode == COIN)
 			if(prob(2))
 				if(!user.drop_from_inventory(C, user.loc))
-					return
+					return TRUE
 				C.throw_at(user, 3, 10)
 				if(prob(10))
 					balance = max(balance - SPIN_PRICE, 0)
@@ -100,6 +100,7 @@
 				qdel(C)
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting credit chips!"))
+		return TRUE
 	else if(istype(I, /obj/item/spacecash))
 		if(paymode == CREDITCHIP)
 			var/obj/item/spacecash/H = I
@@ -110,6 +111,7 @@
 			qdel(H)
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting coins!"))
+		return TRUE
 	else if(I.ismultitool())
 		if(balance > 0)
 			visible_message("<b>[src]</b> says, 'ERROR! Please empty the machine balance before altering paymode'") //Prevents converting coins into credits and vice versa
@@ -120,6 +122,7 @@
 			else
 				paymode = CREDITCHIP
 				visible_message("<b>[src]</b> says, 'This machine now works with CREDITCHIPS!'")
+		return TRUE
 	else
 		return ..()
 

@@ -270,6 +270,7 @@
 		else
 			to_chat(user, "<span class='warning'>\The [src] isn't open, so you can't fiddle with the internal components.  \
 			Try using a crowbar.</span>")
+		return TRUE
 
 	else if(istype(I, /obj/item/cell/device))
 		if(!opened)
@@ -295,6 +296,7 @@
 		var/obj/item/device/integrated_electronics/detailer/D = I
 		detail_color = D.detail_color
 		update_icon()
+		return TRUE
 
 	else
 		for(var/obj/item/integrated_circuit/insert_slot/S in contents)  //Attempt to insert the item into any contained insert_slots

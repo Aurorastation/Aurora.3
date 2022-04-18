@@ -97,7 +97,7 @@
 			set_light(0)
 		wiresexposed = !wiresexposed
 		update_icon()
-		return
+		return TRUE
 
 	if(wiresexposed)
 		set_light(0)
@@ -145,10 +145,9 @@
 					new /obj/item/frame/fire_alarm(get_turf(user))
 					playsound(src.loc, W.usesound, 50, 1)
 					qdel(src)
-		return
+		return TRUE
 
 	src.alarm()
-	return
 
 /obj/machinery/firealarm/machinery_process()//Note: this processing was mostly phased out due to other code, and only runs when needed
 	var/area/A = get_area(src)

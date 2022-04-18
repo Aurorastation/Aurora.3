@@ -20,7 +20,7 @@
 			spawn(15)
 				if(M)
 					if(!M.get_amount())
-						return
+						return TRUE
 					while(metal_amount < 150000 && M.amount)
 						src.metal_amount += O.matter[DEFAULT_WALL_MATERIAL] /*O:height * O:width * O:length * 100000.0*/
 						M.use(1)
@@ -31,6 +31,7 @@
 					updateDialog()
 		else
 			to_chat(user, "The robot part maker is full. Please remove metal from the robot part maker in order to insert more.")
+		return TRUE
 
 /obj/machinery/robotic_fabricator/attack_hand(user as mob)
 	var/dat

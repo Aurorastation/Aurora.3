@@ -62,7 +62,7 @@
 		if(input_scan)
 			to_chat(usr, SPAN_NOTICE("You try to insert \the [O], but \the [src] buzzes. There is already a [O] inside!"))
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
-			return
+			return TRUE
 		user.drop_from_inventory(O, src)
 		input_scan = O
 		input_scan.color = "#272727"
@@ -70,10 +70,10 @@
 		usr.visible_message("\The [src] pings, displaying \the [input_scan].")
 		to_chat(usr, SPAN_NOTICE("You insert \the [O] into [src]."))
 		playsound(src, 'sound/bureaucracy/scan.ogg', 50, 1)
-		return
+		return TRUE
 	else
 		to_chat(usr, SPAN_WARNING("\The [src]'s scan slot is closed! Please put in a valid patient on the table to open it!"))
-		return
+		return TRUE
 
 /obj/machinery/computer/operating/interact(mob/user)
 	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )

@@ -244,6 +244,7 @@
 				shoot_inventory = FALSE
 		else
 			to_chat(user, SPAN_NOTICE("\The [W] reads, \"All systems nominal.\"."))
+		return TRUE
 
 	var/obj/item/card/id/I = W.GetID()
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
@@ -274,14 +275,14 @@
 		if(paid)
 			SSvueui.check_uis_for_change(src)
 			src.vend(currently_vending, usr)
-			return
+			return TRUE
 		else if(handled)
 			SSvueui.check_uis_for_change(src)
-			return // don't smack that machine with your 2 credits
+			return TRUE // don't smack that machine with your 2 credits
 
 	if (I || istype(W, /obj/item/spacecash))
 		attack_hand(user)
-		return
+		return TRUE
 	else if(W.isscrewdriver())
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
@@ -289,18 +290,18 @@
 		add_screen_overlay()
 		if(src.panel_open)
 			add_overlay("[initial(icon_state)]-panel")
-		return
+		return TRUE
 	else if(W.ismultitool()||W.iswirecutter())
 		if(src.panel_open)
 			attack_hand(user)
-		return
+		return TRUE
 	else if(istype(W, /obj/item/coin) && premium.len > 0)
 		user.drop_from_inventory(W,src)
 		coin = W
 		categories |= CAT_COIN
 		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
 		SSvueui.check_uis_for_change(src)
-		return
+		return TRUE
 	else if(W.iswrench())
 		if(!can_move)
 			return
@@ -316,7 +317,7 @@
 			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
 			anchored = !anchored
 			power_change()
-		return
+		return TRUE
 
 	else if(istype(W,/obj/item/device/vending_refill))
 		if(panel_open)
@@ -331,29 +332,26 @@
 					to_chat(user, "<span class='warning'>\The [VR] is not stocked for this type of vendor!</span>")
 			else
 				to_chat(user, "<span class='warning'>\The [VR] is depleted!</span>")
-			return
 		else
 			to_chat(user, "<span class='warning'>You must open \the [src]'s maintenance panel first!</span>")
-			return
+		return TRUE
 
 	else if(!is_borg_item(W))
 		if(!restock_items)
 			to_chat(user, "<span class='warning'>\the [src] can not be restocked manually!</span>")
-			return
+			return TRUE
 		for(var/path in restock_blocked_items)
 			if(istype(W,path))
 				to_chat(user, "<span class='warning'>\the [src] does not accept this item!</span>")
-				return
+				return TRUE
 
 		for(var/datum/data/vending_product/R in product_records)
 			if(W.type == R.product_path)
 				stock(R, user)
 				user.remove_from_mob(W) //Catches gripper duplication
 				qdel(W)
-				return
-		..()
-	else
-		..()
+				return TRUE
+	return ..()
 
 /**
  *  Receive payment with cashmoney.

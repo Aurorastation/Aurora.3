@@ -146,18 +146,18 @@
 /obj/machinery/autolathe/attackby(obj/item/O, mob/user)
 	if(busy)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for the completion of previous operation."))
-		return
+		return TRUE
 
 	if(default_deconstruction_screwdriver(user, O))
 		updateUsrDialog()
-		return
+		return TRUE
 	if(default_deconstruction_crowbar(user, O))
-		return
+		return TRUE
 	if(default_part_replacement(user, O))
-		return
+		return TRUE
 
 	if(stat)
-		return
+		return TRUE
 
 	if(panel_open)
 		//Don't eat multitools or wirecutters used on an open lathe.
@@ -166,7 +166,7 @@
 				wires.Interact(user)
 			else
 				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
-			return
+			return TRUE
 
 	if(O.loc != user && !istype(O, /obj/item/stack))
 		return FALSE
@@ -177,7 +177,7 @@
 	load_lathe(O, user)
 
 	updateUsrDialog()
-	return
+	return TRUE
 
 /obj/machinery/autolathe/attack_hand(mob/user)
 	user.set_machine(src)

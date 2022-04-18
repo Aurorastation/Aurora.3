@@ -305,7 +305,7 @@ update_flag
 		return
 	if(!W.iswrench() && !is_type_in_list(W, list(/obj/item/tank, /obj/item/device/analyzer, /obj/item/modular_computer)) && !issignaler(W) && !(W.iswirecutter() && signaler))
 		if(W.flags & NOBLUDGEON)
-			return
+			return TRUE
 		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"), SPAN_NOTICE("You hit \the [src] with \the [W]."))
 		user.do_attack_animation(src, W)
 		playsound(src, 'sound/weapons/smash.ogg', 60, 1)
@@ -313,7 +313,7 @@ update_flag
 		if(!istype(W, /obj/item/forensics))
 			src.add_fingerprint(user)
 		healthcheck()
-		return
+		return TRUE
 
 	if(istype(user, /mob/living/silicon/robot) && istype(W, /obj/item/tank/jetpack))
 		var/datum/gas_mixture/thejetpack = W:air_contents
@@ -326,7 +326,7 @@ update_flag
 			var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
 			thejetpack.merge(removed)
 			to_chat(user, "You pulse-pressurize your jetpack from the tank.")
-		return
+		return TRUE
 
 	..()
 

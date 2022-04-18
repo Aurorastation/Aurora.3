@@ -73,6 +73,7 @@
 				to_chat(user, SPAN_NOTICE("You decide to scrap the blueprint."))
 				new /obj/item/stack/material/steel(get_turf(src), 2)
 				qdel(src)
+				return TRUE
 		if(WIRING_STATE)
 			if(P.iscoil())
 				var/obj/item/stack/cable_coil/C = P
@@ -86,21 +87,24 @@
 						to_chat(user, SPAN_NOTICE("You wire up the blueprint."))
 						state = CIRCUITBOARD_STATE
 						icon_state = "blueprint_1"
+				return TRUE
 			else
 				if(P.iswrench())
 					playsound(get_turf(src), P.usesound, 75, TRUE)
 					to_chat(user, SPAN_NOTICE("You dismantle the blueprint."))
 					new /obj/item/stack/material/steel(get_turf(src), 2)
 					qdel(src)
+					return TRUE
 				else if(istype(P, /obj/item/gun/energy/plasmacutter))
 					var/obj/item/gun/energy/plasmacutter/PC = P
 					if(PC.check_power_and_message(user))
-						return
+						return TRUE
 					PC.use_resource(1)
 					playsound(get_turf(src), PC.fire_sound, 75, TRUE)
 					to_chat(user, SPAN_NOTICE("You dismantle the blueprint."))
 					new /obj/item/stack/material/steel(get_turf(src), 2)
 					qdel(src)
+					return TRUE
 		if(CIRCUITBOARD_STATE)
 			if(istype(P, /obj/item/circuitboard))
 				var/obj/item/circuitboard/B = P
@@ -129,6 +133,7 @@
 					to_chat(user, SPAN_NOTICE("[components_description]"))
 				else
 					to_chat(user, SPAN_WARNING("This blueprint does not accept circuit boards of this type!"))
+				return TRUE
 			else
 				if(P.iswirecutter())
 					playsound(get_turf(src), P.usesound, 50, TRUE, pitch_toggle)
@@ -138,6 +143,7 @@
 					var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil(get_turf(src))
 					A.amount = 5
 					A.update_icon()
+					return TRUE
 
 		if(COMPONENT_STATE)
 			if(P.iscrowbar())
@@ -189,6 +195,7 @@
 							new_machine.RefreshParts()
 							new_machine.anchored = TRUE
 						qdel(src)
+					return TRUE
 				else
 					if(istype(P, /obj/item))
 						for(var/I in req_components)
@@ -214,6 +221,7 @@
 						to_chat(user, SPAN_NOTICE("[components_description]"))
 						if(P?.loc != src && !istype(P, /obj/item/stack))
 							to_chat(user, SPAN_WARNING("You cannot add that component to the machine!."))
+						return TRUE
 
 
 /obj/machinery/constructable_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -241,6 +249,7 @@
 		to_chat(user, SPAN_NOTICE("You dismantle \the [src]."))
 		new /obj/item/stack/material/steel(get_turf(src), 5)
 		qdel(src)
+		return TRUE
 
 #undef BLUEPRINT_STATE
 #undef WIRING_STATE

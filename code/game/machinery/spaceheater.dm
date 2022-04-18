@@ -64,7 +64,7 @@
 		if(panel_open)
 			if(cell)
 				to_chat(user, "There is already a power cell inside.")
-				return
+				return TRUE
 			else
 				// insert cell
 				user.drop_from_inventory(I,src)
@@ -76,7 +76,7 @@
 				power_change()
 		else
 			to_chat(user, SPAN_NOTICE("The hatch must be open to insert a power cell."))
-			return
+			return TRUE
 	else if(I.isscrewdriver())
 		panel_open = !panel_open
 		user.visible_message(SPAN_NOTICE("[user] [panel_open ? "opens" : "closes"] the hatch on the [src]."),
@@ -87,10 +87,9 @@
 			user << browse(null, "window=spaceheater")
 			user.unset_machine()
 
-		return
+		return TRUE
 	else
-		..()
-	return
+		return ..()
 
 /obj/machinery/space_heater/attack_hand(mob/user)
 	src.add_fingerprint(user)

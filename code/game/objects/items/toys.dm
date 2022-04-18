@@ -76,8 +76,8 @@
 					src.desc = "A translucent balloon with some form of liquid sloshing around in it."
 					to_chat(user, "<span class='notice'>You fill the balloon with the contents of [O].</span>")
 					O.reagents.trans_to_obj(src, 10)
-	src.update_icon()
-	return
+		src.update_icon()
+		return TRUE
 
 /obj/item/toy/waterballoon/throw_impact(atom/hit_atom)
 	if(src.reagents.total_volume >= 1)
@@ -177,6 +177,7 @@
 /obj/item/toy/balloon/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.can_puncture())
 		burst()
+		return TRUE
 
 /obj/item/toy/balloon/latex
 	desc = "Leaves a starchy taste in your mouth after blowing into it."

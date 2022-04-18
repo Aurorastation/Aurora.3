@@ -29,37 +29,38 @@ var/list/floor_light_cache = list()
 		anchored = !anchored
 		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
 		playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
+		return TRUE
 	else if(W.iswelder() && (damaged || (stat & BROKEN)))
 		var/obj/item/weldingtool/WT = W
 		if(!WT.remove_fuel(0, user))
 			to_chat(user, "<span class='warning'>\The [src] must be on to complete this task.</span>")
-			return
+			return TRUE
 		playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
 		if(!do_after(user, 20/W.toolspeed))
-			return
+			return TRUE
 		if(!src || !WT.isOn())
-			return
+			return TRUE
 		visible_message("<span class='notice'>\The [user] has repaired \the [src].</span>")
 		update_icon()
 		stat &= ~BROKEN
 		damaged = null
 		update_brightness()
+		return TRUE
 	else if(W.force && user.a_intent == "hurt")
-		attack_hand(user)
+		return attack_hand(user)
 	else if(W.iscrowbar())
 		if(anchored)
 			to_chat(user, "<span class='warning'>\The [src] must be unfastened from the [loc] first!</span>")
-			return
+			return TRUE
 		else
 			to_chat(user, "<span class='notice'>You lever off the [name].</span>")
 			playsound(src.loc, 'sound/items/crowbar_tile.ogg', 100, TRUE)
 			if(stat & BROKEN)
 				qdel(src)
-				return
+				return TRUE
 			else
 				new /obj/item/stack/tile/light(user.loc)
 				qdel(src)
-	return
 
 /obj/machinery/floor_light/attack_hand(var/mob/user)
 

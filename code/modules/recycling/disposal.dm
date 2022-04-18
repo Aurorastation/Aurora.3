@@ -127,28 +127,28 @@
 		if(I.isscrewdriver())
 			if(contents_count())
 				to_chat(user, SPAN_WARNING("Eject the items first!"))
-				return
+				return TRUE
 			playsound(src.loc, I.usesound, 50, 1)
 			switch(mode)
 				if(MODE_OFF)
 					mode = MODE_UNSCREWED
 					to_chat(user, SPAN_NOTICE("You remove the screws around the power connection."))
-					return
+					return TRUE
 				if(MODE_UNSCREWED)
 					mode = MODE_OFF
 					to_chat(user, SPAN_NOTICE("You attach the screws around the power connection."))
-			return
+			return TRUE
 		else if(I.iswelder() && mode == MODE_UNSCREWED)
 			if(contents_count())
 				to_chat(user, SPAN_WARNING("Eject the items first!"))
-				return
+				return TRUE
 			var/obj/item/weldingtool/W = I
 			if(W.remove_fuel(0,user))
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, SPAN_NOTICE("You start slicing the floorweld off the disposal unit."))
 				if(do_after(user, 20 / W.toolspeed))
 					if(!src || !W.isOn())
-						return
+						return TRUE
 					to_chat(user, SPAN_NOTICE("You sliced the floorweld off the disposal unit."))
 					if(!istype(src, /obj/machinery/disposal/small))
 						var/obj/structure/disposalconstruct/C = new (src.loc)
@@ -164,17 +164,17 @@
 						C.anchored = 1
 						C.update()
 					qdel(src)
-				return
+				return TRUE
 			else
 				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
-				return
+				return TRUE
 		else if(I.ismultitool() || I.iswirecutter() || issignaler(I))
 			wires.Interact(user)
-			return
+			return TRUE
 
 	if(istype(I, /obj/item/melee/energy/blade))
 		to_chat(user, SPAN_WARNING("You can't place that item inside the disposal unit."))
-		return
+		return TRUE
 
 	if(istype(I, /obj/item/storage) && length(I.contents) && user.a_intent != I_HURT)
 		var/obj/item/storage/S = I
@@ -183,13 +183,13 @@
 			S.remove_from_storage(O, src)
 		S.update_icon()
 		update()
-		return
+		return TRUE
 
 	else if (istype (I, /obj/item/material/ashtray) && user.a_intent != I_HURT)
 		var/obj/item/material/ashtray/A = I
 		if(A.emptyout(get_turf(src)))
 			user.visible_message("<b>[user]</b> pours [I] out into [src].", SPAN_NOTICE("You pour [I] out into [src]."))
-		return
+		return TRUE
 
 	else if (istype (I, /obj/item/device/lightreplacer))
 		var/count = 0
@@ -204,7 +204,7 @@
 			else
 				to_chat(user, "<span class='notice'>There are no broken bulbs to empty out.</span>")
 			update()
-			return
+			return TRUE
 
 	var/obj/item/grab/G = I
 	if(istype(G))	// handle grabbed mob
@@ -212,7 +212,7 @@
 			var/mob/GM = G.affecting
 			if(!check_mob_size(GM))
 				to_chat(user, SPAN_NOTICE("The opening is too narrow for [G.affecting] to fit!"))
-				return
+				return TRUE
 			for (var/mob/V in viewers(usr))
 				V.show_message("[usr] starts putting [GM.name] into the disposal.", 3)
 			if(do_after(usr, 20))
@@ -226,12 +226,12 @@
 				usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has placed [GM.name] ([GM.ckey]) in disposals.</span>")
 				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
 				msg_admin_attack("[key_name_admin(usr)] placed [key_name_admin(GM)] in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
-		return
+		return TRUE
 	if(!I.dropsafety())
-		return
+		return TRUE
 
 	if(!I)
-		return
+		return TRUE
 
 	user.drop_from_inventory(I,src)
 
@@ -786,7 +786,7 @@
 
 /obj/structure/disposalpipe/Initialize(mapload)
 	. = ..()
-	
+
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)

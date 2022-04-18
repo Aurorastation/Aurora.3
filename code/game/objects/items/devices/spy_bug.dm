@@ -44,8 +44,9 @@
 	if(istype(W, /obj/item/device/spy_monitor))
 		var/obj/item/device/spy_monitor/SM = W
 		SM.pair(src, user)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/device/spy_bug/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	radio.hear_talk(M, msg, speaking)
@@ -90,6 +91,7 @@
 /obj/item/device/spy_monitor/attackby(obj/W as obj, mob/living/user as mob)
 	if(istype(W, /obj/item/device/spy_bug))
 		pair(W, user)
+		return TRUE
 	else
 		return ..()
 

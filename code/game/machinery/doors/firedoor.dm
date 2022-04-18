@@ -273,22 +273,20 @@
 			)
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			if (!do_after(user, 2/C.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
-				return
+				return TRUE
 			if(!WT.remove_fuel(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
-				return
+				return TRUE
 			playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 			blocked = !blocked
 			update_icon()
-			return
-		else
-			return
+		return TRUE
 	if(density && C.isscrewdriver())
 		hatch_open = !hatch_open
 		user.visible_message("<span class='danger'>[user] has [hatch_open ? "opened" : "closed"] \the [src] maintenance panel.</span>",
 									"You have [hatch_open ? "opened" : "closed"] the [src] maintenance panel.")
 		update_icon()
-		return
+		return TRUE
 
 	if(blocked && C.iscrowbar() && !repairing)
 		if(!hatch_open)
@@ -313,26 +311,26 @@
 					FA.wired = 1
 					FA.update_icon()
 					qdel(src)
-		return
+		return TRUE
 
 	if(blocked)
 		to_chat(user, "<span class='danger'>\The [src] is welded shut!</span>")
-		return
+		return TRUE
 
 	if(C.iscrowbar() || istype(C,/obj/item/material/twohanded/fireaxe) || (istype(C, /obj/item/melee/hammer)))
 		if(operating)
-			return
+			return TRUE
 
 		if(blocked && C.iscrowbar())
 			user.visible_message("<span class='danger'>\The [user] pries at \the [src] with \a [C], but \the [src] is welded in place!</span>",\
 			"You try to pry \the [src] [density ? "open" : "closed"], but it is welded in place!",\
 			"You hear someone struggle and metal straining.")
-			return
+			return TRUE
 
 		if(istype(C,/obj/item/material/twohanded/fireaxe))
 			var/obj/item/material/twohanded/fireaxe/F = C
 			if(!F.wielded)
-				return
+				return TRUE
 
 		user.visible_message("<span class='danger'>\The [user] starts to force \the [src] [density ? "open" : "closed"] with \a [C]!</span>",\
 				"You start forcing \the [src] [density ? "open" : "closed"] with \the [C]!",\
@@ -351,7 +349,7 @@
 				open(1, user)
 			else
 				close()
-			return
+			return TRUE
 
 	return ..()
 

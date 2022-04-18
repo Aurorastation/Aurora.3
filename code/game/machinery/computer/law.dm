@@ -29,12 +29,13 @@
 /obj/machinery/computer/aiupload/attackby(obj/item/O as obj, mob/user as mob)
 	if(isNotStationLevel(src.z))
 		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
-		return
+		return TRUE
 	if(istype(O, /obj/item/aiModule))
 		var/obj/item/aiModule/M = O
 		M.install(src)
+		return TRUE
 	else
-		..()
+		return ..()
 
 
 /obj/machinery/computer/aiupload/attack_hand(var/mob/user as mob)
@@ -70,9 +71,10 @@
 /obj/machinery/computer/borgupload/attackby(obj/item/aiModule/module as obj, mob/user as mob)
 	if(isNotStationLevel(src.z))
 		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
-		return
+		return TRUE
 	if(istype(module, /obj/item/aiModule))
 		module.install(src)
+		return TRUE
 	else
 		return ..()
 

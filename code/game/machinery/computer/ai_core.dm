@@ -26,7 +26,6 @@
 				var/obj/item/weldingtool/WT = P
 				if(!WT.isOn())
 					to_chat(user, "The welder must be on for this task.")
-					return
 				playsound(loc, 'sound/items/welder.ogg', 50, 1)
 				if(do_after(user, 20/P.toolspeed))
 					if(!src || !WT.remove_fuel(0, user)) return
@@ -157,7 +156,6 @@
 				else
 					icon_state = "3"
 				new /obj/item/stack/material/glass/reinforced( loc, 2 )
-				return
 
 			if(P.isscrewdriver())
 				playsound(loc,  P.usesound, 50, 1)
@@ -173,6 +171,7 @@
 						A.rename_self("ai", 1)
 				feedback_inc("cyborg_ais_created",1)
 				qdel(src)
+	return TRUE
 
 /obj/structure/AIcore/deactivated
 	name = "inactive AI"
@@ -221,24 +220,24 @@
 			load_ai(transfer,card,user)
 		else
 			to_chat(user, "<span class='danger'>ERROR:</span> Unable to locate artificial intelligence.")
-		return
+		return TRUE
 	else if(W.iswrench())
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
 			if(!do_after(user,40/W.toolspeed))
 				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
-				return
+				return TRUE
 			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
 			anchored = 0
-			return
+			return TRUE
 		else
 			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating...</span>")
 			if(!do_after(user,40/W.toolspeed))
 				user.visible_message("<span class='notice'>\The [user] decides not to bolt \the [src].</span>")
-				return
+				return TRUE
 			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")
 			anchored = 1
-			return
+			return TRUE
 	else
 		return ..()
 

@@ -384,11 +384,11 @@ var/global/list/frozen_crew = list()
 	if(istype(G))
 		if(occupant)
 			to_chat(user, SPAN_WARNING("\The [src] is in use."))
-			return
+			return TRUE
 		if(!ismob(G.affecting))
-			return
+			return TRUE
 		if(!check_occupant_allowed(G.affecting))
-			return
+			return TRUE
 
 		var/willing = FALSE //We don't want to allow people to be forced into despawning.
 		var/mob/M = G.affecting
@@ -397,7 +397,7 @@ var/global/list/frozen_crew = list()
 			var/original_loc = M.loc
 			if(alert(M, "Would you like to enter long-term storage?", , "Yes", "No") == "Yes")
 				if(!M || !G || !G.affecting || M.loc != original_loc)
-					return
+					return TRUE
 				willing = TRUE
 		else
 			willing = TRUE
@@ -407,7 +407,7 @@ var/global/list/frozen_crew = list()
 
 			if(do_after(user, 20))
 				if(!M || !G || !G.affecting)
-					return
+					return TRUE
 
 				M.forceMove(src)
 
@@ -430,6 +430,7 @@ var/global/list/frozen_crew = list()
 
 			//Despawning occurs when process() is called with an occupant without a client.
 			src.add_fingerprint(M)
+			return TRUE
 
 /obj/machinery/cryopod/MouseDrop_T(atom/movable/O, mob/living/user)
 	if(!istype(user))

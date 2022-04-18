@@ -114,6 +114,7 @@
 			to_chat(user, SPAN_NOTICE(msg))
 		else
 			to_chat(user, SPAN_WARNING("\The [src]'s battery panel is open and cannot be screwed down!"))
+		return TRUE
 	if(W.iscrowbar())
 		if(unlocked)
 			open = !open
@@ -121,6 +122,7 @@
 			to_chat(user, SPAN_NOTICE(msg))
 		else
 			to_chat(user, SPAN_WARNING("\The [src]'s battery panel is still screwed shut!"))
+		return TRUE
 	if(istype(W, /obj/item/cell))
 		if(open)
 			if(cell)
@@ -130,4 +132,5 @@
 				user.drop_from_inventory(W, src)
 				cell = W
 				to_chat(user, SPAN_NOTICE("You insert the power cell."))
+		return TRUE
 	update_icon()

@@ -308,11 +308,11 @@
 
 /obj/machinery/biogenerator/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))
-		return
+		return TRUE
 	if(default_deconstruction_crowbar(user, O))
-		return
+		return TRUE
 	if(default_part_replacement(user, O))
-		return
+		return TRUE
 	if(istype(O, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, SPAN_NOTICE("\The [src] is already loaded."))
@@ -321,8 +321,10 @@
 			O.forceMove(src)
 			beaker = O
 			updateUsrDialog()
+		return TRUE
 	else if(processing)
 		to_chat(user, SPAN_NOTICE("\The [src] is currently processing."))
+		return TRUE
 	else if(istype(O, /obj/item/storage/bag/plants))
 		var/i = 0
 		var/obj/item/storage/bag/P = O
@@ -342,10 +344,12 @@
 
 			if(i < capacity)
 				to_chat(user, SPAN_NOTICE("You empty \the [O] into \the [src]."))
+		return TRUE
 
 
 	else if(!istype(O, /obj/item/reagent_containers/food/snacks/grown))
 		to_chat(user, SPAN_NOTICE("You cannot put this in \the [src]."))
+		return TRUE
 	else
 		var/i = 0
 		for(var/obj/item/reagent_containers/food/snacks/grown/G in contents)
@@ -356,8 +360,8 @@
 			user.remove_from_mob(O)
 			O.forceMove(src)
 			to_chat(user, SPAN_NOTICE("You put \the [O] in \the [src]"))
+		return TRUE
 	update_icon()
-	return
 
 /obj/machinery/biogenerator/interact(mob/user as mob)
 	if(stat & BROKEN)

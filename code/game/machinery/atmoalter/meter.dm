@@ -103,6 +103,7 @@
 			"You hear ratchet.")
 		new /obj/item/pipe_meter(src.loc)
 		qdel(src)
+		return TRUE
 
 // TURF METER - REPORTS A TILE'S AIR CONTENTS
 

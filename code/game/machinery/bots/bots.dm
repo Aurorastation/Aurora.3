@@ -59,6 +59,7 @@
 		if(!locked)
 			open = !open
 			to_chat(user, "<span class='notice'>Maintenance panel is now [src.open ? "opened" : "closed"].</span>")
+		return TRUE
 	else if(W.iswelder())
 		if(health < maxhealth)
 			if(open)
@@ -69,6 +70,7 @@
 				to_chat(user, "<span class='notice'>Unable to repair with the maintenance panel closed.</span>")
 		else
 			to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
+		return TRUE
 	else
 		if(hasvar(W,"force") && hasvar(W,"damtype"))
 			switch(W.damtype)
@@ -77,10 +79,11 @@
 				if("brute")
 					src.health -= W.force * brute_dam_coeff
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			..()
+			. = ..()
 			healthcheck()
+			return .
 		else
-			..()
+			return ..()
 
 /obj/machinery/bot/bullet_act(var/obj/item/projectile/Proj)
 	if(!(Proj.damage_type == BRUTE || Proj.damage_type == BURN))

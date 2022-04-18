@@ -296,18 +296,18 @@ Class Procs:
 		if(issignaler(W))
 			if(signaler)
 				to_chat(user, SPAN_WARNING("\The [src] already has a signaler attached."))
-				return
+				return TRUE
 			var/obj/item/device/assembly/signaler/S = W
 			user.drop_from_inventory(W, src)
 			signaler = S
 			S.machine = src
 			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), range = 3)
 			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
-			return
+			return TRUE
 		else if(W.iswirecutter() && signaler)
 			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
 			user.put_in_hands(detach_signaler())
-			return
+			return TRUE
 
 	return ..()
 

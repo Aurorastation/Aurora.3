@@ -94,10 +94,9 @@
 			src.diskette = W
 			to_chat(user, "You insert [W].")
 			src.updateUsrDialog()
-			return
+			return TRUE
 	else
-		..()
-	return
+		return ..()
 
 /obj/machinery/computer/cloning/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))

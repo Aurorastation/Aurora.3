@@ -145,14 +145,15 @@
 	return FALSE
 
 /obj/item/gripper/attackby(obj/item/O, mob/user)
+	var/resolved = FALSE
 	if(wrapped)
 		if(O == wrapped)
 			attack_self(user) //Allows gripper to be clicked to use item.
-			return
-		var/resolved = wrapped.attackby(O,user)
+			return TRUE
+		resolved = wrapped.attackby(O,user)
 		if(!resolved)
 			O.afterattack(wrapped, user, TRUE)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
-	return
+	return resolved
 
 /obj/item/gripper/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 	if(!proximity)
