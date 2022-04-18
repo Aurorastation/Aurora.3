@@ -11427,6 +11427,9 @@
 /obj/effect/floor_decal/corner/black/full{
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "koi" = (
@@ -24943,6 +24946,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/guestpass{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid/interstitial)
 "wIM" = (
