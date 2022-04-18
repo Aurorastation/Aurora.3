@@ -1826,12 +1826,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "bDt" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "Mix to Waste"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -2133,7 +2133,7 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "bOR" = (
-/obj/machinery/atmospherics/valve/digital,
+/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "bQh" = (
@@ -2143,17 +2143,8 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "bQj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 6
-	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/hallway/engineering)
 "bQP" = (
 /obj/machinery/power/apc/super/critical{
@@ -3401,9 +3392,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "cYS" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -3413,6 +3401,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "cZi" = (
@@ -3899,7 +3888,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "dAZ" = (
@@ -4159,8 +4147,11 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "dMa" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/turf/simulated/floor/reinforced/airless,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "dMM" = (
 /obj/structure/cable/green{
@@ -4766,14 +4757,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "eqa" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 5
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	name = "Engine to Mix"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "eqk" = (
@@ -5748,9 +5739,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "faE" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4;
-	name = "Mix to Waste"
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -6060,9 +6050,6 @@
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
-	},
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -6866,9 +6853,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "fUm" = (
@@ -7469,11 +7457,12 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "gsd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 9
+/obj/machinery/light{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/hallway/engineering)
 "gsG" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -10750,12 +10739,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "jue" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/hallway/engineering)
 "juK" = (
 /obj/structure/tank_wall/nitrous_oxide{
@@ -11386,6 +11372,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/binary/pump{
+	name = "Mix to Connector"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "jWE" = (
@@ -11725,12 +11714,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/atmos{
-	name = "Engineering Hallway";
+	name = "Atmospherics Maintenance";
 	req_access = list(12,24)
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "kqO" = (
@@ -14009,7 +13996,9 @@
 	layer = 10.1;
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "moj" = (
@@ -18254,8 +18243,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "qio" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -18393,7 +18385,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "qoD" = (
@@ -20023,9 +20014,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
 	},
-/obj/structure/sign/nosmoking_1{
-	pixel_y = -32
-	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "rNv" = (
@@ -20070,23 +20058,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"rOy" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/hallway/engineering)
 "rOz" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -21190,12 +21161,11 @@
 	},
 /area/maintenance/disposal)
 "sNH" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4;
-	name = "Mix to Connector"
-	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Atmospherics Control 4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -24013,11 +23983,11 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod1)
 "vlY" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -25420,17 +25390,6 @@
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
-"wHA" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos)
 "wHJ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -46139,10 +46098,10 @@ nEm
 nEm
 nEm
 bQj
-rOy
+xVg
 dAU
 qop
-dMa
+xmg
 mnQ
 dee
 sua
@@ -46952,7 +46911,7 @@ iUi
 bDt
 vlY
 jVj
-iFd
+dMa
 mGp
 arr
 qDK
@@ -47151,8 +47110,8 @@ dzi
 sta
 iPW
 sQT
-hVE
 eKb
+hVE
 bDc
 jTJ
 rNe
@@ -48562,7 +48521,7 @@ tFM
 wup
 eSV
 hWb
-wHA
+aph
 btw
 mzL
 pZd
