@@ -2611,6 +2611,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "bwU" = (
@@ -4979,6 +4980,7 @@
 	req_one_access = list(31,48,26,67)
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "dcT" = (
@@ -5664,7 +5666,6 @@
 /obj/machinery/door/airlock/maintenance{
 	req_one_access = list(31,48,26,67)
 	},
-/obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/operations/break_room)
@@ -6830,12 +6831,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 4;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
@@ -7054,9 +7055,8 @@
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "ewb" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
+/obj/structure/disposalpipe/junction{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
@@ -8185,9 +8185,9 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 1;
-	icon_state = "pipe-j2"
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -9669,6 +9669,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "gai" = (
@@ -10470,6 +10473,7 @@
 /obj/effect/landmark/start{
 	name = "Hangar Technician"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "gwy" = (
@@ -12259,12 +12263,17 @@
 /turf/simulated/floor/plating,
 /area/hydroponics/garden)
 "hBJ" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/starboard)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "hBL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -12624,6 +12633,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "hLT" = (
@@ -13907,9 +13919,9 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 4;
-	icon_state = "pipe-j2"
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -17171,6 +17183,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "kKq" = (
@@ -18442,11 +18457,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
 "lDT" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /obj/structure/disposalpipe/segment{
-	dir = 4;
+	dir = 1;
 	icon_state = "pipe-c"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "lEe" = (
@@ -19902,7 +19923,10 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
@@ -20895,6 +20919,7 @@
 /obj/structure/cable/green{
 	icon_state = "11-2"
 	},
+/obj/structure/disposalpipe/down,
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "naD" = (
@@ -21508,19 +21533,16 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "nqm" = (
-/obj/structure/disposalpipe/junction{
-	dir = 1;
-	icon_state = "pipe-j2"
-	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "nqs" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -23100,6 +23122,9 @@
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
@@ -25361,6 +25386,10 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "pMN" = (
@@ -25973,6 +26002,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -29066,6 +29098,10 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "rWp" = (
@@ -34059,6 +34095,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "uXq" = (
@@ -38333,6 +38370,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "xoL" = (
@@ -39413,6 +39451,9 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "xZt" = (
@@ -51365,7 +51406,7 @@ uya
 pKB
 gBM
 vQs
-lDT
+fsf
 dyU
 nqm
 cNh
@@ -51567,7 +51608,7 @@ fqg
 fqg
 qRe
 pFe
-hBJ
+fsf
 rqA
 tOS
 kIp
@@ -51769,7 +51810,7 @@ ceU
 ceU
 qSn
 prk
-hBJ
+fsf
 rqA
 unJ
 gbU
@@ -52180,7 +52221,7 @@ mQy
 wYY
 pMJ
 dcI
-tae
+hBJ
 gwv
 gwv
 gwv
@@ -52576,7 +52617,7 @@ fdF
 uVi
 nam
 xom
-czb
+lDT
 fKn
 rqA
 rqA
