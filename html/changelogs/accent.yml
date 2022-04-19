@@ -1,0 +1,7 @@
+author: RyverStyx
+
+delete-after: True
+
+changes:
+  - rscadd: "Added 3 skrell accents."
+  - rscremove: "Removed some accents from the skrell loadout."
