@@ -245,7 +245,7 @@
 
 #define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR)
 
-// Defines the argument used for get_mobs_and_objs_in_view_fast
+// Defines the argument used for get_mobs_or_objs_in_view
 #define GHOSTS_ALL_HEAR 1
 #define ONLY_GHOSTS_IN_VIEW 0
 
@@ -450,15 +450,3 @@
 #define ROBOT_EYES		"eyetype"
 
 #define BLOOD_REGEN_RATE 0.1
-
-
-
-// Say modifiers
-#define SAY_MOD_MESSAGE "message"
-#define SAY_MOD_VERB "verb"
-#define SAY_MOD_SPEAKING "speaking"
-#define SAY_MOD_ALT_NAME "alt_name"
-#define SAY_MOD_ITALICS "italics"
-#define SAY_MOD_SPEECH_SOUND "speech_sound"
-#define SAY_MOD_SOUND_VOL "sound_vol"
-#define SAY_MOD_FONT_SIZE "font_size"

@@ -27,7 +27,7 @@ var/list/banned_ruin_ids = list()
 
 	while (remaining > 0 && length(available))
 		var/datum/map_template/ruin/ruin = pickweight(available)
-		if (ruin.spawn_cost > budget)
+		if (ruin.spawn_cost > remaining)
 			available -= ruin
 			continue
 

@@ -51,6 +51,7 @@
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_kitchen)
+	alt_titles = list("Cook")
 	outfit = /datum/outfit/job/chef
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
