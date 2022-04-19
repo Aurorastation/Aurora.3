@@ -6,7 +6,6 @@
 
 	for(var/A in subtypesof(/datum/shuttle/autodock))
 		var/datum/shuttle/autodock/shuttle = A
-		testing("Checking shuttle type [A]")
 		// Check start location and transition locations exist
 		var/found_current_location = FALSE
 		var/found_transition_location = FALSE
