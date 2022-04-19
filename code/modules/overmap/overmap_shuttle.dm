@@ -99,6 +99,14 @@
 			fuel_to_consume -= fuel_available
 			FT.remove_air_by_flag(XGM_GAS_FUEL, fuel_available)
 
+/datum/shuttle/autodock/overmap/on_move_interim()
+	..()
+	for(var/obj/machinery/computer/shuttle_control/explore/E in shuttle_computers)
+		var/obj/effect/overmap/visitable/ship/S = E.linked
+		if(S)
+			S.halt()
+			S.unhalt()
+
 /obj/structure/fuel_port
 	name = "fuel port"
 	desc = "The fuel input port of the shuttle. Holds one fuel tank. Use a crowbar to open and close it."
