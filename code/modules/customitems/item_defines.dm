@@ -2270,8 +2270,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	SEND_SIGNAL(D, COMSIG_ITEM_UPDATE_STATE, D)
 
 /obj/item/fluff/nasira_burner
-	name = "incense burner"
-	desc = "Placeholder description about incense burning."
+	name = "adhomian incense burner"
+	desc = "A traditional Adhomian incense burner with blue and yellow suns depicted on the front. The metal cover is blackened from use, and there appear to be unclear etchings on the inside."
 	icon = 'icons/obj/custom_items/nasira_burner.dmi'
 	icon_state = "burner"
 	drop_sound = 'sound/items/drop/glass.ogg'
