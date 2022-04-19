@@ -1,6 +1,6 @@
 /obj/item/laser_components
 	icon = 'icons/obj/guns/modular_laser.dmi'
-	var/base_icon_state = "bfg"
+	icon_state = "bfg"
 	contained_sprite = TRUE
 	var/reliability = 0
 	var/damage = 1
