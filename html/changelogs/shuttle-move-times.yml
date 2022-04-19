@@ -1,0 +1,7 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - tweak: "Reduced the dock/undock time of all small shuttles to 20s rather than 90s."
+  - bugfix: "Ships will stop moving across the overmap when they launch to dock/move to an away site."
