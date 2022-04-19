@@ -291,6 +291,8 @@
 	G.culture = decls_repository.get_decl(/decl/origin_item/culture/golem)
 	G.origin = decls_repository.get_decl(/decl/origin_item/origin/golem)
 	G.accent = G.origin.possible_accents[1]
+	G.citizenship = G.origin.possible_citizenships[1]
+	G.religion = G.origin.possible_religions[1]
 	G.preEquipOutfit(/datum/outfit/admin/golem, FALSE)
 	G.equipOutfit(/datum/outfit/admin/golem, FALSE)
 	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))

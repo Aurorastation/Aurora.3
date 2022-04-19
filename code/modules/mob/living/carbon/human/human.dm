@@ -96,10 +96,6 @@
 	if(length(species.unarmed_attacks))
 		set_default_attack(species.unarmed_attacks[1])
 
-	if(isnull(culture) || isnull(origin))
-		culture = decls_repository.get_decl(/decl/origin_item/culture/unknown)
-		origin = decls_repository.get_decl(/decl/origin_item/origin/unknown)
-
 /mob/living/carbon/human/Destroy()
 	human_mob_list -= src
 	intent_listener -= src
@@ -1469,11 +1465,7 @@
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
-	culture = decls_repository.get_decl(pick(species.possible_cultures))
-	origin = decls_repository.get_decl(pick(culture.possible_origins))
-	accent = pick(origin.possible_accents)
-	citizenship = origin.possible_citizenships[1]
-	religion = origin.possible_religions[1]
+	fill_out_culture_data_random()
 
 	if(change_hair)
 		species.set_default_hair(src)
@@ -1484,6 +1476,14 @@
 		return 1
 	else
 		return 0
+
+
+/mob/living/carbon/human/proc/fill_out_culture_data_random()
+	culture = decls_repository.get_decl(pick(species.possible_cultures))
+	origin = decls_repository.get_decl(pick(culture.possible_origins))
+	accent = pick(origin.possible_accents)
+	citizenship = pick(origin.possible_citizenships)
+	religion = pick(origin.possible_religions)
 
 /mob/living/carbon/human/proc/bloody_doodle()
 	set category = "IC"
