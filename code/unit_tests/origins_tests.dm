@@ -13,6 +13,7 @@
 		if(!length(OC.possible_origins))
 			fail("Culture [OC.name] does not have any possible origins!")
 	pass("All cultures are filled out properly.")
+	return TRUE
 
 /datum/unit_test/origins
 	name = "Origins Test - All origins shall be filled out"
@@ -29,3 +30,4 @@
 		if(!length(OI.possible_accents) || !length(OI.possible_citizenships) || !length(OI.possible_religions))
 			fail("Origin [OI.name] is missing at least one entry in the possible accents, citizenships or religions lists!")
 	pass("All origins are filled out properly.")
+	return TRUE
