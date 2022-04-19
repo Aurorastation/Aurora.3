@@ -293,7 +293,7 @@ proc/get_radio_key_from_channel(var/channel)
 				italics = 1
 				sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj, ghost_hearing)
+		get_mobs_or_objs_in_view(T, message_range, listening, listening_obj, ghost_hearing)
 
 	var/list/hear_clients = list()
 	for(var/m in listening)

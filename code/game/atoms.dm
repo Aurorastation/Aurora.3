@@ -547,7 +547,7 @@
 	var/turf/T = get_turf(src)
 	var/list/mobs = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T,range, mobs, objs, ONLY_GHOSTS_IN_VIEW)
+	get_mobs_or_objs_in_view(T,range, mobs, objs, ONLY_GHOSTS_IN_VIEW)
 
 	for(var/o in objs)
 		var/obj/O = o
@@ -576,7 +576,7 @@
 	var/turf/T = get_turf(src)
 	var/list/mobs = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T,range, mobs, objs, ONLY_GHOSTS_IN_VIEW)
+	get_mobs_or_objs_in_view(T,range, mobs, objs, ONLY_GHOSTS_IN_VIEW)
 
 	for(var/m in mobs)
 		var/mob/M = m
@@ -590,7 +590,10 @@
 
 /atom/proc/intent_message(var/message, var/range = 7)
 	if(air_sound(src))
-		var/list/mobs = get_mobs_or_objects_in_view(range, src, include_objects = FALSE)
+		var/turf/T = get_turf(src)
+		var/list/mobs = list()
+		var/list/objs = list()
+		get_mobs_or_objs_in_view(T, range, mobs, objs, ONLY_GHOSTS_IN_VIEW)
 		for(var/mob/living/carbon/human/H as anything in intent_listener)
 			if(!(H in mobs))
 				if(src.z == H.z && get_dist(src, H) <= range)

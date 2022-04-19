@@ -405,6 +405,32 @@
 		M.make_jittery(5)
 		//copied from coffee
 
+/decl/reagent/nutriment/darkcoffeegrounds
+	name = "Rich Coffee Grounds"
+	description = "Enjoy the great taste of espresso."
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#5c4a11"
+	taste_description = "earthy gritty coffee"
+	taste_mult = 0.4
+	condiment_name = "rich ground coffee"
+	condiment_icon_state = "coffee"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/decl/reagent/nutriment/darkcoffeegrounds/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	..()
+	if(alien != IS_DIONA)
+		M.dizziness = max(0, M.dizziness - 5)
+		M.drowsiness = max(0, M.drowsiness - 3)
+		M.sleeping = max(0, M.sleeping - 2)
+		M.intoxication = max(0, (M.intoxication - (removed*0.25)))
+		//copied from coffee
+
+/decl/reagent/nutriment/darkcoffeegrounds/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	if(alien != IS_DIONA)
+		M.make_jittery(5)
+		//copied from coffee
+
 /decl/reagent/nutriment/teagrounds
 	name = "Tea Grounds"
 	description = "Enjoy the great taste of tea."
@@ -852,7 +878,6 @@
 	description = "The raw essence of a banana."
 	color = "#C3AF00"
 	taste_description = "banana"
-
 	glass_icon_state = "banana"
 	glass_name = "glass of banana juice"
 	glass_desc = "The raw essence of a banana. HONK!"
@@ -862,17 +887,107 @@
 	description = "A delicious blend of several different kinds of berries."
 	color = "#990066"
 	taste_description = "berries"
-
 	glass_icon_state = "berryjuice"
 	glass_name = "glass of berry juice"
 	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/dirtberryjuice
+	name = "Dirt Berry Juice"
+	description = "A delicious blend of several dirt berries."
+	color = "#C4AE7A"
+	taste_description = "dirt berries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of dirt berry juice"
+	glass_desc = "Dirt Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/glowberryjuice
+	name = "Glow Berry Juice"
+	description = "A delicious blend of several glow berries."
+	color = "#c9fa16"
+	taste_description = "glow berries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of glow berry juice"
+	glass_desc = "Glowberry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/strawberryjuice
+	name = "Strawberry Juice"
+	description = "A delicious blend of several strawberries."
+	color = "#bb0202"
+	taste_description = "strawberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of strawberry juice"
+	glass_desc = "Strawberry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/blueberryjuice
+	name = "Blueberry Juice"
+	description = "A delicious blend of several blueberries."
+	color = "#1C225C"
+	taste_description = "blueberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of blueberry juice"
+	glass_desc = "Blueberry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/raspberryjuice
+	name = "Raspberry Juice"
+	description = "A delicious blend of several raspberries."
+	color = "#ff0000"
+	taste_description = "raspberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of raspberry juice"
+	glass_desc = "Raspberry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/blueraspberryjuice
+	name = "Blue Raspberry Juice"
+	description = "A delicious blend of several dark raspberries."
+	color = "#030145"
+	taste_description = "blue raspberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of blue raspberry juice"
+	glass_desc = "Blue Raspberry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/blackraspberryjuice
+	name = "Black Raspberry Juice"
+	description = "A delicious blend of several black raspberries."
+	color = "#1a063f"
+	taste_description = "black raspberries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of black raspberry juice"
+	glass_desc = "Black Raspberry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/toxin/poisonberryjuice // It has more in common with toxins than drinks... but it's a juice
+	name = "Poison Berry Juice"
+	description = "A tasty juice blended from various kinds of very deadly and toxic berries."
+	color = "#863353"
+	strength = 5
+	taste_description = "berries"
+	glass_icon_state = "poisonberryjuice"
+	glass_name = "glass of berry juice"
+	glass_desc = "Berry juice. Or maybe it's jam. Who cares?."
+
+/decl/reagent/toxin/deathberryjuice
+	name = "Death Berry Juice"
+	description = "A delicious blend of several toxic death berries."
+	color = "#7A5454"
+	strength = 10
+	taste_description = "death and decay"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of berry juice?"
+	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+
+/decl/reagent/drink/ylphaberryjuice
+	name = "Ylpha Berry Juice"
+	description = "A delicious blend of several ylpha berries."
+	color = "#d46423"
+	taste_description = "ylpha berries"
+	glass_icon_state = "berryjuice"
+	glass_name = "glass of ylpha berry juice"
+	glass_desc = "Ylpha berry juice. Or maybe it's jam. Who cares?"
 
 /decl/reagent/drink/carrotjuice
 	name = "Carrot juice"
 	description = "It is just like a carrot but without crunching."
 	color = "#FF8C00" // rgb: 255, 140, 0
 	taste_description = "carrots"
-
 	glass_icon_state = "carrotjuice"
 	glass_name = "glass of carrot juice"
 	glass_desc = "It is just like a carrot but without crunching."
@@ -888,7 +1003,6 @@
 	description = "It's grrrrrape!"
 	color = "#660099"
 	taste_description = "grapes"
-
 	glass_icon_state = "grapejuice"
 	glass_name = "glass of grape juice"
 	glass_desc = "It's grrrrrape!"
@@ -938,17 +1052,6 @@
 	if(alien == IS_DIONA)
 		return
 	M.adjustOxyLoss(-2 * removed)
-
-/decl/reagent/toxin/poisonberryjuice // It has more in common with toxins than drinks... but it's a juice
-	name = "Poison Berry Juice"
-	description = "A tasty juice blended from various kinds of very deadly and toxic berries."
-	color = "#863353"
-	strength = 5
-	taste_description = "berries"
-
-	glass_icon_state = "poisonberryjuice"
-	glass_name = "glass of poison berry juice"
-	glass_desc = "A glass of deadly juice."
 
 /decl/reagent/drink/potatojuice
 	name = "Potato Juice"
@@ -4797,7 +4900,6 @@
 	description = "Thick chocolate syrup used to flavor drinks."
 	taste_description = "chocolate"
 	color = "#542a0c"
-
 	glass_name = "chocolate syrup"
 	glass_desc = "Thick chocolate syrup used to flavor drinks."
 
@@ -4806,7 +4908,6 @@
 	description = "Thick caramel syrup used to flavor drinks."
 	taste_description = "caramel"
 	color = "#85461e"
-
 	glass_name = "caramel syrup"
 	glass_desc = "Thick caramel syrup used to flavor drinks."
 
@@ -4815,7 +4916,6 @@
 	description = "Thick vanilla syrup used to flavor drinks."
 	taste_description = "vanilla"
 	color = "#f3e5ab"
-
 	glass_name = "vanilla syrup"
 	glass_desc = "Thick vanilla syrup used to flavor drinks."
 
@@ -4824,9 +4924,97 @@
 	description = "Thick spiced pumpkin syrup used to flavor drinks."
 	taste_description = "spiced pumpkin"
 	color = "#d88b4c"
-
 	glass_name = "pumpkin spice syrup"
 	glass_desc = "Thick spiced pumpkin syrup used to flavor drinks."
+//berry
+/decl/reagent/drink/syrup_berry
+	name = "Berry Syrup"
+	description = "Thick berry syrup used to flavor drinks."
+	taste_description = "berry"
+	color = "#f3e5ab"
+	glass_name = "berry syrup"
+	glass_desc = "Thick berry syrup used to flavor drinks."
+//strawberry
+/decl/reagent/drink/syrup_strawberry
+	name = "Strawberry Syrup"
+	description = "Thick strawberry syrup used to flavor drinks."
+	taste_description = "strawberry"
+	color = "#f3e5ab"
+	glass_name = "strawberry syrup"
+	glass_desc = "Thick strawberry syrup used to flavor drinks."
+//blueberry
+/decl/reagent/drink/syrup_blueberry
+	name = "Blueberry Syrup"
+	description = "Thick blueberry syrup used to flavor drinks."
+	taste_description = "blueberry"
+	color = "#f3e5ab"
+	glass_name = "blueberry syrup"
+	glass_desc = "Thick blueberry syrup used to flavor drinks."
+//rasp
+/decl/reagent/drink/syrup_raspberry
+	name = "Raspberry Syrup"
+	description = "Thick raspberry syrup used to flavor drinks."
+	taste_description = "raspberry"
+	color = "#f3e5ab"
+	glass_name = "raspberry syrup"
+	glass_desc = "Thick raspberry syrup used to flavor drinks."
+//black rasp
+/decl/reagent/drink/syrup_blackraspberry
+	name = "Black Raspberry Syrup"
+	description = "Thick black raspberry syrup used to flavor drinks."
+	taste_description = "black raspberry"
+	color = "#f3e5ab"
+	glass_name = "black raspberry syrup"
+	glass_desc = "Thick black raspberry syrup used to flavor drinks."
+//blue rasp
+/decl/reagent/drink/syrup_blueraspberry
+	name = "Blue Raspberry Syrup"
+	description = "Thick blue raspberry syrup used to flavor drinks."
+	taste_description = "blue raspberry"
+	color = "#f3e5ab"
+	glass_name = "blue raspberry syrup"
+	glass_desc = "Thick blue raspberry syrup used to flavor drinks."
+//glow
+/decl/reagent/drink/syrup_glowberry
+	name = "Glowberry Syrup"
+	description = "Thick glowberry syrup used to flavor drinks."
+	taste_description = "glowberry"
+	color = "#f3e5ab"
+	glass_name = "glowberry syrup"
+	glass_desc = "Thick glowberry syrup used to flavor drinks."
+//poison
+/decl/reagent/drink/syrup_poisonberry
+	name = "Poison Berry Syrup"
+	description = "Thick poison berry syrup used to flavor drinks."
+	taste_description = "something sweet"
+	color = "#f3e5ab"
+	glass_name = "poison berry syrup"
+	glass_desc = "Thick poison berry syrup used to flavor drinks."
+//death
+/decl/reagent/drink/syrup_deathberry
+	name = "Death Berry Syrup"
+	description = "Thick death berry syrup used to flavor drinks."
+	taste_description = "something sweet"
+	color = "#f3e5ab"
+	glass_name = "death berry syrup"
+	glass_desc = "Thick death berry syrup used to flavor drinks."
+//ylpha
+/decl/reagent/drink/syrup_ylphaberry
+	name = "Ylpha Berry Syrup"
+	description = "Thick ylpha berry syrup used to flavor drinks."
+	taste_description = "ylpha berry"
+	color = "#f3e5ab"
+	glass_name = "ylpha berry syrup"
+	glass_desc = "Thick ylpha berry syrup used to flavor drinks."
+//dirt
+/decl/reagent/drink/syrup_dirtberry
+	name = "Dirt Berry Syrup"
+	description = "Thick dirt berry syrup used to flavor drinks."
+	taste_description = "dirt berry"
+	color = "#f3e5ab"
+	glass_name = "dirt berry syrup"
+	glass_desc = "Thick dirt berry syrup used to flavor drinks."
+
 
 /decl/reagent/drink/syrup_simple
 	name = "Simple Syrup"

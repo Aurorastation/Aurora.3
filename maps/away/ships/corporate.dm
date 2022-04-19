@@ -92,6 +92,7 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
+	subshuttle = TRUE
 
 /obj/machinery/computer/shuttle_control/explore/orion_express_shuttle
 	name = "shuttle control console"
@@ -102,7 +103,6 @@
 	name = "Orion Express Shuttle"
 	move_time = 90
 	shuttle_area = list(/area/shuttle/orion_express_shuttle)
-	dock_target = "orion_express_shuttle"
 	current_location = "nav_hangar_orion_express"
 	landmark_transition = "nav_transit_orion_express"
 	range = 1
@@ -220,6 +220,7 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
+	subshuttle = TRUE
 
 /obj/machinery/computer/shuttle_control/explore/ee_shuttle
 	name = "shuttle control console"
@@ -230,7 +231,6 @@
 	name = "Einstein Engines Shuttle"
 	move_time = 90
 	shuttle_area = list(/area/shuttle/ee_shuttle)
-	dock_target = "ee_shuttle"
 	current_location = "nav_hangar_ee"
 	landmark_transition = "nav_transit_ee"
 	range = 1

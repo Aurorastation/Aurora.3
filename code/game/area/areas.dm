@@ -442,6 +442,8 @@ var/list/mob/living/forced_ambiance_list = new
 			continue
 		if (istype(A, /area/mine))
 			continue
+		if (istype(A, /area/horizonexterior))
+			continue
 
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
