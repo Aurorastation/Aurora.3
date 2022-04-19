@@ -1646,6 +1646,15 @@
 	name = "thruster mount"
 	},
 /area/engineering/atmos/propulsion/starboard)
+"bxK" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular/open{
+	id = "iso_c";
+	name = "Safety Blast Door"
+	},
+/turf/simulated/floor/reinforced,
+/area/rnd/xenoarch_atrium)
 "byS" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -5067,6 +5076,10 @@
 	name = "Isolation B";
 	req_access = list(65)
 	},
+/obj/machinery/door/blast/regular/open{
+	id = "iso_b";
+	name = "Safety Blast Door"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "eHJ" = (
@@ -7351,6 +7364,10 @@
 "guN" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular/open{
+	id = "iso_b";
+	name = "Safety Blast Door"
+	},
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
 "gvd" = (
@@ -17757,6 +17774,10 @@
 	name = "Isolation A";
 	req_access = list(65)
 	},
+/obj/machinery/door/blast/regular/open{
+	id = "iso_a";
+	name = "Safety Blast Door"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "qcC" = (
@@ -23111,6 +23132,15 @@
 	dir = 8
 	},
 /area/maintenance/operations)
+"uWn" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular/open{
+	id = "iso_a";
+	name = "Safety Blast Door"
+	},
+/turf/simulated/floor/reinforced,
+/area/rnd/xenoarch_atrium)
 "uWy" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/closet/crate/bin,
@@ -26344,6 +26374,10 @@
 	id_tag = "riso3";
 	name = "Isolation C";
 	req_access = list(65)
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "iso_c";
+	name = "Safety Blast Door"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -55474,16 +55508,16 @@ oVl
 oVl
 lbr
 oVl
-guN
-guN
+bxK
+bxK
 xMv
 xtK
 guN
 guN
 eHq
 xtK
-guN
-guN
+uWn
+uWn
 qcr
 xtK
 aOv
