@@ -258,13 +258,14 @@
 			occupant = M
 			update_icon()
 			qdel(G)
-			return TRUE
+		return TRUE
 	else if(I.isscrewdriver())
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		cut_overlays()
 		if(src.panel_open)
 			add_overlay("[initial(icon_state)]-o")
+		return TRUE
 	else if(default_part_replacement(user, I))
 		return TRUE
 

@@ -186,7 +186,7 @@
 			var/obj/item/stack/material/glass/reinforced/rglass = new /obj/item/stack/material/glass/reinforced(loc)
 			rglass.amount = 5
 			qdel(src)
-			return TRUE
+		return TRUE
 
 	if(!isliving(I))
 		if(I.iscrowbar() && user.a_intent == I_HELP)
@@ -198,7 +198,7 @@
 					close(1)
 			else
 				to_chat(user, SPAN_NOTICE("The windoor's motors resist your efforts to force it."))
-			return TRUE
+		return TRUE
 
 	//If it's a weapon, smash windoor. Unless it's an id card, agent card, ect.. then ignore it (Cards really shouldnt damage a door anyway)
 	if(src.density && istype(I, /obj/item) && !istype(I, /obj/item/card))

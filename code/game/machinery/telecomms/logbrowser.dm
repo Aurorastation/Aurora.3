@@ -199,7 +199,7 @@
 				A.icon_state = "4"
 				A.anchored = 1
 				qdel(src)
-			return TRUE
+		return TRUE
 	src.updateUsrDialog()
 
 /obj/machinery/computer/telecomms/server/emag_act(var/remaining_charges, var/mob/user)

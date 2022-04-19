@@ -83,7 +83,7 @@ var/bomb_set
 			if(0)
 				if(O.iswelder())
 					var/obj/item/weldingtool/WT = O
-					if(!WT.isOn()) return
+					if(!WT.isOn()) return TRUE
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
 						to_chat(user, "<span class='warning'>You need more fuel to complete this task.</span>")
 						return TRUE
@@ -94,7 +94,7 @@ var/bomb_set
 						if(!src || !user || !WT.remove_fuel(5, user)) return TRUE
 						user.visible_message("[user] cuts through the bolt covers on [src].", "You cut through the bolt cover.")
 						removal_stage = 1
-				return TRUE
+					return TRUE
 
 			if(1)
 				if(O.iscrowbar())
@@ -104,7 +104,7 @@ var/bomb_set
 						if(!src || !user) return TRUE
 						user.visible_message("[user] forces open the bolt covers on [src].", "You force open the bolt covers.")
 						removal_stage = 2
-				return TRUE
+					return TRUE
 
 			if(2)
 				if(O.iswelder())
@@ -121,22 +121,20 @@ var/bomb_set
 						if(!src || !user || !WT.remove_fuel(5, user)) return TRUE
 						user.visible_message("[user] cuts apart the anchoring system sealant on [src].", "You cut apart the anchoring system's sealant.")
 						removal_stage = 3
-				return TRUE
+					return TRUE
 
 			if(3)
 				if(O.iswrench())
-
 					user.visible_message("[user] begins unwrenching the anchoring bolts on [src].", "You begin unwrenching the anchoring bolts...")
 
 					if(do_after(user,50/O.toolspeed))
 						if(!src || !user) return TRUE
 						user.visible_message("[user] unwrenches the anchoring bolts on [src].", "You unwrench the anchoring bolts.")
 						removal_stage = 4
-				return TRUE
+					return TRUE
 
 			if(4)
 				if(O.iscrowbar())
-
 					user.visible_message("[user] begins lifting [src] off of the anchors.", "You begin lifting the device off the anchors...")
 
 					if(do_after(user,80/O.toolspeed))

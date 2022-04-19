@@ -140,7 +140,9 @@
 				src.repair()
 			else
 				to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
-			return TRUE
+		return TRUE
+
+
 
 // Proc: open()
 // Parameters: None

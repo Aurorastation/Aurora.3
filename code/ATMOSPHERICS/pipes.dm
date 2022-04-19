@@ -115,6 +115,7 @@
 				new /obj/item/pipe_meter(T)
 				qdel(meter)
 		qdel(src)
+		return TRUE
 
 /obj/machinery/atmospherics/proc/change_color(var/new_color)
 	//only pass valid pipe colors please ~otherwise your pipe will turn invisible

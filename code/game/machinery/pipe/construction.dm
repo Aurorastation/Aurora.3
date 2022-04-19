@@ -484,7 +484,7 @@ Buildable meters
 					else
 						pipe_type = PIPE_SIMPLE_STRAIGHT
 			update()
-			return TRUE
+		return TRUE
 
 	if (!isturf(src.loc))
 		return TRUE
@@ -536,7 +536,7 @@ Buildable meters
 			P.atmos_init()
 			if (QDELETED(P))
 				to_chat(usr, pipefailtext)
-				return 1
+				return TRUE
 			P.build_network()
 			if (P.node1)
 				P.node1.atmos_init()
@@ -555,7 +555,7 @@ Buildable meters
 			P.atmos_init()
 			if (QDELETED(P))
 				to_chat(usr, pipefailtext)
-				return 1
+				return TRUE
 			P.build_network()
 			if (P.node1)
 				P.node1.atmos_init()
@@ -1230,7 +1230,9 @@ Buildable meters
 		"<span class='notice'>You have fastened the [src].</span>", \
 		"You hear ratchet.")
 	qdel(src)	// remove the pipe item
+
 	return TRUE
+	 //TODO: DEFERRED
 
 // ensure that setterm() is called for a newly connected pipeline
 
@@ -1245,16 +1247,16 @@ Buildable meters
 	w_class = ITEMSIZE_LARGE
 
 /obj/item/pipe_meter/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (!W.iswrench())
-		return ..()
-	if(!locate(/obj/machinery/atmospherics/pipe, src.loc))
-		to_chat(user, "<span class='warning'>You need to fasten it to a pipe</span>")
+	if (W.iswrench())
+		if(!locate(/obj/machinery/atmospherics/pipe, src.loc))
+			to_chat(user, "<span class='warning'>You need to fasten it to a pipe</span>")
+			return 1
+		new/obj/machinery/meter( src.loc )
+		playsound(src.loc, W.usesound, 50, 1)
+		to_chat(user, "<span class='notice'>You have fastened the meter to the pipe</span>")
+		qdel(src)
 		return TRUE
-	new/obj/machinery/meter( src.loc )
-	playsound(src.loc, W.usesound, 50, 1)
-	to_chat(user, "<span class='notice'>You have fastened the meter to the pipe</span>")
-	qdel(src)
-
+	return ..()
 //not sure why these are necessary
 #undef PIPE_SIMPLE_STRAIGHT
 #undef PIPE_SIMPLE_BENT

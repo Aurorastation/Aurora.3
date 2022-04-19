@@ -90,7 +90,7 @@
 	if(!istype(W, /obj/item/forensics))
 		src.add_fingerprint(user)
 	else
-		return
+		return TRUE
 
 	if (W.isscrewdriver() && buildstage == 2)
 		if(!wiresexposed)
@@ -109,22 +109,23 @@
 						user.visible_message("<span class='notice'>\The [user] has reconnected [src]'s detecting unit!</span>", "<span class='notice'>You have reconnected [src]'s detecting unit.</span>")
 					else
 						user.visible_message("<span class='notice'>\The [user] has disconnected [src]'s detecting unit!</span>", "<span class='notice'>You have disconnected [src]'s detecting unit.</span>")
+					return TRUE
 				else if (W.iswirecutter())
 					user.visible_message("<span class='notice'>\The [user] has cut the wires inside \the [src]!</span>", "<span class='notice'>You have cut the wires inside \the [src].</span>")
 					new/obj/item/stack/cable_coil(get_turf(src), 5)
 					playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 					buildstage = 1
 					update_icon()
+					return TRUE
 			if(1)
 				if(W.iscoil())
 					var/obj/item/stack/cable_coil/C = W
 					if (C.use(5))
 						to_chat(user, "<span class='notice'>You wire \the [src].</span>")
 						buildstage = 2
-						return
 					else
 						to_chat(user, "<span class='warning'>You need 5 pieces of cable to wire \the [src].</span>")
-						return
+					return TRUE
 				else if(W.iscrowbar())
 					to_chat(user, "You pry out the circuit!")
 					playsound(src.loc, W.usesound, 50, 1)
@@ -133,18 +134,20 @@
 						circuit.forceMove(user.loc)
 						buildstage = 0
 						update_icon()
+					return TRUE
 			if(0)
 				if(istype(W, /obj/item/firealarm_electronics))
 					to_chat(user, "You insert the circuit!")
 					qdel(W)
 					buildstage = 1
 					update_icon()
-
+					return TRUE
 				else if(W.iswrench())
 					to_chat(user, "You remove the fire alarm assembly from the wall!")
 					new /obj/item/frame/fire_alarm(get_turf(user))
 					playsound(src.loc, W.usesound, 50, 1)
 					qdel(src)
+					return TRUE
 		return TRUE
 
 	src.alarm()

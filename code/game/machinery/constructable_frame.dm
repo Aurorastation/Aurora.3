@@ -79,7 +79,7 @@
 				var/obj/item/stack/cable_coil/C = P
 				if(C.get_amount() < 5)
 					to_chat(user, SPAN_WARNING("You need five lengths of cable to add them to the blueprint."))
-					return
+					return TRUE
 				playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, TRUE)
 				to_chat(user, SPAN_NOTICE("You start wiring up the blueprint..."))
 				if(do_after(user, 20, act_target = src))
@@ -163,6 +163,7 @@
 				req_components = list()
 				components = list()
 				icon_state = "blueprint_2"
+				return TRUE
 			else
 				if(P.isscrewdriver())
 					var/component_check = TRUE

@@ -214,6 +214,7 @@
 		enrolled = 0
 		hard_drive.reset_drive()
 		audible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> pings, <span class='notice'>\"Enrollment status reset! Have a NanoTrasen day.\"</span>")
+		return TRUE
 	if(istype(W, /obj/item/card/id)) // ID Card, try to insert it.
 		var/obj/item/card/id/I = W
 		if(!card_slot)
@@ -246,10 +247,11 @@
 		if(!nano_printer)
 			return TRUE
 		nano_printer.attackby(W, user)
+		return TRUE
 	if(istype(W, /obj/item/aicard))
-		if(!ai_slot)
-			return TRUE
-		ai_slot.attackby(W, user)
+		if(ai_slot)
+			ai_slot.attackby(W, user)
+		return TRUE
 	if(istype(W, /obj/item/computer_hardware))
 		var/obj/item/computer_hardware/C = W
 		if(C.hardware_size <= max_hardware_size)

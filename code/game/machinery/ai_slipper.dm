@@ -52,7 +52,7 @@
 					src.attack_hand(usr)
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
-			return TRUE
+	return TRUE
 
 /obj/machinery/ai_slipper/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))

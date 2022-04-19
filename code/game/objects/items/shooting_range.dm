@@ -29,7 +29,7 @@
 			icon = initial(icon)
 			hp = initial(hp)
 			to_chat(user, SPAN_NOTICE("You slice off \the [src]'s uneven chunks of steel and scorch marks."))
-			return TRUE
+		return TRUE
 
 /obj/item/target/attack_hand(var/mob/user)
 	// taking pinned targets off!

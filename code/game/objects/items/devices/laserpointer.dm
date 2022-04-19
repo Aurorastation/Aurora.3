@@ -58,8 +58,7 @@
 			to_chat(user, "<span class='notice'>You remove the [diode.name] from the [src].</span>")
 			diode.forceMove(get_turf(user))
 			diode = null
-			return TRUE
-		return ..()
+		return TRUE
 
 /obj/item/device/laser_pointer/afterattack(var/atom/target, var/mob/living/user, flag, params)
 	if(flag)	//we're placing the object on a table or in backpack

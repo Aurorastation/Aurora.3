@@ -161,7 +161,7 @@
 					new /obj/item/stack/cable_coil(loc, 2)
 				assembly = null //so qdel doesn't eat it.
 			qdel(src)
-			return TRUE
+		return TRUE
 
 	// OTHER
 	else if (can_use() && (istype(W, /obj/item/paper)) && isliving(user))
@@ -194,8 +194,7 @@
 	else if (istype(W, /obj/item/camera_bug))
 		if (!src.can_use())
 			to_chat(user, "<span class='warning'>Camera non-functional.</span>")
-			return
-		if (src.bugged)
+		else if (src.bugged)
 			to_chat(user, "<span class='notice'>Camera bug removed.</span>")
 			src.bugged = 0
 		else

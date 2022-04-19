@@ -330,7 +330,7 @@
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			if(do_after(user, 20/W.toolspeed, act_target = src))
 				if(!src || !WT.isOn())
-					return
+					return TRUE
 				welded = !welded
 				update_icon()
 				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
@@ -346,14 +346,14 @@
 	if(istype(W, /obj/item/melee/arm_blade))
 		if(!welded)
 			to_chat(user, SPAN_WARNING("\The [W] can only be used to tear open welded scrubbers!"))
-			return
+			return TRUE
 		user.visible_message(SPAN_WARNING("\The [user] starts using \the [W] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [W]..."))
 		user.do_attack_animation(src, W)
 		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 		var/cut_amount = 3
 		for(var/i = 0; i <= cut_amount; i++)
 			if(!W || !do_after(user, 30, src))
-				return
+				return TRUE
 			user.do_attack_animation(src, W)
 			user.visible_message(SPAN_WARNING("\The [user] smashes \the [W] into \the [src]!"), SPAN_NOTICE("You smash \the [W] into \the [src]."))
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
@@ -362,7 +362,7 @@
 				spark(get_turf(src), 3, alldirs)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
 				update_icon()
-		return
+		return TRUE
 
 	return ..()
 

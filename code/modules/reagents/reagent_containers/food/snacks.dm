@@ -753,8 +753,8 @@
 
 		to_chat(usr, SPAN_NOTICE("You color \the [src] [clr]"))
 		icon_state = "egg-[clr]"
-	else
-		. = ..()
+		return TRUE
+	return ..()
 
 /obj/item/reagent_containers/food/snacks/egg
 	var/amount_grown = 0

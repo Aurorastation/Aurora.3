@@ -53,7 +53,7 @@
 		if(!cable)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any cable loaded!"))
 			return TRUE
-		cable.attackby(O, user)
+		return cable.attackby(O, user)
 
 /obj/machinery/cablelayer/examine(mob/user)
 	..()

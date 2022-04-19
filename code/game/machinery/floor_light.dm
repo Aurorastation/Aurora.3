@@ -61,6 +61,7 @@ var/list/floor_light_cache = list()
 			else
 				new /obj/item/stack/tile/light(user.loc)
 				qdel(src)
+		return TRUE
 
 /obj/machinery/floor_light/attack_hand(var/mob/user)
 

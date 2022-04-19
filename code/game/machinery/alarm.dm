@@ -789,7 +789,7 @@
 						to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the Air Alarm interface.</span>")
 					else
 						to_chat(user, "<span class='warning'>Access denied.</span>")
-			return
+				return TRUE
 
 		if(1)
 			if(W.iscoil())
@@ -800,10 +800,9 @@
 					update_icon()
 					first_run()
 					set_frequency(frequency)
-					return TRUE
 				else
 					to_chat(user, "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>")
-					return TRUE
+				return TRUE
 
 			else if(W.iscrowbar())
 				to_chat(user, "You start prying out the circuit.")
@@ -815,6 +814,7 @@
 					buildstage = 0
 					update_icon()
 				return TRUE
+
 		if(0)
 			if(istype(W, /obj/item/airalarm_electronics))
 				to_chat(user, "You insert the circuit!")

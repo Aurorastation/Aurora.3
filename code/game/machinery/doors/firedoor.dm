@@ -262,7 +262,7 @@
 	if(!istype(C, /obj/item/forensics))
 		add_fingerprint(user)
 	if(operating)
-		return // Already doing something.
+		return TRUE // Already doing something.
 	if(C.iswelder() && !repairing)
 		var/obj/item/weldingtool/WT = C
 		if(WT.isOn())

@@ -177,7 +177,7 @@
 				LB.user_unbuckle(user)
 			take_victim(G.affecting,usr)
 			qdel(W)
-			return TRUE
+		return TRUE
 	if(default_deconstruction_screwdriver(user, W))
 		return TRUE
 	if(default_deconstruction_crowbar(user, W))

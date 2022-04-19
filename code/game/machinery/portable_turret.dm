@@ -333,6 +333,7 @@
 				else
 					to_chat(user, "<span class='notice'>You remove the turret but did not manage to salvage anything.</span>")
 				qdel(src) // qdel
+			return TRUE
 
 	else if((I.iswrench()))
 		if (immobile)
@@ -384,10 +385,8 @@
 		var/obj/item/weldingtool/WT = I
 		if (!WT.welding)
 			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
-			return TRUE
 		else if (health == maxhealth)
 			to_chat(user, "<span class='notice'>\The [src] is fully repaired.</span>")
-			return TRUE
 		else if (WT.remove_fuel(3, user))
 			to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
 			if(do_after(user, 5))
@@ -396,12 +395,11 @@
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 				health += maxhealth / 3
 				health = min(maxhealth, health)
-				return TRUE
 			else
 				to_chat(user, "<span class='notice'>You fail to complete the welding.</span>")
 		else
 			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
-			return TRUE
+		return TRUE
 	else
 		//if the turret was attacked with the intention of harming it:
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -882,7 +880,7 @@
 					to_chat(user, "You remove the turret's interior metal armor.")
 					new /obj/item/stack/material/steel( loc, 2)
 					icon_state = "turret_frame_1_[case_sprite_set]"
-					return TRUE
+				return TRUE
 
 
 		if(3)
@@ -901,7 +899,7 @@
 					build_step = 4
 					icon_state = "turret_frame_4_[case_sprite_set]"
 					add_overlay("turret_[E.turret_sprite_set]_off")
-					return TRUE
+				return TRUE
 
 			else if(I.iswrench())
 				playsound(loc, I.usesound, 100, 1)
@@ -960,14 +958,14 @@
 		if(7)
 			if(I.iswelder())
 				var/obj/item/weldingtool/WT = I
-				if(!WT.isOn()) return TRUE
+				if(!WT.isOn()) return
 				if(WT.get_fuel() < 5)
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 
 				playsound(loc, pick('sound/items/welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
 				if(do_after(user, 30/I.toolspeed))
 					if(!src || !WT.remove_fuel(5, user))
-						return TRUE
+						return
 					build_step = 8
 					to_chat(user, "<span class='notice'>You weld the turret's armor down.</span>")
 
@@ -1002,6 +1000,7 @@
 					Turret.icon_state = "cover_[case_sprite_set]"
 					START_PROCESSING(SSprocessing, Turret)
 					qdel(src) // qdel
+				return TRUE
 
 			else if(I.iscrowbar())
 				playsound(loc, I.usesound, 75, 1)
@@ -1016,14 +1015,9 @@
 
 	if(I.ispen())	//you can rename turrets like bots!
 		var/t = sanitizeSafe(input(user, "Enter new turret name", name, finish_name) as text, MAX_NAME_LEN)
-		if(!t)
+		if(t && in_range(src, usr) && loc != usr)
+			finish_name = t
 			return TRUE
-		if(!in_range(src, usr) && loc != usr)
-			return TRUE
-
-		finish_name = t
-		return TRUE
-
 	return ..()
 
 
