@@ -114,8 +114,6 @@
 		/datum/shuttle/autodock/overmap/sfa_shuttle,
 		/datum/shuttle/autodock/overmap/tcfl_peacekeeper_ship,
 		/datum/shuttle/autodock/overmap/tcfl_shuttle,
-		/datum/shuttle/autodock/overmap/ee_spy_ship,
-		/datum/shuttle/autodock/overmap/ee_shuttle
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship
