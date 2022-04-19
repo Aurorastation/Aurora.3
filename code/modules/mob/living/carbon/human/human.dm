@@ -1472,8 +1472,8 @@
 	if(change_hair)
 		species.set_default_hair(src)
 
-	if(species.default_accent)
-		accent = species.default_accent
+	if(origin.possible_accents)
+		accent = origin.possible_accents[1]
 
 	if(species)
 		return 1
@@ -2049,8 +2049,8 @@
 
 /mob/living/carbon/human/proc/set_accent(var/new_accent)
 	accent = new_accent
-	if(!(accent in species.allowed_accents))
-		accent = species.default_accent
+	if(!(accent in origin.possible_accents))
+		accent = origin.possible_accents[1]
 	return TRUE
 
 /mob/living/carbon/human/proc/add_or_remove_language(var/language)

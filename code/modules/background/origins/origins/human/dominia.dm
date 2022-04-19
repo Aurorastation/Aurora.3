@@ -50,7 +50,7 @@
 
 /decl/origin_item/origin/dominian_exile
 	name = "Dominian Exile"
-	desc = "PLACEHOLDER"
+	desc = "Made up of the worst of Imperial society, these Edict Breakers and assorted ne'er-do-wells have been banished or fled from the Empire for a variety of reasons. Some are criminals and deserters, others have more noble reasons, such as fleeing due to religious persecution or political oppression. One thing is common among them: they cannot go home again without facing the judgment of the Empire's courts."
 	important_information = "This origin is for the purposes of playing Edict Breakers that have fled the Empire of Dominia's justice. It is <b>NOT</b> an excuse to play a character with a Dominian accent that is totally divorced from the Empire."
 	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)

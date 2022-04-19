@@ -11,3 +11,17 @@
 	possible_accents = list(ACCENT_CETI, ACCENT_BLUESPACE, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_NONE)
+
+/decl/origin_item/culture/golem
+	name = "Golem"
+	desc = "You are a Golem."
+	possible_origins = list(
+		/decl/origin_item/origin/unknown
+	)
+
+/decl/origin_item/origin/golem
+	name = "Golem"
+	desc = "You're a Golem."
+	possible_accents = list(ACCENT_BLUESPACE)
+	possible_citizenships = list(CITIZENSHIP_NONE)
+	possible_religions = list(RELIGION_NONE)
