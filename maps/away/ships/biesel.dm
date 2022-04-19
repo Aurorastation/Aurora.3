@@ -7,6 +7,7 @@
 	spawn_cost = 1
 	id = "tcfl_peacekeeper_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcfl_peacekeeper_ship, /datum/shuttle/autodock/overmap/tcfl_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /obj/effect/overmap/visitable/sector/tcfl_peacekeeper_ship
 	name = "faint ship activity"
@@ -92,6 +93,7 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
+	subshuttle = TRUE
 
 /obj/machinery/computer/shuttle_control/explore/tcfl_shuttle
 	name = "shuttle control console"

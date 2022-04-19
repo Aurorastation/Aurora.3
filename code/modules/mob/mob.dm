@@ -199,7 +199,7 @@
 
 	var/list/mobs = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, range, mobs, objs, ghost_hearing)
+	get_mobs_or_objs_in_view(T, range, mobs, objs, ghost_hearing)
 
 
 	for(var/m in mobs)

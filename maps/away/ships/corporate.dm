@@ -92,6 +92,7 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
+	subshuttle = TRUE
 
 /obj/machinery/computer/shuttle_control/explore/orion_express_shuttle
 	name = "shuttle control console"
@@ -219,6 +220,7 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
+	subshuttle = TRUE
 
 /obj/machinery/computer/shuttle_control/explore/ee_shuttle
 	name = "shuttle control console"

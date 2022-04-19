@@ -1144,7 +1144,11 @@
 /area/hallway/primary/central_two)
 "aFK" = (
 /obj/structure/table/wood,
-/obj/machinery/door/window/westright,
+/obj/machinery/door/window/southright{
+	dir = 8;
+	name = "Library Desk";
+	req_access = list(37)
+	},
 /turf/simulated/floor/wood,
 /area/library)
 "aGH" = (

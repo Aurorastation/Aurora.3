@@ -1,5 +1,5 @@
 /obj/item/mining_scanner
-	name = "ore detector"
+	name = "deep ore scanner"
 	desc = "A complex device used to locate ore deep underground."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "forensic0-old" //GET A BETTER SPRITE.

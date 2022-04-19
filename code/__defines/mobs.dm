@@ -245,7 +245,7 @@
 
 #define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR)
 
-// Defines the argument used for get_mobs_and_objs_in_view_fast
+// Defines the argument used for get_mobs_or_objs_in_view
 #define GHOSTS_ALL_HEAR 1
 #define ONLY_GHOSTS_IN_VIEW 0
 
