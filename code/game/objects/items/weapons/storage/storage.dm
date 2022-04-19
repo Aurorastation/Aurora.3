@@ -539,7 +539,7 @@
 			return
 
 	W.add_fingerprint(user)
-	return handle_item_insertion(W, null, user)
+	return handle_item_insertion(W)
 
 /obj/item/storage/dropped(mob/user as mob)
 	return

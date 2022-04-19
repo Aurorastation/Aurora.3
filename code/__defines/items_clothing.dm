@@ -114,7 +114,6 @@
 #define slot_shoes_str 		"slot_shoes"
 #define slot_wrists_str 	"slot_wrists"
 #define slot_gloves_str 	"slot_gloves"
-#define slot_tail_str		"slot_tail"
 
 //itemstate suffixes. Used for containedsprite worn items
 #define WORN_LHAND	"_lh"
