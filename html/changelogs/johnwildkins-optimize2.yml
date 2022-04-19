@@ -1,0 +1,8 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Starlight module no longer attempts to generate lights on turfs that haven't initialized."
+  - refactor: "Sounds and messages via sensitive hearing were optimized to no longer rely on expensive recursive checks."
+  - refactor: "Visualnets no longer attempt to update their visibility chunks prior to game start."
