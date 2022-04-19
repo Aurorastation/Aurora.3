@@ -34,3 +34,10 @@
 	description = "Traverse accents are similar to those of Standard Nral'Malic accents; there are some differences on colonies in the sector, but the general trend of the accent \
 	seems to remain within the low ranges, often described as high-pitched and nasal in tone."
 	tag_icon = "skrell_traverse"
+	
+/datum/accent/skrell/genner
+	name = ACCENT_GENNER
+	description = "The Generation Fleet accent is actually a catch-all term for the various accents that have developed aboard the Generation Fleets of the Jargon Federation. \
+	As a result of being separated from their planet of origin for generations, these accents don't have much in common with any modern Skrell accent, and are usually \
+	described as sounding 'older' by other Skrell."
+	tag_icon = "skrell_genner"
