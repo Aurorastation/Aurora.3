@@ -2104,7 +2104,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_security{
 	id_tag = "prisonexit";
-	name = "Brig Exit";
+	name = "Brig Exterior";
 	req_access = list(2)
 	},
 /obj/machinery/door/firedoor,
@@ -14108,7 +14108,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_security{
 	id_tag = "prisonentry";
-	name = "Brig Entry";
+	name = "Brig Interior";
 	req_access = list(2)
 	},
 /obj/machinery/door/blast/regular{
@@ -32666,10 +32666,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "ucq" = (
-/obj/machinery/door/airlock/security{
-	name = "Security Eqiuipment Room";
-	req_access = list(63)
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -32683,6 +32679,10 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/security{
+	name = "Security Equipment Room";
+	req_access = list(63)
+	},
 /turf/simulated/floor/tiled,
 /area/security/main)
 "ucI" = (
