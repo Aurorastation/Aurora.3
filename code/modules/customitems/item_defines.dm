@@ -2342,4 +2342,4 @@ All custom items with worn sprites must follow the contained sprite system: http
 								"The soft glow of the incense burner illuminates the vicinity.")
 
 		if(lit_message)
-			visible_message("<span class='notice'>[lit_message]</span>")
+			visible_message(SPAN_NOTICE(lit_message), range = 3)
