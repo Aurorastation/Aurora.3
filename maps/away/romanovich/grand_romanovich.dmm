@@ -3281,10 +3281,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
-"hU" = (
-/obj/machinery/computer/arcade,
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "hZ" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
@@ -3636,10 +3632,6 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/wood,
-/area/grand_romanovich)
-"jf" = (
-/obj/machinery/vending/cola,
-/turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "jg" = (
 /obj/structure/window/reinforced{
@@ -4086,12 +4078,6 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
-"kP" = (
-/obj/machinery/atm{
-	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -5659,10 +5645,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
-"qb" = (
-/obj/machinery/vending/coffee,
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "qf" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
@@ -5743,12 +5725,6 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
-"qK" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "qP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5;
@@ -5775,12 +5751,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
-"rb" = (
-/obj/machinery/atm{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "ri" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -5802,15 +5772,6 @@
 	temperature = 278
 	},
 /area/grand_romanovich/outdoors)
-"rt" = (
-/obj/machinery/computer/cryopod{
-	pixel_y = 32
-	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "rz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -5879,12 +5840,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
-"sY" = (
-/obj/machinery/cryopod{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "sZ" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
@@ -5938,11 +5893,6 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/carpet/art,
-/area/grand_romanovich)
-"tX" = (
-/obj/structure/table/wood,
-/obj/item/material/ashtray/bronze,
-/turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "ub" = (
 /obj/structure/table/wood,
@@ -6057,12 +6007,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
-"vv" = (
-/obj/structure/bed/stool/chair/sofa/brown{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "vB" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
@@ -6132,12 +6076,6 @@
 	temperature = 278
 	},
 /area/grand_romanovich/outdoors)
-"wg" = (
-/obj/structure/cryofeed{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "wu" = (
 /obj/structure/bed/stool/chair/sofa/brown{
 	dir = 1
@@ -6211,12 +6149,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
-"xh" = (
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "xj" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1;
@@ -6252,16 +6184,6 @@
 /obj/item/reagent_containers/food/snacks/cone_cake,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
-"xB" = (
-/obj/machinery/light{
-	dir = 2;
-	icon_state = "tube1"
-	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "xE" = (
 /obj/structure/bed/stool/chair/sofa/brown,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -6293,12 +6215,6 @@
 	icon_state = "spline_fancy"
 	},
 /turf/simulated/floor/wood,
-/area/grand_romanovich)
-"yg" = (
-/obj/effect/landmark{
-	name = "Observer-Start"
-	},
-/turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "yr" = (
 /obj/structure/bed/stool/chair/wood{
@@ -6437,12 +6353,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
-"Bn" = (
-/obj/structure/bed/stool/chair/sofa/brown{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "Bx" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6;
@@ -6558,10 +6468,6 @@
 	icon_state = "rwindow"
 	},
 /turf/simulated/floor/carpet/art,
-/area/grand_romanovich)
-"Cx" = (
-/obj/machinery/vending/snack,
-/turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "CH" = (
 /obj/machinery/light/small,
@@ -7011,12 +6917,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
-"JJ" = (
-/obj/structure/bed/stool/chair/sofa/left/brown{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "JO" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/stool/chair/padded/teal,
@@ -7102,12 +7002,6 @@
 	pixel_x = 0
 	},
 /turf/simulated/floor/tiled/white,
-/area/grand_romanovich)
-"KR" = (
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Visitor"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "Ld" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -7447,10 +7341,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
-"PJ" = (
-/obj/machinery/vending/cigarette,
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "Qg" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
@@ -7624,10 +7514,6 @@
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
-"Sp" = (
-/obj/machinery/vending/battlemonsters,
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "Sy" = (
 /obj/structure/table/standard,
 /obj/machinery/vending/wallmed1{
@@ -7673,15 +7559,6 @@
 /obj/item/reagent_containers/food/snacks/vegetable_rikazu,
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
-"SR" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "Te" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/fruit_rikazu,
@@ -7725,10 +7602,6 @@
 	},
 /obj/item/reagent_containers/dropper,
 /turf/simulated/floor/tiled/white,
-/area/grand_romanovich)
-"TO" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "TP" = (
 /turf/simulated/floor/marble,
@@ -8041,26 +7914,6 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
-"XH" = (
-/obj/machinery/door/airlock/centcom{
-	locked = 1;
-	name = "Dock Lift"
-	},
-/obj/machinery/door/blast/regular/open{
-	id = "lockdown"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
-"XL" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/obj/machinery/cryopod{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "XN" = (
 /obj/structure/closet/cabinet,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -8158,12 +8011,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
-"Yw" = (
-/obj/structure/bed/stool/chair/sofa/left/brown{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "Yy" = (
 /obj/structure/table/wood,
 /obj/item/gun/projectile/shotgun/pump/rifle,
@@ -8230,12 +8077,6 @@
 	temperature = 278
 	},
 /area/grand_romanovich/outdoors)
-"ZL" = (
-/obj/structure/bed/stool/chair/sofa/corner/brown{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "ZM" = (
 /obj/machinery/optable,
 /obj/machinery/light{
@@ -30587,7 +30428,7 @@ lO
 lO
 lO
 lO
-yg
+lO
 aK
 lO
 XU
@@ -31123,9 +30964,9 @@ aI
 aI
 XU
 XU
-Lm
-Lm
-Lm
+XU
+XU
+XU
 XU
 XU
 XU
@@ -31379,11 +31220,11 @@ kZ
 kZ
 kZ
 kZ
-XU
-lO
-lO
-lO
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -31636,11 +31477,11 @@ kZ
 kZ
 kZ
 kZ
-XU
-sH
-lO
-ed
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -31893,11 +31734,11 @@ kZ
 kZ
 kZ
 kZ
-aI
-lO
-lO
-lO
-aI
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -32150,11 +31991,11 @@ kZ
 kZ
 kZ
 kZ
-aI
-lO
-lO
-lO
-aI
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -32407,11 +32248,11 @@ kZ
 kZ
 kZ
 kZ
-aI
-lO
-lO
-lO
-aI
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -32664,11 +32505,11 @@ kZ
 kZ
 kZ
 kZ
-aI
-lO
-lO
-lO
-aI
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -32921,11 +32762,11 @@ kZ
 kZ
 kZ
 kZ
-XU
-lO
-lO
-lO
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -33178,11 +33019,11 @@ kZ
 kZ
 kZ
 kZ
-XU
-sH
-lO
-ed
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -33435,11 +33276,11 @@ kZ
 kZ
 kZ
 kZ
-XU
-lO
-lO
-lO
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -33692,11 +33533,11 @@ kZ
 kZ
 kZ
 kZ
-aI
-lO
-lO
-lO
-aI
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -33949,11 +33790,11 @@ kZ
 kZ
 kZ
 kZ
-aI
-lO
-lO
-lO
-aI
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -34206,11 +34047,11 @@ kZ
 kZ
 kZ
 kZ
-aI
-lO
-lO
-lO
-aI
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -34463,11 +34304,11 @@ kZ
 kZ
 kZ
 kZ
-aI
-lO
-lO
-lO
-aI
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -34720,11 +34561,11 @@ kZ
 kZ
 kZ
 kZ
-XU
-lO
-lO
-lO
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -34977,11 +34818,11 @@ kZ
 kZ
 kZ
 kZ
-XU
-sH
-lO
-ed
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -35234,11 +35075,11 @@ kZ
 kZ
 kZ
 kZ
-XU
-lO
-lO
-lO
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -35491,11 +35332,11 @@ kZ
 kZ
 kZ
 kZ
-aI
-lO
-lO
-lO
-aI
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -35748,11 +35589,11 @@ kZ
 kZ
 kZ
 kZ
-aI
-lO
-lO
-lO
-aI
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -36005,11 +35846,11 @@ kZ
 kZ
 kZ
 kZ
-aI
-lO
-lO
-lO
-aI
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -36262,11 +36103,11 @@ kZ
 kZ
 kZ
 kZ
-aI
-lO
-lO
-lO
-aI
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -36519,11 +36360,11 @@ kZ
 kZ
 kZ
 kZ
-XU
-sH
-lO
-ed
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -36776,11 +36617,11 @@ kZ
 kZ
 kZ
 kZ
-XU
-Lm
-Lm
-Lm
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -37031,17 +36872,17 @@ kZ
 kZ
 kZ
 kZ
-XU
-XU
-XU
-mf
-mf
-mf
-XU
-XU
-XU
-XU
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -37288,17 +37129,17 @@ kZ
 kZ
 kZ
 kZ
-XU
-PJ
-lE
-lS
-lS
-lS
-SR
-Yw
-Bn
-ZL
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -37545,17 +37386,17 @@ kZ
 kZ
 kZ
 kZ
-XU
-qb
-lS
-KR
-KR
-KR
-KR
-TO
-tX
-vv
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -37802,17 +37643,17 @@ kZ
 kZ
 kZ
 kZ
-XU
-jf
-lS
-KR
-KR
-KR
-KR
-KR
-TO
-JJ
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -38059,17 +37900,17 @@ kZ
 kZ
 kZ
 kZ
-XU
-Cx
-lS
-KR
-KR
-KR
-KR
-KR
-KR
-hK
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -38316,17 +38157,17 @@ kZ
 kZ
 kZ
 kZ
-XU
-Sp
-lS
-KR
-KR
-KR
-KR
-KR
-KR
-lS
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -38573,17 +38414,17 @@ kZ
 kZ
 kZ
 kZ
-XU
-lR
-lS
-KR
-KR
-KR
-KR
-KR
-KR
-kP
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -38830,20 +38671,20 @@ kZ
 kZ
 kZ
 kZ
-XU
-rb
-lS
-KR
-KR
-KR
-KR
-KR
-qK
-xB
-XU
-XU
-XU
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 "}
 (120,1,1) = {"
 kZ
@@ -39087,20 +38928,20 @@ kZ
 kZ
 kZ
 kZ
-XU
-hK
-lS
-KR
-KR
-KR
-KR
-KR
-qK
-qK
-XH
-lS
-lS
-lS
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 "}
 (121,1,1) = {"
 kZ
@@ -39344,20 +39185,20 @@ kZ
 kZ
 kZ
 kZ
-XU
-XU
-XU
-rt
-KR
-KR
-KR
-KR
-qK
-qK
-XU
-lS
-lS
-lS
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 "}
 (122,1,1) = {"
 kZ
@@ -39601,20 +39442,20 @@ kZ
 kZ
 kZ
 kZ
-XU
-wg
-sY
-xh
-xh
-KR
-KR
-KR
-qK
-qK
-XH
-lS
-lS
-lS
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 "}
 (123,1,1) = {"
 kZ
@@ -39858,20 +39699,20 @@ kZ
 kZ
 kZ
 kZ
-XU
-wg
-sY
-xh
-xh
-KR
-KR
-KR
-qK
-xB
-XU
-XU
-XU
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 "}
 (124,1,1) = {"
 kZ
@@ -40115,17 +39956,17 @@ kZ
 kZ
 kZ
 kZ
-XU
-wg
-sY
-xh
-xh
-lS
-lS
-lS
-lS
-lS
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -40372,17 +40213,17 @@ kZ
 kZ
 kZ
 kZ
-XU
-wg
-XL
-xh
-xh
-lS
-iA
-hU
-hU
-hU
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ
@@ -40629,17 +40470,17 @@ kZ
 kZ
 kZ
 kZ
-XU
-XU
-XU
-XU
-XU
-XU
-XU
-XU
-XU
-XU
-XU
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 kZ
 kZ
 kZ

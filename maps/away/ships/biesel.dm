@@ -102,7 +102,6 @@
 	name = "TCFL Shuttle"
 	move_time = 90
 	shuttle_area = list(/area/shuttle/tcfl_shuttle)
-	dock_target = "tcfl_shuttle"
 	current_location = "nav_hangar_tcfl"
 	landmark_transition = "nav_transit_tcfl"
 	range = 1
