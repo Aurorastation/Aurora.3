@@ -1,6 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - tweak: "Added a check to prevent the IVs from being knocked over if you're prone."
