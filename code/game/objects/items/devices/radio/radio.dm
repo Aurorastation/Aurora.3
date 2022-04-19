@@ -578,7 +578,10 @@ var/global/list/default_medbay_channels = list(
 
 	var/range = receive_range(freq, level)
 	if(range > -1)
-		return get_mobs_or_objects_in_view(canhear_range, src)
+		var/list/mobs = list()
+		var/list/objs = list()
+		get_mobs_or_objs_in_view(get_turf(src), canhear_range, mobs, objs)
+		return mobs
 
 
 /obj/item/device/radio/examine(mob/user)

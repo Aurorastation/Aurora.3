@@ -82,7 +82,7 @@
 
 	if (config.starlight)
 		for (var/turf/space/S in RANGE_TURFS(1, src))
-			S.update_starlight()
+			S.update_starlight(FALSE)
 
 	W.above = old_above
 
