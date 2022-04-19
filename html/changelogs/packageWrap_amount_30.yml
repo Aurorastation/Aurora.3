@@ -1,0 +1,6 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - tweak: "Increases the package wrap paper stack from 25 to 30."

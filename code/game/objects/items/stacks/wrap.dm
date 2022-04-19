@@ -94,7 +94,7 @@
 	icon_state = "deliveryPaper"
 	desc = "A roll of paper used to enclose an object for delivery."
 	w_class = ITEMSIZE_NORMAL
-	amount = 25.0
+	amount = 30
 	var/wrapping_tag = "Sorting Office"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
