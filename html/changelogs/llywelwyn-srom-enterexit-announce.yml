@@ -1,0 +1,6 @@
+author: Llywelwyn
+
+delete-after: True
+
+changes:
+  - rscadd: "Those with psionics now receive a notification when someone else enters or exits The Dream."
