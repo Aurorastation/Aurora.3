@@ -92,7 +92,6 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
-	subshuttle = TRUE
 
 /obj/machinery/computer/shuttle_control/explore/sfa_shuttle
 	name = "shuttle control console"

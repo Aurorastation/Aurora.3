@@ -7,7 +7,6 @@
 	var/obj/effect/shuttle_landmark/ship/landmark       // Record our open space landmark for easy reference.
 	var/multiz = 0										// Index of multi-z levels, starts at 0
 	var/status = SHIP_STATUS_LANDED
-	var/subshuttle = FALSE								// TRUE/FALSE: Is this a ship that starts docked to another ship?
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 
@@ -35,12 +34,8 @@
 
 // We autobuild our z levels.
 /obj/effect/overmap/visitable/ship/landable/find_z_levels()
-	if(isStationLevel(z) || multiz || subshuttle)
-		// If we're not on station and not multi-z or inside an existing ship, then we already had a z-level generated for us; let's use that
-		for(var/i = 0 to multiz)
-			world.maxz++
-			map_z += world.maxz
-	else
+	for(var/i = 0 to multiz)
+		world.maxz++
 		map_z += world.maxz
 
 	var/turf/center_loc = locate(round(world.maxx/2), round(world.maxy/2), world.maxz)
