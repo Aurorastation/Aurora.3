@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - refactor: "Cut down on extraneous z-level generation for off-map shuttles."
