@@ -1469,11 +1469,16 @@
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
+	culture = decls_repository.get_decl(pick(species.possible_cultures))
+	origin = decls_repository.get_decl(pick(culture.possible_origins))
+	accent = pick(origin.possible_accents)
+	citizenship = origin.possible_citizenships[1]
+	religion = origin.possible_religions[1]
+
 	if(change_hair)
 		species.set_default_hair(src)
 
-	if(origin.possible_accents)
-		accent = origin.possible_accents[1]
+	accent = origin.possible_accents[1]
 
 	if(species)
 		return 1
