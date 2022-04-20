@@ -30,7 +30,7 @@
 	possible_religions = list(RELIGION_LUCEISM, RELIGION_NONE)
 
 /decl/origin_item/culture/orepit_trinary
-	name = "Orepit Trinary"
+	name = "All IPC on Orepit find themselves inextricably linked with the Trinary Perfection, a religion that preaches the eventual ascension of synthetic life. Keeping in line with their beliefs, the people and religious authorities on the planet have ensured that it remains a beacon of liberty to synthetic refugees, and IPC from all walks of life can be seen on this planet so long as they believe or are least amiable with the church."
 	desc = "blah blah blah worship yourself lol"
 	possible_origins = list(
 		/decl/origin_item/origin/orepit
@@ -38,7 +38,7 @@
 
 /decl/origin_item/origin/orepit
 	name = "Orepit"
-	desc = " Refugees and runaways, the synthetic population of Orepit has embraced the beliefs of synthetic divinity and ascension preached by the Trinary Perfection. A primarily religious community, IPC from Orepit and its capital Providence find themselves occupying clerical posts abroad as priests, missionaries and even guardians of the Church for its parishes scattered across the Spur."
+	desc = "Refugees and runaways, the synthetic population of Orepit has embraced the beliefs of synthetic divinity and ascension preached by the Trinary Perfection. A primarily religious community, IPC from Orepit and its capital Providence find themselves occupying clerical posts abroad as priests, missionaries and even guardians of the Church for its parishes scattered across the Spur."
 	possible_accents = ACCENTS_ALL_IPC_SOL
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_TRINARY)

@@ -26,7 +26,7 @@
 
 /decl/origin_item/origin/titan_prime
 	name = "Pests of Titan Prime" //this might be the most metal origin name
-	desc = "Dionae who were originally grown in or picked up by Titan Prime on its way to Biesel. Prior to Titan Prime reaching Biesel, these Dionae had an incredibly hard time as they were constantly hunted by the ship's Vaurca inhabitants, believing them to be nothing more than pests and the Dionae not being able to communicate back with them. Once reaching Biesel many Dionae left the ship and went on to seek a new life on the planet. Those that didn't leave were willingly allowed to stay with the zo'ra on a special garden-deck constructed specifically for them as a sort of apology for hunting them for so long."
+	desc = "Dionae who were originally grown in or picked up by Titan Prime on its way to Biesel. Prior to Titan Prime reaching Biesel, these Dionae had an incredibly hard time as they were constantly hunted by the ship's Vaurca inhabitants, believing them to be nothing more than pests and the Dionae not being able to communicate back with them. Once reaching Biesel many Dionae left the ship and went on to seek a new life on the planet. Those that didn't leave were willingly allowed to stay with the Zo'ra on a special garden-deck constructed specifically for them as a sort of apology for hunting them for so long."
 	important_information = "These Dionae are likely to have a massive distrust of the Zo'ra hive or vaurca in general as a result of their time being hunted on the ship for so long."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
 	possible_citizenships = list(CITIZENSHIP_BIESEL)
@@ -35,7 +35,7 @@
 /decl/origin_item/origin/biesel_wildborn
 	name = "Wildborn"
 	desc = "Dionae who were originally considered wild Dionae before being uplifted and integrated by the Republic of Biesel or one of the megacorporations active within its borders."
-	important_information = "While Dionae do still face some discrimination in the Republic, Dionae can expect to live a fairly comfortable life. The Republic itself does not apply any sort of “debt” to Dionae they uplift, however, a megacorp may rope them into a contract to work for them if they played any part in uplifting them."
+	important_information = "While Dionae do still face some discrimination in the Republic, Dionae can expect to live a fairly comfortable life. The Republic itself does not apply any sort of \"debt\" to Dionae they uplift, however, a megacorp may rope them into a contract to work for them if they played any part in uplifting them."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)

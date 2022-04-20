@@ -1,6 +1,6 @@
 /decl/origin_item/culture/non_federation
 	name = "Non-Federation Skrell"
-	desc = "Sol skrell how"
+	desc = "With First Contact with humanity, the Skrell saw the opportunity to explore and learn, and many decided to emigrate to human space. These communities integrated to varying degrees of success into human society, adopting some human concepts over the generations while still keeping their traditional Skrell culture. More modern Skrell communities such as the Starlight Zone or those found in the Coalition of Colonies will consist of refugees fleeing the Jargon Federation, and have a more anti-Federation sentiment than the older communities that formed during First Contact. "
 	possible_origins = list(
 		/decl/origin_item/origin/skrell_alliance,
 		/decl/origin_item/origin/skrell_biesel,
