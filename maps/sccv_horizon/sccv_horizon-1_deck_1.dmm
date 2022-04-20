@@ -4151,7 +4151,7 @@
 	},
 /area/maintenance/wing/port/deck1)
 "dTk" = (
-/obj/effect/shuttle_landmark/horizon/nav1,
+/obj/effect/shuttle_landmark/horizon/nav2,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "dUK" = (
@@ -4555,7 +4555,10 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/aft)
 "ekm" = (
-/obj/effect/shuttle_landmark/horizon/nav2,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/shuttle_landmark/horizon/nav1,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "ekt" = (
@@ -51255,7 +51258,7 @@ moI
 moI
 moI
 moI
-moI
+ekm
 moI
 moI
 moI
@@ -51861,7 +51864,7 @@ bJa
 bJa
 bJa
 bJa
-dTk
+bJa
 bJa
 bJa
 lnk
@@ -53476,7 +53479,7 @@ moI
 nYD
 bJa
 bJa
-bJa
+dTk
 bJa
 bJa
 bJa
@@ -53881,10 +53884,10 @@ bJa
 bJa
 bJa
 bJa
-ekm
-bJa
 bJa
 pMP
+bJa
+bJa
 bJa
 bJa
 bJa

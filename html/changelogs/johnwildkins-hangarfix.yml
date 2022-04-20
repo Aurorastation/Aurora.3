@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fix away-ship shuttles taking parts of the Horizon with them back to space."
