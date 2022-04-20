@@ -15,9 +15,9 @@
 	mantles["hide mantle, mountain"] = /obj/item/clothing/accessory/poncho/unathimantle/mountain
 	gear_tweaks += new /datum/gear_tweak/path(mantles)
 
-/datum/gear/suit/unathi_mantle
+/datum/gear/suit/unathi_mantle_noble
 	display_name = "forest mantle"
-	desc = "A forest hide mantle, reserved exclusively for nobility."
+	description = "A forest hide mantle, reserved exclusively for nobility."
 	path = /obj/item/clothing/accessory/poncho/unathimantle/forest
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
