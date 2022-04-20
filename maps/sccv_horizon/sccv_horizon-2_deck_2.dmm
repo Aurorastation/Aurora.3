@@ -15970,10 +15970,8 @@
 	dir = 8
 	},
 /obj/machinery/disposal/small/west,
-/obj/structure/extinguisher_cabinet{
-	layer = 3.3;
-	pixel_x = 27;
-	pixel_y = 1
+/obj/machinery/newscaster{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
@@ -26125,6 +26123,9 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "qdq" = (
@@ -34409,9 +34410,6 @@
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/light{
 	dir = 8
-	},
-/obj/machinery/newscaster{
-	pixel_x = -30
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/cafeteria)
