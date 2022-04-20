@@ -41,8 +41,6 @@
 	spawnpoints = list("tirakqi_captain")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/orion_express_courier/captain
-
 	assigned_role = "Ti'Rakqi Captain"
 	special_role = "Ti'Rakqi Captain"
 
