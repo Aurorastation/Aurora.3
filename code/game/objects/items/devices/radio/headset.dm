@@ -676,6 +676,11 @@
 	ks1type = /obj/item/device/encryptionkey/ship
 	syndie = TRUE
 
+/obj/item/device/radio/headset/tirakqi
+	icon_state = "syn_headset"
+	ks1type = /obj/item/device/encryptionkey/tirakqi
+	syndie = TRUE
+
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_ILLEGAL = 3)
 	ks2type = /obj/item/device/encryptionkey/binary
