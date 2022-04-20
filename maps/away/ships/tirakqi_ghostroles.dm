@@ -51,3 +51,9 @@
 	name = "Ti'Rakqi Captain"
 
 	glasses = /obj/item/clothing/glasses/sunglasses
+
+//items
+
+/obj/item/card/id/orion_ship
+	name = "ti'rakqi id"
+	access = list(access_tirakqi_ship, access_external_airlocks)
