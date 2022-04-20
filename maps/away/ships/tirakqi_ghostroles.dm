@@ -51,4 +51,3 @@
 	name = "Ti'Rakqi Captain"
 
 	glasses = /obj/item/clothing/glasses/sunglasses
-    exosuit = /obj/item/clothing/suit/pirate
