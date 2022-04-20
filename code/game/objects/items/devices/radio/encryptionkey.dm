@@ -199,6 +199,10 @@
 	name = "spare service radio encryption key"
 	additional_channels = list(CHANNEL_SERVICE = TRUE)
 
+/obj/item/device/encryptionkey/tirakqi
+	icon_state = "cypherkey"
+	additional_channels = list(CHANNEL_TIRAKQI = TRUE)
+
 // Encryption Key Pouch
 /obj/item/storage/box/fancy/keypouch
 	name = "encryption key pouch"
