@@ -1756,7 +1756,8 @@
 	name = "Custodial Garage Shutters";
 	pixel_x = -25;
 	req_access = list(26);
-	pixel_y = 8
+	pixel_y = 7;
+	dir = 4
 	},
 /obj/machinery/ringer_button{
 	id = "ringers_custodial";
@@ -6300,12 +6301,12 @@
 /area/hallway/engineering)
 "fyb" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock{
-	name = "Custodial Closet";
-	req_access = list(26)
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/airlock/service{
+	req_access = list(26);
+	name = "Custodial Closet"
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -7065,15 +7066,17 @@
 	name = "Custodial Desk Shutter";
 	req_access = list(26);
 	pixel_x = 25;
-	pixel_y = -7
+	pixel_y = -7;
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_custodialgarage";
 	name = "Custodial Garage Shutter";
 	req_access = list(26);
-	pixel_y = 8;
-	pixel_x = 25
+	pixel_y = 7;
+	pixel_x = 25;
+	dir = 8
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
@@ -21522,10 +21525,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "tes" = (
-/obj/machinery/door/airlock{
-	name = "Custodial Closet Storage";
-	req_access = list(26)
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -21538,6 +21537,10 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/airlock/glass_service{
+	req_access = list(26);
+	name = "Custodial Closet Storage"
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
