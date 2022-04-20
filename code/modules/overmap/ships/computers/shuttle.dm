@@ -3,6 +3,17 @@
 	name = "general shuttle control console"
 	ui_template = "shuttle_control_console_exploration.tmpl"
 
+/obj/machinery/computer/shuttle_control/explore/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
+	. = ..()
+
+	if(.)
+		LAZYSET(linked.consoles, src, TRUE)
+
+/obj/machinery/computer/shuttle_control/explore/Destroy()
+	if(linked)
+		LAZYREMOVE(linked.consoles, src)
+	. = ..()
+
 /obj/machinery/computer/shuttle_control/explore/get_ui_data(var/datum/shuttle/autodock/overmap/shuttle)
 	. = ..()
 	if(istype(shuttle))
