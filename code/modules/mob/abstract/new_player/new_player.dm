@@ -3,8 +3,6 @@
 /mob/abstract/new_player
 	var/ready = 0
 	var/spawning = 0 //Referenced when you want to delete the new_player later on in the code
-	var/totalPlayers = 0 //Player counts for the Lobby tab
-	var/totalPlayersReady = 0
 	var/datum/late_choices/late_choices_ui = null
 	universal_speak = 1
 
@@ -16,6 +14,8 @@
 
 	anchored = 1	//  don't get pushed around
 	simulated = FALSE
+
+	var/last_ready_name // This has to be saved because the client is nulled prior to Logout()
 
 INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
@@ -41,19 +41,14 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			stat("Game Mode:", "[master_mode]") // Old setting for showing the game mode
 
 		if(SSticker.current_state == GAME_STATE_PREGAME)
-			if (SSticker.lobby_ready)
-				stat("Time To Start:", "[SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
-			else
-				stat("Time To Start:", "Waiting for Server")
-			stat("Players: [totalPlayers]", "Players Ready: [totalPlayersReady]")
-			totalPlayers = 0
-			totalPlayersReady = 0
-			for(var/mob/abstract/new_player/player in player_list)
-				totalPlayers++
-				if(player.ready)
-					var/job_ready = player.client.prefs.return_chosen_high_job(TRUE)
-					stat("[copytext_char(player.client.prefs.real_name, 1, 18)]", job_ready ? "[job_ready]" : "N/A")
-					totalPlayersReady++
+			stat("Time To Start:", "[SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
+			stat("Players: [length(player_list)]", "Players Ready: [SSticker.total_players_ready]")
+			if(SSjobs.init_state >= SS_INITSTATE_DONE)
+				for(var/dept in SSticker.ready_player_jobs)
+					if(LAZYLEN(SSticker.ready_player_jobs[dept]))
+						stat(uppertext(dept), null)
+					for(var/char in SSticker.ready_player_jobs[dept])
+						stat("[copytext_char(char, 1, 18)]", "[SSticker.ready_player_jobs[dept][char]]")
 
 /mob/abstract/new_player/Topic(href, href_list[])
 	if(!client)	return 0

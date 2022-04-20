@@ -5,7 +5,7 @@
     <div v-else v-for="(sdata, key) in state.sensors" :key="key">
       <b>{{ sdata.name }}</b><br>
       <vui-item v-if="sdata.pressure" label="Pressure:">{{ sdata.pressure }} kPa</vui-item>
-      <vui-item v-if="sdata.temperature" label="Temperature:">{{ sdata.temperature }}% K</vui-item>
+      <vui-item v-if="sdata.temperature" label="Temperature:">{{ sdata.temperature }} K</vui-item>
       <vui-item v-if="sdata.oxygen || sdata.hydrogen || sdata.phoron || sdata.nitrogen || sdata.carbon_dioxide" label="Gas Composition:">
         <span class="complist" v-if="sdata.oxygen">{{ sdata.oxygen }}% O<sub>2</sub></span>
         <span class="complist" v-if="sdata.nitrogen">{{ sdata.nitrogen }}% N</span>

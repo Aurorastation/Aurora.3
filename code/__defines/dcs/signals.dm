@@ -31,8 +31,6 @@
 // /atom/movable signals
 
 // /mob signals
-/// called when a mob speaks, to determine the size of their spoken font. currently implemented in megaphones and mechas
-#define COMSIG_SAY_MODIFIER "signal_say_modifier"
 
 // /obj signals
 /// when a hood is unequipped

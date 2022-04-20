@@ -77,6 +77,8 @@
 		var/mob/living/carbon/human/M = H
 		if(M.shoes?.item_flags & LIGHTSTEP)
 			return
+		if(M.incapacitated())
+			return
 		if(tipped)
 			if(M.m_intent == M_RUN && M.a_intent == I_HURT)
 				if(breath_mask)
@@ -385,7 +387,7 @@
 		"Remove Container" = image('icons/mob/screen/radial.dmi', "iv_beaker"),
 		"Remove Tank" = image('icons/mob/screen/radial.dmi', "iv_tank"),
 		"Remove Breath Mask" = image('icons/mob/screen/radial.dmi', "iv_mask"))
-	var/chosen_action = show_radial_menu(usr, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
+	var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 	if(!chosen_action)
 		return
 	switch(chosen_action)
@@ -393,38 +395,38 @@
 			transfer_rate()
 		if("Remove Container")
 			if(!beaker)
-				to_chat(usr, SPAN_NOTICE("There is no reagent container to remove."))
+				to_chat(user, SPAN_NOTICE("There is no reagent container to remove."))
 				return
-			usr.visible_message(SPAN_NOTICE("[usr] removes \the [beaker] from \the [src]."), SPAN_NOTICE("You remove \the [beaker] from \the [src]."))
-			beaker.forceMove(usr.loc)
-			usr.put_in_hands(beaker)
+			user.visible_message(SPAN_NOTICE("[user] removes \the [beaker] from \the [src]."), SPAN_NOTICE("You remove \the [beaker] from \the [src]."))
+			beaker.forceMove(user.loc)
+			user.put_in_hands(beaker)
 			beaker = null
 			update_icon()
 		if("Remove Tank")
 			if(!tank)
-				to_chat(usr, SPAN_NOTICE("There is no installed tank to remove."))
+				to_chat(user, SPAN_NOTICE("There is no installed tank to remove."))
 				return
 			if(breather)
-				to_chat(usr, SPAN_NOTICE("You cannot remove \the [tank] if someone's wearing the mask!"))
+				to_chat(user, SPAN_NOTICE("You cannot remove \the [tank] if someone's wearing the mask!"))
 				return
 			if(!is_loose)
-				to_chat(usr, SPAN_NOTICE("You must loosen the nuts securing \the [tank] into place to remove it!"))
+				to_chat(user, SPAN_NOTICE("You must loosen the nuts securing \the [tank] into place to remove it!"))
 				return
-			usr.visible_message(SPAN_NOTICE("[usr] removes \the [tank] from \the [src]."), SPAN_NOTICE("You remove \the [tank] from \the [src]."))
-			tank.forceMove(usr.loc)
-			usr.put_in_hands(tank)
+			user.visible_message(SPAN_NOTICE("[user] removes \the [tank] from \the [src]."), SPAN_NOTICE("You remove \the [tank] from \the [src]."))
+			tank.forceMove(user.loc)
+			user.put_in_hands(tank)
 			tank = null
 			update_icon()
 		if("Remove Breath Mask")
 			if(!breath_mask)
-				to_chat(usr, SPAN_NOTICE("There is no installed mask to remove."))
+				to_chat(user, SPAN_NOTICE("There is no installed mask to remove."))
 				return
 			if(breather)
-				to_chat(usr, SPAN_NOTICE("You cannot remove \the [breath_mask] if someone's wearing it!"))
+				to_chat(user, SPAN_NOTICE("You cannot remove \the [breath_mask] if someone's wearing it!"))
 				return
-			usr.visible_message(SPAN_NOTICE("[usr] removes \the [breath_mask] from \the [src]."), SPAN_NOTICE("You remove \the [breath_mask] from the \the [src]."))
-			breath_mask.forceMove(usr.loc)
-			usr.put_in_hands(breath_mask)
+			user.visible_message(SPAN_NOTICE("[user] removes \the [breath_mask] from \the [src]."), SPAN_NOTICE("You remove \the [breath_mask] from the \the [src]."))
+			breath_mask.forceMove(user.loc)
+			user.put_in_hands(breath_mask)
 			breath_mask = null
 			update_icon()
 
@@ -436,48 +438,48 @@
 		if(beaker)
 			to_chat(user, "There is already a reagent container loaded!")
 			return
-		usr.drop_from_inventory(W, src)
+		user.drop_from_inventory(W, src)
 		beaker = W
-		usr.visible_message(SPAN_NOTICE("[usr] attaches \the [W] to \the [src]."), SPAN_NOTICE("You attach \the [W] to \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] attaches \the [W] to \the [src]."), SPAN_NOTICE("You attach \the [W] to \the [src]."))
 		update_icon()
 		return
 	if(istype(W, /obj/item/clothing/mask/breath))
 		if(is_type_in_list(W, mask_blacklist))
-			to_chat(usr, "\The [W] is incompatible with \the [src].")
+			to_chat(user, "\The [W] is incompatible with \the [src].")
 			return
 		if(breath_mask)
-			to_chat(usr, "There is already a mask installed.")
+			to_chat(user, "There is already a mask installed.")
 			return
-		usr.drop_from_inventory(W, src)
+		user.drop_from_inventory(W, src)
 		breath_mask = W
-		usr.visible_message(SPAN_NOTICE("[usr] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
 		update_icon()
 		return
 	if(istype(W, /obj/item/tank))
 		if(is_type_in_list(W, tank_blacklist))
-			to_chat(usr, "\The [W] is incompatible with \the [src].")
+			to_chat(user, "\The [W] is incompatible with \the [src].")
 			return
 		if(tank)
-			to_chat(usr, "There is already a tank installed!")
+			to_chat(user, "There is already a tank installed!")
 			return
 		if(istype(W, /obj/item/tank/phoron))
 			if(tipped)
-				to_chat(usr, "You're not sure how to place \the [W] in the fallen [src].")
+				to_chat(user, "You're not sure how to place \the [W] in the fallen [src].")
 				return
-		usr.drop_from_inventory(W, src)
+		user.drop_from_inventory(W, src)
 		tank = W
-		usr.visible_message(SPAN_NOTICE("[usr] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
 		update_icon()
 		return
 	if(W.iswrench())
 		if(!tank)
-			to_chat(usr, "There isn't a tank installed for you to secure!")
+			to_chat(user, "There isn't a tank installed for you to secure!")
 			return
 		if(tank_type == "phoron")
-			to_chat(usr, "You can't properly secure this type of tank to \the [src]!")
+			to_chat(user, "You can't properly secure this type of tank to \the [src]!")
 			return
-		usr.visible_message(
-			SPAN_NOTICE("[usr] [is_loose ? "tightens" : "loosens"] the nuts on [src]."),
+		user.visible_message(
+			SPAN_NOTICE("[user] [is_loose ? "tightens" : "loosens"] the nuts on [src]."),
 			SPAN_NOTICE("You [is_loose ? "tighten" : "loosen"] the nuts on [src], [is_loose ? "securing \the [tank]" : "allowing \the [tank] to be removed"]."))
 		playsound(src.loc, "sound/items/wrench.ogg", 50, 1)
 		is_loose = !is_loose
@@ -494,14 +496,17 @@
 	return attack_hand(user)
 
 /obj/machinery/iv_drip/attack_hand(mob/user as mob)
+	if(user.incapacitated())
+		to_chat(user, SPAN_WARNING("You are in no shape to do this."))
+		return
 	if(tipped)
-		usr.visible_message("<b>[usr]</b> pulls \the [src] upright.", "You pull \the [src] upright.")
+		user.visible_message("<b>[user]</b> pulls \the [src] upright.", "You pull \the [src] upright.")
 		icon_state = "iv_stand"
 		tipped = FALSE
 		update_icon()
 		return
 	if(user.a_intent == I_HURT)
-		usr.visible_message("<b>[usr]</b> knocks \the [src] down!", "You knock \the [src] down!")
+		user.visible_message("<b>[user]</b> knocks \the [src] down!", "You knock \the [src] down!")
 		do_crash()
 		return
 	var/list/options = list(
@@ -510,7 +515,7 @@
 		"Toggle Stop" = image('icons/mob/screen/radial.dmi', "iv_stop"),
 		"Toggle Valve" = image('icons/mob/screen/radial.dmi', "iv_valve"),
 		"Toggle EPP" = image('icons/mob/screen/radial.dmi', "iv_epp"))
-	var/chosen_action = show_radial_menu(usr, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
+	var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 	if(!chosen_action)
 		return
 	switch(chosen_action)
@@ -585,15 +590,15 @@
 	valve_open = FALSE
 	epp_active = FALSE
 
-/obj/machinery/iv_drip/proc/toggle_check()
-	if(!ishuman(usr) && !issilicon(usr))
-		to_chat(usr, SPAN_WARNING("This mob cannot operate the controls!"))
+/obj/machinery/iv_drip/proc/toggle_check(mob/user)
+	if(!ishuman(user) && !issilicon(user))
+		to_chat(user, SPAN_WARNING("This mob cannot operate the controls!"))
 		return
-	if(usr.stat || usr.incapacitated())
-		to_chat(usr, SPAN_WARNING("You are in no shape to do this."))
+	if(user.stat || user.incapacitated())
+		to_chat(user, SPAN_WARNING("You are in no shape to do this."))
 		return
-	if(!usr.Adjacent(src))
-		to_chat(usr, SPAN_WARNING("You must get closer to \the [src] to do that!"))
+	if(!user.Adjacent(src))
+		to_chat(user, SPAN_WARNING("You must get closer to \the [src] to do that!"))
 		return
 	return TRUE
 
@@ -602,7 +607,7 @@
 	set name = "Toggle Mode"
 	set src in view(1)
 
-	if(!toggle_check())
+	if(!toggle_check(usr))
 		return
 	mode = !mode
 	usr.visible_message("<b>[usr]</b> toggles \the [src] to [mode ? "inject" : "take blood"].", SPAN_NOTICE("You set \the [src] to [mode ? "injecting" : "taking blood"]."))
@@ -614,7 +619,7 @@
 	set name = "Toggle Stop"
 	set src in view(1)
 
-	if(!toggle_check())
+	if(!toggle_check(usr))
 		return
 	toggle_stop = !toggle_stop
 	usr.visible_message("<b>[usr]</b> toggles \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"].", SPAN_NOTICE("You toggle \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"]."))
@@ -625,7 +630,7 @@
 	set name = "Toggle Valve"
 	set src in view(1)
 
-	if(!toggle_check())
+	if(!toggle_check(usr))
 		return
 	if(!tank)
 		to_chat(usr, SPAN_NOTICE("There is no tank for you to open the valve of!"))
@@ -659,7 +664,7 @@
 	set name = "Toggle EPP"
 	set src in view(1)
 
-	if(!toggle_check())
+	if(!toggle_check(usr))
 		return
 	if(epp_active)
 		var/response = alert(usr, "Are you sure you want to turn off the Emergency Positive Pressure system? It is currently active!", "Toggle EPP", "Yes", "No")
@@ -675,7 +680,7 @@
 	set name = "Set Transfer Rate"
 	set src in view(1)
 
-	if(!toggle_check())
+	if(!toggle_check(usr))
 		return
 	set_rate:
 		var/amount = input("Set transfer rate as u/sec (between [transfer_limit] and 0.001)") as num
@@ -696,18 +701,18 @@
 	to_chat(user, SPAN_NOTICE("\The [src] [attached ? "is attached to [attached]'s [vein.name]" : "has no one attached"]."))
 	if(beaker)
 		if(LAZYLEN(beaker.reagents.reagent_volumes))
-			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, usr)] \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"]."))
+			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"]."))
 		else
-			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, usr)] \a [beaker]. It is empty."))
+			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker]. It is empty."))
 	else
 		to_chat(user, SPAN_NOTICE("No chemicals are attached."))
 	if(tank)
-		to_chat(user, SPAN_NOTICE("Installed is [icon2html(tank, usr)] [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
+		to_chat(user, SPAN_NOTICE("Installed is [icon2html(tank, user)] [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
 		with the pressure set to [tank.distribute_pressure]kPa. The valve is [valve_open ? "open" : "closed"]."))
 	else
 		to_chat(user, SPAN_NOTICE("No gas tank installed."))
 	if(breath_mask)
-		to_chat(user, SPAN_NOTICE("\The [src] has [icon2html(breath_mask, usr)] \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."))
+		to_chat(user, SPAN_NOTICE("\The [src] has [icon2html(breath_mask, user)] \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."))
 	else
 		to_chat(user, SPAN_NOTICE("No breath mask installed."))
 
