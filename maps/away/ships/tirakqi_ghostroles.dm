@@ -54,6 +54,6 @@
 
 //items
 
-/obj/item/card/id/orion_ship
+/obj/item/card/id/tirakqi_ship
 	name = "ti'rakqi id"
 	access = list(access_tirakqi_ship, access_external_airlocks)
