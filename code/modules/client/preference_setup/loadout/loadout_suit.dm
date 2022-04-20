@@ -286,7 +286,7 @@ datum/gear/suit/colorvest
 	display_name = "dominian cape"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dominia)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/dominia_cape/New()
 	..()
@@ -304,7 +304,7 @@ datum/gear/suit/colorvest
 	description = "A selection of Dominian coats and jackets."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dominia)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/dominia/New()
 	..()
@@ -325,7 +325,7 @@ datum/gear/suit/colorvest
 	description = "A selection of Fisanduhian jackets."
 	path = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dominia)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/fisanduhian_bomber/New()
 	..()

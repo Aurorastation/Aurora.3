@@ -26,6 +26,7 @@
 
 /datum/gear/suit/unathi_robe/kilt
 	display_name = "wasteland kilt"
+	origin_restriction = list(/decl/origin_item/origin/wastelander)
 	path = /obj/item/clothing/suit/unathi/robe/kilt
 
 /datum/gear/suit/robe_coat
@@ -90,6 +91,7 @@
 	display_name = "wasteland goggles"
 	path = /obj/item/clothing/glasses/safety/goggles/wasteland
 	whitelisted = list(SPECIES_UNATHI)
+	origin_restriction = list(/decl/origin_item/origin/wastelander)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/accessory/sinta_hood
@@ -239,6 +241,7 @@
 	display_name = "shaman staff"
 	path = /obj/item/cane/shaman
 	sort_category = "Xenowear - Unathi"
+	origin_restriction = list(/decl/origin_item/origin/izweski_upper)
 	whitelisted = list(SPECIES_UNATHI)
 
 /datum/gear/suit/maxtlatl
@@ -247,6 +250,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain")
+	origin_restriction = list(/decl/origin_item/origin/izweski_upper)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -254,6 +258,7 @@
 	display_name = "Thakhist wristguards"
 	path = /obj/item/clothing/wrists/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
+	origin_restriction = list(/decl/origin_item/origin/izweski_upper)
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
@@ -262,6 +267,7 @@
 	display_name = "Thakhist headgear"
 	path = /obj/item/clothing/head/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
+	origin_restriction = list(/decl/origin_item/origin/izweski_upper)
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
@@ -271,6 +277,7 @@
 	path = /obj/item/clothing/accessory/poncho/rockstone
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
+	origin_restriction = list(/decl/origin_item/origin/izweski_upper)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
 
@@ -278,6 +285,7 @@
 	display_name = "jeweled bracers"
 	path = /obj/item/clothing/wrists/unathi/jeweled
 	whitelisted = list(SPECIES_UNATHI)
+	origin_restriction = list(/decl/origin_item/origin/izweski_upper)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -294,5 +302,6 @@
 	path = /obj/item/clothing/suit/unathi/jokfar
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
+	origin_restriction = list(/decl/origin_item/origin/izweski_upper)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
