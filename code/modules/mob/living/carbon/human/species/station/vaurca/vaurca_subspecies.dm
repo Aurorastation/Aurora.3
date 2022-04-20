@@ -87,9 +87,15 @@
 
 	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
 
+	possible_cultures = list(
+		/decl/origin_item/culture/zora_breeder,
+		/decl/origin_item/culture/klax_breeder,
+		/decl/origin_item/culture/cthur_breeder
+	)
+
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite
-		)
+	)
 
 	default_h_style = "Bald"
 
