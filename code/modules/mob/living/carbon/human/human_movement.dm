@@ -119,7 +119,7 @@
 
 /mob/living/carbon/human/set_dir(var/new_dir, ignore_facing_dir = FALSE)
 	. = ..()
-	if(. && tail_style)
+	if(. && species.tail)
 		update_tail_showing(1)
 
 /mob/living/carbon/human/Move()
