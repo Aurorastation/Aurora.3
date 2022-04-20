@@ -207,9 +207,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
 "aw" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -2884,6 +2881,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/machinery/status_display{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/white,
 /area/bridge)
 "gu" = (
@@ -3905,13 +3905,13 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/item/modular_computer/console/preset/supply{
-	pixel_y = 5
-	},
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/structure/railing/mapped,
+/obj/item/modular_computer/console/preset/supply{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "iB" = (
@@ -5641,12 +5641,15 @@
 	name = "Security - Investigations Office"
 	})
 "mE" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/bridge)
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/wood,
+/area/crew_quarters/captain)
 "mG" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -5713,12 +5716,9 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "mM" = (
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/bridge)
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/wood,
+/area/bridge/minibar)
 "mN" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -6243,9 +6243,6 @@
 /area/hallway/primary/starboard)
 "nU" = (
 /obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
 	icon_state = "2-8"
 	},
 /obj/structure/disposalpipe/segment{
@@ -6323,7 +6320,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/full,
 /obj/machinery/computer/station_alert/all{
-	pixel_y = 5
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
@@ -7191,6 +7188,7 @@
 	},
 /obj/machinery/light,
 /obj/machinery/hologram/holopad,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "pT" = (
@@ -7237,12 +7235,10 @@
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "pX" = (
-/obj/structure/bed/stool/chair/padded/beige{
-	dir = 1
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "pY" = (
@@ -9410,6 +9406,10 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Executive Officer's Quarters"
 	},
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "vb" = (
@@ -9545,18 +9545,10 @@
 /turf/simulated/floor/plating,
 /area/hallway/crew_area)
 "vw" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
 /area/bridge)
 "vx" = (
 /turf/simulated/wall/r_wall,
@@ -11758,9 +11750,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "Bc" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -13590,6 +13579,15 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/maintenance/substation/command)
+"FM" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "FN" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -14371,7 +14369,7 @@
 	dir = 10
 	},
 /obj/machinery/computer/security{
-	pixel_y = 5
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
@@ -15628,7 +15626,7 @@
 "Kr" = (
 /obj/effect/floor_decal/spline/fancy,
 /obj/item/modular_computer/console/preset/research{
-	pixel_y = 5
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
@@ -18419,7 +18417,7 @@
 "Qo" = (
 /obj/effect/floor_decal/spline/fancy,
 /obj/item/modular_computer/console/preset/medical{
-	pixel_y = 5
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
@@ -19118,7 +19116,9 @@
 	dir = 5
 	},
 /obj/structure/bed/stool/chair,
-/obj/machinery/firealarm/north,
+/obj/structure/fireaxecabinet{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "Sf" = (
@@ -19953,6 +19953,7 @@
 	dir = 10
 	},
 /obj/machinery/recharger,
+/obj/item/aicard,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "Uj" = (
@@ -20895,6 +20896,28 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
 /area/maintenance/aux_atmospherics/deck_3)
+"WG" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/aibunker)
 "WH" = (
 /obj/machinery/light_switch{
 	pixel_x = 25;
@@ -20954,6 +20977,7 @@
 	c_tag = "AI Core - Third Deck Chamber Starboard";
 	dir = 4
 	},
+/obj/item/device/multitool,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "WP" = (
@@ -21630,6 +21654,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -40715,7 +40742,7 @@ iP
 JQ
 FZ
 At
-hm
+mE
 cl
 mC
 pI
@@ -42325,8 +42352,8 @@ iS
 vZ
 vZ
 vZ
-Lz
-vB
+WG
+FM
 EA
 CZ
 Xo
@@ -43329,7 +43356,7 @@ aH
 ZS
 aH
 dB
-vw
+dB
 VW
 Mg
 dB
@@ -43531,11 +43558,11 @@ US
 ZS
 US
 KB
-mM
-mE
+Qz
+Qz
 Bc
 aw
-aw
+vw
 nU
 px
 Gv
@@ -44963,7 +44990,7 @@ oD
 fx
 LH
 Ch
-SR
+mM
 SR
 SR
 SR
