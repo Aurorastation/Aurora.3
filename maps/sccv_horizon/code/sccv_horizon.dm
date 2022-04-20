@@ -115,8 +115,8 @@
 		/datum/shuttle/autodock/overmap/tcfl_peacekeeper_ship,
 		/datum/shuttle/autodock/overmap/tcfl_shuttle,
 		/datum/shuttle/autodock/overmap/ee_spy_ship,
-		/datum/shuttle/autodock/overmap/ee_shuttle
-		/datum/shuttle/autodock/overmap/tirakqi_ship
+		/datum/shuttle/autodock/overmap/ee_shuttle,
+		/datum/shuttle/autodock/overmap/tirakqi_ship,
 		/datum/shuttle/autodock/overmap/tirakqi_shuttle
 	)
 
