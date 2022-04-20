@@ -1,6 +1,6 @@
 /decl/origin_item/culture/traditionalists //insert political joke
 	name = "Traditionalists"
-	desc = "Almost every former or current nation under the sun that isn’t allied with the Izweski Hegemony is considered a part of the now-defunct Traditionalist Coalition. This includes people that fled to the Hegemony to escape the nuclear fallout, the majority of Traditionalists on Ouerea that have once rallied against Not’zar Izweski and will do so again, or those left to the Touched Lands to suffer and adapt to harsh new climates. Traditionalists are known to make new homes and embody the strength of the Unathi species: geographical and physical adaptability."
+	desc = "Almost every former or current nation under the sun that isn't allied with the Izweski Hegemony is considered a part of the now-defunct Traditionalist Coalition. This includes people that fled to the Hegemony to escape the nuclear fallout, the majority of Traditionalists on Ouerea that have once rallied against Not'zar Izweski and will do so again, or those left to the Touched Lands to suffer and adapt to harsh new climates. Traditionalists are known to make new homes and embody the strength of the Unathi species: geographical and physical adaptability."
 	possible_origins = list(
 		/decl/origin_item/origin/trad_peasants,
 		/decl/origin_item/origin/trad_nobles,
@@ -25,7 +25,7 @@
 
 /decl/origin_item/origin/wastelander
 	name = "Wastelander"
-	desc = "The Wastelanders carved out a life for themselves amidst nuclear devastation. Si’akh managed to abuse the despair and pain of these Unathi to form a cult of personality for himself, as well as a new religion. Banditry remains common as new tribes and clans form in the desert wastes, but there is still hope. The Oasis Clans and some other settlements have made new towns and villages where life is starting to recuperate and find normalcy again. Still, every day is a struggle, and whenever there is an opportunity to flee offworld, it is taken eagerly."
+	desc = "The Wastelanders carved out a life for themselves amidst nuclear devastation. Si'akh managed to abuse the despair and pain of these Unathi to form a cult of personality for himself, as well as a new religion. Banditry remains common as new tribes and clans form in the desert wastes, but there is still hope. The Oasis Clans and some other settlements have made new towns and villages where life is starting to recuperate and find normalcy again. Still, every day is a struggle, and whenever there is an opportunity to flee offworld, it is taken eagerly."
 	possible_accents = list(ACCENT_WASTELAND)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SIAKH, RELIGION_OTHER, RELIGION_NONE)

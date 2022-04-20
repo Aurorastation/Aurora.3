@@ -1,6 +1,6 @@
 /decl/origin_item/culture/klax
 	name = "K'lax Hive"
-	desc = "Known as ‘The Deceivers’, it was the second Hive discovered by humanity after their Hiveship, Klo’zxera, appeared in the Unathi system of Uueoa-Esa. K’lax is known as a client state of the Zo’ra, but since the Exodus from Sedantis they have struggled for political independence. Now parting their own ways, both Hives have developed differently. "
+	desc = "Known as 'The Deceivers', it was the second Hive discovered by humanity after their Hiveship, Klo'zxera, appeared in the Unathi system of Uueoa-Esa. K'lax is known as a client state of the Zo'ra, but since the Exodus from Sedantis they have struggled for political independence. Now parting their own ways, both Hives have developed differently. "
 	possible_origins = list(
 		/decl/origin_item/origin/zkaii,
 		/decl/origin_item/origin/vetju,

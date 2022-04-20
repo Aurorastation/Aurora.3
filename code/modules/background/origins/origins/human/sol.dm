@@ -39,7 +39,7 @@
 
 /decl/origin_item/origin/luna
 	name = "Luna"
-	desc = " Earth’s only natural satellite, Luna is humanity’s oldest colony and one of the Solarian Alliance’s wealthiest member states. While not every Lunarian is wealthy, and a significant working class population exists, much of the moon’s population is stereotyped as being wealthy beyond what most can imagine. Lunarians are often stereotyped as haughty, arrogant people who are incredibly prideful and constantly brag about their origins on Luna."
+	desc = " Earth's only natural satellite, Luna is humanity's oldest colony and one of the Solarian Alliance's wealthiest member states. While not every Lunarian is wealthy, and a significant working class population exists, much of the moon's population is stereotyped as being wealthy beyond what most can imagine. Lunarians are often stereotyped as haughty, arrogant people who are incredibly prideful and constantly brag about their origins on Luna."
 	possible_accents = list(ACCENT_LUNA)
 	possible_citizenships = CITIZENSHIPS_SOLARIAN
 	possible_religions = RELIGIONS_SOLARIAN

@@ -32,6 +32,6 @@
 	description = "Kir'gul is the belief that emphasises the focus on the full individuality of a Skrell, suppressing the Wake as to not push people into thoughts that were not truly \
 	their own. This belief has mainly gained traction among the Skrell that live amongst alien dominant species, where the Federation fueled collective emphasis is not as prevalent. \
 	After the fall of Glorsh-Omega, this belief has seen significant traction amongst both foreign Skrell and domestic, as many Skrell are now wary about the threat of a collective \
-	entity, whether that be artificial or biological. This belief system enforces the Ya'Qu, or ‘the right to live', a saying that is similar to the human ‘live in the moment'. As \
+	entity, whether that be artificial or biological. This belief system enforces the Ya'Qu, or 'the right to live', a saying that is similar to the human 'live in the moment'. As \
 	such, the Skrell following the Kir'gul belief system often are explorers, artists, or other such creators, and reject authority in favor of individuality."
 	book_name = "book of Ya'Qu"

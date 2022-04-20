@@ -1,6 +1,6 @@
 /decl/origin_item/culture/izweski
 	name = "Izweski Hegemony"
-	desc = "The Izweski Hegemony is home to a majority of Unathi and remains the most powerful centralized force for the species in the modern day. Under the rulership of the Izweski and the religious guidance of the Church of Sk’akh, the Hegemony plays an important role for Sinta interests abroad. It has a strict loyalty to the caste system it is under, prioritizes the importance of the clan first and foremost, and remains the most open to xenocentric interests and customs out of all the current cultures found among Unathi. They embody ideals of diplomatic and cultural adaptability."
+	desc = "The Izweski Hegemony is home to a majority of Unathi and remains the most powerful centralized force for the species in the modern day. Under the rulership of the Izweski and the religious guidance of the Church of Sk'akh, the Hegemony plays an important role for Sinta interests abroad. It has a strict loyalty to the caste system it is under, prioritizes the importance of the clan first and foremost, and remains the most open to xenocentric interests and customs out of all the current cultures found among Unathi. They embody ideals of diplomatic and cultural adaptability."
 	possible_origins = list(
 		/decl/origin_item/origin/izweski_lower,
 		/decl/origin_item/origin/izweski_upper

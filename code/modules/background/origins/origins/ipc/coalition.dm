@@ -1,6 +1,6 @@
 /decl/origin_item/culture/ipc_coalition
 	name = "Coalition of Colonies"
-	desc = "IPC culture in the Frontier is as varied as the Coalition itself, being mistrusted to non-existent on planets like Vysoka and Gadpathur while sharing complete equality both legally and culturally on planets such as Konyang. As such, an IPC’s fate varies depending on the planet it finds itself on. The Coalition as a whole takes a neutral stance on the matter, leaving their treatment and  manufacture to its members."
+	desc = "IPC culture in the Frontier is as varied as the Coalition itself, being mistrusted to non-existent on planets like Vysoka and Gadpathur while sharing complete equality both legally and culturally on planets such as Konyang. As such, an IPC's fate varies depending on the planet it finds itself on. The Coalition as a whole takes a neutral stance on the matter, leaving their treatment and  manufacture to its members."
 	possible_origins = list(
 		/decl/origin_item/origin/ipc_xanu,
 		/decl/origin_item/origin/ipc_himeo,
