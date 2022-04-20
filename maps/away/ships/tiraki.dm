@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/tirakqi_ship
 	name = "Ti'Rakqi Freighter"
-	description = "A light ship belonging to the Orion Express corporation."
+	description = "A light ship belonging to the Ti'Rakqi."
 	suffix = "ships/tirakqi_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	spawn_weight = 1
