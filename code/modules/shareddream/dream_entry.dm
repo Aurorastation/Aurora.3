@@ -20,8 +20,8 @@ var/list/dream_entries = list()
 			if(willfully_sleeping)
 				to_chat(bg, "To wake up, use the \"Awaken\" verb in the IC tab.")
 			for(var/mob/living/carbon/human/H in living_mob_list)
-				if(H.can_commune() || H.psi)
-					to_chat(H, SPAN_CULT("You sense a presence entering Srom..."))
+				if(H.can_commune())
+					to_chat(H, SPAN_CULT("You sense an increase in the activity of Srom..."))
 					sound_to(H, sound('sound/effects/psi/power_used.ogg'))
 			log_and_message_admins("has entered the shared dream", bg)
 	// Does NOT
@@ -32,8 +32,8 @@ var/list/dream_entries = list()
 				sleeping = 5
 				return
 			for(var/mob/living/carbon/human/H in living_mob_list)
-				if(H.can_commune() || H.psi)
-					to_chat(H, SPAN_CULT("You feel a presence departing from the dream."))
+				if(H.can_commune())
+					to_chat(H, SPAN_CULT("You feel the activity of Srom decrease."))
 			log_and_message_admins("has left the shared dream",bg)
 			var/mob/living/brain_ghost/old_bg = bg
 			bg = null
@@ -47,7 +47,7 @@ var/list/dream_entries = list()
 				return_text = "You are ripped from the Srom as you return to the captivity of your own mind."
 
 			return_mob.ckey = old_bg.ckey
-			old_bg.show_message("<span class='notice'>[bg] fades as their connection is severed.</span>")
-			animate(old_bg, alpha=0, time = 200)
+			old_bg.visible_message("<span class='notice'>[old_bg] begins to fade as they depart from the dream...</span>")
+			animate(old_bg, alpha=0, time = 20)
 			QDEL_IN(old_bg, 20)
 			to_chat(return_mob, SPAN_WARNING("[return_text]"))
