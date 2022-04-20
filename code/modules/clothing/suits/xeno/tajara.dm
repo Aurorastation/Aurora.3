@@ -191,14 +191,18 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 
-/obj/item/clothing/suit/storage/tajaran
-	name = "republican service jacket"
-	desc = "An olive military jacket worn by the forces of the Grand People's Army."
+/obj/item/clothing/suit/storage/tajaran/pra_jacket
+	name = "hadiist surplus jacket"
+	desc = "An olive surplus jacket worn by the forces of the Grand People's Army."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "greenservice"
 	item_state = "greenservice"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
+/obj/item/clothing/suit/storage/tajaran/pra_jacket/armored
+	name = "hadiist service jacket"
+	desc = "An olive military jacket worn by the forces of the Grand People's Army."
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -207,3 +211,21 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.50
+
+/obj/item/clothing/suit/storage/tajaran/dpra_jacket
+	name = "al'mariist jacket"
+	desc = "A jacket based on the Liberation Army's old equipment."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "dpra_jacket"
+	item_state = "dpra_jacket"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/tajaran/fancy
+	name = "fancy royalist jacket"
+	desc = "An adhomian jacket frequently worn by the New Kingdom's nobility."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "nka_Jacket"
+	item_state = "nka_Jacket"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	contained_sprite = TRUE

@@ -5,7 +5,7 @@
 	icon_state = "furscarf_brown"
 	item_state = "furscarf_brown"
 	contained_sprite = TRUE
-	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
+	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old. Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
@@ -440,3 +440,15 @@
 
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/tajaran/nka_waistcoat
+	name = "noble adhomian waistcoat"
+	desc = "A fancy waistcoat worn by the New Kingdom's nobility. Likely a hand-me-down."
+	icon_state = "nka_waistcoat"
+	item_state = "nka_waistcoat"
+
+/obj/item/clothing/accessory/tajaran/nka_vest
+	name = "noble adhomian vest"
+	desc = "A fancy vest worn by the New Kingdom's nobility. Likely a hand-me-down."
+	icon_state = "nka_vest"
+	item_state = "nka_vest"
