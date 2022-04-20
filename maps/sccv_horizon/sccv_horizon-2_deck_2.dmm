@@ -26759,11 +26759,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/hallway/primary/central_two)
 "qzH" = (
-/obj/structure/ladder/up{
-	pixel_y = 32
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
-/turf/simulated/floor/reinforced,
-/area/template_noop)
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "qzR" = (
 /obj/structure/table/standard,
 /obj/machinery/disposal/small/north,
@@ -26911,7 +26912,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/hologram/holopad,
 /obj/machinery/camera/network/service{
 	c_tag = "Dinner - Bar 2"
 	},
@@ -58249,7 +58249,7 @@ hSY
 hSY
 xsH
 sKJ
-nUh
+qzH
 wAb
 xbP
 uMs
