@@ -68,6 +68,7 @@
 				"You unsecure the external reinforcing bolts from the floor.", \
 				"You hear a ratchet")
 			src.anchored = 0
+		return TRUE
 
 /obj/item/mass_driver_diy
 	name = "Mass Driver Kit"

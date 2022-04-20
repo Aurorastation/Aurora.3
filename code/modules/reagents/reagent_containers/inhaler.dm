@@ -104,7 +104,7 @@
 	if(is_open_container())
 		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
 		return FALSE
-	
+
 	else
 		inject(M, user, M.Adjacent(user))
 	. = ..()
@@ -127,7 +127,7 @@
 		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler's lid.</span>") // it locks shut after being secured
 		flags |= OPENCONTAINER
 		update_icon()
-		return
+		return TRUE
 	. = ..()
 
 /obj/item/reagent_containers/inhaler/update_icon()

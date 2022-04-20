@@ -84,7 +84,7 @@
 /obj/item/watertank/attackby(obj/item/W, mob/user, params)
 	if(W == noz)
 		remove_noz()
-		return 1
+		return TRUE
 	else
 		return ..()
 

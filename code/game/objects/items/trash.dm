@@ -216,6 +216,7 @@
 		qdel(W)
 		has_chopsticks = TRUE
 		update_icon()
+		return TRUE
 
 /obj/item/trash/ricetub/update_icon()
 	if(has_chopsticks)
