@@ -3436,9 +3436,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/command{
-	name = "Captain's Quarters";
-	req_access = list(20)
+/obj/machinery/door/airlock/hatch{
+	desc = "It opens and closes. It has a small sign engraved: Bunker capacity: 6. Only facility's Command Staff is permitted.";
+	name = "Rear Bunker Access";
+	req_access = list(20);
+	secured_wires = 1
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/captain)
@@ -8321,6 +8323,9 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/forensics_office)
+"sv" = (
+/turf/simulated/wall,
+/area/crew_quarters/heads/hop/xo)
 "sw" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -10909,7 +10914,7 @@
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
 "za" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall,
 /area/bridge/third_deck_stairs)
 "zb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -12178,10 +12183,10 @@
 /area/bridge/meeting_room)
 "Ck" = (
 /obj/machinery/firealarm/east,
-/obj/machinery/anti_bluespace,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
+/obj/structure/displaycase/captain_laser,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "Cl" = (
@@ -12519,7 +12524,7 @@
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "Dg" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall,
 /area/bridge/meeting_room)
 "Dh" = (
 /obj/structure/cable/green{
@@ -13178,6 +13183,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/crew_area)
+"EQ" = (
+/turf/simulated/wall,
+/area/bridge/bridge_crew)
 "ET" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
@@ -19915,6 +19923,9 @@
 "Uc" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/primary/starboard)
+"Ue" = (
+/turf/simulated/wall,
+/area/bridge)
 "Uf" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -21316,10 +21327,10 @@
 /turf/simulated/wall/r_wall,
 /area/tcommsat/entrance)
 "XK" = (
-/obj/structure/displaycase/captain_laser,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/machinery/anti_bluespace,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "XM" = (
@@ -43958,10 +43969,10 @@ nu
 lg
 lg
 Wt
-vx
-vx
-vx
-US
+sv
+sv
+sv
+Ue
 ix
 Jv
 xL
@@ -43971,9 +43982,9 @@ hz
 Ns
 IJ
 Qg
-fx
-fx
-fx
+EQ
+EQ
+EQ
 fx
 AT
 fx
@@ -44173,13 +44184,13 @@ ZP
 ZP
 JP
 Dg
-fx
+EQ
 OD
 Jl
-fx
+EQ
 IU
 NA
-fx
+EQ
 zV
 Ld
 PT
@@ -44375,13 +44386,13 @@ oX
 DI
 Ae
 PL
-fx
+EQ
 sg
 OF
-fx
+EQ
 jR
 kP
-fx
+EQ
 Qh
 TY
 sq
@@ -44577,10 +44588,10 @@ eC
 MM
 Oq
 Cj
-fx
-fx
+EQ
+EQ
 on
-fx
+EQ
 ZK
 wM
 hq
@@ -44779,13 +44790,13 @@ YH
 eM
 vW
 fu
-fx
+EQ
 uf
 zm
 IB
 On
 pA
-fx
+EQ
 AO
 Xq
 JK
@@ -44969,8 +44980,8 @@ Fc
 sY
 TL
 Dc
-vx
-vx
+sv
+sv
 Dg
 qw
 Hl
@@ -44981,13 +44992,13 @@ gB
 Wf
 tA
 LL
-fx
+EQ
 up
 na
 dw
 Yj
 oD
-fx
+EQ
 LH
 Ch
 mM
@@ -45975,12 +45986,12 @@ Yh
 wt
 CB
 vx
-vx
-vx
-vx
+sv
+sv
+sv
 lF
-vx
-vx
+sv
+sv
 FT
 at
 at
@@ -46581,9 +46592,9 @@ ZR
 qd
 NT
 vx
-vx
+sv
 yO
-vx
+sv
 KS
 Dd
 Cc
@@ -46785,7 +46796,7 @@ Sf
 vx
 Yf
 nv
-vx
+sv
 Qj
 RD
 RD
@@ -46987,7 +46998,7 @@ lt
 vx
 sQ
 EK
-vx
+sv
 kR
 RD
 ZL
