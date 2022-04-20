@@ -1,7 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - refactor: "The list of readied players has been optimized, lowering pre-game server load."
-  - tweak: "The readied player list now sorts by department and name, displaying readied players by department."
