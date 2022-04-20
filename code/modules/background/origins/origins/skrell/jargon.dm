@@ -28,6 +28,6 @@
 /decl/origin_item/origin/generation_fleets
 	name = "Generation Fleets"
 	desc = "Generation Fleets were utilised throughout most of the Skrell's era of colonisation, with the more modern fleets becoming roaming nomads during the reign of Glorsh-Omega. Some of these fleets are still active today in some capacity, with most being officially approved by the Federation Government - although some others are branded as marauders and rebels."
-	possible_accents = list(ACCENT_SKRELL) //TODOMATT: add the Genner accent here when it's merged
+	possible_accents = list(ACCENT_SKRELL, ACCENT_GENNER)
 	possible_citizenships = CITIZENSHIPS_JARGON
 	possible_religions = RELIGIONS_JARGON

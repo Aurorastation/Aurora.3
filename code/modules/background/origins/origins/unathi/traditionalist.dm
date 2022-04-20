@@ -12,7 +12,7 @@
 	desc = "Though not necessarily restricted to a caste structure like the Hegemony, there is still a clear divide between the rich and the poor, and the peasantry show this. Strong, hardy, and stubborn, these folk are arguably the most hardy among Unathi, willing to stick their claws in the mud to do what needs to be done to survive and even thrive. Their religions, traditions, and practices vary strongly, and it is likely that two Unathi from the same Traditionalist town may look completely different from each other, both literally and figuratively. Some that used to be considered nobles are now peasants due to losing their land, riches, and clans."
 	important_information = "Traditionalists are the most likely to emigrate decades before showing up on ship, so they are the least restricted when it comes to their background."
 	possible_accents = list(ACCENT_TRAD_PEASANT, ACCENT_TRAD_NOBLE)
-	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION) //todomatt: wtf does 'all' mean?
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION) //wtf does 'all' mean?
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_NONE)
 
 /decl/origin_item/origin/trad_nobles

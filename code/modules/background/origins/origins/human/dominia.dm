@@ -1,5 +1,4 @@
 #define CITIZENSHIPS_DOMINIA list(CITIZENSHIP_DOMINIA, CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
-#define RELIGIONS_DOMINIA list(RELIGION_MOROZ, RELIGION_CHRISTIANITY, RELIGION_NONE)
 
 /decl/origin_item/culture/dominia
 	name = "Empire of Dominia"
@@ -18,7 +17,7 @@
 	desc = "Morozians represent the peak of Imperial society. They are the nearest to the Emperor, the Goddess, and live upon the Imperial capital planet. But Morozians themselves are not a homogenous group: they are divided between typical Morozians - both Secondaries and Primaries - rebellious Fisanduhians, which still fight to liberate what is left of their mountainous home from the wider Empire, and the nomadic Lyodii that call Moroz's icecaps home."
 	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH, ACCENT_FISANDUH)
 	possible_citizenships = CITIZENSHIPS_DOMINIA
-	possible_religions = RELIGIONS_DOMINIA
+	possible_religions = list(RELIGION_MOROZ)
 
 /decl/origin_item/origin/fisanduh
 	name = "Fisanduh"

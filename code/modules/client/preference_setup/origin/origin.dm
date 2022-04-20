@@ -126,7 +126,7 @@
 	if(href_list["open_culture_menu"])
 		var/list/options = list()
 		var/list/possible_cultures = decls_repository.get_decls(S.possible_cultures)
-		for(var/decl_type in possible_cultures) //todomatt: delete this tag?
+		for(var/decl_type in possible_cultures)
 			var/decl/origin_item/culture/CL = possible_cultures[decl_type]
 			options[CL.name] = CL
 		var/result = input(user, "Choose your character's culture.", "Culture") as null|anything in options
