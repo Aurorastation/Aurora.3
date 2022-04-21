@@ -339,11 +339,11 @@
 	attack_verb = list("attacked", "struck", "hit")
 	var/bullets = 5
 
-	examine(mob/user)
+/obj/item/toy/crossbow/examine(mob/user)
 		if(..(user, 2) && bullets)
 			to_chat(user, "<span class='notice'>It is loaded with [bullets] foam darts!</span>")
 
-	attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/toy/crossbow/attackby(obj/item/I as obj, mob/user as mob)
 		if(istype(I, /obj/item/toy/ammo/crossbow))
 			if(bullets <= 4)
 				user.drop_from_inventory(I,src)
@@ -354,7 +354,7 @@
 				to_chat(usr, "<span class='warning'>It's already fully loaded.</span>")
 
 
-	afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
+/obj/item/toy/crossbow/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
 		if(!isturf(target.loc) || target == user) return
 		if(flag) return
 
@@ -402,7 +402,7 @@
 				O.show_message(text("<span class='warning'>\The [] realized they were out of ammo and starting scrounging for some!</span>", user), 1)
 
 
-	attack(mob/M as mob, mob/user as mob)
+/obj/item/toy/crossbow/attack(mob/M as mob, mob/user as mob)
 		src.add_fingerprint(user)
 
 // ******* Check
