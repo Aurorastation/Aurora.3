@@ -330,8 +330,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	return 1
 
 /datum/controller/subsystem/ticker/proc/update_ready_list(var/mob/abstract/new_player/NP, force_rdy = FALSE, force_urdy = FALSE)
-	if(current_state >= GAME_STATE_PLAYING || SSjobs?.init_state < SS_INITSTATE_DONE)
-		return FALSE // don't bother once the game has started
+	if(current_state >= GAME_STATE_PLAYING || !SSjobs.bitflag_to_job.len)
+		return FALSE // don't bother once the game has started or before SSjobs is available
 
 	if(!LAZYLEN(ready_player_jobs))
 		ready_player_jobs = DEPARTMENTS_LIST_INIT
@@ -358,7 +358,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		. = TRUE
 
 	if(.)
-		total_players_ready++
+		update_ready_count()
 
 /datum/controller/subsystem/ticker/proc/unready_player(var/ident, var/force_name = FALSE)
 	if(isnull(ident))
@@ -368,11 +368,11 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(!istype(prefs) || force_name)
 		// trawl the whole list - we only do this on logout or job swap, aka when we can't guarantee the job datum being accurate
 		for(var/dept in ready_player_jobs)
-			if(ready_player_jobs[dept][ident])
+			if(LAZYISIN(ready_player_jobs[dept], ident))
 				. = TRUE
 			ready_player_jobs[dept] -= ident
 		if(.)
-			total_players_ready--
+			update_ready_count()
 		return
 
 	var/datum/job/ready_job = prefs.return_chosen_high_job()
@@ -383,11 +383,17 @@ var/datum/controller/subsystem/ticker/SSticker
 		LAZYREMOVE(ready_player_jobs[dept], prefs.real_name)
 
 	if(.)
-		total_players_ready--
+		update_ready_count()
+
+/datum/controller/subsystem/ticker/proc/update_ready_count()
+	total_players_ready = 0
+	for(var/mob/abstract/new_player/NP in player_list)
+		if(NP.ready)
+			total_players_ready++
 
 /datum/controller/subsystem/ticker/proc/cycle_player(var/mob/abstract/new_player/NP, var/datum/job/job)
 	// exclusively used for occupation.dm, when players swap job priority while readied
-	if(current_state >= GAME_STATE_PLAYING || SSjobs?.init_state < SS_INITSTATE_DONE || !NP.ready)
+	if(current_state >= GAME_STATE_PLAYING || !SSjobs.bitflag_to_job.len || !NP.ready)
 		return FALSE
 
 	update_ready_list(NP, force_urdy = TRUE)
