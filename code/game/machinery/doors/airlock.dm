@@ -141,24 +141,6 @@
 		return SSmaterials.get_material_by_name(mineral)
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 
-/obj/machinery/door/airlock/service // Service Airlock
-	icon = 'icons/obj/doors/doorser.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_ser
-	hatch_colour = "#7d7d7d"
-
-/obj/machinery/door/airlock/glass_service // Service Airlock (Glass)
-	name = "Glass Airlock"
-	icon = 'icons/obj/doors/doorserglass.dmi'
-	hitsound = 'sound/effects/glass_hit.ogg'
-	maxhealth = 300
-	explosion_resistance = 5
-	opacity = FALSE
-	assembly_type = /obj/structure/door_assembly/door_assembly_ser
-	glass = 1
-	hatch_colour = "#7d7d7d"
-	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
-	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
-
 /obj/machinery/door/airlock/command
 	icon = 'icons/obj/doors/Doorcom.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
