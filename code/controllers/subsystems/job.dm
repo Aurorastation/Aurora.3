@@ -762,32 +762,13 @@
 			if(G.augment) //augments are handled somewhere else
 				continue
 
-			var/permitted
-			if(G.allowed_roles)
-				for(var/job_name in G.allowed_roles)
-					if(job.title == job_name)
-						permitted = TRUE
-						break
-			else
-				permitted = TRUE
-
-			if(!G.check_species_whitelist(H))
-				permitted = FALSE
-
-			if(G.faction && G.faction != H.employer_faction)
-				permitted = FALSE
-
-			if(permitted)
-				if(islist(G.culture_restriction))
-					var/decl/origin_item/culture/our_culture = text2path(prefs.culture)
-					if(!(our_culture in G.culture_restriction))
-						permitted = FALSE
-
-			if(permitted)
-				if(islist(G.origin_restriction) && permitted)
-					var/decl/origin_item/origin/our_origin = text2path(prefs.origin)
-					if(!(our_origin in G.origin_restriction))
-						permitted = FALSE
+			var/permitted = !G.allowed_roles || (job.title in G.allowed_roles)
+			permitted &&= G.check_species_whitelist(H)
+			permitted &&= (!G.faction || G.faction == H.employer_faction)
+			var/decl/origin_item/culture/our_culture = text2path(prefs.culture)
+			permitted &&= (!G.culture_restriction) || (our_culture in G.culture_restriction)
+			var/decl/origin_item/origin/our_origin = text2path(prefs.origin)
+			permitted &&= (!G.origin_restriction) || (our_origin in G.origin_restriction)
 
 			if(!permitted)
 				to_chat(H, "<span class='warning'>Your current job, culture, origin or whitelist status does not permit you to spawn with [thing]!</span>")
