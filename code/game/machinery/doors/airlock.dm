@@ -144,7 +144,7 @@
 /obj/machinery/door/airlock/service // Service Airlock
 	icon = 'icons/obj/doors/doorser.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_ser
-	hatch_colour = "#7d7d7d"
+	hatch_colour = "#6f8751"
 
 /obj/machinery/door/airlock/glass_service // Service Airlock (Glass)
 	name = "Glass Airlock"
@@ -155,7 +155,7 @@
 	opacity = FALSE
 	assembly_type = /obj/structure/door_assembly/door_assembly_ser
 	glass = 1
-	hatch_colour = "#7d7d7d"
+	hatch_colour = "#6f8751"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
