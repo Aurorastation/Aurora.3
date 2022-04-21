@@ -758,7 +758,6 @@
 	for(var/thing in prefs.gear)
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
-
 			if(G.augment) //augments are handled somewhere else
 				continue
 
