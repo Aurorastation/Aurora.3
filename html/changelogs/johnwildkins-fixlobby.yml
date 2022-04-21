@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Players readied count in the lobby should now be accurate. Improper Argument crash has also (potentially) been fixed."
