@@ -66,23 +66,20 @@
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
-//Maybe turn accents/religion/citizenship into decls?
-//Todo: remove species accent/citizenship lists.
-//Maybe todo: add a proc that returns the default/most common accent/religion/citizenship for a certain origin so we don't have to do list[1].
 /datum/category_item/player_setup_item/origin/sanitize_character(var/sql_load = 0)
 	var/datum/species/S = all_species[pref.species]
-	if(!istext(pref.culture))
-		var/decl/origin_item/culture/CI = S.get_default_culture()
+	if(!istext(pref.culture) || !ispath(text2path(pref.culture), /decl/origin_item/culture))
+		var/decl/origin_item/culture/CI = S.possible_cultures[1]
 		pref.culture = "[CI]"
 	var/decl/origin_item/culture/our_culture = decls_repository.get_decl(text2path(pref.culture))
-	if(!istext(pref.origin))
-		var/decl/origin_item/OI = pick(our_culture.possible_origins)
+	if(!istext(pref.origin) || !ispath(text2path(pref.origin), /decl/origin_item/origin))
+		var/decl/origin_item/origin/OI = pick(our_culture.possible_origins)
 		pref.origin = "[OI]"
 	else
 		var/decl/origin_item/origin/origin_check = text2path(pref.origin)
 		if(!(origin_check in our_culture.possible_origins))
 			to_client_chat(SPAN_WARNING("Your origin has been reset due to it being incompatible with your culture!"))
-			var/decl/origin_item/OI = pick(our_culture.possible_origins)
+			var/decl/origin_item/origin/OI = pick(our_culture.possible_origins)
 			pref.origin = "[OI]"
 	var/decl/origin_item/origin/our_origin = decls_repository.get_decl(text2path(pref.origin))
 	if(!(pref.citizenship in our_origin.possible_citizenships))

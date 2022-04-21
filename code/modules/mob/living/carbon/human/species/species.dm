@@ -823,7 +823,3 @@
 
 /datum/species/proc/can_double_fireman_carry()
 	return FALSE
-
-//Mostly sanitization helpers.
-/datum/species/proc/get_default_culture()
-	return pick(possible_cultures)
