@@ -761,7 +761,7 @@
 			if(G.augment) //augments are handled somewhere else
 				continue
 
-			var/permitted = !G.allowed_roles || (rank.title in G.allowed_roles)
+			var/permitted = !G.allowed_roles || (job.title in G.allowed_roles)
 			permitted = permitted && G.check_species_whitelist(H)
 			permitted = permitted && (!G.faction || (G.faction == H.employer_faction))
 			var/decl/origin_item/culture/our_culture = decls_repository.get_decl(text2path(prefs.culture))
