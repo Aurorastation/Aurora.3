@@ -171,3 +171,40 @@
 	name = "brown thigh holster"
 	icon_state = "holster_brown_thigh"
 
+// Custodial Holster
+// Only allows the pestgun and xenogun.
+/obj/item/clothing/accessory/holster/custodial/waist/brown
+	name = "brown custodial waist holster"
+	icon_state = "holster_brown_low"
+	var/list/allowedObjects = list(
+		/obj/item/gun/energy/mousegun,
+		/obj/item/gun/energy/mousegun/xenofauna,
+		/obj/item/gun/projectile/revolver/capgun,
+		/obj/item/toy/crossbow,
+		/obj/item/reagent_containers/food/snacks/grown/banana
+	)
+
+/obj/item/clothing/accessory/holster/custodial/waist/brown/holster(var/obj/item/I, var/mob/living/user)
+	if(holstered && istype(user))
+		to_chat(user, "<span class='warning'>There is already \a [holstered] holstered here!</span>")
+		return
+
+	if(!(I.slot_flags & SLOT_HOLSTER))
+		to_chat(user, "<span class='warning'>[I] won't fit in [src]!</span>")
+		return
+
+	if(!is_type_in_list(I, allowedObjects))
+		to_chat(user, "<span class='warning'>[I] won't fit in [src]!</span>")
+		return
+
+	if(sound_in)
+		playsound(get_turf(src), sound_in, 50)
+
+	if(istype(user))
+		user.stop_aiming(no_message=1)
+	holstered = I
+	user.drop_from_inventory(holstered,src)
+	holstered.add_fingerprint(user)
+	w_class = max(w_class, holstered.w_class)
+	user.visible_message("<span class='notice'>[user] holsters \the [holstered].</span>", "<span class='notice'>You holster \the [holstered].</span>")
+	update_name()

@@ -332,6 +332,7 @@
 	icon = 'icons/obj/guns/crossbow.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
 	contained_sprite = TRUE

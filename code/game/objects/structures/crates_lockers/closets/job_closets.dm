@@ -1,7 +1,7 @@
 /* Closets for specific jobs
  * Contains:
  *		Bartender
- *		Janitor
+ *		Custodian
  *		Lawyer
  */
 
@@ -59,11 +59,11 @@
 	new /obj/item/clothing/head/surgery/hairnet(src)
 
 /*
- * Janitor
+ * Custodian
  */
 /obj/structure/closet/jcloset
 	name = "custodial closet"
-	desc = "It's a storage unit for janitorial clothes and gear."
+	desc = "It's a storage unit for a custodian's clothes and gear."
 	icon_state = "janitorial"
 	icon_closed = "janitorial"
 	icon_opened = "janitorialopen"
@@ -95,6 +95,10 @@
 	new /obj/item/soap/nanotrasen(src)
 	new /obj/item/reagent_containers/glass/rag/advanced(src)
 	new /obj/item/device/gps/janitor(src)
+	new /obj/item/taperoll/custodial(src)
+	new /obj/item/clothing/accessory/holster/custodial/waist/brown(src)
+	new /obj/item/storage/box/lights/mixed(src)
+	new /obj/item/storage/box/mousetraps(src)
 
 /*
  * Lawyer

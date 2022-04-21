@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds custodial holographic tape."
+  - rscadd: "Adds a custodial pestgun-only holster."

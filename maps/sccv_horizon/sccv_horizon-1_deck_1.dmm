@@ -1946,7 +1946,6 @@
 /area/engineering/gravity_gen)
 "bHx" = (
 /obj/structure/closet/l3closet/janitor,
-/obj/item/watertank/janitor,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -6906,7 +6905,6 @@
 /area/turret_protected/ai)
 "fVm" = (
 /obj/structure/closet/l3closet/janitor,
-/obj/item/watertank/janitor,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -10510,8 +10508,6 @@
 	pixel_x = 22;
 	pixel_y = -9
 	},
-/obj/item/storage/box/lights/mixed,
-/obj/item/storage/box/mousetraps,
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
@@ -24792,8 +24788,6 @@
 /area/hallway/primary/aft)
 "wbg" = (
 /obj/structure/closet/jcloset,
-/obj/item/storage/box/lights/mixed,
-/obj/item/storage/box/mousetraps,
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
