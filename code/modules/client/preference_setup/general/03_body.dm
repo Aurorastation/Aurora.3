@@ -425,9 +425,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.rlimb_data.Cut()
 			pref.body_markings.Cut()
 
-			pref.culture = "[pick(mob_species.possible_cultures)]"
+			var/new_culture = mob_species.possible_cultures[1]
+			pref.culture = "[new_culture]"
 			var/decl/origin_item/culture/OC = decls_repository.get_decl(text2path(pref.culture))
-			pref.origin = "[pick(OC.possible_origins)]"
+			var/new_origin = OC.possible_origins[1]
+			pref.origin = "[new_origin]"
 			var/decl/origin_item/origin/OO = decls_repository.get_decl(text2path(pref.origin))
 			pref.accent = OO.possible_accents[1]
 			pref.citizenship = OO.possible_citizenships[1]

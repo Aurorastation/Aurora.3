@@ -71,8 +71,8 @@
 //Maybe todo: add a proc that returns the default/most common accent/religion/citizenship for a certain origin so we don't have to do list[1].
 /datum/category_item/player_setup_item/origin/sanitize_character(var/sql_load = 0)
 	var/datum/species/S = all_species[pref.species]
-	var/decl/origin_item/CI = S.get_default_culture()
 	if(!istext(pref.culture))
+		var/decl/origin_item/culture/CI = S.get_default_culture()
 		pref.culture = "[CI]"
 	var/decl/origin_item/culture/our_culture = decls_repository.get_decl(text2path(pref.culture))
 	if(!istext(pref.origin))
@@ -85,10 +85,6 @@
 			var/decl/origin_item/OI = pick(our_culture.possible_origins)
 			pref.origin = "[OI]"
 	var/decl/origin_item/origin/our_origin = decls_repository.get_decl(text2path(pref.origin))
-	if(!pref.citizenship)
-		pref.citizenship = our_origin.possible_citizenships[1]
-	if(!pref.religion)
-		pref.religion = our_origin.possible_religions[1]
 	if(!(pref.citizenship in our_origin.possible_citizenships))
 		to_client_chat(SPAN_WARNING("Your previous citizenship is invalid for this origin! Resetting."))
 		pref.citizenship = our_origin.possible_citizenships[1]
