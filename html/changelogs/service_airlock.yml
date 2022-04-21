@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds service airlocks to the code."
+  - tweak: "The default airlock sprite is now plain metal."
