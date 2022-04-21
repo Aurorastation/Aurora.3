@@ -98,7 +98,7 @@
 	if(istype(W, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/dipped = W
 		dipped.attempt_apply_coating(src, user)
-		return TRUE
+		return
 	if(!(W.flags & NOBLUDGEON) && (user.a_intent == I_HURT) && fragile && (W.force > fragile))
 		if(do_after(user, 10))
 			if(!QDELETED(src))
