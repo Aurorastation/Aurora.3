@@ -1480,7 +1480,7 @@
 	culture = decls_repository.get_decl(species.possible_cultures[1])
 	origin = decls_repository.get_decl(culture.possible_origins[1])
 	accent = pick(origin.possible_accents)
-	citizenship = possible_citizenships[1]
+	citizenship = origin.possible_citizenships[1]
 	religion = origin.possible_religions[1]
 
 /mob/living/carbon/human/proc/bloody_doodle()
