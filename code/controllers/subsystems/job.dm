@@ -909,7 +909,7 @@
 			if(!G.augment)
 				continue
 
-			var/permitted = !G.allowed_roles || (job.title in G.allowed_roles)
+			var/permitted = !G.allowed_roles || (rank.title in G.allowed_roles)
 			permitted &&= G.check_species_whitelist(H)
 			permitted &&= (!G.faction) || (G.faction == H.employer_faction)
 			var/decl/origin_item/culture/our_culture = decls_repository.get_decl(text2path(prefs.culture))
