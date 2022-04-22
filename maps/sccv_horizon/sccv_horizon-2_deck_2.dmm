@@ -5729,6 +5729,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
+"dzI" = (
+/obj/structure/railing/mapped,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "dzL" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-1-f"
@@ -8695,6 +8702,16 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
+"fsF" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "fsL" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -16016,13 +16033,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
-"jOC" = (
-/obj/structure/railing/mapped,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port)
 "jOK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -16722,11 +16732,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
-"kpm" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port)
 "kpC" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/aft)
@@ -17486,12 +17491,10 @@
 /turf/simulated/wall,
 /area/rnd/xenobiology/xenoflora)
 "kQA" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/ramp{
-	dir = 8
-	},
-/area/maintenance/wing/port/far)
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "kQS" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -25471,16 +25474,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"pGP" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "pGX" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -67657,7 +67650,7 @@ uDd
 fqa
 uon
 cjX
-jOC
+dzI
 kaT
 kaT
 kaT
@@ -68870,7 +68863,7 @@ wlF
 vVL
 cjX
 bzh
-kpm
+kQA
 sYc
 sYc
 sYc
@@ -72899,7 +72892,7 @@ mAO
 mAO
 mAO
 mAO
-kQA
+rRe
 rRe
 vOd
 iwo
@@ -73715,7 +73708,7 @@ wBF
 iTh
 kPu
 wBF
-pGP
+fsF
 lBd
 lGm
 ulr

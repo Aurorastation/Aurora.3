@@ -5053,6 +5053,7 @@
 	name = "Morgue Maintenance";
 	req_one_access = list(12,66)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "eyI" = (
@@ -15138,6 +15139,10 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid)
+"ndp" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/wall,
+/area/maintenance/operations)
 "ndN" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -18563,9 +18568,22 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
 "qns" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/operations/lower/machinist)
+/area/maintenance/operations)
 "qnt" = (
 /obj/effect/floor_decal/corner/black/full,
 /turf/simulated/floor/tiled,
@@ -19395,6 +19413,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
+"qXU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/operations)
 "qXZ" = (
 /obj/structure/morgue,
 /turf/simulated/floor/tiled,
@@ -23871,6 +23894,7 @@
 	icon_state = "cobweb1"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "uZk" = (
@@ -25247,6 +25271,7 @@
 /area/operations/storage)
 "wmD" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/morgue/lower)
 "wmL" = (
@@ -43712,7 +43737,7 @@ nPN
 emF
 usP
 usP
-usP
+qns
 mVX
 usP
 xRP
@@ -43914,7 +43939,7 @@ dgl
 nnw
 tJg
 aUC
-wqj
+qXU
 xrE
 nyY
 eBw
@@ -44116,7 +44141,7 @@ vqW
 nnw
 nnw
 nnw
-nnw
+ndp
 teb
 nyY
 uQa
@@ -44519,7 +44544,7 @@ gtS
 rtJ
 bdY
 nnw
-nnw
+ndp
 xhE
 jak
 nyY
@@ -44923,8 +44948,8 @@ arr
 vrm
 iDw
 iDw
-qns
-qns
+uWW
+uWW
 iDw
 iDw
 rgo
