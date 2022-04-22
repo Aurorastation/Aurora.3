@@ -9151,7 +9151,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
 	name = "Disposals and Recycling";
-	req_access = list(26, 67)
+	req_one_access = list(26, 67)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
