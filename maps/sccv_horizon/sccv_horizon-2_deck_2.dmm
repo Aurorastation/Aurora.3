@@ -1347,9 +1347,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/button/switch/holosign{
-	pixel_y = -9;
+	id = 1;
 	pixel_x = 26;
-	id = 1
+	pixel_y = -9
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
@@ -6961,8 +6961,8 @@
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light_switch{
-	pixel_y = 24;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -26622,8 +26622,8 @@
 /area/maintenance/research_port)
 "qvd" = (
 /obj/structure/sink{
-	pixel_x = -12;
-	dir = 8
+	dir = 8;
+	pixel_x = -12
 	},
 /obj/structure/mirror{
 	pixel_x = -24;
@@ -30369,6 +30369,7 @@
 	},
 /obj/machinery/power/apc{
 	dir = 1;
+	is_critical = 1;
 	name = "north bump";
 	pixel_y = 24
 	},
@@ -38083,9 +38084,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/button/switch/holosign{
-	pixel_y = -9;
+	id = 2;
 	pixel_x = -26;
-	id = 2
+	pixel_y = -9
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
@@ -38905,6 +38906,7 @@
 	},
 /obj/machinery/power/apc{
 	dir = 1;
+	is_critical = 1;
 	name = "north bump";
 	pixel_y = 24
 	},
