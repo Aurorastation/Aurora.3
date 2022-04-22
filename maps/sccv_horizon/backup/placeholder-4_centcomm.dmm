@@ -10965,9 +10965,9 @@
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
-/obj/item/storage/belt/janitor,
-/obj/item/storage/belt/janitor,
-/obj/item/storage/belt/janitor,
+/obj/item/storage/belt/custodian,
+/obj/item/storage/belt/custodian,
+/obj/item/storage/belt/custodian,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1

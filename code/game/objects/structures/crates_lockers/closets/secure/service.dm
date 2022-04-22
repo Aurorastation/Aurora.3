@@ -20,7 +20,7 @@
 	new /obj/item/clothing/accessory/holster/custodial/waist/brown(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/shoes/galoshes(src)
-	new /obj/item/storage/belt/janitor(src)
+	new /obj/item/storage/belt/custodian(src)
 	new /obj/item/gun/energy/mousegun(src)
 	new /obj/item/device/flashlight(src)
 	new /obj/item/clothing/suit/caution(src)
