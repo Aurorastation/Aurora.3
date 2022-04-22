@@ -17,7 +17,7 @@
 	new /obj/item/clothing/head/softcap/janitor(src)
 	new /obj/item/clothing/head/bandana/janitor(src)
 	new /obj/item/clothing/head/beret/janitor(src)
-	new /obj/item/clothing/accessory/holster/custodial/waist/brown(src)
+	new /obj/item/clothing/accessory/holster/custodial/hip/brown(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/shoes/galoshes(src)
 	new /obj/item/storage/belt/custodian(src)
