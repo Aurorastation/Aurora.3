@@ -449,6 +449,10 @@
 	name = "red outline"
 	color = "#990C0C"
 
+/obj/effect/floor_decal/industrial/outline/purple
+	name = "purple outline"
+	color = COLOR_PURPLE_GRAY
+
 /obj/effect/floor_decal/industrial/loading
 	name = "loading area"
 	icon_state = "loadingarea"
