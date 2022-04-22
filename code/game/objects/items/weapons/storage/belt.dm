@@ -389,8 +389,8 @@
 	item_state = "militarybelt_syndie"
 
 /obj/item/storage/belt/janitor
-	name = "janibelt"
-	desc = "A belt used to hold most janitorial supplies."
+	name = "custodial belt"
+	desc = "A belt used to hold most custodial supplies."
 	icon_state = "janibelt"
 	item_state = "janibelt"
 	storage_slots = 8
@@ -406,12 +406,13 @@
 		/obj/item/clothing/gloves,
 		/obj/item/clothing/glasses/material,
 		/obj/item/reagent_containers/spray,
-		/obj/item/grenade/chem_grenade, //if I'm going to be doing a full allowance on one belt, I need to do the other.
+		/obj/item/grenade/chem_grenade,
 		/obj/item/device/lightreplacer,
 		/obj/item/soap,
 		/obj/item/storage/bag/trash,
 		/obj/item/reagent_containers/glass/rag,
-		/obj/item/gun/energy/mousegun
+		/obj/item/gun/energy/mousegun,
+		/obj/item/device/gps
 		)
 
 /obj/item/storage/belt/mining
