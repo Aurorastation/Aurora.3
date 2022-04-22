@@ -16016,6 +16016,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
+"jOC" = (
+/obj/structure/railing/mapped,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "jOK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -16715,6 +16722,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
+"kpm" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "kpC" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/aft)
@@ -16875,6 +16887,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
 "kuG" = (
@@ -25458,6 +25471,16 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"pGP" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "pGX" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -26437,6 +26460,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port)
 "qkF" = (
@@ -67633,7 +67657,7 @@ uDd
 fqa
 uon
 cjX
-pXp
+jOC
 kaT
 kaT
 kaT
@@ -68846,7 +68870,7 @@ wlF
 vVL
 cjX
 bzh
-kaT
+kpm
 sYc
 sYc
 sYc
@@ -73691,7 +73715,7 @@ wBF
 iTh
 kPu
 wBF
-jVc
+pGP
 lBd
 lGm
 ulr
