@@ -19216,6 +19216,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "Tz" = (
