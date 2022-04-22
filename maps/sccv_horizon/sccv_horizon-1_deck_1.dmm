@@ -15139,10 +15139,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid)
-"ndp" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/wall,
-/area/maintenance/operations)
 "ndN" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -17100,6 +17096,23 @@
 "pdC" = (
 /turf/simulated/wall/r_wall,
 /area/turret_protected/ai_upload_foyer)
+"pdJ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/operations)
 "pdL" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -18568,21 +18581,8 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
 "qns" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/wall,
 /area/maintenance/operations)
 "qnt" = (
 /obj/effect/floor_decal/corner/black/full,
@@ -19413,11 +19413,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
-"qXU" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/operations)
 "qXZ" = (
 /obj/structure/morgue,
 /turf/simulated/floor/tiled,
@@ -20594,7 +20589,6 @@
 /area/rnd/test_range)
 "scW" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "sdP" = (
@@ -25271,7 +25265,6 @@
 /area/operations/storage)
 "wmD" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/morgue/lower)
 "wmL" = (
@@ -43737,7 +43730,7 @@ nPN
 emF
 usP
 usP
-qns
+pdJ
 mVX
 usP
 xRP
@@ -43939,7 +43932,7 @@ dgl
 nnw
 tJg
 aUC
-qXU
+wqj
 xrE
 nyY
 eBw
@@ -44141,7 +44134,7 @@ vqW
 nnw
 nnw
 nnw
-ndp
+nnw
 teb
 nyY
 uQa
@@ -44544,7 +44537,7 @@ gtS
 rtJ
 bdY
 nnw
-ndp
+qns
 xhE
 jak
 nyY
