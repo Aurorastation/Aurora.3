@@ -16354,10 +16354,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
-"ofy" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/wall,
-/area/maintenance/wing/port/deck1)
 "ohl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small,
@@ -17096,23 +17092,6 @@
 "pdC" = (
 /turf/simulated/wall/r_wall,
 /area/turret_protected/ai_upload_foyer)
-"pdJ" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/operations)
 "pdL" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -18581,8 +18560,21 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
 "qns" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/firedoor,
-/turf/simulated/wall,
+/turf/simulated/floor/plating,
 /area/maintenance/operations)
 "qnt" = (
 /obj/effect/floor_decal/corner/black/full,
@@ -23888,7 +23880,6 @@
 	icon_state = "cobweb1"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "uZk" = (
@@ -39080,7 +39071,7 @@ eSV
 eSV
 eSV
 hTk
-ofy
+wVV
 dTe
 hIf
 scW
@@ -43730,7 +43721,7 @@ nPN
 emF
 usP
 usP
-pdJ
+qns
 mVX
 usP
 xRP
@@ -44537,7 +44528,7 @@ gtS
 rtJ
 bdY
 nnw
-qns
+nnw
 xhE
 jak
 nyY
