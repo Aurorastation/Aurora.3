@@ -596,3 +596,8 @@ var/const/access_kataphract_trader = 116
 /datum/access/ee_spy_ship
 	id = access_ee_spy_ship
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_ceres_lance_ship = 206
+/datum/access/ceres_lance_ship
+	id = access_ceres_lance_ship
+	access_type = ACCESS_TYPE_CENTCOM
