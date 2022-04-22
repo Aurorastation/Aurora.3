@@ -32,11 +32,11 @@
 
 /obj/machinery/stasis_bed/attackby(obj/item/I, mob/user)
 	if(default_part_replacement(user, I))
-		return
+		return TRUE
 	else if(default_deconstruction_screwdriver(user, I))
-		return
+		return TRUE
 	else if(default_deconstruction_crowbar(user, I))
-		return
+		return TRUE
 	return ..()
 
 /obj/machinery/stasis_bed/proc/play_power_sound()

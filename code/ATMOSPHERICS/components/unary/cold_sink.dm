@@ -78,7 +78,7 @@
 	if(!ui)
 		ui = new(user, src, "machinery-atmospherics-freezer", 440, 300, "Gas Cooling System")
 		ui.auto_update_content = TRUE
-	
+
 	ui.open()
 
 /obj/machinery/atmospherics/unary/freezer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
@@ -172,13 +172,13 @@
 
 /obj/machinery/atmospherics/unary/freezer/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(default_deconstruction_screwdriver(user, O))
-		return
+		return TRUE
 	if(default_deconstruction_crowbar(user, O))
-		return
+		return TRUE
 	if(default_part_replacement(user, O))
-		return
+		return TRUE
 
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/unary/freezer/examine(mob/user)
 	..(user)

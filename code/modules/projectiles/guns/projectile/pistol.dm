@@ -432,9 +432,9 @@
 		icon_state = "leyon-e"
 
 /obj/item/gun/projectile/pistol/sol
-	name = "service pistol"
-	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, hand-made by Zavodskoi Instellar."
-	icon = 'icons/obj/guns/m8.dmi'
+	name = "solarian service pistol"
+	desc = "Manufactured by Zavodskoi Interstellar and based off of a full-sized variant of their 9mm design, the compact M8 is the standard service pistol of the Solarian Armed Forces. Chambered in 9mm."
+	icon = 'icons/obj/guns/sol_pistol.dmi'
 	icon_state = "m8"
 	item_state = "m8"
 	can_silence = FALSE

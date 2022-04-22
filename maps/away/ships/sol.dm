@@ -92,7 +92,6 @@
 	vessel_mass = 3000 //very inefficient pod
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
-	subshuttle = TRUE
 
 /obj/machinery/computer/shuttle_control/explore/sfa_shuttle
 	name = "shuttle control console"
@@ -104,7 +103,7 @@
 	move_time = 90
 	shuttle_area = list(/area/shuttle/sfa_shuttle)
 	current_location = "nav_hangar_sfa"
-	landmark_transition = "nav_transit_sfa"
+	landmark_transition = "nav_transit_sfa_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_sfa"

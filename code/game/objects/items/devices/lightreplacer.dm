@@ -67,7 +67,7 @@
 	load_interval = 10
 	max_uses = 30
 	uses = 0 //Starts empty
-	
+
 /obj/item/device/lightreplacer/New()
 	failmsg = "The [name]'s refill light blinks red."
 	..()
@@ -90,7 +90,7 @@
 			to_chat(user, SPAN_NOTICE("You insert five pieces of glass into the [src]. You have [uses] light\s remaining."))
 		else
 			to_chat(user, SPAN_WARNING("You need 5 sheets of glass to replace lights."))
-		return
+		return TRUE
 
 	if(istype(W, /obj/item/light))
 		var/obj/item/light/L = W
@@ -102,18 +102,18 @@
 				qdel(L)
 		else
 			to_chat(user, SPAN_WARNING("You need a working light."))
-		return
+		return TRUE
 
 	if(istype(W, /obj/item/device/lightreplacer))
 		var/obj/item/device/lightreplacer/LR = W
 		if(LR.uses == LR.max_uses)
 			to_chat(user, SPAN_WARNING("\The [LR] is already full!"))
-			return
+			return TRUE
 		var/use_difference = min(LR.max_uses - LR.uses, uses)
 		AddUses(-use_difference)
 		LR.AddUses(use_difference)
 		to_chat(user, SPAN_NOTICE("You transfer the lights from \the [src] to \the [LR]."))
-		return
+		return TRUE
 
 
 /obj/item/device/lightreplacer/afterattack(var/atom/target, var/mob/living/user, proximity, params)

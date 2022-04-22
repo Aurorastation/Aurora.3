@@ -48,11 +48,11 @@
 /obj/item/device/paicard/attackby(obj/item/C, mob/user)
 	if(istype(C, /obj/item/card/id))
 		scan_ID(C, user)
-		return
+		return TRUE
 	else if(istype(C, /obj/item/device/encryptionkey))
 		if(length(installed_encryptionkeys) > 2)
 			to_chat(user, SPAN_WARNING("\The [src] already has the full number of possible encryption keys installed!"))
-			return
+			return TRUE
 		var/obj/item/device/encryptionkey/EK = C
 		var/added_channels = FALSE
 		for(var/thing in (EK.channels | EK.additional_channels))
@@ -68,7 +68,7 @@
 				to_chat(pai, SPAN_NOTICE("You now have access to these radio channels: [english_list(radio.channels)]."))
 		else
 			to_chat(user, SPAN_WARNING("\The [src] would not gain any new channels from \the [EK]."))
-		return
+		return TRUE
 	else if(C.isscrewdriver())
 		if(!length(installed_encryptionkeys))
 			to_chat(user, SPAN_WARNING("There are no installed encryption keys to remove!"))
@@ -79,11 +79,11 @@
 			EK.forceMove(get_turf(src))
 			installed_encryptionkeys -= EK
 		recalculateChannels()
-		return
+		return TRUE
 	else if(istype(C, /obj/item/stack/nanopaste))
 		if(!pai)
 			to_chat(user, SPAN_WARNING("You cannot repair a pAI device if there's no active pAI personality installed."))
-			return
+		return TRUE
 	pai.attackby(C, user)
 
 /obj/item/device/paicard/proc/recalculateChannels()

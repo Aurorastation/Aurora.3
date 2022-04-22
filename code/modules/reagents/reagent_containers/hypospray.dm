@@ -165,7 +165,7 @@
 		to_chat(user, SPAN_NOTICE("Using \the [W], you unsecure the autoinjector's lid.")) // it locks shut after being secured
 		flags |= OPENCONTAINER
 		update_icon()
-		return
+		return TRUE
 	. = ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon()

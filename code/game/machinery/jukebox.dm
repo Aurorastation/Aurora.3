@@ -178,7 +178,7 @@ datum/track/New(var/title_name, var/audio)
 		playsound(src.loc, W.usesound, 50, 1)
 		power_change()
 		update_icon()
-		return
+		return TRUE
 	return ..()
 
 /obj/machinery/media/jukebox/emag_act(var/remaining_charges, var/mob/user)
