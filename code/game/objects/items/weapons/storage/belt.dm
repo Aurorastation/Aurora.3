@@ -391,8 +391,8 @@
 /obj/item/storage/belt/custodian
 	name = "custodial belt"
 	desc = "A belt used to hold most custodial supplies."
-	icon_state = "janibelt"
-	item_state = "janibelt"
+	icon_state = "custodialbelt"
+	item_state = "custodialbelt"
 	storage_slots = 8
 	w_class = ITEMSIZE_NORMAL
 	max_w_class = ITEMSIZE_NORMAL
