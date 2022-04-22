@@ -172,6 +172,13 @@
 	icon_state = "jellycustom"
 	size = 8
 
+/obj/item/reagent_containers/food/snacks/variable/synthfood
+	name = "synthfood"
+	desc = "All your friends will be jelly."
+	icon_state = "synthfood"
+	size = 8
+	w_class = ITEMSIZE_SMALL
+
 /obj/item/reagent_containers/food/snacks/variable/cereal
 	name = "cereal"
 	desc = "Crispy and flaky"
