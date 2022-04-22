@@ -111,19 +111,18 @@
 		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/skrell_projector/proc/apply_world(var/choice)
-	light_color = initial(light_color)
-	
+	var/brightness = 2
+
 	if(choice)
 		selected_world = choice
-		set_light(2)
 	switch(choice)
 		if("Nralakk")
 			light_color = "#BE1CFF"
 		if("Qerrbalak")
 			light_color = "#7B1CFF"
 		if("Qerr'Malic")
-			set_light(2.5)
 			light_color = "#F9FF1C"
+			brightness = 2.5
 		if("Aliose")
 			light_color = COLOR_WHITE
 		if("Aweiji")
@@ -132,6 +131,7 @@
 			light_color = "#25550f"
 		if("the Traverse")
 			light_color = "#220F95"
+			brightness = 2.5
 		if("Europa")
 			light_color = "#1C50FF"
 		if("New Gibson")
@@ -141,9 +141,10 @@
 		if("the Starlight Zone")
 			light_color = "#00D6FF"
 		else
+			brightness = 0
 			working = FALSE
-			set_light(0)
 			STOP_PROCESSING(SSprocessing, src)
+	set_light(brightness)
 	update_icon()
 
 /obj/item/skrell_projector/update_icon()
