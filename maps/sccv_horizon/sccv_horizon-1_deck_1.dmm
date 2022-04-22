@@ -1753,7 +1753,8 @@
 	name = "Custodial Garage Shutters";
 	pixel_x = -25;
 	req_access = list(26);
-	pixel_y = 8
+	pixel_y = 7;
+	dir = 4
 	},
 /obj/machinery/ringer_button{
 	id = "ringers_custodial";
@@ -7063,15 +7064,17 @@
 	name = "Custodial Desk Shutter";
 	req_access = list(26);
 	pixel_x = 25;
-	pixel_y = -7
+	pixel_y = -7;
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_custodialgarage";
 	name = "Custodial Garage Shutter";
 	req_access = list(26);
-	pixel_y = 8;
-	pixel_x = 25
+	pixel_y = 7;
+	pixel_x = 25;
+	dir = 8
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
@@ -7241,8 +7244,9 @@
 	dir = 4
 	},
 /obj/machinery/light_switch{
-	pixel_y = -25;
-	pixel_x = 9
+	pixel_y = -24;
+	pixel_x = 9;
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -10505,8 +10509,9 @@
 "jiS" = (
 /obj/structure/closet/jcloset,
 /obj/machinery/light_switch{
-	pixel_x = 22;
-	pixel_y = -9
+	pixel_x = 24;
+	pixel_y = -9;
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
