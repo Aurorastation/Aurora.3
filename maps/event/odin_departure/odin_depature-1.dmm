@@ -18781,7 +18781,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/syndicate_elite)
 "hRS" = (
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},

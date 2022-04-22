@@ -840,7 +840,7 @@
 "Rx" = (/obj/machinery/door/airlock/glass_centcom{name = "Kitchen"; req_access = list(101)},/turf/simulated/floor/tiled/white,/area/city/mendell/interior)
 "Ry" = (/obj/structure/toilet,/obj/machinery/button/remote/airlock{id = "main_unit_1"; name = "Door Bolt Control"; pixel_x = 5; pixel_y = 25; req_access = null; specialfunctions = 4},/obj/machinery/light/small{dir = 1},/turf/simulated/floor/tiled/freezer,/area/city/mendell/interior)
 "Rz" = (/obj/structure/railing/mapped{dir = 1},/obj/structure/railing/mapped{dir = 8},/turf/simulated/floor/lino/grey,/area/city/mendell)
-"RD" = (/obj/structure/closet/jcloset,/obj/item/gun/launcher/grenade{name = "active cleaning utility dispenser"},/turf/unsimulated/floor{icon_state = "dark2"},/area/city/mendell/interior)
+"RD" = (/obj/structure/closet/secure_closet/custodial,/obj/item/gun/launcher/grenade{name = "active cleaning utility dispenser"},/turf/unsimulated/floor{icon_state = "dark2"},/area/city/mendell/interior)
 "RF" = (/obj/structure/railing/mapped{dir = 1},/turf/simulated/floor/lino/grey,/area/city/mendell)
 "RG" = (/obj/structure/railing/mapped{dir = 4},/obj/structure/railing/mapped{dir = 1},/turf/simulated/floor/lino/grey,/area/city/mendell)
 "RI" = (/obj/machinery/light/small{dir = 1},/turf/unsimulated/floor{icon_state = "concrete"; name = "concrete"},/area/city/mendell/interior)
