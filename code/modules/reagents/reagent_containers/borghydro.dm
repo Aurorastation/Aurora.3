@@ -116,8 +116,8 @@
 /obj/item/reagent_containers/hypospray/borghypo/service
 	name = "cyborg drink synthesizer"
 	desc = "A portable drink dispenser."
-	icon = 'icons/obj/drinks.dmi'
-	icon_state = "shaker"
+	icon = 'icons/obj/shaker.dmi'
+	icon_state = "shakertop" // VTD: Need to come up with a new service cyborg hypo
 	charge_cost = 20
 	recharge_time = 3
 	volume = 60

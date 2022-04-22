@@ -427,19 +427,175 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/shaker
 	name = "shaker"
 	desc = "A metal shaker to mix drinks in."
+	desc_info = "Alt Click the shaker to twist the cap closed/loose. If the cap is loose, use the shaker to remove it. With the cap removed, Alt Click the \
+	shaker to remove the top."
+	icon = 'icons/obj/shaker.dmi' // VTD: Don't forget to remove the old sprites in icons/obj/drinks.dmi
 	icon_state = "shaker"
+	item_state = "shaker"
+	contained_sprite = TRUE
+	filling_states = "20;40;60;80;100"
 	unacidable = TRUE
 	amount_per_transfer_from_this = 10
 	volume = 120
 	center_of_mass = list("x"=16, "y"=8)
 	var/last_shake = 0
+	var/twisted = FALSE
+	var/obj/item/reagent_containers/food/drinks/shaker_top/top
+	var/obj/item/reagent_containers/food/drinks/shaker_cup/cap
+
+/obj/item/reagent_containers/food/drinks/shaker/Initialize()
+	. = ..()
+	top = new(src)
+	cap = new(src)
+	update_icon()
+
+/obj/item/reagent_containers/food/drinks/shaker/Destroy()
+	QDEL_NULL(top)
+	QDEL_NULL(cap)
+	return ..()
+
+/obj/item/reagent_containers/food/drinks/shaker/update_icon()
+	cut_overlays()
+	if(top)
+		icon_state = "shakertop"
+		item_state = "shakertop"
+	else
+		icon_state = initial(icon_state)
+		item_state = icon_state
+		if(reagents?.total_volume)
+			var/mutable_appearance/filling = mutable_appearance('icons/obj/shaker.dmi', "[icon_state]-[get_filling_state()]")
+			filling.color = reagents.get_color()
+			add_overlay(filling)
+	if(cap)
+		add_overlay("shaker_cap")
+	update_held_icon()
+
+/obj/item/reagent_containers/food/drinks/shaker/AltClick(mob/user)
+	if(cap)
+		toggle_twist()
+		return
+	toggle_top()
+	return
 
 /obj/item/reagent_containers/food/drinks/shaker/attack_self(mob/user)
+	if(!twisted)
+		if(cap)
+			to_chat(user, SPAN_NOTICE("You remove \the [src]'s [cap]."))
+			user.put_in_hands(cap)
+			flags |= OPENCONTAINER
+			cap = null
+			update_icon()
+			return
+	if(!cap)
+		to_chat(user, SPAN_WARNING("You need to put a cap on \the [src] before shaking it."))
+		return
 	if(last_shake <= world.time - 10) //Spam limiter.
 		last_shake = world.time
-		playsound(src.loc, 'sound/items/soda_shaking.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/soda_shaking.ogg', 50, 1) // VTD: Receive Ping's possible new sound (DON'T FORGET CHANGELOG)
 	src.add_fingerprint(user)
 	return
+
+/obj/item/reagent_containers/food/drinks/shaker/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/reagent_containers/food/drinks/shaker_cup))
+		if(cap)
+			to_chat(user, SPAN_WARNING("\The [src] already has \a [cap]."))
+			return TRUE
+		if(W.reagents.total_volume > 0)
+			var/obj/item/reagent_containers/food/drinks/shaker_cup/C = W
+			C.standard_pour_into(user, src)
+			return TRUE
+		if(!top)
+			to_chat(user, SPAN_WARNING("\The [src] lacks a top to put \the [W] on."))
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You put \the [W] onto \the [src]."))
+		user.drop_from_inventory(W, src)
+		flags ^= OPENCONTAINER
+		cap = W
+		update_icon()
+		return TRUE
+	if(istype(W, /obj/item/reagent_containers/food/drinks/shaker_top))
+		if(top)
+			to_chat(user, SPAN_WARNING("\The [src] already has \a [top]."))
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You fit \the [W] onto \the [src]."))
+		user.drop_from_inventory(W, src)
+		top = W
+		update_icon()
+		return TRUE
+	return ..()
+
+/obj/item/reagent_containers/food/drinks/shaker/verb/toggle_twist()
+	set category = "Object"
+	set name = "Twist Cap"
+	set src in usr
+
+	if(!cap)
+		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a cap!"))
+		return
+	twisted = !twisted
+	to_chat(usr, SPAN_NOTICE("You twist \the [cap] [twisted ? "closed for a tight seal" : "loose"]."))
+	update_icon()
+
+/obj/item/reagent_containers/food/drinks/shaker/verb/toggle_top()
+	set category = "Object"
+	set name = "Remove Top"
+	set src in usr
+
+	if(cap)
+		to_chat(usr, SPAN_WARNING("You must remove \the [cap] first!"))
+		return
+	if(!top)
+		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a top to remove!"))
+		return
+	to_chat(usr, SPAN_NOTICE("You remove \the [src]'s [top]."))
+	usr.put_in_hands(top)
+	top = null
+	update_icon()
+
+/obj/item/reagent_containers/food/drinks/shaker_top
+	name = "shaker top"
+	desc = "A metal shaker top with an in-built filter on the bottom."
+	icon = 'icons/obj/shaker.dmi'
+	icon_state = "shaker_top"
+	item_state = "shaker_top"
+	contained_sprite = TRUE
+	flags = null
+	volume = null
+	center_of_mass = list("x" = 16, "y" = 16)
+
+/obj/item/reagent_containers/food/drinks/shaker_top/afterattack(atom/target, mob/user, proximity, params)
+	if(istype(target, /obj/item/reagent_containers/food/drinks/shaker))
+		return
+	return ..()
+
+/obj/item/reagent_containers/food/drinks/shaker_cup
+	name = "shaker cap"
+	desc = "A metal shaker cap that also doubles as a metal cup to measure liquids, or to drink from."
+	desc_info = "Alt Click to change transfer amount."
+	icon = 'icons/obj/shaker.dmi'
+	icon_state = "shaker_cup"
+	item_state = "shaker_cup"
+	contained_sprite = TRUE
+	filling_states = "50;100"
+	volume = 10
+	possible_transfer_amounts = list(1,2,3,4,5,10)
+	center_of_mass = list("x" = 16, "y" = 16)
+
+/obj/item/reagent_containers/food/drinks/shaker_cup/update_icon()
+	cut_overlays()
+
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling = mutable_appearance('icons/obj/shaker.dmi', "[icon_state]-[get_filling_state()]")
+		filling.color = reagents.get_color()
+		add_overlay(filling)
+
+/obj/item/reagent_containers/food/drinks/shaker_cup/afterattack(atom/target, mob/user, proximity, params)
+	if(istype(target, /obj/item/reagent_containers/food/drinks/shaker))
+		return
+	return ..()
+
+/obj/item/reagent_containers/food/drinks/shaker_cup/AltClick(mob/user)
+	set_APTFT()
 
 /obj/item/reagent_containers/food/drinks/teapot
 	name = "teapot"
@@ -503,11 +659,13 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/Initialize()
 	. = ..()
 	cup = new(src)
+	flags ^= OPENCONTAINER
 
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/attack_self(mob/user)
 	if(cup)
 		to_chat(user, SPAN_NOTICE("You remove \the [src]'s cap."))
 		user.put_in_hands(cup)
+		flags |= OPENCONTAINER
 		cup = null
 		update_icon()
 
@@ -517,10 +675,11 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 			to_chat(user, SPAN_WARNING("\The [src] already has a cap."))
 			return TRUE
 		if(W.reagents.total_volume + reagents.total_volume > volume)
-			to_chat(user, SPAN_WARNING("There's too much fluid in both the cap and the flask!"))
+			to_chat(user, SPAN_WARNING("There's too much fluid in both the cap and \the [src]!"))
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You put the cap onto \the [src]."))
 		user.drop_from_inventory(W, src)
+		flags ^= OPENCONTAINER
 		cup = W
 		cup.reagents.trans_to_holder(reagents, cup.reagents.total_volume)
 		update_icon()
