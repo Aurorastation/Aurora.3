@@ -209,8 +209,13 @@
 	var/datum/bounty/r_subtype = pick(subtypesof(/datum/bounty/reagent))
 	try_add_bounty(new r_subtype)
 
-	var/datum/bounty/B = pick(bounties_list)
-	B.mark_high_priority()
+	if(prob(60))
+		//phoron bounties
+		var/datum/bounty/item/phoron_bounty = pick(/datum/bounty/item/phoron_sheet, /datum/bounty/item/solar_array)
+		try_add_bounty(new phoron_bounty)
+	else
+		var/datum/bounty/B = pick(bounties_list)
+		B.mark_high_priority()
 
 	// Generate these last so they can't be high priority.
 	try_add_bounty(new /datum/bounty/more_bounties)

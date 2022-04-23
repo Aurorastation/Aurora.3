@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - tweak: "Edited the wording of the phoron-related bounties to more accurately represent current lore."
-  - tweak: "The amount of canisters required for the related phoron bounty has been reduced. The reward matches this reduction."
+  - rscdel: "Removes the phoron canister bounty."

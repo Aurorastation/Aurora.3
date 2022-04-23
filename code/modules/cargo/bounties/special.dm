@@ -42,29 +42,6 @@
 		return
 	shipped_count += O.amount
 
-/datum/bounty/item/phoron_canister
-	name = "Phoron Canisters"
-	description = "Shipment of Phoron is considered to be a key part of the SCCV Horizon's operations within the CRZ. This bounty should always be prioritized. Canisters must contain a minimum of 2000 moles."
-	reward_low = 6000
-	reward_high = 8000
-	required_count = 2
-	random_count = 1 // 1 to 3
-	wanted_types = list(/obj/machinery/portable_atmospherics/canister)
-	high_priority = TRUE
-	var/moles_required = 2000 //Roundstart total_moles for a FULL tank is about 1871 per tank.
-
-/datum/bounty/item/phoron_canister/applies_to(var/obj/machinery/portable_atmospherics/canister/O)
-	if(!..())
-		return FALSE
-	if(!istype(O))
-		return FALSE
-
-	var/datum/gas_mixture/environment = O.return_air()
-	if(!environment || !O.air_contents.gas["phoron"])
-		return FALSE
-
-	return O.air_contents.gas["phoron"] >= moles_required
-
 /datum/bounty/item/solar_array
 	name = "Assembled Solar Panels"
 	description = "Owing to the phoron shortage continuing for over a year, longer than projected, we have decided to use solar arrays to power various facilities across our region of influence."
