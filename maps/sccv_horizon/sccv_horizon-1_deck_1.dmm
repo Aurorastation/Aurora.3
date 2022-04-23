@@ -26316,6 +26316,14 @@
 	},
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/mining)
+"xgm" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "xgE" = (
 /obj/structure/railing/mapped,
 /obj/item/stack/rods,
@@ -53702,7 +53710,7 @@ xKI
 qZp
 akC
 mhf
-mhf
+xgm
 avE
 iGO
 tdL
