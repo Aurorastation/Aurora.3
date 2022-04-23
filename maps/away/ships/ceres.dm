@@ -7,6 +7,7 @@
 	spawn_cost = 1
 	id = "ceres_lance_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ceres_lance_ship, /datum/shuttle/autodock/overmap/ceres_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /obj/effect/overmap/visitable/sector/ceres_lance_ship
 	name = "faint ship activity"
@@ -100,7 +101,7 @@
 
 /datum/shuttle/autodock/overmap/ceres_shuttle
 	name = "Ceres Shuttle"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/ceres_shuttle)
 	current_location = "nav_hangar_ceres"
 	landmark_transition = "nav_transit_ceres_shuttle"
@@ -114,7 +115,7 @@
 	name = "Ceres Shuttle Hangar"
 	landmark_tag = "nav_hangar_ceres"
 	docking_controller = "ceres_shuttle_dock"
-	base_area = /area/shuttle/ceres_peacekeeper_ship
+	base_area = /area/shuttle/ceres_lance_ship
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 

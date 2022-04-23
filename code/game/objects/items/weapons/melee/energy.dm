@@ -328,6 +328,20 @@
 	..()
 	icon_state = "sol_edagger1"
 
+/obj/item/melee/energy/sword/knife/lance
+	name = "ceres lance energy dagger"
+	desc = "A relatively inexpensive energy blade, this is the standard-issue combat knife given to members of the Ceres' Lance."
+	icon_state = "ceres_edagger0"
+	base_reflectchance = 10
+	base_block_chance = 10
+	active_force = 20
+	force = 10
+	origin_tech = list(TECH_MAGNET = 3)
+
+/obj/item/melee/energy/sword/knife/lance/activate(mob/living/user)
+	..()
+	icon_state = "ceres_edagger1"
+
 /*
 *Power Sword
 */

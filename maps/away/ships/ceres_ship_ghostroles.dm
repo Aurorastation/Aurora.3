@@ -1,4 +1,4 @@
-//biesel peacekeeper ship
+//Ceres' Lance Ship
 
 /datum/ghostspawner/human/ceres_lance_squad_member
 	short_name = "Ceres' Lance Squad Member"
@@ -12,7 +12,7 @@
 
 	outfit = /datum/outfit/admin/ceres_lance_squad_member
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY000000
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Ceres' Lance Squad Member"
 	special_role = "Ceres' Lance Squad Member"
@@ -22,17 +22,16 @@
 /datum/outfit/admin/ceres_lance_squad_member
 	name = "Ceres' Lance Squad Member"
 
-	head = /obj/item/clothing/head/beret/legion/field
-	uniform = /obj/item/clothing/under/legion
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = /obj/item/storage/backpack/legion
-	accessory = /obj/item/clothing/accessory/legion/specialist
+	back = /obj/item/storage/backpack/satchel_norm
+	belt = /obj/item/storage/belt/military
+	accessory = /obj/item/clothing/accessory/storage/pouches/black
 
 	id = /obj/item/card/id/ceres_ship
 
 	l_ear = /obj/item/device/radio/headset/ship
 
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/lance = 1, /obj/item/ipc_tag_scanner = 1, /obj/item/melee/baton/stunrod = 1)
 
 /datum/outfit/admin/ceres_lance_squad_member/get_id_access()
 	return list(access_ceres_lance_ship, access_external_airlocks)
@@ -59,17 +58,17 @@
 /datum/outfit/admin/ceres_lance_squad_lead
 	name = "Ceres' Lance Squad Leader"
 
-	head = /obj/item/clothing/head/beret/legion/field
-	uniform = /obj/item/clothing/under/legion
+	uniform = /obj/item/clothing/under/lance
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = /obj/item/storage/backpack/legion
-	accessory = /obj/item/clothing/accessory/legion
+	back = /obj/item/storage/backpack/satchel_norm
+	belt = /obj/item/storage/belt/military
+	accessory = /obj/item/clothing/accessory/storage/pouches/black
 
 	id = /obj/item/card/id/ceres_ship
 
 	l_ear = /obj/item/device/radio/headset/ship
 
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/lance = 1, /obj/item/ipc_tag_scanner = 1, /obj/item/melee/baton/stunrod = 1)
 
 /datum/outfit/admin/ceres_lance_squad_lead/get_id_access()
 	return list(access_ceres_lance_ship, access_external_airlocks)
