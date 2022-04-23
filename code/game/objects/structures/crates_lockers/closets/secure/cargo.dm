@@ -20,6 +20,7 @@
 	new /obj/item/clothing/head/beret/cargo(src)
 	new /obj/item/modular_computer/handheld/preset/supply/cargo_delivery(src)
 	new /obj/item/export_scanner(src)
+	new /obj/item/device/flashlight/marshallingwand(src)
 
 /obj/structure/closet/secure_closet/operation_manager
 	name = "operation manager's locker"
@@ -48,6 +49,7 @@
 	new /obj/item/device/orbital_dropper/drill(src)
 	new /obj/item/device/megaphone/cargo(src)
 	new /obj/item/storage/box/goldstar(src)
+	new /obj/item/device/flashlight/marshallingwand(src)
 
 /obj/structure/closet/secure_closet/merchant
 	name = "merchant locker"
