@@ -43,6 +43,7 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_one_access = list(12,61)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "ah" = (
@@ -2858,6 +2859,7 @@
 	req_access = list(66)
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/medical/upper)
 "gw" = (
@@ -8664,6 +8666,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/maintenance/aux_atmospherics/deck_3)
 "tG" = (
@@ -13370,6 +13373,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
+"FV" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "FX" = (
 /obj/structure/bed/stool/chair/padded/brown,
 /obj/machinery/status_display{
@@ -14169,6 +14177,7 @@
 	req_one_access = list(12,61)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "HW" = (
@@ -15658,6 +15667,7 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_one_access = list(12,61)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "Lk" = (
@@ -17459,6 +17469,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
 /turf/simulated/floor,
 /area/maintenance/aux_atmospherics/deck_3)
 "Pq" = (
@@ -19202,6 +19216,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "Tz" = (
@@ -20413,6 +20430,7 @@
 	req_one_access = list(12,61)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/maintenance/aux_atmospherics/deck_3)
 "WH" = (
@@ -42745,7 +42763,7 @@ Ol
 Ai
 hf
 lK
-lV
+FV
 El
 fJ
 fJ
@@ -43149,7 +43167,7 @@ qK
 Ai
 BM
 hn
-lV
+FV
 El
 fJ
 fJ
