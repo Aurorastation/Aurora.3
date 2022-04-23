@@ -2802,6 +2802,15 @@
 	pixel_y = 5
 	},
 /obj/structure/table/steel,
+/obj/item/device/radio/off{
+	pixel_y = 5
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
 "cxA" = (
@@ -5159,6 +5168,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/hangar/starboard)
+"eFl" = (
+/obj/structure/morgue{
+	dir = 1
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/medical/morgue/lower)
 "eFn" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -7398,6 +7417,7 @@
 	pixel_y = -1;
 	shuttle_tag = "Morgue Lift"
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "gqR" = (
@@ -14663,6 +14683,15 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/device/radio/off{
+	pixel_y = 5
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
 "mSd" = (
@@ -14698,6 +14727,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
+"mST" = (
+/obj/structure/morgue,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/medical/morgue/lower)
 "mTJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/firealarm/west,
@@ -18716,6 +18752,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "qBU" = (
@@ -23332,6 +23369,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -41907,7 +41945,7 @@ nNE
 rpa
 lIg
 qXZ
-qXZ
+mST
 qXZ
 rNH
 haN
@@ -42717,7 +42755,7 @@ lIg
 sRe
 rNH
 rNH
-cuA
+eFl
 lIg
 cqu
 bDl
