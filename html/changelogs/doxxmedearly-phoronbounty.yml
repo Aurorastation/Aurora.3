@@ -3,4 +3,5 @@ author: Doxxmedearly
 delete-after: True
 
 changes:
-  - rscdel: "Removed the high-priority phoron bounties, as they were meant to be temporary for the Aurora station during the phoron scarcity arc."
+  - tweak: "Edited the wording of the phoron-related bounties to more accurately represent current lore."
+  - tweak: "The amount of canisters required for the related phoron bounty has been reduced. The reward matches this reduction."
