@@ -1139,13 +1139,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
-"ct" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
-	id = "Recovery1"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/medical/ward)
 "cu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
@@ -16783,6 +16776,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
+"MQ" = (
+/obj/effect/floor_decal/spline/plain,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/bridge)
 "MS" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -17568,19 +17574,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/starboard)
-"OA" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/bridge)
 "OB" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
@@ -38157,7 +38150,7 @@ Lh
 Db
 sn
 dv
-ct
+nr
 js
 Nc
 jz
@@ -38359,7 +38352,7 @@ XN
 LJ
 Pl
 MP
-ct
+nr
 pV
 fk
 jU
@@ -38561,7 +38554,7 @@ Nm
 Vt
 Vt
 Mr
-ct
+nr
 js
 Nc
 jU
@@ -38763,7 +38756,7 @@ DS
 Tj
 yb
 Xy
-ct
+nr
 js
 Nc
 jU
@@ -42829,7 +42822,7 @@ SH
 Fn
 US
 Xe
-OA
+MQ
 tE
 Hg
 Vx
