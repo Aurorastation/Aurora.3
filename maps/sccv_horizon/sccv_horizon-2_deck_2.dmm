@@ -3841,6 +3841,9 @@
 	name = "Diner Shutters"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/door/firedoor{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "clb" = (
