@@ -15926,7 +15926,7 @@
 /obj/item/material/ashtray/bronze,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/lino/grey,
-/area/crew_quarters/cafeteria)
+/area/crew_quarters/bar)
 "jFu" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -17119,22 +17119,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
-"kxy" = (
-/obj/structure/table/stone/marble,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_y = -10
-	},
-/obj/machinery/chemical_dispenser/bar_alc/full{
-	pixel_y = 5
-	},
-/turf/simulated/floor/lino/grey,
-/area/crew_quarters/bar)
 "kxz" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -33518,7 +33502,7 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/lino/grey,
-/area/crew_quarters/cafeteria)
+/area/crew_quarters/bar)
 "ulr" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -38071,17 +38055,6 @@
 	dir = 4
 	},
 /area/maintenance/wing/starboard)
-"wJI" = (
-/obj/structure/table/stone/marble,
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "bar_port";
-	name = "Port Bar Shutters"
-	},
-/obj/machinery/door/firedoor,
-/obj/item/flame/candle,
-/turf/simulated/floor/lino/grey,
-/area/crew_quarters/cafeteria)
 "wKa" = (
 /obj/machinery/light{
 	dir = 8
@@ -60039,7 +60012,7 @@ ugp
 gHV
 ugp
 eBy
-wJI
+ycL
 kAo
 kAo
 thy
