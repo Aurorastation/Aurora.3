@@ -173,9 +173,9 @@
 
 // Custodial Holster
 // Only allows the pestgun and xenogun.
-/obj/item/clothing/accessory/holster/custodial/hip/brown
-	name = "brown custodial hip holster"
-	icon_state = "holster_brown_hip"
+/obj/item/clothing/accessory/holster/custodial/armpit/brown
+	name = "brown custodial armpit holster"
+	icon_state = "holster_brown"
 	var/list/allowedObjects = list(
 		/obj/item/gun/energy/mousegun,
 		/obj/item/gun/energy/mousegun/xenofauna,
@@ -184,7 +184,7 @@
 		/obj/item/reagent_containers/food/snacks/grown/banana
 	)
 
-/obj/item/clothing/accessory/holster/custodial/hip/brown/holster(var/obj/item/I, var/mob/living/user)
+/obj/item/clothing/accessory/holster/custodial/armpit/brown/holster(var/obj/item/I, var/mob/living/user)
 	if(holstered && istype(user))
 		to_chat(user, "<span class='warning'>There is already \a [holstered] holstered here!</span>")
 		return
