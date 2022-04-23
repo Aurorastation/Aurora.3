@@ -100,7 +100,7 @@
 
 /datum/shuttle/autodock/overmap/orion_express_shuttle
 	name = "Orion Express Shuttle"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/orion_express_shuttle)
 	current_location = "nav_hangar_orion_express"
 	landmark_transition = "nav_transit_orion_express"
@@ -227,10 +227,10 @@
 
 /datum/shuttle/autodock/overmap/ee_shuttle
 	name = "Einstein Engines Shuttle"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/ee_shuttle)
 	current_location = "nav_hangar_ee"
-	landmark_transition = "nav_transit_ee"
+	landmark_transition = "nav_transit_ee_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_ee"

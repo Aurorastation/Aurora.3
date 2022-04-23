@@ -49,3 +49,4 @@
 	if(istype(I, /obj/item/nullrod))
 		to_chat(user, "<span class='notice'>You touch \the [src] with \the [I], closing the path to the otherworld.</span>")
 		qdel(src)
+		return TRUE

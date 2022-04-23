@@ -198,10 +198,7 @@
 					to_chat(user, SPAN_WARNING("You already have \the [src] on \the [U]."))
 					return
 
-				user.visible_message( \
-					"\The [user] scoops up some of \the [src] with \the [U]!", \
-					SPAN_NOTICE("You scoop up some of \the [src] with \the [U]!") \
-				)
+				to_chat(user, SPAN_NOTICE("You scoop up some of \the [src] with \the [U]."))
 
 				bitecount++
 				U.cut_overlays()
@@ -749,12 +746,12 @@
 
 		if(!(clr in list("blue","green","mime","orange","purple","rainbow","red","yellow")))
 			to_chat(usr, SPAN_NOTICE("The egg refuses to take on this color!"))
-			return
+			return TRUE
 
 		to_chat(usr, SPAN_NOTICE("You color \the [src] [clr]"))
 		icon_state = "egg-[clr]"
-	else
-		..()
+		return TRUE
+	return ..()
 
 /obj/item/reagent_containers/food/snacks/egg
 	var/amount_grown = 0
@@ -1737,7 +1734,7 @@
 	reagent_data = list(/decl/reagent/nutriment = list("peppermint" = 2, "salad" = 4, "hot stew" = 2))
 	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5, /decl/reagent/drink/dynjuice =2)
 
-/obj/item/reagent_containers/food/snacks/soup/brudet 
+/obj/item/reagent_containers/food/snacks/soup/brudet
 	name = "morozian brudet"
 	desc = "The most popular dish from the Dominian Empire, this stew is a staple of Imperial cuisine."
 	icon_state = "brudet"
@@ -2243,7 +2240,7 @@
 	filling_color = "#BB6A54"
 	reagents_to_add = list(/decl/reagent/nutriment = 2)
 	reagent_data = list(/decl/reagent/nutriment = list("bread" = 2))
-	bitesize = 2	
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/mint
 	name = "mint"
@@ -5410,7 +5407,7 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 1, /decl/reagent/nutriment/protein = 1, /decl/reagent/blood = 6, /decl/reagent/nutriment/coco = 3)
 	reagent_data = list(/decl/reagent/nutriment = list("iron" = 3))
 	bitesize = 6
-  
+
 /obj/item/reagent_containers/food/snacks/phoroncandy
 	name = "phoron rock candy"
 	desc = "Rock candy popular in Flagsdale. Actually contains phoron."

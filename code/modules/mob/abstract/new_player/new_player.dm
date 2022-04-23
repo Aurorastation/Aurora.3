@@ -33,6 +33,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(statpanel("Lobby"))
 		stat("Game ID:", game_id)
 
+		if(!istype(SSticker))
+			return
+
 		if(SSticker.hide_mode == ROUNDTYPE_SECRET)
 			stat("Game Mode:", "Secret")
 		else if (SSticker.hide_mode == ROUNDTYPE_MIXED_SECRET)
@@ -43,7 +46,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(SSticker.current_state == GAME_STATE_PREGAME)
 			stat("Time To Start:", "[SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
 			stat("Players: [length(player_list)]", "Players Ready: [SSticker.total_players_ready]")
-			if(SSjobs.init_state >= SS_INITSTATE_DONE)
+			if(LAZYLEN(SSticker.ready_player_jobs))
 				for(var/dept in SSticker.ready_player_jobs)
 					if(LAZYLEN(SSticker.ready_player_jobs[dept]))
 						stat(uppertext(dept), null)

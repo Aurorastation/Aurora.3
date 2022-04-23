@@ -64,13 +64,13 @@
 		var/obj/item/spacecash/C = W
 		if(!on)
 			to_chat(user, SPAN_WARNING("\The [src] has no power!"))
-			return
+			return TRUE
 		if(amountleft <= 0)
 			to_chat(user, SPAN_WARNING("There's no more [typeofcandy] left!"))
-			return
+			return TRUE
 		if(C.worth < gumprice)
 			to_chat(user, SPAN_WARNING("You don't think this is enough to buy what you want from this."))
-			return
+			return TRUE
 		else
 			visible_message(SPAN_INFO("\The [user] inserts a bill into \the [src]."))
 			var/changeleftover = C.worth - gumprice
@@ -87,6 +87,7 @@
 			smashgumball()
 		else
 			visible_message(SPAN_WARNING("\The [user] bash's \the [src] with \the [W]."))
+		return TRUE
 
 
 

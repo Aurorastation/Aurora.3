@@ -3022,6 +3022,7 @@
 #include "code\unit_tests\observation_tests.dm"
 #include "code\unit_tests\overmap_tests.dm"
 #include "code\unit_tests\recipe_tests.dm"
+#include "code\unit_tests\shuttle_tests.dm"
 #include "code\unit_tests\spawner_tests.dm"
 #include "code\unit_tests\species_tests.dm"
 #include "code\unit_tests\sql_tests.dm"

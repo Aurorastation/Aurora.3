@@ -979,4 +979,5 @@
 		new /obj/effect/decal/cleanable/ash(src.loc)
 
 		qdel(src)
+		return TRUE
 

@@ -265,8 +265,8 @@
 	//Swiping ID on the access button
 	if (I.GetID())
 		attack_hand(user)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/machinery/access_button/attack_hand(mob/user)
 	add_fingerprint(usr)

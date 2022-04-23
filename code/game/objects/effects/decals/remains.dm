@@ -43,8 +43,8 @@
 
 /obj/effect/decal/remains/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/gun/energy/rifle/cult))
-		return
-	..()
+		return TRUE
+	return ..()
 
 //Target turns to ash.
 /obj/effect/decal/remains/proc/crumble()

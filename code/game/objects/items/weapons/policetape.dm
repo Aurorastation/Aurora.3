@@ -209,7 +209,7 @@ var/list/tape_roll_applications = list()
 	return ..()
 
 /obj/item/tape/attackby(obj/item/W, mob/user)
-	breaktape(W, user)
+	return breaktape(W, user)
 
 /obj/item/tape/attack_hand(mob/user)
 	if(user.a_intent == I_HELP)
@@ -253,3 +253,4 @@ var/list/tape_roll_applications = list()
 			cur = get_step(cur,dir[i])
 
 	qdel(src)
+	return TRUE

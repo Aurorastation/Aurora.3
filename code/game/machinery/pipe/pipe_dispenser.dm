@@ -107,7 +107,7 @@
 		to_chat(usr, SPAN_NOTICE("You put \the [I] back into \the [src]."))
 		user.remove_from_mob(I) //Catches robot gripper duplication
 		qdel(I)
-		return
+		return TRUE
 	else if(I.iswrench())
 		playsound(get_turf(user), I.usesound, 50, 1)
 		if(anchored)
@@ -125,6 +125,7 @@
 				anchored = TRUE
 				stat &= ~MAINT
 				power_change()
+		return TRUE
 	else
 		return ..()
 

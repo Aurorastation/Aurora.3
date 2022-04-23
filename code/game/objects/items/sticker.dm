@@ -42,6 +42,7 @@
 	var/atom/movable/attached_atom = attached.resolve()
 	if(attached_atom)
 		attached_atom.attackby(I, user) // don't allow people to make sticker armor
+		return TRUE
 
 /obj/item/sticker/afterattack(atom/movable/target, mob/user, proximity_flag, click_parameters)
 	if(!proximity_flag)

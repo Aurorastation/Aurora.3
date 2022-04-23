@@ -123,10 +123,10 @@
 		return
 	if (occupant)
 		to_chat(user, SPAN_WARNING("The scanner is already occupied!"))
-		return
+		return TRUE
 	if (G.affecting.abiotic())
 		to_chat(user, SPAN_WARNING("Subject cannot have abiotic items on."))
-		return
+		return TRUE
 
 	var/mob/living/M = G.affecting
 	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
@@ -134,7 +134,7 @@
 	if (do_mob(user, G.affecting, 30, needhand = 0))
 		var/bucklestatus = M.bucklecheck(user)
 		if (!bucklestatus)//incase the patient got buckled_to during the delay
-			return
+			return TRUE
 		if (bucklestatus == 2)
 			var/obj/structure/LB = M.buckled_to
 			LB.user_unbuckle(user)
@@ -150,7 +150,7 @@
 	add_fingerprint(user)
 	//G = null
 	qdel(G)
-	return
+	return TRUE
 
 /obj/machinery/bodyscanner/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
 	if(!istype(user))
