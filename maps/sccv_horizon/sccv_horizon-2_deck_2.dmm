@@ -3779,6 +3779,10 @@
 /obj/effect/landmark/engine_setup/filter,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
+"cgw" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard)
 "cgP" = (
 /turf/simulated/floor/tiled/freezer,
 /area/operations/break_room)
@@ -6134,8 +6138,7 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "dLD" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "dLO" = (
@@ -8781,8 +8784,7 @@
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "fuJ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "fuX" = (
@@ -11686,7 +11688,7 @@
 /turf/simulated/floor/tiled,
 /area/teleporter)
 "hfh" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/locker_room)
 "hfm" = (
@@ -22224,10 +22226,9 @@
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
 "nDK" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "nEx" = (
@@ -29204,8 +29205,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "rPp" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "rPY" = (
@@ -35825,8 +35825,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
 "vOd" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "vOm" = (
@@ -47240,7 +47239,7 @@ oIL
 fQn
 fsf
 oAL
-tGP
+rPp
 uOq
 uOq
 nsx
@@ -53697,7 +53696,7 @@ nlr
 sjT
 wOd
 oIL
-uRo
+cgw
 oIL
 nKK
 dKR
@@ -75118,7 +75117,7 @@ eED
 dFG
 xPm
 iZt
-dXB
+vOd
 tmO
 fKG
 xDA
