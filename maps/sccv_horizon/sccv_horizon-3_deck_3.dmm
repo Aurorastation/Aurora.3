@@ -1145,7 +1145,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/exam)
+/area/medical/ward)
 "cu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
@@ -1623,7 +1623,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "dw" = (
 /obj/structure/closet/secure_closet/bridge_crew,
 /obj/effect/floor_decal/corner/blue{
@@ -4374,7 +4374,7 @@
 "jF" = (
 /obj/structure/sign/nosmoking_1,
 /turf/simulated/wall,
-/area/medical/exam)
+/area/medical/ward)
 "jG" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
@@ -4661,7 +4661,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "ko" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -6044,7 +6044,7 @@
 /area/security/investigations_storage)
 "nr" = (
 /turf/simulated/wall,
-/area/medical/exam)
+/area/medical/ward)
 "ns" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
@@ -7994,7 +7994,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
-/area/medical/exam)
+/area/medical/ward)
 "rG" = (
 /obj/structure/bed/stool/chair/sofa/right/brown,
 /obj/structure/window/reinforced{
@@ -8269,7 +8269,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "so" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
@@ -8279,7 +8279,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "sp" = (
 /obj/structure/table/wood,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -10589,7 +10589,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "yc" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -12540,7 +12540,7 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "Dc" = (
 /obj/machinery/door/window/eastright,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -12854,7 +12854,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "DT" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -13522,7 +13522,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "FB" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -14460,7 +14460,7 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "HL" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -16043,7 +16043,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "Li" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16264,7 +16264,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "LK" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -16539,7 +16539,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "Ms" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -16738,7 +16738,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "MQ" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
@@ -16928,7 +16928,7 @@
 	},
 /obj/item/pen,
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "Nn" = (
 /obj/machinery/disposal/small/north,
 /obj/machinery/light_switch{
@@ -17901,7 +17901,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "Pm" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 8
@@ -18137,7 +18137,7 @@
 	icon_state = "conpipe-c"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "PJ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -19601,7 +19601,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "Tl" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -20532,7 +20532,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "Vu" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -21326,7 +21326,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "Xz" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -21430,7 +21430,7 @@
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/medical,
 /turf/simulated/floor/tiled/white,
-/area/medical/exam)
+/area/medical/ward)
 "XO" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Ammo)"
