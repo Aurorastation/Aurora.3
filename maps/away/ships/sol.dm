@@ -100,10 +100,10 @@
 
 /datum/shuttle/autodock/overmap/sfa_shuttle
 	name = "SFA Shuttle"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/sfa_shuttle)
 	current_location = "nav_hangar_sfa"
-	landmark_transition = "nav_transit_sfa"
+	landmark_transition = "nav_transit_sfa_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_sfa"

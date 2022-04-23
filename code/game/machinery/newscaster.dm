@@ -973,7 +973,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			src.scribble_page = src.curr_page
 			src.scribble = s
 			src.attack_self(user)
-		return
+		return TRUE
 
 /obj/item/newspaper/proc/rolled(mob/user)
 	if(ishuman(user) && Adjacent(user) && !user.incapacitated())

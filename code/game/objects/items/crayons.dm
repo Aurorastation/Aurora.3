@@ -113,6 +113,7 @@
 			if(reagents.total_volume <= 0)
 				user.visible_message("<span class='notice'>[user] finished their crayon!</span>", "<span class='warning'>You ate your crayon!</span>")
 				qdel(src)
+				return TRUE
 	else
 		..(user, target_zone)
 

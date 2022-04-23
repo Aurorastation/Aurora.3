@@ -126,6 +126,7 @@
 		arrive_time = world.time + travel_time*10
 		moving_status = SHUTTLE_INTRANSIT
 		if(attempt_move(interim))
+			on_move_interim()
 			var/fwooshed = 0
 			while (world.time < arrive_time)
 				if(!fwooshed && (arrive_time - world.time) < 100)
@@ -299,3 +300,6 @@
 	process_state = new_state
 	for(var/obj/machinery/computer/shuttle_control/SC as anything in shuttle_computers)
 		SC.update_helmets(src)
+
+/datum/shuttle/proc/on_move_interim()
+	return

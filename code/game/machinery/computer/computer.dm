@@ -127,8 +127,9 @@
 				A.icon_state = "4"
 			M.deconstruct(src)
 			qdel(src)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/machinery/computer/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!mover)

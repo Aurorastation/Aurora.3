@@ -262,6 +262,22 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 	jacket["iqi medical"] = /obj/item/clothing/suit/storage/toggle/skrell/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
 
+/datum/gear/accessory/skrell/poncho
+	display_name = "skrell poncho"
+	path = /obj/item/clothing/accessory/poncho/skrell
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/skrell/poncho/New()
+	..()
+	var/list/poncho = list()
+	poncho["brown"] = /obj/item/clothing/accessory/poncho/skrell/brown
+	poncho["tan"] = /obj/item/clothing/accessory/poncho/skrell/tan
+	poncho["gray"] = /obj/item/clothing/accessory/poncho/skrell/gray
+	poncho["white"] = /obj/item/clothing/accessory/poncho/skrell
+	gear_tweaks += new /datum/gear_tweak/path(poncho)
+
 /datum/gear/accessory/skrell/workcloak
 	display_name = "work cloaks"
 	path = /obj/item/clothing/accessory/poncho/shouldercape

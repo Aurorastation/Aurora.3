@@ -60,7 +60,7 @@
 // attack bulb/tube with object
 // if a syringe, can inject phoron to make it explode
 /obj/item/light/attackby(var/obj/item/I, var/mob/user)
-	..()
+	. = ..()
 	if(istype(I, /obj/item/reagent_containers/syringe))
 		var/obj/item/reagent_containers/syringe/S = I
 
@@ -74,9 +74,7 @@
 			rigged = TRUE
 
 		S.reagents.clear_reagents()
-	else
-		..()
-	return
+		return TRUE
 
 // called after an attack with a light item
 // shatter light, unless it was an attempt to put it in a light socket

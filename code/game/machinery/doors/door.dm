@@ -304,13 +304,13 @@
 		if(istype(stack) && stack.get_material_name() == get_material_name())
 			if(stat & BROKEN)
 				to_chat(user, SPAN_NOTICE("It looks like \the [src] is pretty busted. It's going to need more than just patching up now."))
-				return
+				return TRUE
 			if(health >= maxhealth)
 				to_chat(user, SPAN_NOTICE("Nothing to fix!"))
-				return
+				return TRUE
 			if(!density)
 				to_chat(user, SPAN_WARNING("\The [src] must be closed before you can repair it."))
-				return
+				return TRUE
 
 			//figure out how much metal we need
 			var/amount_needed = (maxhealth - health) / DOOR_REPAIR_AMOUNT
@@ -330,12 +330,12 @@
 			if (transfer)
 				to_chat(user, SPAN_NOTICE("You fit [transfer] [stack.singular_name]\s to damaged and broken parts on \the [src]."))
 
-			return
+			return TRUE
 
 	if(repairing && I.iswelder())
 		if(!density)
 			to_chat(user, "<span class='warning'>\The [src] must be closed before you can repair it.</span>")
-			return
+			return TRUE
 
 		var/obj/item/weldingtool/welder = I
 		if(welder.remove_fuel(0,user))
@@ -347,14 +347,14 @@
 				update_icon()
 				qdel(repairing)
 				repairing = null
-		return
+		return TRUE
 
 	if(repairing && I.iscrowbar())
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
 		playsound(src.loc, I.usesound, 100, 1)
 		repairing.forceMove(user.loc)
 		repairing = null
-		return
+		return TRUE
 
 	//psa to whoever coded this, there are plenty of objects that need to call attack() on doors without bludgeoning them.
 	if(src.density && istype(I, /obj/item) && user.a_intent == I_HURT && !istype(I, /obj/item/card))
@@ -368,22 +368,19 @@
 				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [W]!</span>")
 				playsound(src.loc, hitsound, W.get_clamped_volume(), 1)
 				take_damage(W.force)
-		return
+		return TRUE
 
-	if(src.operating > 0 || isrobot(user))	return //borgs can't attack doors open because it conflicts with their AI-like interaction with them.
-
-	if(src.operating) return
+	if(src.operating > 0 || isrobot(user))	return TRUE //borgs can't attack doors open because it conflicts with their AI-like interaction with them.
 
 	if(src.allowed(user) && operable())
 		if(src.density)
 			open()
 		else
 			close()
-		return
+		return TRUE
 
 	if(src.density)
 		do_animate("deny")
-	return
 
 /obj/machinery/door/emag_act(var/remaining_charges)
 	if(density && operable())

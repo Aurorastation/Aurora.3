@@ -134,6 +134,7 @@ var/list/active_radio_jammers = list()
 		assembly_holder.detached()
 		user.put_in_hands(cell)
 		qdel(src)
+		return TRUE
 
 /obj/item/device/radiojammer/improvised/toggle(mob/user)
 	if(!active)

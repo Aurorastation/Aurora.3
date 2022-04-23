@@ -28,10 +28,12 @@
 	if(I.isscrewdriver())
 		open_panel = !open_panel
 		to_chat(user, "<span class='notice'>You [open_panel ? "open" : "close"] the wire panel.</span>")
+		return TRUE
 	else if(I.iswirecutter() || I.ismultitool() || istype(I, /obj/item/device/assembly/signaler ))
 		wires.Interact(user)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/plastique/attack_self(mob/user as mob)
 	var/newtime = input(usr, "Please set the timer.", "Timer", 10) as num

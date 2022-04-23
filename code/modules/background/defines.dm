@@ -128,6 +128,9 @@
 #define ACCENT_AWEIJI "Aweiji"
 #define ACCENT_TRAVERSE "Traverse"
 #define ACCENT_GENNER "Generational Ship"
+#define ACCENT_SKRELLSOL "Solarian Skrell Standard"
+#define ACCENT_SKRELLCOC "Coalition Skrell Standard"
+#define ACCENT_SKRELLCETI "Biesellite Skrell Standard"
 
 #define ACCENT_ROOTSONG "Rootsong"
 #define ACCENT_VOIDSONG "Voidsong"

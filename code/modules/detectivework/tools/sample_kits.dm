@@ -50,7 +50,7 @@
 		user.unEquip(O)
 		if(merge_evidence(O, user))
 			qdel(O)
-		return 1
+		return TRUE
 	else if (O.ispen())
 		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
 		if(length(tmp_label) > MAX_NAME_LEN)
@@ -59,7 +59,7 @@
 			to_chat(user, SPAN_NOTICE("You set the label to \"[tmp_label]\"."))
 			label_text = tmp_label
 			update_name_label()
-		return
+		return TRUE
 	return ..()
 
 /obj/item/sample/proc/update_name_label()

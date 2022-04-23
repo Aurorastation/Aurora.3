@@ -232,7 +232,7 @@
 
 	if(anchored)
 		return
-	
+
 	if(!universe.OnTouchMapEdge(src))
 		return
 
