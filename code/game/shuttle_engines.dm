@@ -18,12 +18,13 @@
 /obj/structure/shuttle/engine
 	name = "engine"
 	density = 1
-	anchored = 1.0
+	anchored = 1
 	atmos_canpass = CANPASS_NEVER
 
 /obj/structure/shuttle/engine/heater
 	name = "heater"
 	icon_state = "heater"
+	opacity = 1
 
 /obj/structure/shuttle/engine/platform
 	name = "platform"
