@@ -55,7 +55,7 @@ var/list/dream_entries = list()
 			var/mob/return_mob = src
 
 			if(srom_pulled_by)
-				if(has_psi_aug())
+				if(!has_psi_aug())
 					dizziness += 40
 					confused += 40
 					slurring += 40
