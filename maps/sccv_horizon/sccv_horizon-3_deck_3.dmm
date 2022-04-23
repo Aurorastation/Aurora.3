@@ -1140,10 +1140,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
 "ct" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
-	id = "ExamR1"
-	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+	id = "Recovery1"
+	},
 /turf/simulated/floor/plating,
 /area/medical/ward)
 "cu" = (
