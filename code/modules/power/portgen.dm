@@ -361,7 +361,7 @@
 /obj/machinery/power/portgen/basic/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "machinery-power-pacman", 500, 560, capitalize(name))
+		ui = new(user, src, "machinery-power-portgen", 500, 560, capitalize(name))
 	ui.open()
 
 /obj/machinery/power/portgen/basic/Topic(href, href_list)
