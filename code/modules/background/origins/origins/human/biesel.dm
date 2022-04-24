@@ -12,7 +12,6 @@
         /decl/origin_item/origin/valkyrie
     )
 
-
 /decl/origin_item/origin/biesel
     name = "Biesel"
     desc = "One of the first colonies outside of the Sol System, Biesel has since flourished into an economic powerhouse within the greater Orion Spur. There exists no singular culture, but instead, a loose melting pot of multiculturalism exists where the only definable trait of Biesellite culture is that it doesn't have any. Most of Tau Ceti's inhabitants reside within Mendell City, a large metropolis that stretches across the plains of Biesel, and has various districts each with its own culture."
