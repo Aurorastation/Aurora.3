@@ -181,8 +181,8 @@
 /obj/effect/meteor/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/pickaxe))
 		qdel(src)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/effect/meteor/proc/make_debris()
 	for(var/throws = dropamt, throws > 0, throws--)

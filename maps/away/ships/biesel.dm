@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/tcfl_peacekeeper_ship
 	name = "TCFL Peacekeeper Ship"
-	description = "An auxiliary patrol ship operated by the Tau Ceti Foreign Legion. This one appears to be performing peacekeeper duties."
+	description = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus. This one’s transponder identifies it as a Tau Ceti Foreign Legion patrol vessel."
 	suffix = "ships/tcfl_peacekeeper_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	spawn_weight = 1
@@ -10,12 +10,12 @@
 
 /obj/effect/overmap/visitable/sector/tcfl_peacekeeper_ship
 	name = "faint ship activity"
-	desc = "A sector with faint hints of previous military auxiliary ship presence."
+	desc = "A sector with faint hints of previous ship presence."
 	in_space = 1
 
 /decl/submap_archetype/tcfl_peacekeeper_ship
 	map = "TCFL Peacekeeper Ship"
-	descriptor = "An auxiliary patrol ship operated by the Tau Ceti Foreign Legion. This one appears to be performing peacekeeper duties."
+	descriptor = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus. This one’s transponder identifies it as a Tau Ceti Foreign Legion patrol vessel."
 
 //areas
 
@@ -31,7 +31,7 @@
 
 /obj/effect/overmap/visitable/ship/landable/tcfl_peacekeeper_ship
 	name = "TCFL Peacekeeper Ship"
-	desc = "An auxiliary patrol ship operated by the Tau Ceti Foreign Legion. This one appears to be performing peacekeeper duties."
+	desc = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus. This one’s transponder identifies it as a Tau Ceti Foreign Legion patrol vessel."
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -85,7 +85,7 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tcfl_shuttle
 	name = "TCFL Shuttle"
-	desc = "A shuttle used by the TCFL for boarding and interdiction purposes."
+	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one’s transponder identifies it as belonging to the Tau Ceti Foreign Legion."
 	shuttle = "TCFL Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
@@ -100,10 +100,10 @@
 
 /datum/shuttle/autodock/overmap/tcfl_shuttle
 	name = "TCFL Shuttle"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/tcfl_shuttle)
 	current_location = "nav_hangar_tcfl"
-	landmark_transition = "nav_transit_tcfl"
+	landmark_transition = "nav_transit_tcfl_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_tcfl"

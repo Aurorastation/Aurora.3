@@ -112,6 +112,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 		user.visible_message("[user] [open ? "opens" : "closes"] the beacon's cover.", "You [open ? "open" : "close"] the beacon's cover.")
 
 		update_icon()
+		return TRUE
 
 	else if (I.GetID())
 		if(open)
@@ -123,7 +124,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 			updateDialog()
 		else
 			to_chat(user, "You must open the cover first!")
-	return
+		return TRUE
 
 /obj/machinery/navbeacon/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))

@@ -299,17 +299,17 @@
 	if (W.iswrench())
 		if (!(stat & NOPOWER) && use_power)
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
-			return 1
+			return TRUE
 		var/turf/T = src.loc
 		if (node && node.level==1 && isturf(T) && !T.is_plating())
 			to_chat(user, SPAN_WARNING("You must remove the plating first."))
-			return 1
+			return TRUE
 		var/datum/gas_mixture/int_air = return_air()
 		var/datum/gas_mixture/env_air = loc.return_air()
 		if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 			add_fingerprint(user)
-			return 1
+			return TRUE
 		playsound(src.loc, W.usesound, 50, 1)
 		to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
 		if (do_after(user, 40/W.toolspeed, act_target = src))
@@ -319,7 +319,7 @@
 				"You hear a ratchet.")
 			new /obj/item/pipe(loc, make_from=src)
 			qdel(src)
-		return 1
+		return TRUE
 
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
@@ -330,7 +330,7 @@
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			if(do_after(user, 20/W.toolspeed, act_target = src))
 				if(!src || !WT.isOn())
-					return
+					return TRUE
 				welded = !welded
 				update_icon()
 				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
@@ -341,19 +341,19 @@
 				to_chat(user, SPAN_NOTICE("You fail to complete the welding."))
 		else
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
-		return 1
+		return TRUE
 
 	if(istype(W, /obj/item/melee/arm_blade))
 		if(!welded)
 			to_chat(user, SPAN_WARNING("\The [W] can only be used to tear open welded scrubbers!"))
-			return
+			return TRUE
 		user.visible_message(SPAN_WARNING("\The [user] starts using \the [W] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [W]..."))
 		user.do_attack_animation(src, W)
 		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 		var/cut_amount = 3
 		for(var/i = 0; i <= cut_amount; i++)
 			if(!W || !do_after(user, 30, src))
-				return
+				return TRUE
 			user.do_attack_animation(src, W)
 			user.visible_message(SPAN_WARNING("\The [user] smashes \the [W] into \the [src]!"), SPAN_NOTICE("You smash \the [W] into \the [src]."))
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
@@ -362,7 +362,7 @@
 				spark(get_turf(src), 3, alldirs)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
 				update_icon()
-		return
+		return TRUE
 
 	return ..()
 

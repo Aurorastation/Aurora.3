@@ -31,11 +31,11 @@
 			C.pixel_y = 0
 			C.pixel_z = 0
 			user.visible_message("<b>[user]</b> puts \the [C] on \the [src].", SPAN_NOTICE("You place \the [C] on \the [src]."))
-		return
+		return TRUE
 	if(I.iswrench())
 		to_chat(user, SPAN_NOTICE("You dismantle \the [src]."))
 		dismantle()
-		return
+		return TRUE
 	return ..()
 
 /*

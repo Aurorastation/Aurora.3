@@ -33,8 +33,9 @@
 	if(W.isscrewdriver())
 		in_hack_mode = !in_hack_mode
 		playsound(src.loc, 'sound/items/screwdriver.ogg', 50, TRUE)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/device/multitool/hacktool/resolve_attackby(atom/A, mob/user)
 	sanity_check()

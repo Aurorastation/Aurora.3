@@ -282,12 +282,12 @@
 				src.updateUsrDialog()
 		else
 			to_chat(user,  "<span class='alert'>\The [src] buzzes, \"There's already an active sentence!\"</span>")
-		return
+		return TRUE
 	else if( istype( O, /obj/item/paper ))
 		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\"</span>")
-		return
+		return TRUE
 
-	..()
+	return ..()
 
 /obj/machinery/door_timer/proc/import( var/obj/item/paper/incident/I, var/user )
 	if( !istype( I ))
