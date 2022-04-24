@@ -607,7 +607,7 @@
 	set name = "Toggle Mode"
 	set src in view(1)
 
-	if(!toggle_check())
+	if(!toggle_check(usr))
 		return
 	mode = !mode
 	usr.visible_message("<b>[usr]</b> toggles \the [src] to [mode ? "inject" : "take blood"].", SPAN_NOTICE("You set \the [src] to [mode ? "injecting" : "taking blood"]."))
@@ -619,7 +619,7 @@
 	set name = "Toggle Stop"
 	set src in view(1)
 
-	if(!toggle_check())
+	if(!toggle_check(usr))
 		return
 	toggle_stop = !toggle_stop
 	usr.visible_message("<b>[usr]</b> toggles \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"].", SPAN_NOTICE("You toggle \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"]."))
@@ -630,7 +630,7 @@
 	set name = "Toggle Valve"
 	set src in view(1)
 
-	if(!toggle_check())
+	if(!toggle_check(usr))
 		return
 	if(!tank)
 		to_chat(usr, SPAN_NOTICE("There is no tank for you to open the valve of!"))
@@ -664,7 +664,7 @@
 	set name = "Toggle EPP"
 	set src in view(1)
 
-	if(!toggle_check())
+	if(!toggle_check(usr))
 		return
 	if(epp_active)
 		var/response = alert(usr, "Are you sure you want to turn off the Emergency Positive Pressure system? It is currently active!", "Toggle EPP", "Yes", "No")
@@ -680,7 +680,7 @@
 	set name = "Set Transfer Rate"
 	set src in view(1)
 
-	if(!toggle_check())
+	if(!toggle_check(usr))
 		return
 	set_rate:
 		var/amount = input("Set transfer rate as u/sec (between [transfer_limit] and 0.001)") as num
