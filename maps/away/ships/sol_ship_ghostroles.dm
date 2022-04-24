@@ -83,7 +83,7 @@
 	mob_name_prefix = "Pfc. "
 
 	spawnpoints = list("sfa_navy_crewman")
-	max_count = 1
+	max_count = 2
 
 	outfit = /datum/outfit/admin/sfa_marine
 	possible_species = list(SPECIES_HUMAN)
