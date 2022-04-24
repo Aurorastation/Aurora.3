@@ -5,6 +5,5 @@
 	config_tag = "acolytes"
 	required_players = 20
 	required_enemies = 6
-	end_on_antag_death = 0
 	antag_tags = list(MODE_BORER, MODE_CULTIST)
 	require_all_templates = TRUE
