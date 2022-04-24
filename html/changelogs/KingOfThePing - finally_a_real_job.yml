@@ -9,3 +9,4 @@ delete-after: True
 changes:
   - tweak: "Re-named the Head of Security to Chief of Security. Finally, a real job."
   - maptweak: "Re-named all HoS related map stuff to Chief of Security."
+  - refactor: "Refactored all formerly HoS related paths to CoS."
