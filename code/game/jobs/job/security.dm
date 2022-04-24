@@ -79,7 +79,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Chief of Security"
+	supervisors = "the chief of security"
 	selection_color = "#991818"
 	economic_modifier = 5
 
@@ -136,7 +136,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the Chief of Security"
+	supervisors = "the chief of security"
 	selection_color = "#991818"
 	economic_modifier = 5
 
@@ -190,7 +190,7 @@
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
-	supervisors = "the Chief of Security"
+	supervisors = "the chief of security"
 	selection_color = "#991818"
 	economic_modifier = 4
 
@@ -246,7 +246,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the Chief of Security"
+	supervisors = "the chief of security"
 	selection_color = "#991818"
 	access = list(access_security, access_sec_doors, access_maint_tunnels)
 	minimal_access = list(access_security, access_sec_doors)
