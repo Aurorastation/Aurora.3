@@ -19,10 +19,10 @@ var/list/dream_entries = list()
 			to_chat(bg, "<span class='warning'>Whilst in shared dreaming, you find it difficult to hide your secrets.</span>")
 			if(willfully_sleeping)
 				to_chat(bg, "To wake up, use the \"Awaken\" verb in the IC tab.")
-			for(var/mob/living/carbon/human/H in living_mob_list)
-				if(H.can_commune())
-					to_chat(H, SPAN_CULT("You sense an increase in the activity of Srom..."))
-					sound_to(H, sound('sound/effects/psi/power_used.ogg'))
+			for(var/thing in SSpsi.processing)
+				var/datum/psi_complexus/psi = thing
+				to_chat(psi.owner, SPAN_CULT("You sense an increase in the activity of Srom..."))
+				sound_to(psi.owner, sound('sound/effects/psi/power_used.ogg'))
 			log_and_message_admins("has entered the shared dream", bg)
 	// Does NOT
 	else
@@ -31,10 +31,10 @@ var/list/dream_entries = list()
 			if(willfully_sleeping && sleeping && stat == UNCONSCIOUS)
 				sleeping = 5
 				return
-			for(var/mob/living/carbon/human/H in living_mob_list)
-				if(H.can_commune())
-					to_chat(H, SPAN_CULT("You feel the activity of Srom decrease."))
-			log_and_message_admins("has left the shared dream",bg)
+			for(var/thing in SSpsi.processing)
+				var/datum/psi_complexus/psi = thing
+				to_chat(psi.owner, SPAN_CULT("You feel the activity of Srom decrease."))
+			log_and_message_admins("has left the shared dream", bg)
 			var/mob/living/brain_ghost/old_bg = bg
 			bg = null
 			vr_mob = null
