@@ -429,7 +429,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "A metal shaker to mix drinks in."
 	desc_info = "Alt Click the shaker to twist the cap closed/loose. If the cap is loose, use the shaker to remove it. Without a cap, use the shaker again to remove the top. \
 	If the shaker has a top fitted, you can Alt Click the shaker to change the transfer amount. Without a top, the transfer amount changes to max automatically."
-	icon = 'icons/obj/shaker.dmi' // VTD: Don't forget to remove the old sprites in icons/obj/drinks.dmi
+	icon = 'icons/obj/shaker.dmi'
 	icon_state = "shaker"
 	item_state = "shaker"
 	contained_sprite = TRUE
@@ -580,14 +580,6 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	pickup_sound = null
 	center_of_mass = list("x" = 16, "y" = 16)
 
-/obj/item/shaker_top/attack_self(mob/user as mob)
-	return
-
-/obj/item/shaker_top/afterattack(atom/target, mob/user, proximity, params)
-	if(istype(target, /obj/item/reagent_containers/food/drinks/shaker))
-		return
-	return ..()
-
 /obj/item/reagent_containers/food/drinks/shaker_cup
 	name = "shaker cap"
 	desc = "A metal shaker cap that also doubles as a metal cup to measure liquids, or to drink from."
@@ -609,11 +601,6 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		var/mutable_appearance/filling = mutable_appearance('icons/obj/shaker.dmi', "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
-
-/obj/item/reagent_containers/food/drinks/shaker_cup/afterattack(atom/target, mob/user, proximity, params)
-	if(istype(target, /obj/item/reagent_containers/food/drinks/shaker))
-		return
-	return ..()
 
 /obj/item/reagent_containers/food/drinks/shaker_cup/AltClick(mob/user)
 	set_APTFT()
