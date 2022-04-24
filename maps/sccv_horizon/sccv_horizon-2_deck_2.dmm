@@ -17821,6 +17821,9 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/corner_wide/green,
+/obj/structure/sign/nosmoking_1{
+	pixel_x = -29
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "kWz" = (
@@ -17932,6 +17935,9 @@
 	},
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 35
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "kZL" = (
@@ -18174,6 +18180,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hydroponics)
+"lgC" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/nosmoking_2{
+	pixel_y = 31
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/medical)
 "lhH" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -28336,6 +28350,9 @@
 "rjb" = (
 /obj/machinery/chem_master,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/nosmoking_2{
+	pixel_x = -27
+	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/pharmacy)
 "rjK" = (
@@ -34688,6 +34705,9 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
+/obj/structure/sign/nosmoking_2{
+	pixel_x = 28
+	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "uRJ" = (
@@ -40432,6 +40452,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "yct" = (
@@ -57279,7 +57300,7 @@ dIZ
 dIZ
 dIZ
 dIZ
-sBL
+lgC
 sBL
 wcK
 nIi
