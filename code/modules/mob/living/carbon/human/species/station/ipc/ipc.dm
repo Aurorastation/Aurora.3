@@ -126,7 +126,8 @@
 		/decl/origin_item/culture/ipc_tau_ceti,
 		/decl/origin_item/culture/golden_deep,
 		/decl/origin_item/culture/megacorporate,
-		/decl/origin_item/culture/scrapper
+		/decl/origin_item/culture/scrapper,
+		/decl/origin_item/culture/orepit_trinary
 	)
 
 	alterable_internal_organs = list()
