@@ -12,7 +12,6 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 	extended_round_description = "Eough"
 	config_tag = "dynamic"
 	votable = FALSE
-	end_on_antag_death = FALSE
 	announce_antag_templates = FALSE
 
 	required_players = 0
