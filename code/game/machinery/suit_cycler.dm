@@ -118,7 +118,7 @@
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/cos
-	name = "Chief of Security suit cycler"
+	name = "chief of security suit cycler"
 	model_text = "Chief of Security"
 	req_access = list(access_hos)
 	departments = list("Chief of Security") // ONE MAN DEPARTMENT HOO HA GIMME CRAYONS - Geeves

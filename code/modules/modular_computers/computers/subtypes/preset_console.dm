@@ -101,7 +101,7 @@
 	enrolled = 1
 
 /obj/item/modular_computer/console/preset/security/cos
-	name = "Chief of Security's console"
+	name = "chief of security's console"
 	_app_preset_type = /datum/modular_computer_app_presets/security/cos
 	enrolled = 1
 

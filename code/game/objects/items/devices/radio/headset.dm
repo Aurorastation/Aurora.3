@@ -537,24 +537,24 @@
 	ks2type = /obj/item/device/encryptionkey/headset_penal
 
 /obj/item/device/radio/headset/heads/cos
-	name = "Chief of Security's headset"
+	name = "chief of security's headset"
 	desc = "The headset of the man who protects your worthless lifes."
 	icon_state = "hos_headset"
 	ks2type = /obj/item/device/encryptionkey/heads/cos
 
 /obj/item/device/radio/headset/heads/cos/alt
-	name = "Chief of Security's bowman headset"
+	name = "chief of security's bowman headset"
 	icon_state = "hos_headset_alt"
 	item_state = "headset_alt"
 
 /obj/item/device/radio/headset/alt/double/cos
-	name = "Chief of Security's soundproof headset"
+	name = "chief of security's soundproof headset"
 	icon_state = "earset_HoS"
 	item_state = "earset_HoS"
 	ks2type = /obj/item/device/encryptionkey/heads/cos
 
 /obj/item/device/radio/headset/wrist/cos
-	name = "Chief of Security's wristbound radio"
+	name = "chief of security's wristbound radio"
 	icon_state = "wristset_HoS"
 	item_state = "wristset_HoS"
 	ks2type = /obj/item/device/encryptionkey/heads/cos

@@ -760,7 +760,7 @@
 	icon_state = "hop"
 
 /obj/item/toy/figure/cos
-	name = "Chief of Security action figure"
+	name = "chief of security action figure"
 	desc = "A \"Space Life\" brand Chief of Security action figure."
 	icon_state = "cos"
 

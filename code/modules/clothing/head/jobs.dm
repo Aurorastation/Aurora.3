@@ -164,8 +164,8 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/cos
-	name = "Chief of Security hat"
-	desc = "The navy blue parade hat of the Chief of Security. For showing the officers who's in charge."
+	name = "chief of security hat"
+	desc = "The navy blue parade hat of the chief of security. For showing the officers who's in charge."
 	icon = 'icons/obj/clothing/hats/security.dmi'
 	icon_state = "cos"
 	item_state = "cos"
@@ -178,7 +178,7 @@
 	item_state = "hos_hat"
 
 /obj/item/clothing/head/cos/corp
-	name = "corporate Chief of Security hat"
+	name = "corporate chief of security hat"
 	desc = "The black parade hat of the Chief of Security. For showing the officers who's in charge."
 	icon_state = "corp"
 	item_state = "corp"

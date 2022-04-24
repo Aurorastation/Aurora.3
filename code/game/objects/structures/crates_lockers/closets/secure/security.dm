@@ -107,7 +107,7 @@
 	new /obj/item/clothing/shoes/white(src)
 
 /obj/structure/closet/secure_closet/cos
-	name = "Chief of Security's locker"
+	name = "chief of security's locker"
 	req_access = list(access_hos)
 	icon_state = "hossecure1"
 	icon_closed = "hossecure"
@@ -156,7 +156,7 @@
 	new /obj/item/storage/box/fancy/keypouch/sec(src)
 
 /obj/structure/closet/secure_closet/hos2
-	name = "Chief of Security's attire"
+	name = "chief of security's attire"
 	req_access = list(access_hos)
 	icon_state = "hossecure1"
 	icon_closed = "hossecure"

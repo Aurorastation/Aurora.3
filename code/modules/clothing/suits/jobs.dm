@@ -134,7 +134,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "wardendnavyjacket"
 
 /obj/item/clothing/suit/storage/security/cos
-	name = "Chief of Security's jacket"
+	name = "chief of security's jacket"
 	desc = "This piece of clothing was specifically designed for asserting superior authority."
 	icon_state = "hosjacket"
 	item_state = "hosjacket"
