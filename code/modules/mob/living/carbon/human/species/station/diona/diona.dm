@@ -111,11 +111,18 @@
 
 	max_hydration_factor = -1
 
-	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_EUM, CITIZENSHIP_NONE)
-	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_KSSHR, RELIGION_SHRKH, RELIGION_NONE, RELIGION_OTHER)
-
-	allowed_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
-	default_accent = ACCENT_ROOTSONG
+	possible_cultures = list(
+		/decl/origin_item/culture/xrim,
+		/decl/origin_item/culture/eum,
+		/decl/origin_item/culture/diona_biesel,
+		/decl/origin_item/culture/diona_sol,
+		/decl/origin_item/culture/diona_eridani,
+		/decl/origin_item/culture/diona_dominia,
+		/decl/origin_item/culture/dionae_moghes,
+		/decl/origin_item/culture/dionae_jargon,
+		/decl/origin_item/culture/diona_coalition,
+		/decl/origin_item/culture/deep_space
+	)
 
 	alterable_internal_organs = list()
 
