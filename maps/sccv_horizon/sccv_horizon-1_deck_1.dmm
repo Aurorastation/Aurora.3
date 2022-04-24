@@ -5951,11 +5951,6 @@
 /obj/item/stack/material/steel/full,
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
-"fcK" = (
-/obj/machinery/door/firedoor,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
 "fdb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -12860,7 +12855,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12)
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
@@ -16818,8 +16815,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch,
 /obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_access = list(12)
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "oEp" = (
@@ -53121,7 +53121,7 @@ xtK
 xtK
 xtK
 fsf
-fcK
+xtK
 xtK
 xtK
 xtK
@@ -55146,9 +55146,9 @@ kLo
 uCw
 oLd
 aTv
-sFd
-sFd
-sFd
+xtK
+xtK
+xtK
 fBi
 loq
 adX
@@ -55348,7 +55348,7 @@ kLo
 jvA
 spY
 hUC
-sFd
+xtK
 fZu
 lPW
 fBi
@@ -55550,7 +55550,7 @@ kLo
 lTY
 mXZ
 nCa
-sFd
+xtK
 aVg
 lPW
 fBi
@@ -55752,7 +55752,7 @@ kLo
 vfc
 xiN
 xYn
-sFd
+xtK
 sTw
 lPW
 fBi
@@ -55954,8 +55954,8 @@ cWk
 cWk
 oZJ
 iRq
-sFd
-koz
+xtK
+iKo
 lPW
 leL
 lPW
@@ -56156,7 +56156,7 @@ lKs
 jLo
 pwA
 pyQ
-sFd
+xtK
 sTw
 jSn
 qBU
