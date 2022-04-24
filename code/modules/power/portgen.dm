@@ -157,7 +157,7 @@
 	to_chat(user, "\The [src] appears to be producing [power_gen*power_output] W.")
 	to_chat(user, "There [sheets == 1 ? "is" : "are"] [sheets] sheet\s left in the hopper.")
 	if(IsBroken()) to_chat(user, SPAN_WARNING("\The [src] seems to have broken down."))
-	if(overheating) to_chat(user, SPAN_WARNING("\The [src] is overheating!"))
+	if(overheating) to_chat(user, SPAN_DANGER("\The [src] is overheating!"))
 
 /obj/machinery/power/portgen/basic/HasFuel()
 	var/needed_sheets = power_output / time_per_sheet
@@ -389,6 +389,10 @@
 				power_output++
 		SSvueui.check_uis_for_change(src)
 
+//
+// Portable Generator - Advanced
+// Runs on uranium sheets.
+//
 /obj/machinery/power/portgen/basic/advanced
 	name = "advanced portable generator"
 	desc = "An advanced portable generator that runs on " + SPAN_INFO(" uranium sheets. ") + "Runs much more efficiently than the basic phoron model due to the higher energy density of uranium. " + SPAN_WARNING("Rated for 80 kW max safe output.")
@@ -417,6 +421,10 @@
 	explosion(loc, 3, 3, 5, 3)
 	qdel(src)
 
+//
+// Portable Generator - Super
+// Runs on tritium sheets.
+//
 /obj/machinery/power/portgen/basic/super
 	name = "super portable generator"
 	desc = "An advanced portable generator that runs on " + SPAN_INFO(" tritium sheets. ") + "Runs even more efficiently than the uranium-driven model due to the higher energy density of tritium. " + SPAN_WARNING("Rated for 200 kW max safe output.")
