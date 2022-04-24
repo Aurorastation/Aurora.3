@@ -86,7 +86,7 @@
 	moving_status = SHUTTLE_WARMUP
 	callHook("shuttle_moved", list(start_location,destination))
 	if(sound_takeoff)
-		if(!fuel_check(check_only = TRUE)) // Check for fuel, but don't use any.
+		if(!fuel_check(TRUE)) // Check for fuel, but don't use any.
 			return
 		playsound(current_location, sound_takeoff, 25, 20, is_global = TRUE)
 	spawn(warmup_time*10)
@@ -112,7 +112,7 @@
 	moving_status = SHUTTLE_WARMUP
 	callHook("shuttle_moved", list(start_location, destination))
 	if(sound_takeoff)
-		if(!fuel_check(check_only = TRUE)) // Check for fuel, but don't use any.
+		if(!fuel_check(TRUE)) // Check for fuel, but don't use any.
 			return
 		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
 	spawn(warmup_time*10)
