@@ -199,7 +199,7 @@
 /datum/ghostspawner/human/fsf_navy_senior_crewman
 	short_name = "fsf_navy_senior_crewman"
 	name = "FSF Navy Senior Crewman"
-	desc = "Serve as the second-in-command of the FSF patrol corvette. Look for work, or some other source of income."
+	desc = "Serve as the second-in-command of the Free Solarian Fleets patrol corvette. Look for work, or some other source of income."
 	tags = list("External")
 	mob_name_prefix = "PO1. "
 
