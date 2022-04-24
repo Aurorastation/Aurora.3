@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - tweak: "Origin sub-menus should now remain in focus while selecting, and will close when an option is selected."
