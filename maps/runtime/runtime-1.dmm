@@ -751,7 +751,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "bS" = (
-/obj/structure/closet/secure_closet/hos,
+/obj/structure/closet/secure_closet/cos,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},

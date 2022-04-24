@@ -27,7 +27,7 @@ Quick and easy list of all the occupations for farther expansion and addition.
 /datum/job/xenobiologist
 /datum/job/roboticist
 /datum/job/geneticist
-/datum/job/hos
+/datum/job/cos
 /datum/job/warden
 /datum/job/detective
 /datum/job/forensics

@@ -67,7 +67,7 @@
 	name = "Engineering - CE's Office"
 	icon_state = "head_quarters"
 
-/area/crew_quarters/heads/hos
+/area/crew_quarters/heads/cos
 	name = "Security - HoS' Office"
 	icon_state = "head_quarters"
 

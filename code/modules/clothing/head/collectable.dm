@@ -107,8 +107,8 @@
 	desc = "WARNING! Offers no real protection, or luminosity, but it is damn fancy!"
 	icon_state = "hardhat_yellow"
 
-/obj/item/clothing/head/collectable/HoS
-	name = "collectable HoS hat"
+/obj/item/clothing/head/collectable/CoS
+	name = "collectable CoS hat"
 	desc = "Now you can beat prisoners, set silly sentences and arrest for no reason too!"
 	icon_state = "hoscap"
 

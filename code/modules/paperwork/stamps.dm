@@ -19,9 +19,9 @@
 	name = "executive officer's rubber stamp"
 	icon_state = "stamp-hop"
 
-/obj/item/stamp/hos
+/obj/item/stamp/cos
 	name = "Chief of Security's rubber stamp"
-	icon_state = "stamp-hos"
+	icon_state = "stamp-cos"
 
 /obj/item/stamp/warden
 	name = "warden's rubber stamp"

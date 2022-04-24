@@ -74,8 +74,8 @@
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/xo
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 
-/obj/item/modular_computer/handheld/wristbound/preset/advanced/command/hos
-	_app_preset_type = /datum/modular_computer_app_presets/security/hos
+/obj/item/modular_computer/handheld/wristbound/preset/advanced/command/cos
+	_app_preset_type = /datum/modular_computer_app_presets/security/cos
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/captain
 	_app_preset_type = /datum/modular_computer_app_presets/command/captain
@@ -205,8 +205,8 @@
 /obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
 
-/obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
-	_app_preset_type = /datum/modular_computer_app_presets/security/hos
+/obj/item/modular_computer/handheld/wristbound/preset/pda/security/cos
+	_app_preset_type = /datum/modular_computer_app_presets/security/cos
 
 // Command / Misc
 

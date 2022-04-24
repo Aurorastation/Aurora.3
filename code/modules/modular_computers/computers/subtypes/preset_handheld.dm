@@ -130,8 +130,8 @@
 /obj/item/modular_computer/handheld/preset/security/detective
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
 
-/obj/item/modular_computer/handheld/preset/security/hos
-	_app_preset_type = /datum/modular_computer_app_presets/security/hos
+/obj/item/modular_computer/handheld/preset/security/cos
+	_app_preset_type = /datum/modular_computer_app_presets/security/cos
 
 // Command / Misc
 

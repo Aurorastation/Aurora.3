@@ -133,18 +133,18 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "wardendnavyjacket"
 	item_state = "wardendnavyjacket"
 
-/obj/item/clothing/suit/storage/security/hos
+/obj/item/clothing/suit/storage/security/cos
 	name = "Chief of Security's jacket"
 	desc = "This piece of clothing was specifically designed for asserting superior authority."
 	icon_state = "hosjacket"
 	item_state = "hosjacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/storage/security/hos/blue
+/obj/item/clothing/suit/storage/security/cos/blue
 	icon_state = "hosbluejacket"
 	item_state = "hosbluejacket"
 
-/obj/item/clothing/suit/storage/security/hos/dnavy
+/obj/item/clothing/suit/storage/security/cos/dnavy
 	icon_state = "hosdnavyjacket"
 	item_state = "hosdnavyjacket"
 

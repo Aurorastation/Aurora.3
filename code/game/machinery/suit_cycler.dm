@@ -117,7 +117,7 @@
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
 
-/obj/machinery/suit_cycler/hos
+/obj/machinery/suit_cycler/cos
 	name = "Chief of Security suit cycler"
 	model_text = "Chief of Security"
 	req_access = list(access_hos)

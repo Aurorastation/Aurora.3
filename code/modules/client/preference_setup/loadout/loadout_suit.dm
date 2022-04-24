@@ -258,15 +258,15 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/secjackethos
 	display_name = "security jacket selection (Chief of Security)"
-	path = /obj/item/clothing/suit/storage/security/hos
+	path = /obj/item/clothing/suit/storage/security/cos
 	allowed_roles = list("Chief of Security")
 
 /datum/gear/suit/secjackethos/New()
 	..()
 	var/list/secjacket = list()
-	secjacket["security jacket"] = /obj/item/clothing/suit/storage/security/hos
-	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/security/hos/blue
-	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/security/hos/dnavy
+	secjacket["security jacket"] = /obj/item/clothing/suit/storage/security/cos
+	secjacket["security jacket, blue"] = /obj/item/clothing/suit/storage/security/cos/blue
+	secjacket["security jacket, dark navy"] = /obj/item/clothing/suit/storage/security/cos/dnavy
 	gear_tweaks += new /datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/secjacketforensictech

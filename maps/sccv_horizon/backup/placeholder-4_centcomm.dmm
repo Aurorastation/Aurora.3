@@ -8510,7 +8510,7 @@
 	},
 /area/centcom/specops)
 "awa" = (
-/obj/structure/closet/secure_closet/hos,
+/obj/structure/closet/secure_closet/cos,
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},

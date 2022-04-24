@@ -171,7 +171,7 @@
 	overlay_state = "silverbadge"
 	slot_flags = SLOT_TIE
 
-/obj/item/clothing/accessory/badge/hos
+/obj/item/clothing/accessory/badge/cos
 	name = "chief of security's badge"
 	desc = "An immaculately polished gold security badge. Labeled 'Chief of Security.'"
 	icon_state = "goldbadge"

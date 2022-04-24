@@ -83,7 +83,7 @@
 	icon_state = "fib_armor"
 	item_state = "fib_armor"
 
-/obj/item/clothing/suit/storage/toggle/armor/hos
+/obj/item/clothing/suit/storage/toggle/armor/cos
 	name = "armored trenchcoat"
 	desc = "A trenchcoat lined with a protective alloy and some slick leather."
 	icon_state = "jensencoat"
@@ -98,7 +98,7 @@
 	)
 	allowed = list(/obj/item/gun/energy, /obj/item/reagent_containers/spray/pepper, /obj/item/gun/projectile, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/device/flashlight)
 
-/obj/item/clothing/suit/storage/toggle/armor/hos/Initialize()
+/obj/item/clothing/suit/storage/toggle/armor/cos/Initialize()
 	. = ..()
 	pockets = new /obj/item/storage/internal(src)
 	pockets.storage_slots = 4
@@ -329,7 +329,7 @@
 	icon_badge = "wardenvest_badge"
 	icon_nobadge = "wardenvest_nobadge"
 
-/obj/item/clothing/suit/storage/vest/hos
+/obj/item/clothing/suit/storage/vest/cos
 	name = "commander armor vest"
 	desc = "A simple kevlar plate carrier belonging to Nanotrasen. This one has a gold badge clipped to the chest."
 	icon_state = "hosvest_nobadge"
@@ -390,7 +390,7 @@
 	icon_badge = "wardenwebvest_badge"
 	icon_nobadge = "wardenwebvest_nobadge"
 
-/obj/item/clothing/suit/storage/vest/heavy/hos
+/obj/item/clothing/suit/storage/vest/heavy/cos
 	name = "commander heavy armor vest"
 	desc = "A heavy kevlar plate carrier belonging to Nanotrasen with webbing attached. This one has a gold badge clipped to the chest."
 	icon_state = "hoswebvest_nobadge"

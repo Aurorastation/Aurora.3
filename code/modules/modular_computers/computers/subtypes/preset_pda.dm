@@ -124,9 +124,9 @@
 /obj/item/modular_computer/handheld/pda/security/detective
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
 
-/obj/item/modular_computer/handheld/pda/security/hos
-	_app_preset_type = /datum/modular_computer_app_presets/security/hos
-	icon_add = "hos"
+/obj/item/modular_computer/handheld/pda/security/cos
+	_app_preset_type = /datum/modular_computer_app_presets/security/cos
+	icon_add = "cos"
 
 // Command / Misc
 

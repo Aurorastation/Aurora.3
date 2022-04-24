@@ -759,10 +759,10 @@
 	desc = "A \"Space Life\" brand head of personel action figure."
 	icon_state = "hop"
 
-/obj/item/toy/figure/hos
+/obj/item/toy/figure/cos
 	name = "Chief of Security action figure"
 	desc = "A \"Space Life\" brand Chief of Security action figure."
-	icon_state = "hos"
+	icon_state = "cos"
 
 /obj/item/toy/figure/qm
 	name = "quartermaster action figure"

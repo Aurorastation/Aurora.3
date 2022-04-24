@@ -106,7 +106,7 @@
 	new /obj/item/clothing/shoes/laceup/brown(src)
 	new /obj/item/clothing/shoes/white(src)
 
-/obj/structure/closet/secure_closet/hos
+/obj/structure/closet/secure_closet/cos
 	name = "Chief of Security's locker"
 	req_access = list(access_hos)
 	icon_state = "hossecure1"
@@ -116,7 +116,7 @@
 	icon_broken = "hossecurebroken"
 	icon_off = "hossecureoff"
 
-/obj/structure/closet/secure_closet/hos/fill()
+/obj/structure/closet/secure_closet/cos/fill()
 	..()
 	//Supply
 	new /obj/item/storage/box/flashbangs(src)
@@ -126,20 +126,20 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/suit/armor/carrier/hos(src)
+	new /obj/item/clothing/suit/armor/carrier/cos(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
-	new /obj/item/clothing/head/hos/corp(src)
-	new /obj/item/clothing/head/helmet/hos(src)
-	new /obj/item/clothing/suit/storage/security/hos(src)
-	new /obj/item/clothing/accessory/badge/hos(src)
+	new /obj/item/clothing/head/cos/corp(src)
+	new /obj/item/clothing/head/helmet/cos(src)
+	new /obj/item/clothing/suit/storage/security/cos(src)
+	new /obj/item/clothing/accessory/badge/cos(src)
 	new /obj/item/clothing/gloves/black_leather(src)
-	new /obj/item/clothing/suit/storage/toggle/armor/hos(src)
+	new /obj/item/clothing/suit/storage/toggle/armor/cos(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
-	new /obj/item/device/radio/headset/heads/hos(src)
-	new /obj/item/device/radio/headset/heads/hos/alt(src)
+	new /obj/item/device/radio/headset/heads/cos(src)
+	new /obj/item/device/radio/headset/heads/cos/alt(src)
 	new /obj/item/device/megaphone/sec(src)
 	new /obj/item/storage/box/tranquilizer(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
@@ -171,16 +171,16 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/suit/armor/carrier/hos(src)
+	new /obj/item/clothing/suit/armor/carrier/cos(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/head/beret/security/corp(src)
-	new /obj/item/clothing/head/helmet/hos(src)
-	new /obj/item/clothing/suit/storage/security/hos(src)
+	new /obj/item/clothing/head/helmet/cos(src)
+	new /obj/item/clothing/suit/storage/security/cos(src)
 	//Tools
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
-	new /obj/item/device/radio/headset/heads/hos(src)
-	new /obj/item/device/radio/headset/heads/hos/alt(src)
+	new /obj/item/device/radio/headset/heads/cos(src)
+	new /obj/item/device/radio/headset/heads/cos/alt(src)
 	//Belts
 	new /obj/item/storage/belt/security(src)
 	new /obj/item/clothing/accessory/holster/waist(src)

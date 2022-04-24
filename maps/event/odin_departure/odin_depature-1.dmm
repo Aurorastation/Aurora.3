@@ -42053,7 +42053,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/structure/closet/secure_closet/hos,
+/obj/structure/closet/secure_closet/cos,
 /obj/item/storage/backpack/satchel,
 /obj/item/storage/belt/utility/very_full,
 /turf/unsimulated/floor{

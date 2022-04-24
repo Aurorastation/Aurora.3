@@ -119,19 +119,19 @@
 	wardenhead["warden beret, corporate"] = /obj/item/clothing/head/beret/security/warden/corp
 	gear_tweaks += new /datum/gear_tweak/path(wardenhead)
 
-/datum/gear/head/hos
+/datum/gear/head/cos
 	display_name = "headwear, security (Chief of Security)"
 	description = "A selection of Chief of Security headwear."
 	path = /obj/item/clothing/head
 	allowed_roles = list("Chief of Security")
 
-/datum/gear/head/hos/New()
+/datum/gear/head/cos/New()
 	..()
 	var/list/hoshead = list()
-	hoshead["Chief of Security hat, standard"] = /obj/item/clothing/head/hos
-	hoshead["Chief of Security hat, corporate"] = /obj/item/clothing/head/hos/corp
-	hoshead["Chief of Security beret, standard"] = /obj/item/clothing/head/beret/security/hos
-	hoshead["Chief of Security beret, corporate"] = /obj/item/clothing/head/beret/security/hos/corp
+	hoshead["Chief of Security hat, standard"] = /obj/item/clothing/head/cos
+	hoshead["Chief of Security hat, corporate"] = /obj/item/clothing/head/cos/corp
+	hoshead["Chief of Security beret, standard"] = /obj/item/clothing/head/beret/security/cos
+	hoshead["Chief of Security beret, corporate"] = /obj/item/clothing/head/beret/security/cos/corp
 	gear_tweaks += new /datum/gear_tweak/path(hoshead)
 
 /datum/gear/head/hardhat

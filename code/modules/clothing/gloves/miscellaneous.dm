@@ -149,7 +149,7 @@
 	*/
 
 
-/obj/item/clothing/gloves/force // this pair should be put in r&d if you choose to do so.  and also the hos office locker.  do it okay
+/obj/item/clothing/gloves/force // this pair should be put in r&d if you choose to do so.  and also the cos office locker.  do it okay
 	name = "force gloves"
 	desc = "These gloves bend gravity and bluespace, dampening inertia and augmenting the wearer's melee capabilities."
 	icon_state = "force_glove" //todo: different sprites for different levels of power

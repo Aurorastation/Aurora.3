@@ -4,7 +4,7 @@
 	reward_low = 700
 	reward_high = 1200
 	random_count = 1
-	wanted_types = list(/obj/item/device/radio/headset/headset_sec , /obj/item/device/radio/headset/heads/hos)
+	wanted_types = list(/obj/item/device/radio/headset/headset_sec , /obj/item/device/radio/headset/heads/cos)
 
 /datum/bounty/item/security/securitybelt
 	name = "Security Belt"

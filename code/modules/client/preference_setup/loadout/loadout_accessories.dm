@@ -297,9 +297,9 @@
 	path = /obj/item/clothing/accessory/badge/warden
 	allowed_roles = list("Warden")
 
-/datum/gear/accessory/hosbadge
-	display_name = "badge, HoS"
-	path = /obj/item/clothing/accessory/badge/hos
+/datum/gear/accessory/cosbadge
+	display_name = "badge, CoS"
+	path = /obj/item/clothing/accessory/badge/cos
 	allowed_roles = list("Chief of Security")
 
 /datum/gear/accessory/detbadge

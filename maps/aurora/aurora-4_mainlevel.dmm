@@ -18355,8 +18355,8 @@
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/sortjunction{
-	name = "HoS Office";
-	sortType = "HoS Office"
+	name = "CoS Office";
+	sortType = "CoS Office"
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -19484,36 +19484,36 @@
 /area/ai_monitored/storage/eva)
 "aIa" = (
 /turf/simulated/wall/r_wall,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aIb" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
 	dir = 1;
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/window/reinforced/polarized{
 	dir = 8;
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aIc" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
 	dir = 1;
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -19524,20 +19524,20 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aId" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
 	dir = 1;
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/window/reinforced/polarized{
 	dir = 4;
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -19548,7 +19548,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aIe" = (
 /obj/machinery/door/airlock/command{
 	desc = "It opens and closes. It does not look very robust.";
@@ -19576,20 +19576,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aIf" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
 	dir = 1;
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/window/reinforced/polarized{
 	dir = 8;
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -19600,16 +19600,16 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aIg" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
 	dir = 1;
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -19620,27 +19620,27 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aIh" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
 	dir = 1;
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/window/reinforced/polarized{
 	dir = 4;
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aIi" = (
 /turf/simulated/wall/r_wall,
 /area/security/lobby)
@@ -20424,13 +20424,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aJt" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aJu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -20444,7 +20444,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aJv" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -20453,16 +20453,16 @@
 	},
 /obj/machinery/papershredder,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aJw" = (
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/suit_cycler/hos,
+/obj/machinery/suit_cycler/cos,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aJx" = (
 /obj/structure/cable/green{
 	d2 = 8;
@@ -20475,7 +20475,7 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aJy" = (
 /obj/structure/bookcase/manuals,
 /obj/item/book/manual/wiki/security_space_law,
@@ -21491,39 +21491,39 @@
 	pixel_y = -7
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aLq" = (
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aLr" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aLs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aLt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aLu" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aLv" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/flask/barflask,
 /obj/item/device/flashlight/heavy,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aLw" = (
 /obj/machinery/newscaster{
 	pixel_x = -27
@@ -22657,9 +22657,9 @@
 	c_tag = "Security - Chief of Security's Office";
 	dir = 4
 	},
-/obj/item/modular_computer/console/preset/security/hos,
+/obj/item/modular_computer/console/preset/security/cos,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aNf" = (
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 4
@@ -22678,7 +22678,7 @@
 	pixel_y = 38
 	},
 /obj/machinery/button/switch/windowtint{
-	id = "HoS Windows";
+	id = "CoS Windows";
 	pixel_x = 26;
 	pixel_y = 28;
 	req_access = list(58)
@@ -22691,7 +22691,7 @@
 	req_access = list(58)
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aNg" = (
 /obj/structure/table/wood,
 /obj/item/folder/sec,
@@ -22699,26 +22699,26 @@
 	pixel_x = -5
 	},
 /obj/item/pen/red,
-/obj/item/stamp/hos{
+/obj/item/stamp/cos{
 	pixel_x = -5;
 	pixel_y = 7
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aNh" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aNi" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aNj" = (
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aNk" = (
 /obj/structure/table/wood,
 /obj/item/device/megaphone/sec,
@@ -22732,7 +22732,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aNl" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -23599,19 +23599,19 @@
 	},
 /obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aOS" = (
 /obj/structure/table/wood,
-/obj/item/modular_computer/laptop/preset/security/hos,
+/obj/item/modular_computer/laptop/preset/security/cos,
 /obj/item/storage/slide_projector{
 	pixel_y = 12
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aOT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aOU" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -23622,7 +23622,7 @@
 	department = "Chief of Security's Office"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aOV" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -24609,34 +24609,34 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aQB" = (
-/obj/structure/closet/secure_closet/hos,
+/obj/structure/closet/secure_closet/cos,
 /obj/item/device/multitool,
 /obj/item/reagent_containers/spray/pepper,
-/obj/item/clothing/suit/space/void/hos,
-/obj/item/clothing/head/helmet/space/void/hos,
+/obj/item/clothing/suit/space/void/cos,
+/obj/item/clothing/head/helmet/space/void/cos,
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aQC" = (
 /obj/item/device/radio/intercom{
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aQD" = (
 /obj/machinery/newscaster/security_unit{
 	pixel_y = -30
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aQE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aQF" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -24649,7 +24649,7 @@
 	},
 /mob/living/simple_animal/hostile/commanded/dog/columbo,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aQG" = (
 /obj/machinery/photocopier,
 /obj/machinery/requests_console{
@@ -24660,7 +24660,7 @@
 	pixel_y = -30
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aQH" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -24675,7 +24675,7 @@
 	},
 /obj/item/paper_scanner,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "aQI" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -25850,7 +25850,7 @@
 "aSz" = (
 /obj/structure/table/standard,
 /obj/structure/bedsheetbin,
-/obj/item/toy/figure/hos,
+/obj/item/toy/figure/cos,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/white,

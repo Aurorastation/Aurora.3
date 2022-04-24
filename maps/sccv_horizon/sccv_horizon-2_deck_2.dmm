@@ -6569,7 +6569,7 @@
 /area/maintenance/wing/port)
 "efA" = (
 /turf/simulated/wall/r_wall,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "egf" = (
 /obj/structure/ladder/up{
 	pixel_y = 13
@@ -7301,11 +7301,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "eCR" = (
-/obj/structure/closet/secure_closet/hos,
+/obj/structure/closet/secure_closet/cos,
 /obj/item/device/multitool,
 /obj/item/reagent_containers/spray/pepper,
-/obj/item/clothing/suit/space/void/hos,
-/obj/item/clothing/head/helmet/space/void/hos,
+/obj/item/clothing/suit/space/void/cos,
+/obj/item/clothing/head/helmet/space/void/cos,
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/oxygen,
 /obj/machinery/alarm{
@@ -7316,7 +7316,7 @@
 /obj/item/device/flashlight/heavy,
 /obj/item/device/megaphone/sec,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "eDf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/secure_closet/engineering_electrical,
@@ -7366,7 +7366,7 @@
 	},
 /mob/living/simple_animal/hostile/commanded/dog/columbo,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "eEx" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -7895,7 +7895,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "eYD" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -12178,7 +12178,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "hzU" = (
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
@@ -13361,7 +13361,7 @@
 "imD" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "ing" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -15100,7 +15100,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "jqw" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/disposalpipe/trunk{
@@ -16381,14 +16381,14 @@
 /area/engineering/engine_room)
 "kgj" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "kgp" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -17015,7 +17015,7 @@
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "kFe" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 1
@@ -18206,7 +18206,7 @@
 /area/hallway/primary/central_two)
 "lwD" = (
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "lxI" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/wood,
@@ -19411,12 +19411,12 @@
 /area/security/brig)
 "mfX" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green,
 /turf/simulated/floor,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "mgg" = (
 /obj/structure/table/standard,
 /obj/machinery/door/firedoor,
@@ -20520,7 +20520,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "mPh" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -20819,8 +20819,8 @@
 	dir = 6
 	},
 /obj/structure/disposalpipe/sortjunction{
-	name = "HoS Office";
-	sortType = "HoS Office"
+	name = "CoS Office";
+	sortType = "CoS Office"
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -24409,7 +24409,7 @@
 	pixel_y = -30
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "pjL" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -24923,7 +24923,7 @@
 /area/rnd/xenobiology)
 "pBi" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -24931,7 +24931,7 @@
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "pBn" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 4
@@ -28497,7 +28497,7 @@
 "rGx" = (
 /obj/structure/table/standard,
 /obj/structure/bedsheetbin,
-/obj/item/toy/figure/hos,
+/obj/item/toy/figure/cos,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
 	dir = 4
@@ -28890,13 +28890,13 @@
 	pixel_x = -5
 	},
 /obj/item/pen/red,
-/obj/item/stamp/hos{
+/obj/item/stamp/cos{
 	pixel_x = -5;
 	pixel_y = 7
 	},
 /obj/item/paper_bin,
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "rSv" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -29924,7 +29924,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "sBt" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-5-f"
@@ -30078,7 +30078,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "sHw" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -30897,7 +30897,7 @@
 	icon_state = "conpipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "tgp" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -31268,10 +31268,10 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "tun" = (
-/obj/machinery/suit_cycler/hos,
+/obj/machinery/suit_cycler/cos,
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "tux" = (
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 8
@@ -32210,7 +32210,7 @@
 /area/maintenance/hangar/port)
 "tWH" = (
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "tWI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -34237,14 +34237,14 @@
 "vdy" = (
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
-	id = "HoS Windows"
+	id = "CoS Windows"
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "vdQ" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/vials,
@@ -34428,7 +34428,7 @@
 /area/crew_quarters/kitchen)
 "vkq" = (
 /obj/structure/table/wood,
-/obj/item/modular_computer/laptop/preset/security/hos,
+/obj/item/modular_computer/laptop/preset/security/cos,
 /obj/item/storage/slide_projector{
 	pixel_y = 12
 	},
@@ -34440,7 +34440,7 @@
 	pixel_y = -30
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "vkw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -34732,7 +34732,7 @@
 	pixel_y = -7
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "vuI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -35225,7 +35225,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "vKf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -35530,7 +35530,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "vQQ" = (
 /obj/effect/landmark/start{
 	name = "Assistant"
@@ -36093,7 +36093,7 @@
 	pixel_y = -28
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "wdk" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -36770,7 +36770,7 @@
 	pixel_y = -30
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "wxr" = (
 /turf/simulated/wall,
 /area/medical/or1)
@@ -37834,7 +37834,7 @@
 	pixel_y = 38
 	},
 /obj/machinery/button/switch/windowtint{
-	id = "HoS Windows";
+	id = "CoS Windows";
 	pixel_x = 26;
 	pixel_y = 28;
 	req_access = list(58)
@@ -37847,7 +37847,7 @@
 	req_access = list(58)
 	},
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "wZy" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
@@ -39348,7 +39348,7 @@
 "xWA" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hos)
+/area/crew_quarters/heads/cos)
 "xWL" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;

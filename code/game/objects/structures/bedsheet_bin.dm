@@ -287,7 +287,7 @@ LINEN BINS
 	icon_state = "sheetce"
 	item_state = "sheetce"
 
-/obj/item/bedsheet/hos
+/obj/item/bedsheet/cos
 	name = "Chief of Security's bedsheet"
 	desc = "It is decorated with a shield emblem. While crime doesn't sleep, you do, but you are still THE LAW!"
 	icon_state = "sheethos"

@@ -544,7 +544,7 @@
 	SearchVar(ghost_all_access)
 	SearchVar(ENGSEC)
 	SearchVar(CAPTAIN)
-	SearchVar(HOS)
+	SearchVar(COS)
 	SearchVar(WARDEN)
 	SearchVar(DETECTIVE)
 	SearchVar(OFFICER)

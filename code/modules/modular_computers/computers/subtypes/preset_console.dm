@@ -100,9 +100,9 @@
 	_app_preset_type = /datum/modular_computer_app_presets/security/armory
 	enrolled = 1
 
-/obj/item/modular_computer/console/preset/security/hos
+/obj/item/modular_computer/console/preset/security/cos
 	name = "Chief of Security's console"
-	_app_preset_type = /datum/modular_computer_app_presets/security/hos
+	_app_preset_type = /datum/modular_computer_app_presets/security/cos
 	enrolled = 1
 
 /obj/item/modular_computer/console/preset/command/teleporter

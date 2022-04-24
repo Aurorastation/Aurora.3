@@ -200,10 +200,10 @@
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 10000 // It is a suit designed for fire, enclosed
 
 //Chief of Security
-/obj/item/clothing/head/helmet/space/void/hos
+/obj/item/clothing/head/helmet/space/void/cos
 	name = "heavy security voidsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor, and gold trim."
-	icon_state = "rig0-hos"
+	icon_state = "rig0-cos"
 	item_state_slots = list(
 		slot_l_hand_str = "sec_helm",
 		slot_r_hand_str = "sec_helm"
@@ -218,11 +218,11 @@
 	)
 	light_overlay = "helmet_light_dual"
 
-/obj/item/clothing/suit/space/void/hos
+/obj/item/clothing/suit/space/void/cos
 	name = "heavy security voidsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor, and gold trim."
-	item_state = "rig-hos"
-	icon_state = "rig-hos"
+	item_state = "rig-cos"
+	icon_state = "rig-cos"
 	item_state_slots = list(
 			slot_l_hand_str = "sec_hardsuit",
 			slot_r_hand_str = "sec_hardsuit"

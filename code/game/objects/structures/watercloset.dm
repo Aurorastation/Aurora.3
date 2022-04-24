@@ -1,4 +1,4 @@
-//todo: toothbrushes, and some sort of "toilet-filthinator" for the hos
+//todo: toothbrushes, and some sort of "toilet-filthinator" for the cos
 
 /obj/structure/toilet
 	name = "toilet"

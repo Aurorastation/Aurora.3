@@ -87,7 +87,7 @@ Network - Requires Network Access, RD only
 	//NTNet Administration Console - Allows remote configuration of NTNet Relay - CAUTION: If NTNet is turned off it won't be possible to turn it on again from the computer, as operation requires NTNet to work! Requires extra access: "Research Director"
 
 
-Security - Requires "Security" access on ID card (ie. HOS, Security officer, Detective)
+Security - Requires "Security" access on ID card (ie. COS, Security officer, Detective)
 	//Security Records Uplink - Allows editing/reading of security records. Printing requires Nanoprinter hardware.
 	//LawDB - Allows accessing NTNet information repository for security information (corporate regulations)
 	//Camera Uplink - Allows viewing cameras around the station.

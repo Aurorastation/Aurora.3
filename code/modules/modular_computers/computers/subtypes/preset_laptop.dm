@@ -96,10 +96,10 @@
 	_app_preset_type = /datum/modular_computer_app_presets/security
 	enrolled = 1
 
-/obj/item/modular_computer/laptop/preset/security/hos
+/obj/item/modular_computer/laptop/preset/security/cos
 	name = "Chief of Security's laptop"
 	desc = "A portable computer belonging to the Chief of Security. It smells faintly of gunpowder."
-	_app_preset_type = /datum/modular_computer_app_presets/security/hos
+	_app_preset_type = /datum/modular_computer_app_presets/security/cos
 
 // Civilian
 /obj/item/modular_computer/laptop/preset/civilian

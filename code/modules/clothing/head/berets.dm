@@ -92,13 +92,13 @@
 	icon_state = "beret_officer"
 	item_state = "beret_officer"
 
-/obj/item/clothing/head/beret/security/hos
+/obj/item/clothing/head/beret/security/cos
 	name = "commander beret"
 	desc = "A beret in security navy blue with a commander's rank emblem. For heads of security that are more inclined towards style than safety."
 	icon_state = "beret_hos"
 	item_state = "beret_hos"
 
-/obj/item/clothing/head/beret/security/hos/corp
+/obj/item/clothing/head/beret/security/cos/corp
 	name = "corporate commander beret"
 	desc = "A beret in corporate black with a commander's rank emblem. For heads of security that are more inclined towards style than safety."
 	icon_state = "corp"

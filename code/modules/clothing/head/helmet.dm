@@ -52,7 +52,7 @@
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>.")))
 		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
 
-/obj/item/clothing/head/helmet/hos
+/obj/item/clothing/head/helmet/cos
 	name = "Chief of Security helmet"
 	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers."
 	desc_fluff = "What the heck did you just hecking say about me, you little honker? I'll have you know I graduated top of my class in the Sol Army, and I've been involved in numerous secret raids on the Jargon Federation, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire Sol armed forces. You are nothing to me but just another target. I will wipe you the heck out with precision the likes of which has never been seen before on Biesel, mark my hecking words."
@@ -61,7 +61,7 @@
 	icon_state = "helm_sec_commander"
 	item_state = "helm_sec_commander"
 
-/obj/item/clothing/head/helmet/hos/dermal
+/obj/item/clothing/head/helmet/cos/dermal
 	name = "dermal armor patch"
 	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
 	icon_state = "dermal"

@@ -17,9 +17,9 @@
 		/obj/item/clothing/accessory/storage/modular_pouch
 	)
 
-/obj/item/clothing/suit/armor/carrier/hos
+/obj/item/clothing/suit/armor/carrier/cos
 	starting_accessories = list(
-		/obj/item/clothing/accessory/armor_plate/hos,
+		/obj/item/clothing/accessory/armor_plate/cos,
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
@@ -111,7 +111,7 @@
 	icon_state = "plate_generic"
 	item_state = "plate_generic"
 
-/obj/item/clothing/accessory/armor_plate/hos
+/obj/item/clothing/accessory/armor_plate/cos
 	name = "commander armor plate"
 	desc = "A particularly light-weight armor plate with really cool gold bands. Even more stylish when the gold bands are covered in the blood of your goons!"
 	icon_state = "plate_sec_commander"

@@ -60,9 +60,9 @@
 	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/xo
 	allowed_roles = list("Executive Officer")
 
-/datum/gear/computer/handheld/wristbound/hos
+/datum/gear/computer/handheld/wristbound/cos
 	display_name = "wristbound computer (Chief of Security)"
-	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/hos
+	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/cos
 	allowed_roles = list("Chief of Security")
 
 /datum/gear/computer/handheld/wristbound/captain

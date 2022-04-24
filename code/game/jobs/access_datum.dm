@@ -336,7 +336,7 @@
 	region = ACCESS_REGION_COMMAND
 
 /var/const/access_hos = 58
-/datum/access/hos
+/datum/access/cos
 	id = access_hos
 	desc = "Chief of Security"
 	region = ACCESS_REGION_SECURITY

@@ -394,13 +394,13 @@
 	)
 	return _prg_list
 
-/datum/modular_computer_app_presets/security/hos
+/datum/modular_computer_app_presets/security/cos
 	name = "security_head"
-	display_name = "Security - HoS"
+	display_name = "Security - CoS"
 	description = "Contains the most common security programs and command software."
 	available = FALSE
 
-/datum/modular_computer_app_presets/security/hos/return_install_programs(obj/item/modular_computer/comp)
+/datum/modular_computer_app_presets/security/cos/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
 		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/nttransfer(comp),

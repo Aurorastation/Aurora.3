@@ -472,7 +472,7 @@
 	icon_state = "capcloak"
 	item_state = "capcloak"
 
-/obj/item/clothing/accessory/poncho/roles/cloak/hos
+/obj/item/clothing/accessory/poncho/roles/cloak/cos
 	name = "Chief of Security's cloak"
 	desc = "An elaborate cloak meant to be worn by the Chief of Security."
 	icon_state = "hoscloak"

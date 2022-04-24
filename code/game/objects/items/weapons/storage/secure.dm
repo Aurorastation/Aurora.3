@@ -195,7 +195,7 @@
 	attack_hand(mob/user as mob)
 		return attack_self(user)
 
-/*obj/item/storage/secure/safe/HoS/New()
+/*obj/item/storage/secure/safe/CoS/New()
 	..()
 	//new /obj/item/storage/lockbox/clusterbang(src) This item is currently broken... and probably shouldnt exist to begin with (even though it's cool)
 */

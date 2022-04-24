@@ -1,6 +1,6 @@
-/datum/job/hos
+/datum/job/cos
 	title = "Chief of Security"
-	flag = HOS
+	flag = COS
 	departments = list(DEPARTMENT_SECURITY = JOBROLE_SUPERVISOR, DEPARTMENT_COMMAND)
 	department_flag = ENGSEC
 	faction = "Station"
@@ -24,29 +24,29 @@
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
 				    access_detective, access_weapons, access_intrepid)
 	minimal_player_age = 14
-	outfit = /datum/outfit/job/hos
+	outfit = /datum/outfit/job/cos
 
 	blacklisted_species = list(SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_IPC_ZENGHU, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/hos
+/datum/outfit/job/cos
 	name = "Chief of Security"
-	jobtype = /datum/job/hos
+	jobtype = /datum/job/cos
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
-	head = /obj/item/clothing/head/hos/scc
+	head = /obj/item/clothing/head/cos/scc
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/navy
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 	l_pocket = /obj/item/device/flash
 
-	headset = /obj/item/device/radio/headset/heads/hos
-	bowman = /obj/item/device/radio/headset/heads/hos/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/hos
-	wrist_radio = /obj/item/device/radio/headset/wrist/hos
+	headset = /obj/item/device/radio/headset/heads/cos
+	bowman = /obj/item/device/radio/headset/heads/cos/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/cos
+	wrist_radio = /obj/item/device/radio/headset/wrist/cos
 
-	tab_pda = /obj/item/modular_computer/handheld/pda/security/hos
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
-	tablet = /obj/item/modular_computer/handheld/preset/security/hos
+	tab_pda = /obj/item/modular_computer/handheld/pda/security/cos
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/cos
+	tablet = /obj/item/modular_computer/handheld/preset/security/cos
 
 	backpack_contents = list(
 		/obj/item/handcuffs = 1
@@ -61,7 +61,7 @@
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
-/datum/outfit/job/hos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/cos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
