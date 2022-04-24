@@ -342,15 +342,15 @@
 	worn_state = "crdress"
 
 /obj/item/clothing/under/hosformalmale
-	name = "head of security's formal uniform"
-	desc = "A male head of security's formal-wear, for special occasions."
+	name = "Chief of Security's formal uniform"
+	desc = "A male Chief of Security's formal-wear, for special occasions."
 	icon_state = "hos_formal_male"
 	item_state = "r_suit"
 	worn_state = "hos_formal_male"
 
 /obj/item/clothing/under/hosformalfem
-	name = "head of security's formal uniform"
-	desc = "A female head of security's formal-wear, for special occasions."
+	name = "Chief of Security's formal uniform"
+	desc = "A female Chief of Security's formal-wear, for special occasions."
 	icon_state = "hos_formal_fem"
 	item_state = "r_suit"
 	worn_state = "hos_formal_fem"

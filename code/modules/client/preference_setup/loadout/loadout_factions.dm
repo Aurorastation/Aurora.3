@@ -52,7 +52,7 @@
 	description = "A selection of Idris security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/idris
 	slot = slot_glasses
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
+	allowed_roles = list("Security Officer", "Chief of Security", "Warden", "Security Cadet", "Investigator")
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/idris_sunglasses/New()
@@ -119,7 +119,7 @@
 	description = "A selection of Zavodskoi security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/zavod
 	slot = slot_glasses
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
+	allowed_roles = list("Security Officer", "Chief of Security", "Warden", "Security Cadet", "Investigator")
 	faction = "Zavodskoi Interstellar"
 
 /datum/gear/faction/zavod_sunglasses/New()
@@ -147,7 +147,7 @@
 	description = "A selection of EPMC security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/epmc
 	slot = slot_glasses
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
+	allowed_roles = list("Security Officer", "Chief of Security", "Warden", "Security Cadet", "Investigator")
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/epmc_sunglasses/New()

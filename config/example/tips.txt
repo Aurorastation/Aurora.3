@@ -41,9 +41,9 @@ As an Engineer, the supermatter crystal is an extremely dangerous piece of equip
 As an Engineer, you can electrify grilles by placing wire "nodes" beneath them: the big seemingly unconnected bulges from a half completed wiring job.
 As an Engineer, you can lock emitters using your ID card to prevent others from disabling them.
 As an Atmospheric Technician, you can't unwrench a pipe if the pressure within is too high.
-As the Head of Security, you are expected to coordinate your security force to handle any threat that comes to the station. Sometimes it means making use of the armory to handle a blob, sometimes it means being ruthless during a revolution or cult.
-As the Head of Security, you can call for forced cyborgization, but may require the Captain's approval.
-As the Head of Security, don't let the power go to your head. You may have high access, great equipment, and a miniature army at your side, but being a terrible person without a good reason is grounds for banning.
+As the Chief of Security, you are expected to coordinate your security force to handle any threat that comes to the station. Sometimes it means making use of the armory to handle a blob, sometimes it means being ruthless during a revolution or cult.
+As the Chief of Security, you can call for forced cyborgization, but may require the Captain's approval.
+As the Chief of Security, don't let the power go to your head. You may have high access, great equipment, and a miniature army at your side, but being a terrible person without a good reason is grounds for banning.
 As the Warden, your duty is to be the watchdog of the brig and handler of prisoners when little is happening, and to hand out equipment and weapons to the security officers when a crisis strikes.
 As the Warden, keep a close eye on the armory at all times, as it is a favored strike point of mercenaries and cocky traitors.
 As the Warden, if a prisoner's crimes are heinous enough you can put them in permabrig. Make sure to check on them once in a while!
@@ -72,7 +72,7 @@ As the Quartermaster, be sure to check the manifests on crates you receive to ma
 As a Shaft Miner, always have a GPS on you, so a fellow miner or cyborg can come to save you if you die.
 As a Traitor, the cryptographic sequencer (emag) can not only open doors, but also lockers, crates, APCs and more. It can hack cyborgs, and even cause bots to go berserk. Use it on the right machines, and you can even order more traitor gear or contact the Syndicate. Experiment!
 As a Traitor, subverting the AI to serve you can make it an extremely powerful ally. However, be careful of the wording in the laws you give it, as it may use your poorly written laws against you!
-As a Traitor, the Captain and the Head of Security are two of the most difficult to kill targets on the station. Plan carefully if either are present.
+As a Traitor, the Captain and the Chief of Security are two of the most difficult to kill targets on the station. Plan carefully if either are present.
 As a Traitor, you can manufacture and recycle revolver bullets at a hacked autolathe, making the revolver an extremely powerful tool.
 As a Traitor, you may sometimes hunt other traitors, and in turn be hunted by them.
 As a Traitor, the syndicate encryption key is very useful for coordinating plans with your fellow traitors -- or, of course, betraying them.

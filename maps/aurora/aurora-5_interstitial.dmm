@@ -2445,7 +2445,7 @@
 "fB" = (
 /obj/structure/bed/stool/chair/padded/brown,
 /obj/effect/landmark/start{
-	name = "Head of Security"
+	name = "Chief of Security"
 	},
 /turf/simulated/floor/wood,
 /area/security/training_theoretical)

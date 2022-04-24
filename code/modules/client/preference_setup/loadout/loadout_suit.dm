@@ -233,7 +233,7 @@ datum/gear/suit/colorvest
 /datum/gear/suit/secjacketofficer
 	display_name = "security jacket selection (Security Officer)"
 	path = /obj/item/clothing/suit/storage/security/officer
-	allowed_roles = list("Security Officer", "Head of Security", "Warden")
+	allowed_roles = list("Security Officer", "Chief of Security", "Warden")
 
 /datum/gear/suit/secjacketofficer/New()
 	..()
@@ -246,7 +246,7 @@ datum/gear/suit/colorvest
 /datum/gear/suit/secjacketwarden
 	display_name = "security jacket selection (Warden)"
 	path = /obj/item/clothing/suit/storage/security/warden
-	allowed_roles = list("Head of Security", "Warden")
+	allowed_roles = list("Chief of Security", "Warden")
 
 /datum/gear/suit/secjacketwarden/New()
 	..()
@@ -257,9 +257,9 @@ datum/gear/suit/colorvest
 	gear_tweaks += new /datum/gear_tweak/path(secjacket)
 
 /datum/gear/suit/secjackethos
-	display_name = "security jacket selection (Head of Security)"
+	display_name = "security jacket selection (Chief of Security)"
 	path = /obj/item/clothing/suit/storage/security/hos
-	allowed_roles = list("Head of Security")
+	allowed_roles = list("Chief of Security")
 
 /datum/gear/suit/secjackethos/New()
 	..()

@@ -18279,7 +18279,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/effect/floor_decal/plaque{
-	desc = "Charles Hall Memorial Hall<br>Charles Hall was the 2nd victim of the infamous Odin Killer. From beginnings as an orphan, he rose to Head of Security and dedicated his life to ensuring security was robust and effective. He will be missed.<br>March 2425 - June 2460"
+	desc = "Charles Hall Memorial Hall<br>Charles Hall was the 2nd victim of the infamous Odin Killer. From beginnings as an orphan, he rose to Chief of Security and dedicated his life to ensuring security was robust and effective. He will be missed.<br>March 2425 - June 2460"
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -19553,7 +19553,7 @@
 /obj/machinery/door/airlock/command{
 	desc = "It opens and closes. It does not look very robust.";
 	id_tag = "HoSdoor";
-	name = "Head of Security's Office";
+	name = "Chief of Security's Office";
 	req_access = list(58)
 	},
 /obj/machinery/door/firedoor,
@@ -22654,7 +22654,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/camera/network/security{
-	c_tag = "Security - Head of Security's Office";
+	c_tag = "Security - Chief of Security's Office";
 	dir = 4
 	},
 /obj/item/modular_computer/console/preset/security/hos,
@@ -23619,7 +23619,7 @@
 	},
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine{
-	department = "Head of Security's Office"
+	department = "Chief of Security's Office"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
@@ -24654,9 +24654,9 @@
 /obj/machinery/photocopier,
 /obj/machinery/requests_console{
 	announcementConsole = 1;
-	department = "Head of Security's Desk";
+	department = "Chief of Security's Desk";
 	departmentType = 5;
-	name = "Head of Security RC";
+	name = "Chief of Security RC";
 	pixel_y = -30
 	},
 /turf/simulated/floor/tiled/dark,

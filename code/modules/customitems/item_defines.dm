@@ -101,13 +101,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/badge/fluff/caleb_badge //Worn Badge - Caleb Greene - notmegatron
 	name = "worn badge"
-	desc = "A simple gold badge denoting the wearer as Head of Security. It is worn and dulled with age, but the name, \"Caleb Greene\", is still clearly legible."
+	desc = "A simple gold badge denoting the wearer as Chief of Security. It is worn and dulled with age, but the name, \"Caleb Greene\", is still clearly legible."
 	icon = 'icons/obj/custom_items/caleb_badge.dmi'
 	icon_override = 'icons/obj/custom_items/caleb_badge.dmi'
 	item_state = "caleb_badge"
 	icon_state = "caleb_badge"
 	stored_name = "Caleb Greene"
-	badge_string = "NOS Apollo Head of Security"
+	badge_string = "NOS Apollo Chief of Security"
 	contained_sprite = TRUE
 
 

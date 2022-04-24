@@ -13213,7 +13213,7 @@
 	pixel_y = 32
 	},
 /obj/effect/landmark/start{
-	name = "Head of Security"
+	name = "Chief of Security"
 	},
 /turf/simulated/floor/wood,
 /area/security/vacantoffice2)

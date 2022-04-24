@@ -20509,7 +20509,7 @@
 /obj/machinery/door/airlock/command{
 	desc = "It opens and closes. It does not look very robust.";
 	id_tag = "HoSdoor";
-	name = "Head of Security's Office";
+	name = "Chief of Security's Office";
 	req_access = list(58)
 	},
 /obj/machinery/door/firedoor,
@@ -34434,9 +34434,9 @@
 	},
 /obj/machinery/requests_console{
 	announcementConsole = 1;
-	department = "Head of Security's Desk";
+	department = "Chief of Security's Desk";
 	departmentType = 5;
-	name = "Head of Security RC";
+	name = "Chief of Security RC";
 	pixel_y = -30
 	},
 /turf/simulated/floor/carpet,
@@ -36086,7 +36086,7 @@
 	dir = 1
 	},
 /obj/machinery/camera/network/security{
-	c_tag = "Security - Head of Security's Office";
+	c_tag = "Security - Chief of Security's Office";
 	dir = 4
 	},
 /obj/item/device/radio/intercom{

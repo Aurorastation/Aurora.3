@@ -137,7 +137,7 @@
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	cost = 3
-	allowed_roles = list("Security Officer", "Head of Security", "Warden")
+	allowed_roles = list("Security Officer", "Chief of Security", "Warden")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/uniform/unathi/jizixi

@@ -60,7 +60,7 @@
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer")
+	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Chief of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -105,7 +105,7 @@
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
-	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Investigator")
+	allowed_roles = list("Security Officer","Chief of Security","Warden", "Security Cadet", "Investigator")
 
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
@@ -152,7 +152,7 @@
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/pouches/black
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Investigator")
+	allowed_roles = list("Security Officer","Chief of Security", "Warden", "Security Cadet", "Investigator")
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
@@ -278,7 +278,7 @@
 /datum/gear/accessory/holobadge
 	display_name = "badge, holographic"
 	path = /obj/item/clothing/accessory/badge/holo
-	allowed_roles = list("Head of Security", "Investigator", "Warden", "Security Officer", "Security Cadet")
+	allowed_roles = list("Chief of Security", "Investigator", "Warden", "Security Officer", "Security Cadet")
 
 /datum/gear/accessory/holobadge/New()
 	..()
@@ -300,7 +300,7 @@
 /datum/gear/accessory/hosbadge
 	display_name = "badge, HoS"
 	path = /obj/item/clothing/accessory/badge/hos
-	allowed_roles = list("Head of Security")
+	allowed_roles = list("Chief of Security")
 
 /datum/gear/accessory/detbadge
 	display_name = "badge, investigations"

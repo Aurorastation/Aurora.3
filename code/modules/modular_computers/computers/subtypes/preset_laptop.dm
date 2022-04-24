@@ -97,8 +97,8 @@
 	enrolled = 1
 
 /obj/item/modular_computer/laptop/preset/security/hos
-	name = "head of security's laptop"
-	desc = "A portable computer belonging to the head of security. It smells faintly of gunpowder."
+	name = "Chief of Security's laptop"
+	desc = "A portable computer belonging to the Chief of Security. It smells faintly of gunpowder."
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
 
 // Civilian

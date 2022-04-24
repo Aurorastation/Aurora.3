@@ -2,7 +2,7 @@
  * Contains:
  *		Security
  *		Detective
- *		Head of Security
+ *		Chief of Security
  */
 
 /*
@@ -150,11 +150,11 @@
 	contained_sprite = TRUE
 
 /*
- * Head of Security
+ * Chief of Security
  */
 /obj/item/clothing/under/rank/head_of_security
-	desc = "It's a jumpsuit worn by those few with the dedication to achieve the position of \"Head of Security\". It has additional armor to protect the wearer."
-	name = "head of security's uniform"
+	desc = "It's a jumpsuit worn by those few with the dedication to achieve the position of \"Chief of Security\". It has additional armor to protect the wearer."
+	name = "Chief of Security's uniform"
 	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
 	icon_state = "head_of_security"
 	item_state = "head_of_security"

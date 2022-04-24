@@ -61,9 +61,9 @@
 	allowed_roles = list("Executive Officer")
 
 /datum/gear/computer/handheld/wristbound/hos
-	display_name = "wristbound computer (Head of Security)"
+	display_name = "wristbound computer (Chief of Security)"
 	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/hos
-	allowed_roles = list("Head of Security")
+	allowed_roles = list("Chief of Security")
 
 /datum/gear/computer/handheld/wristbound/captain
 	display_name = "wristbound computer (Captain)"

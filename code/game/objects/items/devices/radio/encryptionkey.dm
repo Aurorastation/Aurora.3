@@ -126,7 +126,7 @@
 	channels = list(CHANNEL_SCIENCE = TRUE, CHANNEL_COMMAND = TRUE)
 
 /obj/item/device/encryptionkey/heads/hos
-	name = "head of security's encryption key"
+	name = "Chief of Security's encryption key"
 	icon_state = "hos_cypherkey"
 	channels = list(CHANNEL_SECURITY = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_PENAL = TRUE)
 

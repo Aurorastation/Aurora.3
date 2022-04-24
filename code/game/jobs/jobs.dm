@@ -56,7 +56,7 @@ var/const/ASSISTANT			=(1<<15)
 var/list/command_positions = list(
 	"Captain",
 	"Executive Officer",
-	"Head of Security",
+	"Chief of Security",
 	"Chief Engineer",
 	"Research Director",
 	"Chief Medical Officer",
@@ -116,7 +116,7 @@ var/list/service_positions = list(
 
 
 var/list/security_positions = list(
-	"Head of Security",
+	"Chief of Security",
 	"Warden",
 	"Investigator",
 	"Security Officer",

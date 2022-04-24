@@ -338,7 +338,7 @@
 /var/const/access_hos = 58
 /datum/access/hos
 	id = access_hos
-	desc = "Head of Security"
+	desc = "Chief of Security"
 	region = ACCESS_REGION_SECURITY
 
 /var/const/access_RC_announce = 59 //Requests console announcements
