@@ -68,7 +68,7 @@
 	icon_state = "head_quarters"
 
 /area/crew_quarters/heads/cos
-	name = "Security - HoS' Office"
+	name = "Security - CoS' Office"
 	icon_state = "head_quarters"
 
 /area/crew_quarters/heads/cmo

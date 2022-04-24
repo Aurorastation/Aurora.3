@@ -335,9 +335,9 @@
 	desc = "Executive Officer"
 	region = ACCESS_REGION_COMMAND
 
-/var/const/access_hos = 58
+/var/const/access_cos = 58
 /datum/access/cos
-	id = access_hos
+	id = access_cos
 	desc = "Chief of Security"
 	region = ACCESS_REGION_SECURITY
 

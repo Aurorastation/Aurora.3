@@ -120,7 +120,7 @@
 /obj/machinery/suit_cycler/cos
 	name = "chief of security suit cycler"
 	model_text = "Chief of Security"
-	req_access = list(access_hos)
+	req_access = list(access_cos)
 	departments = list("Chief of Security") // ONE MAN DEPARTMENT HOO HA GIMME CRAYONS - Geeves
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE

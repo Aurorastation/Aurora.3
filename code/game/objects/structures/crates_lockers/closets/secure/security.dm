@@ -108,7 +108,7 @@
 
 /obj/structure/closet/secure_closet/cos
 	name = "chief of security's locker"
-	req_access = list(access_hos)
+	req_access = list(access_cos)
 	icon_state = "hossecure1"
 	icon_closed = "hossecure"
 	icon_locked = "hossecure1"
@@ -157,7 +157,7 @@
 
 /obj/structure/closet/secure_closet/hos2
 	name = "chief of security's attire"
-	req_access = list(access_hos)
+	req_access = list(access_cos)
 	icon_state = "hossecure1"
 	icon_closed = "hossecure"
 	icon_locked = "hossecure1"
