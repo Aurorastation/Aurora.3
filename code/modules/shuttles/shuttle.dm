@@ -85,19 +85,18 @@
 
 	moving_status = SHUTTLE_WARMUP
 	callHook("shuttle_moved", list(start_location,destination))
-
-	if(!fuel_check()) //fuel error (probably out of fuel) occured, so cancel the launch
-		var/datum/shuttle/autodock/S = src
-		if(istype(S))
-			S.cancel_launch(null)
-		return
-
 	if(sound_takeoff)
-		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
-
+		if(!fuel_check()) return
+		playsound(current_location, sound_takeoff, 25, 20, is_global = TRUE)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
+
+		if(!fuel_check()) //fuel error (probably out of fuel) occured, so cancel the launch
+			var/datum/shuttle/autodock/S = src
+			if(istype(S))
+				S.cancel_launch(null)
+			return
 
 		moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
 		attempt_move(destination)
@@ -111,19 +110,18 @@
 
 	moving_status = SHUTTLE_WARMUP
 	callHook("shuttle_moved", list(start_location, destination))
-
-	if(!fuel_check()) //fuel error (probably out of fuel) occured, so cancel the launch
-		var/datum/shuttle/autodock/S = src
-		if(istype(S))
-			S.cancel_launch(null)
-		return
-
 	if(sound_takeoff)
+		if(!fuel_check()) return
 		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
-
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
+
+		if(!fuel_check()) //fuel error (probably out of fuel) occured, so cancel the launch
+			var/datum/shuttle/autodock/S = src
+			if(istype(S))
+				S.cancel_launch(null)
+			return
 
 		arrive_time = world.time + travel_time*10
 		moving_status = SHUTTLE_INTRANSIT

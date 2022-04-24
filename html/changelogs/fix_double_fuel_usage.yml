@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes shuttles using fuel twice."
