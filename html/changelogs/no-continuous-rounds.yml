@@ -1,7 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes:
-  - bugfix: "Evacuations should no longer stall at the ends of certain round-types."
-  - tweak: "Removed continous rounds config option."
