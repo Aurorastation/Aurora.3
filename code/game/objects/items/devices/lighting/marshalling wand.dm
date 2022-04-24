@@ -10,12 +10,13 @@
 	action_button_name = "Toggle Marshalling Wands"
 
 /obj/item/device/flashlight/marshallingwand/AltClick(mob/user)
-	if(!isturf(user.loc))
-		to_chat(user, "You cannot turn the light on while in this [user.loc].") //To prevent some lighting anomalities.)
-		return FALSE
-	toggle()
-	user.update_action_buttons()
-	return TRUE
+	if(!use_check_and_message(user))
+		if(!isturf(user.loc))
+			to_chat(user, "You cannot turn the light on while in this [user.loc].") //To prevent some lighting anomalities.)
+			return FALSE
+		toggle()
+		user.update_action_buttons()
+		return TRUE
 
 /obj/item/device/flashlight/marshallingwand/ui_action_click()
 	AltClick(usr)
