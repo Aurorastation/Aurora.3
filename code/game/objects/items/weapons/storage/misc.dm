@@ -7,8 +7,8 @@
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
 	starts_with = list(
-		/obj/item/dice = 1,
-		/obj/item/dice/d20 = 1
+		/obj/item/stack/dice = 12,
+		/obj/item/stack/dice/d20 = 4
 	)
 
 /obj/item/storage/pill_bottle/dice/gaming
@@ -16,11 +16,11 @@
 	desc = "It's a small container with gaming dice inside."
 	icon_state = "magicdicebag"
 	starts_with = list(
-		/obj/item/dice/d4 = 1,
-		/obj/item/dice/d8 = 1,
-		/obj/item/dice/d10 = 1,
-		/obj/item/dice/d12 = 1,
-		/obj/item/dice/d100 = 1
+		/obj/item/stack/dice/d4 = 4,
+		/obj/item/stack/dice/d8 = 4,
+		/obj/item/stack/dice/d10 = 4,
+		/obj/item/stack/dice/d12 = 4,
+		/obj/item/stack/dice/d100 = 4
 	)
 
 /obj/item/storage/card
@@ -56,8 +56,9 @@
 
 //cigarette papers
 /obj/item/storage/box/fancy/cigpaper
-	name = "\improper Gen. Eric cigarette paper"
-	desc = "A ubiquitous brand of cigarette paper, allegedly endorsed by 24th century war hero General Eric Osmundsun for rolling your own cigarettes. Osmundsun died in a freak kayak accident. As it ate him alive during his last campaign. It was pretty freaky."
+	name = "\improper callistean classic cigarette paper"
+	desc = "A now-ubiquitous brand of cigarette paper, originated on Callisto and produced by Cigaco, a Getmore subsidiary. It was first available only on Callisto, but \
+			is now found in every corner of the galaxy due to its low cost and relatively good value."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpaperbook_generic"
 	item_state = "cigpacket"
@@ -93,7 +94,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	w_class = ITEMSIZE_SMALL
-	starts_with = list(/obj/item/paper/cig/filter = 10)
+	starts_with = list(/obj/item/cigarette_filter = 10)
 	make_exact_fit()
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'

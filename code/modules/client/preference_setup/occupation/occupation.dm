@@ -139,7 +139,7 @@
 	sanitize_faction()
 
 /datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Engineer", "Head of Security"))
-	if (SSjobs.init_state != SS_INITSTATE_DONE)
+	if (SSjobs.init_state != SS_INITSTATE_DONE && SSrecords.init_state != SS_INITSTATE_DONE)
 		return "<center><large>Jobs controller not initialized yet. Please wait a bit and reload this section.</large></center>"
 
 	var/list/dat = list(
@@ -287,12 +287,23 @@
 		ResetJobs()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
+	var/datum/species/S = pref.get_species_datum()
 	var/datum/faction/faction = SSjobs.name_factions[pref.faction]
-	for(var/datum/job/job in faction.get_occupations())
+	for(var/datum/job/job in SSjobs.occupations)
 		for(var/department = 1 to NUM_JOB_DEPTS)
 			if(pref.GetJobDepartment(job, department) & job.flag)
+				if(!(job in faction.get_occupations()))
+					to_client_chat(SPAN_DANGER("Your faction selection does not permit this job, [job.title] as [pref.faction]."))
+					to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
+					ResetJobs()
+					return TOPIC_REFRESH_UPDATE_PREVIEW
 				if(pref.species in job.blacklisted_species)
 					to_client_chat(SPAN_DANGER("Your faction selection does not permit this species-occupation combination, [pref.species] as [job.title]."))
+					to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
+					ResetJobs()
+					return TOPIC_REFRESH_UPDATE_PREVIEW
+				if(!is_type_in_typecache(S, faction.allowed_species_types) && length(faction.allowed_species_types))
+					to_client_chat(SPAN_DANGER("Your faction selection does not permit this species, [pref.species] as [pref.faction]."))
 					to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
 					ResetJobs()
 					return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -314,15 +325,19 @@
 			pref.job_civilian_low &= ~job.flag
 		else
 			pref.job_civilian_low |= job.flag
+
+		SSticker.cycle_player(user, job)
 		return TRUE
 
-	if(pref.GetJobDepartment(job, 1) & job.flag)
+	if(pref.GetJobDepartment(job, 1) & job.flag) // HIGH -> NONE
 		SetJobDepartment(job, 1)
-	else if(pref.GetJobDepartment(job, 2) & job.flag)
+		SSticker.cycle_player(user, job)
+	else if(pref.GetJobDepartment(job, 2) & job.flag) // MED -> HIGH
 		SetJobDepartment(job, 2)
-	else if(pref.GetJobDepartment(job, 3) & job.flag)
+		SSticker.cycle_player(user, job)
+	else if(pref.GetJobDepartment(job, 3) & job.flag) // LOW -> MED
 		SetJobDepartment(job, 3)
-	else//job = Never
+	else // NONE -> LOW
 		SetJobDepartment(job, 4)
 
 	return 1
@@ -345,7 +360,7 @@
 			pref.job_engsec_high = 0
 
 	switch(job.department_flag)
-		if(CIVILIAN)
+		if(SERVICE)
 			switch(level)
 				if(2)
 					pref.job_civilian_high = job.flag
@@ -458,7 +473,7 @@
 	if(!job || !level)
 		return FALSE
 	switch(job.department_flag)
-		if(CIVILIAN)
+		if(SERVICE)
 			switch(level)
 				if(1)
 					return job_civilian_high

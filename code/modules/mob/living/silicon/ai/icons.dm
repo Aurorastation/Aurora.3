@@ -32,7 +32,7 @@ var/list/datum/ai_icon/ai_icons
 
 /datum/ai_icon/green
 	name = "Green"
-	alive_icon = "ai-wierd"
+	alive_icon = "ai-weird"
 	alive_light = "#00FF99"
 	dead_icon = "ai-weird_dead"
 

@@ -305,7 +305,7 @@ update_flag
 		return
 	if(!W.iswrench() && !is_type_in_list(W, list(/obj/item/tank, /obj/item/device/analyzer, /obj/item/modular_computer)) && !issignaler(W) && !(W.iswirecutter() && signaler))
 		if(W.flags & NOBLUDGEON)
-			return
+			return TRUE
 		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"), SPAN_NOTICE("You hit \the [src] with \the [W]."))
 		user.do_attack_animation(src, W)
 		playsound(src, 'sound/weapons/smash.ogg', 60, 1)
@@ -313,7 +313,7 @@ update_flag
 		if(!istype(W, /obj/item/forensics))
 			src.add_fingerprint(user)
 		healthcheck()
-		return
+		return TRUE
 
 	if(istype(user, /mob/living/silicon/robot) && istype(W, /obj/item/tank/jetpack))
 		var/datum/gas_mixture/thejetpack = W:air_contents
@@ -326,7 +326,7 @@ update_flag
 			var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
 			thejetpack.merge(removed)
 			to_chat(user, "You pulse-pressurize your jetpack from the tank.")
-		return
+		return TRUE
 
 	..()
 
@@ -342,13 +342,11 @@ update_flag
 	return src.ui_interact(user)
 
 /obj/machinery/portable_atmospherics/canister/ui_interact(mob/user)
-	if(src.destroyed)
-		return
 	// update the ui if it exists, returns null if no ui is passed/found
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
-		ui = new(user, src, "machinery-atmospherics-canister", 480, 400, "Canister", state = interactive_state)
+		ui = new(user, src, "machinery-atmospherics-canister", 480, 400, "Canister")
 		// open the new ui window
 		ui.open()
 		// auto update every Master Controller tick
@@ -374,15 +372,8 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/Topic(href, href_list)
 
-	//Do not use "if(..()) return" here, canisters will stop working in unpowered areas like space or on the derelict. // yeah but without SOME sort of Topic check any dick can mess with them via exploits as he pleases -walter0o
-	//First comment might be outdated.
-	if (!istype(src.loc, /turf))
-		return 0
-
-	if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr)) // exploit protection -walter0o
-		var/datum/vueui/ui = href_list["vueui"]
-		ui?.close()
-		onclose(usr, "canister")
+	var/datum/vueui/ui = href_list["vueui"]
+	if(!istype(ui))
 		return
 
 	if(href_list["toggle"])

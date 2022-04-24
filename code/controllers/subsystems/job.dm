@@ -38,6 +38,8 @@
 
 	ProcessSanitizationQueue()
 
+	SSticker.setup_player_ready_list()
+
 /datum/controller/subsystem/jobs/Recover()
 	occupations = SSjobs.occupations
 	unassigned = SSjobs.unassigned
@@ -310,9 +312,7 @@
 	Debug("ER/([H]): Entry, joined_late=[joined_late],megavend=[megavend].")
 
 	if(SSatlas.current_sector.description)
-		var/sector_desc = "<hr><div align='center'><hr1><B>Current Sector: [SSatlas.current_sector.name]!</B></hr1><br>"
-		sector_desc += "<i>[SSatlas.current_sector.description]</i><hr></div>"
-		to_chat(H, sector_desc)
+		to_chat(H, SSatlas.current_sector.get_chat_description())
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
@@ -500,16 +500,17 @@
 			Debug("EP/([H]): Abort, H is AI.")
 			return EquipRank(H, rank, 1)
 
-	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage")
+	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage"  && spawning_at != "Living Quarters Lift")
 		return EquipRank(H, rank, 1)
 
-	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
+	if("Arrivals Shuttle" in current_map.allowed_spawns)
+		H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
 
 	var/datum/job/job = GetJob(rank)
 
 	H.job = rank
 
-	if(spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage" || job.latejoin_at_spawnpoints)
+	if(spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage" && spawning_at != "Living Quarters Lift" || job.latejoin_at_spawnpoints)
 		return EquipRank(H, rank, 1)
 
 	var/list/spawn_in_storage = list()
@@ -672,8 +673,14 @@
 
 		var/datum/spawnpoint/spawnpos
 
-		if(H.client.prefs.spawnpoint)
+		if(H.client.prefs.spawnpoint in SSatlas.spawn_locations)
 			spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
+
+		if(rank == "Cyborg")
+			spawnpos = new/datum/spawnpoint/cyborg
+
+		if(!spawnpos)
+			spawnpos = SSatlas.spawn_locations[current_map.default_spawn]
 
 		if(spawnpos && istype(spawnpos))
 			if(spawnpos.check_job_spawning(rank))
@@ -720,10 +727,11 @@
 			H.mind.special_role = null
 
 	// Delete them from datacore.
-
-	if(!SSrecords.remove_record_by_field("fingerprint", H.get_full_print()))
-		// didn't find a record by fingerprint, fallback to deleting by name
-		SSrecords.remove_record_by_field("name", H.real_name)
+	if(ishuman(H))
+		SSrecords.remove_record_by_field("fingerprint", H.get_full_print())
+		if(H.species)
+			H.species.handle_despawn(H)
+	SSrecords.remove_record_by_field("name", H.real_name)
 	SSrecords.reset_manifest()
 
 	log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)
@@ -732,8 +740,6 @@
 	H.ckey = null
 
 	// Delete the mob.
-	if(H.species)
-		H.species.handle_despawn(H)
 	qdel(H)
 
 // Equips a human-type with their custom loadout crap.
@@ -754,27 +760,19 @@
 	for(var/thing in prefs.gear)
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
-
 			if(G.augment) //augments are handled somewhere else
 				continue
 
-			var/permitted
-			if(G.allowed_roles)
-				for(var/job_name in G.allowed_roles)
-					if(job.title == job_name)
-						permitted = TRUE
-						break
-			else
-				permitted = TRUE
-
-			if(!G.check_species_whitelist(H))
-				permitted = FALSE
-
-			if(G.faction && G.faction != H.employer_faction)
-				permitted = FALSE
+			var/permitted = !G.allowed_roles || (job.title in G.allowed_roles)
+			permitted = permitted && G.check_species_whitelist(H)
+			permitted = permitted && (!G.faction || (G.faction == H.employer_faction))
+			var/decl/origin_item/culture/our_culture = decls_repository.get_decl(text2path(prefs.culture))
+			permitted = permitted && (!G.culture_restriction || (our_culture in G.culture_restriction))
+			var/decl/origin_item/origin/our_origin = decls_repository.get_decl(text2path(prefs.origin))
+			permitted = permitted && (!G.origin_restriction || (our_origin in G.origin_restriction))
 
 			if(!permitted)
-				to_chat(H, "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>")
+				to_chat(H, "<span class='warning'>Your current job, culture, origin or whitelist status does not permit you to spawn with [thing]!</span>")
 				continue
 
 			if(G.slot && !(G.slot in custom_equip_slots))
@@ -912,23 +910,16 @@
 			if(!G.augment)
 				continue
 
-			var/permitted = FALSE
-			if(G.allowed_roles)
-				for(var/job_name in G.allowed_roles)
-					if(rank.title == job_name)
-						permitted = TRUE
-						break
-			else
-				permitted = TRUE
-
-			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
-				permitted = FALSE
-
-			if(G.faction && G.faction != H.employer_faction)
-				permitted = FALSE
+			var/permitted = !G.allowed_roles || (rank.title in G.allowed_roles)
+			permitted = permitted && G.check_species_whitelist(H)
+			permitted = permitted && (!G.faction || (G.faction == H.employer_faction))
+			var/decl/origin_item/culture/our_culture = decls_repository.get_decl(text2path(prefs.culture))
+			permitted = permitted && (!G.culture_restriction || (our_culture in G.culture_restriction))
+			var/decl/origin_item/origin/our_origin = decls_repository.get_decl(text2path(prefs.origin))
+			permitted = permitted && (!G.origin_restriction || (our_origin in G.origin_restriction))
 
 			if(!permitted)
-				to_chat(H, SPAN_WARNING("Your current job or whitelist status does not permit you to spawn with [thing]!"))
+				to_chat(H, SPAN_WARNING("Your current job, culture, origin or whitelist status does not permit you to spawn with [thing]!"))
 				continue
 
 			var/metadata
@@ -949,8 +940,7 @@
 	set waitfor = 0
 
 	var/style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;"
-	var/area/A = get_area(C.mob)
-	var/text = "[worlddate2text()], [worldtime2text()]\n[station_name()], [A.name]"
+	var/text = "[worlddate2text()], [worldtime2text()]\n[station_name()], [SSatlas.current_sector.name]"
 	text = uppertext(text)
 
 	var/obj/effect/overlay/T = new()

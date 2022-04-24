@@ -191,7 +191,7 @@
 
 	return
 
-// Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del. 
+// Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
 //override_collect temporarily allows equip_or_collect without enabling it for the job. Mostly used to prevent weirdness with hand equips when the player is missing one
 /datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/set_no_remove = FALSE, var/override_collect = FALSE)
 	var/obj/item/I
@@ -313,7 +313,7 @@
 	if(suit_store)
 		equip_item(H, suit_store, slot_s_store)
 
-	//Hand equips. If person is missing an arm or hand it attempts to put it in the other hand. 
+	//Hand equips. If person is missing an arm or hand it attempts to put it in the other hand.
 	//Override_collect should attempt to collect any items that can't be equipped regardless of collect_not_del settings for the outfit.
 	if(l_hand)
 		var/obj/item/organ/external/O
@@ -344,14 +344,20 @@
 	if(pda && !visualsOnly)
 		var/obj/item/I = new pda(H)
 		switch(H.pda_choice)
+			if(OUTFIT_TAB_PDA)
+				I.desc_fluff += "For its many years of service, this model has held a virtual monopoly for PDA models for NanoTrasen. The secret? A lapel pin affixed to the back."
 			if(OUTFIT_PDA_OLD)
 				I.icon = 'icons/obj/pda_old.dmi'
+				I.desc_fluff += "Nicknamed affectionately as the 'Brick', PDA enthusiasts rejoice with the return of an old favorite, retrofitted to new modular computing standards."
 			if(OUTFIT_PDA_RUGGED)
 				I.icon = 'icons/obj/pda_rugged.dmi'
+				I.desc_fluff += "EVA enthusiasts and owners of fat fingers just LOVE the huge tactile buttons provided by this model. Prone to butt-dialing, but don't let that hold you back."
 			if(OUTFIT_PDA_SLATE)
 				I.icon = 'icons/obj/pda_slate.dmi'
+				I.desc_fluff += "A bet between an engineer and a disgruntled scientist, it turns out you CAN make a PDA out of an atmospherics scanner. Also, probably don't tell management, just enjoy."
 			if(OUTFIT_PDA_SMART)
 				I.icon = 'icons/obj/pda_smart.dmi'
+				I.desc_fluff += "NanoTrasen originally designed this as a portable media player. Unfortunately, Royalty-free and corporate-approved ukulele isn't particularly popular."
 		I.update_icon()
 		if (H.pda_choice == OUTFIT_WRISTBOUND)
 			H.equip_or_collect(I, slot_wrists)
@@ -363,7 +369,7 @@
 		var/obj/item/I = new id(H)
 		imprint_idcard(H,I)
 		if(istype(P) && P.card_slot)
-			addtimer(CALLBACK(src, .proc/register_pda, P, I), 1 SECOND)
+			addtimer(CALLBACK(src, .proc/register_pda, P, I), 2 SECOND)
 		else
 			H.equip_or_collect(I, slot_wear_id)
 
@@ -497,7 +503,7 @@
 	. = GetAssignment(H)
 
 	if (. && . != "Unassigned" && H?.mind?.selected_faction)
-		if (!H.mind.selected_faction.is_default && H.mind.selected_faction.title_suffix)
+		if (H.mind.selected_faction.title_suffix)
 			. += " ([H.mind.selected_faction.title_suffix])"
 
 /datum/outfit/proc/get_id_rank(mob/living/carbon/human/H)

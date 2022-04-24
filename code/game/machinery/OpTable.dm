@@ -69,7 +69,7 @@
 		playsound(loc, /decl/sound_category/switch_sound, 50, 1)
 
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)
-	if(air_group || (height == 0)) 
+	if(air_group || (height == 0))
 		return FALSE
 
 	return istype(mover) && mover.checkpass(PASSTABLE)
@@ -88,9 +88,12 @@
 				icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
 				victim = H
 	if(victim && !victim.isSynthetic())
-		if(suppressing && victim.sleeping < 3)
-			victim.Sleeping(3 - victim.sleeping)
+		if(suppressing && victim.sleeping < 7)
+			victim.Sleeping(7 - victim.sleeping)
 			victim.willfully_sleeping = FALSE
+		icon_state = victim.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
+		if(victim.stat == DEAD || victim.is_asystole() || victim.status_flags & FAKEDEATH)
+			icon_state = "[modify_state]-critical"
 		return TRUE
 	icon_state = "[modify_state]-idle"
 	return FALSE
@@ -113,6 +116,8 @@
 		var/mob/living/carbon/human/H = C
 		victim = H
 		icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
+		if(H.stat == DEAD || H.is_asystole() || H.status_flags & FAKEDEATH)
+			icon_state = "[modify_state]-critical"
 	else
 		icon_state = "[modify_state]-idle"
 
@@ -154,13 +159,13 @@
 		var/obj/item/grab/G = W
 		if(victim)
 			to_chat(usr, SPAN_NOTICE(SPAN_BOLD("\The [src] is already occupied!")))
-			return FALSE
+			return TRUE
 
 		var/mob/living/L = G.affecting
 		var/bucklestatus = L.bucklecheck(user)
 
 		if(!bucklestatus)//We must make sure the person is unbuckled before they go in
-			return
+			return TRUE
 
 		if(L == user)
 			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), SPAN_NOTICE("You start climbing onto \the [src]."), range = 3)
@@ -172,13 +177,13 @@
 				LB.user_unbuckle(user)
 			take_victim(G.affecting,usr)
 			qdel(W)
-			return
+		return TRUE
 	if(default_deconstruction_screwdriver(user, W))
-		return
+		return TRUE
 	if(default_deconstruction_crowbar(user, W))
-		return
+		return TRUE
 	if(default_part_replacement(user, W))
-		return
+		return TRUE
 
 /obj/machinery/optable/proc/check_table(mob/living/carbon/patient)
 	check_victim()

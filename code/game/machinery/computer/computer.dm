@@ -15,7 +15,7 @@
 	var/icon_screen = "generic"
 	var/icon_scanline
 	var/light_range_on = 2
-	var/light_power_on = 1
+	var/light_power_on = 1.3
 	var/overlay_layer
 	var/is_holographic = TRUE
 	var/icon_broken = "broken"
@@ -25,6 +25,11 @@
 	overlay_layer = layer
 	power_change()
 	update_icon()
+
+/obj/machinery/computer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = TRUE)
+	if(inoperable() || isNotStationLevel(z) || user.stat)
+		user.unset_machine()
+		return
 
 /obj/machinery/computer/emp_act(severity)
 	if(prob(20/severity)) set_broken()
@@ -63,7 +68,7 @@
 		set_light(0)
 		return
 	else
-		set_light(light_range_on, light_power_on)
+		set_light(light_range_on, light_power_on, COLOR_CYAN)
 
 	icon_state = initial(icon_state)
 
@@ -89,7 +94,7 @@
 	if(stat & NOPOWER)
 		set_light(0)
 	else
-		set_light(light_range_on, light_power_on)
+		set_light(light_range_on, light_power_on, COLOR_CYAN)
 
 
 /obj/machinery/computer/proc/set_broken()
@@ -122,8 +127,9 @@
 				A.icon_state = "4"
 			M.deconstruct(src)
 			qdel(src)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/machinery/computer/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!mover)

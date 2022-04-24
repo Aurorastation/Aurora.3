@@ -63,15 +63,30 @@
 		. += "[get_wound_severity(get_scarring_level())] scarring"
 
 /obj/item/organ/internal/is_usable()
-	return ..() && !is_broken()
+	if(robotize_type)
+		var/datum/robolimb/R = all_robolimbs[robotize_type]
+		if(!R.malfunctioning_check(owner))
+			return TRUE
+	else
+		return ..() && !is_broken()
 
 /obj/item/organ/internal/proc/is_damaged()
 	return damage > 0
 
-/obj/item/organ/internal/robotize()
+/obj/item/organ/internal/robotize(var/company = "Unbranded")
 	..()
 	min_bruised_damage += 5
 	min_broken_damage += 10
+
+	if(company)
+		model = company
+		var/datum/robolimb/R = all_robolimbs[company]
+
+		if(R)
+			if(robotic_sprite)
+				icon_state = "[initial(icon_state)]-[R.internal_organ_suffix]"
+
+			robotize_type = company
 
 /obj/item/organ/internal/proc/getToxLoss()
 	if(BP_IS_ROBOTIC(src))
@@ -124,8 +139,12 @@
 	tick_surge_damage() //Yes, this is intentional.
 
 /obj/item/organ/internal/proc/handle_regeneration()
-	if(!damage || BP_IS_ROBOTIC(src) || !istype(owner) || owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects) || owner.is_asystole())
-		return
-	var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || 0.1
-	if(damage < repair_modifier*max_damage)
-		heal_damage(repair_modifier)
+	SHOULD_CALL_PARENT(TRUE)
+	if(damage && !BP_IS_ROBOTIC(src) && istype(owner))
+		if(!owner.is_asystole())
+			if(!(owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects)))
+				var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || 0.1
+				if(damage < repair_modifier*max_damage)
+					heal_damage(repair_modifier)
+				return TRUE // regeneration is allowed
+	return FALSE // regeneration is prevented

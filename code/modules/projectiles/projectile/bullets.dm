@@ -352,6 +352,10 @@
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
 	embed = 0
 
+/obj/item/projectile/bullet/gauss/carbine
+	name = "compact slug"
+	damage = 20
+
 /obj/item/projectile/bullet/gauss/highex
 	name = "high-ex shell"
 	damage = 10

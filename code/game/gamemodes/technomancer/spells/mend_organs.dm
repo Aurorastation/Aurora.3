@@ -48,7 +48,7 @@
 					affected.status &= ~ORGAN_BROKEN
 
 				if(affected.tendon_status() & TENDON_CUT)
-					affected.tendon.heal()
+					affected.tendon.rejuvenate()
 
 				if(E.status & ORGAN_ARTERY_CUT)
 					E.status &= ~ORGAN_ARTERY_CUT

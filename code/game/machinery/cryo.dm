@@ -182,7 +182,7 @@
 	if(istype(G, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
-			return
+			return TRUE
 
 		beaker =  G
 		user.drop_from_inventory(G,src)
@@ -199,18 +199,18 @@
 		if(do_mob(user, L, 30, needhand = 0))
 			var/bucklestatus = L.bucklecheck(user)
 			if(!bucklestatus)//incase the patient got buckled_to during the delay
-				return
+				return TRUE
 			if(bucklestatus == 2)
 				var/obj/structure/LB = L.buckled_to
 				LB.user_unbuckle(user)
 			for(var/mob/living/carbon/slime/M in range(1, L))
 				if(M.victim == L)
 					to_chat(user, SPAN_WARNING("[L] will not fit into the cryo because they have a slime latched onto their head."))
-					return
+					return TRUE
 			if(put_mob(L))
 				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
 				qdel(G)
-	return
+	return TRUE
 
 /obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
 	if(!istype(user))

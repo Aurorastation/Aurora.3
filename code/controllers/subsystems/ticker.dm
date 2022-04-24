@@ -63,6 +63,11 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/list/roundstart_callbacks
 
+	// Pre-game ready menu handling
+	var/total_players = 0
+	var/total_players_ready = 0
+	var/list/ready_player_jobs
+
 /datum/controller/subsystem/ticker/New()
 	NEW_SS_GLOBAL(SSticker)
 
@@ -130,6 +135,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	if (round_progressing)
 		pregame_timeleft--
 
+	total_players = length(player_list)
+
 	if (current_state == GAME_STATE_PREGAME)
 		if (!config.use_dynamic_gamemode)
 			if (pregame_timeleft == config.vote_autogamemode_timeleft && !SSvote.time_remaining)
@@ -178,12 +185,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(force_end)
 		game_finished = TRUE
 		mode_finished = TRUE
-	else if(config.continous_rounds)
+	else
 		game_finished = (evacuation_controller.round_over() || mode.station_was_nuked)
 		mode_finished = (!post_game && mode.check_finished())
-	else
-		game_finished = (mode.check_finished() || (evacuation_controller.round_over() && evacuation_controller.emergency_evacuation)) || universe_has_ended
-		mode_finished = game_finished
 
 	if(!mode.explosion_in_progress && game_finished && (mode_finished || post_game))
 		current_state = GAME_STATE_FINISHED
@@ -231,19 +235,6 @@ var/datum/controller/subsystem/ticker/SSticker
 					to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
 			else if(!delay_notified)
 				to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
-
-	else if (mode_finished)
-		post_game = 1
-
-		mode.cleanup()
-
-		//call a transfer shuttle vote
-		spawn(50)
-			if(!round_end_announced && !config.continous_rounds) // Spam Prevention. Now it should announce only once.
-				to_world("<span class='danger'>The round has ended!</span>")
-				round_end_announced = 1
-				SSvote.autotransfer()
-
 	return 1
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
@@ -333,6 +324,82 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	return 1
 
+/datum/controller/subsystem/ticker/proc/update_ready_list(var/mob/abstract/new_player/NP, force_rdy = FALSE, force_urdy = FALSE)
+	if(current_state >= GAME_STATE_PLAYING || !SSjobs.bitflag_to_job.len)
+		return FALSE // don't bother once the game has started or before SSjobs is available
+
+	if(!LAZYLEN(ready_player_jobs))
+		ready_player_jobs = DEPARTMENTS_LIST_INIT
+
+	if(!isclient(NP.client) || force_urdy)
+		// Logged out, so force unready
+		return unready_player(NP.last_ready_name)
+	else if(NP.ready || force_rdy)
+		if(NP.last_ready_name != NP.client.prefs.real_name)
+			NP.last_ready_name = NP.client.prefs.real_name
+		return ready_player(NP.client.prefs)
+	else
+		return unready_player(NP.client.prefs)
+
+/datum/controller/subsystem/ticker/proc/ready_player(var/datum/preferences/prefs)
+	var/datum/job/ready_job = prefs.return_chosen_high_job()
+	if(!istype(ready_job))
+		return FALSE
+
+	for(var/dept in ready_job.departments)
+		LAZYDISTINCTADD(ready_player_jobs[dept], prefs.real_name)
+		LAZYSET(ready_player_jobs[dept], prefs.real_name, ready_job.title)
+		sortTim(ready_player_jobs[dept], /proc/cmp_text_asc)
+		. = TRUE
+
+	if(.)
+		update_ready_count()
+
+/datum/controller/subsystem/ticker/proc/unready_player(var/ident, var/force_name = FALSE)
+	if(isnull(ident))
+		return FALSE
+
+	var/datum/preferences/prefs = ident
+	if(!istype(prefs) || force_name)
+		// trawl the whole list - we only do this on logout or job swap, aka when we can't guarantee the job datum being accurate
+		for(var/dept in ready_player_jobs)
+			if(LAZYISIN(ready_player_jobs[dept], ident))
+				. = TRUE
+			ready_player_jobs[dept] -= ident
+		if(.)
+			update_ready_count()
+		return
+
+	var/datum/job/ready_job = prefs.return_chosen_high_job()
+
+	for(var/dept in ready_job.departments)
+		if(ready_player_jobs[dept][prefs.real_name])
+			. = TRUE
+		LAZYREMOVE(ready_player_jobs[dept], prefs.real_name)
+
+	if(.)
+		update_ready_count()
+
+/datum/controller/subsystem/ticker/proc/update_ready_count()
+	total_players_ready = 0
+	for(var/mob/abstract/new_player/NP in player_list)
+		if(NP.ready)
+			total_players_ready++
+
+/datum/controller/subsystem/ticker/proc/cycle_player(var/mob/abstract/new_player/NP, var/datum/job/job)
+	// exclusively used for occupation.dm, when players swap job priority while readied
+	if(current_state >= GAME_STATE_PLAYING || !SSjobs.bitflag_to_job.len || !NP.ready)
+		return FALSE
+
+	update_ready_list(NP, force_urdy = TRUE)
+	update_ready_list(NP)
+
+/datum/controller/subsystem/ticker/proc/setup_player_ready_list()
+	for(var/mob/abstract/new_player/NP in player_list)
+		// initial setup to catch people who readied 0.1 seconds into init
+		if(NP.ready)
+			update_ready_list(NP)
+
 /datum/controller/subsystem/ticker/proc/send_tip_of_the_round()
 	var/m
 	if(selected_tip)
@@ -364,6 +431,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	else
 		var/mc_init_time = round(Master.initialization_time_taken, 1)
 		var/dynamic_time = LOBBY_TIME - mc_init_time
+		total_players = length(player_list)
+		LAZYINITLIST(ready_player_jobs)
 
 		if (dynamic_time <= config.vote_autogamemode_timeleft)
 			pregame_timeleft = config.vote_autogamemode_timeleft + 10
@@ -371,6 +440,8 @@ var/datum/controller/subsystem/ticker/SSticker
 		else
 			pregame_timeleft = dynamic_time
 			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was greater than configured autogamemode time, not clamping.")
+
+		setup_player_ready_list()
 
 	to_world("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>")
 	to_world("Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")

@@ -62,7 +62,7 @@
 
 	src.custom_emote(VISIBLE_MESSAGE, "politely beeps as its lights start to flash.")
 	spark(src, 5, alldirs)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, src), 10, TIMER_CLIENT_TIME)
+	QDEL_IN(src, 10)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 
 	if(key)

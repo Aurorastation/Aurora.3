@@ -174,6 +174,7 @@
 	//Default languages without universal translator software
 
 	add_language(LANGUAGE_SOL_COMMON, 1)
+	add_language(LANGUAGE_ELYRAN_STANDARD, 1)
 	add_language(LANGUAGE_TRADEBAND, 1)
 	add_language(LANGUAGE_GUTTER, 1)
 	add_language(LANGUAGE_EAL, 1)

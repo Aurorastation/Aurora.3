@@ -168,7 +168,7 @@
 	seed_name = "liberty cap"
 	display_name = "liberty cap mushrooms"
 	mutants = list("ghostmushroom")
-	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/soporific = list(3,3), /decl/reagent/space_drugs = list(1,25))
+	chems = list(/decl/reagent/nutriment = list(1), /decl/reagent/soporific = list(3,3), /decl/reagent/psilocybin = list(1,25))
 
 /datum/seed/mushroom/hallucinogenic/strong/setup_traits()
 	..()

@@ -86,9 +86,9 @@
 				user.drop_from_inventory(W,src)
 				crayon = W
 			else
-				..()
+				return ..()
 		else
-			..()
+			return ..()
 	else if(istype(W,/obj/item/grab))
 		if( (state == 1) && hacked)
 			var/obj/item/grab/G = W
@@ -97,53 +97,13 @@
 				qdel(G)
 				state = 3
 		else
-			..()
-	else if(istype(W,/obj/item/stack/material/animalhide/barehide) || \
-		istype(W,/obj/item/clothing/under) || \
-		istype(W,/obj/item/clothing/mask) || \
-		istype(W,/obj/item/clothing/head) || \
-		istype(W,/obj/item/clothing/gloves) || \
-		istype(W,/obj/item/clothing/shoes) || \
-		istype(W,/obj/item/clothing/suit) || \
-		istype(W,/obj/item/bedsheet))
+			return ..()
+	else if(is_type_in_list(W, list(/obj/item/stack/material/animalhide/barehide, /obj/item/clothing/under, /obj/item/clothing/mask, /obj/item/clothing/head, /obj/item/clothing/gloves, /obj/item/clothing/shoes, /obj/item/clothing/suit, /obj/item/bedsheet)))
 
 		//YES, it's hardcoded... saves a var/can_be_washed for every single clothing item.
-		if ( istype(W,/obj/item/clothing/suit/space ) )
+		if(is_type_in_list(W, list(/obj/item/clothing/suit/space, /obj/item/clothing/suit/syndicatefake, /obj/item/clothing/suit/cyborg_suit, /obj/item/clothing/suit/bomb_suit, /obj/item/clothing/suit/armor, /obj/item/clothing/mask/gas, /obj/item/clothing/mask/smokable/cigarette, /obj/item/clothing/head/syndicatefake, /obj/item/clothing/head/helmet)))
 			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/suit/syndicatefake ) )
-			to_chat(user, "This item does not fit.")
-			return
-//		if ( istype(W,/obj/item/clothing/suit/powered ) )
-//			to_chat(user, "This item does not fit.")
-//			return
-		if ( istype(W,/obj/item/clothing/suit/cyborg_suit ) )
-			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/suit/bomb_suit ) )
-			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/suit/armor ) )
-			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/suit/armor ) )
-			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/mask/gas ) )
-			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/mask/smokable/cigarette ) )
-			to_chat(user, "This item does not fit.")
-			return
-		if ( istype(W,/obj/item/clothing/head/syndicatefake ) )
-			to_chat(user, "This item does not fit.")
-			return
-//		if ( istype(W,/obj/item/clothing/head/powered ) )
-//			to_chat(user, "This item does not fit.")
-//			return
-		if ( istype(W,/obj/item/clothing/head/helmet ) )
-			to_chat(user, "This item does not fit.")
-			return
+			return TRUE
 
 		if(contents.len < 5)
 			if ( state in list(1, 3) )
@@ -154,8 +114,9 @@
 		else
 			to_chat(user, "<span class='notice'>The washing machine is full.</span>")
 	else
-		..()
+		return ..()
 	update_icon()
+	return TRUE
 
 /obj/machinery/washing_machine/attack_hand(mob/user as mob)
 	switch(state)

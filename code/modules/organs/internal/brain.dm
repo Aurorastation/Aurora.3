@@ -105,7 +105,7 @@
 			if(!oxygen_reserve) //(hardcrit)
 				owner.Paralyse(10)
 
-			var/can_heal = damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))
+			var/can_heal = (damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))) && (!(owner.chem_effects[CE_NEUROTOXIC]) || owner.chem_effects[CE_ANTITOXIN])
 			var/damprob
 			var/brain_regen_amount = owner.chem_effects[CE_BRAIN_REGEN]	/ 10
 			//Effects of bloodloss
@@ -117,7 +117,7 @@
 						damage = max(damage-1, 0)
 				if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 					if(prob(1))
-						to_chat(owner, "<span class='warning'>You feel [pick("dizzy","woozy","faint")]...</span>")
+						to_chat(owner, SPAN_WARNING("You feel a bit [pick("lightheaded","dizzy","pale")]..."))
 					damprob = owner.chem_effects[CE_STABLE] ? 30 : 60
 					if(!past_damage_threshold(2) && prob(damprob))
 						take_internal_damage(1)
@@ -128,7 +128,7 @@
 						take_internal_damage(1)
 					if(!owner.paralysis && prob(10))
 						owner.Paralyse(rand(1,3))
-						to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
+						to_chat(owner, SPAN_WARNING("You feel [pick("weak","disoriented","faint","cold")]."))
 				if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 60 : 100
@@ -136,7 +136,7 @@
 						take_internal_damage(1)
 					if(!owner.paralysis && prob(15))
 						owner.Paralyse(rand(3, 5))
-						to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
+						to_chat(owner, SPAN_WARNING("You feel <b>extremely</b> [pick("cold","woozy","faint","weak","confused","tired","lethargic")]."))
 				if(-(INFINITY) to BLOOD_VOLUME_SURVIVE) // Also see heart.dm, being below this point puts you into cardiac arrest.
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 80 : 100

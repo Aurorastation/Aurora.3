@@ -50,14 +50,21 @@
 	equipment_darkness_modifier = 0
 	equipment_overlays.Cut()
 
-	if(istype(src.head, /obj/item/clothing/head))
-		add_clothing_protection(head)
-	if(istype(src.glasses, /obj/item/clothing/glasses))
-		process_glasses(glasses)
-	if(istype(src.wear_mask, /obj/item/clothing/mask))
-		add_clothing_protection(wear_mask)
-	if(istype(back,/obj/item/rig))
-		process_rig(back)
+	var/binoc_check
+	if(client)
+		binoc_check = client.view == world.view
+	else
+		binoc_check = TRUE
+
+	if ((!client || client.eye == src || client.eye == loc || client.eye == z_eye) && binoc_check) // !client is so the unit tests function
+		if(istype(src.head, /obj/item/clothing/head))
+			add_clothing_protection(head)
+		if(istype(src.glasses, /obj/item/clothing/glasses))
+			process_glasses(glasses)
+		if(istype(src.wear_mask, /obj/item/clothing/mask))
+			add_clothing_protection(wear_mask)
+		if(istype(back,/obj/item/rig))
+			process_rig(back)
 
 /mob/living/carbon/human/proc/process_glasses(var/obj/item/clothing/glasses/G)
 	if(G && G.active)
@@ -122,7 +129,10 @@
 						if ("assisted")
 							I.mechassist()
 						if ("mechanical")
-							I.robotize()
+							if (rlimb_data[name])
+								I.robotize(rlimb_data[name])
+							else
+								I.robotize()
 						if ("removed")
 							qdel(I)
 

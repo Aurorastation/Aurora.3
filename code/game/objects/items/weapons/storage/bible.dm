@@ -40,7 +40,7 @@
 /obj/item/storage/bible/attackby(obj/item/W as obj, mob/user as mob)
 	if(src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..()
+	return ..()
 
 /obj/item/storage/bible/proc/Set_Religion(mob/user)
 	if(use_check(user))

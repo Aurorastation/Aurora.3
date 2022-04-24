@@ -8,6 +8,7 @@
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	var/deploy_type = /obj/structure/closet/body_bag
 
 /obj/item/bodybag/attack_self(mob/user)
 	deploy_bag(user, user.loc)
@@ -21,10 +22,14 @@
 			deploy_bag(user, target)
 
 /obj/item/bodybag/proc/deploy_bag(mob/user, atom/location)
-	var/obj/structure/closet/body_bag/R = new /obj/structure/closet/body_bag(location)
+	var/obj/structure/closet/body_bag/R = new deploy_type(location)
 	R.add_fingerprint(user)
+	tweak_bag(R)
 	playsound(src, 'sound/items/drop/cloth.ogg', 30)
 	qdel(src)
+
+/obj/item/bodybag/proc/tweak_bag(var/obj/structure/closet/body_bag/BB)
+	return
 
 /obj/item/storage/box/bodybags
 	name = "body bags"
@@ -74,9 +79,9 @@
 	if (W.ispen())
 		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)  as text
 		if (user.get_active_hand() != W)
-			return
+			return TRUE
 		if (!in_range(src, user) && src.loc != user)
-			return
+			return TRUE
 		t = sanitizeSafe(t, MAX_NAME_LEN)
 		if (t)
 			src.name = "body bag - "
@@ -92,12 +97,13 @@
 				LAZYADD(overlays, image(icon, "bodybag_label"))
 		else
 			src.name = "body bag"
-		return
+		return TRUE
 	else if(W.iswirecutter())
 		to_chat(user, "You cut the tag off the bodybag.")
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		src.name = "body bag"
 		LAZYREMOVE(overlays, image(icon, "bodybag_label"))
+		return TRUE
 
 /obj/structure/closet/body_bag/store_mobs(var/stored_units)
 	contains_body = ..()
@@ -156,15 +162,12 @@
 	icon = 'icons/obj/cryobag.dmi'
 	icon_state = "bodybag_folded"
 	origin_tech = list(TECH_BIO = 4)
+	deploy_type = /obj/structure/closet/body_bag/cryobag
 	var/stasis_power
 
-/obj/item/bodybag/cryobag/attack_self(mob/user)
-	var/obj/structure/closet/body_bag/cryobag/R = new /obj/structure/closet/body_bag/cryobag(user.loc)
+/obj/item/bodybag/cryobag/tweak_bag(var/obj/structure/closet/body_bag/cryobag/C)
 	if(stasis_power)
-		R.stasis_power = stasis_power
-	R.update_icon()
-	R.add_fingerprint(user)
-	qdel(src)
+		C.stasis_power = stasis_power
 
 /obj/structure/closet/body_bag/cryobag
 	name = "stasis bag"

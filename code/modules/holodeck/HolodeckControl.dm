@@ -106,41 +106,37 @@
 	if(..())
 		return 1
 
-	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+	if(locked && !allowed(usr))
+		return
 
-		if(locked && !allowed(usr))
+	if(href_list["program"])
+		var/prog = href_list["program"]
+		if(prog in current_map.holodeck_programs)
+			loadProgram(current_map.holodeck_programs[prog])
+
+	else if(href_list["AIoverride"])
+		if(!issilicon(usr))
 			return
 
-		usr.set_machine(src)
+		if(safety_disabled && emagged)
+			return //if a traitor has gone through the trouble to emag the thing, let them keep it.
 
-		if(href_list["program"])
-			var/prog = href_list["program"]
-			if(prog in current_map.holodeck_programs)
-				loadProgram(current_map.holodeck_programs[prog])
+		safety_disabled = !safety_disabled
+		update_projections()
+		if(safety_disabled)
+			message_admins("[key_name_admin(usr)] overrode the holodeck's safeties")
+			log_game("[key_name(usr)] overrided the holodeck's safeties",ckey=key_name(usr))
+		else
+			message_admins("[key_name_admin(usr)] restored the holodeck's safeties")
+			log_game("[key_name(usr)] restored the holodeck's safeties",ckey=key_name(usr))
 
-		else if(href_list["AIoverride"])
-			if(!issilicon(usr))
-				return
+	else if(href_list["gravity"])
+		toggleGravity(linkedholodeck)
 
-			if(safety_disabled && emagged)
-				return //if a traitor has gone through the trouble to emag the thing, let them keep it.
+	else if(href_list["togglehololock"])
+		togglelock(usr)
 
-			safety_disabled = !safety_disabled
-			update_projections()
-			if(safety_disabled)
-				message_admins("[key_name_admin(usr)] overrode the holodeck's safeties")
-				log_game("[key_name(usr)] overrided the holodeck's safeties",ckey=key_name(usr))
-			else
-				message_admins("[key_name_admin(usr)] restored the holodeck's safeties")
-				log_game("[key_name(usr)] restored the holodeck's safeties",ckey=key_name(usr))
-
-		else if(href_list["gravity"])
-			toggleGravity(linkedholodeck)
-
-		else if(href_list["togglehololock"])
-			togglelock(usr)
-
-		src.add_fingerprint(usr)
+	src.add_fingerprint(usr)
 	src.updateUsrDialog()
 	return
 
@@ -377,6 +373,10 @@
 		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return TRUE
 
-/obj/machinery/computer/HolodeckControl/Exodus
+/obj/machinery/computer/HolodeckControl/Aurora
+	density = 0
+	linkedholodeck_area = /area/holodeck/alphadeck
+
+/obj/machinery/computer/HolodeckControl/Horizon
 	density = 0
 	linkedholodeck_area = /area/holodeck/alphadeck

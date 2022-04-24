@@ -17,7 +17,7 @@
 
 	// This checks if TCOMS is online using the test proc. If it isn't, the suit sensor data isn't loaded.
 	var/datum/signal/signal
-	signal = telecomms_process_active()
+	signal = telecomms_process_active(user.loc.z)
 	data["signal"] = 0
 	if(signal.data["done"] == 1)
 		data["isAI"] = isAI(user)

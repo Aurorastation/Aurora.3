@@ -5,14 +5,13 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield1" //placeholder for now // four fucking years alberyk. FOUR
 	var/shield_level = 0.5 //Percentage of damage absorbed by the shield.
-	var/image/shield_overlay
 
 /obj/item/borg/combat/shield/on_module_activate(mob/living/silicon/robot/R)
-	shield_overlay = image(R.icon, "[R.module_sprites[R.icontype]]-shield")
-	R.add_overlay(shield_overlay)
+	R.shield_overlay = image(R.icon, "[R.module_sprites[R.icontype][ROBOT_CHASSIS]]-shield")
+	R.add_overlay(R.shield_overlay)
 
 /obj/item/borg/combat/shield/on_module_deactivate(mob/living/silicon/robot/R)
-	R.cut_overlay(shield_overlay)
+	R.cut_overlay(R.shield_overlay)
 
 /obj/item/borg/combat/shield/verb/set_shield_level()
 	set name = "Set shield level"

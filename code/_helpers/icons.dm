@@ -640,7 +640,7 @@ proc/ColorTone(rgb, tone)
 /// appearance system (overlays/underlays, etc.) is not available.
 ///
 /// Only the first argument is required.
-/proc/getFlatIcon(image/A, defdir, deficon, defstate, defblend, start = TRUE, no_anim = FALSE)
+/proc/getFlatIcon(image/A, defdir, deficon, defstate, defblend, start = TRUE, no_anim = FALSE, ignore_parent_dir = FALSE)
 	//Define... defines.
 	var/static/icon/flat_template = icon('icons/effects/effects.dmi', "nothing")
 
@@ -701,7 +701,7 @@ proc/ColorTone(rgb, tone)
 	var/base_icon_dir	//We'll use this to get the icon state to display if not null BUT NOT pass it to overlays as the dir we have
 
 	//These should use the parent's direction (most likely)
-	if(!A.dir || A.dir == SOUTH)
+	if(!A.dir || A.dir == SOUTH || ignore_parent_dir)
 		curdir = defdir
 	else
 		curdir = A.dir
@@ -869,6 +869,18 @@ proc/ColorTone(rgb, tone)
 			if(3)	I.pixel_y--
 			if(4)	I.pixel_y++
 		overlays += I//And finally add the overlay.
+
+/proc/build_disappear_icon(atom/A)
+	var/icon/disappear_icon = new(getFlatIcon(A))
+	var/W = disappear_icon.Width()
+	var/H = disappear_icon.Height()
+	var/icon/T = icon('icons/effects/effects.dmi',"disappear")
+	if(W != world.icon_size || H != world.icon_size)
+		T.Scale(W, H)
+	T.BecomeAlphaMask()
+	disappear_icon.MapColors(rgb(45,45,45), rgb(70,70,70), rgb(30,30,30), rgb(0,0,0))
+	disappear_icon.AddAlphaMask(T)
+	return disappear_icon
 
 //For photo camera.
 /proc/build_composite_icon(atom/A)

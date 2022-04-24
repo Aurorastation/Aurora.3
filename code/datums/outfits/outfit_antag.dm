@@ -224,7 +224,7 @@
 	suit = list(
 		/obj/item/clothing/suit/pirate,
 		/obj/item/clothing/suit/storage/toggle/bomber,
-		/obj/item/clothing/suit/unathi/mantle,
+		/obj/item/clothing/accessory/poncho/unathimantle,
 		/obj/item/clothing/accessory/poncho,
 		/obj/item/clothing/accessory/poncho/purple,
 		/obj/item/clothing/accessory/poncho/roles/cloak/captain,

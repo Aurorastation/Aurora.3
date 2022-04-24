@@ -1,5 +1,6 @@
 /mob/abstract/new_player/Logout()
-	ready = 0
+	ready = FALSE
+	SSticker.update_ready_list(src)
 
 	// see login.dm
 	if(my_client)

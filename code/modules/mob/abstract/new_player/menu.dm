@@ -14,10 +14,12 @@
 
 	using = new /obj/screen/new_player/title(src)
 	using.name = "Title"
+	using.hud = src
 	adding += using
 
 	using = new /obj/screen/new_player/selection/join_game(src)
 	using.name = "Join Game"
+	using.hud = src
 	adding += using
 
 	using = new /obj/screen/new_player/selection/settings(src)
@@ -83,6 +85,8 @@
 	. = ..()
 
 /obj/screen/new_player/title/proc/Update()
+	if(!istype(hud) || !isnewplayer(hud.mymob))
+		return
 	lobby_index += 1
 	if (lobby_index > length(current_map.lobby_screens))
 		lobby_index = 1
@@ -230,6 +234,9 @@
 			return
 
 		ready = readying
+		if(ready)
+			last_ready_name = client.prefs.real_name
+		SSticker.update_ready_list(src)
 	else
 		ready = FALSE
 
@@ -267,7 +274,7 @@
 		announce_ghost_joinleave(src)
 		var/mob/living/carbon/human/dummy/mannequin/mannequin = new
 		client.prefs.dress_preview_mob(mannequin)
-		observer.appearance = mannequin
+		observer.appearance = mannequin.appearance
 		observer.appearance_flags = KEEP_TOGETHER
 		observer.alpha = 127
 		observer.layer = initial(observer.layer)

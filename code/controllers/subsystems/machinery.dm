@@ -19,6 +19,7 @@
 	var/tmp/powerusers_this_tick = 0
 
 	var/list/all_cameras = list()
+	var/list/obj/machinery/hologram/holopad/all_holopads = list()
 	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
 	var/list/gravity_generators = list()
 
@@ -32,6 +33,7 @@
 
 /datum/controller/subsystem/machinery/Recover()
 	all_cameras = SSmachinery.all_cameras
+	all_holopads = SSmachinery.all_holopads
 	recipe_datums = SSmachinery.recipe_datums
 
 /datum/controller/subsystem/machinery/proc/queue_rcon_update()
@@ -211,5 +213,19 @@
 
 /datum/controller/subsystem/machinery/ExplosionEnd()
 	wake()
+
+/datum/controller/subsystem/machinery/proc/setup_atmos_machinery(list/machines)
+	set background = TRUE
+	var/list/atmos_machines = list()
+	for (var/obj/machinery/atmospherics/machine in machines)
+		atmos_machines += machine
+	log_game("Initializing atmos machinery")
+	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
+		machine.atmos_init()
+		CHECK_TICK
+	log_game("Initializing pipe networks")
+	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
+		machine.build_network()
+		CHECK_TICK
 
 #undef MACHINERY_GO_TO_NEXT

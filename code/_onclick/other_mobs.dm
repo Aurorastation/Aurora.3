@@ -169,5 +169,5 @@
 			add_logs(src, A, attacktext)
 	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	var/damage = rand(melee_damage_lower, melee_damage_upper)
-	if(A.attack_generic(src,damage,attacktext,environment_smash) && loc && attack_sound)
+	if(A.attack_generic(src, damage, attacktext, environment_smash, armor_penetration, attack_flags) && loc && attack_sound)
 		playsound(loc, attack_sound, 50, 1, 1)

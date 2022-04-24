@@ -14,7 +14,7 @@
 	interact_offline = 1
 	var/unlocked = 0	//If 0, then the valve is locked closed, otherwise it is open(-able, it's a one-way valve so it closes if gas would flow backwards).
 	var/target_pressure = ONE_ATMOSPHERE
-	var/max_pressure_setting = 15000	//kPa
+	var/max_pressure_setting = ATMOS_PUMP_MAX_PRESSURE	//kPa
 	var/set_flow_rate = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 	var/regulate_mode = REGULATE_OUTPUT
 
@@ -26,6 +26,18 @@
 
 	var/broadcast_status_next_process = FALSE
 
+/obj/machinery/atmospherics/binary/passive_gate/on
+	unlocked = 1
+/obj/machinery/atmospherics/binary/passive_gate/on/input
+	regulate_mode = REGULATE_INPUT
+
+/obj/machinery/atmospherics/binary/passive_gate/on/output/max/Initialize()
+	. = ..()
+	target_pressure = max_pressure_setting
+
+/obj/machinery/atmospherics/binary/passive_gate/on/input/max/Initialize()
+	. = ..()
+	target_pressure = max_pressure_setting
 /obj/machinery/atmospherics/binary/passive_gate/scrubbers
 	name = "scrubbers pressure regulator"
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for scrubber pipes."
@@ -60,8 +72,8 @@
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		add_underlay(T, node1, turn(dir, 180), node1?.icon_connect_type)
-		add_underlay(T, node2, dir, node2?.icon_connect_type)
+		add_underlay(T, node1, turn(dir, 180), icon_connect_type)
+		add_underlay(T, node2, dir, icon_connect_type)
 
 /obj/machinery/atmospherics/binary/passive_gate/hide(var/i)
 	update_underlays()
@@ -265,13 +277,13 @@
 		return ..()
 	if (unlocked)
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>")
-		return 1
+		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
-		return 1
+		return TRUE
 	playsound(src.loc, W.usesound, 50, 1)
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 	if (do_after(user, 40/W.toolspeed, act_target = src))
@@ -281,6 +293,7 @@
 			"You hear ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
+		return TRUE
 
 #undef REGULATE_NONE
 #undef REGULATE_INPUT

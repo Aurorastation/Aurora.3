@@ -111,3 +111,5 @@
 #define GAS_NO2					"nitrodioxide"
 #define GAS_PHORON				"phoron"
 #define GAS_HYDROGEN            "hydrogen"
+#define GAS_ALIEN				"aliether"
+#define GAS_STEAM				"water"

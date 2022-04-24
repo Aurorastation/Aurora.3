@@ -413,10 +413,10 @@
 	is_wieldable = TRUE
 
 	firemodes = list(
-		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),
-		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40),
-		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60),
-		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 1, fire_delay = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
+		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20, fire_delay_wielded = 20),
+		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, fire_delay_wielded = 40),
+		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, fire_delay_wielded = 60),
+		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 1, fire_delay = 1, fire_delay_wielded = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 		)
 
 	needspin = FALSE

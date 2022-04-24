@@ -1,4 +1,4 @@
-// Light rigs are not space-capable, but don't suffer excessive slowdown or sight issues when depowered.
+// Light rigs are not space-capable, but don't suffer excessive slowdown or sight issues when depowered. 
 /obj/item/rig/light
 	name = "light suit control module"
 	desc = "A lighter, less armored hardsuit."
@@ -14,8 +14,9 @@
 		energy = ARMOR_MELEE_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	emp_protection = 10
-	slowdown = 0
+	emp_protection = 100
+	slowdown = -1
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
 	item_flags = THICKMATERIAL
 	offline_slowdown = 0
 	offline_vision_restriction = 0
@@ -36,6 +37,7 @@
 
 /obj/item/clothing/shoes/magboots/rig/light
 	name = "shoes"
+	footstep_sound_override = null
 
 /obj/item/clothing/head/helmet/space/rig/light
 	name = "hood"
@@ -94,7 +96,8 @@
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/teleporter,
 		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/device/door_hack
+		/obj/item/rig_module/device/door_hack,
+		/obj/item/rig_module/fabricator/energy_net
 		)
 
 

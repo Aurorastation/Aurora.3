@@ -451,9 +451,9 @@
 	icon_state = "passcard_techno"
 	item_state = "passcard_techno"
 
-/obj/item/clothing/accessory/badge/passcard/burszia
-	name = "burszian passcard"
-	desc = "A passcard issued to Burszian Hephaestus employees and- owned IPCs- working abroad."
+/obj/item/clothing/accessory/badge/passcard/burzsia
+	name = "burzsian passcard"
+	desc = "A passcard issued to Burzsian Hephaestus employees and- owned IPCs- working abroad."
 	desc_fluff = "Despite protest from the Himean representatives in government, Hephaestus Industries- citing their 'Home is where the Hephaestus is' initiative- is permitted to issue up to five thousand \
 	sponsored passcards to participating employees on a yearly basis, both to remind them of their home and to save on imported labor costs."
 	icon_state = "passcard_burs"
@@ -466,6 +466,16 @@
 	from the planet's farms in the same plastic casing as a small sigil of the Perfection said to grant safe passage abroad for adherents."
 	icon_state = "passcard_konyang"
 	item_state = "passcard_konyang"
+
+// Work Visa
+/obj/item/clothing/accessory/badge/passcard/workvisa
+	name = "republic of biesel work visa"
+	desc = "A work visa issued to those who work in the Republic of Biesel, but who do not have a Biesellite citizenship."
+	desc_fluff = "A work visa is required in the Republic of Biesel for those who do not have a Biesellite citizenship and who intend to hold legal employment. Those who most commonly lack a Biesellite citizenship \
+	are those from the Alliance of Sovereign Solarian Nations, as the ASSN does not permit dual citizenships in combination with a Biesellite citizenship. Other individuals that may have a Republic of Biesel work \
+	visa are those who intend to become citizens but have not yet resided for two years in order to apply for citizenship, or those who have not yet applied for a citizenship."
+	icon_state = "workvisa"
+	item_state = "workvisa"
 
 //passports
 

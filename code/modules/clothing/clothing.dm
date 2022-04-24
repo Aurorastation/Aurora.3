@@ -6,7 +6,7 @@
 	var/flash_protection = FLASH_PROTECTION_NONE	// Sets the item's level of flash protection.
 	var/tint = TINT_NONE							// Sets the item's level of visual impairment tint.
 	var/list/species_restricted = null 				//Only these species can wear this kit.
-	var/gunshot_residue //Used by forensics.
+	var/list/gunshot_residue //Used by forensics.
 
 	var/list/accessories
 	var/list/valid_accessory_slots
@@ -30,7 +30,6 @@
 	var/no_overheat = FALSE  // Checks to see if the clothing is ignored for the purpose of overheating messages.
 
 	var/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints
-
 
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
 	. = ..(mapload)
@@ -56,7 +55,7 @@
 // Aurora forensics port.
 /obj/item/clothing/clean_blood()
 	. = ..()
-	gunshot_residue = null
+	LAZYCLEARLIST(gunshot_residue)
 
 /obj/item/proc/negates_gravity()
 	return 0
@@ -292,6 +291,15 @@
 			siemens_coefficient = between(0, material.conductivity / 10, 10)
 		slowdown = between(0, round(material.weight / 10, 0.1), 6)
 
+/obj/item/clothing/proc/get_accessory(var/typepath)
+	if(istype(src, typepath))
+		return src
+	if(LAZYLEN(accessories))
+		var/accessory = locate(typepath) in accessories
+		if(accessory)
+			return accessory
+	return null
+
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
@@ -388,7 +396,7 @@
 
 /obj/item/clothing/gloves/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(blood_DNA)
+	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(H.species.blood_mask, "bloodyhands")
 		bloodsies.color = blood_color
 		I.add_overlay(bloodsies)
@@ -547,32 +555,42 @@
 	if(!mob_wear_hat(user))
 		return ..()
 
+#define WEAR_HAT 1
+#define ALREADY_WEARING_HAT 2
 /obj/item/clothing/head/proc/mob_wear_hat(var/mob/user)
 	if(!Adjacent(user))
-		return 0
+		return FALSE
 	var/success
 	if(istype(user, /mob/living/silicon/robot/drone))
 		var/mob/living/silicon/robot/drone/D = user
 		if(D.hat)
-			success = 2
-		else
+			if(alert("You are already wearing a [D.hat]. Swap with [src]?",,"Yes","No") == "Yes")
+				D.hat.forceMove(get_turf(src))
+				D.hat = null
+				D.cut_overlay(D.hat_overlay)
+				success = WEAR_HAT
+			else
+				success = ALREADY_WEARING_HAT
+		if(success != ALREADY_WEARING_HAT)
 			D.wear_hat(src)
-			success = 1
+			success = WEAR_HAT
 	else if(istype(user, /mob/living/carbon/alien/diona))
 		var/mob/living/carbon/alien/diona/D = user
 		if(D.hat)
-			success = 2
+			success = ALREADY_WEARING_HAT
 		else
 			D.wear_hat(src)
-			success = 1
+			success = WEAR_HAT
 
 	if(!success)
-		return 0
-	else if(success == 2)
+		return FALSE
+	else if(success == ALREADY_WEARING_HAT)
 		to_chat(user, SPAN_WARNING("You are already wearing a hat."))
-	else if(success == 1)
+	else if(success == WEAR_HAT)
 		to_chat(user, SPAN_NOTICE("You crawl under \the [src]."))
-	return 1
+	return TRUE
+#undef WEAR_HAT
+#undef ALREADY_WEARING_HAT
 
 /obj/item/clothing/head/return_own_image()
 	var/image/our_image
@@ -614,7 +632,7 @@
 
 /obj/item/clothing/head/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(blood_DNA)
+	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(H.species.blood_mask, icon_state = "helmetblood")
 		bloodsies.color = blood_color
 		bloodsies.appearance_flags = RESET_ALPHA
@@ -690,7 +708,7 @@
 
 /obj/item/clothing/mask/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(blood_DNA && has_blood_overlay)
+	if(blood_DNA && has_blood_overlay && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(H.species.blood_mask, "maskblood")
 		bloodsies.color = blood_color
 		bloodsies.appearance_flags = RESET_ALPHA
@@ -784,6 +802,8 @@
 	var/silent = 0
 	var/last_trip = 0
 
+	var/footstep_sound_override
+
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Boot Knife"
 	set desc = "Pull out your boot knife."
@@ -851,7 +871,7 @@
 
 /obj/item/clothing/shoes/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
-	if(blood_DNA)
+	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		for(var/limb_tag in list(BP_L_FOOT, BP_R_FOOT))
 			var/obj/item/organ/external/E = H.get_organ(limb_tag)
 			if(E && !E.is_stump())
@@ -888,6 +908,22 @@
 /obj/item/clothing/shoes/clothing_class()
 	return "shoes"
 
+/obj/item/clothing/shoes/clean_blood()
+	. = ..()
+	track_footprint = 0
+
+/obj/item/clothing/shoes/proc/do_special_footsteps(var/running)
+	if(!footstep_sound_override)
+		return FALSE
+	if(ishuman(loc))
+		var/mob/living/carbon/human/wearer = loc
+		if(running)
+			playsound(wearer, footstep_sound_override, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+		else
+			footstep++
+			if (footstep % 2)
+				playsound(wearer, footstep_sound_override, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+	return TRUE
 ///////////////////////////////////////////////////////////////////////
 //Suit
 /obj/item/clothing/suit
@@ -937,7 +973,7 @@
 			var/image/accessory_image = A.get_accessory_mob_overlay(H)
 			I.add_overlay(accessory_image)
 
-	if(blood_DNA)
+	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "[blood_overlay_type]blood")
 		bloodsies.color = blood_color
 		I.add_overlay(bloodsies)
@@ -1021,7 +1057,7 @@
 			var/image/accessory_image = A.get_accessory_mob_overlay(H)
 			I.add_overlay(accessory_image)
 
-	if(blood_DNA)
+	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "uniformblood")
 		bloodsies.color = blood_color
 		I.add_overlay(bloodsies)

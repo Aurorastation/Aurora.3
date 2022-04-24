@@ -101,10 +101,10 @@
 		var/mob/living/carbon/human/H = loc
 		if(istype(H))
 			if(!istype(H.gloves, /obj/item/clothing))
-				H.gunshot_residue = chambered.caliber
+				LAZYDISTINCTADD(H.gunshot_residue, chambered.caliber)
 			else
 				var/obj/item/clothing/G = H.gloves
-				G.gunshot_residue = chambered.caliber
+				LAZYDISTINCTADD(G.gunshot_residue, chambered.caliber)
 
 	switch(handle_casings)
 		if(DELETE_CASINGS)
@@ -213,7 +213,7 @@
 	update_icon()
 
 /obj/item/gun/projectile/attackby(obj/item/A, mob/user)
-	..()
+	. = ..()
 	load_ammo(A, user)
 
 /obj/item/gun/projectile/toggle_firing_mode(mob/user)

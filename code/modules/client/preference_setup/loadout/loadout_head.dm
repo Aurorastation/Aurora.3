@@ -137,7 +137,7 @@
 /datum/gear/head/hardhat
 	display_name = "hard hat selection"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Quartermaster", "Cargo Technician", "Shaft Miner")
+	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Operations Manager", "Hangar Technician", "Shaft Miner")
 
 /datum/gear/head/hardhat/New()
 	..()
@@ -248,7 +248,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -272,6 +272,10 @@
 /datum/gear/head/nonla
 	display_name = "non la hat"
 	path = /obj/item/clothing/head/nonla
+
+/datum/gear/head/konyang
+	display_name = "gat"
+	path = /obj/item/clothing/head/konyang
 
 /datum/gear/head/iac
 	display_name = "IAC headgear selection"
@@ -328,6 +332,7 @@
 	description = "A selection of headgear from Gadpathur."
 	path = /obj/item/clothing/head/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/head/gadpathur/New()
 	..()
@@ -349,6 +354,10 @@
 	path = /obj/item/clothing/head/dominia
 	allowed_roles = list("Consular Officer")
 
+/datum/gear/head/hairnet
+	display_name = "hairnet"
+	path = /obj/item/clothing/head/surgery/hairnet
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /*
 	Block Hair Adjustment

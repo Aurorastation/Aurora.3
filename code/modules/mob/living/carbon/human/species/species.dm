@@ -95,15 +95,15 @@
 	var/break_cuffs = FALSE                   //used in resist.dm to check if they can break hand/leg cuffs
 	var/natural_climbing = FALSE             //If true, the species always succeeds at climbing.
 	var/climb_coeff = 1.25                   //The coefficient to the climbing speed of the individual = 60 SECONDS * climb_coeff
-	
+
 	// Death vars.
 	var/respawn_type = CREW
 	var/meat_type = /obj/item/reagent_containers/food/snacks/meat/human
 	var/gibber_type = /obj/effect/gibspawner/human
 	var/single_gib_type = /obj/effect/decal/cleanable/blood/gibs
 	var/remains_type = /obj/effect/decal/remains/xeno
+	var/dust_remains_type =  /obj/effect/decal/remains/xeno/burned
 	var/gibbed_anim = "gibbed-h"
-	var/dusted_anim = "dust-h"
 	var/death_sound
 	var/death_message = "falls limp and stops moving..."
 	var/death_message_range = 2
@@ -260,22 +260,20 @@
 
 	var/pass_flags = 0
 
-	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints // What marks are left when walking
+	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot // What marks are left when walking
 
 	var/default_h_style = "Bald"
 	var/default_f_style = "Shaved"
 	var/default_g_style = "None"
 
-	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
-	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM, RELIGION_LUCEISM)
-	var/default_citizenship = CITIZENSHIP_BIESEL
-	var/list/allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_ERIDANIREINSTATED,
-									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN_ORIGINAL, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR, ACCENT_KONYAN, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_NCF, ACCENT_FISANDUH, ACCENT_GADPATHUR,
-									ACCENT_PLUTO, ACCENT_ASSUNZIONE, ACCENT_VISEGRAD, ACCENT_VALKYRIE, ACCENT_MICTLAN)
-	var/default_accent = ACCENT_CETI
+	var/list/possible_cultures = list(
+		/decl/origin_item/culture/unknown
+	)
+
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
 	var/bodyfall_sound = /decl/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
+	var/footsound = /decl/sound_category/blank_footsteps //same as above but for footsteps without shoes
 
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
@@ -637,6 +635,35 @@
 /datum/species/proc/can_breathe_water()
 	return FALSE
 
+/datum/species/proc/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
+	var/list/trail_info = list()
+	if(H.shoes)
+		var/obj/item/clothing/shoes/S = H.shoes
+		if(istype(S))
+			S.handle_movement(T, H.m_intent == M_RUN ? TRUE : FALSE)
+			if(S.track_footprint)
+				if(S.blood_DNA)
+					trail_info["footprint_DNA"] = S.blood_DNA
+				trail_info["footprint_color"] = S.blood_color
+				S.track_footprint--
+	else
+		if(H.track_footprint)
+			if(H.feet_blood_DNA)
+				trail_info["footprint_DNA"] = H.feet_blood_DNA
+			trail_info["footprint_color"] = H.footprint_color
+			H.track_footprint--
+
+	return trail_info
+
+/datum/species/proc/deploy_trail(var/mob/living/carbon/human/H, var/turf/T)
+	var/list/trail_info = handle_trail(H, T)
+	if(length(trail_info))
+		var/track_path = trail_info["footprint_type"]
+		T.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], H.dir, 0, trail_info["footprint_color"]) // Coming
+		var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
+		if(istype(from))
+			from.add_tracks(track_path ? track_path : H.species.get_move_trail(H), trail_info["footprint_DNA"], 0, H.dir, trail_info["footprint_color"]) // Going
+
 /datum/species/proc/get_move_trail(var/mob/living/carbon/human/H)
 	if(H.lying)
 		return /obj/effect/decal/cleanable/blood/tracks/body
@@ -792,4 +819,7 @@
 	return stance_damage
 
 /datum/species/proc/can_hold_s_store(var/obj/item/I)
+	return FALSE
+
+/datum/species/proc/can_double_fireman_carry()
 	return FALSE

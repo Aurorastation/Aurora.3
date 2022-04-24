@@ -603,15 +603,12 @@ BLIND     // can't see anything
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/clothing/glasses/sunglasses/blindfold/white
-	name = "white blindfold"
-	desc = "A white blindfold that covers the eyes, preventing sight."
 	icon_state = "blindfoldwhite"
 	item_state = "blindfoldwhite"
 
 /obj/item/clothing/glasses/sunglasses/blindfold/white/seethrough
-	desc = "A white blindfold that covers the eyes, this one seems to be made of thinner material."
-	tint = TINT_MODERATE
-	flash_protection = FLASH_PROTECTION_MODERATE
+	desc = "A blindfold that covers the eyes, this one seems to be made of thinner material."
+	tint = TINT_NONE // It's practically a fluff thing anyway, so.
 
 /obj/item/clothing/glasses/sunglasses/blinders
 	name = "vaurcae blinders"

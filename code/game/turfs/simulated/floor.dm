@@ -92,6 +92,9 @@
 	for(var/obj/O in src)
 		O.hide(O.hides_under_flooring() && src.flooring)
 
+/turf/simulated/floor/is_floor()
+	return TRUE
+
 /turf/simulated/floor/shuttle_ceiling
 	name = "hull plating"
 	icon = 'icons/turf/flooring/tiles.dmi'

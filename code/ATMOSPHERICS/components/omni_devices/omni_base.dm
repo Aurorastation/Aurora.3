@@ -93,7 +93,7 @@
 	if ((int_pressure - env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
-		return 1
+		return TRUE
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 	playsound(src.loc, W.usesound, 50, 1)
 	if(do_after(user, 40/W.toolspeed, act_target = src))
@@ -103,6 +103,7 @@
 			"You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
+		return TRUE
 
 /obj/machinery/atmospherics/omni/attack_hand(user as mob)
 	if(..())
@@ -278,3 +279,9 @@
 	update_ports()
 
 	return null
+
+/obj/machinery/atmospherics/omni/AltClick(var/mob/user)
+	if(!allowed(user))
+		to_chat(user, SPAN_WARNING("Access denied."))
+		return
+	Topic(src, list("power" = "1"))

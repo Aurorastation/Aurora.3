@@ -2,13 +2,15 @@ const { Signale } = require('signale')
 const Vue = require('vue')
 const fs = require('fs-extra')
 
-const stages = require('./stages')
-
+const stages = (() => {
+  if (process.env.CI) return require('./stages').filter((stage) => stage.ci)
+  return require('./stages')
+})()
 
 // run
-const mainLogger = new Signale({scope: 'main'})
+const mainLogger = new Signale({ scope: 'main' })
 var states = {}
-async function runStages () {
+async function runStages() {
   mainLogger.time('All Stages')
   for (const [i, stage] of stages.entries()) {
     const name = stage.name()
@@ -21,7 +23,6 @@ async function runStages () {
   mainLogger.timeEnd('All Stages')
 }
 
-
 // Build HTML
 
 async function generateHTML() {
@@ -31,18 +32,9 @@ async function generateHTML() {
   await fs.outputFile('report.htm', await renderer.renderToString(app))
 }
 
-
 async function main() {
   await runStages()
   await generateHTML()
 }
 
 main()
-
-
-
-
-
-
-
-

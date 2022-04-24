@@ -115,19 +115,19 @@
 	if(istype(I, /obj/item/cell))
 		if(cell)
 			to_chat(user, SPAN_WARNING("\The [src] already has a cell inserted."))
-			return
+			return TRUE
 		user.drop_from_inventory(I, src)
 		to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
 		cell = I
-		return
+		return TRUE
 	if(I.isscrewdriver())
 		if(!cell)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a cell inserted."))
-			return
+			return TRUE
 		user.put_in_hands(cell)
 		to_chat(user, SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 		cell = null
-		return
+		return TRUE
 	return ..()
 
 /obj/item/inductive_charger/handheld/engineering

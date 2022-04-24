@@ -226,7 +226,9 @@
 
 /obj/item/gun/projectile/automatic/rifle/w556
 	name = "scout rifle"
-	desc = "A lightweight Neyland 556mi 'Ranger' used within the Sol Navy and Nanotrasen Emergency Response Teams. Equipped with a scope and designed for medium to long range combat, with moderate stopping power. Chambered in 5.56 rounds."
+	desc = "The Z8M variant of the Bulldog carbine, made by the now defunct Zendai Foundries. \
+	Features a longer, heavier barrel and low-power fixed-magnification optic in lieu of the grenade launcher. \
+	A vertical grip has been attached under the forend to help offset the change in balance and improve handling. Uses 5.56mm rounds."
 	icon = 'icons/obj/guns/w556.dmi'
 	icon_state = "w556rifle"
 	item_state = "w556rifle"
@@ -247,11 +249,20 @@
 	recoil_wielded = 2
 	accuracy_wielded = 1
 	multi_aim = 0 //Definitely a fuck no. Being able to target one person at this range is plenty.
+	auto_eject = 1
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0),
+		list(mode_name="semiauto", burst=1, fire_delay=0, fire_delay_wielded=0),
 		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(0,-1,-1), dispersion=list(0, 8))
 		)
+
+/obj/item/gun/projectile/automatic/rifle/w556/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "w556rifle"
+	else
+		icon_state = "w556rifle-empty"
 
 /obj/item/gun/projectile/automatic/rifle/w556/verb/scope()
 	set category = "Object"

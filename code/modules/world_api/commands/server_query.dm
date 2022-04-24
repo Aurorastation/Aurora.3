@@ -191,7 +191,7 @@
 			"eng" = engineering_positions,
 			"med" = medical_positions,
 			"sci" = science_positions,
-			"civ" = civilian_positions,
+			"civ" = service_positions,
 			"bot" = nonhuman_positions
 		)
 

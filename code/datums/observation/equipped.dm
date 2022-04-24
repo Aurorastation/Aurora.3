@@ -38,6 +38,7 @@ var/datum/observ/item_equipped/item_equipped_event = new()
 	. = ..()
 	mob_equipped_event.raise_event(user, src, slot)
 	item_equipped_event.raise_event(src, user, slot)
+	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 /obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
 	return TRUE

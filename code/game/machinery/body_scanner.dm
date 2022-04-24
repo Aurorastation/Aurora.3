@@ -123,10 +123,10 @@
 		return
 	if (occupant)
 		to_chat(user, SPAN_WARNING("The scanner is already occupied!"))
-		return
+		return TRUE
 	if (G.affecting.abiotic())
 		to_chat(user, SPAN_WARNING("Subject cannot have abiotic items on."))
-		return
+		return TRUE
 
 	var/mob/living/M = G.affecting
 	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
@@ -134,7 +134,7 @@
 	if (do_mob(user, G.affecting, 30, needhand = 0))
 		var/bucklestatus = M.bucklecheck(user)
 		if (!bucklestatus)//incase the patient got buckled_to during the delay
-			return
+			return TRUE
 		if (bucklestatus == 2)
 			var/obj/structure/LB = M.buckled_to
 			LB.user_unbuckle(user)
@@ -150,7 +150,7 @@
 	add_fingerprint(user)
 	//G = null
 	qdel(G)
-	return
+	return TRUE
 
 /obj/machinery/bodyscanner/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
 	if(!istype(user))
@@ -330,7 +330,7 @@
 
 	// shouldn't be reachable if occupant is invalid
 	if(href_list["print"])
-		var/obj/item/paper/R = new(loc)
+		var/obj/item/paper/medscan/R = new(loc)
 		R.color = "#eeffe8"
 		R.set_content_unsafe("Scan ([connected.occupant])", format_occupant_data(connected.get_occupant_data()))
 
@@ -660,6 +660,7 @@
 		"blood_amount" = REAGENT_VOLUME(H.vessel, /decl/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"lung_ruptured" = H.is_lung_ruptured(),
+		"lung_rescued" = H.is_lung_rescued(),
 		"external_organs" = H.organs.Copy(),
 		"internal_organs" = H.internal_organs.Copy(),
 		"species_organs" = H.species.has_organ //Just pass a reference for this, it shouldn't ever be modified outside of the datum.
@@ -673,6 +674,7 @@
 	dat += text("Brain Activity: []<br>", occ["brain_activity"])
 	dat += text("Blood Pressure: []<br>", occ["blood_pressure"])
 	dat += text("Blood Oxygenation: []%<br>", occ["blood_oxygenation"])
+	dat += text("Blood Volume: []%<br>", occ["blood_volume"])
 	dat += text("Physical Trauma: []<br>", occ["bruteloss"])
 	dat += text("Oxygen Deprivation: []<br>", occ["oxyloss"])
 	dat += text("Systemic Organ Failure: []<br>", occ["toxloss"])
@@ -751,7 +753,7 @@
 			if(unknown_body)
 				imp += "Unknown body present:"
 
-		if(!AN && !open && !infected & !imp)
+		if(!AN && !open && !infected && !imp)
 			AN = "None:"
 		if(!e.is_stump())
 			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[get_severity(e.brute_dam, TRUE)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
@@ -769,20 +771,24 @@
 
 		var/infection = get_infection_level(i.germ_level)
 		if(infection == "")
-			infection = "No Infection"
+			infection = "No Infection."
 		else
-			infection = "[infection] infection"
+			infection = "[infection] infection."
 		if(i.rejecting)
-			infection += "(being rejected)"
+			infection += "(being rejected)."
 
 		var/necrotic = ""
 		if(i.get_scarring_level() > 0.01)
-			necrotic += ", [i.get_scarring_results()]"
+			necrotic += " [i.get_scarring_results()]."
 		if(i.status & ORGAN_DEAD)
-			necrotic = ", <span class='warning'>necrotic and decaying</span>"
+			necrotic = " <span class='warning'>Necrotic and decaying</span>."
+
+		var/rescued = ""
+		if(istype(i, /obj/item/organ/internal/lungs) && occ["lung_rescued"])
+			rescued = " Has a small puncture wound."
 
 		dat += "<tr>"
-		dat += "<td>[i.name]</td><td>N/A</td><td>[get_internal_damage(i)]</td><td>[infection], [mech][necrotic]</td><td></td>"
+		dat += "<td>[i.name]</td><td>N/A</td><td>[get_internal_damage(i)]</td><td>[infection][mech][necrotic][rescued]</td><td></td>"
 		dat += "</tr>"
 	dat += "</table>"
 

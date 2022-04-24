@@ -1,6 +1,6 @@
 /obj/item/organ
 	name = "organ"
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/organs/organs.dmi'
 	drop_sound = 'sound/items/drop/flesh.ogg'
 	pickup_sound = 'sound/items/pickup/flesh.ogg'
 	default_action_type = /datum/action/item_action/organ
@@ -31,8 +31,9 @@
 	var/robotic = 0 //For being a robot
 	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
 	var/robotic_name
-	var/robotic_sprite
+	var/robotic_sprite = TRUE
 	var/emp_coeff = 1 //coefficient for damages taken by EMP, if the organ is robotic.
+	var/model
 
 	//Lists.
 	var/list/transplant_data
@@ -361,10 +362,10 @@
 	robotic = ROBOTIC_MECHANICAL
 	status = ORGAN_ROBOT
 	status |= ORGAN_ASSISTED
+	drop_sound = 'sound/items/drop/metalweapon.ogg'
+	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 	if(robotic_name)
 		name = robotic_name
-	if(robotic_sprite)
-		icon_state = robotic_sprite
 
 /obj/item/organ/proc/mechassist() //Used to add things like pacemakers, etc
 	robotize()

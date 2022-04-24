@@ -211,7 +211,7 @@
 									available_channels.Add(":m")
 								if("Mining")
 									available_channels.Add(":d")
-								if("Cargo")
+								if("Operations")
 									available_channels.Add(":q")
 		else
 			..()
@@ -694,12 +694,11 @@
 	available_channels = list(":e")
 	. = ..()
 
-/mob/living/simple_animal/parrot/say(var/message)
+/mob/living/simple_animal/parrot/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 
 	if(stat)
 		return
 
-	var/verb = "says"
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 

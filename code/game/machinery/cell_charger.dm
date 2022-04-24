@@ -2,7 +2,7 @@
 	name = "heavy-duty cell charger"
 	desc = "A much more powerful version of the standard recharger that is specially designed for charging power cells."
 	icon = 'icons/obj/power.dmi'
-	icon_state = "ccharger0"
+	icon_state = "ccharger"
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 5
@@ -17,20 +17,22 @@
 	update_icon()
 
 /obj/machinery/cell_charger/update_icon()
-	icon_state = "ccharger[charging ? 1 : 0]"
-
 	if(charging && !(stat & (BROKEN|NOPOWER)) )
 
 		var/newlevel = 	round(charging.percent() * 4.0 / 99)
 
 		if(chargelevel != newlevel)
-
 			cut_overlays()
 			add_overlay("ccharger-o[newlevel]")
-
 			chargelevel = newlevel
+		add_overlay(charging.icon_state)
+		add_overlay("cell-o2")
+		add_overlay("ccharger-on")
 	else
 		cut_overlays()
+
+	if(!charging)
+		return
 
 /obj/machinery/cell_charger/examine(mob/user)
 	if(!..(user, 5))
@@ -42,29 +44,30 @@
 
 /obj/machinery/cell_charger/attackby(obj/item/W, mob/user)
 	if(stat & BROKEN)
-		return
+		return TRUE
 
 	if(istype(W, /obj/item/cell) && anchored)
 		if(charging)
 			to_chat(user, "<span class='warning'>There is already a cell in the charger.</span>")
-			return
+			return TRUE
 		else
 			var/area/a = loc.loc // Gets our locations location, like a dream within a dream
 			if(!isarea(a))
-				return
+				return TRUE
 			if(a.power_equip == 0) // There's no APC in this area, don't try to cheat power!
 				to_chat(user, "<span class='warning'>The [name] blinks red as you try to insert the cell!</span>")
-				return
+				return TRUE
 
 			user.drop_from_inventory(W,src)
 			charging = W
 			user.visible_message("[user] inserts a cell into the charger.", "You insert a cell into the charger.")
 			chargelevel = -1
 		update_icon()
+		return TRUE
 	else if(W.iswrench())
 		if(charging)
 			to_chat(user, "<span class='warning'>Remove the cell first!</span>")
-			return
+			return TRUE
 
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "attach" : "detach"] the cell charger [anchored ? "to" : "from"] the ground")
@@ -80,6 +83,7 @@
 		user.visible_message("[user] removes the cell from the charger.", "You remove the cell from the charger.")
 		chargelevel = -1
 		update_icon()
+	return TRUE
 
 /obj/machinery/cell_charger/attack_ai(mob/user)
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user)) // Borgs can remove the cell if they are near enough

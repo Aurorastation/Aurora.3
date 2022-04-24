@@ -54,7 +54,7 @@
 	coat["tajaran naval coat"] = /obj/item/clothing/suit/storage/toggle/tajaran
 	coat["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran
 	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/wool
-	coat["Raakti Shariim coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/raakti_shariim
+	coat["raakti shariim coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/raakti_shariim
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajara_cloak
@@ -86,7 +86,7 @@
 	robes["sun priest robe"] = /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	robes["sun sister robe"] = /obj/item/clothing/suit/storage/tajaran/messa
 	robes["matake priest mantle"] = /obj/item/clothing/suit/storage/tajaran/matake
-	robes["Azubarre priest robes"] = /obj/item/clothing/suit/storage/tajaran/azubarre
+	robes["azubarre priest robes"] = /obj/item/clothing/suit/storage/tajaran/azubarre
 	gear_tweaks += new /datum/gear_tweak/path(robes)
 
 /datum/gear/suit/tajaran_labcoat
@@ -115,12 +115,12 @@
 	var/list/uniform = list()
 	uniform["laborers clothes"] = /obj/item/clothing/under/tajaran
 	uniform["fancy uniform"] = /obj/item/clothing/under/tajaran/fancy
-	uniform["NanoTrasen overalls"] = /obj/item/clothing/under/tajaran/nt
+	uniform["nanotrasen overalls"] = /obj/item/clothing/under/tajaran/nt
 	uniform["matake priest garments"] = /obj/item/clothing/under/tajaran/matake
 	uniform["adhomian summerwear"] = /obj/item/clothing/under/tajaran/summer
 	uniform["adhomian summer pants"] = /obj/item/clothing/under/pants/tajaran
 	uniform["machinist uniform"] = /obj/item/clothing/under/tajaran/mechanic
-	uniform["Raakti Shariim uniform"] = /obj/item/clothing/under/tajaran/raakti_shariim
+	uniform["raakti shariim uniform"] = /obj/item/clothing/under/tajaran/raakti_shariim
 	gear_tweaks += new /datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/tajara_dress
@@ -197,6 +197,11 @@
 	circlet["fur hat"] = /obj/item/clothing/head/tajaran/fur
 	circlet["matake priest hat"] = /obj/item/clothing/head/tajaran/matake
 	circlet["raakti shariim beret"] = /obj/item/clothing/head/beret/tajaran/raakti_shariim
+	circlet["hadiist army beret"] = /obj/item/clothing/head/beret/tajaran/pra
+	circlet["liberation army beret"] = /obj/item/clothing/head/beret/tajaran/dpra
+	circlet["liberation army beret, alternative"] = /obj/item/clothing/head/beret/tajaran/dpra/alt
+	circlet["new kingdom naval beret"] = /obj/item/clothing/head/beret/tajaran/nka
+	circlet["new kingdom naval officer beret"] = /obj/item/clothing/head/beret/tajaran/nka/officer
 	gear_tweaks += new /datum/gear_tweak/path(circlet)
 
 /datum/gear/accessory/tajara_wrap
@@ -252,7 +257,7 @@
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/accessory/tajaran_card
-	display_name = "tajaran cards, badges and pins selection"
+	display_name = "tajaran faction cards, badges and pins selection"
 	description = "A selection of Tajaran related cards, badges and pins."
 	path = /obj/item/clothing/accessory/badge/hadii_card
 	sort_category = "Xenowear - Tajara"
@@ -358,4 +363,36 @@
 	charm["tajani charm"] = /obj/item/clothing/accessory/tajaran/charm/tajani
 	charm["holy sun rosette"] = /obj/item/clothing/accessory/tajaran/srendarr
 	gear_tweaks += new /datum/gear_tweak/path(charm)
-	
+
+/datum/gear/accessory/dpra_party_pin
+	display_name = "democratic peoples republic party pins selection"
+	description = "A selection of DPRA party pins."
+	path = /obj/item/clothing/accessory/tajaran/nawparty_pin
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/dpra_party_pin/New()
+	..()
+	var/list/card = list()
+	card["national adhomai workers party pin"] = /obj/item/clothing/accessory/tajaran/nawparty_pin
+	card["free tajaran people party pin"] = /obj/item/clothing/accessory/tajaran/ftpparty_pin
+	card["followers of Nated party pin"] = /obj/item/clothing/accessory/tajaran/fonparty_pin
+	card["adhomian blue party pin"] = /obj/item/clothing/accessory/tajaran/abparty_pin
+	card["amohdan free lodge party pin"] = /obj/item/clothing/accessory/tajaran/aflparty_pin
+	gear_tweaks += new /datum/gear_tweak/path(card)
+
+/datum/gear/accessory/tajaran_gen_accessorry
+	display_name = "tajaran accessories selection"
+	description = "A selection of tajaran related accessories."
+	path = /obj/item/clothing/accessory/tajaran/zbrojny_badge
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajaran_gen_accessorry/New()
+	..()
+	var/list/card = list()
+	card["zbrojny badge"] = /obj/item/clothing/accessory/tajaran/zbrojny_badge
+	card["golden sun pin"] = /obj/item/clothing/accessory/tajaran/tanker_pin
+	gear_tweaks += new /datum/gear_tweak/path(card)

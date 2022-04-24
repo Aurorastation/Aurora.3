@@ -296,18 +296,18 @@ Class Procs:
 		if(issignaler(W))
 			if(signaler)
 				to_chat(user, SPAN_WARNING("\The [src] already has a signaler attached."))
-				return
+				return TRUE
 			var/obj/item/device/assembly/signaler/S = W
 			user.drop_from_inventory(W, src)
 			signaler = S
 			S.machine = src
 			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), range = 3)
 			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
-			return
+			return TRUE
 		else if(W.iswirecutter() && signaler)
 			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
 			user.put_in_hands(detach_signaler())
-			return
+			return TRUE
 
 	return ..()
 
@@ -320,7 +320,7 @@ Class Procs:
 	if(!detach_turf)
 		log_debug("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
 		return
-	
+
 	var/obj/item/device/assembly/signaler/S = signaler
 
 	signaler.forceMove(detach_turf)
@@ -507,13 +507,15 @@ Class Procs:
 	return
 
 
-// A late init operation called in SSshuttle for ship computers, used to attach the thing to the right ship.
+// A late init operation called in SSshuttle for ship computers and holopads, used to attach the thing to the right ship.
 /obj/machinery/proc/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
+	SHOULD_CALL_PARENT(TRUE)
 	if(!istype(sector))
-		return
+		return FALSE
 	if(sector.check_ownership(src))
 		linked = sector
-		return 1
+		return TRUE
+	return FALSE
 
 /obj/machinery/proc/sync_linked()
 	var/obj/effect/overmap/visitable/ship/sector = map_sectors["[z]"]
@@ -527,3 +529,11 @@ Class Procs:
 	for(var/obj/effect/overmap/visitable/ship/candidate in sector)
 		if((. = .(candidate)))
 			return
+
+
+/obj/machinery/proc/on_user_login(mob/M)
+	return
+
+/obj/machinery/proc/set_emergency_state(var/new_security_level)
+	return
+

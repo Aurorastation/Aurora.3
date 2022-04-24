@@ -6,6 +6,10 @@
 var/global/use_preloader = FALSE
 var/global/dmm_suite/preloader/_preloader = new
 
+/datum/map_load_metadata
+	var/bounds
+	var/list/atoms_to_initialise
+
 /dmm_suite
 		// /"([a-zA-Z]+)" = \(((?:.|\n)*?)\)\n(?!\t)|\((\d+),(\d+),(\d+)\) = \{"([a-zA-Z\n]*)"\}/g
 	var/static/regex/dmmRegex = new/regex({""(\[a-zA-Z]+)" = \\(((?:.|\n)*?)\\)\n(?!\t)|\\((\\d+),(\\d+),(\\d+)\\) = \\{"(\[a-zA-Z\n]*)"\\}"}, "g")
@@ -60,6 +64,7 @@ var/global/dmm_suite/preloader/_preloader = new
 	var/key_len = 0
 
 	var/stored_index = 1
+	var/list/atoms_to_initialise = list()
 
 	while(dmmRegex.Find(tfile, stored_index))
 		stored_index = dmmRegex.next
@@ -156,7 +161,9 @@ var/global/dmm_suite/preloader/_preloader = new
 								if(!no_afterchange || (model_key != space_key))
 									if(!grid_models[model_key])
 										throw EXCEPTION("Undefined model key in DMM.")
-									parse_grid(grid_models[model_key], model_key, xcrd, ycrd, zcrd, no_changeturf || zexpansion)
+									var/datum/grid_load_metadata/M = parse_grid(grid_models[model_key], model_key, xcrd, ycrd, zcrd, no_changeturf || zexpansion)
+									if (M)
+										atoms_to_initialise += M.atoms_to_initialise
 								#ifdef TESTING
 								else
 									++turfsSkipped
@@ -179,7 +186,15 @@ var/global/dmm_suite/preloader/_preloader = new
 					var/turf/T = t
 					//we do this after we load everything in. if we don't; we'll have weird atmos bugs regarding atmos adjacent turfs
 					T.post_change(TRUE)
-		return bounds
+		var/datum/map_load_metadata/M = new
+		M.bounds = bounds
+		M.atoms_to_initialise = atoms_to_initialise
+		return M
+
+/datum/grid_load_metadata
+	var/list/atoms_to_initialise
+	var/list/atoms_to_delete
+
 
 /**
  * Fill a given tile with its area/turf/objects/mobs
@@ -308,22 +323,34 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	//turn off base new Initialization until the whole thing is loaded
 	SSatoms.map_loader_begin()
+	//since we've switched off autoinitialisation, record atoms to initialise later
+	var/list/atoms_to_initialise = list()
+
 	//instanciate the first /turf
 	var/turf/T
 	if(members[first_turf_index] != /turf/template_noop)
 		T = instance_atom(members[first_turf_index],members_attributes[first_turf_index],crds,no_changeturf)
+		atoms_to_initialise += T
 
 	if(T)
+		//if others /turf are presents, simulates the underlays piling effect
 		index = first_turf_index + 1
 		while(index <= members.len - 1) // Last item is an /area
-			crash_with("Tried to load additional turf at [model_key].")
+			var/underlay = T.appearance
+			T = instance_atom(members[index],members_attributes[index],crds,no_changeturf)//instance new turf
+			T.underlays += underlay
 			index++
+			atoms_to_initialise += T
 
 	//finally instance all remainings objects/mobs
 	for(index in 1 to first_turf_index-1)
-		instance_atom(members[index],members_attributes[index],crds,no_changeturf)
+		atoms_to_initialise += instance_atom(members[index],members_attributes[index],crds,no_changeturf)
 	//Restore initialization to the previous value
 	SSatoms.map_loader_stop()
+
+	var/datum/grid_load_metadata/M = new
+	M.atoms_to_initialise = atoms_to_initialise
+	return M
 
 ////////////////
 //Helpers procs
@@ -350,8 +377,8 @@ var/global/dmm_suite/preloader/_preloader = new
 		SSatoms.map_loader_begin()
 
 /dmm_suite/proc/create_atom(path, crds)
-	set waitfor = FALSE
-	. = new path (crds)
+	// Doing this async is impossible, as we must return the ref.
+	return new path (crds)
 
 //text trimming (both directions) helper proc
 //optionally removes quotes before and after the text (for variable name)

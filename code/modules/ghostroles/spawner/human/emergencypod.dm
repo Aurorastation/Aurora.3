@@ -236,7 +236,7 @@
 	suit = /obj/item/clothing/suit/space/void/cruiser
 	suit_store = /obj/item/tank/oxygen
 	shoes = /obj/item/clothing/shoes/jackboots
-	id = /obj/item/card/id/eridani
+	id = /obj/item/card/id/pmc
 	pda = /obj/item/modular_computer/handheld/pda/security
 	belt = /obj/item/gun/energy/gun/nuclear
 	uniform = /obj/item/clothing/under/rank/security/eridani
@@ -466,4 +466,4 @@
 	if(W)
 		W.handle_item_insertion(passport)
 
-	burglars.add_antagonist(H.mind, TRUE, TRUE, FALSE, TRUE)
+	burglars.add_antagonist(H.mind, TRUE, TRUE, FALSE, TRUE, TRUE)

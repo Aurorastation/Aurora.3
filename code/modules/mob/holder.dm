@@ -239,8 +239,6 @@ var/list/holder_mob_icon_cache = list()
 
 		post_scoop()
 
-		return success
-
 // Override to add stuff that should happen when scooping
 /mob/living/proc/post_scoop()
 	return
@@ -264,13 +262,6 @@ var/list/holder_mob_icon_cache = list()
 	var/holder_icon = 'icons/mob/holder_complex.dmi'
 	var/list/generate_for_slots = list(slot_l_hand_str, slot_r_hand_str, slot_back_str)
 	slot_flags = SLOT_BACK
-
-
-/obj/item/holder/proc/sync(var/mob/living/M)
-	src.name = M.name
-	src.overlays = M.overlays
-	dir = M.dir
-	reagents = M.reagents
 
 /obj/item/holder/human/sync(var/mob/living/M)
 	cut_overlays()
@@ -353,6 +344,12 @@ var/list/holder_mob_icon_cache = list()
 		if(H.isMonkey())
 			H.change_animal_name(usr)
 			sync(contained)
+
+/obj/item/holder/proc/sync(var/mob/living/M)
+	name = M.name
+	overlays = M.overlays
+	dir = M.dir
+	reagents = M.reagents
 
 //#TODO-MERGE
 //Port the reduced-duplication holder method from baystation upstream:

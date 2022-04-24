@@ -121,6 +121,14 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	machinetype = 6
 	produces_heat = 0
 	var/intercept = 0 // if nonzero, broadcasts all messages to syndicate channel
+	var/listening_freqs
+	var/channel_color
+	var/channel_name
+
+/obj/machinery/telecomms/allinone/Initialize()
+	if(!listening_freqs)
+		listening_freqs = ANTAG_FREQS	//Covers any updates to ANTAG_FREQS
+	return ..()
 
 /obj/machinery/telecomms/allinone/receive_signal(datum/signal/signal)
 
@@ -144,13 +152,13 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		var/datum/radio_frequency/connection = signal.data["connection"]
 
-		if(connection.frequency in ANTAG_FREQS) // if antag broadcast, just
+		if(connection.frequency in listening_freqs) // if antag broadcast, just
 			Broadcast_Message(signal.data["connection"], signal.data["mob"],
 							  signal.data["vmask"], signal.data["vmessage"],
 							  signal.data["radio"], signal.data["message"],
 							  signal.data["name"], signal.data["job"],
 							  signal.data["realname"], signal.data["vname"],, signal.data["compression"], list(0), connection.frequency,
-							  signal.data["verb"], signal.data["language"])
+							  signal.data["verb"], signal.data["language"], channel_name ? channel_name : signal.data["channel_tag"], channel_color ? channel_color : signal.data["channel_color"])
 		else
 			if(intercept)
 				Broadcast_Message(signal.data["connection"], signal.data["mob"],
@@ -161,6 +169,10 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 							  signal.data["verb"], signal.data["language"])
 
 
+/obj/machinery/telecomms/allinone/ship
+	listening_freqs = list(SHIP_FREQ)
+	channel_color = "#7331c4"
+	channel_name = "Ship"
 
 /**
 
@@ -401,6 +413,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)
 					SSfeedback.msg_service += blackbox_msg
+				if(SHIP_FREQ)
+					SSfeedback.msg_ship += blackbox_msg
 				else
 					SSfeedback.messages += blackbox_msg
 
@@ -590,6 +604,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)
 					SSfeedback.msg_service += blackbox_msg
+				if(SHIP_FREQ)
+					SSfeedback.msg_ship += blackbox_msg
 				else
 					SSfeedback.messages += blackbox_msg
 
@@ -663,7 +679,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	return signal
 
-/proc/telecomms_process_active()
+/proc/telecomms_process_active(var/level = 5)
 
 	// First, we want to generate a new radio signal
 	var/datum/signal/signal = new
@@ -678,7 +694,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		"type" = 4, // determines what type of radio input it is: test broadcast
 		"reject" = 0,
 		"done" = 0,
-		"level" = 5 // The level it is being broadcasted at.
+		"level" = level // The level it is being broadcasted at.
 	)
 	signal.frequency = PUB_FREQ// Common channel
 

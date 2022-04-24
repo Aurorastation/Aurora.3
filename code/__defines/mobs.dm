@@ -25,7 +25,6 @@
 #define INCORPOREAL_SHADE   4 // Shady
 #define INCORPOREAL_MECH    5 // stripped down bstech
 
-#define MOB_GRAB_NONE 0
 #define MOB_GRAB_NORMAL 1
 #define MOB_GRAB_FIREMAN 2
 
@@ -204,7 +203,7 @@
 #define APPEARANCE_FACIAL_HAIR 				64
 #define APPEARANCE_FACIAL_HAIR_COLOR 		128
 #define APPEARANCE_EYE_COLOR 				256
-#define APPEARANCE_ACCENT					512
+#define APPEARANCE_CULTURE					512
 #define APPEARANCE_LANGUAGE					1024
 #define APPEARANCE_ALL						65535
 #define APPEARANCE_ALL_HAIR					(APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
@@ -246,7 +245,7 @@
 
 #define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR)
 
-// Defines the argument used for get_mobs_and_objs_in_view_fast
+// Defines the argument used for get_mobs_or_objs_in_view
 #define GHOSTS_ALL_HEAR 1
 #define ONLY_GHOSTS_IN_VIEW 0
 
@@ -445,5 +444,9 @@
 #define ROBOT_PANEL_EXPOSED  "exposed"
 #define ROBOT_PANEL_CELL     "cell"
 #define ROBOT_PANEL_NO_CELL  "no cell"
+
+#define ROBOT_CHASSIS	"chassistype"
+#define ROBOT_PANEL		"paneltype"
+#define ROBOT_EYES		"eyetype"
 
 #define BLOOD_REGEN_RATE 0.1

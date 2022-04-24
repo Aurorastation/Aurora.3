@@ -65,12 +65,7 @@
 /obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
 	visible_message("<span class='notice'>\The [src] vanishes!</span>")
 	qdel(src)
-	return
-
-/obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
-	visible_message("<span class='notice'>\The [src] vanishes!</span>")
-	qdel(src)
-	return
+	return TRUE
 
 /obj/effect/temp_visual/constellation/attack_hand(mob/user as mob)
 	if(user.a_intent == I_HURT)

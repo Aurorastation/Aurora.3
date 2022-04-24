@@ -31,6 +31,7 @@
 					updateDialog()
 		else
 			to_chat(user, "The robot part maker is full. Please remove metal from the robot part maker in order to insert more.")
+		return TRUE
 
 /obj/machinery/robotic_fabricator/attack_hand(user as mob)
 	var/dat

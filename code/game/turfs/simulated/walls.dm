@@ -10,6 +10,7 @@
 	blocks_air = TRUE
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 312500 //a little over 5 cm thick , 312500 for 1 m by 2.5 m by 0.25 m plasteel wall
+	canSmoothWith = list(/turf/simulated/wall, /turf/simulated/wall/r_wall, /obj/structure/window/full, /obj/structure/window/full/phoron)
 
 	var/damage = 0
 	var/damage_overlay = 0
@@ -21,7 +22,6 @@
 	var/last_state
 	var/construction_stage
 	var/hitsound = 'sound/weapons/genhit.ogg'
-	var/use_standard_smoothing
 	var/use_set_icon_state
 
 	var/under_turf = /turf/simulated/floor/plating
@@ -253,3 +253,6 @@
 				W.burn((temperature/4))
 			for(var/obj/machinery/door/airlock/phoron/D in range(3,src))
 				D.ignite(temperature/4)
+
+/turf/simulated/wall/is_wall()
+	return TRUE

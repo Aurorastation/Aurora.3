@@ -95,7 +95,7 @@
 	var/hand_blood_color
 
 	var/list/flavor_texts = list()
-	var/gunshot_residue
+	var/list/gunshot_residue
 	var/pulling_punches // Are you trying not to hurt your opponent?
 
 	mob_bump_flag = HUMAN
@@ -112,6 +112,7 @@
 
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
 	var/bodyfall_sound = /decl/sound_category/bodyfall_sound
+	var/footsound = /decl/sound_category/blank_footsteps
 
 	var/last_x = 0
 	var/last_y = 0

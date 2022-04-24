@@ -289,6 +289,7 @@
 
 			else if(S.can_be_inserted(src))
 				S.handle_item_insertion(src)
+			return TRUE
 
 //Called when the user alt-clicks on something with this item in their active hand
 //this function is designed to be overridden by individual weapons
@@ -336,6 +337,7 @@
 /obj/item/proc/dropped(var/mob/user)
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
+	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 // Called whenever an object is moved around inside the mob's contents.
 // Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
@@ -343,6 +345,7 @@
 /obj/item/proc/on_slotmove(var/mob/user, slot)
 	if(zoom)
 		zoom(user)
+	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
@@ -954,6 +957,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/get_head_examine_text(var/mob/user)
 	return "on [user.get_pronoun("his")] head"
-	
+
 /obj/item/proc/should_equip() // when you press E with an empty hand, will this item be pulled from suit storage / back slot and put into your hand
 	return FALSE
+
+/obj/item/proc/can_swap_hands(var/mob/user)
+	return TRUE

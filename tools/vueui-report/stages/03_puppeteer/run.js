@@ -32,9 +32,13 @@ module.exports = async function (signale) {
   // C:\Projektai\Aurora.3\vueui\tests\manifest.json
 
   // http://localhost:5221/tmpl?test=C:\Projektai\Aurora.3\vueui\tests\manifest.json&theme=vueui%20theme-nano%20dark-theme
+  const options = {
+    headless: process.env.CI ? true : false,
+    args: [process.env.CI ? '--no-sandbox' : ''],
+  }
 
-  const browser = await puppeteer.launch({headless: false});
-  const page = await browser.newPage();
+  const browser = await puppeteer.launch(options)
+  const page = await browser.newPage()
 
   let results = {}
 
@@ -42,12 +46,11 @@ module.exports = async function (signale) {
     const { size } = await fs.readJson(testFile)
     results[testFile] = {}
     for (const theme of config.themes) {
-      results[testFile][theme] = {errors: []}
+      results[testFile][theme] = { errors: [] }
 
       const ConsoleHandler = (message) => {
         const type = message.type().substr(0, 3).toUpperCase()
-        if(type == 'ERR')
-        {
+        if (type == 'ERR') {
           results[testFile][theme].errors.push(`${message._text}`)
         }
       }
@@ -64,7 +67,7 @@ module.exports = async function (signale) {
         height: size[1],
         deviceScaleFactor: 1,
       })
-      const screen = await page.screenshot({encoding: 'base64'})
+      const screen = await page.screenshot({ encoding: 'base64' })
       results[testFile][theme].image = screen
 
       // await new Promise((resolve, reject) => {
@@ -78,8 +81,6 @@ module.exports = async function (signale) {
     }
   }
 
-
-
   // await new Promise((resolve, reject) => {
   //   setTimeout(() => {
   //     resolve()
@@ -88,5 +89,5 @@ module.exports = async function (signale) {
 
   await browser.close()
   server.close()
-  return {results}
+  return { results }
 }

@@ -1,7 +1,7 @@
 /obj/machinery/computer/shuttle_control
 	name = "shuttle control console"
 	icon = 'icons/obj/computer.dmi'
-	icon_screen = "shuttle"
+	icon_screen = "command"
 	light_color = LIGHT_COLOR_CYAN
 
 	var/shuttle_tag      // Used to coordinate data in shuttle controller.

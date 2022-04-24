@@ -2,7 +2,7 @@
 /obj/machinery/computer/security
 	name = "security camera monitor"
 	desc = "Used to access the various cameras on the station."
-	icon_screen = "cameras"
+	icon_screen = "sec"
 	light_color = "#a91515"
 	var/current_network = null
 	var/obj/machinery/camera/current_camera = null
@@ -25,7 +25,7 @@
 	return attack_hand(user)
 
 /obj/machinery/computer/security/check_eye(var/mob/user as mob)
-	if (use_check_and_message(user) || user.blinded || inoperable())
+	if (user.stat || user.blinded || inoperable())
 		return -1
 	if(!current_camera)
 		return 0
@@ -35,11 +35,8 @@
 	return viewflag
 
 /obj/machinery/computer/security/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
-	if(src.z > 6) return
-	if(stat & (NOPOWER|BROKEN)) return
-	if(user.stat) return
-
-	user.set_machine(src)
+	if(..())
+		return
 
 	var/data[0]
 	var/list/all_networks[0]
@@ -73,10 +70,8 @@
 
 /obj/machinery/computer/security/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 	if(href_list["switch_camera"])
-		if(src.z>6 || stat&(NOPOWER|BROKEN)) return
-		if(usr.stat || ((get_dist(usr, src) > 1 || !( usr.canmove ) || usr.blinded) && !istype(usr, /mob/living/silicon))) return
 		var/obj/machinery/camera/C = locate(href_list["switch_camera"]) in cameranet.cameras
 		if(!C)
 			return
@@ -86,19 +81,13 @@
 		switch_to_camera(usr, C)
 		return 1
 	else if(href_list["switch_network"])
-		if(src.z>6 || stat&(NOPOWER|BROKEN)) return
-		if(usr.stat || ((get_dist(usr, src) > 1 || !( usr.canmove ) || usr.blinded) && !istype(usr, /mob/living/silicon))) return
 		if(href_list["switch_network"] in network)
 			current_network = href_list["switch_network"]
 		return 1
 	else if(href_list["reset"])
-		if(src.z>6 || stat&(NOPOWER|BROKEN)) return
-		if(usr.stat || ((get_dist(usr, src) > 1 || !( usr.canmove ) || usr.blinded) && !istype(usr, /mob/living/silicon))) return
 		reset_current()
 		usr.reset_view(current_camera)
 		return 1
-	else
-		. = ..()
 
 /obj/machinery/computer/security/attack_hand(var/mob/user as mob)
 	if (src.z > 6)
@@ -123,7 +112,7 @@
 		A.client.eye = A.eyeobj
 		return 1
 
-	if (!C.can_use() || user.stat || (get_dist(user, src) > 1 || user.machine != src || user.blinded || !( user.canmove ) && !istype(user, /mob/living/silicon)))
+	if (user.stat || user.blinded || inoperable())
 		return 0
 	set_current(C)
 	if(ishuman(user))
@@ -214,17 +203,6 @@
 		var/obj/machinery/computer/security/console = usr.machine
 		console.jump_on_click(usr,src)
 
-//Camera control: arrow keys.
-/mob/living/Move(n,direct)
-	if(istype(machine,/obj/machinery/computer/security))
-		var/obj/machinery/computer/security/console = machine
-		var/turf/T = get_turf(console.current_camera)
-		for(var/i;i<10;i++)
-			T = get_step(T,direct)
-		console.jump_on_click(src,T)
-		return
-	return ..(n,direct)
-
 /obj/machinery/computer/security/telescreen
 	name = "Telescreen"
 	desc = "Used for watching an empty arena."
@@ -256,7 +234,7 @@
 /obj/machinery/computer/security/mining
 	name = "outpost camera monitor"
 	desc = "Used to access the various cameras on the outpost."
-	icon_screen = "miningcameras"
+	icon_screen = "sec"
 	network = list("MINE")
 	circuit = /obj/item/circuitboard/security/mining
 	light_color = "#F9BBFC"
@@ -264,7 +242,7 @@
 /obj/machinery/computer/security/engineering
 	name = "engineering camera monitor"
 	desc = "Used to monitor fires and breaches."
-	icon_screen = "engineeringcameras"
+	icon_screen = "sec"
 	circuit = /obj/item/circuitboard/security/engineering
 	light_color = "#FAC54B"
 
@@ -276,7 +254,8 @@
 /obj/machinery/computer/security/nuclear
 	name = "head mounted camera monitor"
 	desc = "Used to access the built-in cameras in helmets."
-	icon_screen = "syndicam"
+	icon = 'icons/obj/primitive_computer.dmi'
+	icon_screen = "syndicate"
 	network = list(NETWORK_MERCENARY)
 	circuit = null
 	is_holographic = FALSE	// I mean, it is, but the holo effect looks terrible with the current merc shuttle floor.

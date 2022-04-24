@@ -14,9 +14,8 @@
 		/obj/item/clothing/ring,
 		/obj/item/device/flashlight/pen,
 		/obj/item/seeds,
-		/obj/item/stack/medical,
 		/obj/item/coin,
-		/obj/item/dice,
+		/obj/item/stack/dice,
 		/obj/item/disk,
 		/obj/item/implanter,
 		/obj/item/flame/lighter,
@@ -27,18 +26,14 @@
 		/obj/item/paper_bundle,
 		/obj/item/pen,
 		/obj/item/photo,
-		/obj/item/reagent_containers/dropper,
-		/obj/item/reagent_containers/syringe,
 		/obj/item/reagent_containers/pill,
-		/obj/item/reagent_containers/hypospray/autoinjector,
-		/obj/item/screwdriver,
 		/obj/item/stamp,
 		/obj/item/device/paicard,
 		/obj/item/device/encryptionkey,
 		/obj/item/fluff,
 		/obj/item/storage/business_card_holder,
-		/obj/item/clothing/head/bandana,
-		/obj/item/sample
+		/obj/item/sample,
+		/obj/item/key
 	)
 	slot_flags = SLOT_ID
 
@@ -94,6 +89,20 @@
 		return I.GetAccess()
 	else
 		return ..()
+
+
+/obj/item/storage/wallet/AltClick(mob/user)
+	if (user != loc || user.incapacitated() || !ishuman(user))
+		return ..()
+
+	var/obj/item/card/id/id = GetID()
+	if (istype(id))
+		remove_from_storage(id)
+		user.put_in_hands(id)
+		return
+
+	return ..()
+
 
 /obj/item/storage/wallet/random/fill()
 	..()

@@ -80,7 +80,7 @@
 		return ..()
 
 	if(istype(W,/obj/item/device/pipe_painter))
-		return 0
+		return FALSE
 
 	if(istype(W, /obj/item/device/analyzer) && Adjacent(user))
 		var/obj/item/device/analyzer/A = W
@@ -92,14 +92,14 @@
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())
 		to_chat(user, "<span class='warning'>You must remove the plating first.</span>")
-		return 1
+		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
 		if(!istype(W, /obj/item/pipewrench))
 			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 			add_fingerprint(user)
-			return 1
+			return TRUE
 		else
 			to_chat(user, "<span class='warning'>You struggle to unwrench \the [src] with your pipe wrench.</span>")
 	playsound(src.loc, W.usesound, 50, 1)
@@ -115,6 +115,7 @@
 				new /obj/item/pipe_meter(T)
 				qdel(meter)
 		qdel(src)
+		return TRUE
 
 /obj/machinery/atmospherics/proc/change_color(var/new_color)
 	//only pass valid pipe colors please ~otherwise your pipe will turn invisible
@@ -168,9 +169,9 @@
 	var/minimum_temperature_difference = 300
 	var/thermal_conductivity = 0 //WALL_HEAT_TRANSFER_COEFFICIENT No
 
-	var/maximum_pressure = 70*ONE_ATMOSPHERE
-	var/fatigue_pressure = 55*ONE_ATMOSPHERE
-	alert_pressure = 55*ONE_ATMOSPHERE
+	var/maximum_pressure = ATMOS_DEFAULT_MAX_PRESSURE
+	var/fatigue_pressure = ATMOS_DEFAULT_FATIGUE_PRESSURE
+	alert_pressure = ATMOS_DEFAULT_ALERT_PRESSURE
 
 	level = 1
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
@@ -190,9 +191,9 @@
 	alpha = 255
 
 	switch(dir)
-		if(SOUTH || NORTH)
+		if(SOUTH, NORTH)
 			initialize_directions = SOUTH|NORTH
-		if(EAST || WEST)
+		if(EAST, WEST)
 			initialize_directions = EAST|WEST
 		if(NORTHEAST)
 			initialize_directions = NORTH|EAST
@@ -379,6 +380,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible/blue
 	color = PIPE_COLOR_BLUE
 
+/obj/machinery/atmospherics/pipe/simple/visible/purple
+	color = PIPE_COLOR_PURPLE
 
 /obj/machinery/atmospherics/pipe/simple/hidden
 	icon_state = "intact"
@@ -424,6 +427,9 @@
 
 /obj/machinery/atmospherics/pipe/simple/hidden/blue
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/simple/hidden/purple
+	color = PIPE_COLOR_PURPLE
 
 /obj/machinery/atmospherics/pipe/simple/insulated
 	desc_info = "This is completely useless, use a normal pipe."
@@ -670,6 +676,8 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/blue
 	color = PIPE_COLOR_BLUE
 
+/obj/machinery/atmospherics/pipe/manifold/visible/purple
+	color = PIPE_COLOR_PURPLE
 
 /obj/machinery/atmospherics/pipe/manifold/hidden
 	icon_state = "map"
@@ -715,6 +723,9 @@
 
 /obj/machinery/atmospherics/pipe/manifold/hidden/blue
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/manifold/hidden/purple
+	color = PIPE_COLOR_PURPLE
 
 /obj/machinery/atmospherics/pipe/manifold4w
 	name = "4-way pipe manifold"
@@ -949,6 +960,9 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/blue
 	color = PIPE_COLOR_BLUE
 
+/obj/machinery/atmospherics/pipe/manifold4w/visible/purple
+	color = PIPE_COLOR_PURPLE
+
 /obj/machinery/atmospherics/pipe/manifold4w/hidden
 	icon_state = "map_4way"
 	level = 1
@@ -993,6 +1007,9 @@
 
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/blue
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/purple
+	color = PIPE_COLOR_PURPLE
 
 /obj/machinery/atmospherics/pipe/cap
 	name = "pipe endcap"
@@ -1184,12 +1201,12 @@
 
 /obj/machinery/atmospherics/pipe/tank/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if(istype(W, /obj/item/device/pipe_painter))
-		return
+		return FALSE
 
 	if(istype(W, /obj/item/device/analyzer) && in_range(user, src))
 		var/obj/item/device/analyzer/A = W
 		A.analyze_gases(src, user)
-		return FALSE
+		return TRUE
 
 /obj/machinery/atmospherics/pipe/tank/air
 	name = "Pressure Tank (Air)"

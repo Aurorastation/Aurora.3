@@ -5,7 +5,7 @@
 #define CHANNEL_MEDICAL "Medical"
 #define CHANNEL_ENGINEERING "Engineering"
 #define CHANNEL_SECURITY "Security"
-#define CHANNEL_SUPPLY "Supply"
+#define CHANNEL_SUPPLY "Operations"
 #define CHANNEL_SERVICE "Service"
 #define CHANNEL_AI_PRIVATE "AI Private"
 #define CHANNEL_PENAL "Penal"
@@ -17,6 +17,7 @@
 #define CHANNEL_NINJA "Ninja"
 #define CHANNEL_BLUESPACE "Bluespace"
 #define CHANNEL_BURGLAR "Burglar"
+#define CHANNEL_SHIP "Ship"
 
 var/global/list/ALL_RADIO_CHANNELS = list(
 	CHANNEL_COMMON = TRUE,
@@ -35,5 +36,6 @@ var/global/list/ALL_RADIO_CHANNELS = list(
 	CHANNEL_MERCENARY = TRUE,
 	CHANNEL_NINJA = TRUE,
 	CHANNEL_BLUESPACE = TRUE,
-	CHANNEL_BURGLAR = TRUE
+	CHANNEL_BURGLAR = TRUE,
+	CHANNEL_SHIP = TRUE
 	)

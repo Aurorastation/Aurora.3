@@ -227,6 +227,16 @@
 				if(item.zoom)
 					item.zoom(mob)
 					break
+		if(istype(mob.machine,/obj/machinery/computer/security))
+			// Has to be here specfically to allow WASD/arrow movement of cameras while buckled.
+			// TODO: Remove when machinery/computer finally dies.
+			var/obj/machinery/computer/security/console = mob.machine
+			if(console.current_camera)
+				var/turf/T = get_turf(console.current_camera)
+				for(var/i;i<10;i++)
+					T = get_step(T,direct)
+				console.jump_on_click(mob,T)
+				return
 
 		// Only meaningful for living mobs.
 		if(Process_Grab())
@@ -333,43 +343,16 @@
 
 		//We are now going to move
 		moving = 1
-		//Something with pulling things
-		var/grab_level = mob.has_grab()
-		if(grab_level == MOB_GRAB_FIREMAN)
-			move_delay++
-		if (mob_is_human && grab_level == MOB_GRAB_NORMAL)
-			move_delay = max(move_delay, world.time + 7)
-			var/list/L = mob.ret_grab()
-			if(istype(L, /list))
-				if(L.len == 2)
-					L -= mob
-					var/mob/M = L[1]
-					if(M)
-						if ((get_dist(mob, M) <= 1 || M.loc == mob.loc))
-							var/turf/T = mob.loc
-							. = ..()
-							if (isturf(M.loc))
-								var/diag = get_dir(mob, M)
-								if ((diag - 1) & diag)
-								else
-									diag = null
-								if ((get_dist(mob, M) > 1 || diag))
-									step(M, get_dir(M.loc, T))
-				else
-					for(var/mob/M in L)
-						M.other_mobs = 1
-						if(mob != M)
-							M.animate_movement = 3
-					for(var/mob/M in L)
-						spawn( 0 )
-							step(M, direct)
-							return
-						spawn( 1 )
-							M.other_mobs = null
-							M.animate_movement = 2
-							return
+		if(mob_is_human)
+			for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
+				switch(G.get_grab_type())
+					if(MOB_GRAB_FIREMAN)
+						move_delay++
+					if(MOB_GRAB_NORMAL)
+						move_delay = max(move_delay, world.time + 7)
+						step(G.affecting, get_dir(G.affecting.loc, mob.loc))
 
-		else if(mob.confused && prob(25) && mob.m_intent == M_RUN)
+		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
 			step(mob, pick(cardinal))
 		else
 			. = mob.SelfMove(n, direct)

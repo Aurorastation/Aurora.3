@@ -253,7 +253,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			++ind
 			if(ind > 1)
 				out += ", "
-			out += "\tMechanical [organ_name]"
+			var/datum/robolimb/R
+			if(pref.rlimb_data[name] && all_robolimbs[pref.rlimb_data[name]])
+				R = all_robolimbs[pref.rlimb_data[name]]
+			else
+				R = basic_robolimb
+			out += "\t[R.company] Mechanical [organ_name]"
 		else if(status == "nymph")
 			++ind
 			if(ind > 1)
@@ -419,6 +424,16 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.organ_data.Cut()
 			pref.rlimb_data.Cut()
 			pref.body_markings.Cut()
+
+			var/new_culture = mob_species.possible_cultures[1]
+			pref.culture = "[new_culture]"
+			var/decl/origin_item/culture/OC = decls_repository.get_decl(text2path(pref.culture))
+			var/new_origin = OC.possible_origins[1]
+			pref.origin = "[new_origin]"
+			var/decl/origin_item/origin/OO = decls_repository.get_decl(text2path(pref.origin))
+			pref.accent = OO.possible_accents[1]
+			pref.citizenship = OO.possible_citizenships[1]
+			pref.religion = OO.possible_religions[1]
 
 			// Follows roughly the same way hair does above, but for gradient styles
 			var/global/list/valid_gradients = list()
@@ -732,7 +747,28 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if("Assisted")
 				pref.organ_data[organ_name] = "assisted"
 			if("Mechanical")
+
+				var/tmp_species = pref.species ? pref.species : SPECIES_HUMAN
+				var/list/usable_manufacturers = list()
+				for(var/company in internal_robolimbs)
+					var/datum/robolimb/M = chargen_robolimbs[company]
+					if(!(tmp_species in M.species_can_use))
+						continue
+					usable_manufacturers[company] = M
+				if(!usable_manufacturers.len)
+					return
+				var/choice = input(user, "Which manufacturer do you wish to use for this organ?") as null|anything in usable_manufacturers
+				if(!choice)
+					return
+
+
+				var/datum/robolimb/R = all_robolimbs[choice]
+				if(!(organ_name in R.allowed_internal_organs))
+					alert(user, "You can not select this manufacturer for this organ.")
+					return
+				pref.rlimb_data[organ_name] = choice
 				pref.organ_data[organ_name] = "mechanical"
+
 			if("Removed")
 				pref.organ_data[organ_name] = "removed"
 

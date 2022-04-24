@@ -35,7 +35,7 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
 
-	var/securitylock = FALSE
+	var/securitylock = TRUE
 	var/is_critical = FALSE
 
 /obj/machinery/door/blast/Initialize()
@@ -123,16 +123,16 @@
 			force_toggle()
 		else
 			to_chat(usr, "<span class='notice'>[src]'s motors resist your effort.</span>")
-		return
+		return TRUE
 	if(istype(C, /obj/item/stack/material) && C.get_material_name() == "plasteel")
 		var/amt = Ceiling((maxhealth - health)/150)
 		if(!amt)
 			to_chat(usr, "<span class='notice'>\The [src] is already fully repaired.</span>")
-			return
+			return TRUE
 		var/obj/item/stack/P = C
 		if(P.amount < amt)
 			to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
-			return
+			return TRUE
 		to_chat(usr, "<span class='notice'>You begin repairing [src]...</span>")
 		if(do_after(usr, 30))
 			if(P.use(amt))
@@ -140,6 +140,7 @@
 				src.repair()
 			else
 				to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
+		return TRUE
 
 
 
@@ -187,8 +188,8 @@
 	if(src.operating || (stat & BROKEN) || is_critical)
 		return
 	if(stat & NOPOWER)
+		securitylock = !density // blast doors will only re-open when power is restored if they were open originally
 		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_close)
-		securitylock = TRUE
 	else if(securitylock)
 		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_open)
 		securitylock = FALSE

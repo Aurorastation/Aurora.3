@@ -57,10 +57,12 @@
 	add_language(LANGUAGE_BORER_HIVEMIND)
 	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
-
-	truename = "[pick("Primary","Secondary","Tertiary","Quaternary")]-[rand(1000,9999)]"
+	var/number = rand(1000,9999)
+	truename = "[pick("Primary","Secondary","Tertiary","Quaternary")]-[number]"
 	if(request_player && !ckey && !client)
 		SSghostroles.add_spawn_atom("borer", src)
+	name = initial(name) + " ([number])"
+	real_name = name
 
 /mob/living/simple_animal/borer/Destroy()
 	QDEL_NULL(ability_bar)

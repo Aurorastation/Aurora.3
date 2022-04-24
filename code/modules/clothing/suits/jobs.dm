@@ -79,6 +79,18 @@ obj/item/clothing/suit/apron/overalls/blue
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	allowed = list (/obj/item/material/knife)
 
+/obj/item/clothing/suit/chef/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_chef_jacket"
+	item_state = "nt_chef_jacket"
+
+/obj/item/clothing/suit/chef/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_chef_jacket"
+	item_state = "idris_chef_jacket"
+
 //Chef
 /obj/item/clothing/suit/chef/classic
 	name = "classic chef's apron"
@@ -140,7 +152,7 @@ obj/item/clothing/suit/apron/overalls/blue
 
 /obj/item/clothing/suit/storage/det_jacket
 	name = "detective's jacket"
-	desc = "Stylish yet comfortable professional jacket manufactured by CL corporation for NT detectives."
+	desc = "Stylish yet comfortable professional jacket manufactured by CL corporation for detectives."
 	icon_state = "det_jacket"
 	item_state = "det_jacket"
 	blood_overlay_type = "coat"
@@ -168,6 +180,24 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "forensics"
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
+
+/obj/item/clothing/suit/storage/det_jacket/zavod
+	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon_state = "zav_invest_coat"
+	item_state = "zav_invest_coat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/det_jacket/pmc
+	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon_state = "epmc_invest_coat"
+	item_state = "epmc_invest_coat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/det_jacket/idris
+	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon_state = "idris_invest_coat"
+	item_state = "idris_invest_coat"
+	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/forensics/blue
 	icon_state = "forensicsblue"
@@ -306,6 +336,13 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "firstresponderjacket"
 	item_state = "firstresponderjacket"
 
+/obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
+	desc = "A first responder jacket in the classic white and purple of Zeng-Hu Pharmaceuticals."
+	icon = 'icons/clothing/suits/coats/zeng_responder.dmi'
+	contained_sprite = TRUE
+	icon_state = "zengresponderjacket"
+	item_state = "zengresponderjacket"
+
 /obj/item/clothing/suit/storage/toggle/fr_jacket/ems
 	name = "\improper EMS jacket"
 	desc = "A dark blue, martian-pattern, EMS jacket. It sports high-visibility reflective stripes and a star of life on the back."
@@ -338,3 +375,20 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "suspenders"
 	blood_overlay_type = "armor" //it's the less thing that I can put here
 	body_parts_covered = 0
+
+/obj/item/clothing/suit/storage/bartender
+	name = "bartender jacket"
+	desc = "A fancy jacket worn by corporate bartenders."
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/suit/storage/bartender/nt
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon_state = "nt_bartender_jacket"
+	item_state = "nt_bartender_jacket"
+
+/obj/item/clothing/suit/storage/bartender/idris
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon_state = "idris_bartender_jacket"
+	item_state = "idris_bartender_jacket"

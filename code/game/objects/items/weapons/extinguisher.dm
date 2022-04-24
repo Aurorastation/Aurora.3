@@ -32,7 +32,7 @@
 			playsound(E.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else
 			to_chat(user,"<span class='notice'>\The [E] is full!</span>")
-		return
+		return TRUE
 
 	. = ..()
 
@@ -51,7 +51,7 @@
 	if(W.isscrewdriver() && !is_open_container())
 		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the extinguisher refill cartridge's lid.</span>") // it locks shut after being secured
 		flags |= OPENCONTAINER
-		return
+		return TRUE
 	. = ..()
 
 /obj/item/reagent_containers/extinguisher_refill/examine(var/mob/user) //Copied from inhalers.
@@ -157,7 +157,7 @@
 			playsound(ER.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else
 			to_chat(user,"<span class='notice'>\The [src] is full!</span>")
-		return
+		return TRUE
 
 	. = ..()
 
@@ -165,8 +165,10 @@
 	if(O.anchored) return
 
 	var/obj/structure/bed/stool/chair/C
-	if(istype(O, /obj/structure/bed/stool/chair))
-		C = O
+	if(!istype(O, /obj/structure/bed/stool/chair/office))
+		return
+
+	C = O
 
 	var/list/move_speed = list(1, 1, 1, 2, 2, 3)
 	for(var/i in 1 to 6)

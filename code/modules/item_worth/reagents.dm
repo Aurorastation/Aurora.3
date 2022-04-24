@@ -806,3 +806,6 @@
 
 /decl/reagent/toxin/undead
 	value = 300
+
+/decl/reagent/ambrosia_extract
+	value = 2.8

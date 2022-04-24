@@ -27,8 +27,6 @@
 
 /datum/shuttle/autodock/ferry/emergency/long_jump(var/obj/effect/shuttle_landmark/destination, var/obj/effect/shuttle_landmark/interim, var/travel_time)
 	..(destination, interim, emergency_controller.get_long_jump_time(), direction)
-	if(destination == waypoint_offsite)
-		priority_announcement.Announce(replacetext(replacetext((emergency_controller.emergency_evacuation ? current_map.emergency_shuttle_leaving_dock : current_map.shuttle_leaving_dock), "%dock%", "[current_map.dock_name]"), "%ETA%", "[round(emergency_controller.get_eta()/60,1)] minute\s"))
 
 /datum/shuttle/autodock/ferry/emergency/shuttle_moved()
 	if(next_location != waypoint_station)

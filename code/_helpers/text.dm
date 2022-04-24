@@ -169,6 +169,11 @@
 
 	return output
 
+/proc/sanitize_readd_odd_symbols(var/input)
+	input = replacetext(input, "&#39;", "\'")
+	input = replacetext(input, "&#34;", "\"")
+	return input
+
 #undef NO_CHARS_DETECTED
 #undef SPACES_DETECTED
 #undef SYMBOLS_DETECTED
@@ -499,6 +504,13 @@
 	t = replacetext(t, "\[/small\]", "</font>")
 	t = replacetext(t, "\[station\]", current_map.station_name)
 
+	var/regex/redacted_text = new(@"(\[redacted\])(.*?)(\[\/redacted\])", "g")
+	while (redacted_text.Find(t))
+		var/new_content = ""
+		for(var/i = 1 to length(redacted_text.group[2]))
+			new_content += "|"
+		t = replacetext(t, redacted_text.match, "<span class='redacted'>[new_content]</span>")
+
 	// A break for signature customization code to use this proc as well.
 	if (limited)
 		return t
@@ -532,6 +544,8 @@
 	t = replacetext(t, "\[logo_eridani\]", "<img src = eridanilogo.png>")
 	t = replacetext(t, "\[logo_zavod\]", "<img src = zavodlogo.png>")
 	t = replacetext(t, "\[logo_hp\]", "<img src = hplogo.png>")
+	t = replacetext(t, "\[logo_orion\]", "<img src = orionlogo.png>")
+	t = replacetext(t, "\[logo_pmcg\]", "<img src = pmcglogo.png>")
 	t = replacetext(t, "\[flag_be\]", "<img src = beflag.png>")
 	t = replacetext(t, "\[flag_elyra\]", "<img src = elyraflag.png>")
 	t = replacetext(t, "\[flag_sol\]", "<img src = solflag.png>")
@@ -557,15 +571,32 @@
 	t = replacetext(t, "</I>", "\[/i\]")
 	t = replacetext(t, "<U>", "\[u\]")
 	t = replacetext(t, "</U>", "\[/u\]")
-	t = replacetext(t, "<BR>", "\[br\]")
-	t = replacetext(t, "<HR>", "\[hr\]")
-	t = replacetext(t, "<ul>", "\[list\]")
-	t = replacetext(t, "</ul>", "\[/list\]")
-	t = replacetext(t, "<li>", "\[*\]")
 	t = replacetext(t, "<font size=\"4\">", "\[large\]")
 	t = replacetext(t, "</font>", "\[/large\]")
 	t = replacetext(t, "<font size = \"1\">", "\[small\]")
 	t = replacetext(t, "</font>", "\[/small\]")
+	t = replacetext(t, current_map.station_name, "\[station\]")
+	t = replacetext(t, "<BR>", "\n")
+	t = replacetext(t, "<center>", "\[center\]")
+	t = replacetext(t, "</center>", "\[/center\]")
+	t = replacetext(t, "<BR>", "\[br\]")
+	t = replacetext(t, "<span class=\"paper_field\"></span>", "\[field\]")
+	t = replacetext(t, "<H1>", "\[h1\]")
+	t = replacetext(t, "</H1>", "\[/h1\]")
+	t = replacetext(t, "<H2>", "\[h2\]")
+	t = replacetext(t, "</H2>", "\[/h2\]")
+	t = replacetext(t, "<H3>", "\[h3\]")
+	t = replacetext(t, "</H3>", "\[/h3\]")
+	t = replacetext(t, "<li>", "\[*\]")
+	t = replacetext(t, "<HR>", "\[hr\]")
+	t = replacetext(t, "<ul>", "\[list\]")
+	t = replacetext(t, "</ul>", "\[/list\]")
+	t = replacetext(t, "<table border=1 cellspacing=0 cellpadding=3 style='border: 1px solid black;'>", "\[table\]")
+	t = replacetext(t, "</td></tr></table>", "\[/table\]")
+	t = replacetext(t, "<table>", "\[grid\]")
+	t = replacetext(t, "</td></tr></table>", "\[/grid\]")
+	t = replacetext(t, "</td><tr>", "\[row\]")
+	t = replacetext(t, "<td>", "\[cell\]")
 
 	if(include_images)
 		t = replacetext(t, "<img src = scclogo.png>", "\[logo_scc\]")

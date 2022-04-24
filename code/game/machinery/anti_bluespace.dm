@@ -71,7 +71,7 @@ var/global/list/bluespace_inhibitors
 	else
 		visible_message(SPAN_NOTICE("\The [user] [pick("touches","pokes","prods")] \the [src] with \the [W]."))
 		if(prob(66))
-			return
+			return TRUE
 
 	do_break()
 

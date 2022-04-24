@@ -90,16 +90,16 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		switch(newmessagepriority)
 			if(0)
 				add_overlay(screen_overlays["req_comp-idle"])
-				set_light(1.4, 1, COLOR_CYAN)
+				set_light(1.4, 1.3, COLOR_CYAN)
 			if(1)
 				add_overlay(screen_overlays["req_comp-alert"])
-				set_light(1.4, 1, COLOR_CYAN)
+				set_light(1.4, 1.3, COLOR_CYAN)
 			if(2)
 				add_overlay(screen_overlays["req_comp-redalert"])
-				set_light(1.4, 1, COLOR_ORANGE)
+				set_light(1.4, 1.3, COLOR_ORANGE)
 			if(3)
 				add_overlay(screen_overlays["req_comp-yellowalert"])
-				set_light(1.4, 1, COLOR_ORANGE)
+				set_light(1.4, 1.3, COLOR_ORANGE)
 
 		add_overlay(screen_overlays["req_comp-scanline"])
 
@@ -339,14 +339,14 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			alert("Invalid query. Try again.")
 		var/DBQuery/query = dbcon.NewQuery("SELECT id, name, department, info FROM ss13_forms WHERE id=[whatisid]")
 		query.Execute()
-		var/dat = "<center><b>NanoTrasen Corporate Form</b><br>"
+		var/dat = "<center><b>Stellar Corporate Conglomerate Form</b><br>"
 		while(query.NextRow())
 			var/id = query.item[1]
 			var/name = query.item[2]
 			var/department = query.item[3]
 			var/info = query.item[4]
 
-			dat += "<b>NCF-[id]</b><br><br>"
+			dat += "<b>SCCF-[id]</b><br><br>"
 			dat += "<b>[name]</b><br>"
 			dat += "<b>[department] Department</b><hr>"
 			dat += "[info]"
@@ -364,7 +364,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 					//err... hacking code, which has no reason for existing... but anyway... it was once supposed to unlock priority 3 messanging on that console (EXTREME priority...), but the code for that was removed.
 /obj/machinery/requests_console/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if (istype(O, /obj/item/card/id))
-		if(inoperable(MAINT)) return
+		if(inoperable(MAINT)) return TRUE
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/card/id/T = O
 			msgVerified = text("<font color='green'><b>Verified by [T.registered_name] ([T.assignment])</b></font>")
@@ -378,12 +378,14 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				reset_message()
 				to_chat(user, "<span class='warning'>You are not authorized to send announcements.</span>")
 			updateUsrDialog()
+		return TRUE
 	else if (istype(O, /obj/item/stamp))
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/stamp/T = O
 			msgStamped = text("<span class='notice'><b>Stamped with the [T.name]</b></span>")
 			updateUsrDialog()
+		return TRUE
 	else if (istype(O, /obj/item/paper_bundle))
 		var/obj/item/paper_bundle/C = O
 		if(lid)
@@ -396,6 +398,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			audible_message("<b>The Requests Console</b> beeps, \"Paper added.\"")
 		else if(screen == RCS_MAINMENU)	//Faxing them papers
 			fax_send(O, user)
+		return TRUE
 	else if (istype(O, /obj/item/paper))
 		if(lid)
 			if(alert(user, "Do you want to restock \the [src] with \the [O]?", "Paper Restocking", "Yes", "No") == "No")
@@ -408,6 +411,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			audible_message("<b>The Requests Console</b> beeps, \"Paper added.\"")
 		else if(screen == RCS_MAINMENU)	//Faxing them papers
 			fax_send(O, user)
+		return TRUE
 
 /obj/machinery/requests_console/proc/can_send()
 	for(var/obj/machinery/message_server/MS in SSmachinery.processing_machines)

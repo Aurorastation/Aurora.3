@@ -106,13 +106,13 @@ var/list/global/random_stock_large = list()
 
 	var/list/infest_mobs_moderate = list(
 		/mob/living/simple_animal/bee/standalone = 1,
-		/mob/living/simple_animal/hostile/diyaab = 1,
+		/mob/living/simple_animal/hostile/retaliate/diyaab = 1,
 		/mob/living/simple_animal/hostile/viscerator = 1,
 		/mob/living/simple_animal/hostile/scarybat = 1)
 
 	var/list/infest_mobs_severe = list(
 		/mob/living/simple_animal/hostile/giant_spider/hunter = 1,
-		/mob/living/simple_animal/hostile/shantak = 0.7,
+		/mob/living/simple_animal/hostile/retaliate/shantak = 0.7,
 		/mob/living/simple_animal/hostile/bear = 0.5,
 		/mob/living/simple_animal/hostile/carp = 1.5,
 		/mob/living/simple_animal/hostile/carp/russian = 0.3,
@@ -121,7 +121,7 @@ var/list/global/random_stock_large = list()
 
 /datum/cargospawner/New()
 	//First lets get the reference to our warehouse
-	for(var/areapath in typesof(/area/quartermaster/storage))
+	for(var/areapath in typesof(current_map.warehouse_basearea))
 		warehouse = locate(areapath)
 		if (warehouse)
 			for (var/turf/simulated/floor/T in warehouse)
@@ -134,7 +134,7 @@ var/list/global/random_stock_large = list()
 				tables |= B
 
 /datum/cargospawner/proc/start()
-	if (!warehouse || !warehouseturfs.len)
+	if (!current_map.warehouse_basearea || !warehouse || !warehouseturfs.len)
 		admin_notice("<span class='danger'>ERROR: Cargo spawner failed to locate warehouse. Terminating.</span>", R_DEBUG)
 		qdel(src)
 		return

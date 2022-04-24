@@ -168,3 +168,6 @@
 // Will filter out extra rotations and negative rotations
 // E.g: 540 becomes 180. -180 becomes 180.
 #define SIMPLIFY_DEGREES(degrees) (MODULUS_FLOAT((degrees), 360))
+
+/// Value or the next multiple of divisor in a positive direction. Ceilm(-1.5, 0.3) = -1.5 , Ceilm(-1.5, 0.4) = -1.2
+#define Ceilm(value, divisor) ( -round(-(value) / (divisor)) * (divisor) )

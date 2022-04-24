@@ -63,7 +63,8 @@
 
 		//Language macros
 		interpreter.SetVar("L_BASIC",	LANGUAGE_TCB)
-		interpreter.SetVar("L_SOL",	    LANGUAGE_SOL_COMMON)
+		interpreter.SetVar("L_SOL",		LANGUAGE_SOL_COMMON)
+		interpreter.SetVar("L_ELYRAN",	LANGUAGE_ELYRAN_STANDARD)
 		interpreter.SetVar("L_TRADE",	LANGUAGE_TRADEBAND)
 		interpreter.SetVar("L_GUTTER",	LANGUAGE_GUTTER)
 		interpreter.SetVar("L_MAAS",	LANGUAGE_SIIK_MAAS)

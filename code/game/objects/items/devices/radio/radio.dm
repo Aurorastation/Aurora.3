@@ -578,7 +578,10 @@ var/global/list/default_medbay_channels = list(
 
 	var/range = receive_range(freq, level)
 	if(range > -1)
-		return get_mobs_or_objects_in_view(canhear_range, src)
+		var/list/mobs = list()
+		var/list/objs = list()
+		get_mobs_or_objs_in_view(get_turf(src), canhear_range, mobs, objs)
+		return mobs
 
 
 /obj/item/device/radio/examine(mob/user)
@@ -613,6 +616,18 @@ var/global/list/default_medbay_channels = list(
 	for (var/ch_name in channels)
 		channels[ch_name] = 0
 	..()
+
+/obj/item/device/radio/med
+	icon_state = "walkietalkie-med"
+
+/obj/item/device/radio/sec
+	icon_state = "walkietalkie-sec"
+
+/obj/item/device/radio/eng
+	icon_state = "walkietalkie-eng"
+
+/obj/item/device/radio/sci
+	icon_state = "walkietalkie-sci"	
 
 ///////////////////////////////
 //////////Borg Radios//////////

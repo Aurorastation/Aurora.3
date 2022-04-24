@@ -163,7 +163,7 @@
 
 	//If it's in the process of opening/closing, ignore the click
 	if (operating)
-		return
+		return TRUE
 
 	//Emags and ninja swords? You may pass.
 	if (istype(I, /obj/item/melee/energy/blade))
@@ -172,7 +172,7 @@
 			playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 			visible_message("<span class='warning'>The glass door was sliced open by [user]!</span>")
-		return 1
+		return TRUE
 
 	//If it's emagged, crowbar can pry electronics out.
 	if (emagged == 1 && I.iscrowbar())
@@ -186,7 +186,7 @@
 			var/obj/item/stack/material/glass/reinforced/rglass = new /obj/item/stack/material/glass/reinforced(loc)
 			rglass.amount = 5
 			qdel(src)
-			return
+		return TRUE
 
 	if(!isliving(I))
 		if(I.iscrowbar() && user.a_intent == I_HELP)
@@ -198,7 +198,7 @@
 					close(1)
 			else
 				to_chat(user, SPAN_NOTICE("The windoor's motors resist your efforts to force it."))
-			return
+		return TRUE
 
 	//If it's a weapon, smash windoor. Unless it's an id card, agent card, ect.. then ignore it (Cards really shouldnt damage a door anyway)
 	if(src.density && istype(I, /obj/item) && !istype(I, /obj/item/card))
@@ -208,7 +208,7 @@
 		visible_message("<span class='danger'>[src] was hit by [I].</span>")
 		if(I.damtype == BRUTE || I.damtype == BURN)
 			take_damage(aforce)
-		return
+		return TRUE
 
 	if(!istype(I, /obj/item/forensics))
 		src.add_fingerprint(user)
@@ -218,12 +218,13 @@
 			user.visible_message("\The [user] begins to manually [density ? "push" : "pull"] \the [src] [density ? "open" : "closed"]!",
 				"You begin to manually [density ? "push" : "pull"] \the [src] [density ? "open" : "closed"]!", "You hear the sound of a glass door [density ? "opening" : "closing"].")
 			if(!do_after(user, 1 SECOND, TRUE, src))
-				return
+				return TRUE
 			visible_message("\The [user] [density ? "pulls" : "pushes"] \the [src] [density ? "closed" : "open"].")
 		if (src.density)
 			open()
 		else
 			close()
+		return TRUE
 
 /obj/machinery/door/window/brigdoor
 	name = "secure door"

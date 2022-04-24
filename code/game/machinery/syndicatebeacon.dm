@@ -133,23 +133,21 @@
 	if(W.isscrewdriver())
 		if(active)
 			to_chat(user, "<span class='danger'>You need to deactivate the beacon first!</span>")
-			return
+			return TRUE
 
 		if(anchored)
 			anchored = 0
 			to_chat(user, "<span class='notice'>You unscrew the beacon from the floor.</span>")
 			disconnect_from_network()
-			return
+			return TRUE
 		else
 			if(!connect_to_network())
 				to_chat(user, "This device must be placed over an exposed cable.")
-				return
+				return TRUE
 			anchored = 1
 			to_chat(user, "<span class='notice'>You screw the beacon to the floor and attach the cable.</span>")
-			return
-	..()
-	return
-
+			return TRUE
+	return ..()
 
 /obj/machinery/power/singularity_beacon/Destroy()
 	if(active)

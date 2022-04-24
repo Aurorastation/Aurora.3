@@ -1,0 +1,49 @@
+name: VueUi
+on: [push, pull_request]
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Install node
+        uses: actions/setup-node@master
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            'vueui/node_modules'
+            'tools/vueui-report/node_modules'
+          key: node_modules-${{ hashFiles('tools/vueui-report/package-lock.json', 'vueui/package-lock.json')}}
+      - name: Install VueUI
+        working-directory: vueui
+        run: npm install
+      - name: Lint VueUI
+        working-directory: vueui
+        run: |
+          (npm run lint | tee lint.log)
+          grep "No lint errors found!" lint.log
+      - name: Build VueUI
+        working-directory: vueui
+        run: npm run build
+      - name: Install VueUI reporter
+        working-directory: tools/vueui-report
+        run: npm install
+      - name: Build VueUI reporter
+        working-directory: tools/vueui-report
+        run: npm run build
+      - name: Run VueUI reporter
+        working-directory: tools/vueui-report
+        run: npm run run
+      - name: Upload report
+        uses: actions/upload-artifact@v2
+        with:
+          name: Report
+          path: |
+            tools/vueui-report/report.htm
+      - name: Upload Dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: VueUi build
+          path: |
+            vueui/dist/

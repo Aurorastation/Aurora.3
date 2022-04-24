@@ -153,7 +153,7 @@
 	else
 		add_overlay(screen_overlays["intercom_screen"])
 		add_overlay(screen_overlays["intercom_scanline"])
-		set_light(1.4, 1, COLOR_CYAN)
+		set_light(1.4, 1.3, COLOR_CYAN)
 		if(broadcasting)
 			add_overlay(screen_overlays["intercom_b"])
 		if(listening)

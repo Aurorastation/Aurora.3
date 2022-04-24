@@ -162,7 +162,9 @@
 		icon_state = "secgunauto-e"
 
 /obj/item/gun/projectile/tanto
-	desc = "A Zavodskoi Interstellar Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
+	desc = "A crude-looking open-bolt machine pistol manufactured by a multitude of arms companies, or in some cases, particularly handy individuals. \
+    Owing to their low cost and relative effectiveness, weapons like these are very common all across the Spur, from the tunnels of Oran to fringe colonies along the frontier. \
+    This pistol is made almost entirely from sheet metal and has cloth wrappings around the grip for shooter comfort."
 	name = "10mm auto-pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
@@ -178,7 +180,7 @@
 	sel_mode = 1
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0),
+		list(mode_name="semiauto", burst=1, fire_delay=0, fire_delay_wielded=0),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10))
 		)
 
@@ -430,9 +432,9 @@
 		icon_state = "leyon-e"
 
 /obj/item/gun/projectile/pistol/sol
-	name = "service pistol"
-	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, hand-made by Zavodskoi Instellar."
-	icon = 'icons/obj/guns/m8.dmi'
+	name = "solarian service pistol"
+	desc = "Manufactured by Zavodskoi Interstellar and based off of a full-sized variant of their 9mm design, the compact M8 is the standard service pistol of the Solarian Armed Forces. Chambered in 9mm."
+	icon = 'icons/obj/guns/sol_pistol.dmi'
 	icon_state = "m8"
 	item_state = "m8"
 	can_silence = FALSE

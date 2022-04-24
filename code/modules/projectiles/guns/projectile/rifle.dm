@@ -20,6 +20,10 @@
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
 
+/obj/item/gun/projectile/shotgun/pump/rifle/blank
+	desc = "A replica of a traditional adhomian bolt action rifle. It has the seal of the Grand Romanovich Casino on its stock. Uses 7.62mm rounds."
+	ammo_type = /obj/item/ammo_casing/a762/blank
+
 /obj/item/gun/projectile/shotgun/pump/rifle/saw_off(mob/user, obj/item/tool)
 	icon = 'icons/obj/guns/obrez.dmi'
 	icon_state = "obrez"
@@ -327,3 +331,32 @@
 	use_external_power = 1
 	recharge_time = 12
 	needspin = FALSE
+
+/obj/item/gun/projectile/gauss/carbine
+	name = "gauss carbine"
+	desc = "A simple gun utilizing the gauss technology. It is still reliable and cheap despite being outdated."
+	icon = 'icons/obj/guns/gauss_carbine.dmi'
+	icon_state = "gauss_carbine"
+	item_state = "gauss_carbine"
+	w_class = ITEMSIZE_LARGE
+	slot_flags = SLOT_BACK
+	ammo_type = /obj/item/ammo_casing/gauss/carbine
+	load_method = SINGLE_CASING
+	handle_casings = HOLD_CASINGS
+	max_shells = 1
+
+	fire_delay_wielded = 20
+	accuracy_wielded = 1
+
+/obj/item/gun/projectile/gauss/carbine/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "gauss_carbine"
+	else
+		icon_state = "gauss_carbine-e"
+
+/obj/item/gun/projectile/gauss/carbine/special_check(mob/user)
+	if(!wielded)
+		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
+		return 0
+	return ..()

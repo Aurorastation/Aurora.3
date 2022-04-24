@@ -6,5 +6,6 @@
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "thakh_mask"
 	item_state = "thakh_mask"
+	sprite_sheets = null
 	species_restricted = list(BODYTYPE_UNATHI)
 	contained_sprite = TRUE

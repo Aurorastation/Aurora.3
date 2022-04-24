@@ -104,7 +104,7 @@ var/list/ai_verbs_default = list(
 
 	// Sprites
 	var/datum/ai_icon/selected_sprite			// The selected icon set
-	var/custom_sprite 	= FALSE 				// Whether the selected icon is custom
+	var/custom_sprite = FALSE 				// Whether the selected icon is custom
 
 /mob/living/silicon/ai/proc/add_ai_verbs()
 	src.verbs |= ai_verbs_default
@@ -158,6 +158,7 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_ROBOT, TRUE)
 	add_language(LANGUAGE_TCB, TRUE)
 	add_language(LANGUAGE_SOL_COMMON, FALSE)
+	add_language(LANGUAGE_ELYRAN_STANDARD, FALSE)
 	add_language(LANGUAGE_UNATHI, FALSE)
 	add_language(LANGUAGE_SIIK_MAAS, FALSE)
 	add_language(LANGUAGE_SKRELLIAN, FALSE)

@@ -9,6 +9,8 @@
 	maxHealth = 15
 	melee_damage_lower = 10
 	melee_damage_upper = 10
+	armor_penetration = 40
+	attack_flags = DAM_SHARP|DAM_EDGE
 	break_stuff_probability = 25
 	attacktext = "slashed"
 	projectilesound = 'sound/weapons/bladeslice.ogg'
@@ -32,6 +34,7 @@
 	pass_flags = PASSTABLE
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
+	psi_pingable = FALSE
 
 /mob/living/simple_animal/hostile/hivebot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)

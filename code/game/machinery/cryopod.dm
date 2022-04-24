@@ -45,6 +45,14 @@ var/global/list/frozen_crew = list()
 	storage_name = "Robotic Storage Control"
 	allow_items = FALSE
 
+/obj/machinery/computer/cryopod/living_quarters
+	name = "living quarters oversight console"
+	desc = "An interface between the main ship and the living quarters where the crew lives."
+	circuit = /obj/item/circuitboard/living_quarters_cryo
+
+	storage_name = "Living Quarters Oversight Control"
+	allow_items = TRUE
+
 /obj/machinery/computer/cryopod/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
@@ -163,6 +171,11 @@ var/global/list/frozen_crew = list()
 	build_path = /obj/machinery/computer/cryopod/robot
 	origin_tech = list(TECH_DATA = 3)
 
+/obj/item/circuitboard/living_quarters_cryo
+	name = "Circuit board (Living Quarters Console)"
+	build_path = /obj/machinery/computer/cryopod/living_quarters
+	origin_tech = list(TECH_DATA = 3)
+
 //Decorative structures to go alongside cryopods.
 /obj/structure/cryofeed
 	name = "cryogenic feed"
@@ -227,6 +240,18 @@ var/global/list/frozen_crew = list()
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
 	allow_occupant_types = list(/mob/living/silicon/robot)
 	disallow_occupant_types = list(/mob/living/silicon/robot/drone)
+
+/obj/machinery/cryopod/living_quarters
+	name = "living quarters lift"
+	desc = "A lift heading to the ship's living quarters."
+	icon = 'icons/obj/crew_quarters_lift.dmi'
+	icon_state = "lift_open"
+	base_icon_state = "lift_open"
+	occupied_icon_state = "lift_occupied"
+	on_store_message = "has departed for the living quarters."
+	on_store_name = "Living Quarters Oversight"
+	on_enter_occupant_message = "The elevator door closes slowly, ready to bring you down to the living quarters."
+	disallow_occupant_types = list(/mob/living/silicon/robot)
 
 /obj/machinery/cryopod/Destroy()
 	if(occupant)
@@ -359,11 +384,11 @@ var/global/list/frozen_crew = list()
 	if(istype(G))
 		if(occupant)
 			to_chat(user, SPAN_WARNING("\The [src] is in use."))
-			return
+			return TRUE
 		if(!ismob(G.affecting))
-			return
+			return TRUE
 		if(!check_occupant_allowed(G.affecting))
-			return
+			return TRUE
 
 		var/willing = FALSE //We don't want to allow people to be forced into despawning.
 		var/mob/M = G.affecting
@@ -372,7 +397,7 @@ var/global/list/frozen_crew = list()
 			var/original_loc = M.loc
 			if(alert(M, "Would you like to enter long-term storage?", , "Yes", "No") == "Yes")
 				if(!M || !G || !G.affecting || M.loc != original_loc)
-					return
+					return TRUE
 				willing = TRUE
 		else
 			willing = TRUE
@@ -382,7 +407,7 @@ var/global/list/frozen_crew = list()
 
 			if(do_after(user, 20))
 				if(!M || !G || !G.affecting)
-					return
+					return TRUE
 
 				M.forceMove(src)
 
@@ -392,7 +417,7 @@ var/global/list/frozen_crew = list()
 
 			update_icon()
 			to_chat(M, SPAN_NOTICE("[on_enter_occupant_message]"))
-			to_chat(M, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+			to_chat(M, SPAN_DANGER("Press Ghost in the OOC tab to leave, your character will shortly be removed from the round and the slot you occupy will be freed."))
 			set_occupant(M)
 
 			if(isipc(M))
@@ -405,6 +430,7 @@ var/global/list/frozen_crew = list()
 
 			//Despawning occurs when process() is called with an occupant without a client.
 			src.add_fingerprint(M)
+			return TRUE
 
 /obj/machinery/cryopod/MouseDrop_T(atom/movable/O, mob/living/user)
 	if(!istype(user))
@@ -458,8 +484,8 @@ var/global/list/frozen_crew = list()
 			to_chat(user, SPAN_NOTICE("You stop [L == user ? "climbing into" : "putting [L] into"] \the [name]."))
 			return
 
-		to_chat(L, SPAN_NOTICE("You feel cool air surround you. You go numb as your senses turn inward."))
-		to_chat(L, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+		to_chat(L, SPAN_NOTICE("[on_enter_occupant_message]"))
+		to_chat(L, SPAN_DANGER("Press Ghost in the OOC tab to leave, your character will shortly be removed from the round and the slot you occupy will be freed."))
 		set_occupant(L)
 		update_icon()
 
@@ -530,7 +556,7 @@ var/global/list/frozen_crew = list()
 		update_icon()
 
 		to_chat(usr, SPAN_NOTICE("[on_enter_occupant_message]"))
-		to_chat(usr, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+		to_chat(usr, SPAN_DANGER("Press Ghost in the OOC tab to leave, your character will shortly be removed from the round and the slot you occupy will be freed."))
 
 		if(isipc(usr))
 			var/choice = alert(usr, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")

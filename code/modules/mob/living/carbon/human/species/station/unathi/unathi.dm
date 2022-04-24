@@ -19,12 +19,13 @@
 	)
 	primitive_form = SPECIES_MONKEY_UNATHI
 	darksight = 3
-	gluttonous = GLUT_MESSY
+	gluttonous = GLUT_MESSY|GLUT_ITEM_TINY
 	stomach_capacity = 7
 	slowdown = 0.5
 
 	brute_mod = 0.8
 	fall_mod = 1.2
+	radiation_mod = 0.9 // how else did they survive nuclear armageddon?
 	grab_mod = 1.25 // Huge, usually have horns
 	resist_mod = 2.5 // Arguably our strongest organic species
 
@@ -109,6 +110,8 @@
         BP_EYES =    /obj/item/organ/internal/eyes/unathi
     )
 
+	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
+
 	pain_emotes_with_pain_level = list(
 			list(/decl/emote/audible/wheeze, /decl/emote/audible/roar, /decl/emote/audible/bellow) = 80,
 			list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/wheeze, /decl/emote/audible/hiss) = 50,
@@ -119,14 +122,14 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-	allowed_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI)
-	allowed_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_MOROZ, RELIGION_NONE, RELIGION_OTHER)
-	default_citizenship = CITIZENSHIP_IZWESKI
+	possible_cultures = list(
+		/decl/origin_item/culture/izweski,
+		/decl/origin_item/culture/traditionalists,
+		/decl/origin_item/culture/spaceborn,
+		/decl/origin_item/culture/dominian_unathi
+	)
 
 	zombie_type = SPECIES_ZOMBIE_UNATHI
-
-	default_accent = ACCENT_HEGEMON_PEASANT
-	allowed_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_VULGAR)
 
 	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
 

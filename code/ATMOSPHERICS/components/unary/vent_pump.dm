@@ -58,6 +58,15 @@
 /obj/machinery/atmospherics/unary/vent_pump/siphon
 	pump_direction = 0
 
+/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos
+	icon_state = "map_vent_in"
+	external_pressure_bound = 0
+	external_pressure_bound_default = 0
+	internal_pressure_bound = 2000
+	internal_pressure_bound_default = 2000
+	pressure_checks = 2
+	pressure_checks_default = 2
+
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on
 	use_power = 1
 	icon_state = "map_vent_in"
@@ -367,7 +376,7 @@
 			to_chat(user, SPAN_NOTICE("Now welding the vent."))
 			if(do_after(user, 30/W.toolspeed))
 				if(!src || !WT.isOn())
-					return
+					return TRUE
 				welded = !welded
 				update_icon()
 				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
@@ -378,18 +387,18 @@
 				to_chat(user, SPAN_NOTICE("You fail to complete the welding."))
 		else
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
-			return 1
+		return TRUE
 	else if(istype(W, /obj/item/melee/arm_blade))
 		if(!welded)
 			to_chat(user, SPAN_WARNING("\The [W] can only be used to tear open welded air vents!"))
-			return
+			return TRUE
 		user.visible_message(SPAN_WARNING("\The [user] starts using \the [W] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [W]..."))
 		user.do_attack_animation(src, W)
 		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 		var/cut_amount = 3
 		for(var/i = 0; i <= cut_amount; i++)
 			if(!W || !do_after(user, 30, src))
-				return
+				return TRUE
 			user.do_attack_animation(src, W)
 			user.visible_message(SPAN_WARNING("\The [user] smashes \the [W] into \the [src]!"), SPAN_NOTICE("You smash \the [W] into \the [src]."))
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
@@ -420,17 +429,17 @@
 		return ..()
 	if (!(stat & NOPOWER) && use_power)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
-		return 1
+		return TRUE
 	var/turf/T = src.loc
 	if (node && node.level==1 && isturf(T) && !T.is_plating())
 		to_chat(user, SPAN_WARNING("You must remove the plating first."))
-		return 1
+		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 		add_fingerprint(user)
-		return 1
+		return TRUE
 	playsound(src.loc, W.usesound, 50, 1)
 	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
 	if (do_after(user, 40/W.toolspeed))
@@ -440,6 +449,7 @@
 			"You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
+		return TRUE
 
 /obj/machinery/atmospherics/unary/vent_pump/Destroy()
 	if(initial_loc)

@@ -299,7 +299,6 @@
 			return
 	M.clean_blood()
 
-
 	if(istype(M,/mob/living/carbon/slime))
 		var/mob/living/carbon/slime/S = M
 		S.adjustToxLoss( REAGENT_VOLUME(holder, type) * (removed/REM) * 0.5 )
@@ -309,6 +308,34 @@
 				++S.discipline
 		if(M.chem_doses[type] == removed)
 			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the space cleaner touches it!"), SPAN_DANGER("Your flesh burns in the space cleaner!"))
+	
+/decl/reagent/spacecleaner/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(REAGENT_VOLUME(holder, type) > 15)
+		M.add_chemical_effect(CE_EMETIC, 5)
+		if(M.losebreath < 15)
+			M.losebreath++
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "All you can taste is blood!", "Your insides are on fire!", "Your feel a burning pain in your gut!")))
+	else
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something sour.")))
+
+/decl/reagent/spacecleaner/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(REAGENT_VOLUME(holder, type) > 15)
+		M.add_chemical_effect(CE_EMETIC, 5)
+		if(M.losebreath < 15)
+			M.losebreath++
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "All you can taste is blood!", "Your insides are on fire!", "Your feel a burning pain in your gut!")))
+	else
+		if(prob(5))
+			to_chat(M, SPAN_NOTICE(pick("You get a strong whiff of space cleaner fumes - careful.")))
+
+/decl/reagent/spacecleaner/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(REAGENT_VOLUME(holder, type) > 15)
+		M.add_chemical_effect(CE_EMETIC, 5)
+		if(prob(25))
+			M.add_chemical_effect(CE_NEPHROTOXIC, 1)
 
 /decl/reagent/lube
 	name = "Space Lube"
@@ -329,6 +356,7 @@
 	reagent_state = LIQUID
 	color = "#C7FFFF"
 	taste_description = "plastic"
+	ingest_mul = 0
 
 /decl/reagent/silicate/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/structure/window))
@@ -336,6 +364,19 @@
 		W.apply_silicate(amount)
 		remove_self(amount, holder)
 	return
+
+/decl/reagent/silicate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.adjustToxLoss(2 * removed)
+	M.add_chemical_effect(CE_ITCH, M.chem_doses[type])
+
+/decl/reagent/silicate/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
+	if(check_min_dose(H, 5))
+		if(prob(50))
+			H.visible_message("<b>[H]</b> splutters.", "You cough up a bunch of silicate.")
+			remove_self(5, holder)
+		else
+			H.adjustOxyLoss(2)
+			H.add_chemical_effect(CE_PNEUMOTOXIC, 0.2)
 
 /decl/reagent/glycerol
 	name = "Glycerol"
@@ -364,7 +405,7 @@
 
 /decl/reagent/nitroglycerin/on_heat_change(var/added_energy, var/datum/reagents/holder)
 	. = ..()
-	if(added_energy > (specific_heat * 5 / REAGENT_VOLUME(holder, type))) // heat shock
+	if(added_energy > (specific_heat * 5 * REAGENT_VOLUME(holder, type))) // heat shock
 		explode(holder)
 
 /decl/reagent/nitroglycerin/apply_force(var/force, var/datum/reagents/holder)

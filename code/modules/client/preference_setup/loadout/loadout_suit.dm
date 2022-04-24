@@ -106,7 +106,7 @@ datum/gear/suit/colorvest
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Roboticist", "Research Director", "Investigator")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
 
 /datum/gear/suit/medical_outerwear
 	display_name = "medical outerwear (jackets, vests, rigs)"
@@ -134,7 +134,7 @@ datum/gear/suit/colorvest
 	iac_outerwear["IAC vest"] = /obj/item/clothing/suit/storage/iacvest
 	iac_outerwear["IAC labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	gear_tweaks += new /datum/gear_tweak/path(iac_outerwear)
-	
+
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
 	path = /obj/item/clothing/accessory/poncho
@@ -286,6 +286,7 @@ datum/gear/suit/colorvest
 	display_name = "dominian cape"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape
 	flags = GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/dominia_cape/New()
 	..()
@@ -303,6 +304,7 @@ datum/gear/suit/colorvest
 	description = "A selection of Dominian coats and jackets."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
 	flags = GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/dominia/New()
 	..()
@@ -323,6 +325,7 @@ datum/gear/suit/colorvest
 	description = "A selection of Fisanduhian jackets."
 	path = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	flags = GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/fisanduhian_bomber/New()
 	..()
@@ -413,6 +416,7 @@ datum/gear/suit/colorvest
 	display_name = "himean coat selection"
 	path = /obj/item/clothing/suit/storage/toggle/himeo
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/himeo)
 
 /datum/gear/suit/himeo/New()
 	..()
@@ -426,6 +430,7 @@ datum/gear/suit/colorvest
 	description = "A selection of Vysokan chokhas."
 	path = /obj/item/clothing/suit/storage/vysoka
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/vysoka)
 
 /datum/gear/suit/vysoka/New()
 	..()
@@ -439,10 +444,28 @@ datum/gear/suit/colorvest
 	path = /obj/item/clothing/suit/storage/toggle/overlay/submariner
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/suit/konyang
+	display_name = "konyanger outerwear selection"
+	description = "A selection of jackets and coats from the wind-beaten shores of Konyang."
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/konyang
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/konyang/New()
+	..()
+	var/list/konyangcoat = list()
+	konyangcoat["konyang village coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat/konyang
+	konyangcoat["red konyanger jacket"] = /obj/item/clothing/suit/storage/toggle/konyang
+	konyangcoat["red short-sleeved konyanger jacket"] = /obj/item/clothing/suit/storage/toggle/konyang/akira
+	konyangcoat["red konyanger jumpjacket"] = /obj/item/clothing/suit/storage/toggle/konyang/pants
+	konyangcoat["orange konyanger jumpjacket"] = /obj/item/clothing/suit/storage/toggle/konyang/orange
+	konyangcoat["blue konyanger jumpjacket"] = /obj/item/clothing/suit/storage/toggle/konyang/blue
+	gear_tweaks += new /datum/gear_tweak/path(konyangcoat)
+
 /datum/gear/suit/gadpathur
 	display_name = "gadpathurian coat selection"
 	path = /obj/item/clothing/suit/storage/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/suit/gadpathur/New()
 	..()

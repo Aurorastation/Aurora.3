@@ -45,7 +45,7 @@
 		if(istype(H))
 			species_restricted = list(H.species.get_bodytype())
 		kit.use(1,user)
-		return 1
+		return TRUE
 	return ..()
 
 /obj/item/clothing/suit/space/void/attackby(var/obj/item/O, var/mob/user)
@@ -64,5 +64,5 @@
 		if(istype(H))
 			species_restricted = list(H.species.get_bodytype())
 		kit.use(1,user)
-		return 1
+		return TRUE
 	return ..()
