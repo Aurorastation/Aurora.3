@@ -172,8 +172,8 @@
 	slot_flags = SLOT_TIE
 
 /obj/item/clothing/accessory/badge/hos
-	name = "commander's badge"
-	desc = "An immaculately polished gold security badge. Labeled 'Commander.'"
+	name = "chief of security's badge"
+	desc = "An immaculately polished gold security badge. Labeled 'Chief of Security.'"
 	icon_state = "goldbadge"
 	overlay_state = "goldbadge"
 	slot_flags = SLOT_TIE
