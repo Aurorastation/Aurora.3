@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Changed the SFA patrol ship into a unique shuttle, and gives it an extra marine."
+  - rscadd: "Changed the SFA patrol ship into a unique shuttle, and gives it an extra marine. Restricted it to spawning in Tau Ceti, and adds a new FSF ship for the CRZ."
   - rscadd: "Added detailed shiplore to the extant ships in the game."
