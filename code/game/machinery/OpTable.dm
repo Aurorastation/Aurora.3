@@ -128,8 +128,7 @@
 	if(istype(M))
 		var/mob/living/L = target
 		var/bucklestatus = L.bucklecheck(user)
-
-		if(!bucklestatus)//We must make sure the person is unbuckled before they go in
+		if(!bucklestatus)
 			return
 
 		if(L == user)
@@ -163,8 +162,7 @@
 
 		var/mob/living/L = G.affecting
 		var/bucklestatus = L.bucklecheck(user)
-
-		if(!bucklestatus)//We must make sure the person is unbuckled before they go in
+		if(!bucklestatus)
 			return TRUE
 
 		if(L == user)

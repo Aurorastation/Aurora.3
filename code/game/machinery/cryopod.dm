@@ -391,7 +391,10 @@ var/global/list/frozen_crew = list()
 			return TRUE
 
 		var/willing = FALSE //We don't want to allow people to be forced into despawning.
-		var/mob/M = G.affecting
+		var/mob/living/M = G.affecting
+		var/bucklestatus = M.bucklecheck(user)
+		if(!bucklestatus)
+			return TRUE
 
 		if(M.client)
 			var/original_loc = M.loc
@@ -442,8 +445,8 @@ var/global/list/frozen_crew = list()
 		return
 
 	var/mob/living/L = O
-
-	if(!L.bucklecheck(user)) //We must make sure the person is unbuckled before they go in
+	var/bucklestatus = L.bucklecheck(user)
+	if(!bucklestatus) //We must make sure the person is unbuckled before they go in
 		return
 
 	if(L.stat == DEAD)

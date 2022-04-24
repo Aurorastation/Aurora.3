@@ -160,6 +160,10 @@
 		if(!L.isSynthetic())
 			return TRUE
 
+		var/bucklestatus = L.bucklecheck(user)
+		if(!bucklestatus)
+			return TRUE
+
 		move_ipc(grab.affecting)
 		qdel(O)
 	return ..()
@@ -328,7 +332,6 @@
 		if(bucklestatus == 2)
 			var/obj/structure/LB = R.buckled_to
 			LB.user_unbuckle(user)
-			return
 
 		user.face_atom(src)
 		move_ipc(R)
