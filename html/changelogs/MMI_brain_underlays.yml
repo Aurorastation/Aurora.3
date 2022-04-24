@@ -1,0 +1,6 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the MMI with visible brain states to correctly display the skrell and vaurca ones."
