@@ -12,7 +12,7 @@
 /obj/item/device/flashlight/marshallingwand/AltClick(mob/user)
 	if(!use_check_and_message(user))
 		if(!isturf(user.loc))
-			to_chat(user, "You cannot turn the light on while in this [user.loc].") //To prevent some lighting anomalities.)
+			to_chat(user, SPAN_WARNING("You cannot turn the light on while in this [user.loc].")) //To prevent some lighting anomalities.)
 			return FALSE
 		toggle()
 		user.update_action_buttons()
