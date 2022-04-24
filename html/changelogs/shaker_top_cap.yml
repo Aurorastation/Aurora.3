@@ -1,37 +1,13 @@
-################################
-# Example Changelog File
-#
-# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
-#
-# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
-# When it is, any changes listed below will disappear.
-#
-# Valid Prefixes:
-#   bugfix
-#   wip (For works in progress)
-#   tweak
-#   soundadd
-#   sounddel
-#   rscadd (general adding of nice things)
-#   rscdel (general deleting of nice things)
-#   imageadd
-#   imagedel
-#   maptweak
-#   spellcheck (typo fixes)
-#   experiment
-#   balance
-#   admin
-#   backend
-#   security
-#   refactor
-#################################
-
-author: Vrow
+author: Vrow, KingOfThePing
 
 delete-after: True
 
 changes:
   - imagedel: "Removed old shaker sprite."
   - imageadd: "Added a new shaker that is more metallic, with additional detachable top and cap, as well as in-hands for them."
+  - imageadd: "Added a unique new cyborg drink sythesizer sprite, with visible filling color so you can see what you have selected!"
+  - soundadd: "Added several shaking sounds for the shaker, removing the cap/top sounds, a big pour sound, and a new generic pouring sound."
   - rscadd: "You can now remove the new shaker's top, and also the cap that doubles as a mini cup!"
+  - tweak: "The cyborg drink synthesizer now tells you what reagent you have just transferred to stuff."
   - bugfix: "Fixed being able to pour stuff into a capped vacuum flask."
+  - bugfix: "Fixed cyborg synthesizer's inaccurate desc_info, and cleared the desc_fluff from them as well."

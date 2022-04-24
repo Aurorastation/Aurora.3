@@ -427,20 +427,21 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/shaker
 	name = "shaker"
 	desc = "A metal shaker to mix drinks in."
-	desc_info = "Alt Click the shaker to twist the cap closed/loose. If the cap is loose, use the shaker to remove it. With the cap removed, Alt Click the \
-	shaker to remove the top."
+	desc_info = "Alt Click the shaker to twist the cap closed/loose. If the cap is loose, use the shaker to remove it. Without a cap, use the shaker again to remove the top. \
+	If the shaker has a top fitted, you can Alt Click the shaker to change the transfer amount. Without a top, the transfer amount changes to max automatically."
 	icon = 'icons/obj/shaker.dmi' // VTD: Don't forget to remove the old sprites in icons/obj/drinks.dmi
 	icon_state = "shaker"
 	item_state = "shaker"
 	contained_sprite = TRUE
-	filling_states = "20;40;60;80;100"
+	filling_states = "10;25;50;75;80;100"
 	unacidable = TRUE
 	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(10, 30, 60)
 	volume = 120
 	center_of_mass = list("x"=16, "y"=8)
 	var/last_shake = 0
 	var/twisted = FALSE
-	var/obj/item/reagent_containers/food/drinks/shaker_top/top
+	var/obj/item/shaker_top/top
 	var/obj/item/reagent_containers/food/drinks/shaker_cup/cap
 
 /obj/item/reagent_containers/food/drinks/shaker/Initialize()
@@ -462,7 +463,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	else
 		icon_state = initial(icon_state)
 		item_state = icon_state
-		if(reagents?.total_volume)
+		if(reagents.total_volume)
 			var/mutable_appearance/filling = mutable_appearance('icons/obj/shaker.dmi', "[icon_state]-[get_filling_state()]")
 			filling.color = reagents.get_color()
 			add_overlay(filling)
@@ -474,7 +475,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	if(cap)
 		toggle_twist()
 		return
-	toggle_top()
+	if(top)
+		set_APTFT()
 	return
 
 /obj/item/reagent_containers/food/drinks/shaker/attack_self(mob/user)
@@ -484,14 +486,17 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 			user.put_in_hands(cap)
 			flags |= OPENCONTAINER
 			cap = null
+			playsound(src.loc, /decl/sound_category/shaker_lid_off, 50, 1)
 			update_icon()
 			return
-	if(!cap)
-		to_chat(user, SPAN_WARNING("You need to put a cap on \the [src] before shaking it."))
+		if(top)
+			toggle_top()
+			return
+		to_chat(user, SPAN_WARNING("It would be a bad idea to shake it without it being closed."))
 		return
 	if(last_shake <= world.time - 10) //Spam limiter.
 		last_shake = world.time
-		playsound(src.loc, 'sound/items/soda_shaking.ogg', 50, 1) // VTD: Receive Ping's possible new sound (DON'T FORGET CHANGELOG)
+		playsound(src.loc, /decl/sound_category/shaker_shaking, 50, 1)
 	src.add_fingerprint(user)
 	return
 
@@ -505,23 +510,32 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 			C.standard_pour_into(user, src)
 			return TRUE
 		if(!top)
-			to_chat(user, SPAN_WARNING("\The [src] lacks a top to put \the [W] on."))
+			to_chat(user, SPAN_WARNING("\The [src] lacks a top to fit \the [W] on."))
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You put \the [W] onto \the [src]."))
 		user.drop_from_inventory(W, src)
 		flags ^= OPENCONTAINER
 		cap = W
+		playsound(src.loc, /decl/sound_category/shaker_lid_off, 50, 1)
 		update_icon()
 		return TRUE
-	if(istype(W, /obj/item/reagent_containers/food/drinks/shaker_top))
+	if(istype(W, /obj/item/shaker_top))
 		if(top)
 			to_chat(user, SPAN_WARNING("\The [src] already has \a [top]."))
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You fit \the [W] onto \the [src]."))
+		amount_per_transfer_from_this = 10
 		user.drop_from_inventory(W, src)
 		top = W
+		playsound(src.loc, /decl/sound_category/shaker_lid_off, 50, 1)
 		update_icon()
 		return TRUE
+	return ..()
+
+/obj/item/reagent_containers/food/drinks/shaker/on_pour()
+	if(!top)
+		playsound(src, 'sound/effects/pour_big.ogg', 50, 1)
+		return
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/shaker/verb/toggle_twist()
@@ -548,22 +562,28 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a top to remove!"))
 		return
 	to_chat(usr, SPAN_NOTICE("You remove \the [src]'s [top]."))
+	amount_per_transfer_from_this = 120
 	usr.put_in_hands(top)
 	top = null
+	playsound(src.loc, /decl/sound_category/shaker_lid_off, 50, 1)
 	update_icon()
 
-/obj/item/reagent_containers/food/drinks/shaker_top
+/obj/item/shaker_top
 	name = "shaker top"
 	desc = "A metal shaker top with an in-built filter on the bottom."
+	desc_info = "When fitted on a shaker, you can Alt Click the shaker to change transfer amount of the shaker."
 	icon = 'icons/obj/shaker.dmi'
 	icon_state = "shaker_top"
 	item_state = "shaker_top"
 	contained_sprite = TRUE
-	flags = null
-	volume = null
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = null
 	center_of_mass = list("x" = 16, "y" = 16)
 
-/obj/item/reagent_containers/food/drinks/shaker_top/afterattack(atom/target, mob/user, proximity, params)
+/obj/item/shaker_top/attack_self(mob/user as mob)
+	return
+
+/obj/item/shaker_top/afterattack(atom/target, mob/user, proximity, params)
 	if(istype(target, /obj/item/reagent_containers/food/drinks/shaker))
 		return
 	return ..()
@@ -571,12 +591,13 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/shaker_cup
 	name = "shaker cap"
 	desc = "A metal shaker cap that also doubles as a metal cup to measure liquids, or to drink from."
-	desc_info = "Alt Click to change transfer amount."
+	desc_info = "Alt Click the cap to change the transfer amount."
 	icon = 'icons/obj/shaker.dmi'
 	icon_state = "shaker_cup"
 	item_state = "shaker_cup"
 	contained_sprite = TRUE
 	filling_states = "50;100"
+	pickup_sound = null
 	volume = 10
 	possible_transfer_amounts = list(1,2,3,4,5,10)
 	center_of_mass = list("x" = 16, "y" = 16)
