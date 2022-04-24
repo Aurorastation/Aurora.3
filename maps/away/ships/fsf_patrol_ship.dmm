@@ -55,7 +55,7 @@
 "dhp" = (/obj/machinery/door/airlock/security{name = "Checkpoint"; req_access = list(203)},/turf/simulated/floor/tiled/dark,/area/shuttle/fsf_patrol_ship)
 "dHE" = (/obj/effect/floor_decal/corner_wide/green/diagonal,/turf/simulated/floor/tiled/dark,/area/shuttle/fsf_patrol_ship)
 "dLJ" = (/obj/machinery/door/airlock/hatch{name = "Telecomms"},/obj/structure/plasticflaps/airtight,/turf/simulated/floor,/area/shuttle/fsf_patrol_ship)
-"dPp" = (/obj/structure/table/steel,/obj/machinery/door/window/northleft{dir = 4; name = "Checkpoint"; req_access = list(203)},/obj/machinery/light{dir = 1; icon_state = "tube1"; inserted_light = /obj/item/light/tube/colored/blue},/turf/simulated/floor/tiled/dark,/area/shuttle/fsf_patrol_ship)
+"dPp" = (/obj/structure/table/steel,/obj/machinery/door/window/northleft{dir = 4; name = "Checkpoint"; req_access = list(203)},/obj/machinery/light{dir = 1; icon_state = "tube1"; inserted_light = /obj/item/light/tube/colored/blue},/obj/item/paper_bin,/obj/item/pen,/turf/simulated/floor/tiled/dark,/area/shuttle/fsf_patrol_ship)
 "dQZ" = (/obj/machinery/shower{dir = 8},/obj/item/soap,/obj/item/bikehorn/rubberducky,/obj/machinery/light/small{dir = 1},/turf/simulated/floor/tiled/white,/area/shuttle/fsf_patrol_ship)
 "dSA" = (/obj/machinery/portable_atmospherics/canister/carbon_dioxide,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor,/area/shuttle/fsf_patrol_ship)
 "dTw" = (/obj/machinery/atmospherics/portables_connector{layer = 2.8},/obj/machinery/portable_atmospherics/canister/carbon_dioxide,/turf/simulated/floor/shuttle/black,/area/shuttle/fsf_shuttle)
@@ -281,12 +281,12 @@
 "uHV" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 8},/turf/simulated/floor/carpet/blue,/area/shuttle/fsf_patrol_ship)
 "uWQ" = (/obj/machinery/washing_machine,/turf/simulated/floor/tiled/white,/area/shuttle/fsf_patrol_ship)
 "uYP" = (/obj/effect/floor_decal/corner_wide/green/diagonal,/turf/simulated/floor/tiled/white,/area/shuttle/fsf_patrol_ship)
-"vfY" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/structure/table/rack,/obj/item/clothing/suit/space/void/sol,/obj/item/clothing/head/helmet/space/void/sol,/obj/item/clothing/shoes/magboots,/obj/item/tank/jetpack/oxygen,/obj/effect/decal/cleanable/cobweb,/obj/machinery/light{dir = 1; icon_state = "tube1"},/turf/simulated/floor/tiled/dark,/area/shuttle/fsf_patrol_ship)
+"vfY" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/structure/table/rack,/obj/item/clothing/suit/space/void/sol,/obj/item/clothing/head/helmet/space/void/sol,/obj/item/clothing/shoes/magboots,/obj/item/tank/jetpack/oxygen,/obj/machinery/light{dir = 1; icon_state = "tube1"},/turf/simulated/floor/tiled/dark,/area/shuttle/fsf_patrol_ship)
 "vgc" = (/obj/machinery/light{dir = 1; icon_state = "tube1"},/obj/machinery/computer/cryopod{pixel_y = 32},/turf/simulated/floor/tiled/dark,/area/shuttle/fsf_patrol_ship)
 "vmq" = (/obj/machinery/constructable_frame/temp_deco,/obj/item/material/wirerod,/obj/item/stack/cable_coil,/obj/effect/floor_decal/spline/plain/corner{dir = 1},/turf/simulated/floor,/area/shuttle/fsf_patrol_ship)
 "vns" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light{dir = 1; icon_state = "tube1"; inserted_light = /obj/item/light/tube/colored/blue},/turf/simulated/floor/tiled/dark,/area/shuttle/fsf_patrol_ship)
 "vtl" = (/obj/effect/floor_decal/spline/plain{dir = 4},/obj/structure/railing/mapped{dir = 4},/obj/effect/floor_decal/spline/plain{dir = 8},/obj/machinery/light/small/emergency{dir = 8},/turf/simulated/floor/holofloor/tiled/ramp,/area/shuttle/fsf_patrol_ship)
-"vwF" = (/obj/machinery/telecomms/allinone/ship,/obj/effect/floor_decal/industrial/outline,/obj/effect/decal/cleanable/cobweb2,/turf/simulated/floor/tiled{name = "cooled floor"; temperature = 278},/area/shuttle/fsf_patrol_ship)
+"vwF" = (/obj/machinery/telecomms/allinone/ship,/obj/effect/floor_decal/industrial/outline,/turf/simulated/floor/tiled{name = "cooled floor"; temperature = 278},/area/shuttle/fsf_patrol_ship)
 "vxN" = (/obj/structure/table/steel,/obj/item/clipboard,/obj/item/folder/blue,/turf/simulated/floor/carpet/rubber,/area/shuttle/fsf_patrol_ship)
 "vAi" = (/obj/structure/closet/secure_closet/guncabinet{req_access = list(203)},/obj/structure/lattice/catwalk/indoor/grate,/obj/item/gun/projectile/automatic/c20r/sol,/obj/item/gun/projectile/automatic/c20r/sol,/obj/item/ammo_magazine/a10mm,/obj/item/ammo_magazine/a10mm,/turf/simulated/floor,/area/shuttle/fsf_patrol_ship)
 "vCD" = (/obj/structure/table/steel,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/shuttle/fsf_patrol_ship)
@@ -335,7 +335,7 @@
 "yjk" = (/turf/simulated/wall/shuttle/raider,/area/shuttle/fsf_patrol_ship)
 "yjW" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor,/area/shuttle/fsf_patrol_ship)
 "ylV" = (/turf/simulated/floor/wood,/area/shuttle/fsf_patrol_ship)
-"yme" = (/obj/structure/filingcabinet/chestdrawer,/obj/item/reagent_containers/food/drinks/bottle/whiskey{pixel_x = 2; pixel_y = 17},/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{pixel_x = -5; pixel_y = 11},/obj/machinery/light{icon_state = "tube1"; inserted_light = /obj/item/light/tube/colored/blue},/turf/simulated/floor/carpet/blue,/area/shuttle/fsf_patrol_ship)
+"yme" = (/obj/structure/filingcabinet/chestdrawer,/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{pixel_x = -5; pixel_y = 11},/obj/machinery/light{icon_state = "tube1"; inserted_light = /obj/item/light/tube/colored/blue},/obj/item/reagent_containers/food/drinks/bottle/cognac{pixel_x = 2; pixel_y = 17},/turf/simulated/floor/carpet/blue,/area/shuttle/fsf_patrol_ship)
 
 (1,1,1) = {"
 xRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRXxRX
