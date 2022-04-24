@@ -100,10 +100,10 @@
 	var/decl/origin_item/culture/CL = decls_repository.get_decl(text2path(pref.culture))
 	var/decl/origin_item/origin/OR = decls_repository.get_decl(text2path(pref.origin))
 	dat += "<b>Culture: </b><a href='?src=\ref[src];open_culture_menu=1'>[CL.name]</a><br>"
-	dat += "<i>- [CL.desc]</i><hr>"
+	dat += "<i>- [CL.desc]</i>"
 	if(CL.important_information)
 		dat += "<br><i>- <font color=red>[CL.important_information]</font></i>"
-	dat += "<b>Origin: </b><a href='?src=\ref[src];open_origin_menu=1'>[OR.name]</a><br>"
+	dat += "<hr><b>Origin: </b><a href='?src=\ref[src];open_origin_menu=1'>[OR.name]</a><br>"
 	dat += "<i>- [OR.desc]</i>"
 	if(OR.important_information)
 		dat += "<br><i>- <font color=red>[OR.important_information]</font></i>"

@@ -1,6 +1,6 @@
 /decl/origin_item/culture/megacorporate
 	name = "Megacorporate"
-	desc = "Scrappers, gangs of decommissioned IPCs that manage to rise and escape from the junkyards while successfully avoiding human contact in an effort to remain free, are common across Biesel, Mars and Eridani. Although little exists to unify these disparate groups as a culture, they often exhibit common characteristics such as loyalty to their gang, a distrust of organic life, and the willingness to modify their own chassis with anything it takes to survive. With the Sol Alliance losing parts of its territory, more and more Scrappers are making themselves known, taking the risk to reintegrate into a more accepting society."
+	desc = "The majority of IPC are manufactured by a megacorporation and nearly every type of commercially-available frame is owned or originated from them. Although many of these IPC are sold to consumers in the public and private sectors, a good portion of them are retained for in-house use by their manufacturers or their subsidiaries. The treatment and behaviour of a corporate IPC is often influenced by the megacorporation they find themselves in."
 	possible_origins = list(
 		/decl/origin_item/origin/idris,
 		/decl/origin_item/origin/hephaestus,
