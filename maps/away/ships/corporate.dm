@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/orion_express_ship
 	name = "Orion Express Ship"
-	description = "A light ship belonging to the Orion Express corporation."
+	description = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus. This one’s transponder identifies it as an Orion Express courier vessel."
 	suffix = "ships/orion_express_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	spawn_weight = 1
@@ -10,12 +10,12 @@
 
 /obj/effect/overmap/visitable/sector/orion_express_ship
 	name = "faint ship activity"
-	desc = "A sector with faint hints of previous civilian ship presence."
+	desc = "A sector with faint hints of previous ship presence."
 	in_space = 1
 
 /decl/submap_archetype/orion_express_ship
 	map = "Orion Express ship"
-	descriptor = "A light ship belonging to the Orion Express corporation."
+	descriptor = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus. This one’s transponder identifies it as an Orion Express courier vessel."
 
 //areas
 
@@ -31,7 +31,7 @@
 
 /obj/effect/overmap/visitable/ship/landable/orion_express_ship
 	name = "Orion Express Ship"
-	desc = "A light ship belonging to the Orion Express corporation."
+	desc = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus. This one’s transponder identifies it as an Orion Express courier vessel."
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -85,7 +85,7 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/orion_express_shuttle
 	name = "Orion Express Shuttle"
-	desc = "A shuttle used by the Orion Express to deliver its goods."
+	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one’s transponder identifies it as belonging to Orion Express."
 	shuttle = "Orion Express Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
@@ -100,7 +100,7 @@
 
 /datum/shuttle/autodock/overmap/orion_express_shuttle
 	name = "Orion Express Shuttle"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/orion_express_shuttle)
 	current_location = "nav_hangar_orion_express"
 	landmark_transition = "nav_transit_orion_express"
@@ -227,7 +227,7 @@
 
 /datum/shuttle/autodock/overmap/ee_shuttle
 	name = "Einstein Engines Shuttle"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/ee_shuttle)
 	current_location = "nav_hangar_ee"
 	landmark_transition = "nav_transit_ee_shuttle"
