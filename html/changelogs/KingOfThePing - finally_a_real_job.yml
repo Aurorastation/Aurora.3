@@ -1,0 +1,11 @@
+
+
+# Your name.
+author: KingOfThePing
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+changes:
+  - tweak: "Re-named the Head of Security to Chief of Security. Finally, a real job."
+  - maptweak: "Re-named all HoS related map stuff to Chief of Security."
