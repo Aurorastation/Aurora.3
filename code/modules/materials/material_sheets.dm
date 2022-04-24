@@ -229,7 +229,7 @@
 	amount = max_amount
 	update_icon()
 
-//Fuel for MRSPACMAN generator.
+//Fuel for the super portable generator.
 /obj/item/stack/material/tritium
 	name = "tritium"
 	icon_state = "sheet-silver"

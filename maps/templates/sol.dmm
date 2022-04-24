@@ -327,7 +327,7 @@
 /turf/simulated/floor/greengrid,
 /area/derelict/ship)
 "bb" = (
-/obj/machinery/power/port_gen/pacman/super,
+/obj/machinery/power/portgen/basic/advanced,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bc" = (

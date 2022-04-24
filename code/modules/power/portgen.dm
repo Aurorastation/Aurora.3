@@ -1,7 +1,7 @@
 //Baseline portable generator. Has all the default handling. Not intended to be used on it's own (since it generates unlimited power).
-/obj/machinery/power/port_gen
-	name = "Placeholder Generator"	//seriously, don't use this. It can't be anchored without VV magic.
-	desc = "A portable generator for emergency backup power"
+/obj/machinery/power/portgen
+	name = "placeholder generator" // Don't use this. It can't be anchored without VV magic.
+	desc = "You aren't supposed to see this."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "portgen0_0"
 	var/base_icon = "portgen0"
@@ -14,25 +14,25 @@
 	var/power_output = 1
 	has_special_power_checks = TRUE
 
-/obj/machinery/power/port_gen/Initialize()
+/obj/machinery/power/portgen/Initialize()
 	. = ..()
 
-/obj/machinery/power/port_gen/proc/IsBroken()
+/obj/machinery/power/portgen/proc/IsBroken()
 	return (stat & (BROKEN|EMPED))
 
-/obj/machinery/power/port_gen/proc/HasFuel() //Placeholder for fuel check.
+/obj/machinery/power/portgen/proc/HasFuel() //Placeholder for fuel check.
 	return TRUE
 
-/obj/machinery/power/port_gen/proc/UseFuel() //Placeholder for fuel use.
+/obj/machinery/power/portgen/proc/UseFuel() //Placeholder for fuel use.
 	return
 
-/obj/machinery/power/port_gen/proc/DropFuel()
+/obj/machinery/power/portgen/proc/DropFuel()
 	return
 
-/obj/machinery/power/port_gen/proc/handleInactive()
+/obj/machinery/power/portgen/proc/handleInactive()
 	return
 
-/obj/machinery/power/port_gen/machinery_process()
+/obj/machinery/power/portgen/machinery_process()
 	if(active && HasFuel() && !IsBroken() && anchored)
 		if(powernet)
 			add_avail(power_gen * power_output)
@@ -46,7 +46,7 @@
 /obj/machinery/power/powered()
 	return TRUE //doesn't require an external power source
 
-/obj/machinery/power/port_gen/attack_hand(mob/user)
+/obj/machinery/power/portgen/attack_hand(mob/user)
 	if(..())
 		update_icon()
 		return
@@ -54,11 +54,11 @@
 		update_icon()
 		return
 
-/obj/machinery/power/port_gen/update_icon()
+/obj/machinery/power/portgen/update_icon()
 	icon_state = "[base_icon]_[active]"
 	return ..()
 
-/obj/machinery/power/port_gen/examine(mob/user)
+/obj/machinery/power/portgen/examine(mob/user)
 	if(!..(user, 1))
 		return
 	if(active)
@@ -66,7 +66,7 @@
 	else
 		to_chat(usr, SPAN_NOTICE("The generator is off."))
 
-/obj/machinery/power/port_gen/emp_act(severity)
+/obj/machinery/power/portgen/emp_act(severity)
 	var/duration = 6000 //ten minutes
 	switch(severity)
 		if(1)
@@ -84,21 +84,24 @@
 		spawn(duration)
 			stat &= ~EMPED
 
-/obj/machinery/power/port_gen/proc/explode()
+/obj/machinery/power/portgen/proc/explode()
 	explosion(loc, -1, 3, 5, -1)
 	qdel(src)
 
 #define TEMPERATURE_DIVISOR 40
 #define TEMPERATURE_CHANGE_MAX 20
 
-//A power generator that runs on solid plasma sheets.
-/obj/machinery/power/port_gen/pacman
-	name = "\improper P.A.C.M.A.N.-type Portable Generator"
-	desc = "A power generator that runs on solid phoron sheets. Rated for 80 kW max safe output."
+//
+// Portable Generator - Basic
+// Runs on phoron sheets.
+//
+/obj/machinery/power/portgen/basic
+	name = "portable generator"
+	desc = "A portable generator that runs on " + SPAN_INFO("solid phoron sheets. ") + SPAN_WARNING("Rated for 80 kW max safe output.")
 
 	var/sheet_name = "Phoron Sheets"
 	var/sheet_path = /obj/item/stack/material/phoron
-	var/board_path = "/obj/item/circuitboard/pacman"
+	var/board_path = "/obj/item/circuitboard/portgen"
 
 	/*
 		These values were chosen so that the generator can run safely up to 80 kW
@@ -126,18 +129,18 @@
 		/obj/item/stock_parts/capacitor
 	)
 
-/obj/machinery/power/port_gen/pacman/Initialize()
+/obj/machinery/power/portgen/basic/Initialize()
 	component_types += board_path
 	. = ..()
 
 	if(anchored)
 		connect_to_network()
 
-/obj/machinery/power/port_gen/pacman/Destroy()
+/obj/machinery/power/portgen/basic/Destroy()
 	DropFuel()
 	return ..()
 
-/obj/machinery/power/port_gen/pacman/RefreshParts()
+/obj/machinery/power/portgen/basic/RefreshParts()
 	var/temp_rating = 0
 
 	for(var/obj/item/stock_parts/SP in component_parts)
@@ -149,27 +152,27 @@
 	power_gen = round(initial(power_gen) * (max(2, temp_rating) / 2))
 	SSvueui.check_uis_for_change(src)
 
-/obj/machinery/power/port_gen/pacman/examine(mob/user)
+/obj/machinery/power/portgen/basic/examine(mob/user)
 	..(user)
 	to_chat(user, "\The [src] appears to be producing [power_gen*power_output] W.")
 	to_chat(user, "There [sheets == 1 ? "is" : "are"] [sheets] sheet\s left in the hopper.")
 	if(IsBroken()) to_chat(user, SPAN_WARNING("\The [src] seems to have broken down."))
-	if(overheating) to_chat(user, SPAN_DANGER("\The [src] is overheating!"))
+	if(overheating) to_chat(user, SPAN_WARNING("\The [src] is overheating!"))
 
-/obj/machinery/power/port_gen/pacman/HasFuel()
+/obj/machinery/power/portgen/basic/HasFuel()
 	var/needed_sheets = power_output / time_per_sheet
 	if(sheets >= needed_sheets - sheet_left)
 		return TRUE
 
 //Removes one stack's worth of material from the generator.
-/obj/machinery/power/port_gen/pacman/DropFuel()
+/obj/machinery/power/portgen/basic/DropFuel()
 	if(sheets)
 		var/obj/item/stack/material/S = new sheet_path(loc)
 		var/amount = min(sheets, S.max_amount)
 		S.amount = amount
 		sheets -= amount
 
-/obj/machinery/power/port_gen/pacman/UseFuel()
+/obj/machinery/power/portgen/basic/UseFuel()
 
 	//how much material are we using this iteration?
 	var/needed_sheets = power_output / time_per_sheet
@@ -222,7 +225,7 @@
 
 	SSvueui.check_uis_for_change(src)
 
-/obj/machinery/power/port_gen/pacman/handleInactive()
+/obj/machinery/power/portgen/basic/handleInactive()
 	var/cooling_temperature = 20
 
 	var/turf/T = get_turf(src)
@@ -242,12 +245,12 @@
 	if(overheating)
 		overheating--
 
-/obj/machinery/power/port_gen/pacman/proc/overheat()
+/obj/machinery/power/portgen/basic/proc/overheat()
 	overheating++
 	if (overheating > 60)
 		explode()
 
-/obj/machinery/power/port_gen/pacman/explode()
+/obj/machinery/power/portgen/basic/explode()
 	//Vapourize all the phoron
 	//When ground up in a grinder, 1 sheet produces 20 u of phoron -- Chemistry-Machinery.dm
 	//1 mol = 10 u? I dunno. 1 mol of carbon is definitely bigger than a pill
@@ -260,7 +263,7 @@
 	sheet_left = 0
 	..()
 
-/obj/machinery/power/port_gen/pacman/emag_act(var/remaining_charges, var/mob/user)
+/obj/machinery/power/portgen/basic/emag_act(var/remaining_charges, var/mob/user)
 	if (active && prob(25))
 		explode() //if they're foolish enough to emag while it's running
 
@@ -268,7 +271,7 @@
 		emagged = TRUE
 		return TRUE
 
-/obj/machinery/power/port_gen/pacman/attackby(var/obj/item/O, var/mob/user)
+/obj/machinery/power/portgen/basic/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, sheet_path))
 		var/obj/item/stack/addstack = O
 		var/amount = min((max_sheets - sheets), addstack.amount)
@@ -313,18 +316,18 @@
 			qdel(src)
 	SSvueui.check_uis_for_change(src)
 
-/obj/machinery/power/port_gen/pacman/attack_hand(mob/user)
+/obj/machinery/power/portgen/basic/attack_hand(mob/user)
 	..()
 	if (!anchored)
 		return
 	ui_interact(user)
 
-/obj/machinery/power/port_gen/pacman/attack_ai(mob/user)
+/obj/machinery/power/portgen/basic/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	ui_interact(user)
 
-/obj/machinery/power/port_gen/pacman/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+/obj/machinery/power/portgen/basic/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
 		. = data = list()
 
@@ -355,13 +358,13 @@
 
 	return data
 
-/obj/machinery/power/port_gen/pacman/ui_interact(mob/user)
+/obj/machinery/power/portgen/basic/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new(user, src, "machinery-power-pacman", 500, 560, capitalize(name))
 	ui.open()
 
-/obj/machinery/power/port_gen/pacman/Topic(href, href_list)
+/obj/machinery/power/portgen/basic/Topic(href, href_list)
 	if(..())
 		return
 
@@ -386,24 +389,24 @@
 				power_output++
 		SSvueui.check_uis_for_change(src)
 
-/obj/machinery/power/port_gen/pacman/super
-	name = "S.U.P.E.R.P.A.C.M.A.N.-type Portable Generator"
-	desc = "A power generator that utilizes uranium sheets as fuel. Can run for much longer than the standard PACMAN type generators. Rated for 80 kW max safe output."
+/obj/machinery/power/portgen/basic/advanced
+	name = "advanced portable generator"
+	desc = "An advanced portable generator that runs on " + SPAN_INFO(" uranium sheets. ") + "Runs much more efficiently than the basic phoron model due to the higher energy density of uranium. " + SPAN_WARNING("Rated for 80 kW max safe output.")
 	icon_state = "portgen1_0"
 	base_icon = "portgen1"
 	sheet_path = /obj/item/stack/material/uranium
 	sheet_name = "Uranium Sheets"
 	time_per_sheet = 576 //same power output, but a 50 sheet stack will last 2 hours at max safe power
-	board_path = "/obj/item/circuitboard/pacman/super"
+	board_path = "/obj/item/circuitboard/portgen/advanced"
 
-/obj/machinery/power/port_gen/pacman/super/UseFuel()
+/obj/machinery/power/portgen/basic/advanced/UseFuel()
 	//produces a tiny amount of radiation when in use
 	if (prob(2 * power_output))
 		for (var/mob/living/L in range(src, 5))
 			L.apply_damage(1, IRRADIATE, damage_flags = DAM_DISPERSED) //should amount to ~5 rads per minute at max safe power
 	..()
 
-/obj/machinery/power/port_gen/pacman/super/explode()
+/obj/machinery/power/portgen/basic/advanced/explode()
 	//a nice burst of radiation
 	var/rads = 50 + (sheets + sheet_left)*1.5
 	for (var/mob/living/L in range(src, 10))
@@ -414,9 +417,9 @@
 	explosion(loc, 3, 3, 5, 3)
 	qdel(src)
 
-/obj/machinery/power/port_gen/pacman/mrs
-	name = "M.R.S.P.A.C.M.A.N.-type Portable Generator"
-	desc = "An advanced power generator that runs on tritium. Rated for 200 kW maximum safe output!"
+/obj/machinery/power/portgen/basic/super
+	name = "super portable generator"
+	desc = "An advanced portable generator that runs on " + SPAN_INFO(" tritium sheets. ") + "Runs even more efficiently than the uranium-driven model due to the higher energy density of tritium. " + SPAN_WARNING("Rated for 200 kW max safe output.")
 	icon_state = "portgen2_0"
 	base_icon = "portgen2"
 	sheet_path = /obj/item/stack/material/tritium
@@ -430,9 +433,9 @@
 	time_per_sheet = 576
 	max_temperature = 800
 	temperature_gain = 90
-	board_path = "/obj/item/circuitboard/pacman/mrs"
+	board_path = "/obj/item/circuitboard/portgen/super"
 
-/obj/machinery/power/port_gen/pacman/mrs/explode()
+/obj/machinery/power/portgen/basic/super/explode()
 	//no special effects, but the explosion is pretty big (same as a supermatter shard).
 	explosion(loc, 3, 6, 12, 16, 1)
 	qdel(src)

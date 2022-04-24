@@ -60474,7 +60474,7 @@
 /turf/simulated/floor/marble,
 /area/maintenance/cargo)
 "ffY" = (
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "fgj" = (
@@ -65666,7 +65666,7 @@
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
 "pam" = (
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "pch" = (

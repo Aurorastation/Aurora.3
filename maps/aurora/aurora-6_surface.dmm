@@ -26969,7 +26969,7 @@
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "wXr" = (
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
