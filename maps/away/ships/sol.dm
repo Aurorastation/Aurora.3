@@ -80,7 +80,7 @@
 /obj/machinery/computer/shuttle_control/explore/sfa_patrol_ship
 	name = "ship control console"
 	shuttle_tag = "SFA Patrol Ship"
-	req_access = list(access_sfa_patrol_ship)
+	req_access = list(access_sol_ships)
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/sfa_shuttle
@@ -96,7 +96,7 @@
 /obj/machinery/computer/shuttle_control/explore/sfa_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "SFA Shuttle"
-	req_access = list(access_sfa_patrol_ship)
+	req_access = list(access_sol_ships)
 
 /datum/shuttle/autodock/overmap/sfa_shuttle
 	name = "SFA Shuttle"
