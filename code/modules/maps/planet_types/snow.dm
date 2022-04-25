@@ -19,11 +19,6 @@
 		atmosphere.temperature = max(T0C - rand(10, 100), limit)
 		atmosphere.update_values()
 
-/obj/effect/overmap/visitable/sector/exoplanet/snow
-	name = "barren snow exoplanet"
-	desc = "Cold planet with no life."
-	map_generators = list(/datum/random_map/noise/exoplanet/snow/barren)
-
 /datum/random_map/noise/exoplanet/snow
 	descriptor = "snow exoplanet"
 	smoothing_iterations = 1
