@@ -15,7 +15,7 @@
 	name = "Zkaii Brood"
 	desc = "The new High Queen of the K'lax, the Zkaii Brood is often mocked for their eccentric Mother Dream religion. Many still remain within Tret and other Izweski territories."
 	possible_accents = list(ACCENT_KLAX, ACCENT_TTS)
-	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_KLAX)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI)
 	possible_religions = list(RELIGION_PILOTDREAM)
 
 /decl/origin_item/origin/vetju
@@ -36,14 +36,14 @@
 	name = "Vedhra Brood"
 	desc = "One of the youngest Vaurca Queens, Vedhra wishes to unite the Vaurca civilization under Preimminence. The brood is also known for their augments and fascination with the Unathi culture. As with most K'lax broods, they mainly reside in Tret."
 	possible_accents = list(ACCENT_KLAX, ACCENT_TTS)
-	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_KLAX)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI)
 	possible_religions = list(RELIGION_PREIMMINENNCE)
 
 /decl/origin_item/origin/tupii
 	name = "Tupii-K'lax Brood"
 	desc = "The old K'lax brood, reinvigorated by the newly elected Queen Tupii. While older generations retain many customs of Mother K'lax, Tupii has attempted to modernize the brood and prove their loyalty."
 	possible_accents = list(ACCENT_KLAX, ACCENT_TTS)
-	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_KLAX)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI)
 	possible_religions = list(RELIGION_PREIMMINENNCE, RELIGION_HIVEPANTHEON)
 
 /decl/origin_item/origin/mikuetz
