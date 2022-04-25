@@ -114,6 +114,7 @@
 	possible_cultures = list(
 		/decl/origin_item/culture/xrim,
 		/decl/origin_item/culture/eum,
+		/decl/origin_item/culture/narrows,
 		/decl/origin_item/culture/diona_biesel,
 		/decl/origin_item/culture/diona_sol,
 		/decl/origin_item/culture/diona_eridani,
@@ -121,7 +122,6 @@
 		/decl/origin_item/culture/dionae_moghes,
 		/decl/origin_item/culture/dionae_jargon,
 		/decl/origin_item/culture/diona_coalition,
-		/decl/origin_item/culture/diona_narrows,
 		/decl/origin_item/culture/deep_space
 	)
 
