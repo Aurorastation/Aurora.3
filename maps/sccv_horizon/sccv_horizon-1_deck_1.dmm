@@ -3050,15 +3050,8 @@
 /turf/simulated/floor/greengrid,
 /area/rnd/xenoarch_atrium)
 "cIj" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_research{
-	req_one_access = list(29, 47);
-	name = "Research E.V.A."
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
@@ -5974,9 +5967,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_command{
-	name = "Research E.V.A.";
-	req_one_access = list(18)
+/obj/machinery/door/airlock/glass_research{
+	req_one_access = list(29, 47, 73);
+	name = "Research E.V.A."
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
@@ -10534,8 +10527,11 @@
 /area/outpost/mining_main/eva)
 "jcT" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
-/area/hangar/auxiliary)
+/area/hangar/intrepid)
 "jcZ" = (
 /obj/structure/sign/flag/scc{
 	pixel_y = 32
@@ -10931,16 +10927,12 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "jvM" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/machinery/light,
+/obj/structure/sign/securearea{
+	name = "\improper DANGER: AUTOMATIC EQUIPMENT - CRUSH HAZARD sign";
+	desc = "A warning sign which reads 'DANGER: AUTOMATIC EQUIPMENT STARTS AND STOPS AUTOMATICALLY' and 'CRUSH HAZARD'.";
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "jwo" = (
@@ -12129,6 +12121,12 @@
 	dir = 4
 	},
 /area/hangar/intrepid)
+"kzJ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/auxiliary)
 "kAn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -12176,7 +12174,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/hangar/auxiliary)
+/area/hangar/intrepid)
 "kBV" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -13022,15 +13020,10 @@
 /area/hangar/intrepid/interstitial)
 "lnF" = (
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hangar/intrepid)
+/turf/simulated/floor/tiled/dark,
+/area/hangar/auxiliary)
 "lnG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -13947,12 +13940,10 @@
 /area/engineering/atmos/propulsion/starboard)
 "mdH" = (
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/hangar/intrepid)
+/turf/simulated/floor/tiled/dark,
+/area/hangar/auxiliary)
 "mdL" = (
 /obj/machinery/gibber,
 /turf/simulated/floor/tiled,
@@ -13978,13 +13969,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
-"mfk" = (
-/obj/machinery/door/blast/regular/open{
-	id = "hangarlockdown";
-	name = "Hangar Lockdown"
-	},
-/turf/simulated/floor/tiled,
-/area/hangar/auxiliary)
 "mfu" = (
 /obj/machinery/artifact_scanpad,
 /obj/effect/floor_decal/spline/plain{
@@ -14146,18 +14130,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "mmA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 8
+/obj/machinery/computer/shuttle_control/lift/wall{
+	shuttle_tag = "Robotics Lift";
+	pixel_y = -32;
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
@@ -15228,18 +15207,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "ngs" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/firealarm/west,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
@@ -15866,29 +15838,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"nLk" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	name = "Hangar"
-	},
-/obj/machinery/door/firedoor/multi_tile{
-	dir = 1
-	},
-/obj/machinery/door/blast/regular/open{
-	id = "hangarlockdown";
-	name = "Hangar Lockdown"
-	},
-/turf/simulated/floor/tiled,
-/area/hangar/auxiliary)
 "nLL" = (
 /obj/effect/floor_decal/corner_wide/purple/full{
 	dir = 8
@@ -15996,16 +15945,11 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/aft)
 "nPa" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	icon_state = "4-8"
+	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "nPK" = (
 /obj/machinery/power/terminal{
@@ -18238,13 +18182,7 @@
 /area/hangar/control)
 "pYy" = (
 /obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
@@ -18647,6 +18585,9 @@
 /area/rnd/isolation_b)
 "qmE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "qnr" = (
@@ -19143,14 +19084,12 @@
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "qGG" = (
+/obj/machinery/door/blast/regular/open{
+	id = "hangarlockdown";
+	name = "Hangar Lockdown"
+	},
 /obj/structure/cable{
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
@@ -21913,23 +21852,20 @@
 /turf/simulated/floor/plating,
 /area/hangar/operations)
 "tiM" = (
-/obj/machinery/door/window/eastleft{
-	req_one_access = list(29, 47);
-	name = "Elevator Access"
-	},
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/computer/shuttle_control/lift{
-	shuttle_tag = "Robotics Lift";
-	pixel_y = 23
+/obj/machinery/door/airlock/glass_mining{
+	req_one_access = list(29, 47);
+	name = "Mech Bay and Recharging Station Elevator Access"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/hangar/auxiliary)
+/turf/simulated/floor/tiled,
+/area/hangar/intrepid)
 "tiV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -23015,20 +22951,8 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/hangar/starboard)
 "ugY" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/machinery/alarm{
 	pixel_y = 28
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
@@ -23346,7 +23270,7 @@
 "uwf" = (
 /obj/effect/shuttle_landmark/lift/robotics_bottom,
 /turf/simulated/floor/plating,
-/area/hangar/auxiliary)
+/area/hangar/intrepid)
 "uwm" = (
 /obj/machinery/door/blast/regular{
 	id = "iso_a_purge";
@@ -25163,7 +25087,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/hangar/auxiliary)
+/area/hangar/intrepid)
 "weY" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -26337,8 +26261,11 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
-/area/hangar/auxiliary)
+/area/hangar/intrepid)
 "xhE" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
@@ -26865,19 +26792,20 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "xwA" = (
-/obj/machinery/door/window/eastright{
-	name = "Elevator Access";
-	req_one_access = list(29, 47)
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_mining{
+	req_one_access = list(29, 47);
+	name = "Mech Bay and Recharging Station Elevator Access"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/hangar/auxiliary)
+/turf/simulated/floor/tiled,
+/area/hangar/intrepid)
 "xyG" = (
 /obj/structure/kitchenspike,
 /obj/machinery/light{
@@ -50903,11 +50831,11 @@ doM
 xkw
 fQC
 hYy
-qGG
-lnF
-mdH
+hYy
+pth
+hYy
 fdB
-tYN
+nPa
 qgi
 gnn
 pYu
@@ -51105,7 +51033,7 @@ gNR
 xnj
 rBI
 hYy
-nPa
+hYy
 mgK
 lyc
 wuD
@@ -51307,7 +51235,7 @@ gNR
 xnj
 rBI
 hYy
-nPa
+hYy
 nNx
 lyc
 wuD
@@ -51513,8 +51441,8 @@ jvM
 wuD
 wuD
 wuD
-mfk
-nLk
+qGG
+kuQ
 aWP
 aWP
 vKK
@@ -51710,12 +51638,12 @@ kvl
 wWU
 lZN
 nTZ
-hsK
-mmA
 cIj
-ngs
+mmA
+wuD
+yag
 xjQ
-agI
+ngs
 mOd
 gaE
 aWP
@@ -51914,10 +51842,10 @@ raw
 fQC
 tiM
 xwA
-lPW
+wuD
 ugY
 gaE
-cEv
+lnF
 dHW
 xjq
 mio
@@ -52114,10 +52042,10 @@ bNW
 dIS
 raw
 fQC
-bJa
-bJa
-lPW
-pYy
+iRC
+iRC
+wuD
+gaE
 aCn
 qmE
 ndN
@@ -52316,12 +52244,12 @@ rBR
 fQC
 fQC
 fQC
-bJa
+iRC
 uwf
-lPW
+wuD
 pYy
-gaE
-cEv
+kzJ
+mdH
 mSq
 adX
 bJa
