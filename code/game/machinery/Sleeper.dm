@@ -248,9 +248,6 @@
 			if(occupant)
 				to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
 				return TRUE
-			if(bucklestatus == 2)
-				var/obj/structure/LB = L.buckled_to
-				LB.user_unbuckle(user)
 			if(L != G.affecting)//incase it isn't the same mob we started with
 				return TRUE
 

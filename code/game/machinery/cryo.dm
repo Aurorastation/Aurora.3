@@ -200,9 +200,6 @@
 
 		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 		if(do_mob(user, L, 30, needhand = 0))
-			if(bucklestatus == 2)
-				var/obj/structure/LB = L.buckled_to
-				LB.user_unbuckle(user)
 			for(var/mob/living/carbon/slime/M in range(1, L))
 				if(M.victim == L)
 					to_chat(user, SPAN_WARNING("[L] will not fit into the cryo because they have a slime latched onto their head."))

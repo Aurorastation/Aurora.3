@@ -170,9 +170,6 @@
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
 		if(do_mob(user, L, 10, needhand = FALSE))
-			if(bucklestatus == 2)
-				var/obj/structure/LB = L.buckled_to
-				LB.user_unbuckle(user)
 			take_victim(G.affecting,usr)
 			qdel(W)
 		return TRUE

@@ -135,9 +135,6 @@
 
 	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
 	if (do_mob(user, G.affecting, 30, needhand = 0))
-		if (bucklestatus == 2)
-			var/obj/structure/LB = M.buckled_to
-			LB.user_unbuckle(user)
 		if (M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
