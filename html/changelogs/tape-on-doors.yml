@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - bugfix: "You can place tape on doors again."
+  - bugfix: "Tape can now cross lattices/gratings."
