@@ -136,14 +136,14 @@
 /obj/effect/shuttle_landmark/lift/robotics_top
 	name = "Robotics Top"
 	landmark_tag = "nav_robotics_lift_top"
-	base_area = /area/turbolift/scc_ship/robotics_lift
+	base_area = /area/hallway/medical
 	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/lift/robotics_bottom
 	name = "Robotics Bottom"
 	landmark_tag = "nav_robotics_lift_bottom"
 	flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/hangar/intrepid
+	base_area = /area/hangar/auxiliary
 	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/scc_ship/robotics_lift
