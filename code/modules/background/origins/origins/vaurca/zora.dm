@@ -39,7 +39,7 @@
 	possible_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_NONE)
 
 /decl/origin_item/origin/athvur
-	name = "Athvur"
+	name = "Athvur Brood"
 	desc = "Athvur is a unique brood, as it has assimilated plenty of human customs. While the brood originally resided in Phoenixport, Biesel, they have relocated to Belle Côte."
 	possible_accents = list(ACCENT_ZORA, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_ZORA)

@@ -34,7 +34,7 @@
 
 /decl/origin_item/origin/vedhra
 	name = "Vedhra Brood"
-	desc = "The brood is mostly known for their archeological work and their production of k'ois in Pid, a moon near Tret."
+	desc = "One of the youngest Vaurca Queens, Vedhra wishes to unite the Vaurca civilization under Preimminence. The brood is also known for their augments and fascination with the Unathi culture. As with most K'lax broods, they mainly reside in Tret."
 	possible_accents = list(ACCENT_KLAX, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_KLAX)
 	possible_religions = list(RELIGION_PREIMMINENNCE)
@@ -47,7 +47,7 @@
 	possible_religions = list(RELIGION_PREIMMINENNCE, RELIGION_HIVEPANTHEON)
 
 /decl/origin_item/origin/mikuetz
-	name = "Mi'kuetz Brood"
+	name = "Mi'kuetz"
 	desc = " A group of Queenless K'lax in the Moghesian Wasteland. They are known for their cheerfulness and their aid in the reconstruction of the Unathi home planet."
 	possible_accents = list(ACCENT_KLAX, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI)
