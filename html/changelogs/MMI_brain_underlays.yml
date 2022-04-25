@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - bugfix: "Fixed the MMI with visible brain states to correctly display the skrell and vaurca ones."
+  - bugfix: "Fixed Vaurcae brains being borg-able."
