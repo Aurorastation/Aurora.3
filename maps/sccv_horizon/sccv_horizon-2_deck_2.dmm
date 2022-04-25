@@ -21506,6 +21506,11 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/sign/drop{
+	pixel_x = 32;
+	name = "\improper DANGER: FALLING HAZARD sign";
+	desc = "A warning sign which reads 'DANGER: FALLING HAZARD' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY'."
+	},
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
 "nfz" = (
