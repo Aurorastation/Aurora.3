@@ -139,14 +139,18 @@ var/datum/controller/subsystem/vote/SSvote
 		if (SSticker.hide_mode)
 			text = "<b>The vote has ended.</b>"
 		else if (winners.len)
-			text = "<b>Modes which were voted for:"
-			for (var/tag in winners)
-				text += "\n[capitalize(tag)]"
-			
+			text = "<b>"
+			if (TRUE)
+				text += "[winners.len] modes were voted for."
+			else
+				text += "Modes which were voted for:"
+				for (var/tag in winners)
+					text += "\n[capitalize(tag)]"
+
 			text += "</b>"
 		else
 			text = "<b>No antags were chosen. Enjoy extended.</b>"
-		
+
 		. = winners
 	else
 		if(winners.len > 0)
@@ -327,10 +331,10 @@ var/datum/controller/subsystem/vote/SSvote
 
 				stop_round = TRUE
 				question = "How intense should this round be?"
-				AddChoice("extended", "Extended", "No antags.")
-				AddChoice("low", "Low", "A few antags.")
-				AddChoice("medium", "Medium", "A medium intensity round.")
-				AddChoice("high", "High", "A high intensity round.")
+				AddChoice("extended", "Extended", "No antags.", votes_visible=FALSE)
+				AddChoice("low", "Low", "A few antags.", votes_visible=FALSE)
+				AddChoice("medium", "Medium", "A medium intensity round.", votes_visible=FALSE)
+				AddChoice("high", "High", "A high intensity round.", votes_visible=FALSE)
 			if ("dynamicantag")
 				if(SSticker.current_state >= 2)
 					return 0
@@ -338,7 +342,7 @@ var/datum/controller/subsystem/vote/SSvote
 				stop_round = TRUE
 				question = "What kind of antag(s) would you like to see?"
 				for (var/tag in dynamic_gamemode.get_votable_antags())
-					AddChoice(tag, capitalize(tag))
+					AddChoice(tag, capitalize(tag), votes_visible=FALSE)
 			else
 				return 0
 		mode = vote_type
@@ -367,10 +371,10 @@ var/datum/controller/subsystem/vote/SSvote
 		return 1
 	return 0
 
-/datum/controller/subsystem/vote/proc/AddChoice(name, display_name, extra_text)
+/datum/controller/subsystem/vote/proc/AddChoice(name, display_name, extra_text, votes_visible = TRUE)
 	if(!display_name)
 		display_name = name
-	choices[name] = list("name" = display_name, "extra" = extra_text, "votes" = 0)
+	choices[name] = list("name" = display_name, "extra" = extra_text, "votes" = 0, "votes_visible" = votes_visible)
 
 /datum/controller/subsystem/vote/Topic(href, list/href_list = list(), hsrc)
 	if(!usr || !usr.client)
