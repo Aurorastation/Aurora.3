@@ -3,4 +3,5 @@ delete-after: True
 changes:
   - bugfix : "Fixed Vedhra's Brood description not properly showing."
   - bugfix : "Fixed some words in the Vaurca origins section."
+  - bugfix : "Fixed Leto Breeders not being able to select their citizenship."
   - rscdel : "Removed Hive citizenship for normal Vaurcae."
