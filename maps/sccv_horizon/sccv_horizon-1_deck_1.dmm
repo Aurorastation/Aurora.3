@@ -21929,7 +21929,7 @@
 	pixel_y = 23
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hangar/intrepid)
+/area/hangar/auxiliary)
 "tiV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -23346,7 +23346,7 @@
 "uwf" = (
 /obj/effect/shuttle_landmark/lift/robotics_bottom,
 /turf/simulated/floor/plating,
-/area/hangar/intrepid)
+/area/hangar/auxiliary)
 "uwm" = (
 /obj/machinery/door/blast/regular{
 	id = "iso_a_purge";
@@ -26877,7 +26877,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hangar/intrepid)
+/area/hangar/auxiliary)
 "xyG" = (
 /obj/structure/kitchenspike,
 /obj/machinery/light{
@@ -51914,7 +51914,7 @@ raw
 fQC
 tiM
 xwA
-wuD
+lPW
 ugY
 gaE
 cEv
@@ -52114,9 +52114,9 @@ bNW
 dIS
 raw
 fQC
-iRC
-iRC
-wuD
+bJa
+bJa
+lPW
 pYy
 aCn
 qmE
@@ -52316,9 +52316,9 @@ rBR
 fQC
 fQC
 fQC
-iRC
+bJa
 uwf
-wuD
+lPW
 pYy
 gaE
 cEv
