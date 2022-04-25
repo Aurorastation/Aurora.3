@@ -227,9 +227,11 @@
 	var/datum/job/chosenJob
 	if(job_civilian_low & ASSISTANT)
 		// Assistant is weird, has to be checked first because it overrides
-		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_low]"]
+		chosenJob = SSjobs.bitflag_to_job["[CIVILIAN]"]["[job_civilian_low]"]
 	else if(job_civilian_high)
-		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_high]"]
+		chosenJob = SSjobs.bitflag_to_job["[CIVILIAN]"]["[job_civilian_high]"]
+	else if(job_service_high)
+		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_service_high]"]
 	else if(job_medsci_high)
 		chosenJob = SSjobs.bitflag_to_job["[MEDSCI]"]["[job_medsci_high]"]
 	else if(job_engsec_high)
