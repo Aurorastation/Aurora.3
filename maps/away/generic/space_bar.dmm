@@ -373,7 +373,6 @@
 /turf/simulated/floor/tiled/white,
 /area/space_bar)
 "cBD" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/steel,
 /area/space_bar)
@@ -840,6 +839,11 @@
 /obj/structure/table/stone/marble,
 /obj/item/material/ashtray/glass,
 /turf/simulated/floor/holofloor/tiled,
+/area/space_bar)
+"lOr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/shuttle_landmark/automatic,
+/turf/simulated/floor/tiled/steel,
 /area/space_bar)
 "mhC" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -26021,7 +26025,7 @@ hBd
 hBd
 hBd
 hBd
-hBd
+cBD
 hBd
 hBd
 hBd
@@ -28079,7 +28083,7 @@ hBd
 hBd
 hBd
 hBd
-cBD
+qmJ
 hBd
 hBd
 hBd
@@ -28334,7 +28338,7 @@ hBd
 hBd
 hBd
 hBd
-hBd
+cBD
 hBd
 hBd
 hBd
@@ -30904,7 +30908,7 @@ hBd
 qmJ
 qmJ
 qmJ
-qmJ
+lOr
 qmJ
 hBd
 hBd

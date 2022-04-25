@@ -481,6 +481,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/derelict)
+"rla" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/simulated/floor/tiled/steel,
+/area/derelict)
 "rtf" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -18790,7 +18794,7 @@ aSi
 aSN
 aSN
 aSN
-aSi
+wmd
 aSN
 aSN
 aSi
@@ -21104,7 +21108,7 @@ aSN
 aSN
 aSN
 aSN
-wmd
+aSi
 aSN
 aSN
 aSN
@@ -21360,7 +21364,7 @@ aSN
 aSN
 aSN
 aSN
-aSN
+rla
 aSN
 aSN
 aSN
@@ -23930,7 +23934,7 @@ aSN
 aSN
 aSi
 aSi
-aSi
+wmd
 aSN
 aSN
 aSN
