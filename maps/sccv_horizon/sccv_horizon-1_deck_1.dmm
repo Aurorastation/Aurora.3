@@ -21928,7 +21928,13 @@
 	shuttle_tag = "Robotics Lift";
 	pixel_y = 23
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/sign/securearea{
+	name = "\improper LIFE DANGER: CRUSH HAZARD sign";
+	desc = "A warning sign which reads 'LIFE DANGER: WATCH OUT FOR AUTOMATICALLY MOVING EQUIPMENT'.";
+	pixel_x = 32;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "tiV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -26876,7 +26882,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "xyG" = (
 /obj/structure/kitchenspike,
