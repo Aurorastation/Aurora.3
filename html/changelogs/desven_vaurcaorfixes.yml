@@ -1,0 +1,5 @@
+author: Desven
+delete-after: True
+changes:
+  - bugfix : "Fixed Vedhra's Brood description not properly showing."
+  - bugfix : "Fixed some words in the Vaurca origins section."
