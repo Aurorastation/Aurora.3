@@ -2187,7 +2187,7 @@
 	req_one_access = list(29, 47);
 	name = "Elevator Access"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "bhR" = (
 /obj/machinery/disposal,
@@ -4459,12 +4459,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
 "cHM" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /obj/effect/shuttle_landmark/lift/robotics_top,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/turbolift/scc_ship/robotics_lift)
 "cIr" = (
 /obj/machinery/light{
@@ -9899,11 +9898,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "gai" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/turbolift/scc_ship/robotics_lift)
 "gao" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -21506,7 +21504,10 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/sign/drop{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "nfz" = (
 /obj/structure/disposalpipe/segment,
@@ -33654,11 +33655,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
 "uoU" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/turbolift/scc_ship/robotics_lift)
 "uoY" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -40325,7 +40325,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "xZy" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -40334,7 +40333,7 @@
 	shuttle_tag = "Robotics Lift";
 	pixel_y = 23
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/turbolift/scc_ship/robotics_lift)
 "xZI" = (
 /turf/simulated/open,
