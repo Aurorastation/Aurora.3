@@ -30,6 +30,8 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 
 	select_antag_tags()
 
+	set_autoantag()
+
 	. = ..()
 
 /datum/game_mode/dynamic/proc/set_intensity(level_str)
@@ -85,6 +87,7 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 // @brief Selects the final antag tags to be used for the round, based on intensity and normalized votes.
 // Populates antag_tags.
 //
+//TODO: take readied players into account when selecting the antag tags, its certain that antags will spawn
 /datum/game_mode/dynamic/proc/select_antag_tags()
 	var/current_intensity = 0
 	var/list/working_tags
@@ -117,3 +120,9 @@ var/datum/game_mode/dynamic/dynamic_gamemode = null
 
 	log_debug("DYNAMIC GM: Final antag tag selection: [antag_tags.Join(", ")].")
 	feedback_set_details("dynamic-gm-selection", antag_tags.Join(","))
+
+
+//TODO: Expand that with some more logic
+/datum/game_mode/dynamic/proc/set_autoantag()
+	if(intensity == INTENSITY_MED ||intensity == INTENSITY_HIGH)
+		round_autoantag = TRUE
