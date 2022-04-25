@@ -21,6 +21,8 @@ var/datum/antagonist/technomancer/technomancers
 
 	id_type = /obj/item/card/id/syndicate
 
+	intensity = 2
+
 /datum/antagonist/technomancer/New()
 	..()
 	technomancers = src
