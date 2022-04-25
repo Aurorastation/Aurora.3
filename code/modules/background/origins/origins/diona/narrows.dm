@@ -9,7 +9,7 @@
 	)
   
 /decl/origin_item/origin/a_block
- 	name = "A-block"
+	name = "A-block"
 	desc = "The original Dionae of the ship, Dionae in A-Block serves as the third-highest rank in the ship's hierarchy and is considered to be some of the most efficient and experienced workers the ship has to offer. While they tend not to look down upon the other blocks for their lack of experience, they do consider themselves to be better workers. As a result of this A-block has actually begun to see a lack of personnel due to so many signing on to leave the ship and work elsewhere within Hephestatus as a way to show off the efficiency of Dionae from the Narrows."
 	important_information = "Most Dionae that come from A-Block can be expected to be fully trained in whatever position they held on the ship, as such seeing a member of the A-Block in a training position off of the ship is exceedingly rare. While most Dionae who leave the ship will oftentimes be employed by Hephaestus due to agreements between the megacorp and the ship, some do find employment elsewhere in the other megacorps."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
