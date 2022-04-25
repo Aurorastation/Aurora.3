@@ -36,7 +36,3 @@
 /area/exoplanet/snow
 	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/snow
-
-/datum/random_map/noise/exoplanet/snow/barren
-	flora_prob = 0
-	fauna_types = null
