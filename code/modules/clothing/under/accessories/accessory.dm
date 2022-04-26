@@ -841,7 +841,7 @@
 
 /obj/item/clothing/accessory/IPC_Mantle
 	name = "\improper Burzsiean shoulder mantle"
-	desc = "A uniform mantle pulled over the right shoulder. The sigil of Burzsia is pressed into the front of it."
+	desc = "An uniform mantle pulled over the right shoulder. The sigil of Burzsia is pressed into the front of it."
 	icon = 'icons/clothing/suits/capes/BZ_mantle.dmi'
 	icon_state = "robot_mantle"
 	item_state = "robot_mantle"	
