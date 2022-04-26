@@ -19483,17 +19483,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
-"SF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/obj/machinery/door/airlock/glass_command{
-	id_tag = "";
-	name = "Bridge";
-	req_one_access = list(19,38)
-	},
-/turf/simulated/floor/tiled,
-/area/bridge)
 "SG" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -43886,7 +43875,7 @@ Qz
 HO
 Cg
 Ns
-SF
+tE
 uY
 tE
 GW
