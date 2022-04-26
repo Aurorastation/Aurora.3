@@ -10,6 +10,7 @@
 	vueui_template = "pussywagon"
 
 	var/cart_icon = "janicart"
+	var/ignition = FALSE
 
 /obj/item/key/janicart
 	name = "key"
@@ -22,7 +23,7 @@
 	cell = new /obj/item/cell/high(src)
 	key = null
 	update_icon()
-	turn_off()
+	toggle_ignition()
 
 /obj/vehicle/train/cargo/engine/pussywagon/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	data = ..()
@@ -58,6 +59,31 @@
 		toggle_mop(usr)
 	SSvueui.check_uis_for_change(src)
 
+/obj/vehicle/train/cargo/engine/MouseDrop(user)
+	if(use_check_and_message(user))
+		return
+	if(!load || user == load) // no driver, or the user is the driver
+		ui_interact(user)
+		return
+	..()
+
+/obj/vehicle/train/cargo/engine/pussywagon/attack_hand(mob/user)
+	var/list/options = list(
+		"Toggle Ignition" = image('icons/mob/screen/radial.dmi', "custodial_key"),
+		"Toggle Mopping" = image('icons/mob/screen/radial.dmi', "custodial_mop"),
+		"Toggle Vacuuming" = image('icons/mob/screen/radial.dmi', "custodial_vacuum")
+	)
+	var/chosen_option = show_radial_menu(user, src, options, radius = 42, require_near = TRUE, tooltips = TRUE)
+	if (!chosen_option)
+		return
+	switch(chosen_option)
+		if("Toggle Ignition")
+			toggle_ignition()
+		if("Toggle Mopping")
+			toggle_mop(usr)
+		if("Toggle Vacuuming")
+			toggle_hoover(usr)
+
 /obj/vehicle/train/cargo/engine/pussywagon/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/key/janicart))
 		if(!key)
@@ -69,21 +95,32 @@
 		return
 	..()
 
-/obj/vehicle/train/cargo/engine/pussywagon/turn_on()
-	if(!key)
-		audible_message("\The [src] whirrs, but the lack of a key causes the engine to shut down.")
-		return
+/obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_ignition()
+	if(!ignition)
+		if(!key)
+			audible_message("\The [src] whirrs, but the lack of a key causes the engine to shut down.")
+			return
+		else
+			if(stat)
+				return 0
+			if(powered && cell.charge < charge_use)
+				return 0
+			on = 1
+			set_light(initial(light_range))
+			update_icon()
+			ignition = TRUE
+			return 1
+			update_stats()
 	else
-		..()
-		update_stats()
+		on = 0
+		set_light(0)
+		update_icon()
+		ignition = FALSE
 
-/obj/vehicle/train/cargo/engine/pussywagon/turn_off()
-	..()
-
-	if(tow)
-		if(istype(tow, /obj/vehicle/train/cargo/trolley/pussywagon))
-			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
-			PW.engine_off()
+		if(tow)
+			if(istype(tow, /obj/vehicle/train/cargo/trolley/pussywagon))
+				var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
+				PW.engine_off()
 
 /obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_mop(var/mob/user)
 	if(on && tow)
@@ -92,7 +129,7 @@
 			if(!PW.bucket)
 				to_chat(user, SPAN_WARNING("You must insert a reagent container first!"))
 				return
-			PW.mop_toggle()
+			PW.toggle_mop()
 
 /obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_hoover(var/mob/user)
 	if(use_check_and_message(user))
@@ -101,7 +138,7 @@
 	if(on && tow)
 		if(istype(tow,/obj/vehicle/train/cargo/trolley/pussywagon))
 			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
-			PW.hoover_toggle()
+			PW.toggle_hoover()
 
 /obj/vehicle/train/cargo/engine/pussywagon/update_icon()
 	cut_overlays()
@@ -201,7 +238,7 @@
 					tile.clean(bucket)
 					lead.cell.use(charge_use, load)
 				else
-					mop_toggle()
+					toggle_mop()
 		if(hoover)
 			var/current_len = hoovered.len
 			for(var/obj/item/I in tile)
@@ -211,32 +248,32 @@
 					vacuum_capacity -= I.w_class
 					lead.cell.use(charge_use)
 			if(!vacuum_capacity)
-				hoover_toggle()
+				toggle_hoover()
 			if(hoovered.len > current_len)
-				playsound(src, 'sound/machines/disposalflush.ogg', 100, 1)
+				playsound(src, 'sound/machines/disposalflush.ogg', 50, TRUE)
 	return ..()
 
 /obj/vehicle/train/cargo/trolley/pussywagon/proc/engine_off()
 	if(mopping)
-		mop_toggle()
+		toggle_mop()
 	if(hoover)
-		hoover_toggle()
+		toggle_hoover()
 
-/obj/vehicle/train/cargo/trolley/pussywagon/proc/mop_toggle()
+/obj/vehicle/train/cargo/trolley/pussywagon/proc/toggle_mop()
 	if(!mopping)
 		mopping = 1
 		audible_message("\The [src]'s mop-o-matic rumbles to life.", "You hear something rumble deeply.")
-		playsound(src, 'sound/machines/hydraulic_long.ogg', 100, 1)
+		playsound(src, 'sound/machines/hydraulic_long.ogg', 10, TRUE)
 	else
 		mopping = 0
 		audible_message("\The [src]'s mop-o-matic putters before turning off.", "You hear something putter slowly.")
 	update_icon()
 
-/obj/vehicle/train/cargo/trolley/pussywagon/proc/hoover_toggle()
+/obj/vehicle/train/cargo/trolley/pussywagon/proc/toggle_hoover()
 	if(!hoover)
 		hoover = 1
 		audible_message("\The [src]'s space hoover rumbles to life.", "You hear something rumble deeply.")
-		playsound(src, 'sound/machines/hydraulic_long.ogg', 100, 1)
+		playsound(src, 'sound/machines/hydraulic_long.ogg', 10, TRUE)
 	else
 		hoover = 0
 		audible_message("\The [src]'s space hoover putters before turning off.", "You hear something putter slowly.")
