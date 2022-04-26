@@ -322,7 +322,6 @@
 "aqO" = (
 /turf/space,
 /turf/simulated/floor/plating,
-/area/shuttle/intrepid/crew_compartment,
 /area/hangar/intrepid)
 "aqY" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -7968,7 +7967,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/cyan{
-	icon_state = "1-4"
+	icon_state = "1-2"
 	},
 /obj/structure/cable/cyan{
 	d1 = 2;
@@ -11644,7 +11643,7 @@
 	pixel_x = 7
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/intrepid)
+/area/shuttle/intrepid/medical_compartment)
 "jRx" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -13162,7 +13161,7 @@
 	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/docking_port_multi{
-	child_names_txt = "West Airlock;East Airlock;Cargo Airlock";
+	child_names_txt = "West Airlock;Cargo Airlock";
 	child_tags_txt = "intrepid_shuttle_west;intrepid_shuttle_east;intrepid_shuttle_cargo";
 	frequency = 1380;
 	id_tag = "intrepid_shuttle";
@@ -14326,13 +14325,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
-"mjf" = (
-/obj/structure/cable/cyan{
-	icon_state = "1-8";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hangar/operations)
 "mjG" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -15581,8 +15573,7 @@
 	dir = 4
 	},
 /obj/structure/cable/cyan{
-	icon_state = "1-8";
-	dir = 8
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
@@ -16724,11 +16715,12 @@
 /area/hangar/operations)
 "ohO" = (
 /obj/machinery/door/firedoor,
+/obj/structure/cable/cyan{
+	icon_state = "1-2";
+	dir = 1
+	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Intrepid Crew Area"
-	},
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
@@ -18768,7 +18760,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/cyan{
-	icon_state = "1-2"
+	icon_state = "1-2";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
@@ -19802,7 +19795,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/cyan{
-	icon_state = "1-2"
+	icon_state = "1-2";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
@@ -43720,7 +43714,7 @@ nBA
 nBA
 nBA
 htv
-mjf
+rcA
 iuk
 fdb
 qqS

@@ -295,6 +295,7 @@
 	name = "Intrepid"
 	icon_state = "intrepid"
 	centcomm_area = FALSE 
+	requires_power = TRUE
 /area/shuttle/intrepid/crew_compartment 
 	name = "Intrepid Crew Compartment"
 /area/shuttle/intrepid/cargo_bay
