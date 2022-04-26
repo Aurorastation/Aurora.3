@@ -324,25 +324,9 @@
 /proc/strip_html_properly(input)
 	if(!input)
 		return
-	var/opentag = 1 //These store the position of < and > respectively.
-	var/closetag = 1
-	while(1)
-		opentag = findtext(input, "<")
-		closetag = findtext(input, ">")
-		if(closetag && opentag)
-			if(closetag < opentag)
-				input = copytext(input, (closetag + 1))
-			else
-				input = copytext(input, 1, opentag) + copytext(input, (closetag + 1))
-		else if(closetag || opentag)
-			if(opentag)
-				input = copytext(input, 1, opentag)
-			else
-				input = copytext(input, (closetag + 1))
-		else
-			break
+	var/regex/match_html_tags = new("(<(\[^>\]+)>)", "ig")
 
-	return input
+	return match_html_tags.Replace(input)
 
 //This proc fills in all spaces with the "replace" var (* by default) with whatever
 //is in the other string at the same spot (assuming it is not a replace char).
