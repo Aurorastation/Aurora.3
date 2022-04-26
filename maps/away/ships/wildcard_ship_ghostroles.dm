@@ -39,7 +39,6 @@
 	name = "Freighter Captain"
 	desc = "Command the tramp freighter. Be a freebooter - carry legitimate and illegitimate cargo, do legitimate and illegitimate mining and salvage, and don't get caught!"
 	tags = list("External")
-	mob_name_prefix = "Pfct. "
 
 	spawnpoints = list("freebooter_captain")
 	max_count = 1
