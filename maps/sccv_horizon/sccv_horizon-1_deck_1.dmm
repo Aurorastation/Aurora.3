@@ -3454,12 +3454,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
-"cUA" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/mining)
 "cUJ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan,
 /obj/machinery/meter,
@@ -7291,6 +7285,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"gbR" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "gbY" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/machinery/alarm{
@@ -7504,7 +7504,6 @@
 	dir = 1;
 	pixel_y = -28
 	},
-/obj/item/wrench,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -18468,11 +18467,11 @@
 /area/outpost/mining_main/refinery)
 "pXu" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/machinery/atmospherics/pipe/manifold/visible/supply{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/atmos_compartment)
@@ -26611,18 +26610,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "wZl" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
-	},
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/door/window/eastleft,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/structure/table/standard,
+/obj/item/pipewrench,
+/obj/item/wrench{
+	pixel_y = -8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/atmos_compartment)
@@ -27698,7 +27689,6 @@
 /area/hangar/auxiliary)
 "xOs" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
-/obj/item/pipewrench,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
 "xOV" = (
@@ -43897,7 +43887,7 @@ fbJ
 jpU
 aqr
 mnz
-cUA
+gbR
 rMm
 aME
 kWo
