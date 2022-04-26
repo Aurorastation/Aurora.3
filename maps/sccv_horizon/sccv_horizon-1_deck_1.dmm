@@ -2593,7 +2593,6 @@
 /area/maintenance/substation/engineering/lower)
 "cfY" = (
 /obj/structure/table/steel,
-/obj/machinery/cell_charger,
 /obj/machinery/recharger{
 	pixel_x = 6;
 	pixel_y = 6
@@ -4027,9 +4026,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
-/obj/machinery/computer/ship/engines{
-	dir = 1
-	},
+/obj/machinery/computer/ship/engines,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
 "dzi" = (
@@ -4875,6 +4872,7 @@
 "elI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/floodlight,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "elM" = (
@@ -5095,9 +5093,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 10
 	},
-/obj/machinery/computer/ship/engines{
-	dir = 1
-	},
+/obj/machinery/computer/ship/engines,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/atmos_compartment)
 "ewy" = (
@@ -7027,6 +7023,15 @@
 	req_access = null
 	},
 /obj/structure/table/standard,
+/obj/machinery/cell_charger,
+/obj/item/device/radio{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/random/powercell{
+	pixel_x = -3;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "fTb" = (
@@ -7363,7 +7368,7 @@
 	dir = 9
 	},
 /obj/machinery/door/airlock/glass_command{
-	name = "Intrepid Crew Area"
+	name = "Intrepid Engine Compartment"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7438,10 +7443,12 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/westright,
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 8;
 	start_pressure = 1000.13
+	},
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
@@ -7963,6 +7970,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
 "gBl" = (
@@ -12114,9 +12122,11 @@
 /obj/machinery/button/remote/airlock{
 	id = "intrepid_cockpit";
 	name = "Cockpit Bolts";
-	pixel_x = -26;
-	specialfunctions = 4
+	pixel_x = -38;
+	specialfunctions = 4;
+	pixel_y = 8
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "krm" = (
@@ -14628,6 +14638,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "mxq" = (
@@ -16711,7 +16725,7 @@
 "ohO" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
-	name = "Intrepid Crew Area"
+	name = "Intrepid Cargo Bay"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -26615,6 +26629,9 @@
 /obj/item/wrench{
 	pixel_y = -8
 	},
+/obj/machinery/firealarm/west,
+/obj/machinery/cell_charger,
+/obj/random/powercell,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/atmos_compartment)
 "xaE" = (
