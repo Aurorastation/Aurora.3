@@ -70,7 +70,7 @@
 	output_level = 500000
 	charge =1.5e+7
 
-/obj/machinery/power/smes/buildable/overmap_shuttle/Initialize()
+/obj/machinery/power/smes/buildable/horizon_shuttle/Initialize()
 	. = ..()
 	component_parts += new /obj/item/smes_coil/super_io(src)
 	component_parts += new /obj/item/smes_coil/super_capacity(src)

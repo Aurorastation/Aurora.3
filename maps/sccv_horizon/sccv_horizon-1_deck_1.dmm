@@ -504,6 +504,9 @@
 	frequency = 1380;
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "azl" = (
@@ -883,6 +886,9 @@
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = 5
+	},
+/obj/structure/cable/cyan{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -3768,6 +3774,9 @@
 	frequency = 1380;
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "diJ" = (
@@ -5226,6 +5235,7 @@
 	frequency = 1380;
 	id_tag = "intrepid_shuttle_west_pump"
 	},
+/obj/structure/bed/handrail,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "ezh" = (
@@ -5712,6 +5722,9 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
 	},
+/obj/structure/cable/cyan{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "eQH" = (
@@ -6043,6 +6056,13 @@
 	tag_interior_door = "mining_shuttle_in"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/cyan{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/bed/handrail,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "fbL" = (
@@ -6079,6 +6099,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/cable/cyan{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -6270,6 +6294,9 @@
 	},
 /obj/machinery/light/small{
 	dir = 4
+	},
+/obj/structure/bed/handrail{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -6984,10 +7011,10 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "fQU" = (
-/obj/machinery/power/smes/buildable/overmap_shuttle,
 /obj/structure/cable/cyan{
 	icon_state = "0-8"
 	},
+/obj/machinery/power/smes/buildable/horizon_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
 "fQZ" = (
@@ -7507,6 +7534,7 @@
 	dir = 1;
 	pixel_y = -28
 	},
+/obj/item/wrench,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/atmos_compartment)
 "gix" = (
@@ -8032,6 +8060,9 @@
 	frequency = 1380;
 	id_tag = "intrepid_shuttle_cargo_pump";
 	dir = 1
+	},
+/obj/structure/bed/handrail{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
@@ -8574,6 +8605,7 @@
 	frequency = 1380;
 	id_tag = "intrepid_shuttle_west_pump"
 	},
+/obj/structure/bed/handrail,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "hfA" = (
@@ -8939,6 +8971,9 @@
 	req_one_access = list(48,67)
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/cable/cyan{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/operations)
 "htx" = (
@@ -10719,6 +10754,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
+"jbm" = (
+/obj/structure/cable/cyan{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "jbr" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/mining,
@@ -10995,6 +11036,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
+/obj/structure/cable/cyan{
+	icon_state = "4-8"
+	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "jqc" = (
@@ -11219,6 +11266,9 @@
 	frequency = 1380;
 	id_tag = "intrepid_shuttle_west_sensor";
 	pixel_y = -23
+	},
+/obj/structure/bed/handrail{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
@@ -12087,6 +12137,9 @@
 /area/maintenance/engineering)
 "kqT" = (
 /obj/machinery/bluespace_beacon,
+/obj/structure/cable/cyan{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "kqZ" = (
@@ -14299,6 +14352,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
+"mjf" = (
+/obj/structure/cable/cyan{
+	icon_state = "1-8";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/operations)
 "mjG" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -15260,6 +15320,9 @@
 /obj/structure/fuel_port{
 	pixel_x = 32
 	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "mXg" = (
@@ -15917,6 +15980,9 @@
 	id_tag = "intrepid_shuttle_cargo_pump";
 	dir = 1
 	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "nyL" = (
@@ -15989,6 +16055,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
+"nBA" = (
+/obj/structure/cable/cyan{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/operations)
 "nBK" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -17798,6 +17870,9 @@
 	frequency = 1380;
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "pvO" = (
@@ -17999,6 +18074,25 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/medical_compartment)
+"pCX" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/structure/cable/cyan{
+	icon_state = "1-8";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/operations)
 "pEb" = (
 /obj/machinery/body_scanconsole{
 	dir = 8
@@ -18989,6 +19083,9 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
+	},
+/obj/structure/cable/cyan{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -20419,6 +20516,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
+"rAa" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/cable/cyan{
+	icon_state = "1-8";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "rAb" = (
 /obj/structure/shuttle/engine/propulsion/burst/left{
 	dir = 8
@@ -20571,6 +20676,16 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
+"rKM" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/obj/structure/cable/cyan{
+	icon_state = "1-8";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/operations)
 "rMf" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning,
@@ -21426,6 +21541,13 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/cable/cyan{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/mining_pod{
+	dir = 8;
+	pixel_x = -30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "sxT" = (
@@ -21940,6 +22062,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
 	},
+/obj/structure/cable/cyan{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "sWa" = (
@@ -21975,6 +22100,9 @@
 "sXU" = (
 /obj/machinery/light/spot/weak{
 	dir = 1
+	},
+/obj/structure/cable/cyan{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -24060,6 +24188,16 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
+"uNw" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1380;
+	id_tag = "mining_shuttle_pump"
+	},
+/obj/structure/cable/cyan{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "uND" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -24504,6 +24642,10 @@
 /obj/structure/cable/cyan{
 	icon_state = "0-4"
 	},
+/obj/machinery/power/port_gen/pacman/super,
+/obj/item/stack/material/uranium{
+	amount = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
 "vgw" = (
@@ -24530,6 +24672,9 @@
 "vhg" = (
 /obj/effect/shuttle_landmark/mining/hangar,
 /obj/machinery/hologram/holopad/long_range,
+/obj/structure/cable/cyan{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "vht" = (
@@ -24634,6 +24779,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
+"vly" = (
+/obj/structure/cable/cyan{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/operations)
 "vlJ" = (
 /obj/effect/shuttle_landmark/escape_pod/start/pod1,
 /turf/simulated/floor/shuttle/dark_blue,
@@ -26849,6 +27000,9 @@
 	frequency = 1380;
 	id_tag = "intrepid_shuttle_west_pump"
 	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "xmb" = (
@@ -28107,6 +28261,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1380;
 	id_tag = "intrepid_shuttle_cargo_pump"
+	},
+/obj/structure/bed/handrail{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
@@ -43611,13 +43768,13 @@ gyx
 diR
 tPr
 dNk
-wos
-rcA
-wJh
-wJh
-wJh
+pCX
+vly
+nBA
+nBA
+nBA
 htv
-rcA
+mjf
 iuk
 fdb
 qqS
@@ -43826,7 +43983,7 @@ jpU
 aqr
 mnz
 rMm
-rMm
+jbm
 aME
 kWo
 uUP
@@ -44021,10 +44178,10 @@ ukS
 ukS
 ovb
 ukS
-qsC
+rKM
 aNO
-lhE
-ozA
+uNw
+rAa
 ePy
 sVu
 kqT
