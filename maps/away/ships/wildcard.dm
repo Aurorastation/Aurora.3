@@ -80,7 +80,7 @@
 /obj/machinery/computer/shuttle_control/explore/freebooter_ship
 	name = "ship control console"
 	shuttle_tag = "Tramp Freighter"
-	req_access = list(access_freebooter_ship)
+
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/freebooter_shuttle
@@ -96,7 +96,7 @@
 /obj/machinery/computer/shuttle_control/explore/freebooter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Freight Shuttle"
-	req_access = list(access_freebooter_ship)
+
 
 /datum/shuttle/autodock/overmap/freebooter_shuttle
 	name = "Freight Shuttle"

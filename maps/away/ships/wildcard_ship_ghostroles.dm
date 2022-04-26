@@ -32,7 +32,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /datum/outfit/admin/freebooter/get_id_access()
-	return list(access_freebooter_ship, access_external_airlocks)
+	return list(access_external_airlocks)
 
 /datum/ghostspawner/human/freebooter_captain
 	short_name = "freebooter_captain"
@@ -67,4 +67,8 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /datum/outfit/admin/freebooter_captain/get_id_access()
-	return list(access_freebooter_ship, access_external_airlocks)
+	return list(access_external_airlocks)
+
+/obj/item/card/id/freebooter_ship
+	name = "freight ship id"
+	access = list(access_external_airlocks)
