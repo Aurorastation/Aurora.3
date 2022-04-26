@@ -78,7 +78,7 @@
 	output_attempt = TRUE
 	input_level = 1300000
 	output_level = 1300000
-	charge = 5.55e+007
+	charge = 5e+006
 
 // END SMES SUBTYPES
 

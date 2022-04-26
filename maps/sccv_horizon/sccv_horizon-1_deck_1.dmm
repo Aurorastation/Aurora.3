@@ -265,7 +265,7 @@
 	dir = 10
 	},
 /obj/machinery/hologram/holopad/long_range,
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -389,6 +389,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
+"asC" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/operations)
 "atA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency,
@@ -656,7 +662,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/wood,
@@ -825,7 +831,7 @@
 /area/rnd/xenoarch_atrium)
 "aMg" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
@@ -865,7 +871,7 @@
 	pixel_x = -25;
 	pixel_y = 5
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2686,7 +2692,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -4021,6 +4027,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
+/obj/machinery/computer/ship/engines{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
 "dzi" = (
@@ -4702,7 +4711,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5133,7 +5142,7 @@
 	dir = 1;
 	pixel_y = 30
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5548,7 +5557,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "eKr" = (
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -5688,7 +5697,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6022,12 +6031,6 @@
 	tag_interior_door = "mining_shuttle_in"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/cable/cyan{
-	icon_state = "0-4"
-	},
-/obj/machinery/power/terminal{
-	dir = 8
-	},
 /obj/structure/bed/handrail,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -6065,12 +6068,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 8
-	},
-/obj/machinery/power/smes/buildable/horizon_shuttle{
-	RCon_tag = "Mining_Pod"
-	},
-/obj/structure/cable/cyan{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -6607,10 +6604,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/window/southleft,
-/obj/structure/cable/cyan{
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/intrepid/atmos_compartment)
 "fAj" = (
@@ -6618,12 +6615,12 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/cable/cyan{
-	icon_state = "0-8"
-	},
 /obj/machinery/power/apc/intrepid{
 	dir = 4;
 	pixel_x = 30
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/medical_compartment)
@@ -6979,11 +6976,11 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "fQU" = (
-/obj/structure/cable/cyan{
-	icon_state = "0-8"
-	},
 /obj/machinery/power/smes/buildable/horizon_shuttle{
 	RCon_tag = "Intrepid"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
@@ -7366,7 +7363,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
@@ -7493,9 +7490,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 9
 	},
-/obj/structure/cable/cyan{
-	icon_state = "0-8"
-	},
 /obj/machinery/power/apc/intrepid{
 	dir = 4;
 	pixel_x = 30
@@ -7505,6 +7499,9 @@
 	pixel_y = -28
 	},
 /obj/item/wrench,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/atmos_compartment)
 "gix" = (
@@ -7955,12 +7952,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
-/obj/structure/cable/cyan{
-	d1 = 2;
-	d2 = 4;
+/obj/structure/cable/green{
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8536,9 +8531,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
-/obj/machinery/computer/ship/engines{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
 "her" = (
@@ -8936,7 +8928,7 @@
 	req_one_access = list(48,67)
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -9388,7 +9380,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
@@ -9607,8 +9599,8 @@
 	dir = 8;
 	pixel_x = -30
 	},
-/obj/structure/cable/cyan{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
@@ -9852,7 +9844,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -10100,7 +10092,7 @@
 "iwX" = (
 /obj/machinery/door/window/westleft,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
@@ -10717,11 +10709,16 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "jbm" = (
-/obj/structure/cable/cyan{
-	icon_state = "4-8"
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/mining)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/operations)
 "jbr" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/mining,
@@ -10998,9 +10995,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/structure/cable/cyan{
-	icon_state = "4-8"
-	},
 /obj/structure/bed/handrail{
 	dir = 1
 	},
@@ -11161,10 +11155,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -12099,9 +12093,6 @@
 /area/maintenance/engineering)
 "kqT" = (
 /obj/machinery/bluespace_beacon,
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "kqZ" = (
@@ -12158,7 +12149,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -12435,9 +12426,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable/cyan{
-	d1 = 2;
-	d2 = 4;
+/obj/structure/cable/green{
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -12485,7 +12474,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood,
@@ -13126,6 +13115,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
+	},
+/obj/machinery/power/smes/buildable/horizon_shuttle{
+	RCon_tag = "Mining_Pod"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -14398,6 +14394,12 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "mnz" = (
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
@@ -14618,7 +14620,7 @@
 	dir = 8;
 	pixel_x = -30
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
@@ -14663,11 +14665,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/structure/cable/cyan,
 /obj/machinery/power/apc/intrepid{
 	dir = 4;
 	pixel_x = 30
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "mzE" = (
@@ -15561,7 +15563,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
@@ -15901,9 +15903,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue,
-/obj/structure/cable/cyan{
-	icon_state = "1-8";
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
@@ -16005,8 +16006,8 @@
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
 "nBA" = (
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/operations)
@@ -16436,7 +16437,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -16462,7 +16463,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -16704,12 +16705,11 @@
 /area/hangar/operations)
 "ohO" = (
 /obj/machinery/door/firedoor,
-/obj/structure/cable/cyan{
-	icon_state = "1-2";
-	dir = 1
-	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Intrepid Crew Area"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
@@ -16903,7 +16903,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -17231,6 +17231,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "oSD" = (
@@ -17579,10 +17580,10 @@
 /area/hangar/intrepid)
 "pkw" = (
 /obj/structure/window/shuttle/scc,
-/obj/structure/cable/cyan{
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
 "pkG" = (
@@ -17947,12 +17948,12 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
-	},
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
@@ -18020,25 +18021,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/medical_compartment)
-"pCX" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
-	},
-/obj/structure/cable/cyan{
-	icon_state = "1-8";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hangar/operations)
 "pEb" = (
 /obj/machinery/body_scanconsole{
 	dir = 8
@@ -18483,9 +18465,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 1
 	},
-/obj/structure/cable/cyan{
-	d1 = 2;
-	d2 = 4;
+/obj/structure/cable/green{
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -18650,6 +18630,9 @@
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/operations)
 "qcr" = (
@@ -18748,9 +18731,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/cyan{
-	icon_state = "1-2";
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
@@ -19031,9 +19013,6 @@
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
-/obj/structure/cable/cyan{
-	icon_state = "1-4"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "qrh" = (
@@ -19155,7 +19134,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -19783,9 +19762,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/cyan{
-	icon_state = "1-2";
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
@@ -20059,7 +20037,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -20466,9 +20444,8 @@
 /area/medical/emergency_storage)
 "rAa" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/structure/cable/cyan{
-	icon_state = "1-8";
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -20628,9 +20605,8 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/obj/structure/cable/cyan{
-	icon_state = "1-8";
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -21047,11 +21023,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
@@ -21489,13 +21465,11 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/cable/cyan{
-	icon_state = "0-4"
-	},
 /obj/machinery/power/apc/mining_pod{
 	dir = 8;
 	pixel_x = -30
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "sxT" = (
@@ -22010,8 +21984,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
 	},
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -22049,7 +22023,7 @@
 /obj/machinery/light/spot/weak{
 	dir = 1
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
@@ -22368,7 +22342,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -22462,6 +22436,11 @@
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining - Shuttle";
 	dir = 8
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -22727,11 +22706,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
-/obj/structure/cable/cyan{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
@@ -22989,9 +22968,8 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/structure/cable/cyan{
-	icon_state = "1-8";
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
@@ -23181,7 +23159,7 @@
 /area/maintenance/hangar/port)
 "tWc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -23343,6 +23321,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "ucG" = (
@@ -23615,7 +23596,7 @@
 /obj/effect/shuttle_landmark/intrepid/hangar,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -24141,8 +24122,8 @@
 	frequency = 1380;
 	id_tag = "mining_shuttle_pump"
 	},
-/obj/structure/cable/cyan{
-	icon_state = "1-8"
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -24587,12 +24568,12 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/structure/cable/cyan{
-	icon_state = "0-4"
-	},
 /obj/machinery/power/port_gen/pacman/super,
 /obj/item/stack/material/uranium{
 	amount = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
@@ -24620,9 +24601,6 @@
 "vhg" = (
 /obj/effect/shuttle_landmark/mining/hangar,
 /obj/machinery/hologram/holopad/long_range,
-/obj/structure/cable/cyan{
-	icon_state = "1-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "vht" = (
@@ -24722,17 +24700,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
-"vly" = (
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/hangar/operations)
 "vlJ" = (
 /obj/effect/shuttle_landmark/escape_pod/start/pod1,
 /turf/simulated/floor/shuttle/dark_blue,
@@ -25890,7 +25862,7 @@
 	pixel_y = 24
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
@@ -27107,13 +27079,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/structure/cable/cyan{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/cyan{
-	d1 = 2;
-	d2 = 4;
+/obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
@@ -27174,7 +27144,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -27780,10 +27750,10 @@
 /obj/machinery/firealarm/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/cyan{
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "xQI" = (
@@ -43106,7 +43076,7 @@ jOo
 hMj
 hMj
 hMj
-hMj
+jbm
 vDP
 cCq
 myA
@@ -43510,7 +43480,7 @@ lSc
 bQh
 xof
 wJh
-wJh
+asC
 ukS
 rcA
 bIe
@@ -43708,13 +43678,13 @@ gyx
 diR
 tPr
 dNk
-pCX
-vly
-nBA
-nBA
+wos
+rcA
+wJh
+wJh
 nBA
 htv
-rcA
+eep
 iuk
 fdb
 qqS
@@ -43923,7 +43893,7 @@ jpU
 aqr
 mnz
 rMm
-jbm
+rMm
 aME
 kWo
 uUP
