@@ -1,23 +1,20 @@
+//
+// Custodial Truck a.k.a. Pussy Wagon
+// 
 /obj/vehicle/train/cargo/engine/pussywagon
-	name = "janicart deluxe engine"
-	desc = "The engine for the janicart deluxe trolley, the bread to your butter."
+	name = "\improper C8000 deluxe custodial truck"
+	desc = "A C8000 deluxe custodial truck. The bread to the custodians' butter."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "janicart_off"
+	light_range = 0 // Turn off the light inherited from the parent.
 	move_delay = 3
-
 	mob_offset_y = 7
 	load_offset_x = -13
 	vueui_template = "pussywagon"
 
+	// Unique Variables
 	var/cart_icon = "janicart"
 	var/ignition = FALSE
-
-/obj/item/key/janicart
-	name = "key"
-	desc = "A keyring with a small steel key, and a pink fob reading \"Pussy Wagon\"."
-	icon = 'icons/obj/vehicles.dmi'
-	icon_state = "keys"
-	w_class = ITEMSIZE_TINY
 
 /obj/vehicle/train/cargo/engine/pussywagon/setup_engine()
 	cell = new /obj/item/cell/high(src)
@@ -27,7 +24,6 @@
 
 /obj/vehicle/train/cargo/engine/pussywagon/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	data = ..()
-
 	data["has_proper_trolley"] = FALSE
 	if(istype(tow, /obj/vehicle/train/cargo/trolley/pussywagon))
 		data["has_proper_trolley"] = TRUE
@@ -42,7 +38,6 @@
 			var/obj/item/reagent_containers/B = PT.bucket
 			data["bucket_capacity"] = B.reagents.total_volume
 			data["max_bucket_capacity"] = B.volume
-
 	return data
 
 /obj/vehicle/train/cargo/engine/pussywagon/Topic(href, href_list, datum/topic_state/state)
@@ -55,7 +50,7 @@
 	if(href_list["empty_hoover"])
 		var/obj/vehicle/train/cargo/trolley/pussywagon/PT = tow
 		PT.empty_hoover(usr)
-	if(href_list["toggle_mops"])
+	if(href_list["toggle_mop"])
 		toggle_mop(usr)
 	SSvueui.check_uis_for_change(src)
 
@@ -80,54 +75,73 @@
 		if("Toggle Ignition")
 			toggle_ignition()
 		if("Toggle Mopping")
-			toggle_mop(usr)
+			toggle_mop(user)
 		if("Toggle Vacuuming")
-			toggle_hoover(usr)
+			toggle_hoover(user)
 
-/obj/vehicle/train/cargo/engine/pussywagon/attackby(obj/item/W as obj, mob/user as mob)
+/obj/vehicle/train/cargo/engine/pussywagon/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/key/janicart))
 		if(!key)
 			user.drop_from_inventory(W, src)
 			key = W
-			to_chat(user, SPAN_NOTICE("You slide the key into the ignition."))
+			to_chat(user, SPAN_NOTICE("You slide the [W] into the \the [src]'s ignition."))
+			playsound(src, 'sound/machines/vehicles/pussywagon/key_in.ogg', 50, FALSE)
 		else
-			to_chat(user, SPAN_WARNING("\The [src] already has a key inserted."))
+			to_chat(user, SPAN_NOTICE("There is already a key in \the [src]'s ignition."))
 		return
 	..()
 
-/obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_ignition()
+/obj/vehicle/train/cargo/engine/pussywagon/AltClick(var/mob/user)
+	if(Adjacent(user))
+		remove_key(user)
+	else
+		return ..()
+
+/obj/vehicle/train/cargo/engine/pussywagon/remove_key(var/mob/user)
+	if(!key)
+		to_chat(user, SPAN_NOTICE("There is no key in \the [src]'s ignition."))
+		return
+	if(load && load != usr)
+		return
+
+	if(ignition)
+		toggle_ignition()
+
+	user.put_in_hands(key)
+	key = null
+	playsound(src, 'sound/machines/vehicles/pussywagon/key_out.ogg', 50, FALSE)
+
+/obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_ignition(var/mob/user)
 	if(!ignition)
 		if(!key)
-			audible_message("\The [src] whirrs, but the lack of a key causes the engine to shut down.")
+			to_chat(user, SPAN_NOTICE("There is no key in \the [src]'s ignition."))
 			return
 		else
 			if(stat)
-				return 0
+				return FALSE
 			if(powered && cell.charge < charge_use)
-				return 0
-			on = 1
-			set_light(initial(light_range))
+				return FALSE
+			on = TRUE
 			update_icon()
 			update_stats()
 			ignition = TRUE
 			return 1
 	else
-		on = 0
-		set_light(0)
+		on = FALSE
 		update_icon()
 		ignition = FALSE
 
 		if(tow)
 			if(istype(tow, /obj/vehicle/train/cargo/trolley/pussywagon))
 				var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
-				PW.engine_off()
+				PW.trolley_off()
 
 /obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_mop(var/mob/user)
 	if(on && tow)
 		if(istype(tow,/obj/vehicle/train/cargo/trolley/pussywagon))
 			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
 			if(!PW.bucket)
-				to_chat(user, SPAN_WARNING("You must insert a reagent container first!"))
+				to_chat(user, SPAN_NOTICE("You must insert a reagent container first."))
 				return
 			PW.toggle_mop()
 
@@ -176,11 +190,11 @@
 	..()
 
 /obj/vehicle/train/cargo/trolley/pussywagon
-	name = "janicart deluxe trolley"
-	desc = "The trolley of the janicart deluxe, equipped with dual rotary mop and a NT-X1 Vacuum Cleaner."
-	desc_info = "You can unlatch this from the control console of the janicart."
+	name = "C8000 deluxe custodial trolley"
+	desc = "The trolley of the C8000 deluxe custodial truck, equipped with dual rotary mop- and a industrial vacuum cleaner."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "jantrolley"
+	light_range = 0 // Turn off the light inherited from the parent.
 
 	var/obj/item/reagent_containers/bucket
 	var/list/hoovered = list()
@@ -253,7 +267,7 @@
 				playsound(src, 'sound/machines/disposalflush.ogg', 50, TRUE)
 	return ..()
 
-/obj/vehicle/train/cargo/trolley/pussywagon/proc/engine_off()
+/obj/vehicle/train/cargo/trolley/pussywagon/proc/trolley_off()
 	if(mopping)
 		toggle_mop()
 	if(hoover)
@@ -284,3 +298,10 @@
 
 	if(mopping)
 		add_overlay(image('icons/obj/vehicles.dmi', "[icon_state]_mop_overlay", MOB_LAYER + 1))
+
+/obj/item/key/janicart
+	name = "\improper C8000 deluxe custodial truck key fob"
+	desc = "A stainless steel key fob with a chromed top attached to a small steel key ring. The key ring has a pink tag hanging on it, with the text \"Pussy Wagon\"."
+	icon = 'icons/obj/vehicles.dmi'
+	icon_state = "keys"
+	w_class = ITEMSIZE_TINY
