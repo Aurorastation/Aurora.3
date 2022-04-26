@@ -305,7 +305,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres,
@@ -6407,9 +6407,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/glass_command{
-	id_tag = "";
+	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -8839,9 +8839,9 @@
 /area/hallway/crew_area)
 "tE" = (
 /obj/machinery/door/airlock/glass_command{
-	id_tag = "";
+	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -13162,7 +13162,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor,
@@ -14257,9 +14257,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_command{
-	id_tag = "";
+	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -17195,13 +17195,13 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/machinery/door/airlock/glass_command{
-	id_tag = "";
-	name = "Bridge";
-	req_one_access = list(19,38)
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
+	},
+/obj/machinery/door/airlock/glass_command{
+	id_tag = "sbridgedoor";
+	name = "Bridge";
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
@@ -19473,9 +19473,9 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/glass_command{
-	id_tag = "";
+	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -21119,7 +21119,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Helm";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
