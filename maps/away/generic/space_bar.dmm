@@ -373,6 +373,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space_bar)
 "cBD" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/steel,
 /area/space_bar)
@@ -841,7 +842,6 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "lOr" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/steel,
 /area/space_bar)
@@ -26025,7 +26025,7 @@ hBd
 hBd
 hBd
 hBd
-cBD
+hBd
 hBd
 hBd
 hBd
@@ -27053,7 +27053,7 @@ hBd
 hBd
 qmJ
 qmJ
-qmJ
+cBD
 hBd
 hBd
 hBd
@@ -28338,7 +28338,7 @@ hBd
 hBd
 hBd
 hBd
-cBD
+hBd
 hBd
 hBd
 hBd
@@ -29623,7 +29623,7 @@ hBd
 hBd
 hBd
 hBd
-hBd
+lOr
 hBd
 hBd
 hBd
@@ -30908,7 +30908,7 @@ hBd
 qmJ
 qmJ
 qmJ
-lOr
+qmJ
 qmJ
 hBd
 hBd

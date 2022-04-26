@@ -569,11 +569,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/derelict)
-"wmd" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor/tiled/steel,
-/area/derelict)
 "wLs" = (
 /obj/structure/sink{
 	pixel_y = 26
@@ -18794,7 +18789,7 @@ aSi
 aSN
 aSN
 aSN
-wmd
+aSi
 aSN
 aSN
 aSi
@@ -19822,7 +19817,7 @@ aSN
 aSN
 aSN
 aSi
-aSN
+rla
 aSN
 aSN
 aSN
@@ -21364,7 +21359,7 @@ aSN
 aSN
 aSN
 aSN
-rla
+aSN
 aSN
 aSN
 aSN
@@ -22906,7 +22901,7 @@ aSN
 aSN
 aSN
 aSN
-aSN
+rla
 aSN
 aSN
 aSN
@@ -23934,7 +23929,7 @@ aSN
 aSN
 aSi
 aSi
-wmd
+aSi
 aSN
 aSN
 aSN
