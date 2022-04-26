@@ -3,7 +3,7 @@
 /datum/ghostspawner/human/freebooter
 	short_name = "freebooter"
 	name = "Freighter Crewman"
-	desc = "Crew the tramp freighter. Be a freebooter - carry legitimate and illegitimate cargo, do legitimate and illegitimate mining and salvage, and don't get caught!"
+	desc = "Crew the tramp freighter. Be a freebooter - carry cargo, do some mining, go salvaging, and try not to get into anything you can't get out of!"
 	tags = list("External")
 
 	spawnpoints = list("freebooter")
@@ -37,7 +37,7 @@
 /datum/ghostspawner/human/freebooter_captain
 	short_name = "freebooter_captain"
 	name = "Freighter Captain"
-	desc = "Command the tramp freighter. Be a freebooter - carry legitimate and illegitimate cargo, do legitimate and illegitimate mining and salvage, and don't get caught!"
+	desc = "Crew the tramp freighter. Be a freebooter - carry cargo, do some mining, go salvaging, and try not to get into anything you can't get out of!"
 	tags = list("External")
 
 	spawnpoints = list("freebooter_captain")
