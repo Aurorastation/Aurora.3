@@ -108,9 +108,9 @@
 			on = 1
 			set_light(initial(light_range))
 			update_icon()
+			update_stats()
 			ignition = TRUE
 			return 1
-			update_stats()
 	else
 		on = 0
 		set_light(0)
