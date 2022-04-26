@@ -840,9 +840,8 @@
 	icon_state = "abnegtag"
 
 /obj/item/clothing/accessory/IPC_Mantle
-	name = "\improper Burzsiean Shoulder Mantle"
-	desc = "A uniform mantle pulled over the right shoulder. The sigil of Burzsia is pressed into the front of it."
-	desc_fluff = "An identifying tarp issued to industrial IPC's that work without protective equipment on Burzsia. Tear resistant and chemically treated to withstand the planet of Burzsia I. More commonly seen on industrials or units that otherwise work inside of installations. Operation history and specifications are printed underneath the tarp, for field operators to quickly identify the unit in the event it is damaged to the point where it cannot give diagnostics."
+	name = "\improper Burzsiean shoulder mantle"
+	desc = "An uniform mantle pulled over the right shoulder. The sigil of Burzsia is pressed into the front of it."
 	icon = 'icons/clothing/suits/capes/BZ_mantle.dmi'
 	icon_state = "robot_mantle"
 	item_state = "robot_mantle"	
