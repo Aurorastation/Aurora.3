@@ -296,7 +296,7 @@
 	dir = 9
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "AI Core - Third Deck Chamber Aft";
+	c_tag = "Bridge - Starboard 2";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -6082,6 +6082,9 @@
 	pixel_y = 30
 	},
 /obj/item/storage/secure/briefcase,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/captain)
 "nA" = (
@@ -6571,6 +6574,10 @@
 	dir = 4
 	},
 /obj/structure/closet/emcloset,
+/obj/machinery/camera/network/command{
+	dir = 1;
+	c_tag = "Bridge - Crewman Lockeroom"
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "oE" = (
@@ -6651,8 +6658,8 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "AI Core - Third Deck Chamber Port";
-	dir = 8
+	dir = 8;
+	c_tag = "Bridge - Center 1"
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -9147,7 +9154,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Corridor Camera 2";
+	c_tag = "Bridge - Starboard 1";
 	dir = 4;
 	network = list("Command","Capt_Office")
 	},
@@ -9408,7 +9415,7 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Executive Officer's Quarters"
+	c_tag = "Bridge - Port 1"
 	},
 /obj/machinery/status_display{
 	layer = 4;
@@ -10748,8 +10755,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "AI Core - Third Deck Chamber Aft";
-	dir = 1
+	dir = 1;
+	c_tag = "Bridge - Port 2"
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -11676,7 +11683,7 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Corridor Camera 1"
+	c_tag = "Bridge - Breakroom"
 	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
@@ -13055,7 +13062,7 @@
 /area/security/vacantoffice)
 "Es" = (
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Captain's Quarters"
+	c_tag = "Bridge - Captain's Office Aft"
 	},
 /obj/structure/bed/stool/chair/padded/beige{
 	dir = 4
@@ -13804,8 +13811,8 @@
 /obj/item/tape_roll,
 /obj/item/storage/toolbox/mechanical,
 /obj/machinery/camera/network/command{
-	c_tag = "AI Core - Third Deck Chamber Starboard";
-	dir = 4
+	dir = 4;
+	c_tag = "Bridge - Cockpit"
 	},
 /obj/item/device/multitool,
 /turf/simulated/floor/carpet/rubber,
@@ -13914,6 +13921,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
@@ -14183,8 +14193,8 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "AI Core - Third Deck Chamber Starboard";
-	dir = 4
+	dir = 4;
+	c_tag = "Bridge - Center 2"
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 1
@@ -15126,8 +15136,8 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "AI Core - Third Deck Chamber Aft";
-	dir = 1
+	dir = 1;
+	c_tag = "Bridge - Captain's Office Fore"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/cable/green{
@@ -16839,6 +16849,10 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/obj/machinery/camera/network/command{
+	dir = 1;
+	c_tag = "Bridge - Backroom"
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "MY" = (
@@ -16861,7 +16875,7 @@
 	dir = 9
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Corridor Camera 1"
+	c_tag = "Bridge - Captain's Private Office 1"
 	},
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/wood,
@@ -17416,8 +17430,8 @@
 "Ok" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/camera/network/command{
-	c_tag = "AI Core - Third Deck Chamber Aft";
-	dir = 1
+	dir = 1;
+	c_tag = "Bridge - Captain's Private Office 2"
 	},
 /obj/structure/table/reinforced/wood,
 /obj/machinery/photocopier/faxmachine{
@@ -17714,6 +17728,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 4
 	},
@@ -19797,9 +19812,6 @@
 "TA" = (
 /obj/structure/bed/stool/chair/office/bridge{
 	dir = 4
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /obj/machinery/button/remote/airlock{
 	desc = "A remote control-switch for the office door.";
