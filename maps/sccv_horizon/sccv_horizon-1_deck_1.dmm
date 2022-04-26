@@ -3454,6 +3454,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
+"cUA" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "cUJ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan,
 /obj/machinery/meter,
@@ -12093,6 +12099,9 @@
 /area/maintenance/engineering)
 "kqT" = (
 /obj/machinery/bluespace_beacon,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "kqZ" = (
@@ -14399,9 +14408,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
-	},
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -21981,12 +21987,10 @@
 /area/rnd/eva)
 "sVu" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 9
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "sWa" = (
@@ -23316,10 +23320,11 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "ucE" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/atmospherics/portables_connector{
-	dir = 1
+	dir = 4;
+	layer = 2.8
 	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -43892,7 +43897,7 @@ fbJ
 jpU
 aqr
 mnz
-rMm
+cUA
 rMm
 aME
 kWo

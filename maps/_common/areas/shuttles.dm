@@ -52,7 +52,6 @@
 
 /area/shuttle/mining
 	name = "Mining Shuttle"
-	centcomm_area = FALSE
 	requires_power = TRUE
 
 /area/shuttle/transport1
