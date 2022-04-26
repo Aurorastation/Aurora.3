@@ -389,17 +389,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
-"asC" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_out"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/intrepid/cargo_bay)
 "atA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency,
@@ -13162,7 +13151,7 @@
 	},
 /obj/machinery/embedded_controller/radio/docking_port_multi{
 	child_names_txt = "West Airlock;Cargo Airlock";
-	child_tags_txt = "intrepid_shuttle_west;intrepid_shuttle_east;intrepid_shuttle_cargo";
+	child_tags_txt = "intrepid_shuttle_west;intrepid_shuttle_cargo";
 	frequency = 1380;
 	id_tag = "intrepid_shuttle";
 	pixel_y = 28
@@ -27292,6 +27281,17 @@
 "xur" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/substation/engineering/lower)
+"xvk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "intrepid_shuttle_cargo_out"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid/cargo_bay)
 "xvG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -48352,7 +48352,7 @@ apf
 uOO
 dhi
 pvn
-asC
+xvk
 gDj
 dir
 jXW
@@ -48554,7 +48554,7 @@ apf
 iZk
 dhi
 ayq
-asC
+xvk
 nyz
 yib
 pTp
