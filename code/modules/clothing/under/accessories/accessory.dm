@@ -838,3 +838,12 @@
 	name = "AB- blood patch"
 	desc = "An embroidered patch indicating the wearer's blood type as AB NEGATIVE."
 	icon_state = "abnegtag"
+
+/obj/item/clothing/accessory/IPC_Mantle
+	name = "\improper Burzsiean Shoulder Mantle"
+	desc = "A uniform mantle pulled over the right shoulder. The sigil of Burzsia is pressed into the front of it."
+	icon = 'icons/clothing/suits/capes/BZ_mantle.dmi'
+	icon_state = "robot_mantle"
+	item_state = "robot_mantle"	
+	contained_sprite = TRUE
+	icon_override = null
