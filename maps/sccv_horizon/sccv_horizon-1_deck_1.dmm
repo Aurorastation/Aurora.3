@@ -320,13 +320,10 @@
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/mining)
 "aqO" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1380;
-	id_tag = "intrepid_shuttle_west_pump"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/crew_compartment)
+/turf/space,
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid/crew_compartment,
+/area/hangar/intrepid)
 "aqY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -393,20 +390,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
-"asC" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_out"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/intrepid/cargo_bay)
 "atA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency,
@@ -500,10 +483,6 @@
 "ayq" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1380;
-	id_tag = "intrepid_shuttle_cargo_pump"
-	},
 /obj/structure/bed/handrail{
 	dir = 8
 	},
@@ -3852,10 +3831,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
-"dnW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/wall/shuttle/scc/cardinal,
-/area/shuttle/intrepid/crew_compartment)
 "dnX" = (
 /turf/simulated/floor/wood,
 /area/shuttle/intrepid/crew_compartment)
@@ -5131,9 +5106,6 @@
 	pixel_x = -10;
 	pixel_y = -20
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "ewI" = (
@@ -5229,11 +5201,6 @@
 	tag_exterior_door = "intrepid_shuttle_west_out";
 	tag_exterior_sensor = "intrepid_shuttle_west_exterior_sensor";
 	tag_interior_door = "intrepid_shuttle_west_in"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "intrepid_shuttle_west_pump"
 	},
 /obj/structure/bed/handrail,
 /turf/simulated/floor/plating,
@@ -8056,11 +8023,6 @@
 /obj/structure/fuel_port{
 	pixel_x = -32
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1380;
-	id_tag = "intrepid_shuttle_cargo_pump";
-	dir = 1
-	},
 /obj/structure/bed/handrail{
 	dir = 4
 	},
@@ -9798,9 +9760,6 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_west_out"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
@@ -15975,11 +15934,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1380;
-	id_tag = "intrepid_shuttle_cargo_pump";
-	dir = 1
-	},
 /obj/structure/bed/handrail{
 	dir = 8
 	},
@@ -17865,10 +17819,6 @@
 	frequency = 1380;
 	id_tag = "intrepid_shuttle_cargo_exterior_sensor";
 	pixel_x = -24
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1380;
-	id_tag = "intrepid_shuttle_cargo_pump"
 	},
 /obj/structure/bed/handrail{
 	dir = 4
@@ -26995,11 +26945,6 @@
 /area/maintenance/wing/port/deck1)
 "xlX" = (
 /obj/machinery/light/small/red,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "intrepid_shuttle_west_pump"
-	},
 /obj/structure/bed/handrail{
 	dir = 1
 	},
@@ -27346,9 +27291,6 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_cargo_out"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
@@ -47006,9 +46948,9 @@ iRC
 iRC
 iRC
 aqO
-dnW
-dnW
-dnW
+aEw
+aEw
+aEw
 ifw
 ewy
 aEw
@@ -48614,7 +48556,7 @@ apf
 iZk
 dhi
 ayq
-asC
+xvk
 nyz
 yib
 pTp
