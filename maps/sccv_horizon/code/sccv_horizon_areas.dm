@@ -294,6 +294,20 @@
 /area/shuttle/intrepid
 	name = "Intrepid"
 	icon_state = "intrepid"
+	centcomm_area = FALSE 
+/area/shuttle/intrepid/crew_compartment 
+	name = "Intrepid Crew Compartment"
+/area/shuttle/intrepid/cargo_bay
+	name = "Intrepid Cargo Bay"
+/area/shuttle/intrepid/medical_compartment
+	name = "Intrepid Medical Compartment"
+/area/shuttle/intrepid/engine_compartment 
+	name = "Engine Compartment"
+/area/shuttle/intrepid/atmos_compartment 
+	name = "Atmos Compartment"
+/area/shuttle/intrepid/cockpit 
+	name = "Cockpit"
+
 
 // Exterior
 /area/horizonexterior

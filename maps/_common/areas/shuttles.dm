@@ -52,6 +52,7 @@
 
 /area/shuttle/mining
 	name = "Mining Shuttle"
+	centcomm_area = FALSE 
 
 /area/shuttle/transport1
 	icon_state = "shuttle"

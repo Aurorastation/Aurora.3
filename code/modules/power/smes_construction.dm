@@ -70,6 +70,16 @@
 	output_level = 500000
 	charge =1.5e+7
 
+/obj/machinery/power/smes/buildable/overmap_shuttle/Initialize()
+	. = ..()
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	input_attempt = TRUE
+	output_attempt = TRUE
+	input_level = 100000
+	output_level = 100000
+	charge = 150000
+
 // END SMES SUBTYPES
 
 // SMES itself
