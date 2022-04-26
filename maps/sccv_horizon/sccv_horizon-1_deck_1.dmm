@@ -17345,10 +17345,12 @@
 /obj/structure/window/reinforced,
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/eastleft{
-	name = "Custodial Closet Desk External"
+	name = "Custodial Closet Desk External";
+	req_access = list(26)
 	},
 /obj/machinery/door/window/westright{
-	name = "Custodial Closet Desk Internal"
+	name = "Custodial Closet Desk Internal";
+	req_access = list(26)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
