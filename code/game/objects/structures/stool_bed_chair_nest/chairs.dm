@@ -440,3 +440,4 @@
 	base_icon = "handrail"
 	buckle_dir = FALSE
 	buckle_lying = FALSE
+	applies_material_colour = FALSE
