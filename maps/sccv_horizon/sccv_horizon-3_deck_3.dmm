@@ -21123,7 +21123,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Helm";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
