@@ -1188,7 +1188,7 @@ proc/is_blind(A)
 				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
 				return S.icon_tag(final_icon)
 			else
-				return "[a.text_tag]"
+				return "<[a.text_tag]>"
 
 /mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
 	for(var/mob/M in contents)
