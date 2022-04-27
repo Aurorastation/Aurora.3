@@ -1,7 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed some buckle checks not doing their thing properly in machines like Recharger Stations, Sleepers, Cryo Cells, etc."
-  - bugfix: "Fixed IV stand not crashing/ripping if the attached patient has a mask/IV, but not a tank/beaker installed in the stand itself."
