@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - maptweak: "Remaps the deck 1 security checkpoint."
+  - maptweak: "Remaps the deck 1 pilot room."
