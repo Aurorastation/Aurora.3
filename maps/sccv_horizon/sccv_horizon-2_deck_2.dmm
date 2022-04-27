@@ -65,10 +65,8 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "aau" = (
-/obj/structure/dispenser/oxygen{
-	phorontanks = 10
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/dispenser,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "aax" = (
