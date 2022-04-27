@@ -5897,6 +5897,8 @@
 	},
 /obj/item/stack/material/phoron,
 /obj/item/stack/material/phoron,
+/obj/item/tank/phoron,
+/obj/item/tank/phoron,
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
 "dCa" = (
