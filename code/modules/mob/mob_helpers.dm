@@ -1184,7 +1184,7 @@ proc/is_blind(A)
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		if(istype(a))
 			if(hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
-				return "<[a.text_tag]>"
+				return "([a.text_tag])"
 			else
 				var/final_icon = a.tag_icon
 				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
