@@ -194,15 +194,12 @@
 		if (!istype(L))
 			return
 
-		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
+		var/bucklestatus = L.bucklecheck(user)
+		if(!bucklestatus)
+			return TRUE
 
+		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 		if(do_mob(user, L, 30, needhand = 0))
-			var/bucklestatus = L.bucklecheck(user)
-			if(!bucklestatus)//incase the patient got buckled_to during the delay
-				return TRUE
-			if(bucklestatus == 2)
-				var/obj/structure/LB = L.buckled_to
-				LB.user_unbuckle(user)
 			for(var/mob/living/carbon/slime/M in range(1, L))
 				if(M.victim == L)
 					to_chat(user, SPAN_WARNING("[L] will not fit into the cryo because they have a slime latched onto their head."))
@@ -224,8 +221,7 @@
 			return
 
 	var/bucklestatus = L.bucklecheck(user)
-
-	if (!bucklestatus)//We must make sure the person is unbuckled before they go in
+	if (!bucklestatus)
 		return
 
 	if(L == user)

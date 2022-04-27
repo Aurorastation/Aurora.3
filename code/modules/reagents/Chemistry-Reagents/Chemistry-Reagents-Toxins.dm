@@ -610,7 +610,7 @@
 	reagent_state = SOLID
 	color = "#333300"
 	taste_description = "cheap tobacco"
-	strength = 0.004
+	strength = 0
 	taste_mult = 10
 	var/nicotine = 0.2
 
@@ -621,14 +621,12 @@
 	name = "Earth Tobacco"
 	description = "Nicknamed 'Earth Tobacco', this plant is much higher quality than its spacefaring counterpart."
 	taste_description = "luxury tobacco"
-	strength = 0.002
 	nicotine = 0.5
 
 /decl/reagent/toxin/tobacco/fake
 	name = "Cheap Tobacco"
 	description = "This actually appears to be mostly ground up leaves masquerading as tobacco. There's maybe some nicotine in there somewhere..."
 	taste_description = "acrid smoke"
-	strength = 0.008
 	nicotine = 0.1
 
 /decl/reagent/toxin/tobacco/liquid

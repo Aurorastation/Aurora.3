@@ -85,14 +85,17 @@
 	sprint_cost_factor = 0.80
 	stamina_recovery = 3
 
-	allowed_citizenships = list(CITIZENSHIP_ZORA, CITIZENSHIP_KLAX, CITIZENSHIP_CTHUR)
-	default_citizenship = CITIZENSHIP_ZORA
-
 	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
+
+	possible_cultures = list(
+		/decl/origin_item/culture/zora_breeder,
+		/decl/origin_item/culture/klax_breeder,
+		/decl/origin_item/culture/cthur_breeder
+	)
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite
-		)
+	)
 
 	default_h_style = "Bald"
 
