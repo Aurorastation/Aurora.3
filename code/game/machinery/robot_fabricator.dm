@@ -20,7 +20,7 @@
 			spawn(15)
 				if(M)
 					if(!M.get_amount())
-						return TRUE
+						return
 					while(metal_amount < 150000 && M.amount)
 						src.metal_amount += O.matter[DEFAULT_WALL_MATERIAL] /*O:height * O:width * O:length * 100000.0*/
 						M.use(1)

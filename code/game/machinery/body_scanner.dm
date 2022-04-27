@@ -129,15 +129,12 @@
 		return TRUE
 
 	var/mob/living/M = G.affecting
-	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
+	var/bucklestatus = M.bucklecheck(user)
+	if (!bucklestatus)
+		return TRUE
 
+	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
 	if (do_mob(user, G.affecting, 30, needhand = 0))
-		var/bucklestatus = M.bucklecheck(user)
-		if (!bucklestatus)//incase the patient got buckled_to during the delay
-			return TRUE
-		if (bucklestatus == 2)
-			var/obj/structure/LB = M.buckled_to
-			LB.user_unbuckle(user)
 		if (M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
@@ -167,8 +164,7 @@
 
 	var/mob/living/L = O
 	var/bucklestatus = L.bucklecheck(user)
-
-	if (!bucklestatus)//We must make sure the person is unbuckled before they go in
+	if (!bucklestatus)
 		return
 
 	if(L == user)
@@ -753,7 +749,7 @@
 			if(unknown_body)
 				imp += "Unknown body present:"
 
-		if(!AN && !open && !infected & !imp)
+		if(!AN && !open && !infected && !imp)
 			AN = "None:"
 		if(!e.is_stump())
 			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[get_severity(e.brute_dam, TRUE)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
