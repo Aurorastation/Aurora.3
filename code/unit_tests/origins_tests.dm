@@ -47,3 +47,18 @@
 	else
 		pass("All origins are filled out properly.")
 	return TRUE
+
+/datum/unit_test/accent_tags
+	name = "All accent tags shall have a text tag"
+
+/datum/unit_test/accent_tags/start_test()
+	var/failures = 0
+	for(var/datum/accent/A in subtypesof(/datum/accent))
+		A = new()
+		if(!istext(A.text_tag))
+			log_unit_test("Accent tag [A.name] did not have a text tag or the type was inappropriate!")
+			failures++
+	if(failures)
+		fail("[failures] errors found.")
+	else
+		pass("All accents have a text tag.")
