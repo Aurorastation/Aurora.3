@@ -62,3 +62,4 @@
 		fail("[failures] errors found.")
 	else
 		pass("All accents have a text tag.")
+	return TRUE
