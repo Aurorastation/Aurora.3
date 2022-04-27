@@ -3301,13 +3301,6 @@
 	name = "Security Maintenance";
 	req_access = list(63)
 	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
-	},
 /turf/simulated/floor,
 /area/security/investigations)
 "hu" = (
