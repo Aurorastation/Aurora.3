@@ -1183,12 +1183,13 @@ proc/is_blind(A)
 	if(used_accent && speaking?.allow_accents)
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		if(istype(a))
-			if(!hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
+			if(hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
+				return "<[a.text_tag]>"
+			else
 				var/final_icon = a.tag_icon
 				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
 				return S.icon_tag(final_icon)
-			else
-				return "<[a.text_tag]>"
+				
 
 /mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
 	for(var/mob/M in contents)
