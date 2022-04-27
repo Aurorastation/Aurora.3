@@ -302,13 +302,13 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aH" = (
+/obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
-/obj/machinery/door/firedoor,
-/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aI" = (
@@ -6405,7 +6405,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -8841,7 +8841,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -13159,13 +13159,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "EJ" = (
+/obj/effect/map_effect/door_helper/unres,
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
-/obj/effect/map_effect/door_helper/unres,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "EK" = (
@@ -14262,7 +14262,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -17205,7 +17205,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -19732,6 +19732,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/crew_area)
+"Tt" = (
+/obj/machinery/door/airlock/glass_command{
+	id_tag = "sbridgedoor";
+	name = "Bridge";
+	req_one_access = list(19,38,72)
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "Tu" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -43450,7 +43460,7 @@ Oz
 xi
 xi
 Tc
-aH
+Tt
 ZS
 aH
 dB
