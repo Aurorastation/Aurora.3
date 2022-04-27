@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - maptweak: "Maintenance door by the Investigator's Office no longer has a blast-door, to allow access to security if the lockdown is triggered and no one is available to lift it."
