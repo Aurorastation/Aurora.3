@@ -29,6 +29,12 @@
 
 	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
 
+	// Extra descriptions.
+	var/desc_fluff = null // Text about the atom's fluff description, if any exists.
+	var/desc_info = null // Blue text (SPAN_NOTICE()), informing the user about how to use the item or about game controls.
+	var/desc_antag = null // Red text (SPAN_ALERT()), informing the user about how they can use an object to antagonize.
+	var/desc_cult = null // Purple text (SPAN_CULT()), telling the user, if they're a cultist, how they can use certain items related to being a cultist.
+
 /atom/proc/reveal_blood()
 	return
 
