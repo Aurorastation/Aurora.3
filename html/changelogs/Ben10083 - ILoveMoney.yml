@@ -10,4 +10,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Consulars and Representatives have had their allowances increased to allow them to spend more credits in pursuit of their superior's interests."
+  - tweak: "Consulars and Representatives have had their allowances increased to allow them to spend more credits in pursuit of their superior's interests."
