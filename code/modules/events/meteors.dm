@@ -57,55 +57,18 @@
 /datum/event/meteor_wave/proc/get_meteors()
 	switch(severity)
 		if(EVENT_LEVEL_MAJOR)
-			return meteors_major
+			return SSatlas.current_sector.meteors_major
 		if(EVENT_LEVEL_MODERATE)
-			return meteors_moderate
+			return SSatlas.current_sector.meteors_moderate
 		else
-			return meteors_minor
-
-/var/list/meteors_minor = list(
-	/obj/effect/meteor/medium     = 80,
-	/obj/effect/meteor/dust       = 30,
-	/obj/effect/meteor/irradiated = 30,
-	/obj/effect/meteor/big        = 30,
-	/obj/effect/meteor/flaming    = 10,
-	/obj/effect/meteor/golden     = 10,
-	/obj/effect/meteor/silver     = 10
-)
-
-/var/list/meteors_moderate = list(
-	/obj/effect/meteor/medium     = 80,
-	/obj/effect/meteor/big        = 30,
-	/obj/effect/meteor/dust       = 30,
-	/obj/effect/meteor/irradiated = 30,
-	/obj/effect/meteor/flaming    = 10,
-	/obj/effect/meteor/golden     = 10,
-	/obj/effect/meteor/silver     = 10,
-	/obj/effect/meteor/emp        = 10
-)
-
-/var/list/meteors_major = list(
-	/obj/effect/meteor/medium     = 80,
-	/obj/effect/meteor/big        = 30,
-	/obj/effect/meteor/dust       = 30,
-	/obj/effect/meteor/irradiated = 30,
-	/obj/effect/meteor/emp        = 30,
-	/obj/effect/meteor/flaming    = 10,
-	/obj/effect/meteor/golden     = 10,
-	/obj/effect/meteor/silver     = 10
-)
-
-/var/list/downed_ship_meteors = list(
-	/obj/effect/meteor/ship_debris = 90,
-	/obj/effect/meteor/dust       = 10
-)
+			return SSatlas.current_sector.meteors_minor
 
 /datum/event/meteor_wave/downed_ship
 	ic_name = "a downed vessel"
 	no_fake = TRUE
 
 /datum/event/meteor_wave/downed_ship/get_meteors()
-	return downed_ship_meteors
+	return SSatlas.current_sector.downed_ship_meteors
 
 /datum/event/meteor_wave/downed_ship/announce()
 	for (var/zlevel in affecting_z)
@@ -149,7 +112,7 @@
 		command_announcement.Announce(current_map.dust_end_message, "Dust Belt Alert", , new_sound = 'sound/AI/dust_end_message.ogg')
 
 /datum/event/meteor_wave/dust/get_meteors()
-	return meteors_dust
+	return SSatlas.current_sector.meteors_dust
 
 /datum/event/meteor_wave/dust/overmap
 	next_meteor_lower = 5
