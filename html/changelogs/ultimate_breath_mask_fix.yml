@@ -1,0 +1,7 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - rscdel: "IV Drip no longer follows or crashes people with breath masks aren't adjacent to it. It instead retracts their breath mask without changing the wearer's location."
+  - tweak: "Rounded the IV Drip's tank pressure output when examined."
