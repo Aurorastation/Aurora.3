@@ -1,0 +1,10 @@
+
+
+# Your name.
+author: KingOfThePing
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+changes:
+  - tweak: "Added a smoking vendor to security and no smoking signs to the Medbay."
