@@ -1,0 +1,7 @@
+author: Llywelwyn
+
+delete-after: True
+
+changes:
+  - rscadd: "Added notifications for Skrell/antags with psionics when someone enters or exits the dream."
+  - bugfix: "Now correctly displays a chat message and fading out animation for people exiting the dream."
