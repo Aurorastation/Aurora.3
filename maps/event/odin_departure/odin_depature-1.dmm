@@ -8015,7 +8015,7 @@
 /obj/structure/undies_wardrobe{
 	anchored = 1;
 	icon = 'icons/obj/storage.dmi';
-	icon_state = "dropcrate-grey";
+	icon_state = "drop_crate-grey";
 	name = "underwear crate"
 	},
 /turf/unsimulated/floor{
