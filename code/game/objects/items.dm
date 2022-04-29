@@ -289,6 +289,7 @@
 
 			else if(S.can_be_inserted(src))
 				S.handle_item_insertion(src)
+			return TRUE
 
 //Called when the user alt-clicks on something with this item in their active hand
 //this function is designed to be overridden by individual weapons
@@ -350,7 +351,8 @@
 /obj/item/proc/pickup(mob/user)
 	pixel_x = 0
 	pixel_y = 0
-	addtimer(CALLBACK(src, .proc/handle_pickup_drop, user), 1) // invoke async does not work here
+	if(flags & HELDMAPTEXT)
+		addtimer(CALLBACK(src, .proc/check_maptext), 1) // invoke async does not work here
 	do_pickup_animation(user)
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
@@ -523,7 +525,8 @@ var/list/global/slot_flags_enumeration = list(
 
 // override for give shenanigans
 /obj/item/proc/on_give(var/mob/giver, var/mob/receiver)
-	handle_pickup_drop(giver, FALSE)
+	if(flags & HELDMAPTEXT)
+		check_maptext()
 
 //This proc is executed when someone clicks the on-screen UI button. To make the UI button show, set the 'icon_action_button' to the icon_state of the image of the button in screen1_action.dmi
 //The default action is attack_self().
@@ -903,13 +906,15 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	else
 		maptext = ""
 
-/obj/item/throw_at(atom/target, range, speed, thrower, do_throw_animation)
+/obj/item/throw_at()
 	..()
-	handle_pickup_drop(thrower, FALSE)
+	if(flags & HELDMAPTEXT)
+		check_maptext()
 
 /obj/item/dropped(var/mob/user)
 	..()
-	handle_pickup_drop(user, FALSE)
+	if(flags & HELDMAPTEXT)
+		check_maptext()
 
 // used to check whether the item is capable of popping things like balloons, inflatable barriers, or cutting police tape.
 /obj/item/proc/can_puncture()
@@ -958,7 +963,3 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/can_swap_hands(var/mob/user)
 	return TRUE
-
-/obj/item/proc/handle_pickup_drop(var/mob/M, var/picked_up = TRUE)
-	if(flags & HELDMAPTEXT)
-		check_maptext()

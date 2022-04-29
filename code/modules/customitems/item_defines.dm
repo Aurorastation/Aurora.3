@@ -1434,12 +1434,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "akinyi_mic"
 	w_class = ITEMSIZE_SMALL
 	contained_sprite = TRUE
-	speech_sound = null
-
-/obj/item/device/megaphone/fluff/akinyi_mic/modify_say(mob/M, list/say_modifiers) // not a foolproof update, but will avoid most of the oddities with the megaphone rewrite
-	if(loc != M && get_dist(get_turf(src), M) > 1)
-		return
-	return ..()
+	activation_sound = null
+	needs_user_location = FALSE
 
 /obj/item/fluff/akinyi_stand //Telescopic Mic Stand - Akinyi Idowu - kyres1
 	name = "telescopic mic stand"
@@ -2272,3 +2268,50 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	SEND_SIGNAL(D, COMSIG_ITEM_UPDATE_STATE, D)
+
+/obj/item/clothing/under/fluff/yanna_dress //Techno-Conglomerate CR dress - Yanna Trevidic - simplemaroon
+	name = "Techno-Conglomerate CR dress"
+	desc = "A sky blue-colored comfort-and-relaxation dress designed for off-worlders. This one is made to Techno-Conglomerate specifications, \
+	with sensors outlined across the ribcage that grow brighter or duller based on the wearer's emotional intensity."
+	icon = 'icons/obj/custom_items/yanna_dress.dmi'
+	icon_override = 'icons/obj/custom_items/yanna_dress.dmi'
+	icon_state = "yanna_dress"
+	item_state = "yanna_dress"
+	contained_sprite = TRUE
+	var/list/emotional_settings = list("0", "1", "2", "3")
+	var/emotional_choice
+	action_button_name = "Adjust Emotional Setting"
+
+/obj/item/clothing/under/fluff/yanna_dress/Initialize()
+	for(var/setting in emotional_settings)
+		emotional_settings[setting] = image('icons/obj/custom_items/yanna_dress.dmi', "level_[emotional_settings.Find(setting) - 1]")
+	.=..()
+
+/obj/item/clothing/under/fluff/yanna_dress/attack_self(mob/user)
+	choose_setting(user)
+
+/obj/item/clothing/under/fluff/yanna_dress/verb/adjust_setting()
+	set category = "Object"
+	set name = "Adjust Emotional Setting"
+	set src in usr
+
+	choose_setting(usr)
+
+/obj/item/clothing/under/fluff/yanna_dress/proc/choose_setting(mob/user)
+	var/emotional_setting = RADIAL_INPUT(user, emotional_settings)
+	if(!emotional_setting)
+		return
+	set_light(text2num(emotional_setting) * 0.4, text2num(emotional_setting) * 0.4, COLOR_BRIGHT_GREEN)
+	emotional_choice = "level_" + emotional_setting
+	update_icon()
+	update_clothing_icon()
+	get_mob_overlay(TRUE)
+
+/obj/item/clothing/under/fluff/yanna_dress/update_icon()
+	cut_overlays()
+	add_overlay(emotional_choice)
+
+/obj/item/clothing/under/fluff/yanna_dress/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	I.add_overlay(emotional_choice + "_un")
+	return I

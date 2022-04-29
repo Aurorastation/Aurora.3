@@ -37,13 +37,14 @@
 	if(istype(W, /obj/item/computer_hardware/hard_drive/portable))
 		if(drive)
 			to_chat(user, SPAN_WARNING("\The [src] already has a drive installed!"))
-			return
+			return TRUE
 		to_chat(user, SPAN_NOTICE("You insert \the [W] into \the [src]."))
 		user.drop_from_inventory(W, src)
 		drive = W
 		update_icon()
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/paper_scanner/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(proximity_flag && (istype(target, /obj/item/paper) || istype(target, /obj/item/paper_bundle)))

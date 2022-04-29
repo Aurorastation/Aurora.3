@@ -38,8 +38,8 @@
 			var/obj/item/key/K = I
 			key_data = K.key_data
 			update_icon()
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/soap/update_icon()
 	overlays.Cut()

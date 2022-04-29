@@ -231,8 +231,9 @@
 		var/obj/item/spell/spell = W
 		if(run_checks() & (cast_methods & CAST_COMBINE))
 			spell.on_combine_cast(src, user)
+		return TRUE
 	else
-		..()
+		return ..()
 
 // Proc: afterattack()
 // Parameters: 4 (target - the atom clicked on by user, user - the technomancer who clicked with the spell, proximity - argument

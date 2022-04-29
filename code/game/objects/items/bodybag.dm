@@ -76,9 +76,9 @@
 	if (W.ispen())
 		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)  as text
 		if (user.get_active_hand() != W)
-			return
+			return TRUE
 		if (!in_range(src, user) && src.loc != user)
-			return
+			return TRUE
 		t = sanitizeSafe(t, MAX_NAME_LEN)
 		if (t)
 			src.name = "body bag - "
@@ -94,12 +94,13 @@
 				LAZYADD(overlays, image(icon, "bodybag_label"))
 		else
 			src.name = "body bag"
-		return
+		return TRUE
 	else if(W.iswirecutter())
 		to_chat(user, "You cut the tag off the bodybag.")
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		src.name = "body bag"
 		LAZYREMOVE(overlays, image(icon, "bodybag_label"))
+		return TRUE
 
 /obj/structure/closet/body_bag/store_mobs(var/stored_units)
 	contains_body = ..()

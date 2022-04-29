@@ -408,28 +408,29 @@
 			user.drop_from_inventory(W, src)
 			use_internal_tank = 1
 			START_PROCESSING(SSfast_process, src)
-			return
 		else
 			to_chat(user, "<span class='warning'>[src] already has a tank attached.</span>")
+		return TRUE
 	if(opened)
 		if(istype(W, /obj/item/grab))
 			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)
-			return 0
+			return FALSE
 		if(!W.dropsafety())
-			return
+			return FALSE
 		user.drop_item()
+		return TRUE
 	else if(istype(W, /obj/item/handcuffs/cable))
 		if(zipped)
 			to_chat(user, "<span class='warning'>[src]'s zipper is already restrained.</span>")
-			return
+			return TRUE
 		user.visible_message(
 		"<span class='warning'>[user] begins putting cable restrains on zipper of [src].</span>",
 		"<span class='notice'>You begin putting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/weapons/cablecuff.ogg', 50, 1)
 		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
-			return
+			return TRUE
 		zipped = !zipped
 		update_icon()
 		user.visible_message(
@@ -439,18 +440,19 @@
 
 		qdel(W)
 		update_icon()
+		return TRUE
 	else if(W.iswirecutter())
 		if(!zipped)
 			to_chat(user, "<span class='warning'>[src] has no cables to cut.</span>")
 			attack_hand(user)
-			return
+			return TRUE
 		user.visible_message(
 		"<span class='warning'>[user] begins cutting cable restrains on zipper of [src].</span>",
 		"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
 		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
-			return
+			return TRUE
 		zipped = !zipped
 		update_icon()
 		user.visible_message(
@@ -459,17 +461,18 @@
 		)
 		new/obj/item/handcuffs/cable(src.loc)
 		update_icon()
+		return TRUE
 	else if(istype(W, /obj/item/cell))
 		if(!isnull(cell))
 			to_chat(user, "<span class='warning'>[src] already has [cell] attached to it.</span>")
 			attack_hand(user)
-			return
+			return TRUE
 		user.visible_message(
 		"<span class='warning'>[user] is attaching [W] to [src].</span>",
 		"<span class='notice'>You are attaching [W] to [src].</span>"
 		)
 		if (!do_after(user, 2 SECONDS, act_target = src))
-			return
+			return TRUE
 		user.visible_message(
 		"<span class='warning'>[user] has attached [W] to [src].</span>",
 		"<span class='notice'>You attached [W] to [src].</span>"
@@ -477,9 +480,9 @@
 		cell = W
 		cooling = TRUE
 		user.drop_from_inventory(W, src)
+		return TRUE
 	else
-		attack_hand(user)
-	return
+		return attack_hand(user)
 
 /obj/structure/closet/airbubble/store_mobs(var/stored_units)
 	contains_body = ..()

@@ -2,7 +2,7 @@ SovjetBox.woff - see OFL.txt for license - Copyright (c) 2015, Jyrki Ihalainen (
 Lashema.woff - see OFL.txt for license - Copyright (c) 2017, Samuel R Boylan Jr (https://fontlibrary.org/en/member/boylansr), with Reserved Font Name <Lashema>.
 Torsha.woff - Copyright (c) 2017-01-24—2017-01-25, hiith (https://fontlibrary.org/en/member/hiith), with Reserved Font Name <Torsha>.
 GrandHotel.woff - Copyright (c) 2012 by Brian J. Bonislawsky and Jim Lyles DBA Astigmatic (AOETI) (astigma@astigmatic.com), with Reserved Font Name "Grand Hotel"
-Zeshit.woff - Copyright (c) 13 July 2019, T. Christopher White (amenemsu@gmail.com), with Reserved Font Name “Zeshit”.
+Zeshit.woff - Copyright (c) 13 July 2019, T. Christopher White (amenemsu@gmail.com), with Reserved Font Name \"Zeshit\".
 Bluebird.woff - Copyright (c) 2015, Jasper @ Cannot Into Space Fonts (cannotintospacefonts@gmail.com), with Reserved Font Name "Bluebird".
 Web3Of9ASCII.woff - Copyright (c) 2014, Nathaniel Reeser (nathaniel.reeser@gmail.com), with Reserved Font Name Web 3 Of 9 ASCII.
 SourceCodePro.woff - Copyright 2010, 2012 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.

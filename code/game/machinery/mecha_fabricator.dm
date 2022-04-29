@@ -152,13 +152,13 @@
 /obj/machinery/mecha_part_fabricator/attackby(var/obj/item/I, var/mob/user)
 	if(busy)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation."))
-		return 1
+		return TRUE
 	if(default_deconstruction_screwdriver(user, I))
-		return
+		return TRUE
 	if(default_deconstruction_crowbar(user, I))
-		return
+		return TRUE
 	if(default_part_replacement(user, I))
-		return
+		return TRUE
 
 	if(!istype(I, /obj/item/stack/material))
 		return ..()
@@ -168,7 +168,7 @@
 		return ..()
 	if(!(M.material.name in list(MATERIAL_STEEL, MATERIAL_GLASS, MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND, MATERIAL_PHORON, MATERIAL_URANIUM)))
 		to_chat(user, SPAN_WARNING("\The [src] cannot hold [M.material.name]."))
-		return
+		return TRUE
 
 	var/sname = "[M.name]"
 	if(materials[M.material.name] + M.perunit <= res_max_amount)
@@ -186,6 +186,7 @@
 			update_busy()
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] cannot hold more [sname]."))
+	return TRUE
 
 /obj/machinery/mecha_part_fabricator/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
 	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))

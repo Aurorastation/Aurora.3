@@ -320,7 +320,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/obj/item/melee/energy/sword/S = W
 		if(S.active)
 			light(SPAN_WARNING("[user] swings their [W], barely missing themselves. They light their [name] in the process."))
-	return
+		return TRUE
 
 /obj/item/clothing/mask/smokable/cigarette/catch_fire()
 	if(!lit)
@@ -804,7 +804,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame/lighter/zippo/luceian
 	name = "\improper Luceian Zippo lighter"
 	desc = "A bright zippo lighter with the all-seeing eye of Ennoia on its front. Clearly Luceian."
-	desc_fluff = "Luceian lighters, sometimes referred to as “Ennoic Fires,” are commonly carried by Assunzionii as an emergency light \
+	desc_fluff = "Luceian lighters, sometimes referred to as \"Ennoic Fires,\" are commonly carried by Assunzionii as an emergency light \
 	source. A genuine lighter in the Luceian tradition will have a proving mark stamped upon its base that shows when and where it was \
 	blessed following its construction."
 	icon_state = "luceianzippo"
@@ -988,7 +988,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/obj/item/clothing/mask/smokable/cigarette/rolled/CR = I
 		return CR.attackby(src, user)
 	. = ..()
-	
+
 
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco

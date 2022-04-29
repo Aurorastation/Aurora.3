@@ -38,10 +38,11 @@
 			to_chat(user, "<span class='alert'>Could not import incident report.</span>")
 
 		qdel( O )
+		return TRUE
 	else if( istype( O, /obj/item/paper ) && menu_screen == "import_incident" )
 		to_chat(user, "<span class='alert'>This console only accepts authentic incident reports. Copies are invalid.</span>")
-
-	..()
+		return TRUE
+	return ..()
 
 /obj/machinery/computer/sentencing/proc/import( var/obj/item/paper/incident/I )
 	incident = null

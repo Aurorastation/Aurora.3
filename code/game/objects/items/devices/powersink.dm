@@ -39,15 +39,13 @@
 				attached = locate() in T
 				if(!attached)
 					to_chat(user, "<span class='warning'>No exposed cable here to attach to.</span>")
-					return
 				else
 					anchored = 1
 					mode = 1
 					visible_message("<span class='notice'>\The [user] attaches \the [src] to the cable!</span>")
-					return
 			else
 				to_chat(user, "<span class='warning'>\The [src] must be placed over an exposed cable to attach to it.</span>")
-				return
+			return TRUE
 		else
 			if (mode == 2)
 				STOP_PROCESSING(SSprocessing, src)
@@ -59,9 +57,9 @@
 			icon_state = "powersink0"
 			item_state = "powersink0"
 
-			return
+			return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/device/powersink/attack_ai()
 	return

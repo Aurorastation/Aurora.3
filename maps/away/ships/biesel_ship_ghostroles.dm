@@ -98,6 +98,7 @@
 
 	uniform = /obj/item/clothing/under/legion/pilot
 	head = /obj/item/clothing/head/helmet/pilot/legion
+	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
 	accessory = /obj/item/clothing/accessory/storage/webbingharness/pouches/ert
 	back = /obj/item/storage/backpack/legion
@@ -106,7 +107,7 @@
 
 	l_ear = /obj/item/device/radio/headset/ship
 
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1)
 
 /datum/outfit/admin/tcfl_peacekeeper_pilot/get_id_access()
 	return list(access_tcfl_peacekeeper_ship, access_external_airlocks)
@@ -127,7 +128,7 @@
 	max_count = 2
 
 	outfit = /datum/outfit/admin/tcfl_detainee
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "TCFL Detainee"

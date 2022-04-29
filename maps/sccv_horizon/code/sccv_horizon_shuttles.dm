@@ -155,7 +155,7 @@
 
 /datum/shuttle/autodock/overmap/intrepid
 	name = "Intrepid"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/intrepid)
 	dock_target = "intrepid_shuttle"
 	current_location = "nav_hangar_intrepid"
@@ -178,7 +178,7 @@
 
 /datum/shuttle/autodock/overmap/mining
 	name = "Mining Shuttle"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/mining)
 	dock_target = "mining_shuttle"
 	current_location = "nav_hangar_mining"

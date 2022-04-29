@@ -228,15 +228,18 @@
 			user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
 		else
 			to_chat(user, "<span class='warning'>\The [src] has a beaker already.</span>")
-		return
+		return TRUE
 	else if(istype(I, /obj/item/grab))
 
 		var/obj/item/grab/G = I
 		var/mob/living/L = G.affecting
+		var/bucklestatus = L.bucklecheck(user)
+		if(!bucklestatus)
+			return TRUE
 
 		if(!istype(L))
 			to_chat(user, "<span class='warning'>\The machine won't accept that.</span>")
-			return
+			return TRUE
 
 		if(display_loading_message)
 			user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
@@ -244,13 +247,9 @@
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)
 				to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
-				return
-			var/bucklestatus = L.bucklecheck(user)
-
-			if (!bucklestatus)//incase the patient got buckled_to during the delay
-				return
+				return TRUE
 			if(L != G.affecting)//incase it isn't the same mob we started with
-				return
+				return TRUE
 
 			var/mob/M = G.affecting
 			M.forceMove(src)
@@ -258,19 +257,28 @@
 			occupant = M
 			update_icon()
 			qdel(G)
-			return
+		return TRUE
 	else if(I.isscrewdriver())
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		cut_overlays()
 		if(src.panel_open)
 			add_overlay("[initial(icon_state)]-o")
+		return TRUE
 	else if(default_part_replacement(user, I))
-		return
+		return TRUE
 
 /obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
 	if(user.stat || user.lying || !Adjacent(user) || !target.Adjacent(user)|| !ishuman(target))
 		return
+
+	var/mob/living/L = target
+	var/bucklestatus = L.bucklecheck(user)
+	if(!bucklestatus)
+		return
+	if(bucklestatus == 2)
+		var/obj/structure/LB = L.buckled_to
+		LB.user_unbuckle(user)
 	go_in(target, user)
 
 /obj/machinery/sleeper/relaymove(var/mob/user)

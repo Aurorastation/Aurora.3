@@ -34,3 +34,31 @@
 	description = "Traverse accents are similar to those of Standard Nral'Malic accents; there are some differences on colonies in the sector, but the general trend of the accent \
 	seems to remain within the low ranges, often described as high-pitched and nasal in tone."
 	tag_icon = "skrell_traverse"
+	
+/datum/accent/skrell/genner
+	name = ACCENT_GENNER
+	description = "The Generation Fleet accent is actually a catch-all term for the various accents that have developed aboard the Generation Fleets of the Jargon Federation. \
+	As a result of being separated from their planet of origin for generations, these accents don't have much in common with any modern Skrell accent, and are usually \
+	described as sounding 'older' by other Skrell."
+	tag_icon = "skrell_genner"
+	
+/datum/accent/skrell/ceti
+	name = ACCENT_SKRELLCETI
+	description = "While the Biesel accent is easy to pick up by most Tau Ceti Basic speakers, the Biesellite Skrell Standard accent is common in the more insular Skrell communities, \
+	especially those who are strongly pro-Federation. Biesellite Skrell Standard has many holdovers from Jargon accents while also having some of the more obvious \
+	characteristics of the Biesellite accent."
+	tag_icon = "skrell_biesel"
+	
+/datum/accent/skrell/sol
+	name = ACCENT_SKRELLSOL
+	description = "Solarian Skrell Standard can be seen as the Skrellian equivalent of the Solarian accent, having hundreds of variants that can be found on planets across \
+	the Sol Alliance. The accent has kept the notable tones from accents found in the Federation, while still heavily influenced by the pacing and pronunciation common in the \
+	average Solarian accent."
+	tag_icon = "skrell_sol"
+	
+/datum/accent/skrell/coc
+	name = ACCENT_SKRELLCOC
+	description = "Coalition Skrell Standard refers to the various accents of Skrell living within the Coalition of Colonies. Heavily influenced by Freespeak, this accent \
+	is more guttural, with lower-pitched tones being more prevalent. The Coalition of Colonies has a reputation for being generally anti-Federation in policy, which has \
+	resulted in this accent being seen by Skrell as anti-Federation by association."
+	tag_icon = "skrell_coalition"
