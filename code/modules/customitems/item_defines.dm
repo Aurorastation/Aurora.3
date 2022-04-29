@@ -2293,7 +2293,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(lit)
 		to_chat(user, "\The [src] is currently lit.")
 
-/obj/item/fluff/nasira_burner/proc/light(var/lighting_text = "[usr] lights \the [name].")
+/obj/item/fluff/nasira_burner/proc/light(var/lighting_text)
 	if(!lit)
 		lit = TRUE
 		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
