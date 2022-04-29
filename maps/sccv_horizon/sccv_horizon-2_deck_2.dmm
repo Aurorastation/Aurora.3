@@ -24958,9 +24958,6 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
-/obj/machinery/megavendor/vendor{
-	pixel_y = 16
-	},
 /obj/machinery/disposal/small/west{
 	pixel_y = -6
 	},

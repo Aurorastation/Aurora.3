@@ -76,5 +76,4 @@
 		if(!C.occupant)
 			C.set_occupant(victim, 1)
 			to_chat(victim, SPAN_NOTICE("You have arrived from the living quarters aboard the [current_map.full_name]."))
-			to_chat(victim, FONT_LARGE("<b>Your workplace attire is waiting for you at the nearest autodrobe vendor.</b>"))
 			return
