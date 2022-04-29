@@ -2297,8 +2297,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(!lit)
 		lit = TRUE
 		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
-		var/turf/T = get_turf(src)
-		T.visible_message(SPAN_NOTICE(lighting_text))
+		if(lighting_text)
+			var/turf/T = get_turf(src)
+			T.visible_message(SPAN_NOTICE(lighting_text))
 		set_light(2, 0.25, "#E38F46")
 		icon_state = "burner_lit"
 		START_PROCESSING(SSprocessing, src)
