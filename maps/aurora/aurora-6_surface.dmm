@@ -21107,7 +21107,8 @@
 	pixel_x = 27
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/megavendor/vendor,
+/obj/structure/closet/emcloset,
+/obj/item/storage/toolbox/emergency,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "seu" = (

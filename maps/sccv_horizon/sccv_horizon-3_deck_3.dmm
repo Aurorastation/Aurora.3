@@ -3785,7 +3785,7 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/item/crowbar/red,
-/obj/item/crowbar/red,
+/obj/item/storage/toolbox/emergency,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "is" = (
@@ -16465,7 +16465,7 @@
 "Mb" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/emcloset,
-/obj/item/crowbar/red,
+/obj/item/storage/toolbox/emergency,
 /obj/item/crowbar/red,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)

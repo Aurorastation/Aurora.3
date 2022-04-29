@@ -38,4 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - maptweak: "People using the living quarters lift don't need to use an autodrobe anymore. They've mastered the art of putting on their uniforms at home."
+  - tweak: "Autodrobes aren't mapped onto the Horizon anymore, so you will spawn with your gear and ID instead of needing to use the machine now."
+  - maptweak: "They're out of the Aurora as well in case that map ever sees use in some form."
+  - maptweak: "Buffs the emergency lockers that start at the lift room and cryo room on the Horizon. They each get one red toolbox with emergency gear."
