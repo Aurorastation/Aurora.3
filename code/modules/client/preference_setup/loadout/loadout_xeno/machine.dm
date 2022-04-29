@@ -168,7 +168,7 @@
 	cost = 0
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 /datum/gear/accessory/ipcmantle
-	display_name = "Burzsiean shoulder mantle"
+	display_name = "Burzsian shoulder mantle"
 	description = "A tarp identifying Hephaestus IPC's from Burzsia. Operation history and specifications are printed underneath the tarp."
 	path = /obj/item/clothing/accessory/IPC_Mantle
 	sort_category = "Xenowear - IPC"
