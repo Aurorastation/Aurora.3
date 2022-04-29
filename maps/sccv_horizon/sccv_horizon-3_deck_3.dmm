@@ -194,9 +194,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/obj/machinery/shield_gen{
-	anchored = 1
-	},
+/obj/item/modular_computer/console/preset/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
 "av" = (
@@ -324,17 +322,6 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/storage/shields)
-"aJ" = (
-/obj/structure/cable/cyan{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/cyan{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/storage/shields)
 "aK" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -379,12 +366,8 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/machinery/shield_capacitor/multiz{
-	anchored = 1;
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
-	},
-/obj/structure/cable/cyan{
-	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
@@ -14592,7 +14575,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "Ia" = (
-/obj/item/modular_computer/console/preset/engineering,
 /obj/structure/cable/cyan{
 	icon_state = "4-8"
 	},
@@ -44835,7 +44817,7 @@ FH
 Eo
 bj
 RK
-aJ
+QM
 aR
 QH
 aW
