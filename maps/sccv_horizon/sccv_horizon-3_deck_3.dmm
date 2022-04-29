@@ -4434,8 +4434,8 @@
 /area/security/investigations)
 "jR" = (
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 28;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -5317,22 +5317,22 @@
 /obj/machinery/button/remote/blast_door{
 	id = "hangarlockdown";
 	name = "Hangar Lockdoor";
-	pixel_y = -33;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = -33
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "bridge blast";
 	name = "Bridge Lockdown";
-	req_access = list(19);
+	pixel_x = -5;
 	pixel_y = -24;
-	pixel_x = -5
+	req_access = list(19)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "crew_armory";
 	name = "Crew Armory";
-	req_access = list(60);
 	pixel_x = 6;
-	pixel_y = -33
+	pixel_y = -33;
+	req_access = list(60)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
@@ -6355,7 +6355,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	id_tag = "bunker1";
 	name = "Command Bunker Access";
-	req_access = list(19)
+	req_access = list(19, 61)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -7778,7 +7778,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms Access";
-	req_access = list(12)
+	req_access = list(12, 61)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -9078,7 +9078,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms Access";
-	req_access = list(12)
+	req_access = list(12, 61)
 	},
 /turf/simulated/floor,
 /area/tcommsat/entrance)
@@ -13578,7 +13578,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms Access";
-	req_access = list(12)
+	req_access = list(12, 61)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -15022,8 +15022,8 @@
 /area/maintenance/security_starboard)
 "IU" = (
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 28;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
@@ -19412,7 +19412,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms Access";
-	req_access = list(12)
+	req_access = list(12, 61)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/airtight,
@@ -19799,16 +19799,16 @@
 	id = "captaindoor";
 	name = "Office Door Control";
 	pixel_x = 30;
-	req_access = list(20);
-	pixel_y = 10
+	pixel_y = 10;
+	req_access = list(20)
 	},
 /obj/machinery/button/remote/airlock{
 	desc = "A remote control-switch for the starboard bridge doors.";
 	id = "sbridgedoor";
 	name = "Bridge Door Control";
+	pixel_x = 30;
 	pixel_y = -2;
-	req_access = list(20);
-	pixel_x = 30
+	req_access = list(20)
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/carpet/rubber,
@@ -22398,8 +22398,8 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 28;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
