@@ -11679,7 +11679,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "haK" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = 32
 	},
 /obj/item/stack/medical/bruise_pack,
@@ -15340,7 +15340,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "Medication Closet";
 	pixel_x = 31
 	},
