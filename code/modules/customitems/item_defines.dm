@@ -2308,7 +2308,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(lit)
 		lit = FALSE
 		var/turf/T = get_turf(src)
-		T.visible_message(SPAN_NOTICE("[usr] extinguishes \the [src]."))
+		T.visible_message(SPAN_NOTICE("[user] extinguishes \the [src]."))
 		set_light(0)
 		icon_state = initial(icon_state)
 		STOP_PROCESSING(SSprocessing, src)
