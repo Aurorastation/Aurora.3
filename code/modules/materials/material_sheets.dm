@@ -451,3 +451,13 @@
 	. = ..()
 	amount = max_amount
 	update_icon()
+
+/obj/item/stack/material/graphite
+	name = "graphite"
+	icon_state = "sheet-graphite"
+	default_type = MATERIAL_GRAPHITE
+
+/obj/item/stack/material/graphite/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()

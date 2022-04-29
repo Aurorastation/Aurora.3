@@ -12,6 +12,7 @@
 	var/power_gen = 5000
 	var/open = FALSE
 	var/power_output = 1
+	var/portgen_lightcolour = "#000000"
 	has_special_power_checks = TRUE
 
 /obj/machinery/power/portgen/Initialize()
@@ -34,11 +35,13 @@
 
 /obj/machinery/power/portgen/machinery_process()
 	if(active && HasFuel() && !IsBroken() && anchored)
+		set_light(2, 1, l_color = portgen_lightcolour)
 		if(powernet)
 			add_avail(power_gen * power_output)
 		UseFuel()
 		SSvueui.check_uis_for_change(src)
 	else
+		set_light(0)
 		active = FALSE
 		icon_state = initial(icon_state)
 		handleInactive()
@@ -62,9 +65,9 @@
 	if(!..(user, 1))
 		return
 	if(active)
-		to_chat(usr, SPAN_NOTICE("The generator is on."))
+		to_chat(user, SPAN_NOTICE("The generator is on."))
 	else
-		to_chat(usr, SPAN_NOTICE("The generator is off."))
+		to_chat(user, SPAN_NOTICE("The generator is off."))
 
 /obj/machinery/power/portgen/emp_act(severity)
 	var/duration = 6000 //ten minutes
@@ -93,29 +96,30 @@
 
 //
 // Portable Generator - Basic
-// Runs on phoron sheets.
+// Runs on graphite.
 //
 /obj/machinery/power/portgen/basic
 	name = "portable generator"
-	desc = "A portable generator that runs on " + SPAN_INFO("solid phoron sheets. ") + SPAN_WARNING("Rated for 80 kW max safe output.")
+	desc = "A portable generator that runs on graphite. " + SPAN_WARNING("Rated for 100 kW max safe output.")
+	portgen_lightcolour = "#BC6E3E"
 
-	var/sheet_name = "Phoron Sheets"
-	var/sheet_path = /obj/item/stack/material/phoron
+	var/sheet_name = "graphite bars"
+	var/sheet_path = /obj/item/stack/material/graphite
 	var/board_path = "/obj/item/circuitboard/portgen"
 
 	/*
-		These values were chosen so that the generator can run safely up to 80 kW
-		A full 50 phoron sheet stack should last 20 minutes at power_output = 4
+		These values were chosen so that the generator can run safely up to 100 kW
+		A full 50 graphite bar stack should last 2 hours at power_output = 4
 		temperature_gain and max_temperature are set so that the max safe power level is 4.
 		Setting to 5 or higher can only be done temporarily before the generator overheats.
 	*/
-	power_gen = 20000			//Watts output per power_output level
-	var/max_power_output = 5	//The maximum power setting without emagging.
-	var/max_safe_output = 4		// For UI use, maximal output that won't cause overheat.
-	var/time_per_sheet = 96		//fuel efficiency - how long 1 sheet lasts at power level 1
-	var/max_sheets = 100 		//max capacity of the hopper
-	var/max_temperature = 300	//max temperature before overheating increases
-	var/temperature_gain = 50	//how much the temperature increases per power output level, in degrees per level
+	power_gen = 25000				//Watts output per power_output level
+	var/max_power_output = 5		//The maximum power setting without emagging.
+	var/max_safe_output = 4			// For UI use, maximal output that won't cause overheat.
+	var/time_per_sheet = 576		//fuel efficiency - how long 1 sheet lasts at power level 1
+	var/max_sheets = 50 			//max capacity of the hopper
+	var/max_temperature = 300		//max temperature before overheating increases
+	var/temperature_gain = 50		//how much the temperature increases per power output level, in degrees per level
 
 	var/sheets = 0			//How many sheets of material are loaded in the generator
 	var/sheet_left = 0		//How much is left of the current sheet
@@ -250,19 +254,6 @@
 	if (overheating > 60)
 		explode()
 
-/obj/machinery/power/portgen/basic/explode()
-	//Vapourize all the phoron
-	//When ground up in a grinder, 1 sheet produces 20 u of phoron -- Chemistry-Machinery.dm
-	//1 mol = 10 u? I dunno. 1 mol of carbon is definitely bigger than a pill
-	var/phoron = (sheets+sheet_left)*20
-	var/datum/gas_mixture/environment = loc.return_air()
-	if (environment)
-		environment.adjust_gas_temp(GAS_PHORON, phoron/10, temperature + T0C)
-
-	sheets = 0
-	sheet_left = 0
-	..()
-
 /obj/machinery/power/portgen/basic/emag_act(var/remaining_charges, var/mob/user)
 	if (active && prob(25))
 		explode() //if they're foolish enough to emag while it's running
@@ -391,17 +382,21 @@
 
 //
 // Portable Generator - Advanced
-// Runs on uranium sheets.
+// Runs on uranium.
 //
 /obj/machinery/power/portgen/basic/advanced
 	name = "advanced portable generator"
-	desc = "An advanced portable generator that runs on " + SPAN_INFO(" uranium sheets. ") + "Runs much more efficiently than the basic phoron model due to the higher energy density of uranium. " + SPAN_WARNING("Rated for 80 kW max safe output.")
+	desc = "An advanced portable generator that runs on uranium. Runs much more efficiently than the basic graphite model due to the higher energy density of uranium. " + SPAN_WARNING("Rated for 200 kW max safe output.")
 	icon_state = "portgen1_0"
 	base_icon = "portgen1"
+	portgen_lightcolour = "#458943"
+
+	sheet_name = "uranium sheets"
 	sheet_path = /obj/item/stack/material/uranium
-	sheet_name = "Uranium Sheets"
-	time_per_sheet = 576 //same power output, but a 50 sheet stack will last 2 hours at max safe power
 	board_path = "/obj/item/circuitboard/portgen/advanced"
+
+	power_gen = 50000 // 200 kW = safe max, 250 kW = unsafe max.
+	temperature_gain = 60
 
 /obj/machinery/power/portgen/basic/advanced/UseFuel()
 	//produces a tiny amount of radiation when in use
@@ -423,27 +418,26 @@
 
 //
 // Portable Generator - Super
-// Runs on tritium sheets.
+// Runs on tritium.
 //
 /obj/machinery/power/portgen/basic/super
 	name = "super portable generator"
-	desc = "An advanced portable generator that runs on " + SPAN_INFO(" tritium sheets. ") + "Runs even more efficiently than the uranium-driven model due to the higher energy density of tritium. " + SPAN_WARNING("Rated for 200 kW max safe output.")
+	desc = "An advanced portable generator that runs on tritium. Runs even more efficiently than the uranium-driven model due to the higher energy density of tritium. " + SPAN_WARNING("Rated for 500 kW max safe output.")
 	icon_state = "portgen2_0"
 	base_icon = "portgen2"
-	sheet_path = /obj/item/stack/material/tritium
-	sheet_name = "Tritium Fuel Sheets"
+	portgen_lightcolour = "#476ACC"
 
-	//I don't think tritium has any other use, so we might as well make this rewarding for players
-	//max safe power output (power level = 8) is 200 kW and lasts for 1 hour - 3 or 4 of these could power the station
-	power_gen = 25000 //watts
+	sheet_name = "tritium sheets"
+	sheet_path = /obj/item/stack/material/tritium
+	board_path = "/obj/item/circuitboard/portgen/super"
+
+	power_gen = 125000 // 500 kW = safe max, 750 kW = unsafe max
 	max_power_output = 10
 	max_safe_output = 8
 	time_per_sheet = 576
-	max_temperature = 800
-	temperature_gain = 90
-	board_path = "/obj/item/circuitboard/portgen/super"
+	max_temperature = 720
+	temperature_gain = 80
 
 /obj/machinery/power/portgen/basic/super/explode()
-	//no special effects, but the explosion is pretty big (same as a supermatter shard).
-	explosion(loc, 3, 6, 12, 16, 1)
+	explosion(loc, 3, 6, 12, 16, 1) // No special effects, but the explosion is pretty big (same as a supermatter shard).
 	qdel(src)
