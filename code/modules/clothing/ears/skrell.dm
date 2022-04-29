@@ -245,13 +245,20 @@
 	. = ..()
 	update_icon()
 
+/obj/item/clothing/ears/skrell/goop/long
+	item_state = "skrell_dots_long"
+
 /obj/item/clothing/ears/skrell/goop/stripes
-	icon_state = "skrell_stripes"
 	item_state = "skrell_stripes"
 
+/obj/item/clothing/ears/skrell/goop/stripes/long
+	item_state = "skrell_stripes_long"
+
 /obj/item/clothing/ears/skrell/goop/circles
-	icon_state = "skrell_circles"
 	item_state = "skrell_circles"
+
+/obj/item/clothing/ears/skrell/goop/circles/long
+	item_state = "skrell_circles_long"
 
 /obj/item/clothing/ears/skrell/scrunchy
 	name = "skrell tentacle tie"
