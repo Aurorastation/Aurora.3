@@ -3,14 +3,19 @@
 //      Meaning the the suit is defined directly after the corrisponding helmet. Just like below!
 
 /obj/item/clothing/head/helmet/space
-	name = "space helmet"
-	icon_state = "space"
+	name = "softsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
-	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_hats.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_hats.dmi'
+	)
+	icon_state = "space"
 	item_state_slots = list(
-		slot_l_hand_str = "s_helmet",
-		slot_r_hand_str = "s_helmet"
-		)
+		slot_l_hand_str = "space",
+		slot_r_hand_str = "space"
+	)
+	item_state = "space"
+	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
 	permeability_coefficient = 0.01
 	armor = list(
 		bio = ARMOR_BIO_SHIELDED,
@@ -34,9 +39,18 @@
 	on = 0
 
 /obj/item/clothing/suit/space
-	name = "space suit"
-	desc = "A suit that protects against low pressure environments. \"NSS AURORA\" is written in large block letters on the back."
+	name = "softsuit"
+	desc = "A suit that protects against low pressure environments."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_suit.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_suit.dmi'
+	)
 	icon_state = "space"
+	item_state_slots = list(
+		slot_l_hand_str = "space",
+		slot_r_hand_str = "space"
+	)
+	item_state = "space"
 	randpixel = 0
 	center_of_mass = null
 	w_class = ITEMSIZE_LARGE//bulky item
@@ -90,3 +104,26 @@
 		E.status &= ~ ORGAN_SPLINTED
 		to_chat(user, "The suit stops supporting your [E.name].")
 	supporting_limbs = list()
+
+/obj/item/clothing/head/helmet/space/emergency
+	name = "emergency softsuit helmet"
+	desc = "A simple helmet with a built in light. Smells like mothballs."
+	icon_state = "space_emergency"
+	item_state_slots = list(
+		slot_l_hand_str = "space_emergency",
+		slot_r_hand_str = "space_emergency"
+	)
+	item_state = "space_emergency"
+	flags_inv = HIDEMASK | HIDEEARS | BLOCKHAIR
+	flash_protection = FLASH_PROTECTION_NONE
+
+/obj/item/clothing/suit/space/emergency
+	name = "emergency softsuit"
+	desc = "A thin, ungainly softsuit colored in blaze orange for rescuers to easily locate. It looks pretty fragile."
+	icon_state = "space_emergency"
+	item_state_slots = list(
+		slot_l_hand_str = "space_emergency",
+		slot_r_hand_str = "space_emergency"
+	)
+	item_state = "space_emergency"
+	slowdown = 2
