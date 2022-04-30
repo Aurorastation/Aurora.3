@@ -54,7 +54,7 @@
 		toggle_mop(usr)
 	SSvueui.check_uis_for_change(src)
 
-/obj/vehicle/train/cargo/engine/MouseDrop(user)
+/obj/vehicle/train/cargo/engine/pussywagon/MouseDrop(user)
 	if(use_check_and_message(user))
 		return
 	if(!load || user == load) // no driver, or the user is the driver
