@@ -1869,6 +1869,10 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
+"mP" = (
+/obj/effect/overmap/visitable/sector/hivebot_hub,
+/turf/simulated/floor/airless,
+/area/derelict)
 
 (1,1,1) = {"
 aa
@@ -34130,7 +34134,7 @@ cA
 cF
 bT
 ap
-ap
+mP
 dp
 ap
 ap
