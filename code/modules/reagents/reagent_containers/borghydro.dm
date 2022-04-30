@@ -4,7 +4,7 @@
 	desc_info = "Stationbound synthesizers produce specific reagents dependent on the selected module, which you can select by using it. \
 	The reagents recharge automatically at the cost of energy.<br> Alt Click the synthesizer to change the transfer amount."
 	desc_fluff = null
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/syringe.dmi' // VTD: Do I create an animation for the injection thing or nah? Hmm
 	item_state = "hypo"
 	icon_state = "borghypo"
 	amount_per_transfer_from_this = 5
@@ -23,10 +23,10 @@
 	center_of_mass = null
 
 /obj/item/reagent_containers/hypospray/borghypo/medical
-	reagent_ids = list(/decl/reagent/bicaridine, /decl/reagent/kelotane, /decl/reagent/dylovene, /decl/reagent/dexalin, /decl/reagent/inaprovaline, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/thetamycin)
+	reagent_ids = list(/decl/reagent/bicaridine, /decl/reagent/kelotane, /decl/reagent/dexalin, /decl/reagent/inaprovaline, /decl/reagent/dylovene, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/thetamycin)
 
 /obj/item/reagent_containers/hypospray/borghypo/rescue
-	reagent_ids = list(/decl/reagent/tricordrazine, /decl/reagent/inaprovaline, /decl/reagent/dylovene, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/dexalin, /decl/reagent/adrenaline)
+	reagent_ids = list(/decl/reagent/tricordrazine, /decl/reagent/dexalin, /decl/reagent/inaprovaline, /decl/reagent/dylovene, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/adrenaline, /decl/reagent/coagzolug)
 
 /obj/item/reagent_containers/hypospray/borghypo/Initialize()
 	. = ..()
@@ -40,7 +40,14 @@
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/reagent_containers/hypospray/borghypo/update_icon() // To do: Will work on the Medical Synthesizer in a future PR -Vrow
-	return
+	cut_overlays()
+
+	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
+	if(reagents.total_volume)
+		filling = image(icon, src, "[initial(icon_state)][volume]")
+		filling.icon_state = "[initial(icon_state)][rounded_vol]"
+		filling.color = reagents.get_color()
+		add_overlay(filling)
 
 /obj/item/reagent_containers/hypospray/borghypo/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -78,8 +85,9 @@
 		reagent_volumes[reagent_ids[mode]] -= t
 		admin_inject_log(user, M, src, reagent_ids[mode], reagents.get_temperature(), t)
 		to_chat(user, SPAN_NOTICE("[t] units injected. [reagent_volumes[reagent_ids[mode]]] units remaining."))
+
 	update_icon()
-	return
+	return TRUE
 
 /obj/item/reagent_containers/hypospray/borghypo/afterattack(atom/target, mob/user, proximity)
 	if (!proximity)

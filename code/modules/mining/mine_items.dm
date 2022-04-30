@@ -806,19 +806,38 @@
 
 /obj/item/lazarus_injector
 	name = "lazarus injector"
-	desc = "An injector with a cocktail of nanomachines and chemicals, this device can seemingly raise animals from the dead. If no effect in 3 days please call customer support."
+	desc = "An injector with a secret patented cocktail of nanomachines and chemicals, this device can seemingly raise animals from the dead. If no effect in 3 days please call customer support."
 	icon = 'icons/obj/syringe.dmi'
-	icon_state = "borghypo"
-	item_state = "hypo"
+	icon_state = "lazarus_loaded"
+	item_state = "hypo" // VTD: Oh yeah you forgot the item in-hands sprite fuck. Could add the autoinhaler and inhalers as well
 	throwforce = 0
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 5
 	var/loaded = TRUE
+	var/color = null
 	var/emagged = FALSE
 	var/malfunctioning = FALSE
 	var/revive_type = TYPE_ORGANIC //So you can't revive boss monsters or robots with it
 	origin_tech = list(TECH_BIO = 7, TECH_MATERIAL = 4)
+
+/obj/item/lazarus_injector/Initialize()
+	. = ..()
+	if(!color)
+		color = pick(COLOR_RED, COLOR_BLUE, COLOR_LIME, COLOR_ORANGE, COLOR_PINK, COLOR_YELLOW, COLOR_CYAN)
+		update_icon()
+
+/obj/item/lazarus_injector/update_icon()
+	cut_overlays()
+	if(loaded)
+		var/mutable_appearance/filling = mutable_appearance(icon, src, "filling")
+		filling.color = color
+		add_overlay(filling)
+		if(malfunctioning || emagged)
+			var/mutable_appearance/static_fill = mutable_appearance(icon, src, "static")
+			static_fill.color = color
+			add_overlay(static_fill)
+	icon_state = "lazarus_[loaded ? "loaded" : "spent"]"
 
 /obj/item/lazarus_injector/afterattack(atom/target, mob/user, proximity_flag)
 	if(!loaded)
@@ -841,6 +860,7 @@
 				user.visible_message(SPAN_NOTICE("\The [user] revives \the [M] by injecting it with \the [src]."))
 				feedback_add_details("lazarus_injector", "[M.type]")
 				playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
+				update_icon()
 				return
 			else
 				to_chat(user, SPAN_INFO("\The [src] is only effective on the dead."))
@@ -852,11 +872,13 @@
 /obj/item/lazarus_injector/emp_act()
 	if(!malfunctioning)
 		malfunctioning = TRUE
+		update_icon()
 
 /obj/item/lazarus_injector/emag_act(mob/user)
 	if(!emagged)
 		to_chat(user, SPAN_WARNING("You overload \the [src]'s injection matrix."))
 		emagged = TRUE
+		update_icon()
 
 /obj/item/lazarus_injector/examine(mob/user)
 	..()
