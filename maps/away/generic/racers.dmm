@@ -48,7 +48,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/redracer)
 "ade" = (
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/remains/human,
@@ -929,7 +929,7 @@
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship/cardinal,
-/area/racers)
+/area/shuttle/redracer)
 "eBa" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/spider/cocoon,
@@ -1074,6 +1074,13 @@
 /obj/item/book/manual/tcfl_pamphlet,
 /turf/simulated/floor/tiled/white,
 /area/racers)
+"fjZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/shuttle_landmark/redracer/hangar,
+/turf/simulated/floor,
+/area/racers)
 "fmj" = (
 /obj/structure/sign/directions/all{
 	dir = 4
@@ -1203,7 +1210,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/overmap/visitable/ship/landable/redracer,
 /turf/simulated/floor/shuttle/white,
-/area/racers)
+/area/shuttle/redracer)
 "fWy" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -1524,7 +1531,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/racers)
+/area/shuttle/redracer)
 "hBd" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -1537,7 +1544,7 @@
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/redracer)
 "hFr" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 9
@@ -1908,6 +1915,19 @@
 /obj/item/storage/backpack/cloak/sedantis,
 /turf/simulated/floor/plating,
 /area/racers)
+"jsZ" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/shuttle/redracer)
 "jtP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/screwdriver,
@@ -2307,7 +2327,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/racers)
+/area/shuttle/redracer)
 "lvc" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel,
@@ -2375,9 +2395,6 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "lNT" = (
-/obj/machinery/computer/shuttle_control/explore/tcfl_shuttle{
-	dir = 4
-	},
 /obj/machinery/door/window{
 	dir = 8
 	},
@@ -2388,8 +2405,11 @@
 /obj/machinery/light/colored/red{
 	dir = 8
 	},
+/obj/machinery/computer/shuttle_control/explore/redracer{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/redracer)
 "lQd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2573,7 +2593,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/redracer)
 "mNn" = (
 /obj/item/material/shard,
 /turf/simulated/floor/plating,
@@ -2749,7 +2769,7 @@
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/space_ship/cardinal,
-/area/racers)
+/area/shuttle/redracer)
 "nOM" = (
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled/steel,
@@ -3093,6 +3113,10 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/racers)
+"prw" = (
+/obj/effect/shuttle_landmark/redracer/transit,
+/turf/template_noop,
+/area/space)
 "ptY" = (
 /obj/item/clothing/gloves/boxing,
 /turf/simulated/floor/plating,
@@ -3581,10 +3605,6 @@
 /area/racers)
 "rLp" = (
 /obj/structure/bed/stool/bar/padded,
-/obj/effect/ghostspawpoint{
-	identifier = "space_bar_patron";
-	name = "igs - space_racer"
-	},
 /turf/simulated/floor/tiled/steel,
 /area/racers)
 "rSi" = (
@@ -3691,7 +3711,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/redracer)
 "skl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -3702,7 +3722,7 @@
 	},
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/shuttle/white,
-/area/racers)
+/area/shuttle/redracer)
 "skw" = (
 /obj/machinery/media/jukebox,
 /turf/simulated/floor/wood,
@@ -3806,6 +3826,14 @@
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
+"sUW" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 4
+	},
+/obj/item/rig/eva,
+/turf/simulated/floor/shuttle/white,
+/area/shuttle/redracer)
 "sXi" = (
 /obj/machinery/computer/security/telescreen/entertainment,
 /turf/simulated/wall/r_wall,
@@ -4113,7 +4141,7 @@
 /obj/item/device/gps,
 /obj/machinery/camera/network/thunder,
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/redracer)
 "uuC" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
@@ -4412,7 +4440,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/redracer)
 "vJz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/fryer,
@@ -4461,6 +4489,15 @@
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/plating,
 /area/racers)
+"wbn" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/redracer)
 "wbD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -4797,10 +4834,6 @@
 /area/racers)
 "xJg" = (
 /obj/structure/bed/stool/bar/padded/blue,
-/obj/effect/ghostspawpoint{
-	identifier = "space_bar_patron";
-	name = "igs - space_racer"
-	},
 /turf/simulated/floor/tiled/steel,
 /area/racers)
 "xLt" = (
@@ -4839,7 +4872,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/racers)
+/area/shuttle/redracer)
 "xPN" = (
 /obj/structure/closet/lawcloset,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
@@ -21894,7 +21927,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+prw
 xRX
 xRX
 xRX
@@ -31271,7 +31304,7 @@ mWo
 mWo
 mWo
 nLQ
-qLt
+wbn
 mWo
 mWo
 mWo
@@ -31528,7 +31561,7 @@ xjB
 lNT
 vJn
 sjQ
-qLt
+wbn
 mWo
 mWo
 mWo
@@ -31778,11 +31811,11 @@ cLC
 ctn
 ctn
 ctn
-jDR
-tMd
+fjZ
+jsZ
 acY
 urT
-vqD
+sUW
 fVz
 skl
 hAS
@@ -32042,7 +32075,7 @@ xjB
 xOK
 mME
 hEY
-qLt
+wbn
 mWo
 dpu
 jAg
