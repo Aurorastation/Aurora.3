@@ -1,5 +1,4 @@
 //Crew
-
 /area/crew_quarters
 	name = "Dormitories"
 	icon_state = "Sleep"
@@ -135,6 +134,11 @@
 	name = "Theatre"
 	icon_state = "Theatre"
 	sound_env = LARGE_SOFTFLOOR
+
+/area/crew_quarters/nature_showcase
+	name = "Nature Showcase"
+	icon_state = "nature_showcase"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/library
  	name = "Library"
