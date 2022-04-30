@@ -84,7 +84,7 @@
 "MX" = (/obj/random/firstaid,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
 "Oe" = (/obj/machinery/chemical_dispenser/bar_alc/full{dir = 4; pixel_x = -4},/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
 "Oz" = (/obj/effect/decal/cleanable/blood/drip,/obj/item/ammo_casing/c10mm{projectile_type = null},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
-"OE" = (/obj/structure/table/rack,/obj/structure/closet/crate/drop/grey{icon_state = "dropcrate-grey-open"; opened = 1},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"OE" = (/obj/structure/table/rack,/obj/structure/closet/crate/drop/grey{opened = 1},/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
 "OK" = (/obj/structure/table/wood,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/obj/item/reagent_containers/food/drinks/bottle/small/beer,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
 "PR" = (/turf/simulated/wall,/area/exoplanet/barren/asteroid)
 "QK" = (/obj/structure/cable{dir = 8},/obj/item/trash/broken_electronics,/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)

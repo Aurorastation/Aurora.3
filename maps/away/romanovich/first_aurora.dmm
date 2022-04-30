@@ -1495,7 +1495,7 @@
 /turf/template_noop,
 /area/derelict/hallway/northeast)
 "fi" = (
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
 /turf/simulated/floor/tiled/airless,
 /area/template_noop)
 "fk" = (
@@ -1587,7 +1587,7 @@
 /turf/template_noop,
 /area/derelict/hallway/northeast)
 "fv" = (
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
 /obj/structure/window/reinforced,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,

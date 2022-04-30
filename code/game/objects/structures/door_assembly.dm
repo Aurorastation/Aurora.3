@@ -215,7 +215,7 @@
 			return
 
 		playsound(src.loc, W.usesound, 100, 1)
-	
+
 		if(anchored)
 			user.visible_message("<b>[user]</b> begins unsecuring the airlock assembly from the floor.", \
 								SPAN_NOTICE("You start unsecuring the airlock assembly from the floor."))

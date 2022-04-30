@@ -249,7 +249,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/bar,
+/obj/structure/closet/secure_closet/cabinet,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "agY" = (
@@ -771,7 +771,7 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "auU" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -30;
 	pixel_y = 31
 	},
@@ -1218,7 +1218,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "aIy" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
 	pixel_x = -31
 	},
@@ -8314,7 +8314,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "fdE" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "Medication Closet";
 	pixel_x = 31
 	},
@@ -11682,7 +11682,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "haK" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = 32
 	},
 /obj/item/stack/medical/bruise_pack,
@@ -15343,7 +15343,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "Medication Closet";
 	pixel_x = 31
 	},
@@ -21347,7 +21347,7 @@
 	},
 /area/turret_protected/ai_upload_foyer)
 "nbd" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
 	pixel_x = -32
 	},
@@ -23499,7 +23499,7 @@
 	dir = 8
 	},
 /obj/machinery/firealarm/south,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
 	pixel_x = -32
 	},
@@ -26990,7 +26990,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
 	pixel_y = 32
 	},
@@ -28524,7 +28524,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "rom" = (
-/obj/structure/closet/secure_closet/sciguncabinet,
+/obj/structure/closet/secure_closet/guncabinet/sci,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -32887,7 +32887,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
 	pixel_y = 32
 	},
@@ -34059,7 +34059,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "uyP" = (
-/obj/structure/closet/medical_wall,
+/obj/structure/closet/walllocker/medical,
 /turf/simulated/wall/r_wall,
 /area/engineering/storage_hard)
 "uzd" = (
@@ -34315,7 +34315,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "uGP" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating,
@@ -39443,7 +39443,7 @@
 /turf/simulated/wall,
 /area/rnd/hallway)
 "xzd" = (
-/obj/structure/closet/secure_closet/sciguncabinet,
+/obj/structure/closet/secure_closet/guncabinet/sci,
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Research Storage";
 	dir = 4
@@ -39744,11 +39744,11 @@
 /area/engineering/engine_room)
 "xIW" = (
 /obj/structure/curtain/black,
-/obj/structure/closet/coffin,
-/obj/structure/closet/coffin,
-/obj/structure/closet/coffin,
-/obj/structure/closet/coffin,
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin,
 /obj/machinery/button/remote/blast_door{
 	id = "massdriver";
 	layer = 3.2;
