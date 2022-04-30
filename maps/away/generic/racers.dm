@@ -22,6 +22,10 @@
 	base_turf = /turf/space
 	no_light_control = TRUE
 
+/area/shuttle/redracer
+	name = "Red Racer"
+	icon_state = "shuttle2"
+
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/redracer
 	name = "Red Racer"

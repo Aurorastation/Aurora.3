@@ -4,10 +4,7 @@
 /obj/structure/bed/padded,
 /obj/item/clothing/head/chefhat,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
-"aaJ" = (
-/turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "aaM" = (
 /obj/machinery/light{
 	dir = 8;
@@ -16,7 +13,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "aaO" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -25,10 +22,7 @@
 	pixel_y = 12
 	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
-"aaP" = (
-/turf/simulated/wall/rusty,
-/area/space)
+/area/racers)
 "abB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -36,57 +30,57 @@
 /mob/living/simple_animal/hostile/carp,
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "abW" = (
 /obj/item/rig/eva,
 /obj/structure/table/rack,
 /obj/item/device/gps,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "acU" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/storage/pill_bottle/dice/tajara,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "acY" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/bed/stool/chair/plastic{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/red,
-/area/space_bar)
+/area/racers)
 "ade" = (
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/item/clothing/head/beret/miner,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "afE" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "aho" = (
 /obj/machinery/light_switch{
 	pixel_x = 4
 	},
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "ahY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "aik" = (
 /obj/effect/floor_decal/sign/a,
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "ajL" = (
 /obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/wall/rusty,
-/area/space_bar)
+/area/space)
 "alZ" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -97,7 +91,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "amd" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -105,18 +99,18 @@
 /obj/item/trash/ramen,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "ams" = (
 /obj/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "amt" = (
 /obj/item/stack/material/wood,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "amE" = (
 /obj/structure/toilet{
 	dir = 8
@@ -126,7 +120,7 @@
 	},
 /obj/effect/decal/remains/robot,
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "ani" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/recharger,
@@ -134,7 +128,7 @@
 	pixel_y = 17
 	},
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "aou" = (
 /obj/structure/table/stone/marble,
 /obj/effect/spider/stickyweb,
@@ -142,7 +136,7 @@
 /obj/structure/barricade,
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "aow" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -151,7 +145,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "apD" = (
 /obj/item/reagent_containers/glass/beaker/vial/random/toxin,
 /turf/template_noop,
@@ -162,16 +156,16 @@
 	},
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "ari" = (
 /obj/structure/table/stone/marble,
 /obj/item/flame/candle,
 /obj/item/pizzabox/pineapple,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "arm" = (
 /turf/simulated/floor/tiled/freezer,
-/area/space_bar)
+/area/space)
 "arY" = (
 /turf/simulated/floor/airless,
 /area/space)
@@ -184,13 +178,13 @@
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/space)
 "asO" = (
 /obj/machinery/door/airlock/glass{
 	name = "Hangar D"
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "atj" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -201,22 +195,22 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
-/area/space_bar)
+/area/racers)
 "awG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "awY" = (
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "axm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/silver,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "aAE" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
@@ -230,7 +224,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/space_bar)
+/area/racers)
 "aDe" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -238,30 +232,30 @@
 /obj/structure/barricade,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "aDG" = (
 /obj/machinery/door/airlock/glass{
 	name = "Bar"
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "aEq" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "aEB" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/chem_heater,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "aFj" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "aHq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -271,79 +265,79 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "aHs" = (
 /obj/machinery/stargazer,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "aHt" = (
 /obj/machinery/door/airlock/silver{
-	name = "Toilet";
-	bolt_cut_state = 1
+	bolt_cut_state = 1;
+	name = "Toilet"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/item/tape/engineering,
 /obj/structure/firedoor_assembly,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "aHv" = (
 /obj/item/mop,
 /obj/structure/mopbucket,
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "aHw" = (
 /turf/simulated/floor/ice,
-/area/space_bar)
+/area/racers)
 "aIw" = (
 /obj/item/material/shard/wood,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "aJd" = (
 /obj/machinery/newscaster{
 	pixel_x = 30
 	},
 /obj/item/stack/material/wood,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "aJp" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Fueling Station"
 	},
 /obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "aOJ" = (
 /obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/tiled/freezer,
-/area/space_bar)
+/area/space)
 "aOU" = (
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "aQo" = (
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "aSE" = (
 /obj/structure/lattice,
 /obj/item/material/shard,
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "aVe" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/chem_master/condimaster{
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "aXb" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "aYq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -353,13 +347,13 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "aYB" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "bcn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/suit_cycler/mining,
@@ -368,24 +362,24 @@
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/tank/oxygen/brown,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "bdk" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "bds" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space_bar)
+/area/racers)
 "bdV" = (
 /obj/structure/fuel_port{
-	pixel_y = 1;
-	pixel_x = 27
+	pixel_x = 27;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "bhm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -393,14 +387,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "bhu" = (
 /obj/structure/mech_wreckage,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/item/stack/cable_coil,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "bhz" = (
 /obj/machinery/light{
 	dir = 1;
@@ -411,11 +405,11 @@
 	},
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "biY" = (
 /obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "bkY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -426,19 +420,20 @@
 	},
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "ble" = (
-/turf/template_noop,
-/area/space_bar)
+/obj/machinery/shipsensors,
+/turf/simulated/floor/plating,
+/area/space)
 "bmy" = (
 /obj/structure/sign/flag/eridani,
 /turf/simulated/wall/rusty,
-/area/space_bar)
+/area/racers)
 "bmN" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "bnS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -455,7 +450,7 @@
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "boJ" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/reagentgrinder{
@@ -465,7 +460,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "bqv" = (
 /obj/machinery/light{
 	dir = 1;
@@ -473,34 +468,34 @@
 	},
 /obj/structure/foamedmetal,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "bsl" = (
 /obj/item/trash/ramen,
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "bwf" = (
 /obj/structure/closet/medical_wall{
 	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "bwr" = (
 /obj/structure/largecrate/animal/cow,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "bwR" = (
 /obj/structure/closet/walllocker/emerglocker/north,
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "bzZ" = (
 /obj/machinery/door/airlock/glass{
 	name = "Hangar A"
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "bBD" = (
 /obj/item/pipe{
 	dir = 10;
@@ -511,46 +506,46 @@
 	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "bDs" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small/emergency,
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /turf/simulated/floor/shuttle/white,
-/area/space_bar)
+/area/racers)
 "bEp" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "bEs" = (
 /obj/item/tape/engineering,
 /obj/machinery/door/airlock/glass{
 	name = "Hangar C"
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "bGI" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "bKn" = (
 /obj/effect/decal/cleanable/greenglow,
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "bLt" = (
 /obj/item/stack/material/glass{
 	amount = 50
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "bOP" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/space)
 "bSn" = (
 /obj/effect/decal/remains/robot/burned,
 /turf/template_noop,
@@ -559,14 +554,14 @@
 /obj/structure/table/steel,
 /obj/item/organ/internal/augment/tool,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "bTF" = (
 /obj/item/tape/engineering,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "bVv" = (
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /obj/effect/decal/cleanable/flour,
@@ -575,46 +570,46 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "bVS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "bXJ" = (
 /obj/item/device/radio/beacon{
 	name = "hangar B beacon"
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "bZe" = (
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "cbO" = (
 /obj/item/stack/material/uranium{
 	amount = 43
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "ccm" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "ceN" = (
 /obj/effect/decal/remains/robot,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "clM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /mob/living/simple_animal/hostile/gnat,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "cqj" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/spacecash/c1,
@@ -622,100 +617,89 @@
 	pixel_y = 10
 	},
 /obj/item/reagent_containers/food/drinks/bottle/small/beer{
-	pixel_y = 12;
-	pixel_x = -9
+	pixel_x = -9;
+	pixel_y = 12
 	},
 /turf/simulated/floor/carpet/art,
-/area/space_bar)
+/area/racers)
 "ctn" = (
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
-"ctQ" = (
-/turf/simulated/wall/r_wall,
-/area/space)
-"cuq" = (
-/turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "cuQ" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space_bar)
-"cwc" = (
-/obj/machinery/computer/ship/engines,
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "cwT" = (
 /obj/effect/floor_decal/sign/b,
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "cBD" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "cBN" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/floodlight,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "cDC" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /mob/living/simple_animal/hostile/gnat,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "cES" = (
 /obj/machinery/atm,
 /turf/simulated/wall/rusty,
-/area/space_bar)
+/area/racers)
 "cJe" = (
 /obj/structure/reagent_dispensers/cookingoil,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/space_bar)
+/area/racers)
 "cJV" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "cLr" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "cLu" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "cLC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "cPh" = (
 /obj/item/stack/material/plasteel{
 	amount = 40
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "cUh" = (
 /obj/structure/largecrate/hoverpod,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "cUG" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "cXz" = (
 /obj/item/stack/material/phoron{
 	amount = 50;
@@ -727,7 +711,7 @@
 	},
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "cZT" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -742,30 +726,30 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "dbs" = (
 /obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "dcL" = (
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "dfX" = (
 /obj/structure/sign/atmosplaque,
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "dis" = (
 /obj/machinery/suit_cycler,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "djz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "dkB" = (
 /obj/machinery/vending/zora,
 /obj/machinery/light{
@@ -775,11 +759,11 @@
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "dpu" = (
 /obj/item/trash/cigbutt,
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "dqB" = (
 /obj/structure/closet/crate,
 /obj/item/storage/toolbox/electrical,
@@ -788,22 +772,27 @@
 /obj/item/storage/box/lights/bulbs,
 /obj/item/gun/energy/taser,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "dqN" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "dqZ" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "dsR" = (
 /obj/structure/railing/mapped,
 /obj/structure/bed/stool/chair/office,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
+"dtl" = (
+/obj/structure/railing/mapped,
+/obj/structure/bed/stool/bar/padded,
+/turf/simulated/floor/plating,
+/area/racers)
 "dtM" = (
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 8
@@ -812,58 +801,58 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "dtY" = (
 /obj/effect/overlay/burnt_wall,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "dvQ" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/dry_ramen,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "dDf" = (
 /obj/structure/dispenser/oxygen,
 /obj/item/tank/oxygen/brown,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "dGc" = (
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "dGi" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "dHv" = (
 /obj/machinery/light/small/red,
 /obj/structure/curtain/open/privacy,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "dId" = (
 /obj/item/tape/engineering,
 /obj/machinery/door/airlock/glass{
 	name = "Hangar C"
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "dMs" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/machinery/atm{
 	pixel_y = -32
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "dNX" = (
 /obj/machinery/mecha_part_fabricator,
 /obj/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "dYw" = (
 /obj/effect/mazegen/module_loot/trash,
 /obj/item/silencer,
@@ -874,35 +863,35 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "ehn" = (
 /obj/machinery/floodlight,
 /obj/machinery/light/colored/red{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "ejG" = (
 /obj/structure/simple_door/wood,
 /obj/structure/curtain/black,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "eod" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "eoH" = (
 /obj/structure/grille,
 /obj/structure/shuttle/window,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "esD" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/effect/map_effect/airlock/w_to_e,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "euz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/stove,
@@ -911,28 +900,27 @@
 	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "euI" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/blast/regular{
 	id = "pet"
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "evm" = (
 /obj/structure/coatrack,
 /obj/item/melee/baton/stunrod,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "exI" = (
 /obj/machinery/mech_recharger,
 /mob/living/bot/medbot,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "eyU" = (
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space_bar)
+/turf/simulated/wall/r_wall,
+/area/space)
 "eAn" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
@@ -941,174 +929,157 @@
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship/cardinal,
-/area/space_bar)
+/area/racers)
 "eBa" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/spider/cocoon,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "eBX" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/closet/crate/critter,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "eCV" = (
 /obj/item/material/stool/bar,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "eEQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "eHF" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
-/area/space_bar)
-"eIb" = (
-/obj/structure/bed/stool/bar/padded/red,
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "daredevil space racer";
-	name = "space_racer_gambler"
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space_bar)
+/area/racers)
 "eJw" = (
 /obj/structure/table/steel,
 /obj/item/device/augment_implanter,
 /obj/item/organ/internal/augment/fuel_cell,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "eKi" = (
 /obj/structure/table/wood,
 /obj/structure/disposalpipe/segment,
 /obj/item/reagent_containers/food/drinks/bottle/wine,
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "eMR" = (
 /obj/structure/table,
 /obj/item/storage/box/lights/colored/blue,
 /obj/item/storage/box/lights/colored/red{
-	pixel_y = 5;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "eNp" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 1
 	},
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "ePa" = (
 /obj/item/storage/secure/safe,
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "eRG" = (
 /obj/item/clothing/head/beret/cargo,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "eSy" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/item/material/hatchet/butch,
 /mob/living/simple_animal/hostile/gnat,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "eSF" = (
 /mob/living/simple_animal/hostile/gnat,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "eSJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/structure/foamedmetal,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "eTi" = (
 /obj/machinery/floodlight{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "eTk" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "eTw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/ash,
 /obj/structure/flora/rock/pile,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "eTH" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "eUA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/girder/displaced,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "eXt" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "eYu" = (
 /obj/structure/closet/wardrobe/orange,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "eZL" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/clothing/gloves/boxing/blue,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "fat" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "fdk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space_bar)
-"fey" = (
-/obj/machinery/computer/ship/navigation,
-/obj/item/device/radio/headset/alt/double/mining,
-/turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "fgm" = (
 /obj/structure/bed/stool/chair/sofa/red{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "fgX" = (
 /obj/machinery/door/airlock/glass{
 	name = "Bar"
 	},
 /turf/simulated/floor/tiled,
-/area/space_bar)
+/area/racers)
 "fic" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/item/book/manual/tcfl_pamphlet,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "fmj" = (
 /obj/structure/sign/directions/all{
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "fnY" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -1116,7 +1087,7 @@
 	},
 /obj/item/trash/ramen,
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "fpS" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -1136,53 +1107,53 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "frn" = (
 /obj/machinery/smartfridge/drinks{
 	opacity = 1
 	},
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "fsx" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "fts" = (
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "fwz" = (
 /obj/structure/sign/directions/medical{
 	pixel_y = -4
 	},
 /obj/structure/sign/directions/dock{
-	pixel_y = 4;
-	dir = 8
+	dir = 8;
+	pixel_y = 4
 	},
 /turf/simulated/wall/rusty,
-/area/space_bar)
+/area/racers)
 "fxe" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "fzS" = (
 /obj/structure/closet/wardrobe/suit,
 /obj/item/vaurca/box,
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "fBB" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/remains/rat,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "fCF" = (
 /obj/machinery/suit_cycler,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "fCL" = (
 /obj/structure/sign/securearea,
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "fGm" = (
 /obj/structure/lattice,
 /obj/item/material/shard/shrapnel,
@@ -1190,21 +1161,21 @@
 /obj/effect/decal/remains/robot/burned,
 /obj/item/device/suit_cooling_unit,
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "fGz" = (
 /obj/structure/bed/stool/chair/padded/black,
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "fHb" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "fJz" = (
 /obj/effect/floor_decal/asteroid,
 /turf/template_noop,
@@ -1214,46 +1185,47 @@
 /obj/random/junk,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "fRA" = (
 /obj/machinery/iv_drip,
 /obj/machinery/light/colored,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "fSX" = (
 /obj/structure/disposalpipe/segment,
 /obj/item/trash/ramen,
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "fVz" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/overmap/visitable/ship/landable/redracer,
 /turf/simulated/floor/shuttle/white,
-/area/space_bar)
+/area/racers)
 "fWy" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "fYj" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/item/reagent_containers/food/snacks/corn_dog,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "fZJ" = (
 /obj/machinery/door/airlock/sac,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "gaA" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "gaD" = (
 /obj/machinery/computer/slot_machine,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "gbn" = (
 /obj/machinery/computer/shuttle_control/explore/tcfl_shuttle{
 	dir = 4
@@ -1266,57 +1238,57 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/space_bar)
+/area/racers)
 "gbX" = (
 /turf/unsimulated/wall/fakepdoor,
-/area/space_bar)
+/area/racers)
 "gcE" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light/colored/blue,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "gfL" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "gfX" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "ggZ" = (
 /obj/machinery/space_heater,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "ghi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/art,
-/area/space_bar)
+/area/racers)
 "ghl" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/vending/engivend,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "gjh" = (
 /obj/machinery/vending/cigarette/hacked,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "gkj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/blood/drip/oil,
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "glr" = (
 /obj/structure/closet/lasertag/blue,
 /obj/item/holo/esword,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "gmi" = (
 /obj/machinery/atm{
 	pixel_y = -32
@@ -1326,31 +1298,31 @@
 	},
 /obj/item/pipewrench,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "gol" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "gxE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "gxW" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
 	},
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white{
-	pixel_y = -22;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = -22
 	},
 /obj/item/organ/external/head/ipc/industrial/xion,
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "gyV" = (
 /obj/item/stack/material/steel{
 	amount = 50
@@ -1360,39 +1332,29 @@
 	},
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "gAI" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "gCT" = (
 /obj/item/stack/material/wood{
 	amount = 50
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "gDi" = (
 /obj/machinery/shipsensors,
 /obj/structure/lattice,
 /turf/simulated/floor/plating,
-/area/space_bar)
-"gDA" = (
-/obj/machinery/computer/ship/helm,
-/obj/item/card/mining_point_card{
-	points = 19500
-	},
-/turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/space)
 "gHC" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
-"gNf" = (
-/turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "gPD" = (
 /obj/structure/largecrate/hoverpod,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1400,26 +1362,26 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "gTv" = (
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "gYl" = (
 /obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/space_bar)
+/area/racers)
 "gYX" = (
 /obj/effect/mazegen/module_loot/trash,
 /obj/machinery/chemical_dispenser/coffeemaster{
-	pixel_y = 12;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 12
 	},
 /turf/template_noop,
 /area/space)
@@ -1428,7 +1390,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "hei" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/glass,
@@ -1438,26 +1400,23 @@
 /obj/item/trash/cigbutt,
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "heH" = (
 /obj/machinery/door/blast/regular/open,
 /turf/simulated/floor/airless,
-/area/space_bar)
+/area/racers)
 "hgd" = (
 /obj/structure/bed/stool/chair/wood/wings{
 	dir = 4
 	},
 /obj/machinery/button/alternate{
-	pixel_x = 25;
-	pixel_y = 28;
 	id = "pet";
-	name = "Beast_button"
-	},
-/obj/effect/ghostspawpoint{
-	name = "space_racer_boss"
+	name = "Beast_button";
+	pixel_x = 25;
+	pixel_y = 28
 	},
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "hiw" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -1465,25 +1424,25 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "hkp" = (
 /obj/effect/map_effect/wingrille_spawn/full/phoron,
 /obj/item/material/sword/amohdan_sword,
 /obj/machinery/door/blast/shutters/open,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "hkT" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/reagent_containers/food/drinks/bottle/goldschlager{
-	pixel_y = 18;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 18
 	},
 /obj/item/device/flashlight/lamp/green{
 	pixel_x = 7;
 	pixel_y = 8
 	},
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "hmL" = (
 /obj/machinery/light{
 	dir = 4;
@@ -1493,33 +1452,33 @@
 	pixel_x = 29
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "hnS" = (
 /obj/structure/shuttle/window,
 /obj/structure/grille,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "hoF" = (
 /obj/item/storage/bag/inflatable/emergency,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "hqD" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "hus" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/xenomeatbreadslice{
-	pixel_y = 3;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "huE" = (
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "hyy" = (
 /obj/structure/disposalpipe/broken,
 /obj/structure/sign/goldenplaque{
@@ -1529,7 +1488,7 @@
 	pixel_y = 44
 	},
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "hyA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/pipe{
@@ -1537,25 +1496,25 @@
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "hyW" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "hzI" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "hAS" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
-	dir = 1
+	dir = 1;
+	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
@@ -1565,20 +1524,20 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "hBd" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "conpipe-c"
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "hEY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /turf/simulated/floor/shuttle/red,
-/area/space_bar)
+/area/racers)
 "hFr" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 9
@@ -1587,20 +1546,20 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "hME" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/dry_ramen,
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "hNl" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/disposalpipe/broken{
 	dir = 4
 	},
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "hNM" = (
 /obj/effect/decal/cleanable/blood/drip/oil,
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -1608,23 +1567,23 @@
 	},
 /obj/item/stack/tile/floor,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "hNT" = (
 /obj/structure/closet/wardrobe/grey,
 /obj/item/clothing/suit/storage/toggle/varsity/purple,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "hON" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "hPg" = (
 /obj/item/clothing/head/helmet/space/anomaly,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "hRn" = (
 /obj/structure/closet/firecloset/full,
 /obj/item/weldingtool/emergency,
@@ -1632,60 +1591,60 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "hVc" = (
 /obj/structure/largecrate/hoverpod,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "hXU" = (
 /obj/machinery/appliance/cooker/grill,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "hZq" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "iap" = (
 /obj/structure/bed/stool/chair/folding,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "igY" = (
 /obj/structure/table/steel,
 /obj/item/organ/internal/augment/health_scanner,
 /obj/item/organ/internal/augment/eye_sensors,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "imr" = (
 /obj/effect/decal/remains/robot,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "ink" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "inF" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
 /turf/simulated/floor/carpet/art,
-/area/space_bar)
+/area/racers)
 "irX" = (
 /obj/structure/bed/stool/chair/padded/black,
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "isx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/item/spacecash/c10,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "iux" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/meter,
@@ -1699,19 +1658,18 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/space_bar)
+/area/racers)
 "iwj" = (
 /obj/vehicle/train/cargo/engine/pussywagon,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "iwl" = (
-/obj/effect/decal/remains/robot/burned,
-/turf/template_noop,
-/area/space_bar)
+/turf/simulated/wall/rusty,
+/area/space)
 "ixi" = (
 /obj/machinery/light/colored/red,
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "iCP" = (
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/fancy/candle_box,
@@ -1720,13 +1678,13 @@
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/storage/box/fancy/candle_box,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "iDC" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "iGt" = (
 /obj/machinery/light{
 	dir = 1;
@@ -1734,12 +1692,12 @@
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "iGv" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "iHR" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Kitchen";
@@ -1749,7 +1707,7 @@
 /obj/item/tape/medical,
 /obj/structure/barricade,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "iJa" = (
 /obj/machinery/computer/ship/helm{
 	req_access = list(204)
@@ -1757,11 +1715,11 @@
 /obj/item/device/gps,
 /obj/machinery/camera/network/thunder,
 /turf/simulated/floor/shuttle/dark_blue,
-/area/space_bar)
+/area/racers)
 "iKO" = (
 /obj/structure/barricade,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "iNZ" = (
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow,
@@ -1769,7 +1727,7 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/item/clothing/head/bandana/atmos,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "iOA" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1778,30 +1736,30 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/fruit_smudge,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "iSh" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "iVB" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "iVQ" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "iXO" = (
 /obj/structure/table/stone/marble,
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "iZD" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1814,19 +1772,19 @@
 /obj/structure/barricade,
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "jaL" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "jcl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "jcK" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -1847,7 +1805,7 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "jfd" = (
 /obj/machinery/vending/wallmed1{
 	pixel_x = 2;
@@ -1861,16 +1819,16 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "jff" = (
 /obj/effect/decal/remains/robot/burned,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "jfg" = (
 /obj/structure/inflatable/wall,
 /turf/template_noop,
-/area/space_bar)
+/area/racers)
 "jgu" = (
 /obj/structure/table/rack,
 /obj/random/colored_jumpsuit,
@@ -1879,35 +1837,35 @@
 /obj/random/colored_jumpsuit,
 /obj/random/colored_jumpsuit,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "jgx" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/barricade,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "jiB" = (
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "jiL" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "jjB" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "jjQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
 	},
 /turf/simulated/floor/shuttle/white,
-/area/space_bar)
+/area/racers)
 "jmo" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -1915,14 +1873,14 @@
 	},
 /obj/item/trash/ramen,
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "jnH" = (
 /obj/structure/largecrate/hoverpod,
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "jnP" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/freezer/kitchen{
@@ -1934,7 +1892,7 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "jrF" = (
 /obj/structure/closet/wardrobe/black,
 /obj/item/clothing/suit/storage/toggle/armor/vest/idris,
@@ -1949,12 +1907,12 @@
 /obj/item/clothing/accessory/badge/passcard/coalition,
 /obj/item/storage/backpack/cloak/sedantis,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "jtP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/screwdriver,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "jwk" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -1963,55 +1921,55 @@
 	},
 /obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/carpet/rubber,
-/area/space_bar)
+/area/racers)
 "jyq" = (
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "jyw" = (
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "jzb" = (
 /obj/structure/table/steel,
 /obj/item/key/cargo_train,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "jzv" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "jAg" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "jAI" = (
 /obj/structure/sign/directions/medical,
 /turf/simulated/wall/rusty,
-/area/space_bar)
+/area/racers)
 "jBw" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "jBY" = (
 /obj/machinery/mineral/rigpress,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "jDR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "jFj" = (
 /obj/structure/closet/radiation,
 /obj/item/clothing/head/radiation,
@@ -2019,152 +1977,143 @@
 /obj/item/clothing/mask/gas/old,
 /obj/item/tank/oxygen,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "jFM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/item/crowbar,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "jFP" = (
 /turf/unsimulated/mineral/asteroid,
-/area/space_bar)
+/area/racers)
 "jHM" = (
 /obj/structure/table/wood,
 /obj/structure/disposalpipe/segment,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe,
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "jIp" = (
 /obj/structure/girder,
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "jIJ" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "jIR" = (
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "jKi" = (
-/obj/effect/ghostspawpoint{
-	name = "space_racer_augmenter"
-	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "jLl" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "jMP" = (
 /obj/structure/bed/stool/chair/sofa/corner/red{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "jSc" = (
 /obj/item/material/shard,
 /obj/item/material/shard,
 /obj/structure/foamedmetal,
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "jXc" = (
 /obj/item/pipe,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "jYu" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "jYM" = (
 /obj/item/trash/ramen,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "jYS" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "jZV" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Backroom"
 	},
 /obj/structure/curtain/open/privacy,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "kav" = (
 /obj/item/trash/cigbutt,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "kcb" = (
 /obj/machinery/chem_heater,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "kcD" = (
 /obj/structure/flora/rock/pile,
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "kcN" = (
 /obj/item/stack/cable_coil/cyan,
 /obj/effect/decal/remains/robot,
 /obj/item/spacecash/c1,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "kdB" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/device/radio/beacon{
 	name = "hangar D beacon"
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "knU" = (
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "kpR" = (
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "kqi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /mob/living/simple_animal/hostile/gnat,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
-"ktN" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "kve" = (
 /mob/living/simple_animal/hostile/carp/shark,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "kzv" = (
 /obj/item/clothing/head/helmet/unathi/hegemony{
 	pixel_y = -5
 	},
 /obj/structure/displaycase,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "kzC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "kBp" = (
 /obj/item/storage/firstaid/fire,
 /obj/structure/table/steel,
@@ -2173,7 +2122,7 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "kFn" = (
 /obj/item/reagent_containers/food/snacks/meat/biogenerated,
 /obj/item/reagent_containers/food/snacks/meat/biogenerated,
@@ -2189,30 +2138,30 @@
 /obj/item/reagent_containers/food/snacks/meat/biogenerated,
 /obj/structure/closet/crate/freezer,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "kFu" = (
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "kFN" = (
 /obj/item/trash/chips,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "kGq" = (
 /obj/structure/largecrate/hoverpod,
 /obj/effect/decal/remains/rat,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "kHl" = (
 /turf/unsimulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "kHp" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "kJp" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2220,14 +2169,14 @@
 /obj/structure/barricade,
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "kKh" = (
 /obj/effect/decal/cleanable/blood/oil/streak,
 /obj/structure/sign/flag/blank,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/grille,
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "kLy" = (
 /obj/machinery/door/window{
 	name = "Bar";
@@ -2235,7 +2184,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "kML" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/random/seed,
@@ -2247,23 +2196,23 @@
 /obj/random/seed,
 /obj/random/seed,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "kMQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/structure/largecrate/animal/pig,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "kOW" = (
 /obj/vehicle/train/cargo/engine,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "kQK" = (
 /obj/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "kWr" = (
 /obj/structure/grille,
 /obj/structure/shuttle/window,
@@ -2271,19 +2220,22 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
+"lbT" = (
+/turf/template_noop,
+/area/racers)
 "lev" = (
 /obj/structure/bed/stool/chair/sofa/corner/red{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "lhp" = (
 /obj/machinery/atm{
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "liU" = (
 /obj/machinery/light{
 	dir = 8;
@@ -2297,11 +2249,11 @@
 	},
 /obj/item/trash/liquidfood,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "lkt" = (
 /obj/item/storage/firstaid/combat,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "lkB" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'STAND CLEAR'.";
@@ -2322,23 +2274,23 @@
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "lsj" = (
 /obj/structure/table/steel,
 /obj/item/tape_roll,
 /obj/item/device/analyzer,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "lsB" = (
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/mop,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "lsG" = (
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "lsL" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -2346,7 +2298,7 @@
 	},
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "lux" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -2355,73 +2307,73 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "lvc" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "lwM" = (
 /obj/item/trash/liquidfood,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "lyI" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/porta_turret_construct,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "lyU" = (
 /obj/item/screwdriver,
 /obj/structure/sign/goldenplaque{
-	pixel_y = 1;
-	pixel_x = -30
+	pixel_x = -30;
+	pixel_y = 1
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_y = -26;
-	pixel_x = -21
+	pixel_x = -21;
+	pixel_y = -26
 	},
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "lCh" = (
 /obj/item/trash/cigbutt/sausagebutt,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "lEO" = (
 /obj/machinery/atm{
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "lHr" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "lIg" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "lKN" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "lLP" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "lNR" = (
 /obj/item/spacecash/c1{
 	pixel_x = 6;
 	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "lNT" = (
 /obj/machinery/computer/shuttle_control/explore/tcfl_shuttle{
 	dir = 4
@@ -2437,18 +2389,18 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/red,
-/area/space_bar)
+/area/racers)
 "lQd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "lQO" = (
 /obj/structure/largecrate/hoverpod,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "lRT" = (
 /obj/machinery/light{
 	dir = 4;
@@ -2460,12 +2412,12 @@
 	pixel_x = 30
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "lVZ" = (
 /obj/structure/girder,
 /obj/machinery/computer/security/telescreen/entertainment,
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "lWq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2473,48 +2425,48 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/item/device/flashlight,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "lZa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/machinery/light/small/red,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "mbB" = (
 /obj/structure/foamedmetal,
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "mhC" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "mkb" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/reagentgrinder{
 	pixel_y = 6
 	},
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "mkM" = (
 /obj/item/material/lock_construct,
 /obj/item/key,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "moE" = (
 /obj/item/clothing/gloves/boxing/green,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "moJ" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "mrH" = (
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/molten_item,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "msu" = (
 /obj/item/reagent_containers/food/snacks/bun,
 /obj/item/reagent_containers/food/snacks/bun,
@@ -2526,12 +2478,12 @@
 /obj/item/reagent_containers/food/snacks/bun,
 /obj/structure/closet/crate/freezer,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "muk" = (
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "muu" = (
 /obj/structure/bookcase,
 /obj/item/reagent_containers/food/drinks/golden_cup,
@@ -2540,44 +2492,44 @@
 	pixel_y = -3
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "mxk" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
-	dir = 1
+	dir = 1;
+	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "mxz" = (
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "mxN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "mBg" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "mBP" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light/colored/red,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "mCN" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "mDd" = (
 /obj/item/clothing/suit/storage/toggle/leather_jacket/biker,
 /obj/item/clothing/head/welding,
@@ -2590,25 +2542,25 @@
 /obj/item/device/analyzer,
 /obj/item/device/analyzer,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "mEc" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "mHN" = (
 /obj/structure/sign/flag/nanotrasen,
 /turf/simulated/wall/shuttle/space_ship,
-/area/space_bar)
+/area/racers)
 "mKU" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/wall/shuttle/space_ship,
-/area/space_bar)
+/area/racers)
 "mMz" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "mME" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
@@ -2621,15 +2573,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/space_bar)
+/area/racers)
 "mNn" = (
 /obj/item/material/shard,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "mNC" = (
 /obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "mPM" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -2638,27 +2590,23 @@
 	pixel_x = 30
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
-"mTl" = (
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "mVy" = (
 /obj/item/melee/vaurca/rock,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/mecha_equipment/catapult,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "mVZ" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/table/steel,
 /obj/machinery/recharger,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "mWo" = (
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "mZC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/material/stool/chair/wood,
@@ -2667,55 +2615,55 @@
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "naE" = (
 /obj/item/spacecash/c1{
-	pixel_y = 5;
-	pixel_x = 11
+	pixel_x = 11;
+	pixel_y = 5
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "nbK" = (
 /obj/item/stack/tile/floor,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "ndF" = (
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/freezer,
-/area/space_bar)
+/area/space)
 "nfm" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "nhS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/colored/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "nkV" = (
 /obj/structure/bed/stool/chair/sofa/left/red,
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "noB" = (
 /obj/effect/decal/cleanable/molten_item,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "npM" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/empty/hydrogen,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "nrP" = (
 /obj/structure/girder/displaced,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "ntt" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
@@ -2723,42 +2671,45 @@
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/closet/walllocker/emerglocker/north,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "nuj" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
+"nup" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/racers)
 "nxI" = (
 /obj/item/card/mining_point_card{
 	points = 12309
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "nxJ" = (
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/paper/sentencing,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "nyr" = (
 /obj/effect/spider/stickyweb,
 /obj/machinery/door/airlock/glass{
 	name = "Hangar D"
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "nyD" = (
 /obj/vehicle/bike/monowheel,
 /obj/item/clothing/glasses/fakesunglasses/aviator,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "nzj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/junk,
 /mob/living/simple_animal/hostile/gnat,
 /obj/machinery/vending/zora,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "nEc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window{
@@ -2769,11 +2720,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/space_bar)
+/area/racers)
 "nEX" = (
 /mob/living/heavy_vehicle/premade/miner,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "nGj" = (
 /obj/structure/sink{
 	dir = 8;
@@ -2784,12 +2735,12 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/space_bar)
+/area/space)
 "nIB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/overlay/burnt_wall,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "nLQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
@@ -2798,31 +2749,31 @@
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/space_ship/cardinal,
-/area/space_bar)
+/area/racers)
 "nOM" = (
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "nPl" = (
 /obj/item/storage/secure/briefcase/money{
 	pixel_y = 12
 	},
 /obj/machinery/computer/security/telescreen/entertainment{
-	pixel_y = 27;
-	pixel_x = -29
+	pixel_x = -29;
+	pixel_y = 27
 	},
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "nRF" = (
 /obj/effect/map_effect/wingrille_spawn/full/phoron,
 /obj/item/melee/ceremonial_sword,
 /obj/machinery/door/blast/shutters/open,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "nUG" = (
 /obj/structure/closet/secure_closet/miner,
 /turf/simulated/floor/ice,
-/area/space_bar)
+/area/racers)
 "nVi" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -2834,66 +2785,66 @@
 /obj/item/device/hand_labeler,
 /obj/item/device/destTagger,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "nWn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "nXu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "nYm" = (
 /obj/item/trash/cigbutt/roll,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "nYM" = (
 /obj/machinery/cryopod{
 	dir = 2
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "nZC" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "oaj" = (
 /obj/item/spacecash/c1,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "oav" = (
 /obj/structure/urinal{
 	dir = 8;
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/space_bar)
+/area/space)
 "odf" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "odX" = (
 /obj/machinery/shipsensors/weak,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "oeQ" = (
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "ofl" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "ohm" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -2902,26 +2853,26 @@
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space_bar)
+/area/racers)
 "okF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/remains/robot,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "okR" = (
 /obj/item/pipe{
-	pixel_y = 6;
-	pixel_x = -12
+	pixel_x = -12;
+	pixel_y = 6
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "okW" = (
 /obj/item/reagent_containers/food/snacks/pizzacrunchslice,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "olo" = (
 /obj/structure/dispenser/oxygen,
 /obj/item/tank/oxygen,
@@ -2930,26 +2881,26 @@
 	pixel_y = 15
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "olR" = (
 /obj/effect/floor_decal/sign/c,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "ooj" = (
 /obj/effect/decal/remains/robot,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "opS" = (
 /obj/machinery/newscaster{
 	pixel_x = 30
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "oqx" = (
 /obj/item/trash/liquidfood,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "oqy" = (
 /obj/item/device/radio,
 /obj/item/device/radio,
@@ -2957,34 +2908,34 @@
 /obj/item/device/radio,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "owK" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "owN" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_y = 10;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 10
 	},
 /obj/item/reagent_containers/food/drinks/bottle/whiskey{
-	pixel_y = 13;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 13
 	},
 /obj/machinery/cell_charger{
 	pixel_y = -8
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "oxz" = (
 /obj/structure/sign/fire{
-	pixel_y = 1;
-	pixel_x = -29
+	pixel_x = -29;
+	pixel_y = 1
 	},
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "oyu" = (
 /obj/effect/mazegen/module_loot/trash,
 /obj/item/device/flashlight,
@@ -2995,16 +2946,16 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "oCj" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/ice,
-/area/space_bar)
+/area/racers)
 "oDe" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light/colored/red,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "oFS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -3014,50 +2965,46 @@
 	},
 /obj/item/wrench,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "oMt" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "oNS" = (
 /obj/machinery/pipedispenser,
 /obj/item/device/laser_pointer/red,
 /turf/simulated/floor/plating,
-/area/space_bar)
-"oOh" = (
-/mob/living/simple_animal/hostile/biglizard,
-/turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "oQI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "oTM" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "oTQ" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "oUe" = (
 /obj/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "oXH" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/gun/energy/blaster/revolver,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "oYR" = (
 /obj/machinery/shipsensors,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "oZv" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/sink/kitchen{
@@ -3065,25 +3012,25 @@
 	},
 /obj/random/junk,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "pbt" = (
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "pdv" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/ice,
-/area/space_bar)
+/area/racers)
 "pdE" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "phk" = (
 /obj/structure/lattice,
 /obj/machinery/shipsensors,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/space)
 "piw" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
@@ -3093,18 +3040,18 @@
 	},
 /obj/item/pizzabox/pineapple,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "piL" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "piW" = (
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "pjp" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "pjI" = (
 /obj/structure/closet/crate/medical,
 /obj/item/reagent_containers/inhaler/soporific,
@@ -3118,25 +3065,25 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/space_bar)
+/area/racers)
 "plz" = (
 /obj/machinery/door/airlock/glass{
 	name = "Hangar B"
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "pmy" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/ice,
-/area/space_bar)
+/area/racers)
 "pqv" = (
 /obj/item/spacecash/c1{
 	pixel_y = 8
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "pre" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
@@ -3145,16 +3092,16 @@
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "ptY" = (
 /obj/item/clothing/gloves/boxing,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "puW" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/storage/pill_bottle/dice/gaming,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "pvh" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/fancy/tray/robotics,
@@ -3162,25 +3109,25 @@
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "pxS" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_alc/full{
 	pixel_y = 5
 	},
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "pyN" = (
 /mob/living/simple_animal/hostile/carp/old,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "pCU" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "pDH" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -3189,108 +3136,105 @@
 	},
 /obj/item/clothing/suit/storage/toggle/leather_jacket/biker,
 /turf/simulated/floor/carpet/rubber,
-/area/space_bar)
+/area/racers)
 "pDX" = (
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "pEO" = (
 /turf/simulated/mineral,
-/area/space_bar)
+/area/space)
 "pJZ" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "pMW" = (
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "pNn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "pOk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "pPd" = (
 /obj/machinery/atmospherics/pipe/tank/phoron,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "pPW" = (
 /obj/item/material/hatchet/unathiknife,
 /obj/effect/decal/cleanable/blood,
 /obj/item/handcuffs,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "pPZ" = (
 /turf/simulated/wall/rusty,
-/area/space_bar)
+/area/racers)
 "pQf" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "pQQ" = (
 /obj/structure/window/reinforced/tinted/frosted,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "pRm" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "pSY" = (
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "qbg" = (
 /obj/item/spacecash/c1,
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_y = 7
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "qbr" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "qdx" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/mineral/asteroid,
-/area/space_bar)
+/area/racers)
 "qex" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "qgM" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "qiM" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/effect/ghostspawpoint{
-	name = "space_racer_engineer"
-	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "qje" = (
 /obj/structure/flora/pottedplant/random,
 /obj/structure/disposalpipe/segment{
@@ -3298,7 +3242,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "qjE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/fuel_port,
@@ -3313,18 +3257,18 @@
 	},
 /obj/item/reagent_containers/hypospray/autoinjector/emergency,
 /turf/simulated/floor/shuttle/dark_blue,
-/area/space_bar)
+/area/racers)
 "qjP" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/cocktail,
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "qlC" = (
 /obj/structure/mech_wreckage/powerloader,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "qmJ" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -3332,15 +3276,15 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space_bar)
+/area/racers)
 "qrY" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "qse" = (
 /obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "qsu" = (
 /obj/structure/closet/wardrobe/mixed,
 /obj/item/clothing/head/softcap/tcfl,
@@ -3349,11 +3293,11 @@
 /obj/item/clothing/head/beret/tajaran/dpra/alt,
 /obj/item/clothing/glasses/safety/goggles/wasteland,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "qsS" = (
 /obj/item/tank/phoron,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "quQ" = (
 /obj/effect/floor_decal/corner_wide/beige,
 /obj/item/storage/toolbox/mechanical,
@@ -3361,36 +3305,36 @@
 /obj/structure/table/rack,
 /obj/item/device/gps,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "qvR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/toolbox/lunchbox/nt/filled,
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "qxQ" = (
 /obj/structure/bed/stool,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer{
 	pixel_y = 6
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "qxZ" = (
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_x = -26
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "qBS" = (
 /obj/machinery/door/airlock/glass{
 	name = "Hangar A"
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "qGO" = (
 /obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "qHu" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -3404,25 +3348,25 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "qHA" = (
 /obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "qHQ" = (
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "qII" = (
 /obj/structure/bed/stool/chair/sofa/corner/red{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "qJq" = (
 /obj/structure/inflatable/door,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "qLt" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -3431,27 +3375,27 @@
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "qMN" = (
 /obj/structure/curtain/open/medical{
 	pixel_y = 28
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "qQH" = (
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "qRM" = (
 /obj/machinery/door/airlock/glass{
 	name = "Hangar B"
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "qST" = (
 /obj/structure/table,
 /obj/item/storage/toolbox{
@@ -3463,18 +3407,18 @@
 /obj/item/cell/high,
 /obj/item/cell/high,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "qTL" = (
 /obj/item/clothing/accessory/tajaran/charm/bone{
 	pixel_y = -3
 	},
 /obj/structure/displaycase,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "qUf" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/template_noop,
-/area/space_bar)
+/area/racers)
 "qUF" = (
 /obj/item/crowbar,
 /turf/template_noop,
@@ -3482,15 +3426,15 @@
 "qVo" = (
 /obj/machinery/photocopier,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "qWv" = (
 /obj/item/pipewrench,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "qWG" = (
 /obj/machinery/atmospherics/pipe/tank/oxygen,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "raW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -3498,7 +3442,7 @@
 /obj/structure/inflatable/door,
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "rdW" = (
 /obj/item/tank/phoron/shuttle,
 /obj/effect/decal/cleanable/blood/oil/streak,
@@ -3508,53 +3452,53 @@
 /obj/structure/table/wood/gamblingtable,
 /obj/item/storage/box/fancy/crayons/chalkbox,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "rgE" = (
 /obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/carpet/art,
-/area/space_bar)
+/area/racers)
 "riz" = (
 /obj/machinery/pipedispenser,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "riA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "rmA" = (
 /obj/structure/largecrate/animal/dog/amaskan,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "rna" = (
 /mob/living/simple_animal/hostile/gnat,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "rnH" = (
 /obj/item/spacecash/c1{
 	pixel_y = 6
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "rpP" = (
 /obj/structure/bed/stool/bar/padded/blue,
 /obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "rrk" = (
 /obj/item/clothing/head/tajaran/matake{
 	pixel_y = -6
 	},
 /obj/structure/displaycase,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "rse" = (
 /obj/item/wrench,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "rtf" = (
 /obj/structure/closet/secure_closet/bar,
 /obj/effect/decal/cleanable/blood/drip,
@@ -3571,7 +3515,7 @@
 /obj/item/reagent_containers/inhaler/space_drugs,
 /obj/item/gun/energy/stunrevolver,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "ruQ" = (
 /obj/machinery/power/solar/fake,
 /turf/simulated/floor/airless,
@@ -3580,11 +3524,11 @@
 /obj/structure/lattice,
 /obj/effect/decal/remains/robot/burned,
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "rxr" = (
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "rxB" = (
 /obj/effect/mazegen/module_loot/trash,
 /obj/item/gun/bang/pistol,
@@ -3595,23 +3539,23 @@
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "rzs" = (
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_y = 7
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "rzM" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "rAy" = (
 /obj/machinery/mech_recharger,
 /mob/living/bot/floorbot,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "rDo" = (
 /obj/machinery/light{
 	dir = 1;
@@ -3624,17 +3568,17 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "rIG" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "rKS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "rLp" = (
 /obj/structure/bed/stool/bar/padded,
 /obj/effect/ghostspawpoint{
@@ -3642,17 +3586,17 @@
 	name = "igs - space_racer"
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "rSi" = (
 /obj/machinery/portable_atmospherics/canister/phoron,
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "rTd" = (
 /obj/item/trash/ramen,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "rUI" = (
 /obj/structure/sign/flag/blank,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3661,13 +3605,13 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "rYu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "rYT" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3676,12 +3620,12 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "rZF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/shuttle/space_ship,
-/area/space_bar)
+/area/racers)
 "sae" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -3689,7 +3633,7 @@
 	},
 /obj/structure/bed/stool/chair/office,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "sci" = (
 /obj/item/reagent_containers/food/snacks/phoroncandy,
 /obj/structure/table/rack,
@@ -3698,31 +3642,30 @@
 /obj/item/reagent_containers/food/snacks/koisbar,
 /obj/item/storage/box/monkeycubes/neaeracubes,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "scQ" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "seT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/effect/shuttle_landmark/tcfl_shuttle/hangar,
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "shZ" = (
 /obj/structure/table/glass,
 /obj/item/gun/energy/vaurca/thermaldrill{
-	pixel_y = 6;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 6
 	},
 /obj/item/pickaxe/drill,
 /obj/effect/plastic_explosive,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "sja" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 8
@@ -3734,7 +3677,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/space_bar)
+/area/racers)
 "sjQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -3748,7 +3691,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/shuttle/red,
-/area/space_bar)
+/area/racers)
 "skl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -3759,28 +3702,28 @@
 	},
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/shuttle/white,
-/area/space_bar)
+/area/racers)
 "skw" = (
 /obj/machinery/media/jukebox,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "sof" = (
 /obj/structure/bed/stool/chair/sofa/right/red,
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "soI" = (
 /obj/vehicle/train/cargo/trolley/pussywagon,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "sqL" = (
 /obj/structure/closet/wardrobe/xenos,
 /obj/item/rig/light/offworlder,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "srO" = (
 /obj/effect/overlay/burnt_wall/steel,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "sth" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3788,27 +3731,27 @@
 	},
 /obj/item/material/stool/bar,
 /turf/simulated/floor/carpet/rubber,
-/area/space_bar)
+/area/racers)
 "svd" = (
 /obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "svn" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock,
 /turf/simulated/floor/tiled,
-/area/space_bar)
+/area/racers)
 "swi" = (
 /obj/effect/floor_decal/sign/c,
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "sxr" = (
 /obj/structure/sign/double/barsign{
 	pixel_y = 32;
 	req_access = list(202)
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "szL" = (
 /obj/structure/curtain/open/medical{
 	pixel_y = 28
@@ -3818,17 +3761,17 @@
 	},
 /obj/structure/closet/wardrobe/medic_white,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "szY" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/junk,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "sBs" = (
 /obj/structure/safe/floor,
 /obj/item/spacecash/c1000,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "sBA" = (
 /turf/unsimulated/mineral/asteroid,
 /area/space)
@@ -3836,21 +3779,21 @@
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/glasses/welding/emergency,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "sFt" = (
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "sFQ" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "sHm" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "sOd" = (
 /obj/effect/map_effect/wingrille_spawn/full/phoron,
 /obj/item/clothing/head/unathi/maxtlatl{
@@ -3858,85 +3801,85 @@
 	},
 /obj/machinery/door/blast/shutters/open,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "sRo" = (
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "sXi" = (
 /obj/machinery/computer/security/telescreen/entertainment,
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "sXk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "sYV" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "sZx" = (
 /obj/machinery/light/colored/blue,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "taa" = (
 /obj/structure/closet/walllocker/emerglocker/east,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "tbU" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "tbV" = (
 /obj/structure/bed/stool/chair/sofa/red{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "tep" = (
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "thg" = (
 /obj/item/stack/material/diamond{
 	amount = 32
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "thq" = (
-/obj/effect/overmap/visitable/sector/space_bar,
+/obj/item/device/flashlight/lamp,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "thI" = (
 /obj/structure/bed/stool/chair/sofa/corner/red,
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "tjm" = (
 /obj/machinery/vending/engivend,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "tlw" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/shuttle/space_ship,
-/area/space_bar)
+/area/racers)
 "tmd" = (
 /obj/machinery/disposal/small/west,
 /obj/structure/disposalpipe/trunk{
 	dir = 2
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "tmG" = (
 /obj/item/tank/jetpack/carbondioxide,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "tnT" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Staff Room";
@@ -3944,7 +3887,7 @@
 	},
 /obj/structure/curtain/black,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "trq" = (
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 4
@@ -3952,44 +3895,44 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/item/device/flashlight,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "twh" = (
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "twp" = (
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "tzz" = (
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/carpet/art,
-/area/space_bar)
+/area/racers)
 "tzK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "tFb" = (
 /obj/structure/table/stone/marble,
 /obj/item/material/ashtray/glass,
 /obj/item/key/janicart,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "tHy" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "tIl" = (
 /obj/structure/closet/secure_closet/miner,
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
 /turf/simulated/floor/ice,
-/area/space_bar)
+/area/racers)
 "tIy" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
@@ -3999,11 +3942,11 @@
 	},
 /obj/item/trash/cigbutt/cigarbutt/alt,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "tKs" = (
 /obj/structure/weapon_rack/double,
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "tMd" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
@@ -4016,26 +3959,26 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "tMk" = (
 /obj/effect/floor_decal/sign/d,
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "tNa" = (
 /obj/structure/girder/displaced,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "tNM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "tQj" = (
 /obj/structure/sign/securearea,
 /turf/simulated/wall/rusty,
-/area/space_bar)
+/area/racers)
 "tQq" = (
 /obj/effect/ghostspawpoint{
 	identifier = "space_bar_bartender";
@@ -4044,22 +3987,22 @@
 /obj/structure/curtain/open/bed,
 /obj/structure/bed/padded,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "tTl" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/flame/candle,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "tUL" = (
 /obj/item/trash/can,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "tXP" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/spider/stickyweb,
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "tYI" = (
 /obj/structure/grille,
 /obj/structure/shuttle/window,
@@ -4067,11 +4010,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "tYW" = (
 /obj/item/material/shard,
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "tZG" = (
 /obj/machinery/mech_recharger,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -4079,48 +4022,49 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "tZX" = (
 /obj/structure/railing/mapped,
 /obj/structure/bed/stool/bar/padded,
+/obj/effect/overmap/visitable/sector/racers,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "uaE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "uaN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "ubW" = (
 /obj/structure/table,
 /obj/item/spacecash/c10,
 /obj/item/device/laser_pointer/red,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "ueb" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/item/clothing/suit/caution,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "uiY" = (
 /obj/item/tape/engineering,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "ujc" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/art,
-/area/space_bar)
+/area/racers)
 "ujY" = (
 /obj/structure/sign/directions/dock{
 	dir = 8
 	},
 /turf/simulated/wall/rusty,
-/area/space_bar)
+/area/racers)
 "ukV" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin,
@@ -4128,25 +4072,25 @@
 /obj/item/key,
 /obj/item/tape_roll,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "unj" = (
 /obj/structure/table/steel,
 /obj/item/spacecash/ewallet/lotto,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "uoh" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/broken_bottle,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "uoH" = (
 /obj/structure/inflatable/wall,
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "upu" = (
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "urT" = (
 /obj/machinery/computer/ship/helm{
 	req_access = list(204)
@@ -4169,11 +4113,11 @@
 /obj/item/device/gps,
 /obj/machinery/camera/network/thunder,
 /turf/simulated/floor/shuttle/red,
-/area/space_bar)
+/area/racers)
 "uuC" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "uwM" = (
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk{
@@ -4181,7 +4125,7 @@
 	},
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "uxn" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/shaker{
@@ -4191,45 +4135,45 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "uAm" = (
 /obj/machinery/suit_cycler/mining,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/tank/oxygen/brown,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "uAX" = (
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "uCl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "uDI" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "uEr" = (
 /obj/structure/largecrate/hoverpod,
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "uFX" = (
 /obj/machinery/floodlight,
 /obj/machinery/light/colored/red{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "uGZ" = (
 /obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "uKR" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -4237,14 +4181,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "uMQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen,
 /obj/item/clothing/accessory/medal/gold/captain,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "uNN" = (
 /obj/machinery/vending/dinnerware,
 /obj/machinery/light{
@@ -4252,7 +4196,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "uOx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -4260,23 +4204,23 @@
 /mob/living/simple_animal/hostile/carp,
 /obj/structure/flora/rock/pile,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "uRY" = (
 /obj/structure/railing/mapped,
 /obj/item/material/stool/chair,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "uTr" = (
 /obj/machinery/optable,
 /obj/item/clothing/head/surgery/blue,
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/gloves/latex/nitrile,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "uYk" = (
 /obj/item/screwdriver,
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "vbz" = (
 /obj/machinery/newscaster{
 	pixel_y = 30
@@ -4286,20 +4230,20 @@
 	},
 /obj/item/storage/bag/inflatable,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "vbE" = (
 /obj/item/wrench,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "vcf" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "vcF" = (
 /obj/item/trash/cookiesnack,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "vdz" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms";
@@ -4307,7 +4251,7 @@
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "ves" = (
 /obj/machinery/cryopod{
 	dir = 2
@@ -4315,30 +4259,28 @@
 /obj/item/storage/toolbox/drill,
 /obj/effect/plastic_explosive,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "vgN" = (
 /obj/item/material/hatchet/unathiknife,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "vhm" = (
 /obj/item/pipewrench,
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "vjg" = (
 /obj/structure/closet/crate/secure/bin,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "vkx" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "vps" = (
-/obj/machinery/computer/ship/sensors,
-/obj/item/toy/figure/miner,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "vqD" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/structure/bed/stool/chair/office/bridge/pilot{
@@ -4346,12 +4288,12 @@
 	},
 /obj/item/rig/eva,
 /turf/simulated/floor/shuttle/white,
-/area/space_bar)
+/area/racers)
 "vrZ" = (
 /obj/structure/closet/lasertag,
 /obj/item/holo/esword/red,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "vsA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -4360,7 +4302,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "vth" = (
 /obj/structure/table/stone/marble,
 /obj/item/glass_jar{
@@ -4369,7 +4311,7 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "vtq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -4377,86 +4319,86 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "vub" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/table/glass,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "vvs" = (
 /obj/machinery/light/colored/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "vvu" = (
 /obj/item/spacecash/c1{
 	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "vvS" = (
 /obj/structure/window/reinforced/tinted/frosted,
 /obj/structure/lattice/catwalk/indoor/grate,
 /mob/living/bot/farmbot,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "vwF" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/structure/inflatable/door,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "vxN" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/freezer,
-/area/space_bar)
+/area/space)
 "vys" = (
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/carpet/art,
-/area/space_bar)
+/area/racers)
 "vAO" = (
 /obj/machinery/door/blast/regular{
 	id = "pet"
 	},
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "vBl" = (
 /obj/machinery/airlock_sensor,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "vCD" = (
 /obj/machinery/vending/boozeomat{
 	opacity = 1;
 	req_access = list(202)
 	},
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "vDp" = (
 /obj/machinery/atm{
 	pixel_y = -32
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "vDH" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/beakers,
 /obj/item/reagent_containers/dropper/industrial,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "vDS" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/ice,
-/area/space_bar)
+/area/racers)
 "vFV" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "vIW" = (
 /obj/structure/punching_bag,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "vJn" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
@@ -4470,36 +4412,36 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/red,
-/area/space_bar)
+/area/racers)
 "vJz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/fryer,
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "vJV" = (
 /obj/structure/bed/stool/bar/padded,
 /obj/item/trash/cigbutt/roll,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "vLp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "vLM" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "vMt" = (
 /obj/machinery/atm{
-	pixel_y = -1;
-	pixel_x = 25
+	pixel_x = 25;
+	pixel_y = -1
 	},
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "vNu" = (
 /obj/structure/table,
 /obj/item/pickaxe/drill{
@@ -4509,7 +4451,7 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "vWJ" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -4518,99 +4460,99 @@
 /obj/machinery/light/small/red,
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "wbD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "wcO" = (
 /obj/machinery/vending/engivend,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "wfU" = (
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/space_bar)
+/area/racers)
 "wgK" = (
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "who" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "wiz" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "wji" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "wkV" = (
 /turf/simulated/wall/shuttle/space_ship,
-/area/space_bar)
+/area/space)
 "wlu" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/spacecash/c10,
 /turf/simulated/floor/carpet/art,
-/area/space_bar)
+/area/racers)
 "wmd" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "wql" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "wvm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "wEw" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/board,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "wGR" = (
 /mob/living/simple_animal/hostile/carp/bloater,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "wHQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "wJk" = (
 /obj/item/reagent_containers/food/snacks/meatpizzaslice,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino/grey,
-/area/space_bar)
+/area/racers)
 "wKE" = (
 /obj/structure/barricade,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "wLs" = (
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "wLw" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Augment Station"
@@ -4618,11 +4560,11 @@
 /obj/structure/curtain/open/medical,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "wMt" = (
 /obj/item/material/shard/shrapnel,
 /turf/template_noop,
-/area/space_bar)
+/area/space)
 "wMv" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/clothing/wrists/watch/gold{
@@ -4635,39 +4577,39 @@
 	pixel_y = 28
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/flute{
-	pixel_y = 24;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = 24
 	},
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "wNg" = (
 /mob/living/simple_animal/hostile/carp/shark,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "wNk" = (
 /turf/simulated/floor/carpet/art,
-/area/space_bar)
+/area/racers)
 "wNK" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "wOi" = (
 /obj/structure/table/stone/marble,
 /obj/item/material/ashtray/glass,
 /obj/item/reagent_containers/food/drinks/dry_ramen,
 /obj/item/key,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "wPk" = (
 /obj/item/material/stool/bar,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "wQj" = (
 /obj/machinery/light/colored,
 /turf/simulated/floor/carpet/art,
-/area/space_bar)
+/area/racers)
 "wRv" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
@@ -4675,27 +4617,27 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "wTq" = (
 /obj/item/material/wirerod,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "wUg" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /obj/machinery/light/colored{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "wVH" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "wXQ" = (
 /obj/item/trash/cigbutt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "wZf" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -4707,92 +4649,91 @@
 /obj/item/clothing/suit/storage/toggle/varsity/brown,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "xaJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "xdP" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "xff" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "xjx" = (
 /obj/vehicle/bike/monowheel,
 /obj/item/clothing/glasses/fakesunglasses/aviator,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/machinery/light/colored,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "xjB" = (
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "xjY" = (
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "xmj" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/porta_turret/net,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "xnb" = (
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "xpK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "xto" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "xvb" = (
 /obj/structure/bed/stool/bar/padded/blue,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "xvJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk,
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "xwj" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/rag,
 /obj/item/reagent_containers/food/drinks/cans/sodawater,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "xwJ" = (
 /obj/structure/lattice,
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "xzv" = (
 /obj/structure/disposalpipe/junction{
 	dir = 4;
 	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "xAp" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
@@ -4802,14 +4743,14 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space_bar)
+/area/racers)
 "xEy" = (
 /obj/structure/displaycase,
 /obj/item/stellascope{
 	pixel_y = -2
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "xFs" = (
 /obj/machinery/light/small,
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -4834,7 +4775,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/space_bar)
+/area/racers)
 "xFU" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
@@ -4844,7 +4785,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "xIf" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/flame/lighter/zippo/gold,
@@ -4853,7 +4794,7 @@
 	pixel_y = -2
 	},
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "xJg" = (
 /obj/structure/bed/stool/bar/padded/blue,
 /obj/effect/ghostspawpoint{
@@ -4861,11 +4802,11 @@
 	name = "igs - space_racer"
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "xLt" = (
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
 /turf/simulated/floor/ice,
-/area/space_bar)
+/area/racers)
 "xLR" = (
 /obj/effect/mazegen/module_loot/trash,
 /turf/template_noop,
@@ -4876,14 +4817,14 @@
 	},
 /obj/structure/inflatable/door,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "xNM" = (
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/ice,
-/area/space_bar)
+/area/racers)
 "xOK" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 8
@@ -4898,16 +4839,16 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/space_bar)
+/area/racers)
 "xPN" = (
 /obj/structure/closet/lawcloset,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "xQp" = (
 /obj/item/spacecash/c10,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "xQQ" = (
 /obj/structure/window/reinforced/tinted/frosted{
 	dir = 4
@@ -4915,11 +4856,11 @@
 /obj/structure/window/reinforced/tinted/frosted,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/space)
+/area/racers)
 "xQS" = (
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/tiled/freezer,
-/area/space_bar)
+/area/space)
 "xRX" = (
 /turf/template_noop,
 /area/space)
@@ -4939,7 +4880,7 @@
 	},
 /obj/item/reagent_containers/cooking_container/plate/bowl,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "xSs" = (
 /obj/item/pipe{
 	dir = 6;
@@ -4947,7 +4888,7 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "xUY" = (
 /obj/structure/table/steel,
 /obj/item/organ/internal/augment/sightlights,
@@ -4957,49 +4898,49 @@
 /obj/item/melee/baton/stunrod,
 /obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white,
-/area/space_bar)
+/area/racers)
 "xVP" = (
 /obj/machinery/light/colored/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "xXR" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/ice,
-/area/space_bar)
+/area/racers)
 "xYc" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/racers)
 "xYi" = (
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "xYv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
-/area/space_bar)
+/area/racers)
 "xYB" = (
 /obj/structure/bed/stool/chair/sofa/red{
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/carpet,
-/area/space_bar)
+/area/racers)
 "xZU" = (
 /obj/structure/curtain/open/privacy{
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "ybE" = (
 /obj/structure/foamedmetal,
 /turf/simulated/wall/r_wall,
-/area/space_bar)
+/area/racers)
 "ybR" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -5009,32 +4950,32 @@
 /obj/item/clothing/suit/space/emergency,
 /obj/item/clothing/suit/space/emergency,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "ycf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/internals,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "ycX" = (
 /obj/machinery/mineral/equipment_vendor,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 "yfC" = (
 /obj/machinery/door/airlock/glass_atmos{
 	name = "Fuel Storage"
 	},
 /turf/simulated/floor/plating,
-/area/space_bar)
+/area/racers)
 "ygr" = (
 /obj/structure/disposalpipe/junction{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/space_bar)
+/area/racers)
 "yle" = (
 /obj/item/clothing/mask/gas/old,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/racers)
 
 (1,1,1) = {"
 xRX
@@ -22092,12 +22033,12 @@ huE
 huE
 huE
 huE
-eyU
+vWJ
 xwJ
 nfm
 nfm
 xwJ
-eyU
+vWJ
 huE
 huE
 huE
@@ -22349,12 +22290,12 @@ bVS
 bVS
 gxE
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 ctn
 rYu
@@ -22606,12 +22547,12 @@ ctn
 rna
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 ctn
 cLC
@@ -23120,12 +23061,12 @@ ctn
 ctn
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 tjm
 cLC
@@ -24148,12 +24089,12 @@ ctn
 ctn
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 ctn
 cLC
@@ -24170,9 +24111,9 @@ ctn
 ctn
 ctn
 ctn
-wkV
-wkV
-wkV
+nup
+nup
+nup
 ctn
 ctn
 ctn
@@ -24425,9 +24366,9 @@ ctn
 lvc
 lvc
 rZF
-wkV
-wkV
-wkV
+nup
+nup
+nup
 dDf
 kHp
 ink
@@ -24662,12 +24603,12 @@ ctn
 ctn
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 ycX
 cLC
@@ -24682,7 +24623,7 @@ ctn
 lvc
 xvJ
 axm
-cuq
+vps
 oTQ
 vvs
 bGI
@@ -24919,12 +24860,12 @@ lvc
 lvc
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 nUG
 cLC
@@ -24935,13 +24876,13 @@ lvc
 ctn
 tlw
 nIB
-wkV
+nup
 tlw
 tlw
 tlw
-wkV
-cuq
-cuq
+nup
+vps
+vps
 pOk
 xYv
 wvm
@@ -25176,12 +25117,12 @@ lvc
 lvc
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 tIl
 aHw
@@ -25192,13 +25133,13 @@ odX
 tlw
 vtq
 eTw
-cuq
+vps
 shZ
-wkV
+nup
 uAm
-cuq
-cuq
-cuq
+vps
+vps
+vps
 jYS
 tlw
 lvc
@@ -25433,12 +25374,12 @@ ctn
 ctn
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 pdv
 aHw
@@ -25448,19 +25389,19 @@ ctn
 lvc
 hnS
 vps
-cuq
-cuq
+vps
+vps
 thg
-cuq
+vps
 mHN
 nYM
-cuq
+vps
 cJV
 mCN
-wkV
-wkV
-wkV
-wkV
+nup
+nup
+nup
+nup
 ctn
 ctn
 ctn
@@ -25690,12 +25631,12 @@ ctn
 ctn
 cBN
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 xLt
 aHw
@@ -25704,16 +25645,16 @@ ctn
 ctn
 oCj
 hnS
-gDA
+vps
 ade
-cuq
-cuq
+vps
+vps
 kve
 kQK
-cuq
+vps
 bGI
-cuq
-cuq
+vps
+vps
 oTQ
 rSi
 sFQ
@@ -25947,12 +25888,12 @@ lvc
 lvc
 cBN
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 vDS
 aHw
@@ -25961,16 +25902,16 @@ aHw
 ctn
 ctn
 hnS
-cwc
+vps
 tep
 pyN
 cbO
 cPh
-cuq
-cuq
-cuq
-cuq
-cuq
+vps
+vps
+vps
+vps
+vps
 oTQ
 rSi
 sFQ
@@ -26204,12 +26145,12 @@ ctn
 ctn
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 xXR
 aHw
@@ -26218,19 +26159,19 @@ ctn
 ctn
 ctn
 hnS
-fey
+vps
 mrH
-cuq
-cuq
+vps
+vps
 cXz
-wkV
+nup
 ves
-cuq
-cuq
+vps
+vps
 npM
-wkV
-wkV
-wkV
+nup
+nup
+nup
 tlw
 lvc
 ctn
@@ -26461,12 +26402,12 @@ ctn
 ctn
 hqD
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 xXR
 aHw
@@ -26482,10 +26423,10 @@ qvR
 tlw
 bcn
 qsS
-cuq
-cuq
+vps
+vps
 qgM
-wkV
+nup
 ctn
 ctn
 ctn
@@ -26718,12 +26659,12 @@ ctn
 ctn
 who
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 xNM
 cLC
@@ -26740,7 +26681,7 @@ tlw
 tlw
 tlw
 hPg
-cuq
+vps
 sHm
 xdP
 ink
@@ -26975,12 +26916,12 @@ ctn
 ctn
 who
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 piL
 pmy
@@ -26998,7 +26939,7 @@ axm
 sRo
 oTQ
 xVP
-cuq
+vps
 aYB
 ink
 ctn
@@ -27232,12 +27173,12 @@ ctn
 ctn
 who
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 pbt
 cLC
@@ -27251,10 +27192,10 @@ uoh
 pdE
 ctn
 ctn
-wkV
-wkV
-wkV
-wkV
+nup
+nup
+nup
+nup
 jBY
 sHm
 ink
@@ -27511,9 +27452,9 @@ ctn
 ctn
 ctn
 ctn
-wkV
-wkV
-wkV
+nup
+nup
+nup
 ctn
 ctn
 lvc
@@ -27746,12 +27687,12 @@ ctn
 ctn
 bmN
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 fts
 cLC
@@ -28774,12 +28715,12 @@ moJ
 ctn
 ghl
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 tjm
 cLC
@@ -29288,12 +29229,12 @@ ctn
 ctn
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 lHr
 cLC
@@ -29545,12 +29486,12 @@ awG
 djz
 sYV
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 xnb
 apT
@@ -29802,12 +29743,12 @@ huE
 huE
 huE
 huE
-eyU
+vWJ
 xwJ
 xjB
 xjB
 xwJ
-eyU
+vWJ
 huE
 huE
 huE
@@ -30059,12 +30000,12 @@ bVS
 bVS
 ahY
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 ctn
 rYu
@@ -30316,12 +30257,12 @@ ctn
 ctn
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 ctn
 cLC
@@ -30830,12 +30771,12 @@ ctn
 ctn
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 tjm
 cLC
@@ -31067,17 +31008,17 @@ ctn
 ctn
 ctn
 ryv
-ktN
-ktN
-ktN
-ktN
 seT
-ktN
-ktN
-ktN
-ktN
-ktN
-ktN
+seT
+seT
+seT
+seT
+seT
+seT
+seT
+seT
+seT
+seT
 oQI
 ctn
 ctn
@@ -31858,12 +31799,12 @@ ctn
 ctn
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 ctn
 cLC
@@ -32372,12 +32313,12 @@ ctn
 ctn
 eBX
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 fts
 cLC
@@ -32629,12 +32570,12 @@ ctn
 lvc
 who
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 piL
 cLC
@@ -32886,12 +32827,12 @@ ctn
 lvc
 who
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 iGt
 cLC
@@ -33143,12 +33084,12 @@ ctn
 ctn
 who
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 piL
 cLC
@@ -33400,12 +33341,12 @@ ctn
 ctn
 cBN
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 qrY
 cLC
@@ -33657,12 +33598,12 @@ ctn
 lvc
 cBN
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 qrY
 cLC
@@ -33914,12 +33855,12 @@ ctn
 ctn
 vkx
 huE
-eyU
+vWJ
 xwJ
 xjB
 xjB
 xwJ
-eyU
+vWJ
 huE
 wVH
 cLC
@@ -34171,12 +34112,12 @@ ctn
 ctn
 hqD
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 soI
 cLC
@@ -34428,12 +34369,12 @@ ctn
 ctn
 gfX
 huE
-ble
+xRX
 nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 iwj
 cLC
@@ -34665,17 +34606,17 @@ lvc
 lvc
 ctn
 ryv
-ktN
-ktN
-ktN
-ktN
 seT
-ktN
-ktN
-ktN
-ktN
-ktN
-ktN
+seT
+seT
+seT
+seT
+seT
+seT
+seT
+seT
+seT
+seT
 oQI
 ctn
 ctn
@@ -34947,7 +34888,7 @@ nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 kFu
 cLC
@@ -35204,7 +35145,7 @@ nfm
 xjB
 xjB
 nfm
-ble
+xRX
 huE
 nuj
 cLC
@@ -36741,7 +36682,7 @@ ctn
 jgu
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
@@ -36998,7 +36939,7 @@ ctn
 ctn
 pJZ
 huE
-ble
+xRX
 nfm
 xjB
 xjB
@@ -37255,12 +37196,12 @@ awG
 djz
 sYV
 huE
-ble
+xRX
 nfm
 xjB
 vBl
 nfm
-ble
+xRX
 huE
 bdk
 apT
@@ -37768,7 +37709,7 @@ xRX
 xRX
 xRX
 qUF
-eyU
+vWJ
 xRX
 nfm
 xjB
@@ -38025,7 +37966,7 @@ rdW
 xRX
 xRX
 xRX
-eyU
+vWJ
 xRX
 nfm
 xjB
@@ -38276,13 +38217,13 @@ xRX
 xRX
 xRX
 xRX
-eyU
+vWJ
 rxq
-huE
-huE
-huE
-huE
-huE
+eyU
+eyU
+eyU
+eyU
+eyU
 huE
 nfm
 fZJ
@@ -38535,7 +38476,7 @@ xRX
 xRX
 xRX
 xRX
-eyU
+vWJ
 aOJ
 xQS
 arm
@@ -38792,9 +38733,9 @@ xRX
 xRX
 xRX
 jIp
-eyU
-ble
-ble
+vWJ
+xRX
+xRX
 arm
 vxN
 huE
@@ -38803,11 +38744,11 @@ nbK
 jIR
 dis
 ujY
-eyU
-eyU
-eyU
-eyU
-eyU
+vWJ
+vWJ
+vWJ
+vWJ
+vWJ
 phk
 xRX
 xRX
@@ -39050,9 +38991,9 @@ xRX
 xRX
 xRX
 muk
-ble
-iwl
-ble
+xRX
+bSn
+xRX
 bOP
 aHt
 vwF
@@ -39308,8 +39249,8 @@ bSn
 xRX
 wkV
 wkV
-ble
-eyU
+xRX
+vWJ
 ndF
 huE
 ntt
@@ -39566,7 +39507,7 @@ xRX
 eNp
 wkV
 jIp
-ble
+xRX
 oav
 huE
 vbz
@@ -39823,7 +39764,7 @@ xRX
 aSE
 fGm
 ajL
-pPZ
+iwl
 huE
 huE
 bhz
@@ -39841,11 +39782,11 @@ huE
 huE
 huE
 huE
-aaP
-aaP
-aaP
-aaP
-aaP
+pPZ
+pPZ
+pPZ
+pPZ
+pPZ
 xRX
 xRX
 xRX
@@ -40102,7 +40043,7 @@ kcb
 oxz
 sci
 ggZ
-aaP
+pPZ
 jyq
 jyq
 jyq
@@ -40357,9 +40298,9 @@ wql
 huE
 boJ
 bEp
-aaJ
+xjB
 vZc
-aaP
+pPZ
 bEp
 tbU
 tbU
@@ -40871,9 +40812,9 @@ huE
 pPZ
 pPZ
 vDH
-aaJ
+xjB
 kML
-ctQ
+huE
 trq
 qQH
 qQH
@@ -41631,7 +41572,7 @@ ueb
 xjB
 xjB
 jiL
-mTl
+qiM
 xjB
 sDu
 jXc
@@ -41885,7 +41826,7 @@ oTM
 nXu
 upu
 qbr
-mTl
+qiM
 xjB
 jzb
 xjB
@@ -41898,7 +41839,7 @@ xjB
 qiM
 xjx
 huE
-xRX
+lbT
 nfm
 wTq
 nfm
@@ -42155,7 +42096,7 @@ hRn
 xjB
 mDd
 huE
-xRX
+lbT
 nfm
 xjB
 nfm
@@ -42670,8 +42611,8 @@ xjB
 dGi
 nfm
 qMN
-gNf
-gNf
+jKi
+jKi
 pvh
 huE
 xRX
@@ -42909,7 +42850,7 @@ ani
 pDX
 pDX
 ari
-eIb
+qmJ
 amd
 xjB
 xjB
@@ -42928,7 +42869,7 @@ exI
 jAI
 jBw
 eJw
-gNf
+jKi
 sZx
 nfm
 xRX
@@ -43423,7 +43364,7 @@ pxS
 afE
 pDX
 tFb
-eIb
+qmJ
 fHb
 vLM
 fWy
@@ -43434,7 +43375,7 @@ xjB
 uRY
 qbg
 xjB
-mTl
+qiM
 bhu
 lNR
 xjB
@@ -43442,7 +43383,7 @@ tZG
 pPZ
 jfd
 bTg
-gNf
+jKi
 fRA
 nfm
 xRX
@@ -44465,7 +44406,7 @@ uuC
 xjB
 xjB
 pqv
-mTl
+qiM
 jYu
 huE
 xRX
@@ -44721,8 +44662,8 @@ kcN
 naE
 vvu
 xjB
-mTl
-mTl
+qiM
+qiM
 oMt
 huE
 xRX
@@ -44973,13 +44914,13 @@ xjB
 xjB
 xjB
 xjB
-tZX
+dtl
 qlC
 moE
 mNC
 vvu
 xjB
-mTl
+qiM
 rzM
 huE
 xRX
@@ -45985,7 +45926,7 @@ xRX
 xRX
 xRX
 xRX
-eyU
+vWJ
 xRX
 xRX
 huE
@@ -46242,7 +46183,7 @@ xRX
 xRX
 xRX
 xRX
-eyU
+vWJ
 xRX
 xRX
 huE
@@ -47036,7 +46977,7 @@ xjB
 xjB
 xjB
 xjB
-oOh
+xjB
 huE
 xRX
 xRX
@@ -47261,10 +47202,10 @@ xRX
 xRX
 xRX
 gDi
-eyU
-eyU
-eyU
-eyU
+vWJ
+vWJ
+vWJ
+vWJ
 nfm
 wNk
 rgE
@@ -47295,10 +47236,10 @@ sBs
 xjB
 nxJ
 huE
-eyU
-eyU
-eyU
-eyU
+vWJ
+vWJ
+vWJ
+vWJ
 phk
 xRX
 ruQ
@@ -48041,10 +47982,10 @@ xRX
 xRX
 xRX
 xRX
-oYR
+ble
 xRX
 xRX
-eyU
+vWJ
 xRX
 qUf
 qsu
@@ -48301,7 +48242,7 @@ xRX
 xRX
 xRX
 xRX
-eyU
+vWJ
 xRX
 qUf
 jrF
@@ -48311,7 +48252,7 @@ nfm
 xLR
 xRX
 xRX
-eyU
+vWJ
 xRX
 xRX
 nfm
@@ -49602,7 +49543,7 @@ xRX
 xRX
 xRX
 xRX
-eyU
+vWJ
 xRX
 xRX
 xRX
@@ -49859,7 +49800,7 @@ xRX
 xRX
 xRX
 xRX
-eyU
+vWJ
 xRX
 xRX
 xRX
@@ -50116,7 +50057,7 @@ xRX
 xRX
 xRX
 xRX
-eyU
+vWJ
 xRX
 xRX
 xRX
@@ -50373,7 +50314,7 @@ xRX
 xRX
 xRX
 xRX
-eyU
+vWJ
 xRX
 xRX
 xRX
@@ -50630,7 +50571,7 @@ xRX
 xRX
 xRX
 xRX
-eyU
+vWJ
 xRX
 xRX
 xRX
