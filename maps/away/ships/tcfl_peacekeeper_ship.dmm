@@ -142,7 +142,7 @@
 "pRO" = (/obj/machinery/atmospherics/pipe/manifold/hidden,/obj/machinery/door/airlock/external{frequency = 1380; icon_state = "door_locked"; id_tag = "tcfl_peacekeeper_ship_in"},/turf/simulated/floor,/area/shuttle/tcfl_peacekeeper_ship)
 "pXP" = (/obj/structure/table/stone/marble,/obj/effect/floor_decal/corner/black/diagonal,/turf/simulated/floor/tiled/white,/area/shuttle/tcfl_peacekeeper_ship)
 "qds" = (/turf/simulated/wall/shuttle/legion/cardinal,/area/shuttle/tcfl_peacekeeper_ship)
-"qil" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/structure/window/reinforced{dir = 1},/obj/structure/table/rack,/obj/item/rig/retro,/obj/item/rig/retro,/turf/simulated/floor/tiled/dark,/area/shuttle/tcfl_peacekeeper_ship)
+"qil" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/structure/window/reinforced{dir = 1},/obj/structure/table/rack,/obj/item/rig/retro/equipped,/obj/item/rig/retro/equipped,/turf/simulated/floor/tiled/dark,/area/shuttle/tcfl_peacekeeper_ship)
 "que" = (/obj/effect/step_trigger/teleporter,/turf/space/transit/south,/area/space)
 "qHm" = (/obj/effect/floor_decal/industrial/warning{dir = 10},/turf/simulated/floor,/area/shuttle/tcfl_peacekeeper_ship)
 "qHO" = (/obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/transit,/turf/space/transit/south,/area/space)
