@@ -237,7 +237,7 @@
 		return
 	..()
 
-/obj/vehicle/train/cargo/trolley/pussywagon/proc/empty_hoover(var/mob/user)
+/obj/vehicle/train/cargo/trolley/pussywagon/proc/empty_hoover(mob/user)
 	for(var/obj/item/I in hoovered)
 		I.forceMove(user.loc)
 		hoovered -= I
@@ -267,13 +267,13 @@
 				playsound(src, 'sound/machines/disposalflush.ogg', 50, TRUE)
 	return ..()
 
-/obj/vehicle/train/cargo/trolley/pussywagon/proc/trolley_off()
+/obj/vehicle/train/cargo/trolley/pussywagon/proc/trolley_off(mob/user)
 	if(mopping)
 		toggle_mop()
 	if(hoover)
 		toggle_hoover()
 
-/obj/vehicle/train/cargo/trolley/pussywagon/proc/toggle_mop()
+/obj/vehicle/train/cargo/trolley/pussywagon/proc/toggle_mop(mob/user)
 	if(!mopping)
 		mopping = 1
 		to_chat(user, SPAN_NOTICE("You activate \the [src]'s rotary mop."))
@@ -283,7 +283,7 @@
 		to_chat(user, SPAN_NOTICE("You turn off \the [src]'s rotary mop."))
 	update_icon()
 
-/obj/vehicle/train/cargo/trolley/pussywagon/proc/toggle_hoover()
+/obj/vehicle/train/cargo/trolley/pussywagon/proc/toggle_hoover(mob/user)
 	if(!hoover)
 		hoover = 1
 		to_chat(user, SPAN_NOTICE("You activate \the [src]'s vacuum cleaner."))
