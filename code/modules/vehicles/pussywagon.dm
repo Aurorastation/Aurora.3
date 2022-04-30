@@ -276,21 +276,21 @@
 /obj/vehicle/train/cargo/trolley/pussywagon/proc/toggle_mop()
 	if(!mopping)
 		mopping = 1
-		audible_message("\The [src]'s mop-o-matic rumbles to life.", "You hear something rumble deeply.")
-		playsound(src, 'sound/machines/hydraulic_long.ogg', 10, TRUE)
+		to_chat(user, SPAN_NOTICE("You activate \the [src]'s rotary mop."))
+		playsound(src, 'sound/machines/hydraulic_long.ogg', 20, TRUE)
 	else
 		mopping = 0
-		audible_message("\The [src]'s mop-o-matic putters before turning off.", "You hear something putter slowly.")
+		to_chat(user, SPAN_NOTICE("You turn off \the [src]'s rotary mop."))
 	update_icon()
 
 /obj/vehicle/train/cargo/trolley/pussywagon/proc/toggle_hoover()
 	if(!hoover)
 		hoover = 1
-		audible_message("\The [src]'s space hoover rumbles to life.", "You hear something rumble deeply.")
-		playsound(src, 'sound/machines/hydraulic_long.ogg', 10, TRUE)
+		to_chat(user, SPAN_NOTICE("You activate \the [src]'s vacuum cleaner."))
+		playsound(src, 'sound/machines/hydraulic_long.ogg', 20, TRUE)
 	else
 		hoover = 0
-		audible_message("\The [src]'s space hoover putters before turning off.", "You hear something putter slowly.")
+		to_chat(user, SPAN_NOTICE("You turn off \the [src]'s vacuum cleaner."))
 	update_icon()
 
 /obj/vehicle/train/cargo/trolley/pussywagon/update_icon()
