@@ -4832,15 +4832,6 @@
 	pixel_y = 29;
 	req_access = null
 	},
-/obj/structure/closet/walllocker/medical/secure{
-	name = "blood closet";
-	pixel_x = 30;
-	pixel_y = -30;
-	req_access = null
-	},
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/camera/network/intrepid{
 	c_tag = "Intrepid - Medbay"
@@ -9669,14 +9660,14 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = 30;
 	req_access = null
 	},
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/medical_compartment)
 "hXX" = (
