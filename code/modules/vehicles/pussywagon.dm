@@ -191,7 +191,7 @@
 
 /obj/vehicle/train/cargo/trolley/pussywagon
 	name = "C8000 deluxe custodial trolley"
-	desc = "The trolley of the C8000 deluxe custodial truck, equipped with dual rotary mop- and a industrial vacuum cleaner."
+	desc = "The trolley of the C8000 deluxe custodial truck, equipped with a dual rotary mop and a industrial vacuum cleaner."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "jantrolley"
 	light_range = 0 // Turn off the light inherited from the parent.
