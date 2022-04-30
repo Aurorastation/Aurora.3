@@ -1,8 +1,0 @@
-
-author: Llywelwyn
-
-delete-after: True
-
-changes:
-  - tweak: "Nralakk projector description tweaked - it is no longer exclusive to Federation Skrell."
-  - rscadd: "Added all planets with a significant Skrell population to the projector loadout item, and made it easier to add new holograms in the future."
