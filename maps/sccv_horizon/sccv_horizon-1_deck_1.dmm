@@ -6421,6 +6421,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/anomaly_container,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "fsV" = (
@@ -17871,6 +17872,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
+"pGy" = (
+/obj/structure/anomaly_container,
+/turf/simulated/floor/reinforced,
+/area/rnd/isolation_a)
 "pGC" = (
 /obj/structure/stairs/west,
 /turf/simulated/floor/plating,
@@ -20743,6 +20748,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/structure/anomaly_container,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "sfj" = (
@@ -27461,6 +27467,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/janitor)
+"xVn" = (
+/obj/structure/anomaly_container,
+/turf/simulated/floor/reinforced,
+/area/rnd/isolation_b)
 "xVU" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -56565,11 +56575,11 @@ iJi
 scq
 oVl
 vKP
-wvx
+pGy
 xXj
 tXB
 iUb
-pid
+xVn
 fHA
 jPp
 rBp
