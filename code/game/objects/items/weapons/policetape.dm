@@ -151,7 +151,7 @@ var/list/tape_roll_applications = list()
 				can_place = 0
 			else
 				for(var/obj/O in cur)
-					if(!istype(O, /obj/item/tape) && O.density)
+					if(istype(O, /obj/structure/lattice) && (!istype(O, /obj/item/tape) && O.density))
 						can_place = 0
 						break
 			cur = get_step_towards(cur,end)

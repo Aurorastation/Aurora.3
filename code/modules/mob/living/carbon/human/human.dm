@@ -1465,16 +1465,23 @@
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
+	fill_out_culture_data()
+
 	if(change_hair)
 		species.set_default_hair(src)
-
-	if(species.default_accent)
-		accent = species.default_accent
 
 	if(species)
 		return 1
 	else
 		return 0
+
+
+/mob/living/carbon/human/proc/fill_out_culture_data()
+	culture = decls_repository.get_decl(species.possible_cultures[1])
+	origin = decls_repository.get_decl(culture.possible_origins[1])
+	accent = pick(origin.possible_accents)
+	citizenship = origin.possible_citizenships[1]
+	religion = origin.possible_religions[1]
 
 /mob/living/carbon/human/proc/bloody_doodle()
 	set category = "IC"
@@ -2045,8 +2052,8 @@
 
 /mob/living/carbon/human/proc/set_accent(var/new_accent)
 	accent = new_accent
-	if(!(accent in species.allowed_accents))
-		accent = species.default_accent
+	if(!(accent in origin.possible_accents))
+		accent = origin.possible_accents[1]
 	return TRUE
 
 /mob/living/carbon/human/proc/add_or_remove_language(var/language)

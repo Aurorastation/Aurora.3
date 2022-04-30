@@ -42,6 +42,7 @@
 	name = "vaurca brain"
 	desc = "The brain of a Vaurca, being similar to that of an insect; and that of a mammal."
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
+	can_prepare = FALSE
 
 /obj/item/organ/vaurca/reservoir
 	icon = 'icons/obj/organs/vaurca_organs.dmi'

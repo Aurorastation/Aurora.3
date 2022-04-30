@@ -1495,7 +1495,7 @@
 /turf/template_noop,
 /area/derelict/hallway/northeast)
 "fi" = (
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
 /turf/simulated/floor/tiled/airless,
 /area/template_noop)
 "fk" = (
@@ -1587,7 +1587,7 @@
 /turf/template_noop,
 /area/derelict/hallway/northeast)
 "fv" = (
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
 /obj/structure/window/reinforced,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -4180,12 +4180,6 @@
 /obj/structure/girder,
 /turf/template_noop,
 /area/derelict/hallway/southwest)
-"nQ" = (
-/obj/structure/table/standard,
-/obj/item/dnainjector/h2m,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/derelict/hallway/southeast)
 "nR" = (
 /obj/item/device/flashlight/pen,
 /turf/simulated/floor/tiled/white,
@@ -46090,7 +46084,7 @@ mM
 jl
 jl
 jl
-nQ
+jn
 jx
 ij
 ij
