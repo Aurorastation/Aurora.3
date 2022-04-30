@@ -249,7 +249,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/bar,
+/obj/structure/closet/secure_closet/cabinet,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "agY" = (
@@ -771,7 +771,7 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "auU" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -30;
 	pixel_y = 31
 	},
@@ -1218,7 +1218,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "aIy" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
 	pixel_x = -31
 	},
@@ -1552,12 +1552,12 @@
 /obj/structure/table/stone/marble,
 /obj/item/material/kitchen/rollingpin{
 	pixel_x = 6;
-	pixel_y = 10ss
+	pixel_y = 10
 	},
 /obj/item/storage/box/produce{
 	layer = 2.99;
 	pixel_x = 3;
-	pixel_y = -5sssssssssssss
+	pixel_y = -5
 	},
 /obj/item/material/knife{
 	layer = 2.99;
@@ -3665,11 +3665,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "cam" = (
-/obj/machinery/atm{
-	pixel_x = 32
+/obj/machinery/orderterminal{
+	pixel_y = -32
 	},
-/turf/simulated/wall,
-/area/crew_quarters/bar)
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/cafeteria)
 "can" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/floor_decal/industrial/warning{
@@ -7758,12 +7758,12 @@
 	},
 /obj/item/material/kitchen/rollingpin{
 	pixel_x = 6;
-	pixel_y = 10ss
+	pixel_y = 10
 	},
 /obj/item/storage/box/produce{
 	layer = 2.99;
 	pixel_x = 3;
-	pixel_y = -5sssssssssssss
+	pixel_y = -5
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -8314,7 +8314,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "fdE" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "Medication Closet";
 	pixel_x = 31
 	},
@@ -10843,6 +10843,9 @@
 	c_tag = "Dinner - Bar 1";
 	dir = 8
 	},
+/obj/machinery/atm{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "gBa" = (
@@ -11679,7 +11682,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "haK" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = 32
 	},
 /obj/item/stack/medical/bruise_pack,
@@ -15340,7 +15343,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "Medication Closet";
 	pixel_x = 31
 	},
@@ -15669,12 +15672,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
-"jzc" = (
-/obj/machinery/orderterminal{
-	pixel_y = 32
-	},
-/turf/simulated/wall,
-/area/crew_quarters/kitchen)
 "jzq" = (
 /obj/structure/table/standard,
 /obj/machinery/light{
@@ -17824,6 +17821,9 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/corner_wide/green,
+/obj/structure/sign/nosmoking_1{
+	pixel_x = -29
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "kWz" = (
@@ -17935,6 +17935,9 @@
 	},
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 35
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "kZL" = (
@@ -18177,6 +18180,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hydroponics)
+"lgC" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/nosmoking_2{
+	pixel_y = 31
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/medical)
 "lhH" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -21336,7 +21347,7 @@
 	},
 /area/turret_protected/ai_upload_foyer)
 "nbd" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
 	pixel_x = -32
 	},
@@ -23488,7 +23499,7 @@
 	dir = 8
 	},
 /obj/machinery/firealarm/south,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
 	pixel_x = -32
 	},
@@ -26979,7 +26990,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
 	pixel_y = 32
 	},
@@ -28339,6 +28350,9 @@
 "rjb" = (
 /obj/machinery/chem_master,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/nosmoking_2{
+	pixel_x = -27
+	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/pharmacy)
 "rjK" = (
@@ -28510,7 +28524,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "rom" = (
-/obj/structure/closet/secure_closet/sciguncabinet,
+/obj/structure/closet/secure_closet/guncabinet/sci,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -32873,7 +32887,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
 	pixel_y = 32
 	},
@@ -34045,7 +34059,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "uyP" = (
-/obj/structure/closet/medical_wall,
+/obj/structure/closet/walllocker/medical,
 /turf/simulated/wall/r_wall,
 /area/engineering/storage_hard)
 "uzd" = (
@@ -34301,7 +34315,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "uGP" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating,
@@ -34690,6 +34704,9 @@
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
+	},
+/obj/structure/sign/nosmoking_2{
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
@@ -39426,7 +39443,7 @@
 /turf/simulated/wall,
 /area/rnd/hallway)
 "xzd" = (
-/obj/structure/closet/secure_closet/sciguncabinet,
+/obj/structure/closet/secure_closet/guncabinet/sci,
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Research Storage";
 	dir = 4
@@ -39727,11 +39744,11 @@
 /area/engineering/engine_room)
 "xIW" = (
 /obj/structure/curtain/black,
-/obj/structure/closet/coffin,
-/obj/structure/closet/coffin,
-/obj/structure/closet/coffin,
-/obj/structure/closet/coffin,
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin,
 /obj/machinery/button/remote/blast_door{
 	id = "massdriver";
 	layer = 3.2;
@@ -40435,6 +40452,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "yct" = (
@@ -57282,7 +57300,7 @@ dIZ
 dIZ
 dIZ
 dIZ
-sBL
+lgC
 sBL
 wcK
 nIi
@@ -60143,7 +60161,7 @@ due
 bsQ
 swH
 exU
-cam
+sKJ
 gul
 oUu
 pFr
@@ -60960,7 +60978,7 @@ izV
 juS
 vfm
 bGg
-juS
+cam
 txq
 txq
 txq
@@ -61155,7 +61173,7 @@ cMF
 eSd
 txq
 txq
-jzc
+pED
 xaF
 xtu
 nuZ

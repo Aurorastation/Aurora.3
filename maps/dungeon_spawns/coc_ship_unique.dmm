@@ -1059,7 +1059,7 @@
 	unlocked = 1
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_y = 30
 	},
 /turf/simulated/floor/plating,
@@ -1846,7 +1846,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/dungeon/crashed_ship)
 "TE" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_y = 32;
 	req_access = null;

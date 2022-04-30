@@ -14,9 +14,16 @@
 	possible_citizenships = list(CITIZENSHIP_KLAX)
 	possible_religions = list(RELIGION_PILOTDREAM)
 
+/decl/origin_item/origin/leto_b 
+	name = "Leto Brood" //jared?
+	desc = "The brood is mostly known for their archeological work and their production of k'ois in Pid, a moon near Tret."
+	possible_accents = list(ACCENT_KLAX, ACCENT_TTS)
+	possible_citizenships = list(CITIZENSHIP_KLAX)
+	possible_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE)
+
 /decl/origin_item/origin/vedhra_b
 	name = "Vedhra Brood"
-	desc = "The brood is mostly known for their archeological work and their production of k'ois in Pid, a moon near Tret."
+	desc = "One of the youngest Vaurca Queens, Vedhra wishes to unite the Vaurca civilization under Preimminence. The brood is also known for their augments and fascination with the Unathi culture. As with most K'lax broods, they mainly reside in Tret."
 	possible_accents = list(ACCENT_KLAX, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_KLAX)
 	possible_religions = list(RELIGION_PREIMMINENNCE)
