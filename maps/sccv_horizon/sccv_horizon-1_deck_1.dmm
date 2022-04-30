@@ -1048,7 +1048,7 @@
 	},
 /area/maintenance/wing/port/deck1)
 "aVU" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/industrial/outline,
@@ -23792,7 +23792,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "uQU" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
