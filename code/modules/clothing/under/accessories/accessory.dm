@@ -839,12 +839,13 @@
 	desc = "An embroidered patch indicating the wearer's blood type as AB NEGATIVE."
 	icon_state = "abnegtag"
 
-/obj/item/clothing/accessory/IPC_Mantle
+/obj/item/clothing/accessory/poncho/IPC_Mantle
 	name = "\improper Burzsian shoulder mantle"
-	desc = "An uniform mantle pulled over the right shoulder. The sigil of Burzsia is pressed into the front of it."
-	desc_fluff = "An identifying tarp issued to industrial IPCs that work without protective equipment on Burzsia. Tear resistant and chemically treated to withstand the planet of Burzsia I. More commonly seen on industrials or units that otherwise work inside of installations. Operation history and specifications are printed underneath the tarp, for field operators to quickly identify the unit in the event it is damaged to the point where it cannot give diagnostics."
-	icon = 'icons/clothing/suits/capes/BZ_mantle.dmi'
-	icon_state = "robot_mantle"
-	item_state = "robot_mantle"	
+	desc = "An uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
+	desc_fluff = "An uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where sad information cannot be discerned through other means."
+	icon = 'icons/clothing/accessories/BZ_Gorget.dmi'
+	icon_state = "Burz_gorget"
+	item_state = "Burz_gorget"	
 	contained_sprite = TRUE
 	icon_override = null
+	body_parts_covered = UPPER_TORSO
