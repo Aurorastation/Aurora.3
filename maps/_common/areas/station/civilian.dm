@@ -88,22 +88,38 @@
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
 
+// Fitness Center
 /area/crew_quarters/fitness
-	name = "Surface - Fitness Center"
+	name = "Fitness Center"
 	icon_state = "fitness"
 	allow_nightmode = 1
+
+/area/crew_quarters/fitness/changing
+	name = "Fitness Center - Changing Room"
+	sound_env = SMALL_ENCLOSED
+
+/area/crew_quarters/fitness/washroom
+	name = "Fitness Center - Washroom"
+	icon_state = "washroom"
+	sound_env = SMALL_ENCLOSED
+
+/area/crew_quarters/fitness/showers
+	name = "Fitness Center - Showers"
+	icon_state = "showers"
+	sound_env = SMALL_ENCLOSED
 
 /area/crew_quarters/fitness/pool
 	name = "Surface - Pool"
 	lightswitch = TRUE
 
-/area/crew_quarters/fitness/changing
-	name = "Surface - Changing Room"
-	sound_env = SMALL_ENCLOSED
-
-/area/crew_quarters/fitness/running
-	name = "Surface - Running Track"
+/area/crew_quarters/fitness/gym
+	name = "Fitness Center - Gym"
 	allow_nightmode = 0
+
+/area/crew_quarters/fitness/lounge
+	name = "Fitness Center - Lounge"
+	sound_env = SMALL_SOFTFLOOR
+//
 
 /area/crew_quarters/cafeteria
 	name = "Cafeteria"
