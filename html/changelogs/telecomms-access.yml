@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - maptweak: "The doors to telecomms now have the appropriate telecomms access requirement instead of just maintenance access."
