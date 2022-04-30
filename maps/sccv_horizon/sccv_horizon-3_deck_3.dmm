@@ -922,7 +922,7 @@
 	dir = 6
 	},
 /obj/machinery/light,
-/turf/simulated/floor/beach/water,
+/turf/simulated/floor/beach/water/alt,
 /area/crew_quarters/nature_showcase)
 "bW" = (
 /obj/structure/bed/stool/chair{
@@ -14312,7 +14312,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/turf/simulated/floor/beach/water,
+/turf/simulated/floor/beach/water/alt,
 /area/crew_quarters/nature_showcase)
 "Hf" = (
 /obj/random/junk,
@@ -18570,7 +18570,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/turf/simulated/floor/beach/water,
+/turf/simulated/floor/beach/water/alt,
 /area/crew_quarters/nature_showcase)
 "Qe" = (
 /obj/structure/cable/green{
