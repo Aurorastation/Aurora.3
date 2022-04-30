@@ -1,6 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed the Dropper's reagent filling overlay not clearing correctly."
