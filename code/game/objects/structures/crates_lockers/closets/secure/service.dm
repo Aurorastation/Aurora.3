@@ -3,12 +3,7 @@
 	name = "custodial closet"
 	req_access = list(access_janitor)
 	desc = "It's a storage unit for a custodian's clothes and gear."
-	icon_state = "secure_custodiallocked"
-	icon_closed = "secure_custodialunlocked"
-	icon_locked = "secure_custodiallocked"
-	icon_opened = "secure_custodialopen"
-	icon_broken = "secure_custodialbroken"
-	icon_off = "secure_custodialoff"
+	icon_state = "custodial"
 
 /obj/structure/closet/secure_closet/custodial/fill()
 	new /obj/item/clothing/head/softcap/janitor(src)
