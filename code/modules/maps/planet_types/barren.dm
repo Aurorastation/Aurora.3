@@ -63,6 +63,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/romanovich
 	name = "romanovich cloud asteroid"
 	desc = "A phoron rich asteroid."
+	possible_themes = list(/datum/exoplanet_theme/mountains/phoron)
 	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich/phoron)
 
 /datum/random_map/noise/exoplanet/barren/asteroid

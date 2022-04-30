@@ -4725,7 +4725,7 @@
 	pixel_y = 29;
 	req_access = null
 	},
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = 30;
 	pixel_y = -30;
@@ -17775,7 +17775,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "pCD" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = 31
 	},
 /obj/item/bodybag/cryobag,
@@ -22613,7 +22613,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "tNo" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = 28;
 	pixel_y = -4
 	},
@@ -23646,8 +23646,8 @@
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 4
 	},
-/obj/structure/closet/hydrant{
-	pixel_x = -32
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = -30
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
