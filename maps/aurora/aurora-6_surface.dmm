@@ -2376,7 +2376,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "bPl" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = -32
 	},
 /obj/item/stack/medical/ointment,
@@ -8590,7 +8590,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 8
 	},
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = 31
 	},
 /obj/item/bodybag/cryobag,
@@ -9337,7 +9337,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
 "ibJ" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = 28;
 	pixel_y = -4
 	},
@@ -15080,7 +15080,7 @@
 /area/hallway/secondary/entry/departure_lounge)
 "neq" = (
 /obj/structure/bed/roller,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = 30;
 	pixel_y = -30;
@@ -19236,7 +19236,7 @@
 /turf/simulated/open,
 /area/maintenance/substation/civilian_east)
 "qCa" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating,
@@ -26221,12 +26221,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/closet/secure_closet/freezer{
-	icon_broken = "fridgebroken";
-	icon_closed = "fridge";
-	icon_locked = "fridge1";
-	icon_off = "fridge1";
-	icon_opened = "fridgeopen";
-	icon_state = "fridge1";
+	icon_state = "freezer"
 	name = "cafe fridge"
 	},
 /obj/machinery/button/remote/blast_door{
@@ -26462,7 +26457,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_x = -32
 	},
 /obj/item/stack/medical/bruise_pack,

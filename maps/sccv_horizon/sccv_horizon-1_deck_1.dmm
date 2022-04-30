@@ -4832,6 +4832,15 @@
 	pixel_y = 29;
 	req_access = null
 	},
+/obj/structure/closet/walllocker/medical/secure{
+	name = "blood closet";
+	pixel_x = 30;
+	pixel_y = -30;
+	req_access = null
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/camera/network/intrepid{
 	c_tag = "Intrepid - Medbay"
@@ -18087,7 +18096,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "pCD" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = 31
 	},
 /obj/item/bodybag/cryobag,
@@ -23046,7 +23055,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "tNo" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = 28;
 	pixel_y = -4
 	},
@@ -24122,7 +24131,7 @@
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 4
 	},
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -30
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
