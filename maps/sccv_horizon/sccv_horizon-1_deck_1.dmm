@@ -23647,7 +23647,7 @@
 	dir = 4
 	},
 /obj/structure/closet/walllocker/firecloset{
-	pixel_x = -30
+	pixel_x = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
