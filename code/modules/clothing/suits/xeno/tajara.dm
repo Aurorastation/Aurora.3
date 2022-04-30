@@ -151,6 +151,41 @@
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 
+/obj/item/clothing/suit/storage/hooded/amohda
+	name = "amohdan cloak"
+	desc = "Originally used by the Amohdan swordsmen before the First Revolution, this cloak is now commonly worn by the island population."
+	icon_state = "amohda_cloak"
+	item_state = "amohda_cloak"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/winter
+	name = "adhomian winter cloak"
+	desc = "A simple wool cloak used during the early days of the lesser winter."
+	icon_state = "winter_cloak"
+	item_state = "winter_cloak"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/asym
+	name = "adhomian asymmetric cloak"
+	desc = "An Adhomian cloak with an asymmetric design."
+	icon_state = "asym_cloak"
+	item_state = "asym_cloak"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/maroon
+	name = "adhomian maroon cloak"
+	desc = "A simple maroon colored Adhomian cloak."
+	icon_state = "maroon_cloak"
+	item_state = "maroon_cloak"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/fancy
+	name = "fancy adhomian cloak"
+	desc = "A fancy black Adhomian cloak."
+	icon_state = "hb_cloak"
+	item_state = "hb_cloak"
+	flags_inv = 0
+
 /obj/item/clothing/suit/armor/amohda
 	name = "amohdan swordsman armor"
 	desc = "A suit of armor used by the traditional warriors of Amohda."

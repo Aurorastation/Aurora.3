@@ -53,7 +53,6 @@
 	..()
 	var/list/coat = list()
 	coat["tajaran naval coat"] = /obj/item/clothing/suit/storage/toggle/tajaran
-	coat["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran
 	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/wool
 	coat["raakti shariim coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/raakti_shariim
 	coat["al'mariist jacket"] = /obj/item/clothing/suit/storage/tajaran/pra_jacket
@@ -73,6 +72,12 @@
 	var/list/tajarancloak = list()
 	tajarancloak["common cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak
 	tajarancloak["fancy cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak/fancy
+	tajarancloak["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran
+	tajarancloak["amohdan cloak"] = /obj/item/clothing/suit/storage/hooded/amohda
+	tajarancloak["adhomian winter cloak"] = /obj/item/clothing/suit/storage/hooded/winter
+	tajarancloak["adhomian asymmetric cloak"] = /obj/item/clothing/suit/storage/hooded/asym
+	tajarancloak["adhomian maroon cloak"] = /obj/item/clothing/suit/storage/hooded/maroon
+	tajarancloak["fancy adhomian cloak"] = /obj/item/clothing/suit/storage/hooded/fancy
 	gear_tweaks += new /datum/gear_tweak/path(tajarancloak)
 
 /datum/gear/suit/tajara_priest
