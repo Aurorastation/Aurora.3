@@ -701,5 +701,13 @@ Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident f
 /obj/item/paper/fluff/microwave
 	name = "\improper RE: Where are our microwaves?"
 	desc = null
-	info = "<font face=\"Verdana\"><font size=\"1\"><i>2464-04-30 04:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font><BR>We are sorry for the lack of a microwave, but the transport got misdirected on the way.<BR>-<font face=\"Courier New\"><i>Orion Express Customer Service</i></font><BR><BR><font size=\"1\"><i>2464-04-30 07:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font><BR>We apologize for the lack of a microwave. As compensation, employees are given a donut box. Please enjoy.<BR>-<font face=\"Courier New\"><i>SCC Internal Affairs</i></font></font>"
-	info_links = "<font face=\"Verdana\"><font size=\"1\"><i>2464-04-30 04:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font><BR>We are sorry for the lack of a microwave, but the transport got misdirected on the way.<BR>-<font face=\"Courier New\"><i>Orion Express Customer Service</i></font><BR><BR><font size=\"1\"><i>2464-04-30 07:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font><BR>We apologize for the lack of a microwave. As compensation, employees are given a donut box. Please enjoy.<BR>-<font face=\"Courier New\"><i>SCC Internal Affairs</i></font></font>"
+	info = "<font face=\"Verdana\"><font size=\"1\"><i>2464-04-30 04:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our \
+	microwaves?</i></font><BR>We are sorry for the lack of a microwave, but the transport got misdirected on the way.<BR>-<font face=\"Courier \
+	New\"><i>Orion Express Customer Service</i></font><BR><BR><font size=\"1\"><i>2464-04-30 07:50 GST</i></font><BR><font size=\"1\"><i>E-Mail \
+	Title: RE: Where are our microwaves?</i></font><BR>We apologize for the lack of a microwave. As compensation, employees are given a donut box. \
+	Please enjoy.<BR>-<font face=\"Courier New\"><i>SCC Internal Affairs</i></font></font>"
+	info_links = "<font face=\"Verdana\"><font size=\"1\"><i>2464-04-30 04:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our \
+	microwaves?</i></font><BR>We are sorry for the lack of a microwave, but the transport got misdirected on the way.<BR>-<font face=\"Courier \
+	New\"><i>Orion Express Customer Service</i></font><BR><BR><font size=\"1\"><i>2464-04-30 07:50 GST</i></font><BR><font size=\"1\"><i>E-Mail \
+	Title: RE: Where are our microwaves?</i></font><BR>We apologize for the lack of a microwave. As compensation, employees are given a donut box. \
+	Please enjoy.<BR>-<font face=\"Courier New\"><i>SCC Internal Affairs</i></font></font>"
