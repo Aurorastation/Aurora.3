@@ -337,7 +337,7 @@
 	handle_regular_hud_updates()
 
 // Simple helper to face what you clicked on, in case it should be needed in more than one place
-/mob/proc/face_atom(var/atom/A)
+/mob/proc/face_atom(var/atom/A, var/force_face = FALSE)
 	if(!A || !x || !y || !A.x || !A.y) return
 	var/dx = A.x - x
 	var/dy = A.y - y
@@ -359,7 +359,7 @@
 			direction = WEST
 
 	if(direction != dir)
-		facedir(direction, TRUE)
+		facedir(direction, force_face)
 
 var/global/list/click_catchers
 

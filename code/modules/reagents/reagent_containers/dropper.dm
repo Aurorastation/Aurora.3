@@ -77,7 +77,6 @@
 			to_chat(user, "<span class='notice'>You transfer [trans] units of the solution.</span>")
 
 	else // Taking from something
-
 		if(!target.is_open_container() && !istype(target,/obj/structure/reagent_dispensers))
 			to_chat(user, "<span class='notice'>You cannot directly remove reagents from [target].</span>")
 			return
@@ -94,7 +93,7 @@
 
 /obj/item/reagent_containers/dropper/update_icon()
 	cut_overlays()
-	if(reagents)
+	if(reagents.total_volume)
 		add_overlay(overlay_image('icons/obj/reagentfillings.dmi', "[icon_state]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
 		update_held_icon()

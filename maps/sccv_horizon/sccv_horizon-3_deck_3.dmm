@@ -4864,8 +4864,8 @@
 /area/security/investigations)
 "jR" = (
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 28;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -5879,22 +5879,22 @@
 /obj/machinery/button/remote/blast_door{
 	id = "hangarlockdown";
 	name = "Hangar Lockdoor";
-	pixel_y = -33;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = -33
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "bridge blast";
 	name = "Bridge Lockdown";
-	req_access = list(19);
+	pixel_x = -5;
 	pixel_y = -24;
-	pixel_x = -5
+	req_access = list(19)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "crew_armory";
 	name = "Crew Armory";
-	req_access = list(60);
 	pixel_x = 6;
-	pixel_y = -33
+	pixel_y = -33;
+	req_access = list(60)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
@@ -6410,11 +6410,7 @@
 /obj/item/clipboard,
 /obj/item/pen/multi,
 /obj/item/device/camera,
-/obj/structure/closet/lawcloset{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
-	icon_state = "cabinet_closed"
-	},
+/obj/structure/closet/lawcloset,
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
 "mZ" = (
@@ -6998,7 +6994,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	id_tag = "bunker1";
 	name = "Command Bunker Access";
-	req_access = list(19)
+	req_access = list(19, 61)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -9951,7 +9947,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms Access";
-	req_access = list(12)
+	req_access = list(12, 61)
 	},
 /turf/simulated/floor,
 /area/tcommsat/entrance)
@@ -10848,7 +10844,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = 32
 	},
 /obj/item/stack/medical/bruise_pack,
@@ -15019,7 +15015,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = -32
 	},
 /obj/item/stack/medical/ointment,
@@ -15242,7 +15238,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms Access";
-	req_access = list(12)
+	req_access = list(12, 61)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -16901,8 +16897,8 @@
 /area/maintenance/security_starboard)
 "IU" = (
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 28;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
@@ -18498,7 +18494,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = -32
 	},
 /obj/item/stack/medical/bruise_pack,
@@ -21738,7 +21734,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms Access";
-	req_access = list(12)
+	req_access = list(12, 61)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/airtight,
@@ -22175,16 +22171,16 @@
 	id = "captaindoor";
 	name = "Office Door Control";
 	pixel_x = 30;
-	req_access = list(20);
-	pixel_y = 10
+	pixel_y = 10;
+	req_access = list(20)
 	},
 /obj/machinery/button/remote/airlock{
 	desc = "A remote control-switch for the starboard bridge doors.";
 	id = "sbridgedoor";
 	name = "Bridge Door Control";
+	pixel_x = 30;
 	pixel_y = -2;
-	req_access = list(20);
-	pixel_x = 30
+	req_access = list(20)
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/carpet/rubber,
@@ -25171,8 +25167,8 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 28;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -41601,8 +41597,8 @@ tT
 gW
 at
 fh
-aa
-aa
+Vu
+Vu
 aa
 aa
 aa
@@ -41803,19 +41799,19 @@ fc
 gi
 at
 fh
-Vu
-Vu
+yM
+yM
+wl
 aa
 aa
 aa
-Wm
-Wm
-Wm
-Wm
-Wm
-Wm
-Wm
-Wm
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 Wm
 Wm
 Wm
@@ -42005,18 +42001,18 @@ FP
 gi
 at
 fh
-yM
+fm
 yM
 wl
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Uj
+KN
+KN
+KN
+KN
+KN
+KN
+KN
+Mo
 aa
 aa
 aa
@@ -42206,19 +42202,19 @@ gY
 GJ
 gi
 at
-fh
-fm
-yM
+VM
 KN
 KN
 KN
-KN
-KN
-KN
-KN
-KN
-KN
-KN
+bU
+at
+at
+at
+at
+at
+at
+at
+VM
 KN
 KN
 KN

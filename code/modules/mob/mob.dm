@@ -955,10 +955,10 @@
 	return canmove
 
 
-/mob/proc/facedir(var/ndir)
+/mob/proc/facedir(var/ndir, var/force_change = FALSE)
 	if(!canface() || (client && client.moving))
 		return 0
-	if(facing_dir != ndir)
+	if((facing_dir != ndir) && force_change)
 		facing_dir = null
 	set_dir(ndir)
 	if(buckled_to && buckled_to.buckle_movable)
