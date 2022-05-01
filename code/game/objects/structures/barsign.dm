@@ -60,8 +60,6 @@
 /obj/structure/sign/double/barsign/kitchensign
 	icon = 'icons/obj/kitchensigns.dmi'
 	icon_state = "Off"
-	anchored = 1
-	req_access = list(access_kitchen)
 	choice_types = /decl/sign/double/kitchen
 
 /obj/structure/sign/double/barsign/attackby(obj/item/I, mob/user)
@@ -77,23 +75,27 @@
 		return
 
 	return ..()
-/decl/sign/double/off
+/decl/sign/double
 	var/name = "Holgraphic Projector"
 	var/icon_state = "off"
 	var/desc = "A holographic projector, displaying different saved themes. It is turned off right now."
 	var/desc_fluff = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the kitchen."
 
-/decl/sign/double/bar/whiskey_implant
+/decl/sign/double/bar
 	name = "Whiskey Implant"
 	icon_state = "Whiskey Implant"	
 	desc = "This bar is called Whiskey Implant!"
 	desc_fluff = "Specializes in whiskey!"
 
-/decl/sign/double/kitchen/event_horizon
+/decl/sign/double/kitchen
 	name = "Event Horizon"
 	icon_state = "Event Horizon"
 	desc = "The SCCV Horizon's Kitchen franchise sign."
 	desc_fluff = "Since the start of the SCCV Horizon, the SCC has been trying to establish a proper franchise on board of it's long-range vessels. Since the first test runs were done on the Horizon, the name 'Event Horizon' has been chosen to commemorate this."
+
+/obj/structure/sign/double/barsign/proc/get_sign_choices()
+	var/list/sign_choices = decls_repository.get_decls_of_subtype(choice_types)
+	return sign_choices
 
 /obj/structure/sign/double/barsign/proc/set_sign()  // -- player picks a sign name they want from the list of 'sign choices', bar or kitchen
     var/list/sign_choices = get_sign_choices()
