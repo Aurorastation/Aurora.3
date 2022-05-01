@@ -25,6 +25,12 @@
 	. = ..()
 	update_state()
 
+/obj/structure/door_assembly/door_assembly_ser
+	base_icon_state = "ser"
+	base_name = "Service Airlock"
+	glass_type = "/glass_service"
+	airlock_type = "/service"
+
 /obj/structure/door_assembly/door_assembly_com
 	base_icon_state = "com"
 	base_name = "Command Airlock"
