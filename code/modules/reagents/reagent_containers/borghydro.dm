@@ -4,12 +4,13 @@
 	desc_info = "Stationbound synthesizers produce specific reagents dependent on the selected module, which you can select by using it. \
 	The reagents recharge automatically at the cost of energy.<br> Alt Click the synthesizer to change the transfer amount."
 	desc_fluff = null
-	icon = 'icons/obj/syringe.dmi' // VTD: Do I create an animation for the injection thing or nah? Hmm
+	icon = 'icons/obj/syringe.dmi'
+	icon_state = "medical_synth"
 	item_state = "hypo"
-	icon_state = "borghypo"
 	amount_per_transfer_from_this = 5
-	volume = 30
 	possible_transfer_amounts = null
+	volume = 30
+	time = 1.5 SECONDS
 
 	var/mode = 1
 	var/charge_cost = 50
@@ -39,15 +40,19 @@
 	update_icon()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/reagent_containers/hypospray/borghypo/update_icon() // To do: Will work on the Medical Synthesizer in a future PR -Vrow
+/obj/item/reagent_containers/hypospray/borghypo/update_icon()
 	cut_overlays()
 
-	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
-	if(reagents.total_volume)
-		filling = image(icon, src, "[initial(icon_state)][volume]")
-		filling.icon_state = "[initial(icon_state)][rounded_vol]"
-		filling.color = reagents.get_color()
+	var/rid = reagent_ids[mode]
+	var/decl/reagent/R = decls_repository.get_decl(rid)
+	if(reagent_volumes[rid])
+		filling = image(icon, src, "[initial(icon_state)][reagent_volumes[rid]]")
+		filling.color = R.get_color()
 		add_overlay(filling)
+
+		var/mutable_appearance/reagent_bar = mutable_appearance(icon, "[initial(icon_state)]_reagents")
+		reagent_bar.color = R.get_color()
+		add_overlay(reagent_bar)
 
 /obj/item/reagent_containers/hypospray/borghypo/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -78,6 +83,7 @@
 	
 	user.visible_message(SPAN_NOTICE("[user] injects [M] with their hypospray!"), SPAN_NOTICE("You inject [M] with your hypospray!"), SPAN_NOTICE("You hear a hissing noise."))
 	to_chat(M, SPAN_NOTICE("You feel a tiny prick!"))
+	playsound(src, 'sound/items/hypospray.ogg',25)
 
 	if(M.reagents)
 		var/t = min(amount_per_transfer_from_this, reagent_volumes[reagent_ids[mode]])

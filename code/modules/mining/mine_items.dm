@@ -809,13 +809,17 @@
 	desc = "An injector with a secret patented cocktail of nanomachines and chemicals, this device can seemingly raise animals from the dead. If no effect in 3 days please call customer support."
 	icon = 'icons/obj/syringe.dmi'
 	icon_state = "lazarus_loaded"
-	item_state = "hypo" // VTD: Oh yeah you forgot the item in-hands sprite fuck. Could add the autoinhaler and inhalers as well
+	item_state = "lazarus_loaded"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi'
+		)
 	throwforce = 0
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 5
 	var/loaded = TRUE
-	var/color = null
+	var/mask_color = null
 	var/emagged = FALSE
 	var/malfunctioning = FALSE
 	var/revive_type = TYPE_ORGANIC //So you can't revive boss monsters or robots with it
@@ -823,21 +827,23 @@
 
 /obj/item/lazarus_injector/Initialize()
 	. = ..()
-	if(!color)
-		color = pick(COLOR_RED, COLOR_BLUE, COLOR_LIME, COLOR_ORANGE, COLOR_PINK, COLOR_YELLOW, COLOR_CYAN)
+	if(!mask_color)
+		mask_color = pick(COLOR_RED, COLOR_ORANGE, COLOR_YELLOW, COLOR_LIME, COLOR_CYAN, COLOR_PINK)
 		update_icon()
 
 /obj/item/lazarus_injector/update_icon()
 	cut_overlays()
 	if(loaded)
-		var/mutable_appearance/filling = mutable_appearance(icon, src, "filling")
-		filling.color = color
+		var/mutable_appearance/filling = mutable_appearance(icon, "lazarus_filling")
+		filling.color = mask_color
 		add_overlay(filling)
 		if(malfunctioning || emagged)
-			var/mutable_appearance/static_fill = mutable_appearance(icon, src, "static")
-			static_fill.color = color
+			var/mutable_appearance/static_fill = mutable_appearance(icon, "lazarus_static")
+			static_fill.color = mask_color
 			add_overlay(static_fill)
 	icon_state = "lazarus_[loaded ? "loaded" : "spent"]"
+	item_state = icon_state
+	update_held_icon()
 
 /obj/item/lazarus_injector/afterattack(atom/target, mob/user, proximity_flag)
 	if(!loaded)
