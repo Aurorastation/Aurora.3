@@ -49,41 +49,62 @@
 	return ..()
 	*/
 
-/decl/sign/double/barsign
-    var/name = "Holgraphic Projector"
-    var/icon_state = "off"
-    var/desc = "A holographic projector, displaying different saved themes. It is turned off right now."
-    var/desc_fluff = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the kitchen."
-
-/decl/sign/bar/whiskey_implant
-    name = "Whiskey Implant"
-    icon_state = "Whiskey Implant"
-    desc = "This bar is called Whiskey Implant!"
-    desc_fluff = "Specializes in whiskey!"
-
-/decl/sign/kitchen/kitchen1
-    name = "Event Horizon"
-    icon_state = "Event Horizon"
-    desc = "The SCCV Horizon's Kitchen franchise sign."
-    desc_fluff = "Since the start of the SCCV Horizon, the SCC has been trying to establish a proper franchise on board of it's long-range vessels. Since the first test runs were done on the Horizon, the name 'Event Horizon' has been chosen to commemorate this."
-
-
 /obj/structure/sign/double/barsign
-    var/choice_types = /decl/sign/bar
+	icon = 'icons/obj/barsigns.dmi'
+	icon_state = "Off"
+	anchored = 1
+	var/cult = 0
+	req_access = list(access_bar) //Has to initalize at first, this is updated by instance's req_access
+	var/choice_types = /decl/sign/double/bar
+
+/obj/structure/sign/double/barsign/kitchensign
+	icon = 'icons/obj/kitchensigns.dmi'
+	icon_state = "Off"
+	choice_types = /decl/sign/double/kitchen
+
+/obj/structure/sign/double/barsign/attackby(obj/item/I, mob/user)
+	if(cult)
+		return ..()	
+	var/obj/item/card/id/card = I.GetID()
+	if(istype(card))
+		if(check_access(card))
+			set_sign()
+			to_chat(user, "<span class='notice'>You change the sign.</span>")
+		else
+			to_chat(user, "<span class='warning'>Access denied.</span>")
+		return
+
+	return ..()
+/decl/sign/double
+	var/name = "Holgraphic Projector"
+	var/icon_state = "off"
+	var/desc = "A holographic projector, displaying different saved themes. It is turned off right now."
+	var/desc_fluff = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the kitchen."
+
+/decl/sign/double/bar
+	name = "Whiskey Implant"
+	icon_state = "Whiskey Implant"	
+	desc = "This bar is called Whiskey Implant!"
+	desc_fluff = "Specializes in whiskey!"
+
+/decl/sign/double/kitchen
+	name = "Event Horizon"
+	icon_state = "Event Horizon"
+	desc = "The SCCV Horizon's Kitchen franchise sign."
+	desc_fluff = "Since the start of the SCCV Horizon, the SCC has been trying to establish a proper franchise on board of it's long-range vessels. Since the first test runs were done on the Horizon, the name 'Event Horizon' has been chosen to commemorate this."
 
 /obj/structure/sign/double/barsign/proc/get_sign_choices()
-    var/list/sign_choices = get_decls_of_subtype(choice_types)
+	var/list/sign_choices = decls_repository.get_decls_of_subtype(choice_types)
+	return sign_choices
 
-/obj/structure/sign/double/barsign/kitchen
-    choice_types = /decl/sign/kitchen
-
-
-/obj/structure/sign/double/barsign/proc/set_sign()
-    // -- player picks a sign name they want from the list of 'sign choices' --
-    var/decl/sign/sign_choice = input(...choose from sign_choices...)
-
-    name = sign_choice.name
-    desc = sign_choice.desc
-    desc_fluff = sign_choice.desc_fluff
-    icon_state = sign_choice.icon_state
-    update_icon()
+/obj/structure/sign/double/barsign/proc/set_sign()  // -- player picks a sign name they want from the list of 'sign choices', bar or kitchen
+	var/sign_choice = input("What should the sign be changed to?") as null|anything in get_sign_choices()
+	if(!sign_choice)
+		return
+	var/decl/sign/double/signselect = decls_repository.get_decl(sign_choice)
+	
+	name = signselect.name
+	desc = signselect.desc
+	desc_fluff = signselect.desc_fluff
+	icon_state = signselect.icon_state
+	update_icon()

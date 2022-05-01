@@ -8305,6 +8305,20 @@
 /obj/item/device/hand_labeler,
 /obj/item/device/destTagger,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/stack/material/cardboard{
+	amount = 10;
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/stack/material/cardboard{
+	amount = 10;
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/holomenu,
+/obj/item/holomenu{
+	pixel_x = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "fdE" = (
@@ -24242,6 +24256,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
+"oKP" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/button/remote/blast_door{
+	id = "diner_shutters";
+	name = "Diner Counter Shutters";
+	pixel_y = -29;
+	pixel_x = -9;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "oKR" = (
 /obj/machinery/light/small/emergency,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -28086,20 +28111,6 @@
 /area/medical/first_responder)
 "rar" = (
 /obj/structure/table/stone/marble,
-/obj/item/holomenu,
-/obj/item/holomenu{
-	pixel_x = 9
-	},
-/obj/item/stack/material/cardboard{
-	amount = 10;
-	pixel_x = 1;
-	pixel_y = 2
-	},
-/obj/item/stack/material/cardboard{
-	amount = 10;
-	pixel_x = 1;
-	pixel_y = 2
-	},
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "diner_shutters";
@@ -28107,6 +28118,17 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light_switch{
+	pixel_y = 7;
+	pixel_x = -3
+	},
+/obj/machinery/button/remote/airlock{
+	id = "dinerbolt";
+	name = "Door Bolt Control";
+	pixel_x = 7;
+	pixel_y = 8;
+	specialfunctions = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "raA" = (
@@ -37653,19 +37675,6 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/reinforced,
 /area/crew_quarters/kitchen/freezer)
-"wyU" = (
-/obj/machinery/button/remote/blast_door{
-	id = "diner_shutters";
-	name = "Diner Counter Shutters";
-	pixel_y = -24
-	},
-/obj/machinery/light_switch{
-	pixel_y = -25;
-	pixel_x = -9
-	},
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "wyV" = (
 /turf/simulated/wall,
 /area/medical/cryo)
@@ -39325,7 +39334,8 @@
 "xtu" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	name = "Kitchen"
+	name = "Kitchen";
+	id_tag = "dinerbolt"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -62231,7 +62241,7 @@ gfj
 nhR
 eOl
 hqS
-wyU
+oKP
 mPl
 xer
 qgN
