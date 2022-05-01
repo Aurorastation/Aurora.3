@@ -42,7 +42,7 @@
 	req_one_access = list(12)
 	},
 /turf/simulated/floor,
-/area/storage/shields)
+/area/maintenance/engineering_ladder)
 "ag" = (
 /obj/machinery/cryopod,
 /obj/structure/railing/mapped,
@@ -324,7 +324,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/storage/shields)
+/area/maintenance/engineering_ladder)
 "aJ" = (
 /obj/structure/cable/cyan{
 	icon_state = "0-8"
@@ -470,7 +470,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
-/area/storage/shields)
+/area/maintenance/engineering_ladder)
 "aV" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -631,12 +631,14 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "bj" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/alarm{
+	pixel_x = -28;
+	dir = 4
+	},
 /turf/simulated/floor,
-/area/storage/shields)
+/area/maintenance/engineering_ladder)
 "bk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -940,6 +942,10 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/alarm{
+	pixel_x = -28;
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "bO" = (
@@ -967,7 +973,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/port)
+/area/crew_armory)
 "bR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -1228,7 +1234,7 @@
 	name = "Crew Armory"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/port)
+/area/crew_armory)
 "cw" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5480,7 +5486,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
-/area/storage/shields)
+/area/maintenance/engineering_ladder)
 "le" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
@@ -8807,7 +8813,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/port)
+/area/crew_armory)
 "rN" = (
 /obj/effect/floor_decal/spline/fancy,
 /obj/machinery/computer/ship/engines{
@@ -11906,7 +11912,7 @@
 	name = "Crew Armory"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/port)
+/area/crew_armory)
 "yz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -12320,6 +12326,10 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/alarm{
+	pixel_x = -28;
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "zu" = (
@@ -13111,14 +13121,15 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "Ba" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/storage/shields)
-"Bb" = (
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Crew Armoury";
-	dir = 8
+/obj/machinery/alarm{
+	pixel_x = -28;
+	dir = 4
 	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
+"Bb" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
@@ -13974,6 +13985,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Crew Armoury";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "CV" = (
@@ -14546,7 +14561,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
-/area/storage/shields)
+/area/maintenance/engineering_ladder)
 "Eq" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable/green{
@@ -16058,7 +16073,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/port)
+/area/crew_armory)
 "Hp" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -16421,9 +16436,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/fitness/changing)
-"Ia" = (
-/turf/simulated/wall,
-/area/storage/shields)
 "Ib" = (
 /obj/structure/cryofeed{
 	dir = 4
@@ -17546,7 +17558,7 @@
 "Ki" = (
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/port)
+/area/crew_armory)
 "Kj" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
@@ -18315,7 +18327,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
-/area/storage/shields)
+/area/maintenance/engineering_ladder)
 "LN" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/blue{
@@ -19098,7 +19110,7 @@
 	},
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor,
-/area/storage/shields)
+/area/maintenance/engineering_ladder)
 "Nu" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -20528,7 +20540,7 @@
 	req_one_access = list(12)
 	},
 /turf/simulated/floor,
-/area/hallway/primary/port)
+/area/maintenance/engineering_ladder)
 "PZ" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -20905,7 +20917,8 @@
 "QI" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/maintenance/aux_atmospherics/deck_3)
 "QJ" = (
 /obj/structure/cable/green{
@@ -24246,9 +24259,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
-"XP" = (
-/turf/simulated/wall,
-/area/hallway/primary/port)
 "XQ" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -24397,6 +24407,10 @@
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/alarm{
+	pixel_x = -28;
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "Ye" = (
@@ -47106,11 +47120,11 @@ FH
 FH
 FH
 FH
-FH
-Uc
-Uc
-Uc
-Uc
+ac
+ac
+ac
+ac
+ac
 UH
 JB
 lu
@@ -47501,15 +47515,15 @@ HQ
 Fh
 HQ
 HQ
-HQ
+Ba
 DX
 GK
 vm
 Xc
 xm
 eI
-bj
-bj
+eI
+eI
 ar
 av
 aQ
@@ -47697,16 +47711,16 @@ at
 at
 em
 Ip
-FH
-FH
-FH
-FH
-FH
-FH
-FH
-FH
-FH
-FH
+DQ
+DQ
+DQ
+DQ
+DQ
+DQ
+DQ
+DQ
+DQ
+DQ
 Kc
 yd
 au
@@ -47908,7 +47922,7 @@ ga
 aO
 rM
 Ki
-FH
+DQ
 rU
 Du
 pO
@@ -48110,16 +48124,16 @@ Li
 Bg
 bQ
 Ho
-FH
+DQ
 AV
 tX
 ml
-Ba
-Ba
-Ba
-Ba
-Ba
-Ba
+ml
+ml
+ml
+ml
+ml
+ml
 af
 lH
 DV
@@ -48312,17 +48326,17 @@ kN
 DQ
 cv
 yy
-FH
+DQ
 vm
 FE
 vm
-Ia
-Ia
-Ia
-Ia
-Ia
-Ia
-Ia
+vm
+vm
+vm
+vm
+vm
+vm
+vm
 Ig
 iY
 oo
@@ -49522,10 +49536,10 @@ DQ
 DQ
 DQ
 DQ
-XP
-XP
+vm
+vm
 PY
-XP
+vm
 po
 Pu
 ZV
@@ -49723,7 +49737,7 @@ DJ
 DJ
 DJ
 DJ
-DJ
+bj
 rH
 Os
 Lk
