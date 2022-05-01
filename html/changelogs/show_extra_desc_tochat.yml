@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - tweak: "You can now view extra descriptions directly in the chat."
