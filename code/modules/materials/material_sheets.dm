@@ -456,6 +456,7 @@
 	name = "graphite"
 	icon_state = "sheet-graphite"
 	default_type = MATERIAL_GRAPHITE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/graphite/full/Initialize()
 	. = ..()
