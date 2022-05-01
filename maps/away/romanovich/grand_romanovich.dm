@@ -92,17 +92,3 @@
 	new /obj/item/coin/casino(src)
 	new /obj/item/coin/casino(src)
 	new /obj/item/coin/casino(src)
-
-// landmarks
-
-/obj/effect/shuttle_landmark/romanovich/nav1
-	name = "Small Shuttle Hangar Bay"
-	landmark_tag = "nav_hangar_romanovich"
-	base_turf = /turf/simulated/floor/plating
-	base_area = /area/grand_romanovich
-
-/obj/effect/shuttle_landmark/horizon/nav2
-	name = "Small Shuttle Hangar Bay 2"
-	landmark_tag = "nav_hangar_romanovich"
-	base_turf = /turf/simulated/floor/plating
-	base_area = /area/grand_romanovich
