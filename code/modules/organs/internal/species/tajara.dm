@@ -34,8 +34,8 @@
 	if(is_broken())
 		return
 
-	if(!vision_mechanical_color && (status & ORGAN_ROBOT && robotize_type != allowed_model))
-		return
+	if(status & ORGAN_ROBOT)
+		return robotic_check()
 
 	if(!night_vision)
 		enable_night_vision()
@@ -43,6 +43,12 @@
 		disable_night_vision()
 
 	owner.last_special = world.time + 20
+
+/obj/item/organ/internal/eyes/night/proc/robotic_check(var/mob/user)
+	if(robotize_type == allowed_model)
+		return TRUE
+	else
+		return FALSE
 
 /obj/item/organ/internal/eyes/night/take_damage(var/amount, var/silent = 0)
 	. = ..()
