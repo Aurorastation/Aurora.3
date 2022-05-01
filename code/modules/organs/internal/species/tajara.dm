@@ -7,7 +7,7 @@
 	relative_size = 8
 	var/night_vision = FALSE
 	var/datum/client_color/vision_color = /datum/client_color/monochrome
-	var/datum/client_color/vision_mechanical_color
+	var/datum/client_color/vision_mechanical_color = /datum/client_color/monochrome
 	var/eye_emote = "'s eyes dilate!"
 
 /obj/item/organ/internal/eyes/night/Destroy()
@@ -33,7 +33,7 @@
 	if(is_broken())
 		return
 
-	if(!vision_mechanical_color && (status & ORGAN_ROBOT))
+	if(!vision_mechanical_color && (status & ORGAN_ROBOT && robotize_type != PROSTHETIC_TESLA))
 		return
 
 	if(!night_vision)
