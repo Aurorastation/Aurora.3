@@ -2,10 +2,10 @@
   <div>
     <h2>TRUCK STATUS</h2>
     <div v-if="is_on">
-      The engine is currently running. <vui-button :params="{ toggle_engine: 1}">Stop</vui-button>
+      The engine is currently running.
     </div>
     <div v-else>
-      The engine is off. <vui-button :disabled="!has_key || !has_cell" :params="{ toggle_engine: 1}">Start</vui-button>
+      The engine is off.
     </div>
     <div v-if="has_key">
       There is a key inserted into the ignition. <vui-button :params="{ key: 1}">Remove Key</vui-button>

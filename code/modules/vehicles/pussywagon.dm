@@ -43,7 +43,7 @@
 /obj/vehicle/train/cargo/engine/pussywagon/Topic(href, href_list, datum/topic_state/state)
 	. = ..()
 	if(.)
-		return
+		return TRUE
 
 	if(href_list["toggle_hoover"])
 		toggle_hoover(usr)
@@ -59,7 +59,7 @@
 		if(!key)
 			user.drop_from_inventory(W, src)
 			key = W
-			to_chat(user, SPAN_NOTICE("You slide \the [W] into the [src]'s ignition."))
+			to_chat(user, SPAN_NOTICE("You slide \the [W] into \the [src]'s ignition."))
 			playsound(src, 'sound/machines/vehicles/pussywagon/key_in.ogg', 50, FALSE)
 		else
 			to_chat(user, SPAN_NOTICE("There is already a key in [src]'s ignition."))
@@ -67,6 +67,9 @@
 	..()
 
 /obj/vehicle/train/cargo/engine/pussywagon/CtrlClick(mob/user)
+	if(load && load != user)
+		to_chat(user, SPAN_WARNING("You can't interact with \the [src] while its in use."))
+		return
 	var/list/options = list(
 		"Toggle Ignition" = image('icons/mob/screen/radial.dmi', "custodial_key"),
 		"Toggle Mopping" = image('icons/mob/screen/radial.dmi', "custodial_mop"),
@@ -93,18 +96,21 @@
 	if(!key)
 		to_chat(user, SPAN_NOTICE("There is no key in \the [src]'s ignition."))
 		return
-	if(load && load != usr)
+
+	if(load && load != user)
+		to_chat(usr, SPAN_WARNING("You can't remove \the [key] from \the [src] while its in use."))
 		return
+
+	to_chat(user, SPAN_NOTICE("You take out \the [key] out of \the [src]'s ignition."))
+	playsound(src, 'sound/machines/vehicles/pussywagon/key_out.ogg', 50, FALSE)
+
+	user.put_in_hands(key)
+	key = null
 
 	if(ignition)
 		toggle_ignition()
 
-	user.put_in_hands(key)
-	key = null
-	to_chat(user, SPAN_NOTICE("You take out \the [W] out of [src]'s ignition."))
-	playsound(src, 'sound/machines/vehicles/pussywagon/key_out.ogg', 50, FALSE)
-
-/obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_ignition(var/mob/user)
+/obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_ignition(mob/user)
 	if(!ignition)
 		if(!key)
 			to_chat(user, SPAN_NOTICE("There is no key in \the [src]'s ignition."))
@@ -114,39 +120,51 @@
 				return FALSE
 			if(powered && cell.charge < charge_use)
 				return FALSE
+			to_chat(user, SPAN_NOTICE("You turn on \the [src]'s ignition."))
+			playsound(src, 'sound/machines/vehicles/pussywagon/button.ogg', 50, FALSE)
+			playsound(src, 'sound/machines/vehicles/pussywagon/start.ogg', 50, FALSE) // Would preferably have it wait half a second here before playing the sound.
 			on = TRUE
-			update_icon()
-			update_stats()
 			ignition = TRUE
-			to_chat(user, SPAN_NOTICE("You turn on [src]'s ignition."))
-			return 1
+			update_stats()
+			update_icon()
+			return TRUE
 	else
+		to_chat(user, SPAN_NOTICE("You turn off \the [src]'s ignition."))
+		if(key)
+			playsound(src, 'sound/machines/vehicles/pussywagon/button.ogg', 50, FALSE)
 		on = FALSE
-		update_icon()
 		ignition = FALSE
-		to_chat(user, SPAN_NOTICE("You turn off [src]'s ignition."))
+		update_icon()
 
 		if(tow)
 			if(istype(tow, /obj/vehicle/train/cargo/trolley/pussywagon))
 				var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
 				PW.trolley_off()
 
-/obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_mop(var/mob/user)
+/obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_mop(mob/user)
 	if(on && tow)
-		if(istype(tow,/obj/vehicle/train/cargo/trolley/pussywagon))
+		if(istype(tow, /obj/vehicle/train/cargo/trolley/pussywagon))
 			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
 			if(!PW.bucket)
 				to_chat(user, SPAN_NOTICE("You must insert a reagent container first."))
 				return
+			if(!PW.mopping)
+				to_chat(user, SPAN_NOTICE("You turn on \the [src]'s rotary mop."))
+			else
+				to_chat(user, SPAN_NOTICE("You turn off \the [src]'s rotary mop."))
 			PW.toggle_mop()
 
-/obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_hoover(var/mob/user)
+/obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_hoover(mob/user)
 	if(use_check_and_message(user))
 		return
 
 	if(on && tow)
-		if(istype(tow,/obj/vehicle/train/cargo/trolley/pussywagon))
+		if(istype(tow, /obj/vehicle/train/cargo/trolley/pussywagon))
 			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
+			if(!PW.hoover)
+				to_chat(user, SPAN_NOTICE("You turn on \the [src]'s vacuum cleaner."))
+			else
+				to_chat(user, SPAN_NOTICE("You turn off \the [src]'s vacuum cleaner."))
 			PW.toggle_hoover()
 
 /obj/vehicle/train/cargo/engine/pussywagon/update_icon()
@@ -198,11 +216,10 @@
 	var/mopping = 0
 	var/hoover = 0
 
-
 /obj/vehicle/train/cargo/trolley/pussywagon/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/reagent_containers))
 		if(!open)
-			to_chat(user, SPAN_WARNING("\The [src]'s panel isn't open."))
+			to_chat(user, SPAN_WARNING("\The [src]'s maintenance panel isn't open."))
 			return
 		if(!bucket)
 			user.drop_from_inventory(W,src)
@@ -212,7 +229,7 @@
 
 	if(W.iswrench())
 		if(!open)
-			to_chat(user, SPAN_WARNING("\The [src]'s panel isn't open."))
+			to_chat(user, SPAN_WARNING("\The [src]'s maintenance panel isn't open."))
 			return
 		if(bucket)
 			bucket.forceMove(user.loc)
@@ -262,30 +279,26 @@
 				playsound(src, 'sound/machines/disposalflush.ogg', 50, TRUE)
 	return ..()
 
-/obj/vehicle/train/cargo/trolley/pussywagon/proc/trolley_off(mob/user)
+/obj/vehicle/train/cargo/trolley/pussywagon/proc/trolley_off()
 	if(mopping)
 		toggle_mop()
 	if(hoover)
 		toggle_hoover()
 
-/obj/vehicle/train/cargo/trolley/pussywagon/proc/toggle_mop(mob/user)
+/obj/vehicle/train/cargo/trolley/pussywagon/proc/toggle_mop()
 	if(!mopping)
-		mopping = 1
-		to_chat(user, SPAN_NOTICE("You activate \the [src]'s rotary mop."))
 		playsound(src, 'sound/machines/hydraulic_long.ogg', 20, TRUE)
+		mopping = 1
 	else
 		mopping = 0
-		to_chat(user, SPAN_NOTICE("You turn off \the [src]'s rotary mop."))
 	update_icon()
 
-/obj/vehicle/train/cargo/trolley/pussywagon/proc/toggle_hoover(mob/user)
+/obj/vehicle/train/cargo/trolley/pussywagon/proc/toggle_hoover()
 	if(!hoover)
-		hoover = 1
-		to_chat(user, SPAN_NOTICE("You activate \the [src]'s vacuum cleaner."))
 		playsound(src, 'sound/machines/hydraulic_long.ogg', 20, TRUE)
+		hoover = 1
 	else
 		hoover = 0
-		to_chat(user, SPAN_NOTICE("You turn off \the [src]'s vacuum cleaner."))
 	update_icon()
 
 /obj/vehicle/train/cargo/trolley/pussywagon/update_icon()
