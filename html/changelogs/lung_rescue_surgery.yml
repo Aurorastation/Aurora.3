@@ -1,7 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed being unable to fix rescued lungs surgically if they don't have any damage."
-  - bugfix: "Fixed being unable to fix rescued mechanical lungs at all."
