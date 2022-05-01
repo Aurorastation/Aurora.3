@@ -9,8 +9,7 @@
 	anchored = 0
 	density = FALSE
 	var/tipped = FALSE
-	var/last_creak // Spam check
-	var/last_full
+	var/last_full // Spam check
 	var/last_warning
 
 	// Blood Stuff
@@ -58,11 +57,7 @@
 		vein = null
 	QDEL_NULL(beaker)
 	if(breather)
-		if(valve_open)
-			tank_off()
-		breather.remove_from_mob(breath_mask)
-		breath_mask.forceMove(src)
-		breather = null
+		breath_mask_rip()
 	QDEL_NULL(breath_mask)
 	QDEL_NULL(tank)
 	return ..()
@@ -84,17 +79,13 @@
 				if(breath_mask)
 					if(prob(60))
 						if(breather)
-							var/bucklestatus = breather.bucklecheck(M)
-							if(!bucklestatus)
-								var/obj/structure/LB = M.buckled_to
-								LB.user_unbuckle(breather)
 							src.visible_message(
-								SPAN_WARNING("[M] trips on \the [src]'s [breath_mask] cable, pulling \the [breather] down as well!"),
-								SPAN_WARNING("You trip on \the [src]'s [breath_mask] cable, pulling \the [breather] down as well!"))
+								SPAN_WARNING("[M] trips on \the [src]'s [breath_mask] cable, pulling it off from \the [breather]!"),
+								SPAN_WARNING("You trip on \the [src]'s [breath_mask] cable, pulling it off from \the [breather]!"))
 							shake_animation(4)
 							M.Weaken(3)
-							breather.forceMove(src.loc)
-							breather.Weaken(4)
+							breath_mask_rip()
+							update_icon()
 							return
 						src.visible_message(SPAN_WARNING("[M] trips on \the [src]'s [breath_mask] cable!"), SPAN_WARNING("You trip on \the [src]'s [breath_mask] cable!"))
 						breath_mask.forceMove(src.loc)
@@ -191,18 +182,21 @@
 /obj/machinery/iv_drip/proc/breather_process()
 	if(breather)
 		if(!breather.Adjacent(src))
-			step_to(src, get_turf(breather), 1)
-			if(world.time > last_creak + 10 SECONDS)
-				last_creak = world.time
-				src.visible_message("\The [src]'s wheels creak as it slowly gets tugged towards [breather] by \the [breath_mask]'s cable.")
-				playsound(src, 'sound/effects/roll.ogg', 50, 1)
-				shake_animation(2)
-			if(get_dist(src, breather) >= 2)
-				src.visible_message("\The [src] jerks as \the [breath_mask]'s cable is pulled taut!", SPAN_WARNING("You feel \the [src] jerk as your [breath_mask]'s cable is pulled taut."))
-				shake_animation(4)
-				if(prob(40))
-					do_crash()
-
+			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps back into \the [src]!"))
+			breath_mask_rip()
+			update_icon()
+			return
+		var/mask_check = breath_mask.get_equip_slot()
+		if(mask_check != slot_wear_mask)
+			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
+			breath_mask_rip()
+			update_icon()
+			return
+		if(breath_mask.hanging)
+			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
+			breath_mask_rip()
+			update_icon()
+			return
 		if(!tank)
 			return
 		if(breather.species.flags & NO_BREATHE)
@@ -227,16 +221,11 @@
 			if(L.checking_rupture == FALSE) // Safely retracts in case the lungs are about to rupture
 				src.visible_message(SPAN_WARNING("\The [src]'s flashes a warning light, automatically deactivating \the [tank] and retracting \the [breath_mask]."))
 				playsound(src, 'sound/machines/twobeep.ogg', 50)
-				breather.remove_from_mob(breath_mask)
-				breather.update_inv_wear_mask()
-				breath_mask.forceMove(src)
-				breath_mask.canremove = TRUE
-				breath_mask.adjustable = TRUE
-				tank_off()
+				breath_mask_rip()
 				update_icon()
 				return
 			if(tank.air_contents.return_pressure() == 0)
-				src.visible_message(SPAN_WARNING("\The [src] buzzes and automatically closes the valve."))
+				src.visible_message(SPAN_WARNING("\The [src] buzzes and automatically closes \the [tank]'s valve."))
 				playsound(src, 'sound/machines/buzz-two.ogg', 50)
 				tank_off()
 				update_icon()
@@ -259,7 +248,6 @@
 			iv_rip()
 			update_icon()
 			return
-
 		if(!beaker)
 			return
 		if(!attached.dna)
@@ -275,8 +263,9 @@
 				update_icon()
 			if(toggle_stop) // Automatically detaches if the blood volume is at 100%
 				if((beaker.reagents.has_reagent(/decl/reagent/blood) || beaker.reagents.has_reagent(/decl/reagent/saline)) && attached.get_blood_volume() >= 100)
-					visible_message("\The <b>[src]</b> flashes a warning light, disengaging from [attached] automatically!")
+					visible_message("\The <b>[src]</b> flashes a warning light, disengaging from [attached]'s [vein.name] automatically!")
 					playsound(src, 'sound/machines/buzz-two.ogg', 100)
+					vein = null
 					attached = null
 					blood_message_sent = FALSE
 					update_icon()
@@ -284,7 +273,6 @@
 		else // Taking
 			var/amount = REAGENTS_FREE_SPACE(beaker.reagents)
 			amount = min(amount, transfer_amount)
-
 			if(amount == 0)
 				if(world.time > last_full + 10 SECONDS)
 					last_full = world.time
@@ -345,15 +333,7 @@
 					return
 				if(breather)
 					visible_message("[usr] removes [breather]'s mask.[valve_open ? " \The [tank]'s valve automatically closes." : ""]")
-					breather.remove_from_mob(breath_mask)
-					breather.update_inv_wear_mask()
-					breath_mask.forceMove(src)
-					breath_mask.canremove = TRUE
-					breath_mask.adjustable = TRUE
-					breath_mask.slowdown = 0
-					breather = null
-					if(valve_open)
-						tank_off()
+					breath_mask_rip()
 					update_icon()
 					return
 				breather = over_object
@@ -378,9 +358,6 @@
 				breath_mask.forceMove(breather.loc)
 				breather.equip_to_slot(breath_mask, slot_wear_mask)
 				breather.update_inv_wear_mask()
-				breath_mask.canremove = FALSE
-				breath_mask.adjustable = FALSE
-				breath_mask.slowdown = 2
 				update_icon()
 				return
 
@@ -434,7 +411,7 @@
 			breath_mask = null
 			update_icon()
 
-/obj/machinery/iv_drip/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/iv_drip/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/reagent_containers/blood/ripped))
 		to_chat(user, "You can't use a ripped bloodpack.")
 		return TRUE
@@ -494,12 +471,12 @@
 		return TRUE
 	return ..()
 
-/obj/machinery/iv_drip/attack_ai(mob/user as mob)
+/obj/machinery/iv_drip/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/iv_drip/attack_hand(mob/user as mob)
+/obj/machinery/iv_drip/attack_hand(mob/user)
 	if(user.incapacitated())
 		to_chat(user, SPAN_WARNING("You are in no shape to do this."))
 		return
@@ -553,14 +530,8 @@
 			breath_mask.SpinAnimation(4, 2)
 			breath_mask = null
 		else
-			var/mob/living/L = breather
-			var/bucklestatus = L.bucklecheck(L)
-			if(!bucklestatus)
-				var/obj/structure/LB = L.buckled_to
-				LB.user_unbuckle(breather)
-			src.visible_message(SPAN_WARNING("\The [breath_mask] pulls \the [breather] down with \the [src]!"), SPAN_WARNING("\The [breath_mask] pulls you down with \the [src]!"))
-			breather.forceMove(dropspot)
-			breather.Weaken(4)
+			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps away from \the [breather], retracting back into \the [src]!"), SPAN_WARNING("\The [breath_mask] snaps away from you, retracting back into \the [src]!"))
+			breath_mask_rip()
 	if(beaker)
 		beaker.forceMove(dropspot)
 		beaker.tumble(rand(1,3))
@@ -589,6 +560,17 @@
 	vein.take_damage(brute = 5, damage_flags = DAM_SHARP)
 	vein = null
 	attached = null
+
+/obj/machinery/iv_drip/proc/breath_mask_rip()
+	if(valve_open)
+		tank_off()
+	if(breath_mask.hanging)
+		breath_mask.hanging = FALSE
+		breath_mask.adjust_sprites()
+	breather.remove_from_mob(breath_mask)
+	breather.update_inv_wear_mask()
+	breath_mask.forceMove(src)
+	breather = null
 
 /obj/machinery/iv_drip/proc/tank_off()
 	tank.forceMove(src)
@@ -645,7 +627,7 @@
 		to_chat(usr, SPAN_NOTICE("There is no tank for you to open the valve of!"))
 		return
 	if(!breather)
-		to_chat(usr, SPAN_NOTICE("There is no one with \the [src]'s mask for you to open the valve!"))
+		to_chat(usr, SPAN_NOTICE("There is no one wearing \the [src]'s [breath_mask] for you to open the valve for!"))
 		return
 
 	if(!valve_open)
@@ -680,6 +662,7 @@
 		if(response == "No")
 			return
 		epp_active = FALSE
+		update_icon()
 	epp = !epp
 	usr.visible_message("<b>[usr]</b> toggles \the [src]'s Emergency Positive Pressure system [epp ? "on" : "off"].", SPAN_NOTICE("You toggle \the [src]'s Emergency Positive Pressure system [epp ? "on" : "off"]."))
 	playsound(usr, 'sound/machines/click.ogg', 50)
@@ -717,7 +700,7 @@
 		to_chat(user, SPAN_NOTICE("No chemicals are attached."))
 	if(tank)
 		to_chat(user, SPAN_NOTICE("Installed is [icon2html(tank, user)] [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
-		with the pressure set to [tank.distribute_pressure]kPa. The valve is [valve_open ? "open" : "closed"]."))
+		with the pressure set to [round(tank.distribute_pressure)]kPa. The valve is [valve_open ? "open" : "closed"]."))
 	else
 		to_chat(user, SPAN_NOTICE("No gas tank installed."))
 	if(breath_mask)

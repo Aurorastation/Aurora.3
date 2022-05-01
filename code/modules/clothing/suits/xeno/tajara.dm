@@ -151,6 +151,41 @@
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 
+/obj/item/clothing/suit/storage/hooded/amohda
+	name = "amohdan cloak"
+	desc = "Originally used by the Amohdan swordsmen before the First Revolution, this cloak is now commonly worn by the island population."
+	icon_state = "amohda_cloak"
+	item_state = "amohda_cloak"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/winter
+	name = "adhomian winter cloak"
+	desc = "A simple wool cloak used during the early days of the lesser winter."
+	icon_state = "winter_cloak"
+	item_state = "winter_cloak"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/asym
+	name = "adhomian asymmetric cloak"
+	desc = "An Adhomian cloak with an asymmetric design."
+	icon_state = "asym_cloak"
+	item_state = "asym_cloak"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/maroon
+	name = "adhomian maroon cloak"
+	desc = "A simple maroon colored Adhomian cloak."
+	icon_state = "maroon_cloak"
+	item_state = "maroon_cloak"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/fancy
+	name = "fancy adhomian cloak"
+	desc = "A fancy black Adhomian cloak."
+	icon_state = "hb_cloak"
+	item_state = "hb_cloak"
+	flags_inv = 0
+
 /obj/item/clothing/suit/armor/amohda
 	name = "amohdan swordsman armor"
 	desc = "A suit of armor used by the traditional warriors of Amohda."
@@ -191,14 +226,18 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 
-/obj/item/clothing/suit/storage/tajaran
-	name = "republican service jacket"
-	desc = "An olive military jacket worn by the forces of the Grand People's Army."
+/obj/item/clothing/suit/storage/tajaran/pra_jacket
+	name = "hadiist surplus jacket"
+	desc = "An olive surplus jacket worn by the forces of the Grand People's Army."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "greenservice"
 	item_state = "greenservice"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
+/obj/item/clothing/suit/storage/tajaran/pra_jacket/armored
+	name = "hadiist service jacket"
+	desc = "An olive military jacket worn by the forces of the Grand People's Army."
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -207,3 +246,21 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.50
+
+/obj/item/clothing/suit/storage/tajaran/dpra_jacket
+	name = "al'mariist jacket"
+	desc = "A jacket based on the Liberation Army's old equipment."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "dpra_jacket"
+	item_state = "dpra_jacket"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/tajaran/fancy
+	name = "fancy royalist jacket"
+	desc = "An adhomian jacket frequently worn by the New Kingdom's nobility."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "nka_Jacket"
+	item_state = "nka_Jacket"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	contained_sprite = TRUE

@@ -19429,13 +19429,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "NX" = (
-/obj/structure/dispenser/oxygen{
-	phorontanks = 10
-	},
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/turf/simulated/floor,
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_3)
 "NY" = (
 /obj/structure/railing/mapped,
