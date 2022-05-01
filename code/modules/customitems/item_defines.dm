@@ -2429,7 +2429,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else if(contents.len <= 11)
 		icon_state = "bells_zora_box_half"
 		desc = "A round, wicker basket with some taffy inside!"
-	else if(contents.len <= 12)
+	else if(contents.len >= 12)
 		icon_state = "bells_zora_box_full"
 		desc = "A round, wicker basket full to the brim with taffy!"
 
