@@ -2269,6 +2269,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	SEND_SIGNAL(D, COMSIG_ITEM_UPDATE_STATE, D)
 
+
 /obj/item/fluff/nasira_burner //Adhomian Incense Burner - Nasira Nahnikh - ramke
 	name = "adhomian incense burner"
 	desc = "A traditional Adhomian incense burner with blue and yellow suns depicted on the front. The metal cover is blackened from use, and there appear to be unclear etchings on the inside."
@@ -2393,8 +2394,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	return I
 
 
- /obj/item/clothing/suit/vaurca/fluff/bells_zora_cloak //Tailored Hive Cloak - Ka'Akaix'Bells Zo'ra - shestrying
- 	name = "tailored hive cloak"
+/obj/item/clothing/suit/vaurca/fluff/bells_zora_cloak //Tailored Hive Cloak - Ka'Akaix'Bells Zo'ra - shestrying
+	name = "tailored hive cloak"
 	desc = "A typical-looking Vaurca hive cloak design, tailored from what looks to be labcoat material."
 	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
 	icon_override = 'icons/obj/custom_items/bells_zora_items.dmi'
@@ -2407,8 +2408,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A round, wicker basket full to the brim with taffy! "
 	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
 	icon_override = 'icons/obj/custom_items/bells_zora_items.dmi'
-	icon_state = "bells_zora_box"
-	item_state = "bells_zora_box"
+	icon_state = "bells_zora_box_full"
+	item_state = "bells_zora_box_full"
 	can_hold = list(/obj/item/reagent_containers/food/snacks/fluff/taffy)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/fluff/taffy = 6, /obj/item/reagent_containers/food/snacks/fluff/taffy/pink = 6, /obj/item/reagent_containers/food/snacks/fluff/taffy/blue = 6)
 	storage_slots = 18
