@@ -11980,13 +11980,12 @@
 /turf/space/dynamic,
 /area/template_noop)
 "kjy" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "intrepid_shuttle_east_pump"
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/intrepid)
+/area/hangar/intrepid)
 "kjH" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -16209,7 +16208,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
-/area/shuttle/intrepid)
 "nGZ" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -17654,11 +17652,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
-"pkE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/rnd/eva)
 "pkw" = (
 /obj/structure/window/shuttle/scc,
 /obj/machinery/door/firedoor,
@@ -17667,6 +17660,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
+"pkE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/rnd/eva)
 "pkG" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Security"
@@ -18808,12 +18806,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
-"qeI" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/scc/cardinal,
-/area/shuttle/mining)
 "qeO" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -44848,7 +44840,7 @@ iuk
 iuk
 iuk
 iuk
-qeI
+iuk
 uMS
 tNp
 dJQ
@@ -50086,7 +50078,7 @@ aeA
 iRC
 iRC
 iRC
-iRC
+kjy
 eKr
 iRC
 iRC
