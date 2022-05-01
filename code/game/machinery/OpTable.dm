@@ -128,8 +128,7 @@
 	if(istype(M))
 		var/mob/living/L = target
 		var/bucklestatus = L.bucklecheck(user)
-
-		if(!bucklestatus)//We must make sure the person is unbuckled before they go in
+		if(!bucklestatus)
 			return
 
 		if(L == user)
@@ -163,8 +162,7 @@
 
 		var/mob/living/L = G.affecting
 		var/bucklestatus = L.bucklecheck(user)
-
-		if(!bucklestatus)//We must make sure the person is unbuckled before they go in
+		if(!bucklestatus)
 			return TRUE
 
 		if(L == user)
@@ -172,9 +170,6 @@
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
 		if(do_mob(user, L, 10, needhand = FALSE))
-			if(bucklestatus == 2)
-				var/obj/structure/LB = L.buckled_to
-				LB.user_unbuckle(user)
 			take_victim(G.affecting,usr)
 			qdel(W)
 		return TRUE

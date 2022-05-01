@@ -7,7 +7,7 @@
 #define MEDICAL_ROLES list(/datum/job/doctor, /datum/job/surgeon, /datum/job/pharmacist, /datum/job/psychiatrist, /datum/job/med_tech, /datum/job/intern_med)
 #define SCIENCE_ROLES list(/datum/job/scientist, /datum/job/xenobiologist, /datum/job/intern_sci)
 #define SECURITY_ROLES list(/datum/job/warden, /datum/job/investigator, /datum/job/officer, /datum/job/intern_sec)
-#define INDEP_ROLES list(/datum/job/merchant, /datum/job/passenger, /datum/job/consular, /datum/job/journalist)
+#define INDEP_ROLES list(/datum/job/merchant, /datum/job/passenger, /datum/job/consular, /datum/job/journalist, /datum/job/chaplain)
 #define ALL_FACTION_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/representative)
 #define MISC_ROLE list(/datum/job/assistant, /datum/job/representative)
 #define ALL_JOBS list(COMMAND_ROLES, ENGINEERING_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, CARGO_ROLES, MEDICAL_ROLES, SCIENCE_ROLES, SECURITY_ROLES, INDEP_ROLES, MISC_ROLE)
