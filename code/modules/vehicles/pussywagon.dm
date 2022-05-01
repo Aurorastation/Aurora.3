@@ -54,15 +54,19 @@
 		toggle_mop(usr)
 	SSvueui.check_uis_for_change(src)
 
-/obj/vehicle/train/cargo/engine/pussywagon/MouseDrop(user)
-	if(use_check_and_message(user))
-		return
-	if(!load || user == load) // no driver, or the user is the driver
-		ui_interact(user)
+/obj/vehicle/train/cargo/engine/pussywagon/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/key/janicart))
+		if(!key)
+			user.drop_from_inventory(W, src)
+			key = W
+			to_chat(user, SPAN_NOTICE("You slide \the [W] into the [src]'s ignition."))
+			playsound(src, 'sound/machines/vehicles/pussywagon/key_in.ogg', 50, FALSE)
+		else
+			to_chat(user, SPAN_NOTICE("There is already a key in [src]'s ignition."))
 		return
 	..()
 
-/obj/vehicle/train/cargo/engine/pussywagon/attack_hand(mob/user)
+/obj/vehicle/train/cargo/engine/pussywagon/CtrlClick(mob/user)
 	var/list/options = list(
 		"Toggle Ignition" = image('icons/mob/screen/radial.dmi', "custodial_key"),
 		"Toggle Mopping" = image('icons/mob/screen/radial.dmi', "custodial_mop"),
@@ -73,31 +77,19 @@
 		return
 	switch(chosen_option)
 		if("Toggle Ignition")
-			toggle_ignition()
+			toggle_ignition(user)
 		if("Toggle Mopping")
 			toggle_mop(user)
 		if("Toggle Vacuuming")
 			toggle_hoover(user)
 
-/obj/vehicle/train/cargo/engine/pussywagon/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/key/janicart))
-		if(!key)
-			user.drop_from_inventory(W, src)
-			key = W
-			to_chat(user, SPAN_NOTICE("You slide the [W] into the \the [src]'s ignition."))
-			playsound(src, 'sound/machines/vehicles/pussywagon/key_in.ogg', 50, FALSE)
-		else
-			to_chat(user, SPAN_NOTICE("There is already a key in \the [src]'s ignition."))
-		return
-	..()
-
-/obj/vehicle/train/cargo/engine/pussywagon/AltClick(var/mob/user)
+/obj/vehicle/train/cargo/engine/pussywagon/AltClick(mob/user)
 	if(Adjacent(user))
 		remove_key(user)
 	else
 		return ..()
 
-/obj/vehicle/train/cargo/engine/pussywagon/remove_key(var/mob/user)
+/obj/vehicle/train/cargo/engine/pussywagon/remove_key(mob/user)
 	if(!key)
 		to_chat(user, SPAN_NOTICE("There is no key in \the [src]'s ignition."))
 		return
@@ -109,6 +101,7 @@
 
 	user.put_in_hands(key)
 	key = null
+	to_chat(user, SPAN_NOTICE("You take out \the [W] out of [src]'s ignition."))
 	playsound(src, 'sound/machines/vehicles/pussywagon/key_out.ogg', 50, FALSE)
 
 /obj/vehicle/train/cargo/engine/pussywagon/proc/toggle_ignition(var/mob/user)
@@ -125,11 +118,13 @@
 			update_icon()
 			update_stats()
 			ignition = TRUE
+			to_chat(user, SPAN_NOTICE("You turn on [src]'s ignition."))
 			return 1
 	else
 		on = FALSE
 		update_icon()
 		ignition = FALSE
+		to_chat(user, SPAN_NOTICE("You turn off [src]'s ignition."))
 
 		if(tow)
 			if(istype(tow, /obj/vehicle/train/cargo/trolley/pussywagon))
@@ -190,7 +185,7 @@
 	..()
 
 /obj/vehicle/train/cargo/trolley/pussywagon
-	name = "C8000 deluxe custodial trolley"
+	name = "\improper C8000 deluxe custodial trolley"
 	desc = "The trolley of the C8000 deluxe custodial truck, equipped with a dual rotary mop and a industrial vacuum cleaner."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "jantrolley"
