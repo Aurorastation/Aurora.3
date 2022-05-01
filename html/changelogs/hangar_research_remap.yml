@@ -1,8 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - maptweak: "Remaps the deck 1 research E.V.A. and xenoarcheology areas and gives them some visual polish."
-  - maptweak: "Moves the research substation on deck 1 to above xenoarcheology."
-  - maptweak: "Adds a fire supplies closet to the auxiliary hangar."
