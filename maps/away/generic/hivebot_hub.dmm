@@ -173,7 +173,7 @@
 "dr" = (/obj/machinery/portable_atmospherics/canister/oxygen,/turf/simulated/floor/airless,/area/derelict)
 "ds" = (/obj/effect/decal/cleanable/blood/splatter,/turf/simulated/floor/airless,/area/derelict)
 "dt" = (/obj/random/tool,/turf/simulated/floor/airless,/area/derelict)
-"du" = (/obj/structure/closet/medical_wall{pixel_x = -30},/turf/simulated/floor/tiled/airless,/area/derelict)
+"du" = (/obj/structure/closet/walllocker/medical{pixel_x = -30},/turf/simulated/floor/tiled/airless,/area/derelict)
 "dv" = (/obj/structure/table/standard{name = "plastic table frame"},/obj/item/flame/lighter/random,/turf/simulated/floor/tiled/airless,/area/derelict)
 "dw" = (/obj/machinery/light{dir = 4; icon_state = "tube1"},/turf/simulated/floor/tiled/airless{icon_state = "steel_burned0"},/area/derelict)
 "dx" = (/obj/structure/reagent_dispensers/watertank,/turf/simulated/floor/airless,/area/derelict)
