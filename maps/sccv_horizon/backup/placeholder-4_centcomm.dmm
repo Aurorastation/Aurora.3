@@ -16307,7 +16307,6 @@
 	},
 /area/centcom/spawning)
 "aNb" = (
-/obj/machinery/megavendor,
 /turf/unsimulated/floor{
 	name = "plating"
 	},

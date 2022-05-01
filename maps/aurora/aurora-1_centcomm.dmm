@@ -4171,10 +4171,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/specops)
-"aBL" = (
-/obj/machinery/megavendor,
-/turf/unsimulated/floor,
-/area/centcom/spawning)
 "aBO" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "CCIA Bodyguard Sidearm";
@@ -76559,7 +76555,7 @@ aKK
 urj
 gdU
 aBl
-aBL
+aMW
 aBl
 weB
 aOa
@@ -78101,7 +78097,7 @@ aKK
 uVh
 gdU
 aBl
-aBL
+aMW
 aBl
 weB
 aOa

@@ -15855,7 +15855,6 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aMo" = (
-/obj/machinery/megavendor,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aMp" = (

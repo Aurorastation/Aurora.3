@@ -27,7 +27,7 @@
 #################################
 
 # Your name.
-author: WickedCybs
+author: Mikomyazaki, WickedCybs
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Autodrobes aren't mapped onto the Horizon anymore, so you will spawn with your gear and ID instead of needing to use the machine now."
-  - maptweak: "They're out of the Aurora as well in case that map ever sees use in some form."
-  - maptweak: "Buffs the emergency lockers that start at the lift room and cryo room on the Horizon. They each get one red toolbox with emergency gear."
+  - rscdel: "Autodrobes were deleted and removed from the code."
+  - maptweak: "The Horizon and Aurora autodrobes were removed."
+  - maptweak: "Buffs the emergency lockers that start at the lift room and cryo room on the Horizon. They each get one red toolbox with emergency gear and a crowbar."
