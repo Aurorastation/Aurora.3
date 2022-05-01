@@ -2213,7 +2213,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	flash_protection = FLASH_PROTECTION_NONE
 	tint = TINT_NONE
 
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/fluff/iliasz_jacket
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/fluff/iliasz_jacket //Naval Pilot's Jacket - Iliasz Jajszczyk - dansemacabre
 	name = "naval pilot's jacket"
 	desc = "A sturdy grey-green neonomex-lined jacket, flame-resistant and sleek. A garment of choice for anyone who might be in the cockpit of something with a risk of catching fire. \
 	There's a name patch sewn onto the breast of this one, reading \"JAJSZCZYK\". It seems to be more rugged than a typical flight jacket, and also appears to have some waterproofing. \
@@ -2268,8 +2268,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	SEND_SIGNAL(D, COMSIG_ITEM_UPDATE_STATE, D)
-  
-/obj/item/fluff/nasira_burner
+
+/obj/item/fluff/nasira_burner //Adhomian Incense Burner - Nasira Nahnikh - ramke
 	name = "adhomian incense burner"
 	desc = "A traditional Adhomian incense burner with blue and yellow suns depicted on the front. The metal cover is blackened from use, and there appear to be unclear etchings on the inside."
 	icon = 'icons/obj/custom_items/nasira_burner.dmi'
@@ -2337,16 +2337,16 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/fluff/nasira_burner/process()
 	if(prob(10))
 		var/lit_message
-		
+
 		lit_message = pick( "The smell of ceremonial incense reaches your nose.",
 								"Adhomian incense permeates the air around you.",
 								"The soft glow of the incense burner illuminates the vicinity.")
 
 		if(lit_message)
 			visible_message(SPAN_NOTICE(lit_message), range = 3)
-      
+
 /obj/item/clothing/under/fluff/yanna_dress //Techno-Conglomerate CR dress - Yanna Trevidic - simplemaroon
-	name = "Techno-Conglomerate CR dress"
+	name = "techno-conglomerate CR dress"
 	desc = "A sky blue-colored comfort-and-relaxation dress designed for off-worlders. This one is made to Techno-Conglomerate specifications, \
 	with sensors outlined across the ribcage that grow brighter or duller based on the wearer's emotional intensity."
 	icon = 'icons/obj/custom_items/yanna_dress.dmi'
@@ -2391,4 +2391,63 @@ All custom items with worn sprites must follow the contained sprite system: http
 	var/image/I = ..()
 	I.add_overlay(emotional_choice + "_un")
 	return I
- 
+
+
+ /obj/item/clothing/suit/vaurca/fluff/bells_zora_cloak //Tailored Hive Cloak - Ka'Akaix'Bells Zo'ra - shestrying
+ 	name = "tailored hive cloak"
+	desc = "A typical-looking Vaurca hive cloak design, tailored from what looks to be labcoat material. "
+	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
+	icon_override = 'icons/obj/custom_items/bells_zora_items.dmi'
+	icon_state = "bells_zora_cloak"
+	item_state = "bells_zora_cloak"
+	contained_sprite = TRUE
+
+/obj/item/storage/box/fancy/fluff/bells_zora_box //Taffy Basket - IRU-Sentiment - niennab
+	name = "taffy basket"
+	desc = "A round, wicker basket full to the brim with taffy! "
+	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
+	icon_override = 'icons/obj/custom_items/bells_zora_items.dmi'
+	icon_state = "bells_zora_box"
+	item_state = "bells_zora_box"
+	can_hold = list(/obj/item/reagent_containers/food/snacks/fluff/taffy)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/fluff/taffy = 6, /obj/item/reagent_containers/food/snacks/fluff/taffy/pink = 6, /obj/item/reagent_containers/food/snacks/fluff/taffy/blue = 6)
+	storage_slots = 18
+	contained_sprite = TRUE
+	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
+	use_sound = 'sound/items/storage/wrapper.ogg'
+
+/obj/item/storage/box/fancy/fluff/bells_zora_box/fill()
+	. = ..()
+	update_icon()
+
+/obj/item/storage/box/fancy/fluff/bells_zora_box/update_icon()
+	switch(contents.len)
+		if(10 to INFINITY)
+			icon_state = "bells_zora_box_full"
+			desc = "A round, wicker basket full to the brim with taffy!"
+		if(10 to 1)
+			icon_state = "bells_zora_box_half"
+			desc = "A round, wicker basket with some taffy inside!"
+		else
+			icon_state = "bells_zora_box_empty"
+			desc = " A round, wicker basket. There's some colorful crumbs on the bottom of the linen lining. "
+
+/obj/item/reagent_containers/food/snacks/fluff/taffy
+	name = "orange taffy"
+	desc = "A piece of handmade taffy, rolled up in a cute spiral!"
+	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
+	icon_state = "orange_taffy"
+	reagents_to_add = list(/decl/reagent/nutriment = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("bittersweetness, insect meat and regret" = 1))
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/fluff/taffy/pink
+	name = "pink taffy"
+	icon_state = "pink_taffy"
+	reagent_data = list(/decl/reagent/nutriment = list("sweetness and a hint of strawberry" = 1))
+
+/obj/item/reagent_containers/food/snacks/fluff/taffy/blue
+	name = "blue taffy"
+	icon_state = "blue_taffy"
+	reagent_data = list(/decl/reagent/nutriment = list("salty-sweet, tangy taffy" = 1))
