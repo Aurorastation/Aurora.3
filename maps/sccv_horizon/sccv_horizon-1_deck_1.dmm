@@ -21367,7 +21367,7 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
-	icon_state = "conpipe-c"
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
