@@ -7575,7 +7575,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Tw" = (
-/obj/effect/shuttle_landmark/romanovich,
+/obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor,
 /area/grand_romanovich)
 "TA" = (
@@ -20137,7 +20137,7 @@ OF
 OF
 OF
 gZ
-lS
+km
 XU
 lR
 lS
@@ -20394,8 +20394,8 @@ OF
 OF
 OF
 gZ
-km
-XU
+lS
+lS
 lS
 lS
 gY
@@ -21160,7 +21160,7 @@ OF
 OF
 OF
 OF
-Tw
+OF
 OF
 OF
 OF
@@ -21417,7 +21417,7 @@ OF
 OF
 OF
 OF
-OF
+Tw
 OF
 OF
 OF
@@ -22450,8 +22450,8 @@ OF
 OF
 OF
 gZ
-km
-XU
+lS
+lS
 lO
 lO
 gY
@@ -22707,7 +22707,7 @@ OF
 OF
 OF
 gZ
-lS
+km
 XU
 sH
 lO
