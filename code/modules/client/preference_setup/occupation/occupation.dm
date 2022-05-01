@@ -4,9 +4,6 @@
 
 /datum/category_item/player_setup_item/occupation/load_character(var/savefile/S)
 	S["alternate_option"]	>> pref.alternate_option
-	S["job_service_high"]	>> pref.job_service_high
-	S["job_service_med"]	>> pref.job_service_med
-	S["job_service_low"]	>> pref.job_service_low
 	S["job_civilian_high"]	>> pref.job_civilian_high
 	S["job_civilian_med"]	>> pref.job_civilian_med
 	S["job_civilian_low"]	>> pref.job_civilian_low
@@ -21,9 +18,6 @@
 
 /datum/category_item/player_setup_item/occupation/save_character(var/savefile/S)
 	S["alternate_option"]	<< pref.alternate_option
-	S["job_service_high"]	<< pref.job_service_high
-	S["job_service_med"]	<< pref.job_service_med
-	S["job_service_low"]	<< pref.job_service_low
 	S["job_civilian_high"]	<< pref.job_civilian_high
 	S["job_civilian_med"]	<< pref.job_civilian_med
 	S["job_civilian_low"]	<< pref.job_civilian_low
@@ -66,9 +60,6 @@
 
 /datum/category_item/player_setup_item/occupation/gather_save_parameters()
 	var/list/compiled_jobs = list(
-		"job_service_high" = pref.job_service_high,
-		"job_service_med" = pref.job_service_med,
-		"job_service_low" = pref.job_service_low,
 		"job_civilian_high" = pref.job_civilian_high,
 		"job_civilian_med" = pref.job_civilian_med,
 		"job_civilian_low" = pref.job_civilian_low,
@@ -99,9 +90,6 @@
 		// In case we return 0 data from the database.
 		if (!jobs || !jobs.len)
 			pref.alternate_option	= 0
-			pref.job_service_high	= 0
-			pref.job_service_med	= 0
-			pref.job_service_low	= 0
 			pref.job_civilian_high	= 0
 			pref.job_civilian_med	= 0
 			pref.job_civilian_low	= 0
@@ -120,9 +108,6 @@
 					log_debug(e.desc)
 
 	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 1, initial(pref.alternate_option))
-	pref.job_service_high = sanitize_integer(text2num(pref.job_service_high), 0, 65535, initial(pref.job_service_high))
-	pref.job_service_med  = sanitize_integer(text2num(pref.job_service_med), 0, 65535, initial(pref.job_service_med))
-	pref.job_service_low  = sanitize_integer(text2num(pref.job_service_low), 0, 65535, initial(pref.job_service_low))
 	pref.job_civilian_high = sanitize_integer(text2num(pref.job_civilian_high), 0, 65535, initial(pref.job_civilian_high))
 	pref.job_civilian_med  = sanitize_integer(text2num(pref.job_civilian_med), 0, 65535, initial(pref.job_civilian_med))
 	pref.job_civilian_low  = sanitize_integer(text2num(pref.job_civilian_low), 0, 65535, initial(pref.job_civilian_low))
@@ -378,16 +363,6 @@
 		if(SERVICE)
 			switch(level)
 				if(2)
-					pref.job_service_high = job.flag
-					pref.job_service_med &= ~job.flag
-				if(3)
-					pref.job_service_med |= job.flag
-					pref.job_service_low &= ~job.flag
-				else
-					pref.job_service_low |= job.flag
-		if(CIVILIAN)
-			switch(level)
-				if(2)
 					pref.job_civilian_high = job.flag
 					pref.job_civilian_med &= ~job.flag
 				if(3)
@@ -418,10 +393,6 @@
 	return 1
 
 /datum/category_item/player_setup_item/occupation/proc/ResetJobs()
-	pref.job_service_high = 0
-	pref.job_service_med = 0
-	pref.job_service_low = 0
-
 	pref.job_civilian_high = 0
 	pref.job_civilian_med = 0
 	pref.job_civilian_low = 0
@@ -503,14 +474,6 @@
 		return FALSE
 	switch(job.department_flag)
 		if(SERVICE)
-			switch(level)
-				if(1)
-					return job_service_high
-				if(2)
-					return job_service_med
-				if(3)
-					return job_service_low
-		if(CIVILIAN)
 			switch(level)
 				if(1)
 					return job_civilian_high

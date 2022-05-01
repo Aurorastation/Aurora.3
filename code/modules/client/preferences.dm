@@ -104,10 +104,6 @@ datum/preferences
 	)
 
 		//Jobs, uses bitflags
-	var/job_service_high = 0
-	var/job_service_med = 0
-	var/job_service_low = 0
-
 	var/job_civilian_high = 0
 	var/job_civilian_med = 0
 	var/job_civilian_low = 0
