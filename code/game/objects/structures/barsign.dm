@@ -60,6 +60,8 @@
 /obj/structure/sign/double/barsign/kitchensign
 	icon = 'icons/obj/kitchensigns.dmi'
 	icon_state = "Off"
+	anchored = 1
+	req_access = list(access_kitchen)
 	choice_types = /decl/sign/double/kitchen
 
 /obj/structure/sign/double/barsign/attackby(obj/item/I, mob/user)
@@ -75,36 +77,39 @@
 		return
 
 	return ..()
-/decl/sign/double
+/decl/sign/double/off
 	var/name = "Holgraphic Projector"
 	var/icon_state = "off"
 	var/desc = "A holographic projector, displaying different saved themes. It is turned off right now."
 	var/desc_fluff = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the kitchen."
 
-/decl/sign/double/bar
+/decl/sign/double/bar/whiskey_implant
 	name = "Whiskey Implant"
 	icon_state = "Whiskey Implant"	
 	desc = "This bar is called Whiskey Implant!"
 	desc_fluff = "Specializes in whiskey!"
 
-/decl/sign/double/kitchen
+/decl/sign/double/kitchen/event_horizon
 	name = "Event Horizon"
 	icon_state = "Event Horizon"
 	desc = "The SCCV Horizon's Kitchen franchise sign."
 	desc_fluff = "Since the start of the SCCV Horizon, the SCC has been trying to establish a proper franchise on board of it's long-range vessels. Since the first test runs were done on the Horizon, the name 'Event Horizon' has been chosen to commemorate this."
 
-/obj/structure/sign/double/barsign/proc/get_sign_choices()
-	var/list/sign_choices = decls_repository.get_decls_of_subtype(choice_types)
-	return sign_choices
-
 /obj/structure/sign/double/barsign/proc/set_sign()  // -- player picks a sign name they want from the list of 'sign choices', bar or kitchen
-	var/sign_choice = input("What should the sign be changed to?") as null|anything in get_sign_choices()
-	if(!sign_choice)
-		return
-	var/decl/sign/double/signselect = decls_repository.get_decl(sign_choice)
-	
-	name = signselect.name
-	desc = signselect.desc
-	desc_fluff = signselect.desc_fluff
-	icon_state = signselect.icon_state
-	update_icon()
+    var/list/sign_choices = get_sign_choices()
+
+    var/list/sign_index = list()
+    for(var/sign in sign_choices)
+        var/decl/sign/double/B = decls_repository.get_decl(sign)
+        sign_index["[B.name]"] = B
+
+    var/sign_choice = input("What should the sign be changed to?") as null|anything in sign_index
+    if(!sign_choice)
+        return
+    var/decl/sign/double/signselect = sign_index[sign_choice]
+    
+    name = signselect.name
+    desc = signselect.desc
+    desc_fluff = signselect.desc_fluff
+    icon_state = signselect.icon_state
+    update_icon()
