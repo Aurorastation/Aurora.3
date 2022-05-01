@@ -35,7 +35,8 @@
 		return
 
 	if(status & ORGAN_ROBOT)
-		return robotic_check()
+		if(!robotic_check())
+			return
 
 	if(!night_vision)
 		enable_night_vision()
