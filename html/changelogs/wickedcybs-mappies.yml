@@ -1,7 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - maptweak: "Expanded the western bar area. It's all been pushed one tile to the left so the bar could mirror its eastern portion. It should be more spacious now and ease navigation."
-  - maptweak: "Due to the above, the Chaplain will need to ask for the shields to be lowered if they'd like to use their mass driver, as the expansion means shields will cover the firing path." 
