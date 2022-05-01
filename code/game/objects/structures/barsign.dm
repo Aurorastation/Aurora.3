@@ -75,19 +75,26 @@
 		return
 
 	return ..()
+
 /decl/sign/double
-	var/name = "Holgraphic Projector"
-	var/icon_state = "off"
+	var/name = "Holographic Projector"
+	var/icon_state = "Off"
 	var/desc = "A holographic projector, displaying different saved themes. It is turned off right now."
 	var/desc_fluff = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the kitchen."
 
-/decl/sign/double/bar
+/decl/sign/double/off
+	name = "Holgraphic Projector"
+	icon_state = "Off"
+	desc = "A holographic projector, displaying different saved themes. It is turned off right now."
+	desc_fluff = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the kitchen."
+
+/decl/sign/double/bar/whiskey_implant
 	name = "Whiskey Implant"
 	icon_state = "Whiskey Implant"	
 	desc = "This bar is called Whiskey Implant!"
 	desc_fluff = "Specializes in whiskey!"
 
-/decl/sign/double/kitchen
+/decl/sign/double/kitchen/event_horizon
 	name = "Event Horizon"
 	icon_state = "Event Horizon"
 	desc = "The SCCV Horizon's Kitchen franchise sign."
