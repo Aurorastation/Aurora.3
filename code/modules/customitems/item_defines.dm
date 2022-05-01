@@ -2395,7 +2395,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
  /obj/item/clothing/suit/vaurca/fluff/bells_zora_cloak //Tailored Hive Cloak - Ka'Akaix'Bells Zo'ra - shestrying
  	name = "tailored hive cloak"
-	desc = "A typical-looking Vaurca hive cloak design, tailored from what looks to be labcoat material. "
+	desc = "A typical-looking Vaurca hive cloak design, tailored from what looks to be labcoat material."
 	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
 	icon_override = 'icons/obj/custom_items/bells_zora_items.dmi'
 	icon_state = "bells_zora_cloak"
@@ -2422,16 +2422,16 @@ All custom items with worn sprites must follow the contained sprite system: http
 	update_icon()
 
 /obj/item/storage/box/fancy/fluff/bells_zora_box/update_icon()
-	switch(contents.len)
-		if(10 to INFINITY)
-			icon_state = "bells_zora_box_full"
-			desc = "A round, wicker basket full to the brim with taffy!"
-		if(10 to 1)
-			icon_state = "bells_zora_box_half"
-			desc = "A round, wicker basket with some taffy inside!"
-		else
-			icon_state = "bells_zora_box_empty"
-			desc = " A round, wicker basket. There's some colorful crumbs on the bottom of the linen lining. "
+	if(contents.len == 0)
+		icon_state = "bells_zora_box_empty"
+		desc = " A round, wicker basket. There's some colorful crumbs on the bottom of the linen lining. "
+	else if(contents.len <= 11)
+		icon_state = "bells_zora_box_half"
+		desc = "A round, wicker basket with some taffy inside!"
+	else if(contents.len <= 12)
+		icon_state = "bells_zora_box_full"
+		desc = "A round, wicker basket full to the brim with taffy!"
+
 
 /obj/item/reagent_containers/food/snacks/fluff/taffy
 	name = "orange taffy"
