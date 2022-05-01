@@ -103,12 +103,12 @@
 /datum/gear/ears/skrell/goop/New()
 	..()
 	var/list/algae = list()
-	algae["glowing algae(dots)"] = /obj/item/clothing/ears/skrell/goop
-	algae["long glowing algae(dots)"] = /obj/item/clothing/ears/skrell/goop/long
-	algae["glowing algae(stripes)"] = /obj/item/clothing/ears/skrell/goop/stripes
-	algae["long glowing algae(stripes)"] = /obj/item/clothing/ears/skrell/goop/stripes/long
-	algae["glowing algae(circles)"] = /obj/item/clothing/ears/skrell/goop/circles
-	algae["long glowing algae(circles)"] = /obj/item/clothing/ears/skrell/goop/circles/long
+	algae["glowing algae, dots"] = /obj/item/clothing/ears/skrell/goop
+	algae["long glowing algae, dots"] = /obj/item/clothing/ears/skrell/goop/long
+	algae["glowing algae, stripes"] = /obj/item/clothing/ears/skrell/goop/stripes
+	algae["long glowing algae, stripes"] = /obj/item/clothing/ears/skrell/goop/stripes/long
+	algae["glowing algae, circles"] = /obj/item/clothing/ears/skrell/goop/circles
+	algae["long glowing algae, circles"] = /obj/item/clothing/ears/skrell/goop/circles/long
 	gear_tweaks += new /datum/gear_tweak/path(algae)
 
 /datum/gear/mask/skrell
