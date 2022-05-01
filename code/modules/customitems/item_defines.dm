@@ -2059,7 +2059,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "leonid_chokha"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/toggle/fluff/sezrak_coat //red Domelkoan Coat - Sezrak Han'san - captaingecko
+/obj/item/clothing/suit/storage/toggle/fluff/sezrak_coat //Red Domelkoan Coat - Sezrak Han'san - captaingecko
 	name = "red Domelkoan Coat"
 	desc = "A warm coat made in Domelkos. This red coat is stuffed with yupmi fur and made out of reinforced cloth-like synthetic materials, both to keep the wearer warm in the cold winters of \
 	Moroz, and to resist all but the rougher treatments... All the while remaining good-looking enough. Both shoulders on this coat feature the standard of the Han'san clan-house, presented in a \
@@ -2402,7 +2402,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "bells_zora_cloak"
 	contained_sprite = TRUE
 
-/obj/item/storage/box/fancy/fluff/bells_zora_box //Taffy Basket - IRU-Sentiment - niennab
+/obj/item/storage/box/fancy/fluff/bells_zora_box //Taffy Basket - Ka'Akaix'Bells Zo'ra - shestrying
 	name = "taffy basket"
 	desc = "A round, wicker basket full to the brim with taffy! "
 	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
