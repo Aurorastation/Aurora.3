@@ -9,6 +9,7 @@
 	var/datum/client_color/vision_color = /datum/client_color/monochrome
 	var/datum/client_color/vision_mechanical_color = /datum/client_color/monochrome
 	var/eye_emote = "'s eyes dilate!"
+	var/allowed_model = PROSTHETIC_TESLA //what robotic model allows this eyes to use the night vision
 
 /obj/item/organ/internal/eyes/night/Destroy()
 	disable_night_vision()
@@ -33,7 +34,7 @@
 	if(is_broken())
 		return
 
-	if(!vision_mechanical_color && (status & ORGAN_ROBOT && robotize_type != PROSTHETIC_TESLA))
+	if(!vision_mechanical_color && (status & ORGAN_ROBOT && robotize_type != allowed_model))
 		return
 
 	if(!night_vision)
