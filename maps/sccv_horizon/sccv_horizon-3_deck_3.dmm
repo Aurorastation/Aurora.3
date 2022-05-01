@@ -1548,14 +1548,9 @@
 /area/bridge/selfdestruct)
 "dd" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 5
+	dir = 10
 	},
-/obj/machinery/button/remote/blast_door{
-	name = "Viewing Shutters";
-	id = "shutters_deck3_gym";
-	pixel_x = 25;
-	pixel_y = 26
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/gym)
 "de" = (
@@ -2600,7 +2595,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/gym)
 "ff" = (
@@ -2743,7 +2737,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "fv" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -3217,6 +3211,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "gA" = (
@@ -3264,7 +3259,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
 "gG" = (
@@ -5301,12 +5296,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
-"kG" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/binary/pump,
-/turf/simulated/floor/lino/grey,
-/area/crew_quarters/cafeteria)
 "kH" = (
 /obj/machinery/computer/guestpass{
 	pixel_x = -28
@@ -6329,17 +6318,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
-"mP" = (
-/obj/effect/floor_decal/industrial/loading{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/carpet/rubber,
-/area/crew_quarters/fitness/gym)
 "mQ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -6360,15 +6338,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
-"mT" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/light/small/red{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
-/area/template_noop)
 "mU" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -6643,10 +6612,10 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "nx" = (
@@ -6729,7 +6698,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -8801,6 +8770,15 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
+"rK" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "rL" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/power/apc/low{
@@ -9046,6 +9024,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
+"sk" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "sl" = (
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/structure/bed/stool/chair/office/bridge,
@@ -9505,15 +9487,6 @@
 /obj/item/towel,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/gym)
-"tm" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/fitness)
 "tn" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -9809,15 +9782,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/lounge)
-"tU" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/fitness)
 "tV" = (
 /obj/item/reagent_containers/toothpaste{
 	pixel_x = -3
@@ -11486,6 +11450,7 @@
 /area/maintenance/security_starboard)
 "xD" = (
 /obj/effect/floor_decal/corner/red/full,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/gym)
 "xE" = (
@@ -12969,6 +12934,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "AI" = (
@@ -13173,6 +13141,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -13941,6 +13912,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "CQ" = (
@@ -14546,6 +14521,12 @@
 "Em" = (
 /obj/machinery/alarm{
 	pixel_y = 28
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -17053,7 +17034,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/changing)
 "Jg" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
 "Jh" = (
@@ -18570,6 +18551,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/gym)
 "Ml" = (
@@ -20056,6 +20038,9 @@
 /area/maintenance/bridge)
 "Pi" = (
 /obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -21859,14 +21844,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/fitness/gym)
 "SG" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/fitness)
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "SH" = (
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -22487,11 +22472,15 @@
 /turf/simulated/wall/r_wall,
 /area/hallway/primary/starboard)
 "Ud" = (
-/obj/machinery/door/airlock/glass{
-	name = "Running Track"
+/obj/effect/floor_decal/corner/red{
+	dir = 5
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/obj/machinery/button/remote/blast_door{
+	name = "Viewing Shutters";
+	id = "shutters_deck3_gym";
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/gym)
 "Uf" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -22817,8 +22806,10 @@
 /area/hallway/crew_area)
 "UP" = (
 /obj/machinery/vending/coffee{
-	pixel_x = 3;
 	pixel_y = 25
+	},
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -23175,6 +23166,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "VI" = (
@@ -23663,6 +23655,7 @@
 /obj/machinery/status_display{
 	pixel_x = 32
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/gym)
 "WH" = (
@@ -25138,6 +25131,9 @@
 "Zz" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -39414,11 +39410,11 @@ at
 at
 at
 at
+fv
 at
 at
 at
-at
-at
+fv
 at
 Gy
 YS
@@ -43043,7 +43039,7 @@ Ql
 eq
 Av
 cN
-SG
+FW
 UD
 Mu
 Ye
@@ -43242,10 +43238,10 @@ SS
 nH
 kW
 fa
-JZ
-mP
-Ud
-tm
+dd
+Av
+cN
+FW
 RS
 Oz
 Ye
@@ -43447,7 +43443,7 @@ Lf
 Fk
 Av
 cN
-tU
+FW
 UD
 xt
 Ye
@@ -43635,7 +43631,7 @@ Wm
 Wm
 HN
 at
-at
+Jg
 UI
 li
 CX
@@ -43837,7 +43833,7 @@ Wm
 Wm
 Sb
 TC
-Jg
+at
 UI
 UI
 nS
@@ -44040,14 +44036,14 @@ Wm
 Wm
 Sb
 Tr
-mT
 Tr
+SG
 Tr
 Tr
 Tr
 nE
-nL
-MC
+UI
+Ud
 Zu
 Qt
 da
@@ -44451,7 +44447,7 @@ aa
 aa
 HN
 nL
-dd
+MC
 SS
 SS
 ke
@@ -45258,7 +45254,7 @@ aa
 aa
 aa
 HN
-nL
+UI
 Pi
 fe
 WG
@@ -47277,7 +47273,7 @@ at
 at
 at
 at
-at
+Jg
 qb
 aE
 aE
@@ -48520,7 +48516,7 @@ Gx
 TG
 Sh
 yg
-kG
+LU
 LU
 xZ
 MY
@@ -49536,8 +49532,8 @@ Dj
 xQ
 xs
 Em
-uk
-uk
+sk
+sk
 CP
 rs
 ZR
@@ -49940,7 +49936,7 @@ Dj
 cG
 xs
 UP
-ve
+rK
 nw
 Bd
 rs
