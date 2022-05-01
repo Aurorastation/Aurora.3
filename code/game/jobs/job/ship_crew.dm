@@ -2,7 +2,7 @@
 	title = "Assistant"
 	flag = ASSISTANT
 	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
@@ -32,7 +32,7 @@
 	title = "Off-Duty Crew Member"
 	flag = VISITOR
 	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
@@ -55,7 +55,7 @@
 	title = "Passenger"
 	flag = PASSENGER
 	departments = SIMPLEDEPT(DEPARTMENT_CIVILIAN)
-	department_flag = CIVILIAN
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = -1
 	spawn_positions = -1
