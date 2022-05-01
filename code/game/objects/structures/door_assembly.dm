@@ -25,6 +25,12 @@
 	. = ..()
 	update_state()
 
+/obj/structure/door_assembly/door_assembly_ser
+	base_icon_state = "ser"
+	base_name = "Service Airlock"
+	glass_type = "/glass_service"
+	airlock_type = "/service"
+
 /obj/structure/door_assembly/door_assembly_com
 	base_icon_state = "com"
 	base_name = "Command Airlock"
@@ -215,7 +221,7 @@
 			return
 
 		playsound(src.loc, W.usesound, 100, 1)
-	
+
 		if(anchored)
 			user.visible_message("<b>[user]</b> begins unsecuring the airlock assembly from the floor.", \
 								SPAN_NOTICE("You start unsecuring the airlock assembly from the floor."))

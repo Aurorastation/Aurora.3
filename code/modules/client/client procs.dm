@@ -610,6 +610,14 @@ var/list/localhost_addresses = list(
 	prefs.save_preferences()
 	toggle_fullscreen(prefs.toggles_secondary & FULLSCREEN_MODE)
 
+/client/verb/toggle_accent_tag_text()
+	set name = "Toggle Accent Tag Text"
+	set category = "Preferences"
+	set desc = "Toggles whether accents will be shown as text or images.."
+
+	prefs.toggles_secondary ^= ACCENT_TAG_TEXT
+	prefs.save_preferences()
+
 /client/proc/toggle_fullscreen(new_value)
 	if(new_value)
 		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false;menu=menu")

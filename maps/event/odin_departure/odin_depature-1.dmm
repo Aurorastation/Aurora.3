@@ -629,7 +629,7 @@
 /obj/item/stack/medical/splint,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/bruise_pack,
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_x = -28
 	},
 /turf/unsimulated/floor{
@@ -2799,12 +2799,6 @@
 "ala" = (
 /obj/structure/closet/secure_closet{
 	anchored = 1;
-	icon_broken = "cabinetdetective_broken";
-	icon_closed = "cabinetdetective";
-	icon_locked = "cabinetdetective_locked";
-	icon_off = "cabinetdetective_broken";
-	icon_opened = "cabinetdetective_open";
-	icon_state = "cabinetdetective_locked";
 	name = "legate's closet";
 	req_access = list(108,111)
 	},
@@ -3993,12 +3987,6 @@
 /area/centcom/holding)
 "awE" = (
 /obj/structure/closet/secure_closet{
-	icon_broken = "secbroken";
-	icon_closed = "sec";
-	icon_locked = "sec1";
-	icon_off = "secoff";
-	icon_opened = "secopen";
-	icon_state = "sec1";
 	name = "equipment locker"
 	},
 /turf/unsimulated/floor{
@@ -6021,7 +6009,7 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = -33;
 	pixel_y = 3;
@@ -7920,7 +7908,7 @@
 	},
 /area/centcom/holding)
 "bjP" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = 30
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -8026,7 +8014,7 @@
 /obj/structure/undies_wardrobe{
 	anchored = 1;
 	icon = 'icons/obj/storage.dmi';
-	icon_state = "dropcrate-grey";
+	icon_state = "drop_crate-grey";
 	name = "underwear crate"
 	},
 /turf/unsimulated/floor{
@@ -8275,10 +8263,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/centcom/ferry)
 "bvr" = (
-/obj/structure/closet{
-	icon_closed = "syndicate1";
-	icon_opened = "syndicate1open";
-	icon_state = "syndicate1";
+/obj/structure/closet/gimmick{
 	name = "emergency response team wardrobe"
 	},
 /obj/item/clothing/under/syndicate/combat,
@@ -9391,11 +9376,7 @@
 /obj/item/ladder_mobile{
 	pixel_y = 6
 	},
-/obj/structure/closet{
-	icon_closed = "toolcloset";
-	icon_opened = "toolclosetopen";
-	icon_state = "toolcloset"
-	},
+/obj/structure/closet/toolcloset/empty,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/item/pickaxe/jackhammer,
 /obj/item/pickaxe/jackhammer,
@@ -9516,8 +9497,7 @@
 /area/centcom/legion/hangar5)
 "clq" = (
 /obj/structure/closet{
-	icon_closed = "blue";
-	icon_state = "blue";
+	icon_door = "blue";
 	name = "Spare Uniforms"
 	},
 /obj/item/clothing/under/legion,
@@ -11703,8 +11683,7 @@
 /area/centcom/ferry)
 "dIG" = (
 /obj/structure/closet{
-	icon_closed = "blue";
-	icon_state = "blue";
+	icon_door = "blue";
 	name = "megacorp clothing"
 	},
 /obj/item/clothing/under/rank/einstein_engines,
@@ -13244,7 +13223,7 @@
 /obj/machinery/sleeper{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = 30;
 	pixel_y = -1;
@@ -14082,7 +14061,6 @@
 /area/centcom/control)
 "feA" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -14594,22 +14572,7 @@
 	icon_state = "grate_light_dam2"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet{
-	icon_closed = "emergency";
-	icon_opened = "emergencyopen";
-	icon_state = "emergency";
-	name = "offworlder supplies"
-	},
-/obj/item/rig/light/offworlder,
-/obj/item/rig/light/offworlder,
-/obj/item/rig/light/offworlder,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/storage/pill_bottle/rmt,
-/obj/item/storage/pill_bottle/rmt,
-/obj/item/storage/pill_bottle/rmt,
-/obj/item/clothing/mask/offworlder,
+/obj/structure/closet/emcloset/offworlder,
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
 "fvg" = (
@@ -16367,8 +16330,7 @@
 /area/shuttle/administration)
 "gtA" = (
 /obj/structure/closet{
-	icon_closed = "blue";
-	icon_state = "blue";
+	icon_door = "blue";
 	name = "misc clothing"
 	},
 /obj/item/clothing/mask/pig,
@@ -21274,17 +21236,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/structure/closet{
-	icon_closed = "emergency";
-	icon_opened = "emergencyopen";
-	icon_state = "emergency";
-	name = "offworlder supplies"
-	},
-/obj/item/rig/light/offworlder,
-/obj/item/rig/light/offworlder,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/storage/pill_bottle/rmt,
+/obj/structure/closet/emcloset/offworlder,
 /turf/unsimulated/floor,
 /area/antag/burglar)
 "jvU" = (
@@ -21326,7 +21278,7 @@
 /turf/space/dynamic,
 /area/shuttle/mercenary)
 "jyc" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_y = 30
 	},
 /obj/structure/bed/chair/shuttle,
@@ -21569,34 +21521,14 @@
 	},
 /area/antag/mercenary)
 "jFk" = (
-/obj/structure/closet{
-	icon_closed = "emergency";
-	icon_opened = "emergencyopen";
-	icon_state = "emergency";
-	name = "offworlder supplies"
-	},
-/obj/item/rig/light/offworlder,
-/obj/item/rig/light/offworlder,
-/obj/item/rig/light/offworlder,
-/obj/item/rig/light/offworlder,
-/obj/item/storage/pill_bottle/rmt,
-/obj/item/storage/pill_bottle/rmt,
-/obj/item/storage/pill_bottle/rmt,
-/obj/item/storage/pill_bottle/rmt,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer,
-/obj/item/clothing/accessory/offworlder/bracer,
+/obj/structure/closet/emcloset/offworlder,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
 /area/antag/mercenary)
 "jFq" = (
-/obj/structure/closet{
-	icon_closed = "syndicate1";
-	icon_opened = "syndicate1open";
-	icon_state = "syndicate1";
+/obj/structure/closet/gimmick{
 	name = "emergency response team wardrobe"
 	},
 /obj/item/clothing/under/syndicate/combat,
@@ -24157,7 +24089,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = -33;
 	pixel_y = 34;
@@ -27126,8 +27058,7 @@
 	dir = 1
 	},
 /obj/structure/closet{
-	icon_closed = "blue";
-	icon_state = "blue";
+	icon_door = "blue";
 	name = "\improper FIB tactical gear"
 	},
 /obj/item/clothing/gloves/swat/tactical,
@@ -28453,10 +28384,7 @@
 	},
 /area/shuttle/mercenary)
 "nRM" = (
-/obj/structure/closet{
-	icon_closed = "syndicate1";
-	icon_opened = "syndicate1open";
-	icon_state = "syndicate1";
+/obj/structure/closet/gimmick{
 	name = "sol clothing"
 	},
 /obj/item/clothing/under/rank/fatigues,
@@ -29411,8 +29339,7 @@
 /area/centcom/legion)
 "ozg" = (
 /obj/structure/closet{
-	icon_closed = "white";
-	icon_state = "white";
+	icon_door = "white";
 	name = "Fresh Scrubs"
 	},
 /obj/item/clothing/under/rank/medical/blue,
@@ -30128,10 +30055,7 @@
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/administration)
 "oZm" = (
-/obj/structure/closet{
-	icon_closed = "syndicate1";
-	icon_opened = "syndicate1open";
-	icon_state = "syndicate1";
+/obj/structure/closet/gimmick{
 	name = "emergency response team wardrobe"
 	},
 /obj/item/clothing/under/syndicate/combat,
@@ -30548,10 +30472,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "prI" = (
-/obj/structure/closet{
-	icon_closed = "syndicate1";
-	icon_opened = "syndicate1open";
-	icon_state = "syndicate1";
+/obj/structure/closet/gimmick{
 	name = "emergency response team wardrobe"
 	},
 /obj/item/clothing/under/syndicate/combat,
@@ -30966,7 +30887,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "pEo" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = -29;
 	pixel_y = 30;
@@ -31108,8 +31029,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/closet{
-	icon_closed = "blue";
-	icon_state = "blue";
+	icon_door = "blue";
 	name = "spare modules"
 	},
 /turf/unsimulated/floor{
@@ -31197,10 +31117,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
 "pIu" = (
-/obj/structure/closet{
-	icon_closed = "syndicate1";
-	icon_opened = "syndicate1open";
-	icon_state = "syndicate1";
+/obj/structure/closet/gimmick{
 	name = "emergency response team wardrobe"
 	},
 /obj/item/clothing/under/syndicate/combat,
@@ -31294,10 +31211,7 @@
 /turf/space/transit/west,
 /area/template_noop)
 "pKR" = (
-/obj/structure/closet{
-	icon_closed = "syndicate1";
-	icon_opened = "syndicate1open";
-	icon_state = "syndicate1";
+/obj/structure/closet/gimmick{
 	name = "emergency response team wardrobe"
 	},
 /obj/item/clothing/under/syndicate/combat,
@@ -31494,7 +31408,6 @@
 /area/shuttle/merchant)
 "pSH" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -34024,7 +33937,6 @@
 /area/centcom/ferry)
 "rLu" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -34296,7 +34208,6 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -37906,7 +37817,7 @@
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_x = -28
 	},
 /turf/simulated/floor/shuttle/black,
@@ -38417,7 +38328,7 @@
 	dir = 4;
 	pixel_x = 11
 	},
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "medical supplies";
 	pixel_x = 28;
 	req_access = null
@@ -39341,7 +39252,6 @@
 "vrw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/trashcart{
-	icon_state = "trashcartopen";
 	opened = 1
 	},
 /obj/item/trash/koisbar{
@@ -39772,8 +39682,7 @@
 /area/centcom/legion/hangar5)
 "vKR" = (
 /obj/structure/closet{
-	icon_closed = "blue";
-	icon_state = "blue";
+	icon_door = "blue";
 	name = "Spare Uniforms"
 	},
 /obj/item/clothing/under/legion,
@@ -41027,7 +40936,6 @@
 /area/antag/mercenary)
 "wrQ" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -41821,7 +41729,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/storage/firstaid/regular,
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_x = 31;
 	pixel_y = 32
 	},
