@@ -30768,11 +30768,6 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/smes)
-"syk" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/security/checkpoint2)
 "sAT" = (
 /obj/machinery/cell_charger{
 	pixel_y = 5
@@ -55027,9 +55022,9 @@ psH
 jWV
 jWV
 jWV
-syk
-syk
-syk
+bCv
+bCv
+bCv
 sXT
 aQb
 udR
