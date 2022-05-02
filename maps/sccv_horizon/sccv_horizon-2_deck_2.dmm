@@ -19637,7 +19637,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	id = "Cell 5";
+	id = "Cell 4";
 	name = "Cell Door"
 	},
 /obj/machinery/door/firedoor,
