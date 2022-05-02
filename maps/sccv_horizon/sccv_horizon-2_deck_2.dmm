@@ -2143,6 +2143,10 @@
 /area/security/prison)
 "bfB" = (
 /obj/machinery/light/small,
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bgN" = (
@@ -15897,10 +15901,6 @@
 /obj/structure/curtain/black{
 	icon_state = "open";
 	opacity = 0
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
