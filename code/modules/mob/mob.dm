@@ -327,6 +327,23 @@
 	face_atom(A)
 	A.examine(src)
 
+/mob/proc/can_examine()
+	if(client?.eye == src)
+		return TRUE
+	return FALSE
+
+/mob/living/silicon/pai/can_examine()
+	. = ..()
+	if(!.)
+		var/atom/our_holder = recursive_loc_turf_check(src, 5)
+		if(isturf(our_holder.loc)) // Are we folded on the ground?
+			return TRUE
+
+/mob/living/simple_animal/borer/can_examine()
+	. = ..()
+	if(!. && iscarbon(loc) && isturf(loc.loc)) // We're inside someone, let us examine still.
+		return TRUE 
+
 /mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
 
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
@@ -955,10 +972,10 @@
 	return canmove
 
 
-/mob/proc/facedir(var/ndir)
+/mob/proc/facedir(var/ndir, var/force_change = FALSE)
 	if(!canface() || (client && client.moving))
 		return 0
-	if(facing_dir != ndir)
+	if((facing_dir != ndir) && force_change)
 		facing_dir = null
 	set_dir(ndir)
 	if(buckled_to && buckled_to.buckle_movable)

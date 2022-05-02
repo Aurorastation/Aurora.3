@@ -41,8 +41,8 @@
 		)
 
 /obj/item/rig/military
-	name = "military hardsuit control module"
-	desc = "A powerful hardsuit designed for military operations. This is coated in Solarian military colors."
+	name = "vampire hardsuit control module"
+	desc = "A Zavodskoi-manufactured hardsuit designed for the Solarian Armed Forces, the Type-9 \"Vampire\" is the suit issued to Alliance military specialists and team leaders."
 	icon = 'icons/clothing/rig/military.dmi'
 	icon_state = "military_rig"
 	suit_type = "military hardsuit"

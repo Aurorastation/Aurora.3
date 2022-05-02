@@ -26,33 +26,19 @@
 		bandtypes[initial(band.name)] = band
 	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(bandtypes))
 
-/datum/gear/ears/skrell/cloth/short
-	display_name = "short headtail cloth"
-	path = /obj/item/clothing/ears/skrell/cloth_short/black
+/datum/gear/ears/skrell/cloth
+	display_name = "headtail cloth selection (recolourable)"
+	path = /obj/item/clothing/ears/skrell/cloth
 	sort_category = "Xenowear - Skrell"
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/ears/skrell/cloth/short/New()
+/datum/gear/ears/skrell/cloth/New()
 	..()
-	var/list/shorttypes = list()
-	for(var/short_style in typesof(/obj/item/clothing/ears/skrell/cloth_short))
-		var/obj/item/clothing/ears/skrell/cloth_short/short = short_style
-		shorttypes[initial(short.name)] = short
-	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(shorttypes))
-
-/datum/gear/ears/skrell/cloth/average
-	display_name = "average headtail cloth"
-	path = /obj/item/clothing/ears/skrell/cloth_average/black
-	sort_category = "Xenowear - Skrell"
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
-
-/datum/gear/ears/skrell/cloth/average/New()
-	..()
-	var/list/averagetypes = list()
-	for(var/average_style in typesof(/obj/item/clothing/ears/skrell/cloth_average))
-		var/obj/item/clothing/ears/skrell/cloth_average/average = average_style
-		averagetypes[initial(average.name)] = average
-	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(averagetypes))
+	var/list/cloths = list()
+	cloths["headtail cloth"] = /obj/item/clothing/ears/skrell/cloth
+	cloths["short headtail cloth"] = /obj/item/clothing/ears/skrell/cloth/short
+	gear_tweaks += new /datum/gear_tweak/path(cloths)
 
 /datum/gear/ears/skrell/workhat
 	display_name = "worker hat"
@@ -87,6 +73,12 @@
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Skrell"
+	
+/datum/gear/accessory/weishii
+	display_name = "weishii robe"
+	path = /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Skrell"
 
 /datum/gear/uniform/skrell
 	display_name = "qeblak ceremonial garment"
@@ -117,9 +109,12 @@
 /datum/gear/ears/skrell/goop/New()
 	..()
 	var/list/algae = list()
-	algae["glowing algae(dots)"] = /obj/item/clothing/ears/skrell/goop
-	algae["glowing algae(stripes)"] = /obj/item/clothing/ears/skrell/goop/stripes
-	algae["glowing algae(circles)"] = /obj/item/clothing/ears/skrell/goop/circles
+	algae["glowing algae, dots"] = /obj/item/clothing/ears/skrell/goop
+	algae["long glowing algae, dots"] = /obj/item/clothing/ears/skrell/goop/long
+	algae["glowing algae, stripes"] = /obj/item/clothing/ears/skrell/goop/stripes
+	algae["long glowing algae, stripes"] = /obj/item/clothing/ears/skrell/goop/stripes/long
+	algae["glowing algae, circles"] = /obj/item/clothing/ears/skrell/goop/circles
+	algae["long glowing algae, circles"] = /obj/item/clothing/ears/skrell/goop/circles/long
 	gear_tweaks += new /datum/gear_tweak/path(algae)
 
 /datum/gear/mask/skrell
