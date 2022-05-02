@@ -2,9 +2,6 @@
 	name = "armory closet"
 	desc = "Why is this here?"
 	icon_state = "syndicate"
-	icon_closed = "syndicate"
-	icon_opened = "syndicateopen"
-
 
 /obj/structure/closet/syndicate/personal
 	desc = "It's a storage unit for operative gear."
@@ -22,7 +19,6 @@
 	new /obj/item/shield/energy(src)
 	new /obj/item/clothing/shoes/magboots(src)
 
-
 /obj/structure/closet/syndicate/suit
 	desc = "It's a storage unit for voidsuits."
 
@@ -34,7 +30,6 @@
 	new /obj/item/clothing/head/helmet/space/void/merc(src)
 	new /obj/item/airbubble/syndie(src)
 	new /obj/item/airbubble/syndie(src)
-
 
 /obj/structure/closet/syndicate/nuclear
 	desc = "It's a storage unit for nuclear-operative gear."

@@ -38,6 +38,10 @@ var/list/dream_entries = list()
 						to_chat(bg, SPAN_NOTICE("You have taken [victim] to the Srom with you."))
 						victim.srom_pulled_by = WEAKREF(src)
 						srom_pulling = WEAKREF(victim)
+			for(var/thing in SSpsi.processing)
+				var/datum/psi_complexus/psi = thing
+				to_chat(psi.owner, SPAN_CULT("You sense an increase in the activity of Srom..."))
+				sound_to(psi.owner, sound('sound/effects/psi/power_used.ogg'))
 			log_and_message_admins("has entered the shared dream", bg)
 	// Does NOT
 	else
@@ -77,7 +81,7 @@ var/list/dream_entries = list()
 				return_text = "You are ripped from the Srom as you return to the captivity of your own mind."
 
 			return_mob.ckey = old_bg.ckey
-			old_bg.show_message("<span class='notice'>[bg] fades as their connection is severed.</span>")
-			animate(old_bg, alpha=0, time = 200)
+			old_bg.visible_message("<span class='notice'>[old_bg] begins to fade as they depart from the dream...</span>")
+			animate(old_bg, alpha=0, time = 20)
 			QDEL_IN(old_bg, 20)
 			to_chat(return_mob, SPAN_WARNING("[return_text]"))
