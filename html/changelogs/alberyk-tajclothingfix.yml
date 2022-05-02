@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed some Tajara loadout items not having the proper sprites."
