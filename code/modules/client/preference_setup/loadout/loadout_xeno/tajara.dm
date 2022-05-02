@@ -73,11 +73,11 @@
 	tajarancloak["common cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak
 	tajarancloak["fancy cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak/fancy
 	tajarancloak["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran
-	tajarancloak["amohdan cloak"] = /obj/item/clothing/suit/storage/hooded/amohda
-	tajarancloak["adhomian winter cloak"] = /obj/item/clothing/suit/storage/hooded/winter
-	tajarancloak["adhomian asymmetric cloak"] = /obj/item/clothing/suit/storage/hooded/asym
-	tajarancloak["adhomian maroon cloak"] = /obj/item/clothing/suit/storage/hooded/maroon
-	tajarancloak["fancy adhomian cloak"] = /obj/item/clothing/suit/storage/hooded/fancy
+	tajarancloak["amohdan cloak"] = /obj/item/clothing/suit/storage/hooded/tajara/amohda
+	tajarancloak["adhomian winter cloak"] = /obj/item/clothing/suit/storage/hooded/tajara/winter
+	tajarancloak["adhomian asymmetric cloak"] = /obj/item/clothing/suit/storage/hooded/tajara/asym
+	tajarancloak["adhomian maroon cloak"] = /obj/item/clothing/suit/storage/hooded/tajara/maroon
+	tajarancloak["fancy adhomian cloak"] = /obj/item/clothing/suit/storage/hooded/tajara/fancy
 	gear_tweaks += new /datum/gear_tweak/path(tajarancloak)
 
 /datum/gear/suit/tajara_priest
