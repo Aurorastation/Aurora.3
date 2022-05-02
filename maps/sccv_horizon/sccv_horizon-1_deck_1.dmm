@@ -5,8 +5,8 @@
 "aaZ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(18);
-	name = "E.V.A. Maintenance"
+	name = "E.V.A. Maintenance";
+	req_access = list(18)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
@@ -546,8 +546,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	layer = 5;
 	id = "shutters_evarecharging";
+	layer = 5;
 	name = "E.V.A. Recharging Shutter"
 	},
 /obj/machinery/door/firedoor,
@@ -573,9 +573,9 @@
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
+	dir = 1;
 	name = "Station Intercom (General)";
-	pixel_y = -25;
-	dir = 1
+	pixel_y = -25
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -932,12 +932,12 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "researchhangar";
 	name = "E.V.A. Recharging Shutters";
-	req_access = list(18);
-	dir = 1;
+	pixel_x = -7;
 	pixel_y = -25;
-	pixel_x = -7
+	req_access = list(18)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
@@ -1201,12 +1201,12 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/window/southleft{
-	req_access = list(26);
-	name = "Mass Driver External Access"
+	name = "Mass Driver External Access";
+	req_access = list(26)
 	},
 /obj/machinery/door/window/northleft{
-	req_access = list(26);
-	name = "Mass Driver Internal Access"
+	name = "Mass Driver Internal Access";
+	req_access = list(26)
 	},
 /turf/simulated/floor/reinforced{
 	roof_type = null
@@ -1879,8 +1879,8 @@
 	id = "shutters_custodialgarage";
 	name = "Custodial Garage Shutters";
 	pixel_x = -25;
-	req_access = list(26);
-	pixel_y = 8
+	pixel_y = 8;
+	req_access = list(26)
 	},
 /obj/machinery/ringer_button{
 	id = "ringers_custodial";
@@ -2128,30 +2128,30 @@
 	dir = 4;
 	id = "shutters_hangardeskcpstarboard";
 	name = "Starboard Security Checkpoint Access Shutters";
-	pixel_y = -1;
 	pixel_x = -6;
+	pixel_y = -1;
 	req_access = list(63)
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "shutters_hangardeskcpport";
 	name = "Port Security Checkpoint Access Shutters";
-	pixel_y = -1;
 	pixel_x = 5;
+	pixel_y = -1;
 	req_access = list(63)
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 4;
 	id = "shutters_hangarseccpdesk";
 	name = "Desk Shutter";
-	dir = 4;
+	pixel_x = -6;
 	pixel_y = 10;
-	req_access = list(63);
-	pixel_x = -6
+	req_access = list(63)
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 4;
 	id = "shutters_hangarseccpexternal";
 	name = "External Security Checkpoint Shutters";
-	dir = 4;
 	pixel_x = 5;
 	pixel_y = 10;
 	req_access = list(63)
@@ -2236,8 +2236,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	pixel_x = -28;
-	dir = 4
+	dir = 4;
+	pixel_x = -28
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -2580,11 +2580,11 @@
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/toolbox/mechanical,
 /obj/machinery/ringer{
-	name = "\improper Custodial ringer terminal";
-	id = "ringers_custodial";
 	department = "Custodial";
-	req_access = list(26);
-	pixel_y = -32
+	id = "ringers_custodial";
+	name = "\improper Custodial ringer terminal";
+	pixel_y = -32;
+	req_access = list(26)
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -3242,8 +3242,8 @@
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = -22;
-	specialfunctions = 4;
-	req_access = list(65)
+	req_access = list(65);
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -4013,8 +4013,8 @@
 	id = "harvd";
 	name = "Door Bolt Control";
 	pixel_y = 25;
-	specialfunctions = 4;
-	req_access = list(65)
+	req_access = list(65);
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -4905,8 +4905,8 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/bio_hood/anomaly,
 /obj/machinery/door/window/southleft{
-	req_access = list(65);
-	name = "Anomaly Suit"
+	name = "Anomaly Suit";
+	req_access = list(65)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -5050,9 +5050,9 @@
 	dir = 6
 	},
 /obj/structure/sign/securearea{
+	desc = "A caution sign which reads 'DISPOSALS' and 'AUTHORIZED PERSONNEL ONLY'.";
 	name = "\improper DISPOSALS sign";
-	pixel_y = 32;
-	desc = "A caution sign which reads 'DISPOSALS' and 'AUTHORIZED PERSONNEL ONLY'."
+	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
@@ -5680,8 +5680,8 @@
 	dir = 1
 	},
 /obj/machinery/door/window/southright{
-	req_access = list(47);
-	name = "Research Voidsuit"
+	name = "Research Voidsuit";
+	req_access = list(47)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
@@ -5819,8 +5819,8 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/bio_hood/anomaly,
 /obj/machinery/door/window/southleft{
-	req_access = list(65);
-	name = "Anomaly Suit"
+	name = "Anomaly Suit";
+	req_access = list(65)
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -6032,8 +6032,8 @@
 "fdB" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
-	req_one_access = list(29, 47, 73);
-	name = "Research E.V.A."
+	name = "Research E.V.A.";
+	req_one_access = list(29, 47, 73)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6533,9 +6533,9 @@
 	dir = 1
 	},
 /obj/structure/sign/deathsposal{
-	pixel_y = 32;
+	desc = "A warning sign which reads 'DANGER: MASS DRIVER'.";
 	name = "\improper DANGER: MASS DRIVER sign";
-	desc = "A warning sign which reads 'DANGER: MASS DRIVER'."
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
@@ -7015,8 +7015,8 @@
 	dir = 10
 	},
 /obj/structure/sign/electricshock{
-	name = "\improper CAUTION: HEAVY MACHINERY IN USE sign";
 	desc = "A caution sign which reads 'CAUTION: HEAVY MACHINERY IN USE' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY.'.";
+	name = "\improper CAUTION: HEAVY MACHINERY IN USE sign";
 	pixel_y = 32
 	},
 /obj/machinery/light/small{
@@ -7245,17 +7245,17 @@
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_custodialdesk";
 	name = "Custodial Desk Shutter";
-	req_access = list(26);
 	pixel_x = 25;
-	pixel_y = -7
+	pixel_y = -7;
+	req_access = list(26)
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_custodialgarage";
 	name = "Custodial Garage Shutter";
-	req_access = list(26);
+	pixel_x = 25;
 	pixel_y = 8;
-	pixel_x = 25
+	req_access = list(26)
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
@@ -7419,8 +7419,8 @@
 	dir = 4
 	},
 /obj/machinery/light_switch{
-	pixel_y = -25;
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = -25
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -8933,12 +8933,12 @@
 	dir = 8
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 4;
 	id = "researchhangar";
 	name = "Research E.V.A.";
 	pixel_x = -25;
-	req_access = list(47);
-	dir = 4;
-	pixel_y = 7
+	pixel_y = 7;
+	req_access = list(47)
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/warning{
@@ -10273,8 +10273,8 @@
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = -22;
-	specialfunctions = 4;
-	req_access = list(65)
+	req_access = list(65);
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -10977,8 +10977,8 @@
 "jvM" = (
 /obj/machinery/light,
 /obj/structure/sign/securearea{
-	name = "\improper DANGER: AUTOMATIC EQUIPMENT - CRUSH HAZARD sign";
 	desc = "A warning sign which reads 'DANGER: AUTOMATIC EQUIPMENT STARTS AND STOPS AUTOMATICALLY' and 'CRUSH HAZARD'.";
+	name = "\improper DANGER: AUTOMATIC EQUIPMENT - CRUSH HAZARD sign";
 	pixel_y = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -13933,8 +13933,8 @@
 "lXZ" = (
 /obj/machinery/recharger/wallcharger{
 	layer = 3.3;
-	pixel_y = 24;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 24
 	},
 /obj/machinery/recharger/wallcharger{
 	layer = 3.3;
@@ -14204,9 +14204,9 @@
 	dir = 4
 	},
 /obj/machinery/computer/shuttle_control/lift/wall{
-	shuttle_tag = "Robotics Lift";
+	dir = 1;
 	pixel_y = -32;
-	dir = 1
+	shuttle_tag = "Robotics Lift"
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
@@ -14460,8 +14460,8 @@
 	dir = 10
 	},
 /obj/structure/sign/fire{
-	pixel_x = -32;
-	name = "\improper DANGER: COMBUSTION CHAMBER sign"
+	name = "\improper DANGER: COMBUSTION CHAMBER sign";
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -14694,8 +14694,8 @@
 	dir = 4
 	},
 /obj/structure/sign/fire{
-	pixel_x = 32;
-	name = "\improper DANGER: COMBUSTION CHAMBER sign"
+	name = "\improper DANGER: COMBUSTION CHAMBER sign";
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -15379,9 +15379,9 @@
 	dir = 4
 	},
 /obj/structure/sign/fire{
-	pixel_y = 32;
+	desc = "A caution sign which reads 'PORT PROPULSION'.";
 	name = "\improper PORT PROPULSION sign";
-	desc = "A caution sign which reads 'PORT PROPULSION'."
+	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -15436,11 +15436,11 @@
 	dir = 9
 	},
 /obj/machinery/ringer{
-	name = "\improper Custodial ringer terminal";
-	id = "ringers_custodial";
 	department = "Custodial";
-	req_access = list(26);
-	pixel_x = -32
+	id = "ringers_custodial";
+	name = "\improper Custodial ringer terminal";
+	pixel_x = -32;
+	req_access = list(26)
 	},
 /obj/structure/coatrack{
 	pixel_x = -9
@@ -16235,8 +16235,8 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
-	name = "\improper Viewing Shutter";
-	id = "shutters_disposals"
+	id = "shutters_disposals";
+	name = "\improper Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -16494,9 +16494,9 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
-	name = "\improper Viewing Shutter";
+	dir = 4;
 	id = "shutters_disposals";
-	dir = 4
+	name = "\improper Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -17364,6 +17364,7 @@
 /area/maintenance/substation/security)
 "pkK" = (
 /obj/machinery/light/small,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
 "plc" = (
@@ -17621,9 +17622,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
-	name = "Custodial Desk Shutter";
 	dir = 4;
-	id = "shutters_custodialdesk"
+	id = "shutters_custodialdesk";
+	name = "Custodial Desk Shutter"
 	},
 /obj/item/paper_bin{
 	pixel_x = -3;
@@ -17691,8 +17692,8 @@
 	id = "riso1";
 	name = "Door Bolt Control";
 	pixel_y = -22;
-	specialfunctions = 4;
-	req_access = list(65)
+	req_access = list(65);
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -19405,9 +19406,9 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "shutters_hangarseccp";
 	name = "Security Checkpoint Shutters";
-	dir = 8;
 	pixel_x = 32;
 	req_access = list(63)
 	},
@@ -19852,8 +19853,8 @@
 /area/engineering/atmos)
 "rlW" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(65);
-	name = "Xenoarcheology Maintenance Access"
+	name = "Xenoarcheology Maintenance Access";
+	req_access = list(65)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -20989,8 +20990,8 @@
 /area/engineering/atmos)
 "stn" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12, 47);
-	name = "Fire Closet"
+	name = "Fire Closet";
+	req_one_access = list(12, 47)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -21004,15 +21005,15 @@
 /obj/machinery/button/mass_driver{
 	_wifi_id = "waste";
 	id = "waste";
-	pixel_y = 30;
 	name = "Mass Driver Activation";
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 30
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "waste";
-	pixel_y = 40;
 	name = "Mass Driver Blast Door";
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 40
 	},
 /obj/machinery/alarm{
 	dir = 4;
@@ -21027,8 +21028,8 @@
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_disposals";
 	name = "Viewing Shutters";
-	pixel_y = 40;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 40
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
@@ -21329,8 +21330,8 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/bio_hood/anomaly,
 /obj/machinery/door/window/southleft{
-	req_access = list(65);
-	name = "Anomaly Suit"
+	name = "Anomaly Suit";
+	req_access = list(65)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -21449,12 +21450,12 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "researchhangar";
 	name = "E.V.A. Recharging Shutters";
 	pixel_x = 25;
-	req_access = list(18);
-	dir = 8;
-	pixel_y = 7
+	pixel_y = 7;
+	req_access = list(18)
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
@@ -21969,8 +21970,8 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/glass_mining{
-	req_one_access = list(29, 47);
-	name = "Mech Bay and Recharging Station Elevator Access"
+	name = "Mech Bay and Recharging Station Elevator Access";
+	req_one_access = list(29, 47)
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
@@ -23569,12 +23570,12 @@
 	dir = 6
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "researchhangar";
 	name = "Research E.V.A.";
 	pixel_x = 25;
-	req_access = list(47);
-	dir = 8;
-	pixel_y = 7
+	pixel_y = 7;
+	req_access = list(47)
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
@@ -24432,8 +24433,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(29);
-	name = "Workshop Maintenance"
+	name = "Workshop Maintenance";
+	req_access = list(29)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -24612,8 +24613,8 @@
 "vCG" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
-	id = "researchhangar";
 	dir = 8;
+	id = "researchhangar";
 	name = "Research E.V.A."
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -26144,9 +26145,9 @@
 /area/maintenance/operations)
 "wYp" = (
 /obj/structure/sign/fire{
-	pixel_y = 32;
+	desc = "A caution sign which reads 'STARBOARD PROPULSION'.";
 	name = "\improper STARBOARD PROPULSION sign";
-	desc = "A caution sign which reads 'STARBOARD PROPULSION'."
+	pixel_y = 32
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -26465,8 +26466,8 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
+	dir = 1;
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/eva)
@@ -26871,8 +26872,8 @@
 "xvP" = (
 /obj/machinery/portable_atmospherics/canister/phoron,
 /obj/machinery/door/window/northleft{
-	req_access = list(65);
-	name = "Canister Storage Access"
+	name = "Canister Storage Access";
+	req_access = list(65)
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -26887,8 +26888,8 @@
 "xwA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
-	req_one_access = list(29, 47);
-	name = "Mech Bay and Recharging Station Elevator Access"
+	name = "Mech Bay and Recharging Station Elevator Access";
+	req_one_access = list(29, 47)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
