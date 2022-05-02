@@ -1,0 +1,7 @@
+author: Llywelwyn
+
+delete-after: True
+
+changes:
+  - rscadd: "Added variations to Skrell algae loadout items for longer headtails."
+  - rscadd: "Made Skrell headtail cloths recolourable instead of a set of fixed colours."
