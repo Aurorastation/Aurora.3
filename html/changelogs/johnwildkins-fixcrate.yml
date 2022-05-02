@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fix runtime errors related to bad loot crate spawns / old mapped-in crates."
