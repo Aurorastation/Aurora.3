@@ -1,6 +1,4 @@
-
-//Hallway
-
+// Hallways
 /area/hallway
 	sound_env = LARGE_ENCLOSED
 	allow_nightmode = TRUE
@@ -16,6 +14,9 @@
 /area/hallway/primary/starboard
 	name = "Starboard Primary Hallway"
 	icon_state = "hallS"
+
+/area/hallway/primary/starboard/docks
+	name = "Starboard Primary Hallway - Docks"
 
 /area/hallway/primary/aft
 	name = "Aft Primary Hallway"

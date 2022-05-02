@@ -378,6 +378,12 @@
 /obj/effect/floor_decal/spline/plain/corner
 	icon_state = "spline_plain_corner"
 
+/obj/effect/floor_decal/spline/plain/cee
+	icon_state = "spline_plain_cee"
+
+/obj/effect/floor_decal/spline/plain/full
+	icon_state = "spline_plain_full"
+
 /obj/effect/floor_decal/spline/fancy
 	name = "spline - fancy"
 	icon_state = "spline_fancy"

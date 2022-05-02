@@ -1,6 +1,6 @@
 //Crew
 /area/crew_quarters
-	name = "Dormitories"
+	name = "Crew Quarters"
 	icon_state = "Sleep"
 	flags = RAD_SHIELDED
 	station_area = 1
@@ -21,12 +21,6 @@
 	allow_nightmode = 1
 	holomap_color = HOLOMAP_AREACOLOR_DORMS
 
-/area/crew_quarters/sleep/engi_wash
-	name = "Engineering - Washroom"
-	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
-	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
-
 /area/crew_quarters/sleep/bedrooms
 	name = "Dormitory Bedroom One"
 	icon_state = "Sleep"
@@ -35,6 +29,10 @@
 /area/crew_quarters/sleep/cryo
 	name = "Cryogenic Storage"
 	icon_state = "Sleep"
+
+/area/crew_quarters/sleep/cryo/dormitories
+	name = "Cryogenic Storage - Dormitories"
+	sound_env = SMALL_ENCLOSED
 
 /area/crew_quarters/sleep/main
 	name = "Main Level Cryogenic Storage"
@@ -59,24 +57,6 @@
 	name = "Medical Dormitories"
 	icon_state = "Sleep"
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
-
-/area/crew_quarters/sleep_male
-	name = "Male Dorm"
-	icon_state = "Sleep"
-
-/area/crew_quarters/sleep_male/toilet_male
-	name = "Male Toilets"
-	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
-
-/area/crew_quarters/sleep_female
-	name = "Female Dorm"
-	icon_state = "Sleep"
-
-/area/crew_quarters/sleep_female/toilet_female
-	name = "Female Toilets"
-	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
 
 /area/crew_quarters/locker
 	name = "Locker Room"
@@ -121,6 +101,11 @@
 	sound_env = SMALL_SOFTFLOOR
 //
 
+/area/crew_quarters/nature_showcase
+	name = "Nature Showcase"
+	icon_state = "nature_showcase"
+	sound_env = SMALL_SOFTFLOOR
+
 /area/crew_quarters/cafeteria
 	name = "Cafeteria"
 	icon_state = "cafeteria"
@@ -150,11 +135,6 @@
 	name = "Theatre"
 	icon_state = "Theatre"
 	sound_env = LARGE_SOFTFLOOR
-
-/area/crew_quarters/nature_showcase
-	name = "Nature Showcase"
-	icon_state = "nature_showcase"
-	sound_env = SMALL_SOFTFLOOR
 
 /area/library
  	name = "Library"
