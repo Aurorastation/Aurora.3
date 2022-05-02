@@ -55,8 +55,8 @@
 	coat["tajaran naval coat"] = /obj/item/clothing/suit/storage/toggle/tajaran
 	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/wool
 	coat["raakti shariim coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/raakti_shariim
-	coat["al'mariist jacket"] = /obj/item/clothing/suit/storage/tajaran/pra_jacket
-	coat["hadiist surplus jacket"] = /obj/item/clothing/suit/storage/tajaran/dpra_jacket
+	coat["hadiist surplus jacket"] = /obj/item/clothing/suit/storage/tajaran/pra_jacket
+	coat["al'mariist jacket"] = /obj/item/clothing/suit/storage/tajaran/dpra_jacket
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajara_cloak
