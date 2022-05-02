@@ -991,6 +991,30 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "ponytail"
 
+	ponytail_short
+		name = "Ponytail, Short"
+		icon_state = "hair_ponytail_short"
+		length = 2
+		chatname = "short ponytail"
+			
+	ponytail_short2
+		name = "Ponytail, Short 2"
+		icon_state = "hair_ponytail_short2"
+		length = 2
+		chatname = "short ponytail"
+			
+	ponytail_short3
+		name = "Ponytail, Short 3"
+		icon_state = "hair_ponytail_short3"
+		length = 2
+		chatname = "short ponytail"
+			
+	ponytail_short4
+		name = "Ponytail, Short 4"
+		icon_state = "hair_ponytail_short4"
+		length = 2
+		chatname = "short ponytail"
+
 	ponytail_fringetail
 		name = "Ponytail, Fringetail"
 		icon_state = "hair_ponytail_fringetail"
@@ -1044,6 +1068,12 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_ponytail_ziegler"
 		length = 2
 		chatname = "ponytail"
+
+	bunlarge2
+		name = "Bun, Large 2"
+		icon_state = "hair_bun_large2"
+		length = 2
+		chatname = "large bun"
 
 	poofy
 		name = "Poofy"
