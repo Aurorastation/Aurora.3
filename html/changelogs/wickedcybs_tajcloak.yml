@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - rscadd: "Added attachable versions of some of the new taj cloaks. They can't raise their hoods or have an internal storage as a consequence."
+  - tweak: "The new fancy cloak that was added was renamed to 'black fancy cloak' in the loadout, as it was sharing a name with an existing cloak already."
