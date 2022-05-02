@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Added attachable versions of some of the new taj cloaks. They can't raise their hoods or have an internal storage as a consequence."

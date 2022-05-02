@@ -78,6 +78,41 @@
 	icon_state = "taj_fancycloak"
 	item_state = "taj_fancycloak"
 
+/obj/item/clothing/accessory/poncho/tajarancloak/amohda
+	name = "amohdan cloak"
+	desc = "Originally used by the Amohdan swordsmen before the First Revolution, this cloak is now commonly worn by the island population."
+	icon_state = "amohda_cloak"
+	item_state = "amohda_cloak"
+	desc_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
+	single combat in their quests to become the greatest swordsman. Modern Amohda is under the control of the DPRA's Adhomai Liberation Army, further solidified after the defeat \
+	of a Nationalist revolt vying for a truly independent Amohda. The region is still beset by trouble within and without as a deeply divided Amohdan people continue to struggle in the \
+	bloody conflict to stamp out Nationalistic and to a lesser extent, divided Monarchistic sentiments while their rivals from the New Kingdom of Adhomai watch from the seas they rule \
+	and the People's Republic of Adhomai looms over the southern end of the island..."
+
+/obj/item/clothing/accessory/poncho/tajarancloak/winter
+	name = "adhomian winter cloak"
+	desc = "A simple wool cloak used during the early days of the lesser winter."
+	icon_state = "winter_cloak"
+	item_state = "winter_cloak"
+
+/obj/item/clothing/accessory/poncho/tajarancloak/asym
+	name = "adhomian asymmetric cloak"
+	desc = "An Adhomian cloak with an asymmetric design."
+	icon_state = "asym_cloak"
+	item_state = "asym_cloak"
+
+/obj/item/clothing/accessory/poncho/tajarancloak/maroon
+	name = "adhomian maroon cloak"
+	desc = "A simple maroon colored Adhomian cloak."
+	icon_state = "maroon_cloak"
+	item_state = "maroon_cloak"
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fancyblack
+	name = "fancy adhomian cloak"
+	desc = "A fancy black Adhomian cloak."
+	icon_state = "hb_cloak"
+	item_state = "hb_cloak"
+
 /obj/item/clothing/accessory/tajaran_wrap
 	name = "marriage wrap"
 	desc = "A holy cloth wrap that signifies marriage amongst tajara, it has white and gold markings. This one is meant for the husband."
