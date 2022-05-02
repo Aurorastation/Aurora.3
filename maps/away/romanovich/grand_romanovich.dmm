@@ -5799,7 +5799,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "ss" = (
-/obj/structure/closet/crate/radiation,
+/obj/structure/closet/crate/rad,
 /obj/machinery/light{
 	dir = 2;
 	icon_state = "tube1"
