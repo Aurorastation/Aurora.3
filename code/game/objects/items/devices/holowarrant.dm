@@ -93,7 +93,7 @@
 		<HTML><HEAD><TITLE>Search Warrant: [activename]</TITLE></HEAD>
 		<BODY bgcolor='#FFFFFF'>
 		<font face="Verdana" color=black><font size = "1">
-		<center><large><b>NanoTrasen Inc.
+		<center><large><b>Stellar Corporate Conglomerate
 		<br>Civilian Branch of Operation</b></large>
 		<br>
 		<br><b>DIGITAL SEARCH WARRANT</b></center>

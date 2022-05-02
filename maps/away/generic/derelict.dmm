@@ -481,6 +481,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/derelict)
+"rla" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/simulated/floor/tiled/steel,
+/area/derelict)
 "rtf" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -563,11 +567,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/steel,
-/area/derelict)
-"wmd" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/steel,
 /area/derelict)
 "wLs" = (
@@ -19818,7 +19817,7 @@ aSN
 aSN
 aSN
 aSi
-aSN
+rla
 aSN
 aSN
 aSN
@@ -21104,7 +21103,7 @@ aSN
 aSN
 aSN
 aSN
-wmd
+aSi
 aSN
 aSN
 aSN
@@ -22902,7 +22901,7 @@ aSN
 aSN
 aSN
 aSN
-aSN
+rla
 aSN
 aSN
 aSN

@@ -600,6 +600,15 @@
 	icon_state = "qeblak_cape"
 	item_state = "qeblak_cape"
 	flippable = FALSE
+	
+/obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
+	name = "weishii robe"
+	desc = "A robe denoting the wearer as a member fo the Weishii faith."
+	desc_fluff = "This mantle denotes the wearer as a member of the Weishii faith. \
+	It is given to followers after they have spent time on a Weishiin Sanctuary."
+	icon_state = "weishii_robe"
+	item_state = "weishii_robe"
+	flippable = FALSE
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
 	name = "Jargon Division Zeng-Hu cloak"

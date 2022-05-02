@@ -16,7 +16,7 @@
 	primitive_form = SPECIES_MONKEY_SKRELL
 	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/palm, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)
 
-	blurb = "Xiialt can be approximately translated to “coastals” or “land-dwellers”. These Skrell are the \
+	blurb = "Xiialt can be approximately translated to \"coastals\" or \"land-dwellers\". These Skrell are the \
 	biological cousins of the Axiori. They tend to be somewhat short, but the stout nature of the Xiialt \
 	helped them traverse the rough nature of their biome with bipedal movement. Due to this, their feet are \
 	somewhat bigger than those of an Axiori and their leg muscles are more defined. It is theorized that this \
@@ -85,13 +85,10 @@
 
 	default_h_style = "Skrell Short Tentacles"
 
-	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI, CITIZENSHIP_EUM)
-	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_NONE, RELIGION_OTHER)
-	default_citizenship = CITIZENSHIP_JARGON
-
-	default_accent = ACCENT_SKRELL
-	allowed_accents = list(ACCENT_SKRELL, ACCENT_HOMEWORLD, ACCENT_QERRMALIC, ACCENT_ALIOSE, ACCENT_AWEIJI, ACCENT_TRAVERSE, ACCENT_SKRELLCETI,
-							ACCENT_GIBSON, ACCENT_SKRELLCOC, ACCENT_EUROPA, ACCENT_SKRELLSOL, ACCENT_MICTLAN, ACCENT_GENNER)
+	possible_cultures = list(
+		/decl/origin_item/culture/federation,
+		/decl/origin_item/culture/non_federation
+	)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
 	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound

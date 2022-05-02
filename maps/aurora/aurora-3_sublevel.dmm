@@ -10425,7 +10425,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -10722,7 +10722,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "atC" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -30
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -30101,10 +30101,7 @@
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
 "jVc" = (
-/obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
-	icon_state = "cabinet_closed";
+/obj/structure/closet/cabinet{
 	name = "Clothing Storage"
 	},
 /turf/simulated/floor/wood,
@@ -32060,7 +32057,7 @@
 /area/maintenance/medsublevel)
 "nKe" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = 30
 	},
 /obj/item/storage/toolbox/emergency,

@@ -63,4 +63,4 @@
 // Transform functions.
 // Do not override.
 /datum/vueui_var_monitor/proc/transform_to_boolean(invert, source, current)
-	return !!source ^ invert
+	return (!!source) ^ invert
