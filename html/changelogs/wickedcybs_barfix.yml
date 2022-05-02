@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "Changed the position of an air alarm in the bar lounge that was in the position of a closing emergency shutter. That leads to odd behaviour with the alarm not being able to properly check room atmosphere."
