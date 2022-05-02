@@ -84,6 +84,10 @@
 				if(breath_mask)
 					if(prob(60))
 						if(breather)
+							var/bucklestatus = breather.bucklecheck(M)
+							if(!bucklestatus)
+								var/obj/structure/LB = M.buckled_to
+								LB.user_unbuckle(breather)
 							src.visible_message(
 								SPAN_WARNING("[M] trips on \the [src]'s [breath_mask] cable, pulling \the [breather] down as well!"),
 								SPAN_WARNING("You trip on \the [src]'s [breath_mask] cable, pulling \the [breather] down as well!"))
@@ -186,11 +190,6 @@
 
 /obj/machinery/iv_drip/proc/breather_process()
 	if(breather)
-		if(!tank)
-			return
-		if(breather.species.flags & NO_BREATHE)
-			return
-
 		if(!breather.Adjacent(src))
 			step_to(src, get_turf(breather), 1)
 			if(world.time > last_creak + 10 SECONDS)
@@ -203,6 +202,11 @@
 				shake_animation(4)
 				if(prob(40))
 					do_crash()
+
+		if(!tank)
+			return
+		if(breather.species.flags & NO_BREATHE)
+			return
 
 		if(valve_open)
 			var/obj/item/organ/internal/lungs/L = breather.internal_organs_by_name[BP_LUNGS]
@@ -251,6 +255,11 @@
 
 /obj/machinery/iv_drip/proc/attached_process()
 	if(attached)
+		if(!attached.Adjacent(src))
+			iv_rip()
+			update_icon()
+			return
+
 		if(!beaker)
 			return
 		if(!attached.dna)
@@ -258,11 +267,6 @@
 		if(NOCLONE in attached.mutations)
 			return
 		if(attached.species.flags & NO_BLOOD)
-			return
-
-		if(!attached.Adjacent(src))
-			iv_rip()
-			update_icon()
 			return
 
 		if(mode) // Injecting
@@ -549,6 +553,11 @@
 			breath_mask.SpinAnimation(4, 2)
 			breath_mask = null
 		else
+			var/mob/living/L = breather
+			var/bucklestatus = L.bucklecheck(L)
+			if(!bucklestatus)
+				var/obj/structure/LB = L.buckled_to
+				LB.user_unbuckle(breather)
 			src.visible_message(SPAN_WARNING("\The [breath_mask] pulls \the [breather] down with \the [src]!"), SPAN_WARNING("\The [breath_mask] pulls you down with \the [src]!"))
 			breather.forceMove(dropspot)
 			breather.Weaken(4)

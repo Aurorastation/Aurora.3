@@ -1252,7 +1252,7 @@ About the new airlock wires panel:
 			if(src.shock(user, 75))
 				return TRUE
 	if(istype(C, /obj/item/taperoll) || istype(C, /obj/item/rfd))
-		return TRUE
+		return
 	if(!istype(C, /obj/item/forensics))
 		src.add_fingerprint(user)
 	if (!repairing && (stat & BROKEN) && src.locked) //bolted and broken

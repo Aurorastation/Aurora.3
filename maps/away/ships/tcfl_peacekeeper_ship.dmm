@@ -163,7 +163,7 @@
 "tCH" = (/obj/structure/table/standard,/obj/item/paper_bin,/obj/item/pen/multi,/obj/item/device/binoculars,/obj/item/clothing/head/helmet/tank/legion,/turf/simulated/floor/tiled/dark,/area/shuttle/tcfl_peacekeeper_ship)
 "uaE" = (/obj/effect/floor_decal/corner/black/diagonal,/turf/simulated/floor/tiled/white,/area/shuttle/tcfl_peacekeeper_ship)
 "upC" = (/obj/machinery/hologram/holopad/long_range,/turf/simulated/floor/tiled/dark,/area/shuttle/tcfl_peacekeeper_ship)
-"uwT" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1380; master_tag = "tcfl_peacekeeper_ship_port"; name = "exterior access button"; pixel_x = -24; pixel_y = -10},/turf/template_noop,/area/space)
+"uwT" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1380; master_tag = "tcfl_peacekeeper_ship_port"; name = "exterior access button"; pixel_x = -24; pixel_y = -10},/turf/template_noop,/area/shuttle/tcfl_peacekeeper_ship)
 "uCl" = (/obj/machinery/cryopod{dir = 2},/turf/simulated/floor/shuttle/tan,/area/shuttle/tcfl_peacekeeper_ship)
 "uNN" = (/obj/structure/bed/padded,/obj/effect/ghostspawpoint{identifier = "tcfl_peacekeeper"; name = "igs - tcfl_peacekeeper"},/obj/item/bedsheet/black,/obj/item/clothing/suit/storage/legion,/turf/simulated/floor/shuttle/tan,/area/shuttle/tcfl_peacekeeper_ship)
 "uWn" = (/obj/structure/bed/roller,/obj/structure/curtain/open/medical,/turf/simulated/floor/tiled/dark,/area/shuttle/tcfl_peacekeeper_ship)

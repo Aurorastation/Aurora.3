@@ -239,8 +239,6 @@ var/list/holder_mob_icon_cache = list()
 
 		post_scoop()
 
-		return success
-
 // Override to add stuff that should happen when scooping
 /mob/living/proc/post_scoop()
 	return

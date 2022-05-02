@@ -326,6 +326,7 @@
 /datum/gear/gadbook
 	display_name = "gadpathurian morale manual"
 	path = /obj/item/device/litanybook/gadpathur
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/aurora_miniature
 	display_name = "aurora miniature"
