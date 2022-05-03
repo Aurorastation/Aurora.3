@@ -1155,12 +1155,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_monitoring)
 "aFJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/green{
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
@@ -2049,6 +2052,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
+"bbI" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/security/checkpoint2)
 "bca" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -2822,6 +2838,14 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
+"bzO" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/tiled,
+/area/security/checkpoint2)
 "bzY" = (
 /obj/item/modular_computer/console/preset/medical{
 	dir = 1
@@ -3564,7 +3588,7 @@
 /area/engineering/storage/tech)
 "bWv" = (
 /obj/machinery/door/airlock/glass{
-	name = "Primary Tool Storage"
+	name = "Tool Storage"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -3919,7 +3943,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "chz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
@@ -5679,7 +5703,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "dsl" = (
 /obj/structure/cable/green{
@@ -5826,7 +5850,7 @@
 	c_tag = "Security - Second Deck Checkpoint";
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "dwK" = (
 /obj/machinery/light,
@@ -6544,6 +6568,12 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
@@ -8122,6 +8152,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "eWw" = (
@@ -8900,6 +8934,12 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/horizonexterior)
+"frL" = (
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/checkpoint2)
 "fsb" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -9319,7 +9359,7 @@
 	name = "shutter"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/reinforced,
 /area/security/checkpoint2)
 "fGT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -10421,12 +10461,9 @@
 "gkB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor/multi_tile{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/multi_tile,
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 2 Stairwell";
-	dir = 8
+	name = "Deck 2 Starboard Docks"
 	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
@@ -11298,7 +11335,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "gHo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -13586,6 +13623,16 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/operations/lobby)
+"ieM" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/security/checkpoint2)
 "ifm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -13759,7 +13806,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "ijJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/engine{
@@ -15724,7 +15771,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/full,
 /obj/item/storage/box/fancy/donut,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "jtf" = (
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -19323,7 +19370,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/reinforced,
 /area/security/checkpoint2)
 "lMD" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -20597,12 +20644,9 @@
 /area/engineering/lobby)
 "mwH" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 2 Stairwell";
-	dir = 8
+	name = "Deck 2 Stairwell"
 	},
-/obj/machinery/door/firedoor/multi_tile{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "mxh" = (
@@ -21994,7 +22038,7 @@
 	},
 /obj/item/paper_scanner,
 /obj/item/device/flash,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "nkT" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
@@ -22767,7 +22811,7 @@
 "nLC" = (
 /obj/machinery/hologram/holopad,
 /obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "nLG" = (
 /obj/structure/bed/stool/chair/plastic{
@@ -23470,7 +23514,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/reinforced,
 /area/security/checkpoint2)
 "ojY" = (
 /obj/machinery/door/firedoor,
@@ -26172,6 +26216,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
+"pNX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/checkpoint2)
 "pOl" = (
 /obj/structure/closet/toolcloset,
 /obj/machinery/alarm{
@@ -26929,7 +26984,7 @@
 	pixel_y = 6
 	},
 /obj/item/device/camera,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "qlU" = (
 /obj/structure/bed,
@@ -29984,6 +30039,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/pharmacy)
+"rWW" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/checkpoint2)
 "rXd" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -30099,7 +30160,7 @@
 	name = "shutter"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/reinforced,
 /area/security/checkpoint2)
 "sbu" = (
 /obj/structure/cable/yellow{
@@ -30465,7 +30526,7 @@
 /area/medical/psych)
 "snB" = (
 /obj/machinery/door/airlock/security{
-	name = "Deck 1 Starboard Dock Security Checkpoint";
+	name = "Deck 2 Starboard Docks - Security Checkpoint";
 	req_access = list(63)
 	},
 /obj/machinery/door/firedoor,
@@ -32433,6 +32494,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
+"tAN" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 8;
+	name = "Distro to Starboard Docks";
+	target_pressure = 200
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/security/checkpoint2)
 "tAS" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/mauve{
@@ -33228,7 +33301,11 @@
 "tXJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "tXM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -34770,7 +34847,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "uNq" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -35196,6 +35273,16 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
+"vbH" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/security/checkpoint2)
 "vcv" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
@@ -35274,9 +35361,11 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "vfi" = (
@@ -37274,7 +37363,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "wiz" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -38178,7 +38267,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "wJh" = (
 /obj/structure/table/standard,
@@ -39297,7 +39389,7 @@
 	pixel_x = -24;
 	name = "west bump"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "xnz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -54072,7 +54164,7 @@ dsj
 nLC
 nkM
 bCv
-eWm
+ieM
 aQb
 udR
 xer
@@ -54274,8 +54366,8 @@ ijD
 uNl
 win
 bCv
-eWm
-aFJ
+bbI
+bzO
 udR
 xer
 qgN
@@ -54477,7 +54569,7 @@ swi
 bCv
 bCv
 eWm
-aQb
+tAN
 udR
 xer
 qgN
@@ -54676,10 +54768,10 @@ gkB
 wIA
 lMB
 tXJ
-tXJ
+pNX
 ojV
 veP
-aQb
+vbH
 udR
 xer
 qgN
@@ -54875,10 +54967,10 @@ noS
 vte
 ldT
 uzU
-uzU
+frL
 fGJ
-uzU
-uzU
+rWW
+rWW
 saJ
 dVt
 aFJ

@@ -32,6 +32,16 @@
 
 /area/crew_quarters/sleep/cryo/dormitories
 	name = "Cryogenic Storage - Dormitories"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/crew_quarters/sleep/cryo/washroom
+	name = "Cryogenic Storage - Washroom"
+	icon_state = "washroom"
+	sound_env = SMALL_ENCLOSED
+
+/area/crew_quarters/sleep/cryo/showers
+	name = "Cryogenic Storage - Showers"
+	icon_state = "showers"
 	sound_env = SMALL_ENCLOSED
 
 /area/crew_quarters/sleep/main
