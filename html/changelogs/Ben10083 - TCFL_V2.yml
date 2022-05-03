@@ -12,6 +12,6 @@ delete-after: True
 changes:
   - rscadd: "Added holoboard to TCFL Brig for entertainment."
   - maptweak: "Minor redesign to TCFL Medbay."
-  - rscadd: "TCFL ghost roles now all get webbing, not just the pilot."
+  - rscadd: "TCFL ghost roles now have storage pouches."
   - rscadd: "Added building materials to TCFL ship."
   - rscadd: "Adds Legion MagLocks to TCFL ship."
