@@ -1270,13 +1270,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"baP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "baS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -3066,8 +3059,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
-"cBV" = (
-/turf/simulated/floor/plating,
+"cBG" = (
+/obj/machinery/door/blast/regular{
+	id = "starcombpurge"
+	},
+/turf/space,
 /area/engineering/atmos/propulsion/starboard)
 "cCg" = (
 /obj/structure/table/rack,
@@ -4125,6 +4121,17 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
+"dCF" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/access_button/airlock_exterior{
+	pixel_x = -24;
+	pixel_y = 10;
+	master_tag = "portcomb_airlock_control"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/propulsion)
 "dDq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -4193,10 +4200,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
-"dFg" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/template_noop,
-/area/template_noop)
 "dFm" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -4228,6 +4231,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"dGu" = (
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion/starboard)
 "dHW" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5249,6 +5255,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
+"eBb" = (
+/obj/effect/map_effect/airlock/s_to_n,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/engineering/atmos/propulsion/starboard)
 "eBf" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
@@ -6205,23 +6215,6 @@
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
-"fjO" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "starcomb_airlock_exterior";
-	locked = 1;
-	name = "Combustion Chamber";
-	req_access = list(13)
-	},
-/obj/machinery/door/blast/regular{
-	id = "interiorpropulsionstarboard"
-	},
-/turf/simulated/floor/reinforced,
-/area/engineering/atmos/propulsion/starboard)
 "fjS" = (
 /obj/structure/ladder/up{
 	pixel_y = 13
@@ -7969,12 +7962,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
-"gDH" = (
-/obj/machinery/door/blast/regular{
-	id = "starcombpurge"
-	},
-/turf/space,
-/area/engineering/atmos/propulsion/starboard)
 "gDV" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 6
@@ -8185,6 +8172,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
+"gPf" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 4;
+	frequency = 1442;
+	id = "starboard_prop_in";
+	tag = "starboard_prop_in"
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Starboard Combustion Chamber";
+	dir = 1;
+	pixel_x = -11
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/propulsion/starboard)
 "gPv" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/structure/window/reinforced,
@@ -8398,17 +8399,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)
-"haF" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/machinery/access_button/airlock_exterior{
-	pixel_x = -24;
-	pixel_y = 10;
-	master_tag = "portcomb_airlock_control"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion)
 "haI" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -8470,6 +8460,17 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"hcQ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/access_button/airlock_exterior{
+	pixel_x = 22;
+	pixel_y = 10;
+	master_tag = "starcomb_airlock_control"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/propulsion/starboard)
 "hdi" = (
 /turf/simulated/wall,
 /area/security/checkpoint)
@@ -8814,8 +8815,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "hqH" = (
-/obj/effect/map_effect/airlock/s_to_n,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "hqV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -9927,6 +9931,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"irW" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 8;
+	frequency = 1442;
+	id = "port_prop_in";
+	tag = "port_prop_in"
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Port Combustion Chamber";
+	dir = 1;
+	pixel_x = -11
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/propulsion)
 "irX" = (
 /obj/structure/table/steel,
 /obj/item/device/radio/off,
@@ -10574,23 +10592,6 @@
 "iXY" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/engineering)
-"iYN" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "portcomb_airlock_exterior";
-	locked = 1;
-	name = "Combustion Chamber";
-	req_access = list(13)
-	},
-/obj/machinery/door/blast/regular{
-	id = "portpropulsioninterior"
-	},
-/turf/simulated/floor/reinforced,
-/area/engineering/atmos/propulsion)
 "iYT" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -10752,6 +10753,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
+"jiL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "jiS" = (
 /obj/structure/closet/jcloset,
 /obj/machinery/light_switch{
@@ -11438,6 +11446,12 @@
 	dir = 8
 	},
 /area/hangar/intrepid)
+"jKh" = (
+/obj/machinery/door/blast/regular{
+	id = "starcombpurge"
+	},
+/turf/space,
+/area/engineering/atmos/propulsion)
 "jKF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -12382,13 +12396,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/shuttle/intrepid)
-"kEc" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/machinery/light,
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion)
 "kEg" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
@@ -13006,20 +13013,6 @@
 /obj/item/key/janicart,
 /turf/simulated/floor/tiled,
 /area/janitor)
-"leD" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 4;
-	frequency = 1442;
-	id = "starboard_prop_in";
-	tag = "starboard_prop_in"
-	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Starboard Combustion Chamber";
-	dir = 1;
-	pixel_x = -11
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion/starboard)
 "leL" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -15794,6 +15787,13 @@
 /obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
+"nxF" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/propulsion)
 "nyl" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
@@ -17049,6 +17049,10 @@
 "oOk" = (
 /turf/simulated/wall,
 /area/outpost/mining_main/eva)
+"oOI" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/template_noop,
+/area/template_noop)
 "oPL" = (
 /obj/structure/table/steel,
 /obj/item/device/flash/synthetic{
@@ -18969,13 +18973,6 @@
 	dir = 1
 	},
 /area/maintenance/research_port)
-"quk" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/machinery/light,
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion/starboard)
 "quA" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -19793,6 +19790,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/operations)
+"rcx" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "portcomb_airlock_exterior";
+	locked = 1;
+	name = "Combustion Chamber";
+	req_access = list(13)
+	},
+/obj/machinery/door/blast/regular{
+	id = "portpropulsioninterior"
+	},
+/turf/simulated/floor/reinforced,
+/area/engineering/atmos/propulsion)
 "rcA" = (
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -19878,11 +19892,21 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/hangar)
 "rhI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "starcomb_airlock_exterior";
+	locked = 1;
+	name = "Combustion Chamber";
+	req_access = list(13)
+	},
+/obj/machinery/door/blast/regular{
+	id = "interiorpropulsionstarboard"
+	},
+/turf/simulated/floor/reinforced,
 /area/engineering/atmos/propulsion/starboard)
 "riF" = (
 /obj/structure/window/reinforced{
@@ -21459,17 +21483,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
-"sJd" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/machinery/access_button/airlock_exterior{
-	pixel_x = 22;
-	pixel_y = 10;
-	master_tag = "starcomb_airlock_control"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion/starboard)
 "sJJ" = (
 /obj/machinery/light{
 	dir = 8
@@ -22227,12 +22240,6 @@
 "tou" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod2)
-"toT" = (
-/obj/machinery/door/blast/regular{
-	id = "starcombpurge"
-	},
-/turf/space,
-/area/engineering/atmos/propulsion)
 "tpR" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -22339,16 +22346,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
-"ttB" = (
-/obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/propulsion/starboard)
 "ttK" = (
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/wingrille_spawn/reinforced,
@@ -23011,12 +23008,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
-"tYb" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/engineering/atmos/propulsion/starboard)
 "tYm" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -25910,6 +25901,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
+"wIi" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/light,
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/propulsion/starboard)
 "wIJ" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -27070,20 +27068,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
-"xxo" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 8;
-	frequency = 1442;
-	id = "port_prop_in";
-	tag = "port_prop_in"
-	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Port Combustion Chamber";
-	dir = 1;
-	pixel_x = -11
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion)
 "xyG" = (
 /obj/structure/kitchenspike,
 /obj/machinery/light{
@@ -27277,6 +27261,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
+"xGQ" = (
+/obj/machinery/alarm{
+	pixel_y = -28;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "xGW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -27714,6 +27708,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"xWM" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion/starboard)
 "xXj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -41791,10 +41791,10 @@ eSV
 eSV
 eSV
 eSV
-dFg
-dFg
-dFg
-dFg
+oOI
+oOI
+oOI
+oOI
 eSV
 awJ
 awJ
@@ -41993,10 +41993,10 @@ eSV
 eSV
 eSV
 eSV
-dFg
+oOI
 awJ
 awJ
-hqH
+eBb
 awJ
 awJ
 awJ
@@ -42195,11 +42195,11 @@ eSV
 eSV
 eSV
 eSV
-dFg
-cBV
-tYb
-cBV
-rhI
+oOI
+dGu
+xWM
+dGu
+hqH
 awJ
 uZU
 iCX
@@ -42401,11 +42401,11 @@ fQE
 fQE
 awJ
 awJ
-baP
+jiL
 awJ
 uZU
 eDE
-leD
+gPf
 awJ
 hUh
 wCf
@@ -42603,11 +42603,11 @@ szM
 szM
 xQU
 jQh
-ttB
+xGQ
 awJ
 uZU
 gal
-sJd
+hcQ
 awJ
 nmV
 ver
@@ -42808,7 +42808,7 @@ mqI
 eBf
 awJ
 awJ
-fjO
+rhI
 fyz
 awJ
 gWp
@@ -43009,9 +43009,9 @@ xQU
 dgC
 ekt
 awJ
-gDH
+cBG
 uPX
-quk
+wIi
 awJ
 jZo
 uwB
@@ -50881,7 +50881,7 @@ eSV
 eSV
 eSV
 eSV
-dFg
+oOI
 pwQ
 bjE
 pwQ
@@ -53311,9 +53311,9 @@ qxV
 fvq
 fCd
 uVL
-toT
+jKh
 qnr
-kEc
+nxF
 uVL
 gyD
 eKc
@@ -53514,7 +53514,7 @@ gwg
 cIU
 uVL
 uVL
-iYN
+rcx
 uPx
 uVL
 tnb
@@ -53717,7 +53717,7 @@ hRF
 uVL
 eBj
 wsF
-haF
+dCF
 uVL
 rsL
 vil
@@ -53919,7 +53919,7 @@ uVL
 uVL
 eBj
 lBi
-xxo
+irW
 uVL
 vil
 vil
