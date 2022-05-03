@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - maptweak: "The port and starboard propulsion chambers have been made safer via being extended out and getting a small airlock area before the combustion chamber itself. It's an extra line of insurance and should help properly using the area. Cameras were also added inside these areas for better observation."
