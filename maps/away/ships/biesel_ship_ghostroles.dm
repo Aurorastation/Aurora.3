@@ -32,7 +32,7 @@
 
 	l_ear = /obj/item/device/radio/headset/ship
 
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1,  /obj/item/clothing/accessory/storage/webbingharness/pouches/ert = 1)
 
 /datum/outfit/admin/tcfl_peacekeeper/get_id_access()
 	return list(access_tcfl_peacekeeper_ship, access_external_airlocks)
@@ -69,7 +69,7 @@
 
 	l_ear = /obj/item/device/radio/headset/ship
 
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1,  /obj/item/clothing/accessory/storage/webbingharness/pouches/ert = 1)
 
 /datum/outfit/admin/tcfl_peacekeeper_prefect/get_id_access()
 	return list(access_tcfl_peacekeeper_ship, access_external_airlocks)
