@@ -325,7 +325,8 @@
 "aK" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "aL" = (
 /obj/structure/railing/mapped{
@@ -12320,6 +12321,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "Cz" = (
@@ -13064,6 +13068,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
+"Eu" = (
+/obj/structure/trash_pile,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "Ev" = (
 /turf/simulated/floor/reinforced,
 /area/hallway/crew_area)
@@ -13752,6 +13763,16 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
+"Gn" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "Go" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 10
@@ -45209,7 +45230,7 @@ DQ
 bQ
 Ho
 FH
-Lv
+Eu
 tX
 FH
 QM
@@ -45803,7 +45824,7 @@ at
 at
 at
 at
-em
+aK
 EG
 DQ
 Rb
@@ -46005,7 +46026,7 @@ at
 at
 at
 at
-em
+aK
 EG
 DQ
 Fx
@@ -46207,7 +46228,7 @@ at
 at
 at
 at
-em
+aK
 Vl
 DQ
 XO
@@ -46409,7 +46430,7 @@ at
 at
 at
 at
-em
+aK
 EG
 DQ
 CJ
@@ -46815,7 +46836,7 @@ at
 at
 em
 Fq
-DJ
+Gn
 rH
 DJ
 DJ
@@ -47019,7 +47040,7 @@ em
 em
 em
 em
-em
+aK
 aK
 aK
 aK
