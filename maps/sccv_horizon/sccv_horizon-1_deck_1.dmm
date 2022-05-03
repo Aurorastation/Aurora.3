@@ -573,9 +573,9 @@
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
+	dir = 1;
 	name = "Station Intercom (General)";
-	pixel_y = -25;
-	dir = 1
+	pixel_y = -25
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -1201,12 +1201,12 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/window/southleft{
-	req_access = list(26);
-	name = "Mass Driver External Access"
+	name = "Mass Driver External Access";
+	req_access = list(26)
 	},
 /obj/machinery/door/window/northleft{
-	req_access = list(26);
-	name = "Mass Driver Internal Access"
+	name = "Mass Driver Internal Access";
+	req_access = list(26)
 	},
 /turf/simulated/floor/reinforced{
 	roof_type = null
@@ -1879,8 +1879,8 @@
 	id = "shutters_custodialgarage";
 	name = "Custodial Garage Shutters";
 	pixel_x = -25;
-	req_access = list(26);
-	pixel_y = 8
+	pixel_y = 8;
+	req_access = list(26)
 	},
 /obj/machinery/ringer_button{
 	id = "ringers_custodial";
@@ -2580,11 +2580,11 @@
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/toolbox/mechanical,
 /obj/machinery/ringer{
-	name = "\improper Custodial ringer terminal";
-	id = "ringers_custodial";
 	department = "Custodial";
-	req_access = list(26);
-	pixel_y = -32
+	id = "ringers_custodial";
+	name = "\improper Custodial ringer terminal";
+	pixel_y = -32;
+	req_access = list(26)
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -5050,9 +5050,9 @@
 	dir = 6
 	},
 /obj/structure/sign/securearea{
+	desc = "A caution sign which reads 'DISPOSALS' and 'AUTHORIZED PERSONNEL ONLY'.";
 	name = "\improper DISPOSALS sign";
-	pixel_y = 32;
-	desc = "A caution sign which reads 'DISPOSALS' and 'AUTHORIZED PERSONNEL ONLY'."
+	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
@@ -6255,11 +6255,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "fnB" = (
-/obj/machinery/atmospherics/tvalve/digital{
-	dir = 4
-	},
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
+	},
+/obj/machinery/atmospherics/tvalve/digital/bypass{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -6533,9 +6533,9 @@
 	dir = 1
 	},
 /obj/structure/sign/deathsposal{
-	pixel_y = 32;
+	desc = "A warning sign which reads 'DANGER: MASS DRIVER'.";
 	name = "\improper DANGER: MASS DRIVER sign";
-	desc = "A warning sign which reads 'DANGER: MASS DRIVER'."
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
@@ -7015,8 +7015,8 @@
 	dir = 10
 	},
 /obj/structure/sign/electricshock{
-	name = "\improper CAUTION: HEAVY MACHINERY IN USE sign";
 	desc = "A caution sign which reads 'CAUTION: HEAVY MACHINERY IN USE' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY.'.";
+	name = "\improper CAUTION: HEAVY MACHINERY IN USE sign";
 	pixel_y = 32
 	},
 /obj/machinery/light/small{
@@ -7245,17 +7245,17 @@
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_custodialdesk";
 	name = "Custodial Desk Shutter";
-	req_access = list(26);
 	pixel_x = 25;
-	pixel_y = -7
+	pixel_y = -7;
+	req_access = list(26)
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_custodialgarage";
 	name = "Custodial Garage Shutter";
-	req_access = list(26);
+	pixel_x = 25;
 	pixel_y = 8;
-	pixel_x = 25
+	req_access = list(26)
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
@@ -7419,8 +7419,8 @@
 	dir = 4
 	},
 /obj/machinery/light_switch{
-	pixel_y = -25;
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = -25
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -13617,14 +13617,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "lOi" = (
-/obj/machinery/atmospherics/tvalve/mirrored/digital{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
+	},
+/obj/machinery/atmospherics/tvalve/mirrored/digital/bypass{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -14460,8 +14460,8 @@
 	dir = 10
 	},
 /obj/structure/sign/fire{
-	pixel_x = -32;
-	name = "\improper DANGER: COMBUSTION CHAMBER sign"
+	name = "\improper DANGER: COMBUSTION CHAMBER sign";
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -14694,8 +14694,8 @@
 	dir = 4
 	},
 /obj/structure/sign/fire{
-	pixel_x = 32;
-	name = "\improper DANGER: COMBUSTION CHAMBER sign"
+	name = "\improper DANGER: COMBUSTION CHAMBER sign";
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -15127,7 +15127,7 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "mYb" = (
-/obj/machinery/atmospherics/binary/passive_gate/on/output/max{
+/obj/machinery/atmospherics/binary/passive_gate{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -15379,9 +15379,9 @@
 	dir = 4
 	},
 /obj/structure/sign/fire{
-	pixel_y = 32;
+	desc = "A caution sign which reads 'PORT PROPULSION'.";
 	name = "\improper PORT PROPULSION sign";
-	desc = "A caution sign which reads 'PORT PROPULSION'."
+	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -15436,11 +15436,11 @@
 	dir = 9
 	},
 /obj/machinery/ringer{
-	name = "\improper Custodial ringer terminal";
-	id = "ringers_custodial";
 	department = "Custodial";
-	req_access = list(26);
-	pixel_x = -32
+	id = "ringers_custodial";
+	name = "\improper Custodial ringer terminal";
+	pixel_x = -32;
+	req_access = list(26)
 	},
 /obj/structure/coatrack{
 	pixel_x = -9
@@ -16235,8 +16235,8 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
-	name = "\improper Viewing Shutter";
-	id = "shutters_disposals"
+	id = "shutters_disposals";
+	name = "\improper Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -16494,9 +16494,9 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
-	name = "\improper Viewing Shutter";
+	dir = 4;
 	id = "shutters_disposals";
-	dir = 4
+	name = "\improper Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -17621,9 +17621,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
-	name = "Custodial Desk Shutter";
 	dir = 4;
-	id = "shutters_custodialdesk"
+	id = "shutters_custodialdesk";
+	name = "Custodial Desk Shutter"
 	},
 /obj/item/paper_bin{
 	pixel_x = -3;
@@ -21004,15 +21004,15 @@
 /obj/machinery/button/mass_driver{
 	_wifi_id = "waste";
 	id = "waste";
-	pixel_y = 30;
 	name = "Mass Driver Activation";
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 30
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "waste";
-	pixel_y = 40;
 	name = "Mass Driver Blast Door";
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 40
 	},
 /obj/machinery/alarm{
 	dir = 4;
@@ -21027,8 +21027,8 @@
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_disposals";
 	name = "Viewing Shutters";
-	pixel_y = 40;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 40
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
@@ -24432,8 +24432,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(29);
-	name = "Workshop Maintenance"
+	name = "Workshop Maintenance";
+	req_access = list(29)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -26144,9 +26144,9 @@
 /area/maintenance/operations)
 "wYp" = (
 /obj/structure/sign/fire{
-	pixel_y = 32;
+	desc = "A caution sign which reads 'STARBOARD PROPULSION'.";
 	name = "\improper STARBOARD PROPULSION sign";
-	desc = "A caution sign which reads 'STARBOARD PROPULSION'."
+	pixel_y = 32
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -27226,7 +27226,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "xMr" = (
-/obj/machinery/atmospherics/binary/passive_gate/on/output/max{
+/obj/machinery/atmospherics/binary/passive_gate{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
