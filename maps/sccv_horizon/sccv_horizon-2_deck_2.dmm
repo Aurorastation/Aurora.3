@@ -824,6 +824,15 @@
 /obj/machinery/computer/cryopod/robot{
 	pixel_y = -32
 	},
+/obj/machinery/button/remote/blast_door{
+	desc = "It controls the Mech Bay's shutters.";
+	id = "MechBayShutter";
+	name = "Mech Bay Access Shutters";
+	pixel_x = -25;
+	pixel_y = 7;
+	req_one_access = list(29, 47);
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "axB" = (
@@ -2170,9 +2179,12 @@
 /area/maintenance/wing/starboard)
 "bhJ" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/window/northleft,
-/obj/machinery/light/small{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/door/window/southleft{
+	req_one_access = list(29, 47);
+	name = "Elevator Access"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
@@ -4208,14 +4220,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "cxi" = (
-/obj/structure/railing/mapped,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "cxu" = (
 /obj/machinery/door/airlock/maintenance{
@@ -4459,11 +4469,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
 "cHM" = (
-/obj/machinery/computer/shuttle_control/lift{
-	pixel_x = 11;
-	pixel_y = 17;
-	shuttle_tag = "Robotics Lift"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -5566,15 +5571,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "doW" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
+/obj/machinery/door/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/machinery/door/blast/shutters/open{
+	name = "Window Shutter";
+	id = "shutters_mechbaywindows";
+	dir = 8
 	},
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Corridor Camera 1";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/hallway)
+/turf/simulated/floor/plating,
+/area/assembly/chargebay)
 "dpj" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -7436,12 +7441,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_mining{
-	name = "Mech Bay";
-	req_access = list(29)
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/mining{
+	name = "Mech Bay and Recharging Station";
+	req_one_access = list(29, 47)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
@@ -8507,7 +8512,7 @@
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "MechBayShutter";
-	name = "Mech Bay Shutters"
+	name = "Mech Bay and Recharging Station Access Shutter"
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
@@ -12137,6 +12142,9 @@
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
 "hoi" = (
@@ -12952,8 +12960,13 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_room)
 "hME" = (
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	name = "Window Shutter";
+	id = "shutters_mechbaywindows"
+	},
+/turf/simulated/floor/plating,
 /area/assembly/chargebay)
 "hMX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -18075,6 +18088,15 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
+/obj/machinery/button/remote/blast_door{
+	desc = "It controls the Mech Bay's shutters.";
+	id = "MechBayShutter";
+	name = "Mech Bay Access Shutters";
+	pixel_x = 24;
+	pixel_y = 7;
+	req_one_access = list(29, 47);
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "ldk" = (
@@ -18139,9 +18161,6 @@
 "len" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
-	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
@@ -19677,7 +19696,10 @@
 /turf/simulated/floor/tiled/ramp,
 /area/maintenance/wing/starboard)
 "may" = (
-/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "maP" = (
@@ -19951,12 +19973,6 @@
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/far)
-"mhw" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/assembly/chargebay)
 "mia" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -21310,6 +21326,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "mYp" = (
@@ -21500,14 +21519,10 @@
 /turf/simulated/floor/plating,
 /area/teleporter)
 "nen" = (
-/obj/machinery/button/remote/blast_door{
-	desc = "It controls the Mech Bay's shutters.";
-	dir = 4;
-	id = "MechBayShutter";
-	name = "Mech Bay shutters";
-	pixel_x = -23;
-	pixel_y = -23
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "neT" = (
@@ -21534,10 +21549,25 @@
 /area/hallway/primary/central_two)
 "nfs" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/window/northright,
 /obj/machinery/computer/shuttle_control/lift{
-	pixel_x = 10;
-	shuttle_tag = "Robotics Lift"
+	pixel_x = 9;
+	shuttle_tag = "Robotics Lift";
+	pixel_y = 23
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/door/window/southright{
+	req_one_access = list(29, 47);
+	name = "Elevator Access"
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/sign/drop{
+	pixel_x = 32;
+	name = "\improper DANGER: FALLING HAZARD sign";
+	desc = "A warning sign which reads 'DANGER: FALLING HAZARD' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY'."
 	},
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
@@ -23669,6 +23699,7 @@
 "owG" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
 "owY" = (
@@ -24215,9 +24246,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "oKU" = (
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/structure/railing/mapped,
+/obj/structure/table/steel,
+/obj/machinery/cell_charger,
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "oLn" = (
@@ -25816,13 +25847,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "pIw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/structure/railing/mapped,
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	name = "Window Shutters";
+	pixel_x = 32;
+	id = "shutters_mechbaywindows"
 	},
-/turf/simulated/floor/plating,
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "pIE" = (
 /obj/machinery/light{
@@ -26130,6 +26163,9 @@
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/railing/mapped,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
 "pQL" = (
@@ -26934,13 +26970,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port)
 "qsj" = (
-/obj/effect/floor_decal/industrial/loading/yellow,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
 	},
-/turf/simulated/floor/tiled,
-/area/assembly/chargebay)
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Corridor Camera 1";
+	dir = 1
+	},
+/obj/structure/sign/electricshock{
+	name = "\improper MECH BAY AND RECHARGING STATION sign";
+	pixel_y = -32;
+	desc = "A warning sign which reads 'MECH BAY AND RECHARGING STATION' and 'HIGH VOLTAGE EQUIPMENT INSIDE'."
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/hallway)
 "qsw" = (
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
@@ -28033,8 +28076,19 @@
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "qZi" = (
+/obj/machinery/power/apc/super{
+	dir = 4;
+	pixel_x = 24
+	},
 /obj/structure/cable/green{
-	icon_state = "2-8"
+	icon_state = "0-8"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Mech Bay Camera";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
@@ -30807,6 +30861,7 @@
 "sGG" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
 "sGR" = (
@@ -31863,11 +31918,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "tlX" = (
-/obj/machinery/door/window/southright{
-	name = "Mech Bay";
-	req_access = list(29)
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "tmb" = (
 /obj/structure/cable{
@@ -35422,6 +35476,11 @@
 	c_tag = "Second Deck - Hallway 1";
 	dir = 8
 	},
+/obj/structure/sign/electricshock{
+	pixel_x = 32;
+	name = "\improper MECH BAY AND RECHARGING STATION sign";
+	desc = "A warning sign which reads 'MECH BAY AND RECHARGING STATION' and 'HIGH VOLTAGE EQUIPMENT INSIDE'."
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "vrk" = (
@@ -35669,7 +35728,12 @@
 /turf/simulated/floor/plating,
 /area/hallway/engineering/tesla)
 "vyd" = (
-/turf/simulated/wall/r_wall,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	name = "Mech Bay Maintenance";
+	req_one_access = list(29, 47)
+	},
+/turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "vye" = (
 /obj/structure/table/standard,
@@ -36168,13 +36232,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/library)
-"vNZ" = (
-/obj/machinery/door/window/southleft{
-	name = "Mech Bay";
-	req_access = list(29)
-	},
-/turf/simulated/floor/reinforced,
-/area/assembly/chargebay)
 "vOb" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -39112,7 +39169,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
 "xlK" = (
-/turf/simulated/floor/reinforced,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "xlQ" = (
 /obj/item/modular_computer/console/preset/medical{
@@ -39137,11 +39197,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/kitchen)
 "xmw" = (
-/obj/machinery/power/apc/super{
-	dir = 4;
-	pixel_x = 24
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
 	},
-/obj/structure/cable/green,
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "xmF" = (
@@ -40147,13 +40206,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/armory)
-"xSO" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12,47)
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/assembly/chargebay)
 "xSU" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -40370,6 +40422,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
+	},
+/obj/machinery/computer/shuttle_control/lift{
+	pixel_x = -7;
+	shuttle_tag = "Robotics Lift";
+	pixel_y = 23
 	},
 /turf/simulated/floor/plating,
 /area/turbolift/scc_ship/robotics_lift)
@@ -40854,11 +40911,11 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/wing/port/far)
 "ykd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
@@ -64437,7 +64494,7 @@ ooA
 aNp
 qav
 qav
-qav
+doW
 qav
 fhU
 fhU
@@ -64643,7 +64700,7 @@ oKU
 pQq
 jow
 osJ
-nen
+nGI
 aww
 qav
 mye
@@ -64838,11 +64895,11 @@ oBl
 vpk
 ulB
 tPq
-doW
-qav
+rnA
+hME
 xlK
 kGl
-vNZ
+xlK
 jow
 rXJ
 nGI
@@ -65042,8 +65099,8 @@ cNU
 dCK
 vJv
 eBc
-pIw
-pIw
+cxi
+cxi
 cxi
 quT
 mQW
@@ -65243,13 +65300,13 @@ rZU
 cNU
 byv
 rnA
-qav
 hME
+tlX
 kGl
 tlX
 jow
 ykd
-mhw
+nGI
 may
 bhJ
 xZy
@@ -65444,15 +65501,15 @@ ldk
 sxQ
 ulB
 dDS
-rnA
+qsj
 qav
 owG
-kGl
+pIw
 hoa
-jow
+nen
 qZi
 xmw
-qsj
+may
 nfs
 uoU
 cHM
@@ -65655,9 +65712,9 @@ uTr
 uTr
 uTr
 vyd
-vyd
-vyd
-xSO
+qav
+qav
+qav
 ibU
 dLe
 dQR
