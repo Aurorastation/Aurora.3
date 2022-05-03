@@ -170,11 +170,14 @@
 	item_state = "winter_cloak"
 	flags_inv = 0
 
-/obj/item/clothing/suit/storage/hooded/tajaran/asym
-	name = "adhomian asymmetric cloak"
-	desc = "An Adhomian cloak with an asymmetric design."
-	icon_state = "asym_cloak"
-	item_state = "asym_cloak"
+/obj/item/clothing/suit/storage/hooded/tajaran/royalist
+	name = "adhomian royalist cloak"
+	desc = "An Adhomian cloak with an asymmetric design. The symbol of the New Kingdom of Adhomai is at its back."
+	icon_state = "royalist_cloak"
+	item_state = "royalist_cloak"
+	desc_fluff = "The New Kingdom of Adhomai culture is characterized as traditional; instead of trying to change the Tajaran caste system, those divisions are seen as a natural \
+	part of the Adhomian way of life. While the government makes no effort in enforcing this separation, there is a great societal expectation that each Tajara will attempt to stay in \
+	their customary roles related to their ethnicity."
 	flags_inv = 0
 
 /obj/item/clothing/suit/storage/hooded/tajaran/maroon

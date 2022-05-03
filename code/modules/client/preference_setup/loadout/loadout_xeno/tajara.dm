@@ -77,8 +77,8 @@
 	tajarancloak["amohdan cloak, hoodless"] = /obj/item/clothing/accessory/poncho/tajarancloak/amohda
 	tajarancloak["adhomian winter cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran/winter
 	tajarancloak["adhomian winter cloak, hoodless"] = /obj/item/clothing/accessory/poncho/tajarancloak/winter
-	tajarancloak["adhomian asymmetric cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran/asym
-	tajarancloak["adhomian asymmetric cloak, hoodless"] = /obj/item/clothing/accessory/poncho/tajarancloak/asym
+	tajarancloak["adhomian royalist cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran/royalist
+	tajarancloak["adhomian royalist cloak, hoodless"] = /obj/item/clothing/accessory/poncho/tajarancloak/royalist
 	tajarancloak["adhomian maroon cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran/maroon
 	tajarancloak["adhomian maroon cloak, hoodless"] = /obj/item/clothing/accessory/poncho/tajarancloak/maroon
 	tajarancloak["black fancy adhomian cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran/fancy
