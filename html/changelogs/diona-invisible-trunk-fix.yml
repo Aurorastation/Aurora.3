@@ -1,0 +1,6 @@
+author: mikomyazaki2
+
+delete-after: True
+
+changes:
+  - bugfix: "Nymphs that grow into full gestalts should now always have a visible chest icon."
