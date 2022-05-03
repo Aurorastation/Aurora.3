@@ -87,6 +87,20 @@
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
+/datum/gear/uniform/skrell/slugger
+	display_name = "prescient republic of the qar wetsuit"
+	path = /obj/item/clothing/under/skrell/slugger
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/skrell
+	display_name = "zipluax mantle"
+	path = /obj/item/clothing/head/skrell
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/stellascope
 	display_name = "stellascope"
 	path = /obj/item/stellascope
