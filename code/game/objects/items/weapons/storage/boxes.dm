@@ -999,3 +999,9 @@
 			to_chat(user, SPAN_WARNING("\The [src] needs to be empty before you can do that!"))
 	else
 		..()
+
+/obj/item/storage/box/tungstenslugs
+	name = "box of compact tungsten slugs"
+	desc = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
+	icon_state = "box_tungstenslug"
+	starts_with = list(/obj/item/ammo_casing/gauss/carbine = 4)

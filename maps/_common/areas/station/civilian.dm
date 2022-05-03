@@ -82,18 +82,17 @@
 /area/crew_quarters/fitness
 	name = "Fitness Center"
 	icon_state = "fitness"
-	allow_nightmode = 1
 
 /area/crew_quarters/fitness/changing
 	name = "Fitness Center - Changing Room"
 	sound_env = SMALL_ENCLOSED
 
-/area/crew_quarters/fitness/washroom
+/area/crew_quarters/fitness/washroom // Horizon addition.
 	name = "Fitness Center - Washroom"
 	icon_state = "washroom"
 	sound_env = SMALL_ENCLOSED
 
-/area/crew_quarters/fitness/showers
+/area/crew_quarters/fitness/showers // Horizon addition.
 	name = "Fitness Center - Showers"
 	icon_state = "showers"
 	sound_env = SMALL_ENCLOSED
@@ -102,16 +101,14 @@
 	name = "Surface - Pool"
 	lightswitch = TRUE
 
-/area/crew_quarters/fitness/gym
+/area/crew_quarters/fitness/gym // Horizon addition.
 	name = "Fitness Center - Gym"
-	allow_nightmode = 0
 
-/area/crew_quarters/fitness/lounge
+/area/crew_quarters/fitness/lounge // Horizon addition.
 	name = "Fitness Center - Lounge"
 	sound_env = SMALL_SOFTFLOOR
-//
 
-/area/crew_quarters/nature_showcase
+/area/crew_quarters/nature_showcase // Horizon addition.
 	name = "Nature Showcase"
 	icon_state = "nature_showcase"
 	sound_env = SMALL_SOFTFLOOR
@@ -248,3 +245,14 @@
 	name = "Journalist's Office"
 	station_area = 1
 	sound_env = SMALL_SOFTFLOOR
+
+// Stairwells
+/area/stairwell // Parent area. Horizon addition.
+	name = "Stairwell (PARENT AREA - DON'T USE)"
+	icon_state = "stairwell"
+	flags = RAD_SHIELDED
+	station_area = 1
+
+/area/stairwell/central // Central stairwell.
+	name = "Central Stairwell"
+	sound_env = SMALL_ENCLOSED
