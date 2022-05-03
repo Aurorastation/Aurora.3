@@ -1,5 +1,5 @@
 /obj/item/clothing/under/tajaran
-	name = "laborers clothes"
+	name = "laborer clothes"
 	desc = "A rough but thin outfit, providing air flow but also protection from working hazards."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "taj_labor"
@@ -185,7 +185,23 @@
 	item_state = "dpra_consular"
 
 /obj/item/clothing/under/tajaran/consular/nka
-	name = "royal consular uniform"
+	name = "new kingdom consular uniform"
 	desc = "A blue uniform used by the diplomatic service of the New Kingdom of Adhomai."
 	icon_state = "nka_consular"
 	item_state = "nka_consular"
+
+/obj/item/clothing/under/tajaran/dpra
+	name = "al'mariist laborer clothes"
+	desc = "Clothes commonly used by Das'nrra's workers. Due to their ubiquitousness, they became a symbol of the common Al'mariist people."
+	icon_state = "dpra_worker"
+	item_state = "dpra_worker"
+
+/obj/item/clothing/under/tajaran/dpra/alt
+	icon_state = "dpra_worker_alt"
+	item_state = "dpra_worker_alt"
+
+/obj/item/clothing/under/tajaran/nka_noble
+	name = "noble adhomian clothes"
+	desc = "Clothes frequently worn by the New Kingdom's nobles. Likely a hand-me-down."
+	icon_state = "nka_noble_uniform"
+	item_state = "nka_noble_uniform"
