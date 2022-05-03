@@ -3105,6 +3105,10 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - XenoBotanical Decom";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "bJp" = (
@@ -8682,6 +8686,10 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Xenobotanical Greenhouse 2";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
@@ -15988,6 +15996,14 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
+"jFf" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - XenoBotanical Hazardous Specimens"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora_hazard)
 "jFi" = (
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "server_door_lock";
@@ -17050,6 +17066,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - XenoBotanical Lab";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -18244,6 +18264,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - XenoBotanical Greenhouse";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "ldT" = (
@@ -73164,7 +73188,7 @@ qgN
 qgN
 fpm
 mue
-pMq
+jFf
 uvo
 xXP
 mAO
