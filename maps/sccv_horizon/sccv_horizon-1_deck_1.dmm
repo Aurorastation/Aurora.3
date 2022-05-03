@@ -245,6 +245,7 @@
 /obj/machinery/door/blast/regular{
 	id = "portpropulsioninterior"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
 "aom" = (
@@ -11448,7 +11449,7 @@
 /area/hangar/intrepid)
 "jKh" = (
 /obj/machinery/door/blast/regular{
-	id = "starcombpurge"
+	id = "portcombpurge"
 	},
 /turf/space,
 /area/engineering/atmos/propulsion)
@@ -23393,6 +23394,7 @@
 /obj/machinery/door/blast/regular{
 	id = "interiorpropulsionstarboard"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "uoF" = (
