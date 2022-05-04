@@ -2203,11 +2203,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "hp" = (
-/obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
-	icon_state = "cabinet_closed"
-	},
+/obj/structure/closet/cabinet,
 /obj/item/bananapeel,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,

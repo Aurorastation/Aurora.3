@@ -194,9 +194,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/obj/machinery/shield_gen{
-	anchored = 1
-	},
+/obj/item/modular_computer/console/preset/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
 "av" = (
@@ -324,21 +322,11 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/storage/shields)
-"aJ" = (
-/obj/structure/cable/cyan{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/cyan{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/storage/shields)
 "aK" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "aL" = (
 /obj/structure/railing/mapped{
@@ -379,12 +367,8 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/machinery/shield_capacitor/multiz{
-	anchored = 1;
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
-	},
-/obj/structure/cable/cyan{
-	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
@@ -4434,8 +4418,8 @@
 /area/security/investigations)
 "jR" = (
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 28;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -5317,22 +5301,22 @@
 /obj/machinery/button/remote/blast_door{
 	id = "hangarlockdown";
 	name = "Hangar Lockdoor";
-	pixel_y = -33;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = -33
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "bridge blast";
 	name = "Bridge Lockdown";
-	req_access = list(19);
+	pixel_x = -5;
 	pixel_y = -24;
-	pixel_x = -5
+	req_access = list(19)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "crew_armory";
 	name = "Crew Armory";
-	req_access = list(60);
 	pixel_x = 6;
-	pixel_y = -33
+	pixel_y = -33;
+	req_access = list(60)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
@@ -6354,7 +6338,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	id_tag = "bunker1";
 	name = "Command Bunker Access";
-	req_access = list(19)
+	req_access = list(19, 61)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -7781,7 +7765,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms Access";
-	req_access = list(12)
+	req_access = list(12, 61)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -9081,7 +9065,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms Access";
-	req_access = list(12)
+	req_access = list(12, 61)
 	},
 /turf/simulated/floor,
 /area/tcommsat/entrance)
@@ -12337,6 +12321,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "Cz" = (
@@ -13081,6 +13068,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
+"Eu" = (
+/obj/structure/trash_pile,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "Ev" = (
 /turf/simulated/floor/reinforced,
 /area/hallway/crew_area)
@@ -13581,7 +13575,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms Access";
-	req_access = list(12)
+	req_access = list(12, 61)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -13769,6 +13763,16 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
+"Gn" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "Go" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 10
@@ -14588,7 +14592,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "Ia" = (
-/obj/item/modular_computer/console/preset/engineering,
 /obj/structure/cable/cyan{
 	icon_state = "4-8"
 	},
@@ -15028,8 +15031,8 @@
 /area/maintenance/security_starboard)
 "IU" = (
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 28;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
@@ -17287,12 +17290,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "NX" = (
-/obj/structure/dispenser/oxygen{
-	phorontanks = 10
-	},
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_3)
 "NY" = (
@@ -19423,7 +19424,7 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms Access";
-	req_access = list(12)
+	req_access = list(12, 61)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/airtight,
@@ -19796,16 +19797,16 @@
 	id = "captaindoor";
 	name = "Office Door Control";
 	pixel_x = 30;
-	req_access = list(20);
-	pixel_y = 10
+	pixel_y = 10;
+	req_access = list(20)
 	},
 /obj/machinery/button/remote/airlock{
 	desc = "A remote control-switch for the starboard bridge doors.";
 	id = "sbridgedoor";
 	name = "Bridge Door Control";
+	pixel_x = 30;
 	pixel_y = -2;
-	req_access = list(20);
-	pixel_x = 30
+	req_access = list(20)
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/carpet/rubber,
@@ -22395,8 +22396,8 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 28;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -38811,8 +38812,8 @@ tT
 gW
 at
 fh
-aa
-aa
+Vu
+Vu
 aa
 aa
 aa
@@ -39013,19 +39014,19 @@ fc
 gi
 at
 fh
-Vu
-Vu
+yM
+yM
+wl
 aa
 aa
 aa
-Wm
-Wm
-Wm
-Wm
-Wm
-Wm
-Wm
-Wm
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 Wm
 Wm
 Wm
@@ -39215,18 +39216,18 @@ FP
 gi
 at
 fh
-yM
+fm
 yM
 wl
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Uj
+KN
+KN
+KN
+KN
+KN
+KN
+KN
+Mo
 aa
 aa
 aa
@@ -39416,19 +39417,19 @@ gY
 GJ
 gi
 at
-fh
-fm
-yM
+VM
 KN
 KN
 KN
-KN
-KN
-KN
-KN
-KN
-KN
-KN
+bU
+at
+at
+at
+at
+at
+at
+at
+VM
 KN
 KN
 KN
@@ -44831,7 +44832,7 @@ FH
 Eo
 bj
 RK
-aJ
+QM
 aR
 QH
 aW
@@ -45229,7 +45230,7 @@ DQ
 bQ
 Ho
 FH
-Lv
+Eu
 tX
 FH
 QM
@@ -45823,7 +45824,7 @@ at
 at
 at
 at
-em
+aK
 EG
 DQ
 Rb
@@ -46025,7 +46026,7 @@ at
 at
 at
 at
-em
+aK
 EG
 DQ
 Fx
@@ -46227,7 +46228,7 @@ at
 at
 at
 at
-em
+aK
 Vl
 DQ
 XO
@@ -46429,7 +46430,7 @@ at
 at
 at
 at
-em
+aK
 EG
 DQ
 CJ
@@ -46835,7 +46836,7 @@ at
 at
 em
 Fq
-DJ
+Gn
 rH
 DJ
 DJ
@@ -47039,7 +47040,7 @@ em
 em
 em
 em
-em
+aK
 aK
 aK
 aK

@@ -405,6 +405,7 @@
 	overdose = 30
 	taste_description = "spicy earth"
 	taste_mult = 0.4
+	fallback_specific_heat = 1.6
 
 /decl/reagent/ambrosia_extract/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
