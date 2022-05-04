@@ -11532,6 +11532,7 @@
 	pixel_x = -8;
 	pixel_y = -6
 	},
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "gSb" = (
@@ -29453,6 +29454,10 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "rFn" = (
@@ -36556,6 +36561,15 @@
 "vPj" = (
 /turf/simulated/wall/r_wall,
 /area/security/armory)
+"vPk" = (
+/obj/structure/window/phoronreinforced,
+/obj/structure/lattice,
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/disposal/deliveryChute{
+	dir = 1
+	},
+/turf/space,
+/area/rnd/xenobiology/xenoflora)
 "vPt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -39323,6 +39337,12 @@
 /obj/structure/window/phoronreinforced{
 	dir = 1
 	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/machinery/disposal/small/south{
+	pixel_y = 12
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "xjN" = (
@@ -40029,6 +40049,9 @@
 /obj/item/material/hatchet,
 /obj/item/reagent_containers/spray/plantbgone,
 /obj/item/device/analyzer/plant_analyzer,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "xHB" = (
@@ -40383,6 +40406,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
+"xRv" = (
+/obj/structure/window/phoronreinforced{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "xSq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -71767,7 +71799,7 @@ qgN
 qgN
 qgN
 qgN
-vTP
+vPk
 rFi
 oLT
 puj
@@ -71970,7 +72002,7 @@ qgN
 qgN
 qgN
 rkk
-xjK
+xRv
 xhf
 oDz
 pMT
