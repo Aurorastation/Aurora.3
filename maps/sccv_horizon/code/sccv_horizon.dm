@@ -35,7 +35,7 @@
 
 	use_overmap = TRUE
 	num_exoplanets = 2
-	overmap_event_areas = 15
+	overmap_event_areas = 20
 	planet_size = list(255,255)
 
 	away_site_budget = 3
