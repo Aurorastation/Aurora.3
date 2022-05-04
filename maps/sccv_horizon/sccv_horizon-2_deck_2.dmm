@@ -4082,9 +4082,6 @@
 /obj/effect/landmark/engine_setup/filter,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
-"cgw" = (
-/turf/space,
-/area/maintenance/wing/starboard)
 "cgP" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -56120,7 +56117,7 @@ nlr
 sjT
 wOd
 oIL
-cgw
+oIL
 oIL
 nKK
 dKR
