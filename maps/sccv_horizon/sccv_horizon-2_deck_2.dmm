@@ -38501,12 +38501,10 @@
 /obj/item/modular_computer/console/preset/security{
 	dir = 8
 	},
-/obj/machinery/computer/security/telescreen{
-	name = "Armory Cameras";
-	network = list("Armory");
-	pixel_x = 30
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/newscaster/security_unit{
+	pixel_x = 28
+	},
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "wRk" = (
