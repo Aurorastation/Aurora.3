@@ -347,6 +347,14 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
 	)
 
+/obj/item/clothing/head/kippah
+	name = "kippah"
+	desc = "A head covering commonly worn by those of Jewish faith."
+	icon = 'icons/obj/clothing/chaplain.dmi'
+	icon_state = "kippah"
+	item_state = "kippah"
+	contained_sprite = 1
+
 /obj/item/clothing/head/turban
 	name = "turban"
 	desc = "A sturdy cloth, worn around the head."
