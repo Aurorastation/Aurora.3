@@ -12462,6 +12462,9 @@
 	dir = 8
 	},
 /obj/machinery/hologram/holopad,
+/obj/machinery/newscaster{
+	pixel_x = -32
+	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "hwT" = (
