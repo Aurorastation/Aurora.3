@@ -1,6 +1,6 @@
 /obj/item/book/tome
 	name = "arcane tome"
-	description_cult = null
+	desc_cult = null
 	icon_state = "tome"
 	item_state = "tome"
 	throw_speed = 1

@@ -58,7 +58,7 @@
 	permeability_coefficient = 0.02
 	item_flags = THICKMATERIAL|INJECTIONPORT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/device/suit_cooling_unit)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/device/suit_cooling_unit,/obj/item/tank)
 	slowdown = 3
 	armor = list(
 		bio = ARMOR_BIO_SHIELDED,

@@ -5799,7 +5799,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "ss" = (
-/obj/structure/closet/crate/radiation,
+/obj/structure/closet/crate/rad,
 /obj/machinery/light{
 	dir = 2;
 	icon_state = "tube1"
@@ -7965,7 +7965,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
 "XX" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = -29;
 	pixel_y = 30;
