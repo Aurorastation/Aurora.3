@@ -2434,6 +2434,9 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/landmark{
+	name = "JoinLate"
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "em" = (
@@ -26158,6 +26161,13 @@
 	name = "cooled dark floor"
 	},
 /area/bridge/meeting_room)
+"Wg" = (
+/obj/effect/landmark{
+	name = "JoinLateCryoCommand"
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/cryo)
 "Wh" = (
 /obj/machinery/newscaster{
 	pixel_y = -32
@@ -46164,7 +46174,7 @@ Df
 Qx
 Qx
 bH
-Df
+Wg
 LO
 ww
 AX
