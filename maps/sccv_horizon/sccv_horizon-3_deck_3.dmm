@@ -34,9 +34,6 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/south,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "af" = (
@@ -2336,14 +2333,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
-"ea" = (
-/obj/structure/curtain/open/shower,
-/obj/random/soap,
-/obj/machinery/shower{
-	pixel_y = 21
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/medical/washroom)
 "eb" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/hallway/primary/starboard/docks)
@@ -3929,7 +3918,7 @@
 /area/hallway/primary/port)
 "hh" = (
 /obj/machinery/atmospherics/binary/pump/on{
-	name = "Distro to Starboard Docks";
+	name = "Distro to Airlock";
 	target_pressure = 200
 	},
 /turf/simulated/floor,
@@ -5348,7 +5337,6 @@
 	req_access = list(66)
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "jH" = (
@@ -6543,10 +6531,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 1;
-	icon_state = "pipe-j2"
-	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "lT" = (
@@ -7993,6 +7978,9 @@
 	name = "Viewing Shutter";
 	id = "shutters_deck3_showers";
 	pixel_y = 32
+	},
+/obj/effect/landmark{
+	name = "borerstart"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/fitness/showers)
@@ -12461,9 +12449,6 @@
 /obj/item/towel{
 	pixel_y = 6
 	},
-/obj/item/towel{
-	pixel_y = 6
-	},
 /obj/structure/mirror{
 	pixel_x = 28;
 	pixel_y = 6
@@ -12473,6 +12458,9 @@
 	pixel_x = 23;
 	pixel_y = -9
 	},
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "xa" = (
@@ -15954,10 +15942,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "DN" = (
@@ -16195,9 +16179,6 @@
 	name = "south bump";
 	pixel_y = -24
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "El" = (
@@ -16289,9 +16270,6 @@
 	req_access = list(66)
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "Eu" = (
@@ -19587,13 +19565,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
-"Kj" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 8
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/white,
-/area/medical/washroom)
 "Kk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -24535,10 +24506,6 @@
 /turf/simulated/floor/wood,
 /area/bridge)
 "Tb" = (
-/obj/machinery/disposal/small/south,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
 "Tc" = (
@@ -24967,10 +24934,6 @@
 /obj/machinery/button/remote/airlock{
 	dir = 8;
 	pixel_x = 24
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
@@ -41356,7 +41319,7 @@ dy
 dD
 dH
 yX
-ea
+jh
 lM
 qQ
 uS
@@ -41563,7 +41526,7 @@ lO
 TP
 wg
 DM
-Kj
+TP
 jG
 TS
 Ur
