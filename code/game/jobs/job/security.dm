@@ -99,7 +99,7 @@
 	uniform = /obj/item/clothing/under/rank/warden
 	suit = /obj/item/clothing/suit/storage/toggle/warden
 	shoes = /obj/item/clothing/shoes/jackboots
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud
 	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/headset_warden

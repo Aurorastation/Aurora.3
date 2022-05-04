@@ -94,6 +94,7 @@
 	uniform = /obj/item/clothing/under/rank/warden/zavod
 	suit = /obj/item/clothing/suit/storage/toggle/warden/zavod
 	id = /obj/item/card/id/zavodskoi/sec
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/zavod
 
 /datum/outfit/job/intern_sec/zavodskoi
 	name = "Security Cadet - Zavodskoi Interstellar"

@@ -68,6 +68,7 @@
 	uniform = /obj/item/clothing/under/rank/warden/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/warden/pmc
 	id = /obj/item/card/id/pmc
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/epmc
 
 /datum/outfit/job/intern_sec/pmc
 	name = "Security Cadet - PMC"

@@ -68,6 +68,7 @@
 	uniform = /obj/item/clothing/under/rank/warden/idris
 	suit = /obj/item/clothing/suit/storage/toggle/warden/idris
 	id = /obj/item/card/id/idris/sec
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/idris
 
 /datum/outfit/job/forensics/idris
 	name = "Investigator - Idris"
