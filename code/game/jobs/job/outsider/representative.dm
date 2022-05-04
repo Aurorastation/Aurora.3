@@ -24,7 +24,7 @@
 
 	head = /obj/item/clothing/head/beret/corporate
 	uniform = /obj/item/clothing/under/rank/liaison
-	suit = /obj/item/clothing/suit/storage/toggle/liaison
+	suit = /obj/item/clothing/suit/storage/liaison
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
@@ -37,7 +37,6 @@
 	accessory = /obj/item/clothing/accessory/tie/corporate
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate
 
-	l_hand =  /obj/item/storage/briefcase
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
 		/obj/item/gun/energy/pistol = 1

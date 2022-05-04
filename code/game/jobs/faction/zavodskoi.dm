@@ -90,8 +90,9 @@
 /datum/outfit/job/warden/zavodskoi
 	name = "Warden - Zavodskoi Interstellar"
 
-	head = /obj/item/clothing/head/warden
+	head = /obj/item/clothing/head/warden/zavod
 	uniform = /obj/item/clothing/under/rank/warden/zavod
+	suit = /obj/item/clothing/suit/storage/toggle/warden/zavod
 	id = /obj/item/card/id/zavodskoi/sec
 
 /datum/outfit/job/intern_sec/zavodskoi
@@ -100,7 +101,6 @@
 	head = /obj/item/clothing/head/softcap/zavod
 	uniform = /obj/item/clothing/under/rank/cadet/zavod
 	id = /obj/item/card/id/zavodskoi/sec
-	suit = null
 
 /datum/outfit/job/forensics/zavodskoi
 	name = "Investigator - Zavodskoi Interstellar"
@@ -116,7 +116,6 @@
 	uniform = /obj/item/clothing/under/rank/scientist/zavod
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	id = /obj/item/card/id/zavodskoi
-	suit = null
 
 /datum/outfit/job/scientist/xenobiologist/zavodskoi
 	name = "Xenobiologist - Zavodskoi Interstellar"
@@ -124,7 +123,6 @@
 	uniform = /obj/item/clothing/under/rank/scientist/xenobio/zavod
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	id = /obj/item/card/id/zavodskoi
-	suit = null
 
 /datum/outfit/job/scientist/xenoarcheologist/zavodskoi
 	name = "Xenoarcheologist - Zavodskoi Interstellar"
@@ -132,7 +130,6 @@
 	uniform = /obj/item/clothing/under/rank/xenoarcheologist/zavod
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	id = /obj/item/card/id/zavodskoi
-	suit = null
 
 /datum/outfit/job/intern_sci/zavodskoi
 	name = "Lab Assistant - Zavodskoi Interstellar"
@@ -163,7 +160,7 @@
 
 	head = /obj/item/clothing/head/beret/corporate/zavod
 	uniform = /obj/item/clothing/under/rank/liaison/zavod
-	suit = /obj/item/clothing/suit/storage/toggle/liaison/zavod
+	suit = /obj/item/clothing/suit/storage/liaison/zavod
 	implants = null
 	id = /obj/item/card/id/zavodskoi
 	accessory = /obj/item/clothing/accessory/tie/corporate/zavod

@@ -135,10 +135,14 @@
 	name = "warden hat"
 	desc = "A warden hat. For showing who is in charge of the brig."
 	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
-	icon_state = "zav_warden_hat"
-	item_state = "zav_warden_hat"
+	icon_state = "nt_warden_hat"
+	item_state = "nt_warden_hat"
 	flags_inv = HIDEEARS
 	contained_sprite = TRUE
+
+/obj/item/clothing/head/warden/zavod
+	icon_state = "zav_warden_hat"
+	item_state = "zav_warden_hat"
 
 /obj/item/clothing/head/warden/pmc
 	icon_state = "epmc_warden_hat"

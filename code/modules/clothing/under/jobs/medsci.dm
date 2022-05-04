@@ -23,6 +23,8 @@
 	armor = list(
 		bio = ARMOR_BIO_MINOR
 	)
+	contained_sprite = TRUE
+
 /obj/item/clothing/under/rank/scientist/zeng
 	icon_state = "zeng_scientist"
 	item_state = "zeng_scientist"

@@ -311,7 +311,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	body_parts_covered = UPPER_TORSO|ARMS
 
 //Internal Affairs
-/obj/item/clothing/suit/storage/toggle/liaison
+/obj/item/clothing/suit/storage/liaison
 	name = "liaison vest"
 	desc = "A smooth suit vest. Freshly drycleaned, ready for a day of firm handshakes and dynamic synergy paradigm shifts."
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
@@ -320,29 +320,28 @@ obj/item/clothing/suit/apron/overalls/blue
 	blood_overlay_type = "coat"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO
-	opened = TRUE
 
-/obj/item/clothing/suit/storage/toggle/liaison/zeng
+/obj/item/clothing/suit/storage/liaison/zeng
 	icon_state = "zeng_liaison_vest"
 	item_state = "zeng_liaison_vest"
 
-/obj/item/clothing/suit/storage/toggle/liaison/zavod
+/obj/item/clothing/suit/storage/liaison/zavod
 	icon_state = "zav_liaison_vest"
 	item_state = "zav_liaison_vest"
 
-/obj/item/clothing/suit/storage/toggle/liaison/heph
+/obj/item/clothing/suit/storage/liaison/heph
 	icon_state = "heph_liaison_vest"
 	item_state = "heph_liaison_vest"
 
-/obj/item/clothing/suit/storage/toggle/liaison/pmc
+/obj/item/clothing/suit/storage/liaison/pmc
 	icon_state = "epmc_liaison_vest"
 	item_state = "epmc_liaison_vest"
 
-/obj/item/clothing/suit/storage/toggle/liaison/idris
+/obj/item/clothing/suit/storage/liaison/idris
 	icon_state = "idris_liaison_vest"
 	item_state = "idris_liaison_vest"
 
-/obj/item/clothing/suit/storage/toggle/liaison/orion
+/obj/item/clothing/suit/storage/liaison/orion
 	icon_state = "orion_liaison_vest"
 	item_state = "orion_liaison_vest"
 
@@ -385,7 +384,6 @@ obj/item/clothing/suit/apron/overalls/blue
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
 	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/first_responder)
 	body_parts_covered = UPPER_TORSO|ARMS
-	opened = TRUE
 
 /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
 	desc = "A first responder jacket in the classic white and purple of Zeng-Hu Pharmaceuticals."

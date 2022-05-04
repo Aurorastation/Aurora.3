@@ -47,14 +47,17 @@
 
 /datum/outfit/job/hangar_tech/orion
 	name = "Hangar Technician - Orion Express"
+
 	uniform = /obj/item/clothing/under/rank/hangar_technician/orion
 
 /datum/outfit/job/machinist/orion
 	name = "Machinist - Orion Express"
+
 	uniform = /obj/item/clothing/under/rank/machinist/orion
 
 /datum/outfit/job/mining/orion
 	name = "Shaft Miner - Orion Express"
+
 	uniform = /obj/item/clothing/under/rank/miner/orion
 
 /datum/outfit/job/representative/orion
@@ -62,7 +65,7 @@
 
 	head = /obj/item/clothing/head/beret/corporate/orion
 	uniform = /obj/item/clothing/under/rank/liaison/orion
-	suit = /obj/item/clothing/suit/storage/toggle/liaison/orion
+	suit = /obj/item/clothing/suit/storage/liaison/orion
 	implants = null
 	id = /obj/item/card/id/orion
 	accessory = /obj/item/clothing/accessory/tie/corporate/orion

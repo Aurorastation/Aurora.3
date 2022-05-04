@@ -601,7 +601,7 @@
 	icon_state = "qeblak_cape"
 	item_state = "qeblak_cape"
 	flippable = FALSE
-	
+
 /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
 	name = "weishii robe"
 	desc = "A robe denoting the wearer as a member fo the Weishii faith."
@@ -856,6 +856,7 @@
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	icon_state = "nt_tie"
 	item_state = "nt_tie"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/tie/corporate/zeng
 	icon_state = "zeng_tie"
@@ -882,40 +883,41 @@
 	item_state = "orion_tie"
 
 /obj/item/clothing/accessory/pin/corporate
-	name = "corporate pin"
+	name = "corporate badge"
 	desc = "A shiny button which reads, <i>'Nanotrasen - The leader in all things Phoron!'</i>"
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
-	icon_state = "nt_pin"
-	item_state = "nt_pin"
+	icon_state = "nt_liaison_badge"
+	item_state = "nt_liaison_badge"
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/pin/corporate/zeng
 	desc = "A shiny button which reads, <i>'Zeng-Hu - Building a brighter future.'</i>"
-	icon_state = "zeng_pin"
-	item_state = "zeng_pin"
+	icon_state = "zeng_liaison_badge"
+	item_state = "zeng_liaison_badge"
 
 /obj/item/clothing/accessory/pin/corporate/zavod
 	desc = "A shiny button which reads, <i>'Zavodskoi Interstellar - Even one matters in the battlefield.'</i>"
-	icon_state = "zav_pin"
-	item_state = "zav_pin"
+	icon_state = "zav_liaison_badge"
+	item_state = "zav_liaison_badge"
 
 /obj/item/clothing/accessory/pin/corporate/heph
 	desc = "A shiny button which reads, <i>'Hephaestus Industries - The anvil upon which the world is shaped.'</i>"
-	icon_state = "heph_pin"
-	item_state = "heph_pin"
+	icon_state = "heph_liaison_badge"
+	item_state = "heph_liaison_badge"
 
 /obj/item/clothing/accessory/pin/corporate/pmc
 	desc = "A shiny button which reads, <i>'PMCG - Always on guard, always on watch.'</i>"
-	icon_state = "epmc_pin"
-	item_state = "epmc_pin"
+	icon_state = "epmc_liaison_badge"
+	item_state = "epmc_liaison_badge"
 
 /obj/item/clothing/accessory/pin/corporate/idris
 	desc = "A shiny button which reads, <i>'Idris, Inc. - Astronomical Figures. Unlimited Power.'</i>"
-	icon_state = "idris_pin"
-	item_state = "idris_pin"
+	icon_state = "idris_liaison_badge"
+	item_state = "idris_liaison_badge"
 
 /obj/item/clothing/accessory/pin/corporate/orion
 	desc = "A shiny button which reads, <i>'Orion Express - For all your logistical needs!'</i>"
-	icon_state = "orion_pin"
-	item_state = "orion_pin"
+	icon_state = "orion_liaison_badge"
+	item_state = "orion_liaison_badge"

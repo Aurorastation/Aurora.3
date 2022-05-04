@@ -93,7 +93,7 @@
 
 	head = /obj/item/clothing/head/beret/corporate/heph
 	uniform = /obj/item/clothing/under/rank/liaison/heph
-	suit = /obj/item/clothing/suit/storage/toggle/liaison/heph
+	suit = /obj/item/clothing/suit/storage/liaison/heph
 	implants = null
 	id = /obj/item/card/id/hephaestus
 	accessory = /obj/item/clothing/accessory/tie/corporate/heph

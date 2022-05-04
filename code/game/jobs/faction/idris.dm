@@ -126,7 +126,7 @@
 
 	head = /obj/item/clothing/head/beret/corporate/idris
 	uniform = /obj/item/clothing/under/rank/liaison/idris
-	suit = /obj/item/clothing/suit/storage/toggle/liaison/idris
+	suit = /obj/item/clothing/suit/storage/liaison/idris
 	implants = null
 	id = /obj/item/card/id/idris
 	accessory = /obj/item/clothing/accessory/tie/corporate/idris

@@ -151,7 +151,7 @@
 
 	head = /obj/item/clothing/head/beret/corporate/idris
 	uniform = /obj/item/clothing/under/rank/liaison/idris
-	suit = /obj/item/clothing/suit/storage/toggle/liaison/idris
+	suit = /obj/item/clothing/suit/storage/liaison/idris
 	id = /obj/item/card/id/idris
 	pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
