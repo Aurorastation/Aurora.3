@@ -82,7 +82,6 @@
 	head = /obj/item/clothing/head/softcap/idris
 	uniform = /obj/item/clothing/under/rank/cadet/idris
 	id = /obj/item/card/id/idris/sec
-	head = /obj/item/clothing/head/beret/corporate/idris/alt
 
 /datum/outfit/job/bartender/idris
 	name = "Bartender - Idris"
