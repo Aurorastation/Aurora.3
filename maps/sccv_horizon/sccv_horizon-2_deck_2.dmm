@@ -2598,11 +2598,11 @@
 /area/chapel/office)
 "bsQ" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
+/obj/machinery/door/airlock/glass_service{
 	name = "Bar Entrance";
 	req_access = list(25)
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/bar)
 "bto" = (
 /obj/machinery/light{
@@ -6547,12 +6547,12 @@
 "dWH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock{
-	name = "Bar Backroom";
-	req_access = list(25)
-	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/machinery/door/airlock/service{
+	req_access = list(25);
+	name = "Bar Backroom"
+	},
+/turf/simulated/floor/tiled,
 /area/crew_quarters/bar)
 "dWZ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -7061,12 +7061,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock{
-	id_tag = "chapdoor";
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/service{
 	name = "Chaplain's Office";
 	req_access = list(22)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "eqv" = (
@@ -7263,10 +7262,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock{
+/obj/machinery/door/airlock/service{
 	name = "Reading Room"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled,
 /area/library)
 "ewD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7324,11 +7323,12 @@
 "exU" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/door/window/westright{
-	name = "Bas access";
+	name = "Bar Access";
 	req_access = list(25)
 	},
 /obj/machinery/door/window/eastright{
-	name = "Bar Access"
+	name = "Bar Access";
+	req_access = list(25)
 	},
 /obj/machinery/door/blast/shutters{
 	dir = 2;
@@ -8364,11 +8364,11 @@
 /area/hallway/primary/central_two)
 "fdZ" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
+/obj/machinery/door/airlock/glass_service{
 	name = "Hydroponics";
 	req_access = list(35)
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/hydroponics)
 "fei" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -11035,11 +11035,11 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock{
-	name = "Bar Backroom";
-	req_access = list(25)
+/obj/machinery/door/airlock/service{
+	req_access = list(25);
+	name = "Bar Backroom"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/bar)
 "gDR" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
@@ -20359,11 +20359,11 @@
 /area/hydroponics)
 "muK" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_service{
 	name = "Library"
 	},
-/obj/machinery/door/firedoor/multi_tile,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled,
 /area/library)
 "muO" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -21572,13 +21572,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
 "nfz" = (
-/obj/machinery/door/airlock{
-	name = "Lounge"
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass{
+	name = "Lounge"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "nfK" = (
@@ -23691,7 +23691,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock{
+/obj/machinery/door/airlock/glass{
 	name = "Lounge"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -29580,14 +29580,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "rOx" = (
-/obj/machinery/door/airlock/glass{
-	name = "Library"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/wood,
+/obj/machinery/door/airlock/glass_service{
+	name = "Library"
+	},
+/turf/simulated/floor/tiled,
 /area/library)
 "rPf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -31773,15 +31773,14 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/door/airlock/glass{
-	name = "Kitchen";
-	req_access = list(28)
-	},
 /obj/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
+/obj/machinery/door/airlock/glass_service{
+	name = "Kitchen";
+	req_access = list(28)
+	},
+/turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "tiz" = (
 /obj/structure/bed/stool/chair/plastic{
@@ -33695,10 +33694,10 @@
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "uot" = (
-/obj/machinery/door/airlock{
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/service{
 	name = "Chapel"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/chapel/main)
 "uoz" = (
@@ -34889,7 +34888,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
+/obj/machinery/door/airlock/glass_service{
 	name = "Kitchen";
 	req_access = list(28)
 	},
@@ -39729,6 +39728,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/lobby)
+"xFQ" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_service{
+	name = "Library"
+	},
+/turf/simulated/floor/tiled,
+/area/library)
 "xFR" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/cable/green{
@@ -40360,11 +40366,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
+/obj/machinery/door/airlock/glass_service{
 	name = "Hydroponics";
 	req_access = list(35)
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled,
 /area/hydroponics)
 "xXM" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -62281,7 +62287,7 @@ ixR
 uXq
 ifP
 lDb
-pea
+xFQ
 gPs
 vRT
 bIt
