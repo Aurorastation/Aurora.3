@@ -1,0 +1,9 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - maptweak: "Added a supply shuttle monitor to the shuttle bay."
+  - maptweak: "Widened the mining shuttle bay to properly fit the mining shuttle."
+  - maptweak: "Removed some of the barriers around the Operations lift."
+  - backend: "Sanitized Deck 1's mapfile variable order."
