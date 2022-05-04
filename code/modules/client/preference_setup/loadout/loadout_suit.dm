@@ -284,6 +284,7 @@ datum/gear/suit/colorvest
 	display_name = "dominian cape"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape
 	flags = GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/dominia_cape/New()
 	..()
@@ -301,6 +302,7 @@ datum/gear/suit/colorvest
 	description = "A selection of Dominian coats and jackets."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
 	flags = GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/dominia/New()
 	..()
@@ -321,6 +323,7 @@ datum/gear/suit/colorvest
 	description = "A selection of Fisanduhian jackets."
 	path = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	flags = GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/fisanduhian_bomber/New()
 	..()
@@ -411,6 +414,7 @@ datum/gear/suit/colorvest
 	display_name = "himean coat selection"
 	path = /obj/item/clothing/suit/storage/toggle/himeo
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/himeo)
 
 /datum/gear/suit/himeo/New()
 	..()
@@ -424,6 +428,7 @@ datum/gear/suit/colorvest
 	description = "A selection of Vysokan chokhas."
 	path = /obj/item/clothing/suit/storage/vysoka
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/vysoka)
 
 /datum/gear/suit/vysoka/New()
 	..()
@@ -458,6 +463,7 @@ datum/gear/suit/colorvest
 	display_name = "gadpathurian coat selection"
 	path = /obj/item/clothing/suit/storage/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/suit/gadpathur/New()
 	..()

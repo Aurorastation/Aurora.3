@@ -1,12 +1,7 @@
 /obj/structure/closet/secure_closet/captains
 	name = "captain's locker"
 	req_access = list(access_captain)
-	icon_state = "capsecure1"
-	icon_closed = "capsecure"
-	icon_locked = "capsecure1"
-	icon_opened = "capsecureopen"
-	icon_broken = "capsecurebroken"
-	icon_off = "capsecureoff"
+	icon_state = "cap"
 
 /obj/structure/closet/secure_closet/captains/fill()
 	// Backpack
@@ -33,12 +28,7 @@
 /obj/structure/closet/secure_closet/captains2
 	name = "captain's attire"
 	req_access = list(access_captain)
-	icon_state = "capsecure1"
-	icon_closed = "capsecure"
-	icon_locked = "capsecure1"
-	icon_opened = "capsecureopen"
-	icon_broken = "capsecurebroken"
-	icon_off = "capsecureoff"
+	icon_state = "cap"
 
 /obj/structure/closet/secure_closet/captains2/fill()
 	new /obj/item/storage/backpack/captain(src)
@@ -58,12 +48,8 @@
 /obj/structure/closet/secure_closet/xo
 	name = "executive officer's locker"
 	req_access = list(access_hop)
-	icon_state = "hopsecure1"
-	icon_closed = "hopsecure"
-	icon_locked = "hopsecure1"
-	icon_opened = "hopsecureopen"
-	icon_broken = "hopsecurebroken"
-	icon_off = "hopsecureoff"
+	icon_state = "sec"
+	icon_door = "hop"
 
 /obj/structure/closet/secure_closet/xo/fill()
 	..()
@@ -89,12 +75,8 @@
 /obj/structure/closet/secure_closet/xo2
 	name = "executive officer's attire"
 	req_access = list(access_hop)
-	icon_state = "hopsecure1"
-	icon_closed = "hopsecure"
-	icon_locked = "hopsecure1"
-	icon_opened = "hopsecureopen"
-	icon_broken = "hopsecurebroken"
-	icon_off = "hopsecureoff"
+	icon_state = "sec"
+	icon_door = "hop"
 
 /obj/structure/closet/secure_closet/xo2/fill()
 	..()
@@ -109,12 +91,7 @@
 /obj/structure/closet/secure_closet/hos
 	name = "head of security's locker"
 	req_access = list(access_hos)
-	icon_state = "hossecure1"
-	icon_closed = "hossecure"
-	icon_locked = "hossecure1"
-	icon_opened = "hossecureopen"
-	icon_broken = "hossecurebroken"
-	icon_off = "hossecureoff"
+	icon_state = "hos"
 
 /obj/structure/closet/secure_closet/hos/fill()
 	..()
@@ -157,12 +134,7 @@
 /obj/structure/closet/secure_closet/hos2
 	name = "head of security's attire"
 	req_access = list(access_hos)
-	icon_state = "hossecure1"
-	icon_closed = "hossecure"
-	icon_locked = "hossecure1"
-	icon_opened = "hossecureopen"
-	icon_broken = "hossecurebroken"
-	icon_off = "hossecureoff"
+	icon_state = "hos"
 
 /obj/structure/closet/secure_closet/hos2/fill()
 	//Appearance
@@ -187,12 +159,7 @@
 /obj/structure/closet/secure_closet/warden
 	name = "warden's locker"
 	req_access = list(access_armory)
-	icon_state = "wardensecure1"
-	icon_closed = "wardensecure"
-	icon_locked = "wardensecure1"
-	icon_opened = "wardensecureopen"
-	icon_broken = "wardensecurebroken"
-	icon_off = "wardensecureoff"
+	icon_state = "warden"
 
 /obj/structure/closet/secure_closet/warden/fill()
 	//Supply
@@ -230,12 +197,8 @@
 /obj/structure/closet/secure_closet/security_cadet
 	name = "security cadet's locker"
 	req_access = list(access_security)
-	icon_state = "seccadet1"
-	icon_closed = "seccadet"
-	icon_locked = "seccadet1"
-	icon_opened = "seccadetopen"
-	icon_broken = "seccadetbroken"
-	icon_off = "seccadetoff"
+	icon_state = "sec"
+	icon_door = "seccadet"
 
 /obj/structure/closet/secure_closet/security_cadet/fill()
 	//Appearance
@@ -263,12 +226,7 @@
 /obj/structure/closet/secure_closet/security
 	name = "security officer's locker"
 	req_access = list(access_brig)
-	icon_state = "sec1"
-	icon_closed = "sec"
-	icon_locked = "sec1"
-	icon_opened = "secopen"
-	icon_broken = "secbroken"
-	icon_off = "secoff"
+	icon_state = "sec"
 
 /obj/structure/closet/secure_closet/security/fill()
 	//Appearance
@@ -301,12 +259,7 @@
 /obj/structure/closet/secure_closet/investigator
 	name = "investigator's locker"
 	req_access = list(access_forensics_lockers)
-	icon_state = "sec1"
-	icon_closed = "sec"
-	icon_locked = "sec1"
-	icon_opened = "secopen"
-	icon_broken = "secbroken"
-	icon_off = "secoff"
+	icon_state = "sec"
 
 /obj/structure/closet/secure_closet/investigator/fill()
 	//Appearance
@@ -382,42 +335,11 @@
 	new /obj/item/pen (src)
 	new /obj/item/storage/briefcase(src)
 
-/obj/structure/closet/secure_closet/wall
-	name = "wall locker"
-	req_access = list(access_security)
-	icon = 'icons/obj/walllocker.dmi'
-	icon_state = "wall-locker1"
-	density = 1
-	icon_closed = "wall-locker"
-	icon_locked = "wall-locker1"
-	icon_opened = "wall-lockeropen"
-	icon_broken = "wall-lockerbroken"
-	icon_off = "wall-lockeroff"
-
-	//too small to put a man in
-	large = 0
-
-/obj/structure/closet/secure_closet/wall/update_icon()
-	if(broken)
-		icon_state = icon_broken
-	else
-		if(!opened)
-			if(locked)
-				icon_state = icon_locked
-			else
-				icon_state = icon_closed
-		else
-			icon_state = icon_opened
-
 /obj/structure/closet/secure_closet/bridge_crew
 	name = "bridge crew's locker"
 	req_access = list(access_bridge_crew)
-	icon_state = "hopsecure1"
-	icon_closed = "hopsecure"
-	icon_locked = "hopsecure1"
-	icon_opened = "hopsecureopen"
-	icon_broken = "hopsecurebroken"
-	icon_off = "hopsecureoff"
+	icon_state = "sec"
+	icon_door = "hop"
 
 /obj/structure/closet/secure_closet/bridge_crew/fill()
 	..()
@@ -431,12 +353,8 @@
 /obj/structure/closet/secure_closet/pilot
 	name = "pilot's locker"
 	req_access = list(access_bridge_crew)
-	icon_state = "hopsecure1"
-	icon_closed = "hopsecure"
-	icon_locked = "hopsecure1"
-	icon_opened = "hopsecureopen"
-	icon_broken = "hopsecurebroken"
-	icon_off = "hopsecureoff"
+	icon_state = "sec"
+	icon_door = "hop"
 
 /obj/structure/closet/secure_closet/pilot/fill()
 	..()

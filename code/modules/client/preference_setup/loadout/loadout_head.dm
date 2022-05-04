@@ -328,6 +328,7 @@
 	description = "A selection of headgear from Gadpathur."
 	path = /obj/item/clothing/head/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/head/gadpathur/New()
 	..()

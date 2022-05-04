@@ -506,6 +506,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/shuttle/orion_express_ship)
+"hrA" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/shuttle_landmark/orion_express_shuttle/hangar,
+/turf/simulated/floor,
+/area/shuttle/orion_express_ship)
 "huE" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
@@ -676,7 +683,6 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_express_ship)
 "lpe" = (
-/obj/effect/shuttle_landmark/orion_express_shuttle/hangar,
 /obj/effect/overmap/visitable/ship/landable/orion_express_shuttle,
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/shuttle/black,
@@ -874,7 +880,7 @@
 	pixel_y = -10
 	},
 /turf/template_noop,
-/area/space)
+/area/shuttle/tcfl_peacekeeper_ship)
 "pbp" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -34018,7 +34024,7 @@ wBq
 wBq
 wBq
 wBq
-wBq
+hrA
 wBq
 wBq
 wBq

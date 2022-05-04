@@ -109,7 +109,7 @@
 		if(C.broken)	continue
 		if(C.opened && !C.close())	continue
 		C.locked = 1
-		C.icon_state = C.icon_locked
+		C.update_icon()
 
 	timing = 1
 
@@ -139,7 +139,7 @@
 		if(C.opened)
 			continue
 		C.locked = 0
-		C.icon_state = C.icon_closed
+		C.update_icon()
 
 	if(broadcast)
 		broadcast_security_hud_message("The timer for [id] has expired.", src)
@@ -282,12 +282,12 @@
 				src.updateUsrDialog()
 		else
 			to_chat(user,  "<span class='alert'>\The [src] buzzes, \"There's already an active sentence!\"</span>")
-		return
+		return TRUE
 	else if( istype( O, /obj/item/paper ))
 		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\"</span>")
-		return
+		return TRUE
 
-	..()
+	return ..()
 
 /obj/machinery/door_timer/proc/import( var/obj/item/paper/incident/I, var/user )
 	if( !istype( I ))

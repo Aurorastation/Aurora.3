@@ -148,21 +148,25 @@
 /obj/machinery/recharge_station/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(!occupant)
 		if(default_deconstruction_screwdriver(user, O))
-			return
+			return TRUE
 		else if(default_deconstruction_crowbar(user, O))
-			return
+			return TRUE
 		else if(default_part_replacement(user, O))
-			return
+			return TRUE
 
 	if(istype(O, /obj/item/grab))
 		var/obj/item/grab/grab = O
 		var/mob/living/L = grab.affecting
 		if(!L.isSynthetic())
-			return
-		
+			return TRUE
+
+		var/bucklestatus = L.bucklecheck(user)
+		if(!bucklestatus)
+			return TRUE
+
 		move_ipc(grab.affecting)
 		qdel(O)
-	..()
+	return ..()
 
 /obj/machinery/recharge_station/RefreshParts()
 	..()
@@ -315,7 +319,7 @@
 		else
 			to_chat(user, SPAN_DANGER("Cancelled loading [C] into the charger. You and [C] must stay still!"))
 		return
-	
+
 	else if(isipc(C)) // IPCs don't take as long
 		var/mob/living/carbon/human/machine/R = C
 		if(!user.Adjacent(R) || !Adjacent(user))
@@ -328,7 +332,6 @@
 		if(bucklestatus == 2)
 			var/obj/structure/LB = R.buckled_to
 			LB.user_unbuckle(user)
-			return
 
 		user.face_atom(src)
 		move_ipc(R)

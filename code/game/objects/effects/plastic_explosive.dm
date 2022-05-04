@@ -46,4 +46,4 @@
 	to_chat(user, SPAN_WARNING("\The [src] is solidly attached, it doesn't budge!"))
 
 /obj/effect/plastic_explosive/attackby(var/obj/item/I, var/mob/user)
-	parent.attackby(I, user)
+	return parent.attackby(I, user)

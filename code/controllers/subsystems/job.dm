@@ -38,6 +38,8 @@
 
 	ProcessSanitizationQueue()
 
+	SSticker.setup_player_ready_list()
+
 /datum/controller/subsystem/jobs/Recover()
 	occupations = SSjobs.occupations
 	unassigned = SSjobs.unassigned
@@ -501,7 +503,8 @@
 	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle" && spawning_at != "Cryogenic Storage"  && spawning_at != "Living Quarters Lift")
 		return EquipRank(H, rank, 1)
 
-	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
+	if("Arrivals Shuttle" in current_map.allowed_spawns)
+		H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
 
 	var/datum/job/job = GetJob(rank)
 
@@ -757,27 +760,19 @@
 	for(var/thing in prefs.gear)
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
-
 			if(G.augment) //augments are handled somewhere else
 				continue
 
-			var/permitted
-			if(G.allowed_roles)
-				for(var/job_name in G.allowed_roles)
-					if(job.title == job_name)
-						permitted = TRUE
-						break
-			else
-				permitted = TRUE
-
-			if(!G.check_species_whitelist(H))
-				permitted = FALSE
-
-			if(G.faction && G.faction != H.employer_faction)
-				permitted = FALSE
+			var/permitted = !G.allowed_roles || (job.title in G.allowed_roles)
+			permitted = permitted && G.check_species_whitelist(H)
+			permitted = permitted && (!G.faction || (G.faction == H.employer_faction))
+			var/our_culture = text2path(prefs.culture)
+			permitted = permitted && (!G.culture_restriction || (our_culture in G.culture_restriction))
+			var/our_origin = text2path(prefs.origin)
+			permitted = permitted && (!G.origin_restriction || (our_origin in G.origin_restriction))
 
 			if(!permitted)
-				to_chat(H, "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>")
+				to_chat(H, "<span class='warning'>Your current job, culture, origin or whitelist status does not permit you to spawn with [thing]!</span>")
 				continue
 
 			if(G.slot && !(G.slot in custom_equip_slots))
@@ -915,23 +910,16 @@
 			if(!G.augment)
 				continue
 
-			var/permitted = FALSE
-			if(G.allowed_roles)
-				for(var/job_name in G.allowed_roles)
-					if(rank.title == job_name)
-						permitted = TRUE
-						break
-			else
-				permitted = TRUE
-
-			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
-				permitted = FALSE
-
-			if(G.faction && G.faction != H.employer_faction)
-				permitted = FALSE
+			var/permitted = !G.allowed_roles || (rank.title in G.allowed_roles)
+			permitted = permitted && G.check_species_whitelist(H)
+			permitted = permitted && (!G.faction || (G.faction == H.employer_faction))
+			var/decl/origin_item/culture/our_culture = decls_repository.get_decl(text2path(prefs.culture))
+			permitted = permitted && (!G.culture_restriction || (our_culture in G.culture_restriction))
+			var/decl/origin_item/origin/our_origin = decls_repository.get_decl(text2path(prefs.origin))
+			permitted = permitted && (!G.origin_restriction || (our_origin in G.origin_restriction))
 
 			if(!permitted)
-				to_chat(H, SPAN_WARNING("Your current job or whitelist status does not permit you to spawn with [thing]!"))
+				to_chat(H, SPAN_WARNING("Your current job, culture, origin or whitelist status does not permit you to spawn with [thing]!"))
 				continue
 
 			var/metadata

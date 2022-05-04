@@ -57,7 +57,7 @@
 		<HTML><HEAD><TITLE>Arrest Warrant: [activename]</TITLE></HEAD>
 		<BODY bgcolor='#FFFFFF'>
 		<font face="Verdana" color=black><font size = "1">
-		<center><large><b>NanoTrasen Inc.
+		<center><large><b>Stellar Corporate Conglomerate
 		<br>Civilian Branch of Operation</b></large>
 		<br>
 		<br><b>DIGITAL ARREST WARRANT</b></center>
@@ -65,8 +65,8 @@
 		<b>Facility:</b>__<u>[current_map.station_name]</u>__<b>Date:</b>__<u>[worlddate2text()]__</u>
 		<br>
 		<br><small><i>This document serves as a notice and permits the sanctioned arrest of
-		the denoted employee of the NanoTrasen Civilian Branch of Operation by the
-		Security Department of the denoted facility. </br>
+		the denoted employee of the SCC Civilian Branch of Operation by the
+		Security Department of the denoted vessel. </br>
 		In accordance with Corporate Regulations, the denoted employee must be presented with a signed and stamped or
 		digitally authorized warrant before the actions entailed can be conducted legally. </br>
 		The Suspect/Department staff are expected to offer full co-operation.</br>
@@ -93,7 +93,7 @@
 		<HTML><HEAD><TITLE>Search Warrant: [activename]</TITLE></HEAD>
 		<BODY bgcolor='#FFFFFF'>
 		<font face="Verdana" color=black><font size = "1">
-		<center><large><b>NanoTrasen Inc.
+		<center><large><b>Stellar Corporate Conglomerate
 		<br>Civilian Branch of Operation</b></large>
 		<br>
 		<br><b>DIGITAL SEARCH WARRANT</b></center>

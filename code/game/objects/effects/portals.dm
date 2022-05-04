@@ -44,7 +44,7 @@
 	if(istype(I, /obj/item/bluespace_neutralizer))
 		user.visible_message("<b>[user]</b> collapses \the [src] with \the [I].", SPAN_NOTICE("You collapse \the [src] with \the [I]."))
 		qdel(src)
-		return
+		return TRUE
 	return ..()
 
 /obj/effect/portal/attack_hand(mob/user)
@@ -226,7 +226,7 @@
 /obj/effect/portal/revenant/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/bluespace_neutralizer))
 		to_chat(user, SPAN_WARNING("You need to activate \the [I] and keep it near \the [src] to collapse it."))
-		return
+		return TRUE
 	return ..()
 
 /obj/effect/portal/revenant/proc/reduce_health(var/amount = 1)

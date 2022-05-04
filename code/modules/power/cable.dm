@@ -695,11 +695,11 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	uses_charge = 1
 	charge_costs = list(1)
 
-/obj/item/stack/cable_coil/cyborg/verb/set_colour(mob/user)
+/obj/item/stack/cable_coil/cyborg/verb/set_colour()
 	set name = "Change Colour"
 	set category = "Object"
 
-	choose_cable_color(user)
+	choose_cable_color(usr)
 
 // Items usable on a cable coil :
 //   - Wirecutters : cut them duh !

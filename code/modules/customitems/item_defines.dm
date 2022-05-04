@@ -1387,12 +1387,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "akinyi_mic"
 	w_class = ITEMSIZE_SMALL
 	contained_sprite = TRUE
-	speech_sound = null
-
-/obj/item/device/megaphone/fluff/akinyi_mic/modify_say(mob/M, list/say_modifiers) // not a foolproof update, but will avoid most of the oddities with the megaphone rewrite
-	if(loc != M && get_dist(get_turf(src), M) > 1)
-		return
-	return ..()
+	activation_sound = null
+	needs_user_location = FALSE
 
 /obj/item/fluff/akinyi_stand //Telescopic Mic Stand - Akinyi Idowu - kyres1
 	name = "telescopic mic stand"
@@ -2225,3 +2221,127 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	SEND_SIGNAL(D, COMSIG_ITEM_UPDATE_STATE, D)
+  
+/obj/item/fluff/nasira_burner
+	name = "adhomian incense burner"
+	desc = "A traditional Adhomian incense burner with blue and yellow suns depicted on the front. The metal cover is blackened from use, and there appear to be unclear etchings on the inside."
+	icon = 'icons/obj/custom_items/nasira_burner.dmi'
+	icon_state = "burner"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+	var/matchmsg = "USER lights NAME with their FLAME."
+	var/lightermsg = "USER manages to awkwardly light NAME with FLAME."
+	var/zippomsg = "With a flick of their wrist, USER lights NAME with their FLAME."
+	var/weldermsg = "USER lights NAME with FLAME. That looked rather unsafe!"
+	var/ignitermsg = "USER fiddles with FLAME, and eventually manages to light NAME."
+	var/genericmsg = "USER lights NAME with their FLAME."
+	var/lit = FALSE
+
+/obj/item/fluff/nasira_burner/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/fluff/nasira_burner/examine(mob/user)
+	..(user)
+	if(lit)
+		to_chat(user, "\The [src] is currently lit.")
+
+/obj/item/fluff/nasira_burner/proc/light(var/lighting_text)
+	if(!lit)
+		lit = TRUE
+		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
+		if(lighting_text)
+			var/turf/T = get_turf(src)
+			T.visible_message(SPAN_NOTICE(lighting_text))
+		set_light(2, 0.25, "#E38F46")
+		icon_state = "burner_lit"
+		START_PROCESSING(SSprocessing, src)
+
+/obj/item/fluff/nasira_burner/attack_self(mob/user as mob)
+	if(lit)
+		lit = FALSE
+		var/turf/T = get_turf(src)
+		T.visible_message(SPAN_NOTICE("[user] extinguishes \the [src]."))
+		set_light(0)
+		icon_state = initial(icon_state)
+		STOP_PROCESSING(SSprocessing, src)
+
+/obj/item/fluff/nasira_burner/attackby(obj/item/W as obj, mob/user as mob)
+	..()
+	if(W.isFlameSource())
+		var/text = matchmsg
+		if(istype(W, /obj/item/flame/match))
+			text = matchmsg
+		else if(istype(W, /obj/item/flame/lighter/zippo))
+			text = zippomsg
+		else if(istype(W, /obj/item/flame/lighter))
+			text = lightermsg
+		else if(W.iswelder())
+			text = weldermsg
+		else if(istype(W, /obj/item/device/assembly/igniter))
+			text = ignitermsg
+		else
+			text = genericmsg
+		text = replacetext(text, "USER", "\the [user]")
+		text = replacetext(text, "NAME", "\the [name]")
+		text = replacetext(text, "FLAME", "\the [W.name]")
+		light(text)
+
+/obj/item/fluff/nasira_burner/process()
+	if(prob(10))
+		var/lit_message
+		
+		lit_message = pick( "The smell of ceremonial incense reaches your nose.",
+								"Adhomian incense permeates the air around you.",
+								"The soft glow of the incense burner illuminates the vicinity.")
+
+		if(lit_message)
+			visible_message(SPAN_NOTICE(lit_message), range = 3)
+      
+/obj/item/clothing/under/fluff/yanna_dress //Techno-Conglomerate CR dress - Yanna Trevidic - simplemaroon
+	name = "Techno-Conglomerate CR dress"
+	desc = "A sky blue-colored comfort-and-relaxation dress designed for off-worlders. This one is made to Techno-Conglomerate specifications, \
+	with sensors outlined across the ribcage that grow brighter or duller based on the wearer's emotional intensity."
+	icon = 'icons/obj/custom_items/yanna_dress.dmi'
+	icon_override = 'icons/obj/custom_items/yanna_dress.dmi'
+	icon_state = "yanna_dress"
+	item_state = "yanna_dress"
+	contained_sprite = TRUE
+	var/list/emotional_settings = list("0", "1", "2", "3")
+	var/emotional_choice
+	action_button_name = "Adjust Emotional Setting"
+
+/obj/item/clothing/under/fluff/yanna_dress/Initialize()
+	for(var/setting in emotional_settings)
+		emotional_settings[setting] = image('icons/obj/custom_items/yanna_dress.dmi', "level_[emotional_settings.Find(setting) - 1]")
+	.=..()
+
+/obj/item/clothing/under/fluff/yanna_dress/attack_self(mob/user)
+	choose_setting(user)
+
+/obj/item/clothing/under/fluff/yanna_dress/verb/adjust_setting()
+	set category = "Object"
+	set name = "Adjust Emotional Setting"
+	set src in usr
+
+	choose_setting(usr)
+
+/obj/item/clothing/under/fluff/yanna_dress/proc/choose_setting(mob/user)
+	var/emotional_setting = RADIAL_INPUT(user, emotional_settings)
+	if(!emotional_setting)
+		return
+	set_light(text2num(emotional_setting) * 0.4, text2num(emotional_setting) * 0.4, COLOR_BRIGHT_GREEN)
+	emotional_choice = "level_" + emotional_setting
+	update_icon()
+	update_clothing_icon()
+	get_mob_overlay(TRUE)
+
+/obj/item/clothing/under/fluff/yanna_dress/update_icon()
+	cut_overlays()
+	add_overlay(emotional_choice)
+
+/obj/item/clothing/under/fluff/yanna_dress/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	I.add_overlay(emotional_choice + "_un")
+	return I
+ 

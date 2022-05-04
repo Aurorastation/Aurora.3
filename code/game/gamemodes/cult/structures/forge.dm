@@ -10,9 +10,10 @@
 		var/cult_item = W.cultify(TRUE)
 		if(isnull(cult_item))
 			to_chat(user, SPAN_WARNING("You get the idea that you can't reforge this."))
-			return
-		if(istype(cult_item, /obj/item))
+		else if(istype(cult_item, /obj/item))
 			user.put_in_hands(cult_item)
 			to_chat(user, SPAN_CULT(stored_message))
+			return TRUE
 		else if(!isnull(cult_item)) // it didn't return an item
 			to_chat(user, SPAN_CULT(cult_item)) // but i still want it to play a message
+			return TRUE

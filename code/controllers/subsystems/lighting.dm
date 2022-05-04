@@ -1,6 +1,7 @@
 var/datum/controller/subsystem/lighting/SSlighting
 
 /var/lighting_profiling = FALSE
+/var/lighting_overlays_initialized = FALSE
 
 /datum/controller/subsystem/lighting
 	name = "Lighting"
@@ -84,6 +85,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 			overlaycount++
 
 			CHECK_TICK
+
+	lighting_overlays_initialized = TRUE
 
 	admin_notice(SPAN_DANGER("Created [overlaycount] lighting overlays in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 

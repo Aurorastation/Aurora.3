@@ -42,6 +42,11 @@
 	update_icon()
 	usr.update_inv_w_uniform()
 
+/obj/item/clothing/under/skrell/slugger
+	name = "prescient republic of the qar wetsuit"
+	desc = "A wetsuit worn by members of Prescient Republic of the Qar generational fleet."
+	item_state = "slugger_wetsuit"
+	icon_state = "slugger_wetsuit"
 
 // Skrell Ox clothing
 /obj/item/clothing/under/skrell/ox

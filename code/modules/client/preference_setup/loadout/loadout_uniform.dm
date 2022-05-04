@@ -216,6 +216,7 @@
 	description = "A selection of Dominian clothing."
 	path = /obj/item/clothing/under/dominia
 	flags = GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/uniform/dominia/New()
 	..()
@@ -232,6 +233,7 @@
 	display_name = "dominian dress selection"
 	description = "A selection of fancy Dominian dresses."
 	path = /obj/item/clothing/under/dominia/dress
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/uniform/dominia_dress/New()
 	..()
@@ -246,6 +248,7 @@
 	description = "A selection of Dominian clothing belonging to the Diplomatic Service."
 	path = /obj/item/clothing/under/dominia/consular
 	allowed_roles = list("Consular Officer")
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/uniform/dominia_consular/New()
 	..()
@@ -258,6 +261,7 @@
 	display_name = "fisanduhian sweater"
 	path = /obj/item/clothing/under/dominia/sweater
 	flags = GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/uniform/elyra_holo
 	display_name = "elyran holographic suit selection"
@@ -319,6 +323,7 @@
 	display_name = "gadpathurian fatigues"
 	path = /obj/item/clothing/under/uniform/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/uniform/miscellaneous/qipao
 	display_name = "qipao"

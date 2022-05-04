@@ -1,9 +1,6 @@
 /obj/structure/closet/crate/secure/loot
 	name = "abandoned crate"
 	desc = "What could be inside?"
-	icon_state = "securecrate"
-	icon_opened = "securecrateopen"
-	icon_closed = "securecrate"
 	var/list/code = list()
 	var/list/lastattempt = list()
 	var/attempts = 15
@@ -155,7 +152,8 @@
 	else if(check_input(input))
 		to_chat(user, SPAN_NOTICE("The crate unlocks!"))
 		playsound(user, 'sound/machines/lockreset.ogg', 50, 1)
-		set_locked(FALSE)
+		locked = FALSE
+		update_icon()
 	else
 		visible_message(SPAN_WARNING("A red light on \the [src]'s control panel flashes briefly."))
 		attempts--

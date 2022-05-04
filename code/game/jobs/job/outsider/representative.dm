@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	supervisors = "company officials"
 	selection_color = "#6186cf"
-	economic_modifier = 7
+	economic_modifier = 15
 
 	minimum_character_age = 30
 
@@ -94,7 +94,7 @@
 	spawn_positions = 1
 	supervisors = "your embassy"
 	selection_color = "#6186cf"
-	economic_modifier = 7
+	economic_modifier = 15
 
 	minimum_character_age = 30
 
