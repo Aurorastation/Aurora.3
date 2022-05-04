@@ -393,6 +393,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)
+"auF" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion/starboard)
 "avx" = (
 /obj/machinery/conveyor{
 	dir = 10;
@@ -3061,10 +3067,12 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "cBG" = (
-/obj/machinery/door/blast/regular{
-	id = "starcombpurge"
+/obj/machinery/airlock_sensor{
+	frequency = 1337;
+	id_tag = "portcomb_airlock_sensor";
+	pixel_x = -27
 	},
-/turf/space,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "cCg" = (
 /obj/structure/table/rack,
@@ -11448,10 +11456,12 @@
 	},
 /area/hangar/intrepid)
 "jKh" = (
-/obj/machinery/door/blast/regular{
-	id = "portcombpurge"
+/obj/machinery/airlock_sensor{
+	frequency = 1337;
+	id_tag = "portcomb_airlock_sensor";
+	pixel_x = 24
 	},
-/turf/space,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
 "jKF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -12743,12 +12753,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "starcombpurge";
-	name = "Airlock Purge";
-	pixel_x = -1;
-	pixel_y = 25
 	},
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
 	id_tag = "starcomb_airlock_control";
@@ -15788,13 +15792,6 @@
 /obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
-"nxF" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/machinery/light,
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion)
 "nyl" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
@@ -25903,13 +25900,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
-"wIi" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/machinery/light,
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion/starboard)
 "wIJ" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -27006,12 +26996,6 @@
 	req_access = null;
 	tag_exterior_door = "portcomb_airlock_exterior";
 	tag_interior_door = "portcomb_airlock_interior"
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "portcombpurge";
-	name = "Airlock Purge";
-	pixel_x = 6;
-	pixel_y = 25
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -41997,7 +41981,7 @@ eSV
 eSV
 oOI
 awJ
-awJ
+auF
 eBb
 awJ
 awJ
@@ -43013,7 +42997,7 @@ ekt
 awJ
 cBG
 uPX
-wIi
+uPX
 awJ
 jZo
 uwB
@@ -53315,7 +53299,7 @@ fCd
 uVL
 jKh
 qnr
-nxF
+qnr
 uVL
 gyD
 eKc
