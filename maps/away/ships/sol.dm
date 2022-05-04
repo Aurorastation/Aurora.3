@@ -134,6 +134,7 @@
 	spawn_cost = 1
 	id = "fsf_patrol_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/fsf_patrol_ship, /datum/shuttle/autodock/overmap/fsf_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /obj/effect/overmap/visitable/sector/fsf_patrol_ship
 	name = "faint ship activity"
