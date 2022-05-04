@@ -7421,9 +7421,6 @@
 /turf/simulated/floor/wood,
 /area/library)
 "enz" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -7505,9 +7502,6 @@
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "epN" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10108,6 +10102,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
+"fPk" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/operations/break_room)
 "fPP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -12725,9 +12729,6 @@
 /obj/machinery/door/airlock/mining{
 	name = "Showers";
 	req_one_access = list(26, 31, 48, 67)
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -24726,9 +24727,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "ovI" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -27868,9 +27866,6 @@
 /area/chapel/main)
 "qfw" = (
 /obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -30155,9 +30150,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "rrq" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -32994,9 +32986,6 @@
 /turf/simulated/wall/r_wall,
 /area/turret_protected/ai_upload_foyer)
 "taG" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -40963,6 +40952,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "xjC" = (
@@ -53096,8 +53086,8 @@ aob
 aob
 rqA
 xiO
-kXm
-kXm
+fPk
+hhY
 krl
 mQy
 tFL
@@ -53298,7 +53288,7 @@ fsf
 fQn
 rqA
 muO
-kXm
+cgP
 jpi
 rqA
 awH
