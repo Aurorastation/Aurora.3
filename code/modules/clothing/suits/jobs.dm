@@ -153,12 +153,25 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/det_jacket
 	name = "detective's jacket"
 	desc = "Stylish yet comfortable professional jacket manufactured by CL corporation for detectives."
-	icon_state = "det_jacket"
-	item_state = "det_jacket"
+	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon_state = "nt_invest_coat"
+	item_state = "nt_invest_coat"
+	contained_sprite = TRUE
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
 
+/obj/item/clothing/suit/storage/det_jacket/zavod
+	icon_state = "zav_invest_coat"
+	item_state = "zav_invest_coat"
+
+/obj/item/clothing/suit/storage/det_jacket/pmc
+	icon_state = "epmc_invest_coat"
+	item_state = "epmc_invest_coat"
+
+/obj/item/clothing/suit/storage/det_jacket/idris
+	icon_state = "idris_invest_coat"
+	item_state = "idris_invest_coat"
 /obj/item/clothing/suit/storage/toggle/det_trench
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Perfect for your next act of autodefenestration!"
@@ -181,24 +194,6 @@ obj/item/clothing/suit/apron/overalls/blue
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
 
-/obj/item/clothing/suit/storage/det_jacket/zavod
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
-	icon_state = "zav_invest_coat"
-	item_state = "zav_invest_coat"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/det_jacket/pmc
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
-	icon_state = "epmc_invest_coat"
-	item_state = "epmc_invest_coat"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/storage/det_jacket/idris
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
-	icon_state = "idris_invest_coat"
-	item_state = "idris_invest_coat"
-	contained_sprite = TRUE
-
 /obj/item/clothing/suit/storage/toggle/forensics/blue
 	icon_state = "forensicsblue"
 	item_state = "forensicsblue"
@@ -206,6 +201,30 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/toggle/forensics/dnavy
 	icon_state = "forensicsdnavy"
 	item_state = "forensicsdnavy"
+
+//Corporate
+
+
+/obj/item/clothing/suit/storage/toggle/warden
+	name = "warden's coat"
+	desc = "A thick, rugged overcoat, with corporate livery emblazoned on it."
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon_state = "nt_warden_coat"
+	item_state = "nt_warden_coat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/warden/zavod
+	icon_state = "zav_warden_coat"
+	item_state = "zav_warden_coat"
+
+/obj/item/clothing/suit/storage/toggle/warden/pmc
+	icon_state = "epmc_warden_coat"
+	item_state = "epmc_warden_coat"
+
+/obj/item/clothing/suit/storage/toggle/warden/idris
+	icon_state = "idris_warden_coat"
+	item_state = "idris_warden_coat"
 
 //Engineering
 /obj/item/clothing/suit/storage/hazardvest
@@ -263,6 +282,16 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "hazard_ce"
 	item_state = "hazard_ce"
 
+/obj/item/clothing/suit/storage/iacvest // todo : make this hazard vest subtype
+	desc = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps as a high-visibility vest, over any other clothing. The I.A.C. logo is prominently  displayed on the back of the vest, between the shoulders."
+	name = "IAC vest"
+	icon_state = "iac_vest"
+	item_state = "iac_vest"
+	permeability_coefficient = 0.50
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
+
 //Lawyer
 /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
 	name = "blue suit jacket"
@@ -283,13 +312,40 @@ obj/item/clothing/suit/apron/overalls/blue
 
 //Internal Affairs
 /obj/item/clothing/suit/storage/toggle/liaison
-	name = "liaison jacket"
-	desc = "A smooth black jacket."
-	icon_state = "ia_jacket"
-	item_state = "ia_jacket"
+	name = "liaison vest"
+	desc = "A smooth suit vest. Freshly drycleaned, ready for a day of firm handshakes and dynamic synergy paradigm shifts."
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon_state = "nt_liaison_vest"
+	item_state = "nt_liaison_vest"
 	blood_overlay_type = "coat"
-	body_parts_covered = UPPER_TORSO|ARMS
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO
 	opened = TRUE
+
+/obj/item/clothing/suit/storage/toggle/liaison/zeng
+	icon_state = "zeng_liaison_vest"
+	item_state = "zeng_liaison_vest"
+
+/obj/item/clothing/suit/storage/toggle/liaison/zavod
+	icon_state = "zav_liaison_vest"
+	item_state = "zav_liaison_vest"
+
+/obj/item/clothing/suit/storage/toggle/liaison/heph
+	icon_state = "heph_liaison_vest"
+	item_state = "heph_liaison_vest"
+
+/obj/item/clothing/suit/storage/toggle/liaison/pmc
+	icon_state = "epmc_liaison_vest"
+	item_state = "epmc_liaison_vest"
+
+/obj/item/clothing/suit/storage/toggle/liaison/idris
+	icon_state = "idris_liaison_vest"
+	item_state = "idris_liaison_vest"
+
+/obj/item/clothing/suit/storage/toggle/liaison/orion
+	icon_state = "orion_liaison_vest"
+	item_state = "orion_liaison_vest"
+
 
 //Resprited from IAA jacket
 /obj/item/clothing/suit/storage/toggle/suitjacket
@@ -321,33 +377,26 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/toggle/fr_jacket
 	name = "first responder jacket"
 	desc = "A high-visibility jacket worn by medical first responders."
-	icon_state = "fr_jacket"
-	item_state = "fr_jacket"
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_emt_jacket"
+	item_state = "nt_emt_jacket"
 	blood_overlay_type = "armor"
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
 	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/first_responder)
 	body_parts_covered = UPPER_TORSO|ARMS
 	opened = TRUE
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/alt
-	desc = "A dark green first responder jacket."
-	icon = 'icons/clothing/kit/first_responder.dmi'
-	contained_sprite = TRUE
-	icon_state = "firstresponderjacket"
-	item_state = "firstresponderjacket"
-
 /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
 	desc = "A first responder jacket in the classic white and purple of Zeng-Hu Pharmaceuticals."
-	icon = 'icons/clothing/suits/coats/zeng_responder.dmi'
-	contained_sprite = TRUE
-	icon_state = "zengresponderjacket"
-	item_state = "zengresponderjacket"
+	icon_state = "zeng_emt_jacket"
+	item_state = "zeng_emt_jacket"
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/ems
-	name = "\improper EMS jacket"
-	desc = "A dark blue, martian-pattern, EMS jacket. It sports high-visibility reflective stripes and a star of life on the back."
-	icon_state = "ems_jacket"
-	item_state = "ems_jacket"
+/obj/item/clothing/suit/storage/toggle/fr_jacket/pmc
+	desc = "A first responder jacket in the classic black and blue of the PCMG."
+	icon_state = "epmc_emt_jacket"
+	item_state = "epmc_emt_jacket"
+
 
 /obj/item/clothing/suit/storage/medical_chest_rig
 	name = "medic chest-rig"
@@ -359,14 +408,6 @@ obj/item/clothing/suit/apron/overalls/blue
 	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/first_responder)
 	body_parts_covered = UPPER_TORSO
 
-/obj/item/clothing/suit/storage/medical_chest_rig/first_responder
-	name = "first responder vest"
-	desc = "A dark green vest adorned with high-visibility stripes. Has pouches to carry equipment with."
-	icon = 'icons/clothing/kit/first_responder.dmi'
-	contained_sprite = TRUE
-	icon_state = "firstrespondervest"
-	item_state = "firstrespondervest"
-
 //Mime
 /obj/item/clothing/suit/suspenders
 	name = "suspenders"
@@ -376,19 +417,27 @@ obj/item/clothing/suit/apron/overalls/blue
 	blood_overlay_type = "armor" //it's the less thing that I can put here
 	body_parts_covered = 0
 
+// Bartender
 /obj/item/clothing/suit/storage/bartender
 	name = "bartender jacket"
 	desc = "A fancy jacket worn by corporate bartenders."
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon_state = "nt_bartender_jacket"
+	item_state = "nt_bartender_jacket"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/storage/bartender/nt
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
-	icon_state = "nt_bartender_jacket"
-	item_state = "nt_bartender_jacket"
-
 /obj/item/clothing/suit/storage/bartender/idris
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	icon_state = "idris_bartender_jacket"
 	item_state = "idris_bartender_jacket"
+
+// Machinist
+
+/obj/item/clothing/suit/storage/machinist
+	name = "machinist jacket"
+	desc = "Functional, rugged durability. The perfect workwear for tinkering with muscle cars, robots and giant mechas."
+	icon = 'icons/obj/contained_items/department_uniforms/operations.dmi'
+	icon_state = "machinist_jacket"
+	item_state = "machinist_jacket"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS

@@ -69,7 +69,7 @@
 	icon_opened = "janitorialopen"
 
 /obj/structure/closet/jcloset/fill()
-	new /obj/item/clothing/under/rank/janitor/nt(src)
+	new /obj/item/clothing/under/rank/janitor(src)
 	new /obj/item/clothing/under/rank/janitor/idris(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/clothing/gloves/black(src)

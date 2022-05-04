@@ -50,8 +50,8 @@
 	desc = "A stylish cap issued to the bridge crew of SCC vessels."
 	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
 	contained_sprite = TRUE
-	icon_state = "bridge_officer_cap"
-	item_state = "bridge_officer_cap"
+	icon_state = "bridge_crew_cap"
+	item_state = "bridge_crew_cap"
 
 //Chaplain
 /obj/item/clothing/head/chaplain_hood
@@ -68,45 +68,46 @@
 	flags_inv = BLOCKHAIR
 
 //Medical
+
+/obj/item/clothing/head/headmirror
+	name = "otolaryngologist's mirror"
+	desc = "Turn your head and cough."
+	desc_fluff = "That's an Ear, Nose and/or Throat surgeon to you, mister."
+	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	contained_sprite = TRUE
+	icon_state = "headmirror"
+	item_state = "headmirror"
+
 /obj/item/clothing/head/surgery
 	name = "surgical cap"
 	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs."
-	icon_state = "surgcap_blue"
-	flags_inv = BLOCKHEADHAIR
-
-/obj/item/clothing/head/surgery/purple
-	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is deep purple."
-	icon_state = "surgcap_purple"
-
-/obj/item/clothing/head/surgery/blue
-	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is baby blue."
-	icon_state = "surgcap_blue"
-
-/obj/item/clothing/head/surgery/green
-	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is dark green."
-	icon_state = "surgcap_green"
-
-/obj/item/clothing/head/surgery/black
-	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is black."
-	icon_state = "surgcap_black"
-
-/obj/item/clothing/head/surgery/nt
 	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
-	contained_sprite = TRUE
 	icon_state = "surgcap_nt"
 	item_state = "surgcap_nt"
+	contained_sprite = TRUE
+	flags_inv = BLOCKHEADHAIR
 
 /obj/item/clothing/head/surgery/zeng
-	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
-	contained_sprite = TRUE
 	icon_state = "surgcap_zeng"
 	item_state = "surgcap_zeng"
 
 /obj/item/clothing/head/surgery/pmc
-	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
-	contained_sprite = TRUE
 	icon_state = "surgcap_epmc"
 	item_state = "surgcap_epmc"
+
+/obj/item/clothing/head/surgery/pmc
+	icon_state = "surgcap_epmc"
+	item_state = "surgcap_epmc"
+
+// Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
+
+/obj/item/clothing/head/surgery/zavod
+	icon_state = "surgcap_zav"
+	item_state = "surgcap_zav"
+
+/obj/item/clothing/head/surgery/idris
+	icon_state = "surgcap_idris"
+	item_state = "surgcap_idris"
 
 //Detective
 
@@ -132,72 +133,39 @@
 
 /obj/item/clothing/head/warden
 	name = "warden hat"
-	desc = "A blue warden hat. For showing who is in charge of the brig."
-	icon = 'icons/obj/clothing/hats/security.dmi'
-	icon_state = "warden"
-	item_state = "warden"
-	flags_inv = HIDEEARS
-	contained_sprite = TRUE
-
-/obj/item/clothing/head/warden/corp
-	name = "corporate warden hat"
-	desc = "A black warden parade hat. For showing who is in charge of the brig."
-	icon_state = "corp"
-	item_state = "corp"
-
-/obj/item/clothing/head/warden/zavod
+	desc = "A warden hat. For showing who is in charge of the brig."
 	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
 	icon_state = "zav_warden_hat"
 	item_state = "zav_warden_hat"
+	flags_inv = HIDEEARS
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/warden/pmc
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
 	icon_state = "epmc_warden_hat"
 	item_state = "epmc_warden_hat"
-	contained_sprite = TRUE
 
 /obj/item/clothing/head/warden/idris
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
 	icon_state = "idris_warden_hat"
 	item_state = "idris_warden_hat"
-	contained_sprite = TRUE
 
 /obj/item/clothing/head/hos
 	name = "head of security hat"
 	desc = "The navy blue parade hat of the Head of Security. For showing the officers who's in charge."
-	icon = 'icons/obj/clothing/hats/security.dmi'
-	icon_state = "hos"
-	item_state = "hos"
-	flags_inv = HIDEEARS
-	contained_sprite = TRUE
-
-/obj/item/clothing/head/hos/scc
 	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
 	icon_state = "hos_hat"
 	item_state = "hos_hat"
-
-/obj/item/clothing/head/hos/corp
-	name = "corporate head of security hat"
-	desc = "The black parade hat of the Head of Security. For showing the officers who's in charge."
-	icon_state = "corp"
-	item_state = "corp"
+	flags_inv = HIDEEARS
+	contained_sprite = TRUE
 
 /obj/item/clothing/head/flatcap/bartender
 	name = "bartender flatcap"
 	desc = "An simple hat issued to bartenders."
-	icon_state = "corp"
-
-/obj/item/clothing/head/flatcap/bartender/idris
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
-	desc = "An simple hat issued to bartenders. This one has Idris colors."
-	contained_sprite = TRUE
-	icon_state = "idris_bartender_flatcap"
-	item_state = "idris_bartender_flatcap"
-
-/obj/item/clothing/head/flatcap/bartender/nt
-	desc = "An simple hat issued to bartenders. This one has NanoTrasen colors."
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_bartender_flatcap"
 	item_state = "nt_bartender_flatcap"
+
+
+/obj/item/clothing/head/flatcap/bartender/idris
+	icon_state = "idris_bartender_flatcap"
+	item_state = "idris_bartender_flatcap"

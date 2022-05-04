@@ -56,7 +56,6 @@
 	r_pocket = /obj/item/device/price_scanner
 	belt = /obj/item/storage/belt/utility/full
 	uniform = list(
-		/obj/item/clothing/under/det/black,
 		/obj/item/clothing/under/suit_jacket/charcoal,
 		/obj/item/clothing/under/suit_jacket/tan,
 		)

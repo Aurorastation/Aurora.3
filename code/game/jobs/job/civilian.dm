@@ -21,10 +21,10 @@
 	name = "Bartender"
 	jobtype = /datum/job/bartender
 
-	uniform = /obj/item/clothing/under/rank/bartender/nt
-	head = /obj/item/clothing/head/flatcap/bartender/nt
+	head = /obj/item/clothing/head/flatcap/bartender
+	uniform = /obj/item/clothing/under/rank/bartender
 	shoes = /obj/item/clothing/shoes/black
-	suit = /obj/item/clothing/suit/storage/bartender/nt
+	suit = /obj/item/clothing/suit/storage/bartender
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/bartender
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender
@@ -99,7 +99,7 @@
 	name = "Gardener"
 	jobtype = /datum/job/hydro
 
-	uniform = /obj/item/clothing/under/rank/hydroponics/nt
+	uniform = /obj/item/clothing/under/rank/hydroponics
 //	suit = /obj/item/clothing/suit/apron
 	head = /obj/item/clothing/head/bandana/hydro/nt
 	shoes = /obj/item/clothing/shoes/black
@@ -148,8 +148,8 @@
 	name = "Janitor"
 	jobtype = /datum/job/janitor
 
-	uniform = /obj/item/clothing/under/rank/janitor/nt
-	head = /obj/item/clothing/head/softcap/janitor/nt
+	uniform = /obj/item/clothing/under/rank/janitor
+	head = /obj/item/clothing/head/softcap/janitor
 	shoes = /obj/item/clothing/shoes/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/janitor
@@ -241,7 +241,7 @@
 	name = "Librarian"
 	jobtype = /datum/job/librarian
 
-	uniform = /obj/item/clothing/under/librarian/nt
+	uniform = /obj/item/clothing/under/librarian
 	shoes = /obj/item/clothing/shoes/black
 	r_pocket = /obj/item/barcodescanner
 	l_hand = /obj/item/storage/bag/books
@@ -401,6 +401,7 @@
 	name = "Hangar Technician"
 	jobtype = /datum/job/hangar_tech
 
+	head = /obj/item/clothing/head/softcap/cargo
 	uniform = /obj/item/clothing/under/rank/hangar_technician
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/brown
@@ -413,7 +414,6 @@
 	bowman = /obj/item/device/radio/headset/headset_cargo/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/cargo
 	wrist_radio = /obj/item/device/radio/headset/wrist/cargo
-
 
 /datum/job/mining
 	title = "Shaft Miner"
@@ -491,7 +491,7 @@
 	jobtype = /datum/job/machinist
 
 	uniform = /obj/item/clothing/under/rank/machinist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	suit = /obj/item/clothing/suit/storage/machinist
 	shoes = /obj/item/clothing/shoes/black
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/belt/utility

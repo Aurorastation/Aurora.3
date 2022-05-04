@@ -79,23 +79,23 @@
 /datum/outfit/job/pharmacist/zeng_hu
 	name = "Pharmacist - Zeng-Hu"
 
-	uniform = /obj/item/clothing/under/rank/pharmacist/zeng
+	uniform = /obj/item/clothing/under/rank/medical/pharmacist/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/psychiatrist/zeng_hu
 	name = "Psychiatrist - Zeng-Hu"
 
+	uniform = /obj/item/clothing/under/rank/medical/psych/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
-	uniform = /obj/item/clothing/under/rank/psych/zeng
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/med_tech/zeng_hu
 	name = "First Responder - Zeng-Hu"
 
-	head = /obj/item/clothing/head/softcap/medical/pmc
-	suit = null
+	head = /obj/item/clothing/head/softcap/medical/zeng
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/intern_med/zeng_hu
@@ -110,15 +110,13 @@
 	uniform = /obj/item/clothing/under/rank/scientist/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
-	suit = null
 
 /datum/outfit/job/scientist/zeng_hu/xenobio
 	name = "Xenobiologist - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenobio/zeng
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zavodskoi
-	suit = null
 
 
 /datum/outfit/job/scientist/xenoarcheologist/zeng_hu
@@ -127,23 +125,23 @@
 	uniform = /obj/item/clothing/under/rank/xenoarcheologist/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
-	suit = null
 
 /datum/outfit/job/intern_sci/zeng_hu
 	name = "Lab Assistant - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/scientist/intern/zeng
 	id = /obj/item/card/id/zeng_hu
-	suit = null
 
 /datum/outfit/job/representative/zeng_hu
 	name = "Zeng-Hu Corporate Liaison"
 
-	uniform = /obj/item/clothing/under/rank/zeng/civilian
-	head = null
-	suit = null
+	head = /obj/item/clothing/head/beret/corporate/zeng
+	uniform = /obj/item/clothing/under/rank/liaison/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/liaison/zeng
 	implants = null
 	id = /obj/item/card/id/zeng_hu
+	accessory = /obj/item/clothing/accessory/tie/corporate/zeng
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate/zeng
 
 	backpack_contents = list(
 		/obj/item/device/camera = 1,

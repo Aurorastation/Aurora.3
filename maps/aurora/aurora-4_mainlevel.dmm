@@ -61799,7 +61799,6 @@
 "hqT" = (
 /obj/item/clothing/mask/gas/mime,
 /obj/item/clothing/shoes/mime,
-/obj/item/clothing/under/mime,
 /obj/item/toy/figure/mime,
 /obj/structure/closet{
 	icon_closed = "cabinet_closed";

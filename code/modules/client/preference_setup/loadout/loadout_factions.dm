@@ -1,6 +1,6 @@
 /datum/gear/faction
 	display_name = "idris cap"
-	path = /obj/item/clothing/head/softcap/security/idris
+	path = /obj/item/clothing/head/softcap/idris
 	slot = slot_head
 	sort_category = "Factions"
 	cost = 1
@@ -8,21 +8,13 @@
 
 /datum/gear/faction/idris_beret
 	display_name = "idris beret"
-	path = /obj/item/clothing/head/beret/security/idris
+	path = /obj/item/clothing/head/beret/corporate/idris
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/idris_beret_alt
 	display_name = "idris beret (alt)"
-	path = /obj/item/clothing/head/beret/security/idris/alt
+	path = /obj/item/clothing/head/beret/corporate/idris/alt
 	faction = "Idris Incorporated"
-
-/datum/gear/faction/idris_uniform_alt
-	display_name = "idris service skirt"
-	description = "Not for security usage."
-	path = /obj/item/clothing/under/rank/idris/service/alt
-	slot = slot_w_uniform
-	faction = "Idris Incorporated"
-
 /datum/gear/faction/idris_armband
 	display_name = "idris armband"
 	path = /obj/item/clothing/accessory/armband/idris
@@ -79,34 +71,22 @@
 
 /datum/gear/faction/zavodskoi_beret
 	display_name = "black zavodskoi beret"
-	path = /obj/item/clothing/head/beret/security/zavodskoi
+	path = /obj/item/clothing/head/beret/corporate/zavod/alt
 	faction = "Zavodskoi Interstellar"
 
 /datum/gear/faction/zavodskoi_beret/alt
 	display_name = "brown zavodskoi beret"
-	path = /obj/item/clothing/head/beret/security/zavodskoi/alt
+	path = /obj/item/clothing/head/beret/corporate/zavod
 	sort_category = "Factions"
 
 /datum/gear/faction/zavodskoi_softcap
 	display_name = "black zavodskoi cap"
-	path = /obj/item/clothing/head/softcap/zavod
+	path = /obj/item/clothing/head/softcap/zavod/alt
 	faction = "Zavodskoi Interstellar"
 
 /datum/gear/faction/zavodskoi_softcap/alt
 	display_name = "brown zavodskoi cap"
-	path = /obj/item/clothing/head/softcap/zavod/alt
-
-/datum/gear/faction/zavodskoi_uniform_alt
-	display_name = "brown zavodskoi uniform"
-	path = /obj/item/clothing/under/rank/security/zavodskoi/alt
-	slot = slot_w_uniform
-	faction = "Zavodskoi Interstellar"
-
-/datum/gear/faction/zavodskoi_research_alt
-	display_name = "brown zavodskoi research uniform"
-	path = /obj/item/clothing/under/rank/zavodskoi/research/alt
-	slot = slot_w_uniform
-	faction = "Zavodskoi Interstellar"
+	path = /obj/item/clothing/head/softcap/zavod
 
 /datum/gear/faction/zavodskoi_labcoat
 	display_name = "zavodskoi labcoat"
@@ -132,13 +112,13 @@
 
 /datum/gear/faction/eridani_beret
 	display_name = "eridani beret"
-	path = /obj/item/clothing/head/beret/security/eri
+	path =  /obj/item/clothing/head/beret/corporate/pmc
 	slot = slot_head
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/eridani_cap
 	display_name = "eridani cap"
-	path = /obj/item/clothing/head/softcap/eri
+	path = /obj/item/clothing/head/softcap/pmc
 	slot = slot_head
 	faction = "Private Military Contracting Group"
 
@@ -161,35 +141,30 @@
 /datum/gear/faction/epmc_labcoat
 	display_name = "EPMC labcoat selection"
 	description = "A selection of EPMC labcoats."
-	path = /obj/item/clothing/suit/storage/toggle/labcoat/epmc
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	slot = slot_wear_suit
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/epmc_labcoat/New()
 	..()
 	var/list/epmc_labcoats = list()
-	epmc_labcoats["security labcoat, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/epmc
-	epmc_labcoats["security labcoat alt, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/epmc/alt
-	epmc_labcoats["medical labcoat, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/epmc/med
+	epmc_labcoats["labcoat, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
+	epmc_labcoats["labcoat alt, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
 	gear_tweaks += new /datum/gear_tweak/path(epmc_labcoats)
 
-/datum/gear/faction/zenghu_uniform_alt
-	display_name = "zeng-hu white uniform"
-	path = /obj/item/clothing/under/rank/zeng/alt
-	slot = slot_w_uniform
-	faction = "Zeng-Hu Pharmaceuticals"
-
 /datum/gear/faction/zenghu_beret
-	display_name = "purple zeng-hu beret"
-	path = /obj/item/clothing/head/beret/zeng
+	display_name = "Zeng-Hu beret selection"
+	description = "A selection of Zeng-Hu labcoats."
+	path = /obj/item/clothing/head/beret/corporate/zeng
 	slot = slot_head
 	faction = "Zeng-Hu Pharmaceuticals"
 
-/datum/gear/faction/zenghu_beret_alt
-	display_name = "white zeng-hu beret"
-	path = /obj/item/clothing/head/beret/zeng/alt
-	slot = slot_head
-	faction = "Zeng-Hu Pharmaceuticals"
+/datum/gear/faction/zenghu_beret/New()
+	..()
+	var/list/zenghu_berets = list()
+	zenghu_berets["beret, zeng-hu"] = /obj/item/clothing/head/beret/corporate/zeng
+	zenghu_berets["beret alt, zeng-hu"] = /obj/item/clothing/head/beret/corporate/zeng/alt
+	gear_tweaks += new /datum/gear_tweak/path(zenghu_berets)
 
 /datum/gear/faction/zenghu_labcoat
 	display_name = "zeng-hu coat selection"
@@ -257,7 +232,7 @@
 
 /datum/gear/faction/heph_beret
 	display_name = "hephaestus beret"
-	path = /obj/item/clothing/head/beret/heph
+	path = /obj/item/clothing/head/beret/corporate/heph
 	slot = slot_head
 	faction = "Hephaestus Industries"
 

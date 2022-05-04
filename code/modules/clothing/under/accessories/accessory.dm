@@ -203,6 +203,7 @@
 	name = "bowtie"
 	desc = "Snazzy!"
 	icon_state = "bowtie"
+
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
@@ -810,3 +811,74 @@
 	name = "AB- blood patch"
 	desc = "An embroidered patch indicating the wearer's blood type as AB NEGATIVE."
 	icon_state = "abnegtag"
+
+// Corporate Liaison stuff.
+
+/obj/item/clothing/accessory/tie/corporate
+	name = "corporate tie"
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon_state = "nt_tie"
+	item_state = "nt_tie"
+
+/obj/item/clothing/accessory/tie/corporate/zeng
+	icon_state = "zeng_tie"
+	item_state = "zeng_tie"
+
+/obj/item/clothing/accessory/tie/corporate/zavod
+	icon_state = "zav_tie"
+	item_state = "zav_tie"
+
+/obj/item/clothing/accessory/tie/corporate/heph
+	icon_state = "heph_tie"
+	item_state = "heph_tie"
+
+/obj/item/clothing/accessory/tie/corporate/pmc
+	icon_state = "epmc_tie"
+	item_state = "epmc_tie"
+
+/obj/item/clothing/accessory/tie/corporate/idris
+	icon_state = "idris_tie"
+	item_state = "idris_tie"
+
+/obj/item/clothing/accessory/tie/corporate/orion
+	icon_state = "orion_tie"
+	item_state = "orion_tie"
+
+/obj/item/clothing/accessory/pin/corporate
+	name = "corporate pin"
+	desc = "A shiny button which reads, <i>'Nanotrasen - The leader in all things Phoron!'</i>"
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon_state = "nt_pin"
+	item_state = "nt_pin"
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/pin/corporate/zeng
+	desc = "A shiny button which reads, <i>'Zeng-Hu - Building a brighter future.'</i>"
+	icon_state = "zeng_pin"
+	item_state = "zeng_pin"
+
+/obj/item/clothing/accessory/pin/corporate/zavod
+	desc = "A shiny button which reads, <i>'Zavodskoi Interstellar - Even one matters in the battlefield.'</i>"
+	icon_state = "zav_pin"
+	item_state = "zav_pin"
+
+/obj/item/clothing/accessory/pin/corporate/heph
+	desc = "A shiny button which reads, <i>'Hephaestus Industries - The anvil upon which the world is shaped.'</i>"
+	icon_state = "heph_pin"
+	item_state = "heph_pin"
+
+/obj/item/clothing/accessory/pin/corporate/pmc
+	desc = "A shiny button which reads, <i>'PMCG - Always on guard, always on watch.'</i>"
+	icon_state = "epmc_pin"
+	item_state = "epmc_pin"
+
+/obj/item/clothing/accessory/pin/corporate/idris
+	desc = "A shiny button which reads, <i>'Idris, Inc. - Astronomical Figures. Unlimited Power.'</i>"
+	icon_state = "idris_pin"
+	item_state = "idris_pin"
+
+/obj/item/clothing/accessory/pin/corporate/orion
+	desc = "A shiny button which reads, <i>'Orion Express - For all your logistical needs!'</i>"
+	icon_state = "orion_pin"
+	item_state = "orion_pin"

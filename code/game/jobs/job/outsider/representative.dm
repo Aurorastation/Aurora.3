@@ -22,7 +22,7 @@
 	var/fax_department = "Representative's Office"
 	jobtype = /datum/job/representative
 
-	head = /obj/item/clothing/head/beret/centcom/liaison
+	head = /obj/item/clothing/head/beret/corporate
 	uniform = /obj/item/clothing/under/rank/liaison
 	suit = /obj/item/clothing/suit/storage/toggle/liaison
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
@@ -34,6 +34,8 @@
 	bowman = /obj/item/device/radio/headset/representative/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
 	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
+	accessory = /obj/item/clothing/accessory/tie/corporate
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate
 
 	l_hand =  /obj/item/storage/briefcase
 	backpack_contents = list(

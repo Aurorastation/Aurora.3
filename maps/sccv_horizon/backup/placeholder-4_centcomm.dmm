@@ -21080,15 +21080,15 @@
 	icon_state = "white";
 	name = "Fresh Scrubs"
 	},
-/obj/item/clothing/under/rank/medical/blue,
-/obj/item/clothing/under/rank/medical/blue,
-/obj/item/clothing/under/rank/medical/blue,
+/obj/item/clothing/under/rank/medical/surgeon/pmc,
+/obj/item/clothing/under/rank/medical/surgeon/pmc,
+/obj/item/clothing/under/rank/medical/surgeon/pmc,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/shoes/white,
-/obj/item/clothing/head/surgery/blue,
-/obj/item/clothing/head/surgery/blue,
-/obj/item/clothing/head/surgery/blue,
+/obj/item/clothing/head/surgery/pmc,
+/obj/item/clothing/head/surgery/pmc,
+/obj/item/clothing/head/surgery/pmc,
 /obj/item/clothing/suit/apron/surgery,
 /turf/unsimulated/floor{
 	icon_state = "whitegreen";

@@ -57,7 +57,7 @@
 /datum/outfit/job/officer/idris
 	name = "Security Officer - Idris"
 
-	head = /obj/item/clothing/head/beret/security/idris/alt
+	head = /obj/item/clothing/head/beret/corporate/idris
 	uniform = /obj/item/clothing/under/rank/security/idris
 	id = /obj/item/card/id/idris/sec
 
@@ -66,6 +66,7 @@
 
 	head = /obj/item/clothing/head/warden/idris
 	uniform = /obj/item/clothing/under/rank/warden/idris
+	suit = /obj/item/clothing/suit/storage/toggle/warden/idris
 	id = /obj/item/card/id/idris/sec
 
 /datum/outfit/job/forensics/idris
@@ -78,10 +79,10 @@
 /datum/outfit/job/intern_sec/idris
 	name = "Security Cadet - Idris"
 
+	head = /obj/item/clothing/head/softcap/idris
 	uniform = /obj/item/clothing/under/rank/cadet/idris
 	id = /obj/item/card/id/idris/sec
-	suit = null
-	head = /obj/item/clothing/head/beret/security/idris/alt
+	head = /obj/item/clothing/head/beret/corporate/idris/alt
 
 /datum/outfit/job/bartender/idris
 	name = "Bartender - Idris"
@@ -124,11 +125,13 @@
 /datum/outfit/job/representative/idris
 	name = "Idris Corporate Liaison"
 
-	uniform = /obj/item/clothing/under/rank/idris
-	head = null
-	suit = null
+	head = /obj/item/clothing/head/beret/corporate/idris
+	uniform = /obj/item/clothing/under/rank/liaison/idris
+	suit = /obj/item/clothing/suit/storage/toggle/liaison/idris
 	implants = null
 	id = /obj/item/card/id/idris
+	accessory = /obj/item/clothing/accessory/tie/corporate/idris
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate/idris
 
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
