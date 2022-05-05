@@ -2428,7 +2428,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/landmark{
-	name = "JoinLate"
+	name = "JoinLateCryoCommand"
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo)
@@ -3084,10 +3084,6 @@
 	name = "cooled mainframe floor"
 	},
 /area/tcommsat/chamber)
-"fE" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/turf/simulated/floor/plating,
-/area/crew_quarters/lounge)
 "fF" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6128,9 +6124,6 @@
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "lb" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -8365,15 +8358,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
-"pm" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
-/obj/structure/bed/stool/padded/brown,
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
 "pn" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -9581,11 +9565,11 @@
 	})
 "rJ" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/landmark{
+	name = "JoinLate"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo)
 "rK" = (
@@ -10202,6 +10186,9 @@
 "sT" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
+	},
+/obj/effect/landmark{
+	name = "JoinLateCryo"
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo)
@@ -12006,6 +11993,8 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "wl" = (
@@ -12743,6 +12732,15 @@
 "xE" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/medical/ward/isolation)
+"xF" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/crew_quarters/cryo)
 "xG" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -13202,11 +13200,8 @@
 "yv" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain,
-/obj/structure/bed/stool/padded/brown,
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "yw" = (
 /obj/structure/flora/pottedplant/random,
@@ -13240,9 +13235,6 @@
 "yz" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
-	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -15663,10 +15655,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo)
 "Df" = (
+/obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/landmark{
 	name = "JoinLateCryo"
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo)
 "Dg" = (
@@ -17929,6 +17921,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Hs" = (
@@ -19547,6 +19540,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
+"Kj" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/landmark{
+	name = "JoinLate"
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/crew_quarters/cryo)
 "Kk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -19638,6 +19638,9 @@
 /area/crew_quarters/captain)
 "Ks" = (
 /obj/machinery/light,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Ku" = (
@@ -20627,6 +20630,8 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Mi" = (
@@ -21233,15 +21238,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/crew_armory)
-"Np" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/porta_turret/stationary,
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
-/area/bridge/selfdestruct)
 "Nq" = (
 /turf/simulated/wall,
 /area/crew_quarters/lounge/secondary)
@@ -41918,7 +41914,7 @@ MS
 IH
 Pa
 kM
-fE
+vS
 Yx
 LV
 oA
@@ -42120,7 +42116,7 @@ pr
 pr
 Nc
 qW
-fE
+vS
 Vn
 Nl
 jA
@@ -42323,8 +42319,8 @@ Mx
 FB
 Gz
 vS
-fE
-fE
+vS
+vS
 vS
 vS
 vS
@@ -42726,7 +42722,7 @@ eT
 Ef
 oJ
 kM
-pm
+yv
 KC
 KC
 Nq
@@ -45938,7 +45934,7 @@ Xj
 SW
 Ru
 qy
-KU
+xF
 KU
 rJ
 SJ
@@ -46142,7 +46138,7 @@ sT
 Qx
 Df
 Qx
-Qx
+Kj
 bH
 Wg
 LO
@@ -47763,7 +47759,7 @@ Ee
 cy
 bR
 Zm
-Np
+KL
 dc
 wV
 dc
