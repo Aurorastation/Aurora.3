@@ -331,3 +331,22 @@
 	icon_dead = "penny_dead"
 	icon_rest = "penny_rest"
 	holder_type = /obj/item/holder/cat/penny
+
+/mob/living/simple_animal/cat/crusher
+	name = "Crusher"
+	desc = "Placeholder"
+	named = TRUE
+	gender = FEMALE
+	icon_state = "styx"
+	icon_state = "styx"
+	icon_living = "styx"
+	icon_dead = "styx_dead"
+	icon_rest = "styx_rest"
+	can_nap = 1
+	befriend_job = "Chief Medical Officer"
+	holder_type = /obj/item/holder/cat/crusher
+
+/mob/living/simple_animal/cat/crusher/examine(mob/user)
+	..()
+	if(stat = DEAD)
+		to_chat(user, "Crusher's dead. How could this have happened? She counted on you!")
