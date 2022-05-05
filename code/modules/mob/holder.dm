@@ -437,7 +437,6 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "styx"
 	slot_flags = SLOT_HEAD
 
-
 /obj/item/holder/carp/baby
 	name = "baby space carp"
 	desc = "Awfully cute! Looks friendly!"
