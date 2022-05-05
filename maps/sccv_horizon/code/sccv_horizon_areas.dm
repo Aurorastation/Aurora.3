@@ -362,11 +362,24 @@
 
 // Fitness Center
 /area/horizon/crew_quarters/fitness
-	name = "Horizon - Fitness Center"
+	name = "Horizon - Fitness Center (PARENT AREA - DON'T USE)"
 	icon_state = "fitness"
+
+/area/horizon/crew_quarters/fitness/hallway
+	name = "Horizon - Fitness Center Hallway"
+	icon_state = "fitness_hallway"
+
+/area/horizon/crew_quarters/fitness/pool
+	name = "Horizon - Fitness Center - Pool"
+	icon_state = "fitness_pool"
+
+/area/horizon/crew_quarters/fitness/gym
+	name = "Horizon - Fitness Center - Gym"
+	icon_state = "fitness_gym"
 
 /area/horizon/crew_quarters/fitness/changing
 	name = "Horizon - Fitness Center - Changing Room"
+	icon_state = "fitness_changingroom"
 
 /area/horizon/crew_quarters/fitness/washroom
 	name = "Horizon - Fitness Center - Washroom"
@@ -378,22 +391,18 @@
 	icon_state = "showers"
 	sound_env = SMALL_ENCLOSED
 
-/area/horizon/crew_quarters/fitness/pool
-	name = "Horizon - Fitness Center - Pool"
-
-/area/horizon/crew_quarters/fitness/gym
-	name = "Horizon - Fitness Center - Gym"
-
 /area/horizon/crew_quarters/fitness/lounge
 	name = "Horizon - Fitness Center - Lounge"
+	icon_state = "fitness_lounge"
 	sound_env = SMALL_SOFTFLOOR
 
 // Cafeteria
-/area/horizon/crew_quarters/cafeteria
+/area/horizon/deck_three/cafeteria
 	name = "Horizon - Deck 3 - Cafeteria"
 	icon_state = "cafeteria"
 
-/area/horizon/nature_showcase
+// Nature Showcase
+/area/horizon/deck_three/nature_showcase
 	name = "Horizon - Nature Showcase"
 	icon_state = "nature_showcase"
 	sound_env = SMALL_ENCLOSED
