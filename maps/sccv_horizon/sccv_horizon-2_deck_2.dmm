@@ -5748,7 +5748,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/space,
-/area/maintenance/wing/starboard)
+/area/template_noop)
 "dlG" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/item/bee_smoker,
@@ -9680,6 +9680,15 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"fDE" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/template_noop)
 "fDV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -10923,7 +10932,6 @@
 	id = "seconddeckdockint";
 	name = "Security Checkpoint Internal Shutter"
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
 /area/security/checkpoint2)
@@ -16995,7 +17003,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/space,
-/area/maintenance/wing/starboard)
+/area/template_noop)
 "jPb" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
@@ -19693,7 +19701,7 @@
 	dir = 1
 	},
 /turf/space,
-/area/maintenance/wing/starboard)
+/area/template_noop)
 "lCV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
@@ -25165,7 +25173,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/small/emergency,
 /turf/space,
-/area/maintenance/wing/starboard)
+/area/template_noop)
 "oGR" = (
 /obj/machinery/r_n_d/protolathe,
 /turf/simulated/floor/carpet/rubber,
@@ -32913,7 +32921,7 @@
 /obj/machinery/door/window/westright,
 /obj/structure/lattice/catwalk,
 /turf/space,
-/area/maintenance/wing/starboard)
+/area/template_noop)
 "tae" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -33527,7 +33535,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/maintenance/wing/starboard)
+/area/template_noop)
 "tsA" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -35790,7 +35798,6 @@
 	id = "seconddeckdockint";
 	name = "Security Checkpoint Internal Shutter"
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
 /area/security/checkpoint2)
@@ -36628,7 +36635,7 @@
 	pixel_y = -32
 	},
 /turf/space,
-/area/maintenance/wing/starboard)
+/area/template_noop)
 "uZh" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/pottedplant/random,
@@ -39169,7 +39176,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/space,
-/area/maintenance/wing/starboard)
+/area/template_noop)
 "wpb" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -54257,7 +54264,7 @@ qgN
 qgN
 lCL
 tsk
-vcM
+fDE
 vcM
 pep
 oXY
