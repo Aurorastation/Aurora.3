@@ -234,6 +234,16 @@
 	temperature = 278
 	},
 /area/shuttle/tramp_freighter)
+"aWL" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_x = 32
+	},
+/turf/simulated/floor,
+/area/shuttle/tramp_freighter)
 "aXh" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/freighter_shuttle,
@@ -787,7 +797,7 @@
 /area/shuttle/tramp_freighter)
 "fkL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/toy/plushie/drone,
+/obj/machinery/vending/coffee/free,
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "ftq" = (
@@ -860,10 +870,15 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/tramp_freighter)
 "fTv" = (
-/obj/machinery/mineral/stacking_machine,
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "freighter_mining"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
@@ -1313,15 +1328,7 @@
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "kSj" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/machinery/conveyor_switch{
-	id = "freighter_mining"
-	},
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "lfq" = (
@@ -1343,10 +1350,13 @@
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "lgo" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/mineral/stacking_unit_console{
-	pixel_x = 32
+/obj/structure/railing/mapped{
+	dir = 4
 	},
+/obj/machinery/conveyor_switch{
+	id = "freighter_mining"
+	},
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "llg" = (
@@ -1446,9 +1456,15 @@
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "nHD" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "freighter_mining"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
@@ -1531,11 +1547,11 @@
 /area/shuttle/freighter_shuttle)
 "pmv" = (
 /obj/structure/plasticflaps,
-/obj/machinery/conveyor,
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "freighter_mining"
 	},
+/obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "pzo" = (
@@ -1599,6 +1615,20 @@
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/shuttle/tramp_freighter)
+"qKJ" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "freighter_mining"
+	},
+/obj/machinery/mineral/stacking_machine,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "qXU" = (
@@ -1905,6 +1935,12 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "freighter_mining"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
@@ -31602,8 +31638,8 @@ hQL
 pzo
 wjC
 pzo
-hQL
-lgo
+aWL
+pzo
 hQL
 bci
 aSJ
@@ -31855,13 +31891,13 @@ eBV
 bci
 aFo
 pzo
-cVA
+lgo
 cVA
 mbR
 peu
-peu
 mbR
-kSj
+peu
+peu
 bci
 ftq
 aHt
@@ -32111,12 +32147,12 @@ aCu
 fjY
 bci
 wci
-pzo
+kSj
 qGN
 nHD
 xAC
-nHD
-nHD
+fTv
+qKJ
 fTv
 pmv
 pzo
