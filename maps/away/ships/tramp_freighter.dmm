@@ -1834,6 +1834,16 @@
 /obj/machinery/vending/cola,
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
+"wjC" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/mineral/processing_unit_console{
+	pixel_x = 32
+	},
+/turf/simulated/floor,
+/area/shuttle/tramp_freighter)
 "wrJ" = (
 /obj/effect/shuttle_landmark/freighter_shuttle/transit,
 /turf/space/transit/south,
@@ -31590,7 +31600,7 @@ dbx
 pzo
 hQL
 pzo
-hQL
+wjC
 pzo
 hQL
 lgo
@@ -31847,7 +31857,7 @@ aFo
 pzo
 cVA
 cVA
-peu
+mbR
 peu
 peu
 mbR
