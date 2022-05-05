@@ -8,3 +8,4 @@ changes:
   - imageadd: "Resprites the chem bottles, medcup, beakers, cryostasis beaker, and bluespace beaker into something more fitting to Aurora. With a new lid style as well."
   - rscadd: "Added two new types of chem bottles: a mini and a triangular one."
   - refactor: "Re-paths the medcup from .../food/drinks to .../glass/beaker/medcup."
+  - bugfix: "Fixed beaker and bottle in-hands not showing properly."
