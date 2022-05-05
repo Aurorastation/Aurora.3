@@ -328,7 +328,7 @@
 	name = "Horizon - Deck 3 - Starboard Primary Hallway - Docks"
 
 // Stairwells
-/area/horizon/stairwell // Parent area.
+/area/horizon/stairwell
 	name = "Horizon - Stairwell (PARENT AREA - DON'T USE)"
 	flags = RAD_SHIELDED
 
@@ -403,6 +403,6 @@
 
 // Nature Showcase
 /area/horizon/deck_three/nature_showcase
-	name = "Horizon - Nature Showcase"
+	name = "Horizon - Deck 3 - Nature Showcase"
 	icon_state = "nature_showcase"
 	sound_env = SMALL_ENCLOSED
