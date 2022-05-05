@@ -508,7 +508,10 @@
 /area/shuttle/tramp_freighter)
 "dmm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/freezer/rations,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "dqq" = (
@@ -1917,7 +1920,7 @@
 /area/shuttle/tramp_freighter)
 "wZp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/largecrate/hoverpod,
+/obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "xok" = (
@@ -30863,7 +30866,7 @@ aSi
 aCu
 gMG
 bci
-aSi
+dmm
 bci
 hlD
 fji
@@ -31116,17 +31119,17 @@ fty
 ylV
 ktI
 fji
-ktI
+sDf
 bci
 ktI
 aCu
-dmm
-fji
 ktI
+fji
+sDf
 bci
 hCv
 bci
-ktI
+wZp
 fji
 aSJ
 ylV
@@ -31375,13 +31378,13 @@ fkL
 bci
 ktI
 bci
-ktI
+sDf
 bci
-dmm
+ktI
 fji
 ktI
 bci
-ktI
+sDf
 bci
 wZp
 eTq
