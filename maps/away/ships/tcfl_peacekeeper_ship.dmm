@@ -172,7 +172,7 @@
 "vdz" = (/obj/effect/floor_decal/industrial/warning{dir = 5},/turf/simulated/floor,/area/shuttle/tcfl_peacekeeper_ship)
 "vdX" = (/obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/nav1,/turf/template_noop,/area/space)
 "vwF" = (/turf/unsimulated/wall/fakepdoor,/area/shuttle/tcfl_peacekeeper_ship)
-"vxN" = (/obj/structure/closet/crate,/obj/item/stack/material/phoron{amount = 20},/obj/item/stack/material/phoron{amount = 20},/obj/item/stack/material/plasteel,/obj/item/clothing/gloves/yellow,/obj/item/clothing/gloves/yellow,/turf/simulated/floor,/area/shuttle/tcfl_peacekeeper_ship)
+"vxN" = (/obj/structure/closet/crate,/obj/item/stack/material/phoron{amount = 20},/obj/item/stack/material/phoron{amount = 20},/obj/item/stack/material/plasteel,/obj/item/clothing/gloves/yellow,/obj/item/clothing/gloves/yellow,/obj/item/clothing/gloves/yellow/specialt,/obj/item/clothing/gloves/yellow/specialu,/turf/simulated/floor,/area/shuttle/tcfl_peacekeeper_ship)
 "vCD" = (/obj/machinery/door/window/northleft{dir = 2; name = "Kitchen"; req_access = list(204)},/obj/effect/floor_decal/corner/black/diagonal,/turf/simulated/floor/tiled/white,/area/shuttle/tcfl_peacekeeper_ship)
 "vLp" = (/obj/structure/closet/crate/secure/legion{req_access = list(204)},/obj/item/stack/material/steel/full,/obj/item/stack/material/steel/full,/obj/item/stack/material/glass/full,/obj/item/stack/material/glass/reinforced/full,/turf/simulated/floor,/area/shuttle/tcfl_peacekeeper_ship)
 "vMq" = (/obj/structure/bed/padded,/obj/effect/ghostspawpoint{identifier = "tcfl_peacekeeper_prefect"; name = "igs - tcfl_peacekeeper_prefect"},/obj/item/bedsheet/black,/turf/simulated/floor/shuttle/tan,/area/shuttle/tcfl_peacekeeper_ship)
