@@ -181,7 +181,7 @@
 	name = "Port docking controller";
 	pixel_x = 6;
 	pixel_y = 28;
-	tag_door = "sfa_shuttle_out"
+	tag_door = "freight_shuttle_out"
 	},
 /obj/machinery/computer/ship/sensors{
 	dir = 8
@@ -642,8 +642,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/box/shotgunshells,
 /obj/item/storage/box/flashshells,
-/obj/item/storage/box/flashshells,
 /obj/item/gun/projectile/shotgun/doublebarrel,
+/obj/item/storage/box/flashshells,
+/obj/item/storage/box/shotgunshells,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tramp_freighter)
 "eiL" = (
