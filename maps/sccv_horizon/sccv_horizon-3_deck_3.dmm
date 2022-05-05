@@ -1384,7 +1384,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_access = list(19, 38)
+	req_one_access = list(19, 38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -10261,6 +10261,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/lawoffice/consular)
@@ -19312,13 +19315,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_access = list(19, 38)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	req_one_access = list(19, 38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -20745,6 +20748,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -27240,6 +27246,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "Yi" = (
@@ -28169,7 +28178,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_access = list(19, 38)
+	req_one_access = list(19, 38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
