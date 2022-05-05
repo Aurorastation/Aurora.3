@@ -53,6 +53,7 @@
 			set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = COLOR_RED)
 		else
 			icon_state = "fire0"
+			set_light(0)
 			switch(seclevel)
 				if("green")
 					previous_state = icon_state
