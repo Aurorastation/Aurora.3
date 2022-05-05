@@ -905,7 +905,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "aOv" = (
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
@@ -1698,7 +1698,7 @@
 	name = "Deck 1 Central Stairwell"
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "buI" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -2769,7 +2769,7 @@
 /turf/simulated/floor/holofloor/tiled/ramp{
 	dir = 1
 	},
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "ckd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 4
@@ -3996,7 +3996,7 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "doK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -5040,7 +5040,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "enh" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -5553,7 +5553,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "eIC" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -7003,7 +7003,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "fLz" = (
 /obj/structure/tank_wall{
 	icon_state = "m-9"
@@ -7849,7 +7849,7 @@
 /turf/simulated/floor/holofloor/tiled/ramp/bottom{
 	dir = 1
 	},
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "grP" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(12)
@@ -7985,7 +7985,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "gxS" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
@@ -9093,7 +9093,7 @@
 	req_access = list(12)
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "huC" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
@@ -10204,7 +10204,7 @@
 "ivF" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "ivW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
@@ -11036,7 +11036,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "jlo" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 10
@@ -11334,7 +11334,7 @@
 	req_access = list(12)
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "jxj" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/blast/regular/open{
@@ -14083,7 +14083,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "lOT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -14992,7 +14992,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/hangar/intrepid)
+/area/horizon/stairwell/central)
 "mCt" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -17029,7 +17029,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "okA" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -19263,7 +19263,7 @@
 /area/shuttle/intrepid)
 "qju" = (
 /turf/simulated/wall,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "qjF" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -20299,7 +20299,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "raw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/excavation,
@@ -21610,7 +21610,7 @@
 	},
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "spL" = (
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -23620,7 +23620,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "tYS" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -26585,7 +26585,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/hangar/intrepid)
+/area/horizon/stairwell/central)
 "wLL" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{

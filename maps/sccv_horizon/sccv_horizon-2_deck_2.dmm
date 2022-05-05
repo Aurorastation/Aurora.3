@@ -3946,7 +3946,7 @@
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "ccn" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -4483,7 +4483,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "cxi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6471,7 +6471,7 @@
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "dIZ" = (
 /turf/simulated/wall,
 /area/medical/or2)
@@ -10426,7 +10426,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "fYW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
@@ -11045,7 +11045,7 @@
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "gov" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 9
@@ -12222,7 +12222,7 @@
 /area/engineering/storage/tech)
 "gVn" = (
 /turf/simulated/wall,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "gVq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -15388,7 +15388,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "iRN" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -17036,7 +17036,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "jRE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -17600,7 +17600,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "kie" = (
 /obj/machinery/atmospherics/valve/digital/open{
 	name = "Starboard Main Supply Valve"
@@ -17976,7 +17976,7 @@
 	dir = 8
 	},
 /turf/simulated/open,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "kyV" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
@@ -20855,7 +20855,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "mgJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -21712,7 +21712,7 @@
 "mHO" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "mIe" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment,
@@ -21745,7 +21745,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "mJJ" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/hangar/port)
@@ -25426,7 +25426,7 @@
 /area/rnd/xenobiology/xenoflora)
 "oMC" = (
 /turf/simulated/open,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "oNy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -25657,7 +25657,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "oTR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -26028,7 +26028,7 @@
 "pef" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "pep" = (
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/tiled/dark/airless,
@@ -29244,7 +29244,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "qVk" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -32559,7 +32559,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "sNT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -37847,7 +37847,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "vMD" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -38502,7 +38502,7 @@
 "vYE" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/holofloor/tiled/ramp,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "vYI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -41324,7 +41324,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "xvZ" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
@@ -41683,7 +41683,7 @@
 /area/hallway/primary/central_two)
 "xHc" = (
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
-/area/stairwell/central)
+/area/horizon/stairwell/central)
 "xHd" = (
 /obj/structure/cable{
 	icon_state = "1-2"

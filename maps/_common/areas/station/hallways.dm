@@ -15,9 +15,6 @@
 	name = "Starboard Primary Hallway"
 	icon_state = "hallS"
 
-/area/hallway/primary/starboard/docks
-	name = "Starboard Primary Hallway - Docks"
-
 /area/hallway/primary/aft
 	name = "Aft Primary Hallway"
 	icon_state = "hallA"
