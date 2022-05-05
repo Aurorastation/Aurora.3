@@ -1370,11 +1370,6 @@
 	},
 /area/horizon/crew_quarters/fitness/pool)
 "cA" = (
-/obj/machinery/door/airlock/glass_command{
-	id_tag = "conference_room";
-	name = "Bridge";
-	req_one_access = list(19, 38)
-	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -1386,6 +1381,11 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/command{
+	id_tag = "conference_room";
+	name = "Conference Room";
+	req_access = list(19, 38)
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
 "cB" = (
@@ -5404,8 +5404,7 @@
 /area/medical/ward/isolation)
 "jN" = (
 /obj/structure/sign/flag/heph{
-	pixel_y = 32;
-	desc = s
+	pixel_y = 32
 	},
 /obj/structure/sign/flag/blank{
 	pixel_x = -32;
@@ -14555,7 +14554,7 @@
 "AZ" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecommunications - Control Room";
-	req_access = s
+	req_access = list(61)
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -28168,9 +28167,9 @@
 "ZP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	id_tag = s;
+	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19, 38)
+	req_access = list(19, 38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
