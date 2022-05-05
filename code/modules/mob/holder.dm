@@ -429,6 +429,15 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "penny_dead"
 	item_state = "penny"
 
+/obj/item/holder/cat/crusher
+	name = "Crusher"
+	desc = "The Medbay's newest mascott. Lovely."
+	icon_state = "styx"
+	icon_state_dead = "styx_dead"
+	item_state = "styx"
+	slot_flags = SLOT_HEAD
+
+
 /obj/item/holder/carp/baby
 	name = "baby space carp"
 	desc = "Awfully cute! Looks friendly!"
