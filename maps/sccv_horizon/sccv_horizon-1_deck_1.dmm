@@ -932,7 +932,7 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "researchhangar";
+	id = "shutters_evarecharging";
 	name = "E.V.A. Recharging Shutters";
 	req_access = list(18);
 	dir = 1;
@@ -21449,7 +21449,7 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "researchhangar";
+	id = "shutters_evarecharging";
 	name = "E.V.A. Recharging Shutters";
 	pixel_x = 25;
 	req_access = list(18);
@@ -26265,7 +26265,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	name = "E.V.A.";
-	req_one_access = list(18)
+	req_access = list(18)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
