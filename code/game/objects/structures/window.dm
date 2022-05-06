@@ -568,6 +568,7 @@
 	icon = 'icons/error.dmi'
 	maxhealth = 28 // Two window panes worth of health, since that's the minimum you need to break through to get to the other side.
 	glasstype = /obj/item/stack/material/glass
+	shardtype = /obj/item/material/shard
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
 	smooth = SMOOTH_TRUE
@@ -702,7 +703,8 @@
 	maxhealth = 80 // Two window panes worth of health, since that's the minimum you need to break through to get to the other side.
 	maximal_heat = T0C + 2000
 	damage_per_fire_tick = 1.0
-	glasstype = /obj/item/stack/material/glass/phoron
+	glasstype = /obj/item/stack/material/glass/phoronglass
+	shardtype = /obj/item/material/shard/phoron
 
 // Reinforced Window
 /obj/structure/window/full/reinforced
@@ -754,7 +756,6 @@
 	icon = 'icons/obj/smooth/phoron_full_window.dmi'
 	icon_state = "window_glass"
 	basestate = "window_glass"
-	shardtype = /obj/item/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronrglass
 	reinf = TRUE
 	maximal_heat = T0C + 4000
