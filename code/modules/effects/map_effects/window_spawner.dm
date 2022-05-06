@@ -187,7 +187,7 @@
 
 /obj/effect/map_effect/win_spawn/reinforced/indestructible
 	name = "indestructible reinforced window spawner"
-	icon_state = "indestructible_window"
+	icon_state = "full_indestructible_window"
 	win_path = /obj/structure/window/full/reinforced/indestructible
 	single_window = TRUE
 
