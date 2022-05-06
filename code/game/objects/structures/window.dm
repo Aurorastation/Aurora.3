@@ -576,7 +576,7 @@
 		/turf/simulated/wall/r_wall,
 		/obj/structure/window/full/reinforced,
 		/obj/structure/window/full/reinforced/polarized,
-		/obj/structure/window/full/reinforced/phoron
+		/obj/structure/window/full/phoron/reinforced
 	)
 	can_be_unanchored = TRUE
 
@@ -696,6 +696,14 @@
 	new/obj/structure/window_frame(get_turf(src))
 	qdel(src)
 
+/obj/structure/window/full/phoron
+	name = "borosilicate window"
+	desc = "You aren't supposed to see this."
+	maxhealth = 80 // Two window panes worth of health, since that's the minimum you need to break through to get to the other side.
+	maximal_heat = T0C + 2000
+	damage_per_fire_tick = 1.0
+	glasstype = /obj/item/stack/material/glass/phoron
+
 // Reinforced Window
 /obj/structure/window/full/reinforced
 	name = "reinforced window"
@@ -717,10 +725,10 @@
 		/turf/simulated/wall/r_wall,
 		/obj/structure/window/full/reinforced,
 		/obj/structure/window/full/reinforced/polarized,
-		/obj/structure/window/full/reinforced/phoron
+		/obj/structure/window/full/phoron/reinforced
 	)
 
-// Indestructible Window
+// Indestructible Reinforced Window
 /obj/structure/window/full/reinforced/indestructible/attack_hand()
 	return
 
@@ -740,7 +748,7 @@
 	return
 
 // Reinforced Borosilicate Window (I.e. Reinforced Phoron Window)
-/obj/structure/window/full/reinforced/phoron
+/obj/structure/window/full/phoron/reinforced
 	name = "reinforced borosilicate window"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
 	icon = 'icons/obj/smooth/phoron_full_window.dmi'
@@ -767,9 +775,21 @@
 		animate(src, color="#222222", time=5)
 		set_opacity(1)
 
-/obj/structure/window/full/reinforced/polarized/dismantle_window()
-	var/obj/item/stack/material/mats = new glasstype(loc)
-	mats.amount = 4
-	var/obj/structure/window_frame/F = new/obj/structure/window_frame (get_turf(src))
-	F.anchored = anchored
-	qdel(src)
+// Indestructible Reinforced Polarized Window
+/obj/structure/window/full/reinforced/polarized/indestructible/attack_hand()
+	return
+
+/obj/structure/window/full/reinforced/polarized/indestructible/attackby()
+	return
+
+/obj/structure/window/full/reinforced/polarized/indestructible/ex_act(var/severity = 2.0)
+	return
+
+/obj/structure/window/full/reinforced/polarized/indestructible/hitby()
+	return
+
+/obj/structure/window/full/reinforced/polarized/indestructible/take_damage()
+	return
+
+/obj/structure/window/full/reinforced/polarized/indestructible/shatter()
+	return

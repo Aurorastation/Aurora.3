@@ -14,7 +14,7 @@
 		/turf/simulated/wall,
 		/turf/simulated/wall/r_wall,
 		/obj/structure/window/full/reinforced,
-		/obj/structure/window/full/reinforced/phoron,
+		/obj/structure/window/full/phoron/reinforced,
 		/obj/structure/window/full/reinforced/polarized
 		)
 

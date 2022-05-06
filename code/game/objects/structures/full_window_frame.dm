@@ -68,7 +68,7 @@
 			if(G.use(glass_needed))
 				playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
 				to_chat(user, SPAN_WARNING("You place the [MATERIAL_GLASS_REINFORCED_PHORON] in the window frame."))
-				new /obj/structure/window/full/reinforced/phoron(get_turf(src), constructed = TRUE)
+				new /obj/structure/window/full/phoron/reinforced(get_turf(src), constructed = TRUE)
 				qdel(src)
 				return
 		else
