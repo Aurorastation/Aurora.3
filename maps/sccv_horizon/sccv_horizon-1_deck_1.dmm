@@ -1790,7 +1790,7 @@
 	},
 /area/engineering/atmos/propulsion/starboard)
 "bxK" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "iso_c";
@@ -7685,7 +7685,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "guN" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "iso_b";
@@ -11651,7 +11651,7 @@
 /turf/simulated/wall,
 /area/hallway/primary/aft)
 "kcb" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/reinforced,
@@ -16516,7 +16516,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "opy" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -23866,7 +23866,7 @@
 	},
 /area/maintenance/operations)
 "uWn" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "iso_a";

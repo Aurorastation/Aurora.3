@@ -600,7 +600,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
 "aqo" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -4724,7 +4724,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "cOs" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron/firedoor,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -10179,7 +10179,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
 "ggd" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -20290,7 +20290,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "mrq" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/structure/sign/pharmacy,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
@@ -20365,7 +20365,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "mte" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
@@ -26861,7 +26861,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
 "qjm" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 2;
@@ -29411,7 +29411,7 @@
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
 "rGU" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -29996,7 +29996,7 @@
 /turf/simulated/wall,
 /area/maintenance/wing/starboard)
 "rWq" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "CHE2shutters";
@@ -30644,7 +30644,7 @@
 /turf/simulated/floor/tiled,
 /area/security/main)
 "srn" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -31969,7 +31969,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hydroponics)
 "tiJ" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
@@ -38033,7 +38033,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "wEc" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/phoron,
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "CHE2shutters";

@@ -1006,36 +1006,6 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration)
-"acY" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/turf/unsimulated/floor/plating,
-/area/centcom/control)
-"acZ" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "CCIABS"
-	},
-/turf/unsimulated/floor/plating,
-/area/centcom/control)
 "ada" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Bureau Supervisor's Office";
@@ -1046,41 +1016,9 @@
 	},
 /area/centcom/control)
 "adb" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
+/obj/effect/map_effect/win_spawn/full/reinforced/polarized/indestructible{
 	id = "CCIABS"
 	},
-/obj/structure/window/reinforced/polarized{
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "CCIABS"
-	},
-/turf/unsimulated/floor/plating,
-/area/centcom/control)
-"adc" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/turf/unsimulated/floor/plating,
-/area/centcom/control)
-"add" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "CCIABS"
-	},
-/obj/structure/grille,
 /turf/unsimulated/floor/plating,
 /area/centcom/control)
 "ade" = (
@@ -1270,17 +1208,6 @@
 	icon_state = "carpet"
 	},
 /area/centcom/control)
-"ady" = (
-/obj/structure/window/reinforced/polarized{
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/turf/unsimulated/floor/plating,
-/area/centcom/control)
 "adz" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -1392,18 +1319,6 @@
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
-/area/centcom/control)
-"adN" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/turf/unsimulated/floor/plating,
 /area/centcom/control)
 "adO" = (
 /obj/structure/table/reinforced,
@@ -1898,21 +1813,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/control)
-"aeA" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/turf/unsimulated/floor/plating,
-/area/centcom/control)
 "aeB" = (
 /obj/item/modular_computer/console/preset/command{
 	dir = 4
@@ -2340,22 +2240,6 @@
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/centcom/control)
-"afo" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "CCIABS"
-	},
-/turf/unsimulated/floor/plating,
 /area/centcom/control)
 "afp" = (
 /obj/effect/landmark{
@@ -15017,9 +14901,6 @@
 	pixel_x = 16;
 	pixel_y = 29
 	},
-/turf/unsimulated/floor,
-/area/centcom/spawning)
-"aJT" = (
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aKc" = (
@@ -59987,7 +59868,7 @@ abw
 aaI
 acm
 acG
-acY
+adb
 adv
 aaP
 aaJ
@@ -60244,7 +60125,7 @@ abx
 aaI
 acn
 acH
-acZ
+adb
 aaP
 aaP
 aed
@@ -61015,7 +60896,7 @@ aby
 aaI
 acq
 acH
-adc
+adb
 adw
 aaP
 aeg
@@ -61272,7 +61153,7 @@ aaI
 aaI
 acn
 acH
-adc
+adb
 adx
 aaP
 aaP
@@ -61529,8 +61410,8 @@ aaI
 abW
 acq
 acH
-add
-ady
+adb
+adb
 aaP
 abh
 aaP
@@ -61787,13 +61668,13 @@ abX
 acq
 acI
 ade
-add
-adN
-adN
-aeA
+adb
+adb
+adb
+adb
 ada
-afo
-aeA
+adb
+adb
 aaI
 agq
 acJ
@@ -65950,7 +65831,7 @@ aHU
 aHU
 aIG
 aHC
-aJT
+aMo
 aJQ
 aLa
 aLM
@@ -66725,11 +66606,11 @@ aPo
 aLb
 aLb
 aLO
-aJT
-aJT
+aMo
+aMo
 aNb
-aJT
-aJT
+aMo
+aMo
 aNX
 aON
 aJQ
@@ -66982,11 +66863,11 @@ aPo
 aLb
 aLb
 aLP
-aJT
-aJT
+aMo
+aMo
 aNc
-aJT
-aJT
+aMo
+aMo
 aMF
 aOO
 aJQ
@@ -67239,11 +67120,11 @@ aIH
 aIH
 aLc
 aLP
-aJT
+aMo
 aMF
 aJi
 aNH
-aJT
+aMo
 aMF
 aHC
 aHC
@@ -67496,7 +67377,7 @@ aHC
 aHC
 aHC
 aLQ
-aJT
+aMo
 aMG
 aHC
 aNI
@@ -67753,7 +67634,7 @@ aIH
 aIH
 aLc
 aLP
-aJT
+aMo
 aMF
 aHC
 aNJ
@@ -68010,7 +67891,7 @@ aPo
 aLb
 aLb
 aLP
-aJT
+aMo
 aMF
 aNd
 aNK
@@ -68267,7 +68148,7 @@ aPo
 aLb
 aLb
 aLP
-aJT
+aMo
 aMH
 aHC
 aNJ
@@ -69563,8 +69444,8 @@ aOt
 aOt
 aHC
 aQC
-aJT
-aJT
+aMo
+aMo
 aHC
 aaa
 aaa
