@@ -169,10 +169,6 @@
 /obj/effect/map_effect/win_spawn/proc/handle_window_spawn(var/obj/structure/window/W)
 	return
 
-// Currently unused, could be useful for pre-wired electrified windows.
-/obj/effect/map_effect/win_spawn/proc/handle_grille_spawn(var/obj/structure/grille/G)
-	return
-
 /obj/effect/map_effect/win_spawn/full/reinforced
 	name = "full reinforced window spawner"
 	icon_state = "full_rwindow"
