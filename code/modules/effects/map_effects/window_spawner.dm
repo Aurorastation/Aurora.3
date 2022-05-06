@@ -173,7 +173,6 @@
 	name = "full reinforced window spawner"
 	icon_state = "full_rwindow"
 	win_path = /obj/structure/window/full/reinforced
-	spawn_firedoor = TRUE
 	single_window = TRUE
 
 /obj/effect/map_effect/win_spawn/full/reinforced/firedoor
