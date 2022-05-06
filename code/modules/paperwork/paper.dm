@@ -462,7 +462,7 @@
 		if(istype(i, /obj/item/pen/crayon))
 			iscrayon = TRUE
 
-		if(istype(i, /obj/item/pen/fountain))
+		if(istype(i, /obj/item/pen/fountain) || istype(i, /obj/item/pen/augment))
 			var/obj/item/pen/fountain/f = i
 			if(f.cursive)
 				isfountain = TRUE
