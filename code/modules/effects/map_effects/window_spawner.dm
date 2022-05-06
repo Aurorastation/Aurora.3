@@ -175,36 +175,36 @@
 
 /obj/effect/map_effect/win_spawn/full/reinforced
 	name = "full reinforced window spawner"
-	icon_state = "full_window"
+	icon_state = "full_rwindow"
 	win_path = /obj/structure/window/full/reinforced
 	spawn_firedoor = TRUE
 	single_window = TRUE
 
 /obj/effect/map_effect/win_spawn/full/reinforced/firedoor
 	name = "full reinforced window spawner with firedoor"
-	icon_state = "full_window_firedoor"
+	icon_state = "full_rwindow_firedoor"
 	spawn_firedoor = TRUE
 
 /obj/effect/map_effect/win_spawn/full/reinforced/indestructible
 	name = "indestructible reinforced window spawner"
-	icon_state = "full_indestructible_window"
+	icon_state = "full_indestructible_rwindow"
 	win_path = /obj/structure/window/full/reinforced/indestructible
 	single_window = TRUE
 
 /obj/effect/map_effect/win_spawn/full/reinforced/phoron
 	name = "full reinforced borosilicate window spawner"
-	icon_state = "full_phoron_window"
+	icon_state = "full_boro_rwindow"
 	win_path = /obj/structure/window/full/phoron/reinforced
 	single_window = TRUE
 
 /obj/effect/map_effect/win_spawn/full/reinforced/phoron/firedoor
 	name = "full reinforced borosilicate window spawner with firedoor"
-	icon_state = "full_phoron_window_firedoor"
+	icon_state = "full_boro_rwindow_firedoor"
 	spawn_firedoor = TRUE
 
 /obj/effect/map_effect/win_spawn/full/reinforced/polarized
 	name = "full reinforced polarized window spawner"
-	icon_state = "full_window"
+	icon_state = "full_polarized_rwindow"
 	win_path = /obj/structure/window/full/reinforced/polarized
 	single_window = TRUE
 	var/id
@@ -215,11 +215,11 @@
 
 /obj/effect/map_effect/win_spawn/full/reinforced/polarized/firedoor
 	name = "full reinforced polarized window spawner with firedoor"
-	icon_state = "full_window_firedoor"
+	icon_state = "full_polarized_rwindow_firedoor"
 	spawn_firedoor = TRUE
 
 /obj/effect/map_effect/win_spawn/full/reinforced/polarized/indestructible
 	name = "indestructible reinforced polarized window spawner"
-	icon_state = "full_indestructible_window"
+	icon_state = "full_indestructible_rwindow"
 	win_path = /obj/structure/window/full/reinforced/polarized/indestructible
 	single_window = TRUE
