@@ -340,7 +340,8 @@
 "aiP" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Technical Storage";
-	dir = 8
+	dir = 8;
+	alarm_on = 1
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -4410,6 +4411,11 @@
 	dir = 1
 	},
 /obj/machinery/light/small/emergency,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Deck 2 - Research Substation";
+	dir = 1;
+	alarm_on = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research)
 "crP" = (
@@ -14802,6 +14808,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
+"izg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Deck 2 - Starboard Auxiliary Atmospherics";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/aux_atmospherics/deck_2/starboard)
 "izy" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -23324,6 +23340,10 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Deck 2 - Medical Substation";
+	alarm_on = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
 "nyF" = (
@@ -29109,6 +29129,11 @@
 	icon_state = "0-8"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Deck 2 - Starboard Pod Substation";
+	dir = 1;
+	alarm_on = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
 "qRe" = (
@@ -33697,16 +33722,19 @@
 /area/engineering/smes/tesla)
 "txc" = (
 /obj/structure/closet/crate/software_backup,
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Secure Technical Storage";
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/nosmoking_1{
 	pixel_x = -32
+	},
+/obj/machinery/camera/motion{
+	c_tag = "Engineering - Secure Technical Storage";
+	name = "engineering";
+	network = list("Engineering");
+	alarm_on = 1;
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/storage/tech)
@@ -37625,6 +37653,11 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Deck 2 - Port Pod Substation";
+	dir = 1;
+	alarm_on = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_port)
 "vEo" = (
@@ -40074,12 +40107,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
-"wLp" = (
-/obj/machinery/camera/network/supply{
-	c_tag = "Operations - Break Room"
-	},
-/turf/simulated/wall,
-/area/maintenance/substation/medical)
 "wLz" = (
 /obj/item/device/radio/intercom{
 	listening = 0;
@@ -50914,7 +50941,7 @@ boE
 dmT
 mbs
 wsw
-uAt
+izg
 fdF
 egY
 qFt
@@ -56566,7 +56593,7 @@ ykA
 oza
 def
 xLG
-wLp
+nQm
 nyw
 mVR
 iuP

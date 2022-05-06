@@ -1351,6 +1351,10 @@
 	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Cryogenic Storage Dormitory";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo/dormitories)
 "cy" = (
@@ -6665,6 +6669,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
+"mc" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "md" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/captain)
@@ -8371,6 +8384,11 @@
 	},
 /obj/structure/cable{
 	icon_state = "0-4"
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Deck 3 - Civilian Substation";
+	dir = 1;
+	alarm_on = 1
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/civilian_east)
@@ -10335,7 +10353,7 @@
 	pixel_x = 32
 	},
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Cryostorage";
+	c_tag = "Third Deck - Cryogenic Storage";
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -12008,6 +12026,18 @@
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"wk" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Deck 3 - Telecommunications Substation";
+	dir = 1;
+	alarm_on = 1
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "wl" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -12678,6 +12708,11 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Deck 3 - Telecommunications Substation";
+	dir = 4;
+	alarm_on = 1
+	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
 "xw" = (
@@ -12933,8 +12968,8 @@
 /obj/machinery/camera/motion{
 	c_tag = "Scuttling Device - Motion";
 	network = list("Secure");
-	tag = "icon-camera (NORTH)";
-	dir = 4
+	dir = 4;
+	alarm_on = 1
 	},
 /obj/structure/sign/flag/scc{
 	pixel_x = -32
@@ -15707,6 +15742,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Crew Lounge Port";
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
 "Dm" = (
@@ -15717,15 +15756,18 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative)
 "Dn" = (
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Crew Armoury";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/camera/motion{
+	network = list("Command, Security");
+	name = "security";
+	alarm_on = 1;
+	c_tag = "Third Deck - Crew Armoury";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
@@ -18506,9 +18548,14 @@
 /turf/simulated/floor/reinforced,
 /area/crew_quarters/captain)
 "Is" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "It" = (
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 1
@@ -19061,24 +19108,13 @@
 	name = "Security - Investigations Office"
 	})
 "Jr" = (
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Holodeck";
-	dir = 1
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Deck 3 - Telecommunications Substation";
+	dir = 1;
+	alarm_on = 1
 	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
+/turf/simulated/wall/r_wall,
+/area/crew_armory)
 "Js" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -20477,7 +20513,7 @@
 /area/crew_quarters/captain)
 "LT" = (
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Crew Lounge";
+	c_tag = "Third Deck - Crew Lounge Fore";
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -22093,6 +22129,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Starboard Dock";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -27396,7 +27436,7 @@
 /area/security/forensics_office)
 "Yx" = (
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Secondary Crew Lounge"
+	c_tag = "Third Deck - Crew Lounge Starboard"
 	},
 /obj/structure/bed/stool/chair/sofa/right/brown,
 /obj/effect/landmark/start{
@@ -27707,6 +27747,10 @@
 /obj/machinery/photocopier,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Representative's Office";
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
@@ -37891,10 +37935,10 @@ at
 at
 at
 at
-mP
+Cm
 vu
 vu
-mP
+Cm
 at
 at
 at
@@ -38093,10 +38137,10 @@ at
 at
 at
 at
-mP
+Cm
 UM
 qe
-mP
+Cm
 at
 at
 at
@@ -39509,7 +39553,7 @@ at
 at
 mP
 Tv
-Jr
+Zt
 mP
 at
 at
@@ -39716,7 +39760,7 @@ mP
 mP
 mP
 zL
-TC
+mc
 at
 at
 at
@@ -39914,7 +39958,7 @@ at
 mP
 mr
 gE
-Is
+GQ
 Ev
 Ev
 GQ
@@ -40318,7 +40362,7 @@ at
 GQ
 Sp
 yY
-Is
+GQ
 Ev
 DP
 GQ
@@ -40524,7 +40568,7 @@ mP
 mP
 mP
 mP
-bU
+Is
 at
 at
 at
@@ -42348,7 +42392,7 @@ vS
 ev
 vS
 eA
-at
+jK
 fh
 aa
 Wm
@@ -49978,7 +50022,7 @@ wU
 pB
 aE
 sK
-yd
+wk
 vm
 Fl
 FH
@@ -50584,7 +50628,7 @@ DQ
 DQ
 DQ
 DQ
-DQ
+Jr
 DQ
 Kc
 yd
