@@ -1,5 +1,6 @@
-author: KingOfThePing
+author: KingOfThePing, RyverStyx
 
 delete-after: True
+
 changes:
-  - rscadd: "Added Crusher's sprites and code, sprites by Ryverstyx.
+  - rscadd: "Added the new Medbay pet Crusher's sprites and code."
