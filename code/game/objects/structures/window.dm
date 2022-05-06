@@ -697,15 +697,6 @@
 	new/obj/structure/window_frame(get_turf(src))
 	qdel(src)
 
-/obj/structure/window/full/phoron
-	name = "borosilicate window"
-	desc = "You aren't supposed to see this."
-	maxhealth = 80 // Two window panes worth of health, since that's the minimum you need to break through to get to the other side.
-	maximal_heat = T0C + 2000
-	damage_per_fire_tick = 1.0
-	glasstype = /obj/item/stack/material/glass/phoronglass
-	shardtype = /obj/item/material/shard/phoron
-
 // Reinforced Window
 /obj/structure/window/full/reinforced
 	name = "reinforced window"
@@ -749,19 +740,6 @@
 /obj/structure/window/full/reinforced/indestructible/shatter()
 	return
 
-// Reinforced Borosilicate Window (I.e. Reinforced Phoron Window)
-/obj/structure/window/full/phoron/reinforced
-	name = "reinforced borosilicate window"
-	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
-	icon = 'icons/obj/smooth/phoron_full_window.dmi'
-	icon_state = "window_glass"
-	basestate = "window_glass"
-	glasstype = /obj/item/stack/material/glass/phoronrglass
-	reinf = TRUE
-	maximal_heat = T0C + 4000
-	damage_per_fire_tick = 1
-	maxhealth = 160 // Two reinforced borosilicate window panes worth of health, since that's the minimum you need to break through to get to the other side.
-
 // Reinforced Polarized Window
 /obj/structure/window/full/reinforced/polarized
 	name = "reinforced electrochromic window"
@@ -794,3 +772,26 @@
 
 /obj/structure/window/full/reinforced/polarized/indestructible/shatter()
 	return
+
+// Borosilicate Window (I.e. Phoron Window)
+/obj/structure/window/full/phoron
+	name = "borosilicate window"
+	desc = "You aren't supposed to see this."
+	maxhealth = 80 // Two window panes worth of health, since that's the minimum you need to break through to get to the other side.
+	maximal_heat = T0C + 2000
+	damage_per_fire_tick = 1.0
+	glasstype = /obj/item/stack/material/glass/phoronglass
+	shardtype = /obj/item/material/shard/phoron
+
+// Reinforced Borosilicate Window (I.e. Reinforced Phoron Window)
+/obj/structure/window/full/phoron/reinforced
+	name = "reinforced borosilicate window"
+	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
+	icon = 'icons/obj/smooth/phoron_full_window.dmi'
+	icon_state = "window_glass"
+	basestate = "window_glass"
+	glasstype = /obj/item/stack/material/glass/phoronrglass
+	reinf = TRUE
+	maximal_heat = T0C + 4000
+	damage_per_fire_tick = 1
+	maxhealth = 160 // Two reinforced borosilicate window panes worth of health, since that's the minimum you need to break through to get to the other side.

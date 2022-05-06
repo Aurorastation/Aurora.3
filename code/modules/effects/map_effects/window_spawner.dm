@@ -186,17 +186,6 @@
 	win_path = /obj/structure/window/full/reinforced/indestructible
 	single_window = TRUE
 
-/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced
-	name = "full reinforced borosilicate window spawner"
-	icon_state = "full_boro_rwindow"
-	win_path = /obj/structure/window/full/phoron/reinforced
-	single_window = TRUE
-
-/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced/firedoor
-	name = "full reinforced borosilicate window spawner with firedoor"
-	icon_state = "full_boro_rwindow_firedoor"
-	spawn_firedoor = TRUE
-
 /obj/effect/map_effect/win_spawn/full/reinforced/polarized
 	name = "full reinforced polarized window spawner"
 	icon_state = "full_polarized_rwindow"
@@ -218,3 +207,14 @@
 	icon_state = "full_indestructible_rwindow"
 	win_path = /obj/structure/window/full/reinforced/polarized/indestructible
 	single_window = TRUE
+
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced
+	name = "full reinforced borosilicate window spawner"
+	icon_state = "full_boro_rwindow"
+	win_path = /obj/structure/window/full/phoron/reinforced
+	single_window = TRUE
+
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced/firedoor
+	name = "full reinforced borosilicate window spawner with firedoor"
+	icon_state = "full_boro_rwindow_firedoor"
+	spawn_firedoor = TRUE
