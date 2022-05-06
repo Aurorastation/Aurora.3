@@ -237,6 +237,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(!IsJobAvailable(rank))
 		to_chat(usr, "<span class='notice'>[rank] is not available. Please try another.</span>")
 		return 0
+	if(!(spawning_at in current_map.allowed_spawns))
+		to_chat(usr, SPAN_NOTICE("Spawn location [spawning_at] invalid for [current_map]. Defaulting to [current_map.default_spawn]."))
+		spawning_at = current_map.default_spawn
 
 	spawning = 1
 	close_spawn_windows()

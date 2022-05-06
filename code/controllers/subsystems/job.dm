@@ -487,30 +487,17 @@
 		Debug("EP/([H]): Abort, H is null.")
 		return null
 
-	switch(rank)
-		if("Cyborg")
-			Debug("EP/([H]): Abort, H is borg..")
-			return EquipRank(H, rank, 1)
-		if("AI")
-			Debug("EP/([H]): Abort, H is AI.")
-			return EquipRank(H, rank, 1)
-
-	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle")
-		return EquipRank(H, rank, 1)
+	EquipRank(H, rank, joined_late)
 
 	if("Arrivals Shuttle" in current_map.allowed_spawns)
 		H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
+		if(spawning_at == "Arrivals Shuttle")
+			to_chat(H,SPAN_NOTICE("You have ten minutes to reach the station before you will be forced there."))
 
 	var/datum/job/job = GetJob(rank)
-
 	H.job = rank
 
-	if(spawning_at != "Arrivals Shuttle" || job.latejoin_at_spawnpoints)
-		return EquipRank(H, rank, 1)
-
 	var/list/spawn_in_storage = list()
-	if(spawning_at == "Arrivals Shuttle")
-		to_chat(H,SPAN_NOTICE("You have ten minutes to reach the station before you will be forced there."))
 
 	if(H.needs_wheelchair())
 		H.equip_wheelchair()
