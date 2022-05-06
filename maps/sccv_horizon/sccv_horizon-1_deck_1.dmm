@@ -5,8 +5,8 @@
 "aaZ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(18);
-	name = "E.V.A. Maintenance"
+	name = "E.V.A. Maintenance";
+	req_access = list(18)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
@@ -546,8 +546,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	layer = 5;
 	id = "shutters_evarecharging";
+	layer = 5;
 	name = "E.V.A. Recharging Shutter"
 	},
 /obj/machinery/door/firedoor,
@@ -932,12 +932,12 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "researchhangar";
 	name = "E.V.A. Recharging Shutters";
-	req_access = list(18);
-	dir = 1;
+	pixel_x = -7;
 	pixel_y = -25;
-	pixel_x = -7
+	req_access = list(18)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
@@ -2128,30 +2128,30 @@
 	dir = 4;
 	id = "shutters_hangardeskcpstarboard";
 	name = "Starboard Security Checkpoint Access Shutters";
-	pixel_y = -1;
 	pixel_x = -6;
+	pixel_y = -1;
 	req_access = list(63)
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "shutters_hangardeskcpport";
 	name = "Port Security Checkpoint Access Shutters";
-	pixel_y = -1;
 	pixel_x = 5;
+	pixel_y = -1;
 	req_access = list(63)
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 4;
 	id = "shutters_hangarseccpdesk";
 	name = "Desk Shutter";
-	dir = 4;
+	pixel_x = -6;
 	pixel_y = 10;
-	req_access = list(63);
-	pixel_x = -6
+	req_access = list(63)
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 4;
 	id = "shutters_hangarseccpexternal";
 	name = "External Security Checkpoint Shutters";
-	dir = 4;
 	pixel_x = 5;
 	pixel_y = 10;
 	req_access = list(63)
@@ -2236,8 +2236,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	pixel_x = -28;
-	dir = 4
+	dir = 4;
+	pixel_x = -28
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -2871,7 +2871,7 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "ctI" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/blast/shutters/open{
@@ -3242,8 +3242,8 @@
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = -22;
-	specialfunctions = 4;
-	req_access = list(65)
+	req_access = list(65);
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -3938,7 +3938,7 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "drX" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/critical{
@@ -4013,8 +4013,8 @@
 	id = "harvd";
 	name = "Door Bolt Control";
 	pixel_y = 25;
-	specialfunctions = 4;
-	req_access = list(65)
+	req_access = list(65);
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -4139,7 +4139,7 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "dEe" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -4463,14 +4463,12 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid)
 "dWw" = (
-/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/freezer{
-	name = "Kitchen Freezer";
-	req_access = list(28)
-	},
+/obj/machinery/door/airlock/freezer_maint,
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "dWC" = (
 /obj/effect/shuttle_landmark/lift/cargo_bottom,
 /turf/simulated/floor/plating,
@@ -4905,8 +4903,8 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/bio_hood/anomaly,
 /obj/machinery/door/window/southleft{
-	req_access = list(65);
-	name = "Anomaly Suit"
+	name = "Anomaly Suit";
+	req_access = list(65)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -5589,7 +5587,7 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "eMK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -5680,8 +5678,8 @@
 	dir = 1
 	},
 /obj/machinery/door/window/southright{
-	req_access = list(47);
-	name = "Research Voidsuit"
+	name = "Research Voidsuit";
+	req_access = list(47)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
@@ -5819,8 +5817,8 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/bio_hood/anomaly,
 /obj/machinery/door/window/southleft{
-	req_access = list(65);
-	name = "Anomaly Suit"
+	name = "Anomaly Suit";
+	req_access = list(65)
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -6032,8 +6030,8 @@
 "fdB" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
-	req_one_access = list(29, 47, 73);
-	name = "Research E.V.A."
+	name = "Research E.V.A.";
+	req_one_access = list(29, 47, 73)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6496,15 +6494,12 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/atmos/propulsion/starboard)
 "fyR" = (
-/obj/structure/largecrate/animal/cow,
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/icecream_vat,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "fzA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7131,20 +7126,12 @@
 /turf/simulated/floor/grass/alt,
 /area/maintenance/hangar/port)
 "fXy" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/structure/trash_pile,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "fXF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -8933,12 +8920,12 @@
 	dir = 8
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 4;
 	id = "researchhangar";
 	name = "Research E.V.A.";
 	pixel_x = -25;
-	req_access = list(47);
-	dir = 4;
-	pixel_y = 7
+	pixel_y = 7;
+	req_access = list(47)
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/warning{
@@ -10273,8 +10260,8 @@
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = -22;
-	specialfunctions = 4;
-	req_access = list(65)
+	req_access = list(65);
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -10638,7 +10625,7 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "jeS" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/brown{
@@ -10977,8 +10964,8 @@
 "jvM" = (
 /obj/machinery/light,
 /obj/structure/sign/securearea{
-	name = "\improper DANGER: AUTOMATIC EQUIPMENT - CRUSH HAZARD sign";
 	desc = "A warning sign which reads 'DANGER: AUTOMATIC EQUIPMENT STARTS AND STOPS AUTOMATICALLY' and 'CRUSH HAZARD'.";
+	name = "\improper DANGER: AUTOMATIC EQUIPMENT - CRUSH HAZARD sign";
 	pixel_y = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -11163,13 +11150,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "jCl" = (
-/obj/structure/table/stone/marble,
-/obj/item/material/hook,
+/obj/structure/table,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "jCK" = (
 /turf/simulated/wall,
 /area/engineering/atmos)
@@ -12855,7 +12841,7 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "laL" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/machinery/computer/shuttle_control/explore/intrepid{
@@ -13933,8 +13919,8 @@
 "lXZ" = (
 /obj/machinery/recharger/wallcharger{
 	layer = 3.3;
-	pixel_y = 24;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 24
 	},
 /obj/machinery/recharger/wallcharger{
 	layer = 3.3;
@@ -14015,9 +14001,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "mdL" = (
-/obj/machinery/gibber,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "mdZ" = (
 /obj/machinery/conveyor{
 	dir = 10;
@@ -14204,9 +14189,9 @@
 	dir = 4
 	},
 /obj/machinery/computer/shuttle_control/lift/wall{
-	shuttle_tag = "Robotics Lift";
+	dir = 1;
 	pixel_y = -32;
-	dir = 1
+	shuttle_tag = "Robotics Lift"
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
@@ -15197,13 +15182,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
-"nal" = (
-/obj/structure/closet/secure_closet/freezer/meat,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/crew_quarters/kitchen/freezer)
 "nax" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -15694,12 +15672,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/door/window/northright,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "nyz" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/light/small{
@@ -15732,12 +15709,14 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "nzz" = (
-/obj/machinery/icecream_vat,
+/obj/machinery/light/small/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "nAS" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -16182,9 +16161,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
-"nUm" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/crew_quarters/kitchen/freezer)
 "nUn" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -16483,12 +16459,12 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/crowbar/red,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "oma" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -17171,8 +17147,9 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
+/obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "pep" = (
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations - Disposals, Upper";
@@ -17364,6 +17341,7 @@
 /area/maintenance/substation/security)
 "pkK" = (
 /obj/machinery/light/small,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
 "plc" = (
@@ -17691,8 +17669,8 @@
 	id = "riso1";
 	name = "Door Bolt Control";
 	pixel_y = -22;
-	specialfunctions = 4;
-	req_access = list(65)
+	req_access = list(65);
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -19405,9 +19383,9 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "shutters_hangarseccp";
 	name = "Security Checkpoint Shutters";
-	dir = 8;
 	pixel_x = 32;
 	req_access = list(63)
 	},
@@ -19852,8 +19830,8 @@
 /area/engineering/atmos)
 "rlW" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(65);
-	name = "Xenoarcheology Maintenance Access"
+	name = "Xenoarcheology Maintenance Access";
+	req_access = list(65)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -20466,14 +20444,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/freezer_maint{
-	req_access = list(28)
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_one_access = list(73)
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "rRE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -20846,9 +20824,6 @@
 	},
 /turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
-"sjL" = (
-/turf/simulated/wall,
-/area/crew_quarters/kitchen/freezer)
 "skq" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -20917,11 +20892,12 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "spL" = (
+/obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "spQ" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -20989,8 +20965,8 @@
 /area/engineering/atmos)
 "stn" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12, 47);
-	name = "Fire Closet"
+	name = "Fire Closet";
+	req_one_access = list(12, 47)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -21329,8 +21305,8 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/bio_hood/anomaly,
 /obj/machinery/door/window/southleft{
-	req_access = list(65);
-	name = "Anomaly Suit"
+	name = "Anomaly Suit";
+	req_access = list(65)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -21449,12 +21425,12 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "researchhangar";
 	name = "E.V.A. Recharging Shutters";
 	pixel_x = 25;
-	req_access = list(18);
-	dir = 8;
-	pixel_y = 7
+	pixel_y = 7;
+	req_access = list(18)
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
@@ -21878,7 +21854,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "tfR" = (
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
@@ -21969,8 +21945,8 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/glass_mining{
-	req_one_access = list(29, 47);
-	name = "Mech Bay and Recharging Station Elevator Access"
+	name = "Mech Bay and Recharging Station Elevator Access";
+	req_one_access = list(29, 47)
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
@@ -23569,12 +23545,12 @@
 	dir = 6
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "researchhangar";
 	name = "Research E.V.A.";
 	pixel_x = 25;
-	req_access = list(47);
-	dir = 8;
-	pixel_y = 7
+	pixel_y = 7;
+	req_access = list(47)
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
@@ -23948,8 +23924,9 @@
 /area/hangar/intrepid)
 "uYo" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "uYW" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/purple{
 	dir = 4
@@ -24515,12 +24492,14 @@
 	dir = 1
 	},
 /obj/machinery/door/window/northright,
-/obj/structure/reagent_dispensers/cookingoil,
+/obj/machinery/light/small/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "vvU" = (
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/westleft,
@@ -24612,8 +24591,8 @@
 "vCG" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
-	id = "researchhangar";
 	dir = 8;
+	id = "researchhangar";
 	name = "Research E.V.A."
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -25338,11 +25317,12 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "wlh" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "cargo_1"
@@ -25810,7 +25790,7 @@
 "wKq" = (
 /obj/structure/stairs/south,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "wKW" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -26465,8 +26445,8 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
+	dir = 1;
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/eva)
@@ -26787,15 +26767,15 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "xtj" = (
-/obj/machinery/alarm/freezer{
+/obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -29
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "xtn" = (
 /obj/structure/closet/radiation,
 /obj/machinery/camera/network/engineering{
@@ -26871,8 +26851,8 @@
 "xvP" = (
 /obj/machinery/portable_atmospherics/canister/phoron,
 /obj/machinery/door/window/northleft{
-	req_access = list(65);
-	name = "Canister Storage Access"
+	name = "Canister Storage Access";
+	req_access = list(65)
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -26887,8 +26867,8 @@
 "xwA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
-	req_one_access = list(29, 47);
-	name = "Mech Bay and Recharging Station Elevator Access"
+	name = "Mech Bay and Recharging Station Elevator Access";
+	req_one_access = list(29, 47)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -26900,23 +26880,19 @@
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "xyG" = (
-/obj/structure/kitchenspike,
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "xzd" = (
 /obj/structure/table/stone/marble,
-/obj/item/material/hatchet/butch,
+/obj/random/loot,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "xAr" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -50362,10 +50338,10 @@ wuD
 wuD
 fyR
 nzz
-nUm
-nUm
-nUm
-nUm
+tsD
+tsD
+tsD
+tsD
 ciP
 eSV
 eSV
@@ -50567,7 +50543,7 @@ eMc
 dWw
 tfB
 wKq
-nUm
+tsD
 ciP
 eSV
 eSV
@@ -50762,14 +50738,14 @@ qTO
 bqb
 bCN
 dcZ
-sjL
+bCi
 kZl
 dDV
 xtj
-nUm
-nUm
-nUm
-nUm
+tsD
+tsD
+tsD
+tsD
 ciP
 eSV
 eSV
@@ -50964,14 +50940,14 @@ eZX
 vpB
 fWH
 fxh
-sjL
+bCi
 uYo
 nyp
 spL
-spL
-spL
+xyG
+xyG
 fXy
-nUm
+tsD
 ciP
 eSV
 eSV
@@ -51166,14 +51142,14 @@ eTW
 qfU
 vpB
 lQE
-sjL
+bCi
 mdL
 wlf
-nal
+xyG
 jCl
 xzd
-nUm
-nUm
+tsD
+tsD
 eSV
 eSV
 eSV
@@ -51368,13 +51344,13 @@ oJy
 idY
 idY
 ehP
-sjL
+bCi
 pdL
 vuG
 xyG
 ctz
-nUm
-nUm
+tsD
+tsD
 eSV
 eSV
 eSV
@@ -51570,12 +51546,12 @@ bCi
 tsD
 tsD
 tsD
-nUm
-nUm
+tsD
+tsD
 drU
-nUm
+tsD
 drU
-nUm
+tsD
 eSV
 eSV
 eSV
