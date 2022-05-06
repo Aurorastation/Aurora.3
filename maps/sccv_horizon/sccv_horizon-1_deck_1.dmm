@@ -3610,6 +3610,28 @@
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"dcC" = (
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced/steel,
+/obj/machinery/ringer_button{
+	id = "robo_ringer";
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/machinery/door/window/westright{
+	req_access = list(29);
+	name = "Workshop Desk Internal"
+	},
+/obj/machinery/door/window/eastleft{
+	name = "Workshop Desk External"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck1_workshopdesk";
+	name = "Workshop Desk Shutter"
+	},
+/turf/simulated/floor/plating,
+/area/operations/lower/machinist)
 "dcZ" = (
 /obj/structure/stairs/west,
 /turf/simulated/floor/plating,
@@ -11220,11 +11242,11 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "jEf" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
@@ -12144,18 +12166,22 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "kzx" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
-	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp{
 	pixel_x = 2;
 	pixel_y = 2
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "shutters_deck1_workshopdesk";
+	name = "Workshop Desk Shutters";
+	dir = 8;
+	pixel_x = 25;
+	req_access = list(29);
+	pixel_y = -7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
@@ -18230,9 +18256,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid)
 "pXv" = (
-/obj/machinery/door/window/brigdoor/northright{
-	req_access = list(29)
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -20255,6 +20278,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid)
+"rHm" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck1_workshopdesk";
+	name = "Workshop Desk Shutter"
+	},
+/turf/simulated/floor/plating,
+/area/operations/lower/machinist)
 "rHr" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -21139,6 +21171,11 @@
 /obj/machinery/camera/network/first_deck{
 	c_tag = "First Deck - Hangar 1";
 	dir = 4
+	},
+/obj/machinery/ringer_button{
+	id = "robo_ringer";
+	pixel_x = -24;
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid/interstitial)
@@ -23289,21 +23326,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "uqn" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "1";
-	name = "shutter"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/operations/lower/machinist)
-"uqE" = (
-/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/effect/landmark/start{
 	name = "Machinist"
 	},
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/operations/lower/machinist)
+"uqE" = (
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/item/stack/wrapping_paper,
+/obj/item/stack/packageWrap,
+/obj/item/device/hand_labeler,
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "urr" = (
@@ -25248,14 +25285,14 @@
 	},
 /area/hangar/auxiliary)
 "wjr" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/hatch,
 /obj/machinery/r_n_d/protolathe,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/operations/lower/machinist)
 "wjM" = (
@@ -25459,17 +25496,16 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "wpC" = (
-/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/stack/packageWrap,
-/obj/item/stack/wrapping_paper,
-/obj/item/device/hand_labeler,
 /obj/machinery/ringer{
 	department = "Robotics";
 	id = "robo_ringer";
-	pixel_x = -25;
+	pixel_x = -32;
 	req_access = list(29)
 	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "wpM" = (
@@ -27597,26 +27633,13 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "yau" = (
-/obj/structure/table/reinforced/steel,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
-	id = "1";
-	name = "shutter"
+	id = "shutters_deck1_workshopdesk";
+	name = "Workshop Desk Shutter"
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/window/brigdoor/westleft{
-	dir = 1;
-	name = "Workshop";
-	req_access = list(29)
-	},
-/obj/item/paper_bin,
-/obj/item/pen/black,
-/obj/machinery/ringer_button{
-	id = "robo_ringer";
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/plating,
 /area/operations/lower/machinist)
 "yaP" = (
 /obj/structure/cable/green{
@@ -47097,7 +47120,7 @@ aQr
 pXv
 plZ
 wpC
-uqn
+yau
 gYZ
 voa
 bMO
@@ -47297,7 +47320,7 @@ hMV
 bRX
 oys
 kzx
-plZ
+uqn
 uqE
 yau
 mXP
@@ -47499,8 +47522,8 @@ ggZ
 iDw
 vjT
 iDw
-uWW
-uWW
+dcC
+rHm
 iDw
 gFI
 gkE
