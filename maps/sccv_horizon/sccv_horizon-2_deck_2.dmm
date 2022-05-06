@@ -3045,34 +3045,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "bHs" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
-	layer = 2.99;
-	pixel_x = 3;
-	pixel_y = -5
-	},
-/obj/item/material/kitchen/rollingpin{
-	pixel_x = 6;
-	pixel_y = 10
-	},
-/obj/item/material/knife{
-	layer = 2.99;
-	pixel_x = -9
-	},
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
+/turf/space,
 /area/crew_quarters/kitchen)
 "bHL" = (
 /obj/machinery/camera/network/research{
@@ -10891,6 +10864,9 @@
 	c_tag = "Dinner - Bar 1";
 	dir = 8
 	},
+/obj/machinery/orderterminal{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "gBa" = (
@@ -16253,11 +16229,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "jPj" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/obj/machinery/disposal/small/west,
-/obj/machinery/newscaster{
+/obj/machinery/atm{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -17599,11 +17571,9 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/far)
 "kKM" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/machinery/disposal/small/west,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
@@ -30501,18 +30471,6 @@
 /obj/item/crowbar,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
-"snU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/cafeteria)
 "soc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/particle_accelerator/power_box{
@@ -34178,9 +34136,6 @@
 /area/engineering/engine_room/tesla)
 "uwe" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/atm{
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "uwi" = (
@@ -35004,12 +34959,15 @@
 /turf/simulated/wall,
 /area/turret_protected/ai_upload)
 "uTY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/cafeteria)
 "uUa" = (
@@ -60970,11 +60928,11 @@ vfm
 kEK
 tQQ
 iYu
-snU
+iYu
+iYu
 uTY
-ylh
 qVJ
-kKM
+ylh
 fZC
 lCr
 juS
@@ -61176,7 +61134,7 @@ jPj
 juS
 thy
 izV
-juS
+kKM
 vfm
 bGg
 juS
