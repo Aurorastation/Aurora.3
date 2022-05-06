@@ -51,6 +51,9 @@ var/list/dream_entries = list()
 				if(can_commune() || (!can_commune() && srom_pulled_by))
 					sleeping = 5
 					return
+			for(var/thing in SSpsi.processing)
+				var/datum/psi_complexus/psi = thing
+				to_chat(psi.owner, SPAN_CULT("You feel the activity of Srom decrease."))
 			log_and_message_admins("has left the shared dream",bg)
 			var/mob/living/brain_ghost/old_bg = bg
 			bg = null
