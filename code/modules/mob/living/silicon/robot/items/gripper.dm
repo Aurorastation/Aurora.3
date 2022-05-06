@@ -223,7 +223,9 @@
 		/obj/item/smallDelivery,
 		/obj/item/gift,
 		/obj/item/stack/packageWrap,
-		/obj/item/stack/wrapping_paper
+		/obj/item/stack/wrapping_paper,
+		/obj/item/computer_hardware/hard_drive/portable,
+		/obj/item/photo
 		)
 
 /obj/item/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
