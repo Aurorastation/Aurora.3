@@ -185,7 +185,7 @@
 	icon_state = "full_window_firedoor"
 	spawn_firedoor = TRUE
 
-/obj/effect/map_effect/win_spawn/reinforced/indestructible
+/obj/effect/map_effect/win_spawn/full/reinforced/indestructible
 	name = "indestructible reinforced window spawner"
 	icon_state = "full_indestructible_window"
 	win_path = /obj/structure/window/full/reinforced/indestructible
