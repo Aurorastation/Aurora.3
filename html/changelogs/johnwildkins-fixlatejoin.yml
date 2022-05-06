@@ -1,7 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed latejoins not receiving job equipment / IDs."
-  - bugfix: "Fixed saved Aurora spawnpoints being used for Horizon."
