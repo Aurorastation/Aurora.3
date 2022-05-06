@@ -14555,7 +14555,10 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "ikb" = (
-)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/tiled,
+/area/engineering/storage_hard)
 "ikB" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_pump/on{
