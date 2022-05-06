@@ -175,8 +175,8 @@
 		species = SPECIES_HUMAN
 	else if(!(species in ideal_character_age))
 		// try to see if there's a min age set -- ideally this shouldn't happen, but better to take a min age than fall back to human just yet
-		if(species in minimum_character_age)
-			return minimum_character_age[species]
+		if(species in minimum_character_age) // if there is one, just add 20 and send it
+			return minimum_character_age[species] + 20
 		species = SPECIES_HUMAN // no such luck
 	return ideal_character_age[species]
 
