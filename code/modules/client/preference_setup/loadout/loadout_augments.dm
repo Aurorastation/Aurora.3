@@ -61,6 +61,19 @@
 	augs["retractable lighter, left hand"] = /obj/item/organ/internal/augment/tool/combitool/lighter/left
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
+/datum/gear/augment/pen
+	display_name = "retractable pen"
+	description = "An augment that allows the user to deploy a retractable pen."
+	path = /obj/item/organ/internal/augment/pen
+	cost = 1
+
+/datum/gear/augment/pen/New()
+	..()
+	var/list/augs = list()
+	augs["retractable pen, right hand"] = /obj/item/organ/internal/augment/pen
+	augs["retractable pen, left hand"] = /obj/item/organ/internal/augment/pen/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
 /datum/gear/augment/cochlear
 	display_name = "cochlear implant"
 	description = "A synthetic replacement for the structures within the ear, allowing the user to hear without requiring external tools."

@@ -144,6 +144,19 @@
 	parent_organ = BP_L_HAND
 	aug_slot = slot_l_hand
 
+/obj/item/organ/internal/augment/pen
+	name = "retractable pen"
+	icon_state = "augment"
+	action_button_name = "Deploy Pen"
+	action_button_icon = "augment"
+	parent_organ = BP_R_HAND
+	organ_tag = BP_AUG_PEN
+	augment_type = /obj/item/pen/augment
+
+/obj/item/organ/internal/augment/pen/left
+	parent_organ = BP_L_HAND
+	aug_slot = slot_l_hand
+
 /obj/item/organ/internal/augment/health_scanner
 	name = "integrated health scanner"
 	action_button_name = "Activate Health Scanner"
