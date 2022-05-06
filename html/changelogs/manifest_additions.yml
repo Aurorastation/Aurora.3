@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - tweak: "The crew manifest now distinguishes between service and civilian."
+  - backend: "The job ban menu now uses standardized colours."
