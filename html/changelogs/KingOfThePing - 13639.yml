@@ -1,9 +1,0 @@
-author: KingOfThePing
-
-# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
-delete-after: True
-
-changes:
-  - maptweak: "Re-modeled the kitchen once more, according to feedback from the community."
-  - tweak: "Reworked the framework on how the bar/kitchen signs work. You can now easily add new ones, together with desc and desc_fluff (thanks to Vrow and Myazaki)."
-  - rscadd: "Added the Event Horizon kitchen sign."
