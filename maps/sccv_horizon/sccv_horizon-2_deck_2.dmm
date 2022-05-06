@@ -8582,12 +8582,8 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "eVu" = (
-/obj/structure/curtain/black{
-	icon_state = "open";
-	opacity = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/cafeteria)
+/turf/simulated/wall,
+/area/bridge/third_deck_stairs)
 "eWm" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -14556,9 +14552,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "ikb" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
+)
 "ikB" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -43113,7 +43107,7 @@
 	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/cafeteria)
+/area/hallway/primary/central_two)
 "ylk" = (
 /obj/machinery/power/apc/low{
 	dir = 8;
@@ -57177,7 +57171,7 @@ pZu
 qUL
 oiX
 doE
-fYh
+ikb
 urs
 urs
 nlr
@@ -65713,11 +65707,11 @@ cOE
 muz
 sYq
 myE
-pED
-pED
-pED
-pED
-pED
+eVu
+eVu
+eVu
+eVu
+eVu
 upP
 upP
 xzE
@@ -65915,7 +65909,7 @@ cOE
 mjl
 oTR
 gYj
-cam
+eVu
 sGn
 sGn
 lYZ
@@ -65924,7 +65918,7 @@ uUn
 jDa
 ulV
 sSZ
-qFX
+waI
 hPC
 uPW
 xer

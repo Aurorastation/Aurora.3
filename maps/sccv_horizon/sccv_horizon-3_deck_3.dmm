@@ -14381,7 +14381,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "zQ" = (
-/obj/machinery/power/port_gen/pacman,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
@@ -14390,6 +14389,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green,
+/obj/machinery/power/portgen/basic,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "zR" = (

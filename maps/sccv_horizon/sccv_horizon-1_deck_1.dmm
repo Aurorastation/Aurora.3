@@ -21117,7 +21117,7 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "rRq" = (
 /obj/structure/table/standard,
 /obj/item/device/suit_cooling_unit,
@@ -51093,8 +51093,8 @@ bCi
 bCi
 ocT
 bCi
-wuD
-wuD
+bCi
+bCi
 fyR
 nzz
 tsD
@@ -51302,7 +51302,7 @@ eMc
 dWw
 tfB
 wKq
-nUm
+tsD
 xGF
 eSV
 eSV
@@ -51501,10 +51501,10 @@ bCi
 kZl
 dDV
 xtj
-nUm
-nUm
-nUm
-nUm
+tsD
+tsD
+tsD
+tsD
 xGF
 eSV
 eSV
@@ -51706,7 +51706,7 @@ spL
 xyG
 xyG
 fXy
-nUm
+tsD
 xGF
 eSV
 eSV
@@ -51907,8 +51907,8 @@ wlf
 xyG
 jCl
 xzd
-nUm
-nUm
+tsD
+tsD
 ciP
 eSV
 eSV
@@ -52108,8 +52108,8 @@ pdL
 vuG
 xyG
 ctz
-nUm
-nUm
+tsD
+tsD
 xGF
 xGF
 eSV
@@ -52310,7 +52310,7 @@ tsD
 drU
 tsD
 drU
-nUm
+tsD
 xGF
 xGF
 eSV
