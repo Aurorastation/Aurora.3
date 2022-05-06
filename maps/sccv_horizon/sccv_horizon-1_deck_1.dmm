@@ -1334,9 +1334,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "ben" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /mob/living/silicon/robot/shell,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/reinforced,
 /area/turret_protected/ai)
 "beu" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -3555,11 +3555,8 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core - First Deck Chamber";
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret/stationary,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "cTm" = (
@@ -4225,13 +4222,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "dCe" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/structure/cable/orange{
+	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
-/area/turret_protected/ai)
+/obj/machinery/power/smes/buildable{
+	charge = 5e+006;
+	input_attempt = 1;
+	input_level = 200000;
+	output_attempt = 1;
+	output_level = 200000
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "dCC" = (
 /obj/machinery/sparker{
 	id = "starboard_prop_igni";
@@ -5782,7 +5785,7 @@
 /area/engineering/atmos)
 "eNY" = (
 /obj/structure/ladder/up{
-	pixel_y = 13
+	pixel_y = 16
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -7286,11 +7289,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/operations)
 "fVh" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/industrial/warning{
+/obj/item/modular_computer/console/preset/ai{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "fVm" = (
 /obj/structure/closet/l3closet/janitor,
@@ -7836,17 +7845,18 @@
 	},
 /area/medical/morgue/lower)
 "grw" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/obj/structure/cable/orange{
+	icon_state = "4-8"
 	},
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "AICore";
+	name = "AI core maintenance hatch";
+	opacity = 0
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "grH" = (
 /turf/simulated/floor/holofloor/tiled/ramp/bottom{
@@ -8621,24 +8631,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "hbT" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "AI SMES";
-	req_access = list(16)
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
 	icon_state = "pdoor0";
 	id = "AICore";
 	name = "AI core maintenance hatch";
 	opacity = 0
 	},
-/obj/machinery/power/terminal{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "hbU" = (
@@ -11366,9 +11369,8 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret/stationary,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "jyn" = (
@@ -14114,12 +14116,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "lPL" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/item/modular_computer/console/preset/ai,
+/obj/machinery/light/small/emergency{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "lPP" = (
 /obj/structure/tank_wall/hydrogen{
@@ -15513,14 +15518,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "mVo" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/light/small{
-	dir = 8
+/obj/machinery/camera/network/command{
+	c_tag = "AI Core - First Deck Chamber";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
@@ -16044,9 +16047,8 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret/stationary,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "nqq" = (
@@ -16128,14 +16130,10 @@
 /turf/space/dynamic,
 /area/template_noop)
 "ntv" = (
-/obj/machinery/power/smes/buildable{
-	charge = 5e+006;
-	input_attempt = 1;
-	input_level = 200000;
-	output_attempt = 1;
-	output_level = 200000
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
-/obj/structure/cable/orange,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "ntJ" = (
@@ -16351,12 +16349,15 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "nCd" = (
-/obj/structure/cable/orange{
-	icon_state = "2-8"
-	},
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - SMES";
 	dir = 8
+	},
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
@@ -17129,17 +17130,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "opy" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
 	icon_state = "pdoor0";
 	id = "AICore";
 	name = "AI core maintenance hatch";
 	opacity = 0
 	},
-/obj/structure/cable/orange{
-	icon_state = "4-8"
+/obj/machinery/door/airlock/highsecurity{
+	name = "AI SMES";
+	req_access = list(16)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
@@ -19972,20 +19972,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "qPV" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/structure/cable/orange{
-	icon_state = "0-4"
-	},
-/obj/structure/cable/orange{
-	icon_state = "12-0"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
@@ -21568,6 +21556,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/cable/orange{
+	icon_state = "0-4"
+	},
+/obj/structure/cable/orange{
+	icon_state = "12-0"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "skS" = (
@@ -21851,7 +21845,8 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret/stationary,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "sxx" = (
@@ -24563,17 +24558,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "uRl" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/industrial/warning{
+/obj/item/modular_computer/console/preset/ai{
 	dir = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "uRt" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -27931,8 +27926,14 @@
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "xKI" = (
-/obj/effect/decal/warning_stripes,
-/obj/machinery/porta_turret/stationary,
+/obj/item/modular_computer/console/preset/ai,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "xLq" = (
@@ -54502,7 +54503,7 @@ xKI
 xre
 mVo
 xre
-xKI
+fVh
 qZp
 akC
 mhf
@@ -54701,9 +54702,9 @@ vil
 vil
 qZp
 npz
-grw
 gsG
-lPL
+gsG
+gsG
 sxc
 qZp
 qZp
@@ -54903,7 +54904,7 @@ vil
 rsL
 qZp
 eNY
-fVh
+gsG
 ben
 gsG
 jBX
@@ -55105,9 +55106,9 @@ eSV
 eSV
 qZp
 jyg
-uRl
 gsG
-dCe
+gsG
+gsG
 cTj
 qZp
 qZp
@@ -55306,11 +55307,11 @@ eSV
 eSV
 eSV
 qZp
-xKI
+lPL
 skq
 qPV
 iwC
-xKI
+uRl
 qZp
 hUt
 thF
@@ -55509,7 +55510,7 @@ eSV
 eSV
 qZp
 qZp
-qZp
+grw
 opy
 hbT
 qZp
@@ -55710,8 +55711,8 @@ eSV
 eSV
 eSV
 eSV
-eSV
 hob
+dCe
 nCd
 ntv
 qZp
@@ -55912,7 +55913,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+hob
 hob
 qZp
 qZp
