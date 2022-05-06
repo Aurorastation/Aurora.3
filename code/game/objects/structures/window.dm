@@ -677,7 +677,7 @@
 
 	if(health <= 0)
 		shatter()
-		new /obj/structure/window/full/reinforced(get_turf(src))
+		new /obj/structure/window_frame(get_turf(src))
 	else
 		if(sound_effect)
 			playsound(loc, 'sound/effects/glass_hit.ogg', 100, 1)
