@@ -91,8 +91,8 @@
 	name = "emergency softsuit helmet"
 	desc = "A simple helmet with a built in light. Smells like mothballs."
 	icon = 'icons/obj/contained_items/softsuits/softsuit_emergency.dmi'
-	icon_state = "softsuit_helmet_emergency"
-	item_state = "softsuit_helmet_emergency"
+	icon_state = "softsuit_emergency_helmet"
+	item_state = "softsuit_emergency_helmet"
 	contained_sprite = TRUE
 	flags_inv = HIDEMASK | HIDEEARS | BLOCKHAIR
 	flash_protection = FLASH_PROTECTION_NONE
