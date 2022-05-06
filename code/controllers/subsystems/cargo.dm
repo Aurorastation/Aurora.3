@@ -675,7 +675,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		if(isturf(pickedloc))
 			new E(pickedloc)
 
-	queued_mining_equipment.Cut()
+		queued_mining_equipment -= E
 
 	for(var/datum/cargo_order/co in approved_orders)
 		if(!co)
