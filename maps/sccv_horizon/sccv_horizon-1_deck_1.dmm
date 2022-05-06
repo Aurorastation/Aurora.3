@@ -3613,11 +3613,6 @@
 "dcC" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced/steel,
-/obj/machinery/ringer_button{
-	id = "robo_ringer";
-	pixel_x = 5;
-	pixel_y = 5
-	},
 /obj/machinery/door/window/westright{
 	req_access = list(29);
 	name = "Workshop Desk Internal"
