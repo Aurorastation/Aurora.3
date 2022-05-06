@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes AI, stationbounds, and off-duty crew members being unselectable as SCC."
