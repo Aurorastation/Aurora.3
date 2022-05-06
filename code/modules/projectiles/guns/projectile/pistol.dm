@@ -476,9 +476,13 @@
 	can_silence = FALSE
 	w_class = ITEMSIZE_NORMAL
 	load_method = MAGAZINE
+	handle_casings = EJECT_CASINGS
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	is_wieldable = TRUE
 	caliber = ".577 Nitro Express"
+	ammo_type = /obj/item/ammo_casing/a357
+	magazine_type = /obj/item/ammo_magazine/k2557
+	max_shells = 5
 	force = 3
 	recoil = 5
 	recoil_wielded = 1
