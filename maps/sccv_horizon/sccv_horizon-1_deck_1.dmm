@@ -2871,7 +2871,7 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "ctI" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/blast/shutters/open{
@@ -3938,7 +3938,7 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "drX" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/critical{
@@ -4139,7 +4139,7 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "dEe" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -4463,14 +4463,12 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid)
 "dWw" = (
-/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/freezer{
-	name = "Kitchen Freezer";
-	req_access = list(28)
-	},
+/obj/machinery/door/airlock/freezer_maint,
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "dWC" = (
 /obj/effect/shuttle_landmark/lift/cargo_bottom,
 /turf/simulated/floor/plating,
@@ -5589,7 +5587,7 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "eMK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6496,15 +6494,12 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/atmos/propulsion/starboard)
 "fyR" = (
-/obj/structure/largecrate/animal/cow,
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/icecream_vat,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "fzA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7131,20 +7126,12 @@
 /turf/simulated/floor/grass/alt,
 /area/maintenance/hangar/port)
 "fXy" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/structure/trash_pile,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "fXF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -10638,7 +10625,7 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "jeS" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/brown{
@@ -11163,13 +11150,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "jCl" = (
-/obj/structure/table/stone/marble,
-/obj/item/material/hook,
+/obj/structure/table,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "jCK" = (
 /turf/simulated/wall,
 /area/engineering/atmos)
@@ -12855,7 +12841,7 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "laL" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/machinery/computer/shuttle_control/explore/intrepid{
@@ -14015,9 +14001,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "mdL" = (
-/obj/machinery/gibber,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "mdZ" = (
 /obj/machinery/conveyor{
 	dir = 10;
@@ -15197,13 +15182,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
-"nal" = (
-/obj/structure/closet/secure_closet/freezer/meat,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/crew_quarters/kitchen/freezer)
 "nax" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -15694,12 +15672,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/door/window/northright,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "nyz" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/light/small{
@@ -15732,12 +15709,14 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "nzz" = (
-/obj/machinery/icecream_vat,
+/obj/machinery/light/small/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "nAS" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -16182,9 +16161,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
-"nUm" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/crew_quarters/kitchen/freezer)
 "nUn" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -16483,12 +16459,12 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/crowbar/red,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "oma" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -17171,8 +17147,9 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
+/obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "pep" = (
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations - Disposals, Upper";
@@ -20466,14 +20443,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/freezer_maint{
-	req_access = list(28)
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_one_access = list(73)
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "rRE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -20846,9 +20823,6 @@
 	},
 /turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
-"sjL" = (
-/turf/simulated/wall,
-/area/crew_quarters/kitchen/freezer)
 "skq" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -20917,11 +20891,12 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "spL" = (
+/obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "spQ" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -21878,7 +21853,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "tfR" = (
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid)
@@ -23948,8 +23923,9 @@
 /area/hangar/intrepid)
 "uYo" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "uYW" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/purple{
 	dir = 4
@@ -24515,12 +24491,14 @@
 	dir = 1
 	},
 /obj/machinery/door/window/northright,
-/obj/structure/reagent_dispensers/cookingoil,
+/obj/machinery/light/small/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "vvU" = (
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/westleft,
@@ -25338,11 +25316,12 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "wlh" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "cargo_1"
@@ -25810,7 +25789,7 @@
 "wKq" = (
 /obj/structure/stairs/south,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "wKW" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -26787,15 +26766,15 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "xtj" = (
-/obj/machinery/alarm/freezer{
+/obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -29
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "xtn" = (
 /obj/structure/closet/radiation,
 /obj/machinery/camera/network/engineering{
@@ -26900,23 +26879,19 @@
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "xyG" = (
-/obj/structure/kitchenspike,
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "xzd" = (
 /obj/structure/table/stone/marble,
-/obj/item/material/hatchet/butch,
+/obj/random/loot,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/crew_quarters/kitchen/freezer)
+/area/maintenance/hangar/port)
 "xAr" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -50362,10 +50337,10 @@ wuD
 wuD
 fyR
 nzz
-nUm
-nUm
-nUm
-nUm
+tsD
+tsD
+tsD
+tsD
 ciP
 eSV
 eSV
@@ -50567,7 +50542,7 @@ eMc
 dWw
 tfB
 wKq
-nUm
+tsD
 ciP
 eSV
 eSV
@@ -50762,14 +50737,14 @@ qTO
 bqb
 bCN
 dcZ
-sjL
+bCi
 kZl
 dDV
 xtj
-nUm
-nUm
-nUm
-nUm
+tsD
+tsD
+tsD
+tsD
 ciP
 eSV
 eSV
@@ -50964,14 +50939,14 @@ eZX
 vpB
 fWH
 fxh
-sjL
+bCi
 uYo
 nyp
 spL
-spL
-spL
+xyG
+xyG
 fXy
-nUm
+tsD
 ciP
 eSV
 eSV
@@ -51166,14 +51141,14 @@ eTW
 qfU
 vpB
 lQE
-sjL
+bCi
 mdL
 wlf
-nal
+xyG
 jCl
 xzd
-nUm
-nUm
+tsD
+tsD
 eSV
 eSV
 eSV
@@ -51368,13 +51343,13 @@ oJy
 idY
 idY
 ehP
-sjL
+bCi
 pdL
 vuG
 xyG
 ctz
-nUm
-nUm
+tsD
+tsD
 eSV
 eSV
 eSV
@@ -51570,12 +51545,12 @@ bCi
 tsD
 tsD
 tsD
-nUm
-nUm
+tsD
+tsD
 drU
-nUm
+tsD
 drU
-nUm
+tsD
 eSV
 eSV
 eSV
