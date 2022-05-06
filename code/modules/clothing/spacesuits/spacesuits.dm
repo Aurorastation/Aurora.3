@@ -1,20 +1,14 @@
-//Spacesuit
-//Note: Everything in modules/clothing/spacesuits should have the entire suit grouped together.
-//      Meaning the the suit is defined directly after the corrisponding helmet. Just like below!
+// Softsuits
+// Everything in modules/clothing/spacesuits should have the entire suit grouped together.
+// Meaning the the suit is defined directly after the corresponding helmet.
 
 /obj/item/clothing/head/helmet/space
 	name = "softsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_hats.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_hats.dmi'
-	)
-	icon_state = "space"
-	item_state_slots = list(
-		slot_l_hand_str = "space",
-		slot_r_hand_str = "space"
-	)
-	item_state = "space"
+	icon = 'icons/obj/contained_items/softsuits/softsuit.dmi'
+	icon_state = "softsuit_helmet"
+	item_state = "softsuit_helmet"
+	contained_sprite = TRUE
 	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
 	permeability_coefficient = 0.01
 	armor = list(
@@ -41,25 +35,18 @@
 /obj/item/clothing/suit/space
 	name = "softsuit"
 	desc = "A suit that protects against low pressure environments."
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_suit.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_suit.dmi'
-	)
-	icon_state = "space"
-	item_state_slots = list(
-		slot_l_hand_str = "space",
-		slot_r_hand_str = "space"
-	)
-	item_state = "space"
-	randpixel = 0
+	icon = 'icons/obj/contained_items/softsuits/softsuit.dmi'
+	icon_state = "softsuit"
+	item_state = "softsuit"
+	contained_sprite = TRUE
 	center_of_mass = null
-	w_class = ITEMSIZE_LARGE//bulky item
+	w_class = ITEMSIZE_LARGE
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
 	item_flags = THICKMATERIAL|INJECTIONPORT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/device/suit_cooling_unit,/obj/item/tank)
-	slowdown = 3
+	allowed = list(/obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/device/suit_cooling_unit, /obj/item/tank)
+	slowdown = 1
 	armor = list(
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
@@ -86,12 +73,7 @@
 	check_limb_support(user)
 	..()
 
-// Some space suits are equipped with reactive membranes that support
-// broken limbs - at the time of writing, only the ninja suit, but
-// I can see it being useful for other suits as we expand them. ~ Z
-// The actual splinting occurs in /obj/item/organ/external/proc/fracture()
 /obj/item/clothing/suit/space/proc/check_limb_support(var/mob/living/carbon/human/user)
-
 	// If this isn't set, then we don't need to care.
 	if(!supporting_limbs || !supporting_limbs.len)
 		return
@@ -108,22 +90,18 @@
 /obj/item/clothing/head/helmet/space/emergency
 	name = "emergency softsuit helmet"
 	desc = "A simple helmet with a built in light. Smells like mothballs."
-	icon_state = "space_emergency"
-	item_state_slots = list(
-		slot_l_hand_str = "space_emergency",
-		slot_r_hand_str = "space_emergency"
-	)
-	item_state = "space_emergency"
+	icon = 'icons/obj/contained_items/softsuits/softsuit_emergency.dmi'
+	icon_state = "softsuit_helmet_emergency"
+	item_state = "softsuit_helmet_emergency"
+	contained_sprite = TRUE
 	flags_inv = HIDEMASK | HIDEEARS | BLOCKHAIR
 	flash_protection = FLASH_PROTECTION_NONE
 
 /obj/item/clothing/suit/space/emergency
 	name = "emergency softsuit"
 	desc = "A thin, ungainly softsuit colored in blaze orange for rescuers to easily locate. It looks pretty fragile."
-	icon_state = "space_emergency"
-	item_state_slots = list(
-		slot_l_hand_str = "space_emergency",
-		slot_r_hand_str = "space_emergency"
-	)
-	item_state = "space_emergency"
+	icon = 'icons/obj/contained_items/softsuits/softsuit_emergency.dmi'
+	icon_state = "softsuit_emergency"
+	item_state = "softsuit_emergency"
+	contained_sprite = TRUE
 	slowdown = 2
