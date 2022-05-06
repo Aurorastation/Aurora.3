@@ -5,11 +5,12 @@
 	The reagents recharge automatically at the cost of energy.<br> Alt Click the synthesizer to change the transfer amount."
 	desc_fluff = null
 	icon = 'icons/obj/syringe.dmi'
+	icon_state = "medical_synth"
 	item_state = "hypo"
-	icon_state = "borghypo"
 	amount_per_transfer_from_this = 5
-	volume = 30
 	possible_transfer_amounts = null
+	volume = 30
+	time = 1.5 SECONDS
 
 	var/mode = 1
 	var/charge_cost = 50
@@ -23,10 +24,10 @@
 	center_of_mass = null
 
 /obj/item/reagent_containers/hypospray/borghypo/medical
-	reagent_ids = list(/decl/reagent/bicaridine, /decl/reagent/kelotane, /decl/reagent/dylovene, /decl/reagent/dexalin, /decl/reagent/inaprovaline, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/thetamycin)
+	reagent_ids = list(/decl/reagent/bicaridine, /decl/reagent/kelotane, /decl/reagent/dexalin, /decl/reagent/inaprovaline, /decl/reagent/dylovene, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/thetamycin)
 
 /obj/item/reagent_containers/hypospray/borghypo/rescue
-	reagent_ids = list(/decl/reagent/tricordrazine, /decl/reagent/inaprovaline, /decl/reagent/dylovene, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/dexalin, /decl/reagent/adrenaline)
+	reagent_ids = list(/decl/reagent/tricordrazine, /decl/reagent/dexalin, /decl/reagent/inaprovaline, /decl/reagent/dylovene, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/adrenaline, /decl/reagent/coagzolug)
 
 /obj/item/reagent_containers/hypospray/borghypo/Initialize()
 	. = ..()
@@ -39,8 +40,19 @@
 	update_icon()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/reagent_containers/hypospray/borghypo/update_icon() // To do: Will work on the Medical Synthesizer in a future PR -Vrow
-	return
+/obj/item/reagent_containers/hypospray/borghypo/update_icon()
+	cut_overlays()
+
+	var/rid = reagent_ids[mode]
+	var/decl/reagent/R = decls_repository.get_decl(rid)
+	if(reagent_volumes[rid])
+		filling = image(icon, src, "[initial(icon_state)][reagent_volumes[rid]]")
+		filling.color = R.get_color()
+		add_overlay(filling)
+
+		var/mutable_appearance/reagent_bar = mutable_appearance(icon, "[initial(icon_state)]_reagents")
+		reagent_bar.color = R.get_color()
+		add_overlay(reagent_bar)
 
 /obj/item/reagent_containers/hypospray/borghypo/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -71,6 +83,7 @@
 	
 	user.visible_message(SPAN_NOTICE("[user] injects [M] with their hypospray!"), SPAN_NOTICE("You inject [M] with your hypospray!"), SPAN_NOTICE("You hear a hissing noise."))
 	to_chat(M, SPAN_NOTICE("You feel a tiny prick!"))
+	playsound(src, 'sound/items/hypospray.ogg',25)
 
 	if(M.reagents)
 		var/t = min(amount_per_transfer_from_this, reagent_volumes[reagent_ids[mode]])
@@ -78,8 +91,9 @@
 		reagent_volumes[reagent_ids[mode]] -= t
 		admin_inject_log(user, M, src, reagent_ids[mode], reagents.get_temperature(), t)
 		to_chat(user, SPAN_NOTICE("[t] units injected. [reagent_volumes[reagent_ids[mode]]] units remaining."))
+
 	update_icon()
-	return
+	return TRUE
 
 /obj/item/reagent_containers/hypospray/borghypo/afterattack(atom/target, mob/user, proximity)
 	if (!proximity)
