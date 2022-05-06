@@ -12,11 +12,15 @@
 	economic_modifier = 10
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 80,
+		SPECIES_SKRELL_AXIORI = 80
 	)
 
 	ideal_character_age = list(
-		SPECIES_HUMAN = 50
+		SPECIES_HUMAN = 50,
+		SPECIES_SKRELL = 100,
+		SPECIES_SKRELL_AXIORI = 100
 	)
 
 
@@ -80,7 +84,9 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25
+		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
 	)
 
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics)
@@ -136,7 +142,9 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25
+		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
 	)
 
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics, access_external_airlocks)
@@ -194,7 +202,9 @@
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
 	)
 
 /datum/outfit/job/intern_eng

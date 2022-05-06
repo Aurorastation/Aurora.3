@@ -12,7 +12,9 @@
 	economic_modifier = 15
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 35
+		SPECIES_HUMAN = 35,
+		SPECIES_SKRELL = 80,
+		SPECIES_SKRELL_AXIORI = 80
 	)
 
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
@@ -27,7 +29,9 @@
 			            access_maint_tunnels, access_it)
 	minimal_player_age = 14
 	ideal_character_age = list(
-		SPECIES_HUMAN = 50
+		SPECIES_HUMAN = 50,
+		SPECIES_SKRELL = 100,
+		SPECIES_SKRELL_AXIORI = 100
 	)
 	outfit = /datum/outfit/job/rd
 
@@ -71,7 +75,9 @@
 	economic_modifier = 7
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
 	)
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
@@ -123,7 +129,9 @@
 	economic_modifier = 7
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
 	)
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology)

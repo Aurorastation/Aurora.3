@@ -11,7 +11,9 @@
 	economic_modifier = 15
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 80,
+		SPECIES_SKRELL_AXIORI = 80
 	)
 
 	access = list(access_lawyer, access_maint_tunnels)
@@ -97,7 +99,15 @@
 	economic_modifier = 15
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 150,
+		SPECIES_SKRELL_AXIORI = 150
+	)
+
+	ideal_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 170,
+		SPECIES_SKRELL_AXIORI = 170
 	)
 
 	access = list(access_consular, access_maint_tunnels)

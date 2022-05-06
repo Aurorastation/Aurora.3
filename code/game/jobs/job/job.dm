@@ -19,12 +19,16 @@
 	var/list/alt_titles                   // List of alternate titles, if any
 	var/list/title_accesses               // A map of title -> list of accesses to add if the person has this title.
 	var/minimal_player_age = 0            // If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
-	var/list/minimum_character_age = list(
-		SPECIES_HUMAN = 17				  // Age restriction, assoc list of species define -> age; if species isn't found, defaults to SPECIES_HUMAN entry
+	var/list/minimum_character_age = list(// Age restriction, assoc list of species define -> age; if species isn't found, defaults to SPECIES_HUMAN entry
+		SPECIES_HUMAN = 17,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
 	)
 	var/list/alt_ages = null              // assoc list of alt titles to minimum character ages assoc lists (see above -- yes this is slightly awful)
 	var/list/ideal_character_age = list(  // Ideal character ages (for heads), assoc list of species define -> age, see above
-		SPECIES_HUMAN = 30
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 100,
+		SPECIES_SKRELL_AXIORI = 100
 	)
 
 	var/latejoin_at_spawnpoints = FALSE   //If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)

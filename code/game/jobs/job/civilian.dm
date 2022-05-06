@@ -10,7 +10,9 @@
 	selection_color = "#90524b"
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
 	)
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
@@ -50,7 +52,9 @@
 	selection_color = "#90524b"
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
 	)
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
@@ -93,7 +97,9 @@
 	selection_color = "#90524b"
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
 	)
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
@@ -180,7 +186,9 @@
 	selection_color = "#90524b"
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 20
+		SPECIES_HUMAN = 20,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
 	)
 
 	access = list(access_journalist, access_maint_tunnels)
@@ -355,7 +363,9 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 70,
+		SPECIES_SKRELL_AXIORI = 70
 	)
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
@@ -364,7 +374,9 @@
 						access_sec_doors, access_research, access_medical, access_robotics)
 
 	ideal_character_age = list(
-		SPECIES_HUMAN = 40
+		SPECIES_HUMAN = 40,
+		SPECIES_SKRELL = 90,
+		SPECIES_SKRELL_AXIORI = 90
 	)
 
 	outfit = /datum/outfit/job/operations_manager
@@ -403,7 +415,9 @@
 	selection_color = "#7B431C"
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
 	)
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
@@ -443,7 +457,9 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
 	)
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
@@ -493,7 +509,9 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25
+		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 55,
+		SPECIES_SKRELL_AXIORI = 55
 	)
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research, access_mailsorting)

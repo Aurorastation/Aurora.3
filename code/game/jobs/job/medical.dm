@@ -12,7 +12,9 @@
 	economic_modifier = 10
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 35
+		SPECIES_HUMAN = 35,
+		SPECIES_SKRELL = 80,
+		SPECIES_SKRELL_AXIORI = 80
 	)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
@@ -26,7 +28,9 @@
 
 	minimal_player_age = 10
 	ideal_character_age = list(
-		SPECIES_HUMAN = 50
+		SPECIES_HUMAN = 50,
+		SPECIES_SKRELL = 100,
+		SPECIES_SKRELL_AXIORI = 100
 	)
 	outfit = /datum/outfit/job/cmo
 
@@ -70,7 +74,9 @@
 	economic_modifier = 7
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25
+		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
 	)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
@@ -92,7 +98,9 @@
 	total_positions = 2
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
 	)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
@@ -161,7 +169,9 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 26
+		SPECIES_HUMAN = 26,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
 	)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
@@ -203,7 +213,9 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 30
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
 	)
 
 	supervisors = "the chief medical officer"
@@ -251,7 +263,9 @@
 	economic_modifier = 4
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 20
+		SPECIES_HUMAN = 20,
+		SPECIES_SKRELL = 55,
+		SPECIES_SKRELL_AXIORI = 55
 	)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_external_airlocks, access_psychiatrist, access_first_responder)
@@ -301,7 +315,9 @@
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
 	minimum_character_age = list(
-		SPECIES_HUMAN = 18
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
 	)
 	outfit = /datum/outfit/job/intern_med
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
