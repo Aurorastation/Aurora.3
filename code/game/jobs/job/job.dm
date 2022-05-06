@@ -19,9 +19,13 @@
 	var/list/alt_titles                   // List of alternate titles, if any
 	var/list/title_accesses               // A map of title -> list of accesses to add if the person has this title.
 	var/minimal_player_age = 0            // If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
-	var/minimum_character_age = 17
-	var/list/alt_ages = null              // assoc list of alt titles to minimum character ages
-	var/ideal_character_age = 30
+	var/list/minimum_character_age = list(
+		SPECIES_HUMAN = 17				  // Age restriction, assoc list of species define -> age; if species isn't found, defaults to SPECIES_HUMAN entry
+	)
+	var/list/alt_ages = null              // assoc list of alt titles to minimum character ages assoc lists (see above -- yes this is slightly awful)
+	var/list/ideal_character_age = list(  // Ideal character ages (for heads), assoc list of species define -> age, see above
+		SPECIES_HUMAN = 30
+	)
 
 	var/latejoin_at_spawnpoints = FALSE   //If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
 
@@ -145,6 +149,36 @@
 /datum/job/proc/is_position_available()
 	var/total = get_total_positions()
 	return (current_positions < total) || (total == -1)
+
+/datum/job/proc/get_minimum_character_age(var/species)
+	if(!species || !(species in minimum_character_age))
+		species = SPECIES_HUMAN
+	return minimum_character_age[species]
+
+/datum/job/proc/get_alt_character_age(var/species, var/title)
+	// call this w/o title to get the most minimum of alt ages, used in occupation.dm:/datum/category_item/player_setup_item/occupation/content
+	if(!species)
+		species = SPECIES_HUMAN
+	var/min_alt_age
+	if(!title)
+		for(var/t in alt_ages)
+			if(species in alt_ages[t])
+				min_alt_age = min(min_alt_age, alt_ages[t][species])
+			else
+				min_alt_age = min(min_alt_age, alt_ages[t][SPECIES_HUMAN])
+		return min_alt_age
+	else if(title in alt_ages)
+		return (species in alt_ages[title]) ? alt_ages[title][species] : alt_ages[title][SPECIES_HUMAN]
+
+/datum/job/proc/get_ideal_character_age(var/species)
+	if(!species)
+		species = SPECIES_HUMAN
+	else if(!(species in ideal_character_age))
+		// try to see if there's a min age set -- ideally this shouldn't happen, but better to take a min age than fall back to human just yet
+		if(species in minimum_character_age)
+			return minimum_character_age[species]
+		species = SPECIES_HUMAN // no such luck
+	return ideal_character_age[species]
 
 /datum/job/proc/fetch_age_restriction()
 	if (!config.age_restrictions_from_file)

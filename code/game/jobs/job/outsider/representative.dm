@@ -10,7 +10,9 @@
 	selection_color = "#6186cf"
 	economic_modifier = 15
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30
+	)
 
 	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
@@ -94,7 +96,9 @@
 	selection_color = "#6186cf"
 	economic_modifier = 15
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30
+	)
 
 	access = list(access_consular, access_maint_tunnels)
 	minimal_access = list(access_consular)

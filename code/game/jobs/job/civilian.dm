@@ -9,7 +9,9 @@
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18
+	)
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_bar)
@@ -47,7 +49,9 @@
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18
+	)
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_kitchen)
@@ -88,7 +92,9 @@
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18
+	)
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_hydroponics)
@@ -173,7 +179,9 @@
 	supervisors = "the service managaer"
 	selection_color = "#90524b"
 
-	minimum_character_age = 20
+	minimum_character_age = list(
+		SPECIES_HUMAN = 20
+	)
 
 	access = list(access_journalist, access_maint_tunnels)
 	minimal_access = list(access_journalist, access_maint_tunnels)
@@ -346,14 +354,18 @@
 	selection_color = "#967032"
 	economic_modifier = 5
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30
+	)
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
 						access_sec_doors, access_research, access_medical, access_robotics)
 	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
 						access_sec_doors, access_research, access_medical, access_robotics)
 
-	ideal_character_age = 40
+	ideal_character_age = list(
+		SPECIES_HUMAN = 40
+	)
 
 	outfit = /datum/outfit/job/operations_manager
 
@@ -390,7 +402,9 @@
 	supervisors = "the supply manager"
 	selection_color = "#7B431C"
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18
+	)
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_cargo, access_cargo_bot, access_mailsorting)
@@ -428,7 +442,9 @@
 	selection_color = "#7B431C"
 	economic_modifier = 5
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18
+	)
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
@@ -476,7 +492,9 @@
 	selection_color = "#7B431C"
 	economic_modifier = 5
 
-	minimum_character_age = 25
+	minimum_character_age = list(
+		SPECIES_HUMAN = 25
+	)
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research, access_mailsorting)
 	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_mailsorting)

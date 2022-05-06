@@ -16,9 +16,13 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	minimal_player_age = 14
 	economic_modifier = 20
 
-	minimum_character_age = 35
+	minimum_character_age = list(
+		SPECIES_HUMAN = 35
+	)
 
-	ideal_character_age = 70 // Old geezer captains ftw
+	ideal_character_age = list(
+		SPECIES_HUMAN = 70
+	) // Old geezer captains ftw
 
 	outfit = /datum/outfit/job/captain
 
@@ -86,9 +90,13 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	selection_color = "#1e59c9"
 	minimal_player_age = 10
 	economic_modifier = 10
-	ideal_character_age = 50
+	ideal_character_age = list(
+		SPECIES_HUMAN = 50
+	)
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30
+	)
 
 	outfit = /datum/outfit/job/xo
 
@@ -140,9 +148,13 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	selection_color = "#2b5bb5"
 	minimal_player_age = 20
 	economic_modifier = 10
-	ideal_character_age = 30
+	ideal_character_age = list(
+		SPECIES_HUMAN = 30
+	)
 
-	minimum_character_age = 25
+	minimum_character_age = list(
+		SPECIES_HUMAN = 25
+	)
 
 	outfit = /datum/outfit/job/bridge_crew
 

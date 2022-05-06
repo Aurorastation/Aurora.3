@@ -11,7 +11,9 @@
 	selection_color = "#a44799"
 	economic_modifier = 15
 
-	minimum_character_age = 35
+	minimum_character_age = list(
+		SPECIES_HUMAN = 35
+	)
 
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
@@ -24,7 +26,9 @@
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network,
 			            access_maint_tunnels, access_it)
 	minimal_player_age = 14
-	ideal_character_age = 50
+	ideal_character_age = list(
+		SPECIES_HUMAN = 50
+	)
 	outfit = /datum/outfit/job/rd
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
@@ -66,7 +70,9 @@
 	selection_color = "#a44799"
 	economic_modifier = 7
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30
+	)
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
@@ -116,7 +122,9 @@
 	selection_color = "#a44799"
 	economic_modifier = 7
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30
+	)
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology)
 	minimal_access = list(access_research, access_xenobiology, access_tox_storage)

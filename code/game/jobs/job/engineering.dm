@@ -11,9 +11,13 @@
 	selection_color = "#c67519"
 	economic_modifier = 10
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30
+	)
 
-	ideal_character_age = 50
+	ideal_character_age = list(
+		SPECIES_HUMAN = 50
+	)
 
 
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
@@ -75,7 +79,9 @@
 	selection_color = "#c67519"
 	economic_modifier = 5
 
-	minimum_character_age = 25
+	minimum_character_age = list(
+		SPECIES_HUMAN = 25
+	)
 
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics)
 	minimal_access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction)
@@ -129,7 +135,9 @@
 	selection_color = "#c67519"
 	economic_modifier = 5
 
-	minimum_character_age = 25
+	minimum_character_age = list(
+		SPECIES_HUMAN = 25
+	)
 
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics, access_external_airlocks)
 	minimal_access = list(access_eva, access_engine, access_atmospherics, access_maint_tunnels, access_emergency_storage, access_construction, access_external_airlocks)
@@ -185,7 +193,9 @@
 	outfit = /datum/outfit/job/intern_eng
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18
+	)
 
 /datum/outfit/job/intern_eng
 	name = "Engineering Apprentice"
