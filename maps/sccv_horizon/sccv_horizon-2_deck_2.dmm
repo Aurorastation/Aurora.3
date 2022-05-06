@@ -29419,12 +29419,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_monitoring/tesla)
 "rGX" = (
-/obj/machinery/door/airlock/glass{
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/door/airlock/glass_service{
 	name = "Kitchen";
 	req_access = list(28)
 	},
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "rHd" = (
