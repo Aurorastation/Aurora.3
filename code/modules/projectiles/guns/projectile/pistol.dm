@@ -474,11 +474,14 @@
 	icon_state = "k2557"
 	item_state = "k2557"
 	can_silence = FALSE
-	w_class = NORMAL
+	w_class = ITEMSIZE_NORMAL
 	load_method = MAGAZINE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	is_wieldable = TRUE
 	caliber = ".577 Nitro Express"
+	force = 3
+	recoil = 5
+	recoil_wielded = 1
 	accuracy = 1
 
 /obj/item/gun/projectile/pistol/k_arms/update_icon()
