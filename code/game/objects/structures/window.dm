@@ -721,22 +721,22 @@
 	)
 
 // Indestructible Window
-/obj/structure/window/full/reinforced/crescent/attack_hand()
+/obj/structure/window/full/reinforced/indestructible/attack_hand()
 	return
 
-/obj/structure/window/full/reinforced/crescent/attackby()
+/obj/structure/window/full/reinforced/indestructible/attackby()
 	return
 
-/obj/structure/window/full/reinforced/crescent/ex_act(var/severity = 2.0)
+/obj/structure/window/full/reinforced/indestructible/ex_act(var/severity = 2.0)
 	return
 
-/obj/structure/window/full/reinforced/crescent/hitby()
+/obj/structure/window/full/reinforced/indestructible/hitby()
 	return
 
-/obj/structure/window/full/reinforced/crescent/take_damage()
+/obj/structure/window/full/reinforced/indestructible/take_damage()
 	return
 
-/obj/structure/window/full/reinforced/crescent/shatter()
+/obj/structure/window/full/reinforced/indestructible/shatter()
 	return
 
 // Reinforced Borosilicate Window (I.e. Reinforced Phoron Window)
