@@ -1,20 +1,20 @@
 /obj/structure/window
-	name = "window"
-	desc = "A window."
+	name = "window pane"
+	desc = "A window pane."
 	icon = 'icons/obj/structures.dmi'
-	density = 1
+	density = TRUE
 	w_class = ITEMSIZE_NORMAL
-	layer = 3.2//Just above doors
-	anchored = 1.0
+	layer = 3.2 // Just above doors.
+	anchored = TRUE
 	flags = ON_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE
-	var/maxhealth = 14.0
+	var/maxhealth = 14
 	var/maximal_heat = T0C + 100 		// Maximal heat before this window begins taking damage from fire
-	var/damage_per_fire_tick = 2.0 		// Amount of damage per fire tick. Regular windows are not fireproof so they might as well break quickly.
+	var/damage_per_fire_tick = 2 		// Amount of damage per fire tick. Regular windows are not fireproof so they might as well break quickly.
 	var/health
 	var/ini_dir = null
 	var/state = 2
-	var/reinf = 0
+	var/reinf = FALSE
 	var/basestate
 	var/shardtype = /obj/item/material/shard
 	var/glasstype = null // Set this in subtypes. Null is assumed strange or otherwise impossible to dismantle, such as for shuttle glass.
@@ -77,11 +77,11 @@
 	return
 
 /obj/structure/window/proc/apply_silicate(var/amount)
-	if(health < maxhealth) // Mend the damage
+	if(health < maxhealth) // Mend the damage.
 		health = min(health + amount * 3, maxhealth)
 		if(health == maxhealth)
 			visible_message("[src] looks fully repaired." )
-	else // Reinforce
+	else // Reinforce.
 		silicate = min(silicate + amount, 100)
 		updateSilicate()
 
@@ -101,12 +101,12 @@
 		var/index = null
 		index = 0
 		while(index < 2)
-			new shardtype(loc) //todo pooling?
+			new shardtype(loc)
 			if(reinf)
 				new /obj/item/stack/rods(loc)
 			index++
 	else
-		new shardtype(loc) //todo pooling?
+		new shardtype(loc)
 		if(reinf)
 			new /obj/item/stack/rods(loc)
 
@@ -121,14 +121,12 @@
 	return
 
 /obj/structure/window/bullet_act(var/obj/item/projectile/Proj)
-
 	var/proj_damage = Proj.get_structure_damage()
 	if(!proj_damage) return
 
 	..()
 	take_damage(proj_damage)
 	return
-
 
 /obj/structure/window/ex_act(severity)
 	switch(severity)
@@ -145,9 +143,7 @@
 			else
 				take_damage(rand(10,30))
 
-//TODO: Make full windows a separate type of window.
-//Once a full window, it will always be a full window, so there's no point
-//having the same type for both.
+// This and relevant verbs/procs can probably be removed since full windows are a thing now. -Gem
 /obj/structure/window/proc/is_full_window()
 	return (dir == SOUTHWEST || dir == SOUTHEAST || dir == NORTHWEST || dir == NORTHEAST)
 
@@ -161,14 +157,12 @@
 	else
 		return 1
 
-
 /obj/structure/window/CheckExit(atom/movable/O, turf/target)
 	if(istype(O) && O.checkpass(PASSGLASS))
 		return 1
 	if(get_dir(O.loc, target) == dir)
 		return 0
 	return 1
-
 
 /obj/structure/window/hitby(AM as mob|obj)
 	..()
@@ -321,12 +315,14 @@
 		new glasstype(loc)
 	qdel(src)
 
-/obj/structure/window/Initialize(mapload, start_dir = null, constructed=0)
+/obj/structure/window/Initialize(mapload, start_dir = null, constructed = 0)
 	. = ..()
 
-	//player-constructed windows
 	if (constructed)
 		anchored = 0
+
+	if (!mapload && constructed)
+		state = 0
 
 	if (start_dir)
 		set_dir(start_dir)
@@ -337,7 +333,6 @@
 
 	update_nearby_tiles(need_rebuild=1)
 	update_nearby_icons()
-
 
 /obj/structure/window/Destroy()
 	density = 0
@@ -368,9 +363,9 @@
 		hit(damage_per_fire_tick, 0)
 	..()
 
-
 /obj/structure/window/basic
-	desc = "It looks thin and flimsy. A few knocks with... anything, really should shatter it."
+	name = "window pane"
+	desc = "It looks thin and flimsy. A few hits with anything will shatter it."
 	icon_state = "window"
 	basestate = "window"
 	glasstype = /obj/item/stack/material/glass
@@ -378,137 +373,19 @@
 	damage_per_fire_tick = 2.0
 	maxhealth = 12.0
 
-/obj/structure/window/phoronbasic
-	name = "phoron window"
-	desc = "A borosilicate alloy window. It seems to be quite strong."
-	basestate = "phoronwindow"
-	icon_state = "phoronwindow"
-	shardtype = /obj/item/material/shard/phoron
-	glasstype = /obj/item/stack/material/glass/phoronglass
-	maximal_heat = T0C + 2000
-	damage_per_fire_tick = 1.0
-	maxhealth = 40.0
-
-/obj/structure/window/phoronreinforced
-	name = "reinforced borosilicate window"
-	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
-	basestate = "phoronrwindow"
-	icon_state = "phoronrwindow"
-	shardtype = /obj/item/material/shard/phoron
-	glasstype = /obj/item/stack/material/glass/phoronrglass
-	reinf = 1
-	maximal_heat = T0C + 4000
-	damage_per_fire_tick = 1.0 // This should last for 80 fire ticks if the window is not damaged at all. The idea is that borosilicate windows have something like ablative layer that protects them for a while.
-	maxhealth = 80.0
-
-/obj/structure/window/phoronreinforced/skrell
-	name = "advanced borosilicate-alloy window"
-	desc = "A window made out of a higly advanced borosilicate alloy. It seems to be extremely strong."
-	basestate = "phoronwindow"
-	icon_state = "phoronwindow"
-	maxhealth = 250
-
 /obj/structure/window/reinforced
-	name = "reinforced window"
+	name = "reinforced window pane"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "rwindow"
 	basestate = "rwindow"
 	maxhealth = 40.0
-	reinf = 1
+	reinf = TRUE
 	maximal_heat = T0C + 750
 	damage_per_fire_tick = 2.0
 	glasstype = /obj/item/stack/material/glass/reinforced
 
-
-/obj/structure/window/Initialize(mapload, constructed = 0)
-	. = ..()
-
-	//player-constructed windows
-	if (!mapload && constructed)
-		state = 0
-
-/obj/structure/window/reinforced/full
-    dir = 5
-    icon_state = "fwindow"
-
-/obj/structure/window/reinforced/tinted
-	name = "tinted window"
-	desc = "It looks rather strong and opaque. Might take a few good hits to shatter it."
-	icon_state = "twindow"
-	basestate = "twindow"
-	opacity = 1
-
-/obj/structure/window/reinforced/tinted/frosted
-	name = "frosted window"
-	desc = "It looks rather strong and frosted over. Looks like it might take a few less hits then a normal reinforced window."
-	icon_state = "fwindow"
-	basestate = "fwindow"
-	maxhealth = 30
-
-/obj/structure/window/shuttle
-	name = "shuttle window"
-	desc = "It looks rather strong. Might take a few good hits to shatter it."
-	icon = 'icons/obj/smooth/shuttle_window.dmi'
-	icon_state = "shuttle_window"
-	basestate = "window"
-	maxhealth = 40
-	reinf = 1
-	basestate = "w"
-	dir = 5
-	smooth = SMOOTH_TRUE
-	can_be_unanchored = TRUE
-	layer = 2.99
-
-/obj/structure/window/shuttle/legion
-	name = "cockpit window"
-	icon = 'icons/obj/smooth/shuttle_window_legion.dmi'
-	health = 160
-	maxhealth = 160
-
-/obj/structure/window/shuttle/palepurple
-	icon = 'icons/obj/smooth/shuttle_window_palepurple.dmi'
-
-/obj/structure/window/shuttle/skrell
-	name = "advanced borosilicate alloy window"
-	desc = "It looks extremely strong. Might take many good hits to crack it."
-	icon = 'icons/obj/smooth/skrell_window_purple.dmi'
-	health = 500
-	maxhealth = 500
-	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
-	canSmoothWith = list(
-		/turf/simulated/wall/shuttle/skrell,
-		/obj/structure/window/shuttle/skrell
-	)
-
-
-/obj/structure/window/shuttle/scc_space_ship
-	name = "window"
-	desc = "It looks extremely strong. Might take many good hits to crack it."
-	icon = 'icons/obj/smooth/scc_space_ship.dmi'
-	icon_state = "scc_space_ship"
-	health = 500
-	maxhealth = 500
-	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
-	canSmoothWith = list(
-		/obj/structure/window/shuttle/scc_space_ship
-	)
-
-/obj/structure/window/shuttle/scc_space_ship/cardinal
-	smooth = SMOOTH_MORE
-
-/obj/structure/window/shuttle/scc
-	icon = 'icons/obj/smooth/scc_shuttle_window.dmi'
-	health = 160
-	maxhealth = 160
-
-/obj/structure/window/shuttle/crescent
-	desc = "It looks rather strong."
-
-/obj/structure/window/shuttle/crescent/take_damage()
-	return
-
 /obj/structure/window/reinforced/polarized
-	name = "electrochromic window"
+	name = "reinforced electrochromic window pane"
 	desc = "Adjusts its tint with voltage. Might take a few good hits to shatter it."
 	var/id
 
@@ -556,7 +433,13 @@
 	update_icon()
 
 	for(var/obj/structure/window/reinforced/polarized/W in range(src,range))
-		if (W.id == src.id || !W.id)
+		if(W.id == src.id || !W.id)
+			spawn(0)
+				W.toggle()
+				return
+
+	for(var/obj/structure/window/full/reinforced/polarized/W in range(src,range))
+		if(W.id == src.id || !W.id)
 			spawn(0)
 				W.toggle()
 				return
@@ -569,28 +452,133 @@
 /obj/machinery/button/switch/windowtint/update_icon()
 	icon_state = "light[active]"
 
-/obj/structure/window/full
-	name = "reinforced window"
+/obj/structure/window/phoronbasic
+	name = "borosilicate window pane"
+	desc = "A borosilicate alloy window. It seems to be quite strong."
+	basestate = "phoronwindow"
+	icon_state = "phoronwindow"
+	shardtype = /obj/item/material/shard/phoron
+	glasstype = /obj/item/stack/material/glass/phoronglass
+	maximal_heat = T0C + 2000
+	damage_per_fire_tick = 1.0
+	maxhealth = 40.0
+
+/obj/structure/window/phoronreinforced
+	name = "reinforced borosilicate window pane"
+	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
+	basestate = "phoronrwindow"
+	icon_state = "phoronrwindow"
+	shardtype = /obj/item/material/shard/phoron
+	glasstype = /obj/item/stack/material/glass/phoronrglass
+	reinf = TRUE
+	maximal_heat = T0C + 4000
+	damage_per_fire_tick = 1.0 // This should last for 80 fire ticks if the window is not damaged at all. The idea is that borosilicate windows have something like ablative layer that protects them for a while.
+	maxhealth = 80.0
+
+/obj/structure/window/phoronreinforced/skrell
+	name = "advanced borosilicate alloy window"
+	desc = "A window made out of a higly advanced borosilicate alloy. It seems to be extremely strong."
+	basestate = "phoronwindow"
+	icon_state = "phoronwindow"
+	maxhealth = 250
+
+/obj/structure/window/reinforced/tinted
+	name = "reinforced tinted window pane"
+	desc = "It looks rather strong and opaque. Might take a few good hits to shatter it."
+	icon_state = "twindow"
+	basestate = "twindow"
+	opacity = 1
+
+/obj/structure/window/reinforced/tinted/frosted
+	name = "reinforced frosted window pane"
+	desc = "It looks rather strong and frosted over. Looks like it might take a few less hits then a normal reinforced window."
+	icon_state = "fwindow"
+	basestate = "fwindow"
+	maxhealth = 30
+
+/obj/structure/window/shuttle
+	name = "reinforced shuttle window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
-	icon = 'icons/obj/smooth/full_window.dmi'
-	icon_state = "window_glass"
-	basestate = "window_glass"
+	icon = 'icons/obj/smooth/shuttle_window.dmi'
+	icon_state = "shuttle_window"
+	basestate = "window"
 	maxhealth = 40
 	reinf = TRUE
-	maximal_heat = T0C + 750
+	basestate = "w"
 	dir = 5
-	damage_per_fire_tick = 2.0
+	smooth = SMOOTH_TRUE
 	can_be_unanchored = TRUE
-	glasstype = /obj/item/stack/material/glass/reinforced
+	layer = 2.99
+
+/obj/structure/window/shuttle/legion
+	name = "reinforced cockpit window"
+	icon = 'icons/obj/smooth/shuttle_window_legion.dmi'
+	health = 160
+	maxhealth = 160
+
+/obj/structure/window/shuttle/palepurple
+	icon = 'icons/obj/smooth/shuttle_window_palepurple.dmi'
+
+/obj/structure/window/shuttle/skrell
+	name = "advanced borosilicate alloy window"
+	desc = "It looks extremely strong. Might take many good hits to crack it."
+	icon = 'icons/obj/smooth/skrell_window_purple.dmi'
+	health = 500
+	maxhealth = 500
+	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle/skrell,
+		/obj/structure/window/shuttle/skrell
+	)
+
+/obj/structure/window/shuttle/scc_space_ship
+	name = "advanced borosilicate alloy shuttle window"
+	desc = "It looks extremely strong. Might take many good hits to crack it."
+	icon = 'icons/obj/smooth/scc_space_ship.dmi'
+	icon_state = "scc_space_ship"
+	health = 500
+	maxhealth = 500
+	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
+	canSmoothWith = list(
+		/obj/structure/window/shuttle/scc_space_ship
+	)
+
+/obj/structure/window/shuttle/scc_space_ship/cardinal
+	smooth = SMOOTH_MORE
+
+/obj/structure/window/shuttle/scc
+	icon = 'icons/obj/smooth/scc_shuttle_window.dmi'
+	health = 160
+	maxhealth = 160
+
+/obj/structure/window/shuttle/crescent
+	desc = "It looks rather strong."
+
+/obj/structure/window/shuttle/crescent/take_damage()
+	return
+
+//
+// Full Windows
+//
+
+// Window
+/obj/structure/window/full
+	name = "window"
+	desc = "You aren't supposed to see this."
+	icon = 'icons/error.dmi'
+	maxhealth = 28 // Two window panes worth of health, since that's the minimum you need to break through to get to the other side.
+	glasstype = /obj/item/stack/material/glass
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
-
-/obj/structure/window/full/dismantle_window()
-	var/obj/item/stack/material/mats = new glasstype(loc)
-	mats.amount = 4
-	var/obj/structure/window_frame/F = new/obj/structure/window_frame (get_turf(src))
-	F.anchored = anchored
-	qdel(src)
+	smooth = SMOOTH_TRUE
+	canSmoothWith = list(
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/obj/structure/window/full/reinforced,
+		/obj/structure/window/full/reinforced/polarized,
+		/obj/structure/window/full/reinforced/phoron
+	)
+	can_be_unanchored = TRUE
 
 /obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
 	LAZYINITLIST(dir_mods)
@@ -628,7 +616,131 @@
 		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
 	return ..(adjacencies, dir_mods)
 
-/obj/structure/window/full/phoron
+/obj/structure/window/full/attackby(obj/item/W, mob/user)
+	if(!istype(W) || istype(W, /obj/item/flag))
+		return
+	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
+		var/obj/item/grab/G = W
+		if(istype(G.affecting,/mob/living))
+			grab_smash_attack(G, BRUTE)
+			return
+
+	if(W.flags & NOBLUDGEON) return
+
+	if(W.isscrewdriver())
+		if(reinf && state >= 1)
+			state = 3 - state
+			update_nearby_icons()
+			playsound(loc, W.usesound, 75, 1)
+			to_chat(user, (state == 1 ? SPAN_NOTICE("You have unfastened the window from the frame.") : SPAN_NOTICE("You have fastened the window to the frame.")))
+		else if(reinf && state == 0)
+			update_icon()
+			update_nearby_icons()
+			playsound(loc, W.usesound, 75, 1)
+			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the frame to the floor.") : SPAN_NOTICE("You have unfastened the frame from the floor.")))
+		else if(!reinf)
+			anchored = !anchored
+			update_nearby_icons()
+			playsound(loc, W.usesound, 75, 1)
+			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the window to the floor.") : SPAN_NOTICE("You have unfastened the window.")))
+			update_icon()
+			update_nearby_icons()
+	else if(W.iscrowbar() && reinf && state <= 1)
+		state = 1 - state
+		playsound(loc, W.usesound, 75, 1)
+		to_chat(user, (state ? SPAN_NOTICE("You have pried the window into the frame.") : SPAN_NOTICE("You have pried the window out of the frame.")))
+	else if(W.iswrench() && (!state || !reinf))
+		if(!glasstype)
+			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
+		else
+			visible_message(SPAN_NOTICE("[user] dismantles \the [src]."))
+			dismantle_window()
+	else
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		if(W.damtype == BRUTE || W.damtype == BURN)
+			user.do_attack_animation(src)
+			hit(W.force)
+		else
+			playsound(loc, 'sound/effects/glass_hit.ogg', 75, 1)
+		..()
+	return
+
+/obj/structure/window/full/take_damage(damage = 0, sound_effect = 1)
+	var/initialhealth = health
+
+	if(silicate)
+		damage = damage * (1 - silicate / 200)
+
+	health = max(0, health - damage)
+
+	if(health <= 0)
+		shatter()
+		new /obj/structure/window/full/reinforced(get_turf(src))
+	else
+		if(sound_effect)
+			playsound(loc, 'sound/effects/glass_hit.ogg', 100, 1)
+		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
+			visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
+		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
+			visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
+		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
+			visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
+			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
+	return
+
+/obj/structure/window/full/reinforced/dismantle_window()
+	var/obj/item/stack/material/mats = new glasstype(loc)
+	mats.amount = 4
+	new/obj/structure/window_frame(get_turf(src))
+	qdel(src)
+
+// Reinforced Window
+/obj/structure/window/full/reinforced
+	name = "reinforced window"
+	desc = "It looks rather strong. Might take a few good hits to shatter it."
+	icon = 'icons/obj/smooth/full_window.dmi'
+	icon_state = "window_glass"
+	basestate = "window_glass"
+	dir = 5
+	maxhealth = 80 // Two reinforced panes worth of health, since that's the minimum you need to break through to get to the other side.
+	reinf = TRUE
+	maximal_heat = T0C + 750
+	dir = 5
+	glasstype = /obj/item/stack/material/glass/reinforced
+	layer = 2.99
+	base_frame = /obj/structure/window_frame
+	smooth = SMOOTH_TRUE
+	canSmoothWith = list(
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/obj/structure/window/full/reinforced,
+		/obj/structure/window/full/reinforced/polarized,
+		/obj/structure/window/full/reinforced/phoron
+	)
+
+// Indestructible Window
+/obj/structure/window/full/reinforced/crescent/attack_hand()
+	return
+
+/obj/structure/window/full/reinforced/crescent/attackby()
+	return
+
+/obj/structure/window/full/reinforced/crescent/ex_act(var/severity = 2.0)
+	return
+
+/obj/structure/window/full/reinforced/crescent/hitby()
+	return
+
+/obj/structure/window/full/reinforced/crescent/take_damage()
+	return
+
+/obj/structure/window/full/reinforced/crescent/shatter()
+	return
+
+// Reinforced Borosilicate Window (I.e. Reinforced Phoron Window)
+/obj/structure/window/full/reinforced/phoron
 	name = "reinforced borosilicate window"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
 	icon = 'icons/obj/smooth/phoron_full_window.dmi'
@@ -636,24 +748,26 @@
 	basestate = "window_glass"
 	shardtype = /obj/item/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronrglass
+	reinf = TRUE
 	maximal_heat = T0C + 4000
-	damage_per_fire_tick = 1.0
-	maxhealth = 80.0
-	layer = 2.99
-	base_frame = /obj/structure/window_frame
+	damage_per_fire_tick = 1
+	maxhealth = 160 // Two reinforced borosilicate window panes worth of health, since that's the minimum you need to break through to get to the other side.
 
-/obj/structure/window/reinforced/polarized/full
+// Reinforced Polarized Window
+/obj/structure/window/full/reinforced/polarized
 	name = "reinforced electrochromic window"
 	desc = "Adjusts its tint with voltage. Might take a few good hits to shatter it."
-	icon = 'icons/obj/smooth/full_window.dmi'
-	icon_state = "window_glass"
-	basestate = "window_glass"
-	dir = 5
-	smooth = SMOOTH_TRUE
-	layer = 2.99
-	base_frame = /obj/structure/window_frame
+	var/id
 
-/obj/structure/window/reinforced/polarized/full/dismantle_window()
+/obj/structure/window/full/reinforced/polarized/proc/toggle()
+	if(opacity)
+		animate(src, color="#FFFFFF", time=5)
+		set_opacity(0)
+	else
+		animate(src, color="#222222", time=5)
+		set_opacity(1)
+
+/obj/structure/window/full/reinforced/polarized/dismantle_window()
 	var/obj/item/stack/material/mats = new glasstype(loc)
 	mats.amount = 4
 	var/obj/structure/window_frame/F = new/obj/structure/window_frame (get_turf(src))

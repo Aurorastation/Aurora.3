@@ -10,7 +10,13 @@
 	blocks_air = TRUE
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 312500 //a little over 5 cm thick , 312500 for 1 m by 2.5 m by 0.25 m plasteel wall
-	canSmoothWith = list(/turf/simulated/wall, /turf/simulated/wall/r_wall, /obj/structure/window/full, /obj/structure/window/full/phoron)
+	canSmoothWith = list(
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/obj/structure/window/full/reinforced,
+		/obj/structure/window/full/reinforced/phoron,
+		/obj/structure/window/full/reinforced/polarized
+		)
 
 	var/damage = 0
 	var/damage_overlay = 0

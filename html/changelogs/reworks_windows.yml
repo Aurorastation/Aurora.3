@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - tweak: "Reworks and fixes full windows."
+  - maptweak: "Replaces all old windows with the new full ones."
