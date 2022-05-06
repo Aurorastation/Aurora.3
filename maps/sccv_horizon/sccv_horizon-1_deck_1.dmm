@@ -23625,6 +23625,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
+/obj/machinery/camera/network/first_deck{
+	c_tag = "First Deck - Central Stairwell";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "tYS" = (

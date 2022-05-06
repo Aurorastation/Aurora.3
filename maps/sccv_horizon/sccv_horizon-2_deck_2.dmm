@@ -586,9 +586,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
 "aoC" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/turf/simulated/floor/plating,
-/area/chapel/office)
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations -  Upper Warehouse Starboard";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/operations/office)
 "aoD" = (
 /turf/simulated/wall,
 /area/rnd/xenobiology)
@@ -783,7 +801,7 @@
 /obj/machinery/door/airlock{
 	name = "Chapel"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/chapel/main)
 "auL" = (
 /obj/structure/closet/crate,
@@ -926,12 +944,10 @@
 /turf/simulated/floor/carpet,
 /area/library)
 "axL" = (
-/obj/machinery/mass_driver{
-	_wifi_id = "chapel_driver";
-	id = "chapel_driver"
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/reinforced,
+/obj/machinery/light/small,
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
 /area/chapel/office)
 "axS" = (
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -1154,6 +1170,10 @@
 /area/engineering/storage/tech)
 "aCS" = (
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/mass_driver{
+	_wifi_id = "chapel_driver";
+	id = "chapel_driver"
+	},
 /turf/simulated/floor/reinforced,
 /area/chapel/office)
 "aCU" = (
@@ -1375,8 +1395,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "aJS" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -1393,7 +1412,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/wood,
 /area/chapel/main)
 "aKL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1449,7 +1468,7 @@
 	name = "Chapel Storage";
 	req_access = list(22)
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/chapel/office)
 "aMl" = (
 /obj/structure/punching_bag,
@@ -2033,9 +2052,9 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/wood,
 /area/chapel/office)
 "aYI" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -3580,7 +3599,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 9
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/wood,
 /area/chapel/main)
 "bQW" = (
 /obj/structure/sink/kitchen{
@@ -3879,8 +3898,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "bZu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4816,14 +4834,14 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/structure/closet/wardrobe/chaplain_black,
-/obj/item/storage/box/fancy/crayons,
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Chapel Storage";
+	dir = 4
+	},
+/obj/structure/table/wood,
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/storage/box/fancy/candle_box,
-/obj/item/reagent_containers/food/drinks/bottle/holywater,
-/obj/item/reagent_containers/spray/aspergillum,
-/obj/item/nullrod/obsidianshards,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/wood,
 /area/chapel/office)
 "cKg" = (
 /obj/machinery/hologram/holopad,
@@ -5919,6 +5937,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
+"dqs" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/closet/crate/coffin,
+/obj/structure/closet/crate/coffin{
+	pixel_y = 4
+	},
+/turf/simulated/floor/wood,
+/area/chapel/office)
 "dqy" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (.45 Pistol)"
@@ -6791,8 +6819,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "dPV" = (
 /obj/structure/cable/green{
@@ -7127,7 +7154,7 @@
 /area/maintenance/wing/port/far)
 "ebR" = (
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck - Hallway 4";
+	c_tag = "Second Deck - Starboard Dock";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -7554,7 +7581,7 @@
 	req_access = list(22)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/chapel/office)
 "eqv" = (
 /obj/machinery/light,
@@ -8030,7 +8057,7 @@
 "eDW" = (
 /obj/structure/closet/secure_closet/hangartech,
 /obj/machinery/camera/network/supply{
-	c_tag = "Operations -  Upper Warehouse";
+	c_tag = "Operations -  Upper Warehouse Port";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -8513,6 +8540,10 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/firealarm/east,
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Auxiliary Custodial Closet";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor/stairs)
 "eVf" = (
@@ -9563,6 +9594,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
+"fyH" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Medical Entrance";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/central_two)
 "fyV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10414,8 +10455,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "fWI" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "fWU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -12391,8 +12431,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "gZt" = (
 /turf/simulated/floor/wood,
@@ -13470,7 +13509,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 5
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/wood,
 /area/chapel/main)
 "hEo" = (
 /obj/effect/floor_decal/corner/green{
@@ -14168,8 +14207,7 @@
 /area/hydroponics)
 "idS" = (
 /obj/machinery/firealarm/north,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "idU" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -17040,7 +17078,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/wood,
 /area/chapel/main)
 "jRA" = (
 /obj/structure/cable/green{
@@ -17914,7 +17952,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/wood,
 /area/chapel/main)
 "kvG" = (
 /obj/structure/cable{
@@ -20077,6 +20115,17 @@
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
 /area/janitor/stairs)
+"lMi" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/structure/closet/wardrobe/chaplain_black,
+/obj/item/storage/box/fancy/crayons,
+/obj/item/reagent_containers/food/drinks/bottle/holywater,
+/obj/item/reagent_containers/spray/aspergillum,
+/obj/item/nullrod/obsidianshards,
+/turf/simulated/floor/wood,
+/area/chapel/office)
 "lMm" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/cable/green{
@@ -20220,17 +20269,10 @@
 /turf/simulated/floor/wood,
 /area/library)
 "lQn" = (
-/obj/structure/closet/crate/coffin,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/closet/crate/coffin{
-	pixel_y = 4
-	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/wood,
 /area/chapel/office)
 "lQo" = (
 /obj/structure/window/reinforced{
@@ -22601,8 +22643,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/wood,
 /area/chapel/office)
 "nfN" = (
 /obj/structure/cable/green{
@@ -23165,8 +23206,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "nuD" = (
 /obj/structure/disposalpipe/segment,
@@ -25024,8 +25064,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "oBV" = (
 /obj/structure/cable/green{
@@ -25079,8 +25118,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "oCG" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -25734,7 +25772,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/wood,
 /area/chapel/main)
 "oXd" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -27439,8 +27477,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "pTn" = (
 /obj/structure/cable/yellow{
@@ -27995,8 +28032,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "qjm" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
@@ -29244,6 +29280,10 @@
 	},
 /obj/machinery/newscaster{
 	pixel_y = -32
+	},
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Central Stairwell";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
@@ -31810,10 +31850,6 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck - Medical Entrance";
-	dir = 1
-	},
 /obj/machinery/power/apc{
 	is_critical = 1;
 	name = "south bump";
@@ -32179,8 +32215,7 @@
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "sBE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "sBL" = (
 /obj/machinery/door/firedoor,
@@ -32230,7 +32265,7 @@
 	req_access = list(22)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/chapel/office)
 "sDc" = (
 /obj/effect/floor_decal/corner/brown{
@@ -33451,7 +33486,7 @@
 /obj/structure/closet/crate/coffin{
 	pixel_y = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/wood,
 /area/chapel/office)
 "toA" = (
 /obj/structure/table/standard,
@@ -33814,6 +33849,10 @@
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-28"
 	},
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Tech Storage Entrance";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "tBB" = (
@@ -33863,16 +33902,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/research)
 "tDl" = (
-/obj/structure/table/rack,
-/obj/random/loot,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/machinery/door/airlock{
+	id_tag = "chapdoor";
+	name = "Chapel Storage";
+	req_access = list(22)
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
+/turf/simulated/floor/wood,
+/area/chapel/office)
 "tDZ" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -34577,9 +34613,9 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/wood,
 /area/chapel/office)
 "tWH" = (
 /turf/simulated/floor/tiled/dark,
@@ -35051,8 +35087,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "uje" = (
 /obj/machinery/door/airlock/glass_engineering{
@@ -35283,6 +35318,8 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
+/obj/structure/table/rack,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "uoz" = (
@@ -37101,6 +37138,18 @@
 /obj/item/stack/wrapping_paper,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
+"vqe" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/lino/grey,
+/area/chapel/main)
 "vqk" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
@@ -37671,8 +37720,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "vId" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
@@ -38653,6 +38701,16 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
+"wbP" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Chapel Entrance";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/central_two)
 "wbV" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/structure/cable/green{
@@ -40017,16 +40075,11 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
 "wLp" = (
-/obj/machinery/button/mass_driver{
-	_wifi_id = "chapel_driver";
-	id = "chapel_driver";
-	layer = 3.2;
-	pixel_x = 24;
-	pixel_y = -22
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Break Room"
 	},
-/obj/structure/curtain/black,
-/turf/simulated/floor/carpet,
-/area/chapel/office)
+/turf/simulated/wall,
+/area/maintenance/substation/medical)
 "wLz" = (
 /obj/item/device/radio/intercom{
 	listening = 0;
@@ -40946,8 +40999,7 @@
 /area/medical/reception)
 "xjH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "xjK" = (
 /obj/structure/window/reinforced{
@@ -41746,15 +41798,22 @@
 	id = "massdriver";
 	layer = 3.2;
 	name = "Mass Driver Interior Blast Door";
-	pixel_x = 25;
-	pixel_y = 2
+	pixel_x = -5;
+	pixel_y = 27
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "chapel_driver";
 	layer = 3.2;
 	name = "Mass Driver Exterior Blast Door";
-	pixel_x = 25;
-	pixel_y = -7
+	pixel_x = -5;
+	pixel_y = 38
+	},
+/obj/machinery/button/mass_driver{
+	_wifi_id = "chapel_driver";
+	id = "chapel_driver";
+	layer = 3.2;
+	pixel_x = 6;
+	pixel_y = 32
 	},
 /obj/structure/curtain/black,
 /turf/simulated/floor/carpet,
@@ -41940,8 +41999,7 @@
 	c_tag = "Service - Chapel";
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "xPj" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -53687,7 +53745,7 @@ rju
 qNo
 qvZ
 kRZ
-rtF
+aoC
 kmc
 epw
 oVk
@@ -56508,7 +56566,7 @@ ykA
 oza
 def
 xLG
-nQm
+wLp
 nyw
 mVR
 iuP
@@ -58948,14 +59006,14 @@ fqr
 rjP
 kvs
 oWQ
-oBv
+vqe
 hEi
 kvs
 fol
 fol
 aMa
 fol
-wLp
+fol
 xIW
 lCF
 hUK
@@ -59146,7 +59204,7 @@ phF
 kcy
 hEF
 hBL
-fqr
+wbP
 jNk
 idS
 fWI
@@ -59156,9 +59214,9 @@ fWI
 fol
 cKc
 aYE
+lMi
 fol
 pgi
-aoC
 lNQ
 hUK
 hUK
@@ -59355,11 +59413,11 @@ pSP
 uiL
 xjH
 oCz
-fol
+tDl
 lQn
 nfL
-fol
 axL
+fol
 aCS
 fRc
 hUK
@@ -59560,7 +59618,7 @@ lBh
 fol
 toe
 tWF
-fol
+dqs
 fol
 fol
 lNQ
@@ -59763,7 +59821,7 @@ fol
 fol
 sCE
 fol
-tDl
+gOL
 uot
 eeQ
 gBp
@@ -61772,7 +61830,7 @@ nLG
 xjC
 dKH
 ghX
-fqr
+fyH
 lWg
 lJi
 jCL

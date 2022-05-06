@@ -3332,6 +3332,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Auxiliary Medical Entrance";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "gd" = (
@@ -6716,6 +6720,9 @@
 	name = "Executive Officer RC";
 	pixel_y = 32
 	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Executive Officer's Office"
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "mk" = (
@@ -9003,6 +9010,10 @@
 /obj/effect/floor_decal/corner/green/full,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Central Stairwell";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
@@ -19832,6 +19843,16 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet/art,
 /area/horizon/crew_quarters/fitness/lounge)
+"KQ" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Cryogenics Fore Entrance";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard)
 "KR" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -22631,10 +22652,6 @@
 	},
 /area/bridge)
 "PH" = (
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Executive Officer's Office";
-	dir = 1
-	},
 /obj/machinery/door/window/brigdoor/westleft{
 	name = "Inner Office Access";
 	req_access = list(57)
@@ -24085,7 +24102,7 @@
 /area/medical/smoking)
 "Sm" = (
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Hallway 4"
+	c_tag = "Third Deck - Cryogenics Aft Entrance"
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -24481,6 +24498,10 @@
 /obj/effect/floor_decal/corner/paleblue/full,
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Auxiliary Bridge Entrance";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -45949,7 +45970,7 @@ ss
 AA
 zN
 PD
-ye
+KQ
 Gc
 uc
 HS
