@@ -39,7 +39,7 @@
 "tH" = (/turf/simulated/wall/shuttle/dark,/area/exoplanet/barren/asteroid)
 "uq" = (/obj/random/junk,/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)
 "uO" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled/airless,/area/exoplanet/barren/asteroid)
-"vK" = (/obj/effect/map_effect/wingrille_spawn/full,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
+"vK" = (/obj/effect/map_effect/win_spawn/full/reinforced,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
 "vV" = (/obj/structure/mech_wreckage/powerloader,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
 "wl" = (/obj/structure/grille/broken,/turf/simulated/floor/airless,/area/exoplanet/barren/asteroid)
 "xD" = (/obj/effect/decal/cleanable/blood/tracks/footprints,/turf/simulated/floor/tiled/asteroid/airless,/area/exoplanet/barren/asteroid)
