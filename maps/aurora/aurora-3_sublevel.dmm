@@ -37015,7 +37015,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/security/penal_colony/prison)
 "ybc" = (
-/obj/structure/window/reinforced/full,
+/obj/structure/window/reinforced{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony/prison)
 "ybo" = (

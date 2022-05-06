@@ -143,13 +143,13 @@
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "as" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
 	icon_state = "radiation";
 	name = "RADIOACTIVE AREA";
 	pixel_y = 32
 	},
+/obj/effect/map_effect/win_spawn/full/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/gravity_gen)
 "at" = (
@@ -278,7 +278,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "aH" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/win_spawn/full/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/gravity_gen)
 "aI" = (
@@ -561,7 +561,7 @@
 /turf/simulated/wall/r_wall,
 /area/bridge)
 "bs" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/win_spawn/full/reinforced,
 /turf/simulated/floor/plating,
 /area/bridge)
 "bt" = (
@@ -771,11 +771,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "bU" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/win_spawn/full/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "bV" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/win_spawn/full/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
 "bW" = (
@@ -814,12 +814,12 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bZ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/win_spawn/full/reinforced,
 /turf/simulated/floor/plating,
 /area/bridge)
 "ca" = (
@@ -858,7 +858,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "cd" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -1463,12 +1462,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "ie" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/win_spawn/full/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
 "jf" = (
@@ -1837,7 +1836,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "UP" = (
-/obj/effect/map_effect/wingrille_spawn/full,
+/obj/effect/map_effect/win_spawn/full/reinforced,
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "Vm" = (
