@@ -4168,7 +4168,6 @@
 	},
 /area/centcom/specops)
 "aBL" = (
-/obj/machinery/megavendor,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aBO" = (

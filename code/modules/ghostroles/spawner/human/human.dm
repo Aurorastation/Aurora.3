@@ -105,7 +105,6 @@
 	//Move the mob
 	M.forceMove(T)
 	M.lastarea = get_area(M.loc) //So gravity doesnt fuck them.
-	M.megavend = TRUE //So the autodrobe ignores them
 
 	//Setup the appearance
 	if(allow_appearance_change)

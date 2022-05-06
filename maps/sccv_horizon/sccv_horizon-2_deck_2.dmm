@@ -5939,6 +5939,7 @@
 	},
 /obj/structure/cable/green,
 /obj/structure/closet/emcloset,
+/obj/item/storage/toolbox/emergency,
 /obj/item/crowbar/red,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/sleep/cryo/living_quarters_lift)
@@ -8242,6 +8243,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
+/obj/item/storage/toolbox/emergency,
 /obj/item/crowbar/red,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/sleep/cryo/living_quarters_lift)
@@ -25025,9 +25027,6 @@
 "piE" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
-	},
-/obj/machinery/megavendor/vendor{
-	pixel_y = 16
 	},
 /obj/machinery/disposal/small/west{
 	pixel_y = -6

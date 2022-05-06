@@ -31594,7 +31594,6 @@
 /area/bridge)
 "bcG" = (
 /obj/machinery/firealarm/west,
-/obj/machinery/megavendor/vendor,
 /turf/simulated/floor/carpet/blue,
 /area/crew_quarters/heads/cryo)
 "bcH" = (
@@ -71213,7 +71212,6 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "xUe" = (
-/obj/machinery/megavendor/vendor,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "xVv" = (
