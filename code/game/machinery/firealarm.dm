@@ -246,7 +246,7 @@
 /obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
 	. = ..(mapload, ndir)
 
-	seclevel = "green"
+	seclevel = get_security_level()
 
 	if(building)
 		buildstage = 0
