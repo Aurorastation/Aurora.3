@@ -1,0 +1,10 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - tweak: "Changes the name and description of portable generators to describe their function better."
+  - tweak: "Buffs portable generators a bit so that they are actually usable for powering things, like shuttles."
+  - tweak: "Replaces the phoron-driven portable generator variant with a graphite-powered one, since phoron is supposed to be scarce."
+  - rscadd: "Adds light to portable generators when they are active, per their fuel's \"colour\"."
+  - rscadd: "Adds graphite. It is made from compressing coal at a mining refinery. For now, it is only used in portable generators."
