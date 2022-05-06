@@ -3655,11 +3655,11 @@
 /area/chapel/main)
 "bZu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
 	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "bZD" = (
@@ -9389,6 +9389,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"fKB" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/lobby)
 "fKG" = (
 /obj/structure/closet/crate,
 /obj/random/loot,
@@ -9856,6 +9861,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
+"fYh" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/tiled,
+/area/engineering/storage_hard)
 "fYW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
@@ -13493,9 +13503,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner_wide/green,
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "ifP" = (
@@ -13677,6 +13685,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
+"ikb" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "ikB" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -15922,9 +15934,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner_wide/green,
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "jEL" = (
@@ -20608,6 +20618,11 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
+"mzS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/turf/simulated/floor/tiled,
+/area/hallway/engineering)
 "mAO" = (
 /turf/simulated/wall,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -26400,9 +26415,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner_wide/green,
 /obj/structure/sink{
 	pixel_y = 28
 	},
@@ -36939,10 +36952,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/smes/tesla)
 "vZx" = (
-/obj/machinery/shieldgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/firealarm/east,
-/turf/simulated/floor/plating,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "vZy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -52660,7 +52673,7 @@ rew
 wvK
 ggy
 fzh
-myG
+ikb
 vQQ
 hmK
 kzO
@@ -55046,7 +55059,7 @@ pZu
 qUL
 oiX
 doE
-urs
+fYh
 urs
 urs
 nlr
@@ -58281,7 +58294,7 @@ mKJ
 nkT
 mqq
 mqq
-mqq
+mzS
 nkT
 rAw
 hdG
@@ -59904,7 +59917,7 @@ xEH
 fKi
 nbJ
 dpG
-akn
+fKB
 oUt
 xWa
 auU

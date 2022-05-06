@@ -6550,8 +6550,8 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/machinery/camera/network/command{
-	dir = 1;
-	c_tag = "Bridge - Crewman Lockeroom"
+	c_tag = "Bridge - Crewman Lockeroom";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
@@ -6633,8 +6633,8 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/command{
-	dir = 8;
-	c_tag = "Bridge - Center 1"
+	c_tag = "Bridge - Center 1";
+	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -10730,8 +10730,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/camera/network/command{
-	dir = 1;
-	c_tag = "Bridge - Port 2"
+	c_tag = "Bridge - Port 2";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -13806,8 +13806,8 @@
 /obj/item/tape_roll,
 /obj/item/storage/toolbox/mechanical,
 /obj/machinery/camera/network/command{
-	dir = 4;
-	c_tag = "Bridge - Cockpit"
+	c_tag = "Bridge - Cockpit";
+	dir = 4
 	},
 /obj/item/device/multitool,
 /turf/simulated/floor/carpet/rubber,
@@ -14188,8 +14188,8 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/command{
-	dir = 4;
-	c_tag = "Bridge - Center 2"
+	c_tag = "Bridge - Center 2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 1
@@ -15130,8 +15130,8 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/command{
-	dir = 1;
-	c_tag = "Bridge - Captain's Office Fore"
+	c_tag = "Bridge - Captain's Office Fore";
+	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/cable/green{
@@ -16844,8 +16844,8 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/command{
-	dir = 1;
-	c_tag = "Bridge - Backroom"
+	c_tag = "Bridge - Backroom";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
@@ -17422,8 +17422,8 @@
 "Ok" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/camera/network/command{
-	dir = 1;
-	c_tag = "Bridge - Captain's Private Office 2"
+	c_tag = "Bridge - Captain's Private Office 2";
+	dir = 1
 	},
 /obj/structure/table/reinforced/wood,
 /obj/machinery/photocopier/faxmachine{
