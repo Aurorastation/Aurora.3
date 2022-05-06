@@ -2226,7 +2226,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock // Corporate Smock - Dekel Mrrhazrughan - veterangary
 	name = "corporate smock"
-	desc = "A dark colored surplus winter smock repurposed for interstellar use. It still has a hood, shaded into corporate colors. A traditional Stellar Corporate Conglomerate star is embroidered on the back."
+	desc = "A dark coloured surplus winter smock repurposed for interstellar use that has a hood shaded with corporate colors. A traditional Stellar Corporate Conglomerate star is embroidered on the back."
 	icon = 'icons/obj/custom_items/dekel_smock.dmi'
 	icon_override = 'icons/obj/custom_items/dekel_smock.dmi'
 	icon_state = "seccloak"
