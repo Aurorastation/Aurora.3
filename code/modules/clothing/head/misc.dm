@@ -350,7 +350,7 @@
 /obj/item/clothing/head/kippah
 	name = "kippah"
 	desc = "A head covering commonly worn by those of Jewish faith."
-	icon = 'icons/obj/clothing/chaplain.dmi'
+	icon = 'icons/clothing/head/kippahs.dmi'
 	icon_state = "kippah"
 	item_state = "kippah"
 	contained_sprite = 1
