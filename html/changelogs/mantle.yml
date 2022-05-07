@@ -1,6 +1,7 @@
-author: RyverStyx
+author: RyverStyx, Llywelwyn
 
 delete-after: True
 
 changes:
   - bugfix: "Fixes recoloring of the mantle sprite... Again."
+  - backend: "Refactors all skrell_items.dmi into contained sprites."
