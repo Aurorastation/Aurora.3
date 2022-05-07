@@ -115,7 +115,7 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenobio/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
-	id = /obj/item/card/id/zavodskoi
+	id = /obj/item/card/id/zeng_hu
 
 
 /datum/outfit/job/scientist/xenoarcheologist/zeng_hu
