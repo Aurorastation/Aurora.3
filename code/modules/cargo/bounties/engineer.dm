@@ -146,12 +146,12 @@
 
 /datum/bounty/item/engineer/generator
 	name = "Portable Generators"
-	description = "Another station reported some engine troubles, and needs a few portable generators to maintain critical operations. Ship any type of P.A.C.M.A.N. generators to receive a bonus."
+	description = "Another station reported some engine troubles, and needs a few portable generators to maintain critical operations. Ship any type of portable generators to receive a bonus."
 	reward_low = 5000
 	reward_high = 6200
 	required_count = 2
 	random_count = 1
-	wanted_types = list(/obj/machinery/power/port_gen/pacman)
+	wanted_types = list(/obj/machinery/power/portgen/basic)
 
 /datum/bounty/item/engineer/crossbow
 	name = "Powered Crossbow"

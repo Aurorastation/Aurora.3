@@ -296,7 +296,8 @@ for reference:
 	name = "legion barrier"
 	desc = "A deployable barrier, bearing the marks of the Tau Ceti Foreign Legion. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
-	req_access = list(access_legion)
+	req_access = null
+	req_one_access = list(access_tcfl_peacekeeper_ship, access_legion)
 
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"

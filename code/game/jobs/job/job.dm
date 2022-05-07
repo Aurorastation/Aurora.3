@@ -155,45 +155,6 @@
 	else
 		minimal_player_age = 0
 
-/datum/job/proc/late_equip(var/mob/living/carbon/human/H)
-	if(!H)
-		return 0
-
-	H.species.before_equip(H, FALSE, src)
-
-	var/econ_status = 1
-	if(H.client)
-		switch(H.client.prefs.economic_status)
-			if(ECONOMICALLY_WEALTHY)		econ_status = 3
-			if(ECONOMICALLY_WELLOFF)		econ_status = 2
-			if(ECONOMICALLY_AVERAGE)		econ_status = 1
-			if(ECONOMICALLY_UNDERPAID)		econ_status = -2
-			if(ECONOMICALLY_POOR)			econ_status = -3
-
-	//give them an account in the station database
-	var/species_modifier = min((H.species ? H.species.economic_modifier : 0) - 9, 0)
-
-	var/wealth = (econ_status + economic_modifier + species_modifier)
-
-	switch(wealth)
-		if(-INFINITY to 6)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
-		if(7 to 9)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/red(H), slot_tie)
-		if(10 to 14)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/really_black(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/storage/briefcase(H), slot_l_hand)
-		if(15 to INFINITY)
-			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/red(H), slot_tie)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket(H), slot_wear_suit)
-			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/locket(H), slot_tie)
-
 /datum/job/proc/has_alt_title(var/mob/H, var/supplied_title, var/desired_title)
 	return (supplied_title == desired_title) || (H.mind && H.mind.role_alt_title == desired_title)
 

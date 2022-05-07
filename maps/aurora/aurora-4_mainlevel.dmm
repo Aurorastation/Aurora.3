@@ -31594,7 +31594,6 @@
 /area/bridge)
 "bcG" = (
 /obj/machinery/firealarm/west,
-/obj/machinery/megavendor/vendor,
 /turf/simulated/floor/carpet/blue,
 /area/crew_quarters/heads/cryo)
 "bcH" = (
@@ -60470,7 +60469,7 @@
 /turf/simulated/floor/marble,
 /area/maintenance/cargo)
 "ffY" = (
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "fgj" = (
@@ -65651,7 +65650,7 @@
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
 "pam" = (
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "pch" = (
@@ -71212,7 +71211,6 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "xUe" = (
-/obj/machinery/megavendor/vendor,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "xVv" = (
