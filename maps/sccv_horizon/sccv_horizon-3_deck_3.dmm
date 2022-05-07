@@ -28018,10 +28018,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock{
-	name = "Journalist's Office";
-	req_access = list(70)
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -28032,10 +28028,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 4
+/obj/machinery/door/airlock/service{
+	name = "Journalist's Office";
+	req_access = list(70)
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled,
 /area/journalistoffice)
 "Yi" = (
 /obj/machinery/shower{
