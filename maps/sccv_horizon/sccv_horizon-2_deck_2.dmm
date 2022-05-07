@@ -19298,7 +19298,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "leh" = (
-,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
