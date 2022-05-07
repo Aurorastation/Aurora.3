@@ -471,8 +471,9 @@
 	It is chambered in the equivalent of the .577 Nitro Express rifle cartridge, but due to Zavodskoi developed propellant, the length of the casing was reduced significantely. \
 	Kumar Arms guarantees your enemy's armor penetrated or your money back. It features a revolutionary automatic revolving bolt system, which ensures accuracy at the cost of fire rate."
 	icon = 'icons/obj/contained_items/weapons/k_arms.dmi'
-	icon_state = "k2557"
-	item_state = "k2557"
+	icon_state = "k2557-loaded"
+	item_state = "k2557-loaded"
+	contained_sprite = TRUE
 	can_silence = FALSE
 	w_class = ITEMSIZE_NORMAL
 	load_method = MAGAZINE
@@ -490,12 +491,14 @@
 	accuracy_wielded = 1
 
 	
-/obj/item/gun/projectile/pistol/super_heavy/udate_icon()
+/obj/item/gun/projectile/pistol/super_heavy/update_icon()
 	..()
 	if(ammo_magazine?.stored_ammo.len)
 		icon_state = "k2557-loaded"
 	else 
 		icon_state = "k2557-empty"
+
+
 
 /*/obj/item/gun/projectile/pistol/k_arms/update_icon()
 	. = ..()
