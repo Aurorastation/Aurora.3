@@ -1,7 +1,7 @@
 /obj/item/clothing/under/skrell
 	name = "federation uniform"
 	desc = "The uniform worn by Official Jagon Federation Representatives and Diplomats.  It looks pretty waterproof."
-	icon = 'icons/obj/skrell_items.dmi'
+	icon = 'icons/obj/contained_items/skrell/federation_uniform.dmi'
 	icon_state = "skrell_formal"
 	item_state = "skrell_formal"
 	contained_sprite = TRUE
@@ -9,6 +9,7 @@
 /obj/item/clothing/under/skrell/qeblak
 	name = "qeblak ceremonial garment"
 	desc = "A traditional garment worn by Qeblak Star Keepers"
+	icon = 'icons/obj/contained_items/skrell/qeblak_uniform.dmi'
 	icon_state = "qeblak_uniform"
 	item_state = "qeblak_uniform"
 	action_button_name = "Toggle Ceremonial Garment Lights"
@@ -45,132 +46,134 @@
 /obj/item/clothing/under/skrell/slugger
 	name = "prescient republic of the qar wetsuit"
 	desc = "A wetsuit worn by members of Prescient Republic of the Qar generational fleet."
+	icon = 'icons/obj/contained_items/skrell/slugger_wetsuit.dmi'
 	item_state = "slugger_wetsuit"
 	icon_state = "slugger_wetsuit"
 
 // Skrell Ox clothing
-/obj/item/clothing/under/skrell/ox
+/obj/item/clothing/under/skrell/jargon
 	name = "Ox research uniform"
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in a scientific field."
 	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Jargon Society."
+	icon = 'icons/obj/contained_items/skrell/jargon_uniforms.dmi'
 	item_state = "ox_sci"
 	icon_state = "ox_sci"
 
-/obj/item/clothing/under/skrell/ox/security
+/obj/item/clothing/under/skrell/jargon/ox
 	name = "Ox bridge and security uniform"
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in the security service or as pilots or bridge crew."
 	item_state = "ox_sec"
 	icon_state = "ox_sec"
 
-/obj/item/clothing/under/skrell/ox/engineer
+/obj/item/clothing/under/skrell/jargon/ox/engineer
 	name = "Ox engineering and maintenance uniform"
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in the engineering industry or in maintenance."
 	item_state = "ox_engi"
 	icon_state = "ox_engi"
 
-/obj/item/clothing/under/skrell/ox/service
+/obj/item/clothing/under/skrell/jargon/ox/service
 	name = "Ox mailing and service uniform"
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in the mail service or hospitality industries."
 	item_state = "ox_cargo"
 	icon_state = "ox_cargo"
 
-/obj/item/clothing/under/skrell/ox/med
+/obj/item/clothing/under/skrell/jargon/ox/med
 	name = "Ox healthcare uniform"
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical in the healthcare industry."
 	item_state = "ox_med"
 	icon_state = "ox_med"
 
 // Skrell Ix clothing
-/obj/item/clothing/under/skrell/ix
+/obj/item/clothing/under/skrell/jargon/ix
 	name = "Ix research uniform"
 	desc = "A plain jumpsuit that signifies the wearer as a low-scoring Secondary Numerical working in a scientific field."
 	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ix are those who are low-scoring Secondary Numericals with their clothes typically being plain, yet still considered pleasant to wear and be seen in. Secondary Numericals are the majority population in the Jargon Federation, with Ix being those who are in the lower end of the band. "
 	item_state = "ix_sci"
 	icon_state = "ix_sci"
 
-/obj/item/clothing/under/skrell/ix/security
+/obj/item/clothing/under/skrell/jargon/ix/security
 	name = "Ix bridge and security uniform"
 	desc = "A plain jumpsuit that signifies the wearer as a low-scoring Secondary Numerical working in the security service or as pilots or bridge crew."
 	item_state = "ix_sec"
 	icon_state = "ix_sec"
 
-/obj/item/clothing/under/skrell/ix/engineer
+/obj/item/clothing/under/skrell/jargon/ix/engineer
 	name = "Ix engineering and maintenance uniform"
 	desc = "A plain jumpsuit that signifies the wearer as a low-scoring Secondary Numerical in the engineering industry or in maintenance."
 	item_state = "ix_engi"
 	icon_state = "ix_engi"
 
-/obj/item/clothing/under/skrell/ix/service
+/obj/item/clothing/under/skrell/jargon/ix/service
 	name = "Ix mailing and service uniform"
 	desc = "A plain jumpsuit that signifies the wearer as a low-scoring Secondary Numerical in the mail service or hospitality industries."
 	item_state = "ix_cargo"
 	icon_state = "ix_cargo"
 
-/obj/item/clothing/under/skrell/ix/med
+/obj/item/clothing/under/skrell/jargon/ix/med
 	name = "Ix healthcare uniform"
 	desc = "A plain jumpsuit that signifies the wearer as a low-scoring Secondary Numerical in the healthcare industry."
 	item_state = "ix_med"
 	icon_state = "ix_med"
 
 // Skrell Oqi clothing
-/obj/item/clothing/under/skrell/oqi
+/obj/item/clothing/under/skrell/jargon/oqi
 	name = "Oqi research uniform"
 	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in a scientific field."
 	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Oqi are high-scoring Secondary Numericals or low-scoring Primary Numericals, with their workwear generally having more accessories that help them work in their specific industry. Skrell who are Oqi are typically more fashion-conscious, making it not uncommon to see these uniforms altered slightly to account for the latest fashion trends in the Jargon Federation."
 	item_state = "oqi_sci"
 	icon_state = "oqi_sci"
 
-/obj/item/clothing/under/skrell/oqi/security
+/obj/item/clothing/under/skrell/jargon/oqi/security
 	name = "Oqi bridge and security uniform"
 	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in the security service or as pilots or bridge crew."
 	item_state = "oqi_sec"
 	icon_state = "oqi_sec"
 
-/obj/item/clothing/under/skrell/oqi/engineer
+/obj/item/clothing/under/skrell/jargon/oqi/engineer
 	name = "Oqi engineering and maintenance uniform"
 	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in the engineering industry or in maintenance."
 	item_state = "oqi_engi"
 	icon_state = "oqi_engi"
 
-/obj/item/clothing/under/skrell/oqi/service
+/obj/item/clothing/under/skrell/jargon/oqi/service
 	name = "Oqi mailing and service uniform"
 	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in the mail service or hospitality industries."
 	item_state = "oqi_cargo"
 	icon_state = "oqi_cargo"
 
-/obj/item/clothing/under/skrell/oqi/med
+/obj/item/clothing/under/skrell/jargon/oqi/med
 	name = "Ix healthcare uniform"
 	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in the healthcare industry."
 	item_state = "oqi_med"
 	icon_state = "oqi_med"
 
 // Skrell Iqi clothing
-/obj/item/clothing/under/skrell/iqi
+/obj/item/clothing/under/skrell/jargon/iqi
 	name = "Iqi research uniform"
 	desc = "A very fashionable jumpsuit that signifies the wearer as a high-scoring Primary Numerical in a scientific field."
 	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Iqi are high-scoring Primary Numericals, and as such their workwear is of the highest quality afforded by the Federation. These clothes are typically made of sturdier materials and are more comfortable to wear. Primary Numericals are typically seen as the trend-setters in Federation society, and Skrell who are ranked at Iqi are known to influence fashion through how they accessorise."
 	item_state = "iqi_sci"
 	icon_state = "iqi_sci"
 
-/obj/item/clothing/under/skrell/iqi/security
+/obj/item/clothing/under/skrell/jargon/iqi/security
 	name = "Iqi bridge and security uniform"
 	desc = "A very fashionable jumpsuit that signifies the wearer as a high-scoring Primary Numerical in the security service or as pilots or bridge crew."
 	item_state = "iqi_sec"
 	icon_state = "iqi_sec"
 
-/obj/item/clothing/under/skrell/iqi/engineer
+/obj/item/clothing/under/skrell/jargon/iqi/engineer
 	name = "Iqi engineering and maintenance uniform"
 	desc = "A very fashionable jumpsuit that signifies the wearer as a high-scoring Primary Numerical in the engineering industry or in maintenance."
 	item_state = "iqi_engi"
 	icon_state = "iqi_engi"
 
-/obj/item/clothing/under/skrell/iqi/service
+/obj/item/clothing/under/skrell/jargon/iqi/service
 	name = "Iqi mailing and service uniform"
 	desc = "A very fashionable jumpsuit that signifies the wearer as a high-scoring Primary Numerical in the mail service or hospitality industries."
 	item_state = "iqi_cargo"
 	icon_state = "iqi_cargo"
 
-/obj/item/clothing/under/skrell/iqi/med
+/obj/item/clothing/under/skrell/jargon/iqi/med
 	name = "Iqi healthcare uniform"
 	desc = "A very fashionable jumpsuit that signifies the wearer as a high-scoring Primary Numerical in the healthcare industry."
 	item_state = "iqi_med"
@@ -181,7 +184,7 @@
 	name = "Ox research jacket"
 	desc = "A plain, utilitarian jacket that signifies the wearer as a Tertiary Numerical in a scientific field."
 	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Jargon Society."
-	icon = 'icons/obj/skrell_items.dmi'
+	icon = 'icons/obj/contained_items/jargon_jackets.dmi'
 	item_state = "ox_sci_jacket"
 	icon_state = "ox_sci_jacket"
 	contained_sprite = TRUE
