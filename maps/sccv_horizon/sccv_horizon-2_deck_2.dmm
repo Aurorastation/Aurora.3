@@ -41073,10 +41073,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
-"yhb" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/wall/r_wall,
-/area/rnd/xenobiology/xenoflora)
 "yhL" = (
 /obj/structure/railing/mapped,
 /turf/simulated/open,
@@ -69770,7 +69766,7 @@ kPA
 hPH
 rFn
 rFn
-yhb
+rFn
 nvq
 nvq
 rFn
