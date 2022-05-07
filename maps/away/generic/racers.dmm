@@ -804,10 +804,9 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "dtY" = (
-/obj/effect/overlay/burnt_wall,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/tiled/white/airless,
+/turf/simulated/wall/shuttle/space_ship,
 /area/racers)
 "dvQ" = (
 /obj/structure/table/stone/marble,
@@ -855,10 +854,9 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "dYw" = (
-/obj/effect/mazegen/module_loot/trash,
-/obj/item/silencer,
-/turf/template_noop,
-/area/space)
+/obj/item/modular_computer/console/preset/civilian,
+/turf/simulated/floor/tiled/white/airless,
+/area/racers)
 "ebu" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -963,7 +961,6 @@
 /area/racers)
 "eJw" = (
 /obj/structure/table/steel,
-/obj/item/device/augment_implanter,
 /obj/item/organ/internal/augment/fuel_cell,
 /turf/simulated/floor/tiled/white,
 /area/racers)
@@ -1394,14 +1391,6 @@
 	temperature = 278
 	},
 /area/racers)
-"gYX" = (
-/obj/effect/mazegen/module_loot/trash,
-/obj/machinery/chemical_dispenser/coffeemaster{
-	pixel_x = 8;
-	pixel_y = 12
-	},
-/turf/template_noop,
-/area/space)
 "hdb" = (
 /obj/structure/bed/stool/chair/sofa/red{
 	dir = 1
@@ -2294,11 +2283,6 @@
 	},
 /turf/template_noop,
 /area/space)
-"lpW" = (
-/obj/effect/mazegen/module_loot/trash,
-/obj/item/ammo_casing/c9mm,
-/turf/template_noop,
-/area/space)
 "lqQ" = (
 /obj/structure/table/rack,
 /obj/item/device/suit_cooling_unit,
@@ -2772,11 +2756,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/racers)
-"nIB" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/overlay/burnt_wall,
-/turf/simulated/floor/tiled/white/airless,
-/area/racers)
 "nLQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
@@ -2973,11 +2952,6 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/racers)
-"oyu" = (
-/obj/effect/mazegen/module_loot/trash,
-/obj/item/device/flashlight,
-/turf/template_noop,
-/area/space)
 "oAH" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 1
@@ -3575,11 +3549,6 @@
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/plating,
 /area/racers)
-"rxB" = (
-/obj/effect/mazegen/module_loot/trash,
-/obj/item/gun/bang/pistol,
-/turf/template_noop,
-/area/space)
 "ryv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -3709,7 +3678,6 @@
 	pixel_y = 6
 	},
 /obj/item/pickaxe/drill,
-/obj/effect/plastic_explosive,
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "sja" = (
@@ -3766,10 +3734,6 @@
 /obj/item/rig/light/offworlder,
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/holofloor/tiled,
-/area/racers)
-"srO" = (
-/obj/effect/overlay/burnt_wall/steel,
-/turf/simulated/floor/plating,
 /area/racers)
 "sth" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -4312,7 +4276,6 @@
 	dir = 2
 	},
 /obj/item/storage/toolbox/drill,
-/obj/effect/plastic_explosive,
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "vgN" = (
@@ -4862,7 +4825,7 @@
 /turf/simulated/floor/ice,
 /area/racers)
 "xLR" = (
-/obj/effect/mazegen/module_loot/trash,
+/obj/random/junk,
 /turf/template_noop,
 /area/space)
 "xMc" = (
@@ -22107,7 +22070,7 @@ huE
 huE
 huE
 huE
-srO
+xjB
 jFP
 jFP
 jFP
@@ -24934,7 +24897,7 @@ ctn
 lvc
 ctn
 tlw
-nIB
+bGI
 nup
 tlw
 tlw
@@ -25447,7 +25410,7 @@ ctn
 ctn
 lvc
 hnS
-vps
+dYw
 vps
 vps
 thg
@@ -25704,7 +25667,7 @@ ctn
 ctn
 oCj
 hnS
-vps
+dYw
 ade
 vps
 vps
@@ -25961,7 +25924,7 @@ aHw
 ctn
 ctn
 hnS
-vps
+dYw
 tep
 pyN
 cbO
@@ -26218,7 +26181,7 @@ ctn
 ctn
 ctn
 hnS
-vps
+dYw
 mrH
 vps
 vps
@@ -48823,9 +48786,9 @@ xRX
 xRX
 xRX
 xRX
-oyu
+xLR
 xRX
-xRX
+xLR
 xRX
 fpS
 huE
@@ -49077,9 +49040,9 @@ xRX
 xRX
 xRX
 xRX
+xLR
+xLR
 xRX
-xRX
-lpW
 xRX
 xRX
 xRX
@@ -49336,10 +49299,10 @@ xRX
 xRX
 xRX
 xRX
-xRX
+xLR
 fJz
 xRX
-xRX
+xLR
 xRX
 xRX
 xRX
@@ -49590,12 +49553,12 @@ xRX
 xRX
 xRX
 xRX
-xRX
-gYX
-xRX
-rxB
-xRX
 xLR
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -49849,10 +49812,10 @@ xRX
 xRX
 xRX
 xRX
+xLR
 xRX
 xRX
-xRX
-xRX
+xLR
 xRX
 xRX
 xRX
@@ -50106,7 +50069,7 @@ xRX
 xRX
 xRX
 fJz
-xRX
+xLR
 xRX
 xRX
 xRX
@@ -50364,11 +50327,11 @@ xRX
 xRX
 xRX
 xRX
-xLR
 xRX
 xRX
 xRX
-dYw
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -50618,7 +50581,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+xLR
 xRX
 xRX
 xRX
@@ -50878,8 +50841,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+xLR
+xLR
 xRX
 xRX
 xRX
