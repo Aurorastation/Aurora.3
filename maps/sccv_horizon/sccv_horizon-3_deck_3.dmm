@@ -26167,7 +26167,9 @@
 /area/horizon/crew_quarters/cryo/showers)
 "UP" = (
 /obj/machinery/vending/coffee{
-	pixel_y = 25
+	pixel_y = 25;
+	pixel_x = 3;
+	density = 0
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
