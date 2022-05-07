@@ -387,3 +387,11 @@
 	projectile_type = /obj/item/projectile/bullet/recoilless_rifle/peac
 	reload_sound = 'sound/weapons/railgun_insert_emp.ogg'
 	max_stack = 1
+
+/obj/item/ammo_casing/nitro_express
+	name =".577 Nitro Express casing"
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+	caliber = ".577 Nitro Express"
+	projectile_type = /obj/item/projectile/bullet/pistol
+	max_stack = 5

@@ -463,7 +463,7 @@
 	else
 		icon_state = "adhomian_pistol-e"
 
-/obj/item/gun/projectile/pistol/k_arms
+/obj/item/gun/projectile/pistol/super_heavy
 	name = "super-heavy pistol"
 	desc = "A big, bulky and extremely powerful pistol, intended to pierce even your strongest enemy."
 	desc_fluff = "The Kumar Arms 2557 is a newly designed type of \"super-heavy\" pistol. \
@@ -480,17 +480,26 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	is_wieldable = TRUE
 	caliber = ".577 Nitro Express"
-	ammo_type = /obj/item/ammo_casing/a357
+	ammo_type = /obj/item/ammo_casing/nitro_express
 	magazine_type = /obj/item/ammo_magazine/k2557
 	max_shells = 5
 	force = 3
 	recoil = 5
 	recoil_wielded = 1
-	accuracy = 1
+	accuracy = -3
+	accuracy_wielded = 1
 
-/obj/item/gun/projectile/pistol/k_arms/update_icon()
+	
+/obj/item/gun/projectile/pistol/super_heavy/udate_icon()
+	..()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "k2557-loaded"
+	else 
+		icon_state = "k2557-empty"
+
+/*/obj/item/gun/projectile/pistol/k_arms/update_icon()
 	. = ..()
 	if(ammo_magazine)
-		icon_state = "k2557"
+		icon_state = "k2557-5"
 	else
-		icon_state = "k2557-empty"
+		icon_state = "k2557-0"*/

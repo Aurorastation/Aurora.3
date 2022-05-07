@@ -514,8 +514,9 @@
 	multiple_sprites = 1
 /obj/item/ammo_magazine/k2557
 	name = ".577 magazine"
+	icon_state = "k2557-mag"
 	caliber = ".577 Nitro Express"
-	/*ammo_type = /obj/item/ammo_casing/lcasing*/
+	ammo_type = /obj/item/ammo_casing/nitro_express
 	mag_type = MAGAZINE
 	max_ammo = 5
-	multiple_sprites = 0
+	multiple_sprites = 1
