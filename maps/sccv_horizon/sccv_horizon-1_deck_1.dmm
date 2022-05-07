@@ -6494,12 +6494,12 @@
 /area/hallway/engineering)
 "fyb" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock{
-	name = "Custodial Closet";
-	req_access = list(26)
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/airlock/service{
+	req_access = list(26);
+	name = "Custodial Closet"
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -21842,10 +21842,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid)
 "tes" = (
-/obj/machinery/door/airlock{
-	name = "Custodial Closet Storage";
-	req_access = list(26)
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -21858,6 +21854,10 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/airlock/glass_service{
+	req_access = list(26);
+	name = "Custodial Closet Storage"
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
