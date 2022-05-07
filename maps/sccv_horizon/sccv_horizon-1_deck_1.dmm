@@ -20614,7 +20614,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/intrepid)
+/area/shuttle/intrepid/crew_compartment)
 "rHm" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
