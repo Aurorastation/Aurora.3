@@ -237,7 +237,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
-	id_tag = "portcomb_airlock_interior";
+	id_tag = "port_combustion";
 	locked = 1;
 	name = "Combustion Chamber";
 	req_access = list(13)
@@ -245,8 +245,7 @@
 /obj/machinery/door/blast/regular{
 	id = "portpropulsioninterior"
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/engineering/atmos/propulsion)
 "aom" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
@@ -3066,14 +3065,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
-"cBG" = (
-/obj/machinery/airlock_sensor{
-	frequency = 1337;
-	id_tag = "portcomb_airlock_sensor";
-	pixel_x = -27
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion/starboard)
 "cCg" = (
 /obj/structure/table/rack,
 /obj/item/device/floor_painter,
@@ -4130,17 +4121,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
-"dCF" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/machinery/access_button/airlock_exterior{
-	pixel_x = -24;
-	pixel_y = 10;
-	master_tag = "portcomb_airlock_control"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion)
 "dDq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -8469,17 +8449,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"hcQ" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/machinery/access_button/airlock_exterior{
-	pixel_x = 22;
-	pixel_y = 10;
-	master_tag = "starcomb_airlock_control"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion/starboard)
 "hdi" = (
 /turf/simulated/wall,
 /area/security/checkpoint)
@@ -11455,14 +11424,6 @@
 	dir = 8
 	},
 /area/hangar/intrepid)
-"jKh" = (
-/obj/machinery/airlock_sensor{
-	frequency = 1337;
-	id_tag = "portcomb_airlock_sensor";
-	pixel_x = 24
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion)
 "jKF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -12754,14 +12715,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/embedded_controller/radio/airlock/access_controller{
-	id_tag = "starcomb_airlock_control";
-	name = "Starboard Combustion Chamber";
-	pixel_x = -38;
-	pixel_y = -2;
-	req_access = null;
-	tag_exterior_door = "starcomb_airlock_exterior";
-	tag_interior_door = "starcomb_airlock_interior"
+/obj/machinery/button/remote/airlock{
+	id = "starboard_combustion";
+	name = "Door Bolt Control";
+	pixel_y = 8;
+	req_access = list(10);
+	specialfunctions = 4;
+	pixel_x = -39
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -14562,11 +14522,6 @@
 	name = "\improper DANGER: COMBUSTION CHAMBER sign";
 	pixel_x = -32
 	},
-/obj/machinery/access_button/airlock_interior{
-	pixel_x = -22;
-	pixel_y = 10;
-	master_tag = "starcomb_airlock_control"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "mxs" = (
@@ -14800,11 +14755,6 @@
 /obj/structure/sign/fire{
 	name = "\improper DANGER: COMBUSTION CHAMBER sign";
 	pixel_x = 32
-	},
-/obj/machinery/access_button/airlock_interior{
-	pixel_x = 21;
-	pixel_y = 10;
-	master_tag = "portcomb_airlock_control"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -19788,23 +19738,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/operations)
-"rcx" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "portcomb_airlock_exterior";
-	locked = 1;
-	name = "Combustion Chamber";
-	req_access = list(13)
-	},
-/obj/machinery/door/blast/regular{
-	id = "portpropulsioninterior"
-	},
-/turf/simulated/floor/reinforced,
-/area/engineering/atmos/propulsion)
 "rcA" = (
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -19889,23 +19822,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/hangar)
-"rhI" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "starcomb_airlock_exterior";
-	locked = 1;
-	name = "Combustion Chamber";
-	req_access = list(13)
-	},
-/obj/machinery/door/blast/regular{
-	id = "interiorpropulsionstarboard"
-	},
-/turf/simulated/floor/reinforced,
-/area/engineering/atmos/propulsion/starboard)
 "riF" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -23383,7 +23299,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
-	id_tag = "starcomb_airlock_interior";
+	id_tag = "starboard_combustion";
 	locked = 1;
 	name = "Combustion Chamber";
 	req_access = list(13)
@@ -23391,8 +23307,7 @@
 /obj/machinery/door/blast/regular{
 	id = "interiorpropulsionstarboard"
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/engineering/atmos/propulsion/starboard)
 "uoF" = (
 /obj/structure/cable/green{
@@ -26988,14 +26903,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/embedded_controller/radio/airlock/access_controller{
-	id_tag = "portcomb_airlock_control";
-	name = "Port Combustion Chamber";
-	pixel_x = 37;
-	pixel_y = -2;
-	req_access = null;
-	tag_exterior_door = "portcomb_airlock_exterior";
-	tag_interior_door = "portcomb_airlock_interior"
+/obj/machinery/button/remote/airlock{
+	id = "port_combustion";
+	name = "Door Bolt Control";
+	pixel_y = 8;
+	req_access = list(10);
+	specialfunctions = 4;
+	pixel_x = 39
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -41581,9 +41495,9 @@ eSV
 eSV
 eSV
 eSV
-awJ
 eSV
-awJ
+eSV
+eSV
 eSV
 eSV
 eSV
@@ -41782,11 +41696,11 @@ oOI
 oOI
 oOI
 eSV
-awJ
-awJ
 eSV
-awJ
-awJ
+eSV
+eSV
+eSV
+eSV
 tuP
 tuP
 tuP
@@ -41985,10 +41899,10 @@ auF
 eBb
 awJ
 awJ
-awJ
-vyG
-awJ
-awJ
+eSV
+eSV
+eSV
+hob
 tuP
 cCg
 elV
@@ -42187,9 +42101,9 @@ xWM
 dGu
 hqH
 awJ
-uZU
-iCX
-dCC
+awJ
+eSV
+awJ
 awJ
 oAi
 pxH
@@ -42389,9 +42303,9 @@ awJ
 awJ
 jiL
 awJ
-uZU
-eDE
-gPf
+awJ
+vyG
+awJ
 awJ
 hUh
 wCf
@@ -42592,8 +42506,8 @@ jQh
 xGQ
 awJ
 uZU
-gal
-hcQ
+iCX
+dCC
 awJ
 nmV
 ver
@@ -42793,9 +42707,9 @@ fBs
 mqI
 eBf
 awJ
-awJ
-rhI
-fyz
+uZU
+eDE
+gPf
 awJ
 gWp
 uwB
@@ -42995,8 +42909,8 @@ xQU
 dgC
 ekt
 awJ
-cBG
-uPX
+uZU
+gal
 uPX
 awJ
 jZo
@@ -53297,8 +53211,8 @@ qxV
 fvq
 fCd
 uVL
-jKh
-qnr
+eBj
+wsF
 qnr
 uVL
 gyD
@@ -53499,9 +53413,9 @@ jFb
 gwg
 cIU
 uVL
-uVL
-rcx
-uPx
+eBj
+lBi
+irW
 uVL
 tnb
 eKc
@@ -53702,8 +53616,8 @@ bQb
 hRF
 uVL
 eBj
-wsF
-dCF
+moj
+cne
 uVL
 rsL
 vil
@@ -53903,9 +53817,9 @@ uVL
 uVL
 uVL
 uVL
-eBj
-lBi
-irW
+uVL
+dLn
+uVL
 uVL
 vil
 vil
@@ -54105,9 +54019,9 @@ uVL
 uVL
 uVL
 uVL
-eBj
-moj
-cne
+uVL
+eSV
+uVL
 uVL
 oTX
 vil
@@ -54306,10 +54220,10 @@ eSV
 eSV
 eSV
 eSV
-uVL
-uVL
-dLn
-uVL
+eSV
+eSV
+eSV
+eSV
 uVL
 rsL
 vil
@@ -54508,11 +54422,11 @@ eSV
 eSV
 eSV
 eSV
-uVL
-uVL
 eSV
-uVL
-uVL
+eSV
+eSV
+eSV
+eSV
 eSV
 eSV
 eSV
@@ -54711,9 +54625,9 @@ eSV
 eSV
 eSV
 eSV
-uVL
 eSV
-uVL
+eSV
+eSV
 eSV
 eSV
 eSV
