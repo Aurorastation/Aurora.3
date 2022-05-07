@@ -1036,10 +1036,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "aAx" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-1"
+/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced/firedoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "aAC" = (
 /obj/effect/floor_decal/spline/plain,
@@ -8874,6 +8875,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "ftj" = (
@@ -19529,16 +19533,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
-"lQo" = (
-/obj/structure/window/phoronreinforced{
-	dir = 1
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
 "lRe" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -20533,12 +20527,6 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora_hazard)
-"muo" = (
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/turf/space,
-/area/rnd/xenobiology/xenoflora)
 "muy" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -21603,14 +21591,14 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 1
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -24575,13 +24563,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
-"oLT" = (
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
 "oNy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -25277,15 +25258,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
-"piq" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-2"
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 4
-	},
-/turf/space,
-/area/rnd/xenobiology/xenoflora)
 "piz" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -25456,9 +25428,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/storage/tech)
-"plL" = (
-/turf/space,
-/area/rnd/xenobiology/xenoflora)
 "pmb" = (
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for shutters.";
@@ -28773,10 +28742,6 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
 /area/chapel/main)
-"rkk" = (
-/obj/structure/window/phoronreinforced,
-/turf/space,
-/area/rnd/xenobiology/xenoflora)
 "rkO" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/yellow{
@@ -29047,9 +29012,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "rqs" = (
-/obj/structure/window/phoronreinforced{
+/obj/machinery/disposal/deliveryChute{
+	dir = 1
+	},
+/obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/structure/lattice,
 /turf/space,
 /area/rnd/xenobiology/xenoflora)
 "rqu" = (
@@ -29512,15 +29481,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"rDR" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-2"
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/turf/space,
-/area/rnd/xenobiology/xenoflora)
 "rEk" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -29563,16 +29523,9 @@
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "rFi" = (
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 1
-	},
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
@@ -29728,9 +29681,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "rKj" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -29743,6 +29693,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -31705,12 +31658,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"sVF" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-6"
-	},
-/turf/simulated/wall/r_wall,
-/area/rnd/xenobiology/xenoflora)
 "sVO" = (
 /obj/structure/bed/stool/chair/padded/red,
 /turf/simulated/floor/lino/grey,
@@ -34254,13 +34201,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
-"use" = (
-/obj/structure/window/phoronreinforced{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
 "usj" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -36697,15 +36637,6 @@
 "vPj" = (
 /turf/simulated/wall/r_wall,
 /area/security/armory)
-"vPk" = (
-/obj/structure/window/phoronreinforced,
-/obj/structure/lattice,
-/obj/structure/disposalpipe/trunk,
-/obj/machinery/disposal/deliveryChute{
-	dir = 1
-	},
-/turf/space,
-/area/rnd/xenobiology/xenoflora)
 "vPt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -36903,11 +36834,6 @@
 	},
 /turf/simulated/open,
 /area/maintenance/hangar/port)
-"vTP" = (
-/obj/structure/window/phoronreinforced,
-/obj/structure/lattice,
-/turf/space,
-/area/rnd/xenobiology/xenoflora)
 "vTY" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
@@ -38940,10 +38866,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "wWJ" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-4"
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 1
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "wXp" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -39398,15 +39324,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
 "xjK" = (
-/obj/structure/window/phoronreinforced{
-	dir = 1
-	},
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/obj/machinery/disposal/small/south{
-	pixel_y = 12
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "xjN" = (
@@ -40112,17 +40029,11 @@
 /turf/simulated/floor/plating,
 /area/engineering/smes/tesla)
 "xHv" = (
-/obj/structure/window/phoronreinforced{
-	dir = 1
-	},
 /obj/structure/table/reinforced,
 /obj/item/material/minihoe,
 /obj/item/material/hatchet,
 /obj/item/reagent_containers/spray/plantbgone,
 /obj/item/device/analyzer/plant_analyzer,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "xHB" = (
@@ -40163,10 +40074,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "xIN" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-6"
-	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/rnd/xenobiology/xenoflora_hazard)
 "xIW" = (
 /obj/structure/curtain/black,
@@ -40478,11 +40386,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "xRv" = (
-/obj/structure/window/phoronreinforced{
-	dir = 1
+/obj/machinery/disposal/small/south{
+	pixel_y = 12
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
@@ -41290,12 +41198,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
-"yme" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-5"
-	},
-/turf/simulated/wall/r_wall,
-/area/rnd/xenobiology/xenoflora)
 
 (1,1,1) = {"
 qgN
@@ -70874,7 +70776,7 @@ qgN
 qgN
 qgN
 fpm
-wWJ
+rFn
 jrr
 ipy
 rFn
@@ -71076,7 +70978,7 @@ qgN
 qgN
 qgN
 tvM
-yme
+rFn
 atQ
 ekM
 rFn
@@ -71278,7 +71180,7 @@ qgN
 qgN
 qgN
 vXe
-sVF
+rFn
 rKj
 fti
 ldu
@@ -71479,7 +71381,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+rqs
 aAx
 wWJ
 mYL
@@ -71680,10 +71582,10 @@ qgN
 qgN
 qgN
 qgN
-plL
-rqs
-piq
-yme
+vSA
+aAx
+rFn
+rFn
 kDx
 ngG
 lHs
@@ -71882,9 +71784,9 @@ qgN
 qgN
 qgN
 qgN
-vPk
+vSA
 rFi
-oLT
+wKP
 puj
 lqJ
 rYW
@@ -72084,7 +71986,7 @@ qgN
 qgN
 qgN
 qgN
-rkk
+vSA
 xRv
 xhf
 oDz
@@ -72286,7 +72188,7 @@ qgN
 qgN
 qgN
 qgN
-rkk
+vSA
 xHv
 fQM
 wfi
@@ -72488,7 +72390,7 @@ qgN
 qgN
 qgN
 qgN
-rkk
+vSA
 xjK
 qXJ
 nnt
@@ -72690,11 +72592,11 @@ qgN
 qgN
 qgN
 qgN
-vTP
-lQo
-use
-use
-use
+vSA
+wKP
+wKP
+wKP
+wKP
 fpb
 noW
 wKP
@@ -72892,12 +72794,12 @@ qgN
 qgN
 qgN
 qgN
-plL
-muo
-muo
-muo
-rDR
-yme
+vSA
+vSA
+vSA
+vSA
+vSA
+rFn
 rFn
 rFn
 nir
@@ -73098,7 +73000,7 @@ qgN
 qgN
 qgN
 qgN
-vXe
+qgN
 xIN
 ajV
 ais
