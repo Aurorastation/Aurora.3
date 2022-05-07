@@ -39078,10 +39078,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"xaF" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/kitchen)
 "xbv" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -39680,7 +39676,6 @@
 	name = "Kitchen";
 	id_tag = "dinerbolt"
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -39692,6 +39687,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/kitchen)
@@ -61622,7 +61620,7 @@ eSd
 txq
 txq
 pED
-xaF
+oRn
 xtu
 pED
 pED
