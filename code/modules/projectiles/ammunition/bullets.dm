@@ -389,7 +389,7 @@
 	max_stack = 1
 
 /obj/item/ammo_casing/nitro_express
-	name =".577 Nitro Express casing"
+	name =".577 nitro express casing"
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 	caliber = ".577 Nitro Express"

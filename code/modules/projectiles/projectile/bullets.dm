@@ -232,6 +232,12 @@
 	maim_type = DROPLIMB_BLUNT
 	anti_materiel_potential = 2
 
+/obj/item/projectile/rifle/nitro_express
+	damage = 50
+	armor_penetration = 30
+	weaken = 2
+	penetrating = TRUE
+
 /obj/item/projectile/bullet/rifle/vintage
 	name = "vintage bullet"
 	damage = 50

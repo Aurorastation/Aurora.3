@@ -512,7 +512,7 @@
 	ammo_type = /obj/item/ammo_casing/nuke
 	max_ammo = 2
 	multiple_sprites = 1
-/obj/item/ammo_magazine/k2557
+/obj/item/ammo_magazine/super_heavy
 	name = ".577 magazine"
 	icon_state = "k2557-mag"
 	caliber = ".577 Nitro Express"

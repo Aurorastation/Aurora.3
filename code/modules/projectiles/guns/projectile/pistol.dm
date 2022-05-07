@@ -482,8 +482,8 @@
 	is_wieldable = TRUE
 	caliber = ".577 Nitro Express"
 	ammo_type = /obj/item/ammo_casing/nitro_express
-	magazine_type = /obj/item/ammo_magazine/k2557
-	allowed_magazines = list(/obj/item/ammo_magazine/k2557)
+	magazine_type = /obj/item/ammo_magazine/super_heavy
+	allowed_magazines = list(/obj/item/ammo_magazine/super_heavy)
 	max_shells = 5
 	force = 3
 	recoil = 5
@@ -506,18 +506,18 @@
 		if(H.mob_size <10)
 			H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 			H.drop_item(src)
-			scr.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 3, 3)
+			src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 4, 4)
 
 			var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
 			var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
 			var/active_hand = H.hand
 
 			if(active_hand)
-				LH.take_damage(60)
-				H.weaken(3)
+				LH.take_damage(30)
+				/*H.weaken(3)*/
 			else
-				RH.take_damage(60)
-				H.weaken(3)
+				RH.take_damage(30)
+				/*H.weaken(3)*/
 
 /*/obj/item/gun/projectile/pistol/k_arms/update_icon()
 	. = ..()
