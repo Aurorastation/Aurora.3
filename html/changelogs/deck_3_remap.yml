@@ -13,3 +13,4 @@ changes:
   - maptweak: "Remaps the starboard side of deck 3, adds a new public hallway. Moves the scuttling chamber to the central ring on deck 3."
   - maptweak: "Remaps the starboard deck 2 hallway. Moves tech storage to the left. Adds a maintenance airlock into starboard maintenance on deck 2."
   - maptweak: "Remaps operations and implements QoL features such as a warehouse-to-mail room disposals chute."
+  - maptweak: "Adds a command bunker above the crew armoury and shrinks the AI core on deck 3."
