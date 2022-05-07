@@ -10415,7 +10415,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_storage)
 "asW" = (
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/bridge/aibunker)
@@ -27752,7 +27752,7 @@
 /area/rnd/test_range)
 "eIl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /turf/simulated/floor/tiled,
 /area/engineering/backup_SMES)
 "eIS" = (

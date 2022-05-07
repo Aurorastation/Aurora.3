@@ -194,9 +194,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/obj/machinery/shield_gen{
-	anchored = 1
-	},
+/obj/item/modular_computer/console/preset/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
 "av" = (
@@ -324,21 +322,11 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/storage/shields)
-"aJ" = (
-/obj/structure/cable/cyan{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/cyan{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/storage/shields)
 "aK" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "aL" = (
 /obj/structure/railing/mapped{
@@ -379,12 +367,8 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/machinery/shield_capacitor/multiz{
-	anchored = 1;
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
-	},
-/obj/structure/cable/cyan{
-	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/shields)
@@ -3783,7 +3767,9 @@
 	dir = 4;
 	pixel_x = -28
 	},
-/obj/machinery/megavendor/vendor,
+/obj/structure/closet/emcloset,
+/obj/item/crowbar/red,
+/obj/item/storage/toolbox/emergency,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "is" = (
@@ -6564,8 +6550,8 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/machinery/camera/network/command{
-	dir = 1;
-	c_tag = "Bridge - Crewman Lockeroom"
+	c_tag = "Bridge - Crewman Lockeroom";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
@@ -6647,8 +6633,8 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/command{
-	dir = 8;
-	c_tag = "Bridge - Center 1"
+	c_tag = "Bridge - Center 1";
+	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -10744,8 +10730,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/camera/network/command{
-	dir = 1;
-	c_tag = "Bridge - Port 2"
+	c_tag = "Bridge - Port 2";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -12337,6 +12323,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "Cz" = (
@@ -13081,6 +13070,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
+"Eu" = (
+/obj/structure/trash_pile,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "Ev" = (
 /turf/simulated/floor/reinforced,
 /area/hallway/crew_area)
@@ -13769,6 +13765,16 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
+"Gn" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "Go" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 10
@@ -13800,8 +13806,8 @@
 /obj/item/tape_roll,
 /obj/item/storage/toolbox/mechanical,
 /obj/machinery/camera/network/command{
-	dir = 4;
-	c_tag = "Bridge - Cockpit"
+	c_tag = "Bridge - Cockpit";
+	dir = 4
 	},
 /obj/item/device/multitool,
 /turf/simulated/floor/carpet/rubber,
@@ -14182,8 +14188,8 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/command{
-	dir = 4;
-	c_tag = "Bridge - Center 2"
+	c_tag = "Bridge - Center 2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 1
@@ -14588,7 +14594,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/locker)
 "Ia" = (
-/obj/item/modular_computer/console/preset/engineering,
 /obj/structure/cable/cyan{
 	icon_state = "4-8"
 	},
@@ -15125,8 +15130,8 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/command{
-	dir = 1;
-	c_tag = "Bridge - Captain's Office Fore"
+	c_tag = "Bridge - Captain's Office Fore";
+	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/cable/green{
@@ -16459,7 +16464,7 @@
 "Mb" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/emcloset,
-/obj/item/crowbar/red,
+/obj/item/storage/toolbox/emergency,
 /obj/item/crowbar/red,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -16839,8 +16844,8 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/command{
-	dir = 1;
-	c_tag = "Bridge - Backroom"
+	c_tag = "Bridge - Backroom";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
@@ -17287,12 +17292,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "NX" = (
-/obj/structure/dispenser/oxygen{
-	phorontanks = 10
-	},
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_3)
 "NY" = (
@@ -17419,8 +17422,8 @@
 "Ok" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/camera/network/command{
-	dir = 1;
-	c_tag = "Bridge - Captain's Private Office 2"
+	c_tag = "Bridge - Captain's Private Office 2";
+	dir = 1
 	},
 /obj/structure/table/reinforced/wood,
 /obj/machinery/photocopier/faxmachine{
@@ -44831,7 +44834,7 @@ FH
 Eo
 bj
 RK
-aJ
+QM
 aR
 QH
 aW
@@ -45229,7 +45232,7 @@ DQ
 bQ
 Ho
 FH
-Lv
+Eu
 tX
 FH
 QM
@@ -45823,7 +45826,7 @@ at
 at
 at
 at
-em
+aK
 EG
 DQ
 Rb
@@ -46025,7 +46028,7 @@ at
 at
 at
 at
-em
+aK
 EG
 DQ
 Fx
@@ -46227,7 +46230,7 @@ at
 at
 at
 at
-em
+aK
 Vl
 DQ
 XO
@@ -46429,7 +46432,7 @@ at
 at
 at
 at
-em
+aK
 EG
 DQ
 CJ
@@ -46835,7 +46838,7 @@ at
 at
 em
 Fq
-DJ
+Gn
 rH
 DJ
 DJ
@@ -47039,7 +47042,7 @@ em
 em
 em
 em
-em
+aK
 aK
 aK
 aK
