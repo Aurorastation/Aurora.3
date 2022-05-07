@@ -3961,8 +3961,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "cam" = (
-/obj/machinery/orderterminal{
-	pixel_y = -32
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/newscaster{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
@@ -4180,21 +4183,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor/stairs)
 "ciP" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
 	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/starboard/far)
-"ciP" = (
-/turf/simulated/wall,
-/area/operations/storage)
+/turf/simulated/floor/wood,
+/area/operations/office)
 "cjg" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -8461,7 +8457,7 @@
 /obj/structure/table/rack,
 /obj/random/loot,
 /turf/simulated/floor/plating,
-/area/chapel/main)
+/area/maintenance/hangar/port)
 "eTQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -11646,6 +11642,9 @@
 /obj/machinery/camera/network/service{
 	c_tag = "Dinner - Bar 1";
 	dir = 8
+	},
+/obj/machinery/orderterminal{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
@@ -17276,7 +17275,7 @@
 	dir = 8
 	},
 /obj/machinery/disposal/small/west,
-/obj/machinery/newscaster{
+/obj/machinery/atm{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -18775,6 +18774,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/item/device/radio/intercom{
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -19296,13 +19298,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "leh" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/orderterminal{
-	pixel_x = -30;
-	pixel_y = -3
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+)
 "len" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -19556,14 +19552,6 @@
 	temperature = 80
 	},
 /area/server)
-"lmz" = (
-/obj/structure/table/wood,
-/obj/item/material/ashtray/bronze,
-/obj/item/flame/candle{
-	pixel_y = -10
-	},
-/turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
 "lmU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -22366,7 +22354,7 @@
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/reinforced,
-/area/template_noop)
+/area/crew_quarters/kitchen/freezer)
 "mQe" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable/green{
@@ -31180,9 +31168,6 @@
 /turf/simulated/floor/wood,
 /area/library)
 "rHj" = (
-/obj/item/device/radio/intercom{
-	pixel_y = -28
-	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -34346,10 +34331,6 @@
 "tBB" = (
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
-"tBR" = (
-/obj/structure/table/wood,
-/turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
 "tBS" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/floor_decal/corner/brown{
@@ -34396,7 +34377,7 @@
 	req_access = list(22)
 	},
 /turf/simulated/floor/wood,
-/area/chapel/office)
+/area/chapel/main)
 "tDZ" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -35806,12 +35787,13 @@
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "uot" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/service{
-	name = "Chapel"
+/obj/structure/table/rack,
+/obj/random/loot,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
-/area/chapel/main)
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/port)
 "uoz" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Research Substation"
@@ -36136,9 +36118,6 @@
 /area/engineering/engine_room/tesla)
 "uwe" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/atm{
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "uwi" = (
@@ -40018,7 +39997,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/maintenance/hangar/port)
+/area/template_noop)
 "wzD" = (
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/camera/network/engineering{
@@ -51989,7 +51968,7 @@ lBW
 naD
 dFi
 fdF
-xIR
+sky
 cMk
 oTa
 oTa
@@ -60294,7 +60273,7 @@ fol
 fol
 sCE
 fol
-gOL
+fol
 uot
 eeQ
 gBp
@@ -63129,7 +63108,7 @@ xYK
 wVT
 wNk
 hPM
-leh
+uwe
 gBE
 gBE
 gBE
@@ -63342,8 +63321,8 @@ fZC
 lCr
 gBE
 mZI
-tBR
-lmz
+kRB
+ehU
 nts
 qgN
 qgN
@@ -63540,13 +63519,13 @@ gBE
 iEi
 pZs
 gBE
-jgb
-bGg
 cam
-ayF
-ayF
-ayF
-nEC
+bGg
+gBE
+mZI
+tju
+tju
+nts
 qgN
 qgN
 qgN
@@ -63748,7 +63727,7 @@ dQZ
 pED
 pED
 mPl
-nEC
+mPl
 qgN
 qgN
 qgN
@@ -65887,7 +65866,7 @@ gXy
 fgh
 fgh
 jeT
-xFP
+leh
 fto
 rXj
 jeT
