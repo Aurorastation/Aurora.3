@@ -831,7 +831,7 @@
 /area/shuttle/fsf_patrol_ship)
 "gqw" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	dir = 8
 	},
 /obj/effect/shuttle_landmark/fsf_shuttle/hangar,
 /turf/simulated/floor,
@@ -33918,7 +33918,7 @@ qil
 qil
 qil
 mWk
-qil
+gqw
 qil
 mWk
 qil
@@ -34684,7 +34684,7 @@ yjk
 yjk
 fnY
 sSs
-gqw
+eYX
 hjW
 hZq
 jIP
