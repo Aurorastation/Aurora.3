@@ -212,6 +212,12 @@
 	Republic shops. Go Biesel!"
 	badge_string = "Tau Ceti Foreign Legion Veteran"
 
+/obj/item/clothing/accessory/badge/tcfl_papers/service/reservist
+	name = "\improper TCFL reservist's service card"
+	desc = "A small card identifying one as a current reservist of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+	Republic shops. Go Biesel!"
+	badge_string = "Tau Ceti Foreign Legion Reservist"
+
 /obj/item/clothing/accessory/badge/sheriff
 	name = "sheriff badge"
 	desc = "A star-shaped brass badge denoting who the law is around these parts."
