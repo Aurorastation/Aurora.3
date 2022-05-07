@@ -12244,6 +12244,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
+"vX" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/structure/grille/diagonal{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/hallway/primary/port)
 "vY" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -13598,7 +13606,8 @@
 	id_tag = "deck3_tcomms_aux_control";
 	tag_exterior_door = "deck3_tcomms_aux_exterior";
 	tag_interior_door = "deck3_tcomms_aux_interior";
-	pixel_y = -32
+	pixel_y = -32;
+	req_access = list(61)
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
@@ -13938,8 +13947,7 @@
 /area/hallway/medical/upper)
 "zc" = (
 /obj/effect/map_effect/airlock/long/square/wide{
-	radio_frequency = 1501;
-	name = "Deck 3 Starboard Maintenance Airlock (1501)"
+	name = "Deck 3 Starboard Maintenance Airlock"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/bridge)
@@ -14322,8 +14330,7 @@
 /area/bridge/bridge_crew)
 "zL" = (
 /obj/effect/map_effect/airlock/long/square/wide{
-	radio_frequency = 1500;
-	name = "Deck 3 Starboard Docks Airlock 2 (1500)"
+	name = "Deck 3 Starboard Docks Airlock 2"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -24092,7 +24099,8 @@
 	frequency = 1600;
 	id_tag = "deck3_tcomms_aux_control";
 	tag_exterior_door = "deck3_tcomms_aux_exterior";
-	tag_interior_door = "deck3_tcomms_aux_interior"
+	tag_interior_door = "deck3_tcomms_aux_interior";
+	req_access = list(61)
 	},
 /turf/simulated/floor/bluegrid{
 	temperature = 278;
@@ -26169,7 +26177,6 @@
 /obj/machinery/vending/coffee{
 	pixel_y = 25;
 	pixel_x = 3;
-	pixel_y = 25;
 	density = 0
 	},
 /turf/simulated/floor/tiled,
@@ -26998,6 +27005,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
+"Wt" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/structure/grille/diagonal,
+/turf/simulated/floor/reinforced,
+/area/hallway/primary/port)
 "Wv" = (
 /obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/corner/yellow/diagonal,
@@ -54424,13 +54437,13 @@ at
 at
 at
 at
+vX
 HJ
 HJ
 HJ
 HJ
 HJ
-HJ
-HJ
+Wt
 at
 at
 at

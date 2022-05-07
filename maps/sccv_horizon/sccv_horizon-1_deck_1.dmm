@@ -19433,10 +19433,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
 "qpJ" = (
-/obj/effect/map_effect/airlock/engineer{
-	name = "Deck 1 Starboard Aft Maintenance Airlock (1502)";
-	radio_frequency = 1502;
-	required_access = list(13)
+/obj/effect/map_effect/airlock{
+	name = "Deck 1 Starboard Aft Maintenance Airlock"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/port/deck1)

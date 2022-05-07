@@ -274,6 +274,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hydroponics)
+"ahm" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/turret_protected/ai_upload)
 "ahu" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4499,8 +4517,7 @@
 /area/security/brig)
 "cww" = (
 /obj/effect/map_effect/airlock/s_to_n/long/square/wide{
-	radio_frequency = 1503;
-	name = "Deck 2 Starboard Aft Maintenance Airlock (1503)"
+	name = "Deck 2 Starboard Aft Maintenance Airlock"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/starboard)
@@ -11344,6 +11361,7 @@
 	name = "south bump";
 	pixel_y = -24
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "gsR" = (
@@ -18237,6 +18255,9 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
@@ -32891,6 +32912,9 @@
 	name = "north bump";
 	pixel_y = 24
 	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "sHY" = (
@@ -36165,8 +36189,7 @@
 /area/crew_quarters/bar)
 "uxi" = (
 /obj/effect/map_effect/airlock/s_to_n/long/square/wide{
-	radio_frequency = 1504;
-	name = "Command Bunker Airlock (1504)"
+	name = "Command Bunker Airlock"
 	},
 /turf/simulated/wall/r_wall,
 /area/bridge/aibunker)
@@ -41145,6 +41168,9 @@
 	dir = 8;
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/ramp,
 /area/turret_protected/ai_upload)
@@ -68721,7 +68747,7 @@ hYk
 osY
 sHR
 xcp
-vJw
+ahm
 rez
 wpz
 mBB
