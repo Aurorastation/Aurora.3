@@ -100,6 +100,9 @@
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "auY" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /obj/effect/shuttle_landmark/freighter_shuttle/hangar,
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
@@ -33684,7 +33687,7 @@ fQf
 llg
 llg
 fQf
-llg
+auY
 llg
 fQf
 llg
@@ -34450,7 +34453,7 @@ xRX
 xRX
 rtf
 wZf
-auY
+wZf
 aAY
 aGW
 aJd
