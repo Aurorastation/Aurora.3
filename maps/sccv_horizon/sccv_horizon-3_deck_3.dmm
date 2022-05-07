@@ -20325,7 +20325,8 @@
 "UP" = (
 /obj/machinery/vending/coffee{
 	pixel_x = 3;
-	pixel_y = 25
+	pixel_y = 25;
+	density = 0
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)

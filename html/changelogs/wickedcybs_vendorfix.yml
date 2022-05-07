@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "The vending machine outside of the investigator's office no longer blocks transit. It was odd that it did anyway, as it looked to be next to the wall and not occupying the entire tile."
