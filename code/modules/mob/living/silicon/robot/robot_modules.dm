@@ -382,6 +382,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/pen/robopen(src) // Pen for renaming doors
 	emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 	malf_AI_module += new /obj/item/rfd/transformer(src)
 
@@ -446,6 +447,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/pen/robopen(src) // Pen for renaming doors
 	emag = new /obj/item/melee/baton/robot/arm(src)
 	malf_AI_module += new /obj/item/rfd/transformer(src)
 
