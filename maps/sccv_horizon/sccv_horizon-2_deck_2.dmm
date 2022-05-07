@@ -19298,7 +19298,14 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "leh" = (
-)
+,
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 1
+	},
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "len" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
