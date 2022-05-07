@@ -20325,7 +20325,8 @@
 "UP" = (
 /obj/machinery/vending/coffee{
 	pixel_x = 3;
-	pixel_y = 25
+	pixel_y = 25;
+	density = 0
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -21618,10 +21619,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock{
-	name = "Journalist's Office";
-	req_access = list(70)
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -21632,7 +21629,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/door/airlock/service{
+	name = "Journalist's Office";
+	req_access = list(70)
+	},
+/turf/simulated/floor/tiled,
 /area/journalistoffice)
 "Yi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,

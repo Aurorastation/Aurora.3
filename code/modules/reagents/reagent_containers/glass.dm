@@ -100,8 +100,8 @@
 	desc = "A beaker."
 	icon = 'icons/obj/chemical.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
 		)
 	icon_state = "beaker"
 	item_state = "beaker"
@@ -117,7 +117,7 @@
 	desc += " Can hold up to [volume] units."
 
 /obj/item/reagent_containers/glass/beaker/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You drink from \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You drink from \the [src]."))
 
 /obj/item/reagent_containers/glass/beaker/on_reagent_change()
 	update_icon()
@@ -161,7 +161,6 @@
 	volume = 120
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120)
-	flags = OPENCONTAINER
 	fragile = 6 // a bit sturdier
 
 /obj/item/reagent_containers/glass/beaker/noreact
@@ -184,7 +183,6 @@
 	volume = 300
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120,300)
-	flags = OPENCONTAINER
 	fragile = 0
 
 /obj/item/reagent_containers/glass/beaker/vial
@@ -196,8 +194,22 @@
 	volume = 30
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25)
-	flags = OPENCONTAINER
 	fragile = 1 // very fragile
+
+/obj/item/reagent_containers/glass/beaker/medcup
+	name = "medicine cup"
+	desc = "A glass medicine cup. Like a shot glass for medicine."
+	icon_state = "medcup"
+	filling_states = "25;50;75;100"
+	center_of_mass = list("x" = 15,"y" = 9)
+	matter = list(MATERIAL_GLASS = 250)
+	volume = 15
+	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = null
+	fragile = 1
+
+/obj/item/reagent_containers/glass/beaker/medcup/attack_self() // No lid for the medcup
+	return
 
 /obj/item/reagent_containers/glass/beaker/cryoxadone/reagents_to_add = list(/decl/reagent/cryoxadone = 30)
 
