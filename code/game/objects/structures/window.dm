@@ -567,6 +567,7 @@
 	name = "window"
 	desc = "You aren't supposed to see this."
 	icon = 'icons/error.dmi'
+	dir = 5
 	maxhealth = 28 // Two window panes worth of health, since that's the minimum you need to break through to get to the other side.
 	glasstype = /obj/item/stack/material/glass
 	shardtype = /obj/item/material/shard
@@ -726,11 +727,9 @@
 	icon = 'icons/obj/smooth/full_window.dmi'
 	icon_state = "window_glass"
 	basestate = "window_glass"
-	dir = 5
 	maxhealth = 80 // Two reinforced panes worth of health, since that's the minimum you need to break through to get to the other side.
 	reinf = TRUE
 	maximal_heat = T0C + 750
-	dir = 5
 	glasstype = /obj/item/stack/material/glass/reinforced
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
