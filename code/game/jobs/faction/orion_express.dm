@@ -49,16 +49,19 @@
 	name = "Hangar Technician - Orion Express"
 
 	uniform = /obj/item/clothing/under/rank/hangar_technician/orion
+	id = /obj/item/card/id/orion
 
 /datum/outfit/job/machinist/orion
 	name = "Machinist - Orion Express"
 
 	uniform = /obj/item/clothing/under/rank/machinist/orion
+	id = /obj/item/card/id/orion
 
 /datum/outfit/job/mining/orion
 	name = "Shaft Miner - Orion Express"
 
 	uniform = /obj/item/clothing/under/rank/miner/orion
+	id = /obj/item/card/id/orion
 
 /datum/outfit/job/representative/orion
 	name = "Orion Express Corporate Liaison"
