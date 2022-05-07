@@ -54,12 +54,13 @@
 	icon_state = "Off"
 	anchored = 1
 	var/cult = 0
-	req_one_access = list(access_bar, access_kitchen) //Has to initalize at first, this is updated by instance's req_access
+	req_access = list(access_bar) //Has to initalize at first, this is updated by instance's req_access
 	var/choice_types = /decl/sign/double/bar
 
 /obj/structure/sign/double/barsign/kitchensign
 	icon = 'icons/obj/kitchensigns.dmi'
 	icon_state = "Off"
+	req_access = list(access_kitchen)
 	choice_types = /decl/sign/double/kitchen
 
 /obj/structure/sign/double/barsign/attackby(obj/item/I, mob/user)
