@@ -465,7 +465,7 @@
 
 /obj/item/gun/projectile/pistol/super_heavy
 	name = "super-heavy pistol"
-	desc = "A big, bulky and extremely powerful pistol, intended to pierce even your strongest enemy."
+	desc = "A big, bulky and extremely powerful pistol, intended to pierce even your strongest enemy. For your own safety you should wield this thing with two hands."
 	desc_fluff = "The Kumar Arms 2557 is a newly designed type of \"super-heavy\" pistol. \
 	It features a light-weight polymer pistol grip, a bulky plasteel frame and an extra long barrel. \
 	It is chambered in the equivalent of the .577 Nitro Express rifle cartridge, but due to Zavodskoi developed propellant, the length of the casing was reduced significantely. \
@@ -483,6 +483,7 @@
 	caliber = ".577 Nitro Express"
 	ammo_type = /obj/item/ammo_casing/nitro_express
 	magazine_type = /obj/item/ammo_magazine/k2557
+	allowed_magazines = list(/obj/item/ammo_magazine/k2557)
 	max_shells = 5
 	force = 3
 	recoil = 5
@@ -498,7 +499,25 @@
 	else 
 		icon_state = "k2557-empty"
 
+/obj/item/gun/projectile/pistol/super_heavy/handle_post_fire(mob/user)
+	..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.mob_size <10)
+			H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
+			H.drop_item(src)
+			scr.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 3, 3)
 
+			var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
+			var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
+			var/active_hand = H.hand
+
+			if(active_hand)
+				LH.take_damage(60)
+				H.weaken(3)
+			else
+				RH.take_damage(60)
+				H.weaken(3)
 
 /*/obj/item/gun/projectile/pistol/k_arms/update_icon()
 	. = ..()
