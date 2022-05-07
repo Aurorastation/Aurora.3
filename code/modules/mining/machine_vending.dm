@@ -130,7 +130,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 /obj/machinery/mineral/equipment_vendor/interact(mob/user)
 	var/dat
 	dat +="<div class='statusDisplay'>"
-	var/obj/item/card/id/ID = scanned_id.resolve()
+	var/obj/item/card/id/ID = scanned_id?.resolve()
 	if(ID)
 		dat += "You have [ID.mining_points ? ID.mining_points : 0] mining points collected. <A href='?src=\ref[src];choice=eject'>Eject ID.</A><br>"
 	else
@@ -174,42 +174,11 @@ var/global/list/minevendor_list = list( //keep in order of price
 			if(prize.cost > ID.mining_points)
 			else
 				if(prize.shuttle)
-					var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
-					if(shuttle)
-						if(!shuttle.shuttle_area) //This really should never happen, but, oh well.
-							to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE} Order failed! Please try again."))
-							return
-						var/list/clear_turfs = list()
-						for(var/area/subarea in shuttle.shuttle_area)
-							for(var/turf/T in subarea)
-								if(T.density)
-									continue
-								var/contcount
-								for(var/atom/A in T.contents)
-									if(!A.simulated)
-										continue
-									contcount++
-								if(contcount)
-									continue
-								clear_turfs += T
-
-						if(!length(clear_turfs))
-							to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again."))
-							return
-
-						var/i = rand(1, length(clear_turfs))
-						var/turf/pickedloc = clear_turfs[i]
-
-						if(pickedloc)
-							ID.mining_points -= prize.cost
-							new prize.equipment_path(pickedloc)
-							to_chat(usr, SPAN_NOTICE("Order passed. Your order has been placed on the next available supply shuttle."))
-						else
-							to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again."))
-							return
+					if(SScargo.order_mining(prize.equipment_path))
+						ID.mining_points -= prize.cost
+						to_chat(usr, SPAN_NOTICE("Order passed. Your order has been placed on the next available supply shuttle."))
 					else
-						to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE} Order failed! Please try again."))
-						return
+						to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again."))
 				else
 					ID.mining_points -= prize.cost
 					if(prize.amount != -1)
