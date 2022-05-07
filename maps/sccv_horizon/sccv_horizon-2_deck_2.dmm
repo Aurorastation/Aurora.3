@@ -31264,7 +31264,9 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "sHm" = (
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/photocopier/faxmachine{
+	department = "Head of Security's Office"
+	},
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 1
