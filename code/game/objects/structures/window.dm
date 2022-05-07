@@ -664,10 +664,32 @@
 			hit(W.force)
 		else
 			playsound(loc, 'sound/effects/glass_hit.ogg', 75, 1)
-		..()
 	return
 
-/obj/structure/window/full/take_damage(damage = 0, sound_effect = 1)
+/obj/structure/window/full/shatter(var/display_message = 1)
+	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
+	if(display_message)
+		visible_message(SPAN_WARNING("\The [src] shatters!"))
+	if(dir == SOUTHWEST)
+		var/index = null
+		index = 0
+		while(index < 2)
+			new shardtype(loc)
+			if(reinf)
+				new /obj/item/stack/rods(loc)
+			index++
+	else
+		new shardtype(loc)
+		if(reinf)
+			new /obj/item/stack/rods(loc)
+
+	if(base_frame)
+		new base_frame(loc)
+
+	qdel(src)
+	return
+
+/obj/structure/window/full/take_damage(var/damage = 0, var/sound_effect = 1)
 	var/initialhealth = health
 
 	if(silicate)
@@ -677,7 +699,6 @@
 
 	if(health <= 0)
 		shatter()
-		new /obj/structure/window_frame(get_turf(src))
 	else
 		if(sound_effect)
 			playsound(loc, 'sound/effects/glass_hit.ogg', 100, 1)
