@@ -343,10 +343,6 @@
 	else
 		to_chat(H,"Your job is [rank] and the game just can't handle it! Please report this bug to an administrator.")
 
-	if(istype(H)) //give humans wheelchairs, if they need them.
-		if(H.needs_wheelchair())
-			H.equip_wheelchair()
-
 	if(!joined_late || job.latejoin_at_spawnpoints)
 		var/obj/S = get_roundstart_spawnpoint(rank)
 		if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
@@ -391,6 +387,10 @@
 			EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
 	to_chat(H, "<B>You are [job.get_total_positions() == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
+
+	if(istype(H)) //give humans wheelchairs, if they need them.
+		if(H.needs_wheelchair())
+			H.equip_wheelchair()
 
 	if(job.supervisors)
 		to_chat(H, "<b>As [job.intro_prefix] [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
