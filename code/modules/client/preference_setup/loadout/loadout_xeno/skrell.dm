@@ -210,7 +210,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 
 /datum/gear/uniform/skrell/work
 	display_name = "work uniforms"
-	path = /obj/item/clothing/under/skrell/ox
+	path = /obj/item/clothing/under/skrell/jargon
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	flags = GEAR_HAS_DESC_SELECTION
 

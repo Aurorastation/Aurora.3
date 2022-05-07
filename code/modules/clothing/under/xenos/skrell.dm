@@ -184,7 +184,7 @@
 	name = "Ox research jacket"
 	desc = "A plain, utilitarian jacket that signifies the wearer as a Tertiary Numerical in a scientific field."
 	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Jargon Society."
-	icon = 'icons/obj/contained_items/jargon_jackets.dmi'
+	icon = 'icons/obj/contained_items/skrell/jargon_jackets.dmi'
 	item_state = "ox_sci_jacket"
 	icon_state = "ox_sci_jacket"
 	contained_sprite = TRUE
