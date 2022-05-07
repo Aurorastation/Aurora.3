@@ -1,7 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Shuttle-shipped mining supplies now properly queue for the next shuttle delivery, rather than being lost in nullspace."
-  - bugfix: "Orbital drills no longer create their own turfs/areas, which should permit them to drill where dropped."
