@@ -210,33 +210,33 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 
 /datum/gear/uniform/skrell/work
 	display_name = "work uniforms"
-	path = /obj/item/clothing/under/skrell/ox
+	path = /obj/item/clothing/under/skrell/jargon
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/skrell/work/New()
 	..()
 	var/list/outfit = list()
-	outfit["ox research"] = /obj/item/clothing/under/skrell/ox
-	outfit["ox security"] = /obj/item/clothing/under/skrell/ox/security
-	outfit["ox engineer"] = /obj/item/clothing/under/skrell/ox/engineer
-	outfit["ox service"] = /obj/item/clothing/under/skrell/ox/service
-	outfit["ox medical"] = /obj/item/clothing/under/skrell/ox/med
-	outfit["ix research"] = /obj/item/clothing/under/skrell/ix
-	outfit["ix security"] = /obj/item/clothing/under/skrell/ix/security
-	outfit["ix engineer"] = /obj/item/clothing/under/skrell/ix/engineer
-	outfit["ix service"] = /obj/item/clothing/under/skrell/ix/service
-	outfit["ix medical"] = /obj/item/clothing/under/skrell/ix/med
-	outfit["oqi research"] = /obj/item/clothing/under/skrell/oqi
-	outfit["oqi security"] = /obj/item/clothing/under/skrell/oqi/security
-	outfit["oqi engineer"] = /obj/item/clothing/under/skrell/oqi/engineer
-	outfit["oqi service"] = /obj/item/clothing/under/skrell/oqi/service
-	outfit["oqi medical"] = /obj/item/clothing/under/skrell/oqi/med
-	outfit["iqi research"] = /obj/item/clothing/under/skrell/iqi
-	outfit["iqi security"] = /obj/item/clothing/under/skrell/iqi/security
-	outfit["iqi engineer"] = /obj/item/clothing/under/skrell/iqi/engineer
-	outfit["iqi service"] = /obj/item/clothing/under/skrell/iqi/service
-	outfit["iqi medical"] = /obj/item/clothing/under/skrell/iqi/med
+	outfit["ox research"] = /obj/item/clothing/under/skrell/jargon
+	outfit["ox security"] = /obj/item/clothing/under/skrell/jargon/ox
+	outfit["ox engineer"] = /obj/item/clothing/under/skrell/jargon/ox/engineer
+	outfit["ox service"] = /obj/item/clothing/under/skrell/jargon/ox/service
+	outfit["ox medical"] = /obj/item/clothing/under/skrell/jargon/ox/med
+	outfit["ix research"] = /obj/item/clothing/under/skrell/jargon/ix
+	outfit["ix security"] = /obj/item/clothing/under/skrell/jargon/ix/security
+	outfit["ix engineer"] = /obj/item/clothing/under/skrell/jargon/ix/engineer
+	outfit["ix service"] = /obj/item/clothing/under/skrell/jargon/ix/service
+	outfit["ix medical"] = /obj/item/clothing/under/skrell/jargon/ix/med
+	outfit["oqi research"] = /obj/item/clothing/under/skrell/jargon/oqi
+	outfit["oqi security"] = /obj/item/clothing/under/skrell/jargon/oqi/security
+	outfit["oqi engineer"] = /obj/item/clothing/under/skrell/jargon/oqi/engineer
+	outfit["oqi service"] = /obj/item/clothing/under/skrell/jargon/oqi/service
+	outfit["oqi medical"] = /obj/item/clothing/under/skrell/jargon/oqi/med
+	outfit["iqi research"] = /obj/item/clothing/under/skrell/jargon/iqi
+	outfit["iqi security"] = /obj/item/clothing/under/skrell/jargon/iqi/security
+	outfit["iqi engineer"] = /obj/item/clothing/under/skrell/jargon/iqi/engineer
+	outfit["iqi service"] = /obj/item/clothing/under/skrell/jargon/iqi/service
+	outfit["iqi medical"] = /obj/item/clothing/under/skrell/jargon/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(outfit)
 
 /datum/gear/suit/skrell/jacket
