@@ -20251,7 +20251,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid)
 "rHm" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "shutters_deck1_workshopdesk";
@@ -27602,7 +27602,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "yau" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "shutters_deck1_workshopdesk";

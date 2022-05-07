@@ -1167,7 +1167,7 @@
 /turf/simulated/floor/tiled,
 /area/construction)
 "cO" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/win_spawn/full/reinforced,
 /turf/simulated/floor/plating,
 /area/construction)
 "cP" = (
