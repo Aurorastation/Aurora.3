@@ -16490,9 +16490,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
-"nUm" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/crew_quarters/kitchen/freezer)
 "nUn" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -24592,7 +24589,6 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/machinery/power/port_gen/pacman/super,
 /obj/item/stack/material/uranium{
 	amount = 10
 	},
@@ -24602,6 +24598,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
+/obj/machinery/power/portgen/basic/advanced,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
 "vgw" = (
@@ -25000,14 +24997,6 @@
 	temperature = 278
 	},
 /area/maintenance/hangar/port)
-"vvU" = (
-/obj/structure/window/reinforced,
-/obj/machinery/door/window/westleft,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/ramp{
-	dir = 8
-	},
-/area/hangar/intrepid)
 "vxw" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
