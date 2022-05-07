@@ -402,7 +402,6 @@
 	name = "Hangar Technician"
 	jobtype = /datum/job/hangar_tech
 
-	head = /obj/item/clothing/head/softcap/cargo
 	uniform = /obj/item/clothing/under/rank/hangar_technician
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/brown

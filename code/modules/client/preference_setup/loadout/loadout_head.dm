@@ -112,7 +112,7 @@
 	var/list/wardenhead = list()
 	wardenhead["warden hat, zavod"] = /obj/item/clothing/head/warden
 	wardenhead["warden hat, idris"] = /obj/item/clothing/head/warden/idris
-	wardenhead["warden hat, epmc"] = /obj/item/clothing/head/warden/pmc
+	wardenhead["warden hat, pmc"] = /obj/item/clothing/head/warden/pmc
 	wardenhead["warden beret"] = /obj/item/clothing/head/beret/security/warden
 	gear_tweaks += new /datum/gear_tweak/path(wardenhead)
 
@@ -250,7 +250,7 @@
 	var/list/surgical = list()
 	surgical["surgical cap, nanotrasen navy blue"] = /obj/item/clothing/under/rank/medical/surgeon/zeng
 	surgical["surgical cap, zeng-hu purple"] = /obj/item/clothing/under/rank/medical/surgeon/zeng
-	surgical["surgical cap, EPMC blue"] = /obj/item/clothing/head/surgery/pmc
+	surgical["surgical cap, PMCG blue"] = /obj/item/clothing/head/surgery/pmc
 	surgical["surgical cap, zavodskoi black"] = /obj/item/clothing/under/rank/medical/surgeon/zavod
 	surgical["surgical cap, idris green"] = /obj/item/clothing/under/rank/medical/surgeon/idris
 	gear_tweaks += new /datum/gear_tweak/path(surgical)

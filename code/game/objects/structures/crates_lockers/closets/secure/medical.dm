@@ -62,16 +62,15 @@
 			new /obj/item/clothing/under/rank/medical/surgeon/zeng(src)
 			new /obj/item/clothing/head/surgery/zeng(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/suit/storage/toggle/fr_jacket(src)
-	new /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng(src)
-	new /obj/item/clothing/suit/storage/toggle/fr_jacket/pmc(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/pmc(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/idris(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat/zeng(src)
+	new /obj/item/clothing/head/headmirror
 	new /obj/item/clothing/shoes/medical(src)
 	new /obj/item/device/radio/headset/headset_med(src)
 	new /obj/item/device/radio/headset/headset_med/alt(src)
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
 	new /obj/item/clothing/glasses/eyepatch/hud/medical(src)
-	new /obj/item/clothing/suit/storage/medical_chest_rig(src)
-	new /obj/item/clothing/head/hardhat/first_responder(src)
 
 /obj/structure/closet/secure_closet/medical_fr
 	name = "first responder's locker"
@@ -107,6 +106,7 @@
 	new /obj/item/clothing/suit/storage/toggle/fr_jacket(src)
 	new /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng(src)
 	new /obj/item/clothing/suit/storage/toggle/fr_jacket/pmc(src)
+
 
 /obj/structure/closet/secure_closet/CMO
 	name = "chief medical officer's locker"

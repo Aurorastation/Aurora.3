@@ -30,8 +30,8 @@
 	item_state = "idris_officer"
 
 /obj/item/clothing/under/rank/security/pmc
-	icon_state = "epmc_officer"
-	item_state = "epmc_officer"
+	icon_state = "pmc_officer"
+	item_state = "pmc_officer"
 
 /obj/item/clothing/under/rank/cadet
 	name = "security cadet's uniform"
@@ -54,8 +54,8 @@
 	item_state = "idris_cadet"
 
 /obj/item/clothing/under/rank/cadet/pmc
-	icon_state = "epmc_cadet"
-	item_state = "epmc_cadet"
+	icon_state = "pmc_cadet"
+	item_state = "pmc_cadet"
 
 /obj/item/clothing/under/rank/warden
 	name = "warden's uniform"
@@ -87,8 +87,8 @@
 	item_state = "idris_warden"
 
 /obj/item/clothing/under/rank/warden/pmc
-	icon_state = "epmc_warden"
-	item_state = "epmc_warden"
+	icon_state = "pmc_warden"
+	item_state = "pmc_warden"
 
 /*
  * Detective / Forensics
@@ -115,8 +115,8 @@
 	item_state = "idris_invest"
 
 /obj/item/clothing/under/det/pmc
-	icon_state = "epmc_invest"
-	item_state = "epmc_invest"
+	icon_state = "pmc_invest"
+	item_state = "pmc_invest"
 
 /*
  * Head of Security

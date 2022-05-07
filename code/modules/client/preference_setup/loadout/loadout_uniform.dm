@@ -103,7 +103,7 @@
 	var/list/scrubs = list()
 	scrubs["scrubs, nanotrasen navy blue"] = /obj/item/clothing/under/rank/medical/surgeon
 	scrubs["scrubs, zeng-hu purple"] = /obj/item/clothing/under/rank/medical/surgeon/zeng
-	scrubs["scrubs, EPMC blue"] = /obj/item/clothing/under/rank/medical/surgeon/pmc
+	scrubs["scrubs, PMCG blue"] = /obj/item/clothing/under/rank/medical/surgeon/pmc
 	scrubs["scrubs, zavodskoi black"] = /obj/item/clothing/under/rank/medical/surgeon/zavod
 	scrubs["scrubs, idris green"] = /obj/item/clothing/under/rank/medical/surgeon/idris
 

@@ -97,7 +97,6 @@
 	base_name = "Physician"
 	jobtype = /datum/job/doctor
 
-	head = /obj/item/clothing/head/headmirror
 	uniform = /obj/item/clothing/under/rank/medical
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/medical
@@ -122,24 +121,13 @@
 	name = "Surgeon"
 	jobtype = /datum/job/doctor
 
-	head = /obj/item/clothing/head/surgery
 	uniform = /obj/item/clothing/under/rank/medical/surgeon
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/surgeon
 
 /datum/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
 	if(!isskrell(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/pmc(H), slot_head)
-
-/datum/outfit/job/doctor/nurse
-	name = "Nurse"
-	jobtype = /datum/job/doctor
-
-	uniform = /obj/item/clothing/under/rank/medical/surgeon/zeng
-	suit = null
-	head = /obj/item/clothing/head/nursehat
-
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery(H), slot_head)
 
 /datum/job/pharmacist
 	title = "Pharmacist"

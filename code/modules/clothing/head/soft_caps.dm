@@ -139,9 +139,9 @@
 
 /obj/item/clothing/head/softcap/pmc
 	name = "eridani cap"
-	desc = "A grey EPMC fatigue cap with the symbol of the Eridani Corporate Federation on its front. For amoral mercenaries that prefer style over protection."
-	icon_state = "epmc"
-	item_state = "epmc"
+	desc = "A grey PMCG fatigue cap with the symbol of the Eridani Corporate Federation on its front. For amoral mercenaries that prefer style over protection."
+	icon_state = "pmc"
+	item_state = "pmc"
 
 /obj/item/clothing/head/softcap/zavod
 	name = "zavodskoi cap"
@@ -168,5 +168,5 @@
 /obj/item/clothing/head/softcap/medical/pmc
 	desc = "A medical cap in PMC colors."
 	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
-	icon_state = "epmc_emt_cap"
-	item_state = "epmc_emt_cap"
+	icon_state = "pmc_emt_cap"
+	item_state = "pmc_emt_cap"

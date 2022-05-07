@@ -72,8 +72,11 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
-	head = /obj/item/clothing/head/surgery/zeng
 	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/doctor/surgeon/zeng_hu/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(!isskrell(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/zeng(H), slot_head)
 
 /datum/outfit/job/pharmacist/zeng_hu
 	name = "Pharmacist - Zeng-Hu"

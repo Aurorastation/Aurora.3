@@ -166,8 +166,8 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "zav_invest_coat"
 
 /obj/item/clothing/suit/storage/det_jacket/pmc
-	icon_state = "epmc_invest_coat"
-	item_state = "epmc_invest_coat"
+	icon_state = "pmc_invest_coat"
+	item_state = "pmc_invest_coat"
 
 /obj/item/clothing/suit/storage/det_jacket/idris
 	icon_state = "idris_invest_coat"
@@ -204,7 +204,6 @@ obj/item/clothing/suit/apron/overalls/blue
 
 //Corporate
 
-
 /obj/item/clothing/suit/storage/toggle/warden
 	name = "warden's coat"
 	desc = "A thick, rugged overcoat, with corporate livery emblazoned on it."
@@ -219,8 +218,8 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "zav_warden_coat"
 
 /obj/item/clothing/suit/storage/toggle/warden/pmc
-	icon_state = "epmc_warden_coat"
-	item_state = "epmc_warden_coat"
+	icon_state = "pmc_warden_coat"
+	item_state = "pmc_warden_coat"
 
 /obj/item/clothing/suit/storage/toggle/warden/idris
 	icon_state = "idris_warden_coat"
@@ -334,8 +333,8 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "heph_liaison_vest"
 
 /obj/item/clothing/suit/storage/liaison/pmc
-	icon_state = "epmc_liaison_vest"
-	item_state = "epmc_liaison_vest"
+	icon_state = "pmc_liaison_vest"
+	item_state = "pmc_liaison_vest"
 
 /obj/item/clothing/suit/storage/liaison/idris
 	icon_state = "idris_liaison_vest"
@@ -392,8 +391,8 @@ obj/item/clothing/suit/apron/overalls/blue
 
 /obj/item/clothing/suit/storage/toggle/fr_jacket/pmc
 	desc = "A first responder jacket in the classic black and blue of the PCMG."
-	icon_state = "epmc_emt_jacket"
-	item_state = "epmc_emt_jacket"
+	icon_state = "pmc_emt_jacket"
+	item_state = "pmc_emt_jacket"
 
 
 /obj/item/clothing/suit/storage/medical_chest_rig

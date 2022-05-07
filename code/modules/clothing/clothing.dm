@@ -1040,15 +1040,23 @@
 		worn_state = icon_state
 
 	//autodetect rollability. now working with contained sprites!
+	var/icon/under_icon = INV_W_UNIFORM_DEF_ICON
 	if(rolled_down < 0 || rolled_sleeves < 0)
-		if(rolled_down < 0)
-			if("[worn_state]_d[contained_sprite ? "_un" : "_s"]" in icon_states(icon)) // I sure hope removing the cache stuff doesn't mess anything up.
-				rolled_down = 0
-				verbs += /obj/item/clothing/under/proc/rollsuit
-			if(rolled_sleeves < 0)
-				if("[worn_state]_r[contained_sprite ? "_un" : "_s"]" in icon_states(icon))
-					rolled_sleeves = 0
-					verbs += /obj/item/clothing/under/proc/rollsleeves
+		if(contained_sprite)
+			under_icon = icon
+		else if(icon_override)
+			under_icon = icon_override
+		else if(item_icons && item_icons[slot_w_uniform_str])
+			under_icon = item_icons[slot_w_uniform_str]
+
+	if(rolled_down < 0)
+		if("[worn_state]_d[contained_sprite ? "_un" : "_s"]" in icon_states(under_icon))
+			rolled_down = 0
+			verbs += /obj/item/clothing/under/proc/rollsuit
+	if(rolled_sleeves < 0)
+		if("[worn_state]_r[contained_sprite ? "_un" : "_s"]" in icon_states(under_icon))
+			rolled_sleeves = 0
+			verbs += /obj/item/clothing/under/proc/rollsleeves
 
 /obj/item/clothing/under/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
@@ -1200,7 +1208,7 @@
 	set_sensors(usr)
 
 /obj/item/clothing/under/proc/rollsuit()
-	set name = "Roll Jumpsuit"
+	set name = "Roll Up/Down Jumpsuit"
 	set category = "Object"
 	set src in usr
 	if(!istype(usr, /mob/living)) return
@@ -1230,7 +1238,7 @@
 	update_clothing_icon()
 
 /obj/item/clothing/under/proc/rollsleeves()
-	set name = "Roll Sleeves"
+	set name = "Roll Up/Down Sleeves"
 	set category = "Object"
 	set src in usr
 	if(!istype(usr, /mob/living)) return

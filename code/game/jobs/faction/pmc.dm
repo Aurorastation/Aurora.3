@@ -68,7 +68,7 @@
 	uniform = /obj/item/clothing/under/rank/warden/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/warden/pmc
 	id = /obj/item/card/id/pmc
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud/epmc
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/pmc
 
 /datum/outfit/job/intern_sec/pmc
 	name = "Security Cadet - PMC"
@@ -95,9 +95,12 @@
 	name = "Surgeon - PMC"
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/pmc
-	head = /obj/item/clothing/head/surgery/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	id = /obj/item/card/id/pmc
+
+/datum/outfit/job/doctor/surgeon/pmc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(!isskrell(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/pmc(H), slot_head)
 
 /datum/outfit/job/pharmacist/pmc
 	name = "Pharmacist - PMC"

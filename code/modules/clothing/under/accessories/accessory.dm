@@ -787,7 +787,7 @@
 	overlay_state = "necrosec_patch"
 
 /obj/item/clothing/accessory/sleevepatch/erisec
-	name = "\improper EPMC sleeve patch"
+	name = "\improper PMCG sleeve patch"
 	desc = "A digital patch which can be attached to the shoulder sleeve of clothing. This one denotes the wearer as an Eridani Private Military Contractor."
 	icon_state = "erisec_patch"
 	overlay_state = "erisec_patch"
@@ -871,8 +871,8 @@
 	item_state = "heph_tie"
 
 /obj/item/clothing/accessory/tie/corporate/pmc
-	icon_state = "epmc_tie"
-	item_state = "epmc_tie"
+	icon_state = "pmc_tie"
+	item_state = "pmc_tie"
 
 /obj/item/clothing/accessory/tie/corporate/idris
 	icon_state = "idris_tie"
@@ -909,8 +909,8 @@
 
 /obj/item/clothing/accessory/pin/corporate/pmc
 	desc = "A shiny button which reads, <i>'PMCG - Always on guard, always on watch.'</i>"
-	icon_state = "epmc_liaison_badge"
-	item_state = "epmc_liaison_badge"
+	icon_state = "pmc_liaison_badge"
+	item_state = "pmc_liaison_badge"
 
 /obj/item/clothing/accessory/pin/corporate/idris
 	desc = "A shiny button which reads, <i>'Idris, Inc. - Astronomical Figures. Unlimited Power.'</i>"

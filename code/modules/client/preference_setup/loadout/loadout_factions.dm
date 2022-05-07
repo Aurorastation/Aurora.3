@@ -110,51 +110,51 @@
 	zavod_sunglasses["aviator sunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/zavod
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sunglasses)
 
-/datum/gear/faction/eridani_beret
-	display_name = "eridani beret"
+/datum/gear/faction/pmc_beret
+	display_name = "PCMG beret"
 	path =  /obj/item/clothing/head/beret/corporate/pmc
 	slot = slot_head
 	faction = "Private Military Contracting Group"
 
-/datum/gear/faction/eridani_cap
-	display_name = "eridani cap"
+/datum/gear/faction/pmc_cap
+	display_name = "PCMG cap"
 	path = /obj/item/clothing/head/softcap/pmc
 	slot = slot_head
 	faction = "Private Military Contracting Group"
 
-/datum/gear/faction/epmc_sunglasses
-	display_name = "EPMC security HUD selection"
-	description = "A selection of EPMC security HUDs."
-	path = /obj/item/clothing/glasses/sunglasses/sechud/epmc
+/datum/gear/faction/pmc_sunglasses
+	display_name = "PMCG security HUD selection"
+	description = "A selection of PMCG security HUDs."
+	path = /obj/item/clothing/glasses/sunglasses/sechud/pmc
 	slot = slot_glasses
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
 	faction = "Private Military Contracting Group"
 
-/datum/gear/faction/epmc_sunglasses/New()
+/datum/gear/faction/pmc_sunglasses/New()
 	..()
-	var/list/epmc_sunglasses = list()
-	epmc_sunglasses["HUDsunglasses, EPMC"] = /obj/item/clothing/glasses/sunglasses/sechud/epmc
-	epmc_sunglasses["fat HUDsunglasses, EPMC"] = /obj/item/clothing/glasses/sunglasses/sechud/big/epmc
-	epmc_sunglasses["aviator sunglasses, EPMC"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/epmc
-	gear_tweaks += new /datum/gear_tweak/path(epmc_sunglasses)
+	var/list/pmc_sunglasses = list()
+	pmc_sunglasses["HUDsunglasses, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/pmc
+	pmc_sunglasses["fat HUDsunglasses, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/big/pmc
+	pmc_sunglasses["aviator sunglasses, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc
+	gear_tweaks += new /datum/gear_tweak/path(pmc_sunglasses)
 
-/datum/gear/faction/epmc_labcoat
-	display_name = "EPMC labcoat selection"
-	description = "A selection of EPMC labcoats."
+/datum/gear/faction/pmc_labcoat
+	display_name = "PMCG labcoat selection"
+	description = "A selection of PMCG labcoats."
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	slot = slot_wear_suit
 	faction = "Private Military Contracting Group"
 
-/datum/gear/faction/epmc_labcoat/New()
+/datum/gear/faction/pmc_labcoat/New()
 	..()
-	var/list/epmc_labcoats = list()
-	epmc_labcoats["labcoat, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
-	epmc_labcoats["labcoat alt, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
-	gear_tweaks += new /datum/gear_tweak/path(epmc_labcoats)
+	var/list/pmc_labcoats = list()
+	pmc_labcoats["labcoat, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
+	pmc_labcoats["labcoat alt, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
+	gear_tweaks += new /datum/gear_tweak/path(pmc_labcoats)
 
 /datum/gear/faction/zenghu_beret
 	display_name = "Zeng-Hu beret selection"
-	description = "A selection of Zeng-Hu labcoats."
+	description = "A selection of Zeng-Hu berets."
 	path = /obj/item/clothing/head/beret/corporate/zeng
 	slot = slot_head
 	faction = "Zeng-Hu Pharmaceuticals"
@@ -212,7 +212,7 @@
 	allowed_roles = list("Security Officer","Investigator","Warden")
 
 /datum/gear/faction/erisec_patch
-	display_name = "EPMC sleeve patch"
+	display_name = "PMCG sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/erisec
 	slot = slot_tie
 	faction = "Private Military Contracting Group"

@@ -92,12 +92,12 @@
 	item_state = "surgcap_zeng"
 
 /obj/item/clothing/head/surgery/pmc
-	icon_state = "surgcap_epmc"
-	item_state = "surgcap_epmc"
+	icon_state = "surgcap_pmc"
+	item_state = "surgcap_pmc"
 
 /obj/item/clothing/head/surgery/pmc
-	icon_state = "surgcap_epmc"
-	item_state = "surgcap_epmc"
+	icon_state = "surgcap_pmc"
+	item_state = "surgcap_pmc"
 
 // Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
@@ -145,8 +145,8 @@
 	item_state = "zav_warden_hat"
 
 /obj/item/clothing/head/warden/pmc
-	icon_state = "epmc_warden_hat"
-	item_state = "epmc_warden_hat"
+	icon_state = "pmc_warden_hat"
+	item_state = "pmc_warden_hat"
 
 /obj/item/clothing/head/warden/idris
 	icon_state = "idris_warden_hat"

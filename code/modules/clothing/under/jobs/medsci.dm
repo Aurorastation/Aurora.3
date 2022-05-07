@@ -142,8 +142,8 @@
 	item_state = "zeng_phys"
 
 /obj/item/clothing/under/rank/medical/pmc
-	icon_state = "epmc_phys"
-	item_state = "epmc_phys"
+	icon_state = "pmc_phys"
+	item_state = "pmc_phys"
 
 // Intern
 
@@ -158,7 +158,7 @@
 	item_state = "zeng_intern"
 
 /obj/item/clothing/under/rank/medical/intern/pmc
-	icon_state = "epmc_intern"
+	icon_state = "pmc_intern"
 
 // First Responder
 
@@ -173,8 +173,8 @@
 	item_state = "zeng_emt"
 
 /obj/item/clothing/under/rank/medical/first_responder/pmc
-	icon_state = "epmc_emt"
-	item_state = "epmc_emt"
+	icon_state = "pmc_emt"
+	item_state = "pmc_emt"
 
 // Surgeon
 /obj/item/clothing/under/rank/medical/surgeon
@@ -189,8 +189,8 @@
 	item_state = "zeng_surgeon"
 
 /obj/item/clothing/under/rank/medical/surgeon/pmc
-	icon_state = "epmc_surgeon"
-	item_state = "epmc_surgeon"
+	icon_state = "pmc_surgeon"
+	item_state = "pmc_surgeon"
 
 // Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
@@ -215,8 +215,8 @@
 	item_state = "zeng_psych"
 
 /obj/item/clothing/under/rank/medical/psych/pmc
-	icon_state = "epmc_psych"
-	item_state = "epmc_psych"
+	icon_state = "pmc_psych"
+	item_state = "pmc_psych"
 
 // Pharmacist
 
@@ -231,5 +231,5 @@
 	item_state = "zeng_chemist"
 
 /obj/item/clothing/under/rank/medical/pharmacist/pmc
-	icon_state = "epmc_chemist"
-	item_state = "epmc_chemist"
+	icon_state = "pmc_chemist"
+	item_state = "pmc_chemist"

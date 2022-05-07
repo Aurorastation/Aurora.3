@@ -147,8 +147,8 @@
 /obj/item/clothing/head/beret/corporate/pmc
 	name = "eridani beret"
 	desc = "A beret with the Eridani PMC insignia emblazoned on it."
-	icon_state = "epmc"
-	item_state = "epmc"
+	icon_state = "pmc"
+	item_state = "pmc"
 
 /obj/item/clothing/head/beret/corporate/idris
 	name = "idris beret"

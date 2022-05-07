@@ -56,11 +56,11 @@
 	icon_state = "labcoat_heph"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/pmc
-	name = "EPMC labcoat"
-	icon_state = "labcoat_epmc"
+	name = "PMCG labcoat"
+	icon_state = "labcoat_pmc"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
-	icon_state = "labcoat_epmc_alt"
+	icon_state = "labcoat_pmc_alt"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	name = "iac labcoat"

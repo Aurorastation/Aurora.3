@@ -72,8 +72,8 @@
 	item_state = "heph_liaison"
 
 /obj/item/clothing/under/rank/liaison/pmc
-	icon_state = "epmc_liaison"
-	item_state = "epmc_liaison"
+	icon_state = "pmc_liaison"
+	item_state = "pmc_liaison"
 
 /obj/item/clothing/under/rank/liaison/idris
 	icon_state = "idris_liaison"

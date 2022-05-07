@@ -235,7 +235,7 @@
 
 
 /datum/outfit/admin/pod/pmc
-	name = "RescuePod - EPMC Sergeant"
+	name = "RescuePod - PMCG Sergeant"
 	head = /obj/item/clothing/head/helmet/space/void/cruiser
 	suit = /obj/item/clothing/suit/space/void/cruiser
 	suit_store = /obj/item/tank/oxygen
@@ -246,7 +246,7 @@
 	uniform = /obj/item/clothing/under/rank/security/pmc
 
 /datum/outfit/admin/pod/pmc/get_id_assignment()
-	return "Security Officer (EPMC)"
+	return "Security Officer (PMCG)"
 
 /datum/outfit/admin/pod/pmc/get_id_rank()
 	return "Security Officer"
