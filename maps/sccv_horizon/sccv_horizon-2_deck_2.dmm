@@ -732,10 +732,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass_mining{
+/obj/machinery/door/airlock/multi_tile/glass{
 	name = "Warehouse Elevator";
-	req_access = null;
-	req_one_access = list(26, 31, 48, 67)
+	req_one_access = list(26, 31, 48, 67);
+	autoclose = 0;
+	dir = 2
+	},
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/office)
@@ -10362,6 +10366,17 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/horizonexterior)
+"fRi" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/operations/office)
 "fRN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -14685,6 +14700,15 @@
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
+"iku" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/operations/office)
 "ikB" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -30995,11 +31019,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/door/airlock/glass_mining{
+/obj/machinery/door/airlock/multi_tile/glass{
 	name = "Warehouse Elevator";
-	req_access = null;
-	req_one_access = list(26, 31, 48, 67)
+	req_one_access = list(26, 31, 48, 67);
+	autoclose = 0
 	},
+/obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/dark,
 /area/operations/office)
 "ryu" = (
@@ -56176,7 +56201,7 @@ rVg
 rVg
 kXS
 rVg
-arK
+fRi
 arK
 ubZ
 kRZ
@@ -56582,7 +56607,7 @@ bgS
 rVg
 aBq
 llp
-ryq
+iku
 yig
 eUa
 rVg

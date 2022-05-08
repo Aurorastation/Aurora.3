@@ -1164,7 +1164,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "cc" = (
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Pool South";
+	c_tag = "Third Deck - Fitness Center Pool Fore";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/blue{
@@ -1290,7 +1290,7 @@
 	pixel_x = -28
 	},
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Hallway 1";
+	c_tag = "Third Deck - Central Ring Starboard";
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1544,6 +1544,9 @@
 "cJ" = (
 /obj/effect/floor_decal/corner/paleblue/full,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "cK" = (
@@ -3099,6 +3102,10 @@
 /area/bridge/meeting_room)
 "fw" = (
 /obj/machinery/vending/coffee,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Fitness Center Lounge";
+	dir = 8
+	},
 /turf/simulated/floor/carpet/art,
 /area/horizon/crew_quarters/fitness/lounge)
 "fx" = (
@@ -5035,6 +5042,10 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Starboard Aft Lounge";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
@@ -10537,7 +10548,7 @@
 /area/template_noop)
 "ta" = (
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Pool North";
+	c_tag = "Third Deck - Fitness Center Pool Port";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -11645,7 +11656,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Hallway 3"
+	c_tag = "Third Deck - Central Ring Aft"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -11938,7 +11949,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -11949,6 +11959,10 @@
 	dir = 10
 	},
 /obj/structure/closet/walllocker/emerglocker/south,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Starboard Dock Port";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "vz" = (
@@ -14096,14 +14110,18 @@
 /obj/structure/flora/pottedplant{
 	pixel_x = -5
 	},
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/machinery/button/remote/blast_door{
 	name = "Viewing Shutters";
 	id = "shutters_deck3_pool";
 	dir = 4;
 	pixel_x = -32
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Fitness Center Pool Starboard";
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278;
@@ -15740,7 +15758,7 @@
 	dir = 5
 	},
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Hallway 6"
+	c_tag = "Third Deck - Crew Armoury Entrance"
 	},
 /obj/machinery/status_display{
 	layer = 4;
@@ -16370,6 +16388,10 @@
 	},
 /obj/machinery/atm{
 	pixel_x = -32
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Fitness Center Hallway Aft";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278;
@@ -19617,14 +19639,6 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
-"Jr" = (
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Deck 3 - Telecommunications Substation";
-	dir = 1;
-	alarm_on = 1
-	},
-/turf/simulated/wall/r_wall,
-/area/crew_armory)
 "Js" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -21525,6 +21539,10 @@
 /obj/machinery/computer/guestpass{
 	pixel_y = -32
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Central Ring Fore";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "MH" = (
@@ -22749,7 +22767,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Starboard Dock";
+	c_tag = "Third Deck - Starboard Dock Starboard";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -25271,6 +25289,10 @@
 	pixel_y = -28;
 	dir = 1
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Fitness Center Hallway Gym";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278;
 	name = "cooled dark floor"
@@ -25753,6 +25775,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Central Ring Port";
+	dir = 8
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
@@ -28593,7 +28619,7 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Hallway 2";
+	c_tag = "Third Deck - Cafe";
 	dir = 8
 	},
 /obj/machinery/alarm{
@@ -51400,7 +51426,7 @@ DQ
 DQ
 DQ
 DQ
-Jr
+DQ
 DQ
 Kc
 yd
