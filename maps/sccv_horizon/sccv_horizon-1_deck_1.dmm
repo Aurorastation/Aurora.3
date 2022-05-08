@@ -13597,9 +13597,6 @@
 	pixel_x = -24;
 	pixel_y = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 6
-	},
 /obj/machinery/power/smes/buildable/horizon_shuttle{
 	RCon_tag = "Mining_Pod"
 	},
@@ -44288,8 +44285,8 @@ vFD
 bIe
 vHW
 vHW
-vHW
 xgk
+iuk
 iuk
 iuk
 iuk
