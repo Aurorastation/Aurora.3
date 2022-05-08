@@ -4831,7 +4831,7 @@
 	},
 /area/syndicate_mothership)
 "amC" = (
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	pixel_x = -32;
 	pixel_y = 0;
 	req_access = list(150)
@@ -4862,7 +4862,7 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/syndicate_station/start)
 "amF" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_y = 32
 	},
 /turf/simulated/floor/shuttle/dark_red,
@@ -5644,7 +5644,7 @@
 /area/syndicate_station/start)
 "aoj" = (
 /obj/structure/table/standard,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	pixel_y = 32;
 	req_access = list(150)
 	},
@@ -6115,7 +6115,7 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/gloves/latex,
 /obj/item/surgicaldrill,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	pixel_x = 32;
 	pixel_y = 0;
 	req_access = list(150)
@@ -7556,7 +7556,7 @@
 /turf/simulated/floor/shuttle/yellow,
 /area/shuttle/administration/centcom)
 "auc" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = 30;
 	pixel_y = 0
 	},
@@ -7585,7 +7585,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/administration/centcom)
 "aui" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -30;
 	pixel_y = 0
 	},
@@ -7647,7 +7647,7 @@
 /obj/item/bonesetter,
 /obj/item/circular_saw,
 /obj/item/surgicaldrill,
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	name = "Surgery Tools";
 	pixel_x = 32
 	},
@@ -10856,10 +10856,7 @@
 	},
 /area/centcom/specops)
 "aAS" = (
-/obj/structure/closet{
-	icon_closed = "syndicate1";
-	icon_opened = "syndicate1open";
-	icon_state = "syndicate1";
+/obj/structure/closet/gimmick{
 	name = "emergency response team wardrobe"
 	},
 /obj/item/clothing/under/ert,
@@ -11095,10 +11092,7 @@
 	},
 /area/centcom/specops)
 "aBm" = (
-/obj/structure/closet{
-	icon_closed = "syndicate1";
-	icon_opened = "syndicate1open";
-	icon_state = "syndicate1";
+/obj/structure/closet/gimmick{
 	name = "emergency response team wardrobe"
 	},
 /obj/item/clothing/under/ert,
@@ -16307,7 +16301,6 @@
 	},
 /area/centcom/spawning)
 "aNb" = (
-/obj/machinery/megavendor,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -18070,7 +18063,7 @@
 	},
 /area/wizard_station)
 "aRg" = (
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
 /turf/unsimulated/floor{
 	dir = 4;
 	icon_state = "carpetside"
@@ -19969,7 +19962,7 @@
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape/centcom)
 "aVJ" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
 	},
 /turf/simulated/floor/shuttle/yellow,
@@ -20446,7 +20439,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape/centcom)
 "aXb" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_x = -32
 	},
 /obj/item/storage/firstaid/brute,
@@ -20587,7 +20580,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/ramp,
@@ -21250,7 +21243,6 @@
 /area/centcom/legion)
 "bCj" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -21561,7 +21553,6 @@
 "crr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/trashcart{
-	icon_state = "trashcartopen";
 	opened = 1
 	},
 /obj/item/trash/koisbar{
@@ -22332,8 +22323,7 @@
 /area/shuttle/merchant/start)
 "dZx" = (
 /obj/structure/closet{
-	icon_closed = "blue";
-	icon_state = "blue";
+	icon_door = "blue";
 	name = "Spare Uniforms"
 	},
 /obj/item/clothing/under/legion,
@@ -23152,7 +23142,6 @@
 /area/centcom/legion)
 "fSo" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},
@@ -24765,8 +24754,7 @@
 /area/merchant_station)
 "iQk" = (
 /obj/structure/closet{
-	icon_closed = "blue";
-	icon_state = "blue";
+	icon_door = "blue";
 	name = "Spare Uniforms"
 	},
 /obj/item/clothing/under/legion,
@@ -25755,7 +25743,6 @@
 /area/shuttle/merchant/start)
 "kVO" = (
 /obj/structure/closet/crate/secure/legion{
-	icon_state = "tcflcrateopen";
 	locked = 0;
 	opened = 1
 	},

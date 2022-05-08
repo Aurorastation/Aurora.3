@@ -86,6 +86,14 @@
 	cell_type = /obj/item/cell
 	req_access = list(access_captain)
 
+/obj/machinery/power/apc/intrepid
+	cell_type = /obj/item/cell/high
+	req_one_access = list(access_intrepid,access_engine_equip)
+
+/obj/machinery/power/apc/mining_pod
+	cell_type = /obj/item/cell/high
+	req_one_access = list(access_mining,access_engine_equip)
+
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
 	cell_type = /obj/item/cell/high

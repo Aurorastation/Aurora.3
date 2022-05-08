@@ -16,6 +16,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/shipmentnum
 	var/list/cargo_shipments = list() //List of the shipments to the station
 	var/datum/cargo_shipment/current_shipment = null //The current cargo shipment
+	var/list/queued_mining_equipment = list()
 
 	//order stuff
 	var/ordernum
@@ -630,6 +631,13 @@ var/datum/controller/subsystem/cargo/SScargo
 	current_shipment.generate_invoice()
 	current_shipment = null //Null the current shipment because its completed
 
+/datum/controller/subsystem/cargo/proc/order_mining(var/equip_path)
+	if(!ispath(equip_path))
+		return FALSE
+
+	queued_mining_equipment += equip_path
+	return TRUE
+
 //Buys the item and places them on the shuttle
 //Returns 0 if unsuccessful returns 1 if the shuttle can be sent
 /datum/controller/subsystem/cargo/proc/buy()
@@ -655,6 +663,19 @@ var/datum/controller/subsystem/cargo/SScargo
 			if(contcount)
 				continue
 			clear_turfs += T
+
+	for(var/E in queued_mining_equipment)
+		if(!ispath(E))
+			continue
+
+		var/i = rand(1,clear_turfs.len)
+		var/turf/pickedloc = clear_turfs[i]
+		clear_turfs.Cut(i,i+1)
+
+		if(isturf(pickedloc))
+			new E(pickedloc)
+
+		queued_mining_equipment -= E
 
 	for(var/datum/cargo_order/co in approved_orders)
 		if(!co)

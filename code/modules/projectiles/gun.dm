@@ -311,6 +311,8 @@
 	user.setClickCooldown(shoot_time)
 	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
+	
+	user.face_atom(target, TRUE)
 
 	return TRUE
 

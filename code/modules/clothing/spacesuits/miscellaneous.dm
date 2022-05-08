@@ -3,6 +3,7 @@
 /obj/item/clothing/head/helmet/space/deathsquad
 	name = "deathsquad helmet"
 	desc = "That's not red paint. That's real blood."
+	icon = 'icons/obj/clothing/hats.dmi'
 	icon_state = "deathsquad"
 	item_state_slots = list(
 		slot_l_hand_str = "syndicate-helm-black-red",
@@ -21,6 +22,7 @@
 	min_pressure_protection = 0
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 0.6
+	contained_sprite = FALSE
 
 //how is this a space helmet?
 /obj/item/clothing/head/helmet/space/deathsquad/beret
@@ -42,23 +44,28 @@
 /obj/item/clothing/head/helmet/space/santahat
 	name = "Santa's hat"
 	desc = "Ho ho ho. Merrry X-mas!"
+	icon = 'icons/obj/clothing/hats.dmi'
 	icon_state = "santahat"
 	item_state = "santahat"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD
+	contained_sprite = FALSE
 
 /obj/item/clothing/suit/space/santa
 	name = "Santa's suit"
 	desc = "Festive!"
+	icon = 'icons/obj/clothing/suits.dmi'
 	icon_state = "santa"
 	item_state = "santa"
 	slowdown = 0
 	allowed = list(/obj/item) //for stuffing exta special presents
+	contained_sprite = FALSE
 
 //Space pirate outfit
 /obj/item/clothing/head/helmet/space/pirate
 	name = "pirate hat"
 	desc = "Yarr."
+	icon = 'icons/obj/clothing/hats.dmi'
 	icon_state = "pirate"
 	item_state = "pirate"
 	armor = list(
@@ -73,10 +80,12 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 	siemens_coefficient = 0.4
+	contained_sprite = FALSE
 
 /obj/item/clothing/suit/space/pirate
 	name = "pirate coat"
 	desc = "Yarr."
+	icon = 'icons/obj/clothing/suits.dmi'
 	icon_state = "pirate"
 	item_state = "pirate"
 	w_class = ITEMSIZE_NORMAL
@@ -93,18 +102,4 @@
 	)
 	siemens_coefficient = 0.4
 	body_parts_covered = UPPER_TORSO|ARMS
-
-//Orange emergency space suit
-/obj/item/clothing/head/helmet/space/emergency
-	name = "emergency space helmet"
-	icon_state = "emergencyhelm"
-	item_state = "emergencyhelm"
-	desc = "A simple helmet with a built in light, smells like mothballs."
-	flash_protection = FLASH_PROTECTION_NONE
-
-/obj/item/clothing/suit/space/emergency
-	name = "emergency softsuit"
-	icon_state = "syndicate-orange"
-	item_state = "syndicate-orange"
-	desc = "A thin, ungainly softsuit colored in blaze orange for rescuers to easily locate, looks pretty fragile."
-	slowdown = 4
+	contained_sprite = FALSE
