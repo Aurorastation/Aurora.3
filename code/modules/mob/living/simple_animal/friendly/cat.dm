@@ -331,6 +331,7 @@
 	icon_dead = "penny_dead"
 	icon_rest = "penny_rest"
 	holder_type = /obj/item/holder/cat/penny
+
 /mob/living/simple_animal/cat/crusher // Goodbye Runtime, make way for the new girl in town.
 	name = "Crusher"
 	desc = "A cream coloured, young, and cuddly cat, with a small tag on her collar that says \"Dr. Crusher\". She never lets an opportunity pass to receive some pets or prey on some unsuspecting mice."
