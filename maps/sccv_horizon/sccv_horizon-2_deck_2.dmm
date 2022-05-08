@@ -15318,6 +15318,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "iEM" = (
@@ -23004,13 +23007,13 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/kitchen)
 "naN" = (
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "nbd" = (
@@ -23809,14 +23812,14 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
@@ -24196,10 +24199,10 @@
 /turf/simulated/wall,
 /area/security/prison)
 "nFm" = (
-/obj/machinery/light{
+/obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/mauve/full{
+/obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -36301,7 +36304,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/button/remote/blast_door{
-	id = "ai_upload";
+	id = "AICoreFoyer";
 	name = "AI Foyer Maintenance Blast Door";
 	dir = 1;
 	pixel_y = -25

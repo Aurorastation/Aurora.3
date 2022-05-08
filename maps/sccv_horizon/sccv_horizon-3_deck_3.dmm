@@ -875,10 +875,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "bF" = (
 /obj/machinery/telecomms/broadcaster/preset_right,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "bG" = (
 /obj/structure/cable/green{
@@ -2549,10 +2546,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "eC" = (
 /obj/structure/table/wood,
@@ -3018,10 +3012,7 @@
 /area/engineering/break_room)
 "fD" = (
 /obj/machinery/telecomms/server/presets/command,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "fF" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -3192,10 +3183,7 @@
 /area/bridge)
 "fX" = (
 /obj/machinery/telecomms/bus/preset_two,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "fY" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -3271,10 +3259,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "gd" = (
 /obj/machinery/telecomms/server/presets/service,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "ge" = (
 /obj/structure/closet/crate{
@@ -4138,10 +4123,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "hN" = (
 /obj/effect/floor_decal/corner/red{
@@ -4552,6 +4534,8 @@
 	dir = 4;
 	id = "shutters_deck3_tcom"
 	},
+/obj/item/circuitboard/telecomms/relay,
+/obj/item/circuitboard/ntnet_relay,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "iv" = (
@@ -4698,6 +4682,7 @@
 /obj/machinery/camera/network/telecom{
 	c_tag = "Telecomms - Spare Parts Room"
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "iH" = (
@@ -4761,26 +4746,24 @@
 /obj/structure/table/steel,
 /obj/machinery/light,
 /obj/effect/floor_decal/spline/plain,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/transmitter,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "iN" = (
-/obj/item/stock_parts/subspace/analyzer,
-/obj/item/stock_parts/subspace/analyzer,
-/obj/item/stock_parts/subspace/analyzer,
 /obj/structure/table/steel,
 /obj/effect/floor_decal/spline/plain,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "iO" = (
-/obj/item/stock_parts/subspace/crystal,
-/obj/item/stock_parts/subspace/crystal,
-/obj/item/stock_parts/subspace/crystal,
-/obj/structure/table/steel,
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/carpet/rubber,
-/area/tcommsat/entrance)
-"iP" = (
-/obj/machinery/light,
 /obj/structure/table/steel,
 /obj/effect/floor_decal/spline/plain,
 /obj/item/stock_parts/micro_laser,
@@ -4793,6 +4776,21 @@
 /obj/item/stock_parts/micro_laser/high,
 /obj/item/stock_parts/micro_laser/high,
 /obj/item/stock_parts/micro_laser/high,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/tcommsat/entrance)
+"iP" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/spline/plain,
+/obj/structure/table/steel,
+/obj/item/device/multitool,
+/obj/item/device/multitool,
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 8;
+	name = "Canister to Telecommunications Server Hall"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "iQ" = (
@@ -4895,32 +4893,38 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/starboard)
 "ja" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/spline/plain{
-	dir = 6
-	},
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/item/device/multitool,
-/obj/item/device/multitool,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/spline/plain{
+	dir = 6
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "jb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
-/obj/machinery/firealarm/south,
 /obj/effect/floor_decal/sign/d,
 /obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
+/obj/item/device/radio/intercom{
+	name = "Station Intercom (General)";
+	pixel_y = -24;
+	dir = 1
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "jc" = (
 /obj/effect/floor_decal/corner_wide/blue,
@@ -5098,10 +5102,7 @@
 /area/horizon/crew_quarters/cryo)
 "jt" = (
 /obj/machinery/telecomms/bus/preset_four,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "ju" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -5361,10 +5362,10 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "jV" = (
@@ -5661,10 +5662,7 @@
 /area/crew_quarters/captain)
 "kw" = (
 /obj/machinery/telecomms/bus/preset_one,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "kx" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -5826,10 +5824,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "kL" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -6638,10 +6633,7 @@
 /obj/item/modular_computer/console/preset/research{
 	dir = 1
 	},
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "mn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8010,6 +8002,22 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
+"oP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcommsat/chamber)
 "oQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -8087,6 +8095,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
+"pa" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor,
+/area/tcommsat/entrance)
 "pb" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/green/full{
@@ -8124,20 +8139,16 @@
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "pf" = (
-/obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
-	pixel_y = 24
-	},
 /obj/machinery/camera/network/telecom{
 	c_tag = "Telecomms - Port"
 	},
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
+/obj/machinery/alarm/tcom{
+	pixel_y = 28
 	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "pg" = (
 /obj/machinery/optable{
@@ -9090,6 +9101,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"qZ" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green,
+/turf/simulated/floor,
+/area/tcommsat/entrance)
 "ra" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -9231,10 +9250,7 @@
 /obj/machinery/computer/robotics{
 	dir = 1
 	},
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "rn" = (
 /obj/structure/bed/stool/chair/plastic{
@@ -9531,10 +9547,7 @@
 /area/horizon/crew_quarters/fitness/hallway)
 "rQ" = (
 /obj/machinery/telecomms/server/presets/science,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "rR" = (
 /obj/structure/table/wood,
@@ -9906,10 +9919,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "sy" = (
 /obj/structure/table/reinforced/wood,
@@ -10391,10 +10401,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "tr" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -10471,10 +10478,7 @@
 /area/medical/ward/isolation)
 "tx" = (
 /obj/machinery/telecomms/server/presets/medical,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "ty" = (
 /obj/effect/floor_decal/corner/green/diagonal{
@@ -10874,10 +10878,7 @@
 /area/hallway/medical/upper)
 "ui" = (
 /obj/machinery/telecomms/server/presets/engineering,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "uj" = (
 /obj/machinery/door/airlock/maintenance{
@@ -11121,10 +11122,7 @@
 /area/bridge/aibunker)
 "uG" = (
 /obj/machinery/telecomms/bus/preset_three,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "uH" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -11168,10 +11166,10 @@
 /area/maintenance/bridge)
 "uO" = (
 /obj/machinery/telecomms/relay/preset/station,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "uP" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -11752,10 +11750,7 @@
 	dir = 8
 	},
 /obj/machinery/telecomms/server/presets/security,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "vQ" = (
 /obj/machinery/door/airlock{
@@ -11878,10 +11873,7 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_x = 32
 	},
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "wd" = (
 /obj/structure/cable/green{
@@ -12082,9 +12074,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "wA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 4
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
@@ -12096,6 +12085,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
@@ -12426,10 +12418,7 @@
 /area/horizon/crew_quarters/fitness/hallway)
 "xe" = (
 /obj/machinery/telecomms/hub/preset,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "xf" = (
 /obj/structure/cable/green{
@@ -13139,15 +13128,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/embedded_controller/radio/airlock/access_controller{
-	pixel_x = 2;
-	frequency = 1600;
-	id_tag = "deck3_tcomms_aux_control";
-	tag_exterior_door = "deck3_tcomms_aux_exterior";
-	tag_interior_door = "deck3_tcomms_aux_interior";
-	pixel_y = -32;
-	req_access = list(61)
-	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
 "yt" = (
@@ -13290,10 +13270,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "yJ" = (
 /obj/machinery/light{
@@ -13407,10 +13387,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "yU" = (
 /obj/effect/floor_decal/corner/blue{
@@ -13817,10 +13794,7 @@
 /obj/structure/sign/electricshock{
 	pixel_y = 32
 	},
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "zH" = (
 /obj/effect/floor_decal/corner_wide/blue{
@@ -14712,6 +14686,14 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor,
 /area/maintenance/bridge)
+"Bu" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green,
+/turf/simulated/floor,
+/area/tcommsat/entrance)
 "Bv" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -14828,6 +14810,13 @@
 /obj/structure/coatrack{
 	pixel_y = 1;
 	pixel_x = -10
+	},
+/obj/machinery/embedded_controller/radio/airlock/access_controller{
+	pixel_x = 25;
+	frequency = 1600;
+	id_tag = "deck3_tcomms_aux_control";
+	tag_exterior_door = "deck3_tcomms_aux_exterior";
+	tag_interior_door = "deck3_tcomms_aux_interior"
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/chamber)
@@ -15305,10 +15294,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "CF" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -16802,10 +16788,10 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "Fw" = (
 /obj/structure/window/reinforced{
@@ -16884,10 +16870,7 @@
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "FC" = (
 /obj/machinery/telecomms/processor/preset_two,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "FD" = (
 /obj/machinery/door/firedoor,
@@ -17003,10 +16986,7 @@
 	pressure_checks_default = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "FQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -17205,10 +17185,7 @@
 /area/bridge/minibar)
 "Gm" = (
 /obj/machinery/telecomms/server/presets/unused,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "Gn" = (
 /obj/machinery/light{
@@ -18243,10 +18220,7 @@
 /area/horizon/crew_quarters/fitness/changing)
 "Ia" = (
 /obj/machinery/message_server,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "Ib" = (
 /obj/structure/cryofeed{
@@ -19051,10 +19025,7 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/east,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "Jy" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -19130,7 +19101,6 @@
 /obj/machinery/atmospherics/unary/freezer{
 	dir = 1;
 	icon_state = "freezer_1";
-	set_temperature = 73;
 	use_power = 1
 	},
 /obj/structure/sign/nosmoking_2{
@@ -19817,10 +19787,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "KU" = (
 /obj/structure/disposalpipe/segment,
@@ -19897,10 +19864,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "Lb" = (
 /obj/structure/cable/green{
@@ -19933,10 +19897,7 @@
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "Ld" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -20019,18 +19980,16 @@
 /turf/simulated/floor,
 /area/bridge/meeting_room)
 "Lm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/black,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "Ln" = (
@@ -20534,10 +20493,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "Mh" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -21489,10 +21445,7 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/east,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "NT" = (
 /obj/structure/table/wood,
@@ -21757,6 +21710,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
+"Op" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 6
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/tcommsat/entrance)
 "Oq" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -22026,10 +21991,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "OP" = (
 /obj/structure/railing/mapped,
@@ -22106,10 +22068,10 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "OY" = (
 /obj/machinery/door/firedoor,
@@ -22319,10 +22281,7 @@
 /area/maintenance/aux_atmospherics/deck_3)
 "Pp" = (
 /obj/machinery/telecomms/server/presets/common,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "Pq" = (
 /obj/structure/railing/mapped,
@@ -22427,10 +22386,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
 "PB" = (
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "PC" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -22699,6 +22655,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
+"PY" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor,
+/area/tcommsat/entrance)
 "PZ" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -23280,19 +23246,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "QX" = (
 /obj/machinery/telecomms/processor/preset_four,
-/obj/machinery/embedded_controller/radio/airlock/access_controller{
-	pixel_y = 32;
-	pixel_x = 2;
-	frequency = 1600;
-	id_tag = "deck3_tcomms_aux_control";
-	tag_exterior_door = "deck3_tcomms_aux_exterior";
-	tag_interior_door = "deck3_tcomms_aux_interior";
-	req_access = list(61)
-	},
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "QY" = (
 /obj/machinery/door/firedoor,
@@ -24240,10 +24194,7 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
 	},
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "SV" = (
 /turf/simulated/floor/carpet,
@@ -24597,6 +24548,9 @@
 /area/crew_quarters/captain)
 "TB" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor,
 /area/tcommsat/entrance)
 "TC" = (
@@ -24754,10 +24708,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "TV" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
@@ -24771,10 +24722,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "TX" = (
 /obj/machinery/hologram/holopad,
@@ -25699,10 +25647,7 @@
 /area/bridge)
 "VF" = (
 /obj/machinery/telecomms/relay/preset/telecomms,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "VG" = (
 /obj/structure/disposalpipe/segment,
@@ -25987,10 +25932,7 @@
 /area/crew_quarters/heads/hop/xo)
 "Wi" = (
 /obj/machinery/blackbox_recorder,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "Wj" = (
 /obj/structure/toilet{
@@ -26595,10 +26537,7 @@
 /area/crew_armory)
 "Xs" = (
 /obj/machinery/telecomms/server/presets/supply,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "Xt" = (
 /obj/effect/floor_decal/corner/green{
@@ -26944,10 +26883,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
 "XV" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -27909,10 +27845,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "ZE" = (
 /obj/machinery/bluespacerelay,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "ZF" = (
 /obj/structure/disposalpipe/segment{
@@ -28036,10 +27969,7 @@
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "ZO" = (
 /obj/machinery/telecomms/receiver/preset_right,
-/turf/simulated/floor/bluegrid{
-	temperature = 278;
-	name = "cooled mainframe floor"
-	},
+/turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "ZP" = (
 /obj/machinery/door/firedoor,
@@ -46034,7 +45964,7 @@ tx
 rQ
 yH
 uO
-TB
+qZ
 eN
 Ph
 iN
@@ -46238,7 +46168,7 @@ hM
 rm
 XJ
 iG
-Ph
+Op
 iO
 XJ
 Es
@@ -47042,8 +46972,8 @@ fc
 pf
 CE
 CE
-OW
-TB
+oP
+Bu
 nJ
 pL
 kQ
@@ -47245,7 +47175,7 @@ ZE
 PB
 bF
 TW
-TB
+PY
 SA
 us
 Co
@@ -47447,7 +47377,7 @@ TU
 xe
 PB
 Mg
-TB
+PY
 wF
 yD
 vB
@@ -47649,7 +47579,7 @@ ZE
 wc
 ZO
 Jx
-TB
+pa
 Eu
 Lz
 qH

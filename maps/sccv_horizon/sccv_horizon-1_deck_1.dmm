@@ -3233,6 +3233,10 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/firealarm/west,
 /obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Warehouse Entrance";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "cDa" = (
@@ -16619,9 +16623,6 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/light/small{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "nCM" = (
@@ -22916,6 +22917,9 @@
 	c_tag = "AI Core - First Deck Maintenance";
 	dir = 4
 	},
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "thO" = (
@@ -23327,6 +23331,9 @@
 /area/rnd/xenoarch_atrium)
 "tyw" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - EVA Preparation Entrance"
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "tzi" = (
@@ -25278,16 +25285,14 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/item/stack/material/uranium{
-	amount = 10
-	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/machinery/power/portgen/basic/advanced,
+/obj/machinery/power/portgen/basic,
+/obj/item/stack/material/graphite/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
 "vgw" = (
@@ -27549,6 +27554,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"xgc" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/turret_protected/ai_upload)
 "xgk" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
@@ -56569,7 +56582,7 @@ eSV
 eSV
 xiH
 dEe
-rMf
+xgc
 lEN
 pdC
 vnJ
