@@ -377,34 +377,6 @@
 	icon_state = "cargoponcho"
 	item_state = "cargoponcho"
 
-/obj/item/clothing/accessory/poncho/skrell
-	name = "white skrell poncho"
-	desc = "This cover is a design of the Jargon Federation. It is meant to keep moisture in and stop a Skrell's skin from baking in the hot sun. C'thur and Diona may also wear it as a fashion statement."
-	icon = 'icons/clothing/accessories/skr_poncho.dmi'
-	icon_state = "skr_poncho"
-	item_state = "skr_poncho"
-	overlay_state = "skr_poncho"
-	contained_sprite = TRUE
-	icon_override = null
-
-/obj/item/clothing/accessory/poncho/skrell/gray
-	name = "gray skrell poncho"
-	icon_state = "skr_poncho_gry"
-	item_state = "skr_poncho_gry"
-	overlay_state = "skr_poncho_gry"
-
-/obj/item/clothing/accessory/poncho/skrell/tan
-	name = "tan skrell poncho"
-	icon_state = "skr_poncho_tan"
-	item_state = "skr_poncho_tan"
-	overlay_state = "skr_poncho_tan"
-
-/obj/item/clothing/accessory/poncho/skrell/brown
-	name = "brown skrell poncho"
-	icon_state = "skr_poncho_brn"
-	item_state = "skr_poncho_brn"
-	overlay_state = "skr_poncho_brn"
-
 /*
  * Sashes
  */
