@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes the bar ordering terminal being inside the bar sign. Also fixes some pipes and disposals in the kitchen."
