@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Exoplanet + away site landing destinations should no longer appear duplicated in the selection screen."
