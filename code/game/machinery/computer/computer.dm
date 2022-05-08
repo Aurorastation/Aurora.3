@@ -1,6 +1,6 @@
 /obj/machinery/computer
 	name = "computer"
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/modular_computer.dmi'
 	icon_state = "computer"
 	density = 1
 	anchored = 1.0
@@ -12,8 +12,9 @@
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = 0
 
-	var/icon_screen = "generic"
+	var/icon_screen = "computer_generic"
 	var/icon_scanline
+	var/icon_keyboard = "green_key"
 	var/light_range_on = 2
 	var/light_power_on = 1.3
 	var/overlay_layer
@@ -83,6 +84,8 @@
 			holographic_overlay(src, src.icon, icon_screen)
 		if (icon_scanline)
 			add_overlay(icon_scanline)
+		if (icon_keyboard)
+			add_overlay(icon_keyboard)
 		else if (overlay_layer != layer)
 			add_overlay(image(icon, icon_screen, overlay_layer))
 		else

@@ -1,7 +1,8 @@
 /obj/machinery/computer/ship/sensors
 	name = "sensors console"
-	icon_screen = "command"
-	light_color = "#77fff8"
+	icon_screen = "sensors"
+	icon_keyboard = "cyan_key"
+	light_color = LIGHT_COLOR_CYAN
 	extra_view = 4
 	var/obj/machinery/shipsensors/sensors
 	circuit = /obj/item/circuitboard/ship/sensors

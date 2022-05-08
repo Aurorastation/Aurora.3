@@ -30,6 +30,7 @@
 /obj/machinery/computer/arcade/orion_trail
 	name = "orion trail"
 	desc = "Imported straight from Outpost-T71!"
+	icon = 'icons/obj/computer.dmi'
 	icon_state = "arcade1"
 	icon_screen = "orion"
 	circuit = /obj/item/circuitboard/arcade/orion_trail

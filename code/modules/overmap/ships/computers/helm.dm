@@ -3,8 +3,9 @@
 
 /obj/machinery/computer/ship/helm
 	name = "helm control console"
-	icon_screen = "command"
-	light_color = "#7faaff"
+	icon_screen = "helm"
+	icon_keyboard = "cyan_key"
+	light_color = LIGHT_COLOR_CYAN
 	var/autopilot = 0
 	var/list/known_sectors = list()
 	var/dx		//desitnation
@@ -252,7 +253,9 @@
 
 /obj/machinery/computer/ship/navigation
 	name = "navigation console"
-	icon_screen = "command"
+	icon_screen = "nav"
+	icon_keyboard = "cyan_key"
+	light_color = LIGHT_COLOR_CYAN
 
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!linked)

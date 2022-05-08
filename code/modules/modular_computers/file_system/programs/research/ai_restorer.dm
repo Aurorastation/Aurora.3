@@ -2,6 +2,7 @@
 	filename = "aidiag"
 	filedesc = "AI Maintenance Utility"
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program is capable of reconstructing damaged AI systems. It can also be used to upload basic laws to the AI. Requires direct AI connection via intellicard slot."
 	size = 12
 	requires_ntnet = FALSE

@@ -2,6 +2,8 @@
 	filename = "manifest"
 	filedesc = "Crew Manifest"
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program is used for viewing the crew manifest."
 	usage_flags = PROGRAM_ALL
 	size = 3

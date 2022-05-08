@@ -273,8 +273,9 @@
 /obj/machinery/power/solar_control
 	name = "solar panel control"
 	desc = "A controller for solar panel arrays."
-	icon = 'icons/obj/computer.dmi'
-	icon_state = "computer"
+	icon_screen = "solar"
+	icon_keyboard = "yellow_key"
+	light_color = LIGHT_COLOR_YELLOW
 	anchored = 1
 	density = 1
 	use_power = 1
@@ -347,21 +348,6 @@
 	. = ..()
 	if(!connect_to_network()) return
 	set_panels(cdir)
-
-/obj/machinery/power/solar_control/update_icon()
-	icon_state = initial(icon_state)
-	cut_overlays()
-	if(stat & BROKEN)
-		icon_state = "computer-broken"
-		add_overlay("broken")
-		return
-	if(stat & NOPOWER)
-		icon_state = "computer"
-		return
-	add_overlay("solar")
-	if(cdir > -1)
-		add_overlay(image('icons/obj/computer.dmi', "solcon-o", FLY_LAYER, angle2dir(cdir)))
-	return
 
 /obj/machinery/power/solar_control/attack_hand(mob/user)
 	if(!..())

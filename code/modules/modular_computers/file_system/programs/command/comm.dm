@@ -7,7 +7,8 @@
 /datum/computer_file/program/comm
 	filename = "comm"
 	filedesc = "Command and Communications Program"
-	program_icon_state = "command"
+	program_icon_state = "comm"
+	program_key_icon_state = "lightblue_key"
 	nanomodule_path = /datum/nano_module/program/comm
 	extended_desc = "Used to command and control the station. Can relay long-range communications."
 	required_access_run = access_heads

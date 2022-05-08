@@ -5,9 +5,10 @@
 	desc = "A console that displays information on the status of the patient on an adjacent operating table."
 	density = TRUE
 	anchored = TRUE
+	icon_screen = "crew"
+	icon_keyboard = "teal_key"
+	light_color = LIGHT_COLOR_BLUE
 
-	light_color = LIGHT_COLOR_GREEN
-	icon_screen = "med"
 	circuit = /obj/item/circuitboard/operating
 	var/mob/living/carbon/human/victim = null
 	var/obj/machinery/optable/table = null
