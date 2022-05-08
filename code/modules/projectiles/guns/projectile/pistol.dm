@@ -501,23 +501,24 @@
 
 /obj/item/gun/projectile/pistol/super_heavy/handle_post_fire(mob/user)
 	..()
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.mob_size <10)
-			H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
-			H.drop_item(src)
-			src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 4, 4)
+	if(wielded)
+		return
+	else
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(H.mob_size <10)
+				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
+				H.drop_item(src)
+				src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 4, 4)
 
-			var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
-			var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
-			var/active_hand = H.hand
+				var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
+				var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
+				var/active_hand = H.hand
 
-			if(active_hand)
-				LH.take_damage(30)
-				/*H.weaken(3)*/
-			else
-				RH.take_damage(30)
-				/*H.weaken(3)*/
+				if(active_hand)
+					LH.take_damage(30)
+				else
+					RH.take_damage(30)
 
 /*/obj/item/gun/projectile/pistol/k_arms/update_icon()
 	. = ..()
