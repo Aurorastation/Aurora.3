@@ -762,6 +762,11 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/turretid/stun{
+	name = "\improper AI Upload Turret Control Console";
+	pixel_y = 32;
+	check_synth = 1
+	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "asG" = (
@@ -1830,6 +1835,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/effect/floor_decal/spline/fancy,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "aTa" = (
@@ -2385,7 +2391,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bfF" = (
-/obj/effect/floor_decal/corner/mauve/full,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/machinery/light,
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
+	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "bgN" = (
@@ -2752,6 +2768,7 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
+/obj/effect/floor_decal/spline/fancy/corner,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "bqW" = (
@@ -5431,6 +5448,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
@@ -8876,6 +8896,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "fas" = (
@@ -9789,9 +9810,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/kitchen)
 "fDA" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 1
-	},
+/obj/machinery/porta_turret,
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "fDE" = (
@@ -10927,11 +10947,7 @@
 /obj/machinery/computer/borgupload{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_upload)
 "gfX" = (
 /obj/structure/table/rack,
@@ -11056,16 +11072,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/turretid/stun{
-	name = "\improper AI Upload Turret Control Console";
-	pixel_y = 32;
-	check_synth = 1
-	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
@@ -11440,11 +11454,7 @@
 /obj/machinery/computer/aiupload{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_upload)
 "gsR" = (
 /obj/structure/table/standard,
@@ -13749,6 +13759,9 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "hEw" = (
@@ -15141,6 +15154,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "iCx" = (
@@ -16074,6 +16088,12 @@
 	dir = 10
 	},
 /obj/structure/cable/green,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "iYH" = (
@@ -16777,8 +16797,8 @@
 /turf/simulated/open,
 /area/hallway/engineering)
 "jsI" = (
-/obj/machinery/porta_turret/stationary,
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret,
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload)
 "jsR" = (
@@ -18207,6 +18227,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "krl" = (
@@ -21005,13 +21029,13 @@
 /obj/structure/window/phoronreinforced/skrell{
 	dir = 8
 	},
-/obj/structure/window/phoronreinforced/skrell,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Fore"
 	},
+/obj/structure/window/phoronreinforced/skrell,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "lYV" = (
@@ -21486,6 +21510,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "mke" = (
@@ -23703,6 +23728,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "nts" = (
@@ -25110,6 +25138,9 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
@@ -28788,6 +28819,9 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/effect/floor_decal/spline/fancy/corner{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "qni" = (
@@ -29129,6 +29163,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
@@ -30389,6 +30426,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/spline/fancy/corner{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "rfO" = (
@@ -31203,10 +31243,11 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
 	},
+/obj/machinery/light,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "rAn" = (
@@ -32658,7 +32699,8 @@
 /area/medical/psych)
 "spR" = (
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list(16)
+	req_access = list(16);
+	name = "AI Core Access"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/spline/plain,
@@ -33710,6 +33752,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/spline/fancy/corner{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
@@ -36147,6 +36192,12 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
@@ -39128,6 +39179,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "vVF" = (
@@ -40190,6 +40245,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "wsn" = (
@@ -41273,6 +41329,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
 "wWI" = (
@@ -41565,6 +41624,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "xdA" = (
@@ -42223,7 +42283,6 @@
 /obj/structure/window/phoronreinforced/skrell{
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced/skrell,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -42236,6 +42295,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/structure/window/phoronreinforced/skrell,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "xxy" = (
@@ -70497,7 +70557,7 @@ qwD
 sYA
 hst
 gil
-nPA
+bfF
 mBB
 cer
 sFk
@@ -71100,7 +71160,7 @@ iEB
 fyU
 gxa
 nFm
-bfF
+fDA
 gxa
 azO
 rtH
