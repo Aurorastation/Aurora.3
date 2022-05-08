@@ -20080,15 +20080,6 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
 /area/template_noop)
-"JZ" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278;
-	name = "cooled dark floor"
-	},
-/area/horizon/crew_quarters/fitness/gym)
 "Ka" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -26871,6 +26862,10 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = 4;
+	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278;
@@ -48837,7 +48832,7 @@ HN
 nL
 MC
 SS
-JZ
+dd
 EO
 ry
 cN
