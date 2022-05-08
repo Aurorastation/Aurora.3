@@ -4,7 +4,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	anchored = TRUE
 
-/obj/item/hullbeacon/attackby(obj/item/W, mob/user)
+/obj/item/hullbeacon/attack_hand(mob/user)
 	return
 
 /obj/item/hullbeacon/red
