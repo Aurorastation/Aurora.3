@@ -321,6 +321,7 @@ obj/machinery/computer/general_air_control/Destroy()
 
 /obj/machinery/computer/general_air_control/fuel_injection
 	icon_screen = "alert:0"
+	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
 
 	var/device_tag
