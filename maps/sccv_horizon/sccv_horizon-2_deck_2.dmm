@@ -3993,7 +3993,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "cam" = (
-)
+,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/aux_atmospherics/deck_2/starboard)
 "can" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/floor_decal/industrial/warning{
@@ -26548,6 +26553,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"pfi" = (
+,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/machinery/button/remote/airlock{
+	id = "cargobreak_t1";
+	pixel_y = 32;
+	name = "Door Bolt Control";
+	specialfunctions = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/operations/break_room)
 "pfp" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -53328,7 +53350,7 @@ vJu
 rqA
 rLF
 rqA
-cam
+pfi
 xnf
 wmz
 tHZ
@@ -63670,7 +63692,7 @@ kKM
 jgb
 gBE
 gBE
-ayF
+mZI
 tju
 tju
 nts
