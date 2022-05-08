@@ -60,6 +60,7 @@
 /obj/structure/sign/double/barsign/kitchensign
 	icon = 'icons/obj/kitchensigns.dmi'
 	icon_state = "Off"
+	req_access = list(access_kitchen)
 	choice_types = /decl/sign/double/kitchen
 
 /obj/structure/sign/double/barsign/attackby(obj/item/I, mob/user)
