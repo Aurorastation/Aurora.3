@@ -1,8 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed runtime related to the FSF patrol ship."
-  - tweak: "Replaced corpses in the Abandoned Hideout exoplanet ruin."
-  - backend: "FSF patrol ship and Abandoned Hideout converted to TGM files."

@@ -1,8 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - tweak: "Mining cart engines now start with a key inside."
-  - rscadd: "Adds a minecart orbital dropper, available from mining vendors for 2000pts. Comes with an engine and two carts."
-  - tweak: "Mining carts can now travel off-tracks very slowly, so long as they aren't already on a track."
