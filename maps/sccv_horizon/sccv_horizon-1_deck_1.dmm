@@ -912,10 +912,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "aOC" = (
-/obj/structure/ladder/up{
-	pixel_y = 13
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "aOD" = (
@@ -2237,21 +2240,21 @@
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/intrepid)
 "bLO" = (
-/obj/machinery/disposal/deliveryChute{
-	dir = 4
-	},
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/brown/diagonal,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /obj/machinery/conveyor_switch/oneway{
 	id = "cargo_1";
-	pixel_y = 20
+	pixel_y = 21;
+	pixel_x = 13
 	},
+/obj/structure/disposaloutlet{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "bLX" = (
@@ -10649,6 +10652,11 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/structure/sign/electricshock{
+	pixel_x = -32;
+	desc = "A warning sign which reads 'WARNING: ELECTRIFIED GRILLE - HIGH VOLTAGE'.";
+	name = "\improper WARNING: ELECTRIFIED GRILLE - HIGH VOLTAGE sign"
+	},
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/maintenance/research_port)
 "iTq" = (
@@ -19003,13 +19011,17 @@
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/mining)
 "qeO" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/effect/decal/cleanable/cobweb,
-/obj/machinery/alarm{
-	pixel_y = 28
+/obj/structure/ladder/up{
+	pixel_y = 13
 	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
+	icon_state = "12-0"
+	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "qeY" = (
@@ -20326,11 +20338,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
-"rjX" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/item/stack/rods,
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "rkQ" = (
 /obj/effect/floor_decal/corner/black,
 /obj/effect/floor_decal/corner/black{
@@ -24191,6 +24198,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/item/stack/rods,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "uDG" = (
@@ -24805,6 +24813,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/operations/storage)
 "vhg" = (
@@ -25756,11 +25765,11 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "wbm" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/alarm{
+	pixel_x = 28;
+	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "wbO" = (
@@ -26471,11 +26480,11 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/rnd/isolation_c)
 "wJK" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "wKh" = (
@@ -53569,7 +53578,7 @@ xdF
 cTm
 pom
 qeO
-wbm
+pom
 uDi
 mhf
 idq
@@ -53771,7 +53780,7 @@ eKc
 mhf
 pom
 aOC
-rjX
+pom
 tFd
 lrg
 mhf
@@ -53974,7 +53983,7 @@ tFd
 grP
 wJK
 iSc
-mhf
+wbm
 hgR
 eGG
 pom
