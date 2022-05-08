@@ -468,7 +468,7 @@
 	desc = "A big, bulky and extremely powerful pistol, intended to pierce even your strongest enemy. For your own safety you should wield this thing with two hands."
 	desc_fluff = "The Kumar Arms 2557 is a newly designed type of \"super-heavy\" pistol. \
 	It features a light-weight polymer pistol grip, a bulky plasteel frame and an extra long barrel. \
-	It is chambered in the newly developed .599 Kumar Nitro rifle cartridge. Newly developed propellant makes this basically into a pistol fired rifle cartridge, upping the stopping power significantly. \
+	It is chambered in the newly developed .599 Kumar Nitro rifle cartridge. Newly developed propellant makes this basically into a pistol, which fires rifle cartridges, upping the stopping power significantly. \
 	Kumar Arms guarantees your enemy's armor penetrated or your money back. It features a revolutionary automatic revolving bolt system, which ensures accuracy at the cost of fire rate."
 	icon = 'icons/obj/contained_items/weapons/k_arms.dmi'
 	icon_state = "k2557-loaded"

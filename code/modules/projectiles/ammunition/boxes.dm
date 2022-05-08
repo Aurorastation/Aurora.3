@@ -514,7 +514,7 @@
 	multiple_sprites = 1
 /obj/item/ammo_magazine/super_heavy
 	name = ".599 magazine"
-	icon_state = "k2557-mag"
+	icon_state = "k2557"
 	caliber = ".599 Kumar Nitro"
 	ammo_type = /obj/item/ammo_casing/kumar_nitro
 	mag_type = MAGAZINE
