@@ -32330,6 +32330,7 @@
 	name = "north bump";
 	pixel_y = 24
 	},
+/obj/item/device/nanoquikpay,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen/freezer)
 "tvM" = (
