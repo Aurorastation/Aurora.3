@@ -275,11 +275,20 @@
 	desc = "A green sign pointing towards an emergency exit."
 	icon_state = "emerg_exit"
 
+/obj/structure/sign/emerg_exit/evac
+	name = "\improper EVACUATION ROUTE sign"
+	desc = "A green sign pointing towards an evacuation route."
+	icon_state = "emerg_exit"
+
 /obj/structure/sign/emerg_exitZ
 	name = "\improper EMERGENCY LADDER"
 	desc = "A green sign that depicts a person climbing the ladder towards the arrow's direction, pointing at the emergency exit."
 	icon_state = "emerg_exitZ"
 
+/obj/structure/sign/emerg_exitZ
+	name = "\improper EVACUATION ROUTE sign"
+	desc = "A green sign that depicts a person climbing a ladder towards an evacuation route."
+	icon_state = "emerg_exitZ"
 
 //Christmas
 /obj/structure/sign/christmas/lights
