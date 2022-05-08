@@ -430,3 +430,14 @@
 	item_state = "folding_chair"
 	base_icon = "folding_chair"
 	origin_type = /obj/structure/bed/stool/chair/folding
+
+//Maybe if you tried hard, you could sit on these too.
+/obj/structure/bed/handrail
+	name = "handrail"
+	desc = "A railing that allows one to easily secure themselves via a series of straps and buckles."
+	icon = 'icons/obj/handrail.dmi'
+	icon_state = "handrail"
+	base_icon = "handrail"
+	buckle_dir = FALSE
+	buckle_lying = FALSE
+	can_dismantle = FALSE
