@@ -513,10 +513,10 @@
 	max_ammo = 2
 	multiple_sprites = 1
 /obj/item/ammo_magazine/super_heavy
-	name = ".577 magazine"
+	name = ".599 magazine"
 	icon_state = "k2557-mag"
-	caliber = ".577 Nitro Express"
-	ammo_type = /obj/item/ammo_casing/nitro_express
+	caliber = ".599 Kumar Nitro"
+	ammo_type = /obj/item/ammo_casing/kumar_nitro
 	mag_type = MAGAZINE
 	max_ammo = 5
 	multiple_sprites = 1

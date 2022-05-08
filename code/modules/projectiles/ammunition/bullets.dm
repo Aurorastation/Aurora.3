@@ -388,10 +388,10 @@
 	reload_sound = 'sound/weapons/railgun_insert_emp.ogg'
 	max_stack = 1
 
-/obj/item/ammo_casing/nitro_express
-	name =".577 nitro express casing"
+/obj/item/ammo_casing/kumar_nitro
+	name =".599 kumar nitro casing"
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
-	caliber = ".577 Nitro Express"
+	caliber = ".599 Kumar Nitro"
 	projectile_type = /obj/item/projectile/bullet
 	max_stack = 5
