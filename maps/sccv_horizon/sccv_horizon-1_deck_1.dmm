@@ -4499,6 +4499,12 @@
 	},
 /turf/space/dynamic,
 /area/template_noop)
+"dPt" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/deck1)
 "dPJ" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/cobweb,
@@ -12851,8 +12857,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "kLu" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "kLC" = (
@@ -17910,8 +17915,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "pme" = (
-/obj/effect/floor_decal/corner/purple/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "pnf" = (
@@ -19359,8 +19363,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "qsK" = (
@@ -19535,8 +19538,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid)
 "qAY" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "qBk" = (
@@ -23888,8 +23890,7 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/atmos/propulsion)
 "uoI" = (
-/obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "uoV" = (
@@ -37425,7 +37426,7 @@ noz
 paL
 omL
 sTw
-sTw
+dPt
 sTw
 xGF
 xGF

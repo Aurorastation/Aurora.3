@@ -16038,6 +16038,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "iYH" = (
@@ -24977,6 +24978,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
+"omD" = (
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/machinery/door/blast/regular/open{
+	name = "AI Maintenance Blast Door";
+	id = "AICore";
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/turret_protected/ai)
 "ond" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -36032,6 +36045,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai)
 "upn" = (
@@ -38966,6 +38982,21 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
+"vVD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/turret_protected/ai_upload)
 "vVF" = (
 /obj/machinery/conveyor{
 	dir = 10;
@@ -69914,8 +69945,8 @@ hst
 wLz
 spR
 upm
-cyG
-iBG
+omD
+vVD
 iYw
 mBB
 fer
