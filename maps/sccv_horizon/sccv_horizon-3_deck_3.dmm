@@ -9216,7 +9216,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-21";
 	pixel_x = -4
 	},
 /turf/simulated/floor/wood,
@@ -13748,9 +13749,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/structure/flora/pottedplant/random{
-	pixel_y = 16;
-	pixel_x = -4
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-33";
+	pixel_x = -4;
+	pixel_y = 16
 	},
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
