@@ -2382,6 +2382,13 @@
 /obj/structure/grille,
 /turf/simulated/open/airless,
 /area/horizonexterior)
+"bff" = (
+/obj/machinery/camera/network/command{
+	c_tag = "AI Core - External";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/turret_protected/ai_upload)
 "bfB" = (
 /obj/machinery/light/small,
 /obj/machinery/alarm{
@@ -7801,6 +7808,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
+"etT" = (
+/obj/structure/bed/stool/chair/padded/red{
+	dir = 4
+	},
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Booth 1";
+	dir = 4
+	},
+/turf/simulated/floor/lino/grey,
+/area/hallway/primary/central_two)
 "eui" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -9556,6 +9573,12 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Deck 2 - Bunker Escape Route";
+	network = list("Command","Bunker");
+	alarm_on = 1;
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "ftz" = (
@@ -12027,6 +12050,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"gFX" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Bartender Desk Port";
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "gGv" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
@@ -15783,6 +15816,10 @@
 	name = "east bump";
 	pixel_x = 24
 	},
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Kitchen Stairwell";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/third_deck_stairs)
 "iRl" = (
@@ -18032,9 +18069,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "kgS" = (
-/obj/machinery/camera/network/service{
-	c_tag = "Dinner - Bar 3"
-	},
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/flame/candle{
@@ -19869,6 +19903,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
+"lqM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/camera/network/engine{
+	c_tag = "Engineering - Tesla Room External Airlock";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/aft_airlock)
 "lrh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -28335,6 +28377,16 @@
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating,
 /area/bridge/aibunker)
+"pYK" = (
+/obj/structure/bed/stool/chair/padded/red{
+	dir = 4
+	},
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Booth 2";
+	dir = 4
+	},
+/turf/simulated/floor/lino/grey,
+/area/hallway/primary/central_two)
 "pYU" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -29383,7 +29435,7 @@
 	dir = 5
 	},
 /obj/machinery/camera/network/service{
-	c_tag = "Dinner - Bar 2"
+	c_tag = "Dinner - Lounge Fore"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -31885,6 +31937,16 @@
 /obj/item/paper_bin,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
+"rQO" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Bartender Desk Starboard";
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "rRe" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/ramp{
@@ -33522,6 +33584,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
+"sRG" = (
+/obj/structure/bed/stool/padded/red,
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Lounge Starboard"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/bar)
 "sSY" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -34173,6 +34242,10 @@
 /area/crew_quarters/kitchen)
 "tki" = (
 /obj/machinery/computer/arcade/battle,
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Lounge Aft";
+	dir = 8
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "tkB" = (
@@ -36248,6 +36321,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/security_office)
+"upO" = (
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Kitchen Freezer";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer{
+	name = "cold storage tiles";
+	temperature = 278
+	},
+/area/crew_quarters/kitchen/freezer)
 "upP" = (
 /turf/simulated/wall,
 /area/crew_quarters/kitchen/freezer)
@@ -36523,6 +36606,10 @@
 	},
 /obj/structure/table/wood,
 /obj/item/flame/candle,
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Booth 3";
+	dir = 8
+	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "uxi" = (
@@ -36869,6 +36956,16 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
+"uHb" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Deck 2 - Bunker Escape Route External";
+	network = list("Command","Bunker");
+	alarm_on = 1;
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
 "uHh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -43506,6 +43603,9 @@
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Aft Treatment Room"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
@@ -61718,7 +61818,7 @@ ePs
 dHL
 vhe
 sKJ
-hSY
+sRG
 hSY
 hSY
 hSY
@@ -62327,7 +62427,7 @@ xPY
 nUh
 gHR
 gHV
-gHV
+rQO
 iIx
 sKJ
 wRk
@@ -62731,7 +62831,7 @@ xPY
 nUh
 oSp
 jes
-jes
+gFX
 sUD
 ulp
 uZh
@@ -62739,7 +62839,7 @@ vGT
 ncN
 mZI
 dfZ
-dfZ
+etT
 nts
 qgN
 qgN
@@ -63547,7 +63647,7 @@ gBE
 ncN
 mZI
 sGq
-dfZ
+pYK
 nts
 qgN
 qgN
@@ -65895,7 +65995,7 @@ otv
 jeT
 jeT
 cZq
-tfr
+lqM
 tfr
 lbP
 cQS
@@ -66288,7 +66388,7 @@ qgN
 qgN
 qgN
 qgN
-jMJ
+uHb
 gXy
 fgh
 fgh
@@ -66575,7 +66675,7 @@ uUn
 jDa
 ulV
 sSZ
-waI
+upO
 hPC
 uPW
 xer
@@ -71152,7 +71252,7 @@ qgN
 qgN
 qgN
 wsn
-kxt
+bff
 ifm
 ifm
 mBB

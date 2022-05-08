@@ -2358,6 +2358,9 @@
 /area/hangar/operations)
 "bQj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Atmospherics Stairwell"
+	},
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
 "bQu" = (
@@ -4561,6 +4564,19 @@
 /obj/item/device/floor_painter,
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
+"dUP" = (
+/obj/structure/morgue{
+	dir = 8
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Morgue Aft";
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/medical/morgue/lower)
 "dVs" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -9073,6 +9089,9 @@
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/camera/network/supply{
+	c_tag = "Cargo -  Machinist Workshop Entrance"
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "hwk" = (
@@ -9189,6 +9208,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light/small/emergency{
 	dir = 8
+	},
+/obj/machinery/camera/network/first_deck{
+	c_tag = "First Deck - Auxiliary Hangar Emergency Supplies Closet";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
@@ -11260,6 +11283,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/firealarm/east,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Morgue Storage Room";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
 "jwN" = (
@@ -12432,7 +12459,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/glass{
-	name = "Firefighting Supplies Closet"
+	name = "Emergency Supplies Closet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
@@ -12944,6 +12971,10 @@
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/camera/network/first_deck{
+	c_tag = "First Deck - Auxiliary Hangar Center";
+	dir = 1
+	},
 /obj/machinery/light/spot/weak,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
@@ -14503,6 +14534,10 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 9
+	},
+/obj/machinery/camera/network/service{
+	c_tag = "Custodial - Disposals Fore";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
@@ -17667,10 +17702,6 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/hangar/port)
 "pep" = (
-/obj/machinery/camera/network/supply{
-	c_tag = "Operations - Disposals, Upper";
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/green/full,
 /obj/structure/sign/emerg_exit{
 	pixel_y = -32
@@ -18445,9 +18476,6 @@
 	pixel_y = 8
 	},
 /obj/item/device/robotanalyzer,
-/obj/machinery/camera/network/supply{
-	c_tag = "Cargo -  Machinist Workshop Entrance"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "pIf" = (
@@ -19526,7 +19554,7 @@
 /area/maintenance/wing/port/deck1)
 "qzt" = (
 /obj/machinery/camera/network/service{
-	c_tag = "Janitor - Garage"
+	c_tag = "Custodial - Garage"
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -19580,6 +19608,10 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Morgue Elevator";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "qBU" = (
@@ -20412,6 +20444,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/loot,
+/obj/machinery/camera/network/service{
+	c_tag = "Custodial - Disposals Aft";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "rnt" = (
@@ -20496,7 +20532,7 @@
 "rpK" = (
 /obj/structure/janitorialcart/full,
 /obj/machinery/camera/network/service{
-	c_tag = "Janitor - Main Storage";
+	c_tag = "Custodial - Main Storage";
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -26581,7 +26617,7 @@
 	dir = 1
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Pre-Op 2";
+	c_tag = "Medical - Morgue Port";
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -27472,6 +27508,10 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -29
+	},
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Kitchen Freezer Bottom";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -42482,7 +42522,7 @@ xXt
 lIg
 svg
 svg
-svg
+dUP
 rNH
 qEk
 lIg

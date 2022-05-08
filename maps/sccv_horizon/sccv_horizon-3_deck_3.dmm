@@ -735,7 +735,7 @@
 "bo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Bunker Entrance";
+	c_tag = "Bridge - Deck 3 - Bunker Entrance";
 	network = list("Command","Bunker");
 	alarm_on = 1;
 	dir = 8
@@ -3100,6 +3100,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
+"fv" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard)
 "fw" = (
 /obj/machinery/vending/coffee,
 /obj/machinery/camera/network/third_deck{
@@ -4421,7 +4425,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Emergency Service Dock";
+	c_tag = "Third Deck - Emergency Service Dock Port";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -8564,6 +8568,10 @@
 	pixel_y = 25;
 	req_access = list(66)
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical -  Isolation Ward Airlock";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278;
 	name = "cooled dark floor"
@@ -10392,7 +10400,7 @@
 /area/hallway/medical/upper)
 "sM" = (
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Bunker Airlock";
+	c_tag = "Bridge - Deck 3 - Bunker Airlock";
 	network = list("Command","Bunker");
 	alarm_on = 1;
 	dir = 8
@@ -10478,6 +10486,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo)
+"sU" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Fitness Center - Gym Aft";
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/horizon/crew_quarters/fitness/gym)
 "sV" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -15238,6 +15259,10 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/brflowers,
+/obj/machinery/camera/network/service{
+	c_tag = "Third Deck - Nature Showcase";
+	dir = 4
+	},
 /turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/nature_showcase)
 "Bw" = (
@@ -16706,7 +16731,7 @@
 "Ep" = (
 /obj/structure/ladder,
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Bunker Escape Route";
+	c_tag = "Bridge - Deck 3- Bunker Escape Route";
 	network = list("Command","Bunker");
 	alarm_on = 1
 	},
@@ -16887,6 +16912,10 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Kitchen Stairwell";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
 "EE" = (
@@ -16911,7 +16940,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Bunker";
+	c_tag = "Bridge - Deck 3 - Bunker";
 	network = list("Command","Bunker");
 	alarm_on = 1
 	},
@@ -19639,6 +19668,17 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
+"Jr" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Emergency Service Dock Starboard";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/emergency)
 "Js" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -24087,7 +24127,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Bunker Auxiliary Bridge";
+	c_tag = "Bridge - Deck 3 - Bunker Auxiliary Bridge";
 	network = list("Command","Bunker");
 	alarm_on = 1
 	},
@@ -27907,6 +27947,10 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/camera/network/service{
+	c_tag = "Third Deck - Nature Showcase Maintenance";
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "XU" = (
@@ -47375,7 +47419,7 @@ li
 CX
 CX
 CX
-CX
+sU
 kZ
 CX
 CX
@@ -50246,7 +50290,7 @@ uk
 uk
 uk
 rk
-uk
+fv
 JS
 uk
 uk
@@ -53666,7 +53710,7 @@ Tn
 Tn
 mQ
 Tn
-Tn
+Jr
 nM
 Mh
 Gr
