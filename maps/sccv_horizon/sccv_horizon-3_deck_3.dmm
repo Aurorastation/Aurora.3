@@ -5094,13 +5094,6 @@
 	name = "cooled dark floor"
 	},
 /area/horizon/hallway/deck_three/primary/starboard)
-"iZ" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/wood,
-/area/horizon/deck_three/cafeteria)
 "ja" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/spline/plain{
@@ -5622,7 +5615,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/table/wood,
+/obj/structure/bed/stool/chair{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "jZ" = (
@@ -9215,7 +9210,15 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_three/primary/starboard)
 "qD" = (
-/obj/machinery/hologram/holopad,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/structure/flora/pottedplant/random{
+	pixel_x = -4
+	},
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "qE" = (
@@ -10325,7 +10328,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/bed/stool/chair/sofa/right/red,
+/obj/structure/bed/stool/chair/sofa/red,
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "sG" = (
@@ -13066,8 +13069,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/structure/bed/stool/chair/sofa/left/red{
-	dir = 1
+/obj/structure/bed/stool/chair{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
@@ -13739,10 +13742,16 @@
 	},
 /area/tcommsat/chamber)
 "yJ" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/structure/flora/pottedplant/random{
+	pixel_y = 16;
+	pixel_x = -4
+	},
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "yK" = (
@@ -15371,7 +15380,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/structure/bed/stool/chair/sofa/right/red,
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "BL" = (
@@ -15449,9 +15458,8 @@
 /area/bridge)
 "BU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
+	dir = 1
 	},
-/obj/structure/bed/stool/chair,
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "BV" = (
@@ -16216,9 +16224,7 @@
 /area/maintenance/aux_atmospherics/deck_3)
 "Dt" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/bed/stool/chair/sofa/right/red{
-	dir = 1
-	},
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "Du" = (
@@ -19844,11 +19850,12 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "JN" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
+	dir = 5
 	},
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "JO" = (
+/obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "JP" = (
@@ -22835,18 +22842,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"OU" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/horizon/deck_three/cafeteria)
 "OV" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -25192,11 +25187,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Td" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/structure/table/wood,
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "Te" = (
 /obj/structure/cable{
@@ -27053,9 +27047,8 @@
 /area/hallway/secondary/entry/emergency)
 "Wy" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
+	dir = 6
 	},
-/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "Wz" = (
@@ -28393,15 +28386,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
-"YN" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/horizon/deck_three/cafeteria)
 "YO" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -50827,9 +50811,9 @@ UV
 UV
 sD
 TN
-TN
-TN
-TN
+UV
+UV
+UV
 TN
 sD
 UV
@@ -51028,10 +51012,10 @@ AG
 UV
 in
 BK
-yJ
-Td
-OU
-iZ
+qD
+AG
+UV
+in
 yJ
 jY
 AG
@@ -51231,10 +51215,10 @@ UV
 in
 sF
 JO
-JO
-qD
-JO
-JO
+AG
+UV
+in
+BU
 Dt
 AG
 UV
@@ -51432,10 +51416,10 @@ gn
 TN
 KO
 cm
-JN
-BU
 Wy
-YN
+gn
+TN
+KO
 JN
 xz
 LR
@@ -51636,7 +51620,7 @@ mh
 FS
 Xd
 vt
-vt
+Td
 vt
 jo
 bL
