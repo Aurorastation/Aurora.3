@@ -3993,14 +3993,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "cam" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/machinery/newscaster{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+)
 "can" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/floor_decal/industrial/warning{
@@ -15040,7 +15033,7 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/cafeteria)
+/area/hallway/primary/central_two)
 "iAB" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -29874,10 +29867,10 @@
 /area/rnd/xenobiology)
 "qVJ" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "qVS" = (
@@ -37112,14 +37105,14 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
@@ -43487,14 +43480,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/turbolift/scc_ship/morgue_lift)
 "ylh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/junction{
 	dir = 2;
 	icon_state = "pipe-j2"
 	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "ylk" = (
@@ -51725,7 +51715,7 @@ fdF
 sky
 cMk
 oTa
-lmU
+cam
 pJK
 fdF
 xbY
@@ -53338,7 +53328,7 @@ vJu
 rqA
 rLF
 rqA
-nvd
+cam
 xnf
 wmz
 tHZ
@@ -63272,10 +63262,10 @@ gBE
 gBE
 lbO
 dBM
-juS
-juS
-juS
-thy
+gBE
+gBE
+gBE
+ncN
 mZI
 sGq
 dfZ
@@ -63673,14 +63663,14 @@ gBE
 uwe
 gAP
 jPj
-juS
+gBE
 bGg
 izV
 kKM
-vfm
-juS
-juS
-eVu
+jgb
+gBE
+gBE
+ayF
 tju
 tju
 nts
@@ -66306,7 +66296,7 @@ uUn
 jDa
 ulV
 sSZ
-nuZ
+waI
 hPC
 uPW
 xer
