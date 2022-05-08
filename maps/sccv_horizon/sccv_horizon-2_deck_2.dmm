@@ -39126,12 +39126,6 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/obj/machinery/button/remote/airlock{
-	id = "visitdoor";
-	name = "Visitation Access";
-	pixel_x = -28;
-	pixel_y = -7
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
