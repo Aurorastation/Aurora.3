@@ -494,10 +494,13 @@
 	
 /obj/item/gun/projectile/pistol/super_heavy/update_icon()
 	..()
-	if(ammo_magazine?.stored_ammo.len)
-		icon_state = "k2557-loaded"
+	if(istype(ammo_magazine))
+		if(ammo_magazine.stored_ammo.len)
+			icon_state = "k2557-loaded"
+		else
+			icon_state = "k2557-empty"
 	else 
-		icon_state = "k2557-empty"
+		icon_state = "k2557"
 
 /obj/item/gun/projectile/pistol/super_heavy/handle_post_fire(mob/user)
 	..()
@@ -519,10 +522,3 @@
 					LH.take_damage(30)
 				else
 					RH.take_damage(30)
-
-/*/obj/item/gun/projectile/pistol/k_arms/update_icon()
-	. = ..()
-	if(ammo_magazine)
-		icon_state = "k2557-5"
-	else
-		icon_state = "k2557-0"*/
