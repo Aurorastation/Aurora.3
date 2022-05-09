@@ -231,7 +231,14 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "port_combustion";
+	locked = 1;
+	name = "Combustion Chamber";
+	req_access = list(13)
+	},
 /obj/machinery/door/blast/regular{
 	id = "portpropulsioninterior"
 	},
@@ -395,6 +402,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)
+"auF" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion/starboard)
 "avx" = (
 /obj/machinery/conveyor{
 	dir = 10;
@@ -4298,6 +4311,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"dGu" = (
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion/starboard)
 "dHW" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5337,6 +5353,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
+"eBb" = (
+/obj/effect/map_effect/airlock/s_to_n,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/engineering/atmos/propulsion/starboard)
 "eBf" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
@@ -8306,6 +8326,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
+"gPf" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 4;
+	frequency = 1442;
+	id = "starboard_prop_in";
+	tag = "starboard_prop_in"
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Starboard Combustion Chamber";
+	dir = 1;
+	pixel_x = -11
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/propulsion/starboard)
 "gPv" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/structure/window/reinforced,
@@ -8927,13 +8961,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "hqH" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 4;
-	frequency = 1442;
-	id = "starboard_prop_in";
-	tag = "starboard_prop_in"
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
-/turf/simulated/floor/reinforced/airless,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "hqV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -10082,6 +10114,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"irW" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 8;
+	frequency = 1442;
+	id = "port_prop_in";
+	tag = "port_prop_in"
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Port Combustion Chamber";
+	dir = 1;
+	pixel_x = -11
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/atmos/propulsion)
 "irX" = (
 /obj/structure/table/steel,
 /obj/item/device/radio/off,
@@ -10904,6 +10950,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
+"jiL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "jiS" = (
 /obj/structure/closet/jcloset,
 /obj/machinery/light_switch{
@@ -11672,10 +11725,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
-	},
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "jQQ" = (
@@ -12918,6 +12969,14 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
+	},
+/obj/machinery/button/remote/airlock{
+	id = "starboard_combustion";
+	name = "Door Bolt Control";
+	pixel_y = 8;
+	req_access = list(10);
+	specialfunctions = 4;
+	pixel_x = -39
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
@@ -17251,6 +17310,10 @@
 "oOk" = (
 /turf/simulated/wall,
 /area/outpost/mining_main/eva)
+"oOI" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/template_noop,
+/area/template_noop)
 "oPL" = (
 /obj/structure/table/steel,
 /obj/item/device/flash/synthetic{
@@ -20101,15 +20164,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/hangar)
-"rhI" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 8;
-	frequency = 1442;
-	id = "port_prop_in";
-	tag = "port_prop_in"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/atmos/propulsion)
 "riF" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -23698,7 +23752,14 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "starboard_combustion";
+	locked = 1;
+	name = "Combustion Chamber";
+	req_access = list(13)
+	},
 /obj/machinery/door/blast/regular{
 	id = "interiorpropulsionstarboard"
 	},
@@ -27372,6 +27433,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/machinery/button/remote/airlock{
+	id = "port_combustion";
+	name = "Door Bolt Control";
+	pixel_y = 8;
+	req_access = list(10);
+	specialfunctions = 4;
+	pixel_x = 39
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "xur" = (
@@ -27618,6 +27687,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
+"xGQ" = (
+/obj/machinery/alarm{
+	pixel_y = -28;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/propulsion/starboard)
 "xGW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -28070,6 +28149,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"xWM" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion/starboard)
 "xXj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -42141,10 +42226,10 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
+oOI
+oOI
+oOI
+oOI
 eSV
 eSV
 eSV
@@ -42343,16 +42428,16 @@ eSV
 eSV
 eSV
 eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+oOI
 awJ
+auF
+eBb
+awJ
+awJ
+eSV
+eSV
+eSV
+hob
 tuP
 cCg
 elV
@@ -42545,11 +42630,11 @@ eSV
 eSV
 eSV
 eSV
-eSV
-awJ
-awJ
-awJ
-awJ
+oOI
+dGu
+xWM
+dGu
+hqH
 awJ
 awJ
 eSV
@@ -42751,7 +42836,7 @@ fQE
 fQE
 awJ
 awJ
-awJ
+jiL
 awJ
 awJ
 vyG
@@ -42953,7 +43038,7 @@ szM
 szM
 xQU
 jQh
-sfF
+xGQ
 awJ
 uZU
 iCX
@@ -43159,7 +43244,7 @@ eBf
 awJ
 uZU
 eDE
-hqH
+gPf
 awJ
 gWp
 uwB
@@ -51231,7 +51316,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+oOI
 pwQ
 bjE
 pwQ
@@ -53865,7 +53950,7 @@ cIU
 uVL
 eBj
 lBi
-rhI
+irW
 uVL
 tnb
 eKc
@@ -54471,8 +54556,8 @@ uVL
 uVL
 uVL
 eSV
-rsL
-rsL
+uVL
+uVL
 oTX
 vil
 vil
@@ -54674,7 +54759,7 @@ eSV
 eSV
 eSV
 eSV
-rsL
+uVL
 rsL
 vil
 rsL
