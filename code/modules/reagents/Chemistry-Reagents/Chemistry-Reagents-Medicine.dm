@@ -300,7 +300,7 @@
 /decl/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(3))
 		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
-	
+
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 50)
 		if(!M.chem_effects[CE_CLEARSIGHT])
@@ -937,7 +937,7 @@
 
 /* mental */
 
-#define MEDICATION_MESSAGE_DELAY 10 MINUTES 
+#define MEDICATION_MESSAGE_DELAY 10 MINUTES
 
 /decl/reagent/mental
 	name = null //Just like alcohol
@@ -1319,12 +1319,13 @@
 	. = ..()
 	if(.)
 		M.add_chemical_effect(CE_ORGANREPAIR, 30)
-		M.add_chemical_effect(CE_BLOODRESTORE, 30)
+		M.add_chemical_effect(CE_BLOODRESTORE, 50)
 		M.add_chemical_effect(CE_BLOODCLOT, 30)
 		M.add_chemical_effect(CE_BRAIN_REGEN, 30)
 		M.add_chemical_effect(CE_OXYGENATED, 30)
 		M.add_chemical_effect(CE_ANTITOXIN, 30)
 		M.add_chemical_effect(CE_ANTIBIOTIC, 30)
+		M.add_chemical_effect(CE_SEDATE, 30)
 
 /decl/reagent/sanasomnum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustCloneLoss(-20 * removed)
@@ -1355,6 +1356,11 @@
 	else
 		M.sleeping = max(M.sleeping, 20)
 		M.drowsiness = max(M.drowsiness, 60)
+	if(M.chem_doses[type] > 5)
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & ORGAN_ARTERY_CUT && prob(2))
+				E.status &= ~ORGAN_ARTERY_CUT
+
 
 /decl/reagent/verunol
 	name = "Verunol Syrup"
