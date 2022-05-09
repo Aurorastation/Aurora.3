@@ -167,6 +167,7 @@
 	path = /obj/item/clothing/accessory/badge/passcard/synthetic
 	cost = 0
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+
 /datum/gear/accessory/ipcmantle
 	display_name = "Burzsian mantle"
 	description = "A uniform mantle identifying Hephaestus IPC's from Burzsia. Operation history and specifications are printed underneath the tarp."
