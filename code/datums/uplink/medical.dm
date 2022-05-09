@@ -16,7 +16,7 @@
 
 /datum/uplink_item/item/medical/sanasomnum
 	name = "Sanasomnum Injector"
-	item_cost = 1
+	item_cost = 2
 	path = /obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
 
 /datum/uplink_item/item/medical/combathypo
