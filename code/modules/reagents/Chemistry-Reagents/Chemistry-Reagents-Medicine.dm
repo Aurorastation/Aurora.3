@@ -1364,6 +1364,11 @@
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_BROKEN && prob(10))
 				E.status &= ~ORGAN_BROKEN
+	if(M.chem_doses[type] > 5)
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & TENDON_CUT && prob(10))
+				E.status &= ~TENDON_CUT
+
 
 
 /decl/reagent/verunol
