@@ -1306,6 +1306,53 @@
 		M.make_dizzy(5)
 		M.make_jittery(5)
 
+/decl/reagent/sanasomnum
+	name = "Sanasomnum"
+	description = "Sanasomnum is a drug closely related to Rezadone, but is capable of healing even worse injuries. However, this comes at a cost: as long as the drug is in the patient's system, they are stuck in a comatose state."
+	reagent_state = SOLID
+	color = "#b2db5e"
+	overdose = REAGENTS_OVERDOSE
+	scannable = TRUE
+	taste_description = "sickness"
+
+/decl/reagent/sanasomnum/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_ORGANREPAIR, 1)
+		M.add_chemical_effect(CE_BLOODRESTORE, 15)
+		M.add_chemical_effect(CE_BLOODCLOT, 15)
+		M.add_chemical_effect(CE_BRAIN_REGEN, 15)
+
+/decl/reagent/sanasomnum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.adjustCloneLoss(-20 * removed)
+	M.adjustOxyLoss(-2 * removed)
+	M.heal_organ_damage(20 * removed, 20 * removed)
+	M.adjustToxLoss(-1 * removed)
+	if(M.is_asystole() && prob(20))
+		M.resuscitate()
+	if(M.chem_doses[type] > 3)
+		M.status_flags &= ~DISFIGURED
+	if(M.chem_doses[type] > 10)
+		M.make_dizzy(5)
+		M.make_jittery(5)
+	var/mob/living/carbon/human/H = M
+	if((istype(H) && (H.species.flags & NO_BLOOD)) || alien == IS_DIONA)
+		return
+	M.add_chemical_effect(CE_PULSE, -2)
+	var/dose = M.chem_doses[type]
+	if(dose < 2)
+		if(ishuman(M) && (dose == metabolism * 2 || prob(5)))
+			M.emote("yawn")
+	else if(dose < 3.5)
+		M.eye_blurry = max(M.eye_blurry, 10)
+	else if(dose < 7)
+		if(prob(50))
+			M.Weaken(2)
+		M.drowsiness = max(M.drowsiness, 20)
+	else
+		M.sleeping = max(M.sleeping, 20)
+		M.drowsiness = max(M.drowsiness, 60)
+
 /decl/reagent/verunol
 	name = "Verunol Syrup"
 	description = "A complex emetic medication that causes the patient to vomit due to gastric irritation and the stimulating of the vomit centres of the brain."
