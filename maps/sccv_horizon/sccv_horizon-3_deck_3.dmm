@@ -750,6 +750,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "bu" = (
@@ -1071,12 +1072,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "bX" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	name = "Viewing Shutter";
-	dir = 4;
-	id = "shutters_deck3_natureshowcase"
-	},
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor,
 /area/horizon/deck_three/nature_showcase)
 "bY" = (
@@ -1742,15 +1738,10 @@
 	name = "Security - Investigations Office"
 	})
 "dn" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
 	},
-/obj/structure/table/steel,
-/obj/item/material/ashtray/bronze{
-	pixel_x = -6;
-	pixel_y = 2
-	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "do" = (
 /obj/structure/cable/green{
@@ -3855,10 +3846,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12,61)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_one_access = list(12)
+	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "hm" = (
@@ -5077,13 +5068,20 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "jr" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 9
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 8
 	},
-/obj/structure/bed/stool/chair{
-	dir = 4
+/obj/structure/closet/crate/hydroponics,
+/obj/item/storage/bag/plants,
+/obj/item/wirecutters/clippers,
+/obj/item/material/minihoe,
+/obj/item/material/hatchet,
+/obj/item/reagent_containers/glass/bucket,
+/obj/machinery/light/small{
+	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "js" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -6812,11 +6810,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 6
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
 	},
-/obj/machinery/light/small,
-/turf/simulated/floor/carpet/rubber,
+/obj/machinery/vending/hydronutrients,
+/turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "mG" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -9726,11 +9724,15 @@
 /turf/simulated/floor/tiled/white,
 /area/bridge/bridge_crew)
 "sh" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/sink/kitchen{
+	dir = 8;
+	pixel_x = 20;
+	name = "water fountain"
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "si" = (
@@ -13088,13 +13090,12 @@
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
 "yp" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 10
+/obj/effect/floor_decal/corner/purple/full,
+/obj/machinery/seed_storage/garden,
+/obj/machinery/light/small{
+	dir = 8
 	},
-/obj/structure/bed/stool/chair{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "yq" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -16684,7 +16685,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12,61)
+	req_one_access = list(12)
 	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
@@ -18162,7 +18163,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12,61)
+	req_one_access = list(12)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -18549,13 +18550,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/structure/bed/stool/chair,
+/obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "IH" = (
 /obj/effect/floor_decal/corner/green{
@@ -21601,16 +21600,15 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Oe" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/rubber,
+/obj/effect/floor_decal/corner/purple/diagonal,
+/turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "Of" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Nature Showcase Maintenance";
 	req_access = list(26)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "Og" = (
@@ -22584,9 +22582,8 @@
 "PR" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12,61)
+	req_one_access = list(12)
 	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
@@ -22926,8 +22923,7 @@
 "Qr" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
-	req_one_access = list(12,66)
+	req_access = list(12)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
@@ -23089,14 +23085,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/starboard)
 "QM" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12,61)
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_one_access = list(12)
 	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
@@ -25852,15 +25847,15 @@
 /turf/simulated/open,
 /area/hallway/medical/upper)
 "VZ" = (
-/obj/machinery/button/remote/blast_door{
-	id = "shutters_deck3_natureshowcase";
-	name = "Nature Showcase Viewing Shutters";
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = -7
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
+	},
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
@@ -26872,6 +26867,9 @@
 /obj/machinery/camera/network/service{
 	c_tag = "Third Deck - Nature Showcase Maintenance";
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
