@@ -7265,7 +7265,7 @@
 /area/maintenance/wing/port/far)
 "ebR" = (
 /obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck - Starboard Dock";
+	c_tag = "Second Deck - Starboard Dock Port";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -9727,6 +9727,10 @@
 "fyV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Chapel Starboard";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/ramp{
 	dir = 4
@@ -12830,9 +12834,12 @@
 /turf/simulated/floor/tiled,
 /area/teleporter)
 "hfh" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/turf/simulated/floor/plating,
-/area/engineering/locker_room)
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Chapel Port";
+	dir = 1
+	},
+/turf/simulated/floor/lino/grey,
+/area/chapel/main)
 "hfm" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -13818,7 +13825,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "hFm" = (
 /obj/structure/table/standard,
@@ -14462,7 +14469,7 @@
 	dir = 1
 	},
 /obj/machinery/light/small,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "ibU" = (
 /turf/simulated/wall/r_wall,
@@ -16087,6 +16094,10 @@
 	},
 /obj/structure/sign/vacuum{
 	pixel_y = -32
+	},
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Starboard Dock Starboard";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
@@ -22017,6 +22028,10 @@
 "mxO" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /obj/machinery/light/small/emergency,
+/obj/machinery/camera/network/engineering{
+	dir = 1;
+	c_tag = "Engineering - Deck 2 - Aft Auxiliary Atmospherics"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "mye" = (
@@ -22359,14 +22374,14 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/power/apc/low{
-	pixel_y = -24
-	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/machinery/power/apc/critical{
+	pixel_y = -24
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
@@ -24901,7 +24916,7 @@
 /obj/structure/reagent_dispensers/extinguisher,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "oeI" = (
 /obj/structure/table/standard,
@@ -33078,7 +33093,7 @@
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "sBr" = (
 /obj/structure/cable/green{
@@ -34803,7 +34818,7 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "tCP" = (
 /obj/structure/railing/mapped{
@@ -36583,7 +36598,7 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "uvM" = (
 /obj/structure/cable/yellow{
@@ -40595,7 +40610,7 @@
 /area/engineering/engine_waste)
 "wBh" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "wBq" = (
 /obj/structure/cable/green{
@@ -42949,15 +42964,15 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/telesci)
 "xPd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
 	},
-/obj/machinery/camera/network/service{
-	c_tag = "Service - Chapel";
+/obj/machinery/camera/network/engine{
+	c_tag = "Engineering - SM Reactor External Airlock";
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
-/area/chapel/main)
+/turf/simulated/floor/plating,
+/area/engineering/engine_room)
 "xPj" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 9
@@ -56931,7 +56946,7 @@ aVo
 sSY
 vDc
 cZw
-wFX
+xPd
 nlr
 nlr
 nlr
@@ -58356,9 +58371,9 @@ nlr
 nlr
 nlr
 uyP
-hfh
+laB
 mUy
-hfh
+laB
 laB
 oIL
 nKK
@@ -59401,7 +59416,7 @@ vHy
 hEi
 kvs
 oWQ
-xPd
+bZj
 fol
 vKg
 lHB
@@ -60209,7 +60224,7 @@ idS
 fWI
 oBv
 fWI
-fWI
+hfh
 fol
 cKc
 aYE
@@ -66428,7 +66443,7 @@ nGm
 bWB
 nlG
 nlG
-nlG
+fnn
 fnn
 fnn
 fnn
