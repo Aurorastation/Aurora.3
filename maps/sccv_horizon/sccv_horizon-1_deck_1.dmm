@@ -19,6 +19,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"abr" = (
+/obj/structure/grille/diagonal{
+	dir = 4
+	},
+/turf/space,
+/area/template_noop)
 "abQ" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -1615,6 +1621,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion/starboard)
+"boC" = (
+/obj/machinery/atmospherics/pipe/simple/visible/purple,
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/template_noop)
 "boH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/space/dynamic,
@@ -2873,6 +2884,7 @@
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/intrepid/engine_compartment)
 "clT" = (
+/obj/structure/lattice/catwalk/indoor,
 /turf/space,
 /area/template_noop)
 "cnb" = (
@@ -2963,6 +2975,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"cpF" = (
+/obj/structure/grille/diagonal,
+/turf/template_noop,
+/area/template_noop)
 "cpU" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -5532,6 +5548,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 10
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/space,
 /area/template_noop)
 "eyW" = (
@@ -6118,6 +6135,7 @@
 /area/template_noop)
 "eTg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
+/obj/structure/lattice/catwalk/indoor,
 /turf/space,
 /area/template_noop)
 "eTi" = (
@@ -6871,6 +6889,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 5
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/template_noop)
 "fwA" = (
@@ -21655,7 +21674,7 @@
 "rNH" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating,
-/area/medical/morgue/lower)
+/area/maintenance/operations)
 "rNR" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -28842,24 +28861,12 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "xGF" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/structure/lattice/catwalk,
+/obj/structure/sign/securearea{
+	pixel_y = 32
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/random/loot,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/deck1)
+/turf/space/dynamic,
+/area/template_noop)
 "xGQ" = (
 /obj/machinery/alarm{
 	pixel_y = -28;
@@ -37175,17 +37182,17 @@ hTk
 hTk
 hTk
 hTk
-xGF
-xGF
-xGF
+kVe
+kVe
+kVe
 hob
-xGF
-xGF
-xGF
+kVe
+kVe
+kVe
 hob
-xGF
-xGF
-xGF
+kVe
+kVe
+kVe
 hTk
 hTk
 hTk
@@ -37379,13 +37386,13 @@ sTw
 hTk
 eSV
 xmf
-xGF
-xGF
-xGF
+kVe
+kVe
+kVe
 xmf
-xGF
-xGF
-xGF
+kVe
+kVe
+kVe
 xmf
 eSV
 hTk
@@ -37582,11 +37589,11 @@ noz
 eSV
 xmf
 eSV
-xGF
+kVe
 eSV
 xmf
 eSV
-xGF
+kVe
 eSV
 xmf
 eSV
@@ -37784,11 +37791,11 @@ noz
 eSV
 xmf
 eSV
-xGF
+kVe
 eSV
 xmf
 eSV
-xGF
+kVe
 eSV
 xmf
 eSV
@@ -37986,11 +37993,11 @@ hTk
 xmf
 xmf
 xmf
-xGF
+kVe
 xmf
 xmf
 xmf
-xGF
+kVe
 xmf
 xmf
 xmf
@@ -38188,11 +38195,11 @@ hTk
 eSV
 xmf
 eSV
-xGF
+kVe
 eSV
 xmf
 eSV
-xGF
+kVe
 eSV
 xmf
 eSV
@@ -38390,11 +38397,11 @@ hTk
 qpJ
 xmf
 eSV
-xGF
+kVe
 eSV
 xmf
 eSV
-xGF
+kVe
 eSV
 xmf
 eSV
@@ -38590,13 +38597,13 @@ omL
 sTw
 dPt
 sTw
-xGF
-xGF
-xGF
-xGF
-xGF
-xGF
-xGF
+kVe
+kVe
+kVe
+kVe
+kVe
+kVe
+kVe
 xmf
 xmf
 xmf
@@ -43037,7 +43044,7 @@ gRa
 gqn
 fDD
 fDD
-nnw
+lIg
 ueg
 icm
 feY
@@ -43239,7 +43246,7 @@ jZV
 evA
 gMp
 fDD
-nnw
+lIg
 mKD
 ttV
 dAZ
@@ -43441,7 +43448,7 @@ qVO
 qBC
 fDD
 fDD
-nnw
+lIg
 sWa
 vjI
 niw
@@ -43643,7 +43650,7 @@ rFO
 cuA
 lIg
 lIg
-nnw
+lIg
 dMM
 dNk
 dNk
@@ -44283,7 +44290,7 @@ kVe
 kVe
 kVe
 kVe
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -44485,7 +44492,7 @@ fJN
 jEx
 jEx
 jEx
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -44850,7 +44857,7 @@ lIg
 lIg
 lIg
 lIg
-cqu
+lIg
 bDl
 cqu
 fCT
@@ -45046,12 +45053,12 @@ xYW
 nBK
 gtS
 bdY
-lIg
+nnw
 rNH
 rNH
 rNH
 rNH
-lIg
+nnw
 vqU
 twX
 vqU
@@ -45248,12 +45255,12 @@ xYW
 nBK
 nNE
 bdY
-lIg
-lIg
-lIg
-lIg
-lIg
-lIg
+nnw
+nnw
+nnw
+nnw
+nnw
+nnw
 teb
 nnw
 nnw
@@ -46303,10 +46310,10 @@ hMj
 jEx
 nhi
 jEx
-xGF
-xGF
-xGF
-xGF
+kVe
+kVe
+kVe
+kVe
 eSV
 eSV
 eSV
@@ -46508,7 +46515,7 @@ msv
 msv
 msv
 msv
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -46710,7 +46717,7 @@ wfM
 iab
 vPu
 bij
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -46912,7 +46919,7 @@ msv
 rtC
 rtC
 lnQ
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -47114,7 +47121,7 @@ msv
 rtC
 rtC
 msv
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -47316,7 +47323,7 @@ msv
 rtC
 rtC
 msv
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -47518,7 +47525,7 @@ msv
 rtC
 rtC
 msv
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -47717,10 +47724,10 @@ nWF
 pTs
 msv
 msv
-xGF
-xGF
-xGF
-xGF
+kVe
+kVe
+kVe
+kVe
 eSV
 eSV
 eSV
@@ -48454,7 +48461,7 @@ eSV
 eSV
 eSV
 oam
-eSV
+cpF
 eSV
 hoV
 onU
@@ -51757,7 +51764,7 @@ iYT
 bli
 cGa
 nDI
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -51959,10 +51966,10 @@ wuD
 nDI
 nDI
 nDI
-xGF
-xGF
-xGF
-xGF
+kVe
+kVe
+kVe
+kVe
 eSV
 eSV
 eSV
@@ -52090,13 +52097,13 @@ eSV
 eSV
 eSV
 wxd
-rhU
+abr
 eSV
 hoV
 clT
 eyU
 eTg
-eRb
+boC
 fvy
 wup
 eSV
@@ -52164,7 +52171,7 @@ tsD
 tsD
 tsD
 tsD
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -52366,7 +52373,7 @@ dWw
 tfB
 wKq
 tsD
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -52494,10 +52501,10 @@ eSV
 eSV
 eSV
 eSV
-oOI
-pwQ
-bjE
-pwQ
+eSV
+uVL
+uVL
+uVL
 mhL
 uVL
 swD
@@ -52568,7 +52575,7 @@ tsD
 tsD
 tsD
 tsD
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -52770,7 +52777,7 @@ xyG
 xyG
 fXy
 tsD
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -52972,7 +52979,7 @@ jCl
 xzd
 tsD
 tsD
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -53173,8 +53180,8 @@ xyG
 ctz
 tsD
 tsD
-xGF
-xGF
+kVe
+kVe
 eSV
 eSV
 eSV
@@ -53374,8 +53381,8 @@ drU
 tsD
 drU
 tsD
-xGF
-xGF
+kVe
+kVe
 eSV
 eSV
 eSV
@@ -53570,13 +53577,13 @@ yag
 nCG
 nCG
 nCG
-xGF
-xGF
-xGF
-xGF
 kVe
-xGF
-xGF
+kVe
+kVe
+kVe
+kVe
+kVe
+kVe
 eSV
 eSV
 eSV
@@ -55388,7 +55395,7 @@ sJN
 wYU
 hAZ
 nCG
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -55590,7 +55597,7 @@ skS
 nCG
 nCG
 nCG
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -57408,7 +57415,7 @@ ygC
 nCG
 hbU
 nCG
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -57610,7 +57617,7 @@ xbH
 wYU
 ybm
 nCG
-xGF
+kVe
 eSV
 eSV
 eSV
@@ -60015,7 +60022,7 @@ eSV
 xst
 dob
 ezh
-rgK
+iEX
 xst
 eSV
 eSV
