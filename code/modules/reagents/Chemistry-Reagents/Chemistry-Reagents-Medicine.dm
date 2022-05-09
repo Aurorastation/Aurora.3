@@ -1342,23 +1342,17 @@
 	if(M.chem_doses[type] > 10)
 		M.make_dizzy(5)
 		M.make_jittery(5)
-	var/mob/living/carbon/human/H = M
-	if((istype(H) && (H.species.flags & NO_BLOOD)) || alien == IS_DIONA)
+	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
-	M.add_chemical_effect(CE_PULSE, -2)
 	var/dose = M.chem_doses[type]
-	if(dose < 2)
-		if(ishuman(M) && (dose == metabolism * 2 || prob(5)))
-			M.emote("yawn")
-	else if(dose < 3.5)
+	if(dose == metabolism)
+		M.confused += 2
+		M.drowsiness += 2
+	else if(dose < 2)
+		M.Weaken(30)
 		M.eye_blurry = max(M.eye_blurry, 10)
-	else if(dose < 7)
-		if(prob(50))
-			M.Weaken(2)
-		M.drowsiness = max(M.drowsiness, 20)
 	else
-		M.sleeping = max(M.sleeping, 20)
-		M.drowsiness = max(M.drowsiness, 60)
+		M.sleeping = max(M.sleeping, 30)
 	if(M.chem_doses[type] > 5)
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_ARTERY_CUT && prob(10))
