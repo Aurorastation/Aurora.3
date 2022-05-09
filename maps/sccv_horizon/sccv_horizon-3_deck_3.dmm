@@ -1350,7 +1350,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19, 38)
+	req_one_access = list(19, 38, 72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -19197,7 +19197,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19, 38)
+	req_one_access = list(19, 38, 72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -23783,7 +23783,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19, 38)
+	req_one_access = list(19, 38, 72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
@@ -27975,7 +27975,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19, 38)
+	req_one_access = list(19, 38, 72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
