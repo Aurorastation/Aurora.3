@@ -201,8 +201,25 @@
 
 /obj/item/clothing/accessory/tie/bowtie
 	name = "bowtie"
-	desc = "Snazzy!"
+	desc = "A bowtie."
+	icon = 'icons/obj/contained_items/accessories/neck/bowtie.dmi'
 	icon_state = "bowtie"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/tie/bow
+	name = "bow"
+	desc = "A bow."
+	icon = 'icons/obj/contained_items/accessories/neck/bow.dmi'
+	icon_state = "bow"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/tie/ribbon
+	name = "ribbon"
+	desc = "A ribbon."
+	icon = 'icons/obj/contained_items/accessories/neck/ribbon.dmi'
+	icon_state = "ribbon"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."

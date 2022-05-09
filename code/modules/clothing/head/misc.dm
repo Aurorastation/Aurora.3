@@ -92,6 +92,14 @@
 	name = "hair ribbon"
 	desc = "A glorified length of ribbon acting as a hairband."
 
+/obj/item/clothing/head/pin/bow/hairband/alt
+	name = "hair ribbon"
+	desc = "A hair ribbon."
+	icon = 'icons/obj/contained_items/accessories/hair/hairribbon.dmi'
+	icon_state = "ribbon"
+	item_state = "ribbon"
+	contained_sprite = TRUE
+
 /obj/item/clothing/head/powdered_wig
 	name = "powdered wig"
 	desc = "A powdered wig."
