@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - maptweak: "The port and starboard propulsion chambers have been made safer via getting a door bolt control added. It will control whether the airlocks underneath the blast doors are bolted. There's been camereas added to each combustion chamber and an airlock leading to space added to the starboard propulsion area."
