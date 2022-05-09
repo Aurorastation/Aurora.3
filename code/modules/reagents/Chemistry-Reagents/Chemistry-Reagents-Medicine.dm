@@ -1319,7 +1319,7 @@
 	. = ..()
 	if(.)
 		M.add_chemical_effect(CE_ORGANREPAIR, 15)
-		M.add_chemical_effect(CE_BLOODRESTORE, 15)
+		M.add_chemical_effect(CE_BLOODRESTORE, 30)
 		M.add_chemical_effect(CE_BLOODCLOT, 15)
 		M.add_chemical_effect(CE_BRAIN_REGEN, 15)
 		M.add_chemical_effect(CE_OXYGENATED, 15)
