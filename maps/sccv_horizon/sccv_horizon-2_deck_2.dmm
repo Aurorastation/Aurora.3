@@ -15164,19 +15164,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "jaK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
@@ -23602,14 +23600,8 @@
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "ogu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
+/obj/machinery/chem_master/condimaster{
+	pixel_y = 1
 	},
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
@@ -63875,8 +63867,8 @@ pWx
 pWx
 pWx
 xOo
-fZr
 xOo
+fZr
 xOo
 xOo
 xOo
@@ -64077,8 +64069,8 @@ buh
 tSa
 buh
 kyO
+kyO
 bQt
-hUC
 hUC
 dnn
 rxb
