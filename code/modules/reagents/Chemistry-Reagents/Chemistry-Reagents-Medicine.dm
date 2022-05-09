@@ -1358,15 +1358,11 @@
 		M.drowsiness = max(M.drowsiness, 60)
 	if(M.chem_doses[type] > 5)
 		for(var/obj/item/organ/external/E in H.organs)
-			if(E.status & ORGAN_ARTERY_CUT && prob(2))
+			if(E.status & ORGAN_ARTERY_CUT && prob(10))
 				E.status &= ~ORGAN_ARTERY_CUT
 	if(M.chem_doses[type] > 5)
 		for(var/obj/item/organ/external/E in H.organs)
-			if(E.status & ORGAN_ARTERY_CUT && prob(2))
-				E.status &= ~ORGAN_ARTERY_CUT
-	if(M.chem_doses[type] > 5)
-		for(var/obj/item/organ/external/E in H.organs)
-			if(E.status & ORGAN_BROKEN && prob(2))
+			if(E.status & ORGAN_BROKEN && prob(10))
 				E.status &= ~ORGAN_BROKEN
 
 
