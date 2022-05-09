@@ -7,4 +7,5 @@ changes:
   - tweak: "You can also quickly change transfer rate for droppers by using it as well."
   - rscadd: "Added a new type of dropper, the Electronic Pipette, and reworked the Industrial Dropper into a Cyborg Pipette, all with unique sprites! Pipettes offer a finer transfer amounts of 0.1, 0.2, and 0.5 as well as the standard transfer of droppers."
   - imageadd: "New sprites for the pipettes, in-hands included! Also adjusted the dropper in-hand palette."
+  - maptweak: "Maps in the new Electronic Pipettes in the Pharmacy and Science's Chemistry lab, as well as moving the vial box in the Pharmacy a little bit."
   - bugfix: "Fixed admin log for droppers."

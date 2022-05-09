@@ -5396,7 +5396,7 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/vials,
-/obj/item/reagent_containers/dropper,
+/obj/item/reagent_containers/dropper/electronic_pipette,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "dkp" = (
@@ -7054,8 +7054,13 @@
 /area/hallway/primary/central_two)
 "eqa" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/fancy/vials,
-/obj/item/reagent_containers/dropper,
+/obj/item/storage/box/fancy/vials{
+	pixel_x = -10;
+	pixel_y = -10
+	},
+/obj/item/reagent_containers/dropper/electronic_pipette{
+	pixel_x = -8
+	},
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/machinery/requests_console{
 	department = "Pharmacy";
@@ -35471,8 +35476,13 @@
 /area/crew_quarters/heads/hos)
 "vdQ" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/fancy/vials,
-/obj/item/reagent_containers/dropper,
+/obj/item/storage/box/fancy/vials{
+	pixel_x = -10;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/dropper/electronic_pipette{
+	pixel_x = -8
+	},
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/item/device/hand_labeler{
 	pixel_y = -20
