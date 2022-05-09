@@ -20720,7 +20720,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/open,
 /area/maintenance/hangar/port)
 "muK" = (
 /obj/structure/disposalpipe/segment,
