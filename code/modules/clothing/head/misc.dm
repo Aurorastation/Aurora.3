@@ -80,25 +80,29 @@
 	desc = "A Silversun dawnflower pin, named after the same flower. This particular version is an artificial recreation, and lacks the distinctive bioluminescence of the original."
 
 /obj/item/clothing/head/pin/bow
-	icon_state = "bow"
-	item_state = "bow"
-	name = "hair bow"
-	desc = "A ribbon tied into a bow with a clip on the back to attach to hair."
+	name = "bow"
+	desc = "You aren't supposed to see this."
 	item_state_slots = list(slot_r_hand_str = "pill", slot_l_hand_str = "pill")
 
+/obj/item/clothing/head/pin/bow/alt
+	name = "hair bow"
+	desc = "A hair bow with a small removable clip on the back, so it can be attached to hair or tied into it."
+	icon = 'icons/obj/contained_items/accessories/hair/hairbow.dmi'
+	icon_state = "bow"
+	item_state = "bow"
+	contained_sprite = TRUE
+
 /obj/item/clothing/head/pin/bow/hairband
-	icon_state = "hairribbon"
-	item_state = "hairribbon"
 	name = "hair ribbon"
 	desc = "A glorified length of ribbon acting as a hairband."
+	icon_state = "hairribbon"
+	item_state = "hairribbon"
 
-/obj/item/clothing/head/pin/bow/hairband/alt
-	name = "hair ribbon"
-	desc = "A hair ribbon."
-	icon = 'icons/obj/contained_items/accessories/hair/hairribbon.dmi'
-	icon_state = "ribbon"
-	item_state = "ribbon"
-	contained_sprite = TRUE
+/obj/item/clothing/head/pin/bow/small
+	name = "small hair bow"
+	desc = "A ribbon tied into a small bow with a clip on the back to attach to hair."
+	icon_state = "bow"
+	item_state = "bow"
 
 /obj/item/clothing/head/powdered_wig
 	name = "powdered wig"

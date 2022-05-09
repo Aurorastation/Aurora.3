@@ -179,13 +179,13 @@
 	hair_accessories["hair pin, silversun dawnflower"] = /obj/item/clothing/head/pin/flower/silversun
 	gear_tweaks += new /datum/gear_tweak/path(hair_accessories)
 
-/datum/gear/head/hair_accessories/colourable
+/datum/gear/head/hair_accessories_colourable
 	display_name = "hair accessories selection (colourable)"
 	description = "A selection of colourable hair accessories."
 	path = /obj/item/clothing/head/pin
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/head/hair_accessories/colourable/New()
+/datum/gear/head/hair_accessories_colourable/New()
 	..()
 	var/list/hair_accessories_colourable = list()
 	hair_accessories_colourable["hair pin"] = /obj/item/clothing/head/pin
@@ -193,9 +193,9 @@
 	hair_accessories_colourable["hair pin, clover"] = /obj/item/clothing/head/pin/clover
 	hair_accessories_colourable["hair pin, butterfly"] = /obj/item/clothing/head/pin/butterfly
 	hair_accessories_colourable["hair pin, magnet"] = /obj/item/clothing/head/pin/magnetic
-	hair_accessories_colourable["hair bow"] = /obj/item/clothing/head/pin/bow
-	hair_accessories_colourable["hair ribbon"] = /obj/item/clothing/head/pin/bow/hairband
-	hair_accessories_colourable["hair ribbon, alt"] = /obj/item/clothing/head/pin/bow/hairband/alt
+	hair_accessories_colourable["hair bow"] = /obj/item/clothing/head/pin/bow/alt
+	hair_accessories_colourable["hair bow, headband"] = /obj/item/clothing/head/pin/bow/hairband
+	hair_accessories_colourable["hair bow, small"] = /obj/item/clothing/head/pin/bow/small
 	gear_tweaks += new /datum/gear_tweak/path(hair_accessories_colourable)
 
 /datum/gear/head/hats
