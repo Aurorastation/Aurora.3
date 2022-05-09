@@ -182,7 +182,7 @@
 
 /mob/living/silicon/robot/drone/construction/process_level_restrictions()
 	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged)
+	if(lock_charge || scrambled_codes)
 		return FALSE
 	//Check if they are not on a station level -> else abort
 	var/turf/T = get_turf(src)
@@ -295,7 +295,6 @@
 	cached_eye_overlays = list(
 		I_HELP = image(icon, "[icon_state]-eyes_help"),
 		I_HURT = image(icon, "[icon_state]-eyes_harm"),
-		"emag" = image(icon, "[icon_state]-eyes_emag")
 	)
 	if(eye_overlay)
 		cut_overlay(eye_overlay)
@@ -352,7 +351,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an ID swipe interface."))
 			return
 		if(stat == DEAD)
-			if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
+			if(!config.allow_drone_spawn || health < -maxHealth) //It's dead, Dave.
 				to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 				return
 			if(!allowed(usr))
@@ -365,8 +364,6 @@
 			request_player()
 			return
 		else
-			if(emagged)
-				return
 			if(allowed(user))
 				user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src] shutting it down."), SPAN_NOTICE("You swipe your ID over \the [src], shutting it down! You can swipe it again to make it search for a new intelligence."))
 				shut_down()
@@ -374,39 +371,6 @@
 				to_chat(user, SPAN_WARNING("Access denied."))
 		return
 	..()
-
-/mob/living/silicon/robot/drone/emag_act(remaining_charges, mob/user)
-	if(!client || stat == DEAD)
-		to_chat(user, SPAN_WARNING("There's not much point subverting this heap of junk."))
-		return
-	if(emagged)
-		to_chat(src, SPAN_WARNING("\The [user] attempts to load subversive software into you, but your hacked subroutines ignore the attempt."))
-		to_chat(user, SPAN_WARNING("You attempt to subvert \the [src], but the sequencer has no effect."))
-		return
-
-	to_chat(user, SPAN_WARNING("You swipe the sequencer across \the [src]'s interface and watch its eyes flicker."))
-	to_chat(src, SPAN_WARNING("You feel a sudden burst of malware loaded into your execute-as-root buffer. Your tiny brain methodically parses, loads and executes the script."))
-
-	message_admins("[key_name_admin(user)] emagged drone [key_name_admin(src)].  Laws overridden.")
-	log_game("[key_name(user)] emagged drone [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
-	var/time = time2text(world.realtime, "hh:mm:ss")
-	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
-
-	emagged = TRUE
-	hacked = FALSE
-	law_update = FALSE
-	connected_ai = null
-	standard_drone = FALSE
-	clear_supplied_laws()
-	clear_inherent_laws()
-	laws = new /datum/ai_laws/syndicate_override
-	set_zeroth_law("Only [user.real_name] and people they designate as being such are operatives.")
-
-	to_chat(src, "<b>Obey these laws:</b>")
-	laws.show_laws(src)
-	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and their commands."))
-	set_intent(I_HURT) // force them to hurt to update the eyes, they can swap to and fro if they wish, though - geeves
-	return TRUE
 
 /mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)
 	if(!client || stat == DEAD)
@@ -435,7 +399,7 @@
 //DRONE LIFE/DEATH
 /mob/living/silicon/robot/drone/process_level_restrictions()
 	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged)
+	if(lock_charge || scrambled_codes)
 		return FALSE
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(T)
@@ -470,7 +434,7 @@
 //CONSOLE PROCS
 /mob/living/silicon/robot/drone/proc/law_resync()
 	if(stat != DEAD)
-		if(hacked || emagged)
+		if(hacked)
 			to_chat(src, SPAN_WARNING("You feel something attempting to modify your programming, but your hacked subroutines are unaffected."))
 		else
 			to_chat(src, SPAN_WARNING("A reset-to-factory directive packet filters through your data connection, and you obediently modify your programming to suit it."))
@@ -479,7 +443,7 @@
 
 /mob/living/silicon/robot/drone/proc/shut_down()
 	if(stat != DEAD)
-		if(hacked || emagged)
+		if(hacked)
 			to_chat(src, SPAN_WARNING("You feel a system kill order percolate through your tiny brain, but it doesn't seem like a good idea to you."))
 		else
 			to_chat(src, SPAN_WARNING("You feel a system kill order percolate through your tiny brain, and you obediently destroy yourself."))
@@ -568,10 +532,7 @@
 /mob/living/silicon/robot/drone/examine(mob/user)
 	..()
 	var/msg
-	if(emagged)
-		msg += "Their eye glows red."
-	else
-		msg += "Their eye glows green."
+	msg += "Their eye glows green."
 	to_chat(user, msg)
 
 /mob/living/silicon/robot/drone/self_diagnosis()
