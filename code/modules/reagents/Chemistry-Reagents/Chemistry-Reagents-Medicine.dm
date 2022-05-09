@@ -1342,6 +1342,7 @@
 	if(M.chem_doses[type] > 10)
 		M.make_dizzy(5)
 		M.make_jittery(5)
+	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	var/dose = M.chem_doses[type]
