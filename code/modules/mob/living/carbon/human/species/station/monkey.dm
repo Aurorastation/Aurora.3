@@ -68,10 +68,10 @@
 		H.emote(pick("cry","whimper"))
 
 	if(H.shock_stage >= 40 && prob(3))
-		H.emote("scream")
+		H.custom_emote(VISIBLE_MESSAGE, "screams!")
 
 	if(!H.restrained() && H.lying && H.shock_stage >= 60 && prob(3))
-		H.custom_emote(AUDIBLE_MESSAGE, "thrashes in agony")
+		H.custom_emote(VISIBLE_MESSAGE, "thrashes in agony")
 
 /datum/species/monkey/New()
 	..()
