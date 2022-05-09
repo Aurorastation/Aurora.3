@@ -61,16 +61,6 @@
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
-/datum/outfit/job/hos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
-
-
 /datum/job/warden
 	title = "Warden"
 	flag = WARDEN
@@ -119,15 +109,6 @@
 		/obj/item/handcuffs = 1
 	)
 
-/datum/outfit/job/warden/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
-
 /datum/job/investigator
 	title = "Investigator"
 	flag = FORENSICS
@@ -172,15 +153,6 @@
 	backpack_contents = list(
 		/obj/item/storage/box/evidence = 1
 	)
-
-/datum/outfit/job/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 
 /datum/job/officer
 	title = "Security Officer"
@@ -228,15 +200,6 @@
 	backpack_contents = list(
 		/obj/item/handcuffs = 1
 	)
-
-/datum/outfit/job/officer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 
 /datum/job/intern_sec
 	title = "Security Cadet"
