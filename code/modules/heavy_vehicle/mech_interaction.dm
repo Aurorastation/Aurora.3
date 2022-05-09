@@ -248,6 +248,8 @@
 	if(sync_access)
 		for(var/mob/pilot in pilots)
 			var/obj/item/card/id/pilot_id = pilot.GetIdCard()
+			if(istype(pilot, /mob/living/simple_animal/spiderbot))
+				pilot_id.access = get_all_station_access()
 			if(pilot_id && pilot_id.access) access_card.access |= pilot_id.access
 			to_chat(pilot, "<span class='notice'>Security access permissions synchronized.</span>")
 
