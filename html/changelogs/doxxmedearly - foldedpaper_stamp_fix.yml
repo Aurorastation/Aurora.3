@@ -1,0 +1,4 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Stamp overlays no longer float on folded paper, such as paper planes and origami cranes."
