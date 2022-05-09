@@ -5922,7 +5922,7 @@
 /area/hallway/medical)
 "dhZ" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (shotgun less-than-lethal)"
+	name = "Ammunition (Longarms)"
 	},
 /obj/item/storage/box/stunshells,
 /obj/item/storage/box/flashshells{
@@ -5939,6 +5939,7 @@
 	},
 /obj/item/storage/box/trackingslugs,
 /obj/effect/decal/warning_stripes,
+/obj/item/storage/box/shotgunshells,
 /obj/item/storage/box/shotgunshells,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
@@ -6266,6 +6267,8 @@
 /obj/effect/decal/warning_stripes,
 /obj/item/gun/projectile/automatic/wt550,
 /obj/item/gun/projectile/automatic/wt550,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "drk" = (
@@ -19277,6 +19280,16 @@
 /obj/item/ammo_magazine/mc9mmt/rubber,
 /obj/item/ammo_magazine/mc9mmt/rubber,
 /obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "kCV" = (
@@ -29286,11 +29299,12 @@
 /area/rnd/hallway)
 "pZV" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Shotgun)"
+	name = "Weaponry (Longarms)"
 	},
 /obj/item/gun/projectile/shotgun/pump,
 /obj/item/gun/projectile/shotgun/pump,
 /obj/effect/decal/warning_stripes,
+/obj/item/gun/projectile/automatic/rifle/carbine,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "pZX" = (
