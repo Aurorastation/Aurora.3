@@ -216,6 +216,17 @@
 		return TRUE
 	return FALSE
 
+/mob/living/carbon/human/proc/has_stethoscope()
+	var/obj/item/clothing/under/uniform = w_uniform
+	var/obj/item/clothing/suit/suit = wear_suit
+	if(suit)
+		if(locate(/obj/item/clothing/accessory/stethoscope) in suit.accessories)
+			return TRUE
+	if(uniform)
+		if(locate(/obj/item/clothing/accessory/stethoscope) in uniform.accessories)
+			return TRUE
+	return FALSE
+
 /mob/living/carbon/human/proc/is_submerged()
 	if(lying && istype(loc, /turf/simulated/floor/beach/water)) // replace this when we port fluids
 		return TRUE

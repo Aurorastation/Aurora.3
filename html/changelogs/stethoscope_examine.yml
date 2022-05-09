@@ -1,0 +1,6 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - rscadd: "When examining someone you are adjacent to while wearing a stethoscope (whether in your uniform or suit), you'll automatically use the stethoscope on the selected body area."
