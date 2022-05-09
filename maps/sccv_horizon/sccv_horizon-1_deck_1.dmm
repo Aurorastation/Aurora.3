@@ -1446,6 +1446,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/sign/emerg_exit/evac{
+	dir = 4;
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "bfX" = (
@@ -1915,6 +1919,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/sign/emerg_exit/evac{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
@@ -3556,6 +3563,9 @@
 /obj/machinery/light/spot/weak{
 	dir = 4
 	},
+/obj/structure/sign/emerg_pods{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "cRg" = (
@@ -5196,6 +5206,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
@@ -5717,9 +5728,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "eIC" = (
@@ -6436,6 +6446,9 @@
 	},
 /obj/effect/floor_decal/corner/black{
 	dir = 9
+	},
+/obj/structure/sign/emerg_exit/evac{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
@@ -7306,6 +7319,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/sign/emerg_exit/evac{
+	dir = 4;
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "fQU" = (
@@ -7946,6 +7963,13 @@
 "gkM" = (
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/escape_pod/pod1)
+"glb" = (
+/obj/structure/railing/mapped,
+/obj/structure/sign/emerg_exit/evac{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/operations)
 "gmL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -12282,6 +12306,10 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
+/obj/structure/sign/emerg_exit/evac{
+	dir = 8;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "kbo" = (
@@ -12918,6 +12946,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/sign/emerg_exit/evac{
+	dir = 4;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "kBV" = (
@@ -15483,6 +15515,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/sign/emerg_exit/evac{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "mGp" = (
@@ -15791,6 +15826,10 @@
 	c_tag = "First Deck - Hangar 13";
 	dir = 8
 	},
+/obj/structure/sign/emerg_exit/evac{
+	dir = 4;
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "mRu" = (
@@ -15846,6 +15885,17 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
+/area/hangar/auxiliary)
+"mSQ" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/sign/emerg_exit/evac{
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "mST" = (
 /obj/structure/morgue,
@@ -17478,6 +17528,9 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
+/obj/structure/sign/emerg_exit/evac{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "okA" = (
@@ -17974,6 +18027,13 @@
 "oRg" = (
 /turf/simulated/floor/reinforced,
 /area/rnd/test_range)
+"oRA" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/hangar/operations)
 "oSA" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -19958,6 +20018,16 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
+"qwB" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/structure/sign/emerg_exit/evac{
+	dir = 8;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/intrepid)
 "qxk" = (
 /obj/structure/closet/walllocker/emerglocker/east,
 /obj/effect/floor_decal/corner/blue{
@@ -24176,6 +24246,10 @@
 	c_tag = "Operations - Hangar Starboard Fore";
 	dir = 4
 	},
+/obj/structure/sign/emerg_exit/evac{
+	dir = 8;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "tYm" = (
@@ -24578,7 +24652,9 @@
 /obj/machinery/light/spot/weak{
 	dir = 8
 	},
-/obj/machinery/firealarm/west,
+/obj/structure/sign/emerg_pods{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "uob" = (
@@ -24598,6 +24674,10 @@
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations - Hangar Starboard Aft";
 	dir = 4
+	},
+/obj/structure/sign/emerg_exit/evac{
+	dir = 8;
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -41727,9 +41807,9 @@ jfc
 uoF
 dJT
 kBV
-dJT
+oRA
 unZ
-dJT
+oRA
 cya
 dJT
 tXS
@@ -43542,7 +43622,7 @@ blP
 lNi
 cMu
 dLp
-jWJ
+glb
 paB
 mwO
 mwO
@@ -49189,7 +49269,7 @@ wuD
 qVh
 rkQ
 pjy
-pjy
+qwB
 pjy
 hUk
 cFq
@@ -57278,7 +57358,7 @@ lPW
 fBi
 cpU
 kDE
-uZm
+mSQ
 uZm
 mtp
 uZm

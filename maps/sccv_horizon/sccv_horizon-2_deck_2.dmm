@@ -446,6 +446,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
+"akX" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/structure/sign/emerg_exitZ_stairs/evac,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/stairwell/central)
 "alr" = (
 /obj/structure/table/reinforced{
 	table_mat = "steel";
@@ -4042,7 +4053,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "ccn" = (
@@ -6610,6 +6624,7 @@
 	pixel_x = -28;
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
@@ -13085,13 +13100,13 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "hnf" = (
-/obj/machinery/status_display{
-	layer = 4;
-	pixel_x = -32
-	},
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Second Deck - Dinner Entrance 1";
 	dir = 4
+	},
+/obj/structure/sign/emerg_exit/evac{
+	pixel_x = -32;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
@@ -14544,6 +14559,14 @@
 /obj/item/reagent_containers/food/drinks/teapot,
 /turf/simulated/floor/carpet,
 /area/medical/psych)
+"ief" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/simulated/floor/tiled,
+/area/horizon/stairwell/central)
 "ien" = (
 /obj/item/modular_computer/console/preset/supply,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -19477,6 +19500,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
+"lcy" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/light,
+/obj/structure/sign/emerg_exit/evac{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/central_two)
 "lcL" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -25898,6 +25931,10 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "oIG" = (
@@ -61382,7 +61419,7 @@ fqr
 pef
 kyO
 kyO
-ccl
+ief
 qUS
 gVn
 rvT
@@ -61584,7 +61621,7 @@ fqr
 pef
 oMC
 oMC
-ccl
+akX
 mIS
 gVn
 wmp
@@ -62186,7 +62223,7 @@ fOp
 jrH
 dKH
 jxz
-ljF
+lcy
 lWg
 wMP
 vvS
