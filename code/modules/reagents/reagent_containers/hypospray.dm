@@ -314,3 +314,11 @@
 	name = "combat hypospray"
 	desc = "A sleek black hypospray. Its needle has the ability to bypass armor."
 	reagents_to_add = FALSE
+
+/obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
+	name = "sanasomnum autoinjector"
+	desc = "A special autoinjector loaded with biomechanical stem cells, inducing a regenerative coma so intense it can heal almost any injury."
+	volume = 20
+	amount_per_transfer_from_this = 20
+
+	reagents_to_add = list(/decl/reagent/sanasomnum = 20)
