@@ -1327,6 +1327,8 @@
 		M.add_chemical_effect(CE_ANTIBIOTIC, 20)
 		M.add_chemical_effect(CE_SEDATE, 30)
 		M.add_chemical_effect(CE_STABLE, 20)
+		M.add_chemical_effect(CE_UNDEXTROUS, 30)
+		M.add_chemical_effect(CE_CLUMSY, 30)
 
 /decl/reagent/sanasomnum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustCloneLoss(-20 * removed)
