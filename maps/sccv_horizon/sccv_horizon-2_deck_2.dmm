@@ -4767,13 +4767,13 @@
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "cDE" = (
-/obj/structure/cable/green{
-	icon_state = "11-2"
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/zpipe/down/supply,
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
-/obj/structure/lattice/catwalk,
-/turf/simulated/open,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "cDV" = (
 /obj/effect/floor_decal/corner/green{
@@ -9524,6 +9524,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "fti" = (
@@ -11564,12 +11567,10 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "guv" = (
@@ -14158,6 +14159,11 @@
 "hQE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
+	},
+/obj/machinery/computer/shuttle_control/lift{
+	pixel_y = -2;
+	shuttle_tag = "Operations Lift";
+	pixel_x = -7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turbolift/scc_ship/cargo_lift)
@@ -33739,6 +33745,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "sXc" = (
@@ -35866,7 +35873,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/railing/mapped,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -36416,22 +36422,17 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "usq" = (
-/obj/random/junk,
-/obj/random/junk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/structure/cable/green{
-	icon_state = "1-4"
+	icon_state = "11-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk,
+/turf/simulated/open,
 /area/maintenance/hangar/port)
 "usr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -40517,10 +40518,10 @@
 	},
 /area/rnd/xenobiology/xenoflora)
 "wzW" = (
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "wAa" = (
@@ -43059,6 +43060,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/junk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "xSA" = (
@@ -43105,6 +43110,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
+	},
+/obj/structure/railing/mapped{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)

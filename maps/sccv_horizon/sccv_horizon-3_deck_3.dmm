@@ -11947,18 +11947,6 @@
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"wk" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Deck 3 - Telecommunications Substation";
-	dir = 1;
-	alarm_on = 1
-	},
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "wl" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -49754,7 +49742,7 @@ wU
 pB
 aE
 sK
-wk
+yd
 vm
 Fl
 FH
