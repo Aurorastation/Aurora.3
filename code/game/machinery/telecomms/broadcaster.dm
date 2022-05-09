@@ -243,9 +243,6 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	var/list/obj/item/device/radio/radios = list()
 
-	// --- Gets the accent icon, if there is any ---
-	var/accent_icon = M.get_accent_icon(speaking, M)
-
 	// --- Broadcast only to intercom devices ---
 
 	if(data == 1)
@@ -361,7 +358,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_b_extra = ""
 		if(data == 3) // intercepted radio message
 			part_b_extra = " <i>(Intercepted)</i>"
-		var/part_a = "<span class='[frequency_span_class(display_freq)]'>[accent_icon ? accent_icon + " " : ""]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
+		var/part_a = "<span class='[frequency_span_class(display_freq)]'>%ACCENT%<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
 
 		// --- Some more pre-message formatting ---
 		var/part_b = "</span> <span class='message'></span>" // Tweaked for security headsets -- TLE
@@ -427,18 +424,27 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		if (length(heard_masked))
 			for (var/mob/R in heard_masked)
+				var/accent_icon = M.get_accent_icon(speaking, R)
+				accent_icon = accent_icon ? accent_icon + " " : ""
+				part_a = replacetext(part_a, "%ACCENT%", accent_icon)
 				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 0, name)
 
 		/* --- Process all the mobs that heard the voice normally (understood) --- */
 
 		if (length(heard_normal))
 			for (var/mob/R in heard_normal)
+				var/accent_icon = M.get_accent_icon(speaking, R)
+				accent_icon = accent_icon ? accent_icon + " " : ""
+				part_a = replacetext(part_a, "%ACCENT%", accent_icon)
 				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 0, realname)
 
 		/* --- Process all the mobs that heard the voice normally (did not understand) --- */
 
 		if (length(heard_voice))
 			for (var/mob/R in heard_voice)
+				var/accent_icon = M.get_accent_icon(speaking, R)
+				accent_icon = accent_icon ? accent_icon + " " : ""
+				part_a = replacetext(part_a, "%ACCENT%", accent_icon)
 				R.hear_radio(message,verbage, speaking, part_a, part_b, part_c, M,0, vname)
 
 		/* --- Process all the mobs that heard a garbled voice (did not understand) --- */
@@ -446,6 +452,9 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		if (length(heard_garbled))
 			for (var/mob/R in heard_garbled)
+				var/accent_icon = M.get_accent_icon(speaking, R)
+				accent_icon = accent_icon ? accent_icon + " " : ""
+				part_a = replacetext(part_a, "%ACCENT%", accent_icon)
 				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 1, vname)
 
 
@@ -453,6 +462,9 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		if (length(heard_gibberish))
 			for (var/mob/R in heard_gibberish)
+				var/accent_icon = M.get_accent_icon(speaking, R)
+				accent_icon = accent_icon ? accent_icon + " " : ""
+				part_a = replacetext(part_a, "%ACCENT%", accent_icon)
 				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 1)
 
 	return 1
