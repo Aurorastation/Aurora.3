@@ -1495,7 +1495,7 @@
 /turf/template_noop,
 /area/derelict/hallway/northeast)
 "fi" = (
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
 /turf/simulated/floor/tiled/airless,
 /area/template_noop)
 "fk" = (
@@ -1587,7 +1587,7 @@
 /turf/template_noop,
 /area/derelict/hallway/northeast)
 "fv" = (
-/obj/structure/closet/coffin,
+/obj/structure/closet/crate/coffin,
 /obj/structure/window/reinforced,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -2203,11 +2203,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "hp" = (
-/obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
-	icon_state = "cabinet_closed"
-	},
+/obj/structure/closet/cabinet,
 /obj/item/bananapeel,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -7010,7 +7006,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "vA" = (
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "vB" = (

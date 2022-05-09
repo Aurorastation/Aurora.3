@@ -63,9 +63,9 @@ STOCK_ITEM_LARGE(airscrubber, 1)
 
 STOCK_ITEM_LARGE(generator, 5)
 	var/list/generators = list(
-		/obj/machinery/power/port_gen/pacman = 1,
-		/obj/machinery/power/port_gen/pacman/super = 0.7,
-		/obj/machinery/power/port_gen/pacman/mrs = 0.5
+		/obj/machinery/power/portgen/basic = 1,
+		/obj/machinery/power/portgen/basic/advanced = 0.7,
+		/obj/machinery/power/portgen/basic/super = 0.5
 	)
 	var/type = pickweight(generators)
 	new type(L)

@@ -6,7 +6,7 @@
 /obj/item/storage/backpack
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
-	description_cult = "This can be reforged to become a cult backpack. Any stored items will be transferred."
+	desc_cult = "This can be reforged to become a cult backpack. Any stored items will be transferred."
 	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 		slot_l_hand_str = 'icons/mob/items/storage/lefthand_backpacks.dmi',
 		slot_r_hand_str = 'icons/mob/items/storage/righthand_backpacks.dmi'
@@ -109,7 +109,7 @@
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"
 	desc = "It's useful for both carrying extra gear and proudly declaring your insanity."
-	description_cult = null
+	desc_cult = null
 	icon_state = "cultpack"
 
 /obj/item/storage/backpack/cultpack/adorned

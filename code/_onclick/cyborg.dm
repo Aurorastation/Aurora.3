@@ -68,7 +68,7 @@
 	if(A == loc || (A in loc) || (A in contents))
 		// No adjacency checks
 
-		var/resolved = A.attackby(W,src)
+		var/resolved = W.resolve_attackby(A,src,params)
 		if(!resolved)
 			W.afterattack(A,src,1,params)
 		return

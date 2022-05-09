@@ -15,6 +15,88 @@
 	Cloud are under control of NanoTrasen, which has consequently established many high-tech research facilities in the area in the past few years."
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/romanovich)
 
+	meteors_minor = list(
+		/obj/effect/meteor/medium     = 80,
+		/obj/effect/meteor/dust       = 30,
+		/obj/effect/meteor/irradiated = 30,
+		/obj/effect/meteor/big        = 30,
+		/obj/effect/meteor/flaming    = 10,
+		/obj/effect/meteor/golden     = 10,
+		/obj/effect/meteor/silver     = 10
+		)
+
+	meteors_moderate = list(
+		/obj/effect/meteor/medium     = 80,
+		/obj/effect/meteor/big        = 30,
+		/obj/effect/meteor/dust       = 30,
+		/obj/effect/meteor/irradiated = 30,
+		/obj/effect/meteor/flaming    = 10,
+		/obj/effect/meteor/golden     = 10,
+		/obj/effect/meteor/silver     = 10,
+		/obj/effect/meteor/emp        = 10
+		)
+
+	meteors_major = list(
+		/obj/effect/meteor/medium     = 80,
+		/obj/effect/meteor/big        = 30,
+		/obj/effect/meteor/dust       = 30,
+		/obj/effect/meteor/irradiated = 30,
+		/obj/effect/meteor/emp        = 30,
+		/obj/effect/meteor/flaming    = 10,
+		/obj/effect/meteor/golden     = 10,
+		/obj/effect/meteor/silver     = 10
+		)
+
+	meteors_normal = list(\
+		/obj/effect/meteor/medium=8,\
+		/obj/effect/meteor/dust=3,\
+		/obj/effect/meteor/irradiated=3,\
+		/obj/effect/meteor/big=3,\
+		/obj/effect/meteor/flaming=1,\
+		/obj/effect/meteor/golden=1,\
+		/obj/effect/meteor/silver=1\
+		)
+
+	meteors_threatening = list(\
+		/obj/effect/meteor/big=10,\
+		/obj/effect/meteor/medium=5,\
+		/obj/effect/meteor/golden=3,\
+		/obj/effect/meteor/silver=3,\
+		/obj/effect/meteor/flaming=3,\
+		/obj/effect/meteor/irradiated=3,\
+		/obj/effect/meteor/emp=3\
+		)
+
+	meteors_catastrophic = list(\
+		/obj/effect/meteor/big=75,\
+		/obj/effect/meteor/flaming=10,\
+		/obj/effect/meteor/irradiated=10,\
+		/obj/effect/meteor/emp=10,\
+		/obj/effect/meteor/medium=5,\
+		/obj/effect/meteor/golden=4,\
+		/obj/effect/meteor/silver=4
+		)
+
+	meteors_armageddon = list(\
+		/obj/effect/meteor/big=25,\
+		/obj/effect/meteor/flaming=10,\
+		/obj/effect/meteor/irradiated=10,\
+		/obj/effect/meteor/emp=10,\
+		/obj/effect/meteor/medium=3,\
+		/obj/effect/meteor/golden=2,\
+		/obj/effect/meteor/silver=2\
+		)
+
+	meteors_cataclysm = list(\
+		/obj/effect/meteor/big=40,\
+		/obj/effect/meteor/emp=20,\
+		/obj/effect/meteor/irradiated=10,\
+		/obj/effect/meteor/golden=10,\
+		/obj/effect/meteor/silver=10,\
+		/obj/effect/meteor/flaming=10,\
+		/obj/effect/meteor/supermatter=1\
+		)
+
 /datum/space_sector/corp_zone
 	name = SECTOR_CORP_ZONE
 	description = "Formerly Solarian space, the Corporate Reconstruction Zone is the name for all systems occupied by the Republic of Biesel that are not within Tau Ceti's gravity well. \
