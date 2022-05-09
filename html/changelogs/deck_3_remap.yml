@@ -1,0 +1,18 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - maptweak: "Remaps and moves the cafe from the starboard side to the port side on deck 3. Makes it possible to send things to the deck 3 cafe."
+  - maptweak: "Remaps the recreational center. Remaps the changing room, washroom, and showers. Adds a gym and a lounge."
+  - maptweak: "Remaps cryogenics, which now has a shower below it and a toilet a bit further down."
+  - maptweak: "Adds a deck 3 civilian substation below engineering's break/meeting room on deck 3."
+  - maptweak: "Remaps the crew armoury, adds a command access front desk."
+  - maptweak: "Adds more nature, such as a nature showcase to the starboard side and a flowerbed to the rafters on deck 3."
+  - maptweak: "Adds a central stairwell that spans across all decks."
+  - maptweak: "Remaps the starboard side of deck 3, adds a new public hallway. Moves the scuttling chamber to the central ring on deck 3."
+  - maptweak: "Remaps the starboard deck 2 hallway. Moves tech storage to the left. Adds a maintenance airlock into starboard maintenance on deck 2."
+  - maptweak: "Remaps operations and implements QoL features such as a warehouse-to-mail room disposals chute."
+  - maptweak: "Adds a command bunker above the crew armoury."
+  - maptweak: "Remaps the AI core and moves its SMES to deck 2. Makes the turrets stun and lethal instead of lethal only."
+  - maptweak: "Remaps the morgue and makes it look like a morgue."

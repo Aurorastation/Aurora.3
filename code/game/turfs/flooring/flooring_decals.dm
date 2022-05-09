@@ -378,9 +378,24 @@
 /obj/effect/floor_decal/spline/plain/corner
 	icon_state = "spline_plain_corner"
 
+/obj/effect/floor_decal/spline/plain/cee
+	icon_state = "spline_plain_cee"
+
+/obj/effect/floor_decal/spline/plain/full
+	icon_state = "spline_plain_full"
+
 /obj/effect/floor_decal/spline/fancy
 	name = "spline - fancy"
 	icon_state = "spline_fancy"
+
+/obj/effect/floor_decal/spline/fancy/corner
+	icon_state = "spline_fancy_corner"
+
+/obj/effect/floor_decal/spline/fancy/cee
+	icon_state = "spline_fancy_cee"
+
+/obj/effect/floor_decal/spline/fancy/full
+	icon_state = "spline_fancy_full"
 
 /obj/effect/floor_decal/spline/fancy/wood
 	name = "spline - wood"
@@ -443,11 +458,31 @@
 
 /obj/effect/floor_decal/industrial/outline/grey
 	name = "grey outline"
-	color = "#808080"
+	color = COLOR_GRAY
 
 /obj/effect/floor_decal/industrial/outline/red
 	name = "red outline"
 	color = "#990C0C"
+
+/obj/effect/floor_decal/industrial/outline/medical
+	name = "medical green outline"
+	color = COLOR_GREEN_GRAY
+
+/obj/effect/floor_decal/industrial/outline/engineering
+	name = "engineering yellow outline"
+	color = COLOR_YELLOW_ENGI
+
+/obj/effect/floor_decal/industrial/outline/service
+	name = "service lime outline"
+	color = COLOR_PALE_GREEN_GRAY
+
+/obj/effect/floor_decal/industrial/outline/research
+	name = "research mauve outline"
+	color = COLOR_PURPLE_GRAY
+
+/obj/effect/floor_decal/industrial/outline/security
+	name = "security blue outline"
+	color = COLOR_BLUE_GRAY
 
 /obj/effect/floor_decal/industrial/loading
 	name = "loading area"
@@ -457,7 +492,7 @@
 	color = "#CFCF55"
 
 /obj/effect/floor_decal/industrial/loading/grey
-	color = "#808080"
+	color = COLOR_GRAY
 
 /obj/effect/floor_decal/plaque
 	name = "plaque"
