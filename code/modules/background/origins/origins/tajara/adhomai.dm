@@ -94,12 +94,12 @@
 /decl/origin_item/origin/amohda
 	name = "Island of Amohda"
 	desc = "The island of Amohda is a curious location on Adhomai for having a history nearly as ancient as Southern Ras'nrr. Due to its past as a military empire, Amohda was the birthplace of a caste of swordsmen whose martial traditions still exist today. The civil war allowed the return of the practice of Amohdan Swordsmanship and the re-opening of the Lodges. The Island attempted to secede from the Democratic People's Republic in 2462. The rebellion was crushed by the Liberation Army and now Amohda faces a harsh occupation and widespread guerilla warfare."
-	possible_accents = list(ACCENT_AMOHDASIIK, ACCENT_RURALDELVAHHI)
+	possible_accents = list(ACCENT_AMOHDASIIK)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
 
 /decl/origin_item/origin/amohda/zhan
-	possible_accents = list(ACCENT_AMOHDASIIK)
+	possible_accents = list(ACCENT_AMOHDASIIK, ACCENT_RURALDELVAHHI)
 
 /decl/origin_item/origin/south_harrmasir
 	name = "Southern Harr'masir"
