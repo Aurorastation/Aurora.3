@@ -15,3 +15,4 @@ changes:
   - maptweak: "Remaps operations and implements QoL features such as a warehouse-to-mail room disposals chute."
   - maptweak: "Adds a command bunker above the crew armoury."
   - maptweak: "Remaps the AI core and moves its SMES to deck 2. Makes the turrets stun and lethal instead of lethal only."
+  - maptweak: "Remaps the morgue and makes it look like a morgue."
