@@ -274,8 +274,8 @@
 	icon_state = "tube1"
 	},
 /obj/structure/closet/crate/medical,
-/obj/item/roller_holder,
-/obj/item/roller_holder,
+/obj/item/roller,
+/obj/item/roller,
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/regular,
 /turf/simulated/floor/tiled/dark,
