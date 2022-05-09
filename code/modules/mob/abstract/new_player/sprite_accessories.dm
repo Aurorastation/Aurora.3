@@ -4694,12 +4694,18 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list(/datum/species/bug,/datum/species/bug/type_b)
 
 	skr_tears
-		name = "Tear Stains"
+		name = "Skrell Tear Stains (Xiallt)"
 		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_tears"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
-		do_colouration = FALSE
+
+	skr_tears_axiori
+		name = "Skrell Tear Stains (Axiori)"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_tears_axiori"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 
 	skr_axiori_eyes
 		name = "Axiori Eyes"
@@ -4707,7 +4713,6 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "skr_axiori_eyes"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/skrell, /datum/species/zombie/skrell,/datum/species/zombie/skrell)
-		do_colouration = FALSE
 
 	skr_arms
 		name = "Skrell Arms"
@@ -4748,6 +4753,20 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Skrell Chin"
 		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_chin"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+
+	skr_gills
+		name = "Skrell Gills"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_gills"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+
+	skr_xibus
+		name = "Skrell Xibus"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_beak"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 
