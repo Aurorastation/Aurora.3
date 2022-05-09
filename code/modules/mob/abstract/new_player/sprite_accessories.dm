@@ -4698,7 +4698,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_tears"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
 
 	skr_tears_axiori
 		name = "Skrell Tear Stains (Axiori)"
@@ -4712,7 +4712,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_axiori_eyes"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/skrell, /datum/species/zombie/skrell,/datum/species/zombie/skrell)
+		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
 
 	skr_arms
 		name = "Skrell Arms"
