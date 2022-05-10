@@ -5839,7 +5839,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/tiled,
-/area/security/lobby)
+/area/security/security_office)
 "dkq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -11321,7 +11321,7 @@
 	},
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/tiled,
-/area/security/lobby)
+/area/security/security_office)
 "gnA" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -17898,7 +17898,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/security/lobby)
+/area/security/brig)
 "jZB" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/green{
@@ -21319,7 +21319,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled,
-/area/security/lobby)
+/area/security/brig)
 "mdn" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
@@ -23977,7 +23977,7 @@
 /area/hydroponics/garden)
 "nxz" = (
 /turf/simulated/wall/r_wall,
-/area/security/lobby)
+/area/security/security_office)
 "nxW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -35017,7 +35017,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/security/lobby)
+/area/security/brig)
 "tHd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -35528,7 +35528,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/tiled,
-/area/security/lobby)
+/area/security/security_office)
 "tWF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -36094,7 +36094,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/security/security_office)
+/area/security/lobby)
 "ulg" = (
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /obj/structure/cable/green{
@@ -66485,7 +66485,7 @@ bDo
 bDo
 bDo
 bDo
-bDo
+sGm
 gKt
 lKH
 buh
@@ -66687,7 +66687,7 @@ dLu
 pTQ
 txW
 lZu
-bDo
+sGm
 sGm
 sGm
 efA
@@ -66886,7 +66886,7 @@ eNj
 mFQ
 acz
 tIQ
-upE
+ukV
 mrK
 bPH
 jYJ
@@ -67490,7 +67490,7 @@ qav
 qav
 mbE
 evJ
-bDo
+tXR
 gny
 dkp
 tWx
@@ -68098,7 +68098,7 @@ qav
 qav
 tXR
 msO
-ukV
+upE
 xBX
 drk
 flb
