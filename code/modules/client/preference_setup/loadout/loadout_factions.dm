@@ -117,7 +117,7 @@
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/pmc_cap
-	display_name = "PCMG cap"
+	display_name = "PMCG cap"
 	path = /obj/item/clothing/head/softcap/pmc
 	slot = slot_head
 	faction = "Private Military Contracting Group"
