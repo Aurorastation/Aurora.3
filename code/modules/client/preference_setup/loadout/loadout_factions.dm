@@ -111,7 +111,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sunglasses)
 
 /datum/gear/faction/pmc_beret
-	display_name = "PCMG beret"
+	display_name = "PMCG beret"
 	path =  /obj/item/clothing/head/beret/corporate/pmc
 	slot = slot_head
 	faction = "Private Military Contracting Group"
