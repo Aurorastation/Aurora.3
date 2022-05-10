@@ -226,3 +226,26 @@
 	corpseid = 1
 	corpseidjob = "Commander"
 	corpseidaccess = "Captain"
+
+/*
+	Hideout Corpsespawners
+*/
+
+/obj/effect/landmark/corpse/hideout
+	name = "unidentifiable corpse"
+	corpseuniform = /obj/item/clothing/under/offworlder
+	corpsesuit = /obj/item/clothing/suit/storage/toggle/bomber
+	corpseradio = /obj/item/device/radio/headset
+	corpseglasses = /obj/item/clothing/glasses/sunglasses
+	corpsemask = /obj/item/clothing/mask/breath
+	corpsehelmet = /obj/item/clothing/head/softcap/cargo
+	corpsegloves = /obj/item/clothing/gloves/yellow/budget
+	corpseshoes = /obj/item/clothing/shoes/boots
+
+/obj/effect/landmark/corpse/hideout/captain
+	corpsegloves = /obj/item/clothing/gloves/fingerless
+	corpseshoes = /obj/item/clothing/shoes/jackboots
+	corpsesuit = /obj/item/clothing/suit/armor/carrier/ballistic
+	corpsehelmet = /obj/item/clothing/head/helmet/ballistic
+	corpsemask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
+	corpsepocket1 = /obj/item/flame/lighter/zippo

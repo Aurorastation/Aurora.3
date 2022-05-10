@@ -29,6 +29,11 @@
 	var/obj/effect/water_effect/water_overlay
 	var/numobjects = 0
 
+/turf/simulated/floor/beach/water/alt
+	name = "water"
+	icon_state = "seadeep"
+	watertype = "poolwater"
+
 /turf/simulated/floor/beach/water/pool
 	name = "pool"
 	icon_state = "pool"

@@ -2177,13 +2177,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "iliasz_jacket"
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock // corporate smock - Dekel Mrrhazrughan - veterangary
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock // Corporate Smock - Dekel Mrrhazrughan - veterangary
 	name = "corporate smock"
-	desc = "A dark colored surplus winter smock repurposed for interstellar use. It still has a hood and a snow mask, shaded into corporate colors. A traditional Stellar Corporate Conglomerate star is embroidered on the back."
+	desc = "A dark coloured surplus winter smock repurposed for interstellar use that has a hood shaded with corporate colors. A traditional Stellar Corporate Conglomerate star is embroidered on the back."
 	icon = 'icons/obj/custom_items/dekel_smock.dmi'
 	icon_override = 'icons/obj/custom_items/dekel_smock.dmi'
 	icon_state = "seccloak"
 	item_state = "seccloak"
+	contained_sprite = TRUE
 	var/hoodtype = /obj/item/clothing/head/winterhood/fluff/dekel_hood
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/Initialize()
@@ -2196,6 +2197,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/dekel_smock.dmi'
 	icon_override = 'icons/obj/custom_items/dekel_smock.dmi'
 	icon_state = "seccloak_hood"
+	item_state = "seccloak_hood"
 	contained_sprite = TRUE
 	flags_inv = HIDEEARS | BLOCKHAIR
 

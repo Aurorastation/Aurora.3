@@ -4,7 +4,7 @@
 	program_icon_state = "generic"
 	extended_desc = "This program allows communication over the NTRC network."
 	size = 2
-	requires_ntnet = TRUE
+	requires_ntnet = FALSE
 	requires_ntnet_feature = NTNET_COMMUNICATION
 	program_type = PROGRAM_TYPE_ALL
 	network_destination = "NTRC server"
@@ -60,6 +60,7 @@
 		return
 	// Following actions require signal
 	if(!get_signal(NTNET_COMMUNICATION))
+		to_chat(usr, FONT_SMALL(SPAN_WARNING("\The [src] displays, \"NETWORK ERROR - Unable to connect to NTNet. Please retry. If problem persists, contact your system administrator.\".")))
 		return
 
 	if(href_list["send"])

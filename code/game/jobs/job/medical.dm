@@ -11,7 +11,11 @@
 	selection_color = "#15903a"
 	economic_modifier = 10
 
-	minimum_character_age = 35
+	minimum_character_age = list(
+		SPECIES_HUMAN = 35,
+		SPECIES_SKRELL = 80,
+		SPECIES_SKRELL_AXIORI = 80
+	)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
@@ -23,7 +27,11 @@
 			access_first_responder, access_maint_tunnels, access_intrepid)
 
 	minimal_player_age = 10
-	ideal_character_age = 50
+	ideal_character_age = list(
+		SPECIES_HUMAN = 50,
+		SPECIES_SKRELL = 100,
+		SPECIES_SKRELL_AXIORI = 100
+	)
 	outfit = /datum/outfit/job/cmo
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
@@ -65,7 +73,11 @@
 	selection_color = "#15903a"
 	economic_modifier = 7
 
-	minimum_character_age = 25
+	minimum_character_age = list(
+		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
@@ -85,7 +97,11 @@
 	spawn_positions = 2
 	total_positions = 2
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
@@ -141,7 +157,11 @@
 	selection_color = "#15903a"
 	economic_modifier = 5
 
-	minimum_character_age = 26
+	minimum_character_age = list(
+		SPECIES_HUMAN = 26,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
@@ -181,7 +201,11 @@
 	spawn_positions = 1
 	economic_modifier = 5
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
 
 	supervisors = "the chief medical officer"
 	selection_color = "#15903a"
@@ -227,7 +251,11 @@
 	selection_color = "#15903a"
 	economic_modifier = 4
 
-	minimum_character_age = 20
+	minimum_character_age = list(
+		SPECIES_HUMAN = 20,
+		SPECIES_SKRELL = 55,
+		SPECIES_SKRELL_AXIORI = 55
+	)
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_external_airlocks, access_psychiatrist, access_first_responder)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_eva, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_external_airlocks, access_first_responder)
@@ -276,7 +304,11 @@
 	selection_color = "#15903a"
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 	outfit = /datum/outfit/job/intern_med
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 

@@ -378,34 +378,6 @@
 	icon_state = "cargoponcho"
 	item_state = "cargoponcho"
 
-/obj/item/clothing/accessory/poncho/skrell
-	name = "white skrell poncho"
-	desc = "This cover is a design of the Jargon Federation. It is meant to keep moisture in and stop a Skrell's skin from baking in the hot sun. C'thur and Diona may also wear it as a fashion statement."
-	icon = 'icons/clothing/accessories/skr_poncho.dmi'
-	icon_state = "skr_poncho"
-	item_state = "skr_poncho"
-	overlay_state = "skr_poncho"
-	contained_sprite = TRUE
-	icon_override = null
-
-/obj/item/clothing/accessory/poncho/skrell/gray
-	name = "gray skrell poncho"
-	icon_state = "skr_poncho_gry"
-	item_state = "skr_poncho_gry"
-	overlay_state = "skr_poncho_gry"
-
-/obj/item/clothing/accessory/poncho/skrell/tan
-	name = "tan skrell poncho"
-	icon_state = "skr_poncho_tan"
-	item_state = "skr_poncho_tan"
-	overlay_state = "skr_poncho_tan"
-
-/obj/item/clothing/accessory/poncho/skrell/brown
-	name = "brown skrell poncho"
-	icon_state = "skr_poncho_brn"
-	item_state = "skr_poncho_brn"
-	overlay_state = "skr_poncho_brn"
-
 /*
  * Sashes
  */
@@ -849,6 +821,7 @@
 	desc = "An embroidered patch indicating the wearer's blood type as AB NEGATIVE."
 	icon_state = "abnegtag"
 
+
 // Corporate Liaison stuff.
 
 /obj/item/clothing/accessory/tie/corporate
@@ -921,3 +894,15 @@
 	desc = "A shiny button which reads, <i>'Orion Express - For all your logistical needs!'</i>"
 	icon_state = "orion_liaison_badge"
 	item_state = "orion_liaison_badge"
+
+/obj/item/clothing/accessory/poncho/ipc_mantle
+	name = "\improper Burzsian shoulder mantle"
+	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
+	desc_fluff = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
+	icon = 'icons/clothing/accessories/BZ_Gorget.dmi'
+	icon_state = "Burz_gorget"
+	item_state = "Burz_gorget"	
+	contained_sprite = TRUE
+	icon_override = null
+	body_parts_covered = UPPER_TORSO
+

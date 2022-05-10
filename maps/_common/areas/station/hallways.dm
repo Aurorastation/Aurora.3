@@ -1,6 +1,4 @@
-
-//Hallway
-
+// Hallways
 /area/hallway
 	sound_env = LARGE_ENCLOSED
 	allow_nightmode = TRUE
