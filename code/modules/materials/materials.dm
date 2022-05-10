@@ -1001,3 +1001,18 @@
 	display_name = "superadvanced alloy"
 	icon_colour = null
 	icon_base = "skrell"
+
+/material/graphite
+	name = MATERIAL_GRAPHITE
+	stack_type = /obj/item/stack/material/graphite
+	icon_base = "graphite"
+	icon_colour = "#666666"
+	shard_type = SHARD_STONE_PIECE
+	weight = 20
+	hardness = 20
+	protectiveness = 5 // 20%
+	conductivity = 5
+	sheet_singular_name = "bar"
+	sheet_plural_name = "bars"
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'

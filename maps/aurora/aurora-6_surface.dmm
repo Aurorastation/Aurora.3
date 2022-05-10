@@ -21107,7 +21107,8 @@
 	pixel_x = 27
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/megavendor/vendor,
+/obj/structure/closet/emcloset,
+/obj/item/storage/toolbox/emergency,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "seu" = (
@@ -26964,7 +26965,7 @@
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "wXr" = (
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)

@@ -11,7 +11,11 @@
 	selection_color = "#991818"
 	economic_modifier = 10
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 80,
+		SPECIES_SKRELL_AXIORI = 80
+	)
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
@@ -61,16 +65,6 @@
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
-/datum/outfit/job/hos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
-
-
 /datum/job/warden
 	title = "Warden"
 	flag = WARDEN
@@ -83,7 +77,11 @@
 	selection_color = "#991818"
 	economic_modifier = 5
 
-	minimum_character_age = 25
+	minimum_character_age = list(
+		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_external_airlocks, access_weapons)
@@ -119,15 +117,6 @@
 		/obj/item/handcuffs = 1
 	)
 
-/datum/outfit/job/warden/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
-
 /datum/job/investigator
 	title = "Investigator"
 	flag = FORENSICS
@@ -140,7 +129,11 @@
 	selection_color = "#991818"
 	economic_modifier = 5
 
-	minimum_character_age = 25
+	minimum_character_age = list(
+		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
 
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_weapons)
 	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_weapons)
@@ -173,15 +166,6 @@
 		/obj/item/storage/box/evidence = 1
 	)
 
-/datum/outfit/job/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
-
 /datum/job/officer
 	title = "Security Officer"
 	flag = OFFICER
@@ -194,7 +178,11 @@
 	selection_color = "#991818"
 	economic_modifier = 4
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_external_airlocks, access_weapons)
@@ -229,15 +217,6 @@
 		/obj/item/handcuffs = 1
 	)
 
-/datum/outfit/job/officer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
-
 /datum/job/intern_sec
 	title = "Security Cadet"
 	flag = INTERN_SEC
@@ -251,7 +230,11 @@
 	access = list(access_security, access_sec_doors, access_maint_tunnels)
 	minimal_access = list(access_security, access_sec_doors)
 	outfit = /datum/outfit/job/intern_sec
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	blacklisted_species = list(SPECIES_IPC_ZENGHU, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
 

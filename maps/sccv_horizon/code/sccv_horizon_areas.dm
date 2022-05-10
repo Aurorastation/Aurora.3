@@ -294,6 +294,20 @@
 /area/shuttle/intrepid
 	name = "Intrepid"
 	icon_state = "intrepid"
+	requires_power = TRUE
+/area/shuttle/intrepid/crew_compartment 
+	name = "Intrepid Crew Compartment"
+/area/shuttle/intrepid/cargo_bay
+	name = "Intrepid Cargo Bay"
+/area/shuttle/intrepid/medical_compartment
+	name = "Intrepid Medical Compartment"
+/area/shuttle/intrepid/engine_compartment 
+	name = "Engine Compartment"
+/area/shuttle/intrepid/atmos_compartment 
+	name = "Atmos Compartment"
+/area/shuttle/intrepid/cockpit 
+	name = "Cockpit"
+
 
 // Exterior
 /area/horizonexterior
@@ -302,3 +316,107 @@
 	has_gravity = FALSE
 	base_turf = /turf/space
 	station_area = TRUE
+
+//
+// Areas for the SCCV Horizon Map
+//
+/area/horizon
+	name = "Horizon (PARENT AREA - DON'T USE)"
+	icon_state = "unknown"
+	station_area = TRUE
+
+// Hallways
+/area/horizon/hallway
+	name = "Horizon - Hallway (PARENT AREA - DON'T USE)"
+	sound_env = LARGE_ENCLOSED
+	allow_nightmode = TRUE
+	lightswitch = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
+	emergency_lights = TRUE
+
+/area/horizon/hallway/deck_three/primary/starboard
+	name = "Horizon - Deck 3 - Starboard Primary Hallway"
+	icon_state = "hallS"
+
+/area/horizon/hallway/deck_three/primary/starboard/docks
+	name = "Horizon - Deck 3 - Starboard Primary Hallway - Docks"
+
+// Stairwells
+/area/horizon/stairwell
+	name = "Horizon - Stairwell (PARENT AREA - DON'T USE)"
+	flags = RAD_SHIELDED
+
+/area/horizon/stairwell/central // Central stairwell.
+	name = "Horizon - Central Stairwell"
+	icon_state = "stairwell"
+	sound_env = SMALL_ENCLOSED
+
+// Crew Quarters
+/area/horizon/crew_quarters
+	name = "Horizon - Crew Quarters (PARENT AREA - DON'T USE)"
+	flags = RAD_SHIELDED
+
+// Cryogenics
+/area/horizon/crew_quarters/cryo
+	name = "Horizon - Cryogenic Storage"
+	icon_state = "Sleep"
+
+/area/horizon/crew_quarters/cryo/dormitories
+	name = "Horizon - Cryogenic Storage - Dormitories"
+
+/area/horizon/crew_quarters/cryo/washroom
+	name = "Horizon - Cryogenic Storage - Washroom"
+	icon_state = "washroom"
+	sound_env = SMALL_ENCLOSED
+
+/area/horizon/crew_quarters/cryo/showers
+	name = "Horizon - Cryogenic Storage - Showers"
+	icon_state = "showers"
+	sound_env = SMALL_ENCLOSED
+
+// Fitness Center
+/area/horizon/crew_quarters/fitness
+	name = "Horizon - Fitness Center (PARENT AREA - DON'T USE)"
+	icon_state = "fitness"
+
+/area/horizon/crew_quarters/fitness/hallway
+	name = "Horizon - Fitness Center Hallway"
+	icon_state = "fitness_hallway"
+
+/area/horizon/crew_quarters/fitness/pool
+	name = "Horizon - Fitness Center - Pool"
+	icon_state = "fitness_pool"
+
+/area/horizon/crew_quarters/fitness/gym
+	name = "Horizon - Fitness Center - Gym"
+	icon_state = "fitness_gym"
+
+/area/horizon/crew_quarters/fitness/changing
+	name = "Horizon - Fitness Center - Changing Room"
+	icon_state = "fitness_changingroom"
+
+/area/horizon/crew_quarters/fitness/washroom
+	name = "Horizon - Fitness Center - Washroom"
+	icon_state = "washroom"
+	sound_env = SMALL_ENCLOSED
+
+/area/horizon/crew_quarters/fitness/showers
+	name = "Horizon - Fitness Center - Showers"
+	icon_state = "showers"
+	sound_env = SMALL_ENCLOSED
+
+/area/horizon/crew_quarters/fitness/lounge
+	name = "Horizon - Fitness Center - Lounge"
+	icon_state = "fitness_lounge"
+	sound_env = SMALL_SOFTFLOOR
+
+// Cafeteria
+/area/horizon/deck_three/cafeteria
+	name = "Horizon - Deck 3 - Cafeteria"
+	icon_state = "cafeteria"
+
+// Nature Showcase
+/area/horizon/deck_three/nature_showcase
+	name = "Horizon - Deck 3 - Nature Showcase"
+	icon_state = "nature_showcase"
+	sound_env = SMALL_ENCLOSED

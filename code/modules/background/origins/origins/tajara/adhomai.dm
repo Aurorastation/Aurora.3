@@ -15,53 +15,101 @@
 		/decl/origin_item/origin/kaltir,
 		/decl/origin_item/origin/harrnrr,
 		/decl/origin_item/origin/borderlands, //You're a Vault Hunter!
-		/decl/origin_item/origin/zarrjirah,
-		/decl/origin_item/origin/rhazar,
 		/decl/origin_item/origin/crevus,
 		/decl/origin_item/origin/old_nobility
+	)
+
+/decl/origin_item/culture/adhomian/zhan
+	possible_origins = list(
+		/decl/origin_item/origin/hadiist_heartlands/zhan,
+		/decl/origin_item/origin/southern_rasnrr/zhan,
+		/decl/origin_item/origin/northern_rasnrr/zhan,
+		/decl/origin_item/origin/dasnrra/zhan,
+		/decl/origin_item/origin/amohda/zhan,
+		/decl/origin_item/origin/south_harrmasir/zhan,
+		/decl/origin_item/origin/dinakk,
+		/decl/origin_item/origin/kaltir/zhan,
+		/decl/origin_item/origin/harrnrr,
+		/decl/origin_item/origin/borderlands,
+		/decl/origin_item/origin/rhazar,
+		/decl/origin_item/origin/crevus
+	)
+
+/decl/origin_item/culture/adhomian/msai
+	possible_origins = list(
+		/decl/origin_item/origin/hadiist_heartlands,
+		/decl/origin_item/origin/southern_rasnrr,
+		/decl/origin_item/origin/northern_rasnrr,
+		/decl/origin_item/origin/dasnrra,
+		/decl/origin_item/origin/amohda,
+		/decl/origin_item/origin/south_harrmasir,
+		/decl/origin_item/origin/dinakk,
+		/decl/origin_item/origin/kaltir,
+		/decl/origin_item/origin/harrnrr,
+		/decl/origin_item/origin/borderlands,
+		/decl/origin_item/origin/zarrjirah,
+		/decl/origin_item/origin/crevus
 	)
 
 /decl/origin_item/origin/hadiist_heartlands
 	name = "Hadiist Heartlands"
 	desc = "The Hadiist Heartlands include Nraz'i Basin, Ras'nrr Heartlands, East Ras'nrr, and Rhazar Mountains. In this region, the People's Republic's culture project was most successful. Its inhabitants are known for their political loyalty and adherence to the Party's teachings. In typical Republican fashion, the local culture places a large emphasis on the importance of the collective over the individual interest, with each Tajara being considered as a piece in the machinery of society."
-	possible_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_RURALDELVAHHI)
+	possible_accents = list(ACCENT_REPUBICLANSIIK)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
+
+/decl/origin_item/origin/hadiist_heartlands/zhan
+	possible_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_RURALDELVAHHI)
 
 /decl/origin_item/origin/southern_rasnrr
 	name = "Southern Ras'nrr"
 	desc = "Southern Ras'nrr is well known as the cradle of Tajaran civilization. Trizar and Mezuma are the oldest surviving cities of the Tajara, and the homes of ancient city-states and empires. Ancient temples are interspersed with modern architecture in the cities and can be found on the summits of nearby mountains. The natives of this region tend to be highly traditional and conservative, proud of their storied history."
-	possible_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_RURALDELVAHHI)
+	possible_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
+
+/decl/origin_item/origin/southern_rasnrr/zhan
+	possible_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_RURALDELVAHHI)
 
 /decl/origin_item/origin/northern_rasnrr
 	name = "Northern Ras'nrr"
 	desc = "Once a prosperous region known for its hardworking inhabitants, Northern Ras'nrr suffered heavy destruction during the Second Civil War. The situation worsened in the final years of the war, as the conflict turned into a bloody stalemate. After the Second Revolution, most of the region is still in ruins and struggles to maintain itself. Because of the erratic and authoritarian policies of its current ruler, many inhabitants of Northern Ras'nrr have fled the region to seek refuge elsewhere."
-	possible_accents = list(ACCENT_NORTHRASNRR, ACCENT_RURALDELVAHHI)
+	possible_accents = list(ACCENT_NORTHRASNRR)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
+
+/decl/origin_item/origin/northern_rasnrr/zhan
+	possible_accents = list(ACCENT_NORTHRASNRR, ACCENT_RURALDELVAHHI)
 
 /decl/origin_item/origin/dasnrra
 	name = "Das'nrra"
 	desc = "The continent of Das'nrra is the political and economic center of the Democratic People's Republic. Once home to a merchant empire that pioneered the industrial revolution, the region has a large concentration of industry and urban population. During the Second Revolution, Das'nrra became the headquarters of the Liberation Army. Local factories played an important role in supplying the ALA fighters. Das'nrra was also the first state to successfully transfer power from the juntas to the civilian government."
-	possible_accents = list(ACCENT_DASNRRASIIK, ACCENT_RURALDELVAHHI)
+	possible_accents = list(ACCENT_DASNRRASIIK)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
+
+/decl/origin_item/origin/dasnrra/zhan
+	possible_accents = list(ACCENT_DASNRRASIIK, ACCENT_RURALDELVAHHI)
 
 /decl/origin_item/origin/amohda
 	name = "Island of Amohda"
 	desc = "The island of Amohda is a curious location on Adhomai for having a history nearly as ancient as Southern Ras'nrr. Due to its past as a military empire, Amohda was the birthplace of a caste of swordsmen whose martial traditions still exist today. The civil war allowed the return of the practice of Amohdan Swordsmanship and the re-opening of the Lodges. The Island attempted to secede from the Democratic People's Republic in 2462. The rebellion was crushed by the Liberation Army and now Amohda faces a harsh occupation and widespread guerilla warfare."
-	possible_accents = list(ACCENT_AMOHDASIIK, ACCENT_RURALDELVAHHI)
+	possible_accents = list(ACCENT_AMOHDASIIK)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
+
+/decl/origin_item/origin/amohda/zhan
+	possible_accents = list(ACCENT_AMOHDASIIK, ACCENT_RURALDELVAHHI)
 
 /decl/origin_item/origin/south_harrmasir
 	name = "Southern Harr'masir"
 	desc = "Southern Harr'masir is characterized by its fertile plains and low population density. Due to being one of the last areas to be colonized by the Tajara, it's known for its wilderness and the ruggedness of its settlers. Cattle are the lifeblood of the South Harr'masir region; a large part of its population is employed in the husbandry industry. A regional fascination emerged around the M'sai and Hharar herders with these rugged survivalists becoming idolized by the people."
-	possible_accents = list(ACCENT_LOWHARRSIIK, ACCENT_RURALDELVAHHI)
+	possible_accents = list(ACCENT_LOWHARRSIIK)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
+
+/decl/origin_item/origin/south_harrmasir/zhan
+	possible_accents = list(ACCENT_LOWHARRSIIK, ACCENT_RURALDELVAHHI)
 
 /decl/origin_item/origin/dinakk
 	name = "Din'akk Mountains"
@@ -73,24 +121,32 @@
 /decl/origin_item/origin/kaltir
 	name = "Old Kaltir"
 	desc = "Stretching from Nusinsk, up the imthus, and towards the northern borders of the New Kingdom are the lands referred to as Old Kaltir. As the name implies, these lands were ruled by the Azjuna line before the First Revolution and the collapse of the Kingdom of Kaltir. This is the homeland of the most loyal of the NKA. Previously devastated in the First Revolution and once again during the Second Revolution, Old Kaltir is steadily rebuilding itself post-armistice. Life in the villages continues on as always, but the trappings of modern corporate life slowly creep in thanks to increasing megacorporation presence in the New Kingdom."
-	possible_accents = list(ACCENT_HIGHHARRSIIK, ACCENT_RURALDELVAHHI)
+	possible_accents = list(ACCENT_HIGHHARRSIIK)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
+
+/decl/origin_item/origin/kaltir/zhan
+	possible_accents = list(ACCENT_HIGHHARRSIIK, ACCENT_RURALDELVAHHI)
 
 /decl/origin_item/origin/harrnrr
 	name = "Peninsula of Harr'nrr"
 	desc = "Settled in the very beginning of the Colonization Age and the Suns Wars, the Peninsula of Harr'nrr is a venerable section of the continent. Its largest city, Baltor, was the first settlement to be constructed on Harr'masir. During the Second Revolution, the population initially supported the Republic in its war effort. But the introduction of the PRA draft in 2458 led to mass protests in the cities and towns. When those protests were suppressed by the PSIS, support for other factions rose and the NKA and ALA began to compete for influence. Today, Baltor is a cultural centre of the NKA with its traditional artisans, artists, and filmographers gaining immense popularity across the nation. The Harr'nrri themselves are considered a more pacifistic and arts-inclined people, with a heavy emphasis on respect towards their fathers and faith."
-	possible_accents = list(ACCENT_HARRNRRI, ACCENT_RURALDELVAHHI)
+	possible_accents = list(ACCENT_HARRNRRI)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
+
+/decl/origin_item/origin/harrnrr/zhan
+	possible_accents = list(ACCENT_HARRNRRI, ACCENT_RURALDELVAHHI)
 
 /decl/origin_item/origin/borderlands //Pandora's a shithole, lads.
 	name = "The Borderlands"
 	desc = "The borderlands refers to the region that was once the Duchy of S'rendul, now the southwest border of the New Kingdom. It is home to the Southern Harr'masir citizens of the NKA. During the Second Revolution, this area saw fighting between the People's Army and ALA-Funded bandits. The Imperial Army took the region after the pact between the DPRA and NKA was signed and the People's Army was defeated at the northern front. Life for the locals has changed little underneath the rule of the New Kingdom. Their traditions and culture are kept alive with currently no state interest in influencing them. The values of the Southern Harr'masir people continue as they did pre-Revolutions and the image of the noble but humble N'hanzafu rider shines on."
-	possible_accents = list(ACCENT_LOWHARRSIIK, ACCENT_RURALDELVAHHI)
+	possible_accents = list(ACCENT_LOWHARRSIIK)
 	possible_citizenships = CITIZENSHIPS_ADHOMAI
 	possible_religions = RELIGIONS_ADHOMAI
 
+/decl/origin_item/origin/borderlands/zhan
+	possible_accents = list(ACCENT_LOWHARRSIIK, ACCENT_RURALDELVAHHI)
 
 /decl/origin_item/origin/zarrjirah
 	name = "Zarr'jirah Mountains"
