@@ -10,4 +10,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Exosuits piloted by spiderbots now have all access (as if they were a cyborg)."
+  - tweak: "Swiping your ID card on a spiderbot can now give access."
