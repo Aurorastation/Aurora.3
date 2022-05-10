@@ -390,7 +390,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "zeng_emt_jacket"
 
 /obj/item/clothing/suit/storage/toggle/fr_jacket/pmc
-	desc = "A first responder jacket in the classic black and blue of the PCMG."
+	desc = "A first responder jacket in the classic black and blue of the PMCG."
 	icon_state = "pmc_emt_jacket"
 	item_state = "pmc_emt_jacket"
 
