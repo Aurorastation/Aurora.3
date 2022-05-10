@@ -51,7 +51,7 @@
 		if(selected_string && h_style != selected_string)
 			h_style = selected_string
 			regenerate_icons()
-			visible_message("<span class='notice'>[src] pauses a moment to adjust [src.get_pronoun("his")] headtails.</span>")
+			visible_message("<span class='notice'>[src] adjusts [src.get_pronoun("his")] headtails.</span>")
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
