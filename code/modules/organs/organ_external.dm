@@ -1482,7 +1482,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		to_chat(src, SPAN_DANGER("You are ripped out of the Srom by a sudden shock!"))
 		var/mob/living/carbon/human/srom_puller = srom_pulling.resolve()
 		srom_puller.srom_pulling = null
-		to_chat(srom_puller, SPAN_WARNING("A vibration like a jackhammer resonates in your conscious, and the person you pulled into the Srom disappears the next instant."))
+		to_chat(srom_puller, SPAN_WARNING("A vibration like a jackhammer resonates in your consciousness, and the person you pulled into the Srom disappears in the next instant."))
 		srom_pulled_by = null
 	if(srom_pulling)
 		to_chat(src, SPAN_DANGER("Your Srom pull is disturbed by a sudden shock!"))
