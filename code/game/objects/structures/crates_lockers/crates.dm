@@ -537,8 +537,10 @@
 		"3" = (100 - ((STOCK_RARE_PROB * rarity) + (STOCK_UNCOMMON_PROB * rarity)))
 	)
 
-	var/icontype = pick(typesof(/obj/structure/closet/crate) - typesof(/obj/structure/closet/crate/secure/gear_loadout))
-	var/obj/structure/closet/crate/C = new icontype(src.loc)
+	var/list/valid_loot = typesof(/obj/structure/closet/crate) - typesof(/obj/structure/closet/crate/secure/gear_loadout)
+	valid_loot -= typesof(/obj/structure/closet/crate/loot)
+	var/icontype = pick(valid_loot)
+	var/obj/structure/closet/crate/C = new icontype(get_turf(src))
 
 	C.name = "unusual container"
 	C.desc = "A mysterious container of unknown origins. What mysteries lie within?"

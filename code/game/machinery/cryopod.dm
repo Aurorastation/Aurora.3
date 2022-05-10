@@ -182,9 +182,14 @@ var/global/list/frozen_crew = list()
 	desc = "A bewildering tangle of machinery and pipes."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "cryo_rear"
-	density = TRUE
 	anchored = TRUE
 	dir = WEST
+
+/obj/structure/cryofeed/pipes
+	name = "cryogenic feed pipes"
+	desc = "A bewildering tangle of pipes."
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "cryo_rear_pipes"
 
 //Cryopods themselves.
 /obj/machinery/cryopod
