@@ -5941,6 +5941,7 @@
 /obj/effect/decal/warning_stripes,
 /obj/item/storage/box/shotgunshells,
 /obj/item/storage/box/shotgunshells,
+/obj/item/ammo_magazine/a556/carbine/polymer,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "dim" = (
@@ -29301,10 +29302,12 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Longarms)"
 	},
-/obj/item/gun/projectile/shotgun/pump,
-/obj/item/gun/projectile/shotgun/pump,
 /obj/effect/decal/warning_stripes,
-/obj/item/gun/projectile/automatic/rifle/carbine,
+/obj/item/gun/projectile/automatic/rifle/carbine{
+	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
+	},
+/obj/item/gun/projectile/shotgun/pump,
+/obj/item/gun/projectile/shotgun/pump,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "pZX" = (
