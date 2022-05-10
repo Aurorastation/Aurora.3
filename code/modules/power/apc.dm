@@ -137,6 +137,7 @@
 	var/cellused = 0
 	var/start_charge = 90				// initial cell charge %
 	var/cell_type = /obj/item/cell/apc
+	var/trip_alarm = TRUE
 	var/opened = COVER_CLOSED
 	var/shorted = FALSE
 	var/night_mode = FALSE// Determines if the light level is set to dimmed or not
@@ -1249,7 +1250,8 @@
 		equipment = autoset(equipment, CHANNEL_OFF)
 		lighting = autoset(lighting, CHANNEL_OFF)
 		environ = autoset(environ, CHANNEL_OFF)
-		power_alarm.triggerAlarm(loc, src)
+		if(trip_alarm)
+			power_alarm.triggerAlarm(loc, src)
 		autoflag = AUTOFLAG_OFF
 
 	// update icon & area power if anything changed
@@ -1279,21 +1281,24 @@
 			equipment = autoset(equipment, CHANNEL_ON)
 			lighting = autoset(lighting, CHANNEL_OFF_AUTO)
 			environ = autoset(environ, CHANNEL_OFF_AUTO)
-			power_alarm.triggerAlarm(loc, src)
+			if(trip_alarm)
+				power_alarm.triggerAlarm(loc, src)
 			autoflag = AUTOFLAG_ENVIRON_LIGHTS_ON
 	else if(cell.percent() <= 15)        // <15%, turn off lighting & equipment
 		if((autoflag > AUTOFLAG_ENVIRON_ON && longtermpower < 0) || (autoflag > AUTOFLAG_ENVIRON_ON && longtermpower >= 0))
 			equipment = autoset(equipment, CHANNEL_ON)
 			lighting = autoset(lighting, CHANNEL_ON)
 			environ = autoset(environ, CHANNEL_OFF_AUTO)
-			power_alarm.triggerAlarm(loc, src)
+			if(trip_alarm)
+				power_alarm.triggerAlarm(loc, src)
 			autoflag = AUTOFLAG_ENVIRON_ON
 	else                                   // zero charge, turn all off
 		if(autoflag != AUTOFLAG_OFF)
 			equipment = autoset(equipment, CHANNEL_OFF)
 			lighting = autoset(lighting, CHANNEL_OFF)
 			environ = autoset(environ, CHANNEL_OFF)
-			power_alarm.triggerAlarm(loc, src)
+			if(trip_alarm)
+				power_alarm.triggerAlarm(loc, src)
 			autoflag = AUTOFLAG_OFF
 
 /obj/machinery/power/apc/proc/autoset(var/val, var/on)
