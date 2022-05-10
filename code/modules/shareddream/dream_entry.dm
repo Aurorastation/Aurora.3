@@ -48,7 +48,7 @@ var/list/dream_entries = list()
 		if(istype(bg) || force_wakeup)
 			// If we choose to be asleep, keep sleeping.
 			if(willfully_sleeping && sleeping && stat == UNCONSCIOUS)
-				if(can_commune() || (!can_commune() && srom_pulled_by))
+				if(can_commune() || srom_pulled_by)
 					sleeping = 5
 					return
 			for(var/thing in SSpsi.processing)
