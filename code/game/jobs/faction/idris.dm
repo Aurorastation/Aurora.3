@@ -79,7 +79,6 @@
 
 	uniform = /obj/item/clothing/under/rank/cadet/idris
 	id = /obj/item/card/id/idris/sec
-	suit = null
 
 /datum/outfit/job/bartender/idris
 	name = "Bartender - Idris"
@@ -102,7 +101,6 @@
 
 	uniform = /obj/item/clothing/under/rank/hydroponics/idris
 	head = /obj/item/clothing/head/bandana/hydro/idris
-	suit = null
 	id = /obj/item/card/id/idris
 
 /datum/outfit/job/janitor/idris
@@ -110,7 +108,6 @@
 
 	uniform = /obj/item/clothing/under/rank/janitor/idris
 	head = /obj/item/clothing/head/softcap/janitor/idris
-	suit = null
 	id = /obj/item/card/id/idris
 
 /datum/outfit/job/librarian/idris

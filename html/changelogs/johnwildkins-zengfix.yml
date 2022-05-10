@@ -1,0 +1,12 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed secure crates starting unlocked."
+  - bugfix: "Secure hydroponics crates now require either Hydroponics or Xenobiology access."
+  - bugfix: "Xenobotanists now spawn with the correct access and job outfit."
+  - bugfix: "Machinists, PMCG medical staff, and Zavod/Zeng-Hu scientists now start with their proper labcoats."
+  - bugfix: "Idris gardeners and janitors start with aprons once more."
+  - bugfix: "Idris gardener uniform now has proper directional sprites."
+  - bugfix: "Security cadets now start with their appropriate hazard vest again."
