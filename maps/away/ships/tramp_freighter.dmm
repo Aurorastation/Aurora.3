@@ -1870,6 +1870,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
+"vFx" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = -33
+	},
+/turf/simulated/floor/tiled/yellow,
+/area/shuttle/tramp_freighter)
 "wci" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/vending/cola,
@@ -34995,7 +35001,7 @@ gcq
 gcq
 iHx
 eyx
-eCV
+vFx
 wYA
 wYA
 xRX
