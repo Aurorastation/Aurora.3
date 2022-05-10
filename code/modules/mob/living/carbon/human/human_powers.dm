@@ -30,6 +30,31 @@
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
+/mob/living/carbon/human/proc/adjust_headtails()
+	set name = "Adjust Headtails"
+	set desc = "Adjust your headtails."
+	set category = "IC"
+
+	if(!use_check_and_message())
+		to_chat(src, SPAN_WARNING("You can't adjust your headtails when you're incapacitated!"))
+		return
+
+	if(h_style)
+		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[h_style]
+		var/selected_string
+		var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
+		for(var/hair_string in hair_styles_list)
+			var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
+			if(species.type in test.species_allowed)
+				valid_hairstyles.Add(hair_string)
+		selected_string = input("Select a new headtail style", "Your headtail style", hair_style) as null|anything in valid_hairstyles
+		if(selected_string && h_style != selected_string)
+			h_style = selected_string
+			regenerate_icons()
+			visible_message("<span class='notice'>[src] pauses a moment to adjust [src.get_pronoun("his")] headtails.</span>")
+		else
+			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
+
 mob/living/carbon/human/proc/change_monitor()
 	set name = "Change IPC Screen"
 	set desc = "Change the display on your screen."
