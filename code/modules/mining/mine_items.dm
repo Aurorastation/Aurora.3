@@ -598,7 +598,7 @@
 /obj/vehicle/train/cargo/engine/mining/Initialize()
 	. = ..()
 	cell = new /obj/item/cell/high(src)
-	key = null
+	key = new /obj/item/key/minecarts(src)
 	var/image/I = new(icon = 'icons/obj/cart.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
 	add_overlay(I)
 	turn_off()
@@ -612,7 +612,19 @@
 	..()
 
 /obj/vehicle/train/cargo/engine/mining/Move(var/turf/destination)
-	return ((locate(/obj/structure/track) in destination)) ? ..() : FALSE
+	if((locate(/obj/structure/track) in destination))
+		move_delay = initial(move_delay)
+	else if(!(locate(/obj/structure/track) in loc) && on) // Allow minecarts to off-track move, albeit slowly and only if not on a track already
+		if(move_delay == initial(move_delay))
+			move_delay = 10
+			visible_message(SPAN_WARNING("\The [src]'s rollers struggle to move without a track to follow!"), SPAN_WARNING("You hear a horrible grinding noise!"))
+			playsound(loc, 'sound/mecha/tanktread.ogg', 50, 1)
+		else if(prob(50))
+			playsound(loc, 'sound/mecha/tanktread.ogg', 50, 1)
+	else
+		return FALSE
+
+	. = ..()
 
 /obj/vehicle/train/cargo/engine/mining/update_car(var/train_length, var/active_engines)
 	return
@@ -635,9 +647,6 @@
 	light_range = 3
 	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_FIRE
-
-/obj/vehicle/train/cargo/trolley/mining/Move(var/turf/destination)
-	return ((locate(/obj/structure/track) in destination)) ? ..() : FALSE
 
 /obj/item/key/minecarts
 	name = "key"
@@ -1478,4 +1487,3 @@ var/list/total_extraction_beacons = list()
 	for(var/turf/simulated/mineral/M in range(7,drill_loc))
 		if(prob(75))
 			M.GetDrilled(1)
-
