@@ -36,6 +36,7 @@
 		cell = new celltype(src)
 
 /obj/item/device/suit_cooling_unit/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(cell)
 	return ..()
 
@@ -48,21 +49,25 @@
 
 	return (H.back == src) || (H.s_store == src)
 
-/obj/item/device/suit_cooling_unit/proc/get_cooling(var/mob/living/carbon/human/H)
+/obj/item/device/suit_cooling_unit/process()
 	if(!on || !cell)
-		return FALSE
+		return
 
 	if(!is_in_slot())
-		return FALSE
+		return
+
+	var/mob/living/carbon/human/H = loc
 
 	var/efficiency = !!(H.species.flags & ACCEPTS_COOLER) || 1 - H.get_pressure_weakness()		//you need to have a good seal for effective cooling; some species can directly connect to the cooler, so get a free 100% efficiency here
 	var/env_temp = get_environment_temperature()		//wont save you from a fire
 	var/temp_adj = min(H.bodytemperature - max(thermostat, env_temp), max_cooling)
 
 	if(temp_adj < 0.5)	//only cools, doesn't heat, also we don't need extreme precision
-		return FALSE
+		return
 
 	var/charge_usage = (temp_adj/max_cooling)*charge_consumption
+
+	H.bodytemperature -= temp_adj*efficiency
 
 	cell.use(charge_usage)
 
@@ -70,8 +75,6 @@
 		turn_off()
 
 	update_icon()
-
-	return temp_adj*efficiency
 
 /obj/item/device/suit_cooling_unit/proc/get_environment_temperature()
 	if(ishuman(loc))
@@ -108,6 +111,7 @@
 		return
 
 	on = TRUE
+	START_PROCESSING(SSmob, src)
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/proc/turn_off()
@@ -115,6 +119,7 @@
 		var/mob/M = src.loc
 		to_chat(M, SPAN_WARNING("\The [src] clicks and whines as it powers down."))
 	on = FALSE
+	STOP_PROCESSING(SSmob, src)
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/attack_self(mob/user)
