@@ -61,13 +61,13 @@
 	augs["retractable lighter, left hand"] = /obj/item/organ/internal/augment/tool/combitool/lighter/left
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
-/datum/gear/augment/tool/pen
+/datum/gear/augment/pen
 	display_name = "retractable pen"
 	description = "An augment that allows the user to deploy a retractable pen."
 	path = /obj/item/organ/internal/augment/tool/pen
 	cost = 1
 
-/datum/gear/augment/tool/pen/New()
+/datum/gear/augment/pen/New()
 	..()
 	var/list/augs = list()
 	augs["retractable pen, right hand"] = /obj/item/organ/internal/augment/tool/pen
