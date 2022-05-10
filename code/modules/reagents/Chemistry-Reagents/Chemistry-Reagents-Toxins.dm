@@ -774,7 +774,7 @@
 	reagent_state = LIQUID
 	color = "#002067"
 	spectro_hidden = TRUE
-	metabolism = REM * 0.2
+	metabolism = REM/3
 	strength = 0
 	taste_description = "danger"
 

@@ -211,7 +211,7 @@ Pen exclusive commands
  */
 /obj/item/pen/reagent/paralysis
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/toxin/dextrotoxin = 10)
+	reagents_to_add = list(/decl/reagent/toxin/dextrotoxin = 10) //~~5 minutes worth of Dextrotoxin
 
 /obj/item/pen/reagent/healing
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
