@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "IPCs should no longer overheat inside exosuit cabins."
+  - bugfix: "Suit coolers should now cool IPCs properly while on EVA."

@@ -32,12 +32,10 @@
 
 /obj/item/device/suit_cooling_unit/Initialize()
 	. = ..()
-	START_PROCESSING(SSprocessing, src)
 	if(celltype)
 		cell = new celltype(src)
 
 /obj/item/device/suit_cooling_unit/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(cell)
 	return ..()
 
@@ -50,25 +48,21 @@
 
 	return (H.back == src) || (H.s_store == src)
 
-/obj/item/device/suit_cooling_unit/process()
+/obj/item/device/suit_cooling_unit/proc/get_cooling(var/mob/living/carbon/human/H)
 	if(!on || !cell)
-		return
+		return FALSE
 
 	if(!is_in_slot())
-		return
-
-	var/mob/living/carbon/human/H = loc
+		return FALSE
 
 	var/efficiency = !!(H.species.flags & ACCEPTS_COOLER) || 1 - H.get_pressure_weakness()		//you need to have a good seal for effective cooling; some species can directly connect to the cooler, so get a free 100% efficiency here
 	var/env_temp = get_environment_temperature()		//wont save you from a fire
 	var/temp_adj = min(H.bodytemperature - max(thermostat, env_temp), max_cooling)
 
 	if(temp_adj < 0.5)	//only cools, doesn't heat, also we don't need extreme precision
-		return
+		return FALSE
 
 	var/charge_usage = (temp_adj/max_cooling)*charge_consumption
-
-	H.bodytemperature -= temp_adj*efficiency
 
 	cell.use(charge_usage)
 
@@ -76,6 +70,8 @@
 		turn_off()
 
 	update_icon()
+
+	return temp_adj*efficiency
 
 /obj/item/device/suit_cooling_unit/proc/get_environment_temperature()
 	if(ishuman(loc))

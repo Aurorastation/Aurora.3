@@ -447,6 +447,9 @@
 /mob/living/carbon/human/proc/stabilize_body_temperature()
 	if (species.passive_temp_gain) // We produce heat naturally.
 		bodytemperature += species.passive_temp_gain
+	for(var/obj/item/device/suit_cooling_unit/SC in list(back, s_store))
+		// I hate this as much as you do. Want to fix it? Rework IPCs.
+		bodytemperature -= SC.get_cooling(src)
 	if (species.body_temperature == null)
 		return //this species doesn't have metabolic thermoregulation
 
