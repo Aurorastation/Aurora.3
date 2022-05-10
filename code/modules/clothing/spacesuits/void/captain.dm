@@ -1,9 +1,9 @@
 //Captain's voidsuit
 /obj/item/clothing/head/helmet/space/void/captain
-	name = "captain voidsuit helmet"
+	name = "command voidsuit helmet"
 	icon_state = "capspace"
 	item_state = "capspace"
-	desc = "A special helmet designed for work in a hazardous, low-pressure environment. Only for the most fashionable of military figureheads."
+	desc = "A special helmet designed for work in a hazardous, low-pressure environment by SCC staff."
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -16,8 +16,8 @@
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/suit/space/void/captain
-	name = "captain voidsuit"
-	desc = "A bulky, heavy-duty piece of exclusive Nanotrasen armor. YOU are in charge!"
+	name = "command voidsuit"
+	desc = "A special suit designed for work in a hazardous, low-pressure environment by SCC staff."
 	icon_state = "capspace"
 	item_state = "capspace"
 	item_state_slots = list(
