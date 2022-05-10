@@ -1,0 +1,6 @@
+author: Llywelwyn
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a new var to APCs, trip_power, that determines if they will trigger power alarms or not - primarily made to allow powered away sites that could lose power."

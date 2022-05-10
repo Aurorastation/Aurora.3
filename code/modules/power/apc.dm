@@ -137,7 +137,7 @@
 	var/cellused = 0
 	var/start_charge = 90				// initial cell charge %
 	var/cell_type = /obj/item/cell/apc
-	var/trip_alarm = TRUE
+	var/trip_alarm = TRUE // Determines if this APC will trip power alarms or not
 	var/opened = COVER_CLOSED
 	var/shorted = FALSE
 	var/night_mode = FALSE// Determines if the light level is set to dimmed or not
