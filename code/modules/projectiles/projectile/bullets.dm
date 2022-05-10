@@ -220,6 +220,11 @@
 	armor_penetration = 40
 	penetrating = TRUE
 
+/obj/item/projectile/bullet/rifle/a556/polymer
+	damage = 25
+	armor_penetration = 30
+	penetrating = FALSE
+
 /obj/item/projectile/bullet/rifle/a145
 	damage = 80
 	stun = 3
