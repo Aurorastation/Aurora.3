@@ -9,7 +9,7 @@
 /turf/simulated/wall/r_wall,
 /area/turret_protected/corp_vault)
 "d" = (
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /obj/structure/cable/yellow{
 	d2 = 4;
 	icon_state = "0-4"
