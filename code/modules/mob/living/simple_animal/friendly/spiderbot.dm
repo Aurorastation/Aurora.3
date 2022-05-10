@@ -143,10 +143,10 @@
 				else
 					to_chat(user, "<span class='danger'>You swipe your card with no effect.</span>")
 					return 0
-		if("Sync")
-			internal_id.access.Cut()
-			internal_id.access = id_card.access.Copy()
-			to_chat(user, SPAN_NOTICE("Access synced with [src]"))
+			if("Sync")
+				internal_id.access.Cut()
+				internal_id.access = id_card.access.Copy()
+				to_chat(user, SPAN_NOTICE("Access synced with [src]"))
 	else
 		O.attack(src, user, user.zone_sel.selecting)
 
