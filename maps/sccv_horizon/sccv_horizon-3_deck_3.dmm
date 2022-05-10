@@ -19478,6 +19478,10 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/machinery/requests_console{
+	department = "Journalist's Office";
+	pixel_x = 32
+	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "Kn" = (
@@ -21437,10 +21441,6 @@
 "NT" = (
 /obj/structure/table/wood,
 /obj/item/device/taperecorder,
-/obj/structure/noticeboard{
-	desc = "A board for uncovering hidden conspiracies.";
-	name = "corkboard"
-	},
 /obj/machinery/light,
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
@@ -27987,10 +27987,6 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "ZR" = (
-/obj/machinery/requests_console{
-	department = "Journalist's Office";
-	pixel_y = 31
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -27998,6 +27994,11 @@
 	dir = 4
 	},
 /obj/machinery/hologram/holopad,
+/obj/structure/noticeboard{
+	desc = "A board for uncovering hidden conspiracies.";
+	name = "corkboard";
+	pixel_y = 32
+	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "ZS" = (
