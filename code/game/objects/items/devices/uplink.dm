@@ -421,7 +421,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 
 /obj/item/device/special_uplink/raider
 	name = "underground uplink"
-	starting_telecrystals = 4
+	starting_telecrystals = 3
 
 /obj/item/device/special_uplink/rev
 	name = "station bounced radio"
