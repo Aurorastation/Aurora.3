@@ -573,9 +573,13 @@ This function completely restores a damaged organ to perfect condition.
 
 //Determines if we even need to process this organ.
 /obj/item/organ/external/proc/need_process()
-	if(status & (ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED))
+	if((status & ORGAN_ASSISTED) && surge_damage)
 		return TRUE
-	if(surge_damage)
+	if(BP_IS_ROBOTIC(src))
+		return FALSE
+	if(get_pain())
+		return TRUE
+	if(status & (ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED))
 		return TRUE
 	if(brute_dam || burn_dam)
 		return TRUE
