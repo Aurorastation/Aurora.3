@@ -316,7 +316,7 @@ Pen exclusive commands
  */
 
 /obj/item/pen/augment
-	name = "Integrated pen"
+	name = "integrated pen"
 	desc = "An pen implanted directly into the hand, popping through the finger."
 	icon_state = "combipen"
 	item_state = "combipen"
