@@ -33,6 +33,10 @@
 	display_name = "rosary"
 	path = /obj/item/clothing/accessory/rosary
 
+/datum/gear/religion/shintorobe
+	display_name = "shrine maiden robe"
+	path = /obj/item/clothing/under/konyangdresstraditional/red
+
 /datum/gear/religion/dominia/robe
 	display_name = "dominian robe selection"
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."

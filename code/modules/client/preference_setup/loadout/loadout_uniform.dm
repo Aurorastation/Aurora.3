@@ -327,6 +327,21 @@
 	path = /obj/item/clothing/under/konyangdress
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
+/datum/gear/uniform/konyangtraditional
+	display_name = "traditional konyanger dress selection"
+	description = "A selection of traditional Konyanger formal and religious wear."
+	path = /obj/item/clothing/under/konyangdresstraditional
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/konyangtraditional/new()
+	..()
+	var/list/konyangtraditional = list()
+	konyangtraditional["green traditional konyanger dress"] = /obj/item/clothing/under/konyangdresstraditional/green
+	konyangtraditional["blue traditional konyanger dress"] = /obj/item/clothing/under/konyangdresstraditional/blue
+	konyangtraditional["national-colored traditional konyanger dress"] = /obj/item/clothing/under/konyangdresstraditional/national
+	konyangtraditional["national-colored traditional konyanger dress with vest"] = /obj/item/clothing/under/konyangdresstraditional/national/vest
+	gear_tweaks += new /datum/gear_tweak/path(konyangtraditional)
+
 /datum/gear/uniform/zhongshan
 	display_name = "zhongshan suit"
 	path = /obj/item/clothing/under/zhongshan

@@ -394,6 +394,11 @@
 	sash["white sash"] =/obj/item/clothing/accessory/sash/white
 	gear_tweaks += new /datum/gear_tweak/path(sash)
 
+/datum/gear/accessory/sash_horizontal
+	display_name = "horizontal sash (colourable)"
+	path = /obj/item/clothing/accessory/sash/horizontal
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/passcard
 	display_name = "human passcard selection"
 	path = /obj/item/clothing/accessory/badge/passcard
