@@ -4694,7 +4694,7 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list(/datum/species/bug,/datum/species/bug/type_b)
 
 	skr_tears
-		name = "Skrell Tear Stains (Xiallt)"
+		name = "Skrell Tear Stains (Xiialt)"
 		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_tears"
 		body_parts = list(BP_HEAD)
@@ -4704,6 +4704,20 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Skrell Tear Stains (Axiori)"
 		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_tears_axiori"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+
+	skr_dart_frog
+		name = "Skrell Dart Frog (Xiialt)"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_dart_frog"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
+
+	skr_dart_frog_axiori
+		name = "Skrell Dart Frog (Axiori)"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_dart_frog_axiori"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 
