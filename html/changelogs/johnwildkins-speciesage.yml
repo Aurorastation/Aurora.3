@@ -1,7 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - rscadd: "Adds species-based age restriction for jobs, for now only affecting Skrell."
-  - tweak: "Skrell minimum age raised from 30 to 50."
