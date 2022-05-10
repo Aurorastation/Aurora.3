@@ -80,7 +80,7 @@
 	spawnpoints = list("space_bar_patron")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/random/space_bar
+	outfit = /datum/outfit/admin/random/space_bar_patron
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -88,5 +88,6 @@
 	special_role = "Space Bar Patron"
 	respawn_flag = null
 
-/datum/outfit/admin/random/space_bar
+/datum/outfit/admin/random/space_bar_patron
 	l_ear = /obj/item/device/radio/headset/ship
+	l_pocket = /obj/item/spacecash/c500

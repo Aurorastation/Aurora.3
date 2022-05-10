@@ -13,7 +13,7 @@
 	<li><b>Medical</b>
 	</ul></p>
 	"}
-	title_suffix = "Pmcg"
+	title_suffix = "PMCG"
 
 	allowed_role_types = PMC_ROLES
 

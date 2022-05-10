@@ -233,6 +233,9 @@
 
 		var/obj/item/grab/G = I
 		var/mob/living/L = G.affecting
+		var/bucklestatus = L.bucklecheck(user)
+		if(!bucklestatus)
+			return TRUE
 
 		if(!istype(L))
 			to_chat(user, "<span class='warning'>\The machine won't accept that.</span>")
@@ -244,10 +247,6 @@
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)
 				to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
-				return TRUE
-			var/bucklestatus = L.bucklecheck(user)
-
-			if (!bucklestatus)//incase the patient got buckled_to during the delay
 				return TRUE
 			if(L != G.affecting)//incase it isn't the same mob we started with
 				return TRUE
@@ -272,6 +271,14 @@
 /obj/machinery/sleeper/MouseDrop_T(var/mob/target, var/mob/user)
 	if(user.stat || user.lying || !Adjacent(user) || !target.Adjacent(user)|| !ishuman(target))
 		return
+
+	var/mob/living/L = target
+	var/bucklestatus = L.bucklecheck(user)
+	if(!bucklestatus)
+		return
+	if(bucklestatus == 2)
+		var/obj/structure/LB = L.buckled_to
+		LB.user_unbuckle(user)
 	go_in(target, user)
 
 /obj/machinery/sleeper/relaymove(var/mob/user)

@@ -57,7 +57,6 @@
 /datum/outfit/job/officer/idris
 	name = "Security Officer - Idris"
 
-	head = /obj/item/clothing/head/beret/security/idris/alt
 	uniform = /obj/item/clothing/under/rank/security/idris
 	id = /obj/item/card/id/idris/sec
 
@@ -81,7 +80,6 @@
 	uniform = /obj/item/clothing/under/rank/cadet/idris
 	id = /obj/item/card/id/idris/sec
 	suit = null
-	head = /obj/item/clothing/head/beret/security/idris/alt
 
 /datum/outfit/job/bartender/idris
 	name = "Bartender - Idris"

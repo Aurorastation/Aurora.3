@@ -52,6 +52,7 @@
 
 /area/shuttle/mining
 	name = "Mining Shuttle"
+	requires_power = TRUE
 
 /area/shuttle/transport1
 	icon_state = "shuttle"

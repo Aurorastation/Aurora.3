@@ -13,7 +13,7 @@
 	name = "diona nymph"
 	voice_name = "diona nymph"
 	accent = ACCENT_ROOTSONG
-	adult_form = /mob/living/carbon/human
+	adult_form = /mob/living/carbon/human/diona/coeus
 	speak_emote = list("chirrups")
 	icon = 'icons/mob/diona.dmi'
 	icon_state = "nymph"

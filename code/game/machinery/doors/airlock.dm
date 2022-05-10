@@ -141,6 +141,24 @@
 		return SSmaterials.get_material_by_name(mineral)
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 
+/obj/machinery/door/airlock/service // Service Airlock
+	icon = 'icons/obj/doors/doorser.dmi'
+	assembly_type = /obj/structure/door_assembly/door_assembly_ser
+	hatch_colour = "#6f8751"
+
+/obj/machinery/door/airlock/glass_service // Service Airlock (Glass)
+	name = "Glass Airlock"
+	icon = 'icons/obj/doors/doorserglass.dmi'
+	hitsound = 'sound/effects/glass_hit.ogg'
+	maxhealth = 300
+	explosion_resistance = 5
+	opacity = FALSE
+	assembly_type = /obj/structure/door_assembly/door_assembly_ser
+	glass = 1
+	hatch_colour = "#6f8751"
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
+
 /obj/machinery/door/airlock/command
 	icon = 'icons/obj/doors/Doorcom.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
@@ -1252,7 +1270,7 @@ About the new airlock wires panel:
 			if(src.shock(user, 75))
 				return TRUE
 	if(istype(C, /obj/item/taperoll) || istype(C, /obj/item/rfd))
-		return TRUE
+		return
 	if(!istype(C, /obj/item/forensics))
 		src.add_fingerprint(user)
 	if (!repairing && (stat & BROKEN) && src.locked) //bolted and broken

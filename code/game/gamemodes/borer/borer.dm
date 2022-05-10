@@ -5,6 +5,5 @@
 	config_tag = "borer"
 	required_players = 15
 	required_enemies = 2
-	end_on_antag_death = FALSE
 	antag_tags = list(MODE_BORER)
 	votable = TRUE

@@ -210,7 +210,7 @@
 	try_add_bounty(new r_subtype)
 
 	if(prob(60))
-		//phoron arc bounties. remove when arc is done.
+		//phoron bounties
 		var/datum/bounty/item/phoron_bounty = pick(/datum/bounty/item/phoron_sheet, /datum/bounty/item/solar_array)
 		try_add_bounty(new phoron_bounty)
 	else

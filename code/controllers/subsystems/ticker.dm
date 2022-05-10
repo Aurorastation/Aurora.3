@@ -174,12 +174,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(force_end)
 		game_finished = TRUE
 		mode_finished = TRUE
-	else if(config.continous_rounds)
+	else
 		game_finished = (evacuation_controller.round_over() || mode.station_was_nuked)
 		mode_finished = (!post_game && mode.check_finished())
-	else
-		game_finished = (mode.check_finished() || (evacuation_controller.round_over() && evacuation_controller.emergency_evacuation)) || universe_has_ended
-		mode_finished = game_finished
 
 	if(!mode.explosion_in_progress && game_finished && (mode_finished || post_game))
 		current_state = GAME_STATE_FINISHED
@@ -227,19 +224,6 @@ var/datum/controller/subsystem/ticker/SSticker
 					to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
 			else if(!delay_notified)
 				to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
-
-	else if (mode_finished)
-		post_game = 1
-
-		mode.cleanup()
-
-		//call a transfer shuttle vote
-		spawn(50)
-			if(!round_end_announced && !config.continous_rounds) // Spam Prevention. Now it should announce only once.
-				to_world("<span class='danger'>The round has ended!</span>")
-				round_end_announced = 1
-				SSvote.autotransfer()
-
 	return 1
 
 /datum/controller/subsystem/ticker/proc/declare_completion()

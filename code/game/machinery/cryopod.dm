@@ -182,9 +182,14 @@ var/global/list/frozen_crew = list()
 	desc = "A bewildering tangle of machinery and pipes."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "cryo_rear"
-	density = TRUE
 	anchored = TRUE
 	dir = WEST
+
+/obj/structure/cryofeed/pipes
+	name = "cryogenic feed pipes"
+	desc = "A bewildering tangle of pipes."
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "cryo_rear_pipes"
 
 //Cryopods themselves.
 /obj/machinery/cryopod
@@ -391,7 +396,10 @@ var/global/list/frozen_crew = list()
 			return TRUE
 
 		var/willing = FALSE //We don't want to allow people to be forced into despawning.
-		var/mob/M = G.affecting
+		var/mob/living/M = G.affecting
+		var/bucklestatus = M.bucklecheck(user)
+		if(!bucklestatus)
+			return TRUE
 
 		if(M.client)
 			var/original_loc = M.loc
@@ -442,8 +450,8 @@ var/global/list/frozen_crew = list()
 		return
 
 	var/mob/living/L = O
-
-	if(!L.bucklecheck(user)) //We must make sure the person is unbuckled before they go in
+	var/bucklestatus = L.bucklecheck(user)
+	if(!bucklestatus) //We must make sure the person is unbuckled before they go in
 		return
 
 	if(L.stat == DEAD)

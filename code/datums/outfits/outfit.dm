@@ -167,10 +167,6 @@
 		else
 			equip_item(H, back, slot_back)
 
-	if(istype(H.back,/obj/item/storage/backpack))
-		var/obj/item/storage/backpack/B = H.back
-		B.autodrobe_no_remove = TRUE
-
 	if(allow_headset_choice)
 		switch(H.headset_choice)
 			if (OUTFIT_NOTHING)
@@ -185,15 +181,15 @@
 			else
 				l_ear = headset //Department headset
 	if(l_ear)
-		equip_item(H, l_ear, slot_l_ear, TRUE)
+		equip_item(H, l_ear, slot_l_ear)
 	else if (wrist)
-		equip_item(H, wrist, slot_wrists, TRUE)
+		equip_item(H, wrist, slot_wrists)
 
 	return
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
 //override_collect temporarily allows equip_or_collect without enabling it for the job. Mostly used to prevent weirdness with hand equips when the player is missing one
-/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/set_no_remove = FALSE, var/override_collect = FALSE)
+/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE)
 	var/obj/item/I
 
 	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
@@ -207,9 +203,6 @@
 		I = G.spawn_random()
 	else
 		I = new path(H) //As fallback treat it as a path
-
-	if(set_no_remove)
-		I.autodrobe_no_remove = TRUE
 
 	if(collect_not_del || override_collect)
 		H.equip_or_collect(I, slot)
