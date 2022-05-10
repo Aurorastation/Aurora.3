@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "PDA-based uplinks can now be accessed without a network connection (i.e. off-Horizon)."
