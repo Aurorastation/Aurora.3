@@ -4,7 +4,7 @@
 	name_plural = "Skrell"
 	category_name = "Skrell"
 	bodytype = BODYTYPE_SKRELL
-	age_min = 30
+	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
 	economic_modifier = 12
