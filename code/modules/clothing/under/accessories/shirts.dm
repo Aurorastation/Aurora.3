@@ -193,8 +193,8 @@
 	icon_state = "puffyblouse"
 	item_state = "puffyblouse"
 
-/obj/item/clothing/accessory/dressshirt
-	name = "dress shirt"
+/obj/item/clothing/accessory/dressshirt/asymmetric
+	name = "asymmetric dress shirt"
 	desc = "A casual dress shirt that opens diagonally down the front."
 	icon_state = "dressshirt_asymmetric"
 	item_state = "dressshirt_asymmetric"

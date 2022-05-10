@@ -454,7 +454,7 @@
 	item_state = "sash_colourable"
 	icon_state = "sash_colourable"
 
-/obj/item/clothing/accessory/sash/colourable
+/obj/item/clothing/accessory/sash/horizontal
 	name = "horizontal sash"
 	desc = "A sash, designed to be worn around the waist."
 	item_state = "sash_horizontal"

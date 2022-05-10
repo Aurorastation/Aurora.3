@@ -84,7 +84,7 @@
 	item_state = "skirt_tube"
 	worn_state = "skirt_tube"
 
-/obj/item/clothing/under/skirt/high
+/obj/item/clothing/under/skirt/straightlong
 	name = "straight long skirt"
 	desc = "A skirt that goes all the way down to the ankles."
 	desc_fluff = "Enough fabric for two skirts, and then some."
