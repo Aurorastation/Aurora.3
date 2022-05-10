@@ -36,6 +36,11 @@
 	nutrition_loss_factor = 0.7
 	hydration_loss_factor = 0.7
 
+	possible_cultures = list(
+		/decl/origin_item/culture/adhomian/zhan,
+		/decl/origin_item/culture/offworld_tajara/zhan
+	)
+
 /datum/species/tajaran/m_sai
 	name = SPECIES_TAJARA_MSAI
 	name_plural = "M'sai Tajaran"
@@ -70,3 +75,8 @@
 
 	nutrition_loss_factor = 0.9
 	hydration_loss_factor = 0.9
+
+	possible_cultures = list(
+		/decl/origin_item/culture/adhomian/msai,
+		/decl/origin_item/culture/offworld_tajara/msai
+	)

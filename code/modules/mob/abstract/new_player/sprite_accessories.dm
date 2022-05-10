@@ -721,16 +721,19 @@ Follow by example and make good judgement based on length which list to include 
 	messy
 		name = "Messy"
 		icon_state = "hair_messy"
+		length = 2
 		chatname = "messy hair"
 
 	messy2
 		name = "Messy 2"
 		icon_state = "hair_messy2"
+		length = 2
 		chatname = "messy hair"
 
 	messy3
 		name = "Messy 3"
 		icon_state = "hair_messy3"
+		length = 2
 		chatname = "messy hair"
 
 	modern
