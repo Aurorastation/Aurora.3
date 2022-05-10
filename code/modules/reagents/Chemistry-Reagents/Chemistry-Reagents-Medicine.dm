@@ -1308,12 +1308,12 @@
 
 /decl/reagent/sanasomnum
 	name = "Sanasomnum"
-	description = "Sanasomnum is a drug closely related to Rezadone, but is capable of healing even worse injuries. However, this comes at a cost: as long as the drug is in the patient's system, they are stuck in a comatose state."
+	description = "Not strictly a drug, Sanasomnum is actually a cocktail of biomechanical stem cells, which induce a regenerative state of unconsciousness capable healing almost any injury in minutes - however, usage nearly guarantees long-term and irreversible complications, and it is banned from medical use throughout the spur."
 	reagent_state = SOLID
 	color = "#b2db5e"
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
-	taste_description = "sickness"
+	taste_description = "blood"
 
 /decl/reagent/sanasomnum/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
