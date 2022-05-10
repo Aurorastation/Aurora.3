@@ -14,26 +14,11 @@
 "aac" = (
 /turf/simulated/wall/r_wall,
 /area/security/prison)
-"aad" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/wall/r_wall,
-/area/security/warden)
 "aae" = (
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
-/turf/simulated/wall/r_wall,
-/area/security/warden)
-"aaf" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/tiled,
 /area/security/prison)
 "aal" = (
 /obj/machinery/light{
@@ -1888,10 +1873,13 @@
 /area/medical/first_responder)
 "aTI" = (
 /obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aTO" = (
@@ -5898,12 +5886,18 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/disposalpipe/junction{
+/obj/structure/disposaloutlet{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/machinery/door/window/brigdoor/eastleft{
+	name = "Brig Delivery Door";
+	req_access = null
+	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "dlZ" = (
@@ -7154,13 +7148,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "dXF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "dYb" = (
@@ -11111,9 +11104,6 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "gis" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
 /obj/structure/table/standard,
 /obj/item/material/minihoe,
 /obj/item/device/analyzer/plant_analyzer,
@@ -15815,12 +15805,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 4;
-	icon_state = "pipe-j2"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -16351,17 +16340,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "jfH" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/disposaloutlet,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -16937,11 +16915,8 @@
 /turf/simulated/wall,
 /area/engineering/storage_eva)
 "jvW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -17377,7 +17352,9 @@
 	},
 /obj/structure/cable/green,
 /obj/machinery/disposal/small/north,
-/obj/structure/disposalpipe/trunk,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "jKd" = (
@@ -22267,6 +22244,9 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -27239,6 +27219,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "psH" = (
@@ -28525,6 +28509,9 @@
 	req_access = list(3)
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "qaI" = (
@@ -29287,8 +29274,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/disposalpipe/segment{
-	dir = 1;
+	dir = 8;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
@@ -37652,14 +37640,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/newscaster{
 	pixel_y = 32
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -40236,10 +40224,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -43346,7 +43330,10 @@
 "xZt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "xZw" = (
@@ -43742,17 +43729,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
-"ygb" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/brigdoor/southleft{
-	name = "Brig Delivery Door";
-	req_access = newlist()
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/security/prison)
 "ygu" = (
 /obj/structure/window/reinforced,
 /obj/structure/flora/tree/jungle/small{
@@ -68910,7 +68886,7 @@ vCs
 plb
 psg
 jJY
-aad
+aaa
 aya
 pNG
 qlU
@@ -69112,8 +69088,8 @@ blC
 wRd
 mGr
 vYW
-aae
-aaf
+aaa
+aac
 uTn
 aac
 aac
@@ -69316,9 +69292,9 @@ qaw
 blC
 aaa
 dlR
-dXF
+mbh
 jfH
-ygb
+pJE
 pJE
 mbh
 oYH
@@ -69522,7 +69498,7 @@ qVk
 iNf
 iNf
 iNf
-jvW
+hPb
 gis
 pSv
 pSv
@@ -69922,7 +69898,7 @@ amI
 aac
 aac
 uZD
-pJE
+jvW
 vaR
 kvL
 quJ
@@ -70123,8 +70099,8 @@ tuH
 grL
 aac
 cQd
-mbh
-pJE
+dXF
+aae
 kvL
 kvL
 kjs
