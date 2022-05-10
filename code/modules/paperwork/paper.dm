@@ -171,6 +171,7 @@
 		throw_range = 8
 		old_name = name
 		name = "paper plane"
+		cut_overlays() //Removes stamp icons
 		return
 
 	if (user.a_intent == I_DISARM && icon_state != "scrap" && can_fold)
@@ -183,6 +184,7 @@
 		icon_state = "paper_swan"
 		old_name = name
 		name = "origami swan"
+		cut_overlays() //Removes stamp icons
 		return
 
 	if (user.a_intent == I_HELP && old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
@@ -192,6 +194,7 @@
 		throw_range = initial(throw_range)
 		name = old_name
 		old_name = null
+		restore_stamps()
 		update_icon()
 		return
 
@@ -378,6 +381,13 @@
 	else
 		to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
 
+
+/obj/item/paper/proc/restore_stamps() //Used when unfolding paper from cranes or planes, restores the stamp overlays.
+	for(var/i = 1, i <= ico.len, i++)
+		var/image/S = image('icons/obj/bureaucracy.dmi', ico[i])
+		S.pixel_x = offset_x[i]
+		S.pixel_y = offset_y[i]
+		add_overlay(S)
 /**
  * Takes the paper's info variable, a user, and parses language markers that exist
  * in it. It returns an HTML string which represents the languages properly.
