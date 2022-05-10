@@ -89,6 +89,10 @@
 		/decl/origin_item/culture/federation,
 		/decl/origin_item/culture/non_federation
 	)
+	
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/tie_hair
+	)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
 	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound
