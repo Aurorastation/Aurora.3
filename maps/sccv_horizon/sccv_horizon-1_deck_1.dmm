@@ -51,7 +51,7 @@
 /area/storage/eva)
 "adj" = (
 /obj/machinery/vending/vendors,
-/obj/effect/floor_decal/corner/green/full{
+/obj/effect/floor_decal/corner/purple/full{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -614,13 +614,13 @@
 	name = "sink";
 	pixel_x = 21
 	},
-/obj/effect/floor_decal/corner/green/full{
-	dir = 4
-	},
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
 	pixel_y = -25
+	},
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -894,7 +894,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
@@ -2075,11 +2075,11 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "bEk" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 9
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -2193,10 +2193,10 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/obj/effect/floor_decal/industrial/outline/purple,
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "bHP" = (
@@ -2355,6 +2355,9 @@
 /obj/machinery/firealarm/south,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -2730,17 +2733,17 @@
 /area/engineering/gravity_gen)
 "cdT" = (
 /obj/structure/table/steel,
-/obj/effect/floor_decal/corner/green/full,
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/toolbox/mechanical,
 /obj/machinery/ringer{
 	department = "Custodial";
 	id = "ringers_custodial";
-	name = "\improper Custodial ringer terminal";
+	name = "\improper Custodial Ringer Terminal";
 	pixel_y = -32;
 	req_access = list(26)
 	},
+/obj/effect/floor_decal/corner/purple/full,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "cen" = (
@@ -3173,7 +3176,10 @@
 /area/engineering/atmos/air)
 "cxG" = (
 /obj/structure/janitorialcart/full,
-/obj/effect/floor_decal/industrial/outline/purple,
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "cya" = (
@@ -3841,6 +3847,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"dbS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
 "dcs" = (
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -7554,7 +7572,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/industrial/outline/purple,
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "fVD" = (
@@ -7940,6 +7958,9 @@
 	pixel_y = -24;
 	pixel_x = 9;
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -10134,8 +10155,8 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/green{
-	dir = 6
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -11380,12 +11401,12 @@
 	pixel_y = -9;
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
 /obj/structure/railing/mapped,
 /obj/structure/closet/secure_closet/custodial,
-/obj/effect/floor_decal/industrial/outline/purple,
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "jiU" = (
@@ -12958,15 +12979,15 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/effect/floor_decal/corner/green/full{
-	dir = 8
-	},
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/landmark/start{
 	name = "Janitor"
 	},
 /obj/machinery/newscaster{
 	pixel_x = -32
+	},
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -13814,11 +13835,11 @@
 	pixel_y = -6
 	},
 /obj/item/paper_bin,
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
 /obj/item/device/hand_labeler,
 /obj/item/key/janicart,
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "leL" = (
@@ -15557,6 +15578,24 @@
 	name = "thruster mount"
 	},
 /area/shuttle/intrepid/engine_compartment)
+"mBL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
 "mCt" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -16576,18 +16615,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "nmQ" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
 /obj/machinery/ringer{
 	department = "Custodial";
 	id = "ringers_custodial";
-	name = "\improper Custodial ringer terminal";
+	name = "\improper Custodial Ringer Terminal";
 	pixel_x = -32;
 	req_access = list(26)
 	},
 /obj/structure/coatrack{
 	pixel_x = -9
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -17629,7 +17668,7 @@
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -18854,8 +18893,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/eastleft{
-	name = "Custodial Closet Desk External";
-	req_access = list(26)
+	name = "Custodial Closet Desk External"
 	},
 /obj/machinery/door/window/westright{
 	name = "Custodial Closet Desk Internal";
@@ -19197,6 +19235,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
 "pJm" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "pJx" = (
@@ -20274,9 +20315,6 @@
 /obj/machinery/camera/network/service{
 	c_tag = "Custodial - Garage"
 	},
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
 /obj/machinery/requests_console{
 	department = "Custodial";
 	departmentType = 1;
@@ -20285,6 +20323,9 @@
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/landmark/start{
 	name = "Janitor"
+	},
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -20483,9 +20524,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "qIT" = (
-/obj/effect/floor_decal/corner/green/full,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/vending/coffee,
+/obj/effect/floor_decal/corner/purple/full,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "qJg" = (
@@ -21053,6 +21094,24 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/rnd/eva)
+"rfR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
 "rgo" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -21261,7 +21320,10 @@
 	c_tag = "Custodial - Main Storage";
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/purple,
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "rqf" = (
@@ -23765,6 +23827,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "twq" = (
@@ -24095,14 +24160,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "tKE" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "tLq" = (
@@ -24663,12 +24728,12 @@
 	dir = 1
 	},
 /obj/machinery/firealarm/south,
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -26470,12 +26535,12 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_y = 25
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -26805,11 +26870,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "wbg" = (
-/obj/effect/floor_decal/corner/green/full{
+/obj/structure/closet/secure_closet/custodial,
+/obj/effect/floor_decal/corner/purple/full{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/custodial,
-/obj/effect/floor_decal/industrial/outline/purple,
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "wbm" = (
@@ -28510,11 +28575,11 @@
 /obj/machinery/power/apc/super{
 	pixel_y = -23
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/structure/closet/crate/trashcart,
+/obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
-/obj/structure/closet/crate/trashcart,
-/obj/effect/floor_decal/industrial/outline/purple,
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "xqo" = (
@@ -28669,6 +28734,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -47270,7 +47338,7 @@ kqO
 kqO
 reR
 xVk
-non
+dbS
 non
 dOa
 bMg
@@ -47878,7 +47946,7 @@ vjW
 arr
 wbg
 jiS
-sLn
+mBL
 aDm
 arr
 xFB
@@ -48282,7 +48350,7 @@ sua
 arr
 kzv
 nmQ
-sLn
+rfR
 qIT
 arr
 hYh
