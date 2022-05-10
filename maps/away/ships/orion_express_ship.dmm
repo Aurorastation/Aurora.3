@@ -880,7 +880,7 @@
 	pixel_y = -10
 	},
 /turf/template_noop,
-/area/space)
+/area/shuttle/tcfl_peacekeeper_ship)
 "pbp" = (
 /obj/machinery/light{
 	icon_state = "tube1"

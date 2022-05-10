@@ -162,7 +162,6 @@
 	var/inertia_dir = 0
 
 	var/job = null//Living
-	var/megavend = 0		//determines if this ID has claimed their megavend stache
 
 	var/const/blindness = 1//Carbon
 	var/const/deafness = 2//Carbon

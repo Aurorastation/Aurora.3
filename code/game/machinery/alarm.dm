@@ -97,8 +97,13 @@
 
 /obj/machinery/alarm/server
 	req_one_access = list(access_rd, access_atmospherics, access_engine_equip)
-	target_temperature = 90
-	desc = "A device that controls the local air regulation machinery. This one is designed for use in server rooms."
+	target_temperature = 80
+	desc = "A device that controls the local air regulation machinery. This one is designed for use in small server rooms."
+	highpower = 1
+
+/obj/machinery/alarm/tcom
+	desc = "A device that controls the local air regulation machinery. This one is designed for use in server halls."
+	req_access = list(access_tcomsat)
 	highpower = 1
 
 /obj/machinery/alarm/freezer

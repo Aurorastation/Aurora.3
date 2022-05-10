@@ -1,12 +1,7 @@
 /obj/structure/closet/secure_closet/hangartech
 	name = "hangar technician's locker"
 	req_access = list(access_cargo)
-	icon_state = "securecargo1"
-	icon_closed = "securecargo"
-	icon_locked = "securecargo1"
-	icon_opened = "securecargoopen"
-	icon_broken = "securecargobroken"
-	icon_off = "securecargooff"
+	icon_state = "cargo"
 
 /obj/structure/closet/secure_closet/hangartech/fill()
 	..()
@@ -25,12 +20,7 @@
 /obj/structure/closet/secure_closet/operation_manager
 	name = "operation manager's locker"
 	req_access = list(access_qm)
-	icon_state = "secureqm1"
-	icon_closed = "secureqm"
-	icon_locked = "secureqm1"
-	icon_opened = "secureqmopen"
-	icon_broken = "secureqmbroken"
-	icon_off = "secureqmoff"
+	icon_state = "qm"
 
 /obj/structure/closet/secure_closet/operation_manager/fill()
 	new /obj/item/clothing/under/rank/operations_manager(src)

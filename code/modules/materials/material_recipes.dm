@@ -82,6 +82,7 @@
 	recipes += new /datum/stack_recipe_list("airlock assemblies",
 		list(
 			new /datum/stack_recipe("standard airlock assembly", /obj/structure/door_assembly, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("service airlock assembly", /obj/structure/door_assembly/door_assembly_ser, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("command airlock assembly", /obj/structure/door_assembly/door_assembly_com, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("security airlock assembly", /obj/structure/door_assembly/door_assembly_sec, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("engineering airlock assembly", /obj/structure/door_assembly/door_assembly_eng, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
@@ -158,7 +159,7 @@
 			new /datum/stack_recipe("wood floor tile", /obj/item/stack/tile/wood, 1, 4, 20),
 			new /datum/stack_recipe("wooden chair", /obj/structure/bed/stool/chair/wood, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("crossbow frame", /obj/item/crossbowframe, 5, time = 25, one_per_turf = 0, on_floor = 0),
-			new /datum/stack_recipe("coffin", /obj/structure/closet/coffin, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("coffin", /obj/structure/closet/crate/coffin, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("rifle stock", /obj/item/stock, 10, time = 25, one_per_turf = 0, on_floor = 0),
 			new /datum/stack_recipe("beehive assembly", /obj/item/beehive_assembly, 4),
 			new /datum/stack_recipe("beehive frame", /obj/item/honey_frame, 1),

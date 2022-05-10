@@ -517,7 +517,7 @@
 	req_access = list(150)
 	},
 /obj/random/weapon_and_ammo,
-/obj/structure/closet/crate/secure/weapon{
+/obj/structure/closet/crate/secure/weapon/alt{
 	req_access = list(150)
 	},
 /obj/item/clothing/accessory/storage/bayonet,

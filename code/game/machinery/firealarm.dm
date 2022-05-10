@@ -246,6 +246,8 @@
 /obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
 	. = ..(mapload, ndir)
 
+	seclevel = get_security_level()
+
 	if(building)
 		buildstage = 0
 		wiresexposed = 1
