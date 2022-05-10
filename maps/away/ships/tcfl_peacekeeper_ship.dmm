@@ -336,6 +336,7 @@
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/bag/inflatable,
+/obj/item/device/lightreplacer,
 /obj/item/storage/belt/utility,
 /turf/simulated/floor,
 /area/shuttle/tcfl_peacekeeper_ship)
