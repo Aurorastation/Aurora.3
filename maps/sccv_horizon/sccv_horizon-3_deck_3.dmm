@@ -1574,9 +1574,6 @@
 /obj/machinery/newscaster{
 	pixel_y = 29
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "cY" = (
@@ -13900,6 +13897,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "zR" = (
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
 "zS" = (
@@ -19472,12 +19470,6 @@
 /turf/simulated/open,
 /area/crew_quarters/captain)
 "Km" = (
-/obj/machinery/disposal/small/west{
-	pixel_y = -6
-	},
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
 /obj/machinery/requests_console{
 	department = "Journalist's Office";
 	pixel_x = 32
@@ -24653,10 +24645,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
 /obj/item/storage/secure/briefcase,
 /obj/item/clipboard,
 /obj/item/folder/red,
@@ -27990,14 +27978,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/hologram/holopad,
 /obj/structure/noticeboard{
 	desc = "A board for uncovering hidden conspiracies.";
 	name = "corkboard";
 	pixel_y = 32
+	},
+/obj/machinery/disposal/small/north{
+	pixel_y = -17
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
