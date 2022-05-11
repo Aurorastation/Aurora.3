@@ -32,7 +32,6 @@
 
 /obj/item/device/suit_cooling_unit/Initialize()
 	. = ..()
-	START_PROCESSING(SSprocessing, src)
 	if(celltype)
 		cell = new celltype(src)
 
@@ -112,6 +111,7 @@
 		return
 
 	on = TRUE
+	START_PROCESSING(SSmob, src)
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/proc/turn_off()
@@ -119,6 +119,7 @@
 		var/mob/M = src.loc
 		to_chat(M, SPAN_WARNING("\The [src] clicks and whines as it powers down."))
 	on = FALSE
+	STOP_PROCESSING(SSmob, src)
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/attack_self(mob/user)

@@ -1,0 +1,8 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "IPCs should no longer overheat inside exosuit cabins."
+  - bugfix: "Suit coolers (backpack + RIG versions) should now cool IPCs properly while on EVA."
+  - backend: "SSmob can now process non-mob datums, for cases where an object's processing is closely tied to Life()."
