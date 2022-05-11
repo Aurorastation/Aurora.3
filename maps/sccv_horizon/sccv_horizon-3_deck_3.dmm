@@ -6585,6 +6585,9 @@
 /obj/item/clothing/head/hardhat/white,
 /obj/item/clothing/head/hardhat/white,
 /obj/item/clothing/head/hardhat/white,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "mh" = (
@@ -18100,6 +18103,9 @@
 /obj/item/clothing/head/hardhat/white,
 /obj/item/clothing/head/hardhat/white,
 /obj/item/clothing/head/hardhat/white,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "HS" = (
@@ -21010,6 +21016,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/regular,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "Nf" = (
