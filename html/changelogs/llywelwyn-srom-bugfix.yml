@@ -1,0 +1,6 @@
+author: Llywelwyn
+
+delete-after: True
+
+changes:
+  - bugfix: "People in Srom will no longer crash when they die."
