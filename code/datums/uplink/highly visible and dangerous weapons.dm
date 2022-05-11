@@ -155,6 +155,6 @@
 	path = /obj/item/gun/energy/rifle/ionrifle
 
 /datum/uplink_item/visible_weapons/super_heavy_pistol
-	name "K2557 Super Heavy Pistol"
+	name = "K2557 Super Heavy Pistol"
 	item_cost = 4
 	path = /obj/item/gun/projectile/pistol/super_heavy
