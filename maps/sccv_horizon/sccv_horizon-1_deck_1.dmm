@@ -9765,7 +9765,7 @@
 /area/operations/storage)
 "hMj" = (
 /obj/machinery/camera/network/supply{
-	c_tag = Operations - Mining Shuttle Dock Fore Port;
+	c_tag = "Operations - Mining Shuttle Dock Fore Port";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/brown/full{
@@ -13897,7 +13897,7 @@
 /area/shuttle/mining)
 "lig" = (
 /obj/machinery/camera/network/supply{
-	c_tag = Operations - Mining Shuttle Dock Fore Starboard;
+	c_tag = "Operations - Mining Shuttle Dock Fore Starboard";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/brown/full,
@@ -27437,7 +27437,7 @@
 	dir = 9
 	},
 /obj/machinery/camera/network/supply{
-	c_tag = Operations - Mining Shuttle Dock Starboard;
+	c_tag = "Operations - Mining Shuttle Dock Starboard";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
