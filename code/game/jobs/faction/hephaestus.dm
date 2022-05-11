@@ -63,7 +63,6 @@
 
 	uniform = /obj/item/clothing/under/rank/machinist/heph
 	id = /obj/item/card/id/hephaestus
-	suit = null
 
 /datum/outfit/job/mining/hephaestus
 	name = "Shaft Miner - Hephaestus"
