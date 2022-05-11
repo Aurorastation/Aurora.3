@@ -30,6 +30,25 @@
 	l_ear = /obj/item/device/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
+	species_shoes = list(
+		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/workboots/toeless
+	)
+
+/datum/outfit/admin/orion_express_courier/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(isvaurca(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
+		var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
+		H.internal = preserve
+		H.internals.icon_state = "internal1"
+		H.equip_or_collect(new /obj/item/reagent_containers/inhaler/phoron_special, slot_in_backpack)
+	if(isoffworlder(H))
+		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
 /datum/outfit/admin/orion_express_courier/get_id_access()
 	return list(access_orion_express_ship, access_external_airlocks)
