@@ -1,7 +1,9 @@
 var/list/dream_entries = list()
 
-/mob/living/carbon/human
+/mob
 	var/mob/living/brain_ghost/bg
+
+/mob/living/carbon/human
 	var/datum/weakref/srom_pulled_by
 	var/datum/weakref/srom_pulling
 
@@ -82,6 +84,9 @@ var/list/dream_entries = list()
 			if(B?.host_brain)
 				return_mob = B.host_brain
 				return_text = "You are ripped from the Srom as you return to the captivity of your own mind."
+
+			if(body.stat == DEAD)
+				return_text = "You are ripped from the Srom." // You're dead - ensures there's no message about feeling weird or waking up.
 
 			return_mob.ckey = old_bg.ckey
 			old_bg.visible_message("<span class='notice'>[old_bg] begins to fade as they depart from the dream...</span>")
