@@ -223,27 +223,28 @@
 	var/distance = get_dist(user,src)
 	if(istype(user, /mob/abstract/observer) || user.stat == 2) // ghosts can see anything
 		distance = 1
-	if (src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
+	var/mob/living/carbon/human/H = user
+	if(H.has_stethoscope_active() && Adjacent(user))
+		spawn (0)
+			var/obj/item/organ/organ = src.get_organ(user.zone_sel.selecting)
+			if(organ)
+				user.visible_message("<b>[user]</b> checks [src] with a stethoscope.", "You check [src] with the stethoscope on your person.")
+				to_chat(user, SPAN_NOTICE("You place the stethoscope against [src]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>."))
+			else
+				to_chat(user, SPAN_WARNING("[src] is missing that limb!"))
+
+	if(src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
 		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")]n't responding to anything around [get_pronoun("him")] and seems to be unconscious.</span>\n"
 		if((stat == DEAD || is_asystole() || src.losebreath) && distance <= 3 || (status_flags & FAKEDEATH))
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("does")] not appear to be breathing.</span>\n"
-		if(istype(user, /mob/living/carbon/human) && !user.stat && Adjacent(user))
+		if(istype(user, /mob/living/carbon/human) && !user.stat && Adjacent(user) && !H.has_stethoscope_active())
 			spawn (0)
-				var/mob/living/carbon/human/H = user
-				if(H.has_stethoscope())
-					var/obj/item/organ/organ = src.get_organ(user.zone_sel.selecting)
-					if(organ)
-						user.visible_message("<b>[user]</b> checks [src] with a stethoscope.", "You check [src] with the stethoscope on your person.")
-						to_chat(user, SPAN_NOTICE("You place the stethoscope against [src]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>."))
+				user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
+				if(do_mob(user, src, 15))
+					if(pulse() == PULSE_NONE || (status_flags & FAKEDEATH))
+						to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] no pulse.</span>")
 					else
-						to_chat(user, SPAN_WARNING("[src] is missing that limb!"))
-				else
-					user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
-					if(do_mob(user, src, 15))
-						if(pulse() == PULSE_NONE || (status_flags & FAKEDEATH))
-							to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] no pulse.</span>")
-						else
-							to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
+						to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
 
 	else if (src.stat)
 		msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] not responding to anything around [get_pronoun("him")].\n")

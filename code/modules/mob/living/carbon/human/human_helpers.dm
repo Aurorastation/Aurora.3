@@ -216,14 +216,16 @@
 		return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/has_stethoscope()
+/mob/living/carbon/human/proc/has_stethoscope_active()
 	var/obj/item/clothing/under/uniform = w_uniform
 	var/obj/item/clothing/suit/suit = wear_suit
 	if(suit)
-		if(locate(/obj/item/clothing/accessory/stethoscope) in suit.accessories)
+		var/obj/item/clothing/accessory/stethoscope/stet = locate() in suit.accessories
+		if(stet.auto_examine)
 			return TRUE
 	if(uniform)
-		if(locate(/obj/item/clothing/accessory/stethoscope) in uniform.accessories)
+		var/obj/item/clothing/accessory/stethoscope/stet = locate() in uniform.accessories
+		if(stet.auto_examine)
 			return TRUE
 	return FALSE
 
