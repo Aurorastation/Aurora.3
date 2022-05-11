@@ -27,7 +27,7 @@
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
 
-	if(LAZYLEN(reagents_to_add))
+	if(length(reagents_to_add))
 		if(!reagents)
 			create_reagents(0)
 		for(var/v in reagents_to_add)
