@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - backend: "Removed movement/collision checks for observer mobs. Should reduce server load slightly."
