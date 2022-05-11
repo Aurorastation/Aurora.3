@@ -45,6 +45,10 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
+"acw" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
 "acY" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -478,6 +482,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
+"awr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/port)
 "awx" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
@@ -870,6 +884,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"aLC" = (
+/obj/effect/floor_decal/corner/green/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "aMg" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/cable/green{
@@ -1647,6 +1667,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
+"bpl" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/bridge/third_deck_stairs)
 "bpI" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -1674,12 +1697,6 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
-"bqb" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/grass/alt,
-/area/maintenance/hangar/port)
 "bqi" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -2016,13 +2033,10 @@
 /turf/simulated/wall,
 /area/maintenance/hangar/port)
 "bCN" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
+/obj/structure/stairs/west,
 /obj/structure/railing/mapped,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/grass/alt,
-/area/maintenance/hangar/port)
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "bCU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency{
@@ -3053,12 +3067,12 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "ctz" = (
-/obj/structure/table/stone/marble,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/railing/mapped{
+	dir = 1
 	},
-/area/maintenance/hangar/port)
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
 "ctI" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/blast/shutters/open{
@@ -3865,10 +3879,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/operations/lower/machinist)
-"dcZ" = (
-/obj/structure/stairs/west,
-/turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
 "ddL" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4196,7 +4206,7 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
+/area/hydroponics)
 "drX" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/critical{
@@ -4413,17 +4423,10 @@
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
 "dDV" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "dEe" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -4632,17 +4635,10 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "dMS" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/hydroponics)
 "dNa" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/tiled/dark,
@@ -4797,14 +4793,12 @@
 /area/shuttle/intrepid/cargo_bay)
 "dWw" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/freezer_maint{
-	name = "Freezer"
+/obj/machinery/door/airlock/glass_service{
+	name = "Auxiliary Freezer";
+	req_one_access = list(28, 35)
 	},
-/obj/effect/decal/cleanable/cobweb,
-/obj/effect/decal/cleanable/cobweb2,
-/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled,
-/area/maintenance/hangar/port)
+/area/bridge/third_deck_stairs)
 "dWC" = (
 /obj/effect/shuttle_landmark/lift/cargo_bottom,
 /turf/simulated/floor/plating,
@@ -5148,15 +5142,6 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
-"ehP" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/hangar/port)
 "ejc" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
@@ -5411,6 +5396,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"eth" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(35);
+	name = "Hydroponics Maintenance"
+	},
+/turf/simulated/floor/plating,
+/area/hydroponics)
 "euj" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -5982,14 +5977,15 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "eMc" = (
+/obj/effect/floor_decal/corner/green/full{
+	dir = 8
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "eMK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6164,19 +6160,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion/starboard)
-"eTW" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass/alt,
-/area/maintenance/hangar/port)
 "eVn" = (
 /obj/machinery/door/window/westright,
 /obj/structure/window/reinforced{
@@ -6303,6 +6286,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
+"eYl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/port)
 "eYN" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	layer = 3.5;
@@ -6334,16 +6327,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
-"eZX" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass/alt,
-/area/maintenance/hangar/port)
 "eZY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -6906,10 +6889,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering/lower)
-"fxh" = (
-/obj/machinery/door/window/eastleft,
-/turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
 "fxC" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -6936,11 +6915,9 @@
 /area/engineering/atmos/propulsion/starboard)
 "fyR" = (
 /obj/machinery/icecream_vat,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/freezer,
+/area/bridge/third_deck_stairs)
 "fzA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7594,12 +7571,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
-"fWH" = (
-/obj/structure/railing/mapped,
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/grass/alt,
-/area/maintenance/hangar/port)
 "fWU" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -7615,12 +7586,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "fXy" = (
-/obj/structure/trash_pile,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/machinery/light{
+	dir = 8
 	},
-/area/maintenance/hangar/port)
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
 "fXF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -9653,6 +9624,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "hHY" = (
@@ -10206,12 +10178,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
-"idY" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/hangar/port)
 "iei" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -10266,6 +10232,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/storage/eva)
+"ifu" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "ifw" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -11309,19 +11279,9 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
 "jeF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green,
-/obj/machinery/power/apc/low{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/turf/simulated/floor/plating,
+/area/hydroponics)
 "jeS" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/brown{
@@ -11924,11 +11884,8 @@
 /turf/simulated/floor/plating,
 /area/hangar/operations)
 "jCl" = (
-/obj/structure/table,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "jCK" = (
 /turf/simulated/wall,
@@ -12452,12 +12409,13 @@
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "kcE" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "kcL" = (
@@ -12479,6 +12437,22 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
+"keh" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/camera/network/first_deck{
+	c_tag = "First Deck - Hangar 11";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/auxiliary)
 "keQ" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Atmospherics Control 3"
@@ -13742,21 +13716,9 @@
 	},
 /area/hangar/auxiliary)
 "kZl" = (
-/obj/structure/sink/kitchen{
-	pixel_x = -2;
-	pixel_y = 24
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/obj/structure/flora/ausbushes/reedbush,
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
 "laL" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/machinery/computer/shuttle_control/explore/intrepid{
@@ -14648,12 +14610,6 @@
 "lPW" = (
 /turf/simulated/wall,
 /area/hangar/auxiliary)
-"lQE" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/hangar/port)
 "lQI" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -15000,7 +14956,7 @@
 /area/hangar/auxiliary)
 "mdL" = (
 /turf/simulated/floor/tiled,
-/area/maintenance/hangar/port)
+/area/bridge/third_deck_stairs)
 "mdZ" = (
 /obj/machinery/conveyor{
 	dir = 10;
@@ -15378,9 +15334,6 @@
 "msT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
-	},
-/obj/machinery/light/small/emergency{
-	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -16840,14 +16793,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "nyp" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/largecrate/animal/cow,
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
 "nyz" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/light/small{
@@ -16883,14 +16832,17 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "nzz" = (
-/obj/machinery/light/small/red{
-	dir = 8
+/obj/machinery/light,
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Auxiliary Freezer";
+	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
 	},
-/area/maintenance/hangar/port)
+/turf/simulated/floor/tiled/freezer,
+/area/bridge/third_deck_stairs)
 "nAS" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -17168,6 +17120,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
+"nOi" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "nOM" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -17254,6 +17210,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
+"nRy" = (
+/turf/simulated/wall,
+/area/hydroponics)
 "nRQ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -17679,16 +17638,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "olu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/turf/simulated/floor/tiled/freezer,
+/area/bridge/third_deck_stairs)
 "oma" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -18044,10 +17995,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/firealarm/east,
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "oFI" = (
@@ -18094,13 +18046,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
-"oJy" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/machinery/door/window/northright,
-/turf/simulated/floor/tiled/ramp,
-/area/maintenance/hangar/port)
 "oKI" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -18392,12 +18337,16 @@
 /turf/simulated/wall/r_wall,
 /area/turret_protected/ai_upload)
 "pdL" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 8
+/obj/structure/sink/kitchen{
+	name = "sink";
+	dir = 8;
+	pixel_x = 20
 	},
-/obj/structure/trash_pile,
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
-/area/maintenance/hangar/port)
+/area/hydroponics)
 "pep" = (
 /obj/effect/floor_decal/corner/green/full,
 /obj/structure/sign/emerg_exit{
@@ -19059,6 +19008,7 @@
 	dir = 6
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "pEl" = (
@@ -19259,12 +19209,12 @@
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "pMA" = (
-/obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck - Hangar 11";
-	dir = 4
+/obj/machinery/door/airlock/glass_service{
+	name = "Hydroponics";
+	req_access = list(35)
 	},
-/turf/simulated/floor/tiled,
-/area/hangar/auxiliary)
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
 "pMP" = (
 /obj/effect/shuttle_landmark/distress/blue{
 	base_turf = /turf/simulated/floor/plating;
@@ -19475,6 +19425,17 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"pWy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/port)
 "pWZ" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -19592,6 +19553,13 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod3)
+"qas" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "qaz" = (
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
@@ -19772,10 +19740,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"qfU" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
-/area/maintenance/hangar/port)
 "qgi" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -20702,19 +20666,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/cockpit)
-"qTO" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
-/area/maintenance/hangar/port)
 "qUu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/secure_closet/miner,
@@ -21796,22 +21747,13 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "rRi" = (
-/obj/structure/plasticflaps/airtight,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/freezer_maint{
-	req_access = list(28);
-	name = "Freezer Maintenance"
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "rRq" = (
 /obj/structure/table/standard,
 /obj/item/device/suit_cooling_unit,
@@ -22315,20 +22257,18 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "snA" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Auxiliary Hydroponics Aft"
 	},
-/obj/structure/cable/green{
-	icon_state = "12-0"
+/obj/machinery/firealarm/east,
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/corner/green/full{
+	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/reagent_containers/glass/bucket,
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "snD" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
@@ -22350,12 +22290,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "spL" = (
-/obj/effect/decal/cleanable/blood/drip/oil,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
+/obj/effect/floor_decal/corner/green/full,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
-/area/maintenance/hangar/port)
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "spQ" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -23364,11 +23304,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
 "tfB" = (
-/obj/machinery/light{
-	dir = 8
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
-/area/maintenance/hangar/port)
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/camera/network/first_deck{
+	c_tag = "First Deck - Hangar 11";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/auxiliary)
 "tfR" = (
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cockpit)
@@ -23725,7 +23675,7 @@
 /area/maintenance/engineering)
 "tsD" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/maintenance/hangar/port)
+/area/hydroponics)
 "ttc" = (
 /obj/item/modular_computer/console/preset/command{
 	dir = 8
@@ -25613,10 +25563,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "uYo" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/decal/cleanable/blood/oil/streak,
-/turf/simulated/floor/tiled,
-/area/maintenance/hangar/port)
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Auxiliary Hydroponics Fore";
+	dir = 8
+	},
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
 "uYW" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/purple{
 	dir = 4
@@ -26058,9 +26011,6 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"vpB" = (
-/turf/simulated/floor/grass/alt,
-/area/maintenance/hangar/port)
 "vpX" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -26226,18 +26176,9 @@
 /turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
 "vuG" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/door/window/northright,
-/obj/machinery/light/small/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/obj/structure/sink/puddle,
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
 "vxw" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -27065,18 +27006,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
 "wlf" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/mucus,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
 "wlh" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -27598,7 +27530,7 @@
 "wKq" = (
 /obj/structure/stairs/south,
 /turf/simulated/floor/tiled,
-/area/maintenance/hangar/port)
+/area/bridge/third_deck_stairs)
 "wKW" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -28578,19 +28510,12 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "xtj" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -29
+/obj/machinery/door/airlock/glass_service{
+	name = "Auxiliary Freezer";
+	req_access = list(35)
 	},
-/obj/machinery/camera/network/service{
-	c_tag = "Dinner - Kitchen Freezer Bottom";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "xtn" = (
 /obj/structure/closet/radiation,
 /obj/machinery/camera/network/engineering{
@@ -28707,19 +28632,13 @@
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "xyG" = (
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
 "xzd" = (
-/obj/structure/table/stone/marble,
-/obj/random/loot,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass/alt,
+/area/hydroponics)
 "xAr" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -52158,19 +52077,19 @@ bCi
 bCi
 bCi
 bCi
-bCi
-bCi
-bCi
 ocT
 bCi
-bCi
-bCi
+nRy
+nRy
+nRy
+nRy
+nRy
 fyR
 nzz
-tsD
-tsD
-tsD
-tsD
+bpl
+bpl
+bpl
+bpl
 kVe
 eSV
 eSV
@@ -52362,17 +52281,17 @@ yff
 ucG
 byS
 kcE
-snA
-dMS
+nRy
+nRy
 dMS
 rRi
 jeF
 olu
-eMc
+olu
 dWw
-tfB
+mdL
 wKq
-tsD
+bpl
 kVe
 eSV
 eSV
@@ -52563,17 +52482,17 @@ htq
 bCi
 goQ
 mqy
-qTO
-bqb
+eYl
+nRy
 bCN
-dcZ
-bCi
-kZl
+dMS
 dDV
+nRy
+jeF
 xtj
-tsD
-tsD
-tsD
+nRy
+nRy
+nRy
 tsD
 kVe
 eSV
@@ -52765,15 +52684,15 @@ htq
 iqf
 cnV
 bZn
-eZX
-vpB
-fWH
-fxh
-bCi
-uYo
+pWy
+nRy
+nOi
+dMS
+ifu
+jeF
 nyp
-spL
-xyG
+xzd
+ctz
 xyG
 fXy
 tsD
@@ -52967,18 +52886,18 @@ htq
 hVl
 wng
 lPF
-eTW
-qfU
-vpB
-lQE
-bCi
-mdL
+awr
+eth
+eMc
+qas
+spL
+pMA
 wlf
-xyG
-jCl
+wlf
+wlf
 xzd
-tsD
-tsD
+acw
+drU
 kVe
 eSV
 eSV
@@ -53169,18 +53088,18 @@ htq
 pAD
 sMe
 msT
-oJy
-idY
-idY
-ehP
-bCi
+jCl
+nRy
+snA
 pdL
+aLC
+jeF
 vuG
-xyG
+kZl
 ctz
+xyG
+uYo
 tsD
-tsD
-kVe
 kVe
 eSV
 eSV
@@ -53370,20 +53289,20 @@ bCi
 bCi
 bCi
 bCi
+ocT
 bCi
-bCi
-tsD
 tsD
 tsD
 tsD
 tsD
 drU
-tsD
+drU
+drU
+drU
 drU
 tsD
+tsD
 kVe
-kVe
-eSV
 eSV
 eSV
 eSV
@@ -53572,7 +53491,7 @@ dJJ
 dJJ
 lPW
 dtN
-pMA
+gaE
 yag
 nCG
 nCG
@@ -53584,8 +53503,8 @@ kVe
 kVe
 kVe
 kVe
-eSV
-eSV
+kVe
+kVe
 eSV
 eSV
 eSV
@@ -53772,10 +53691,10 @@ mio
 vgw
 vgw
 vgw
+tfB
 vgw
 vgw
-vgw
-vgw
+keh
 wYU
 awX
 nCG
