@@ -232,7 +232,7 @@
 	maim_type = DROPLIMB_BLUNT
 	anti_materiel_potential = 2
 
-/obj/item/projectile/rifle/kumar_nitro
+/obj/item/projectile/rifle/kumar_super
 	damage = 35
 	armor_penetration = 20
 	weaken = 2
