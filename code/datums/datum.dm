@@ -20,8 +20,7 @@
 // This should be overridden to remove all references pointing to the object being destroyed.
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
-	SHOULD_CALL_PARENT(TRUE)
-	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(1)
 
 	weakref = null
 	destroyed_event.raise_event(src)

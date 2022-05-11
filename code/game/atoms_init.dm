@@ -21,13 +21,11 @@
 		created += src
 
 /atom/proc/Initialize(mapload, ...)
-	SHOULD_CALL_PARENT(TRUE)
-	SHOULD_NOT_SLEEP(TRUE)
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
 
-	if(length(reagents_to_add))
+	if(LAZYLEN(reagents_to_add))
 		if(!reagents)
 			create_reagents(0)
 		for(var/v in reagents_to_add)

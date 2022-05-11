@@ -44,8 +44,7 @@
 		fetched_decl_subtypes[decl_prototype] = .
 
 /decl/proc/Initialize()
-	SHOULD_CALL_PARENT(TRUE)
-	SHOULD_NOT_SLEEP(TRUE)
+	return
 
 /decl/Destroy()
 	SHOULD_CALL_PARENT(FALSE)
