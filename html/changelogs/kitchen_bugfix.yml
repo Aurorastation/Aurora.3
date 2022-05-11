@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes tiles in freezer having the wrong temperature. Removes a duplicate APC in the old freezer. Fixes missing door access."
