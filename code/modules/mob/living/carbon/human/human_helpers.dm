@@ -221,12 +221,14 @@
 	var/obj/item/clothing/suit/suit = wear_suit
 	if(suit)
 		var/obj/item/clothing/accessory/stethoscope/stet = locate() in suit.accessories
-		if(stet.auto_examine)
-			return TRUE
+		if(stet)
+			if(stet.auto_examine)
+				return TRUE
 	if(uniform)
 		var/obj/item/clothing/accessory/stethoscope/stet = locate() in uniform.accessories
-		if(stet.auto_examine)
-			return TRUE
+		if(stet)
+			if(stet.auto_examine)
+				return TRUE
 	return FALSE
 
 /mob/living/carbon/human/proc/is_submerged()
