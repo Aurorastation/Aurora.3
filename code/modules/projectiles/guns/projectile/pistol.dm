@@ -480,10 +480,13 @@
 	handle_casings = EJECT_CASINGS
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	is_wieldable = TRUE
+	fire_sound = 'sound/weapons/gunshot/k2557-shot.ogg'
 	caliber = ".599 Kumar Nitro"
 	ammo_type = /obj/item/ammo_casing/kumar_nitro
 	magazine_type = /obj/item/ammo_magazine/super_heavy
 	allowed_magazines = list(/obj/item/ammo_magazine/super_heavy)
+	fire_delay = 18
+	fire_delay_wielded = 18
 	max_shells = 5
 	force = 3
 	recoil = 5

@@ -233,8 +233,8 @@
 	anti_materiel_potential = 2
 
 /obj/item/projectile/rifle/kumar_nitro
-	damage = 50
-	armor_penetration = 30
+	damage = 35
+	armor_penetration = 20
 	weaken = 2
 	penetrating = TRUE
 

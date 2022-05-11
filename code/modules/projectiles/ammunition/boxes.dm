@@ -520,3 +520,4 @@
 	mag_type = MAGAZINE
 	max_ammo = 5
 	multiple_sprites = 1
+	insert_sound = 'sound/weapons/k2557-insert.ogg'
