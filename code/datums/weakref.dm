@@ -5,6 +5,7 @@
 	ref = SOFTREF(D)
 
 /datum/weakref/Destroy(force = 0)
+	SHOULD_CALL_PARENT(FALSE)
 	crash_with("Some fuck is trying to [force ? "force-" : ""]delete a weakref!")
 	if (!force)
 		return QDEL_HINT_LETMELIVE	// feck off
