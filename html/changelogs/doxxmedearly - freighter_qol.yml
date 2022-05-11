@@ -1,5 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-changes:
-  - maptweak: "Made minor map tweaks to the tramp freighter. CO2 tanks split evenly between thruster rooms. Adds a suit cycler, recharging station, and cell charger."
-  - bugfix: "Added a missing console that prevented the tramp freighter cryopod from functioning."
