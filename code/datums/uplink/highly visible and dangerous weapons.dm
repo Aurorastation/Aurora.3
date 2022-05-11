@@ -104,6 +104,11 @@
 	item_cost = 8
 	path = /obj/item/gun/energy/rifle/laser
 
+/datum/uplink_item/item/visible_weapons/ballistic_carbine
+	name = "Ballistic Carbine"
+	item_cost = 8
+	path = /obj/item/gun/projectile/automatic/rifle/carbine
+
 /datum/uplink_item/item/visible_weapons/energy_carbine
 	name = "Energy Carbine"
 	item_cost = 6
