@@ -37,11 +37,12 @@
 /mob/living/brain_ghost/proc/awaken_impl(var/force_awaken = FALSE)
 
 	if(body.willfully_sleeping)
-		body.sleeping = max(body.sleeping - 5, 0)
 		body.willfully_sleeping = FALSE
 		if(force_awaken)
+			body.sleeping = 0
 			to_chat(src, "<span class='notice'>You suddenly feel like your connection to the dream is breaking up by the outside force.</span>")
 		else
+			body.sleeping = max(body.sleeping - 5, 0)
 			to_chat(src, "<span class='notice'>You release your concentration on sleep, allowing yourself to wake up.</span>")
 	else
 		to_chat(src, "<span class='warning'>You've already released concentration. Wait to wake up naturally.</span>")

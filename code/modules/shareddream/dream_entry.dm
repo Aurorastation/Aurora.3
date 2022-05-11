@@ -85,7 +85,7 @@ var/list/dream_entries = list()
 				return_mob = B.host_brain
 				return_text = "You are ripped from the Srom as you return to the captivity of your own mind."
 
-			if(body.stat == DEAD)
+			if(stat == DEAD)
 				return_text = "You are ripped from the Srom." // You're dead - ensures there's no message about feeling weird or waking up.
 
 			return_mob.ckey = old_bg.ckey
