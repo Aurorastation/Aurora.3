@@ -314,7 +314,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "aic" = (
 /obj/effect/floor_decal/industrial/outline/red,
@@ -2375,7 +2375,7 @@
 	c_tag = "AI Core - External";
 	dir = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
 "bfB" = (
 /obj/machinery/light/small,
@@ -4826,6 +4826,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
+"cHC" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
 "cHM" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
@@ -5851,7 +5861,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
-/turf/space,
+/turf/template_noop,
 /area/template_noop)
 "dlG" = (
 /obj/structure/closet/crate/hydroponics,
@@ -6367,7 +6377,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
 "dAw" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -7060,6 +7070,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
+"dVE" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
 "dVN" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -7501,7 +7519,7 @@
 /obj/structure/ladder/up{
 	pixel_y = 32
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "elh" = (
 /obj/structure/stairs/north,
@@ -8540,7 +8558,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "eUa" = (
 /obj/structure/cable/green{
@@ -8769,6 +8787,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
+"eYX" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/item/hullbeacon/red,
+/turf/template_noop,
+/area/template_noop)
 "eZc" = (
 /obj/machinery/firealarm/south,
 /obj/structure/disposalpipe/trunk{
@@ -10509,7 +10536,7 @@
 /obj/machinery/light/small/emergency,
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
 "fTo" = (
 /turf/simulated/wall,
@@ -13877,7 +13904,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
 "hGK" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -14327,7 +14354,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "hUK" = (
-/turf/simulated/floor/reinforced,
+/obj/structure/ladder{
+	pixel_y = 16
+	},
+/turf/simulated/open/airless,
 /area/template_noop)
 "hUP" = (
 /obj/structure/railing/mapped{
@@ -15560,7 +15590,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
 "iJQ" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
@@ -17484,7 +17514,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
-/turf/space,
+/turf/template_noop,
 /area/template_noop)
 "jPb" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -17499,6 +17529,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
+"jPc" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
 "jPj" = (
 /obj/machinery/atm{
 	pixel_x = 32
@@ -18053,10 +18087,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/hos)
 "kgp" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "kgK" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -18484,7 +18515,7 @@
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "kxt" = (
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
 "kxz" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
@@ -19627,6 +19658,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/medical)
+"lgS" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/item/hullbeacon/red,
+/turf/template_noop,
+/area/template_noop)
 "lhH" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -20264,7 +20301,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/space,
+/turf/template_noop,
 /area/template_noop)
 "lCV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -21640,6 +21677,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
+"mpN" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
 "mpV" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -22455,7 +22499,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "mMf" = (
 /obj/structure/railing/mapped,
@@ -24828,7 +24872,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
 "obJ" = (
 /obj/machinery/light/small/red{
@@ -25873,6 +25917,16 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_two)
+"oFC" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
 "oGm" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -31300,7 +31354,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/security/prison)
 "rzm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -32154,7 +32208,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "rVL" = (
 /obj/structure/table/standard,
@@ -33481,7 +33535,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
 "sNe" = (
 /obj/structure/extinguisher_cabinet{
@@ -33751,6 +33805,14 @@
 /obj/machinery/porta_turret,
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload_foyer)
+"sVv" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/turf/template_noop,
+/area/template_noop)
 "sVB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped,
@@ -33891,7 +33953,7 @@
 "tab" = (
 /obj/machinery/door/window/westright,
 /obj/structure/lattice/catwalk,
-/turf/space,
+/turf/template_noop,
 /area/template_noop)
 "tae" = (
 /obj/structure/cable/green{
@@ -35228,6 +35290,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
+"tMp" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "tME" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -35973,7 +36041,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "uiq" = (
 /obj/item/modular_computer/console/preset/security,
@@ -37612,7 +37680,7 @@
 /obj/structure/sign/drop{
 	pixel_y = -32
 	},
-/turf/space,
+/turf/template_noop,
 /area/template_noop)
 "uZh" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
@@ -38809,6 +38877,14 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
+"vJX" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/template_noop,
+/area/template_noop)
 "vKf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -40194,7 +40270,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
-/turf/space,
+/turf/template_noop,
 /area/template_noop)
 "wpb" = (
 /obj/structure/cable/green{
@@ -40385,7 +40461,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload)
 "wsw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
@@ -40537,7 +40613,7 @@
 /area/maintenance/aft)
 "wzs" = (
 /obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "wzD" = (
 /obj/structure/flora/pottedplant/random,
@@ -41787,7 +41863,7 @@
 /area/turret_protected/ai_upload_foyer)
 "xer" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "xeF" = (
 /obj/structure/disposalpipe/segment,
@@ -42357,7 +42433,7 @@
 /area/operations/lobby)
 "xwU" = (
 /obj/structure/lattice/catwalk,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "xxa" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -58811,14 +58887,14 @@ jWV
 wFj
 wFj
 wFj
+mLU
+mLU
+mLU
+eTQ
 qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+cHC
+mpN
+vJX
 qgN
 qgN
 qgN
@@ -59011,16 +59087,16 @@ bGI
 hwM
 spn
 lNQ
-hUK
 kgp
-eTQ
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+kgp
+kgp
+kgp
+kgp
+xer
+jPc
+lCL
+hUK
+lgS
 qgN
 qgN
 qgN
@@ -59213,16 +59289,16 @@ mOS
 kOW
 eyu
 lCF
-hUK
-hUK
 kgp
-mLU
-eTQ
+kgp
+kgp
+kgp
+kgp
+xer
 qgN
-qgN
-qgN
-qgN
-qgN
+oFC
+jMJ
+dVE
 qgN
 qgN
 qgN
@@ -59415,15 +59491,15 @@ jEL
 jEL
 oWC
 lCF
-hUK
-hUK
-hUK
-hUK
+kgp
+kgp
+kgp
+kgp
+kgp
 xer
 qgN
 qgN
-qgN
-qgN
+sVv
 qgN
 qgN
 qgN
@@ -59617,15 +59693,15 @@ off
 bCD
 vKF
 lCF
-hUK
-hUK
-hUK
-hUK
+kgp
+kgp
+kgp
+kgp
+kgp
 xer
 qgN
 qgN
-qgN
-qgN
+sVv
 qgN
 qgN
 qgN
@@ -59819,15 +59895,15 @@ oKE
 jpf
 vYI
 lCF
-hUK
-hUK
-hUK
-hUK
+kgp
+kgp
+kgp
+kgp
+kgp
 xer
 qgN
 qgN
-qgN
-qgN
+eYX
 qgN
 qgN
 qgN
@@ -60021,15 +60097,15 @@ fol
 fol
 xIW
 lCF
-hUK
-hUK
-hUK
-hUK
+kgp
+kgp
+kgp
+kgp
+kgp
 xer
 qgN
 qgN
-qgN
-qgN
+sVv
 qgN
 qgN
 qgN
@@ -60223,15 +60299,15 @@ lMi
 fol
 pgi
 lNQ
-hUK
-hUK
-hUK
-hUK
+kgp
+kgp
+kgp
+kgp
+kgp
 xer
 qgN
 qgN
-qgN
-qgN
+sVv
 qgN
 qgN
 qgN
@@ -60425,12 +60501,12 @@ axL
 fol
 aCS
 fRc
-hUK
-hUK
-hUK
-hUK
 kgp
-mLU
+kgp
+kgp
+kgp
+kgp
+tMp
 aib
 mLU
 mLU
@@ -60628,17 +60704,17 @@ fol
 fol
 lNQ
 ekX
-hUK
-hUK
-eeQ
-kvd
-kvd
-eeQ
-eeQ
-kvd
-kvd
-eeQ
 kgp
+kgp
+eeQ
+kvd
+kvd
+eeQ
+eeQ
+kvd
+kvd
+eeQ
+tMp
 mLU
 mLU
 mLU
@@ -60845,7 +60921,7 @@ kvd
 kvd
 kvd
 iav
-kgp
+tMp
 eTQ
 qgN
 qgN
@@ -67495,16 +67571,16 @@ xjN
 gOL
 xwU
 xwU
-hUK
-hUK
-hUK
-hUK
-hUK
-hUK
-hUK
-hUK
-hUK
-hUK
+kgp
+kgp
+kgp
+kgp
+kgp
+kgp
+kgp
+kgp
+kgp
+kgp
 ccn
 vTk
 vTk

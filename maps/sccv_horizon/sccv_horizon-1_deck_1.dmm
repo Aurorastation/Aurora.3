@@ -3728,6 +3728,21 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"cWa" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/ladder/up{
+	pixel_y = 16
+	},
+/obj/item/hullbeacon/red,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/space/dynamic,
+/area/template_noop)
 "cWd" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/firedoor,
@@ -18139,8 +18154,14 @@
 /turf/simulated/wall,
 /area/outpost/mining_main/eva)
 "oOI" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/template_noop,
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/space/dynamic,
 /area/template_noop)
 "oPL" = (
 /obj/structure/table/steel,
@@ -43411,10 +43432,10 @@ eSV
 eSV
 eSV
 eSV
-oOI
-oOI
-oOI
-oOI
+kVe
+kVe
+kVe
+kVe
 eSV
 eSV
 eSV
@@ -43613,7 +43634,7 @@ eSV
 eSV
 eSV
 eSV
-oOI
+kVe
 awJ
 auF
 eBb
@@ -43815,7 +43836,7 @@ eSV
 eSV
 eSV
 eSV
-oOI
+kVe
 dGu
 xWM
 dGu
@@ -44695,8 +44716,8 @@ jEx
 suw
 jEx
 xGF
-eSV
-eSV
+oOI
+cWa
 eSV
 eSV
 eSV
