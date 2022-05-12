@@ -13,7 +13,7 @@
 	var/list/unfound_types = list()
 
 	for (var/obj/machinery/M in world)
-		if (!SSmachinery.machinery[M] && !QDELETED(M))
+		if (!LAZYISIN(SSmachinery.machinery, M) && !QDELETED(M))
 			if (!unfound_types[M.type])
 				unfound_types[M.type] = 1
 			else

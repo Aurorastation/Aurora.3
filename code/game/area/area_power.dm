@@ -69,7 +69,9 @@
 
 // This recomputes continued power usage; used for testing or error recovery.
 /area/proc/retally_power()
-	clear_usage()
+	used_equip = 0
+	used_light = 0
+	used_environ = 0
 
 	for(var/obj/machinery/M in src)
 		switch(M.power_channel)

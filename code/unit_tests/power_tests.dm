@@ -35,7 +35,7 @@
 				if(other in searched)
 					continue
 				if(next.powernet != other.powernet)
-					fail("Cable at ([next.x], [next.y], [next.z]) did not share powernet with connected neighbour at ([other.x], [other.y], [other.z])")
+					log_unit_test("[ascii_red]--------------- Cable at ([next.x], [next.y], [next.z]) did not share powernet with connected neighbour at ([other.x], [other.y], [other.z])")
 					failed++
 				to_search += other
 
@@ -53,19 +53,18 @@
 	name = "POWER: Each area should have at most one APC."
 
 /datum/unit_test/areas_apc_uniqueness/start_test()
-	var/failure = ""
+	var/failed = 0
 	for(var/area/A in world)
 		var/obj/machinery/power/apc/found_apc = null
 		for(var/obj/machinery/power/apc/APC in A)
 			if(!found_apc)
 				found_apc = APC
 				continue
-			if(failure)
-				failure = "[failure]\n"
-			failure = "[failure]Duplicated APCs in area: [A.name]. #1: [log_info_line(found_apc)]  #2: [log_info_line(APC)]"
+			log_unit_test("[ascii_red]--------------- Duplicated APCs in area: [A.name]. #1: [log_info_line(found_apc)]  #2: [log_info_line(APC)]")
+			failed++
 
-	if(failure)
-		fail(failure)
+	if(failed)
+		fail("Found [failed] duplicate APCs.")
 	else
 		pass("No areas with duplicated APCs have been found.")
 	return 1
@@ -83,7 +82,7 @@
 		for(var/i in 1 to length(old_values))
 			if(old_values[i] != new_values[i])
 				failed = TRUE
-				fail("The area [A.name] had improper power use values on the [channel_names[i]] channel: was [old_values[i]] but should be [new_values[i]].")
+				log_unit_test("[ascii_red]--------------- The area [A.name] had improper power use values on the [channel_names[i]] channel: was [old_values[i]] but should be [new_values[i]].")
 
 	if(failed)
 		fail("At least one area had improper power use values")

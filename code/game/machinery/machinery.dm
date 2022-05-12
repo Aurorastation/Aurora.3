@@ -121,7 +121,6 @@ Class Procs:
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
-	SHOULD_CALL_PARENT(TRUE) // todo: move this up to /atom/init
 	if(d)
 		set_dir(d)
 
