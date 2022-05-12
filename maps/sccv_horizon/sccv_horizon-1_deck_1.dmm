@@ -16922,7 +16922,7 @@
 "nAT" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Storage";
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -25128,7 +25128,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Storage";
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
