@@ -133,20 +133,29 @@
 
 		switch(choice)
 			if("Eject")
-				if(access_robotics in id_card.access)
-					to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
-					eject_brain()
-					if(held_item)
-						held_item.forceMove(src.loc)
-						held_item = null
-					return 1
+				if(!use_check_and_message(user))
+					if(access_robotics in id_card.access)
+						to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
+						eject_brain()
+						if(held_item)
+							held_item.forceMove(src.loc)
+							held_item = null
+						return 1
+					else
+						to_chat(user, "<span class='danger'>You swipe your card with no effect.</span>")
+						return 0
 				else
-					to_chat(user, "<span class='danger'>You swipe your card with no effect.</span>")
+					to_chat(user, "<span class='danger'>You are unable to swipe!</span>")
 					return 0
 			if("Sync")
-				internal_id.access.Cut()
-				internal_id.access = id_card.access.Copy()
-				to_chat(user, SPAN_NOTICE("Access synced with [src]"))
+				if(!use_check_and_message(user))
+					internal_id.access.Cut()
+					internal_id.access = id_card.access.Copy()
+					to_chat(user, SPAN_NOTICE("Access synced with [src]"))
+					return 1
+				else
+					to_chat(user, "<span class='danger'>You are unable to swipe!</span>")
+					return 0
 	else
 		O.attack(src, user, user.zone_sel.selecting)
 
