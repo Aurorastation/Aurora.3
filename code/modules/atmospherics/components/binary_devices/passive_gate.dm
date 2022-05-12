@@ -78,7 +78,7 @@
 /obj/machinery/atmospherics/binary/passive_gate/hide(var/i)
 	update_underlays()
 
-/obj/machinery/atmospherics/binary/passive_gate/machinery_process()
+/obj/machinery/atmospherics/binary/passive_gate/process()
 	..()
 
 	if (broadcast_status_next_process)

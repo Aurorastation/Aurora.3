@@ -29,7 +29,7 @@
 	idle_power_usage = initial(idle_power_usage) * tech_rate // lots of power
 	update_icon()
 
-/obj/machinery/r_n_d/tech_processor/machinery_process()
+/obj/machinery/r_n_d/tech_processor/process()
 	heat_delay--
 	if(!heat_delay)
 		produce_heat()

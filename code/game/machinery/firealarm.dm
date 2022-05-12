@@ -152,7 +152,7 @@
 
 	src.alarm()
 
-/obj/machinery/firealarm/machinery_process()//Note: this processing was mostly phased out due to other code, and only runs when needed
+/obj/machinery/firealarm/process()//Note: this processing was mostly phased out due to other code, and only runs when needed
 	var/area/A = get_area(src)
 	if (A.fire != previous_fire_state)
 		update_icon()
@@ -172,6 +172,7 @@
 			src.alarm()
 			src.time = 0
 			src.timing = 0
+			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		src.updateDialog()
 	last_process = world.timeofday
 
@@ -216,6 +217,7 @@
 		time = Clamp(input(usr, "Enter time delay", "Fire Alarm Delayed Activation", time) as num, 0, 600)
 	else if (href_list["tmr"] == "start")
 		src.timing = 1
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	else if (href_list["tmr"] == "stop")
 		src.timing = 0
 

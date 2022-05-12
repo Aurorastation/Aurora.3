@@ -35,7 +35,7 @@
 /obj/machinery/portable_atmospherics/canister/LateInitialize()
 	update_icon()
 
-/obj/machinery/portable_atmospherics/machinery_process()
+/obj/machinery/portable_atmospherics/process()
 	if(!connected_port) //only react when pipe_network will ont it do it for you
 		//Allow for reactions
 		air_contents.react()

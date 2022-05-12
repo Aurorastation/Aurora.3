@@ -116,7 +116,7 @@
 	activate(null)
 	return TRUE
 
-/obj/machinery/power/emitter/machinery_process()
+/obj/machinery/power/emitter/process()
 	if(stat & (BROKEN))
 		return
 	if(state != EMITTER_WELDED || (!powernet && active_power_usage))

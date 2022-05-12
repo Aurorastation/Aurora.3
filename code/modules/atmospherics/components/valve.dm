@@ -136,7 +136,7 @@
 	else
 		src.open()
 
-/obj/machinery/atmospherics/valve/machinery_process()
+/obj/machinery/atmospherics/valve/process()
 	..()
 	return PROCESS_KILL
 

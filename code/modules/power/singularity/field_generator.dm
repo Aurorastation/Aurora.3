@@ -59,7 +59,7 @@ field_generator power level display
 			lights_image.layer = EFFECTS_ABOVE_LIGHTING_LAYER
 			add_overlay(lights_image)
 
-/obj/machinery/field_generator/machinery_process()
+/obj/machinery/field_generator/process()
 	if(Varedit_start == 1)
 		if(active == 0)
 			active = 1
@@ -323,7 +323,7 @@ field_generator power level display
 	//I want to avoid using global variables.
 	spawn(1)
 		var/temp = 1 //stops spam
-		for(var/obj/singularity/O in SSmachinery.processing_machines)
+		for(var/obj/singularity/O in SSmachinery.processing)
 			if(O.last_warning && temp)
 				if((world.time - O.last_warning) > 50) //to stop message-spam
 					temp = 0

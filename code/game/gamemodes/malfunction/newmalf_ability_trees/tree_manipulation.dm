@@ -149,7 +149,7 @@
 	user.hacking = 0
 
 
-/datum/game_mode/malfunction/verb/machine_overload(obj/machinery/M in SSmachinery.processing_machines)
+/datum/game_mode/malfunction/verb/machine_overload(obj/machinery/M in SSmachinery.processing)
 	set name = "Machine Overload"
 	set desc = "400 CPU - Causes cyclic short-circuit in machine, resulting in weak explosion after some time."
 	set category = "Software"

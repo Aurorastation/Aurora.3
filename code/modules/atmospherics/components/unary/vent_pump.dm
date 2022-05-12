@@ -184,7 +184,7 @@
 		return 0
 	return 1
 
-/obj/machinery/atmospherics/unary/vent_pump/machinery_process()
+/obj/machinery/atmospherics/unary/vent_pump/process()
 	..()
 
 	if (broadcast_status_next_process)

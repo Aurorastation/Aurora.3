@@ -83,7 +83,7 @@
 	is_powered = TRUE	// IVE GOT THE POWER!
 	return TRUE
 
-/obj/machinery/shieldwallgen/machinery_process()
+/obj/machinery/shieldwallgen/process()
 	power()
 	if(is_powered)
 		storedpower -= 2500

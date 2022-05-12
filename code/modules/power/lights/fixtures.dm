@@ -244,7 +244,7 @@
 		next_spark = world.time + 1 MINUTE + (rand(-15, 15) SECONDS)
 
 // ehh
-/obj/machinery/light/machinery_process()
+/obj/machinery/light/process()
 	if (cell && cell.charge != cell.maxcharge && has_power())
 		cell.charge = min(cell.maxcharge, cell.charge + 0.2)
 	if (emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))

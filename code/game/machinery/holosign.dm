@@ -66,7 +66,7 @@
 
 	active = !active
 	update_icon()
-	for(var/obj/machinery/holosign/M in SSmachinery.all_machines)
+	for(var/obj/machinery/holosign/M in SSmachinery.machinery)
 		if (M.id == src.id)
 			INVOKE_ASYNC(M, /obj/machinery/holosign/proc/toggle)
 

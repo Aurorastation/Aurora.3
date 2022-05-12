@@ -142,7 +142,7 @@ var/list/admin_departments
 				alert_pdas -= pda
 				SSvueui.check_uis_for_change(src)
 
-/obj/machinery/photocopier/faxmachine/machinery_process()
+/obj/machinery/photocopier/faxmachine/process()
 	.=..()
 	var/static/ui_update_delay = 0
 

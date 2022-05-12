@@ -81,13 +81,13 @@ In short:
 		CHECK_TICK
 
 /datum/universal_state/hell/proc/MiscSet()
-	for (var/obj/machinery/firealarm/alm in SSmachinery.processing_machines)
+	for (var/obj/machinery/firealarm/alm in SSmachinery.processing)
 		if (!(alm.stat & BROKEN))
 			alm.ex_act(2)
 		CHECK_TICK
 
 /datum/universal_state/hell/proc/APCSet()
-	for (var/obj/machinery/power/apc/APC in SSmachinery.processing_machines)
+	for (var/obj/machinery/power/apc/APC in SSmachinery.processing)
 		if (!(APC.stat & BROKEN) && !APC.is_critical)
 			APC.chargemode = 0
 			if(APC.cell)

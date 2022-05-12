@@ -129,7 +129,7 @@
 	light.pixel_y = light_y
 	overlays += light
 
-/obj/machinery/appliance/cooker/machinery_process()
+/obj/machinery/appliance/cooker/process()
 	var/datum/gas_mixture/loc_air = loc.return_air()
 	if (stat || (use_power != 2)) // if we're not actively heating
 		temperature -= min(loss, temperature - loc_air.temperature)

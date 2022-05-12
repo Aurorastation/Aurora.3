@@ -98,6 +98,7 @@ Class Procs:
 	icon = 'icons/obj/stationobjs.dmi'
 	w_class = ITEMSIZE_IMMENSE
 	layer = OBJ_LAYER - 0.01
+	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	var/stat = 0
 	var/emagged = 0
@@ -127,7 +128,8 @@ Class Procs:
 	var/global/gl_uid = 1
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
 	var/printing = 0 // Is this machine currently printing anything?
-	var/tmp/machinery_processing = FALSE	// Are we process()ing in SSmachinery?
+	var/list/processing_parts // Component parts queued for processing by the machine. Expected type: `/obj/item/stock_parts` Unused currently
+	var/processing_flags // Bitflag. What is being processed. One of `MACHINERY_PROCESS_*`.
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
@@ -136,8 +138,13 @@ Class Procs:
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
+	SHOULD_CALL_PARENT(TRUE) // todo: move this up to /atom/init
 	if(d)
 		set_dir(d)
+
+	if(init_flags & INIT_MACHINERY_PROCESS_ALL)
+		START_PROCESSING_MACHINE(src, init_flags & INIT_MACHINERY_PROCESS_ALL)
+	SSmachinery.machinery += src // All machines should be in machinery.
 
 	if (populate_components && component_types)
 		component_parts = list()
@@ -157,10 +164,8 @@ Class Procs:
 		if(component_parts.len)
 			RefreshParts()
 
-	add_machine(src)
-
 /obj/machinery/Destroy()
-	remove_machine(src, TRUE)
+	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_ALL)
 	if(component_parts)
 		for(var/atom/A in component_parts)
 			if(A.loc == src) // If the components are inside the machine, delete them.
@@ -175,11 +180,21 @@ Class Procs:
 	if(signaler && Adjacent(user))
 		to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
 
-/obj/machinery/proc/machinery_process()	//If you dont use process or power why are you here
-	if(!(use_power || idle_power_usage || active_power_usage))
-		return PROCESS_KILL
+/obj/machinery/proc/process_all()
+	/* Uncomment this if/when you need component processing
+	if(processing_flags & MACHINERY_PROCESS_COMPONENTS)
+		for(var/thing in processing_parts)
+			var/obj/item/stock_parts/part = thing
+			if(part.machine_process(src) == PROCESS_KILL)
+				part.stop_processing() */
 
-	return M_NO_PROCESS
+	if((processing_flags & MACHINERY_PROCESS_SELF))
+		. = process()
+		if(. == PROCESS_KILL)
+			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+
+/obj/machinery/process()
+	return PROCESS_KILL
 
 /obj/machinery/emp_act(severity)
 	if(use_power && stat == 0)
@@ -536,4 +551,3 @@ Class Procs:
 
 /obj/machinery/proc/set_emergency_state(var/new_security_level)
 	return
-

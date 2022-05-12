@@ -15,7 +15,7 @@
 /obj/machinery/computer/ship/sensors/proc/find_sensors()
 	if(!linked)
 		return
-	for(var/obj/machinery/shipsensors/S in SSmachinery.all_machines)
+	for(var/obj/machinery/shipsensors/S in SSmachinery.machinery)
 		if(linked.check_ownership(S))
 			sensors = S
 			break
@@ -102,7 +102,7 @@
 			new/obj/item/paper/(get_turf(src), O.get_scan_data(usr), "paper (Sensor Scan - [O])")
 		return TOPIC_HANDLED
 
-/obj/machinery/computer/ship/sensors/machinery_process()
+/obj/machinery/computer/ship/sensors/process()
 	..()
 	if(!linked)
 		return
@@ -184,7 +184,7 @@
 	update_use_power(!use_power)
 	queue_icon_update()
 
-/obj/machinery/shipsensors/machinery_process()
+/obj/machinery/shipsensors/process()
 	..()
 	if(use_power) //can't run in non-vacuum
 		if(!in_vacuum())

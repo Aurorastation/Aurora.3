@@ -46,7 +46,7 @@
 		else if(ismanipulator(P))
 			repair += P.rating * 2
 
-/obj/machinery/mech_recharger/machinery_process()
+/obj/machinery/mech_recharger/process()
 	if(!charging)
 		update_use_power(1)
 		return

@@ -48,7 +48,7 @@
 	else
 		add_overlay("ntnet_o_ok")
 
-/obj/machinery/ntnet_relay/machinery_process()
+/obj/machinery/ntnet_relay/process()
 	if(operable())
 		use_power = 2
 	else

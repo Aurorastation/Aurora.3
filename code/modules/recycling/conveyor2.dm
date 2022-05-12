@@ -69,7 +69,7 @@
 
 	// machine process
 	// move items to the target location
-/obj/machinery/conveyor/machinery_process()
+/obj/machinery/conveyor/process()
 	if(stat & (BROKEN | NOPOWER))
 		return
 	if(!operating || conveying)

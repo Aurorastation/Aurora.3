@@ -130,3 +130,13 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 
 // This controls how much power the AME generates per unit of fuel.
 #define AM_POWER_FACTOR 1000000
+
+// Machinery process flags, for use with START_PROCESSING_MACHINE
+#define MACHINERY_PROCESS_SELF          (1<<0)
+#define MACHINERY_PROCESS_COMPONENTS    (1<<1)
+#define MACHINERY_PROCESS_ALL           (MACHINERY_PROCESS_SELF | MACHINERY_PROCESS_COMPONENTS)
+
+// Machinery init flag masks
+#define INIT_MACHINERY_PROCESS_SELF         0x1
+#define INIT_MACHINERY_PROCESS_COMPONENTS   0x2
+#define INIT_MACHINERY_PROCESS_ALL          0x3

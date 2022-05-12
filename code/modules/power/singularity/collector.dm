@@ -25,7 +25,7 @@ var/global/list/rad_collectors = list()
 	rad_collectors -= src
 	return ..()
 
-/obj/machinery/power/rad_collector/machinery_process()
+/obj/machinery/power/rad_collector/process()
 	//so that we don't zero out the meter if the SM is processed first.
 	last_power = last_power_new
 	last_power_new = 0
@@ -152,4 +152,3 @@ var/global/list/rad_collectors = list()
 		flick("ca_deactive", src)
 	update_icon()
 	return
-

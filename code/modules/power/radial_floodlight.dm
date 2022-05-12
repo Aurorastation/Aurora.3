@@ -26,7 +26,7 @@
 		STOP_PROCESSING(SSprocessing, src)
 	update_icon()
 
-/obj/machinery/power/radial_floodlight/machinery_process()
+/obj/machinery/power/radial_floodlight/process()
 	var/actual_load = draw_power(active_power_usage)
 	if(!on || !anchored || (stat & BROKEN) || !powernet || actual_load < active_power_usage)
 		toggle_active(FALSE)

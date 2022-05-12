@@ -163,7 +163,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	else
 		on = 0
 
-/obj/machinery/telecomms/machinery_process()
+/obj/machinery/telecomms/process()
 	update_power()
 
 	// Check heat and generate some
@@ -587,7 +587,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 		relay_information(signal, "/obj/machinery/telecomms/broadcaster")
 
 
-/obj/machinery/telecomms/server/machinery_process()
+/obj/machinery/telecomms/server/process()
 	. = ..()
 	if(istype(Program))
 		Program.retrieve_messages()
@@ -625,9 +625,3 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 
 // NTSL2++ code
-
-
-
-
-
-

@@ -71,7 +71,7 @@
 	harvester_win.set_content(dat)
 	harvester_win.open()
 
-/obj/machinery/artifact_harvester/machinery_process()
+/obj/machinery/artifact_harvester/process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 

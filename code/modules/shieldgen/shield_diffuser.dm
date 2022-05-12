@@ -12,7 +12,7 @@
 
 	var/enabled = TRUE
 
-/obj/machinery/shield_diffuser/machinery_process()
+/obj/machinery/shield_diffuser/process()
 	if(stat & BROKEN)
 		return PROCESS_KILL
 

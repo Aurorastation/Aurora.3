@@ -323,7 +323,7 @@ var/list/ai_verbs_default = list(
 	. = ..()
 	powered_ai = null
 
-/obj/machinery/ai_powersupply/machinery_process()
+/obj/machinery/ai_powersupply/process()
 	if(!powered_ai || powered_ai.stat == DEAD)
 		qdel(src)
 		return

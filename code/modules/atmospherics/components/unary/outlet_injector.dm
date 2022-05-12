@@ -51,7 +51,7 @@
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/unary/outlet_injector/machinery_process()
+/obj/machinery/atmospherics/unary/outlet_injector/process()
 	..()
 
 	last_power_draw = 0

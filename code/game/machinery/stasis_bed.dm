@@ -112,7 +112,7 @@
 		thaw_occupant(H)
 	update_icon()
 
-/obj/machinery/stasis_bed/machinery_process()
+/obj/machinery/stasis_bed/process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(!occupant)

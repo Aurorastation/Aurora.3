@@ -62,6 +62,7 @@
 			charging = W
 			user.visible_message("[user] inserts a cell into the charger.", "You insert a cell into the charger.")
 			chargelevel = -1
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_icon()
 		return TRUE
 	else if(W.iswrench())
@@ -83,6 +84,7 @@
 		user.visible_message("[user] removes the cell from the charger.", "You remove the cell from the charger.")
 		chargelevel = -1
 		update_icon()
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	return TRUE
 
 /obj/machinery/cell_charger/attack_ai(mob/user)
@@ -104,7 +106,7 @@
 	..(severity)
 
 
-/obj/machinery/cell_charger/machinery_process()
+/obj/machinery/cell_charger/process()
 	if((stat & (BROKEN|NOPOWER)) || !anchored)
 		update_use_power(0)
 		return

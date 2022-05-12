@@ -40,7 +40,7 @@
 	manufacturer = basic_robolimb.company
 	update_categories()
 
-/obj/machinery/mecha_part_fabricator/machinery_process()
+/obj/machinery/mecha_part_fabricator/process()
 	..()
 	if(stat)
 		return

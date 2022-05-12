@@ -151,7 +151,6 @@
 			if(SOME_TC.lethal != lethal && !egun)
 				SOME_TC.enabled = 0
 			src.setState(SOME_TC)
-	START_PROCESSING(SSprocessing, src)
 
 /obj/machinery/porta_turret/Destroy()
 	var/area/control_area = get_area(src)
@@ -163,8 +162,6 @@
 	spark_system = null
 	if(fast_processing)
 		STOP_PROCESSING(SSfast_process, src)
-	else
-		STOP_PROCESSING(SSprocessing, src)
 
 	. = ..()
 
@@ -274,14 +271,14 @@
 		if(href_list["command"] == "enable")
 			enabled = value
 			if (enabled)
-				START_PROCESSING(SSprocessing, src)
+				START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 				fast_processing = FALSE
 			else if(fast_processing)
 				STOP_PROCESSING(SSfast_process, src)
 				fast_processing = FALSE
 				popDown()
 			else
-				STOP_PROCESSING(SSprocessing, src)
+				STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 				popDown()
 		else if(href_list["command"] == "lethal")
 			lethal = value
@@ -522,13 +519,13 @@
 
 	if(targets.len || secondarytargets.len)
 		if(!fast_processing)
-			STOP_PROCESSING(SSprocessing, src)
+			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 			START_PROCESSING(SSfast_process, src)
 			fast_processing = TRUE
 	else
 		if(fast_processing)
 			STOP_PROCESSING(SSfast_process, src)
-			START_PROCESSING(SSprocessing, src)
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 			fast_processing = FALSE
 
 	if(auto_repair && (health < maxhealth))
@@ -774,10 +771,10 @@
 		return
 	src.enabled = TC.enabled
 	if (enabled)
-		START_PROCESSING(SSprocessing, src)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		fast_processing = FALSE
 	else if(fast_processing)
-		STOP_PROCESSING(SSprocessing, src)
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		fast_processing = FALSE
 	else
 		STOP_PROCESSING(SSfast_process, src)
@@ -998,7 +995,7 @@
 
 					Turret.cover_set = case_sprite_set
 					Turret.icon_state = "cover_[case_sprite_set]"
-					START_PROCESSING(SSprocessing, Turret)
+					START_PROCESSING_MACHINE(Turret, MACHINERY_PROCESS_SELF)
 					qdel(src) // qdel
 				return TRUE
 

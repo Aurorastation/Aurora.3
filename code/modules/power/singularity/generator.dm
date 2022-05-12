@@ -18,7 +18,7 @@
 		lights_image.layer = EFFECTS_ABOVE_LIGHTING_LAYER
 		add_overlay(lights_image)
 
-/obj/machinery/the_singularitygen/machinery_process()
+/obj/machinery/the_singularitygen/process()
 	var/turf/T = get_turf(src)
 	if(src.energy >= 200)
 		new creation_type(T, 50)

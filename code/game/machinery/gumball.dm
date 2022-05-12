@@ -20,7 +20,7 @@
 	. = ..()
 
 
-/obj/machinery/gumballmachine/machinery_process()
+/obj/machinery/gumballmachine/process()
 	if(broken)
 		return
 	else

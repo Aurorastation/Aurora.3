@@ -47,7 +47,7 @@
 	if(!machine)
 		var/area/A = get_area(src)
 		var/best_distance = INFINITY
-		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.all_machines)
+		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.machinery)
 			if(id)
 				if(checked_machine.id == id)
 					machine = checked_machine
@@ -383,7 +383,7 @@
 	return ..()
 
 
-/obj/machinery/mineral/processing_unit/machinery_process()
+/obj/machinery/mineral/processing_unit/process()
 	..()
 
 	if(!src.output || !src.input)

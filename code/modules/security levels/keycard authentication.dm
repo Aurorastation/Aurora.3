@@ -108,7 +108,7 @@
 
 /obj/machinery/keycard_auth/proc/broadcast_request()
 	icon_state = "auth_on"
-	for(var/obj/machinery/keycard_auth/KA in SSmachinery.all_machines)
+	for(var/obj/machinery/keycard_auth/KA in SSmachinery.machinery)
 		if(KA == src) continue
 		KA.reset()
 		spawn()

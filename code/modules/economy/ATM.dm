@@ -64,7 +64,7 @@ log transactions
 		var/mutable_appearance/card_overlay = mutable_appearance(icon, "atm-cardin", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(card_overlay)
 
-/obj/machinery/atm/machinery_process()
+/obj/machinery/atm/process()
 	if(stat & NOPOWER)
 		cut_overlays()
 		set_light(FALSE)

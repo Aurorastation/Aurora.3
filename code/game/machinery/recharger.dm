@@ -102,7 +102,7 @@
 				remove_bar(thing, chargebars[thing])
 		update_icon()
 
-/obj/machinery/recharger/machinery_process()
+/obj/machinery/recharger/process()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		update_use_power(0)
 		icon_state = icon_state_idle

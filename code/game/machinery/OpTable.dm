@@ -98,7 +98,7 @@
 	icon_state = "[modify_state]-idle"
 	return FALSE
 
-/obj/machinery/optable/machinery_process()
+/obj/machinery/optable/process()
 	check_victim()
 
 /obj/machinery/optable/proc/take_victim(mob/living/carbon/C, mob/living/carbon/user)

@@ -741,7 +741,7 @@
 
 	SSvueui.check_uis_for_change(src)
 
-/obj/machinery/vending/machinery_process()
+/obj/machinery/vending/process()
 	if(stat & (BROKEN|NOPOWER))
 		return
 

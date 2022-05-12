@@ -59,7 +59,7 @@
 	else
 		icon_state = "ano60"
 
-/obj/machinery/from_beyond/machinery_process()
+/obj/machinery/from_beyond/process()
 	..()
 	if(active)
 

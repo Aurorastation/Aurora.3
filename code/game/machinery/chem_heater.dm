@@ -111,7 +111,7 @@
 
 	updateUsrDialog()
 
-/obj/machinery/chem_heater/machinery_process()
+/obj/machinery/chem_heater/process()
 
 	..()
 

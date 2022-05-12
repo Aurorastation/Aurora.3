@@ -343,7 +343,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	LAZYREMOVE(active_holograms, M)
 	update_icon()
 
-/obj/machinery/hologram/holopad/machinery_process()
+/obj/machinery/hologram/holopad/process()
 	for(var/thing in active_holograms)
 		var/mob/M = thing
 		var/is_inactive_ai = FALSE

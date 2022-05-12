@@ -194,7 +194,7 @@
 	if (S.dried_type)
 		return TRUE
 
-/obj/machinery/smartfridge/drying_rack/machinery_process()
+/obj/machinery/smartfridge/drying_rack/process()
 	..()
 	if(length(contents))
 		dry()
@@ -209,7 +209,7 @@
 	SSvueui.check_uis_for_change(src)
 	return
 
-/obj/machinery/smartfridge/machinery_process()
+/obj/machinery/smartfridge/process()
 	if(stat & (BROKEN|NOPOWER))
 		seconds_electrified = 0
 		return

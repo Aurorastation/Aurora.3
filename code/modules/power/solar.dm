@@ -118,7 +118,7 @@
 	sunfrac = cos(p_angle) ** 2
 	//isn't the power received from the incoming light proportionnal to cos(p_angle) (Lambert's cosine law) rather than cos(p_angle)^2 ?
 
-/obj/machinery/power/solar/machinery_process()//TODO: remove/add this from machines to save on processing as needed ~Carn PRIORITY
+/obj/machinery/power/solar/process()//TODO: remove/add this from machines to save on processing as needed ~Carn PRIORITY
 	if(stat & BROKEN)
 		return
 	if(!sun || !control) //if there's no sun or the panel is not linked to a solar control computer, no need to proceed
@@ -167,7 +167,7 @@
 /obj/machinery/power/solar/fake/Initialize(mapload, var/obj/item/solar_assembly/S)
 	. = ..(mapload, S, 0)
 
-/obj/machinery/power/solar/fake/machinery_process()
+/obj/machinery/power/solar/fake/process()
 	return PROCESS_KILL
 
 //trace towards sun to see if we're in shadow
@@ -428,7 +428,7 @@
 		src.attack_hand(user)
 	return
 
-/obj/machinery/power/solar_control/machinery_process()
+/obj/machinery/power/solar_control/process()
 	lastgen = gen
 	gen = 0
 

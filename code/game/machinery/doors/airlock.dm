@@ -112,7 +112,7 @@
 		wires = new/datum/wires/airlock(src)
 
 	if(mapload && src.closeOtherId != null)
-		for (var/obj/machinery/door/airlock/A in SSmachinery.processing_machines)
+		for (var/obj/machinery/door/airlock/A in SSmachinery.processing)
 			if(A.closeOtherId == src.closeOtherId && A != src)
 				src.closeOther = A
 				break
@@ -565,7 +565,7 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	var/last_event = 0
 	hatch_colour = "#004400"
 
-/obj/machinery/door/airlock/uranium/machinery_process()
+/obj/machinery/door/airlock/uranium/process()
 	if(world.time > last_event+20)
 		if(prob(50))
 			radiate()

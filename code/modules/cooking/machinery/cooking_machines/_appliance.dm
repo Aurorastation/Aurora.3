@@ -317,7 +317,7 @@
 
 	return TRUE
 
-/obj/machinery/appliance/machinery_process()
+/obj/machinery/appliance/process()
 	if (cooking_power > 0 && cooking)
 		for (var/i in cooking_objs)
 			do_cooking_tick(i)

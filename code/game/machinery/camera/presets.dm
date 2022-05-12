@@ -190,8 +190,8 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/proc/upgradeMotion()
 	assembly.upgrades.Add(new /obj/item/device/assembly/prox_sensor(assembly))
 	setPowerUsage()
-	if(!(SSmachinery.processing_machines[src]))
-		add_machine(src)
+	if(!(SSmachinery.processing[src]))
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	update_coverage()
 
 /obj/machinery/camera/proc/setPowerUsage()

@@ -1143,7 +1143,7 @@
 /obj/machinery/power/apc/avail()
 	return terminal?.avail()
 
-/obj/machinery/power/apc/machinery_process()
+/obj/machinery/power/apc/process()
 	if(stat & (BROKEN|MAINT))
 		return
 	if(!area.requires_power)

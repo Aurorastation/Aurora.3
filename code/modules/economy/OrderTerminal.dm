@@ -39,7 +39,7 @@
 	add_overlay(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
-/obj/machinery/orderterminal/machinery_process()
+/obj/machinery/orderterminal/process()
 	if(stat & NOPOWER)
 		cut_overlays()
 		set_light(FALSE)

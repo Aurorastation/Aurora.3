@@ -54,7 +54,7 @@
 	update_icon()
 	parts_power_usage = active_power_usage
 
-/obj/machinery/sleeper/machinery_process()
+/obj/machinery/sleeper/process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 

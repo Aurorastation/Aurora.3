@@ -120,7 +120,7 @@
 				break
 	return ui_interact(user)
 
-/obj/machinery/shield_gen/machinery_process()
+/obj/machinery/shield_gen/process()
 	if(active)
 		if(!anchored)
 			toggle()

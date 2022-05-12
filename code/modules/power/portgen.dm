@@ -33,7 +33,7 @@
 /obj/machinery/power/portgen/proc/handleInactive()
 	return
 
-/obj/machinery/power/portgen/machinery_process()
+/obj/machinery/power/portgen/process()
 	if(active && HasFuel() && !IsBroken() && anchored)
 		set_light(2, 1, l_color = portgen_lightcolour)
 		if(powernet)

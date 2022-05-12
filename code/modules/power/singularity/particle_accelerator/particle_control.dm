@@ -148,7 +148,7 @@
 	return
 
 
-/obj/machinery/particle_accelerator/control_box/machinery_process()
+/obj/machinery/particle_accelerator/control_box/process()
 	if(src.active)
 		//a part is missing!
 		if(length(connected_parts) < 6)

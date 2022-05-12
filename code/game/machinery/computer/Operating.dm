@@ -157,7 +157,7 @@
 				usr.visible_message("\The [src] beeps, printing a new [input_scan] after a moment.")
 	return
 
-/obj/machinery/computer/operating/machinery_process()
+/obj/machinery/computer/operating/process()
 	if(operable())
 		src.updateDialog()
 	if(src.stat & BROKEN)

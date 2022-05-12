@@ -108,7 +108,7 @@
 	return // TODO - Implement for AI ~Leshana
 	// user.station_holomap.toggleHolomap(user, isAI(user))
 
-/obj/machinery/station_map/machinery_process()
+/obj/machinery/station_map/process()
 	if((stat & (NOPOWER|BROKEN)) || !anchored)
 		stopWatching()
 

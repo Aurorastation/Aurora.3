@@ -53,7 +53,7 @@
 
 	queue_icon_update()
 
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/machinery_process()
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/process()
 	if(!parent)
 		..()
 	else

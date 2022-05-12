@@ -66,7 +66,7 @@
 	wires = null
 	return ..()
 
-/obj/machinery/camera/machinery_process()
+/obj/machinery/camera/process()
 	if((stat & EMPED) && world.time >= affected_by_emp_until)
 		stat &= ~EMPED
 		cancelCameraAlarm()

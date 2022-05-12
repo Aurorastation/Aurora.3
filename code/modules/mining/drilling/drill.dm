@@ -65,7 +65,7 @@
 	QDEL_NULL(spark_system)
 	return ..()
 
-/obj/machinery/mining/drill/machinery_process()
+/obj/machinery/mining/drill/process()
 	if(need_player_check)
 		return
 

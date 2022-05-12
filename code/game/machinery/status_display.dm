@@ -62,7 +62,7 @@
 		SSradio.add_object(src, frequency)
 
 // timed process
-/obj/machinery/status_display/machinery_process()
+/obj/machinery/status_display/process()
 	if(stat & NOPOWER)
 		remove_display()
 		return

@@ -46,7 +46,7 @@
 		//Set temperature of oil
 		oil.set_temperature(temperature)
 
-/obj/machinery/appliance/cooker/fryer/machinery_process()
+/obj/machinery/appliance/cooker/fryer/process()
 	. = ..()
 	//Set temperature of oil
 	oil.set_temperature(temperature)

@@ -55,7 +55,7 @@
 	agitation_turfs = grow_turfs
 	last_turf_check = world.time + turf_check_rate
 
-/obj/machinery/power/crystal_agitator/machinery_process()
+/obj/machinery/power/crystal_agitator/process()
 	if(!active)
 		return
 	if(stat & (BROKEN) || !powernet)

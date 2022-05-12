@@ -349,7 +349,7 @@
 			if(istype(E,/obj/effect/rune) || istype(E,/obj/effect/decal/cleanable) || istype(E,/obj/effect/overlay))
 				qdel(E)
 
-/obj/machinery/shower/machinery_process()
+/obj/machinery/shower/process()
 	if(!on)
 		return
 	wash_floor()

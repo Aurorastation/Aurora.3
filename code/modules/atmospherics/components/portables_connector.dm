@@ -37,7 +37,7 @@
 /obj/machinery/atmospherics/portables_connector/hide(var/i)
 	update_underlays()
 
-/obj/machinery/atmospherics/portables_connector/machinery_process()
+/obj/machinery/atmospherics/portables_connector/process()
 	..()
 	if(!on)
 		return

@@ -25,7 +25,7 @@
 	. = ..()
 	queue_icon_update()
 
-/obj/machinery/teleport/pad/machinery_process()
+/obj/machinery/teleport/pad/process()
 	var/old_engaged = engaged
 	if(locked_obj)
 		if(stat & (NOPOWER|BROKEN) || !within_range(locked_obj))

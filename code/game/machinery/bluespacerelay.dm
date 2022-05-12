@@ -20,7 +20,7 @@
 		/obj/item/stack/cable_coil
 	)
 
-/obj/machinery/bluespacerelay/machinery_process()
+/obj/machinery/bluespacerelay/process()
 
 	update_power()
 

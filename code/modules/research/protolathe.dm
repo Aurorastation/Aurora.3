@@ -24,7 +24,7 @@
 		/obj/item/reagent_containers/glass/beaker = 2
 	)
 
-/obj/machinery/r_n_d/protolathe/machinery_process()
+/obj/machinery/r_n_d/protolathe/process()
 	..()
 	if(stat)
 		update_icon()

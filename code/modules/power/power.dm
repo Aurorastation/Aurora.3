@@ -190,10 +190,6 @@
 			. += C
 	return .
 
-/obj/machinery/power/shuttle_move(turf/loc)
-	..()
-	SSmachinery.powernet_update_queued = TRUE
-
 ///////////////////////////////////////////
 // GLOBAL PROCS for powernets handling
 //////////////////////////////////////////
@@ -236,21 +232,6 @@
 				else if(C.d1 == d || C.d2 == d)
 					. += C
 	return .
-
-// rebuild all power networks from scratch - called by area movement, world start, & by an admin verb.
-/proc/makepowernets()
-	var/list/powernets = SSpower.powernets
-	for(var/datum/powernet/PN in powernets)
-		qdel(PN)
-	powernets.Cut()
-
-	for(var/thing in SSpower.all_cables)
-		var/obj/structure/cable/PC = thing
-		if(!PC.powernet)
-			var/datum/powernet/NewPN = new()
-			NewPN.add_cable(PC)
-			propagate_network(PC,PC.powernet)
-	return 1
 
 //remove the old powernet and replace it with a new one throughout the network.
 /proc/propagate_network(var/obj/O, var/datum/powernet/PN)

@@ -48,7 +48,7 @@
 		return
 	return ..()
 
-/obj/machinery/mineral/unloading_machine/machinery_process()
+/obj/machinery/mineral/unloading_machine/process()
 	..()
 	if(src.output && src.input)
 		if(locate(/obj/structure/ore_box, input))

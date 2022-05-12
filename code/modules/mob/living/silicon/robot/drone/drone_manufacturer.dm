@@ -43,7 +43,7 @@
 	if(stat & NOPOWER)
 		icon_state = "drone_fab_nopower"
 
-/obj/machinery/drone_fabricator/machinery_process()
+/obj/machinery/drone_fabricator/process()
 	if(!ROUND_IS_STARTED)
 		return
 
