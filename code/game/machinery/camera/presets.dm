@@ -200,4 +200,4 @@ var/global/list/engineering_networks = list(
 		mult++
 	if (isMotion())
 		mult++
-	active_power_usage = mult*initial(active_power_usage)
+	change_power_consumption(mult*initial(active_power_usage), POWER_USE_ACTIVE)

@@ -183,7 +183,7 @@
 
 	src.current_camera = C
 	if(current_camera)
-		use_power = 2
+		update_use_power(POWER_USE_ACTIVE)
 		var/mob/living/L = current_camera.loc
 		if(istype(L))
 			L.tracking_initiated()
@@ -194,7 +194,7 @@
 		if(istype(L))
 			L.tracking_cancelled()
 	current_camera = null
-	use_power = 1
+	update_use_power(POWER_USE_IDLE)
 
 //Camera control: mouse.
 /atom/DblClick()

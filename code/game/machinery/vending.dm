@@ -53,7 +53,6 @@
 	var/deny_time // How long the physical icon state lasts, used cut the deny overlay
 
 	// Power
-	use_power = 1
 	idle_power_usage = 10
 	var/vend_power_usage = 150 //actuators and stuff
 
@@ -707,7 +706,7 @@
 			src.speak(src.vend_reply)
 			src.last_reply = world.time
 
-	use_power(vend_power_usage)	//actuators and stuff
+	use_power_oneoff(vend_power_usage)	//actuators and stuff
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
 	playsound(src.loc, vending_sound, 100, 1)
@@ -730,9 +729,9 @@
 		if(RC.reagents)
 			switch(temperature_setting)
 				if(-1)
-					use_power(RC.reagents.set_temperature(cooling_temperature))
+					use_power_oneoff(RC.reagents.set_temperature(cooling_temperature))
 				if(1)
-					use_power(RC.reagents.set_temperature(heating_temperature))
+					use_power_oneoff(RC.reagents.set_temperature(heating_temperature))
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
 

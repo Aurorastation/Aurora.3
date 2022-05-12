@@ -64,4 +64,4 @@
 		T.maxhealth = round(initial(T.maxhealth) * 2)
 		T.shot_delay = round(initial(T.shot_delay) / 2)
 		T.auto_repair = 1
-		T.active_power_usage = round(initial(T.active_power_usage) * 5)
+		T.change_power_consumption(round(initial(T.active_power_usage)) * 5, POWER_USE_ACTIVE)

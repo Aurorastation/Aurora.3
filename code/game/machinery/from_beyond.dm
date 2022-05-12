@@ -7,9 +7,7 @@
 	anchored = 0
 	density = 1
 
-	use_power = 1
-
-	active_power_usage = 1 KILOWATTS
+	idle_power_usage = 1 KILOWATTS
 	active_power_usage = 10 KILOWATTS
 
 	var/active = FALSE

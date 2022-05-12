@@ -14,7 +14,7 @@
 	icon = 'icons/atmos/vent_pump.dmi'
 	icon_state = "map_vent"
 
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
 	power_rating = 7500			//7500 W ~ 10 HP
 
@@ -52,7 +52,7 @@
 	var/broadcast_status_next_process = FALSE
 
 /obj/machinery/atmospherics/unary/vent_pump/on
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	icon_state = "map_vent_out"
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon
@@ -68,11 +68,11 @@
 	pressure_checks_default = 2
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	icon_state = "map_vent_in"
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	icon_state = "map_vent_in"
 	external_pressure_bound = 0
 	external_pressure_bound_default = 0
@@ -136,7 +136,7 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/update_icon(var/safety = 0)
 	if (!node)
-		use_power = 0
+		update_use_power(POWER_USE_OFF)
 
 	var/vent_icon = ""
 
@@ -195,7 +195,7 @@
 		return 1
 
 	if (!node)
-		use_power = 0
+		update_use_power(POWER_USE_OFF)
 	if(!can_pump())
 		return 0
 
@@ -227,7 +227,7 @@
 
 	if (power_draw >= 0)
 		last_power_draw = power_draw
-		use_power(power_draw)
+		use_power_oneoff(power_draw)
 		if(network)
 			network.update = 1
 
@@ -303,10 +303,10 @@
 		pump_direction = 1
 
 	if(signal.data["power"] != null)
-		use_power = text2num(signal.data["power"])
+		update_use_power(text2num(signal.data["power"]))
 
 	if(signal.data["power_toggle"] != null)
-		use_power = !use_power
+		update_use_power(!use_power)
 
 	if(signal.data["checks"] != null)
 		if (signal.data["checks"] == "default")

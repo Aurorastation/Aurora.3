@@ -14,7 +14,7 @@
 
 	density = TRUE
 	anchored = TRUE
-	use_power = TRUE
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
 	active_power_usage = 5000
 

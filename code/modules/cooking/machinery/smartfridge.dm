@@ -7,7 +7,6 @@
 	layer = 2.9
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 5
 	active_power_usage = 100
 	flags = NOREACT
@@ -234,7 +233,7 @@
 		else if (mod == -1) //GOING DOWN
 			thermal_energy_change = max(-active_power_usage,I.reagents.get_thermal_energy_change(r_temperature,cooling_temperature))
 		I.reagents.add_thermal_energy(thermal_energy_change)
-		use_power(active_power_usage)
+		use_power_oneoff(active_power_usage)
 
 /obj/machinery/smartfridge/power_change()
 	..()

@@ -6,7 +6,7 @@
 	anchored = FALSE
 	obj_flags = OBJ_FLAG_ROTATABLE
 
-	use_power = FALSE
+	use_power = POWER_USE_OFF
 	idle_power_usage = 100 //Watts, I hope.  Just enough to do the computer and display things.
 
 	var/max_power = 500000
@@ -154,7 +154,7 @@
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
 					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
 					"You hear a ratchet")
-		use_power = anchored
+		update_use_power(anchored ? POWER_USE_IDLE : POWER_USE_OFF)
 		if(anchored) // Powernet connection stuff.
 			connect_to_network()
 		else

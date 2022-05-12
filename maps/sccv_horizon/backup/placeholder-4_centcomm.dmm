@@ -27686,7 +27686,7 @@
 	name = "shuttle airlock pressure regulator";
 	target_pressure = 75;
 	unlocked = 1;
-	use_power = 0
+	use_power = POWER_USE_OFF
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/legion/centcom)

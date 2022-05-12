@@ -13,7 +13,6 @@
 	var/open = FALSE
 	var/power_output = 1
 	var/portgen_lightcolour = "#000000"
-	has_special_power_checks = TRUE
 
 /obj/machinery/power/portgen/Initialize()
 	. = ..()

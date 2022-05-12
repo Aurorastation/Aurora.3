@@ -36,7 +36,6 @@ Possible to do for anyone motivated enough:
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
-	use_power = 1
 
 	var/holopad_id
 
@@ -358,7 +357,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(!check_connected_pad())
 			return TRUE
 
-	use_power(power_per_hologram * LAZYLEN(active_holograms))
+	use_power_oneoff(power_per_hologram * LAZYLEN(active_holograms))
 
 	if(last_request + 20 SECONDS < world.time && incoming_connection)
 		incoming_connection = FALSE
@@ -439,7 +438,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram
 	icon = 'icons/obj/holopad.dmi'
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 5
 	active_power_usage = 100
 

@@ -32,7 +32,7 @@
 	if(!internal_bodyscanner) // So it can scan correctly
 		var/obj/machinery/body_scanconsole/S = new (src)
 		S.forceMove(src)
-		S.use_power = FALSE
+		S.update_use_power(POWER_USE_OFF)
 		internal_bodyscanner = S
 
 /obj/machinery/computer/operating/Destroy()

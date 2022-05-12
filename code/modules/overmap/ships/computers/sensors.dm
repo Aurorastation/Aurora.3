@@ -180,7 +180,7 @@
 	if(!use_power && (health == 0 || !in_vacuum()))
 		return // No turning on if broken or misplaced.
 	if(!use_power) //need some juice to kickstart
-		use_power(idle_power_usage*5)
+		use_power_oneoff(idle_power_usage*5)
 	update_use_power(!use_power)
 	queue_icon_update()
 
@@ -207,7 +207,7 @@
 
 /obj/machinery/shipsensors/proc/set_range(nrange)
 	range = nrange
-	active_power_usage = (1500 * (range**2)) //Exponential increase, also affects speed of overheating
+	change_power_consumption(1500 * (range**2), POWER_USE_ACTIVE)
 
 /obj/machinery/shipsensors/emp_act(severity)
 	if(!use_power)

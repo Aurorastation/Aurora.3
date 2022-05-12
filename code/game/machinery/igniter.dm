@@ -6,7 +6,6 @@
 	var/id = null
 	var/on = 0
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 4
 	var/_wifi_id
@@ -51,7 +50,7 @@
 	update_icon()
 
 /obj/machinery/igniter/proc/ignite()
-	use_power(50)
+	use_power_oneoff(50)
 	on = !on
 	if(on)
 		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
@@ -73,7 +72,6 @@
 	var/base_state = "migniter"
 	layer = 3.3
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 4
 	var/_wifi_id
@@ -132,7 +130,7 @@
 	flick("migniter-spark", src)
 	spark(src, 2, alldirs)
 	src.last_spark = world.time
-	use_power(1000)
+	use_power_oneoff(1000)
 	var/turf/location = src.loc
 	if (isturf(location))
 		location.hotspot_expose(1000,500,1)
@@ -154,7 +152,7 @@
 	if(..())
 		return
 
-	use_power(5)
+	use_power_oneoff(5)
 
 	active = 1
 	icon_state = "launcheract"

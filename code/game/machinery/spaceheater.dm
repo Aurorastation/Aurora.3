@@ -10,7 +10,6 @@
 	var/set_temperature = T0C + 50	//K
 	var/heating_power = 42000
 	emagged = FALSE
-	has_special_power_checks = TRUE
 	clicksound = /decl/sound_category/switch_sound
 
 /obj/machinery/space_heater/Initialize()

@@ -79,7 +79,7 @@
 		stat |= BROKEN
 		return
 
-	use_power(100)
+	use_power_oneoff(100)
 
 	var/turf/locturf = loc
 	var/list/items = locturf.contents - src

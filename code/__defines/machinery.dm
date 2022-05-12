@@ -10,10 +10,15 @@
 #define ALIEN_SELECT_AFK_BUFFER  1    // How many minutes that a person can be AFK before not being allowed to be an alien.
 
 // Channel numbers for power.
+#define POWER_CHAN  -1  // Use default
 #define EQUIP   1
 #define LIGHT   2
 #define ENVIRON 3
 #define TOTAL   4 // For total power used only.
+
+#define POWER_USE_OFF       0
+#define POWER_USE_IDLE      1
+#define POWER_USE_ACTIVE    2
 
 // Bitflags for machine stat variable.
 #define BROKEN   0x1

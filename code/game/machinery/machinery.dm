@@ -51,28 +51,15 @@ Class Procs:
 
    Destroy()                     'game/machinery/machine.dm'
 
-   auto_use_power()            'game/machinery/machine.dm'
-      This proc determines how power mode power is deducted by the machine.
-      'auto_use_power()' is called by the 'master_controller' game_controller every
-      tick.
-
-      Return Value:
-         return:1 -- if object is powered
-         return:0 -- if object is not powered.
-
-      Default definition uses 'use_power', 'power_channel', 'active_power_usage',
-      'idle_power_usage', 'powered()', and 'use_power()' implement behavior.
-
-   powered(chan = EQUIP)         'modules/power/power.dm'
+   powered(chan = EQUIP)         'modules/power/power_usage.dm'
       Checks to see if area that contains the object has power available for power
       channel given in 'chan'.
 
-   use_power(amount, chan=EQUIP, autocalled)   'modules/power/power.dm'
+   use_power_oneoff(amount, chan=EQUIP, autocalled)   'modules/power/power_usage.dm'
       Deducts 'amount' from the power channel 'chan' of the area that contains the object.
-      If it's autocalled then everything is normal, if something else calls use_power we are going to
-      need to recalculate the power two ticks in a row.
+      This is not a continuous draw, but rather will be cleared after one APC update.
 
-   power_change()               'modules/power/power.dm'
+   power_change()               'modules/power/power_usage.dm'
       Called by the area that contains the object when ever that area under goes a
       power state change (area runs out of power, or area channel is turned off).
 
@@ -102,10 +89,7 @@ Class Procs:
 
 	var/stat = 0
 	var/emagged = 0
-	var/use_power = 1
-		//0 = dont run the auto
-		//1 = run auto, use idle
-		//2 = run auto, use active
+	var/use_power = POWER_USE_IDLE // See code/__defines/machinery.dm
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
 	var/power_channel = EQUIP //EQUIP, ENVIRON or LIGHT
@@ -130,7 +114,6 @@ Class Procs:
 	var/printing = 0 // Is this machine currently printing anything?
 	var/list/processing_parts // Component parts queued for processing by the machine. Expected type: `/obj/item/stock_parts` Unused currently
 	var/processing_flags // Bitflag. What is being processed. One of `MACHINERY_PROCESS_*`.
-	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
 	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
@@ -198,7 +181,7 @@ Class Procs:
 
 /obj/machinery/emp_act(severity)
 	if(use_power && stat == 0)
-		use_power(7500/severity)
+		use_power_oneoff(7500/severity)
 
 		var/obj/effect/overlay/pulse2 = new(src.loc)
 		pulse2.icon = 'icons/effects/effects.dmi'
@@ -225,19 +208,6 @@ Class Procs:
 				return
 		else
 	return
-
-//sets the use_power var and then forces an area power update
-/obj/machinery/proc/update_use_power(var/new_use_power)
-	use_power = new_use_power
-
-/obj/machinery/proc/auto_use_power()
-	if(!powered(power_channel))
-		return 0
-	if(src.use_power == 1)
-		use_power(idle_power_usage,power_channel, 1)
-	else if(src.use_power >= 2)
-		use_power(active_power_usage,power_channel, 1)
-	return 1
 
 /proc/is_operable(var/obj/machinery/M, var/mob/user)
 	return istype(M) && M.operable()

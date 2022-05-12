@@ -18,7 +18,7 @@ proc/cardinalrange(var/center)
 	anchored = TRUE
 	density = TRUE
 	dir = NORTH
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 	active_power_usage = 0
 

@@ -11,7 +11,6 @@
 	icon_state = "production_console"
 	density = FALSE
 	anchored = TRUE
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 
@@ -326,7 +325,6 @@
 	var/list/ores_stored[0]
 	var/static/list/alloy_data
 	var/active = 0
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 150
 
@@ -443,7 +441,7 @@
 							if(console)
 								var/ore/Ore = ore_data[needs_metal]
 								console.points += Ore.worth
-							use_power(100)
+							use_power_oneoff(100)
 							ores_stored[needs_metal] -= A.requires[needs_metal]
 							total += A.requires[needs_metal]
 							total = max(1, round(total * A.product_mod)) //Always get at least one sheet.
@@ -467,7 +465,7 @@
 				for(var/i = 0, i < can_make, i += 2)
 					if(console)
 						console.points += O.worth * 2
-					use_power(100)
+					use_power_oneoff(100)
 					ores_stored[metal] -= 2
 					sheets += 2
 					console.output_mats[M] += 1
@@ -483,7 +481,7 @@
 				for(var/i = 0, i < can_make, i++)
 					if(console)
 						console.points += O.worth
-					use_power(100)
+					use_power_oneoff(100)
 					ores_stored[metal] -= 1
 					sheets++
 					if(console)
@@ -492,7 +490,7 @@
 			else
 				if(console)
 					console.points -= O.worth * 3 //reee wasting our materials!
-				use_power(500)
+				use_power_oneoff(500)
 				ores_stored[metal] -= 1
 				sheets++
 				if(console)

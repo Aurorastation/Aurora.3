@@ -133,7 +133,7 @@
 	icon_state = "shower"
 	density = 0
 	anchored = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	var/spray_amount = 20
 	var/on = 0
 	var/obj/effect/mist/mymist = null

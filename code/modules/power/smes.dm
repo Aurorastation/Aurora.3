@@ -25,7 +25,7 @@
 	icon_state = "smes"
 	density = 1
 	anchored = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	clicksound = /decl/sound_category/switch_sound
 
 	var/health = 500

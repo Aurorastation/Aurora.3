@@ -370,7 +370,7 @@
 "aaQ" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
@@ -1528,7 +1528,7 @@
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4;
 	icon_state = "map_vent_out";
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";
@@ -1734,7 +1734,7 @@
 	icon_state = "freezer_1";
 	power_setting = 20;
 	set_temperature = 80;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /obj/machinery/alarm{
 	dir = 8;
@@ -2915,7 +2915,7 @@
 	pressure_checks = 2;
 	pressure_checks_default = 2;
 	pump_direction = 0;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";
@@ -7361,7 +7361,7 @@
 	tag_east = 4;
 	tag_north = 2;
 	tag_south = 1;
-	use_power = 0
+	use_power = POWER_USE_OFF
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/landmark/engine_setup/filter,
@@ -7378,7 +7378,7 @@
 	tag_north = 2;
 	tag_south = 1;
 	tag_west = 4;
-	use_power = 0
+	use_power = POWER_USE_OFF
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/landmark/engine_setup/filter,
@@ -11490,7 +11490,7 @@
 	name = "Coolant Injector";
 	pixel_y = 1;
 	power_rating = 30000;
-	use_power = 1;
+	use_power = POWER_USE_IDLE;
 	volume_rate = 700
 	},
 /turf/simulated/floor/greengrid/nitrogen{
@@ -13617,7 +13617,7 @@
 	id_tag = "cooling_out";
 	initialize_directions = 1;
 	pump_direction = 0;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/greengrid/nitrogen{
 	icon = 'icons/turf/flooring/plating.dmi';
@@ -18648,7 +18648,7 @@
 	frequency = 1441;
 	id = null;
 	pixel_y = 1;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -24773,7 +24773,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
 	id = null;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -43015,7 +43015,7 @@
 	dir = 8;
 	icon_state = "map_on";
 	target_pressure = 150;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -61949,7 +61949,7 @@
 	tag_east = 1;
 	tag_south = 5;
 	tag_west = 2;
-	use_power = 0
+	use_power = POWER_USE_OFF
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -64560,7 +64560,7 @@
 	dir = 1;
 	icon_state = "map_on";
 	target_pressure = 150;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
@@ -65400,7 +65400,7 @@
 "oxt" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
@@ -67209,7 +67209,7 @@
 	tag_east = 1;
 	tag_north = 3;
 	tag_west = 2;
-	use_power = 0
+	use_power = POWER_USE_OFF
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,

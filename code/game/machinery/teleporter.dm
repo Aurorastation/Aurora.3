@@ -8,7 +8,6 @@
 	name = "teleporter pad"
 	desc = "It's the pad of a teleporting machine."
 	icon_state = "pad"
-	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 2000
 
@@ -38,7 +37,7 @@
 /obj/machinery/teleport/pad/CollidedWith(M as mob|obj)
 	if(engaged)
 		teleport(M)
-		use_power(5000)
+		use_power_oneoff(5000)
 
 /obj/machinery/teleport/pad/proc/teleport(atom/movable/M as mob|obj)
 	if(!locked_obj)
@@ -87,8 +86,8 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 
-	use_power(5000)
-	update_use_power(2)
+	use_power_oneoff(5000)
+	update_use_power(POWER_USE_ACTIVE)
 	visible_message(SPAN_NOTICE("Teleporter engaged!"))
 	add_fingerprint(usr)
 	engaged = TRUE
@@ -98,7 +97,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	locked_obj = null
 	locked_obj_name = null
 	visible_message(SPAN_NOTICE("Teleporter disengaged!"))

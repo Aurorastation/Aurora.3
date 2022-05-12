@@ -28,7 +28,7 @@
 	var/max_field_strength = 10
 	var/time_since_fail = 100
 	var/energy_conversion_rate = 0.0002	//how many renwicks per watt?
-	use_power = FALSE	//doesn't use APC power
+	use_power = POWER_USE_OFF	//doesn't use APC power
 	var/multiz = TRUE
 	var/multi_unlocked = TRUE
 	req_one_access = list(access_captain, access_security, access_engine)

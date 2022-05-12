@@ -5,7 +5,6 @@
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "kitchenterminal"
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 10
 	var/machine_id = ""
 	var/list/items = list()

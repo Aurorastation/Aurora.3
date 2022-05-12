@@ -14169,7 +14169,7 @@
 	pressure_checks = 2;
 	pressure_checks_default = 2;
 	pump_direction = 0;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /obj/machinery/light{
 	dir = 8
@@ -24985,7 +24985,7 @@
 /obj/machinery/atmospherics/unary/freezer{
 	icon_state = "freezer_1";
 	set_temperature = 73;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -26756,7 +26756,7 @@
 	icon_state = "map_vent_out";
 	pressure_checks = 0;
 	pressure_checks_default = 0;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /obj/machinery/light{
 	dir = 8

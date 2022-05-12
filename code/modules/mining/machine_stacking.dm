@@ -8,7 +8,6 @@
 	density = FALSE
 	anchored = TRUE
 	var/obj/machinery/mineral/stacking_machine/machine
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 
@@ -127,7 +126,6 @@
 	var/list/stack_storage = list()
 	var/list/stack_paths = list()
 	var/stack_amt = 50 // Amount to stack before releasing
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 

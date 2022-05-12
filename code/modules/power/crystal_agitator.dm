@@ -6,7 +6,7 @@
 	density = TRUE
 	anchored = TRUE
 
-	use_power = 0
+	use_power = POWER_USE_OFF
 	active_power_usage = 3000
 
 	var/agitation_range = 4
@@ -91,7 +91,7 @@
 		if(ismanipulator(SP))
 			agitation_rate = initial(agitation_rate) - (SP.rating * 5)
 		if(iscapacitor(SP))
-			active_power_usage = initial(active_power_usage) - (SP.rating * 500)
+			change_power_consumption((initial(active_power_usage) - (SP.rating * 500)), POWER_USE_ACTIVE)
 
 /obj/machinery/power/crystal_agitator/attackby(obj/item/I, mob/user, params)
 	if(default_part_replacement(user, I))
