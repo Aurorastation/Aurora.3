@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Suit coolers will now stop processing properly when deleted/destroyed."
