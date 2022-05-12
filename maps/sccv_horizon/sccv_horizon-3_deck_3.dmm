@@ -18473,6 +18473,11 @@
 /obj/structure/grille/diagonal{
 	dir = 4
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/reinforced,
 /area/crew_quarters/captain)
 "Is" = (
@@ -22388,6 +22393,11 @@
 "Ps" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/reinforced,
 /area/bridge/minibar)
 "Pt" = (
