@@ -1446,15 +1446,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/get_pain()
 	if(!can_feel_pain() || BP_IS_ROBOTIC(src))
 		return 0
-	var/lasting_pain = 0
+	. = pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.5 * get_genetic_damage()
 	if(is_broken())
-		lasting_pain += 10
+		. += 10
 	else if(is_dislocated())
-		lasting_pain += 5
-	var/tox_dam = 0
+		. += 5
 	for(var/obj/item/organ/internal/I in internal_organs)
-		tox_dam += I.getToxLoss()
-	return pain + lasting_pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.3 * tox_dam + 0.5 * get_genetic_damage()
+		. += 0.3 * I.getToxLoss()
 
 /obj/item/organ/external/proc/remove_pain(var/amount)
 	if(!can_feel_pain())
