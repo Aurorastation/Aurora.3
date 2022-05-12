@@ -37,7 +37,7 @@
 	update_network_gases()
 
 	if((normal_members.len>0)||(line_members.len>0))
-		START_PROCESSING(SSpipenet, src)
+		START_PROCESSING_PIPENET(src)
 	else
 		qdel(src)
 
@@ -77,7 +77,7 @@
 	equalize_gases(gases)
 
 /datum/pipe_network/Destroy(force = FALSE)
-	STOP_PROCESSING(SSpipenet, src)
+	STOP_PROCESSING_PIPENET(src)
 	for (var/datum/pipeline/pipeline in line_members)
 		pipeline.network = null
 
