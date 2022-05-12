@@ -207,7 +207,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
 "at" = (
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "au" = (
 /obj/random/junk,
@@ -1053,7 +1053,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "bV" = (
 /obj/effect/floor_decal/spline/plain{
@@ -1241,7 +1241,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "cq" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "cr" = (
 /obj/structure/bookcase,
@@ -2216,7 +2216,7 @@
 "dW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/mop,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "dX" = (
 /obj/structure/table/reinforced/wood,
@@ -2799,7 +2799,7 @@
 /area/horizon/stairwell/central)
 "fh" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "fi" = (
 /obj/structure/disposalpipe/segment,
@@ -5494,7 +5494,7 @@
 /area/bridge/meeting_room)
 "kh" = (
 /obj/effect/shuttle_landmark/merc_ship/dock,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "ki" = (
 /obj/effect/floor_decal/corner/green{
@@ -8420,7 +8420,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "pE" = (
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "pF" = (
 /obj/structure/filingcabinet{
@@ -10788,7 +10788,7 @@
 /area/horizon/crew_quarters/fitness/showers)
 "tW" = (
 /obj/effect/shuttle_landmark/legion/green,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "tX" = (
 /obj/structure/disposalpipe/segment{
@@ -11181,7 +11181,7 @@
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "uN" = (
 /turf/simulated/floor,
@@ -12542,7 +12542,7 @@
 /area/hallway/medical/upper)
 "xo" = (
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "xp" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -15115,7 +15115,7 @@
 "Cn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/toy/figure/janitor,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Co" = (
 /obj/effect/floor_decal/spline/plain,
@@ -16130,7 +16130,7 @@
 "En" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Eo" = (
 /obj/effect/decal/cleanable/dirt,
@@ -18070,7 +18070,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "HO" = (
 /obj/structure/cable/green{
@@ -19731,7 +19731,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "KO" = (
 /obj/structure/railing/mapped,
@@ -19979,7 +19979,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Ll" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
@@ -20574,7 +20574,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Mp" = (
 /obj/structure/railing/mapped{
@@ -21138,7 +21138,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Nq" = (
 /turf/simulated/wall,
@@ -22447,7 +22447,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "PG" = (
 /obj/structure/railing/mapped{
@@ -23340,7 +23340,7 @@
 /area/horizon/crew_quarters/fitness/lounge)
 "Rh" = (
 /obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Ri" = (
 /obj/effect/floor_decal/corner/green{
@@ -23807,7 +23807,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Sc" = (
 /obj/effect/floor_decal/spline/plain{
@@ -24446,7 +24446,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Ts" = (
 /obj/structure/cable/green{
@@ -24568,7 +24568,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "TD" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -24862,7 +24862,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Uk" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -25738,7 +25738,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "VN" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -25885,7 +25885,7 @@
 /area/lawoffice/representative)
 "Wb" = (
 /obj/effect/shuttle_landmark/ert/dock,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Wc" = (
 /obj/structure/table/wood,
@@ -26048,7 +26048,7 @@
 	dir = 1
 	},
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Wv" = (
 /obj/machinery/shieldwallgen,
@@ -51452,13 +51452,13 @@ iF
 uu
 iF
 Tr
-Tr
-Tr
-Tr
-Tr
-Tr
-Tr
-PF
+TC
+at
+at
+at
+at
+at
+fh
 aa
 Wm
 Wm
@@ -51643,7 +51643,7 @@ at
 at
 at
 at
-at
+fh
 yM
 yM
 yM
@@ -51654,14 +51654,14 @@ yM
 yM
 yM
 yM
-wl
+Sb
+Tr
+Tr
+Tr
+Tr
+Tr
+PF
 aa
-aa
-aa
-aa
-aa
-aa
-Wm
 Wm
 Wm
 Wm
@@ -51862,8 +51862,8 @@ aa
 aa
 aa
 aa
-Wm
-Wm
+aa
+aa
 Wm
 Wm
 Wm

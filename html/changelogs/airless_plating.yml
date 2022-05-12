@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - maptweak: "The plating outside on deck 3 is now airless, which should slightly increase roundstart performance."
