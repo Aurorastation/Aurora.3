@@ -6582,12 +6582,12 @@
 /obj/item/clothing/suit/armor/carrier/generic,
 /obj/item/clothing/suit/armor/carrier/generic,
 /obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/head/hardhat/white,
-/obj/item/clothing/head/hardhat/white,
-/obj/item/clothing/head/hardhat/white,
 /obj/item/clothing/accessory/armband/sec,
 /obj/item/clothing/accessory/armband/sec,
 /obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "mh" = (
@@ -18100,12 +18100,12 @@
 /obj/item/clothing/suit/armor/carrier/generic,
 /obj/item/clothing/suit/armor/carrier/generic,
 /obj/item/clothing/suit/armor/carrier/generic,
-/obj/item/clothing/head/hardhat/white,
-/obj/item/clothing/head/hardhat/white,
-/obj/item/clothing/head/hardhat/white,
 /obj/item/clothing/accessory/armband/sec,
 /obj/item/clothing/accessory/armband/sec,
 /obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "HS" = (
