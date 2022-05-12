@@ -1,0 +1,7 @@
+author: Llywelwyn
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds auto-hiss for Skrell beakmouth, simulating a mouth-full sound. BASIC replaces 's' with 'sch', FULL additionally replaces 'x' with 'ksch'."
+  - backend: "Adds additional functionality to auto-hiss to allow an option for preventing doubling up of substitutions for consecutive letters."
