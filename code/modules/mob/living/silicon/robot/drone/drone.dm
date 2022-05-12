@@ -144,6 +144,9 @@
 		return default_language
 	return all_languages[LANGUAGE_LOCAL_DRONE]
 
+/mob/living/silicon/robot/drone/fall_impact()
+  ..(damage_mod = 0.25) //reduces fall damage by 75%
+
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
 	name = "construction drone"

@@ -483,9 +483,6 @@
 
 	return TRUE
 
-/mob/living/silicon/robot/drone/fall_impact()
-  ..(damage_mod = 0.25)
-
 /mob/living/carbon/human/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
