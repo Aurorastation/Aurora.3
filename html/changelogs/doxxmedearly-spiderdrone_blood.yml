@@ -1,4 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-changes:
-  - bugfix: "Spiderbots now properly spill oil when hit, rather than bleed red."
