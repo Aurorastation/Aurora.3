@@ -36,7 +36,7 @@
 		cell = new celltype(src)
 
 /obj/item/device/suit_cooling_unit/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSmob, src)
 	QDEL_NULL(cell)
 	return ..()
 
