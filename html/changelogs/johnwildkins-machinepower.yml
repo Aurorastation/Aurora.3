@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - refactor: "Refactor power usage to not constantly recalculate every tick, only draw and update when necessary. Should ease server load."
+  - refactor: "Refactor SSmachinery to be much more efficient in regards to processing, removes SSpipenet and SSpower and moves their responsibilities onto SSmachinery."
