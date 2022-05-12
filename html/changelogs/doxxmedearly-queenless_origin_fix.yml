@@ -1,0 +1,4 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Queenless origins for both Zo'ra and K'lax should now provide the proper selections for accents, citizenship, and religion."

@@ -8,7 +8,7 @@
 		/decl/origin_item/origin/vedhra,
 		/decl/origin_item/origin/tupii,
 		/decl/origin_item/origin/mikuetz,
-		/decl/origin_item/origin/queenless
+		/decl/origin_item/origin/queenless_klax
 	)
 
 /decl/origin_item/origin/zkaii
@@ -53,7 +53,7 @@
 	possible_citizenships = list(CITIZENSHIP_IZWESKI)
 	possible_religions = list(RELIGION_PILOTDREAM, RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_OTHER, RELIGION_NONE)
 
-/decl/origin_item/origin/queenless
+/decl/origin_item/origin/queenless_klax
 	name = "Queenless"
 	desc = " A broad descriptor for the unrepresented groups in the Hive. The Breeders of the factions once belonged to forgotten broods or were foreign rulers that fell into the domain of the K'lax. The Yiaa'mak'tzut diaspora and other rebellious K'lax are spread across Izweski territory, Biesel, and even Eridani."
 	possible_accents = list(ACCENT_KLAX, ACCENT_TTS)
