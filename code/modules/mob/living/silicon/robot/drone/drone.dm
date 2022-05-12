@@ -200,6 +200,8 @@
 	module_type = /obj/item/robot_module/drone/construction/matriarch
 	law_type = /datum/ai_laws/matriarch_drone
 	can_swipe = FALSE
+	maxHealth = 50
+	health = 50
 
 	var/matrix_tag
 

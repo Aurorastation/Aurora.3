@@ -462,6 +462,11 @@
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	var/z_velocity = 5*(levels_fallen**2)
+
+	//Since maint drones don't have a fall_mod that can be modified, they will have a check here
+	if(isDrone(src))
+		damage_mod = 0.25
+
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
 
 	apply_damage(damage, BRUTE)
