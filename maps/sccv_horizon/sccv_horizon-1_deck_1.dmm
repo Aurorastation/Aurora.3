@@ -2483,7 +2483,7 @@
 	dir = 9;
 	id = "QMLoad";
 	layer = 2.9;
-	reversed = null
+	reversed = TRUE
 	},
 /obj/machinery/status_display/supply_display{
 	pixel_y = 32
