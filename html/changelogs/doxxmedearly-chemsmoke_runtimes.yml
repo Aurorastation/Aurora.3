@@ -1,0 +1,4 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Fixed an issue with chairs causing runtimes with the scrubbers event."
