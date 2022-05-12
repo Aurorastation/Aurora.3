@@ -317,7 +317,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
 	name = "sanasomnum autoinjector"
-	desc = "A special autoinjector loaded with biomechanical stem cells, inducing a regenerative coma so intense it can heal almost any injury."
+	desc = "A special autoinjector loaded with outlawed biomechanical stem cells, inducing a regenerative coma so intense it can heal almost any injury - even broken bones, organ and brain damage, severed tendons, and arterial damage. Upon use one will fall immediately into a state of unconsciousness lasting roughly three to five minutes, arising completely healed. The only thing it cannot fix are organs that have been destroyed outright, or so much cumulative damage that death is all but certain."
 	volume = 20
 	amount_per_transfer_from_this = 20
 
