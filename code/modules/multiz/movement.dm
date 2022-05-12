@@ -463,10 +463,6 @@
 
 	var/z_velocity = 5*(levels_fallen**2)
 
-	//Since maint drones don't have a fall_mod that can be modified, they will have a check here
-	if(isDrone(src))
-		damage_mod = 0.25
-
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
 
 	apply_damage(damage, BRUTE)
@@ -486,6 +482,9 @@
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
 	return TRUE
+
+/mob/living/silicon/robot/drone/fall_impact()
+  ..(damage_mod = 0.25)
 
 /mob/living/carbon/human/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	// No gravity, stop falling into spess!
