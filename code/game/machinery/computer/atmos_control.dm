@@ -18,7 +18,7 @@
 /obj/machinery/computer/atmoscontrol/laptop
 	name = "Atmospherics Laptop"
 	desc = "A cheap laptop."
-	icon = 'icons/obj/modular_computer.dmi'
+	icon = 'icons/obj/modular_console.dmi'
 	icon_state = "laptop-open"
 	light_color = LIGHT_COLOR_BLUE
 

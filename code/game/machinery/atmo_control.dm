@@ -234,7 +234,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 5) //Just in case we get no new data
 
 /obj/machinery/computer/general_air_control/supermatter_core
-	icon = 'icons/obj/modular_computer.dmi'
+	icon = 'icons/obj/modular_console.dmi'
 
 	frequency = 1438
 	var/input_tag

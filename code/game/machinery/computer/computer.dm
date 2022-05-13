@@ -1,6 +1,6 @@
 /obj/machinery/computer
 	name = "computer"
-	icon = 'icons/obj/modular_computer.dmi'
+	icon = 'icons/obj/modular_console.dmi'
 	icon_state = "computer"
 	density = 1
 	anchored = 1.0
@@ -69,7 +69,7 @@
 		set_light(0)
 		return
 	else
-		set_light(light_range_on, light_power_on, COLOR_CYAN)
+		set_light(light_range_on, light_power_on, light_color)
 
 	icon_state = initial(icon_state)
 
@@ -97,7 +97,7 @@
 	if(stat & NOPOWER)
 		set_light(0)
 	else
-		set_light(light_range_on, light_power_on, COLOR_CYAN)
+		set_light(light_range_on, light_power_on, light_color)
 
 
 /obj/machinery/computer/proc/set_broken()
