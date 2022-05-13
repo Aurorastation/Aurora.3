@@ -15828,9 +15828,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
-"aMo" = (
-/turf/unsimulated/floor,
-/area/centcom/spawning)
 "aMp" = (
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Departures";
@@ -30942,7 +30939,6 @@
 /obj/item/clothing/head/softcap/pmc,
 /obj/item/clothing/head/softcap/pmc,
 /obj/item/clothing/head/softcap/pmc,
- /obj/item/clothing/head/beret/corporate/pmc,
 /obj/item/clothing/under/rank/security/zavod,
 /obj/item/clothing/under/rank/security/zavod,
 /obj/item/clothing/under/rank/security/zavod,
@@ -70323,7 +70319,7 @@ aHA
 aHA
 aHA
 aLT
-aMo
+aJT
 aLT
 aNi
 aNO
@@ -71865,7 +71861,7 @@ aHA
 aHA
 aHA
 aLT
-aMo
+aJT
 aLT
 aNi
 aNO
