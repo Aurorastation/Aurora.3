@@ -415,11 +415,10 @@
 /********** Holodeck Start **********/
 // Holodeck
 /area/horizon/holodeck
-	name = "Horizon - Holodeck"
+	name = "Horizon - Holodeck (PARENT AREA - DON'T USE)"
 	icon_state = "Holodeck"
 	sound_env = LARGE_ENCLOSED
 	no_light_control = TRUE
-	station_area = TRUE
 	dynamic_lighting = FALSE
 	flags = RAD_SHIELDED | NO_GHOST_TELEPORT_ACCESS
 
