@@ -26376,6 +26376,7 @@
 /obj/structure/ladder/up{
 	pixel_y = 16
 	},
+/obj/item/hullbeacon/red,
 /turf/space/dynamic,
 /area/template_noop)
 "vHR" = (
@@ -28156,6 +28157,11 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
+"xiV" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/space/dynamic,
+/area/template_noop)
 "xjq" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -51916,10 +51922,10 @@ wuD
 nDI
 nDI
 nDI
+xiV
 kVe
 kVe
-kVe
-kVe
+xiV
 eSV
 eSV
 eSV
@@ -53326,8 +53332,8 @@ tsD
 tsD
 tsD
 tsD
-drU
-drU
+tsD
+tsD
 drU
 drU
 drU
@@ -53535,7 +53541,7 @@ kVe
 kVe
 kVe
 kVe
-kVe
+xiV
 eSV
 eSV
 eSV
