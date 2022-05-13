@@ -30187,8 +30187,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "qOM" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "qPn" = (
 /obj/machinery/door/airlock/mining{
@@ -42781,9 +42780,11 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "xwU" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/port)
 "xxa" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -66906,7 +66907,7 @@ buh
 tSa
 buh
 eZm
-xwU
+eZm
 jaK
 mHh
 dnn
@@ -67920,8 +67921,8 @@ pjK
 mJJ
 cLD
 xjN
-gOL
 qOM
+xwU
 qOM
 kgp
 kgp
