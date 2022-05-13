@@ -2497,7 +2497,7 @@
 	dir = 9;
 	id = "QMLoad";
 	layer = 2.9;
-	reversed = null
+	reversed = TRUE
 	},
 /obj/machinery/status_display/supply_display{
 	pixel_y = 32
@@ -3742,6 +3742,21 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"cWa" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/ladder/up{
+	pixel_y = 16
+	},
+/obj/item/hullbeacon/red,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/space/dynamic,
+/area/template_noop)
 "cWd" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/firedoor,
@@ -16859,7 +16874,7 @@
 "nAT" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Storage";
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -18084,8 +18099,14 @@
 /turf/simulated/wall,
 /area/outpost/mining_main/eva)
 "oOI" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/template_noop,
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/space/dynamic,
 /area/template_noop)
 "oPL" = (
 /obj/structure/table/steel,
@@ -25057,7 +25078,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Storage";
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
@@ -43330,10 +43351,10 @@ eSV
 eSV
 eSV
 eSV
-oOI
-oOI
-oOI
-oOI
+kVe
+kVe
+kVe
+kVe
 eSV
 eSV
 eSV
@@ -43532,7 +43553,7 @@ eSV
 eSV
 eSV
 eSV
-oOI
+kVe
 awJ
 auF
 eBb
@@ -43734,7 +43755,7 @@ eSV
 eSV
 eSV
 eSV
-oOI
+kVe
 dGu
 xWM
 dGu
@@ -44614,8 +44635,8 @@ jEx
 suw
 jEx
 xGF
-eSV
-eSV
+oOI
+cWa
 eSV
 eSV
 eSV

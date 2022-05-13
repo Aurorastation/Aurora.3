@@ -367,6 +367,12 @@
 	for(var/obj/structure/window/W in view(7))
 		W.shatter()
 
+	for(var/obj/machinery/door/window/WD in view(7))
+		if(get_dist(src, WD) > 5) //Windoors are strong, may only take damage instead of break if far away.
+			WD.take_damage(rand(12, 16) * 10)
+		else
+			WD.shatter()
+
 	for(var/obj/machinery/light/L in view(7))
 		L.broken()
 

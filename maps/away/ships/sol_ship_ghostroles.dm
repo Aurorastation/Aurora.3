@@ -196,23 +196,17 @@
 /datum/outfit/admin/fsf_navy_officer/get_id_access()
 	return list(access_sol_ships, access_external_airlocks)
 
-/datum/ghostspawner/human/fsf_navy_senior_crewman
+/datum/ghostspawner/human/fsf_navy_crewman/senior
 	short_name = "fsf_navy_senior_crewman"
 	name = "FSF Navy Senior Crewman"
 	desc = "Serve as the second-in-command of the Free Solarian Fleets patrol corvette. Look for work, or some other source of income."
-	tags = list("External")
 	mob_name_prefix = "PO1. "
 
 	spawnpoints = list("fsf_navy_crewman")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/fsf_navy_crewman
-	possible_species = list(SPECIES_HUMAN)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-
 	assigned_role = "FSF Navy Senior Crewman"
 	special_role = "FSF Navy Senior Crewman"
-	respawn_flag = null
 
 //items
 

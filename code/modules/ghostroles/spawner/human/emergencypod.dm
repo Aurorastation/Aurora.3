@@ -149,18 +149,22 @@
 /datum/outfit/admin/pod/rep
 	name = "RescuePod - IdrisRep"
 
-	uniform = /obj/item/clothing/under/rank/idris
+	head = /obj/item/clothing/head/beret/corporate/idris
+	uniform = /obj/item/clothing/under/rank/liaison/idris
+	suit = /obj/item/clothing/suit/storage/liaison/idris
 	id = /obj/item/card/id/idris
 	pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	l_hand =  /obj/item/storage/briefcase
+	accessory = /obj/item/clothing/accessory/tie/corporate/idris
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate/idris
 	backpack_contents = list(
-		/obj/item/clothing/head/beret/centcom/liaison = 1,
 		/obj/item/device/camera = 1,
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/device/oxycandle = 1,
-		/obj/item/airbubble = 1
+		/obj/item/airbubble = 1,
+		/obj/item/stamp/idris = 1
 	)
 
 /datum/outfit/admin/pod/rep/get_id_assignment()
@@ -231,7 +235,7 @@
 
 
 /datum/outfit/admin/pod/pmc
-	name = "RescuePod - EPMC Sergeant"
+	name = "RescuePod - PMCG Sergeant"
 	head = /obj/item/clothing/head/helmet/space/void/cruiser
 	suit = /obj/item/clothing/suit/space/void/cruiser
 	suit_store = /obj/item/tank/oxygen
@@ -239,10 +243,10 @@
 	id = /obj/item/card/id/pmc
 	pda = /obj/item/modular_computer/handheld/pda/security
 	belt = /obj/item/gun/energy/gun/nuclear
-	uniform = /obj/item/clothing/under/rank/security/eridani
+	uniform = /obj/item/clothing/under/rank/security/pmc
 
 /datum/outfit/admin/pod/pmc/get_id_assignment()
-	return "Security Officer (EPMC)"
+	return "Security Officer (PMCG)"
 
 /datum/outfit/admin/pod/pmc/get_id_rank()
 	return "Security Officer"
