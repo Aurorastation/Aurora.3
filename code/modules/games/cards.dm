@@ -1,5 +1,6 @@
 /datum/playingcard
 	var/name = "playing card"
+	var/desc = null
 	var/card_icon = "card_back"
 	var/back_icon = "card_back"
 
@@ -277,7 +278,10 @@
 	if((!concealed || src.loc == user) && cards.len)
 		to_chat(user, "It contains: ")
 		for(var/datum/playingcard/P in cards)
-			to_chat(user, "The [P.name].")
+			if(P.desc)
+				to_chat(user, "The [P.name]. <i>[P.desc]</i>")
+			else
+				to_chat(user, "The [P.name].")
 
 /obj/item/hand/update_icon(var/direction = 0)
 
