@@ -38,15 +38,14 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			if(isvaurca(H))
-				rep_objectives = pick("Assist K'laxan Nanotrasen personnel with their avowal process",
-								"Obtain [rand(2,3)] sheets of solid phoron below market value, buying directly from the source")
+				rep_objectives = pick("Obtain [rand(2,3)] sheets of solid phoron below market value, buying directly from the source")
 			else
 				rep_objectives = pick("Encourage [rand(1,2)] Unathi to become Zo'saa by signing up with the local Order",
 								"Gather [rand(2,3)] evidences of any marginalization of Unathi beliefs")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			if(isvaurca(H))
-				rep_objectives = pick("Collect evidence of Nanotrasen being unfair or bigoted to Vaurca or Unathi Employees, to be used as leverage in future labor negotiations",
+				rep_objectives = pick("Collect evidence of the Stellar Corporate Conglomerate being unfair or bigoted to Vaurca or Unathi Employees, to be used as leverage in future labor negotiations",
 								"Upsell K'laxan Vaurca to different command staff. Have one complete a Bound Vaurca requisition form")
 			else
 				rep_objectives = pick("Speak out against any violation of the Honor Code to or by Unathi on station",
