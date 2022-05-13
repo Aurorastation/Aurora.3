@@ -132,7 +132,7 @@
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/pmc
 	suit = /obj/item/clothing/suit/storage/medical_chest_rig
 	suit_store = /obj/item/clothing/head/hardhat/first_responder
-	head = /obj/item/clothing/head/softcap/medical/pmc
+	head = /obj/item/clothing/head/softcap/pmc/alt
 	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
 	gloves = /obj/item/clothing/gloves/latex/nitrile
