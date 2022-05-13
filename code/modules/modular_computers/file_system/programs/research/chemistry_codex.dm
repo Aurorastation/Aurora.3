@@ -1,8 +1,8 @@
 /datum/computer_file/program/chemistry_codex
 	filename = "chemcodex"
 	filedesc = "Chemistry Codex"
-	program_icon_state = "generic"
-	program_key_icon_state = "green_key"
+	program_icon_state = "medcomp"
+	program_key_icon_state = "teal_key"
 	extended_desc = "Useful program to view chemical reactions and how to make them."
 	size = 14
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE

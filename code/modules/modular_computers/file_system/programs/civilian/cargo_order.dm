@@ -10,6 +10,8 @@
 
 /datum/nano_module/program/civilian/cargoorder
 	name = "Cargo Order"
+	program_icon_state = "request"
+	program_key_icon_state = "yellow_key"
 	var/page = "main" //main - Main Menu, order - Order Page, item_details - Item Details Page, tracking - Tracking Page
 	var/selected_category = "" // Category that is currently selected
 	var/selected_item = "" // Path of the currently selected item

@@ -1,7 +1,7 @@
 /datum/computer_file/program/atmos
 	filename = "atmos"
 	filedesc = "Atmosphere Sensor"
-	program_icon_state = "atmos_control"
+	program_icon_state = "tank"
 	program_key_icon_state = "cyan_key"
 	extended_desc = "This program is for viewing local atmospheric data."
 	size = 2
