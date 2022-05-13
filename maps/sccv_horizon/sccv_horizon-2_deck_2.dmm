@@ -2792,7 +2792,7 @@
 	dir = 4;
 	icon_state = "map_on";
 	name = "Distro to Trays";
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /mob/living/bot/farmbot,
 /turf/simulated/floor/tiled/dark,
@@ -14793,7 +14793,7 @@
 	id_tag = "cooling_out";
 	initialize_directions = 1;
 	pump_direction = 0;
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/greengrid/nitrogen{
 	icon = 'icons/turf/flooring/plating.dmi';
@@ -19090,7 +19090,7 @@
 	name = "Coolant Injector";
 	pixel_y = 1;
 	power_rating = 30000;
-	use_power = POWER_USE_IDLE;
+	use_power = 1;
 	volume_rate = 700
 	},
 /turf/simulated/floor/greengrid/nitrogen{
@@ -21591,7 +21591,7 @@
 	icon_state = "freezer_1";
 	power_setting = 20;
 	set_temperature = 80;
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Server Room"
@@ -21930,7 +21930,7 @@
 "muQ" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	icon_state = "map_vent_out";
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -28049,7 +28049,7 @@
 	pressure_checks = 2;
 	pressure_checks_default = 2;
 	pump_direction = 0;
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";

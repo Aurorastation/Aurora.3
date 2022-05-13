@@ -4106,7 +4106,7 @@
 	frequency = 1441;
 	id = "mixed_in";
 	name = "mixed gas injector";
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
@@ -9107,7 +9107,7 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
 	name = "Waste to Filtering";
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -11510,7 +11510,7 @@
 	frequency = 1441;
 	id = "ph_in";
 	name = "phoron injector";
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
@@ -13232,7 +13232,7 @@
 	frequency = 1441;
 	id = "n2o_in";
 	name = "nitrous oxide injector";
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos/air)
@@ -13804,7 +13804,7 @@
 	frequency = 1441;
 	id = "o2_in";
 	name = "oxygen injector";
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
@@ -14769,7 +14769,7 @@
 	pressure_checks = 2;
 	pressure_checks_default = 2;
 	pump_direction = 0;
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
@@ -15916,7 +15916,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
 	id = "air_in";
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos/air)
@@ -22783,7 +22783,7 @@
 	frequency = 1441;
 	id = "co2_in";
 	name = "carbon dioxide injector";
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmos)
@@ -23685,7 +23685,7 @@
 	frequency = 1441;
 	id = "n_in";
 	name = "nitrogen injector";
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
@@ -25336,7 +25336,7 @@
 "uJE" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/binary/pump{
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/hangar/starboard)
@@ -28915,7 +28915,7 @@
 	frequency = 1441;
 	id = "h_in";
 	name = "hydrogen injector";
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)

@@ -16994,7 +16994,7 @@
 	icon_state = "map_vent_out";
 	pressure_checks = 0;
 	pressure_checks_default = 0;
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
@@ -19109,7 +19109,7 @@
 /obj/machinery/atmospherics/unary/freezer{
 	dir = 1;
 	icon_state = "freezer_1";
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32
@@ -20493,7 +20493,7 @@
 	pressure_checks = 2;
 	pressure_checks_default = 2;
 	pump_direction = 0;
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/spline/plain{

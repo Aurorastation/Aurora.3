@@ -789,7 +789,7 @@
 	dir = 4;
 	icon_state = "map_on";
 	target_pressure = 150;
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
@@ -8029,7 +8029,7 @@
 /obj/machinery/atmospherics/binary/pump{
 	icon_state = "map_on";
 	target_pressure = 150;
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering_ladder)
@@ -8856,7 +8856,7 @@
 "Jq" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8;
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -10320,7 +10320,7 @@
 "QJ" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8;
-	use_power = POWER_USE_IDLE
+	use_power = 1
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
