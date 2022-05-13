@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes the holodeck not being radiation shielded."
+  - backend: "Makes the Horizon's holodeck and its templates' areas relative to the Horizon map."
