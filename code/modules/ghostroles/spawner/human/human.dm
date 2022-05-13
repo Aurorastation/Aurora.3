@@ -118,6 +118,9 @@
 
 	M.fully_replace_character_name(M.real_name, mname)
 
+	M.mind.signature = mname
+	M.mind.signfont = pick("Verdana", "Times New Roman", "Courier New")
+
 	if(!age)
 		age = rand(35, 50)
 	M.age = Clamp(age, 21, 65)

@@ -63,7 +63,6 @@
 
 	uniform = /obj/item/clothing/under/rank/machinist/heph
 	id = /obj/item/card/id/hephaestus
-	suit = null
 
 /datum/outfit/job/mining/hephaestus
 	name = "Shaft Miner - Hephaestus"
@@ -91,11 +90,14 @@
 
 /datum/outfit/job/representative/hephaestus
 	name = "Hephaestus Corporate Liaison"
-	uniform = /obj/item/clothing/under/rank/hephaestus
-	head = null
-	suit = null
+
+	head = /obj/item/clothing/head/beret/corporate/heph
+	uniform = /obj/item/clothing/under/rank/liaison/heph
+	suit = /obj/item/clothing/suit/storage/liaison/heph
 	implants = null
 	id = /obj/item/card/id/hephaestus
+	accessory = /obj/item/clothing/accessory/tie/corporate/heph
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate/heph
 
 	backpack_contents = list(
 		/obj/item/device/camera = 1,

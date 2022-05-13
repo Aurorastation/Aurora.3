@@ -454,13 +454,13 @@
 
 /datum/gear/accessory/TCFLcard
 	display_name = "TCFL service cards"
-	description = "Identification cards given to active and former members of the Tau Ceti Foreign Legion."
+	description = "Identification cards given to reservists and former members of the Tau Ceti Foreign Legion."
 	path = /obj/item/clothing/accessory/badge/tcfl_papers
 
 /datum/gear/accessory/TCFLcard/New()
 	..()
 	var/list/TCFLcard = list()
-	TCFLcard["active service"] = /obj/item/clothing/accessory/badge/tcfl_papers/service
+	TCFLcard["reservist"] = /obj/item/clothing/accessory/badge/tcfl_papers/service/reservist
 	TCFLcard["veteran"] = /obj/item/clothing/accessory/badge/tcfl_papers/service/veteran
 	gear_tweaks += new /datum/gear_tweak/path(TCFLcard)
 

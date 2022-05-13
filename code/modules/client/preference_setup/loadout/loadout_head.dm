@@ -25,7 +25,6 @@
 	bandanas["bandana, red"] = /obj/item/clothing/head/bandana/red
 	bandanas["bandana, captain"] = /obj/item/clothing/head/bandana/captain
 	bandanas["bandana, security"] = /obj/item/clothing/head/bandana/security
-	bandanas["bandana, security (corporate)"] = /obj/item/clothing/head/bandana/security/corp
 	bandanas["bandana, science"] = /obj/item/clothing/head/bandana/science
 	bandanas["bandana, medical"] = /obj/item/clothing/head/bandana/medical
 	bandanas["bandana, engineering"] = /obj/item/clothing/head/bandana/engineering
@@ -56,7 +55,6 @@
 	softcaps["softcap, red"] = /obj/item/clothing/head/softcap/red
 	softcaps["softcap, captain"] = /obj/item/clothing/head/softcap/captain
 	softcaps["softcap, security"] = /obj/item/clothing/head/softcap/security
-	softcaps["softcap, security (corporate)"] = /obj/item/clothing/head/softcap/security/corp
 	softcaps["softcap, science"] = /obj/item/clothing/head/softcap/science
 	softcaps["softcap, medical"] = /obj/item/clothing/head/softcap/medical
 	softcaps["softcap, engineering"] = /obj/item/clothing/head/softcap/engineering
@@ -87,7 +85,6 @@
 	berets["beret, red"] = /obj/item/clothing/head/beret/red
 	berets["beret, captain"] = /obj/item/clothing/head/beret/captain
 	berets["beret, security"] = /obj/item/clothing/head/beret/security
-	berets["beret, security (corporate)"] = /obj/item/clothing/head/beret/security/corp
 	berets["beret, science"] = /obj/item/clothing/head/beret/science
 	berets["beret, medical"] = /obj/item/clothing/head/beret/medical
 	berets["beret, engineering"] = /obj/item/clothing/head/beret/engineering
@@ -113,10 +110,10 @@
 /datum/gear/head/warden/New()
 	..()
 	var/list/wardenhead = list()
-	wardenhead["warden hat, standard"] = /obj/item/clothing/head/warden
-	wardenhead["warden hat, corporate"] = /obj/item/clothing/head/warden/corp
-	wardenhead["warden beret, standard"] = /obj/item/clothing/head/beret/security/warden
-	wardenhead["warden beret, corporate"] = /obj/item/clothing/head/beret/security/warden/corp
+	wardenhead["warden hat, zavod"] = /obj/item/clothing/head/warden
+	wardenhead["warden hat, idris"] = /obj/item/clothing/head/warden/idris
+	wardenhead["warden hat, pmc"] = /obj/item/clothing/head/warden/pmc
+	wardenhead["warden beret"] = /obj/item/clothing/head/beret/security/warden
 	gear_tweaks += new /datum/gear_tweak/path(wardenhead)
 
 /datum/gear/head/hos
@@ -128,10 +125,8 @@
 /datum/gear/head/hos/New()
 	..()
 	var/list/hoshead = list()
-	hoshead["head of security hat, standard"] = /obj/item/clothing/head/hos
-	hoshead["head of security hat, corporate"] = /obj/item/clothing/head/hos/corp
-	hoshead["head of security beret, standard"] = /obj/item/clothing/head/beret/security/hos
-	hoshead["head of security beret, corporate"] = /obj/item/clothing/head/beret/security/hos/corp
+	hoshead["head of security hat"] = /obj/item/clothing/head/hos
+	hoshead["head of security beret"] = /obj/item/clothing/head/beret/security/hos
 	gear_tweaks += new /datum/gear_tweak/path(hoshead)
 
 /datum/gear/head/hardhat
@@ -266,16 +261,17 @@
 
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
-	path = /obj/item/clothing/head/surgery/blue
+	path = /obj/item/clothing/head/surgery/pmc
 	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
 
 /datum/gear/head/surgical/New()
 	..()
 	var/list/surgical = list()
-	surgical["surgical cap, purple"] = /obj/item/clothing/head/surgery/purple
-	surgical["surgical cap, blue"] = /obj/item/clothing/head/surgery/blue
-	surgical["surgical cap, green"] = /obj/item/clothing/head/surgery/green
-	surgical["surgical cap, black"] = /obj/item/clothing/head/surgery/black
+	surgical["surgical cap, nanotrasen navy blue"] = /obj/item/clothing/under/rank/medical/surgeon/zeng
+	surgical["surgical cap, zeng-hu purple"] = /obj/item/clothing/under/rank/medical/surgeon/zeng
+	surgical["surgical cap, PMCG blue"] = /obj/item/clothing/head/surgery/pmc
+	surgical["surgical cap, zavodskoi black"] = /obj/item/clothing/under/rank/medical/surgeon/zavod
+	surgical["surgical cap, idris green"] = /obj/item/clothing/under/rank/medical/surgeon/idris
 	gear_tweaks += new /datum/gear_tweak/path(surgical)
 
 /datum/gear/head/headbando

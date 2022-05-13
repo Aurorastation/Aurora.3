@@ -79,9 +79,9 @@
 
 /obj/item/mech_component/chassis/Initialize()
 	. = ..()
-	cockpit = new(20)
+	cockpit = new
 	if(loc)
-		cockpit.equalize(loc.return_air())
+		cockpit.copy_from(loc.return_air())
 	air_supply = new /obj/machinery/portable_atmospherics/canister/air(src)
 
 /obj/item/mech_component/chassis/proc/update_air(var/take_from_supply)

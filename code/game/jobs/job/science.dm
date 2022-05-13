@@ -11,7 +11,11 @@
 	selection_color = "#a44799"
 	economic_modifier = 15
 
-	minimum_character_age = 35
+	minimum_character_age = list(
+		SPECIES_HUMAN = 35,
+		SPECIES_SKRELL = 80,
+		SPECIES_SKRELL_AXIORI = 80
+	)
 
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
@@ -24,7 +28,11 @@
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network,
 			            access_maint_tunnels, access_it)
 	minimal_player_age = 14
-	ideal_character_age = 50
+	ideal_character_age = list(
+		SPECIES_HUMAN = 50,
+		SPECIES_SKRELL = 100,
+		SPECIES_SKRELL_AXIORI = 100
+	)
 	outfit = /datum/outfit/job/rd
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
@@ -66,7 +74,11 @@
 	selection_color = "#a44799"
 	economic_modifier = 7
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
@@ -81,8 +93,8 @@
 	name = "Scientist"
 	jobtype = /datum/job/scientist
 
-	uniform = /obj/item/clothing/under/rank/scientist/nt
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
+	uniform = /obj/item/clothing/under/rank/scientist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/science
 	id = /obj/item/card/id/white
 
@@ -102,7 +114,7 @@
 
 /datum/outfit/job/scientist/xenoarcheologist
     name = "Xenoarcheologist"
-    uniform = /obj/item/clothing/under/rank/xenoarcheologist/nt
+    uniform = /obj/item/clothing/under/rank/xenoarcheologist
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
@@ -116,7 +128,11 @@
 	selection_color = "#a44799"
 	economic_modifier = 7
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology)
 	minimal_access = list(access_research, access_xenobiology, access_tox_storage)
@@ -125,12 +141,17 @@
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
+	alt_outfits = list("Xenobotanist" = /datum/outfit/job/scientist/xenobiologist/botany)
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
 	uniform = /obj/item/clothing/under/rank/scientist/xenobio
 	jobtype = /datum/job/xenobiologist
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
+
+/datum/outfit/job/scientist/xenobiologist/botany
+	name = "Xenobotanist"
+	uniform = /obj/item/clothing/under/rank/scientist/botany
 
 /datum/job/intern_sci
 	title = "Lab Assistant"
@@ -151,7 +172,7 @@
 	name = "Lab Assistant"
 	jobtype = /datum/job/intern_sci
 
-	uniform = /obj/item/clothing/under/rank/scientist/intern/nt
+	uniform = /obj/item/clothing/under/rank/scientist/intern
 	shoes = /obj/item/clothing/shoes/science
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
