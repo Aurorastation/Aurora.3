@@ -1194,7 +1194,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return FALSE
 	if(parent && (parent.tendon_status() & TENDON_CUT))
 		return FALSE
-	if(can_feel_pain() && get_pain() > pain_disability_threshold)
+	if(get_pain() > pain_disability_threshold)
 		return FALSE
 	if(brute_ratio > 1)
 		return FALSE
@@ -1444,7 +1444,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 // Pain/halloss
 /obj/item/organ/external/proc/get_pain()
-	if(!can_feel_pain() || BP_IS_ROBOTIC(src))
+	if(!ORGAN_CAN_FEEL_PAIN(src) || BP_IS_ROBOTIC(src))
 		return 0
 	. = pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.5 * get_genetic_damage()
 	if(is_broken())
@@ -1455,7 +1455,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		. += 0.3 * I.getToxLoss()
 
 /obj/item/organ/external/proc/remove_pain(var/amount)
-	if(!can_feel_pain())
+	if(!ORGAN_CAN_FEEL_PAIN(src))
 		pain = 0
 		return
 	var/last_pain = pain
@@ -1463,7 +1463,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return -(pain-last_pain)
 
 /obj/item/organ/external/proc/add_pain(var/amount)
-	if(!can_feel_pain())
+	if(!ORGAN_CAN_FEEL_PAIN(src))
 		pain = 0
 		return
 	var/last_pain = pain
