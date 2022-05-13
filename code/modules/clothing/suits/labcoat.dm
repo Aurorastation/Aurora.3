@@ -34,8 +34,6 @@
 	desc = "A suit that protects against minor chemical spills. Has a purple stripe on the shoulder."
 	icon_state = "labcoat_sci"
 
-
-
 /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	name = "nt labcoat"
 	icon_state = "labcoat_nt"

@@ -42,9 +42,10 @@
 	var/list/all_underwear_metadata = list()
 	var/list/hide_underwear = list()
 	var/backbag = OUTFIT_BACKPACK		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
-	var/backbag_style = 1
+	var/backbag_style = OUTFIT_NOTHING
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
+	var/suit_choice = OUTFIT_SUIT
 
 	var/last_chew = 0 // Used for hand chewing
 

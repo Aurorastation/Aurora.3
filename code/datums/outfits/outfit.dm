@@ -33,6 +33,8 @@
 #define OUTFIT_DOUBLE 4
 #define OUTFIT_WRISTRAD 5
 
+#define OUTFIT_SUIT 2
+
 /datum/outfit
 	var/name = "Naked"
 	var/collect_not_del = FALSE
@@ -104,6 +106,8 @@
 	var/bowman = /obj/item/device/radio/headset/alt
 	var/double_headset = /obj/item/device/radio/headset/alt/double
 	var/wrist_radio = /obj/item/device/radio/headset/wrist
+
+	var/allow_suit_choice = FALSE
 
 	var/id_iff = IFF_DEFAULT // when spawning in, the ID will be set to this iff, preventing friendly fire
 
@@ -182,9 +186,15 @@
 				l_ear = headset //Department headset
 	if(l_ear)
 		equip_item(H, l_ear, slot_l_ear)
-	else if (wrist)
+	if(wrist)
 		equip_item(H, wrist, slot_wrists)
 
+	if(allow_suit_choice)
+		switch(H.suit_choice)
+			if (OUTFIT_NOTHING)
+				suit = null
+	if(suit)
+		equip_item(H, suit, slot_wear_suit)
 	return
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.

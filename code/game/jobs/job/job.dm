@@ -205,6 +205,7 @@
 	allow_backbag_choice = TRUE
 	allow_pda_choice = TRUE
 	allow_headset_choice = TRUE
+	allow_suit_choice = TRUE
 	var/jobtype = null
 
 	uniform = /obj/item/clothing/under/color/grey

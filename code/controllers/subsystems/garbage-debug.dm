@@ -315,6 +315,7 @@
 	SearchVar(backbaglist)
 	SearchVar(pdalist)
 	SearchVar(headsetlist)
+	SearchVar(suitlist)
 	SearchVar(exclude_jobs)
 	SearchVar(visual_nets)
 	SearchVar(cameranet)

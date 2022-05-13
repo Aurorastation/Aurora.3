@@ -46,6 +46,7 @@ datum/preferences
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 	var/primary_radio_slot = "Left Ear"
+	var/suit_choice = OUTFIT_SUIT
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
@@ -501,6 +502,12 @@ datum/preferences
 		headset_choice = OUTFIT_HEADSET
 
 	character.headset_choice = headset_choice
+
+
+	if(suit_choice > OUTFIT_SUIT || suit_choice < OUTFIT_NOTHING)
+		suit_choice = OUTFIT_SUIT
+
+	character.suit_choice = suit_choice
 
 	if(icon_updates)
 		character.force_update_limbs()

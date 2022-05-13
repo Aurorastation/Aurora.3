@@ -14,6 +14,7 @@
 	S["pda_choice"] >> pref.pda_choice
 	S["headset_choice"] >> pref.headset_choice
 	S["primary_radio_slot"] >> pref.primary_radio_slot
+	S["suit_choice"] >> pref.suit_choice
 
 /datum/category_item/player_setup_item/general/equipment/save_character(var/savefile/S)
 	S["all_underwear"] << pref.all_underwear
@@ -23,6 +24,7 @@
 	S["pda_choice"] << pref.pda_choice
 	S["headset_choice"] << pref.headset_choice
 	S["primary_radio_slot"] << pref.primary_radio_slot
+	S["suit_choice"] << pref.suit_choice
 
 /datum/category_item/player_setup_item/general/equipment/gather_load_query()
 	return list(
@@ -34,7 +36,8 @@
 				"backbag_style",
 				"pda_choice",
 				"headset_choice",
-				"primary_radio_slot"
+				"primary_radio_slot",
+				"suit_choice"
 			),
 			"args" = list("id")
 		)
@@ -53,6 +56,7 @@
 			"pda_choice",
 			"headset_choice",
 			"primary_radio_slot",
+			"suit_choice",
 			"id" = 1,
 			"ckey" = 1
 		)
@@ -67,6 +71,7 @@
 		"pda_choice" = pref.pda_choice,
 		"headset_choice" = pref.headset_choice,
 		"primary_radio_slot" = pref.primary_radio_slot,
+		"suit_choice" = pref.suit_choice,
 		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
 	)
@@ -77,6 +82,7 @@
 		pref.backbag_style = text2num(pref.backbag_style)
 		pref.pda_choice = text2num(pref.pda_choice)
 		pref.headset_choice = text2num(pref.headset_choice)
+		pref.suit_choice = text2num(pref.suit_choice)
 		if(istext(pref.all_underwear))
 			var/before = pref.all_underwear
 			try
@@ -121,6 +127,7 @@
 	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
 	pref.pda_choice = sanitize_integer(pref.pda_choice, 1, pdalist.len, initial(pref.pda_choice))
 	pref.headset_choice	= sanitize_integer(pref.headset_choice, 1, headsetlist.len, initial(pref.headset_choice))
+	pref.suit_choice = sanitize_integer(pref.suit_choice, 1, suitlist.len, initial(pref.suit_choice))
 	if(!(pref.primary_radio_slot in primary_radio_slot_choice))
 		pref.primary_radio_slot = primary_radio_slot_choice[1]
 
@@ -143,6 +150,7 @@
 	. += "PDA Type: <a href='?src=\ref[src];change_pda=1'><b>[pdalist[pref.pda_choice]]</b></a><br>"
 	. += "Headset Type: <a href='?src=\ref[src];change_headset=1'><b>[headsetlist[pref.headset_choice]]</b></a><br>"
 	. += "Primary Radio Slot: <a href='?src=\ref[src];change_radio_slot=1'><b>[pref.primary_radio_slot]</b></a><br>"
+	. += "Suit Style: <a href='?src=\ref[src];change_suit=1'><b>[suitlist[pref.suit_choice]]</b></a><br>"
 
 	return jointext(., null)
 
@@ -188,9 +196,15 @@
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_radio_slot"])
-		var/new_slot = input(user, "Choose which radio will be spoken into first if multiple slots are occupied.", "Charcter Preference", pref.primary_radio_slot) as null|anything in primary_radio_slot_choice
+		var/new_slot = input(user, "Choose which radio will be spoken into first if multiple slots are occupied.", "Character Preference", pref.primary_radio_slot) as null|anything in primary_radio_slot_choice
 		if(!isnull(new_slot) && CanUseTopic(user))
 			pref.primary_radio_slot = new_slot
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["change_suit"])
+		var/new_suit = input(user, "Choose your character's style of suit.", "Character Preference", suitlist[pref.suit_choice]) as null|anything in suitlist
+		if(!isnull(new_suit) && CanUseTopic(user))
+			pref.suit_choice = suitlist.Find(new_suit)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_underwear"])

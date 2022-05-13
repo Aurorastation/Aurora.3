@@ -69,6 +69,9 @@ var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged
 //Headset choice
 var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio")
 
+//Suit choice
+var/global/list/suitlist = list("Nothing", "Standard")
+
 // Primary Radio Slot choice
 var/global/list/primary_radio_slot_choice = list("Left Ear", "Right Ear", "Wrist")
 
@@ -242,4 +245,3 @@ var/global/list/paramslist_cache = list()
 	for(var/i in 1 to L.len)
 		L[i] = text2num(L[i])
 	return L
-
