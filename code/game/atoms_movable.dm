@@ -328,7 +328,7 @@
 			loc.Exited(src)
 		var/old_loc = loc
 		loc = destination
-		loc.Entered(src, loc)
+		loc.Entered(src, old_loc)
 		if (contained_mobs)
 			update_client_hook(loc)
 		return 1
