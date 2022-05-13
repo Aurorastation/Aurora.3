@@ -135,7 +135,7 @@ proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/
 		return TRUE
 
 	// Otherwise we can make a start on surgery!
-	else if(istype(M) && !QDELETED(M) && user.get_active_hand() == tool)
+	else if(istype(M) && !QDELETED(M) && tool)
 		// Double-check this in case it changed between initial check and now.
 		if(zone in M.op_stage.in_progress)
 			to_chat(user, SPAN_WARNING("You can't operate on this area while surgery is already in progress."))

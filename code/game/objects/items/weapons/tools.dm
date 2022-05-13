@@ -336,17 +336,17 @@
 	if(W.isscrewdriver())
 		if(isrobot(loc))
 			to_chat(user, SPAN_ALERT("You cannot modify your own welder!"))
-			return
+			return TRUE
 		if(welding)
 			to_chat(user, SPAN_DANGER("Stop welding first!"))
-			return
+			return TRUE
 		status = !status
 		if(status)
 			to_chat(user, SPAN_NOTICE("You secure the welder."))
 		else
 			to_chat(user, SPAN_NOTICE("The welder can now be attached and modified."))
 		add_fingerprint(user)
-		return
+		return TRUE
 
 	if(!status && (istype(W, /obj/item/stack/rods)))
 		var/obj/item/stack/rods/R = W
@@ -355,10 +355,9 @@
 		user.drop_from_inventory(src)
 		var/obj/item/flamethrower/F = new /obj/item/flamethrower(get_turf(src), src)
 		user.put_in_hands(F)
-		return
+		return TRUE
 
-	..()
-	return
+	return ..()
 
 /obj/item/weldingtool/process()
 	if(welding)
@@ -607,26 +606,26 @@
 	if(istype(I, /obj/item/eyeshield))
 		if(eyeshield)
 			to_chat(user, SPAN_WARNING("\The [src] already has an eye shield installed!"))
-			return
+			return TRUE
 		user.drop_from_inventory(I, src)
 		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
 		eyeshield = I
 		add_overlay("eyeshield_attached", TRUE)
-		return
+		return TRUE
 	if(istype(I, /obj/item/overcapacitor))
 		if(overcap)
 			to_chat(user, SPAN_WARNING("\The [src] already has an overcapacitor installed!"))
-			return
+			return TRUE
 		user.drop_from_inventory(I, src)
 		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
 		overcap = I
 		add_overlay("overcap_attached", TRUE)
 		toolspeed *= 2
-		return
+		return TRUE
 	if(I.isscrewdriver())
 		if(!eyeshield && !overcap)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any accessories to remove!"))
-			return
+			return TRUE
 		var/list/accessories = list()
 		if(eyeshield)
 			var/image/radial_button = image(icon = src.icon, icon_state = "eyeshield")
@@ -644,11 +643,11 @@
 				overcap = null
 				toolspeed *= 0.5
 		if(!remove_accessory)
-			return
+			return TRUE
 		user.put_in_hands(remove_accessory)
 		to_chat(user, SPAN_NOTICE("You remove \the [remove_accessory] into \the [src]."))
 		cut_overlay("[remove_accessory.icon_state]_attached", TRUE)
-		return
+		return TRUE
 	return ..()
 
 //Make sure the experimental tool only stops processing when its turned off AND full
@@ -916,12 +915,14 @@
 /obj/item/steelwool/attackby(obj/item/W, mob/user)
 	if(W.isFlameSource())
 		ignite(W, user)
+		return TRUE
 	else if(istype(W, /obj/item/cell))
 		var/obj/item/cell/S = W
 		if(S.charge)
 			ignite(W, user)
 		else
 			to_chat(user, SPAN_WARNING("The cell isn't charged!"))
+		return TRUE
 
 /obj/item/steelwool/fire_act()
 	ignite()

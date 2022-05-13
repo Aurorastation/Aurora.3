@@ -8,7 +8,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	suffix = "asteroid/mining_base.dmm"
 
-	template_flags = RUIN_HUMAN
+	ruin_tags = RUIN_HUMAN
 
 /datum/map_template/ruin/exoplanet/carp_nest
 	name = "Carp Nest"
@@ -20,4 +20,16 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	suffix = "asteroid/carp_nest.dmm"
 
-	template_flags = RUIN_ALIEN
+	ruin_tags = RUIN_ALIEN
+
+/datum/map_template/ruin/exoplanet/hideout
+	name = "Abandoned Hideout"
+	id = "hideout"
+	description = "An abandoned hideout, seemingly once belonging to a marooned crew."
+
+	spawn_weight = 0.5
+	spawn_cost = 4
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	suffix = "asteroid/hideout.dmm"
+
+	ruin_tags = RUIN_HUMAN|RUIN_WRECK

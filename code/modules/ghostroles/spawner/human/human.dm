@@ -105,7 +105,6 @@
 	//Move the mob
 	M.forceMove(T)
 	M.lastarea = get_area(M.loc) //So gravity doesnt fuck them.
-	M.megavend = TRUE //So the autodrobe ignores them
 
 	//Setup the appearance
 	if(allow_appearance_change)
@@ -118,6 +117,9 @@
 		mname = random_name(M.gender, M.species.name)
 
 	M.fully_replace_character_name(M.real_name, mname)
+
+	M.mind.signature = mname
+	M.mind.signfont = pick("Verdana", "Times New Roman", "Courier New")
 
 	if(!age)
 		age = rand(35, 50)

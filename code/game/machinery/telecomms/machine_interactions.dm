@@ -18,7 +18,7 @@
 	if(I.ismultitool())
 		user.set_machine(src)
 		interact(user, I)
-		return
+		return TRUE
 
 	// REPAIRING: Use Nanopaste to repair half of the system's integrity. At 24 machines, it will take 48 uses of nanopaste to repair the entire array.
 	if(istype(I, /obj/item/stack/nanopaste))
@@ -29,7 +29,7 @@
 				to_chat(usr, "You apply the Nanopaste to [src], repairing some of the damage.")
 		else
 			to_chat(usr, "This machine is already in perfect condition.")
-		return
+		return TRUE
 
 
 	switch(construct_op)
@@ -38,20 +38,24 @@
 				to_chat(user, "You unfasten the bolts.")
 				playsound(src.loc, I.usesound, 50, 1)
 				construct_op ++
+				. = TRUE
 		if(1)
 			if(I.isscrewdriver())
 				to_chat(user, "You fasten the bolts.")
 				playsound(src.loc, I.usesound, 50, 1)
 				construct_op --
+				. = TRUE
 			if(I.iswrench())
 				to_chat(user, "You dislodge the external plating.")
 				playsound(src.loc, I.usesound, 75, 1)
 				construct_op ++
+				. = TRUE
 		if(2)
 			if(I.iswrench())
 				to_chat(user, "You secure the external plating.")
 				playsound(src.loc, I.usesound, 75, 1)
 				construct_op --
+				. = TRUE
 			if(I.iswirecutter())
 				playsound(src.loc, I.usesound, 50, 1)
 				to_chat(user, "You remove the cables.")
@@ -59,6 +63,7 @@
 				var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( user.loc )
 				A.amount = 5
 				stat |= BROKEN // the machine's been borked!
+				. = TRUE
 		if(3)
 			if(I.iscoil())
 				var/obj/item/stack/cable_coil/A = I
@@ -68,6 +73,7 @@
 					stat &= ~BROKEN // the machine's not borked anymore!
 				else
 					to_chat(user, "<span class='warning'>You need five coils of wire for this.</span>")
+				. = TRUE
 			if(I.iscrowbar())
 				to_chat(user, "You begin prying out the circuit board other components...")
 				if(I.use_tool(src, user, 60, volume = 50))
@@ -99,7 +105,7 @@
 					var/obj/machinery/constructable_frame/machine_frame/F = new
 					F.forceMove(src.loc)
 					qdel(src)
-
+				. = TRUE
 	update_icon()
 
 /obj/machinery/telecomms/attack_ai(mob/living/silicon/user)

@@ -35,7 +35,7 @@
 
 	use_overmap = TRUE
 	num_exoplanets = 2
-	overmap_event_areas = 15
+	overmap_event_areas = 20
 	planet_size = list(255,255)
 
 	away_site_budget = 3
@@ -109,11 +109,22 @@
 		/datum/shuttle/autodock/ferry/merchant_aurora,
 		/datum/shuttle/autodock/ferry/autoreturn/ccia,
 		/datum/shuttle/autodock/overmap/orion_express_shuttle,
-		/datum/shuttle/autodock/overmap/orion_express_ship
+		/datum/shuttle/autodock/overmap/orion_express_ship,
+		/datum/shuttle/autodock/overmap/sfa_patrol_ship,
+		/datum/shuttle/autodock/overmap/sfa_shuttle,
+		/datum/shuttle/autodock/overmap/tcfl_peacekeeper_ship,
+		/datum/shuttle/autodock/overmap/tcfl_shuttle,
+		/datum/shuttle/autodock/overmap/ee_spy_ship,
+		/datum/shuttle/autodock/overmap/ee_shuttle,
+		/datum/shuttle/autodock/overmap/fsf_patrol_ship,
+		/datum/shuttle/autodock/overmap/fsf_shuttle,
+		/datum/shuttle/autodock/overmap/tramp_freighter,
+		/datum/shuttle/autodock/overmap/freighter_shuttle
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
+	allowed_spawns = list("Living Quarters Lift", "Cryogenic Storage")
 	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo)
 	default_spawn = "Living Quarters Lift"
 

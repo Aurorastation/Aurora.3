@@ -171,14 +171,6 @@
 	else
 		cut_overlay("station_map-panel")
 
-/*/obj/machinery/station_map/attackby(obj/item/W as obj, mob/user as mob)
-	src.add_fingerprint(user)
-	if(default_deconstruction_screwdriver(user, W))
-		return
-	if(default_deconstruction_crowbar(user, W))
-		return
-	return ..()*/	// Uncomment this if/when this is made constructable.
-
 /obj/machinery/station_map/ex_act(severity)
 	switch(severity)
 		if(1)

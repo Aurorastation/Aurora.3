@@ -370,6 +370,9 @@
 
 	return english_list(.)
 
+/obj/item/organ/internal/lungs/special_condition()
+	return rescued
+
 /obj/item/organ/internal/lungs/surgical_fix(mob/user)
 	..()
 	rescued = FALSE

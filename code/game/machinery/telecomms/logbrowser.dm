@@ -108,34 +108,6 @@
 
 					screen = 0
 
-			if("printlog")
-				var/start_point = 1
-				var/end_point = SelectedServer.log_entries.len
-				if(SelectedServer)
-					if(SelectedServer.log_entries.len)
-						start_point = input(usr, "Type the start address to print from, cancel to print full log.", "Start Address") as null|num
-						if(!isnum(start_point))
-							start_point = 1
-						else
-							end_point = input(usr, "Type the end address to print to, cancel to print full log.", "End Address") as null|num
-							if(!isnum(end_point))
-								end_point = 0
-					else
-						to_chat(usr, SPAN_WARNING("Cannot print from server that has no logs."))
-						return
-				else
-					to_chat(usr, SPAN_WARNING("Select a server before trying to print logs."))
-					return
-
-				if(!last_print_time || (last_print_time + 2 SECONDS < world.time))
-					last_print_time = world.time
-					var/obj/item/paper/P = new /obj/item/paper(get_turf(src), log_entries_to_text(SelectedServer, start_point, end_point), "[SelectedServer.id] Logs ([start_point] - [end_point])")
-					var/mob/M = usr
-					if(M)
-						M.put_in_hands(P)
-				else
-					to_chat(usr, SPAN_WARNING("Please wait before trying to print more logs."))
-
 	if(href_list["delete"])
 
 		if(!src.allowed(usr) && !emagged)
@@ -198,8 +170,8 @@
 				A.icon_state = "4"
 				A.anchored = 1
 				qdel(src)
+		return TRUE
 	src.updateUsrDialog()
-	return
 
 /obj/machinery/computer/telecomms/server/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)

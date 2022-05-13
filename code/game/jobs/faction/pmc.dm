@@ -13,7 +13,7 @@
 	<li><b>Medical</b>
 	</ul></p>
 	"}
-	title_suffix = "Pmcg"
+	title_suffix = "PMCG"
 
 	allowed_role_types = PMC_ROLES
 
@@ -71,7 +71,6 @@
 	name = "Security Cadet - PMC"
 
 	uniform = /obj/item/clothing/under/rank/cadet/pmc
-	suit = null
 	id = /obj/item/card/id/pmc
 
 /datum/outfit/job/forensics/pmc
@@ -85,7 +84,7 @@
 	name = "Physician - PMC"
 
 	uniform = /obj/item/clothing/under/rank/medical/pmc
-	suit = null
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/epmc/med
 	id = /obj/item/card/id/pmc
 
 /datum/outfit/job/doctor/surgeon/pmc
@@ -93,20 +92,21 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/pmc
 	head = /obj/item/clothing/head/surgery/pmc
-	suit = null
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/epmc/med
 	id = /obj/item/card/id/pmc
 
 /datum/outfit/job/pharmacist/pmc
 	name = "Pharmacist - PMC"
 
 	uniform = /obj/item/clothing/under/rank/pharmacist/pmc
-	suit = null
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/epmc/med
 	id = /obj/item/card/id/pmc
 
 /datum/outfit/job/psychiatrist/pmc
 	name = "Psychiatrist - PMC"
 
 	uniform = /obj/item/clothing/under/rank/psych/pmc
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/epmc/med
 	id = /obj/item/card/id/pmc
 
 /datum/outfit/job/med_tech/pmc

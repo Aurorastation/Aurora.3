@@ -2,7 +2,7 @@ var/datum/controller/subsystem/mapping/SSmapping
 
 /datum/controller/subsystem/mapping
 	name = "Mapping"
-	init_order = SS_INIT_MISC
+	init_order = SS_INIT_AWAY_MAPS
 	flags = SS_NO_FIRE
 
 	var/list/map_templates = list()
@@ -20,7 +20,10 @@ var/datum/controller/subsystem/mapping/SSmapping
 	preloadTemplates()
 	for(var/atype in subtypesof(/decl/submap_archetype))
 		submap_archetypes[atype] = new atype
-	. = ..()
+
+	current_map.build_away_sites()
+	current_map.build_exoplanets()
+	. = ..(timeofday)
 
 /datum/controller/subsystem/mapping/Recover()
 	flags |= SS_NO_INIT
@@ -57,7 +60,7 @@ var/datum/controller/subsystem/mapping/SSmapping
 		if (banned_maps)
 			var/mappath = MT.mappath
 			if(list_find(banned_maps, mappath))
-				break
+				continue
 
 		map_templates[MT.name] = MT
 

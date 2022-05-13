@@ -572,6 +572,15 @@
 	icon_state = "qeblak_cape"
 	item_state = "qeblak_cape"
 	flippable = FALSE
+	
+/obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
+	name = "weishii robe"
+	desc = "A robe denoting the wearer as a member fo the Weishii faith."
+	desc_fluff = "This mantle denotes the wearer as a member of the Weishii faith. \
+	It is given to followers after they have spent time on a Weishiin Sanctuary."
+	icon_state = "weishii_robe"
+	item_state = "weishii_robe"
+	flippable = FALSE
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
 	name = "Jargon Division Zeng-Hu cloak"
@@ -810,3 +819,14 @@
 	name = "AB- blood patch"
 	desc = "An embroidered patch indicating the wearer's blood type as AB NEGATIVE."
 	icon_state = "abnegtag"
+
+/obj/item/clothing/accessory/poncho/ipc_mantle
+	name = "\improper Burzsian shoulder mantle"
+	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
+	desc_fluff = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
+	icon = 'icons/clothing/accessories/BZ_Gorget.dmi'
+	icon_state = "Burz_gorget"
+	item_state = "Burz_gorget"	
+	contained_sprite = TRUE
+	icon_override = null
+	body_parts_covered = UPPER_TORSO

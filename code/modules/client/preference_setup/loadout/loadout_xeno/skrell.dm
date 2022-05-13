@@ -26,33 +26,19 @@
 		bandtypes[initial(band.name)] = band
 	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(bandtypes))
 
-/datum/gear/ears/skrell/cloth/short
-	display_name = "short headtail cloth"
-	path = /obj/item/clothing/ears/skrell/cloth_short/black
+/datum/gear/ears/skrell/cloth
+	display_name = "headtail cloth selection (recolourable)"
+	path = /obj/item/clothing/ears/skrell/cloth
 	sort_category = "Xenowear - Skrell"
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/ears/skrell/cloth/short/New()
+/datum/gear/ears/skrell/cloth/New()
 	..()
-	var/list/shorttypes = list()
-	for(var/short_style in typesof(/obj/item/clothing/ears/skrell/cloth_short))
-		var/obj/item/clothing/ears/skrell/cloth_short/short = short_style
-		shorttypes[initial(short.name)] = short
-	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(shorttypes))
-
-/datum/gear/ears/skrell/cloth/average
-	display_name = "average headtail cloth"
-	path = /obj/item/clothing/ears/skrell/cloth_average/black
-	sort_category = "Xenowear - Skrell"
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
-
-/datum/gear/ears/skrell/cloth/average/New()
-	..()
-	var/list/averagetypes = list()
-	for(var/average_style in typesof(/obj/item/clothing/ears/skrell/cloth_average))
-		var/obj/item/clothing/ears/skrell/cloth_average/average = average_style
-		averagetypes[initial(average.name)] = average
-	gear_tweaks += new /datum/gear_tweak/path(sortAssoc(averagetypes))
+	var/list/cloths = list()
+	cloths["headtail cloth"] = /obj/item/clothing/ears/skrell/cloth
+	cloths["short headtail cloth"] = /obj/item/clothing/ears/skrell/cloth/short
+	gear_tweaks += new /datum/gear_tweak/path(cloths)
 
 /datum/gear/ears/skrell/workhat
 	display_name = "worker hat"
@@ -87,6 +73,12 @@
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Skrell"
+	
+/datum/gear/accessory/weishii
+	display_name = "weishii robe"
+	path = /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Skrell"
 
 /datum/gear/uniform/skrell
 	display_name = "qeblak ceremonial garment"
@@ -94,6 +86,20 @@
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/skrell/slugger
+	display_name = "prescient republic of the qar wetsuit"
+	path = /obj/item/clothing/under/skrell/slugger
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/skrell
+	display_name = "zipluax mantle"
+	path = /obj/item/clothing/head/skrell
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/stellascope
 	display_name = "stellascope"
@@ -117,9 +123,12 @@
 /datum/gear/ears/skrell/goop/New()
 	..()
 	var/list/algae = list()
-	algae["glowing algae(dots)"] = /obj/item/clothing/ears/skrell/goop
-	algae["glowing algae(stripes)"] = /obj/item/clothing/ears/skrell/goop/stripes
-	algae["glowing algae(circles)"] = /obj/item/clothing/ears/skrell/goop/circles
+	algae["glowing algae, dots"] = /obj/item/clothing/ears/skrell/goop
+	algae["long glowing algae, dots"] = /obj/item/clothing/ears/skrell/goop/long
+	algae["glowing algae, stripes"] = /obj/item/clothing/ears/skrell/goop/stripes
+	algae["long glowing algae, stripes"] = /obj/item/clothing/ears/skrell/goop/stripes/long
+	algae["glowing algae, circles"] = /obj/item/clothing/ears/skrell/goop/circles
+	algae["long glowing algae, circles"] = /obj/item/clothing/ears/skrell/goop/circles/long
 	gear_tweaks += new /datum/gear_tweak/path(algae)
 
 /datum/gear/mask/skrell
@@ -201,33 +210,33 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 
 /datum/gear/uniform/skrell/work
 	display_name = "work uniforms"
-	path = /obj/item/clothing/under/skrell/ox
+	path = /obj/item/clothing/under/skrell/jargon
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/skrell/work/New()
 	..()
 	var/list/outfit = list()
-	outfit["ox research"] = /obj/item/clothing/under/skrell/ox
-	outfit["ox security"] = /obj/item/clothing/under/skrell/ox/security
-	outfit["ox engineer"] = /obj/item/clothing/under/skrell/ox/engineer
-	outfit["ox service"] = /obj/item/clothing/under/skrell/ox/service
-	outfit["ox medical"] = /obj/item/clothing/under/skrell/ox/med
-	outfit["ix research"] = /obj/item/clothing/under/skrell/ix
-	outfit["ix security"] = /obj/item/clothing/under/skrell/ix/security
-	outfit["ix engineer"] = /obj/item/clothing/under/skrell/ix/engineer
-	outfit["ix service"] = /obj/item/clothing/under/skrell/ix/service
-	outfit["ix medical"] = /obj/item/clothing/under/skrell/ix/med
-	outfit["oqi research"] = /obj/item/clothing/under/skrell/oqi
-	outfit["oqi security"] = /obj/item/clothing/under/skrell/oqi/security
-	outfit["oqi engineer"] = /obj/item/clothing/under/skrell/oqi/engineer
-	outfit["oqi service"] = /obj/item/clothing/under/skrell/oqi/service
-	outfit["oqi medical"] = /obj/item/clothing/under/skrell/oqi/med
-	outfit["iqi research"] = /obj/item/clothing/under/skrell/iqi
-	outfit["iqi security"] = /obj/item/clothing/under/skrell/iqi/security
-	outfit["iqi engineer"] = /obj/item/clothing/under/skrell/iqi/engineer
-	outfit["iqi service"] = /obj/item/clothing/under/skrell/iqi/service
-	outfit["iqi medical"] = /obj/item/clothing/under/skrell/iqi/med
+	outfit["ox research"] = /obj/item/clothing/under/skrell/jargon
+	outfit["ox security"] = /obj/item/clothing/under/skrell/jargon/ox
+	outfit["ox engineer"] = /obj/item/clothing/under/skrell/jargon/ox/engineer
+	outfit["ox service"] = /obj/item/clothing/under/skrell/jargon/ox/service
+	outfit["ox medical"] = /obj/item/clothing/under/skrell/jargon/ox/med
+	outfit["ix research"] = /obj/item/clothing/under/skrell/jargon/ix
+	outfit["ix security"] = /obj/item/clothing/under/skrell/jargon/ix/security
+	outfit["ix engineer"] = /obj/item/clothing/under/skrell/jargon/ix/engineer
+	outfit["ix service"] = /obj/item/clothing/under/skrell/jargon/ix/service
+	outfit["ix medical"] = /obj/item/clothing/under/skrell/jargon/ix/med
+	outfit["oqi research"] = /obj/item/clothing/under/skrell/jargon/oqi
+	outfit["oqi security"] = /obj/item/clothing/under/skrell/jargon/oqi/security
+	outfit["oqi engineer"] = /obj/item/clothing/under/skrell/jargon/oqi/engineer
+	outfit["oqi service"] = /obj/item/clothing/under/skrell/jargon/oqi/service
+	outfit["oqi medical"] = /obj/item/clothing/under/skrell/jargon/oqi/med
+	outfit["iqi research"] = /obj/item/clothing/under/skrell/jargon/iqi
+	outfit["iqi security"] = /obj/item/clothing/under/skrell/jargon/iqi/security
+	outfit["iqi engineer"] = /obj/item/clothing/under/skrell/jargon/iqi/engineer
+	outfit["iqi service"] = /obj/item/clothing/under/skrell/jargon/iqi/service
+	outfit["iqi medical"] = /obj/item/clothing/under/skrell/jargon/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(outfit)
 
 /datum/gear/suit/skrell/jacket
@@ -261,6 +270,22 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 	jacket["iqi cargo/service"] = /obj/item/clothing/suit/storage/toggle/skrell/iqi/service
 	jacket["iqi medical"] = /obj/item/clothing/suit/storage/toggle/skrell/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
+
+/datum/gear/accessory/skrell/poncho
+	display_name = "skrell poncho"
+	path = /obj/item/clothing/accessory/poncho/skrell
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/skrell/poncho/New()
+	..()
+	var/list/poncho = list()
+	poncho["brown"] = /obj/item/clothing/accessory/poncho/skrell/brown
+	poncho["tan"] = /obj/item/clothing/accessory/poncho/skrell/tan
+	poncho["gray"] = /obj/item/clothing/accessory/poncho/skrell/gray
+	poncho["white"] = /obj/item/clothing/accessory/poncho/skrell
+	gear_tweaks += new /datum/gear_tweak/path(poncho)
 
 /datum/gear/accessory/skrell/workcloak
 	display_name = "work cloaks"

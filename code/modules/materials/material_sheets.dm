@@ -229,7 +229,7 @@
 	amount = max_amount
 	update_icon()
 
-//Fuel for MRSPACMAN generator.
+//Fuel for the super portable generator.
 /obj/item/stack/material/tritium
 	name = "tritium"
 	icon_state = "sheet-silver"
@@ -448,6 +448,17 @@
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/titanium/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/graphite
+	name = "graphite"
+	icon_state = "sheet-graphite"
+	default_type = MATERIAL_GRAPHITE
+	icon_has_variants = TRUE
+
+/obj/item/stack/material/graphite/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()

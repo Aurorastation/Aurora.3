@@ -111,7 +111,7 @@
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
-		return 1
+		return TRUE
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 	if(W.use_tool(src, user, istype(W, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \
@@ -120,6 +120,7 @@
 			"You hear ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
+		return TRUE
 
 /obj/machinery/atmospherics/trinary/mixer/attack_hand(user as mob)
 	if(..())

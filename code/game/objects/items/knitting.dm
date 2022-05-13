@@ -71,6 +71,7 @@
 			ball = O
 			to_chat(user, SPAN_NOTICE("You place \the [O] in \the [src]"))
 			update_icon()
+		return TRUE
 
 /obj/item/knittingneedles/attack_self(mob/user as mob)
 	if(!ball) //if there is no yarn ball, nothing happens

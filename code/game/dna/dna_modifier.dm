@@ -119,27 +119,27 @@
 	if(istype(item, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
-			return
+			return TRUE
 
 		beaker = item
 		user.drop_from_inventory(item,src)
 		user.visible_message("\The [user] adds \a [item] to \the [src]!", "You add \a [item] to \the [src]!")
-		return
+		return TRUE
 	else if (!istype(item, /obj/item/grab))
 		return
 	var/obj/item/grab/G = item
 	if (!ismob(G.affecting))
-		return
+		return TRUE
 	if (src.occupant)
 		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
-		return
+		return TRUE
 	if (G.affecting.abiotic())
 		to_chat(user, "<span class='warning'>The subject cannot have abiotic items on.</span>")
-		return
+		return TRUE
 	put_in(G.affecting)
 	src.add_fingerprint(user)
 	qdel(G)
-	return
+	return TRUE
 
 /obj/machinery/dna_scannernew/proc/put_in(var/mob/M)
 	if(M.client)
@@ -237,10 +237,9 @@
 			src.disk = I
 			to_chat(user, "You insert [I].")
 			SSnanoui.update_uis(src) // update all UIs attached to src
-			return
+			return TRUE
 	else
-		..()
-	return
+		return ..()
 
 /obj/machinery/computer/scan_consolenew/ex_act(severity)
 

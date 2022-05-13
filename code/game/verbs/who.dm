@@ -76,9 +76,9 @@
 	if(holder)
 		for(var/s in staff)
 			var/client/C = s
-			if(R_ADMIN & C.holder.rights || (!R_MOD & C.holder.rights))	//Used to determine who shows up in admin rows
+			if(R_ADMIN & C.holder.rights)	//Used to determine who shows up in admin rows
 
-				if(C.holder.fakekey && (!R_ADMIN & holder.rights && !R_MOD & holder.rights))		//Mentors can't see stealthmins
+				if(C.holder.fakekey && !(R_ADMIN & holder.rights || R_MOD & holder.rights))		//Mentors can't see stealthmins
 					continue
 
 				msg += "\t[C.key] is a [C.holder.rank]"
@@ -144,7 +144,7 @@
 	else
 		for(var/s in staff)
 			var/client/C = s
-			if(R_ADMIN & C.holder.rights || (!R_MOD & C.holder.rights))
+			if(R_ADMIN & C.holder.rights)
 				if(!C.holder.fakekey)
 					if(C.is_afk())
 						msg += "\t[C.key] is a [C.holder.rank] (AFK)<br>"

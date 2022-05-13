@@ -128,12 +128,13 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_JARGON)
-	allowed_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE, RELIGION_OTHER)
-	default_citizenship = CITIZENSHIP_NONE
 
-	default_accent = ACCENT_TTS
-	allowed_accents = list(ACCENT_TTS, ACCENT_ZORA, ACCENT_KLAX, ACCENT_CTHUR)
+	possible_cultures = list(
+		/decl/origin_item/culture/zora,
+		/decl/origin_item/culture/klax,
+		/decl/origin_item/culture/cthur
+	)
+
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
 
@@ -141,15 +142,13 @@
 	. = ..()
 	H.gender = NEUTER
 	var/obj/item/clothing/mask/breath/vaurca/filter/M = new /obj/item/clothing/mask/breath/vaurca/filter(H)
-	if(H.equip_to_slot_or_del(M, slot_wear_mask))
-		M.autodrobe_no_remove = 1
+	H.equip_to_slot_or_del(M, slot_wear_mask)
 
 /datum/species/bug/after_equip(var/mob/living/carbon/human/H)
 	if(H.shoes)
 		return
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
-	if(H.equip_to_slot_or_del(S,slot_shoes))
-		S.autodrobe_no_remove = 1
+	H.equip_to_slot_or_del(S,slot_shoes)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER

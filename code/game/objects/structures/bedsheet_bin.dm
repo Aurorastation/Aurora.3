@@ -183,15 +183,15 @@ LINEN BINS
 			to_chat(user, SPAN_NOTICE("You poke eyeholes in \the [src]!"))
 			new /obj/item/bedsheet/costume(get_turf(src))
 			qdel(src)
-		return
+		return TRUE
 	else if(is_sharp(I))
 		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up \the [src] with \the [I]."), SPAN_NOTICE("You begin cutting up \the [src] with \the [I]."))
 		if(I.use_tool(src, user, 50, volume = 50))
 			to_chat(user, SPAN_NOTICE("You cut \the [src] into pieces!"))
 			new /obj/item/stack/material/cloth(get_turf(src), rand(2, 5))
 			qdel(src)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/bedsheet/grey
 	icon_state = "sheetgrey"

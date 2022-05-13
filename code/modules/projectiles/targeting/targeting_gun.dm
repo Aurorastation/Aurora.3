@@ -14,7 +14,7 @@
 /obj/item/gun/proc/PreFire(var/atom/A, var/mob/living/user, var/params)
 	if(!user.aiming)
 		user.aiming = new(user)
-	user.face_atom(A)
+	user.face_atom(A, TRUE)
 	if(ismob(A) && user.aiming)
 		user.aiming.aim_at(A, src)
 		return 1

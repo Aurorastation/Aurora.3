@@ -574,8 +574,7 @@
 			to_chat(user, SPAN_NOTICE("You collect the roller bed."))
 			src.forceMove(RH)
 			RH.held = src
-			return
-	..()
+		return TRUE
 
 /obj/item/roller/proc/deploy_roller(mob/user, atom/location)
 	var/obj/structure/bed/roller/R = new origin_type(location)

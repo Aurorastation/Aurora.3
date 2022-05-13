@@ -109,6 +109,8 @@ main ui datum.
 	SSvueui.ui_closed(src) // this stops processing and cleans up references to this UI
 	user << browse(null, "window=[windowid]")
 	status = null
+	if(istype(user))
+		user.unset_machine()
 
 /**
   * Resizes UI

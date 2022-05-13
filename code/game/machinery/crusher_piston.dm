@@ -93,13 +93,13 @@
 		M.apply_damage(45, PAIN)
 		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")
 		M.say("*scream")
-		return
+		return TRUE
 	if(default_deconstruction_screwdriver(user, O))
-		return
+		return TRUE
 	if(default_deconstruction_crowbar(user, O))
-		return
+		return TRUE
 	if(default_part_replacement(user, O))
-		return
+		return TRUE
 
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
@@ -111,8 +111,8 @@
 				if(valve_open)
 					blocked = 0
 					action = "retract"
-			return
-	..()
+			return TRUE
+	return ..()
 
 /obj/machinery/crusher_base/default_deconstruction_crowbar(var/mob/user, var/obj/item/crowbar/C)
 	if(!istype(C))

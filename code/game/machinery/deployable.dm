@@ -110,13 +110,13 @@ for reference:
 			if(health < maxhealth)
 				if(D.get_amount() < 1)
 					to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
-					return
+					return TRUE
 				user.visible_message("<b>[user]</b> begins to repair \the [src].", SPAN_NOTICE("You begin to repair \the [src]."))
 				if(I.use_tool(src, user, 20, volume = 50) && health < maxhealth)
 					if(D.use(1))
 						health = maxhealth
 						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
-			return
+			return TRUE
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		switch(W.damtype)
@@ -127,8 +127,8 @@ for reference:
 		shake_animation()
 		playsound(src.loc, material.hitsound, W.get_clamped_volume(), 1)
 		if(check_dismantle())
-			return
-		..()
+			return TRUE
+		return ..()
 
 /obj/structure/barricade/proc/check_dismantle()
 	if(src.health <= 0)
@@ -296,7 +296,8 @@ for reference:
 	name = "legion barrier"
 	desc = "A deployable barrier, bearing the marks of the Tau Ceti Foreign Legion. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
-	req_access = list(access_legion)
+	req_access = null
+	req_one_access = list(access_tcfl_peacekeeper_ship, access_legion)
 
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"

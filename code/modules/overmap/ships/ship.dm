@@ -49,6 +49,9 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	for(var/obj/machinery/computer/ship/S in SSmachinery.all_machines)
 		if(S.linked == src)
 			S.linked = null
+	for(var/obj/machinery/computer/shuttle_control/explore/C in SSmachinery.all_machines)
+		if(C.linked == src)
+			C.linked = null
 	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
 		if(H.linked == src)
 			H.linked = null
@@ -241,6 +244,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	..()
 	for(var/obj/machinery/computer/ship/S in SSmachinery.all_machines)
 		S.attempt_hook_up(src)
+	for(var/obj/machinery/computer/shuttle_control/explore/C in SSmachinery.all_machines)
+		C.attempt_hook_up(src)
 	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
 		H.attempt_hook_up(src)
 	for(var/datum/ship_engine/E in ship_engines)

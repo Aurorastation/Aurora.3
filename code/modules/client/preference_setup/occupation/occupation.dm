@@ -179,7 +179,7 @@
 			dat += "<del>[dispRank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
 			continue
 		else if(!LAZYLEN(pref.GetValidTitles(job))) // we have no available jobs the character is old enough for
-			dat += "<del>[dispRank]</del></td><td> \[MINIMUM AGE: [LAZYLEN(job.alt_ages) ? min(job.alt_ages[min(job.alt_ages)], job.minimum_character_age) : job.minimum_character_age]]</td></tr>"
+			dat += "<del>[dispRank]</del></td><td> \[MINIMUM AGE: [LAZYLEN(job.alt_ages) ? min(job.get_alt_character_age(), job.get_minimum_character_age(user.get_species())) : job.get_minimum_character_age(user.get_species())]]</td></tr>"
 			continue
 		else if (ban_reason)
 			dat += "<del>[dispRank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=[rank];'>BANNED</a>]</b></td></tr>"
@@ -325,15 +325,19 @@
 			pref.job_civilian_low &= ~job.flag
 		else
 			pref.job_civilian_low |= job.flag
+
+		SSticker.cycle_player(user, job)
 		return TRUE
 
-	if(pref.GetJobDepartment(job, 1) & job.flag)
+	if(pref.GetJobDepartment(job, 1) & job.flag) // HIGH -> NONE
 		SetJobDepartment(job, 1)
-	else if(pref.GetJobDepartment(job, 2) & job.flag)
+		SSticker.cycle_player(user, job)
+	else if(pref.GetJobDepartment(job, 2) & job.flag) // MED -> HIGH
 		SetJobDepartment(job, 2)
-	else if(pref.GetJobDepartment(job, 3) & job.flag)
+		SSticker.cycle_player(user, job)
+	else if(pref.GetJobDepartment(job, 3) & job.flag) // LOW -> MED
 		SetJobDepartment(job, 3)
-	else//job = Never
+	else // NONE -> LOW
 		SetJobDepartment(job, 4)
 
 	return 1
@@ -460,7 +464,7 @@
 	if((global.all_species[src.species].spawn_flags & NO_AGE_MINIMUM))
 		return choices
 	for(var/t in choices)
-		if (src.age >= (LAZYACCESS(job.alt_ages, t) || job.minimum_character_age))
+		if (src.age >= (job.get_alt_character_age(t) || job.get_minimum_character_age(species)))
 			continue
 		choices -= t
 	return choices

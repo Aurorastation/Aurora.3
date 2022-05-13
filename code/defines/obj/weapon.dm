@@ -271,8 +271,9 @@
 		W.forceMove(src)
 		src.concealed_blade = W
 		update_icon()
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/cane/concealed/update_icon()
 	if(concealed_blade)
@@ -454,6 +455,7 @@
 		to_chat(user, SPAN_NOTICE("You modify \the [src] into a makeshift PSU circuitboard."))
 		qdel(src)
 		user.put_in_hands(new_circuit)
+		return TRUE
 
 /obj/item/module/id_auth
 	name = "\improper ID authentication module"
@@ -525,6 +527,7 @@
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)
+		return TRUE
 
 /obj/item/storage/part_replacer
 	name = "rapid part exchange device"

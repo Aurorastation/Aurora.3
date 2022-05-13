@@ -70,6 +70,17 @@
 	output_level = 500000
 	charge =1.5e+7
 
+// The Horizon's shuttles want something with decent capacity to sustain themselves and enough transmission to meet their energy needs.
+/obj/machinery/power/smes/buildable/horizon_shuttle/Initialize()
+	. = ..()
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	input_attempt = TRUE
+	output_attempt = TRUE
+	input_level = 1300000
+	output_level = 1300000
+	charge = 5.55e+007
+
 // END SMES SUBTYPES
 
 // SMES itself

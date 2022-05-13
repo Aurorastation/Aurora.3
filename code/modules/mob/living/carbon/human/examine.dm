@@ -292,7 +292,7 @@
 				continue
 			var/thin_covering = (skipbody & body_part) ? TRUE : FALSE
 			if((temp.status & ORGAN_ASSISTED) && !thin_covering)
-				if(!(temp.brute_dam + temp.burn_dam))
+				if(!(temp.brute_dam + temp.burn_dam) && !(temp.open))
 					continue
 				else
 					wound_flavor_text["[temp.name]"] = "<span class='warning'>[get_pronoun("He")] [get_pronoun("has")] [temp.get_wounds_desc()] on [get_pronoun("his")] [temp.name].</span><br>"

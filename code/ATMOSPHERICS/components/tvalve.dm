@@ -348,13 +348,13 @@
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/tvalve/digital))
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>")
-		return 1
+		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
 		to_chat(user, "<span class='warnng'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
-		return 1
+		return TRUE
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 	if(W.use_tool(src, user, istype(W, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \
@@ -363,6 +363,7 @@
 			"You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
+		return TRUE
 
 /obj/machinery/atmospherics/tvalve/mirrored
 	icon_state = "map_tvalvem0"

@@ -16,7 +16,6 @@
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
 	pass_flags = PASSTABLE
 	var/obj/item/master
-	var/autodrobe_no_remove = 0
 
 	var/heat_protection = 0 //flags which determine which body parts are protected from heat. Use the HEAD, UPPER_TORSO, LOWER_TORSO, etc. flags. See setup.dm
 	var/cold_protection = 0 //flags which determine which body parts are protected from cold. Use the HEAD, UPPER_TORSO, LOWER_TORSO, etc. flags. See setup.dm
@@ -289,6 +288,7 @@
 
 			else if(S.can_be_inserted(src))
 				S.handle_item_insertion(src)
+			return TRUE
 
 //Called when the user alt-clicks on something with this item in their active hand
 //this function is designed to be overridden by individual weapons

@@ -23,8 +23,9 @@
 	var/can_be_ipc = FALSE
 	var/mob/living/carbon/brain/brainmob = null	//The current occupant.
 	var/obj/item/organ/internal/brain/brainobj = null	//The current brain organ.
+	var/braintype = null
 
-	var/static/list/valid_brain_icon_states = list("brain", "brain_skrell", "brain_vaurca")
+	var/static/list/valid_braintype = list("Skrell", "Vaurca")
 
 /obj/item/device/mmi/Initialize()
 	. = ..()
@@ -37,13 +38,13 @@
 			icon_state = "mmi-empty"
 		if(STATE_BRAIN)
 			icon_state = "mmi-brain"
-			underlays += image(icon, null, (brainobj.icon_state in valid_brain_icon_states) ? brainobj.icon_state : "brain")
+			underlays += image(icon, null, (brainobj.species.category_name in valid_braintype) ? "brain_[braintype]" : "brain")
 		if(STATE_NODIODES)
 			icon_state = "mmi-nodiodes"
-			underlays += image(icon, null, (brainobj.icon_state in valid_brain_icon_states) ? brainobj.icon_state : "brain")
+			underlays += image(icon, null, (brainobj.species.category_name in valid_braintype) ? "brain_[braintype]" : "brain")
 		if(STATE_DIODES)
 			icon_state = "mmi-diodes"
-			underlays += image(icon, null, (brainobj.icon_state in valid_brain_icon_states) ? brainobj.icon_state : "brain")
+			underlays += image(icon, null, (brainobj.species.category_name in valid_braintype) ? "brain_[braintype]" : "brain")
 		if(STATE_SEALED)
 			icon_state = "mmi-sealedon"
 
@@ -99,6 +100,7 @@
 				living_mob_list += brainmob
 
 				brainobj = B
+				braintype_check()
 				user.drop_from_inventory(brainobj, src)
 
 				set_cradle_state(STATE_BRAIN)
@@ -160,6 +162,7 @@
 	brainobj.brainmob = brainmob //Set the brain to use the brainmob
 	brainobj = null
 	brainmob = null
+	braintype = null
 
 /obj/item/device/mmi/proc/ready_for_use(var/mob/user)
 	if(cradle_state != STATE_SEALED)
@@ -179,6 +182,16 @@
 
 	set_cradle_state(STATE_SEALED)
 	update_name()
+
+/obj/item/device/mmi/proc/braintype_check()
+	if(!brainobj)
+		return
+	var/species_check = brainobj.species.category_name
+	switch(species_check)
+		if("Skrell")
+			braintype = "skrell"
+		if("Vaurca")
+			braintype = "vaurca"
 
 /obj/item/device/mmi/relaymove(var/mob/user, var/direction)
 	if(user.stat || user.stunned)
@@ -237,7 +250,7 @@
 		to_chat(brainmob, "Can't do that while incapacitated or dead.")
 
 	radio.broadcasting = radio.broadcasting==1 ? 0 : 1
-	to_chat(brainmob, "<span class='notice'>Radio is [radio.broadcasting==1 ? "now" : "no longer"] broadcasting.</span>")
+	to_chat(brainmob, SPAN_NOTICE("Radio is [radio.broadcasting==1 ? "now" : "no longer"] broadcasting."))
 
 /obj/item/device/mmi/radio_enabled/verb/Toggle_Listening()
 	set name = "Toggle Listening"
@@ -250,7 +263,7 @@
 		to_chat(brainmob, "Can't do that while incapacitated or dead.")
 
 	radio.listening = radio.listening==1 ? 0 : 1
-	to_chat(brainmob, "<span class='notice'>Radio is [radio.listening==1 ? "now" : "no longer"] receiving broadcast.</span>")
+	to_chat(brainmob, SPAN_NOTICE("Radio is [radio.listening==1 ? "now" : "no longer"] receiving broadcast."))
 
 /obj/item/device/mmi/emp_act(severity)
 	if(!brainmob)

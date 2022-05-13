@@ -55,7 +55,7 @@
 		if(I.use_tool(src, user, 40, volume = 50))
 			user.visible_message("<b>[user]</b> [anchored ? "loosens" : "tightens"] \the [src].", SPAN_NOTICE("You [anchored ? "loosen" : "tighten"] \the [src]."), SPAN_NOTICE("You hear a ratchet."))
 			anchored = !anchored
-		return
+		return TRUE
 
 	// Click info.
 	var/list/click_params = params2list(params)
@@ -64,7 +64,7 @@
 
 	// Should always be true, otherwise you didn't click the object, but let's check because SS13~
 	if(!click_params || !click_params["icon-x"] || !click_params["icon-y"])
-		return
+		return TRUE
 
 	// Cleaning one pixel with a soap or rag.
 	if(istype(I, /obj/item/soap) || istype(I, /obj/item/reagent_containers/glass/rag))
@@ -74,17 +74,19 @@
 		var/icon/Ico = clean_canvas()
 		if(!Ico)
 			qdel(masterpiece)
-			return
+			return TRUE
 
 		var/theOriginalPix = Ico.GetPixel(pixX,pixY)
 		if(thePix != theOriginalPix) // Clour changed.
 			DrawPixelOn(theOriginalPix,pixX,pixY)
 		qdel(masterpiece)
+		return TRUE
 
 	// Drawing one pixel with a crayon.
 	else if(istype(I, /obj/item/pen/crayon))
 		var/obj/item/pen/crayon/C = I
 		DrawPixelOn(C.shadeColour, pixX, pixY)
+		return TRUE
 	else
 		return ..()
 

@@ -20,7 +20,7 @@
 	if(I.iswelder())
 		var/obj/item/weldingtool/WT = I
 		if(!WT.isOn())
-			return
+			return TRUE
 		if(WT.use(0,user))
 			user.visible_message("<b>[user]</b> starts slicing \the [src] apart.", SPAN_NOTICE("You start slicing \the [src] apart."))
 			playsound(src, 'sound/items/welder.ogg', 100, 1)
@@ -31,8 +31,8 @@
 				if(reinf_material)
 					reinf_material.place_sheet(get_turf(src))
 				qdel(src)
-			return
-	..()
+			return TRUE
+	return ..()
 
 /obj/effect/overlay/thermite
 	name = "burning thermite"

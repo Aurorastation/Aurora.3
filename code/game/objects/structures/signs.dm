@@ -275,11 +275,35 @@
 	desc = "A green sign pointing towards an emergency exit."
 	icon_state = "emerg_exit"
 
+/obj/structure/sign/emerg_exit/evac
+	name = "\improper EVACUATION ROUTE sign"
+	desc = "A green sign pointing towards an evacuation route."
+	icon_state = "emerg_exit"
+
 /obj/structure/sign/emerg_exitZ
 	name = "\improper EMERGENCY LADDER"
 	desc = "A green sign that depicts a person climbing the ladder towards the arrow's direction, pointing at the emergency exit."
 	icon_state = "emerg_exitZ"
 
+/obj/structure/sign/emerg_exitZ/evac
+	name = "\improper EVACUATION ROUTE sign"
+	desc = "A green sign that depicts a person climbing a ladder towards an evacuation route."
+	icon_state = "emerg_exitZ"
+
+/obj/structure/sign/emerg_exitZ_stairs
+	name = "\improper STAIRS"
+	desc = "A green sign that depicts a person using stairs towards the arrow's direction, pointing at the emergency exit."
+	icon_state = "emerg_exitZ_stairs"
+
+/obj/structure/sign/emerg_exitZ_stairs/evac
+	name = "\improper EVACUATION ROUTE sign"
+	desc = "A green sign that depicts a person using a stairwell, moving towards an evacuation route."
+	icon_state = "emerg_exitZ_stairs"
+
+/obj/structure/sign/emerg_pods
+	name = "\improper EVACUATION POD sign"
+	desc = "A green sign that depicts an evacuation pod, with the text \"EVACUATION PODS\" under it."
+	icon_state = "emerg_pods"
 
 //Christmas
 /obj/structure/sign/christmas/lights
@@ -979,4 +1003,5 @@
 		new /obj/effect/decal/cleanable/ash(src.loc)
 
 		qdel(src)
+		return TRUE
 

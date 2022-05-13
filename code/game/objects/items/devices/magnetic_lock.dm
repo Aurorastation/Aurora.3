@@ -43,7 +43,8 @@
 
 /obj/item/device/magnetic_lock/security/legion
 	name = "legion magnetic door lock"
-	req_access = (access_legion)
+	req_access = null
+	req_one_access = list(access_legion, access_tcfl_peacekeeper_ship)
 	w_class = ITEMSIZE_SMALL
 
 /obj/item/device/magnetic_lock/security/legion/Initialize()
@@ -116,7 +117,7 @@
 /obj/item/device/magnetic_lock/attackby(var/obj/item/I, var/mob/user)
 	if (status == STATUS_BROKEN)
 		to_chat(user, "<span class='danger'>[src] is broken beyond repair!</span>")
-		return
+		return TRUE
 
 	if (istype(I, /obj/item/card/id))
 		if (!constructionstate && !hacked)
@@ -134,7 +135,7 @@
 				return
 		else
 			to_chat(user, "<span class='danger'>You cannot swipe your [I] through [src] with it partially dismantled!</span>")
-		return
+		return TRUE
 
 	if (istype(I, /obj/item) && user.a_intent == "harm")
 		if (I.force >= 18)
@@ -142,14 +143,13 @@
 			takedamage(I.force)
 			playsound(loc, "sound/weapons/genhit[rand(1,3)].ogg", I.force*3, 1)
 			addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, loc, "sound/effects/sparks[rand(1,4)].ogg", 30, 1), 3, TIMER_CLIENT_TIME)
-			return
 		else
 			user.visible_message("<span class='danger'>[user] hits [src] with [I] but fails to damage it.</span>", "<span class='warning'>You hit [src] with [I], [I.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]</span>")
 			playsound(loc, "sound/weapons/genhit.ogg", I.force*2.5, 1)
-			return
+		return TRUE
 
 	if(invincible)
-		return
+		return TRUE
 	switch (constructionstate)
 		if (0)
 			if (istype(I, /obj/item/card/emag))
@@ -161,7 +161,7 @@
 				if (target)
 					detach()
 					update_icon()
-				return
+				return TRUE
 
 			if (I.iswelder())
 				var/obj/item/weldingtool/WT = I
@@ -178,7 +178,7 @@
 					else
 						cut_overlay("overlay_welding")
 					update_icon()
-					return
+				return TRUE
 
 			if (I.iscrowbar())
 				if (!locked)
@@ -186,30 +186,30 @@
 					setconstructionstate(1)
 				else
 					to_chat(user, SPAN_NOTICE("You try to pry the cover off [src] but it doesn't budge."))
-				return
+				return TRUE
 
 		if (1)
 			if (istype(I, /obj/item/cell))
 				if (powercell)
 					to_chat(user, SPAN_NOTICE("There's already a powercell in \the [src]."))
-				return
+				return TRUE
 
 			if (I.iscrowbar())
 				to_chat(user, SPAN_NOTICE("You wedge the cover back in place."))
 				setconstructionstate(0)
-				return
+				return TRUE
 
 		if (2)
 			if (I.isscrewdriver())
 				to_chat(user, SPAN_NOTICE("You unscrew and remove the wiring cover from \the [src]."))
 				playsound(loc, I.usesound, 50, 1)
 				setconstructionstate(3)
-				return
+				return TRUE
 
 			if (I.iscrowbar())
 				to_chat(user, SPAN_NOTICE("You wedge the cover back in place."))
 				setconstructionstate(0)
-				return
+				return TRUE
 
 			if (istype(I, /obj/item/cell))
 				if (!powercell)
@@ -217,26 +217,26 @@
 					user.drop_from_inventory(I,src)
 					powercell = I
 					setconstructionstate(1)
-				return
+				return TRUE
 
 		if (3)
 			if (I.iswirecutter())
 				to_chat(user, SPAN_NOTICE("You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]"))
 				playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
 				setconstructionstate(4)
-				return
+				return TRUE
 
 			if (I.isscrewdriver())
 				to_chat(user, SPAN_NOTICE("You replace and screw tight the wiring cover from \the [src]."))
 				playsound(loc, I.usesound, 50, 1)
 				setconstructionstate(2)
-				return
+				return TRUE
 
 		if (4)
 			if (I.iswirecutter())
 				to_chat(user, SPAN_NOTICE("You repair the wires connecting the [src]'s magnets to their internal powersupply"))
 				setconstructionstate(3)
-				return
+				return TRUE
 
 /obj/item/device/magnetic_lock/process()
 	if(!processpower)

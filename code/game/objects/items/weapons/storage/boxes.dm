@@ -126,7 +126,6 @@
 	name = "emergency survival box"
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
 	icon_state = "e_box"
-	autodrobe_no_remove = 1
 	max_storage_space = 14
 	can_hold = list(
 				/obj/item/clothing/mask,
@@ -155,28 +154,11 @@
 					/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 					)
 
-/obj/item/storage/box/survival/fill()
-	..()
-	for(var/obj/item/thing in contents)
-		thing.autodrobe_no_remove = 1
-
 /obj/item/storage/box/engineer
-	autodrobe_no_remove = 1
 	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/tank/emergency_oxygen/engi = 1)
 
-/obj/item/storage/box/engineer/fill()
-	..()
-	for(var/obj/item/thing in contents)
-		thing.autodrobe_no_remove = 1
-
 /obj/item/storage/box/vaurca
-	autodrobe_no_remove = 1
 	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/reagent_containers/inhaler/phoron_special = 1)
-
-/obj/item/storage/box/vaurca/fill()
-	..()
-	for(var/obj/item/thing in contents)
-		thing.autodrobe_no_remove = 1
 
 /obj/item/storage/box/gloves
 	name = "box of sterile gloves"
@@ -999,3 +981,9 @@
 			to_chat(user, SPAN_WARNING("\The [src] needs to be empty before you can do that!"))
 	else
 		..()
+
+/obj/item/storage/box/tungstenslugs
+	name = "box of compact tungsten slugs"
+	desc = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
+	icon_state = "box_tungstenslug"
+	starts_with = list(/obj/item/ammo_casing/gauss/carbine = 4)

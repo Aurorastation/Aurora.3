@@ -26,6 +26,11 @@
 	power_change()
 	update_icon()
 
+/obj/machinery/computer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = TRUE)
+	if(inoperable() || isNotStationLevel(z) || user.stat)
+		user.unset_machine()
+		return
+
 /obj/machinery/computer/emp_act(severity)
 	if(prob(20/severity)) set_broken()
 	..()
@@ -121,8 +126,9 @@
 				A.icon_state = "4"
 			M.deconstruct(src)
 			qdel(src)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/machinery/computer/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!mover)

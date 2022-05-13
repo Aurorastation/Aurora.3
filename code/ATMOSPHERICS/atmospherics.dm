@@ -54,7 +54,7 @@ Pipelines + Other Objects -> Pipe network
 
 /obj/machinery/atmospherics/attackby(atom/A, mob/user as mob)
 	if(istype(A, /obj/item/device/pipe_painter))
-		return
+		return FALSE
 	..()
 
 /obj/machinery/atmospherics/proc/add_underlay(var/turf/T, var/obj/machinery/atmospherics/node, var/direction, var/icon_connect_type)

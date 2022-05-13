@@ -118,7 +118,7 @@
 	icon_state = "pit0"
 
 /obj/structure/pit/closed/grave/Initialize()
-	var/obj/structure/closet/coffin/C = new(src.loc)
+	var/obj/structure/closet/crate/coffin/C = new(src.loc)
 	var/obj/effect/decal/remains/human/bones = new(C)
 	bones.layer = BELOW_MOB_LAYER
 	var/obj/structure/gravemarker/random/R = new(src.loc)

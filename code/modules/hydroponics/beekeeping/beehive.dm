@@ -150,7 +150,7 @@
 		update_icon()
 	else if (!closed && bee_count && prob(bee_count * 0.1))
 	//If the hive is opened, periodically release docile bees
-		visible_message(SPAN_WARNING("A few curious bees float out of the open beehive to buzz around."))
+		visible_message(SPAN_NOTICE("A few curious bees float out of the open beehive to buzz around."))
 		release_bees(0.1, 0, 3)
 
 	smoked = max(0, smoked - 1)
@@ -171,9 +171,6 @@
 /obj/machinery/beehive/proc/release_bees(var/severity, var/angry, var/swarmsize = 6)
 	if(bee_count < 1)
 		return
-
-	visible_message(SPAN_NOTICE("[pick("Buzzzz.","Hmmmmm.","Bzzz.")]"))
-	playsound(get_turf(src), pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 45, TRUE)
 
 	severity = Clamp(severity, 0, 1)
 	var/bees_to_release = bee_count * severity

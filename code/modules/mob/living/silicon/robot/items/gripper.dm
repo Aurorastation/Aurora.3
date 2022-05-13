@@ -34,7 +34,6 @@
 	var/obj/item/wrapped
 
 	var/force_holder
-	var/just_dropped = FALSE //When set to 1, the gripper has just dropped its item, and should not attempt to trigger anything
 
 /obj/item/gripper/examine(var/mob/user)
 	..()
@@ -146,14 +145,15 @@
 	return FALSE
 
 /obj/item/gripper/attackby(obj/item/O, mob/user)
+	var/resolved = FALSE
 	if(wrapped)
 		if(O == wrapped)
 			attack_self(user) //Allows gripper to be clicked to use item.
-			return
-		var/resolved = wrapped.attackby(O,user)
+			return TRUE
+		resolved = wrapped.attackby(O,user)
 		if(!resolved)
 			O.afterattack(wrapped, user, TRUE)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
-	return
+	return resolved
 
 /obj/item/gripper/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 	if(!proximity)
@@ -176,9 +176,8 @@
 		grip_item(target, user)
 	else if (istype(target, /obj/machinery/mining)) // to prevent them from activating it by accident
 		return
-	else if (!just_dropped)
+	else
 		target.attack_ai(user)
-	just_dropped = FALSE
 
 /obj/item/gripper/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	if(wrapped)
@@ -224,7 +223,9 @@
 		/obj/item/smallDelivery,
 		/obj/item/gift,
 		/obj/item/stack/packageWrap,
-		/obj/item/stack/wrapping_paper
+		/obj/item/stack/wrapping_paper,
+		/obj/item/computer_hardware/hard_drive/portable,
+		/obj/item/photo
 		)
 
 /obj/item/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
@@ -284,7 +285,6 @@
 		/obj/item/stack/material/phoron,
 		/obj/item/reagent_containers/blood,
 		/obj/item/reagent_containers/food/drinks/sillycup,
-		/obj/item/reagent_containers/food/drinks/medcup,
 		/obj/item/smallDelivery,
 		/obj/item/gift,
 		/obj/item/reagent_containers/chem_disp_cartridge

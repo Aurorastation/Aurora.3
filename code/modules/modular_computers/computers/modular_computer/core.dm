@@ -112,6 +112,11 @@
 	if(iscarbon(user))
 		playsound(src, 'sound/machines/pda_click.ogg', 20)
 
+/obj/item/modular_computer/CouldNotUseTopic(var/mob/user)
+	..()
+	if(user.machine == src)
+		user.unset_machine()
+
 /obj/item/modular_computer/emag_act(var/remaining_charges, var/mob/user)
 	if(computer_emagged)
 		to_chat(user, SPAN_WARNING("\The [src] has already been emagged."))

@@ -278,7 +278,7 @@
 /datum/gear/accessory/holobadge
 	display_name = "badge, holographic"
 	path = /obj/item/clothing/accessory/badge/holo
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet")
+	allowed_roles = list("Head of Security", "Investigator", "Warden", "Security Officer", "Security Cadet")
 
 /datum/gear/accessory/holobadge/New()
 	..()
@@ -349,6 +349,7 @@
 	description = "A selection of cadre brassards from Gadpathur."
 	path = /obj/item/clothing/accessory/armband/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/accessory/gadpathur/New()
 	..()
@@ -363,12 +364,14 @@
 	description = "A small metal badge worn by Gadpathurian Section Leaders."
 	path = /obj/item/clothing/accessory/gadpathurian_leader
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/accessory/gadpathur_dogtags
 	display_name = "gadpathurian dogtags"
 	description = "Dogtags issued to Gadpathurians."
 	path = /obj/item/clothing/accessory/dogtags/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/accessory/sash_coloured
 	display_name = "sash (colourable)"
@@ -420,6 +423,12 @@
 	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	gear_tweaks += new /datum/gear_tweak/path(passcard)
 
+/datum/gear/accessory/workvisa
+	display_name = "republic of biesel work visa"
+	description = "A work visa issued to those who work in the Republic of Biesel, but who do not have a Biesellite citizenship."
+	path = /obj/item/clothing/accessory/badge/passcard/workvisa
+	cost = 0
+
 /datum/gear/accessory/passport
 	display_name = "human passport selection"
 	path = /obj/item/clothing/accessory/badge/passport
@@ -437,13 +446,13 @@
 
 /datum/gear/accessory/TCFLcard
 	display_name = "TCFL service cards"
-	description = "Identification cards given to active and former members of the Tau Ceti Foreign Legion."
+	description = "Identification cards given to reservists and former members of the Tau Ceti Foreign Legion."
 	path = /obj/item/clothing/accessory/badge/tcfl_papers
 
 /datum/gear/accessory/TCFLcard/New()
 	..()
 	var/list/TCFLcard = list()
-	TCFLcard["active service"] = /obj/item/clothing/accessory/badge/tcfl_papers/service
+	TCFLcard["reservist"] = /obj/item/clothing/accessory/badge/tcfl_papers/service/reservist
 	TCFLcard["veteran"] = /obj/item/clothing/accessory/badge/tcfl_papers/service/veteran
 	gear_tweaks += new /datum/gear_tweak/path(TCFLcard)
 
