@@ -361,9 +361,10 @@
 	icon_badge = "forensictech_badge"
 	icon_nobadge = "forensictech_nobadge"
 
-/obj/item/clothing/suit/storage/hazardvest/cadet
+/obj/item/clothing/suit/storage/hazardvest/security
 	name = "cadet hazard vest"
-	desc = "A sturdy high-visibility vest intended for in training security personnel."
+	desc = "A sturdy high-visibility vest intended for training security personnel."
+	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
 	icon_state = "hazard_cadet"
 	item_state = "hazard_cadet"
 	allowed = list(/obj/item/gun,/obj/item/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)
@@ -373,6 +374,14 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 		)
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/hazardvest/security/officer
+	name = "officer hazard jacket"
+	desc = "A sturdy high-visibility jacket for the on the beat officer."
+	icon_state = "hazard_officer"
+	item_state = "hazard_officer"
+	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/vest/heavy/officer
 	name = "officer heavy armor vest"

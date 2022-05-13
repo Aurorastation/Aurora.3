@@ -832,7 +832,6 @@
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen = 0.7,
 		/obj/item/clothing/suit/storage/vest = 0.2,
 		/obj/item/clothing/suit/syndicatefake = 0.6,
-		/obj/item/clothing/under/mime = 0.1,
 		/obj/item/clothing/under/overalls = 1,
 		/obj/item/clothing/under/rainbow = 0.9,
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,
