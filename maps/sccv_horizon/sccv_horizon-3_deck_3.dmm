@@ -8567,7 +8567,6 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/obj/machinery/firealarm/south,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "pT" = (
@@ -14944,6 +14943,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "BU" = (
@@ -19422,6 +19422,12 @@
 	},
 /obj/effect/floor_decal/corner/paleblue,
 /obj/machinery/hologram/holopad,
+/obj/machinery/requests_console{
+	department = "Bridge";
+	name = "Bridge RC";
+	pixel_y = 32;
+	departmentType = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "Kg" = (
@@ -20998,7 +21004,9 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Captain's Private Office 1"
 	},
-/obj/machinery/firealarm/north,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "Nb" = (
