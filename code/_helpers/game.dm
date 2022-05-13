@@ -195,35 +195,37 @@
 	DVIEW(hear, range, T, INVISIBILITY_MAXIMUM)
 	var/list/hearturfs = list()
 
-	for(var/mob/M in hear)
-		mobs[M] = TRUE
-		hearturfs[get_turf(M)] = TRUE
+	if(islist(mobs))
+		for(var/mob/M in hear)
+			mobs[M] = TRUE
+			hearturfs[get_turf(M)] = TRUE
 
-	for(var/obj/O in hear)
-		objs[O] = TRUE
-		hearturfs[get_turf(O)] = TRUE
-
-	for(var/mob/M in player_list)
+		for(var/mob/M in player_list)
 #ifdef UNIT_TEST
-		if(istype(M, /mob/living/test))
-			if (!mobs[M])
-				mobs[M] = TRUE
-			continue
+			if(istype(M, /mob/living/test))
+				if (!mobs[M])
+					mobs[M] = TRUE
+				continue
 #endif
-		if(checkghosts == GHOSTS_ALL_HEAR && M.stat == DEAD && !isnewplayer(M) && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
-			if (!mobs[M])
-				mobs[M] = TRUE
-			continue
+			if(checkghosts == GHOSTS_ALL_HEAR && M.stat == DEAD && !isnewplayer(M) && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
+				if (!mobs[M])
+					mobs[M] = TRUE
+				continue
 
-		var/turf/M_turf = get_turf(M)
-		if(M.loc && hearturfs[M_turf])
-			if (!mobs[M])
-				mobs[M] = TRUE
+			var/turf/M_turf = get_turf(M)
+			if(M.loc && hearturfs[M_turf])
+				if (!mobs[M])
+					mobs[M] = TRUE
 
-	for(var/obj/O in listening_objects)
-		if(O.loc && hearturfs[get_turf(O)])
-			if (!objs[O])
-				objs[O] = TRUE
+	if(islist(objs))
+		for(var/obj/O in hear)
+			objs[O] = TRUE
+			hearturfs[get_turf(O)] = TRUE
+
+		for(var/obj/O in listening_objects)
+			if(O.loc && hearturfs[get_turf(O)])
+				if (!objs[O])
+					objs[O] = TRUE
 
 proc
 	inLineOfSight(X1,Y1,X2,Y2,Z=1,PX1=16.5,PY1=16.5,PX2=16.5,PY2=16.5)
