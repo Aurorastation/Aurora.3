@@ -7,6 +7,9 @@
 	new /obj/item/clothing/suit/bio_suit/general(src)
 	new /obj/item/clothing/head/bio_hood/general(src)
 	new /obj/item/clothing/mask/gas/half(src)
+	new /obj/item/clothing/suit/bio_suit/general(src)
+	new /obj/item/clothing/head/bio_hood/general(src)
+	new /obj/item/clothing/mask/gas/half(src)
 
 /obj/structure/closet/l3closet/virology
 	icon_state = "bio_viro"

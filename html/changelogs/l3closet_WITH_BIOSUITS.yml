@@ -1,0 +1,7 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - bugfix: "The level-3 biohazard closet in Medical's Isolation Ward is no longer empty."
+  - tweak: "Made general level-3 biohazard closets spawn with two biosuit pairs instead of just one."
