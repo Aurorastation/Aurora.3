@@ -14,7 +14,7 @@
 	short_name = "eridanileader"
 	mob_name_prefix = "Ldr. "
 	max_count = 1
-	desc = "The leader of the EPMC Asset Protection Team. Ensure your employers bottom line remains protected and don't sign blindly."
+	desc = "The leader of the PMCG Asset Protection Team. Ensure your employers bottom line remains protected and don't sign blindly."
 	outfit = /datum/outfit/admin/ert/ap_eridani/lead
 	possible_species = list(SPECIES_HUMAN)
 
@@ -23,7 +23,7 @@
 	short_name = "eridanidoctor"
 	mob_name_prefix = "Dr. "
 	max_count = 1
-	desc = "A highly trained Eridani medical officer and the second in command of the EPMC Asset Protection Team. Well versed in surgical procedures and expected to work in a hot zone. Not a stranger to a bank run."
+	desc = "A highly trained Eridani medical officer and the second in command of the PMCG Asset Protection Team. Well versed in surgical procedures and expected to work in a hot zone. Not a stranger to a bank run."
 	outfit = /datum/outfit/admin/ert/ap_eridani/doctor
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC_SHELL)
 

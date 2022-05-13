@@ -7,7 +7,7 @@
 		/decl/origin_item/origin/vaur,
 		/decl/origin_item/origin/xakt,
 		/decl/origin_item/origin/athvur,
-		/decl/origin_item/origin/queenless
+		/decl/origin_item/origin/queenless_zora
 	)
 
 /decl/origin_item/origin/zoleth
@@ -45,7 +45,7 @@
 	possible_citizenships = list(CITIZENSHIP_BIESEL)
 	possible_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_NONE)
 
-/decl/origin_item/origin/queenless
+/decl/origin_item/origin/queenless_zora
 	name = "Queenless"
 	desc = "A broad descriptor for the unrepresented groups in the Hive. The Breeders of the factions once belonged to forgotten broods or were foreign rulers that fell into the domain of the Zo'ra. Most of the Queenless Vaurcae live impoverished in Flagsdale, Mendell City."
 	possible_accents = list(ACCENT_ZORA, ACCENT_TTS)

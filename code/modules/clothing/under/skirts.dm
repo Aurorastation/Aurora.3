@@ -9,7 +9,6 @@
 	item_state = "skirt_casual"
 	worn_state = "skirt_casual"
 	body_parts_covered = LOWER_TORSO
-	rolled_sleeves = -1
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/skirt/puffy

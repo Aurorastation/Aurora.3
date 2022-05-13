@@ -310,7 +310,6 @@
 		/obj/item/inflatable_duck,
 		/obj/item/beach_ball,
 		/obj/item/clothing/under/syndicate/tracksuit,
-		/obj/item/clothing/under/mime,
 		/obj/item/clothing/under/rank/fatigues/marine,
 		/obj/item/clothing/under/rank/dress/marine,
 		/obj/random/hoodie,

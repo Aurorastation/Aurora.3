@@ -23,6 +23,8 @@
 	icon_state = "spiderbot-chassis"
 	icon_living = "spiderbot-chassis"
 	icon_dead = "spiderbot-smashed"
+	blood_color = COLOR_OIL
+	blood_type = COLOR_OIL
 
 	wander = 0
 	density = 0

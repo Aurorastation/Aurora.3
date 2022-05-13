@@ -1477,4 +1477,19 @@ Note that amputating the affected organ does in fact remove the infection from t
 	pain = max(0, min(pain + amount, species.total_health * 2))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
+	if(amount > 5)
+		owner.undo_srom_pull()
 	return pain-last_pain
+
+/mob/living/carbon/human/proc/undo_srom_pull()
+	if(srom_pulled_by)
+		to_chat(src, SPAN_DANGER("You are ripped out of the Srom by a sudden shock!"))
+		var/mob/living/carbon/human/srom_puller = srom_pulling.resolve()
+		srom_puller.srom_pulling = null
+		to_chat(srom_puller, SPAN_WARNING("A vibration like a jackhammer resonates in your consciousness, and the person you pulled into the Srom disappears in the next instant."))
+		srom_pulled_by = null
+	if(srom_pulling)
+		to_chat(src, SPAN_DANGER("Your Srom pull is disturbed by a sudden shock!"))
+		var/mob/living/carbon/human/victim = srom_pulling.resolve()
+		victim.srom_pulled_by = null
+		srom_pulling = null

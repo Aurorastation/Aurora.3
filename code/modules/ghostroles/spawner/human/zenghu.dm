@@ -23,9 +23,8 @@
 /datum/outfit/admin/zenghu_survivor
 	name = "Zeng-Hu Employee"
 
-	uniform = /obj/item/clothing/under/rank/zeng
+	uniform = /obj/item/clothing/under/rank/scientist
 	shoes = /obj/item/clothing/shoes/white
 	belt = /obj/item/storage/belt/utility/full
 	id = /obj/item/card/id/zeng_hu
 	r_hand = /obj/item/device/flashlight
-
