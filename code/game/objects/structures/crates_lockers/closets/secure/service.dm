@@ -10,7 +10,7 @@
 	new /obj/item/clothing/head/beret/janitor(src)
 	new /obj/item/clothing/head/bandana/janitor(src)
 	new /obj/item/device/radio/headset/headset_service(src)
-	new /obj/item/clothing/under/rank/janitor/nt(src)
+	new /obj/item/clothing/under/rank/janitor(src)
 	new /obj/item/clothing/under/rank/janitor/idris(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/storage/belt/custodian(src)
