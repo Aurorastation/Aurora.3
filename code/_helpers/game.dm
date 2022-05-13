@@ -203,19 +203,15 @@
 		for(var/mob/M in player_list)
 #ifdef UNIT_TEST
 			if(istype(M, /mob/living/test))
-				if (!mobs[M])
-					mobs[M] = TRUE
+				mobs[M] = TRUE
 				continue
 #endif
 			if(checkghosts == GHOSTS_ALL_HEAR && M.stat == DEAD && !isnewplayer(M) && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
-				if (!mobs[M])
-					mobs[M] = TRUE
+				mobs[M] = TRUE
 				continue
 
-			var/turf/M_turf = get_turf(M)
-			if(M.loc && hearturfs[M_turf])
-				if (!mobs[M])
-					mobs[M] = TRUE
+			if(M.loc && hearturfs[get_turf(M)])
+				mobs[M] = TRUE
 
 	if(islist(objs))
 		for(var/obj/O in hear)
@@ -224,8 +220,7 @@
 
 		for(var/obj/O in listening_objects)
 			if(O.loc && hearturfs[get_turf(O)])
-				if (!objs[O])
-					objs[O] = TRUE
+				objs[O] = TRUE
 
 proc
 	inLineOfSight(X1,Y1,X2,Y2,Z=1,PX1=16.5,PY1=16.5,PX2=16.5,PY2=16.5)
