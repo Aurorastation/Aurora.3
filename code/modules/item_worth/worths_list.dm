@@ -609,7 +609,7 @@ var/list/worths = list(
 					/obj/item/organ/internal/heart = 1200,
 					/obj/item/organ/internal/brain/golem = 3000,
 					/obj/item/organ/internal/brain = 1200,
-					/obj/item/organ/vaurca/neuralsocket = 1500,
+					/obj/item/organ/internal/vaurca/neuralsocket = 1500,
 					/obj/item/organ = 400,
 //ITEMS,
 					/obj/item/slime_extract = 200,

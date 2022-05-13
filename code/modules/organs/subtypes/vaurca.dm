@@ -44,7 +44,7 @@
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	can_prepare = FALSE
 
-/obj/item/organ/vaurca/reservoir
+/obj/item/organ/internal/vaurca/reservoir
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_PHORON_RESERVOIR
 	organ_tag = BP_PHORON_RESERVOIR
@@ -52,7 +52,7 @@
 	icon_state = "phoron_reservoir"
 	robotic = ROBOTIC_ASSISTED
 
-/obj/item/organ/vaurca/filtrationbit
+/obj/item/organ/internal/vaurca/filtrationbit
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_FILTRATION_BIT
 	organ_tag = BP_FILTRATION_BIT
@@ -60,7 +60,7 @@
 	icon_state = "filter"
 	robotic = ROBOTIC_MECHANICAL
 
-/obj/item/organ/vaurca/neuralsocket
+/obj/item/organ/internal/vaurca/neuralsocket
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_NEURAL_SOCKET
 	organ_tag = BP_NEURAL_SOCKET
@@ -80,13 +80,13 @@ obj/item/organ/vaurca/neuralsocket/process()
 			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	..()
 
-/obj/item/organ/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
 	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
 		owner.add_language(LANGUAGE_VAURCA)
 		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	..()
 
-/obj/item/organ/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
 	if(all_languages[LANGUAGE_VAURCA] in target.languages)
 		target.remove_language(LANGUAGE_VAURCA)
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
