@@ -1444,7 +1444,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		. += 10
 	else if(ORGAN_IS_DISLOCATED(src))
 		. += 5
-	for(var/obj/item/organ/internal/I in internal_organs)
+	for(var/obj/item/organ/internal/I as anything in internal_organs)
 		. += 0.3 * I.getToxLoss()
 
 /obj/item/organ/external/proc/remove_pain(var/amount)
