@@ -54,7 +54,7 @@
 		"Medical Intern" = /datum/outfit/job/intern_med/zeng_hu,
 		"Scientist" = /datum/outfit/job/scientist/zeng_hu,
 		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
-		"Xenobotanist" = /datum/outfit/job/scientist/zeng_hu,
+		"Xenobotanist" = /datum/outfit/job/scientist/xenobiologist/botany/zeng_hu,
 		"Lab Assistant" = /datum/outfit/job/intern_sci/zeng_hu,
 		"Xenoarcheologist"= /datum/outfit/job/scientist/xenoarcheologist/zeng_hu,
 		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
@@ -120,6 +120,12 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
 
+/datum/outfit/job/scientist/xenobiologist/botany/zeng_hu
+	name = "Xenobotanist - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/scientist/botany/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/scientist/xenoarcheologist/zeng_hu
 	name = "Xenoarcheologist - Zeng-Hu"

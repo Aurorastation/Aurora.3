@@ -30,43 +30,49 @@
 	l_ear = /obj/item/device/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
+	species_shoes = list(
+		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless
+	)
+
+/datum/outfit/admin/freighter_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(isoffworlder(H))
+		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
 /datum/outfit/admin/freighter_crew/get_id_access()
 	return list(access_external_airlocks)
 
-/datum/ghostspawner/human/freighter_crew_captain
+/datum/ghostspawner/human/freighter_crew/captain
 	short_name = "freighter_crew_captain"
 	name = "Freighter Captain"
-	desc = "Crew the tramp freighter. Be a tramp - carry cargo, do some mining, go salvaging, and try not to get into anything you can't get out of!"
-	tags = list("External")
+	desc = "Captain the tramp freighter. Be a tramp - carry cargo, do some mining, go salvaging, and try not to get into anything you can't get out of!"
 
 	spawnpoints = list("freighter_crew_captain")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/freighter_crew_captain
+	outfit = /datum/outfit/admin/freighter_crew/captain
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Freighter Captain"
 	special_role = "Freighter Captain"
-	respawn_flag = null
 
 
-/datum/outfit/admin/freighter_crew_captain
+/datum/outfit/admin/freighter_crew/captain
 	name = "Freighter Captain"
 
 	uniform = /obj/item/clothing/under/tactical
 	shoes = /obj/item/clothing/shoes/workboots/grey
-	back = /obj/item/storage/backpack/satchel_norm
 
-	id = /obj/item/card/id/freighter_crew_ship
-
-	l_ear = /obj/item/device/radio/headset/ship
-
-	backpack_contents = list(/obj/item/storage/box/survival = 1)
-
-/datum/outfit/admin/freighter_crew_captain/get_id_access()
-	return list(access_external_airlocks)
+	species_shoes = list(
+		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless/grey,
+		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless/grey,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless/grey,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless/grey
+	)
 
 /obj/item/card/id/freighter_crew_ship
 	name = "freight ship id"

@@ -3110,6 +3110,7 @@
 #include "maps\away\generic\bunker.dm"
 #include "maps\away\generic\derelict.dm"
 #include "maps\away\generic\hivebot_hub.dm"
+#include "maps\away\generic\racers.dm"
 #include "maps\away\generic\space_bar.dm"
 #include "maps\away\generic\space_bar_ghostroles.dm"
 #include "maps\away\romanovich\first_aurora.dm"
