@@ -44,6 +44,9 @@ This is /obj/machinery level code to properly manage power usage from the area.
 		queue_icon_update()
 
 /obj/machinery/proc/get_power_usage()
+	if(internal)
+		return 0
+
 	switch(use_power)
 		if(POWER_USE_IDLE)
 			return idle_power_usage
@@ -62,7 +65,8 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	A.use_power_oneoff(amount, chan)
 
 // Do not do power stuff in New/Initialize until after ..()
-/obj/machinery/Initialize()
+/obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
+	internal = is_internal
 	REPORT_POWER_CONSUMPTION_CHANGE(0, get_power_usage())
 	moved_event.register(src, src, .proc/update_power_on_move)
 	power_init_complete = TRUE

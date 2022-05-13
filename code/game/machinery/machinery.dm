@@ -90,6 +90,7 @@ Class Procs:
 	var/stat = 0
 	var/emagged = 0
 	var/use_power = POWER_USE_IDLE // See code/__defines/machinery.dm
+	var/internal = FALSE
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
 	var/power_init_complete = FALSE
@@ -120,7 +121,7 @@ Class Procs:
 	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
 	var/obj/effect/overmap/visitable/ship/linked // overmap sector the machine is linked to
 
-/obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
+/obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	. = ..()
 	if(d)
 		set_dir(d)
