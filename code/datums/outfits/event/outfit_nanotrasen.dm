@@ -110,7 +110,6 @@
 	name = "CCIA Agent"
 
 	uniform = /obj/item/clothing/under/rank/centcom_officer
-	suit = /obj/item/clothing/suit/storage/toggle/liaison
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/white
 	l_ear = /obj/item/device/radio/headset/ert/ccia
@@ -238,8 +237,8 @@
 /datum/outfit/admin/nt/odindoc
 	name = "NTCC Odin Medical Specialist"
 
-	uniform = /obj/item/clothing/under/rank/medical/black
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/trauma
+	uniform = /obj/item/clothing/under/rank/medical/surgeon/zavod
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/trauma
 	mask = /obj/item/clothing/mask/surgical
 	l_hand = /obj/item/storage/firstaid/adv
@@ -269,7 +268,7 @@
 		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
 		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
 		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
-		/obj/item/reagent_containers/glass/bottle/perconol = 1	
+		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
 	id_access = "Medical Doctor"
@@ -277,8 +276,8 @@
 /datum/outfit/admin/nt/odinpharm
 	name = "NTCC Odin Pharmacy Specialist"
 
-	uniform = /obj/item/clothing/under/rank/pharmacist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
+	uniform = /obj/item/clothing/under/rank/medical/pharmacist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/chemist
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt

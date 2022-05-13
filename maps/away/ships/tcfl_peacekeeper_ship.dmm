@@ -214,7 +214,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tcfl_peacekeeper_ship)
 "ctQ" = (
-/obj/machinery/sleeper,
+/obj/machinery/bodyscanner,
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcfl_peacekeeper_ship)
 "cEG" = (
@@ -274,8 +274,8 @@
 	icon_state = "tube1"
 	},
 /obj/structure/closet/crate/medical,
-/obj/item/roller_holder,
-/obj/item/roller_holder,
+/obj/item/roller,
+/obj/item/roller,
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/regular,
 /turf/simulated/floor/tiled/dark,
@@ -335,6 +335,8 @@
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
+/obj/item/storage/bag/inflatable,
+/obj/item/device/lightreplacer,
 /obj/item/storage/belt/utility,
 /turf/simulated/floor,
 /area/shuttle/tcfl_peacekeeper_ship)
@@ -371,6 +373,11 @@
 	pixel_x = -26;
 	pixel_y = -1;
 	req_access = null
+	},
+/obj/machinery/body_scanconsole{
+	dir = 1;
+	layer = 3.01;
+	pixel_y = 6
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcfl_peacekeeper_ship)
@@ -839,6 +846,10 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcfl_peacekeeper_ship)
+"nPN" = (
+/obj/machinery/atmospherics/binary/pump/high_power,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/tcfl_shuttle)
 "nTM" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -958,6 +969,13 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
+"pIz" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24;
+	pixel_x = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/tcfl_peacekeeper_ship)
 "pJZ" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -32816,7 +32834,7 @@ sBA
 xQS
 sBA
 yjk
-sBA
+pIz
 sBA
 wXi
 sBA
@@ -35131,7 +35149,7 @@ rNp
 uYP
 rNp
 ofY
-inf
+nPN
 wCo
 ajL
 cQs

@@ -87,9 +87,6 @@
 	worn_state = "scc_agent"
 	contained_sprite = TRUE
 
-	rolled_down = FALSE
-	rolled_sleeves = FALSE
-
 /obj/item/clothing/under/rank/scc/executive
 	name = "Stellar Corporate Conglomerate executive uniform"
 	desc = "A stylish purple uniform worn by executive agents of the Stellar Corporate Conglomerate."
@@ -606,5 +603,3 @@
 	desc = "An utility uniform worn by Elyran navy officers serving aboard ships and in the field."
 	icon_state = "elyran_commander"
 	item_state = "elyran_commander"
-
-

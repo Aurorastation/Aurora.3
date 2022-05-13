@@ -61794,7 +61794,6 @@
 "hqT" = (
 /obj/item/clothing/mask/gas/mime,
 /obj/item/clothing/shoes/mime,
-/obj/item/clothing/under/mime,
 /obj/item/toy/figure/mime,
 /obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,

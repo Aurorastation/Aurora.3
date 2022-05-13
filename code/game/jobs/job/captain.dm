@@ -37,7 +37,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	jobtype = /datum/job/captain
 
 	uniform = /obj/item/clothing/under/scc_captain
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/laceup/brown
 	head = /obj/item/clothing/head/caphat/scc
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/gold
@@ -125,7 +125,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	head = /obj/item/clothing/head/caphat/xo
 	uniform = /obj/item/clothing/under/rank/xo
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/laceup/brown
 	id = /obj/item/card/id/navy
 
 	headset = /obj/item/device/radio/headset/heads/xo
@@ -181,7 +181,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	head = /obj/item/clothing/head/caphat/bridge_crew
 	uniform = /obj/item/clothing/under/rank/bridge_crew
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/laceup
 
 	headset = /obj/item/device/radio/headset/headset_com
 	bowman = /obj/item/device/radio/headset/headset_com/alt

@@ -51,7 +51,7 @@
 
 /obj/structure/bed/stool/chair/CanPass(atom/movable/mover, turf/target, height, air_group)
 	if(anchored && padding_material)
-		if(mover.density && isliving(mover) && (reverse_dir[dir] & angle2dir(Get_Angle(src, mover))))
+		if(mover?.density && isliving(mover) && (reverse_dir[dir] & angle2dir(Get_Angle(src, mover))))
 			return FALSE
 	return ..()
 
