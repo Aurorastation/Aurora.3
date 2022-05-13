@@ -88,8 +88,8 @@
 	icon_state = "labcoat_heph"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/epmc
-	name = "epmc security labcoat"
-	desc = "A suit that protects against minor chemical spills. Comes in EPMC colours."
+	name = "\improper PMCG security labcoat"
+	desc = "A suit that protects against minor chemical spills. Comes in PMCG colours."
 	icon_state = "labcoat_erisec"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/epmc/alt
@@ -97,8 +97,8 @@
 	icon_state = "labcoat_erisec_alt"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/epmc/med
-	name = "epmc medical labcoat"
-	desc = "A suit that protects against minor chemical spills. Comes in EPMC colours."
+	name = "\improper PMCG medical labcoat"
+	desc = "A suit that protects against minor chemical spills. Comes in PMCG colours."
 	icon_state = "labcoat_erimed"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/iac

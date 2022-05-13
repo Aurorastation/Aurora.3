@@ -537,7 +537,7 @@
 		/obj/item/reagent_containers/pill/antitox = 6,
 		/obj/item/reagent_containers/pill/cetahydramine = 6,
 		/obj/item/reagent_containers/pill/perconol = 6,
-		/obj/item/reagent_containers/food/drinks/medcup = 4,
+		/obj/item/reagent_containers/glass/beaker/medcup = 4,
 		/obj/item/storage/pill_bottle = 4,
 		/obj/item/reagent_containers/spray/sterilizine = 2
 	)

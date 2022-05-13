@@ -28,6 +28,8 @@
 	siemens_coefficient = 0
 	light_overlay = "helmet_light_dual_red"
 	light_color = COLOR_RED_LIGHT
+	contained_sprite = FALSE
+	icon = 'icons/obj/clothing/hats.dmi'
 
 /obj/item/clothing/head/helmet/space/cult/cultify()
 	return
@@ -51,6 +53,8 @@
 	siemens_coefficient = 0
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDEJUMPSUIT|HIDETAIL|HIDESHOES
+	contained_sprite = FALSE
+	icon = 'icons/obj/clothing/suits.dmi'
 
 /obj/item/clothing/suit/space/cult/cultify()
 	return

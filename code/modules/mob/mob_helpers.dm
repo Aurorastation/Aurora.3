@@ -45,6 +45,13 @@
 		return 1
 	return 0
 
+/proc/isoffworlder(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		if(H.get_species() == SPECIES_HUMAN_OFFWORLD)
+			return TRUE
+	return FALSE
+
 /proc/isgolem(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
