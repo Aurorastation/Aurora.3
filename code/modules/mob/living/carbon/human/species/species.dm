@@ -806,7 +806,7 @@
 				spark(H, 5)
 		else if (E.is_broken() || !E.is_usable())
 			stance_damage += 1
-		else if (E.is_dislocated())
+		else if (ORGAN_IS_DISLOCATED(E))
 			stance_damage += 0.5
 
 	// Canes and crutches help you stand (if the latter is ever added)

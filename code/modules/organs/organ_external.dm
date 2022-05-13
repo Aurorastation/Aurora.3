@@ -186,13 +186,6 @@
 				return
 	..()
 
-/obj/item/organ/external/proc/is_dislocated()
-	if(dislocated > 0)
-		return 1
-	if(parent)
-		return parent.is_dislocated()
-	return 0
-
 /obj/item/organ/external/proc/dislocate(var/primary)
 	if(dislocated != -1)
 		if(primary)
@@ -1188,7 +1181,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/is_usable()
 	if(is_stump())
 		return FALSE
-	if(is_dislocated())
+	if(ORGAN_IS_DISLOCATED(src))
 		return FALSE
 	if(tendon_status() & TENDON_CUT)
 		return FALSE
@@ -1449,7 +1442,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	. = pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.5 * get_genetic_damage()
 	if(is_broken())
 		. += 10
-	else if(is_dislocated())
+	else if(ORGAN_IS_DISLOCATED(src))
 		. += 5
 	for(var/obj/item/organ/internal/I in internal_organs)
 		. += 0.3 * I.getToxLoss()
