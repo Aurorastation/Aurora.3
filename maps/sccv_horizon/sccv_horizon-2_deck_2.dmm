@@ -3525,6 +3525,7 @@
 	req_access = list(35);
 	name = "Hydroponics Maintenance"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hydroponics)
 "bOI" = (
@@ -8120,6 +8121,7 @@
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "eAX" = (
+/obj/structure/flora/ausbushes/fullgrass,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
@@ -9373,8 +9375,9 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "fmz" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/light,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "fmV" = (
@@ -11164,6 +11167,12 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/crew_quarters/heads/chief)
+"ghq" = (
+/obj/structure/ladder{
+	pixel_y = 16
+	},
+/turf/simulated/open,
+/area/template_noop)
 "ghX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -12617,6 +12626,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/smes)
+"gTy" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/turf/simulated/open,
+/area/template_noop)
 "gUn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -16017,6 +16031,9 @@
 	c_tag = "Dinner - Kitchen Stairwell";
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/green/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
 "iRl" = (
@@ -17891,6 +17908,14 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Security Lockdown";
+	name = "Security Blast Door";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/security/prison)
 "jUB" = (
@@ -20391,6 +20416,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
 "lAI" = (
@@ -21362,6 +21388,9 @@
 "lYZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/effect/floor_decal/corner/green/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
@@ -27545,6 +27574,13 @@
 /obj/item/clothing/glasses/safety/goggles,
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
+"pqs" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/template_noop)
 "pqE" = (
 /obj/structure/closet/toolcloset,
 /obj/machinery/power/apc{
@@ -30221,6 +30257,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
 "qPC" = (
@@ -31654,17 +31693,14 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "ryR" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/security/prison)
+/obj/structure/railing/mapped,
+/turf/simulated/open,
+/area/template_noop)
 "rzm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/blue{
@@ -31705,10 +31741,11 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "rAn" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "rAw" = (
@@ -36065,6 +36102,7 @@
 	name = "Hydroponics";
 	req_access = list(35)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "uaM" = (
@@ -38325,6 +38363,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
 "vkq" = (
@@ -39219,6 +39261,9 @@
 "vKf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
@@ -42464,6 +42509,12 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
@@ -68329,8 +68380,8 @@ rfi
 vOL
 mfV
 xer
-qgN
-qgN
+ghq
+gTy
 qgN
 qgN
 qgN
@@ -68531,8 +68582,8 @@ bLu
 dYb
 czL
 xer
-qgN
-qgN
+pqs
+ryR
 qgN
 qgN
 qgN
@@ -69944,7 +69995,7 @@ iNf
 hPb
 gis
 pSv
-pSv
+xer
 qgN
 qgN
 qgN
@@ -70146,7 +70197,7 @@ rLu
 pJE
 wRm
 jUx
-ryR
+xer
 qgN
 qgN
 qgN
@@ -70348,7 +70399,7 @@ quJ
 pJE
 oXo
 pSv
-pSv
+xer
 qgN
 qgN
 qgN
@@ -70752,7 +70803,7 @@ jmp
 pJE
 gEa
 pSv
-pSv
+xer
 qgN
 qgN
 qgN
@@ -70954,7 +71005,7 @@ pJE
 vOm
 pJE
 jUx
-ryR
+xer
 qgN
 qgN
 qgN
@@ -71156,7 +71207,7 @@ pJE
 hKM
 rGx
 pSv
-pSv
+xer
 qgN
 qgN
 qgN
