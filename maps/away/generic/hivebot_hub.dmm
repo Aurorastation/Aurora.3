@@ -885,7 +885,7 @@
 	tag_south = 1;
 	tag_south_con = 0.5;
 	tag_west = 2;
-	use_power = 0
+	use_power = POWER_USE_OFF
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -1839,7 +1839,7 @@
 	pressure_checks = 2;
 	pressure_checks_default = 2;
 	pump_direction = 0;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)

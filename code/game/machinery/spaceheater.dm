@@ -10,7 +10,6 @@
 	var/set_temperature = T0C + 50	//K
 	var/heating_power = 42000
 	emagged = FALSE
-	has_special_power_checks = TRUE
 	clicksound = /decl/sound_category/switch_sound
 
 /obj/machinery/space_heater/Initialize()
@@ -169,7 +168,7 @@
 
 
 
-/obj/machinery/space_heater/machinery_process()
+/obj/machinery/space_heater/process()
 	if(on)
 		if(cell && cell.charge)
 			var/datum/gas_mixture/env = loc.return_air()

@@ -88,7 +88,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
 	id = "tox_in";
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/reinforced/phoron/scarce,
 /area/engineering/atmos)
@@ -103,7 +103,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
 	id = "n2_in";
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos)
@@ -125,7 +125,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
 	id = "air_in";
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/engineering/atmos)
@@ -140,7 +140,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
 	id = "o2_in";
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos)
@@ -155,7 +155,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
 	id = "co2_in";
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmos)
@@ -1345,7 +1345,7 @@
 	pressure_checks = 2;
 	pressure_checks_default = 2;
 	pump_direction = 0;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/reinforced{
 	name = "vacuum floor";
@@ -1484,7 +1484,7 @@
 	pressure_checks = 2;
 	pressure_checks_default = 2;
 	pump_direction = 0;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos)
@@ -2028,7 +2028,7 @@
 	frequency = 1441;
 	id = "waste_in";
 	pixel_y = 1;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/reinforced{
 	name = "vacuum floor";
@@ -2118,7 +2118,7 @@
 	frequency = 1441;
 	id = "n2o_in";
 	initialize_directions = 8;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos)
@@ -2676,7 +2676,7 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
 	name = "Waste to Filtering";
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -3667,7 +3667,7 @@
 	icon_state = "map_on";
 	name = "Air to Pumps";
 	target_pressure = 15000;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /obj/machinery/firealarm/south,
 /obj/machinery/light{
@@ -4274,7 +4274,7 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
 	name = "Waste to Filtering";
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -4291,7 +4291,7 @@
 /obj/machinery/atmospherics/binary/pump{
 	name = "Air to Distro";
 	target_pressure = 200;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -4303,7 +4303,7 @@
 	external_pressure_bound_default = 140;
 	icon_state = "map_vent_out";
 	name = "Atmospherics Vent";
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/open,
 /area/engineering/atmos)
@@ -7665,7 +7665,7 @@
 	icon_state = "map_on";
 	name = "Distro to Canisters";
 	target_pressure = 150;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -9692,7 +9692,7 @@
 	icon_state = "map_on";
 	name = "Distro to Canisters";
 	target_pressure = 150;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -11443,7 +11443,7 @@
 	icon_state = "map_on";
 	name = "Distro to Canisters";
 	target_pressure = 150;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /obj/machinery/alarm{
 	dir = 4;
@@ -11975,7 +11975,7 @@
 "avw" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engsublevel)
@@ -15161,7 +15161,7 @@
 	dir = 8;
 	icon_state = "map_on";
 	name = "Distro to Trays";
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
@@ -22414,7 +22414,7 @@
 	dir = 8;
 	icon_state = "map_on";
 	name = "Hazardous Specimens Inlet";
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 5
@@ -23351,7 +23351,7 @@
 "baQ" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
@@ -24735,7 +24735,7 @@
 	frequency = 1441;
 	id = "toxins_chamber01_in";
 	initialize_directions = 8;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/mixing)
@@ -24834,7 +24834,7 @@
 	dir = 4;
 	frequency = 1441;
 	id = "toxins_waste";
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
@@ -25178,7 +25178,7 @@
 	frequency = 1441;
 	id = "toxins_chamber02_in";
 	initialize_directions = 8;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/mixing)
@@ -29544,7 +29544,7 @@
 	frequency = 1441;
 	id = "h2_in";
 	initialize_directions = 8;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
@@ -31305,7 +31305,7 @@
 	},
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor,
 /area/outpost/engineering/hallway)
@@ -33446,7 +33446,7 @@
 	pressure_checks = 2;
 	pressure_checks_default = 2;
 	pump_direction = 0;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
@@ -33825,7 +33825,7 @@
 	icon_state = "map_on";
 	name = "Distro to Canisters";
 	target_pressure = 150;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
@@ -36699,7 +36699,7 @@
 	icon_state = "map_on";
 	name = "Distro to Canisters";
 	target_pressure = 150;
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	},
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating,

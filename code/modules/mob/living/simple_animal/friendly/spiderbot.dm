@@ -203,7 +203,7 @@
 	. = ..()
 
 	radio = new radio_type(src)
-	camera = new /obj/machinery/camera(src)
+	camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
 	camera.c_tag = "spiderbot-[real_name]"
 	camera.replace_networks(list("SS13"))
 

@@ -10,7 +10,6 @@
 	density = 1
 	opacity = 1
 	//Just 300 Watts here. Power is drawn by the piston when it moves
-	use_power = 1
 	idle_power_usage = 300
 
 	var/obj/machinery/crusher_piston/pstn //Piston
@@ -170,7 +169,7 @@
 	..()
 	queue_icon_update()
 
-/obj/machinery/crusher_base/machinery_process()
+/obj/machinery/crusher_base/process()
 	set waitfor = FALSE
 	if(!pstn) //We dont process if theres no piston
 		return
@@ -403,7 +402,7 @@
 	QDEL_NULL(pb3)
 
 /obj/machinery/crusher_piston/proc/extend_0_1()
-	use_power(5 KILOWATTS)
+	use_power_oneoff(5 KILOWATTS)
 	var/turf/T = get_turf(src)
 	if(!can_extend_into(T))
 		return 0
@@ -415,7 +414,7 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_1_2()
-	use_power(5 KILOWATTS)
+	use_power_oneoff(5 KILOWATTS)
 	var/turf/T = get_turf(pb1)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))
@@ -428,7 +427,7 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_2_3()
-	use_power(5 KILOWATTS)
+	use_power_oneoff(5 KILOWATTS)
 	var/turf/T = get_turf(pb2)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))

@@ -160,7 +160,7 @@
 	common_radio = radio
 
 	if(!camera)
-		camera = new /obj/machinery/camera(src)
+		camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
 		camera.c_tag = real_name
 		if(!scrambled_codes)
 			camera.replace_networks(list(NETWORK_STATION, NETWORK_ROBOTS))

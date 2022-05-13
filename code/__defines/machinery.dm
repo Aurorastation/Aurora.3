@@ -10,10 +10,15 @@
 #define ALIEN_SELECT_AFK_BUFFER  1    // How many minutes that a person can be AFK before not being allowed to be an alien.
 
 // Channel numbers for power.
+#define POWER_CHAN  -1  // Use default
 #define EQUIP   1
 #define LIGHT   2
 #define ENVIRON 3
 #define TOTAL   4 // For total power used only.
+
+#define POWER_USE_OFF       0
+#define POWER_USE_IDLE      1
+#define POWER_USE_ACTIVE    2
 
 // Bitflags for machine stat variable.
 #define BROKEN   0x1
@@ -130,3 +135,13 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 
 // This controls how much power the AME generates per unit of fuel.
 #define AM_POWER_FACTOR 1000000
+
+// Machinery process flags, for use with START_PROCESSING_MACHINE
+#define MACHINERY_PROCESS_SELF          (1<<0)
+#define MACHINERY_PROCESS_COMPONENTS    (1<<1)
+#define MACHINERY_PROCESS_ALL           (MACHINERY_PROCESS_SELF | MACHINERY_PROCESS_COMPONENTS)
+
+// Machinery init flag masks
+#define INIT_MACHINERY_PROCESS_SELF         0x1
+#define INIT_MACHINERY_PROCESS_COMPONENTS   0x2
+#define INIT_MACHINERY_PROCESS_ALL          0x3
