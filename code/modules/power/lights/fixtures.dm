@@ -236,7 +236,7 @@
 
 	update_icon()
 
-	active_power_usage = ((light_range * light_power) * 10)
+	change_power_consumption((light_range * light_power) * 10, POWER_USE_ACTIVE)
 
 /obj/machinery/light/proc/broken_sparks()
 	if(world.time > next_spark && !(stat & POWEROFF) && has_power())

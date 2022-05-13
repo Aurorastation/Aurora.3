@@ -92,6 +92,7 @@ Class Procs:
 	var/use_power = POWER_USE_IDLE // See code/__defines/machinery.dm
 	var/idle_power_usage = 0
 	var/active_power_usage = 0
+	var/power_init_complete = FALSE
 	var/power_channel = EQUIP //EQUIP, ENVIRON or LIGHT
 	/* List of types that should be spawned as component_parts for this machine.
 		Structure:

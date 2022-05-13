@@ -181,8 +181,8 @@
 		wires = new(src)
 
 	if (highpower)
-		active_power_usage *= 6
-		idle_power_usage *= 3
+		change_power_consumption(active_power_usage * 6, POWER_USE_ACTIVE)
+		change_power_consumption(idle_power_usage * 3, POWER_USE_IDLE)
 
 	// breathable air according to human/Life()
 	TLV[GAS_OXYGEN] =			list(16, 19, 135, 140) // Partial pressure, kpa

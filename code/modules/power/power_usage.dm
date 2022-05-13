@@ -65,6 +65,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 /obj/machinery/Initialize()
 	REPORT_POWER_CONSUMPTION_CHANGE(0, get_power_usage())
 	moved_event.register(src, src, .proc/update_power_on_move)
+	power_init_complete = TRUE
 	. = ..()
 
 // Or in Destroy at all, but especially after the ..().
@@ -74,19 +75,25 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	. = ..()
 
 /obj/machinery/proc/update_power_on_move(atom/movable/mover, atom/old_loc, atom/new_loc)
+	area_changed(get_area(old_loc), get_area(new_loc))
+
+/obj/machinery/proc/area_changed(area/old_area, area/new_area)
+	if(old_area == new_area)
+		return
 	var/power = get_power_usage()
 	if(!power)
 		return // This is the most likely case anyway.
-	var/area/old_area = get_area(old_loc)
-	var/area/new_area = get_area(new_loc)
-	if(old_area != new_area)
-		if(old_area)
-			old_area.power_use_change(power, 0, power_channel)
-		if(new_area)
-			new_area.power_use_change(0, power, power_channel)
+	if(old_area)
+		old_area.power_use_change(power, 0, power_channel)
+	if(new_area)
+		new_area.power_use_change(0, power, power_channel)
+	power_change()
 
 // The three procs below are the only allowed ways of modifying the corresponding variables.
 /obj/machinery/proc/update_use_power(new_use_power)
+	if(!power_init_complete)
+		use_power = new_use_power
+		return
 	if(use_power == new_use_power)
 		return
 	var/old_power = get_power_usage()
@@ -95,8 +102,10 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	REPORT_POWER_CONSUMPTION_CHANGE(old_power, new_power)
 
 /obj/machinery/proc/update_power_channel(new_channel)
-	var/old_channel = power_channel
-	if(old_channel == old_channel)
+	if(power_channel == new_channel)
+		return
+	if(!power_init_complete)
+		power_channel = new_channel
 		return
 	var/power = get_power_usage()
 	REPORT_POWER_CONSUMPTION_CHANGE(power, 0)
@@ -114,7 +123,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 			active_power_usage = new_power_consumption
 		else
 			return
-	if(use_power_mode == use_power)
+	if(power_init_complete && (use_power_mode == use_power))
 		REPORT_POWER_CONSUMPTION_CHANGE(old_power, new_power_consumption)
 
-#undef REPORT_POWER_CONSUMPTION_CHANGE 
+#undef REPORT_POWER_CONSUMPTION_CHANGE
