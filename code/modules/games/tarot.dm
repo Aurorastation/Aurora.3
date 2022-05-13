@@ -72,6 +72,7 @@
 	for(var/name in list("Island","Hatching Egg","Star Chanter","Jiu'x'klua","Stormcloud","Gnarled Tree","Poet","Bloated Toad","Void","Qu'Poxii","Fisher","Mountain","Sraso","Nioh"))
 		P = new()
 		P.name = "[name]"
+		var/suit = "jargon"
 		switch(name)
 			if("Island")
 				P.desc = "One of the main constellations that is shared by both Qeblak and Weishii. It is associated with Loneliness. Introspection. Earth. Rising above or Sinking beneath. Reality."
@@ -102,13 +103,16 @@
 			if("Fisher")
 				P.desc = "One of the main constellations that is shared by both Qeblak and Weishii. it is associated with  Hard work. Stagnation. Embarrassment. Water. Patience. A long, but productive wait."
 			if("Mountain")
+				suit = "aweiji"
 				P.desc = "One of the local constellations on the planet Aweiji. It is associated with Self-analysis. Feelings of accomplishment. Clearer view."
 			if("Sraso")
+				suit = "aweiji"
 				P.desc = "One of the local constellations on the planet Aweiji. It is associated with Sustainability. Growth. Safety."
 			if("Nioh")
+				suit = "aweiji"
 				P.desc = "One of the local constellations on the planet Aweiji. It is associated with Trust. Reliance. Perseverance. Survival."
-		P.card_icon = "jargon_[lowertext(name)]" 
-		P.back_icon = "card_off_jargon"
+		P.card_icon = "[suit]_[lowertext(name)]" 
+		P.back_icon = "card_off_[suit]"
 		cards += P
 
 /obj/item/deck/tarot/jargon/nonjargon
