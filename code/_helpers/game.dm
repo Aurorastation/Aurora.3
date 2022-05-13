@@ -195,26 +195,21 @@
 	DVIEW(hear, range, T, INVISIBILITY_MAXIMUM)
 	var/list/hearturfs = list()
 
-	for(var/am in hear)
-		var/atom/movable/AM = am
-		if (!AM.loc)
-			continue
+	for(var/mob/M in hear)
+		mobs[M] = TRUE
+		hearturfs[get_turf(M)] = TRUE
 
-		var/turf/AM_turf = get_turf(AM)
+	for(var/obj/O in hear)
+		objs[O] = TRUE
+		hearturfs[get_turf(O)] = TRUE
 
-		if(ismob(AM))
-			mobs[AM] = TRUE
-			hearturfs[AM_turf] = TRUE
-		else if(isobj(AM))
-			objs[AM] = TRUE
-			hearturfs[AM_turf] = TRUE
-
-	for(var/m in player_list)
-		var/mob/M = m
+	for(var/mob/M in player_list)
+#ifdef UNIT_TEST
 		if(istype(M, /mob/living/test))
 			if (!mobs[M])
 				mobs[M] = TRUE
 			continue
+#endif
 		if(checkghosts == GHOSTS_ALL_HEAR && M.stat == DEAD && !isnewplayer(M) && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
 			if (!mobs[M])
 				mobs[M] = TRUE
@@ -225,10 +220,8 @@
 			if (!mobs[M])
 				mobs[M] = TRUE
 
-	for(var/o in listening_objects)
-		var/obj/O = o
-		var/turf/O_turf = get_turf(O)
-		if(O && O.loc && hearturfs[O_turf])
+	for(var/obj/O in listening_objects)
+		if(O.loc && hearturfs[get_turf(O)])
 			if (!objs[O])
 				objs[O] = TRUE
 
