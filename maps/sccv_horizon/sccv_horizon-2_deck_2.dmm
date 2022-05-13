@@ -2997,7 +2997,7 @@
 	id = "shutters_deck2_hydroponicswindows"
 	},
 /turf/simulated/floor/plating,
-/area/hydroponics/garden)
+/area/hydroponics)
 "byv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3526,7 +3526,7 @@
 	name = "Hydroponics Maintenance"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
+/area/hydroponics)
 "bOI" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -12524,7 +12524,7 @@
 /obj/machinery/smartfridge/drying_rack,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/hydroponics/garden)
+/area/hydroponics)
 "gRh" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -17514,7 +17514,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/hydroponics/garden)
+/area/hydroponics)
 "jHX" = (
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
@@ -21078,6 +21078,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "lRx" = (
@@ -21632,6 +21633,10 @@
 	req_access = list(28);
 	name = "Kitchen"
 	},
+/obj/effect/floor_decal/corner/green{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/grey,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "mgs" = (
@@ -30182,7 +30187,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "qOM" = (
-/turf/simulated/floor/plating,
+/obj/structure/lattice/catwalk,
+/turf/simulated/floor/reinforced/airless,
 /area/maintenance/hangar/port)
 "qPn" = (
 /obj/machinery/door/airlock/mining{
@@ -35784,6 +35790,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "tSa" = (
@@ -36515,6 +36522,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "ulV" = (
@@ -64883,7 +64891,7 @@ vCa
 iCx
 xBv
 vCa
-xOo
+dvw
 dvw
 tje
 cNX
@@ -65085,7 +65093,7 @@ rAn
 nfN
 uSv
 fmz
-xOo
+dvw
 gmt
 buz
 cOk
@@ -65691,7 +65699,7 @@ gFc
 jqQ
 gXb
 mBk
-xOo
+dvw
 gsh
 cIN
 lgB
@@ -65893,7 +65901,7 @@ fwE
 bTM
 hTt
 quh
-xOo
+dvw
 mjl
 cIN
 hMX
@@ -66499,7 +66507,7 @@ ive
 nxk
 inB
 fEI
-xOo
+dvw
 hBz
 cIN
 lgB
@@ -66701,7 +66709,7 @@ lBS
 xOo
 xOo
 xOo
-xOo
+dvw
 aTO
 cIN
 lgB
@@ -67105,7 +67113,7 @@ mJJ
 urP
 fkr
 fGT
-gOL
+dvw
 qPo
 ulS
 lgB
@@ -67307,7 +67315,7 @@ mJJ
 cKJ
 dKA
 tpc
-gOL
+dvw
 ntu
 lRq
 lgB
@@ -67509,7 +67517,7 @@ mJJ
 vTN
 qnl
 nAM
-gOL
+dvw
 ntu
 tRz
 wOo
@@ -67711,7 +67719,7 @@ mJJ
 hmX
 cNz
 gOL
-gOL
+dvw
 uma
 sKo
 idX
@@ -67913,8 +67921,8 @@ mJJ
 cLD
 xjN
 gOL
-xwU
-xwU
+qOM
+qOM
 kgp
 kgp
 kgp
