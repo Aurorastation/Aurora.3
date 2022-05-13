@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - tweak: "Sped up code related to pain, dislocation and shock."
