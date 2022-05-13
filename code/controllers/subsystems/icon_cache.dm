@@ -55,7 +55,6 @@
 	var/current_organ_keymap_idex = 1
 	// This is an assoc list of all icon states in `icons/mob/collar.dmi`, used by human update-icons.
 	var/list/collar_states
-	var/list/uniform_states
 
 	var/list/ao_cache = list()
 
@@ -77,7 +76,6 @@
 	build_dust_cache()
 	build_space_cache()
 	setup_collar_mappings()
-	setup_uniform_mappings()
 	..()
 
 /datum/controller/subsystem/icon_cache/proc/setup_collar_mappings()
@@ -94,11 +92,6 @@
 	if (!.)
 		organ_keymap[key] = "o[current_organ_keymap_idex++]"
 		. = organ_keymap[key]
-
-/datum/controller/subsystem/icon_cache/proc/setup_uniform_mappings()
-	uniform_states = list()
-	for (var/i in icon_states('icons/mob/uniform.dmi'))
-		uniform_states[i] = TRUE
 
 /datum/controller/subsystem/icon_cache/proc/generate_color_variant(icon/icon, icon_state, color)
 	var/image/I = new(icon, icon_state)
