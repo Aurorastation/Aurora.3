@@ -604,7 +604,7 @@
 	if(air_sound(src))
 		var/turf/T = get_turf(src)
 		if(!mobs.len)
-			get_mobs_or_objs_in_view(T, range, mobs, null, ONLY_GHOSTS_IN_VIEW)
+			get_mobs_or_objs_in_view(T, range, mobs, checkghosts = ONLY_GHOSTS_IN_VIEW)
 		for(var/mob/living/carbon/human/H as anything in intent_listener)
 			if(!(H in mobs))
 				if(src.z == H.z && get_dist(src, H) <= range)
