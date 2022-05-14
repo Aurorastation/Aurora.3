@@ -474,7 +474,7 @@
 /turf/simulated/floor/lino/grey,
 /area/racers)
 "bwf" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -3520,7 +3520,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "rtf" = (
-/obj/structure/closet/secure_closet/bar,
+/obj/structure/closet/secure_closet/cabinet/bar,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/item/gun/energy/taser,
 /obj/item/reagent_containers/inhaler/hyperzine,
@@ -4231,7 +4231,7 @@
 /area/racers)
 "uTr" = (
 /obj/machinery/optable,
-/obj/item/clothing/head/surgery/blue,
+/obj/item/clothing/head/surgery,
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/gloves/latex/nitrile,
 /turf/simulated/floor/tiled/white,
@@ -4401,7 +4401,7 @@
 "vDH" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/beakers,
-/obj/item/reagent_containers/dropper/industrial,
+/obj/item/reagent_containers/dropper,
 /turf/simulated/floor/plating,
 /area/racers)
 "vDS" = (
