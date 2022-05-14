@@ -48,3 +48,4 @@ changes:
   - bugfix: "Fixes loadout surgical caps spawning in wrongly."
   - bugfix: "Wardens spawn with proper glasses now."
   - tweak: "Nanotrasen EMT jacket color scheme has been tweaked."
+  - backend: "Removed superfluous caps."
