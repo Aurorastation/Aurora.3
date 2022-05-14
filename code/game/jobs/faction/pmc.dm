@@ -57,6 +57,7 @@
 /datum/outfit/job/officer/pmc
 	name = "Security Officer - PMC"
 
+	head = /obj/item/clothing/head/beret/corporate/pmc
 	uniform = /obj/item/clothing/under/rank/security/pmc
 	id = /obj/item/card/id/pmc
 
@@ -65,11 +66,14 @@
 
 	head = /obj/item/clothing/head/warden/pmc
 	uniform = /obj/item/clothing/under/rank/warden/pmc
+	suit = /obj/item/clothing/suit/storage/toggle/warden/pmc
 	id = /obj/item/card/id/pmc
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/pmc
 
 /datum/outfit/job/intern_sec/pmc
 	name = "Security Cadet - PMC"
 
+	head = /obj/item/clothing/head/softcap/pmc
 	uniform = /obj/item/clothing/under/rank/cadet/pmc
 	id = /obj/item/card/id/pmc
 
@@ -84,29 +88,31 @@
 	name = "Physician - PMC"
 
 	uniform = /obj/item/clothing/under/rank/medical/pmc
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/epmc/med
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	id = /obj/item/card/id/pmc
 
 /datum/outfit/job/doctor/surgeon/pmc
 	name = "Surgeon - PMC"
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/pmc
-	head = /obj/item/clothing/head/surgery/pmc
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/epmc/med
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	id = /obj/item/card/id/pmc
+
+/datum/outfit/job/doctor/surgeon/pmc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(!isskrell(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/pmc(H), slot_head)
 
 /datum/outfit/job/pharmacist/pmc
 	name = "Pharmacist - PMC"
 
-	uniform = /obj/item/clothing/under/rank/pharmacist/pmc
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/epmc/med
+	uniform = /obj/item/clothing/under/rank/medical/pharmacist/pmc
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	id = /obj/item/card/id/pmc
 
 /datum/outfit/job/psychiatrist/pmc
 	name = "Psychiatrist - PMC"
 
-	uniform = /obj/item/clothing/under/rank/psych/pmc
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/epmc/med
+	uniform = /obj/item/clothing/under/rank/medical/psych/pmc
 	id = /obj/item/card/id/pmc
 
 /datum/outfit/job/med_tech/pmc
@@ -114,6 +120,7 @@
 
 	head = /obj/item/clothing/head/softcap/medical/pmc
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/pmc
+	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/pmc
 	id = /obj/item/card/id/pmc
 
 /datum/outfit/job/intern_med/pmc
@@ -124,8 +131,11 @@
 
 /datum/outfit/job/representative/pmc
 	name = "PMC Corporate Liaison"
-	uniform = /obj/item/clothing/under/rank/security/eridani/alt
-	head = null
-	suit = null
+
+	head =  /obj/item/clothing/head/beret/corporate/pmc
+	uniform = /obj/item/clothing/under/rank/liaison/pmc
+	suit = /obj/item/clothing/suit/storage/liaison/pmc
 	implants = null
 	id = /obj/item/card/id/pmc
+	accessory = /obj/item/clothing/accessory/tie/corporate/pmc
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate/pmc
