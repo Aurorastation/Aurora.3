@@ -1295,6 +1295,7 @@ About the new airlock wires panel:
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
 				return TRUE
+			if(!WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 				return TRUE
 			playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
