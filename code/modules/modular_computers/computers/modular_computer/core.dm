@@ -140,6 +140,8 @@
 				holographic_overlay(src, src.icon, icon_state_screensaver)
 			else
 				add_overlay(icon_state_screensaver)
+		if(icon_state_screensaver_key && working)
+			add_overlay(icon_state_screensaver_key)
 
 		if (screensaver_light_range && working && !flashlight)
 			set_light(screensaver_light_range, light_power, screensaver_light_color ? screensaver_light_color : "#FFFFFF")

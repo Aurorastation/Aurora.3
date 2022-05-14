@@ -5,6 +5,7 @@
 	icon_state = "computer"
 	icon_state_unpowered = "computer"
 	icon_state_screensaver = "standby"
+	icon_state_screensaver_key = "black_key"
 	icon_state_menu = "menu"
 	icon_state_broken = "console-broken"
 	menu_light_color = LIGHT_COLOR_WHITE

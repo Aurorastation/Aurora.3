@@ -64,6 +64,15 @@
 	..()
 
 /obj/machinery/computer/update_icon()
+	switch(dir)
+		if(NORTH)
+			layer = ABOVE_MOB_LAYER
+		if(SOUTH)
+			layer = initial(layer)
+		if(EAST)
+			layer = ABOVE_MOB_LAYER
+		if(WEST)
+			layer = ABOVE_MOB_LAYER
 	cut_overlays()
 	if(stat & NOPOWER)
 		set_light(0)
