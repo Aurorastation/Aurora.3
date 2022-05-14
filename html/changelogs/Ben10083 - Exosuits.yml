@@ -15,4 +15,6 @@ changes:
   - balance: "Made exosuit RCD easier to produce by reducing phoron cost."
   - balance: "Made exosuit flashbang launcher easier to produce by changing material requirements."
   - balance: "Reduced Exosuit Combat Circuit tech cost so it is available at round start."
+  - balance: "Removed phoron requirement from heavy mech construction."
+  - tweak: "Removed tech requirement from exosuit treads."
   - rscadd: "Exosuit health analyzer can now switch between basic and full body scans."
