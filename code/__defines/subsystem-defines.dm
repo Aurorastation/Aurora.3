@@ -61,7 +61,7 @@
 #define ATOM_USING_SSOVERLAY(atom) (atom.our_overlays || atom.priority_overlays)
 
 // -- SSsounds --
-#define PLAYSOUND_IN(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0, frequency = 0, time) addtimer(CALLBACK(src, /atom/.proc/playsound, ovr), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
+#define PLAYSOUND_IN(source, soundin, vol, vary, extrarange, falloff, is_global, usepressure, environment, required_preference, required_asfx_toggles, frequency, time) addtimer(CALLBACK(src, /atom/.proc/playsound, source, soundin, vol, vary, extrarange, falloff, is_global, usepressure, environment, required_preferences, required_asfx_toggles, frequency), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
 
 // -- SSticker --
 #define ROUND_IS_STARTED (SSticker.current_state >= GAME_STATE_PLAYING)
