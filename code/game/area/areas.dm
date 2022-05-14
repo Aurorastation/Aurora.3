@@ -442,7 +442,7 @@ var/list/mob/living/forced_ambiance_list = new
 			continue
 		if (istype(A, /area/mine))
 			continue
-		if (istype(A, /area/horizonexterior))
+		if (istype(A, /area/horizon/exterior))
 			continue
 
 		//Although hostile mobs instadying to turrets is fun

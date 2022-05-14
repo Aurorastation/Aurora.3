@@ -15,11 +15,11 @@
 		,/area/supply/dock
 		,/area/turbolift
 		,/area/mine
-		,/area/horizonexterior
+		,/area/horizon/exterior
 	)
 	ut_apc_exempt_areas = list(/area/construction
 		,/area/medical/genetics
-		,/area/horizonexterior
+		,/area/horizon/exterior
 	)
 	ut_atmos_exempt_areas = list(/area/maintenance
 		,/area/storage
@@ -38,7 +38,7 @@
 		,/area/turret_protected/ai
 		,/area/engineering/engine_monitoring/tesla
 		,/area/engineering/smes
-		,/area/horizonexterior
+		,/area/horizon/exterior
 		,/area/tcommsat/mainlvl_tcomms__relay
 		,/area/tcommsat/mainlvl_tcomms__relay/second
 		,/area/medical/surgery
