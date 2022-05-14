@@ -8157,6 +8157,7 @@
 /obj/item/device/taperecorder,
 /obj/item/device/flashlight/heavy,
 /obj/item/device/megaphone/sec,
+/obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "eDf" = (
