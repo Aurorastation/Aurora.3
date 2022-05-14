@@ -118,12 +118,14 @@
 	path = /obj/item/deck/tarot/jargon
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Skrell"
+	flags = GEAR_NO_SELECTION
 
 /datum/gear/colonist_deck // Intentionally separate from homeworld_deck, so that both can be chosen. -Lly
 	display_name = "qweipaqui colonist deck"
 	path = /obj/item/deck/tarot/nonjargon
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Skrell"
+	flags = GEAR_NO_SELECTION
 
 /datum/gear/ears/skrell/goop
 	display_name = "glowing algae"
