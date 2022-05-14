@@ -558,6 +558,7 @@
 // The message is output to anyone who can see, e.g. "The [src] does something!"
 // "blind_message" (optional) is what blind people will hear e.g. "You hear something!"
 /atom/proc/visible_message(var/message, var/blind_message, var/range = world.view, var/intent_message = null, var/intent_range = 7)
+	set waitfor = FALSE
 	var/turf/T = get_turf(src)
 	var/list/mobs = list()
 	var/list/objs = list()
@@ -583,6 +584,7 @@
 // "deaf_message" (optional) is what deaf people will see.
 // "hearing_distance" (optional) is the range, how many tiles away the message can be heard.
 /atom/proc/audible_message(var/message, var/deaf_message, var/hearing_distance, var/intent_message = null, var/intent_range = 7)
+	set waitfor = FALSE
 	var/range = world.view
 	if(hearing_distance)
 		range = hearing_distance
@@ -602,6 +604,7 @@
 		intent_message(intent_message, intent_range)
 
 /atom/proc/intent_message(var/message, var/range = 7)
+	set waitfor = FALSE
 	if(air_sound(src))
 		var/turf/T = get_turf(src)
 		var/list/mobs = list()

@@ -3449,6 +3449,11 @@
 	icon_state = "1-4"
 	},
 /obj/structure/cable/green,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "gy" = (
@@ -3636,6 +3641,11 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
@@ -4154,6 +4164,11 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/plating,
 /area/bridge/minibar)
 "hS" = (
@@ -4439,6 +4454,11 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
@@ -7358,6 +7378,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "nG" = (
@@ -7771,6 +7796,11 @@
 	icon_state = "1-4"
 	},
 /obj/structure/cable/green,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "ou" = (
@@ -8109,6 +8139,9 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
@@ -8624,11 +8657,6 @@
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "qa" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	name = "Safety Shutter";
-	id = "shutters_deck3_bridgesafety"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "qb" = (
@@ -8702,6 +8730,11 @@
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
@@ -10551,6 +10584,11 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "tI" = (
@@ -10960,6 +10998,11 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/plating,
 /area/bridge/third_deck_stairs)
 "uv" = (
@@ -11413,6 +11456,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
 "vm" = (
@@ -11544,6 +11590,11 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "vA" = (
@@ -12353,6 +12404,11 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 8
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
@@ -14306,6 +14362,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "AN" = (
@@ -14852,6 +14913,11 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
@@ -16237,10 +16303,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Kitchen Stairwell";
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
 "EE" = (
@@ -16365,6 +16427,11 @@
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
@@ -17607,6 +17674,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "He" = (
@@ -18065,6 +18137,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "HU" = (
@@ -18312,6 +18389,11 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 4
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor/reinforced,
 /area/crew_quarters/captain)
@@ -20110,6 +20192,11 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/plating,
 /area/bridge/minibar)
 "LF" = (
@@ -21463,12 +21550,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"Ob" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/open,
-/area/bridge/third_deck_stairs)
 "Oc" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -21804,6 +21885,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/blue/full,
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Kitchen Stairwell";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
 "OI" = (
@@ -22209,6 +22294,11 @@
 "Ps" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/reinforced,
 /area/bridge/minibar)
 "Pt" = (
@@ -22866,6 +22956,9 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
+"Qw" = (
+/turf/simulated/open,
+/area/bridge/third_deck_stairs)
 "Qx" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -23680,6 +23773,11 @@
 /obj/structure/cable/green,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
@@ -26309,6 +26407,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "Xg" = (
@@ -26669,6 +26772,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "XL" = (
@@ -26807,6 +26915,11 @@
 	icon_state = "1-4"
 	},
 /obj/structure/cable/green,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "XW" = (
@@ -51140,8 +51253,8 @@ za
 LA
 ED
 hs
-Ob
-Ob
+Qw
+Qw
 iF
 hR
 hR
@@ -51339,11 +51452,11 @@ Zj
 Zj
 xx
 iF
-uu
 iF
 uu
-iF
 uu
+uu
+iF
 iF
 Tr
 TC
