@@ -7,8 +7,8 @@ var/list/nuke_disks = list()
 /datum/game_mode/nuclear
 	name = "Mercenary"
 	round_description = "A mercenary strike force is approaching the station!"
-	extended_round_description = "NanoTrasen's wealth and success created several enemies over the years \
-		and many seek to undermine them using illegal ways. Their crown jewel research stations are not safe from those \
+	extended_round_description = "The SCC's wealth and success caught the attention of several enemies old and new, \
+		and many seek to undermine them using illegal ways. Their crown jewel research facilities are not safe from those \
 		malicious activities."
 	config_tag = "mercenary"
 	required_players = 15

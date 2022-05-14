@@ -21,7 +21,7 @@
 
 /obj/item/clothing/accessory/badge/press
 	name = "corporate press pass"
-	desc = "A corporate reporter's pass, emblazoned with the NanoTrasen logo."
+	desc = "A corporate reporter's pass, emblazoned with the SCC logo."
 	icon_state = "pressbadge"
 	item_state = "pbadge"
 	overlay_state = "pbadge"
