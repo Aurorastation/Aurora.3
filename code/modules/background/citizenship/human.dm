@@ -85,14 +85,14 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of the "[current_map.boss_name]" being unfair or oppressive against Solarian employees, to be used as leverage in future diplomatic talks.",
+			rep_objectives = pick("Collect evidence of the SCC being unfair or oppressive against Solarian employees, to be used as leverage in future diplomatic talks.",
 							"Convince [rand(1,3)] solarian employees to apply for the Solarian armed forces.")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Have [rand(2,5)] amount of Sol citizens write down their grievances with the company, and present the report to "[current_map.station_short]" command.",
 							"Convince [rand(3,6)] qualified specialists among crew to enter Sol Alliance space, and issue them a visa recommendation.")
 		else
-			rep_objectives = pick("Collect [rand(3,7)] pictures of secure "[current_map.station_short]" areas.",
+			rep_objectives = pick("Collect [rand(3,7)] pictures of secure [current_map.station_short] areas.",
 							"Convince Horizon command to turn a Solarian crewmember's sentence into a fine.")
 
 	return rep_objectives
