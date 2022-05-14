@@ -45,10 +45,10 @@
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			if(isvaurca(H))
-				rep_objectives = pick("Collect evidence of the "[current_map.boss_name]" being unfair or bigoted to Vaurca or Unathi Employees, to be used as leverage in future labor negotiations",
+				rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca or Unathi Employees, to be used as leverage in future labor negotiations",
 								"Upsell K'laxan Vaurca to different command staff. Have one complete a Bound Vaurca requisition form")
 			else
-				rep_objectives = pick("Speak out against any violation of the Honor Code to or by Unathi on the "[current_map.station_short]",
+				rep_objectives = pick("Speak out against any violation of the Honor Code to or by Unathi on the [current_map.station_short]",
 								"Proselytize the Sk'akh or Tha'kh religions to the crew",
 								"Encourage [rand(2,4)] Unathi to visit the Akhandi Order temples in Tau Ceti")
 		else
