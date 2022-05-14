@@ -40,7 +40,7 @@ delete-after: True
 changes:
   - bugfix: "Fixes invisible PMC sunhud."
   - tweak: "Tweaked warden overcoat color schemes."
-  - tweak: "Swaps Warden and Officer uniforms for better contrast."
+  - tweak: "Swaps Warden and Officer uniforms for better contrast. Tweaks Idris uniforms to use tertiary color."
   - tweak: "Loadout suits, hats and masks now override default jobspawn clothing."
   - imageadd: "Adds corporate logos to the back of corporate labcoats."
   - tweak: "Janitor uniform no longer has purple highlights."
@@ -50,3 +50,4 @@ changes:
   - tweak: "Nanotrasen EMT jacket color scheme has been tweaked."
   - backend: "Removed superfluous caps."
   - bugfix: "Fixes missing pixels for rolled civillian uniforms."
+  - bugfix: "Fixes wrongly colored pixels on pants."
