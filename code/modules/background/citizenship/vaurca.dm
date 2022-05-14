@@ -44,7 +44,7 @@
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Promote [rand(3,6)] amount of Zo'rane products, be it energy drinks or merchandise",
-						"Sell [rand(3,6)] copies of the Tau Ceti Foreign Legion pamphlets, 10 credits each")
+							"Sell [rand(3,6)] copies of the Tau Ceti Foreign Legion pamphlets 10 credits each")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
 							"Protect and promote the public image of the Zo'ra hive to all SCC employees")
