@@ -63,8 +63,8 @@
 			cards += P
 
 /obj/item/deck/tarot/jargon
-	name = "jargon tarot cards deck"
-	desc = "A Skrellian deck of tarot cards depicting the constellations of Jargon."
+	name = "qwei'paqui homeworld deck"
+	desc = "A Skrellian deck of tarot cards depicting the main constellations of Nralakk."
 	icon_state = "deck_jargon"
 
 /obj/item/deck/tarot/jargon/generate_deck()
@@ -115,10 +115,12 @@
 		P.back_icon = "card_off_[suit]"
 		cards += P
 
-/obj/item/deck/tarot/jargon/nonjargon
+/obj/item/deck/tarot/nonjargon
+	name = "qwei'paqui colonist deck"
+	desc = "A Skrellian deck of tarot cards depicting the local constellations of planets outside Nralakk."
 	icon_state = "deck_nonjargon"
 
-/obj/item/deck/tarot/jargon/nonjargon/generate_deck()
+/obj/item/deck/tarot/nonjargon/generate_deck()
 	var/datum/playingcard/P
 	for(var/name in list("Shell","Wave","Trident","Palm Tree","Pulque","Eel","Iqi Star","Sky-Grazer","Dyn"))
 		P = new()
