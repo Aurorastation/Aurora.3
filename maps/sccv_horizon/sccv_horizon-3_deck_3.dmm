@@ -11713,7 +11713,7 @@
 	name = "RevenantRift"
 	},
 /turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/alphadeck)
+/area/horizon/holodeck/alphadeck)
 "vF" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -27129,7 +27129,7 @@
 /area/maintenance/engineering_ladder)
 "Ye" = (
 /turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/alphadeck)
+/area/horizon/holodeck/alphadeck)
 "Yf" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
