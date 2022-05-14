@@ -113,8 +113,8 @@
 	base_name = "Physician"
 	jobtype = /datum/job/doctor
 
-	uniform = /obj/item/clothing/under/rank/medical/nt
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
+	uniform = /obj/item/clothing/under/rank/medical
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/medical
 	id = /obj/item/card/id/white
 	suit_store = /obj/item/device/flashlight/pen
@@ -137,24 +137,13 @@
 	name = "Surgeon"
 	jobtype = /datum/job/doctor
 
-	head = /obj/item/clothing/head/surgery/nt
-	uniform = /obj/item/clothing/under/rank/medical/surgeon/nt
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/surgeon
+	uniform = /obj/item/clothing/under/rank/medical/surgeon
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/surgeon
 
 /datum/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
 	if(!isskrell(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/blue(H), slot_head)
-
-/datum/outfit/job/doctor/nurse
-	name = "Nurse"
-	jobtype = /datum/job/doctor
-
-	uniform = /obj/item/clothing/under/rank/medical/purple
-	suit = null
-	head = /obj/item/clothing/head/nursehat
-
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery(H), slot_head)
 
 /datum/job/pharmacist
 	title = "Pharmacist"
@@ -183,8 +172,8 @@
 	name = "Pharmacist"
 	jobtype = /datum/job/pharmacist
 
-	uniform = /obj/item/clothing/under/rank/pharmacist/nt
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
+	uniform = /obj/item/clothing/under/rank/medical/pharmacist
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/chemist
 	id = /obj/item/card/id/white
 
@@ -232,8 +221,8 @@
 	base_name = "Psychiatrist"
 	jobtype = /datum/job/psychiatrist
 
-	uniform = /obj/item/clothing/under/rank/psych/nt
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
+	uniform = /obj/item/clothing/under/rank/medical/psych
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/psych
 	id = /obj/item/card/id/white
 
@@ -279,8 +268,9 @@
 	base_name = "First Responder"
 	jobtype = /datum/job/med_tech
 
-	head = /obj/item/clothing/head/softcap/medical/nt
-	uniform = /obj/item/clothing/under/rank/medical/first_responder/nt
+	head = /obj/item/clothing/head/softcap/nt
+	uniform = /obj/item/clothing/under/rank/medical/first_responder
+	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/white
 
@@ -326,7 +316,7 @@
 	name = "Medical Intern"
 	jobtype = /datum/job/intern_med
 
-	uniform = /obj/item/clothing/under/rank/medical/intern/nt
+	uniform = /obj/item/clothing/under/rank/medical/intern
 	shoes = /obj/item/clothing/shoes/medical
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt

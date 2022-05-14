@@ -85,17 +85,21 @@
 
 	uniform = /obj/item/clothing/under/rank/security/zavod
 	id = /obj/item/card/id/zavodskoi/sec
+	head = /obj/item/clothing/head/beret/corporate/zavod
 
 /datum/outfit/job/warden/zavodskoi
 	name = "Warden - Zavodskoi Interstellar"
 
-	uniform = /obj/item/clothing/under/rank/warden/zavod
-	id = /obj/item/card/id/zavodskoi/sec
 	head = /obj/item/clothing/head/warden/zavod
+	uniform = /obj/item/clothing/under/rank/warden/zavod
+	suit = /obj/item/clothing/suit/storage/toggle/warden/zavod
+	id = /obj/item/card/id/zavodskoi/sec
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator/zavod
 
 /datum/outfit/job/intern_sec/zavodskoi
 	name = "Security Cadet - Zavodskoi Interstellar"
 
+	head = /obj/item/clothing/head/softcap/zavod
 	uniform = /obj/item/clothing/under/rank/cadet/zavod
 	id = /obj/item/card/id/zavodskoi/sec
 
@@ -160,11 +164,14 @@
 
 /datum/outfit/job/representative/zavodskoi
 	name = "Zavodskoi Interstellar Corporate Liaison"
-	uniform = /obj/item/clothing/under/rank/zavodskoi
-	head = null
-	suit = null
+
+	head = /obj/item/clothing/head/beret/corporate/zavod
+	uniform = /obj/item/clothing/under/rank/liaison/zavod
+	suit = /obj/item/clothing/suit/storage/liaison/zavod
 	implants = null
 	id = /obj/item/card/id/zavodskoi
+	accessory = /obj/item/clothing/accessory/tie/corporate/zavod
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate/zavod
 
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
