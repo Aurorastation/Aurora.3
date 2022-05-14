@@ -19,7 +19,7 @@
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/sol
-	name = "garygoyle voidsuit"
+	name = "gargoyle voidsuit"
 	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military."
 	icon_state = "sol_suit"
 	item_state = "sol_suit"

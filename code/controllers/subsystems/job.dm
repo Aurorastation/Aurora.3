@@ -710,10 +710,10 @@
 				else
 					metadata = list()
 				var/obj/item/CI = G.spawn_item(null,metadata, H)
-				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
+				if (G.slot == slot_w_uniform)
 					if (leftovers)
 						leftovers += thing
-					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
+					Debug("EC/([H]): [thing] failed uniform check; leftovers=[!!leftovers]")
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
 					if(G.slot != slot_tie)

@@ -172,6 +172,7 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/det_jacket/idris
 	icon_state = "idris_invest_coat"
 	item_state = "idris_invest_coat"
+
 /obj/item/clothing/suit/storage/toggle/det_trench
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Perfect for your next act of autodefenestration!"
@@ -211,6 +212,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
 	icon_state = "nt_warden_coat"
 	item_state = "nt_warden_coat"
+	opened = TRUE
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/warden/zavod
