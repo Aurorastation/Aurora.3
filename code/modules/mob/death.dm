@@ -102,9 +102,10 @@
 	return
 
 /mob/proc/exit_vr()
-	// If we have a remotely controlled mob, we come back to our body to die properly
-	if(vr_mob)
-		vr_mob.body_return()
-	// Alternatively, if we are the remotely controlled mob, just kick our controller out
-	if(old_mob)
-		body_return()
+	if(!bg) // If brainghost exists, let handle_shared_dreaming handle the wake up
+		// If we have a remotely controlled mob, we come back to our body to die properly
+		if(vr_mob)
+			vr_mob.body_return()
+		// Alternatively, if we are the remotely controlled mob, just kick our controller out
+		if(old_mob)
+			body_return()
