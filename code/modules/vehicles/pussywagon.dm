@@ -122,7 +122,7 @@
 				return FALSE
 			to_chat(user, SPAN_NOTICE("You turn on \the [src]'s ignition."))
 			playsound(src, 'sound/machines/vehicles/pussywagon/button.ogg', 50, FALSE)
-			playsound(src, 'sound/machines/vehicles/pussywagon/start.ogg', 50, FALSE) // Would preferably have it wait half a second here before playing the sound.
+			playsound_in(src, 'sound/machines/vehicles/pussywagon/start.ogg', 50, FALSE, time = 1 SECOND)
 			on = TRUE
 			ignition = TRUE
 			update_stats()
