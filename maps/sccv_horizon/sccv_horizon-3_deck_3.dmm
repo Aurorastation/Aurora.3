@@ -3451,6 +3451,11 @@
 	icon_state = "1-4"
 	},
 /obj/structure/cable/green,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "gy" = (
@@ -3641,6 +3646,11 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
@@ -4162,6 +4172,11 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/plating,
 /area/bridge/minibar)
 "hS" = (
@@ -4450,6 +4465,11 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
@@ -7385,6 +7405,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "nG" = (
@@ -7801,6 +7826,11 @@
 	icon_state = "1-4"
 	},
 /obj/structure/cable/green,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "ou" = (
@@ -8654,11 +8684,6 @@
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "qa" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	name = "Safety Shutter";
-	id = "shutters_deck3_bridgesafety"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "qb" = (
@@ -8732,6 +8757,11 @@
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
@@ -10603,6 +10633,11 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "tI" = (
@@ -11015,6 +11050,11 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/plating,
 /area/bridge/third_deck_stairs)
 "uv" = (
@@ -11599,6 +11639,11 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "vA" = (
@@ -12416,6 +12461,11 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 8
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
@@ -14378,6 +14428,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "AN" = (
@@ -14924,6 +14979,11 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
@@ -16447,6 +16507,11 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "ER" = (
@@ -17692,6 +17757,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "He" = (
@@ -18150,6 +18220,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "HU" = (
@@ -18397,6 +18472,11 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 4
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor/reinforced,
 /area/crew_quarters/captain)
@@ -20209,6 +20289,11 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/plating,
 /area/bridge/minibar)
 "LF" = (
@@ -21266,7 +21351,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/obj/structure/closet/l3closet,
+/obj/structure/closet/l3closet/general,
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
 	id_tag = "processing_airlock_control";
 	name = "Processing Access Controller";
@@ -22308,6 +22393,11 @@
 "Ps" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor/reinforced,
 /area/bridge/minibar)
 "Pt" = (
@@ -23785,6 +23875,11 @@
 /obj/structure/cable/green,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
 	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
@@ -26420,6 +26515,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "Xg" = (
@@ -26779,6 +26879,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "XL" = (
@@ -26917,6 +27022,11 @@
 	icon_state = "1-4"
 	},
 /obj/structure/cable/green,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	name = "Safety Shutter";
+	id = "shutters_deck3_bridgesafety"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "XW" = (
