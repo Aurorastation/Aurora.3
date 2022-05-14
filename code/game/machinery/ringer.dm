@@ -150,7 +150,7 @@
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-	flick("ringer_on")
+	flick(src, "ringer_on")
 
 	if(use_power)
 		use_power(active_power_usage)
