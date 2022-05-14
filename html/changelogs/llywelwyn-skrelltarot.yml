@@ -1,0 +1,6 @@
+author: Llywelwyn
+
+delete-after: True
+
+changes:
+  - rscadd: "Added two decks of Skrellian tarot cards to the loadout, selectable by Skrell and Diona."
