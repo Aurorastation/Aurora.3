@@ -242,10 +242,6 @@
 	name = "Bridge Crew Preparation"
 	icon_state = "bridge_crew"
 
-/area/bridge/third_deck_stairs
-	name = "Bridge Stairs"
-	icon_state = "bridge_stairs"
-
 /area/bridge/helm
 	name = "Bridge Helm"
 	icon_state = "bridge_helm"
@@ -346,9 +342,14 @@
 	name = "Horizon - Stairwell (PARENT AREA - DON'T USE)"
 	flags = RAD_SHIELDED
 
-/area/horizon/stairwell/central // Central stairwell.
+/area/horizon/stairwell/central
 	name = "Horizon - Central Stairwell"
 	icon_state = "stairwell"
+	sound_env = SMALL_ENCLOSED
+
+/area/horizon/stairwell/bridge
+	name = "Horizon - Bridge Stairwell"
+	icon_state = "bridge_stairs"
 	sound_env = SMALL_ENCLOSED
 
 // Crew Quarters
@@ -410,6 +411,7 @@
 	icon_state = "fitness_lounge"
 	sound_env = SMALL_SOFTFLOOR
 
+/***** Generic Start *****/
 // Cafeteria
 /area/horizon/deck_three/cafeteria
 	name = "Horizon - Deck 3 - Cafeteria"
@@ -420,3 +422,18 @@
 	name = "Horizon - Deck 3 - Nature Showcase"
 	icon_state = "nature_showcase"
 	sound_env = SMALL_ENCLOSED
+/***** Generic End *****/
+
+/***** Unique Start *****/
+// Hydroponics
+/area/horizon/hydroponics
+	name = "Horizon - Hydroponics"
+	icon_state = "hydro"
+
+/area/horizon/hydroponics/lower
+	name = "Horizon - Hydroponics - Lower"
+
+/area/horizon/hydroponics/garden
+	name = "Horizon - Public Garden"
+	icon_state = "garden"
+/***** Unique End *****/
