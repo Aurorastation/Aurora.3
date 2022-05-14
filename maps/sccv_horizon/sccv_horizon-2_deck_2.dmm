@@ -172,6 +172,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
+"adb" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/space/dynamic,
+/area/template_noop)
 "adw" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
@@ -4826,7 +4834,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "cHM" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5120,6 +5128,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/far)
+"cPB" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "cQd" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
@@ -7093,7 +7106,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "dVN" = (
 /obj/structure/cable{
@@ -8820,12 +8833,9 @@
 /area/hallway/engineering/tesla)
 "eYX" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/structure/railing/mapped,
 /obj/item/hullbeacon/red,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "eZc" = (
 /obj/machinery/firealarm/south,
@@ -9349,6 +9359,15 @@
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled,
 /area/operations/office)
+"fln" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "flS" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 4
@@ -12980,6 +12999,15 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"hha" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "hhx" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -17573,8 +17601,15 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "jPc" = (
-/obj/structure/lattice,
-/turf/template_noop,
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/item/hullbeacon/red,
+/turf/space/dynamic,
 /area/template_noop)
 "jPj" = (
 /obj/machinery/atm{
@@ -19698,8 +19733,10 @@
 "lgS" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
-/obj/item/hullbeacon/red,
-/turf/template_noop,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/space/dynamic,
 /area/template_noop)
 "lhH" = (
 /obj/structure/cable/green{
@@ -21722,10 +21759,7 @@
 /area/engineering/storage_hard)
 "mpN" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "mpV" = (
 /obj/structure/cable/green{
@@ -22058,6 +22092,13 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
+"mwQ" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/space/dynamic,
+/area/template_noop)
 "mxh" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 5
@@ -22644,6 +22685,17 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"mOy" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/space/dynamic,
+/area/template_noop)
 "mOH" = (
 /obj/machinery/chem_master/condimaster{
 	pixel_y = 1
@@ -24392,6 +24444,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
+"nJQ" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/space/dynamic,
+/area/template_noop)
 "nKc" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
@@ -25955,7 +26017,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "oGm" = (
 /obj/structure/cable/green{
@@ -33447,6 +33509,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"sJq" = (
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/template_noop)
 "sJS" = (
 /obj/structure/cable/orange{
 	icon_state = "4-8"
@@ -33827,7 +33893,7 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "sVB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -34541,7 +34607,7 @@
 /area/medical/or2)
 "tqC" = (
 /obj/effect/shuttle_landmark/ccia/dock,
-/turf/template_noop,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "tqF" = (
 /obj/structure/table/standard,
@@ -38909,7 +38975,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "vKf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -57094,13 +57160,13 @@ ieM
 aQb
 udR
 xer
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+mOy
+nJQ
+nJQ
+nJQ
+nJQ
+nJQ
+vJX
 qgN
 qgN
 qgN
@@ -57299,10 +57365,10 @@ xer
 qgN
 qgN
 qgN
+sJq
 qgN
 qgN
-qgN
-qgN
+lgS
 qgN
 qgN
 qgN
@@ -57498,14 +57564,14 @@ eWm
 tAN
 udR
 xer
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+sJq
+sJq
+kgp
+kgp
+kgp
+sJq
+jPc
+adb
 qgN
 qgN
 qgN
@@ -57702,12 +57768,12 @@ udR
 xer
 qgN
 qgN
+kgp
+kgp
+kgp
 qgN
 qgN
-qgN
-qgN
-qgN
-qgN
+lgS
 qgN
 qgN
 qgN
@@ -57903,13 +57969,13 @@ aFJ
 udR
 xer
 qgN
+kgp
+kgp
+kgp
+kgp
+kgp
 qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+lgS
 qgN
 qgN
 qgN
@@ -58104,14 +58170,14 @@ sXT
 aQb
 udR
 xer
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+sJq
+kgp
+kgp
+kgp
+kgp
+kgp
+sJq
+lgS
 qgN
 qgN
 qgN
@@ -58307,13 +58373,13 @@ ebR
 wFj
 xer
 qgN
+kgp
+kgp
+kgp
+kgp
+kgp
 qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+lgS
 qgN
 qgN
 qgN
@@ -58509,13 +58575,13 @@ aQb
 wFj
 wFj
 wFj
-qgN
-qgN
+kgp
+kgp
 tqC
+kgp
+kgp
 qgN
-qgN
-qgN
-qgN
+lgS
 qgN
 qgN
 qgN
@@ -58711,13 +58777,13 @@ aSd
 qqK
 hoZ
 blJ
+kgp
+kgp
+kgp
+kgp
+kgp
 qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+lgS
 qgN
 qgN
 qgN
@@ -58913,11 +58979,11 @@ jWV
 wFj
 wFj
 wFj
-mLU
-mLU
-mLU
-eTQ
-qgN
+kgp
+kgp
+kgp
+kgp
+kgp
 cHC
 mpN
 vJX
@@ -59114,15 +59180,15 @@ hwM
 spn
 lNQ
 kgp
+cPB
 kgp
 kgp
 kgp
 kgp
-xer
-jPc
-lCL
+kgp
+mwQ
 hUK
-lgS
+eYX
 qgN
 qgN
 qgN
@@ -59316,14 +59382,14 @@ kOW
 eyu
 lCF
 kgp
+cPB
 kgp
 kgp
 kgp
 kgp
-xer
-qgN
+kgp
 oFC
-jMJ
+mpN
 dVE
 qgN
 qgN
@@ -59518,11 +59584,11 @@ jEL
 oWC
 lCF
 kgp
-kgp
-kgp
-kgp
-kgp
-xer
+tMp
+fln
+fln
+fln
+hha
 qgN
 qgN
 sVv
@@ -59927,8 +59993,8 @@ kgp
 kgp
 kgp
 xer
-qgN
-qgN
+nJQ
+nJQ
 eYX
 qgN
 qgN
