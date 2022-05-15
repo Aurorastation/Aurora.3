@@ -1330,6 +1330,9 @@
 		M.add_chemical_effect(CE_CLUMSY, 30)
 
 /decl/reagent/sanasomnum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.adjustCloneLoss(-20 * removed)
+	M.adjustOxyLoss(-2 * removed)
+	M.heal_organ_damage(20 * removed, 20 * removed)
 	if(M.is_asystole() && prob(20))
 		M.resuscitate()
 	if(M.chem_doses[type] > 3)
