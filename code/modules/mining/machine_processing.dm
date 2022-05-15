@@ -226,16 +226,16 @@
 
 	printing = TRUE
 
-	var/obj/item/paper/P = new /obj/item/paper(user.loc)
+	var/obj/item/paper/P = new /obj/item/paper(get_turf(src))
 	var/date_string = worlddate2text()
 	idx++
 
 	var/form_title = "Form 0600 - Mining Yield Declaration"
-	var/dat = "<small><center><b>NanoTrasen Inc.<br>"
-	dat += "Civilian Branch of Operation</b><br><br>"
+	var/dat = "<small><center><b>Stellar Corporate Conglomerate<br>"
+	dat += "Operations Department</b><br><br>"
 
 	dat += "Form 0600<br> Mining Yield Declaration</center><hr>"
-	dat += "Facility: NSS Aurora<br>"
+	dat += "Facility: [current_map.station_name]<br>"
 	dat += "Date: [date_string]<br>"
 	dat += "Index: [idx]<br><br>"
 
@@ -292,7 +292,7 @@
 	P.ico += "paper_stamp-cent"
 	P.stamped += /obj/item/stamp
 	P.add_overlay(stampoverlay)
-	P.stamps += "<HR><i>This paper has been stamped by the NT Ore Processing System.</i>"
+	P.stamps += "<HR><i>This paper has been stamped by the SCC Ore Processing System.</i>"
 
 	user.visible_message("\The [src] rattles and prints out a sheet of paper.")
 	playsound(get_turf(src), "sound/bureaucracy/print_short.ogg", 50, 1)
@@ -302,7 +302,8 @@
 	input_mats = list()
 	waste = 0
 
-	user.put_in_hands(P)
+	if(user.Adjacent(src))
+		user.put_in_hands(P)
 
 	printing = FALSE
 	return

@@ -60,6 +60,14 @@
 		stat |= BROKEN
 	update_icon()
 
+/obj/machinery/door_timer/examine(mob/user)
+	. = ..()
+	if(stat & (NOPOWER|BROKEN))	return
+	
+	if(src.timing)
+		var/second = round(timeleft() % 60)
+		var/minute = round((timeleft() - second) / 60)
+		to_chat(user, "Time remaining: [minute]:[second]")
 
 //Main door timer loop, if it's timing and time is >0 reduce time by 1.
 // if it's less than 0, open door, reset timer

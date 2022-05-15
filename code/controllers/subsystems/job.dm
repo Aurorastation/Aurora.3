@@ -173,16 +173,19 @@
 
 				var/age = V.client.prefs.age
 
+				var/min_job_age = job.get_minimum_character_age(V.get_species())
+				var/ideal_job_age = job.get_ideal_character_age(V.get_species())
+
 				switch(age)
-					if(job.minimum_character_age to (job.minimum_character_age+10))
+					if(min_job_age to (min_job_age+10))
 						weightedCandidates[V] = 3 // Still a bit young.
-					if((job.minimum_character_age+10) to (job.ideal_character_age-10))
+					if((min_job_age+10) to (ideal_job_age-10))
 						weightedCandidates[V] = 6 // Better.
-					if((job.ideal_character_age-10) to (job.ideal_character_age+10))
+					if((ideal_job_age-10) to (ideal_job_age+10))
 						weightedCandidates[V] = 10 // Great.
-					if((job.ideal_character_age+10) to (job.ideal_character_age+20))
+					if((ideal_job_age+10) to (ideal_job_age+20))
 						weightedCandidates[V] = 6 // Still good.
-					if((job.ideal_character_age+20) to INFINITY)
+					if((ideal_job_age+20) to INFINITY)
 						weightedCandidates[V] = 3 // Geezer.
 					else
 						// If there's ABSOLUTELY NOBODY ELSE
@@ -707,10 +710,10 @@
 				else
 					metadata = list()
 				var/obj/item/CI = G.spawn_item(null,metadata, H)
-				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
+				if (G.slot == slot_w_uniform)
 					if (leftovers)
 						leftovers += thing
-					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
+					Debug("EC/([H]): [thing] failed uniform check; leftovers=[!!leftovers]")
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
 					if(G.slot != slot_tie)

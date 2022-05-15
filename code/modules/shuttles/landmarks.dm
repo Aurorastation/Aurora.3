@@ -111,7 +111,7 @@
 
 /obj/effect/shuttle_landmark/automatic/sector_set(var/obj/effect/overmap/visitable/O)
 	..()
-	name = "[O.name] - [initial(name)] ([x],[y])"
+	name = "[initial(name)] ([x],[y])"
 
 /obj/effect/shuttle_landmark/automatic/clearing/LateInitialize()
 	..()

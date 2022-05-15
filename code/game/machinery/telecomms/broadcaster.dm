@@ -243,9 +243,6 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	var/list/obj/item/device/radio/radios = list()
 
-	// --- Gets the accent icon, if there is any ---
-	var/accent_icon = M.get_accent_icon(speaking, M)
-
 	// --- Broadcast only to intercom devices ---
 
 	if(data == 1)
@@ -361,7 +358,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_b_extra = ""
 		if(data == 3) // intercepted radio message
 			part_b_extra = " <i>(Intercepted)</i>"
-		var/part_a = "<span class='[frequency_span_class(display_freq)]'>[accent_icon ? accent_icon + " " : ""]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
+		var/part_a = "<span class='[frequency_span_class(display_freq)]'>%ACCENT%<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
 
 		// --- Some more pre-message formatting ---
 		var/part_b = "</span> <span class='message'></span>" // Tweaked for security headsets -- TLE
@@ -424,7 +421,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 
 	  	/* --- Process all the mobs that heard a masked voice (understood) --- */
-
+		//Note that accent tags are handled in hear_radio.
 		if (length(heard_masked))
 			for (var/mob/R in heard_masked)
 				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 0, name)
