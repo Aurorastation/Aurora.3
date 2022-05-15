@@ -207,6 +207,11 @@
 	amount = max_amount
 	update_icon()
 
+/obj/item/stack/tile/floor/full
+	name = "full floor tile"
+	singular_name = "full floor tile"
+	icon_state = "tile_full"
+
 /obj/item/stack/tile/floor_red
 	name = "red floor tile"
 	singular_name = "red floor tile"

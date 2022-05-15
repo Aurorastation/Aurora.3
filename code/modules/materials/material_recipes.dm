@@ -49,6 +49,7 @@
 	recipes += new /datum/stack_recipe_list("construction recipes",
 		list(
 			new /datum/stack_recipe("regular floor tile", /obj/item/stack/tile/floor, 1, 4, 20),
+			new /datum/stack_recipe("full regular floor tile", /obj/item/stack/tile/floor/full, 1, 4, 20),
 			new /datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60),
 			new /datum/stack_recipe("table frame", /obj/structure/table, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("wall girders", /obj/structure/girder, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),

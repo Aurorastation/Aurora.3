@@ -86,7 +86,7 @@
 
 /decl/flooring/tiling
 	name = "floor"
-	desc = "Scuffed from the passage of countless greyshirts."
+	desc = "Scuffed and well used."
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "steel"
 	has_damage_range = 4
@@ -95,6 +95,10 @@
 	build_type = /obj/item/stack/tile/floor
 	can_paint = 1
 	footstep_sound = /decl/sound_category/tiles_footstep
+
+/decl/flooring/tiling/full
+	icon_base = "steel_full"
+	build_type = /obj/item/stack/tile/floor/full
 
 /decl/flooring/tiling/asteroid
 	name = "floor"
@@ -187,11 +191,7 @@
 	build_type = /obj/item/stack/tile/floor_dark
 
 /decl/flooring/tiling/dark/full // Used under windows.
-	name = "floor"
-	desc = "How ominous."
 	icon_base = "dark_full"
-	has_damage_range = null
-	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_dark/full
 
 /decl/flooring/tiling/freezer

@@ -56,6 +56,10 @@
 	icon_state = "steel"
 	initial_flooring = /decl/flooring/tiling
 
+/turf/simulated/floor/tiled/full
+	icon_state = "steel_full"
+	initial_flooring = /decl/flooring/tiling/full
+
 /turf/simulated/floor/reinforced
 	name = "reinforced floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
