@@ -1148,7 +1148,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
 "cg" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "Interro"
 	},
 /obj/machinery/door/firedoor,
@@ -1269,7 +1269,7 @@
 /area/engineering/break_room)
 "ct" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "Recovery1"
 	},
 /turf/simulated/floor/plating,
@@ -2297,7 +2297,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "ee" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "cap"
 	},
 /obj/machinery/door/firedoor,
@@ -5602,7 +5602,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "investigator_office"
 	},
 /obj/machinery/door/firedoor,
@@ -6074,7 +6074,7 @@
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
 "lg" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "hop"
 	},
 /obj/machinery/door/blast/regular{
@@ -6490,7 +6490,7 @@
 	name = "Security - Investigations Office"
 	})
 "lV" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "lW" = (
@@ -8835,7 +8835,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "qq" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
@@ -9788,7 +9788,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "si" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
 "sj" = (
@@ -10643,7 +10643,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "tI" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -11452,7 +11452,7 @@
 /area/bridge/controlroom)
 "vh" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "cmooffice"
 	},
 /turf/simulated/floor,
@@ -12077,7 +12077,7 @@
 	})
 "wt" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "journalist"
 	},
 /turf/simulated/floor,
@@ -12158,7 +12158,7 @@
 	layer = 5;
 	name = "Isolation Ward Shutters"
 	},
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/tiled,
 /area/medical/ward/isolation)
 "wC" = (
@@ -12671,7 +12671,7 @@
 /turf/simulated/floor,
 /area/maintenance/substation/command)
 "xw" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "consular"
 	},
 /obj/machinery/door/firedoor,
@@ -13913,7 +13913,7 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "zM" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "medicalisolation";
@@ -14404,7 +14404,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "AK" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "Interro"
 	},
 /turf/simulated/floor/tiled,
@@ -14850,7 +14850,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/smoking)
 "BD" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "investigator_office"
 	},
 /obj/machinery/door/firedoor,
@@ -15329,7 +15329,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
 "CB" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "journalist"
 	},
 /obj/machinery/door/firedoor,
@@ -16766,7 +16766,7 @@
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "Fm" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor,
 /area/hallway/medical/upper)
 "Fn" = (
@@ -17807,7 +17807,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Hi" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "hop"
 	},
 /obj/machinery/door/blast/regular{
@@ -18049,7 +18049,7 @@
 /area/bridge/controlroom)
 "HD" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor,
 /area/hallway/medical/upper)
 "HE" = (
@@ -18161,7 +18161,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "HP" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "cap"
 	},
 /obj/machinery/door/firedoor,
@@ -18521,7 +18521,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "investigator_office"
 	},
 /obj/machinery/door/firedoor,
@@ -19623,7 +19623,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "Kr" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "cap"
 	},
 /obj/machinery/door/firedoor,
@@ -20996,7 +20996,7 @@
 /turf/simulated/open/airless,
 /area/template_noop)
 "MR" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "Recovery1"
 	},
 /obj/machinery/door/firedoor,
@@ -21351,7 +21351,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "NB" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "rep_inner"
 	},
 /obj/machinery/door/firedoor,
@@ -23641,7 +23641,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "RA" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "Recovery1"
 	},
 /obj/machinery/door/firedoor,
@@ -25370,7 +25370,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "UU" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -25541,7 +25541,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "Vm" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Vn" = (
@@ -26262,7 +26262,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
 "WH" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -27207,7 +27207,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "Yk" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "cap"
 	},
 /obj/machinery/door/firedoor,

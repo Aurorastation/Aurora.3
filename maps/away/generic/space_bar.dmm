@@ -492,7 +492,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "frn" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/space_bar)
 "fGz" = (
@@ -1229,7 +1229,7 @@
 /turf/simulated/floor/carpet,
 /area/space_bar)
 "vdz" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},

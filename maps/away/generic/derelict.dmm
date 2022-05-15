@@ -80,7 +80,7 @@
 /turf/simulated/floor/tiled,
 /area/derelict)
 "asg" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/derelict)
 "atj" = (

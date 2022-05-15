@@ -634,7 +634,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/operations)
 "aEl" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "shutters_hangarseccp";
@@ -830,7 +830,7 @@
 	name = "Security Checkpoint Shutter"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/security/checkpoint)
 "aKn" = (
@@ -1879,7 +1879,7 @@
 	},
 /area/engineering/atmos/propulsion/starboard)
 "bxK" = (
-/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "iso_c";
@@ -2824,7 +2824,7 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "cir" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
@@ -3059,7 +3059,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/maintenance/hangar/port)
 "ctI" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	dir = 8;
 	id = "shutters_hangarseccpexternal";
@@ -3805,7 +3805,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "cYs" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -4286,7 +4286,7 @@
 /area/operations/storage)
 "dvT" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized{
+/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "1deckworkshop"
 	},
 /turf/simulated/floor/plating,
@@ -5171,7 +5171,7 @@
 	id = "shutters_hangarseccp";
 	name = "Security Checkpoint Shutter"
 	},
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/security/checkpoint)
 "ejL" = (
@@ -5419,7 +5419,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "euj" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/hangar/operations)
 "evd" = (
@@ -8240,7 +8240,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "guN" = (
-/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "iso_b";
@@ -9667,7 +9667,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/test_range)
 "hId" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
@@ -9943,7 +9943,7 @@
 /area/rnd/xenoarch_atrium)
 "hTa" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/storage/eva)
 "hTd" = (
@@ -10895,7 +10895,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "iJM" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 8;
@@ -12448,7 +12448,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "kcb" = (
-/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/reinforced,
@@ -13812,7 +13812,7 @@
 /area/engineering/atmos/air)
 "ldI" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -14392,7 +14392,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "lEQ" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "lFS" = (
@@ -17358,7 +17358,7 @@
 /area/maintenance/substation/hangar)
 "nTZ" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/rnd/eva)
 "nUc" = (
@@ -20551,7 +20551,7 @@
 /turf/space/dynamic,
 /area/maintenance/wing/port/deck1)
 "qMM" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/operations/loading)
 "qMY" = (
@@ -20839,7 +20839,7 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "qWB" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/eva)
@@ -20896,7 +20896,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
 	dir = 4
 	},
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -21598,7 +21598,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "rHm" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "shutters_deck1_workshopdesk";
@@ -21785,7 +21785,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "rPN" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "shutters_hangarseccpexternal";
@@ -22114,7 +22114,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "scW" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "sdP" = (
@@ -22526,7 +22526,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "sup" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "hangarlockdown";
 	name = "Hangar Lockdown"
@@ -23765,7 +23765,7 @@
 /area/hangar/control)
 "ttK" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "shutters_hangarseccp";
@@ -25592,7 +25592,7 @@
 	},
 /area/maintenance/operations)
 "uWn" = (
-/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "iso_a";
@@ -25628,7 +25628,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "uWW" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/operations/lower/machinist)
@@ -25898,7 +25898,7 @@
 	id = "hangarlockdown";
 	name = "Hangar Lockdown"
 	},
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/hangar/control)
 "vhY" = (
@@ -26190,7 +26190,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "vrt" = (
-/obj/effect/map_effect/win_spawn/full/reinforced,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -27088,7 +27088,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "wkD" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "wkO" = (
@@ -29453,7 +29453,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "yau" = (
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor,
+/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "shutters_deck1_workshopdesk";
