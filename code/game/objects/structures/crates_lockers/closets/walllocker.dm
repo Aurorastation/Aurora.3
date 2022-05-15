@@ -70,5 +70,6 @@
 	desc = "It's a secure wall-mounted storage unit for first aid supplies."
 	icon_door = "medical_wall_secure"
 	icon_door_override = TRUE
+	locked = TRUE
 	secure = TRUE
 	req_access = list(access_medical_equip)

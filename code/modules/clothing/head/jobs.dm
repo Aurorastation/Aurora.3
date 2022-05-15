@@ -95,10 +95,6 @@
 	icon_state = "surgcap_pmc"
 	item_state = "surgcap_pmc"
 
-/obj/item/clothing/head/surgery/pmc
-	icon_state = "surgcap_pmc"
-	item_state = "surgcap_pmc"
-
 // Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
 /obj/item/clothing/head/surgery/zavod

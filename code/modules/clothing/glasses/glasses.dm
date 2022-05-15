@@ -662,12 +662,12 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/sunglasses/sechud/pmc
 	name = "PMCG HUDsunglasses"
-	desc = "Sunglasses in the colours of the Eridani PMC organisation. They come with a blue-tinted HUD and a chrome finish."
+	desc = "Sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "sunhud_pmc"
 
 /obj/item/clothing/glasses/sunglasses/sechud/big/pmc
 	name = "fat PMCG HUDsunglasses"
-	desc = "Fat sunglasses in the colours of the Eridani PMC organisation. They come with a blue-tinted HUD and a chrome finish."
+	desc = "Fat sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "bigsunglasses_hud_pmc"
 
 /obj/item/clothing/glasses/sunglasses/sechud/idris

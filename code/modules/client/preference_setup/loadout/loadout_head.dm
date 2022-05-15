@@ -248,11 +248,11 @@
 /datum/gear/head/surgical/New()
 	..()
 	var/list/surgical = list()
-	surgical["surgical cap, nanotrasen navy blue"] = /obj/item/clothing/under/rank/medical/surgeon/zeng
-	surgical["surgical cap, zeng-hu purple"] = /obj/item/clothing/under/rank/medical/surgeon/zeng
+	surgical["surgical cap, nanotrasen navy blue"] = /obj/item/clothing/head/surgery
+	surgical["surgical cap, zeng-hu purple"] = /obj/item/clothing/head/surgery/zeng
 	surgical["surgical cap, PMCG blue"] = /obj/item/clothing/head/surgery/pmc
-	surgical["surgical cap, zavodskoi black"] = /obj/item/clothing/under/rank/medical/surgeon/zavod
-	surgical["surgical cap, idris green"] = /obj/item/clothing/under/rank/medical/surgeon/idris
+	surgical["surgical cap, zavodskoi black"] = /obj/item/clothing/head/surgery/zavod
+	surgical["surgical cap, idris green"] = /obj/item/clothing/head/surgery/idris
 	gear_tweaks += new /datum/gear_tweak/path(surgical)
 
 /datum/gear/head/headbando
