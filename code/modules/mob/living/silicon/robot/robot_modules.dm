@@ -671,6 +671,8 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/clerical/general
 	name = "clerical robot module"
+	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_COMMAND = TRUE)
+	networks = list(NETWORK_MINE)
 
 /obj/item/robot_module/clerical/general/Initialize()
 	. = ..()

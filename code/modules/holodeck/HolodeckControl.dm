@@ -378,4 +378,4 @@
 
 /obj/machinery/computer/HolodeckControl/Horizon
 	density = 0
-	linkedholodeck_area = /area/holodeck/alphadeck
+	linkedholodeck_area = /area/horizon/holodeck/alphadeck
