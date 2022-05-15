@@ -45,3 +45,4 @@ changes:
   - bugfix: "Fixed errant pixels in the PMCG sunglasses."
   - bugfix: "Fixed the misnamed Oqi medical uniform."
   - bugfix: "Fixed the invisible janitor softcap."
+  - bugfix: "Fixed inconsistencies in the Eridani asset protection ID."
