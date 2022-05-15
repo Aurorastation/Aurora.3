@@ -1837,7 +1837,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "UP" = (
-/obj/effect/map_effect/wingrille_spawn/full,
+/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "Vm" = (
