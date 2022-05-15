@@ -98,7 +98,7 @@
 
 /decl/flooring/tiling/full
 	name = "full steel tiles"
-	desc = "A set of full steel floor tiles."
+	desc = "A full steel floor tile."
 	icon_base = "steel_full"
 	build_type = /obj/item/stack/tile/floor/full
 
@@ -193,8 +193,8 @@
 	build_type = /obj/item/stack/tile/floor_dark
 
 /decl/flooring/tiling/dark/full
-	name = "full plasteel tiles"
-	desc = "A set of full plasteel floor tiles."
+	name = "full plasteel tile"
+	desc = "A full plasteel floor tile."
 	icon_base = "dark_full"
 	build_type = /obj/item/stack/tile/floor_dark/full
 

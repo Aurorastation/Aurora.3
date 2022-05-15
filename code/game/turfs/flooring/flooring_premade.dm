@@ -57,7 +57,7 @@
 	initial_flooring = /decl/flooring/tiling
 
 /turf/simulated/floor/tiled/full
-	name = "full steel tiles"
+	name = "full steel tile"
 	icon_state = "steel_full"
 	initial_flooring = /decl/flooring/tiling/full
 
@@ -134,7 +134,7 @@
 	nitrogen = 0
 
 /turf/simulated/floor/tiled/dark/full
-	name = "full plasteel tiles"
+	name = "full plasteel tile"
 	icon_state = "dark_full"
 	initial_flooring = /decl/flooring/tiling/dark/full
 
