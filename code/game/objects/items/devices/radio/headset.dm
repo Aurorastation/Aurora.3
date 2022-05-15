@@ -126,7 +126,7 @@
 		recalculateChannels(TRUE)
 
 
-/obj/item/device/radio/headset/proc/recalculateChannels(var/setDescription = FALSE)
+/obj/item/device/radio/headset/proc/recalculateChannels(var/setDescription = FALSE, var/list/extra_channels = list())
 	src.channels = list()
 	src.translate_binary = FALSE
 	src.translate_hivenet = FALSE
@@ -136,6 +136,12 @@
 		if(!keyslot)
 			continue
 		var/obj/item/device/encryptionkey/K = keyslot
+
+		if(length(extra_channels)) //This will add the extra channels to the primary encryption key. Should only be used when setting up a headset on spawn, such as at away sites. 
+			for(var/C in extra_channels)
+				if(C in K.channels)
+					continue
+				K.additional_channels += C
 
 		for(var/ch_name in K.channels)
 			if(ch_name in src.channels)
@@ -671,6 +677,7 @@
 	syndie = TRUE
 	ks1type = /obj/item/device/encryptionkey/bluespace
 
+//Ghostrole headset
 /obj/item/device/radio/headset/ship
 	icon_state = "syn_headset"
 	ks1type = /obj/item/device/encryptionkey/ship

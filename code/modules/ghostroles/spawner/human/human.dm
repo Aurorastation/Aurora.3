@@ -9,6 +9,10 @@
 	spawn_mob = /mob/living/carbon/human //The mob that should be spawned
 	variables = list() //Variables of that mob
 
+	//Vars relating to the away site associated with this spawner
+	var/template_id //If this is an Away Site role, this should be set equal to the associated map_template's id var. This is for radio/tcomms setup.
+
+
 	//Vars related to human mobs
 	var/datum/outfit/outfit = null //Outfit to equip
 	var/list/species_outfits = list() //Outfit overwrite for the species
@@ -51,6 +55,18 @@
 		mname = replacetext(mname,mob_name_suffix,"") //Remove the suffix if it exists in the string
 		mname = "[mname][mob_name_suffix]"
 	return mname
+
+/datum/ghostspawner/human/proc/set_headset_channel(var/mob/living/carbon/human/H)
+	if(H.get_radio())
+		var/obj/item/device/radio/R = H.get_radio()
+		var/obj/machinery/telecomms/allinone/tcomms = awaysite_tcomms[template_id]
+		if(istype(tcomms))
+			var/list/channels = list()
+			for(var/freq in tcomm.listening_freqs)
+				if(freq == "Common" || freq == "Entertainment")
+					continue
+				channels += freq
+			R.recalculateChannels(TRUE, channels)
 
 //The proc to actually spawn in the user
 /datum/ghostspawner/human/spawn_mob(mob/user)

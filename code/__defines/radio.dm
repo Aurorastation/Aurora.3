@@ -16,6 +16,13 @@
 #define SHIP_FREQ 1280
 #define ENT_FREQ 1461 //entertainment frequency. This is not a diona exclusive frequency.
 
+//Away ship/site frequencies. If we ever spawn more than 5 away ghost roles at a time, just add more defines, and add it to avail_ship_freqs
+#define AWAY_FREQ_A 1283
+#define AWAY_FREQ_B 1285
+#define AWAY_FREQ_C 1287
+#define AWAY_FREQ_D 1289
+#define AWAY_FREQ_E 1291
+
 // department channels
 var/const/PUB_FREQ = 1459
 var/const/PEN_FREQ = 1451
@@ -51,7 +58,7 @@ var/list/radiochannels = list(
 	"Entertainment" = ENT_FREQ,
 	"Medical (I)"	= MED_I_FREQ,
 	"Security (I)"	= SEC_I_FREQ,
-	"Ship"			= SHIP_FREQ
+	"Shuttle"		= SHIP_FREQ
 )
 
 // The assoc variants are separate lists because they need the keys to be strings, but some code expects numbers.
@@ -108,6 +115,32 @@ var/list/DEPT_FREQS_ASSOC = list(
 	"[SRV_FREQ]" = TRUE,
 	"[SUP_FREQ]" = TRUE,
 	"[ENT_FREQ]" = TRUE
+)
+
+//Generated away ship/site frequencies
+var/list/AWAY_FREQS = list(
+	AWAY_FREQ_A,
+	AWAY_FREQ_B,
+	AWAY_FREQ_C,
+	AWAY_FREQ_D,
+	AWAY_FREQ_E
+)
+
+var/list/AWAY_FREQS_ASSOC = list(
+	"[AWAY_FREQ_A]" = TRUE,
+	"[AWAY_FREQ_B]" = TRUE,
+	"[AWAY_FREQ_C]" = TRUE,
+	"[AWAY_FREQ_D]" = TRUE,
+	"[AWAY_FREQ_E]" = TRUE
+)
+
+//List of available frequencies left in each round for away sites to choose from. 
+var/list/avail_ship_freqs = list(
+	AWAY_FREQ_A,
+	AWAY_FREQ_B,
+	AWAY_FREQ_C,
+	AWAY_FREQ_D,
+	AWAY_FREQ_E
 )
 
 #define TRANSMISSION_WIRE        0 // Wired transmission, unused at the moment

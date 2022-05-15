@@ -256,13 +256,13 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
 	var/datum/radio_frequency/connection = null
 	if(channel && channels && channels.len > 0)
-		if(channel == "department")
+		if(channel == "department" || channel == "Ship") //Ship channel acts like department for away ships. 
 			for(var/freq in channels)
 				if(freq == "Common" || freq == "Entertainment")
 					continue
 				channel = freq
 				break
-			if(channel == "department") // didn't find one, use first one
+			if(channel == "department" || channel == "Ship") // didn't find one, use first one
 				channel = channels[1]
 		connection = secure_radio_connections[channel]
 	else

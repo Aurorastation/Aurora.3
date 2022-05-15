@@ -120,7 +120,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	machinetype = 6
 	produces_heat = 0
 	var/intercept = 0 // if nonzero, broadcasts all messages to syndicate channel
-	var/listening_freqs
+	var/list/listening_freqs = list()
 	var/channel_color
 	var/channel_name
 
@@ -172,6 +172,19 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	listening_freqs = list(SHIP_FREQ)
 	channel_color = "#7331c4"
 	channel_name = "Ship"
+
+//This is the one that should be mapped for away sites.
+/obj/machinery/telecomms/allinone/ship/random
+
+/obj/machinery/telecomms/allinone/ship/random/Initialize()
+	if(length(avail_ship_freqs))
+		var/F = pick(avail_ship_freqs)
+		avail_ship_freqs -= F //Ensures no other ship can use this one
+		listening_freqs += F
+		radiochannels[radio_name] = F
+	else //If there's somehow no more left, we'll use the default ship frequency.
+		listening_freqs += SHIP_FREQ
+	return ..()
 
 /**
 
