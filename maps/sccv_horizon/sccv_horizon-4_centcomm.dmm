@@ -15825,6 +15825,9 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
+"aMo" = (
+/turf/unsimulated/floor,
+/area/centcom/spawning)
 "aMp" = (
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Departures";
@@ -70338,7 +70341,7 @@ aHA
 aHA
 aHA
 aLT
-aJT
+aMo
 aLT
 aNi
 aNO
@@ -71880,7 +71883,7 @@ aHA
 aHA
 aHA
 aLT
-aJT
+aMo
 aLT
 aNi
 aNO
