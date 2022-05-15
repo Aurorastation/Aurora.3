@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Maps in missing captain's office air alarm and adds bridge requests console."
