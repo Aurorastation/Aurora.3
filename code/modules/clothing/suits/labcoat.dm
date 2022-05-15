@@ -62,6 +62,15 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
 	icon_state = "labcoat_pmc_alt"
 
+/* VTD: Need the tweaked labcoat sprites
+/obj/item/clothing/suit/storage/toggle/labcoat/pmc/epmc
+	name = "EPMC labcoat"
+	icon_state = "labcoat_epmc"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/pmc/epmc/alt
+	icon_state = "labcoat_epmc_alt"
+*/
+
 /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	name = "iac labcoat"
 	icon_state = "labcoat_iac"

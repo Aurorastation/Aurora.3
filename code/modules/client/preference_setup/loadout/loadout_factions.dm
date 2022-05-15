@@ -110,6 +110,7 @@
 	zavod_sunglasses["aviator sunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/zavod
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sunglasses)
 
+// PMCG
 /datum/gear/faction/pmc_beret
 	display_name = "PMCG beret"
 	path =  /obj/item/clothing/head/beret/corporate/pmc
@@ -151,6 +152,73 @@
 	pmc_labcoats["labcoat, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	pmc_labcoats["labcoat alt, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
 	gear_tweaks += new /datum/gear_tweak/path(pmc_labcoats)
+
+/datum/gear/faction/pmc_patch
+	display_name = "PMCG armband"
+	path = /obj/item/clothing/accessory/armband/pmc
+	slot = slot_tie
+	faction = "Private Military Contracting Group"
+
+// Eridani Private Military Contractors
+/datum/gear/faction/epmc_headwear
+	display_name = "EPMC headwear selection"
+	description = "A selection of EPMC headwear."
+	path = /obj/item/clothing/head/softcap/epmc
+	slot = slot_head
+	faction = "Private Military Contracting Group"
+
+/datum/gear/faction/epmc_headwear/New()
+	..()
+	var/list/epmc_headwear = list()
+	epmc_headwear["beret, EPMC"] = /obj/item/clothing/head/beret/corporate/pmc/epmc
+	epmc_headwear["softcap, EPMC"] = /obj/item/clothing/head/softcap/pmc/epmc
+	gear_tweaks += new /datum/gear_tweak/path(epmc_headwear)
+
+/* VTD: Need the tweaked labcoat sprites
+/datum/gear/faction/epmc_labcoat
+	display_name = "EPMC labcoat selection"
+	description = "A selection of EPMC labcoats."
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/epmc
+	slot = slot_wear_suit
+	faction = "Private Military Contracting Group"
+
+/datum/gear/faction/epmc_labcoat/New()
+	..()
+	var/list/epmc_labcoats = list()
+	epmc_labcoats["labcoat, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/epmc
+	epmc_labcoats["labcoat alt, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/epmc_alt
+	gear_tweaks += new /datum/gear_tweak/path(epmc_labcoats)
+*/
+
+/datum/gear/faction/epmc_sec_uniforms
+	display_name = "EPMC security uniform selection"
+	description = "A selection of EPMC security uniforms."
+	path = /obj/item/clothing/under/rank/security/pmc/epmc
+	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden")
+
+/datum/gear/faction/epmc_sec_uniforms/New()
+	..()
+	var/list/epmc_sec_uniforms = list()
+	epmc_sec_uniforms["white, EPMC"] = /obj/item/clothing/under/rank/security/pmc/epmc
+	epmc_sec_uniforms["black, EPMC"] = /obj/item/clothing/under/rank/security/pmc/epmc_alt
+	gear_tweaks += new /datum/gear_tweak/path(epmc_sec_uniforms)
+
+/datum/gear/faction/erisec_patch
+	display_name = "EPMC sleeve patch"
+	path = /obj/item/clothing/accessory/sleevepatch/erisec
+	slot = slot_tie
+	faction = "Private Military Contracting Group"
+	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden")
+
+/datum/gear/faction/epmc_uniform_fr_med
+	display_name = "EPMC first responder uniform"
+	description = "EPMC first responder uniform."
+	path = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
+	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+	allowed_roles = list("First Responder")
 
 /datum/gear/faction/zenghu_beret
 	display_name = "Zeng-Hu beret selection"
@@ -210,12 +278,6 @@
 	slot = slot_tie
 	faction = "Zavodskoi Interstellar"
 	allowed_roles = list("Security Officer","Investigator","Warden")
-
-/datum/gear/faction/erisec_patch
-	display_name = "PMCG sleeve patch"
-	path = /obj/item/clothing/accessory/sleevepatch/erisec
-	slot = slot_tie
-	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/idrissec_patch
 	display_name = "idris security sleeve patch"

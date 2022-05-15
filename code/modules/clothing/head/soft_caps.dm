@@ -143,6 +143,12 @@
 	icon_state = "pmcalt"
 	item_state = "pmcalt"
 
+/obj/item/clothing/head/softcap/pmc/epmc // VTD: Irregular name for obj stuff. Eugheughh
+	name = "epmc cap"
+	desc = "A company-issue EPMC cap. For ruthless corporates that prefer style over protection."
+	icon_state = "epmc"
+	item_state = "epmc"
+
 /obj/item/clothing/head/softcap/zavod
 	name = "zavodskoi cap"
 	desc = "A company-issue Zavokdskoi cap with the symbol of the corporation at its front. It seems to be immaculately starched; maybe it's just the material it's made out of."

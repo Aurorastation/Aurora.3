@@ -521,10 +521,10 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/distress/ap_eridani
-	name = "\improper Eridani identification card"
+	name = "\improper Eridani Private Military Contractor ID"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
-	assignment = "PMCG Asset Protection"
-	icon_state = "erisec_card"
+	assignment = "EPMC Asset Protection"
+	icon_state = "erisec_card" // VTD: Duplicated the PMCG card and renamed it erisec_card as placeholder
 	overlay_state = "erisec_card"
 
 /obj/item/card/id/distress/ap_eridani/New()

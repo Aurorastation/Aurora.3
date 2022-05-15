@@ -33,6 +33,14 @@
 	icon_state = "pmc_officer"
 	item_state = "pmc_officer"
 
+/obj/item/clothing/under/rank/security/pmc/epmc // VTD: Item Icon placeholder
+	icon_state = "epmc_officer"
+	item_state = "epmc_officer"
+
+/obj/item/clothing/under/rank/security/pmc/epmc_alt // VTD: Item Icon placeholder
+	icon_state = "epmc_officer_alt"
+	item_state = "epmc_officer_alt"
+
 /obj/item/clothing/under/rank/cadet
 	name = "security cadet's uniform"
 	desc = "It's made of a slightly sturdier material, to allow for robust protection."
@@ -56,6 +64,12 @@
 /obj/item/clothing/under/rank/cadet/pmc
 	icon_state = "pmc_cadet"
 	item_state = "pmc_cadet"
+
+/* VTD: Look deep into yourself and ask if this thing is really something you want to do
+/obj/item/clothing/under/rank/cadet/pmc/epmc
+	icon_state = "epmc_cadet"
+	item_state = "epmc_cadet"
+*/
 
 /obj/item/clothing/under/rank/warden
 	name = "warden's uniform"
@@ -90,6 +104,12 @@
 	icon_state = "pmc_warden"
 	item_state = "pmc_warden"
 
+/* VTD: Look deep into yourself and ask if this thing is really something you want to do
+/obj/item/clothing/under/rank/warden/pmc/epmc
+	icon_state = "epmc_warden"
+	item_state = "epmc_warden"
+*/
+
 /*
  * Detective / Forensics
  */
@@ -117,6 +137,12 @@
 /obj/item/clothing/under/det/pmc
 	icon_state = "pmc_invest"
 	item_state = "pmc_invest"
+
+/* VTD: Look deep into yourself and ask if this thing is really something you want to do
+/obj/item/clothing/under/det/pmc/epmc
+	icon_state = "epmc_invest"
+	item_state = "epmc_invest"
+*/
 
 /*
  * Head of Security
