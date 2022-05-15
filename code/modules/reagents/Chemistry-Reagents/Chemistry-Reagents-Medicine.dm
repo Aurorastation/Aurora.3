@@ -1318,23 +1318,18 @@
 /decl/reagent/sanasomnum/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(.)
-		M.add_chemical_effect(CE_ORGANREPAIR, 15)
+		M.add_chemical_effect(CE_ORGANREPAIR, 20)
 		M.add_chemical_effect(CE_BLOODRESTORE, 15)
 		M.add_chemical_effect(CE_BLOODCLOT, 15)
-		M.add_chemical_effect(CE_BRAIN_REGEN, 15)
+		M.add_chemical_effect(CE_BRAIN_REGEN, 20)
 		M.add_chemical_effect(CE_OXYGENATED, 15)
 		M.add_chemical_effect(CE_ANTITOXIN, 15)
 		M.add_chemical_effect(CE_ANTIBIOTIC, 15)
-		M.add_chemical_effect(CE_SEDATE, 30)
 		M.add_chemical_effect(CE_STABLE, 15)
 		M.add_chemical_effect(CE_UNDEXTROUS, 30)
 		M.add_chemical_effect(CE_CLUMSY, 30)
 
 /decl/reagent/sanasomnum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.adjustCloneLoss(-20 * removed)
-	M.adjustOxyLoss(-2 * removed)
-	M.heal_organ_damage(20 * removed, 20 * removed)
-	M.adjustToxLoss(-1 * removed)
 	if(M.is_asystole() && prob(20))
 		M.resuscitate()
 	if(M.chem_doses[type] > 3)
@@ -1366,8 +1361,6 @@
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & TENDON_CUT && prob(10))
 				E.status &= ~TENDON_CUT
-
-
 
 /decl/reagent/verunol
 	name = "Verunol Syrup"
