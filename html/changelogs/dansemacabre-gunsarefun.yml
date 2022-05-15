@@ -38,6 +38,9 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a new reagent called Sanasomnum to the uplink for 2 TCs, which induces a regenerative coma that can heal almost any type of damage, including bone breaks, brain damage, ."
+  - rscadd: "Added a new reagent called Sanasomnum to the uplink for 2 TCs, which induces a regenerative coma that can heal almost any type of damage, including bone breaks, brain damage, arterial bleeding, and organ damage, at the cost of roughly four minutes of unconsciousness."
   - rscadd: "Added a new type of 5.56 bullet, 5.56 polymer."
   - balance: "Added a ballistic carbine, two 9mm machine pistols, and two boxes of buckshot to the sec armory."
+  - balance: "Added the ballistic carbine and ammo to the uplink."
+  - balance: "Changed telecrystals counts across the board - most antags with access to the uplink will have 20 TCs now. Mercs still have 15 TCs, with their own unique uplink."
+  - balance: "Raiders now have uplinks, with 3 TCs each."
