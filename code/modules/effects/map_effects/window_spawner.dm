@@ -73,13 +73,13 @@
 /********** Quarter Windows **********/
 /obj/effect/map_effect/window_spawner/reinforced
 	name = "reinforced window grille spawner"
-	icon_state = "r-wingrille"
+	icon_state = "rwindow-g"
 	window_path = /obj/structure/window/reinforced
 	spawn_grille = TRUE
 
 /obj/effect/map_effect/window_spawner/reinforced/firedoor
 	name = "reinforced window grille spawner with firedoor"
-	icon_state = "r-wingrille_firedoor"
+	icon_state = "rwindow-gf"
 	spawn_firedoor = TRUE
 
 /obj/effect/map_effect/window_spawner/reinforced/crescent
@@ -89,24 +89,24 @@
 
 /obj/effect/map_effect/window_spawner/phoron
 	name = "borosilicate window grille spawner"
-	icon_state = "p-wingrille"
+	icon_state = "pwindow-g"
 	window_path = /obj/structure/window/phoronbasic
 	spawn_grille = TRUE
 
 /obj/effect/map_effect/window_spawner/reinforced_phoron
 	name = "reinforced borosilicate window grille spawner"
-	icon_state = "pr-wingrille"
+	icon_state = "prwindow-g"
 	window_path = /obj/structure/window/phoronreinforced
 	spawn_grille = TRUE
 
 /obj/effect/map_effect/window_spawner/reinforced_phoron/firedoor
 	name = "reinforced borosilicate window grille spawner with firedoor"
-	icon_state = "pr-wingrille_firedoor"
+	icon_state = "prwindow-gf"
 	spawn_firedoor = TRUE
 
 /obj/effect/map_effect/window_spawner/reinforced/polarized
 	name = "polarized reinforced window grille spawner"
-	color = "#444444"
+	color = "#222222"
 	window_path = /obj/structure/window/reinforced/polarized
 	var/id
 
@@ -115,30 +115,43 @@
 		W.id = id
 
 /********** Full Windows **********/
+// Windows
 /obj/effect/map_effect/window_spawner/full // Unused.
 	name = "unused"
 	icon_state = null
 	grille_path = null
 	single_window = TRUE
 
+// Reinforced Windows
 /obj/effect/map_effect/window_spawner/full/reinforced
 	name = "full reinforced window spawner"
 	icon_state = "full_rwindow"
 	window_path = /obj/structure/window/full/reinforced
 
+/obj/effect/map_effect/window_spawner/full/reinforced/grille
+	name = "full reinforced window spawner with grille"
+	icon_state = "full_rwindow-g"
+	spawn_grille = TRUE
+
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor
 	name = "full reinforced window spawner with firedoor"
-	icon_state = "full_rwindow_firedoor"
+	icon_state = "full_rwindow-f"
+	spawn_firedoor = TRUE
+
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor
+	name = "full reinforced window spawner with grille and firedoor"
+	icon_state = "full_rwindow-gf"
 	spawn_firedoor = TRUE
 
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible
 	name = "indestructible reinforced window spawner"
-	icon_state = "full_indestructible_rwindow"
+	icon_state = "full_i_rwindow"
 	window_path = /obj/structure/window/full/reinforced/indestructible
 
+// Reinforced Polarized Windows
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized
 	name = "full reinforced polarized window spawner"
-	icon_state = "full_polarized_rwindow"
+	icon_state = "full_p_rwindow"
 	window_path = /obj/structure/window/full/reinforced/polarized
 	var/id
 
@@ -146,26 +159,38 @@
 	if(id)
 		W.id = id
 
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille
+	name = "full reinforced polarized window spawner with grille"
+	icon_state = "full_p_rwindow-g"
+	spawn_grille = TRUE
+
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor
 	name = "full reinforced polarized window spawner with firedoor"
-	icon_state = "full_polarized_rwindow_firedoor"
+	icon_state = "full_p_rwindow-f"
+	spawn_firedoor = TRUE
+
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor
+	name = "full reinforced polarized window spawner with grille and firedoor"
+	icon_state = "full_p_rwindow-gf"
 	spawn_firedoor = TRUE
 
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/indestructible
 	name = "indestructible reinforced polarized window spawner"
-	icon_state = "full_indestructible_rwindow"
+	icon_state = "full_ip_rwindow"
 	window_path = /obj/structure/window/full/reinforced/polarized/indestructible
 
+// Borosilicate Windows
 /obj/effect/map_effect/window_spawner/full/borosilicate // Unused.
 	name = "unused"
 	icon_state = null
 
+// Reinforced Borosilicate Windows
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced
 	name = "full reinforced borosilicate window spawner"
-	icon_state = "full_boro_rwindow"
+	icon_state = "full_brwindow"
 	window_path = /obj/structure/window/full/phoron/reinforced
 
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor
 	name = "full reinforced borosilicate window spawner with firedoor"
-	icon_state = "full_boro_rwindow_firedoor"
+	icon_state = "full_brwindow-f"
 	spawn_firedoor = TRUE
