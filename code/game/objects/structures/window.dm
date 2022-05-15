@@ -420,6 +420,9 @@
 	desc = "A remote control switch for polarized windows."
 	var/range = 16
 
+/obj/machinery/button/switch/windowtint/update_icon()
+	icon_state = "light[active]"
+
 /obj/machinery/button/switch/windowtint/attack_hand(mob/user as mob)
 	if(..())
 		return 1
@@ -432,25 +435,20 @@
 	active = !active
 	update_icon()
 
-	for(var/obj/structure/window/reinforced/polarized/W in range(src,range))
+	for(var/obj/structure/window/reinforced/polarized/W in range(src, range))
 		if(W.id == src.id || !W.id)
-			spawn(0)
-				W.toggle()
-				return
+			W.toggle()
+			return
 
-	for(var/obj/structure/window/full/reinforced/polarized/W in range(src,range))
+	for(var/obj/structure/window/full/reinforced/polarized/W in range(src, range))
 		if(W.id == src.id || !W.id)
-			spawn(0)
-				W.toggle()
-				return
+			W.toggle()
+			return
 
 /obj/machinery/button/switch/windowtint/power_change()
 	..()
 	if(active && !powered(power_channel))
 		toggle_tint()
-
-/obj/machinery/button/switch/windowtint/update_icon()
-	icon_state = "light[active]"
 
 /obj/structure/window/phoronbasic
 	name = "borosilicate window pane"
@@ -567,6 +565,7 @@
 	name = "window"
 	desc = "You aren't supposed to see this."
 	icon = 'icons/error.dmi'
+	obj_flags = null
 	dir = 5
 	maxhealth = 28 // Two window panes worth of health, since that's the minimum you need to break through to get to the other side.
 	glasstype = /obj/item/stack/material/glass
@@ -581,7 +580,6 @@
 		/obj/structure/window/full/reinforced/polarized,
 		/obj/structure/window/full/phoron/reinforced
 	)
-	can_be_unanchored = TRUE
 
 /obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
 	LAZYINITLIST(dir_mods)
@@ -628,36 +626,41 @@
 			grab_smash_attack(G, BRUTE)
 			return
 
-	if(W.flags & NOBLUDGEON) return
+	if(W.flags & NOBLUDGEON)
+		return
 
 	if(W.isscrewdriver())
-		if(reinf && state >= 1)
-			state = 3 - state
-			update_nearby_icons()
-			playsound(loc, W.usesound, 75, 1)
-			to_chat(user, (state == 1 ? SPAN_NOTICE("You have unfastened the window from the frame.") : SPAN_NOTICE("You have fastened the window to the frame.")))
-		else if(reinf && state == 0)
-			update_icon()
-			update_nearby_icons()
-			playsound(loc, W.usesound, 75, 1)
-			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the frame to the floor.") : SPAN_NOTICE("You have unfastened the frame from the floor.")))
-		else if(!reinf)
-			anchored = !anchored
-			update_nearby_icons()
-			playsound(loc, W.usesound, 75, 1)
-			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the window to the floor.") : SPAN_NOTICE("You have unfastened the window.")))
-			update_icon()
-			update_nearby_icons()
-	else if(W.iscrowbar() && reinf && state <= 1)
-		state = 1 - state
-		playsound(loc, W.usesound, 75, 1)
-		to_chat(user, (state ? SPAN_NOTICE("You have pried the window into the frame.") : SPAN_NOTICE("You have pried the window out of the frame.")))
-	else if(W.iswrench() && (!state || !reinf))
-		if(!glasstype)
-			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
-		else
-			visible_message(SPAN_NOTICE("[user] dismantles \the [src]."))
-			dismantle_window()
+		if(state == 2)
+			if(do_after(user, 2 SECONDS))
+				playsound(loc, W.usesound, 75, 1)
+				to_chat(user, SPAN_NOTICE("You have unfastened the glass from the window frame."))
+				state--
+				update_nearby_icons()
+		else if(state == 1)
+			if(do_after(user, 2 SECONDS))
+				playsound(loc, W.usesound, 75, 1)
+				to_chat(user, SPAN_NOTICE("You have fastened the glass to the window frame."))
+				state++
+				update_nearby_icons()
+	else if(W.iscrowbar())
+		if(state == 1)
+			if(do_after(user, 2 SECONDS))
+				playsound(loc, W.usesound, 75, 1)
+				to_chat(user, SPAN_NOTICE("You pry the glass out of the window frame."))
+				state--
+				update_nearby_icons()
+		else if(state == 0)
+			if(do_after(user, 2 SECONDS))
+				playsound(loc, W.usesound, 75, 1)
+				to_chat(user, SPAN_NOTICE("You pry the glass into the window frame."))
+				state++
+				update_nearby_icons()
+	else if(W.iswrench())
+		if(state == 0)
+			visible_message(SPAN_WARNING("\The [user] is dismantling \the [src]!"))
+			if(do_after(user, 10 SECONDS))
+				to_chat(user, SPAN_NOTICE("You undo the safety bolts and remove the glass from \the [src]."))
+				dismantle_window()
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(W.damtype == BRUTE || W.damtype == BURN)
@@ -720,6 +723,21 @@
 	new/obj/structure/window_frame(get_turf(src))
 	qdel(src)
 
+/obj/structure/window/full/Initialize(mapload, start_dir = null, constructed = 0)
+	if (!mapload && constructed)
+		state = 0
+
+	if (start_dir)
+		set_dir(start_dir)
+
+	health = maxhealth
+
+	ini_dir = dir
+
+	update_nearby_tiles(need_rebuild=1)
+	update_icon()
+	update_nearby_icons()
+
 // Reinforced Window
 /obj/structure/window/full/reinforced
 	name = "reinforced window"
@@ -769,11 +787,11 @@
 
 /obj/structure/window/full/reinforced/polarized/proc/toggle()
 	if(opacity)
-		animate(src, color="#FFFFFF", time=5)
-		set_opacity(0)
+		animate(src, color="#FFFFFF", time = 1 SECOND)
+		set_opacity(FALSE)
 	else
-		animate(src, color="#222222", time=5)
-		set_opacity(1)
+		animate(src, color="#222222", time = 1 SECOND)
+		set_opacity(TRUE)
 
 // Indestructible Reinforced Polarized Window
 /obj/structure/window/full/reinforced/polarized/indestructible/attack_hand()
@@ -798,11 +816,11 @@
 /obj/structure/window/full/phoron
 	name = "borosilicate window"
 	desc = "You aren't supposed to see this."
-	maxhealth = 80 // Two window panes worth of health, since that's the minimum you need to break through to get to the other side.
-	maximal_heat = T0C + 2000
-	damage_per_fire_tick = 1.0
 	glasstype = /obj/item/stack/material/glass/phoronglass
 	shardtype = /obj/item/material/shard/phoron
+	maxhealth = 80 // Two window panes worth of health, since that's the minimum you need to break through to get to the other side.
+	maximal_heat = T0C + 2000
+	damage_per_fire_tick = 1
 
 // Reinforced Borosilicate Window (I.e. Reinforced Phoron Window)
 /obj/structure/window/full/phoron/reinforced
@@ -812,7 +830,6 @@
 	icon_state = "window_glass"
 	basestate = "window_glass"
 	glasstype = /obj/item/stack/material/glass/phoronrglass
+	maxhealth = 160 // Two reinforced borosilicate window panes worth of health, since that's the minimum you need to break through to get to the other side.
 	reinf = TRUE
 	maximal_heat = T0C + 4000
-	damage_per_fire_tick = 1
-	maxhealth = 160 // Two reinforced borosilicate window panes worth of health, since that's the minimum you need to break through to get to the other side.

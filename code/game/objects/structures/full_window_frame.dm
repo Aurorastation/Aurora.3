@@ -13,7 +13,7 @@
 /obj/structure/window_frame/attackby(obj/item/W, mob/user)
 	if((W.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
 		var/obj/item/screwdriver/S = W
-		if(do_after(user, 20/S.toolspeed))
+		if(do_after(user, 2 SECONDS/S.toolspeed))
 			playsound(src, S.usesound, 50, TRUE)
 			anchored = !anchored
 			user.visible_message(
@@ -40,7 +40,7 @@
 			"You hear deconstruction."
 		)
 		playsound(src, 'sound/items/welder.ogg', 50, TRUE)
-		if(do_after(user, 20/WT.toolspeed))
+		if(do_after(user, 2 SECONDS/WT.toolspeed))
 			if(!src || !WT.isOn())
 				return
 			if(WT.remove_fuel(0, user))
@@ -52,7 +52,7 @@
 
 	else if(istype(W, /obj/item/stack/material) && W.get_material_name() == MATERIAL_GLASS_REINFORCED && anchored)
 		var/obj/item/stack/material/G = W
-		if(do_after(user, 20))
+		if(do_after(user, 2 SECONDS))
 			if(G.use(glass_needed))
 				playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
 				to_chat(user, SPAN_NOTICE("You place the [MATERIAL_GLASS_REINFORCED] in the window frame."))
@@ -64,7 +64,7 @@
 
 	else if(istype(W, /obj/item/stack/material) && W.get_material_name() == MATERIAL_GLASS_REINFORCED_PHORON && anchored)
 		var/obj/item/stack/material/G = W
-		if(do_after(user, 20))
+		if(do_after(user, 2 SECONDS))
 			if(G.use(glass_needed))
 				playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
 				to_chat(user, SPAN_WARNING("You place the [MATERIAL_GLASS_REINFORCED_PHORON] in the window frame."))
