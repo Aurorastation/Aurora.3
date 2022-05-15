@@ -1,5 +1,5 @@
 //
-// Windows Spawner
+// Window Spawner
 //
 /obj/effect/map_effect/window_spawner
 	name = "window spawner"
