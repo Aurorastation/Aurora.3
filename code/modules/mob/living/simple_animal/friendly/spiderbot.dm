@@ -151,7 +151,7 @@
 
 				internal_id.access.Cut()
 				internal_id.access = id_card.access.Copy()
-				to_chat(user, SPAN_NOTICE("Access synced with [src]"))
+				to_chat(user, SPAN_NOTICE("Access synced with [src]."))
 				return 1
 	else
 		O.attack(src, user, user.zone_sel.selecting)
