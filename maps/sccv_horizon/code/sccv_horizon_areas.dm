@@ -519,9 +519,9 @@
 	name = "Horizon - Deck 3 - Nature Showcase"
 	icon_state = "nature_showcase"
 	sound_env = SMALL_ENCLOSED
-/***** Decks End *****/
+/********** Decks End **********/
 
-/***** Unique Start *****/
+/********** Unique Start **********/
 // Hydroponics
 /area/horizon/hydroponics
 	name = "Horizon - Hydroponics"
@@ -533,4 +533,4 @@
 /area/horizon/hydroponics/garden
 	name = "Horizon - Public Garden"
 	icon_state = "garden"
-/***** Unique End *****/
+/********** Unique End **********/
