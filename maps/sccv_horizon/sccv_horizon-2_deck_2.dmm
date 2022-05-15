@@ -144,7 +144,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "acz" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/security/lobby)
 "acA" = (
@@ -504,7 +504,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "amI" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/prison)
@@ -659,7 +659,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
 "aqo" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/map_effect/window_spawner/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -2452,7 +2452,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "bin" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'SERVER ROOM'.";
 	name = "SERVER ROOM";
@@ -2559,7 +2559,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "blC" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/warden)
@@ -3147,7 +3147,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "bCv" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "seconddeckdocksaf";
@@ -3735,7 +3735,7 @@
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "bSD" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/rnd/conference)
@@ -4603,12 +4603,12 @@
 /turf/simulated/floor/plating,
 /area/medical/icu)
 "cxO" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/security/main)
 "cyG" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
 	name = "AI Maintenance Blast Door";
 	id = "AICore";
@@ -5085,7 +5085,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "cOs" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
 	name = "AI Maintenance Blast Door";
 	id = "AICore"
@@ -6017,7 +6017,7 @@
 /area/hallway/primary/central_two)
 "doW" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	name = "Window Shutter";
 	id = "shutters_mechbaywindows";
@@ -6159,7 +6159,7 @@
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "due" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
@@ -6835,7 +6835,7 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "dLD" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/operations/break_room)
 "dLO" = (
@@ -7175,7 +7175,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
 "dXB" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "dXF" = (
@@ -7415,7 +7415,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
 "egB" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -8455,7 +8455,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "eNZ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -9245,7 +9245,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "fjc" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/chemistry)
@@ -9258,7 +9258,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "fjl" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/chemistry)
@@ -9329,7 +9329,7 @@
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "flb" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/security_office)
@@ -9398,7 +9398,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "foc" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "fol" = (
@@ -9654,7 +9654,7 @@
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "fuJ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "fuX" = (
@@ -10414,7 +10414,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
 "fQA" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -11054,7 +11054,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
 "ggd" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/map_effect/window_spawner/reinforced_phoron,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -11314,7 +11314,7 @@
 /area/maintenance/wing/starboard/far)
 "gmX" = (
 /obj/structure/sign/greencross,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 4;
@@ -11339,7 +11339,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "gnA" = (
@@ -11738,7 +11738,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "gxa" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/turret_protected/ai_upload)
 "gyn" = (
@@ -12022,7 +12022,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/bar)
 "gDR" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -12212,7 +12212,7 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "gJj" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/reinforced/polarized{
 	id = "chapel_outer"
 	},
 /obj/machinery/door/firedoor,
@@ -12957,7 +12957,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "hfR" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "seconddeckdocksaf";
@@ -14124,7 +14124,7 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_room)
 "hME" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	name = "Window Shutter";
@@ -16112,7 +16112,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "iWm" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/structure/cable/green,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -16750,7 +16750,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "joH" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/security/prison)
 "jpc" = (
@@ -18120,7 +18120,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "kgj" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/reinforced/polarized{
 	id = "HoS Windows"
 	},
 /obj/machinery/door/firedoor,
@@ -18373,7 +18373,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "ksC" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters{
 	dir = 4;
 	id = "cargo_desk"
@@ -19198,7 +19198,7 @@
 /area/engineering/lobby)
 "kRO" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/structure/cable/green,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -20282,7 +20282,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "lBE" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/reinforced/polarized{
 	id = "chapel"
 	},
 /obj/machinery/door/firedoor,
@@ -20466,7 +20466,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
 "lFW" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 4;
@@ -20793,7 +20793,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "lMT" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/library)
@@ -20836,7 +20836,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "lOO" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -21331,7 +21331,7 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -21444,7 +21444,7 @@
 /turf/simulated/floor/plating,
 /area/security/brig)
 "mfX" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/reinforced/polarized{
 	id = "HoS Windows"
 	},
 /obj/machinery/door/firedoor,
@@ -21802,7 +21802,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "mrq" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/map_effect/window_spawner/reinforced_phoron,
 /obj/structure/sign/pharmacy,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
@@ -21878,7 +21878,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "mte" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/map_effect/window_spawner/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
@@ -23116,7 +23116,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/far)
 "naE" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/kitchen)
@@ -23628,7 +23628,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "nkT" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "nld" = (
@@ -23952,7 +23952,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "nvq" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "nvv" = (
@@ -24612,7 +24612,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/port/far)
 "nTp" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -25181,7 +25181,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "okq" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 4;
@@ -25219,7 +25219,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "omD" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
 	name = "AI Maintenance Blast Door";
 	id = "AICore";
@@ -25756,7 +25756,7 @@
 /turf/simulated/open,
 /area/engineering/atmos/storage)
 "oAR" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 4;
@@ -26273,7 +26273,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
 "oOK" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "cargo_desk"
@@ -26804,7 +26804,7 @@
 /turf/simulated/floor/wood,
 /area/library)
 "pef" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/horizon/stairwell/central)
 "pep" = (
@@ -26998,7 +26998,7 @@
 /area/crew_quarters/sleep/cryo/living_quarters_lift)
 "piY" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_two)
 "pjK" = (
@@ -27186,7 +27186,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "pnj" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "pnF" = (
@@ -27363,7 +27363,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "puO" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/storage)
 "puZ" = (
@@ -27576,7 +27576,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
 "pBi" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/reinforced/polarized{
 	id = "HoS Windows"
 	},
 /obj/machinery/door/firedoor,
@@ -28855,7 +28855,7 @@
 /turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "qjm" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/map_effect/window_spawner/reinforced_phoron,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 2;
@@ -29054,7 +29054,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "qrx" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -29129,7 +29129,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "qtN" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/structure/cable/green,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -30429,7 +30429,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "rbK" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -30527,7 +30527,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "rew" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/operations/qm)
@@ -30719,7 +30719,7 @@
 /area/chapel/main)
 "rjP" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/reinforced/polarized{
 	id = "chapel_outer"
 	},
 /turf/simulated/floor/plating,
@@ -31621,7 +31621,7 @@
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
 "rGU" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/map_effect/window_spawner/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -31780,7 +31780,7 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "rLw" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/research)
@@ -31967,7 +31967,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "rPp" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "rPY" = (
@@ -31999,7 +31999,7 @@
 /turf/simulated/floor/wood,
 /area/library)
 "rQh" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/library)
 "rQB" = (
@@ -32252,7 +32252,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "rWq" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/map_effect/window_spawner/reinforced_phoron,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "CHE2shutters";
@@ -32765,7 +32765,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "snt" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/reinforced/polarized{
 	id = "psych"
 	},
 /obj/machinery/door/blast/shutters{
@@ -32933,7 +32933,7 @@
 /turf/simulated/floor/tiled,
 /area/security/main)
 "srn" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/map_effect/window_spawner/reinforced_phoron,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -33099,7 +33099,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "swH" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "bar_desk";
@@ -34307,7 +34307,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hydroponics)
 "tiJ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/map_effect/window_spawner/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
@@ -34325,7 +34325,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "tje" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hydroponics)
@@ -34928,7 +34928,7 @@
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "tDZ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
@@ -35072,7 +35072,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/medical)
 "tGP" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "tGX" = (
@@ -35736,7 +35736,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "tYK" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -36222,7 +36222,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/port/far)
 "ulB" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -36791,7 +36791,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "uyd" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -37652,7 +37652,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "uXd" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
@@ -37842,7 +37842,7 @@
 /area/maintenance/wing/starboard)
 "vdy" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/reinforced/polarized{
 	id = "HoS Windows"
 	},
 /obj/structure/cable/green{
@@ -38606,11 +38606,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "vBO" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/rnd/hallway)
 "vCa" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hydroponics/garden)
@@ -38837,7 +38837,7 @@
 /area/maintenance/wing/starboard)
 "vIY" = (
 /obj/structure/sign/greencross,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -39044,7 +39044,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
 "vOd" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "vOm" = (
@@ -39289,7 +39289,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "vSA" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced_phoron/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "vSJ" = (
@@ -39781,7 +39781,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "wbV" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -39825,7 +39825,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/medical)
 "wcM" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -40603,7 +40603,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
 "wyb" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/reinforced/polarized{
 	id = "surgery2"
 	},
 /obj/machinery/door/firedoor,
@@ -40867,7 +40867,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "wEc" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/map_effect/window_spawner/reinforced_phoron,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "CHE2shutters";
@@ -41274,7 +41274,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
 "wMP" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/sleep/cryo/living_quarters_lift)
 "wNk" = (
@@ -41585,7 +41585,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "wXA" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/reinforced/polarized{
 	id = "surgery1"
 	},
 /obj/machinery/door/firedoor,
@@ -42708,7 +42708,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/heads/hor)
 "xEH" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/lobby)
@@ -43042,7 +43042,7 @@
 /turf/simulated/floor/tiled,
 /area/teleporter)
 "xNO" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/chief)
 "xOo" = (

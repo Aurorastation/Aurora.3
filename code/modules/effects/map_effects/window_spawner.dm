@@ -1,30 +1,32 @@
 //
-// Windows With Grilles
+// Windows Spawner
 //
-/obj/effect/map_effect/wingrille_spawn
-	name = "window grille spawner"
-	icon_state = "wingrille"
-	var/win_path = /obj/structure/window/basic
-	var/grill_path = /obj/structure/grille
+/obj/effect/map_effect/window_spawner
+	name = "window spawner"
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "win"
+	var/window_path = /obj/structure/window/basic
+	var/grille_path = /obj/structure/grille
+	var/firedoor_path = /obj/machinery/door/firedoor
+	var/single_window = FALSE
+	var/spawn_grille = FALSE
 	var/spawn_firedoor = FALSE
 	var/activated
-	var/single_window = FALSE
 
-// stops ZAS expanding zones past us, the windows will block the zone anyway
-/obj/effect/map_effect/wingrille_spawn/CanPass()
-	return 0
+/obj/effect/map_effect/window_spawner/CanPass() // Stops ZAS expanding zones past us, the windows will block the zone anyway.
+	return FALSE
 
-/obj/effect/map_effect/wingrille_spawn/attack_hand()
+/obj/effect/map_effect/window_spawner/attack_hand()
 	attack_generic()
 
-/obj/effect/map_effect/wingrille_spawn/attack_ghost()
+/obj/effect/map_effect/window_spawner/attack_ghost()
 	attack_generic()
 
-/obj/effect/map_effect/wingrille_spawn/attack_generic()
+/obj/effect/map_effect/window_spawner/attack_generic()
 	activate()
 
-/obj/effect/map_effect/wingrille_spawn/Initialize(mapload)
-	if (!win_path)
+/obj/effect/map_effect/window_spawner/Initialize(mapload)
+	if (!window_path)
 		return INITIALIZE_HINT_QDEL
 
 	..()
@@ -33,194 +35,137 @@
 
 	return INITIALIZE_HINT_LATEQDEL
 
-/obj/effect/map_effect/wingrille_spawn/proc/activate()
+/obj/effect/map_effect/window_spawner/proc/activate()
 	if(activated)
 		return
+	if(spawn_grille)
+		new grille_path(loc)
 	if(spawn_firedoor)
-		new /obj/machinery/door/firedoor(loc)
-	if (!locate(grill_path) in get_turf(src))
-		var/obj/structure/grille/G = new grill_path(src.loc)
-		handle_grille_spawn(G)
+		new firedoor_path(loc)
 	if(!single_window)
 		var/list/neighbours = list()
 		for (var/dir in cardinal)
 			var/turf/T = get_step(src, dir)
-			var/obj/effect/map_effect/wingrille_spawn/other = locate(/obj/effect/map_effect/wingrille_spawn) in T
+			var/obj/effect/map_effect/window_spawner/other = locate(/obj/effect/map_effect/window_spawner) in T
 			if(!other)
 				var/found_connection
-				if(locate(grill_path) in T)
+				if(locate(grille_path) in T)
 					for(var/obj/structure/window/W in T)
-						if(W.type == win_path && W.dir == get_dir(T,src))
-							found_connection = 1
+						if(W.type == window_path && W.dir == get_dir(T,src))
+							found_connection = TRUE
 							qdel(W)
 				if(!found_connection)
-					var/obj/structure/window/new_win = new win_path(src.loc)
+					var/obj/structure/window/new_win = new window_path(src.loc)
 					new_win.set_dir(dir)
 					handle_window_spawn(new_win)
 			else
 				neighbours |= other
 	else
-		new win_path(loc)
-	activated = 1
+		new window_path(loc)
+	activated = TRUE
 
-/obj/effect/map_effect/wingrille_spawn/proc/handle_window_spawn(var/obj/structure/window/W)
+/obj/effect/map_effect/window_spawner/proc/handle_window_spawn(var/obj/structure/window/W)
 	return
 
-// Currently unused, could be useful for pre-wired electrified windows.
-/obj/effect/map_effect/wingrille_spawn/proc/handle_grille_spawn(var/obj/structure/grille/G)
+/obj/effect/map_effect/window_spawner/proc/handle_grille_spawn(var/obj/structure/grille/G)
 	return
 
-/obj/effect/map_effect/wingrille_spawn/reinforced
+/********** Quarter Windows **********/
+/obj/effect/map_effect/window_spawner/reinforced
 	name = "reinforced window grille spawner"
 	icon_state = "r-wingrille"
-	win_path = /obj/structure/window/reinforced
+	window_path = /obj/structure/window/reinforced
+	spawn_grille = TRUE
 
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor
+/obj/effect/map_effect/window_spawner/reinforced/firedoor
 	name = "reinforced window grille spawner with firedoor"
 	icon_state = "r-wingrille_firedoor"
 	spawn_firedoor = TRUE
 
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent
+/obj/effect/map_effect/window_spawner/reinforced/crescent
 	name = "crescent window grille spawner"
-	win_path = /obj/structure/window/reinforced/crescent
-	grill_path = /obj/structure/grille/crescent
+	window_path = /obj/structure/window/reinforced/crescent
+	grille_path = /obj/structure/grille/crescent
 
-/obj/effect/map_effect/wingrille_spawn/phoron
+/obj/effect/map_effect/window_spawner/phoron
 	name = "borosilicate window grille spawner"
 	icon_state = "p-wingrille"
-	win_path = /obj/structure/window/phoronbasic
+	window_path = /obj/structure/window/phoronbasic
+	spawn_grille = TRUE
 
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron
+/obj/effect/map_effect/window_spawner/reinforced_phoron
 	name = "reinforced borosilicate window grille spawner"
 	icon_state = "pr-wingrille"
-	win_path = /obj/structure/window/phoronreinforced
+	window_path = /obj/structure/window/phoronreinforced
+	spawn_grille = TRUE
 
-/obj/effect/map_effect/wingrille_spawn/reinforced_phoron/firedoor
+/obj/effect/map_effect/window_spawner/reinforced_phoron/firedoor
 	name = "reinforced borosilicate window grille spawner with firedoor"
 	icon_state = "pr-wingrille_firedoor"
 	spawn_firedoor = TRUE
 
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized
+/obj/effect/map_effect/window_spawner/reinforced/polarized
 	name = "polarized reinforced window grille spawner"
 	color = "#444444"
-	win_path = /obj/structure/window/reinforced/polarized
+	window_path = /obj/structure/window/reinforced/polarized
 	var/id
 
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized/handle_window_spawn(var/obj/structure/window/reinforced/polarized/W)
+/obj/effect/map_effect/window_spawner/reinforced/polarized/handle_window_spawn(var/obj/structure/window/reinforced/polarized/W)
 	if(id)
 		W.id = id
 
-//
-// Windows Without Grilles
-//
-/obj/effect/map_effect/win_spawn
-	name = "window spawner"
-	icon_state = "win"
-	var/win_path = /obj/structure/window/basic
-	var/spawn_firedoor = FALSE
-	var/activated
-	var/single_window = FALSE
-
-// stops ZAS expanding zones past us, the windows will block the zone anyway
-/obj/effect/map_effect/win_spawn/CanPass()
-	return 0
-
-/obj/effect/map_effect/win_spawn/attack_hand()
-	attack_generic()
-
-/obj/effect/map_effect/win_spawn/attack_ghost()
-	attack_generic()
-
-/obj/effect/map_effect/win_spawn/attack_generic()
-	activate()
-
-/obj/effect/map_effect/win_spawn/Initialize(mapload)
-	if (!win_path)
-		return INITIALIZE_HINT_QDEL
-
-	..()
-
-	activate()
-
-	return INITIALIZE_HINT_LATEQDEL
-
-/obj/effect/map_effect/win_spawn/proc/activate()
-	if(activated)
-		return
-	if(spawn_firedoor)
-		new /obj/machinery/door/firedoor(loc)
-	if(!single_window)
-		var/list/neighbours = list()
-		for (var/dir in cardinal)
-			var/turf/T = get_step(src, dir)
-			var/obj/effect/map_effect/win_spawn/other = locate(/obj/effect/map_effect/win_spawn) in T
-			if(!other)
-				var/found_connection
-				if(!found_connection)
-					var/obj/structure/window/new_win = new win_path(src.loc)
-					new_win.set_dir(dir)
-					handle_window_spawn(new_win)
-			else
-				neighbours |= other
-	else
-		new win_path(loc)
-	activated = 1
-
-/obj/effect/map_effect/win_spawn/proc/handle_window_spawn(var/obj/structure/window/W)
-	return
-
-/obj/effect/map_effect/win_spawn/full // Unused.
-	name = "Unused"
-	icon = 'icons/error.dmi'
+/********** Full Windows **********/
+/obj/effect/map_effect/window_spawner/full // Unused.
+	name = "unused"
+	icon_state = null
+	grille_path = null
 	single_window = TRUE
 
-/obj/effect/map_effect/win_spawn/full/reinforced
+/obj/effect/map_effect/window_spawner/full/reinforced
 	name = "full reinforced window spawner"
-	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "full_rwindow"
-	win_path = /obj/structure/window/full/reinforced
+	window_path = /obj/structure/window/full/reinforced
 
-/obj/effect/map_effect/win_spawn/full/reinforced/firedoor
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor
 	name = "full reinforced window spawner with firedoor"
 	icon_state = "full_rwindow_firedoor"
 	spawn_firedoor = TRUE
 
-/obj/effect/map_effect/win_spawn/full/reinforced/indestructible
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible
 	name = "indestructible reinforced window spawner"
 	icon_state = "full_indestructible_rwindow"
-	win_path = /obj/structure/window/full/reinforced/indestructible
+	window_path = /obj/structure/window/full/reinforced/indestructible
 
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized
 	name = "full reinforced polarized window spawner"
 	icon_state = "full_polarized_rwindow"
-	win_path = /obj/structure/window/full/reinforced/polarized
+	window_path = /obj/structure/window/full/reinforced/polarized
 	var/id
 
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized/handle_window_spawn(var/obj/structure/window/full/reinforced/polarized/W)
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/handle_window_spawn(var/obj/structure/window/full/reinforced/polarized/W)
 	if(id)
 		W.id = id
 
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized/firedoor
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor
 	name = "full reinforced polarized window spawner with firedoor"
 	icon_state = "full_polarized_rwindow_firedoor"
 	spawn_firedoor = TRUE
 
-/obj/effect/map_effect/win_spawn/full/reinforced/polarized/indestructible
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/indestructible
 	name = "indestructible reinforced polarized window spawner"
 	icon_state = "full_indestructible_rwindow"
-	win_path = /obj/structure/window/full/reinforced/polarized/indestructible
+	window_path = /obj/structure/window/full/reinforced/polarized/indestructible
 
-/obj/effect/map_effect/win_spawn/full/borosilicate // Unused.
-	name = "Unused"
-	icon = 'icons/error.dmi'
+/obj/effect/map_effect/window_spawner/full/borosilicate // Unused.
+	name = "unused"
+	icon_state = null
 
-/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced
 	name = "full reinforced borosilicate window spawner"
-	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "full_boro_rwindow"
-	win_path = /obj/structure/window/full/phoron/reinforced
+	window_path = /obj/structure/window/full/phoron/reinforced
 
-/obj/effect/map_effect/win_spawn/full/borosilicate/reinforced/firedoor
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor
 	name = "full reinforced borosilicate window spawner with firedoor"
 	icon_state = "full_boro_rwindow_firedoor"
 	spawn_firedoor = TRUE

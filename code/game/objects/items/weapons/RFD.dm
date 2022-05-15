@@ -225,7 +225,7 @@ RFD Construction-Class
 			build_cost =  3
 			build_delay = 20
 			build_type = "window"
-			build_atom = /obj/effect/map_effect/win_spawn/full/reinforced
+			build_atom = /obj/effect/map_effect/window_spawner/full/reinforced
 	else if(mode == RFD_AIRLOCK)
 		if(istype(T, /turf/simulated/floor))
 			build_cost =  3

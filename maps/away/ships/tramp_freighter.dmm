@@ -120,7 +120,7 @@
 /turf/simulated/floor,
 /area/shuttle/freighter_shuttle)
 "aAY" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "aBb" = (
@@ -1406,7 +1406,7 @@
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "lXE" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "mbR" = (

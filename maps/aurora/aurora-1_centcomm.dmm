@@ -2580,7 +2580,7 @@
 /turf/simulated/floor/shuttle,
 /area/template_noop)
 "aiY" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
 "ajd" = (
@@ -3932,7 +3932,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "avR" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
 "avT" = (
@@ -3963,7 +3963,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "awh" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
@@ -4029,7 +4029,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "ayw" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/control)
 "ayG" = (
@@ -4258,7 +4258,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aCm" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
@@ -4375,7 +4375,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/specops)
 "aDb" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aDf" = (
@@ -5681,7 +5681,7 @@
 	},
 /area/shuttle/skipjack)
 "aKZ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
@@ -5717,7 +5717,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/arrival)
 "aLi" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/simulated/floor,
 /area/tdome/tdome2)
 "aLk" = (
@@ -7823,7 +7823,7 @@
 	},
 /area/centcom/legion/hangar5)
 "biK" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/simulated/floor,
 /area/tdome/tdome1)
 "bjr" = (
@@ -10662,7 +10662,7 @@
 	},
 /area/shuttle/escape)
 "cZw" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "cZH" = (
@@ -11274,7 +11274,7 @@
 	},
 /area/shuttle/administration)
 "dtU" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/staff_only{
 	pixel_y = 4
 	},
@@ -13310,7 +13310,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "eJc" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/simulated/floor,
 /area/centcom/holding)
 "eJU" = (
@@ -14730,7 +14730,7 @@
 	},
 /area/centcom/control)
 "fFe" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/disposalpipe/segment,
 /turf/unsimulated/floor/plating,
 /area/tdome/tdomeadmin)
@@ -15958,7 +15958,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/mercenary)
 "goi" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/double/map/right{
 	desc = "A framed picture of a station.";
 	pixel_x = -16;
@@ -17858,7 +17858,7 @@
 	},
 /area/centcom/control)
 "hpC" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/unsimulated/floor/plating,
 /area/tdome/tdomeadmin)
@@ -18264,7 +18264,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
 "hHP" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "hHX" = (
@@ -18324,7 +18324,7 @@
 	},
 /area/centcom/control)
 "hLS" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/pods{
 	desc = "A direction sign which reads 'DROPPODS'.";
 	name = "\improper DROPPODS"
@@ -20549,7 +20549,7 @@
 	},
 /area/centcom/bar)
 "jcG" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "jdm" = (
@@ -22371,7 +22371,7 @@
 	},
 /area/shuttle/merchant)
 "krP" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/disposalpipe/segment,
 /turf/unsimulated/floor/plating,
 /area/tdome/tdomeobserve)
@@ -23935,7 +23935,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
 "lvs" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/tdome/tdomeobserve)
 "lvy" = (
@@ -24766,7 +24766,7 @@
 /turf/space/dynamic,
 /area/shuttle/merchant)
 "lWl" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/machinery/door/blast/odin{
 	dir = 2;
 	icon_state = "shutter1";
@@ -24974,7 +24974,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
 "mbM" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
@@ -27967,7 +27967,7 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "nQZ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/tdome/tdomeadmin)
 "nRo" = (
@@ -30360,7 +30360,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
 "pAs" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/staff_only,
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
@@ -31270,7 +31270,7 @@
 	},
 /area/antag/ninja)
 "qce" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/machinery/status_display/arrivals_display,
 /turf/unsimulated/floor{
 	icon_state = "plating"
@@ -31605,7 +31605,7 @@
 	},
 /area/shuttle/legion)
 "qrB" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/directions/medical{
 	dir = 1;
 	pixel_y = -5
@@ -32330,7 +32330,7 @@
 /turf/space/transit/west,
 /area/template_noop)
 "qSn" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/directions/com{
 	dir = 8;
 	pixel_y = -4
@@ -33104,7 +33104,7 @@
 	},
 /area/antag/raider)
 "rvN" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/directions/tram{
 	dir = 1;
 	pixel_x = 1;
@@ -34129,7 +34129,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "sjp" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/double/map/left{
 	desc = "A framed picture of a station.";
 	pixel_x = 16;
@@ -34216,7 +34216,7 @@
 	},
 /area/centcom/control)
 "smt" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/greencross{
 	name = "Emergency Room"
 	},
@@ -35563,7 +35563,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "tix" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/machinery/door/blast/odin{
 	icon_state = "shutter1";
 	icon_state_closed = "shutter1";
@@ -35859,7 +35859,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/specops)
 "tvn" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/antag/mercenary)
 "tvo" = (
@@ -36974,7 +36974,7 @@
 /turf/unsimulated/floor,
 /area/centcom/bar)
 "ujN" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "ujT" = (
@@ -39877,7 +39877,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "weG" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/vacuum,
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
@@ -41993,7 +41993,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "xkw" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "xkH" = (
@@ -42520,7 +42520,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/syndicate_elite)
 "xyH" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/pods{
 	desc = "A direction sign which reads 'DROPPODS'.";
 	name = "\improper DROPPODS"
@@ -42986,7 +42986,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/specops)
 "xQs" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/directions/com{
 	dir = 8;
 	pixel_y = 5
@@ -43536,7 +43536,7 @@
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_dininghall)
 "yhJ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/antag/wizard)
 "yil" = (

@@ -892,7 +892,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "esD" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/effect/map_effect/airlock/w_to_e,
 /turf/simulated/floor/plating,
 /area/racers)
@@ -1433,7 +1433,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "hkp" = (
-/obj/effect/map_effect/wingrille_spawn/full/phoron,
+/obj/effect/map_effect/window_spawner/full/phoron,
 /obj/item/material/sword/amohdan_sword,
 /obj/machinery/door/blast/shutters/open,
 /turf/simulated/floor/plating,
@@ -1506,7 +1506,7 @@
 /area/racers)
 "hyW" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "hzI" = (
@@ -1957,7 +1957,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "jzv" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/wall/r_wall,
 /area/racers)
 "jAg" = (
@@ -2653,7 +2653,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/racers)
 "nfm" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "nhS" = (
@@ -2780,7 +2780,7 @@
 /turf/simulated/floor/carpet,
 /area/racers)
 "nRF" = (
-/obj/effect/map_effect/wingrille_spawn/full/phoron,
+/obj/effect/map_effect/window_spawner/full/phoron,
 /obj/item/melee/ceremonial_sword,
 /obj/machinery/door/blast/shutters/open,
 /turf/simulated/floor/plating,
@@ -3436,7 +3436,7 @@
 /turf/simulated/floor/wood,
 /area/racers)
 "qUf" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/template_noop,
 /area/racers)
 "qUF" = (
@@ -3806,7 +3806,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "sOd" = (
-/obj/effect/map_effect/wingrille_spawn/full/phoron,
+/obj/effect/map_effect/window_spawner/full/phoron,
 /obj/item/clothing/head/unathi/maxtlatl{
 	pixel_y = -4
 	},
@@ -4104,7 +4104,7 @@
 /area/racers)
 "uoH" = (
 /obj/structure/inflatable/wall,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "upu" = (
@@ -4256,7 +4256,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "vcf" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/wood,
 /area/racers)
 "vcF" = (
@@ -4378,7 +4378,7 @@
 /obj/machinery/door/blast/regular{
 	id = "pet"
 	},
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "vBl" = (
@@ -4745,7 +4745,7 @@
 /area/racers)
 "xwJ" = (
 /obj/structure/lattice,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "xzv" = (
