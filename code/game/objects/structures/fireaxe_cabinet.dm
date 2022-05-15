@@ -1,6 +1,7 @@
 /obj/structure/fireaxecabinet
 	name = "fire axe cabinet"
 	desc = "There is small label that reads \"For Emergency use only\" along with details for safe use of the axe. As if."
+	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "fireaxe"
 	anchored = 1
 	density = 0
@@ -29,11 +30,18 @@
 /obj/structure/fireaxecabinet/update_icon()
 	cut_overlays()
 	if(fireaxe)
-		add_overlay("fireaxe_item")
+		add_overlay("axe")
 	if(shattered)
-		add_overlay("fireaxe_window_broken")
-	else if(!open)
-		add_overlay("fireaxe_window")
+		add_overlay("glass4")
+	if(unlocked)
+		add_overlay("unlocked")
+	else
+		add_overlay("locked")
+	if(open)
+		add_overlay("glass")
+	else
+		add_overlay("glass_raised")
+
 
 /obj/structure/fireaxecabinet/New()
 	..()

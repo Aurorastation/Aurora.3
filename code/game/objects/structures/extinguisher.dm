@@ -1,8 +1,8 @@
 /obj/structure/extinguisher_cabinet
 	name = "extinguisher cabinet"
 	desc = "A small wall mounted cabinet designed to hold a fire extinguisher."
-	icon = 'icons/obj/closet.dmi'
-	icon_state = "extinguisher_closed"
+	icon = 'icons/obj/wallmounts.dmi'
+	icon_state = "cabinet"
 	anchored = 1
 	density = 0
 	var/obj/item/extinguisher/has_extinguisher
@@ -54,16 +54,15 @@
 	update_icon()
 
 /obj/structure/extinguisher_cabinet/update_icon()
-	if(!opened)
-		icon_state = "extinguisher_closed"
-		return
 	if(has_extinguisher)
 		if(istype(has_extinguisher, /obj/item/extinguisher/mini))
-			icon_state = "extinguisher_mini"
+			add_overlay("extinguisher_mini")
 		else
-			icon_state = "extinguisher_full"
+			add_overlay("extinguisher_full")
+	if(opened)
+		add_overlay("cabinet_door_open")
 	else
-		icon_state = "extinguisher_empty"
+		add_overlay("cabinet_door_closed")
 
 /obj/structure/extinguisher_cabinet/do_simple_ranged_interaction(var/mob/user)
 	if(has_extinguisher)
