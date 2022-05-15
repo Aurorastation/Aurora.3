@@ -26,9 +26,20 @@
 	. = ..()
 	modules += new /obj/item/crowbar/robotic/jawsoflife(src)
 	modules += new /obj/item/wrench/robotic(src)
+	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents the shell from going lethal on Crew to prevent unauthorized tampering.
 	modules += new /obj/item/device/healthanalyzer(src)
-	modules += new /obj/item/extinguisher/mini(src)
 	modules += new /obj/item/device/advanced_healthanalyzer(src)
+	modules += new /obj/item/roller_holder(src)
+	modules += new /obj/item/device/gps(src) // For being located while disabled
+	modules += new /obj/item/extinguisher/mini(src)
+	modules += new /obj/item/gripper/multi_purpose(src)
+	modules += new /obj/item/taperoll/engineering(src)
+	modules += new /obj/item/taperoll/medical(src) //TODO: Make a taperoll subtype that allows the user to switch the kind of tape role in crtl click.
+	modules += new /obj/item/pen/robopen(src) // This is essential.
+	modules += new /obj/item/storage/part_replacer(src)
+	modules += new /obj/item/rfd/construction/borg(src) //To allow for emergency sealing of rooms
+	modules += new /obj/item/inflatable_dispenser(src)
+	emag = new /obj/item/melee/hammer/powered(src)
 
 /mob/living/silicon/robot/shell
 	spawn_module = /obj/item/robot_module/aicontrol
