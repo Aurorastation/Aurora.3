@@ -33,7 +33,7 @@
 
 /datum/design/item/mechfab/exosuit_equipment/ion
 	name = "Mounted Ion Rifle"
-	materials = list(DEFAULT_WALL_MATERIAL = 10000,  MATERIAL_GOLD = 3000, MATERIAL_SILVER = 3000, MATERIAL_PHORON = 3000)
+	materials = list(DEFAULT_WALL_MATERIAL = 10000,  MATERIAL_GOLD = 3000, MATERIAL_URANIUM = 3000, MATERIAL_PHORON = 3000)
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/combat/ion
 
@@ -88,7 +88,7 @@
 	name = "Mounted Crisis Drone"
 	build_path = /obj/item/mecha_equipment/crisis_drone
 	req_tech = list(TECH_MAGNET = 3, TECH_DATA = 3, TECH_BIO = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GOLD = 1000, MATERIAL_SILVER = 2000, MATERIAL_GLASS = 5000)
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000, MATERIAL_GOLD = 1000, MATERIAL_SILVER = 2000)
 
 /datum/design/item/mechfab/exosuit_equipment/analyzer
 	name = "Mounted Health Analyzer"
