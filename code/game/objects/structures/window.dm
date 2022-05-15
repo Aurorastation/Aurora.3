@@ -384,6 +384,10 @@
 	damage_per_fire_tick = 2.0
 	glasstype = /obj/item/stack/material/glass/reinforced
 
+/obj/structure/window/reinforced/full
+	icon_state = "fwindow"
+    dir = 5
+
 /obj/structure/window/reinforced/polarized
 	name = "reinforced electrochromic window pane"
 	desc = "Adjusts its tint with voltage. Might take a few good hits to shatter it."
