@@ -56,7 +56,7 @@
 	name = "5.56 carbine magazine"
 	item_cost = 2
 	path = /obj/item/ammo_magazine/a556/carbine 
-	desc = "Contains 15 rounds of 5.56"
+	desc = "Contains 15 rounds of 5.56."
 
 /datum/uplink_item/item/ammo/peac
 	name = "Anti-materiel Cannon Cartridge"
