@@ -235,7 +235,6 @@
 /obj/item/projectile/rifle/kumar_super
 	damage = 35
 	armor_penetration = 20
-	weaken = 2
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/vintage
