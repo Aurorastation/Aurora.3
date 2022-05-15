@@ -8170,6 +8170,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
 "pe" = (
@@ -11508,6 +11511,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
 "vm" = (
@@ -11707,7 +11713,7 @@
 	name = "RevenantRift"
 	},
 /turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/alphadeck)
+/area/horizon/holodeck/alphadeck)
 "vF" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -16377,10 +16383,6 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
-	},
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Kitchen Stairwell";
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
@@ -21647,12 +21649,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"Ob" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/open,
-/area/bridge/third_deck_stairs)
 "Oc" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -21988,6 +21984,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/blue/full,
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Kitchen Stairwell";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
 "OI" = (
@@ -23055,6 +23055,9 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
+"Qw" = (
+/turf/simulated/open,
+/area/bridge/third_deck_stairs)
 "Qx" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -27126,7 +27129,7 @@
 /area/maintenance/engineering_ladder)
 "Ye" = (
 /turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/alphadeck)
+/area/horizon/holodeck/alphadeck)
 "Yf" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -51356,8 +51359,8 @@ za
 LA
 ED
 hs
-Ob
-Ob
+Qw
+Qw
 iF
 hR
 hR
@@ -51555,11 +51558,11 @@ Zj
 Zj
 xx
 iF
-uu
 iF
 uu
-iF
 uu
+uu
+iF
 iF
 Tr
 TC

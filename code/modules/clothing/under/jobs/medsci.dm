@@ -195,8 +195,8 @@
 // Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
 /obj/item/clothing/under/rank/medical/surgeon/zavod
-	icon_state = "zavod_surgeon"
-	item_state = "zavod_surgeon"
+	icon_state = "zav_surgeon"
+	item_state = "zav_surgeon"
 
 /obj/item/clothing/under/rank/medical/surgeon/idris
 	icon_state = "idris_surgeon"
