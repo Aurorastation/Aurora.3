@@ -237,6 +237,12 @@
 	icon_state = "fr_tile"
 	matter = list(MATERIAL_PLASTEEL = TILE_MATERIAL_AMOUNT)
 
+/obj/item/stack/tile/floor_dark/full // Used under windows.
+	name = "full dark floor tile"
+	singular_name = "full dark floor tile"
+	icon_state = "fr_tile_full"
+	matter = list(MATERIAL_PLASTEEL = TILE_MATERIAL_AMOUNT)
+
 /obj/item/stack/tile/floor_freezer
 	name = "freezer floor tile"
 	singular_name = "freezer floor tile"

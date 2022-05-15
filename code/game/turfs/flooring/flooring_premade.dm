@@ -128,6 +128,11 @@
 	oxygen = 0
 	nitrogen = 0
 
+/turf/simulated/floor/tiled/dark/full // Used under windows.
+	name = "full dark floor"
+	icon_state = "dark_full"
+	initial_flooring = /decl/flooring/tiling/dark/full
+
 /turf/simulated/floor/tiled/red
 	name = "red floor"
 	color = COLOR_RED_GRAY

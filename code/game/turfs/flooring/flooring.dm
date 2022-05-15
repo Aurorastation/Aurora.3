@@ -186,6 +186,14 @@
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_dark
 
+/decl/flooring/tiling/dark/full // Used under windows.
+	name = "floor"
+	desc = "How ominous."
+	icon_base = "dark_full"
+	has_damage_range = null
+	flags = TURF_REMOVE_CROWBAR
+	build_type = /obj/item/stack/tile/floor_dark/full
+
 /decl/flooring/tiling/freezer
 	name = "floor"
 	desc = "Don't slip."
