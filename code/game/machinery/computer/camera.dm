@@ -115,6 +115,9 @@
 	if (user.stat || user.blinded || inoperable())
 		return 0
 	set_current(C)
+	if(!is_contact_area(get_area(C)))
+		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
+		return FALSE
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.reset_view(current_camera)
