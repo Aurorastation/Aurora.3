@@ -40,3 +40,9 @@ delete-after: True
 changes:
   - backend: "Adds use_tool proc."
   - soundadd: "Adds new hammer and shovel usesounds."
+  - backend: "Makes use of new ishammer() proc."
+  - tweak: "Pipe wrenches now correctly take half the time to wrench atmospheric things."
+  - tweak: "Tweaks time needed for poking holes in paper bags to prevent accidental immediate poking."
+  - backend: "use_tool procs now all consistently use ticks, instead of some using seconds."
+  - backend: "Welding tool remove_fuel() proc has finally been properly replaced by use() proc."
+  
