@@ -386,7 +386,7 @@
 
 /obj/structure/window/reinforced/full
 	icon_state = "fwindow"
-    dir = 5
+	dir = 5
 
 /obj/structure/window/reinforced/polarized
 	name = "reinforced electrochromic window pane"
