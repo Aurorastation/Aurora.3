@@ -205,7 +205,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "aeT" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -985,7 +985,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "axL" = (
 /obj/machinery/light/small,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -1125,7 +1125,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "azO" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1331,7 +1331,7 @@
 	req_access = list(37)
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "aGH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1598,7 +1598,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/library)
+/area/horizon/library)
 "aOj" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-2-f"
@@ -2131,7 +2131,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "aZo" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
@@ -2512,7 +2512,7 @@
 "biZ" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "bjM" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/firealarm/east,
@@ -3126,7 +3126,7 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "bAZ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3234,7 +3234,7 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "bFN" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -3413,7 +3413,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "bIK" = (
 /obj/structure/closet/secure_closet/xenobotany,
 /obj/effect/floor_decal/corner/mauve/full{
@@ -3660,7 +3660,7 @@
 	pixel_y = -26
 	},
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "bQv" = (
 /obj/machinery/light{
 	dir = 4
@@ -4510,7 +4510,7 @@
 "cre" = (
 /obj/machinery/lapvend,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "crw" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -5250,7 +5250,7 @@
 	},
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "cSs" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
@@ -7186,7 +7186,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "dWH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7649,7 +7649,7 @@
 "enw" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "enz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7937,7 +7937,7 @@
 /obj/item/deck/tarot,
 /obj/item/deck/cards,
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "evy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7951,7 +7951,7 @@
 	pixel_x = 24
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "evJ" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2
@@ -7994,7 +7994,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/library)
+/area/horizon/library)
 "ewD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9527,7 +9527,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "fqr" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -10131,7 +10131,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "fJn" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -10500,7 +10500,7 @@
 "fQS" = (
 /obj/structure/bookcase/libraryspawn/religion,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "fQV" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -11272,7 +11272,7 @@
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "gjC" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-5"
@@ -11595,7 +11595,7 @@
 	pixel_y = 22
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "grd" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -12524,7 +12524,7 @@
 "gPs" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "gPw" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -13465,7 +13465,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "hpX" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -14068,7 +14068,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "hGx" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -14505,7 +14505,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "hUe" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 1
@@ -14633,7 +14633,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "iap" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -14711,7 +14711,7 @@
 "ica" = (
 /obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "icZ" = (
 /obj/machinery/light{
 	dir = 1
@@ -17936,7 +17936,7 @@
 	},
 /obj/item/device/flashlight/lamp/green,
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "jUq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/structure/window/phoronreinforced{
@@ -17997,7 +17997,7 @@
 	},
 /obj/item/paper_scanner,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "jUH" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan,
 /turf/simulated/floor/plating,
@@ -18709,7 +18709,7 @@
 	id = "librarian"
 	},
 /turf/simulated/floor/plating,
-/area/library)
+/area/horizon/library)
 "kuS" = (
 /obj/machinery/door/window/southright,
 /obj/structure/curtain/open/shower,
@@ -18888,7 +18888,7 @@
 	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "kAo" = (
 /turf/simulated/floor/lino/grey,
 /area/hallway/primary/central_two)
@@ -19716,7 +19716,7 @@
 	},
 /obj/item/device/radio/headset/headset_service,
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "lbf" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -20168,7 +20168,7 @@
 "lnr" = (
 /obj/machinery/bookbinder,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "lnv" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -21051,7 +21051,7 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/library)
+/area/horizon/library)
 "lNb" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
@@ -21125,7 +21125,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "lQn" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -22221,7 +22221,7 @@
 	name = "Library"
 	},
 /turf/simulated/floor/tiled,
-/area/library)
+/area/horizon/library)
 "muO" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/sink{
@@ -25018,7 +25018,7 @@
 "nVX" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "nVY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -25689,7 +25689,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "oqW" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -26194,7 +26194,7 @@
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green,
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "oBZ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -26232,7 +26232,7 @@
 	req_access = list(37)
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "oCz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -26605,7 +26605,7 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "oOi" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -27153,7 +27153,7 @@
 /area/security/brig)
 "pea" = (
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "pef" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -28775,7 +28775,7 @@
 /area/security/brig)
 "pWx" = (
 /turf/simulated/wall,
-/area/library)
+/area/horizon/library)
 "pWB" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -30291,7 +30291,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "qPI" = (
 /turf/simulated/floor/tiled/ramp,
 /area/security/investigations)
@@ -31502,7 +31502,7 @@
 /obj/item/pen,
 /obj/item/pen/red,
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "rtP" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -31536,7 +31536,7 @@
 	pixel_y = -3
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "ruz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -32015,7 +32015,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "rHj" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -32318,7 +32318,7 @@
 	name = "Library"
 	},
 /turf/simulated/floor/tiled,
-/area/library)
+/area/horizon/library)
 "rPf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -32361,11 +32361,11 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "rQh" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/library)
+/area/horizon/library)
 "rQB" = (
 /obj/effect/floor_decal/sign/icu,
 /obj/structure/cable/green{
@@ -32872,7 +32872,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "sdX" = (
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark,
@@ -33094,7 +33094,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "slS" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
@@ -33995,7 +33995,7 @@
 "sOu" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "sPp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -34430,7 +34430,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "taX" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -35413,7 +35413,7 @@
 	sortType = "Library"
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "tFX" = (
 /obj/structure/table/standard,
 /obj/item/paper_scanner,
@@ -35806,7 +35806,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "tPU" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -36378,7 +36378,7 @@
 	},
 /obj/machinery/libraryscanner,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "ugV" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -38106,7 +38106,7 @@
 	pixel_x = 15
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "uZt" = (
 /obj/structure/cable/yellow,
 /obj/machinery/power/terminal{
@@ -38279,7 +38279,7 @@
 	pixel_y = -26
 	},
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "veP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -38887,7 +38887,7 @@
 "vyP" = (
 /obj/structure/bookcase/libraryspawn/reference,
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "vzv" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
@@ -39124,7 +39124,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "vFQ" = (
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal/small/west,
@@ -39422,7 +39422,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "vOb" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -39658,7 +39658,7 @@
 "vRT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "vRV" = (
 /obj/machinery/light,
 /obj/structure/disposalpipe/segment{
@@ -41260,7 +41260,7 @@
 "wDv" = (
 /obj/structure/bookcase/libraryspawn/nonfiction,
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "wDG" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -41455,7 +41455,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "wKK" = (
 /obj/structure/table/steel,
 /obj/machinery/button/remote/emitter{
@@ -42811,7 +42811,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "xun" = (
 /obj/structure/bed/stool/chair/office/light,
 /obj/effect/landmark/start{
@@ -43142,7 +43142,7 @@
 	name = "Library"
 	},
 /turf/simulated/floor/tiled,
-/area/library)
+/area/horizon/library)
 "xFR" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/cable/green{
@@ -43591,7 +43591,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/library)
+/area/horizon/library)
 "xRl" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -43954,7 +43954,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
-/area/library)
+/area/horizon/library)
 "yaT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/particle_accelerator/end_cap{

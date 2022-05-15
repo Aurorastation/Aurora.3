@@ -533,4 +533,10 @@
 /area/horizon/hydroponics/garden
 	name = "Horizon - Public Garden"
 	icon_state = "garden"
+
+// Library
+/area/horizon/library
+ 	name = "Horizon - Library"
+ 	icon_state = "library"
+ 	sound_env = LARGE_SOFTFLOOR
 /********** Unique End **********/
