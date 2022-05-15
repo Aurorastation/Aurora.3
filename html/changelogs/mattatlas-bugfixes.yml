@@ -44,3 +44,4 @@ changes:
   - bugfix: "AIs no longer remotely press their non-existant feet onto holopads."
   - bugfix: "Fixed errant pixels in the PMCG sunglasses."
   - bugfix: "Fixed the misnamed Oqi medical uniform."
+  - bugfix: "Fixed the invisible janitor softcap."
