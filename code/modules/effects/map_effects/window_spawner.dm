@@ -119,7 +119,6 @@
 /obj/effect/map_effect/window_spawner/full // Unused.
 	name = "unused"
 	icon_state = null
-	grille_path = null
 	single_window = TRUE
 
 // Reinforced Windows
