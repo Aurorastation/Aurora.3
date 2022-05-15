@@ -1,0 +1,6 @@
+author: RyverStyx
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes errant pixels in the Skrell Headtail Blotches."
