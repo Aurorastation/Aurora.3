@@ -524,8 +524,8 @@ var/const/NO_EMAG_ACT = -50
 	name = "\improper Eridani Private Military Contractor ID"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
 	assignment = "EPMC Asset Protection"
-	icon_state = "erisec_card" // Note: Duplicated the PMCG card and renamed it erisec_card as placeholder
-	overlay_state = "erisec_card"
+	icon_state = "pmc_card"
+	overlay_state = "pmc_card"
 
 /obj/item/card/id/distress/ap_eridani/New()
 	access = get_distress_access()
