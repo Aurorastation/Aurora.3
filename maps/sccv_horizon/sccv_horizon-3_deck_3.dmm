@@ -497,12 +497,12 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering_ladder)
 "aW" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/structure/cable/cyan,
 /obj/structure/cable/cyan{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/storage/shields)
 "aX" = (
 /obj/structure/bed/stool/chair{
@@ -1072,8 +1072,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "bX" = (
-/obj/effect/map_effect/window_spawner/reinforced,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/deck_three/nature_showcase)
 "bY" = (
 /obj/machinery/alarm{
@@ -1147,13 +1147,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
-"cg" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
-	id = "Interro"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/security/investigations)
 "ch" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Deck 3 Central Stairwell"
@@ -1267,13 +1260,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
-"ct" = (
-/obj/machinery/door/firedoor,
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
-	id = "Recovery1"
-	},
-/turf/simulated/floor/plating,
-/area/medical/ward)
 "cu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
@@ -1487,8 +1473,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "cN" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew_quarters/fitness/gym)
 "cO" = (
 /obj/structure/table/wood,
@@ -2297,17 +2283,16 @@
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "ee" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
-	id = "cap"
-	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "cap"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/captain)
 "ef" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -2816,21 +2801,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
-"fj" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
-	id = "hop"
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/turf/simulated/floor,
-/area/crew_quarters/heads/hop/xo)
 "fk" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -3086,6 +3056,9 @@
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "fP" = (
@@ -3842,12 +3815,12 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "hk" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters{
 	name = "Viewing Shutter";
 	id = "shutters_deck3_engibreak"
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/break_room)
 "hl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5535,8 +5508,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "kj" = (
-/obj/effect/map_effect/window_spawner/reinforced,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hop/xo)
 "kk" = (
 /obj/structure/disposalpipe/segment{
@@ -5602,17 +5575,16 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
-	id = "investigator_office"
-	},
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "investigator_office"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
@@ -6074,9 +6046,6 @@
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
 "lg" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
-	id = "hop"
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -6084,8 +6053,10 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "hop"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hop/xo)
 "lh" = (
 /obj/machinery/light{
@@ -8139,11 +8110,11 @@
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "pa" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/tcommsat/entrance)
 "pb" = (
 /obj/structure/closet/emcloset,
@@ -8834,11 +8805,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
-"qq" = (
-/obj/effect/map_effect/window_spawner/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/security/vacantoffice2)
 "qr" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -9152,12 +9118,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "qZ" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
 /obj/structure/cable/green,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/tcommsat/entrance)
 "ra" = (
 /obj/effect/floor_decal/corner/green{
@@ -9641,6 +9607,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "rX" = (
@@ -9788,8 +9757,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "si" = (
-/obj/effect/map_effect/window_spawner/reinforced,
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/vacantoffice2)
 "sj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10643,10 +10612,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "tI" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/bridge/controlroom)
 "tJ" = (
@@ -11451,11 +11420,10 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "vh" = (
-/obj/machinery/door/firedoor,
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "cmooffice"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/cmo)
 "vi" = (
 /obj/item/device/radio/intercom{
@@ -12076,11 +12044,10 @@
 	name = "Security - Investigations Office"
 	})
 "wt" = (
-/obj/machinery/door/firedoor,
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "journalist"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/journalistoffice)
 "wu" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -12125,6 +12092,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "wz" = (
@@ -12158,8 +12128,8 @@
 	layer = 5;
 	name = "Isolation Ward Shutters"
 	},
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/medical/ward/isolation)
 "wC" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -12671,11 +12641,10 @@
 /turf/simulated/floor,
 /area/maintenance/substation/command)
 "xw" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "consular"
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/lawoffice/consular)
 "xx" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -13912,16 +13881,6 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"zM" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "medicalisolation";
-	layer = 5;
-	name = "Isolation Ward Shutters"
-	},
-/turf/simulated/floor/tiled,
-/area/medical/ward/isolation)
 "zN" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -14404,10 +14363,10 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "AK" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "Interro"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/investigations)
 "AL" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -14644,8 +14603,8 @@
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
 "Bg" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_armory)
 "Bh" = (
 /turf/simulated/wall/r_wall,
@@ -14757,12 +14716,12 @@
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "Bu" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
 /obj/structure/cable/green,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/tcommsat/entrance)
 "Bv" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -14850,11 +14809,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/smoking)
 "BD" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "investigator_office"
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
@@ -15328,13 +15286,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
-"CB" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
-	id = "journalist"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/journalistoffice)
 "CC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -15725,6 +15676,9 @@
 	alarm_on = 1;
 	c_tag = "Third Deck - Crew Armoury";
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
@@ -16766,8 +16720,8 @@
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "Fm" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/hallway/medical/upper)
 "Fn" = (
 /obj/structure/cable/green{
@@ -17807,9 +17761,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Hi" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
-	id = "hop"
-	},
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -17818,8 +17769,10 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "hop"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hop/xo)
 "Hj" = (
 /mob/living/simple_animal/corgi/fox/Chauncey,
@@ -18047,11 +18000,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
-"HD" = (
-/obj/structure/disposalpipe/segment,
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor/plating,
-/area/hallway/medical/upper)
 "HE" = (
 /obj/structure/bed/stool/chair/padded/beige{
 	dir = 8
@@ -18161,15 +18109,14 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "HP" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
-	id = "cap"
-	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
 /obj/structure/cable/green,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "cap"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/captain)
 "HQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -18521,11 +18468,10 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "investigator_office"
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
@@ -18893,8 +18839,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/dormitories)
 "Jd" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/vacantoffice)
 "Je" = (
 /obj/effect/floor_decal/spline/plain{
@@ -19199,8 +19145,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/entrance)
 "JF" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew_quarters/fitness/lounge)
 "JG" = (
 /obj/structure/sink{
@@ -19623,12 +19569,11 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "Kr" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
+/obj/structure/cable/green,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
 	id = "cap"
 	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable/green,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/captain)
 "Ks" = (
 /obj/machinery/light,
@@ -20049,6 +19994,9 @@
 /area/medical/ward)
 "Li" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "Lj" = (
@@ -20070,8 +20018,8 @@
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "Ll" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/bridge/meeting_room)
 "Lm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -20425,13 +20373,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "LQ" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green,
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "crew_armory";
 	name = "Crew Armoury"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_armory)
 "LR" = (
 /obj/structure/railing/mapped{
@@ -20750,8 +20699,8 @@
 /turf/simulated/floor/tiled,
 /area/lawoffice/representative)
 "Mu" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew_quarters/fitness/hallway)
 "Mv" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -20770,7 +20719,7 @@
 	pixel_y = 7
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/bridge/controlroom)
 "Mx" = (
 /obj/structure/disposalpipe/segment,
@@ -20995,13 +20944,6 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
 /area/template_noop)
-"MR" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
-	id = "Recovery1"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/medical/ward)
 "MS" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/corner/green{
@@ -21069,13 +21011,13 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "MY" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "shutters_deck3_cafewindows";
 	name = "Cafe Window Shutter"
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/deck_three/cafeteria)
 "MZ" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -21351,11 +21293,10 @@
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "NB" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
-	id = "rep_inner"
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "rep"
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/lawoffice/representative)
 "NC" = (
 /obj/effect/floor_decal/corner/red/full{
@@ -22762,14 +22703,14 @@
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "PY" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/tcommsat/entrance)
 "PZ" = (
 /obj/structure/railing/mapped{
@@ -23641,11 +23582,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "RA" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "Recovery1"
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/medical/ward)
 "RB" = (
 /obj/structure/cable/green{
@@ -23724,11 +23664,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "RK" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/structure/cable/cyan{
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/storage/shields)
 "RL" = (
 /obj/structure/disposalpipe/segment,
@@ -24027,7 +23967,7 @@
 	req_access = null
 	},
 /obj/machinery/button/switch/windowtint{
-	id = "rep_inner";
+	id = "rep";
 	pixel_x = 9;
 	pixel_y = 30;
 	req_access = list(38)
@@ -24664,11 +24604,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/captain)
 "TB" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/tcommsat/entrance)
 "TC" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -24704,12 +24644,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "TG" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "shutters_deck3_cafewindows";
 	name = "Cafe Window Shutter"
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/deck_three/cafeteria)
 "TH" = (
 /obj/structure/bed/stool/chair/padded/beige{
@@ -25370,7 +25310,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "UU" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -25378,6 +25317,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/cable/green,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/bridge/controlroom)
 "UV" = (
@@ -25418,8 +25358,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
 "Va" = (
-/obj/effect/map_effect/window_spawner/reinforced,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Vb" = (
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -25987,6 +25927,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "Wa" = (
+/obj/effect/map_effect/window_spawner/reinforced/polarized{
+	id = "rep"
+	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "Wb" = (
@@ -26262,10 +26205,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
 "WH" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/bridge/controlroom)
 "WI" = (
@@ -27207,14 +27150,13 @@
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "Yk" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
-	id = "cap"
-	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "cap"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/captain)
 "Yl" = (
 /obj/structure/railing/mapped,
@@ -43060,7 +43002,7 @@ ji
 ji
 ya
 Uy
-HD
+Fm
 UR
 fk
 iw
@@ -43868,7 +43810,7 @@ Lh
 Db
 sn
 dv
-ct
+RA
 UR
 Nc
 kM
@@ -44070,7 +44012,7 @@ XN
 LJ
 Pl
 MP
-ct
+RA
 UR
 Nc
 kM
@@ -44258,7 +44200,7 @@ qJ
 qJ
 qJ
 qJ
-zM
+wB
 kk
 sL
 Za
@@ -44272,7 +44214,7 @@ Nm
 Vt
 Vt
 Mr
-MR
+RA
 UR
 Nc
 kM
@@ -44474,7 +44416,7 @@ DS
 Tj
 yb
 Xy
-ct
+RA
 UR
 Nc
 kM
@@ -48922,7 +48864,7 @@ AI
 AI
 MI
 en
-fj
+Hi
 lg
 lg
 lg
@@ -51749,7 +51691,7 @@ Ty
 rs
 Yh
 wt
-CB
+wt
 VC
 pl
 Vj
@@ -54176,7 +54118,7 @@ Fo
 Fo
 Fo
 KX
-cg
+AK
 JH
 mA
 jm
@@ -54983,8 +54925,8 @@ si
 nf
 yo
 nf
-qq
-qq
+si
+si
 Ed
 nx
 mZ
