@@ -25481,8 +25481,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "Vm" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Vn" = (
 /obj/structure/bed/stool/chair/sofa/corner/brown,
