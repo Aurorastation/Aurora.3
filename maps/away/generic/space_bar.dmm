@@ -8,6 +8,11 @@
 /area/space_bar)
 "aaJ" = (
 /obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/bearmeat,
+/obj/item/reagent_containers/food/snacks/bearmeat,
+/obj/item/reagent_containers/food/snacks/dwellermeat,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -24,14 +29,6 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/crabmeat,
 /obj/item/reagent_containers/food/snacks/crabmeat,
-/obj/item/reagent_containers/food/snacks/bearmeat,
-/obj/item/reagent_containers/food/snacks/bearmeat,
-/obj/item/reagent_containers/food/snacks/meat/chicken,
-/obj/item/reagent_containers/food/snacks/meat/chicken,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -1331,6 +1328,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/bottleofnothing,
 /obj/item/reagent_containers/food/drinks/bottle/darmadhir_brew,
 /obj/item/storage/box/fancy/cigarettes/cigar,
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine,
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "wfU" = (

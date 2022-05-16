@@ -207,6 +207,9 @@
 /decl/reagent/alcohol/wine
 	value = 0.1
 
+/decl/reagent/alcohol/wine/vintage
+	value = 15
+
 /decl/reagent/alcohol/acid_spit
 	value = 0.15
 
