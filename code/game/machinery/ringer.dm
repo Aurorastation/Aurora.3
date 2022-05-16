@@ -151,7 +151,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	if(use_power)
-		use_power(active_power_usage)
+		use_power_oneoff(active_power_usage)
 
 	for (var/thing in GET_LISTENERS(id))
 		var/listener/L = thing

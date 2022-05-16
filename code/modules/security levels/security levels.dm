@@ -54,7 +54,7 @@
 				SSnightlight.temp_disable()
 
 		var/newlevel = get_security_level()
-		for(var/obj/machinery/power/apc/powercontrol in SSmachinery.processing_machines)
+		for(var/obj/machinery/power/apc/powercontrol in SSmachinery.processing)
 			if(isContactLevel(powercontrol.z))
 				powercontrol.manage_emergency(newlevel)
 

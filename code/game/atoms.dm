@@ -2,6 +2,7 @@
 	layer = 2
 	var/level = 2
 	var/flags = 0
+	var/init_flags = 0
 	var/list/fingerprints
 	var/list/fingerprintshidden
 	var/fingerprintslast = null
