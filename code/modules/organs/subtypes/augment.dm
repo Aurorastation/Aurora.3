@@ -158,7 +158,7 @@
 	aug_slot = slot_l_hand
 
 /obj/item/organ/internal/augment/tool/cAnalyzer
-	name = "integrated cyborg analyzer"
+	name = "retractable cyborg analyzer"
 	icon_state = "robotanalyzer"
 	action_button_name = "Deploy Analyzer"
 	action_button_icon = "augment-tool"

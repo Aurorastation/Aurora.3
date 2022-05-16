@@ -106,7 +106,6 @@
 /obj/item/device/robotanalyzer/augment
 	name = "retractable cyborg analyzer"
 	desc = "An scanner implanted directly into the hand, popping through the finger. This scanner can diagnose robotic injuries."
-	slot_flags = 0
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
 
