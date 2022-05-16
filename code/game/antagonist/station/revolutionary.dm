@@ -7,7 +7,6 @@ var/datum/antagonist/revolutionary/revs
 	bantype = "revolutionary"
 	feedback_tag = "rev_objective"
 	antag_indicator = "contenderhead"
-	welcome_text = "You are a subversive seeking to demolish the current order on the station by whatever means possible. Recruit friends and strangers alike to bring the SCC's tyranny to an end! Or whatever your objective is."
 	victory_text = "You eliminated the Loyalists in one fell swoop."
 	loss_text = "The Loyalists threw a wrench into your plans -- permanently."
 	victory_feedback_tag = "You eliminated the Loyalists in one fell swoop."
@@ -32,9 +31,12 @@ var/datum/antagonist/revolutionary/revs
 	required_age = 31
 
 /datum/antagonist/revolutionary/New()
-	faction_welcome = "You joined a subversive organization in the crew of the [current_map.station_name]. United under a forward-thinking leader, you must achieve their goals."
 	..()
 	revs = src
+
+/datum/antagonist/revolutionary/create_antagonist()
+	faction_welcome = "You joined a subversive organization in the crew of the [current_map.station_name]. United under a forward-thinking leader, you must achieve their goals."
+	welcome_text = "You are a subversive seeking to demolish the current order on the [current_map.station_type] by whatever means possible. Recruit friends and strangers alike to bring [current_map.company_short]'s tyranny to an end! Or whatever your objective is."
 
 /datum/antagonist/revolutionary/create_global_objectives()
 	if(!..())

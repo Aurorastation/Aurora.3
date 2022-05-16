@@ -24,6 +24,7 @@
 	boss_short = "Coders"
 	company_name = "BanoTarsen"
 	company_short = "BT"
+	station_type  = "dumpster"
 
 	use_overmap = TRUE
 	overmap_size = 35

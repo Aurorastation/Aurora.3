@@ -69,7 +69,7 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			objective = pick("Assist your contractor in smuggling [rand(1,4)] items of value",
-							"Collect evidence of the SCC being unfair or oppressive against your contractors to be used as leverage in future talks")
+							"Collect evidence of [current_map.company_short] being unfair or oppressive against your contractors to be used as leverage in future talks")
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			objective = pick("Convince [rand(1,3)] non-[name] employees to join [name] instead",
 							"Have [rand(1,3)] of your contractors write down their grievances with the company, and present the report to [current_map.station_name] command.")

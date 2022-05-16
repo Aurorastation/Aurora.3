@@ -22,7 +22,7 @@
 	mob_name = null
 
 /datum/ghostspawner/human/visitor/New()
-	desc = "You are a random visitor that boarded the [current_map.station_name], visiting for any reason you can think of. You do not have any records, as you are not an employee of any corporation of the SCC."
+	desc = "You are a random visitor that boarded the [current_map.station_name], visiting for any reason you can think of. You do not have any records, as you are not an employee of [current_map.company_short]."
 	..()
 
 /datum/ghostspawner/human/visitor/select_spawnlocation(var/use = TRUE)
