@@ -34420,11 +34420,6 @@
 	temperature = 253.15
 	},
 /area/crew_quarters/kitchen/freezer)
-"tvM" = (
-/obj/effect/map_effect/window_spawner/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark/full,
-/area/security/warden)
 "tvX" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -68472,7 +68467,7 @@ aaa
 wDa
 xHB
 wJh
-tvM
+blC
 tuH
 ddH
 pvS
@@ -69077,7 +69072,7 @@ dwK
 aaa
 aaa
 qaw
-tvM
+blC
 aaa
 dlR
 mbh
