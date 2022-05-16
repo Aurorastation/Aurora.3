@@ -94,8 +94,9 @@ Possible to do for anyone motivated enough:
 		icon_state = "holopad0[icon_state_suffix]"
 		set_light(0)
 
-/obj/machinery/hologram/holopad/attack_hand(var/mob/user) //Carn: Hologram requests.
-	user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
+/obj/machinery/hologram/holopad/attack_hand(var/mob/user)
+	if(user.Adjacent(src))
+		user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
 	if(incoming_connection)
 		audible_message("The pad hums quietly as it establishes a connection.")
 		take_call()
