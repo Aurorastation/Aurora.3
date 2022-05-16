@@ -97,6 +97,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water = 3,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur = 1,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
 		/obj/item/reagent_containers/food/drinks/cans/sodawater = 15,
 		/obj/item/reagent_containers/food/drinks/cans/tonic = 8,

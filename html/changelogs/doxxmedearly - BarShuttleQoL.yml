@@ -1,0 +1,11 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - maptweak: "The space bar now has a cabinet filled with high-quality drinks not usually available on the ship, and the booze dispenser was given additional cartridges to help mix uncommon drinks."
+  - maptweak: "The space bar kitchen now has plenty of meat options in the freezer."
+  - maptweak: "Added additional disposals to the space bar, as well as cryogenics."
+  - maptweak: "Small map tweaks to the Orion Express ship: added an engine control console to the helm, added trash bins, removed booze dispenser, added package wrap and a labeler."
+  - maptweak: "Condensed the Orion Express ship's anti-piracy gun lockers into one, and added a stun revolver for less lethal defense."
+  - maptweak: "Added a closet with some jackets and other items for the Orion Express ship."
+  - bugfix: "The Orion Express ship cryogenics will now function."
+  - tweak: "Adds a can of C'thur Rockin' Raspberry to the booze-o-mat, for mixing drinks."
