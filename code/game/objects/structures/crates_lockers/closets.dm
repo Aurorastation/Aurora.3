@@ -73,10 +73,11 @@
 	if(content_size > storage_capacity-5)
 		storage_capacity = content_size + 5
 
-/obj/structure/closet/Initialize(mapload)
+/obj/structure/closet/Initialize(mapload, var/no_fill)
 	. = ..()
 	update_icon()
-	fill()
+	if(!no_fill)
+		fill()
 	if(secure)
 		verbs += /obj/structure/closet/proc/verb_togglelock
 	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
