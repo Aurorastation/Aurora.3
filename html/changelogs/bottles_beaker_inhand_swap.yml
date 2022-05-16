@@ -1,6 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Swaps the in-hand icons for chemical bottles and beakers so that they show in the correct hand."
