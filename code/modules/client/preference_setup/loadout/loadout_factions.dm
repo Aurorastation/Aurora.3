@@ -163,7 +163,7 @@
 /datum/gear/faction/epmc_headwear
 	display_name = "EPMC headwear selection"
 	description = "A selection of EPMC headwear."
-	path = /obj/item/clothing/head/softcap/epmc
+	path = /obj/item/clothing/head/softcap/pmc/epmc
 	slot = slot_head
 	faction = "Private Military Contracting Group"
 
