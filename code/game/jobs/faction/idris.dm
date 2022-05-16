@@ -108,7 +108,7 @@
 	name = "Janitor - Idris"
 
 	uniform = /obj/item/clothing/under/rank/janitor/idris
-	head = /obj/item/clothing/head/softcap/idris
+	head = /obj/item/clothing/head/softcap/idris/custodian
 	id = /obj/item/card/id/idris
 
 /datum/outfit/job/librarian/idris

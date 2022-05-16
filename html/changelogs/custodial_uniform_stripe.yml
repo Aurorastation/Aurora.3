@@ -1,0 +1,8 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Re-adds the old custodial uniform with the purple sleeves."
+  - rscadd: "Adds an alternative custodial uniform with a purple vertical stripe for both factions."
+  - rscadd: "Adds faction-based custodial softcaps."
