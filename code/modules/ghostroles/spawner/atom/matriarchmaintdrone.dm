@@ -5,8 +5,6 @@
 	show_on_job_select = FALSE
 	tags = list("Simple Mobs")
 
-	req_head_whitelist = TRUE // basically a chief engineer for drones
-
 	loc_type = GS_LOC_ATOM
 	atom_add_message = "A matriarch maintenance drone is now available!"
 
