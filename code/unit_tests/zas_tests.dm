@@ -197,6 +197,9 @@ datum/unit_test/zas_area_test/mining_area
 /datum/unit_test/zas_active_edges/start_test()
 	if(SSair.active_edges.len)
 		fail("[SSair.active_edges.len] edges active at round-start!")
+	else
+		success("No active ZAS edges at round-start.")
+		return TRUE
 	for(var/connection_edge/E in SSair.active_edges)
 		var/connection_edge/unsimulated/U = E
 		if(istype(U))
@@ -206,6 +209,8 @@ datum/unit_test/zas_area_test/mining_area
 			if(!istype(Z))
 				return
 			log_unit_test("[ascii_red]-------- [Z.A.name] and [Z.B.name] have mismatched gas mixtures![ascii_reset]")
+
+	return FALSE
 
 #undef UT_NORMAL
 #undef UT_VACUUM
