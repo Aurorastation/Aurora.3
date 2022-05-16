@@ -53,7 +53,6 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 	name = "messaging server"
 	density = 1
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 100
 
@@ -88,7 +87,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 	newKey += pick("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
 	return newKey
 
-/obj/machinery/message_server/machinery_process()
+/obj/machinery/message_server/process()
 	//if(decryptkey == "password")
 	//	decryptkey = generateKey()
 	if(active && (stat & (BROKEN|NOPOWER)))
@@ -175,7 +174,6 @@ var/obj/machinery/blackbox_recorder/blackbox
 	name = "blackbox recorder"
 	density = 1
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 100
 

@@ -7,7 +7,7 @@
 	var/modify_state = "table2"
 	density = TRUE
 	anchored = TRUE
-	use_power = TRUE
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 1
 	active_power_usage = 5
 	component_types = list(
@@ -98,7 +98,7 @@
 	icon_state = "[modify_state]-idle"
 	return FALSE
 
-/obj/machinery/optable/machinery_process()
+/obj/machinery/optable/process()
 	check_victim()
 
 /obj/machinery/optable/proc/take_victim(mob/living/carbon/C, mob/living/carbon/user)

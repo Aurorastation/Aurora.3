@@ -17,7 +17,6 @@
 			/obj/item/stock_parts/scanning_module = 2,
 			/obj/item/device/healthanalyzer
 		)
-	use_power = 1
 	idle_power_usage = 60
 	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
 
@@ -96,7 +95,7 @@
 	usr.client.eye = src
 	usr.forceMove(src)
 	occupant = usr
-	update_use_power(2)
+	update_use_power(POWER_USE_ACTIVE)
 	update_icon()
 	add_fingerprint(usr)
 	return
@@ -114,7 +113,7 @@
 		occupant.client.perspective = MOB_PERSPECTIVE
 	occupant.forceMove(loc)
 	occupant = null
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	update_icon()
 	return
 
@@ -141,7 +140,7 @@
 
 		M.forceMove(src)
 		occupant = M
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 		update_icon()
 		//Foreach goto(154)
 	add_fingerprint(user)
@@ -181,7 +180,7 @@
 			M.client.eye = src
 		M.forceMove(src)
 		occupant = M
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 		update_icon()
 		playsound(loc, 'sound/machines/medbayscanner1.ogg', 50)
 	add_fingerprint(user)

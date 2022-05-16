@@ -11,7 +11,6 @@
 	icon_state = "production_console"
 	density = FALSE
 	anchored = TRUE
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 
@@ -47,7 +46,7 @@
 	if(!machine)
 		var/area/A = get_area(src)
 		var/best_distance = INFINITY
-		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.all_machines)
+		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.machinery)
 			if(id)
 				if(checked_machine.id == id)
 					machine = checked_machine
@@ -327,7 +326,6 @@
 	var/list/ores_stored[0]
 	var/static/list/alloy_data
 	var/active = 0
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 150
 
@@ -384,7 +382,7 @@
 	return ..()
 
 
-/obj/machinery/mineral/processing_unit/machinery_process()
+/obj/machinery/mineral/processing_unit/process()
 	..()
 
 	if(!src.output || !src.input)
@@ -444,7 +442,7 @@
 							if(console)
 								var/ore/Ore = ore_data[needs_metal]
 								console.points += Ore.worth
-							use_power(100)
+							use_power_oneoff(100)
 							ores_stored[needs_metal] -= A.requires[needs_metal]
 							total += A.requires[needs_metal]
 							total = max(1, round(total * A.product_mod)) //Always get at least one sheet.
@@ -468,7 +466,7 @@
 				for(var/i = 0, i < can_make, i += 2)
 					if(console)
 						console.points += O.worth * 2
-					use_power(100)
+					use_power_oneoff(100)
 					ores_stored[metal] -= 2
 					sheets += 2
 					console.output_mats[M] += 1
@@ -484,7 +482,7 @@
 				for(var/i = 0, i < can_make, i++)
 					if(console)
 						console.points += O.worth
-					use_power(100)
+					use_power_oneoff(100)
 					ores_stored[metal] -= 1
 					sheets++
 					if(console)
@@ -493,7 +491,7 @@
 			else
 				if(console)
 					console.points -= O.worth * 3 //reee wasting our materials!
-				use_power(500)
+				use_power_oneoff(500)
 				ores_stored[metal] -= 1
 				sheets++
 				if(console)

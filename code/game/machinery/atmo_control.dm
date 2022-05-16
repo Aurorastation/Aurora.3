@@ -32,7 +32,7 @@
 /obj/machinery/air_sensor/update_icon()
 	icon_state = "gsensor[on]"
 
-/obj/machinery/air_sensor/machinery_process()
+/obj/machinery/air_sensor/process()
 	if(on)
 		var/datum/signal/signal = new
 		signal.transmission_method = TRANSMISSION_RADIO
@@ -330,7 +330,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/on_temperature = 1200
 	circuit = /obj/item/circuitboard/air_management/injector_control
 
-/obj/machinery/computer/general_air_control/fuel_injection/machinery_process()
+/obj/machinery/computer/general_air_control/fuel_injection/process()
 	if(automation)
 		if(!radio_connection)
 			return 0

@@ -468,8 +468,7 @@
 /obj/item/clothing/accessory/badge/passcard/konyang
 	name = "konyanger passcard"
 	desc = "A passcard issued to residents of the planet Konyang."
-	desc_fluff = "The 'homeworld' of the human positronic intelligence, life on Konyang is a tightly-knit tapestry of organic-synthetic relations. This is even reflected in their passcards, featuring dried moss \
-	from the planet's farms in the same plastic casing as a small sigil of the Perfection said to grant safe passage abroad for adherents."
+	desc_fluff = "The 'homeworld' of the human positronic intelligence, life on Konyang is a tightly-knit tapestry of organic-synthetic relations. The planet's unique conditions are reflected by a small piece of preserved moss stored in the card's plastic casing."
 	icon_state = "passcard_konyang"
 	item_state = "passcard_konyang"
 

@@ -85,12 +85,10 @@
 
 	uniform = /obj/item/clothing/under/rank/security/zavod
 	id = /obj/item/card/id/zavodskoi/sec
-	head = /obj/item/clothing/head/beret/corporate/zavod
 
 /datum/outfit/job/warden/zavodskoi
 	name = "Warden - Zavodskoi Interstellar"
 
-	head = /obj/item/clothing/head/warden/zavod
 	uniform = /obj/item/clothing/under/rank/warden/zavod
 	suit = /obj/item/clothing/suit/storage/toggle/warden/zavod
 	id = /obj/item/card/id/zavodskoi/sec
@@ -99,7 +97,6 @@
 /datum/outfit/job/intern_sec/zavodskoi
 	name = "Security Cadet - Zavodskoi Interstellar"
 
-	head = /obj/item/clothing/head/softcap/zavod
 	uniform = /obj/item/clothing/under/rank/cadet/zavod
 	id = /obj/item/card/id/zavodskoi/sec
 

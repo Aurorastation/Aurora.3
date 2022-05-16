@@ -9,7 +9,6 @@
 	power_channel = ENVIRON
 	var/frequency = 0
 	var/id
-	use_power = 1
 	idle_power_usage = 15
 
 
@@ -18,7 +17,7 @@
 	if (!target)
 		src.target = locate(/obj/machinery/atmospherics/pipe) in loc
 
-/obj/machinery/meter/machinery_process()
+/obj/machinery/meter/process()
 	if(!target)
 		icon_state = "meterX"
 		return 0

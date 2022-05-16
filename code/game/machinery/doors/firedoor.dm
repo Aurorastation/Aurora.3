@@ -37,7 +37,6 @@
 	var/hatch_open = 0
 
 	power_channel = ENVIRON
-	use_power = 1
 	idle_power_usage = 5
 	dir = SOUTH
 
@@ -354,7 +353,7 @@
 	return ..()
 
 // CHECK PRESSURE
-/obj/machinery/door/firedoor/machinery_process()
+/obj/machinery/door/firedoor/process()
 	..()
 
 	if(density && next_process_time <= world.time)
@@ -437,7 +436,7 @@
 		if(stat & (BROKEN|NOPOWER))
 			return //needs power to open unless it was forced
 		else
-			use_power(360)
+			use_power_oneoff(360)
 	else
 		log_and_message_admins("has forced open an emergency shutter.", user, loc)
 	latetoggle()

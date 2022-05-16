@@ -6,7 +6,6 @@
 	icon_screen = "holocontrolw"
 	light_color = LIGHT_COLOR_CYAN
 
-	use_power = 1
 	active_power_usage = 8000 //8kW for the scenery + 500W per holoitem
 
 	circuit = /obj/item/circuitboard/holodeckcontrol
@@ -186,7 +185,7 @@
 	if (stat != oldstat && active && (stat & NOPOWER))
 		emergencyShutdown()
 
-/obj/machinery/computer/HolodeckControl/machinery_process()
+/obj/machinery/computer/HolodeckControl/process()
 	for(var/item in holographic_objs) // do this first, to make sure people don't take items out when power is down.
 		if(!(get_turf(item) in linkedholodeck))
 			derez(item, 0)
@@ -204,13 +203,13 @@
 	if(inoperable())
 		return
 	if(active)
-		use_power(item_power_usage * (holographic_objs.len + holographic_mobs.len))
+		use_power_oneoff(item_power_usage * (holographic_objs.len + holographic_mobs.len))
 
 		if(!checkInteg(linkedholodeck))
 			damaged = 1
 			loadProgram(current_map.holodeck_programs["turnoff"], 0)
 			active = 0
-			use_power = 1
+			update_use_power(POWER_USE_IDLE)
 			for(var/mob/M in range(10,src))
 				M.show_message("The holodeck overloads!")
 
@@ -256,7 +255,7 @@
 			linkedholodeck.gravitychange(TRUE)
 
 		active = 0
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 
 
 /obj/machinery/computer/HolodeckControl/proc/loadProgram(var/datum/holodeck_program/HP, var/check_delay = 1)
@@ -277,7 +276,7 @@
 
 	last_change = world.time
 	active = 1
-	use_power = 2
+	update_use_power(POWER_USE_ACTIVE)
 
 	for(var/item in holographic_objs)
 		derez(item)
@@ -347,7 +346,7 @@
 
 	last_gravity_change = world.time
 	active = 1
-	use_power = 1
+	update_use_power(POWER_USE_IDLE)
 
 	if(A.has_gravity())
 		A.gravitychange(FALSE)
@@ -362,7 +361,7 @@
 		linkedholodeck.gravitychange(TRUE)
 
 	active = 0
-	use_power = 1
+	update_use_power(POWER_USE_IDLE)
 
 /obj/machinery/computer/HolodeckControl/proc/togglelock(var/mob/user)
 	if(allowed(user))

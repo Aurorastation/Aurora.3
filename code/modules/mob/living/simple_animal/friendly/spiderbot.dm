@@ -154,6 +154,7 @@
 				internal_id.access.Cut()
 				internal_id.access = id_card.access.Copy()
 				to_chat(user, SPAN_NOTICE("Access synced with [src]."))
+				to_chat(src, SPAN_NOTICE("Access codes updated."))
 				return 1
 	else
 		O.attack(src, user, user.zone_sel.selecting)
@@ -218,7 +219,7 @@
 	. = ..()
 
 	radio = new radio_type(src)
-	camera = new /obj/machinery/camera(src)
+	camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
 	camera.c_tag = "spiderbot-[real_name]"
 	camera.replace_networks(list("SS13"))
 

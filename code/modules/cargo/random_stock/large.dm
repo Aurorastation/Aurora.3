@@ -107,6 +107,7 @@ STOCK_ITEM_LARGE(dispenser, 2.5)
 	var/type = pickweight(dispensers)
 	var/obj/machinery/chemical_dispenser/CD = new type(L)
 	CD.anchored = FALSE
+	CD.update_use_power(POWER_USE_OFF)
 	for (var/cart in CD.cartridges)
 		if (prob(90))
 			CD.cartridges -= cart

@@ -114,7 +114,7 @@
 /obj/item/clothing/head/softcap/janitor
 	name = "janitor softcap"
 	desc = "It's a peaked cap, freshly sanitized and ready for a day of viscera cleanup."
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
 	contained_sprite = TRUE
 	icon_state = "softcap_janitor"
 	item_state = "softcap_janitor"

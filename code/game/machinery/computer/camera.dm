@@ -115,6 +115,9 @@
 	if (user.stat || user.blinded || inoperable())
 		return 0
 	set_current(C)
+	if(!is_contact_area(get_area(C)))
+		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
+		return FALSE
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.reset_view(current_camera)
@@ -163,7 +166,7 @@
 	if(can_access_camera(jump_to))
 		switch_to_camera(user,jump_to)
 
-/obj/machinery/computer/security/machinery_process()
+/obj/machinery/computer/security/process()
 	if(cache_id != camera_repository.camera_cache_id)
 		cache_id = camera_repository.camera_cache_id
 		SSnanoui.update_uis(src)
@@ -183,7 +186,7 @@
 
 	src.current_camera = C
 	if(current_camera)
-		use_power = 2
+		update_use_power(POWER_USE_ACTIVE)
 		var/mob/living/L = current_camera.loc
 		if(istype(L))
 			L.tracking_initiated()
@@ -194,7 +197,7 @@
 		if(istype(L))
 			L.tracking_cancelled()
 	current_camera = null
-	use_power = 1
+	update_use_power(POWER_USE_IDLE)
 
 //Camera control: mouse.
 /atom/DblClick()
