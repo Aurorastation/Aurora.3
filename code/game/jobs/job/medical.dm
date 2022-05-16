@@ -43,7 +43,7 @@
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	suit_store = /obj/item/device/flashlight/pen
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/laceup/brown
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/storage/firstaid/adv
 

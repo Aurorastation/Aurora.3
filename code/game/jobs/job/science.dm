@@ -43,7 +43,7 @@
 
 	uniform = /obj/item/clothing/under/rank/research_director
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/laceup/brown
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/clipboard
 

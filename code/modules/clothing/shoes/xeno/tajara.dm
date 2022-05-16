@@ -73,18 +73,6 @@
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/tajara/jackboots/knee
-	name = "knee-length black boots"
-	desc = "Taller synthleather boots with an artificial shine. Fitted for Tajara."
-	icon_state = "taj_kneeboots"
-	item_state = "taj_kneeboots"
-
-/obj/item/clothing/shoes/tajara/jackboots/thigh
-	name = "thigh-length black boots"
-	desc = "Even taller synthleather boots with an artificial shine. Fitted for Tajara."
-	icon_state = "taj_thighboots"
-	item_state = "taj_thighboots"
-
 /obj/item/clothing/shoes/tajara/workboots
 	name = "workboots"
 	desc = "A pair of steel-toed work boots designed for use in industrial settings. Safety first. Fitted for Tajara."

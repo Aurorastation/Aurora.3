@@ -388,7 +388,7 @@
 	jobtype = /datum/job/operations_manager
 
 	uniform = /obj/item/clothing/under/rank/operations_manager
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/laceup/brown
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
