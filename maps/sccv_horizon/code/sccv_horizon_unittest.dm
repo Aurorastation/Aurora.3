@@ -46,6 +46,7 @@
 		,/area/rnd/isolation_b
 		,/area/rnd/isolation_c
 	)
+	ut_fire_exempt_areas = list()
 
 /datum/unit_test/zas_area_test/sccv_horizon
 	map_path = "sccv_horizon"

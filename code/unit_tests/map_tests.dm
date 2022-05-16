@@ -27,33 +27,38 @@
 	var/list/exempt_areas = typecacheof(current_map.ut_environ_exempt_areas)
 	var/list/exempt_from_atmos = typecacheof(current_map.ut_atmos_exempt_areas)
 	var/list/exempt_from_apc = typecacheof(current_map.ut_apc_exempt_areas)
+	var/list/exempt_from_fire = typecacheof(current_map.ut_fire_exempt_areas)
 
 	for(var/area/A in typecache_filter_list_reverse(all_areas, exempt_areas))
 		if(isStationLevel(A.z))
 			area_test_count++
-			var/area_good = 1
+			var/area_good = TRUE
 			var/bad_msg = "[ascii_red]--------------- [A.name]([A.type])"
 
 
 			if(!A.apc && !is_type_in_typecache(A, exempt_from_apc))
 				log_unit_test("[bad_msg] lacks an APC.[ascii_reset]")
-				area_good = 0
+				area_good = FALSE
 
 			if(!A.air_scrub_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				log_unit_test("[bad_msg] lacks an Air scrubber.[ascii_reset]")
-				area_good = 0
+				log_unit_test("[bad_msg] lacks an air scrubber.[ascii_reset]")
+				area_good = FALSE
 
 			if(!A.air_vent_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				log_unit_test("[bad_msg] lacks an Air vent.[ascii_reset]")
-				area_good = 0
+				log_unit_test("[bad_msg] lacks an air vent.[ascii_reset]")
+				area_good = FALSE
+
+			if(!locate(/obj/machinery/firealarm in A) && !is_type_in_typecache(A, exempt_from_fire))
+				log_unit_test("[bad_msg] lacks a fire alarm.[ascii_reset]")
+				area_good = FALSE
 
 			if(!area_good)
 				bad_areas += A
 
 	if(bad_areas.len)
-		fail("\[[bad_areas.len]/[area_test_count]\]Some areas lacked APCs, Air Scrubbers, or Air vents.")
+		fail("\[[bad_areas.len]/[area_test_count]\]Some areas lacked APCs, air scrubbers, or air vents.")
 	else
-		pass("All \[[area_test_count]\] areas contained APCs, Air scrubbers, and Air vents.")
+		pass("All \[[area_test_count]\] areas contained APCs, air scrubbers, and air vents.")
 
 	return 1
 
