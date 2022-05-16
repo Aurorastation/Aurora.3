@@ -6460,10 +6460,6 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
-"lV" = (
-/obj/effect/map_effect/window_spawner/reinforced,
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "lW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -48633,9 +48629,9 @@ Bq
 vm
 Fl
 FH
-lV
 FH
-lV
+FH
+FH
 FH
 FH
 hL
