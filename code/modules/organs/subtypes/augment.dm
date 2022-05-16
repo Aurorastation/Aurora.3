@@ -164,7 +164,7 @@
 	action_button_icon = "augment-tool"
 	organ_tag = BP_AUG_CANALYZER
 	parent_organ = BP_R_HAND
-	augment_type = /obj/item/robotanalyzer/augment
+	augment_type = /obj/item/device/robotanalyzer/augment
 
 /obj/item/organ/internal/augment/tool/cAnalyzer/left
 	parent_organ = BP_L_HAND

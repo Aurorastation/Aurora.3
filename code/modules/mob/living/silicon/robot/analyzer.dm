@@ -105,16 +105,14 @@
 
 /obj/item/device/robotanalyzer/augment
 	name = "retractable cyborg analyzer"
-	desc = "A hand-held scanner able to diagnose robotic injuries."
+	desc = "An scanner implanted directly into the hand, popping through the finger. This scanner can diagnose robotic injuries."
+	slot_flags = 0
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
 
-///obj/item/device/robotanalyzer/augment/attack(mob/living/M, mob/living/user)
-	//..()
-
-/obj/item/robotanalyzer/augment/throw_at(atom/target, range, speed, mob/user)
+/obj/item/device/robotanalyzer/augment/throw_at(atom/target, range, speed, mob/user)
 	user.drop_from_inventory(src)
 
-/obj/item/robotanalyzer/augment/dropped()
+/obj/item/device/robotanalyzer/augment/dropped()
 	loc = null
 	qdel(src)	

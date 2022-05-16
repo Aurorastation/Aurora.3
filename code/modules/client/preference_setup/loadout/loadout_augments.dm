@@ -86,7 +86,7 @@
 	description = "An augment that allows the user to deploy a retractable cyborg analyzer."
 	path = /obj/item/organ/internal/augment/tool/cAnalyzer
 	allowed_roles = list("Machinist")
-	cost = 2
+	cost = 3
 
 /datum/gear/augment/analyzer/New()
 	..()
