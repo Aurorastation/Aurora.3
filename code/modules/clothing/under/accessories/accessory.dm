@@ -427,6 +427,13 @@
 	item_state = "sash_colourable"
 	icon_state = "sash_colourable"
 
+/obj/item/clothing/accessory/sash/horizontal
+	name = "horizontal sash"
+	desc = "A sash, designed to be worn around the waist."
+	item_state = "sash_horizontal"
+	icon_state = "sash_horizontal"
+	icon = 'icons/clothing/accessories/sash_horizontal.dmi'
+
 /*
  * Cloak
  */

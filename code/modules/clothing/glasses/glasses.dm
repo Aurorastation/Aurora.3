@@ -758,7 +758,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc
 	name = "PMCG HUD aviators"
-	desc = "Eridani PMC security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	desc = "PMCG security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "aviator_sec_pmc"
 	off_state = "aviator_sec_pmc_off"
 

@@ -20,7 +20,7 @@
 	Notifications will be sent as updates occur.<br>"
 	var/my_department = "[station_name()] firewall subroutines"
 
-	for(var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
+	for(var/obj/machinery/message_server/MS in SSmachinery.processing)
 		if(!MS.active) continue
 		MS.send_rc_message("Executive Officer's Desk", my_department, message, "", "", 2)
 
@@ -61,6 +61,6 @@
 
 	var/my_department = "[station_name()] firewall subroutines"
 
-	for(var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
+	for(var/obj/machinery/message_server/MS in SSmachinery.processing)
 		if(!MS.active) continue
 		MS.send_rc_message("Executive Officer's Desk", my_department, message, "", "", 2)

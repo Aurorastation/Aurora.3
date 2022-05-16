@@ -15,7 +15,6 @@
 	anchored = 1
 
 	density = 0
-	use_power = 1				//this turret uses and requires power
 	idle_power_usage = 50		//when inactive, this turret takes up constant 50 Equipment power
 	active_power_usage = 300	//when active, this turret takes up constant 300 Equipment power
 	power_channel = EQUIP	//drains power from the EQUIPMENT channel
@@ -151,7 +150,6 @@
 			if(SOME_TC.lethal != lethal && !egun)
 				SOME_TC.enabled = 0
 			src.setState(SOME_TC)
-	START_PROCESSING(SSprocessing, src)
 
 /obj/machinery/porta_turret/Destroy()
 	var/area/control_area = get_area(src)
@@ -163,8 +161,6 @@
 	spark_system = null
 	if(fast_processing)
 		STOP_PROCESSING(SSfast_process, src)
-	else
-		STOP_PROCESSING(SSprocessing, src)
 
 	. = ..()
 
@@ -274,14 +270,14 @@
 		if(href_list["command"] == "enable")
 			enabled = value
 			if (enabled)
-				START_PROCESSING(SSprocessing, src)
+				START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 				fast_processing = FALSE
 			else if(fast_processing)
 				STOP_PROCESSING(SSfast_process, src)
 				fast_processing = FALSE
 				popDown()
 			else
-				STOP_PROCESSING(SSprocessing, src)
+				STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 				popDown()
 		else if(href_list["command"] == "lethal")
 			lethal = value
@@ -522,17 +518,17 @@
 
 	if(targets.len || secondarytargets.len)
 		if(!fast_processing)
-			STOP_PROCESSING(SSprocessing, src)
+			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 			START_PROCESSING(SSfast_process, src)
 			fast_processing = TRUE
 	else
 		if(fast_processing)
 			STOP_PROCESSING(SSfast_process, src)
-			START_PROCESSING(SSprocessing, src)
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 			fast_processing = FALSE
 
 	if(auto_repair && (health < maxhealth))
-		use_power(20000)
+		use_power_oneoff(20000)
 		health = min(health+1, maxhealth) // 1HP for 20kJ
 
 /obj/machinery/porta_turret/proc/reset()
@@ -747,7 +743,7 @@
 
 	// Lethal/emagged turrets use twice the power due to higher energy beams
 	// Emagged turrets again use twice as much power due to higher firing rates
-	use_power(reqpower * (2 * (emagged || lethal)) * (2 * emagged))
+	use_power_oneoff(reqpower * (2 * (emagged || lethal)) * (2 * emagged))
 
 	//Turrets aim for the center of mass by default.
 	//If the target is grabbing someone then the turret smartly aims for extremities
@@ -774,10 +770,10 @@
 		return
 	src.enabled = TC.enabled
 	if (enabled)
-		START_PROCESSING(SSprocessing, src)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		fast_processing = FALSE
 	else if(fast_processing)
-		STOP_PROCESSING(SSprocessing, src)
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		fast_processing = FALSE
 	else
 		STOP_PROCESSING(SSfast_process, src)
@@ -998,7 +994,7 @@
 
 					Turret.cover_set = case_sprite_set
 					Turret.icon_state = "cover_[case_sprite_set]"
-					START_PROCESSING(SSprocessing, Turret)
+					START_PROCESSING_MACHINE(Turret, MACHINERY_PROCESS_SELF)
 					qdel(src) // qdel
 				return TRUE
 
@@ -1166,7 +1162,7 @@
 
 /obj/machinery/porta_turret/legion
 	enabled = 0
-	use_power = 0
+	use_power = POWER_USE_OFF
 	icon_state = "cover_legion"
 	lethal = 1
 	lethal_icon = 1

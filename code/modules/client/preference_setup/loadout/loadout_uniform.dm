@@ -66,6 +66,7 @@
 	skirts["tube skirt"] = /obj/item/clothing/under/skirt/tube
 	skirts["jumper skirt"] = /obj/item/clothing/under/skirt/jumper
 	skirts["jumper dress"] = /obj/item/clothing/under/skirt/jumper_highcut
+	skirts["long straight skirt"] = /obj/item/clothing/under/skirt/straightlong
 	gear_tweaks += new /datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
@@ -313,6 +314,22 @@
 	display_name = "konyanger dress"
 	path = /obj/item/clothing/under/konyangdress
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/konyangtraditional
+	display_name = "traditional konyanger dress selection"
+	description = "A selection of traditional Konyanger formal and religious wear."
+	path = /obj/item/clothing/under/konyangdresstraditional
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/konyangtraditional/New()
+	..()
+	var/list/konyangtraditional = list()
+	konyangtraditional["pink traditional konyanger dress"] = /obj/item/clothing/under/konyangdresstraditional
+	konyangtraditional["green traditional konyanger dress"] = /obj/item/clothing/under/konyangdresstraditional/green
+	konyangtraditional["blue traditional konyanger dress"] = /obj/item/clothing/under/konyangdresstraditional/blue
+	konyangtraditional["national-colored traditional konyanger dress"] = /obj/item/clothing/under/konyangdresstraditional/national
+	konyangtraditional["national-colored traditional konyanger dress with vest"] = /obj/item/clothing/under/konyangdresstraditional/national/vest
+	gear_tweaks += new /datum/gear_tweak/path(konyangtraditional)
 
 /datum/gear/uniform/zhongshan
 	display_name = "zhongshan suit"
