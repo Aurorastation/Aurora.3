@@ -146,7 +146,7 @@
 
 /obj/item/clothing/head/beret/corporate/pmc
 	name = "pmcg beret"
-	desc = "A beret with the Private Military Contraxtor Group insignia emblazoned on it."
+	desc = "A beret with the Private Military Contractor Group insignia emblazoned on it."
 	icon_state = "pmc"
 	item_state = "pmc"
 
