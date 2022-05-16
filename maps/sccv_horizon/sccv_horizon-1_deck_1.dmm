@@ -4646,18 +4646,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "dMM" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "dMS" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass/alt,
-/area/horizon/hydroponics/lower)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/port)
 "dNa" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/tiled/dark,
@@ -15566,27 +15567,6 @@
 	name = "thruster mount"
 	},
 /area/shuttle/intrepid/engine_compartment)
-"mCt" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/deck1)
 "mDd" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
@@ -15604,16 +15584,6 @@
 "mDt" = (
 /turf/simulated/wall,
 /area/maintenance/substation/research_sublevel)
-"mDE" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/maintenance/operations)
 "mDH" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
@@ -15769,13 +15739,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"mKD" = (
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/maintenance/operations)
 "mMC" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -21820,6 +21783,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
+"rRi" = (
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/freezer_maint{
+	req_access = list(28);
+	name = "Freezer Maintenance"
+	},
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled/freezer{
+	name = "cold storage tiles";
+	temperature = 278
+	},
+/area/maintenance/hangar/port)
 "rRq" = (
 /obj/structure/table/standard,
 /obj/item/device/suit_cooling_unit,
@@ -22323,24 +22301,14 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "snA" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/machinery/firealarm/east,
-/obj/machinery/camera/network/service{
-	c_tag = "Service - Auxiliary Hydroponics Aft"
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/obj/item/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/corner/green/full{
-	dir = 1
-	},
-/obj/machinery/power/apc{
-	pixel_y = 24;
-	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hydroponics/lower)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/port)
 "snD" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
@@ -23189,11 +23157,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "sWa" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/blood/oil,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "sWr" = (
@@ -23776,13 +23741,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/checkpoint)
-"ttV" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/maintenance/operations)
 "tuP" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/storage/lower)
@@ -26243,11 +26201,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "vul" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "vuB" = (
@@ -27689,18 +27644,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
-"wNx" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc/high{
-	dir = 1;
-	pixel_y = 24
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/plating,
-/area/outpost/mining_main/refinery)
 "wNS" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -40056,7 +39999,7 @@ dPJ
 fif
 fif
 wVV
-mCt
+qBU
 fif
 uCB
 fif
@@ -42491,7 +42434,7 @@ oxP
 lRO
 tRQ
 xGe
-mDE
+dAZ
 gvZ
 uzB
 uzB
@@ -42693,7 +42636,7 @@ bGl
 iJR
 pqh
 qkh
-feY
+vqU
 gvZ
 uzB
 dWC
@@ -42895,7 +42838,7 @@ qkh
 qkh
 qkh
 qkh
-feY
+vqU
 gvZ
 yhf
 tMa
@@ -43097,7 +43040,7 @@ fDD
 lIg
 ueg
 icm
-feY
+vqU
 gvZ
 rpj
 nag
@@ -43297,9 +43240,9 @@ evA
 gMp
 fDD
 lIg
-mKD
-ttV
-dAZ
+vqU
+vqU
+vqU
 gvZ
 qqH
 oJc
@@ -45115,7 +45058,7 @@ vqU
 dpK
 vqU
 nnw
-wNx
+vul
 oDv
 tIS
 wkD

@@ -16,7 +16,7 @@
 	icon_state = "icecream_vat"
 	density = 1
 	anchored = 0
-	use_power = 0
+	use_power = POWER_USE_OFF
 	flags = OPENCONTAINER | NOREACT
 
 	var/list/product_types = list()

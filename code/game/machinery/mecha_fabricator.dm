@@ -5,7 +5,6 @@
 	icon_state = "fab-idle"
 	density = TRUE
 	anchored = TRUE
-	use_power = 1
 	idle_power_usage = 20
 	active_power_usage = 5000
 	req_access = list(access_robotics)
@@ -40,16 +39,16 @@
 	manufacturer = basic_robolimb.company
 	update_categories()
 
-/obj/machinery/mecha_part_fabricator/machinery_process()
+/obj/machinery/mecha_part_fabricator/process()
 	..()
 	if(stat)
 		return
 	if(busy)
-		use_power = 2
+		update_use_power(POWER_USE_ACTIVE)
 		progress += speed
 		check_build()
 	else
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 	update_icon()
 
 /obj/machinery/mecha_part_fabricator/update_icon()

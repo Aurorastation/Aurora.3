@@ -69,7 +69,7 @@
 
 	// machine process
 	// move items to the target location
-/obj/machinery/conveyor/machinery_process()
+/obj/machinery/conveyor/process()
 	if(stat & (BROKEN | NOPOWER))
 		return
 	if(!operating || conveying)
@@ -79,7 +79,7 @@
 		stat |= BROKEN
 		return
 
-	use_power(100)
+	use_power_oneoff(100)
 
 	var/turf/locturf = loc
 	var/list/items = locturf.contents - src

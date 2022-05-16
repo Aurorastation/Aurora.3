@@ -48,7 +48,7 @@
 
 /datum/event/vent_clog/setup()
 	endWhen = rand(25, 100)
-	for(var/obj/machinery/atmospherics/unary/vent_scrubber/temp_vent in SSmachinery.processing_machines)
+	for(var/obj/machinery/atmospherics/unary/vent_scrubber/temp_vent in SSmachinery.processing)
 		if(!temp_vent)
 			continue
 		if(isStationLevel(temp_vent.z))

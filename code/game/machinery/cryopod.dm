@@ -308,7 +308,7 @@ var/global/list/frozen_crew = list()
 	return TRUE
 
 //Lifted from Unity stasis.dm and refactored. ~Zuhayr
-/obj/machinery/cryopod/machinery_process()
+/obj/machinery/cryopod/process()
 	if(occupant)
 		//Allow a two minute gap between entering the pod and actually despawning.
 		if((world.time - time_entered < time_till_despawn) && occupant.ckey)

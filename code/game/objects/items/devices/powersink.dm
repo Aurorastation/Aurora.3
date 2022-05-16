@@ -26,7 +26,7 @@
 	var/obj/structure/cable/attached		// the attached cable
 
 /obj/item/device/powersink/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING_POWER_OBJECT(src)
 	processing_power_items -= src
 
 	return ..()
@@ -48,7 +48,7 @@
 			return TRUE
 		else
 			if (mode == 2)
-				STOP_PROCESSING(SSprocessing, src)
+				STOP_PROCESSING_POWER_OBJECT(src)
 				processing_power_items.Remove(src)
 			anchored = 0
 			mode = 0
@@ -73,7 +73,7 @@
 			mode = 2
 			icon_state = "powersink1"
 			item_state = "powersink1"
-			START_PROCESSING(SSprocessing, src)
+			START_PROCESSING_POWER_OBJECT(src)
 			processing_power_items += src
 		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
 			visible_message("<span class='notice'>\The [user] deactivates \the [src]!</span>")
@@ -81,7 +81,7 @@
 			set_light(0)
 			icon_state = "powersink0"
 			item_state = "powersink0"
-			STOP_PROCESSING(SSprocessing, src)
+			STOP_PROCESSING_POWER_OBJECT(src)
 			processing_power_items -= src
 
 /obj/item/device/powersink/pwr_drain()
