@@ -11666,7 +11666,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "gwe" = (
 /obj/structure/bed/stool/chair{
@@ -14616,7 +14616,7 @@
 "ien" = (
 /obj/item/modular_computer/console/preset/supply,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "ieM" = (
 /obj/effect/floor_decal/corner/green{
@@ -18320,13 +18320,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "ksC" = (
-/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters{
 	dir = 4;
 	id = "cargo_desk"
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/operations/office)
 "ksL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -23473,7 +23472,7 @@
 /obj/machinery/door/window/eastleft{
 	name = "Operations Desk Exterior Access"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/operations/office)
 "njB" = (
 /obj/structure/table/stone/marble,
@@ -26204,15 +26203,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
-"oOK" = (
-/obj/effect/map_effect/window_spawner/reinforced,
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "cargo_desk"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/operations/office)
 "oPh" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -30433,9 +30423,8 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "rew" = (
-/obj/effect/map_effect/window_spawner/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/operations/qm)
 "rez" = (
 /obj/effect/floor_decal/corner/mauve/full{
@@ -32229,7 +32218,7 @@
 /area/rnd/xenobiology/xenoflora)
 "rZh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "rZU" = (
 /obj/effect/floor_decal/corner/mauve/full,
@@ -34745,7 +34734,7 @@
 	name = "Operations Desk Exterior Access"
 	},
 /obj/structure/table/reinforced,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/operations/office)
 "tCG" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
@@ -37482,13 +37471,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "uXd" = (
-/obj/effect/map_effect/window_spawner/reinforced,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "cargo_desk"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/operations/office)
 "uXq" = (
 /obj/structure/railing/mapped{
@@ -56864,7 +56852,7 @@ lss
 nCo
 rqG
 iNS
-oOK
+uXd
 vua
 bPh
 ojd
