@@ -429,7 +429,7 @@
 
 /obj/machinery/button/switch/windowtint/attack_hand(mob/user as mob)
 	if(..())
-		return 1
+		return TRUE
 
 	toggle_tint()
 
@@ -442,12 +442,10 @@
 	for(var/obj/structure/window/reinforced/polarized/W in range(src, range))
 		if(W.id == src.id || !W.id)
 			W.toggle()
-			return
 
 	for(var/obj/structure/window/full/reinforced/polarized/W in range(src, range))
 		if(W.id == src.id || !W.id)
 			W.toggle()
-			return
 
 /obj/machinery/button/switch/windowtint/power_change()
 	..()

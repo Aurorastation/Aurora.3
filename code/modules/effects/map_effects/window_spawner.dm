@@ -61,10 +61,14 @@
 			else
 				neighbours |= other
 	else
-		new window_path(loc)
+		var/obj/structure/window/W = new window_path(loc)
+		handle_full_window_spawn(W)
 	activated = TRUE
 
 /obj/effect/map_effect/window_spawner/proc/handle_window_spawn(var/obj/structure/window/W)
+	return
+
+/obj/effect/map_effect/window_spawner/proc/handle_full_window_spawn(var/obj/structure/window/full/W)
 	return
 
 /obj/effect/map_effect/window_spawner/proc/handle_grille_spawn(var/obj/structure/grille/G)
@@ -154,7 +158,7 @@
 	window_path = /obj/structure/window/full/reinforced/polarized
 	var/id
 
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/handle_window_spawn(var/obj/structure/window/full/reinforced/polarized/W)
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/handle_full_window_spawn(var/obj/structure/window/full/reinforced/polarized/W)
 	if(id)
 		W.id = id
 
