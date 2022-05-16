@@ -198,7 +198,7 @@ datum/unit_test/zas_area_test/mining_area
 	if(SSair.active_edges.len)
 		fail("[SSair.active_edges.len] edges active at round-start!")
 	else
-		success("No active ZAS edges at round-start.")
+		pass("No active ZAS edges at round-start.")
 		return TRUE
 	for(var/connection_edge/E in SSair.active_edges)
 		var/connection_edge/unsimulated/U = E
