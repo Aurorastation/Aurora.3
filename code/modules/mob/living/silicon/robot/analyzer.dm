@@ -108,6 +108,8 @@
 	desc = "An scanner implanted directly into the hand, popping through the finger. This scanner can diagnose robotic injuries."
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
+	slot_flags = null
+	w_class = ITEMSIZE_HUGE
 
 /obj/item/device/robotanalyzer/augment/throw_at(atom/target, range, speed, mob/user)
 	user.drop_from_inventory(src)
