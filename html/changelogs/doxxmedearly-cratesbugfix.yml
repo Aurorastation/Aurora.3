@@ -1,0 +1,5 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Unusual containers should no longer spawn locked."
+  - bugfix: "Unusual containers with certain appearances should no longer spawn with excess gear."
