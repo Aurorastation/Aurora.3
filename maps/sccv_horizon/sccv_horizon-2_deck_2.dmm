@@ -2449,6 +2449,7 @@
 	name = "SERVER ROOM";
 	pixel_y = 32
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/server)
 "biD" = (
