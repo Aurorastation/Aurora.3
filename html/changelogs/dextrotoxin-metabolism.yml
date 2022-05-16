@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - tweak: "Increases dextrotoxin's metabolism speed. Parapens should last ~5 minutes instead of ~8 minutes."
+  - rscadd: "Adds a Purgepen which comes alongside the Parapen. It's used to remove the dextrotoxin and end the paralysis early."
