@@ -1,5 +1,5 @@
 //
-//Robotic Component Analyser, basically a health analyser for robots
+//Robotic Component Analyzer, basically a health analyzer for robots
 //
 /obj/item/device/robotanalyzer
 	name = "cyborg analyzer"
@@ -19,7 +19,6 @@
 	if((user.is_clumsy() || (DUMB in user.mutations)) && prob(50))
 		to_chat(user, SPAN_WARNING("You try to analyze the floor's vitals!"))
 		visible_message(SPAN_WARNING("\The [user] has analyzed the floor's vitals!"))
-
 		to_chat(user, SPAN_NOTICE("Analyzing Results for The floor:"))
 		to_chat(user, SPAN_NOTICE("Overall Status: Healthy"))
 		to_chat(user, SPAN_NOTICE("Damage Specifics: [0]-[0]-[0]-[0]"))
@@ -103,3 +102,19 @@
 				to_chat(user, SPAN_NOTICE("No prosthetics located."))
 
 	add_fingerprint(user)
+
+/obj/item/device/robotanalyzer/augment
+	name = "retractable cyborg analyzer"
+	desc = "A hand-held scanner able to diagnose robotic injuries."
+	icon_state = "robotanalyzer"
+	item_state = "analyzer"
+
+///obj/item/device/robotanalyzer/augment/attack(mob/living/M, mob/living/user)
+	//..()
+
+/obj/item/robotanalyzer/augment/throw_at(atom/target, range, speed, mob/user)
+	user.drop_from_inventory(src)
+
+/obj/item/robotanalyzer/augment/dropped()
+	loc = null
+	qdel(src)	

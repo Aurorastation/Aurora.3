@@ -157,6 +157,19 @@
 	parent_organ = BP_L_HAND
 	aug_slot = slot_l_hand
 
+/obj/item/organ/internal/augment/tool/cAnalyzer
+	name = "integrated cyborg analyzer"
+	icon_state = "robotanalyzer"
+	action_button_name = "Deploy Analyzer"
+	action_button_icon = "augment-tool"
+	organ_tag = BP_AUG_CANALYZER
+	parent_organ = BP_R_HAND
+	augment_type = /obj/item/robotanalyzer/augment
+
+/obj/item/organ/internal/augment/tool/cAnalyzer/left
+	parent_organ = BP_L_HAND
+	aug_slot = slot_l_hand
+
 /obj/item/organ/internal/augment/health_scanner
 	name = "integrated health scanner"
 	action_button_name = "Activate Health Scanner"
