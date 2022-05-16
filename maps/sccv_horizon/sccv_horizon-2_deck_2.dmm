@@ -339,9 +339,9 @@
 /area/library)
 "aiP" = (
 /obj/machinery/camera/network/engineering{
+	alarm_on = 1;
 	c_tag = "Engineering - Technical Storage";
-	dir = 8;
-	alarm_on = 1
+	dir = 8
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -729,10 +729,10 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Warehouse Elevator";
-	req_one_access = list(26, 31, 48, 67);
 	autoclose = 0;
-	dir = 2
+	dir = 2;
+	name = "Warehouse Elevator";
+	req_one_access = list(26, 31, 48, 67)
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -759,9 +759,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/turretid/stun{
+	check_synth = 1;
 	name = "\improper AI Upload Turret Control Console";
-	pixel_y = 32;
-	check_synth = 1
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
@@ -942,12 +942,12 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "It controls the Mech Bay's shutters.";
+	dir = 4;
 	id = "MechBayShutter";
 	name = "Mech Bay Access Shutters";
 	pixel_x = -25;
 	pixel_y = 7;
-	req_one_access = list(29, 47);
-	dir = 4
+	req_one_access = list(29, 47)
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
@@ -1171,9 +1171,9 @@
 	dir = 5
 	},
 /obj/machinery/computer/shuttle_control/lift{
+	pixel_x = 9;
 	pixel_y = 23;
-	shuttle_tag = "Operations Lift";
-	pixel_x = 9
+	shuttle_tag = "Operations Lift"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turbolift/scc_ship/cargo_lift)
@@ -1738,8 +1738,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	pixel_x = 28;
-	dir = 8
+	dir = 8;
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
@@ -2424,8 +2424,8 @@
 	dir = 1
 	},
 /obj/machinery/door/window/southleft{
-	req_one_access = list(29, 47);
-	name = "Elevator Access"
+	name = "Elevator Access";
+	req_one_access = list(29, 47)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
@@ -2613,7 +2613,7 @@
 "bmH" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/sign/emerg_exitZ,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/horizonexterior)
 "bmM" = (
 /obj/structure/cable{
@@ -2901,9 +2901,9 @@
 	dir = 4
 	},
 /obj/machinery/power/apc/low{
+	dir = 4;
 	name = "south bump";
-	pixel_x = 24;
-	dir = 4
+	pixel_x = 24
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -3637,8 +3637,8 @@
 /area/operations/lobby)
 "bQt" = (
 /obj/effect/map_effect/airlock/w_to_e{
-	radio_frequency = 2006;
-	name = "Security Maintenance AIrlock (2006)"
+	name = "Security Maintenance AIrlock (2006)";
+	radio_frequency = 2006
 	},
 /turf/simulated/wall,
 /area/hydroponics)
@@ -3692,8 +3692,8 @@
 	department = "Auxiliary Custodial";
 	id = "ringers_custodialaux";
 	name = "\improper Auxiliary Custodial Ringer Terminal";
-	req_access = list(26);
-	pixel_x = 32
+	pixel_x = 32;
+	req_access = list(26)
 	},
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
@@ -4246,8 +4246,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/door/airlock/glass_research{
-	req_access = list(55);
-	name = "XenoBotanical Lab"
+	name = "XenoBotanical Lab";
+	req_access = list(55)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4435,8 +4435,8 @@
 /obj/machinery/button/remote/blast_door{
 	id = "AICoreFoyer";
 	name = "AI Foyer Maintenance Blast Door";
-	req_access = list(16);
-	pixel_y = 25
+	pixel_y = 25;
+	req_access = list(16)
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Foyer"
@@ -4494,9 +4494,9 @@
 	},
 /obj/machinery/light/small/emergency,
 /obj/machinery/camera/network/engineering{
+	alarm_on = 1;
 	c_tag = "Engineering - Deck 2 - Research Substation";
-	dir = 1;
-	alarm_on = 1
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research)
@@ -4610,9 +4610,9 @@
 "cyG" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
-	name = "AI Maintenance Blast Door";
+	dir = 4;
 	id = "AICore";
-	dir = 4
+	name = "AI Maintenance Blast Door"
 	},
 /turf/simulated/floor/plating,
 /area/turret_protected/ai)
@@ -4788,7 +4788,7 @@
 /turf/template_noop,
 /area/horizonexterior)
 "cFw" = (
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/horizonexterior)
 "cGd" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5087,8 +5087,8 @@
 "cOs" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
-	name = "AI Maintenance Blast Door";
-	id = "AICore"
+	id = "AICore";
+	name = "AI Maintenance Blast Door"
 	},
 /turf/simulated/floor/plating,
 /area/turret_protected/ai_upload)
@@ -6019,9 +6019,9 @@
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/blast/shutters/open{
-	name = "Window Shutter";
+	dir = 8;
 	id = "shutters_mechbaywindows";
-	dir = 8
+	name = "Window Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/assembly/chargebay)
@@ -6396,13 +6396,8 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
 "dAN" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1;
-	name = "Aux Tanks Inlet"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/aux_atmospherics/deck_2/starboard)
+/turf/simulated/floor/airless,
+/area/engineering/engine_room)
 "dAX" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -6515,8 +6510,8 @@
 	dir = 8
 	},
 /obj/structure/sign/directions/all{
-	pixel_x = 32;
-	dir = 4
+	dir = 4;
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
@@ -6631,8 +6626,8 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	pixel_x = -28;
-	dir = 4
+	dir = 4;
+	pixel_x = -28
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -6643,8 +6638,8 @@
 /area/medical/or2)
 "dJs" = (
 /obj/machinery/door/airlock{
-	name = "Toilet 1";
-	id_tag = "cargobreak_t1"
+	id_tag = "cargobreak_t1";
+	name = "Toilet 1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
@@ -7150,8 +7145,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/service{
-	req_access = list(25);
-	name = "Bar Backroom"
+	name = "Bar Backroom";
+	req_access = list(25)
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/bar)
@@ -7532,8 +7527,8 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/hatch{
-	req_access = list(12);
-	name = "Deck 2 Starboard Pod"
+	name = "Deck 2 Starboard Pod";
+	req_access = list(12)
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door"
@@ -8061,8 +8056,8 @@
 /area/turret_protected/ai_upload)
 "eyY" = (
 /obj/machinery/door/blast/regular/open{
-	name = "AI Maintenance Blast Door";
-	id = "AICore"
+	id = "AICore";
+	name = "AI Maintenance Blast Door"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -8368,8 +8363,8 @@
 /area/security/brig)
 "eIE" = (
 /obj/machinery/door/airlock{
-	name = "Toilet 2";
-	id_tag = "cargobreak_t2"
+	id_tag = "cargobreak_t2";
+	name = "Toilet 2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
@@ -9174,8 +9169,8 @@
 	department = "Kitchen";
 	departmentType = 1;
 	name = "Kitchen Requests Console";
-	pixel_y = -2;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = -2
 	},
 /turf/simulated/wall,
 /area/crew_quarters/kitchen/freezer)
@@ -9185,8 +9180,8 @@
 	req_access = list(16)
 	},
 /obj/machinery/door/blast/regular/open{
-	name = "AI Maintenance Blast Door";
-	id = "AICore"
+	id = "AICore";
+	name = "AI Maintenance Blast Door"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -9227,8 +9222,8 @@
 /area/maintenance/wing/port/far)
 "fhD" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 2 Stairwell";
-	dir = 1
+	dir = 1;
+	name = "Deck 2 Stairwell"
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
@@ -9508,7 +9503,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/horizonexterior)
 "frL" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -9620,10 +9615,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Deck 2 - Bunker Escape Route";
-	network = list("Command","Bunker");
 	alarm_on = 1;
-	dir = 8
+	c_tag = "Bridge - Deck 2 - Bunker Escape Route";
+	dir = 8;
+	network = list("Command","Bunker")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -9968,8 +9963,8 @@
 /obj/machinery/button/remote/blast_door{
 	id = "ai_upload";
 	name = "AI Upload Foyer Blast Doors";
-	req_access = list(16);
-	pixel_y = 25
+	pixel_y = 25;
+	req_access = list(16)
 	},
 /turf/simulated/floor/wood,
 /area/turret_protected/ai_upload_foyer)
@@ -10476,7 +10471,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/horizonexterior)
 "fRi" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -12016,8 +12011,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/service{
-	req_access = list(25);
-	name = "Bar Backroom"
+	name = "Bar Backroom";
+	req_access = list(25)
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/bar)
@@ -12637,6 +12632,15 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/office)
+"gWf" = (
+/obj/machinery/door/blast/regular{
+	dir = 2;
+	id = "EngineVent";
+	is_critical = 1;
+	name = "Reactor Vent"
+	},
+/turf/simulated/floor/airless,
+/area/engineering/engine_room)
 "gWW" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -13171,8 +13175,8 @@
 	dir = 4
 	},
 /obj/structure/sign/emerg_exit/evac{
-	pixel_x = -32;
-	dir = 8
+	dir = 8;
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
@@ -13700,7 +13704,7 @@
 /area/hallway/primary/central_two)
 "hBN" = (
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/horizonexterior)
 "hBQ" = (
 /obj/machinery/alarm{
@@ -13821,7 +13825,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/horizonexterior)
 "hEd" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -14127,8 +14131,8 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
-	name = "Window Shutter";
-	id = "shutters_mechbaywindows"
+	id = "shutters_mechbaywindows";
+	name = "Window Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/assembly/chargebay)
@@ -14242,9 +14246,9 @@
 	dir = 10
 	},
 /obj/machinery/computer/shuttle_control/lift{
+	pixel_x = -7;
 	pixel_y = -2;
-	shuttle_tag = "Operations Lift";
-	pixel_x = -7
+	shuttle_tag = "Operations Lift"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turbolift/scc_ship/cargo_lift)
@@ -14790,14 +14794,14 @@
 /obj/machinery/button/remote/blast_door{
 	id = "seconddeckdockint";
 	name = "Interior Checkpoint Shutters";
-	pixel_y = 7;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 7
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "seconddeckdockext";
 	name = "Exterior Checkpoint Shutters";
-	pixel_y = -2;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = -2
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -14809,14 +14813,14 @@
 /obj/machinery/button/remote/blast_door{
 	id = "seconddeckdocksaf";
 	name = "Checkpoint Safety Shutters";
-	pixel_y = 7;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 7
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "seconddeckdockdesk";
 	name = "Checkpoint Desk Shutter";
-	pixel_y = -2;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
@@ -15100,7 +15104,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/horizonexterior)
 "itX" = (
 /turf/simulated/floor/wood,
@@ -15153,10 +15157,10 @@
 	dir = 8
 	},
 /obj/structure/sign/directions/civ{
-	pixel_y = -10;
-	name = "\improper To Living Quarters sign";
 	desc = "A sign pointing out that a lift leads to the ship's living quarters.";
-	dir = 1
+	dir = 1;
+	name = "\improper To Living Quarters sign";
+	pixel_y = -10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/sleep/cryo/living_quarters_lift)
@@ -15979,9 +15983,9 @@
 "iSn" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "ai_upload";
 	name = "AI Upload Foyer Blast Doors";
-	dir = 1;
 	pixel_y = -25
 	},
 /obj/machinery/porta_turret,
@@ -16778,8 +16782,8 @@
 	pixel_y = -3
 	},
 /obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
+	dir = 1;
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
@@ -19574,12 +19578,12 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "It controls the Mech Bay's shutters.";
+	dir = 8;
 	id = "MechBayShutter";
 	name = "Mech Bay Access Shutters";
 	pixel_x = 24;
 	pixel_y = 7;
-	req_one_access = list(29, 47);
-	dir = 8
+	req_one_access = list(29, 47)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
@@ -19841,8 +19845,8 @@
 	dir = 1
 	},
 /obj/structure/filingcabinet/filingcabinet{
-	pixel_y = 1;
-	pixel_x = 10
+	pixel_x = 10;
+	pixel_y = 1
 	},
 /obj/machinery/papershredder{
 	pixel_x = -6
@@ -19925,8 +19929,8 @@
 "lno" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
-	req_access = list(12);
-	name = "Deck 2 Port Pod"
+	name = "Deck 2 Port Pod";
+	req_access = list(12)
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/item/tape/engineering{
@@ -20049,10 +20053,10 @@
 /obj/machinery/computer/atmoscontrol/laptop{
 	monitored_alarm_ids = list("1601");
 	name = "Hazardous Specimens Atmospheric Controls";
-	req_access = null;
-	req_one_access = list(55,24,11);
 	pixel_x = 1;
-	pixel_y = 4
+	pixel_y = 4;
+	req_access = null;
+	req_one_access = list(55,24,11)
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -21703,8 +21707,8 @@
 /area/storage/primary)
 "mnt" = (
 /obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
+	dir = 1;
+	pixel_y = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -22093,8 +22097,8 @@
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /obj/machinery/light/small/emergency,
 /obj/machinery/camera/network/engineering{
-	dir = 1;
-	c_tag = "Engineering - Deck 2 - Aft Auxiliary Atmospherics"
+	c_tag = "Engineering - Deck 2 - Aft Auxiliary Atmospherics";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
@@ -22340,7 +22344,7 @@
 /area/security/warden)
 "mGY" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/horizonexterior)
 "mGZ" = (
 /obj/structure/cable/green,
@@ -22536,9 +22540,9 @@
 	dir = 8
 	},
 /obj/machinery/light_switch{
+	dir = 4;
 	pixel_x = -24;
-	pixel_y = -9;
-	dir = 4
+	pixel_y = -9
 	},
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
@@ -22573,8 +22577,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
-	req_access = list(12);
-	name = "Deck 2 Port Pod"
+	name = "Deck 2 Port Pod";
+	req_access = list(12)
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/item/tape/engineering{
@@ -23275,23 +23279,23 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/computer/shuttle_control/lift{
 	pixel_x = 9;
-	shuttle_tag = "Robotics Lift";
-	pixel_y = 23
+	pixel_y = 23;
+	shuttle_tag = "Robotics Lift"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/machinery/door/window/southright{
-	req_one_access = list(29, 47);
-	name = "Elevator Access"
+	name = "Elevator Access";
+	req_one_access = list(29, 47)
 	},
 /obj/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/sign/drop{
-	pixel_x = 32;
+	desc = "A warning sign which reads 'DANGER: FALLING HAZARD' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY'.";
 	name = "\improper DANGER: FALLING HAZARD sign";
-	desc = "A warning sign which reads 'DANGER: FALLING HAZARD' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY'."
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
@@ -23667,12 +23671,12 @@
 	},
 /obj/effect/floor_decal/corner/purple/full,
 /obj/machinery/button/remote/blast_door{
-	pixel_y = -25;
 	dir = 1;
-	name = "Auxiliary Custodial Closet Desk Shutter";
 	id = "shutters_deck2_auxcustdesk";
-	req_access = list(26);
-	pixel_x = 7
+	name = "Auxiliary Custodial Closet Desk Shutter";
+	pixel_x = 7;
+	pixel_y = -25;
+	req_access = list(26)
 	},
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
@@ -24020,8 +24024,8 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Deck 2 - Medical Substation";
-	alarm_on = 1
+	alarm_on = 1;
+	c_tag = "Engineering - Deck 2 - Medical Substation"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
@@ -24732,8 +24736,8 @@
 /area/turret_protected/ai_upload)
 "nZj" = (
 /obj/effect/map_effect/airlock/e_to_w{
-	radio_frequency = 2003;
-	name = "Deck 2 Tesla Reactor Airlock (2003)"
+	name = "Deck 2 Tesla Reactor Airlock (2003)";
+	radio_frequency = 2003
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/aft_airlock)
@@ -24988,8 +24992,8 @@
 "off" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp{
-	pixel_y = 10;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = 10
 	},
 /turf/simulated/floor/carpet,
 /area/chapel/office)
@@ -25221,9 +25225,9 @@
 "omD" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
-	name = "AI Maintenance Blast Door";
+	dir = 4;
 	id = "AICore";
-	dir = 4
+	name = "AI Maintenance Blast Door"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -25409,16 +25413,16 @@
 /area/medical/icu)
 "osY" = (
 /obj/effect/map_effect/airlock/w_to_e{
-	radio_frequency = 2101;
-	name = "Deck 2 AI Internal Airlock (2101)"
+	name = "Deck 2 AI Internal Airlock (2101)";
+	radio_frequency = 2101
 	},
 /turf/simulated/wall/r_wall,
 /area/turret_protected/ai)
 "otf" = (
 /obj/machinery/turretid/stun{
+	check_synth = 1;
 	name = "\improper AI Foyer Turret Control Console";
-	pixel_y = 32;
-	check_synth = 1
+	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
@@ -26158,11 +26162,11 @@
 "oKP" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "diner_shutters";
 	name = "Diner Counter Shutters";
-	pixel_y = -29;
 	pixel_x = -9;
-	dir = 1
+	pixel_y = -29
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -26853,8 +26857,8 @@
 	},
 /obj/machinery/button/remote/airlock{
 	id = "cargobreak_t1";
-	pixel_y = 32;
 	name = "Door Bolt Control";
+	pixel_y = 32;
 	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -26888,12 +26892,12 @@
 "pgi" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/window/westright{
-	req_access = list(22);
-	name = "Mass Driver Internal Access"
+	name = "Mass Driver Internal Access";
+	req_access = list(22)
 	},
 /obj/machinery/door/window/eastleft{
-	req_access = list(22);
-	name = "Mass Driver External Access"
+	name = "Mass Driver External Access";
+	req_access = list(22)
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/blast/regular{
@@ -26989,10 +26993,10 @@
 	dir = 1
 	},
 /obj/structure/sign/directions/civ{
-	pixel_y = -10;
-	name = "\improper To Living Quarters sign";
 	desc = "A sign pointing out that a lift leads to the ship's living quarters.";
-	dir = 1
+	dir = 1;
+	name = "\improper To Living Quarters sign";
+	pixel_y = -10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/sleep/cryo/living_quarters_lift)
@@ -27137,9 +27141,9 @@
 	dir = 10
 	},
 /obj/item/device/radio/intercom{
+	dir = 1;
 	name = "Station Intercom (General)";
-	pixel_y = -24;
-	dir = 1
+	pixel_y = -24
 	},
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Second Deck - Auxiliary Custodial Closet Entrance";
@@ -27873,9 +27877,9 @@
 /obj/structure/railing/mapped,
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
+	id = "shutters_mechbaywindows";
 	name = "Window Shutters";
-	pixel_x = 32;
-	id = "shutters_mechbaywindows"
+	pixel_x = 32
 	},
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/carpet/rubber,
@@ -28871,7 +28875,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/horizonexterior)
 "qkm" = (
 /obj/machinery/door/airlock/maintenance{
@@ -29109,9 +29113,9 @@
 	dir = 1
 	},
 /obj/structure/sign/electricshock{
+	desc = "A warning sign which reads 'MECH BAY AND RECHARGING STATION' and 'HIGH VOLTAGE EQUIPMENT INSIDE'.";
 	name = "\improper MECH BAY AND RECHARGING STATION sign";
-	pixel_y = -32;
-	desc = "A warning sign which reads 'MECH BAY AND RECHARGING STATION' and 'HIGH VOLTAGE EQUIPMENT INSIDE'."
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
@@ -29163,9 +29167,9 @@
 /area/hallway/engineering/tesla)
 "que" = (
 /obj/machinery/door/blast/regular/open{
-	name = "AI Maintenance Blast Door";
+	dir = 4;
 	id = "AICore";
-	dir = 4
+	name = "AI Maintenance Blast Door"
 	},
 /turf/simulated/floor/plating,
 /area/turret_protected/ai_upload)
@@ -29977,9 +29981,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/network/engineering{
+	alarm_on = 1;
 	c_tag = "Engineering - Deck 2 - Starboard Pod Substation";
-	dir = 1;
-	alarm_on = 1
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
@@ -30212,7 +30216,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/horizonexterior)
 "qXx" = (
 /obj/effect/floor_decal/corner/brown{
@@ -30369,8 +30373,8 @@
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light_switch{
-	pixel_y = 7;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = 7
 	},
 /obj/machinery/button/remote/airlock{
 	id = "dinerbolt";
@@ -31257,7 +31261,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/horizonexterior)
 "rwW" = (
 /obj/structure/cable/orange{
@@ -31317,9 +31321,9 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
+	autoclose = 0;
 	name = "Warehouse Elevator";
-	req_one_access = list(26, 31, 48, 67);
-	autoclose = 0
+	req_one_access = list(26, 31, 48, 67)
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/dark,
@@ -31794,8 +31798,8 @@
 	},
 /obj/machinery/button/remote/airlock{
 	id = "cargobreak_t2";
-	pixel_y = 32;
 	name = "Door Bolt Control";
+	pixel_y = 32;
 	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -32528,12 +32532,12 @@
 	RCon_tag = "Tesla - Containment";
 	charge = 2e+006;
 	input_attempt = 1;
+	input_level = 150000;
 	input_level_max = 350000;
 	is_critical = 1;
 	output_attempt = 1;
-	output_level_max = 350000;
 	output_level = 150000;
-	input_level = 150000
+	output_level_max = 350000
 	},
 /obj/structure/cable/orange,
 /obj/machinery/light{
@@ -32874,8 +32878,8 @@
 /area/medical/psych)
 "spR" = (
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list(16);
-	name = "AI Core Access"
+	name = "AI Core Access";
+	req_access = list(16)
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/spline/plain,
@@ -33083,9 +33087,9 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/machinery/door/blast/shutters{
+	dir = 4;
 	id = "seconddeckdockdesk";
-	name = "Security Checkpoint Desk Shutter";
-	dir = 4
+	name = "Security Checkpoint Desk Shutter"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
@@ -34034,8 +34038,8 @@
 /area/medical/exam)
 "tau" = (
 /obj/effect/map_effect/airlock/s_to_n{
-	radio_frequency = 2005;
-	name = "Deck 2 AI External Airlock (2005)"
+	name = "Deck 2 AI External Airlock (2005)";
+	radio_frequency = 2005
 	},
 /turf/simulated/wall/r_wall,
 /area/turret_protected/ai_upload)
@@ -34268,8 +34272,8 @@
 /area/server)
 "thY" = (
 /obj/machinery/orderterminal{
-	pixel_y = -3;
-	pixel_x = -30
+	pixel_x = -30;
+	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/kitchen)
@@ -34452,9 +34456,9 @@
 /area/maintenance/wing/port/far)
 "tna" = (
 /obj/machinery/camera/network/engineering{
+	alarm_on = 1;
 	c_tag = "Engineering - Deck 2 - Engineering Substation";
-	dir = 1;
-	alarm_on = 1
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
@@ -34722,11 +34726,11 @@
 	pixel_x = -32
 	},
 /obj/machinery/camera/motion{
-	c_tag = "Engineering - Secure Technical Storage";
-	name = "engineering";
-	network = list("Engineering");
 	alarm_on = 1;
-	dir = 4
+	c_tag = "Engineering - Secure Technical Storage";
+	dir = 4;
+	name = "engineering";
+	network = list("Engineering")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/storage/tech)
@@ -35160,8 +35164,8 @@
 	dir = 4
 	},
 /obj/machinery/power/apc/high{
-	pixel_x = -24;
-	dir = 8
+	dir = 8;
+	pixel_x = -24
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -35821,15 +35825,15 @@
 /obj/machinery/ringer_button{
 	id = "ringers_custodialaux";
 	name = "\improper Auxiliary Custodial Ringer";
-	pixel_y = 24;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "ubZ" = (
 /obj/structure/sign/drop{
-	name = "\improper DANGER: FALLING HAZARD sign";
-	desc = "A warning sign which reads 'DANGER: FALLING HAZARD' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY'."
+	desc = "A warning sign which reads 'DANGER: FALLING HAZARD' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY'.";
+	name = "\improper DANGER: FALLING HAZARD sign"
 	},
 /turf/simulated/wall,
 /area/operations/office)
@@ -36161,8 +36165,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	pixel_x = 28;
-	dir = 8
+	dir = 8;
+	pixel_x = 28
 	},
 /turf/simulated/floor/wood,
 /area/chapel/main)
@@ -36448,9 +36452,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "AICoreFoyer";
 	name = "AI Foyer Maintenance Blast Door";
-	dir = 1;
 	pixel_y = -25
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -36947,9 +36951,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/light_switch{
+	dir = 8;
 	pixel_x = 24;
-	pixel_y = -9;
-	dir = 8
+	pixel_y = -9
 	},
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
@@ -36987,8 +36991,8 @@
 /area/chapel/office)
 "uEI" = (
 /obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
+	dir = 1;
+	pixel_y = -28
 	},
 /obj/machinery/light/small,
 /obj/machinery/vending/assist,
@@ -37095,10 +37099,10 @@
 "uHb" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/camera/network/command{
-	c_tag = "Bridge - Deck 2 - Bunker Escape Route External";
-	network = list("Command","Bunker");
 	alarm_on = 1;
-	dir = 1
+	c_tag = "Bridge - Deck 2 - Bunker Escape Route External";
+	dir = 1;
+	network = list("Command","Bunker")
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -37588,8 +37592,8 @@
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/freezer{
-	req_access = list(28);
-	name = "Freezer"
+	name = "Freezer";
+	req_access = list(28)
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen/freezer)
@@ -37889,7 +37893,7 @@
 /obj/structure/ladder/up{
 	pixel_y = 16
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/horizonexterior)
 "veO" = (
 /obj/structure/cable/green{
@@ -38225,9 +38229,9 @@
 	dir = 8
 	},
 /obj/structure/sign/electricshock{
-	pixel_x = 32;
+	desc = "A warning sign which reads 'MECH BAY AND RECHARGING STATION' and 'HIGH VOLTAGE EQUIPMENT INSIDE'.";
 	name = "\improper MECH BAY AND RECHARGING STATION sign";
-	desc = "A warning sign which reads 'MECH BAY AND RECHARGING STATION' and 'HIGH VOLTAGE EQUIPMENT INSIDE'."
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
@@ -38678,9 +38682,9 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/camera/network/engineering{
+	alarm_on = 1;
 	c_tag = "Engineering - Deck 2 - Port Pod Substation";
-	dir = 1;
-	alarm_on = 1
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_port)
@@ -39057,8 +39061,8 @@
 /area/security/prison)
 "vOr" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	name = "Aux Tanks Inlet";
-	dir = 1
+	dir = 1;
+	name = "Aux Tanks Inlet"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -39454,8 +39458,8 @@
 "vWh" = (
 /obj/machinery/door/window/brigdoor/eastright{
 	name = "Secure Technical Storage Interior Access";
-	req_one_access = list(19, 23);
-	req_access = null
+	req_access = null;
+	req_one_access = list(19, 23)
 	},
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 6
@@ -39620,8 +39624,8 @@
 	pixel_y = -3
 	},
 /obj/machinery/alarm{
-	pixel_y = -28;
-	dir = 1
+	dir = 1;
+	pixel_y = -28
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
@@ -41178,9 +41182,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "AICoreFoyer";
 	name = "AI Foyer Maintenance Blast Door";
-	req_access = list(16);
+	pixel_x = 17;
 	pixel_y = 35;
-	pixel_x = 17
+	req_access = list(16)
 	},
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
@@ -41425,8 +41429,8 @@
 	},
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	name = "Auxiliary Custodial Closet Desk Shutter";
-	id = "shutters_deck2_auxcustdesk"
+	id = "shutters_deck2_auxcustdesk";
+	name = "Auxiliary Custodial Closet Desk Shutter"
 	},
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
@@ -41458,8 +41462,8 @@
 /obj/effect/decal/cleanable/cobweb2,
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/hatch{
-	req_access = list(12);
-	name = "Deck 2 Starboard Pod"
+	name = "Deck 2 Starboard Pod";
+	req_access = list(12)
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door"
@@ -41877,10 +41881,10 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 4;
 	id = "ai_upload";
 	name = "AI Upload Foyer Blast Doors";
-	pixel_x = -25;
-	dir = 4
+	pixel_x = -25
 	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
@@ -42015,8 +42019,8 @@
 /area/maintenance/wing/starboard)
 "xio" = (
 /obj/machinery/atmospherics/unary/freezer{
-	icon_state = "freezer";
-	dir = 1
+	dir = 1;
+	icon_state = "freezer"
 	},
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 4
@@ -42167,8 +42171,8 @@
 /obj/machinery/firealarm/north,
 /obj/machinery/power/apc/critical{
 	dir = 8;
-	pixel_x = -24;
-	name = "west bump"
+	name = "west bump";
+	pixel_x = -24
 	},
 /obj/structure/table/steel,
 /obj/machinery/light{
@@ -42357,8 +42361,8 @@
 "xtu" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	name = "Kitchen";
-	id_tag = "dinerbolt"
+	id_tag = "dinerbolt";
+	name = "Kitchen"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -42557,8 +42561,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/freezer{
-	req_access = list(28);
-	name = "Freezer"
+	name = "Freezer";
+	req_access = list(28)
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -43469,8 +43473,8 @@
 	},
 /obj/machinery/computer/shuttle_control/lift{
 	pixel_x = -7;
-	shuttle_tag = "Robotics Lift";
-	pixel_y = 23
+	pixel_y = 23;
+	shuttle_tag = "Robotics Lift"
 	},
 /turf/simulated/floor/plating,
 /area/turbolift/scc_ship/robotics_lift)
@@ -56444,7 +56448,7 @@ sBt
 tND
 bGk
 gvy
-dAN
+vOr
 pDn
 fdF
 uVi
@@ -59851,10 +59855,10 @@ lJE
 oSQ
 oSQ
 cEG
-sSY
-mdU
-sSY
-sSY
+dAN
+gWf
+dAN
+dAN
 mdU
 iyh
 tFC
