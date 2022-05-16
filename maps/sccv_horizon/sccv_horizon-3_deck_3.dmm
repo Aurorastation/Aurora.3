@@ -25815,9 +25815,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "Wa" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
-	id = "rep"
-	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "Wb" = (
@@ -54008,7 +54005,7 @@ Fo
 Fo
 Fo
 KX
-cg
+AK
 Ed
 mA
 jm
