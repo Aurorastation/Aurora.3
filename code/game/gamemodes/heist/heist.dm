@@ -10,6 +10,7 @@
 	extended_round_description = "The galaxy is a place full of dangers, even the inner colonies are not free of such scourges. \
 	Raiders and pirates are a well-know threat in the inhabited space, and places such as [current_map.station_type]s are easy targets \
 	for their greedy plans."
+	. = ..()
 
 /datum/game_mode/heist/apprentices
 	name = "magistake"

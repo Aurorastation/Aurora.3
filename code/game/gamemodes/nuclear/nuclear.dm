@@ -19,6 +19,7 @@ var/list/nuke_disks = list()
 	extended_round_description = "[current_map.company_short]'s wealth and success caught the attention of several enemies old and new, \
 		and many seek to undermine them using illegal ways. Their crown jewel research [current_map.station_type] are not safe from those \
 		malicious activities."
+	. = ..()
 
 //delete all nuke disks not on a station zlevel
 /datum/game_mode/nuclear/proc/check_nuke_disks()
