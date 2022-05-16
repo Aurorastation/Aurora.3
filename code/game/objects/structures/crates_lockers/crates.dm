@@ -539,7 +539,8 @@
 		"3" = (100 - ((STOCK_RARE_PROB * rarity) + (STOCK_UNCOMMON_PROB * rarity)))
 	)
 
-	var/icontype = pick(typesof(/obj/structure/closet/crate))
+	var/list/crates_to_use = typesof(/obj/structure/closet/crate) - typesof(/obj/structure/closet/crate/secure/gear_loadout)
+	var/icontype = pick(crates_to_use)
 	var/obj/structure/closet/crate/C = new icontype(get_turf(src), TRUE) //TRUE as we do not want the crate to fill(), we will fill it ourselves. 
 
 	C.name = "unusual container"
