@@ -1,0 +1,6 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Ghostspawner roles will now have their ID card updated after they close the character setup window, so that it displays the correct information."
+  - rscadd: "Ghostspawner roles will now be able to select their citizenship, based on standard origin and culture selections."
+  - rscadd: "Citizenship selection and ID card updates will also apply to any mob using the plastic surgeon machine, assuming they have an ID equipped before using it."
