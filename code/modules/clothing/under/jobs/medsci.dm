@@ -145,12 +145,6 @@
 	icon_state = "pmc_phys"
 	item_state = "pmc_phys"
 
-/* VTD: Look deep into yourself and ask if this thing is really something you want to do
-/obj/item/clothing/under/rank/medical/pmc/epmc
-	icon_state = "epmc_phys"
-	item_state = "epmc_phys"
-*/
-
 // Intern
 
 /obj/item/clothing/under/rank/medical/intern
@@ -165,11 +159,6 @@
 
 /obj/item/clothing/under/rank/medical/intern/pmc
 	icon_state = "pmc_intern"
-
-/* VTD: Look deep into yourself and ask if this thing is really something you want to do
-/obj/item/clothing/under/rank/medical/intern/pmc/epmc
-	icon_state = "epmc_intern"
-*/
 
 // First Responder
 
@@ -187,7 +176,7 @@
 	icon_state = "pmc_emt"
 	item_state = "pmc_emt"
 
-/obj/item/clothing/under/rank/medical/first_responder/pmc/epmc // VTD: Item Icon placeholder
+/obj/item/clothing/under/rank/medical/first_responder/pmc/epmc // Note: Item Icon placeholder
 	icon_state = "epmc_emt"
 	item_state = "epmc_emt"
 
@@ -206,12 +195,6 @@
 /obj/item/clothing/under/rank/medical/surgeon/pmc
 	icon_state = "pmc_surgeon"
 	item_state = "pmc_surgeon"
-
-/* VTD: Look deep into yourself and ask if this thing is really something you want to do
-/obj/item/clothing/under/rank/medical/surgeon/pmc/epmc
-	icon_state = "epmc_surgeon"
-	item_state = "epmc_surgeon"
-*/
 
 // Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
@@ -239,12 +222,6 @@
 	icon_state = "pmc_psych"
 	item_state = "pmc_psych"
 
-/* VTD: Look deep into yourself and ask if this thing is really something you want to do
-/obj/item/clothing/under/rank/medical/psych/pmc/epmc
-	icon_state = "epmc_psych"
-	item_state = "epmc_psych"
-*/
-
 // Pharmacist
 
 /obj/item/clothing/under/rank/medical/pharmacist
@@ -260,9 +237,3 @@
 /obj/item/clothing/under/rank/medical/pharmacist/pmc
 	icon_state = "pmc_chemist"
 	item_state = "pmc_chemist"
-
-/* VTD: Look deep into yourself and ask if this thing is really something you want to do
-/obj/item/clothing/under/rank/medical/pharmacist/pmc/epmc
-	icon_state = "epmc_chemist"
-	item_state = "epmc_chemist"
-*/

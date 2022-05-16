@@ -68,8 +68,8 @@
 	icon_state = "idris_armband"
 	overlay_state = "idris_armband"
 
-/obj/item/clothing/accessory/armband/pmc // VTD: Irregular naming again. God damn it
-	name = "\improper PMC armband"
+/obj/item/clothing/accessory/armband/pmc
+	name = "\improper PMCG armband"
 	desc = "An armband, worn by contractors to denote which company they're from. This one bears the Private Military Contractor Group logo."
 	icon_state = "pmc_armband"
 	overlay_state = "pmc_armband"

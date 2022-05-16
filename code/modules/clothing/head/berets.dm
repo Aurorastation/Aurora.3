@@ -145,12 +145,12 @@
 	item_state = "heph"
 
 /obj/item/clothing/head/beret/corporate/pmc
-	name = "pmc beret"
+	name = "pmcg beret"
 	desc = "A beret with the Private Military Contraxtor Group insignia emblazoned on it."
 	icon_state = "pmc"
 	item_state = "pmc"
 
-/obj/item/clothing/head/beret/corporate/pmc/epmc // VTD: Ask about the pmc / pmcg / PMC / PMCG variations out there
+/obj/item/clothing/head/beret/corporate/pmc/epmc
 	name = "epmc beret"
 	desc = "A beret with the Eridani Private Military Contractor logo emblazoned on it."
 	icon_state = "epmc"

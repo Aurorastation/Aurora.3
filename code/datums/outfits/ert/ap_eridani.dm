@@ -85,7 +85,7 @@
 /datum/outfit/admin/ert/ap_eridani/doctor
 	name = "Eridani Medical Officer"
 
-	uniform = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc // VTD: If I'm insane enough could probably switch this, maybe?
+	uniform = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
 	suit = /obj/item/clothing/suit/storage/medical_chest_rig
 	suit_store = /obj/item/clothing/head/hardhat/first_responder
 	head =  /obj/item/clothing/head/beret/corporate/pmc/epmc

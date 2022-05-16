@@ -174,22 +174,6 @@
 	epmc_headwear["softcap, EPMC"] = /obj/item/clothing/head/softcap/pmc/epmc
 	gear_tweaks += new /datum/gear_tweak/path(epmc_headwear)
 
-/* VTD: Need the tweaked labcoat sprites
-/datum/gear/faction/epmc_labcoat
-	display_name = "EPMC labcoat selection"
-	description = "A selection of EPMC labcoats."
-	path = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/epmc
-	slot = slot_wear_suit
-	faction = "Private Military Contracting Group"
-
-/datum/gear/faction/epmc_labcoat/New()
-	..()
-	var/list/epmc_labcoats = list()
-	epmc_labcoats["labcoat, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/epmc
-	epmc_labcoats["labcoat alt, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/epmc_alt
-	gear_tweaks += new /datum/gear_tweak/path(epmc_labcoats)
-*/
-
 /datum/gear/faction/epmc_sec_uniforms
 	display_name = "EPMC security uniform selection"
 	description = "A selection of EPMC security uniforms."
