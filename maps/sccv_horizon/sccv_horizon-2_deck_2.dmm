@@ -18067,7 +18067,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "kgj" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -21378,7 +21377,6 @@
 /turf/simulated/floor/plating,
 /area/security/brig)
 "mfX" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green,
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
 	id = "HoS Windows"
@@ -37659,7 +37657,6 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/maintenance/wing/starboard)
 "vdy" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -38428,7 +38425,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/hallway)
 "vCa" = (
-/obj/machinery/door/firedoor,
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/hydroponics/garden)
