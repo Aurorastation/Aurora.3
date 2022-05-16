@@ -18027,7 +18027,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
 	id = "HoS Windows"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hos)
 "kgp" = (
 /turf/simulated/floor/reinforced/airless,
@@ -21326,7 +21326,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
 	id = "HoS Windows"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hos)
 "mgg" = (
 /obj/structure/table/standard,
@@ -37566,7 +37566,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
 	id = "HoS Windows"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hos)
 "vdQ" = (
 /obj/structure/table/standard,
