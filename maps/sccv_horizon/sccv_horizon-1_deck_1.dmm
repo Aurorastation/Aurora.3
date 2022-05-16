@@ -4651,14 +4651,13 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "dMS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/window/reinforced{
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
+/turf/simulated/floor/grass/alt,
+/area/horizon/hydroponics/lower)
 "dNa" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/tiled/dark,
@@ -21784,20 +21783,10 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "rRi" = (
-/obj/structure/plasticflaps/airtight,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/freezer_maint{
-	req_access = list(28);
-	name = "Freezer Maintenance"
-	},
-/obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/maintenance/hangar/port)
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/grass/alt,
+/area/horizon/hydroponics/lower)
 "rRq" = (
 /obj/structure/table/standard,
 /obj/item/device/suit_cooling_unit,
@@ -22301,14 +22290,21 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "snA" = (
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/effect/floor_decal/corner/green/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/watertank,
+/obj/item/reagent_containers/glass/bucket,
+/turf/simulated/floor/tiled,
+/area/horizon/hydroponics/lower)
 "snD" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
@@ -52767,7 +52763,7 @@ jeF
 acw
 jGG
 fKB
-dMS
+rRi
 fXy
 mdL
 ctz
@@ -53171,7 +53167,7 @@ jeF
 vuG
 olu
 fKB
-dMS
+rRi
 dMS
 mdL
 ctz

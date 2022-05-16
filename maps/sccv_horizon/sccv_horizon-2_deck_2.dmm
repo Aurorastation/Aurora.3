@@ -1594,7 +1594,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12,37,66)
+	req_access = list(37)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -3220,9 +3220,11 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/port/far)
 "bFA" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-33"
+	},
+/turf/simulated/floor/carpet,
+/area/horizon/library)
 "bFN" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -3509,13 +3511,12 @@
 	},
 /area/server)
 "bOA" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(35);
 	name = "Hydroponics Maintenance"
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable/green{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
@@ -8886,9 +8887,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "eZm" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -9738,6 +9736,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/structure/coatrack{
+	pixel_x = -15;
+	pixel_y = 25
+	},
 /turf/simulated/floor/wood,
 /area/horizon/hydroponics/garden)
 "fwK" = (
@@ -10033,9 +10035,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "fGT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/obj/structure/cable/green{
+	icon_state = "11-8"
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/open,
 /area/maintenance/hangar/port)
 "fHo" = (
 /obj/effect/floor_decal/corner/green/full,
@@ -14469,6 +14478,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/random/desktoy,
 /turf/simulated/floor/wood,
 /area/horizon/hydroponics/garden)
 "hTT" = (
@@ -15456,6 +15466,16 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/operations/office)
+"iDt" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/port)
 "iDy" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -16412,21 +16432,12 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "jaK" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 4
+/obj/structure/coatrack{
+	pixel_x = -10;
+	pixel_y = 25
 	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
+/turf/simulated/floor/wood,
+/area/horizon/library)
 "jaR" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
@@ -22618,6 +22629,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "mHj" = (
@@ -26145,12 +26159,10 @@
 /turf/simulated/floor/lino/grey,
 /area/chapel/main)
 "oBV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/carpet,
+/area/horizon/library)
 "oBZ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -33922,6 +33934,7 @@
 /area/crew_quarters/bar)
 "sOu" = (
 /obj/structure/table/wood,
+/obj/random/desktoy,
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "sPp" = (
@@ -34629,6 +34642,11 @@
 /obj/machinery/door/window/westright{
 	name = "Hydroponics Desk External"
 	},
+/obj/machinery/door/blast/shutters{
+	id = "shutters_deck2_hydroponicsdesk";
+	name = "Hydroponics Desk Shutter";
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
 "tjk" = (
@@ -34814,12 +34832,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "tpc" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/structure/lattice,
-/turf/simulated/open,
-/area/maintenance/hangar/port)
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled,
+/area/horizon/hydroponics)
 "tpy" = (
 /obj/structure/sink/kitchen{
 	dir = 4;
@@ -38533,15 +38551,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "vrf" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "2-4"
 	},
-/turf/simulated/floor/tiled,
-/area/horizon/hydroponics)
+/turf/simulated/floor/plating,
+/area/maintenance/hangar/port)
 "vrk" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -65098,7 +65113,7 @@ wKa
 fQS
 pWx
 wDv
-pea
+jaK
 hGj
 nVX
 cSi
@@ -66920,13 +66935,13 @@ buh
 tSa
 buh
 eZm
-cMc
-cMc
+iDt
+mHh
 cMc
 dnn
-bFA
-bFA
-dvw
+vrf
+bOA
+tpc
 wiz
 lgB
 maV
@@ -67328,7 +67343,7 @@ wdj
 mJJ
 cKJ
 dKA
-tpc
+nAM
 dvw
 ntu
 lRq
