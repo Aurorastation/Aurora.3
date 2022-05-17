@@ -41,6 +41,11 @@
 				<li class="tweak">Reduced misc. subsystem and lighting priorities, raised priority of Mob and ZAS/Air subsystems.</li>
 				<li class="tweak">Replace references to the NSS Aurora with dynamic references to the current map, where possible.</li>
 				<li class="tweak">Replaced some references to NanoTrasen with the SCC, where appropriate.</li>
+				<li class="tweak">Removed several visible_messages for objects being damaged in explosions, deferred powernet regeneration until after explosions completed. Explosions should now process significantly faster.</li>
+				<li class="bugfix">Cables, pipes, and other objects hidden beneath floor tiles should no longer be damaged by explosions, unless the tile itself is blown off first.</li>
+				<li class="bugfix">Map-loading will no longer queue every turf for smoothing several times, which should slightly decrease mapgen load.</li>
+				<li class="bugfix">Fixed several areas meant to be airless containing atmos tiles, causing roundstart atmospherics processing which may have caused roundstart lag.</li>
+				<li class="rscadd">Added a unit test to catch atmos zone mismatches.</li>
 			</ul>
 			<h3 class="author">Llywelwyn updated:</h3>
 			<ul class="changes bgimages16">

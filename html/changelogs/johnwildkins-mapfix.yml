@@ -1,8 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Map-loading will no longer queue every turf for smoothing several times, which should slightly decrease mapgen load."
-  - bugfix: "Fixed several areas meant to be airless containing atmos tiles, causing roundstart atmospherics processing which may have caused roundstart lag."
-  - rscadd: "Added a unit test to catch atmos zone mismatches."
