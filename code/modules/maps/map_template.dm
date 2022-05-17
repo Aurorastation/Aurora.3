@@ -124,7 +124,7 @@
 
 	for (var/i in turfs)
 		var/turf/T = i
-		T.post_change()
+		T.post_change(FALSE)
 		if(template_flags & TEMPLATE_FLAG_NO_RUINS)
 			T.flags |= TURF_NORUINS
 		if(istype(T,/turf/simulated))
