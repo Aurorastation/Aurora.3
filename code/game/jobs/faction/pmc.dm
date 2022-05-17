@@ -63,6 +63,7 @@
 /datum/outfit/job/warden/pmc
 	name = "Warden - PMC"
 
+	head = /obj/item/clothing/head/warden/pmc
 	uniform = /obj/item/clothing/under/rank/warden/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/warden/pmc
 	id = /obj/item/card/id/pmc

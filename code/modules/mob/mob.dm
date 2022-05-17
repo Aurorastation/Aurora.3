@@ -153,7 +153,7 @@
 		O.see_emote(src, message)
 
 	if(intent_message)
-		intent_message(intent_message, intent_range)
+		intent_message(intent_message, intent_range, messagemobs)
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
@@ -343,7 +343,7 @@
 /mob/living/simple_animal/borer/can_examine()
 	. = ..()
 	if(!. && iscarbon(loc) && isturf(loc.loc)) // We're inside someone, let us examine still.
-		return TRUE 
+		return TRUE
 
 /mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
 

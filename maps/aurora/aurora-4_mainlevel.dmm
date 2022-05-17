@@ -11452,7 +11452,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/bridge)
 "avp" = (
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/engineering/engine_waste)
 "avq" = (
 /obj/machinery/door/blast/regular{
@@ -12392,7 +12392,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/engineering/engine_waste)
 "awW" = (
 /obj/machinery/door/blast/regular{
@@ -64009,7 +64009,7 @@
 /obj/item/device/camera,
 /obj/structure/closet/cabinet{
 	name = "legal closet";
-	desc = "It's a storage unit for courtroom apparel and items.";
+	desc = "It's a storage unit for courtroom apparel and items."
 	},
 /obj/item/clothing/under/lawyer/black,
 /obj/item/clothing/under/lawyer/red,
