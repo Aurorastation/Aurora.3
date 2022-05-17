@@ -1,9 +1,21 @@
 MUSIC LICENSING INFORMATION
 ----------
+File Name: ambimine.ogg
+Original Title: N/A
+Author: N/A
+License: N/A
+Link: N/A
+----------
+File Name: ambispace.ogg
+Original Title: N/A
+Author: N/A
+License: N/A
+Link: N/A
+----------
 File Name: b12_combined_start.ogg
 Original Title: b12 Combined Start (?)
 Author: Tarn Adams AKA Toady One
-License: Unknown
+License: N/A
 Link: N/A
 ----------
 File Name: battlemonsters_theme.ogg
@@ -47,7 +59,7 @@ Link 2: https://amp.dascene.net/detail.php?detail=modules&view=8236
 File Name: title2.ogg
 Original Title: robocop
 Author: Eric Schumaker AKA CBoyardee
-License: Unknown
+License: N/A
 Link: N/A
 ----------
 File Name: traitor.ogg
@@ -62,3 +74,9 @@ Author: Naelynn
 License: CC0 1.0
 License Link: https://github.com/Aurorastation/Aurora.3/pull/7729#issuecomment-567239575
 Link: https://github.com/Aurorastation/Aurora.3/pull/7729
+----------
+File Name: song_game.ogg
+Original Title: Unknown (?)
+Author: Tarn Adams AKA Toady One
+License: N/A
+Link: N/A

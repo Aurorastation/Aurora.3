@@ -2,8 +2,6 @@ sound/music/b12_combined_start.ogg
 sound/music/clouds.ogg
 sound/music/main.ogg
 sound/music/space.ogg
-sound/music/space_asshole.ogg
-sound/music/space_oddity.ogg
 sound/music/THUNDERDOME.ogg
 sound/music/title1.ogg
 sound/music/title2.ogg
