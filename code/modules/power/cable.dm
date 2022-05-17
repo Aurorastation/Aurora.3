@@ -405,6 +405,11 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			if(C.powernet)
 				. -= C
 
+/obj/structure/cable/proc/auto_propagate_cut_cable(obj/O)
+	if(O && !QDELETED(O))
+		var/datum/powernet/newPN = new()// creates a new powernet...
+		propagate_network(O, newPN)//... and propagates it to the other side of the cable
+
 //should be called after placing a cable which extends another cable, creating a "smooth" cable that no longer terminates in the centre of a turf.
 //needed as this can, unlike other placements, disconnect cables
 /obj/structure/cable/proc/denode()
@@ -443,8 +448,13 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	loc = null
 	powernet.remove_cable(src) //remove the cut cable from its powernet
 
-	var/datum/powernet/newPN = new()// creates a new powernet...
-	propagate_network(P_list[1], newPN)//... and propagates it to the other side of the cable
+	var/first = TRUE
+	for(var/obj/O in P_list)
+		if(first)
+			first = FALSE
+			continue
+		addtimer(CALLBACK(O, .proc/auto_propagate_cut_cable, O), 0)
+		// prevents rebuilding the powernet X times when an explosion cuts X cables
 
 	// Disconnect machines connected to nodes
 	if(d1 == 0) // if we cut a node (O-X) cable
