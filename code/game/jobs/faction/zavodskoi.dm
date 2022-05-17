@@ -89,6 +89,7 @@
 /datum/outfit/job/warden/zavodskoi
 	name = "Warden - Zavodskoi Interstellar"
 
+	head = /obj/item/clothing/head/warden/zavod
 	uniform = /obj/item/clothing/under/rank/warden/zavod
 	suit = /obj/item/clothing/suit/storage/toggle/warden/zavod
 	id = /obj/item/card/id/zavodskoi/sec
