@@ -1,0 +1,7 @@
+author: Ryverstyx
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds more styles."
+  - tweak: "Changes names of existing styles to be uniform and descriptive."
