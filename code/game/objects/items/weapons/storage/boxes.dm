@@ -770,7 +770,7 @@
 
 /obj/item/storage/box/crabmeat
 	name = "box of crab legs"
-	desc = "A box filled with high-quality crab legs. Shipped to Aurora by popular demand!"
+	desc = "A box filled with high-quality crab legs. Shipped on-board by popular demand!"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/crabmeat = 5)
 
 /obj/item/storage/box/tranquilizer
