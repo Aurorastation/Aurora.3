@@ -14,6 +14,8 @@
 			return access_engine
 		if(NETWORK_MEDICAL)
 			return access_medical
+		if(NETWORK_SECURITY)
+			return access_security
 		if(NETWORK_RESEARCH,NETWORK_RESEARCH_OUTPOST)
 			return access_research
 		if(NETWORK_MINE,NETWORK_SUPPLY,NETWORK_CIVILIAN_WEST,NETWORK_EXPEDITION,NETWORK_CALYPSO,NETWORK_POD)
@@ -84,7 +86,7 @@
 	if(!network_access)
 		return TRUE
 
-	return check_access(user, access_security) || check_access(user, network_access)
+	return (check_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_access(user, network_access)
 
 /datum/nano_module/camera_monitor/Topic(href, href_list)
 	if(..())
