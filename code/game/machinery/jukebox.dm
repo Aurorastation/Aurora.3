@@ -242,7 +242,7 @@ datum/track/New(var/title_name, var/audio)
 	icon = 'icons/obj/audioconsole.dmi'
 	icon_state = "audioconsole-nopower"
 	state_base = "audioconsole"
-	anchored = 0
+	anchored = FALSE
 	tracks = list(
 		new/datum/track("Butterflies", 'sound/music/audioconsole/Butterflies.ogg'),
 		new/datum/track("That Ain't Chopin", 'sound/music/audioconsole/ThatAintChopin.ogg'),
