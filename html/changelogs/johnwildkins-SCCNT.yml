@@ -1,7 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - tweak: "Replace references to the NSS Aurora with dynamic references to the current map, where possible."
-  - tweak: "Replaced some references to NanoTrasen with the SCC, where appropriate."
