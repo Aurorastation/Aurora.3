@@ -38,4 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - soundadd: "Added a more modern jukebox to the bar. It comes with ten hit songs of the future!"
+  - soundadd: "Added a more modern jukebox to the bar. It comes with ten hit songs of the future! Console sprites from Bay."
+  - tweak: "Space jukebox is now just a normal jukebox"
