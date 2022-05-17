@@ -13,11 +13,14 @@
 	name = "MAP TEST template"
 
 /datum/unit_test/map_test/apc_area_test
-	name = "MAP: Area Test APC / Scrubbers / Vents (Station)"
+	name = "MAP: Area Test APC / Scrubbers / Vents / Alarms (Station)"
 
 /datum/unit_test/map_test/apc_area_test/start_test()
-	var/list/bad_areas = list()
 	var/area_test_count = 0
+	var/bad_apc = 0
+	var/bad_airs = 0
+	var/bad_airv = 0
+	var/bad_fire = 0
 
 	if (!current_map)
 		return
@@ -32,35 +35,40 @@
 	for(var/area/A in typecache_filter_list_reverse(all_areas, exempt_areas))
 		if(isStationLevel(A.z))
 			area_test_count++
-			var/area_good = TRUE
-			var/bad_msg = "[ascii_red]--------------- [A.name]([A.type])"
-
+			var/bad_msg = "[ascii_red]--------------- [A.name] ([A.type])"
 
 			if(!A.apc && !is_type_in_typecache(A, exempt_from_apc))
 				log_unit_test("[bad_msg] lacks an APC.[ascii_reset]")
 				area_good = FALSE
+				bad_apc++
 
 			if(!A.air_scrub_info.len && !is_type_in_typecache(A, exempt_from_atmos))
 				log_unit_test("[bad_msg] lacks an air scrubber.[ascii_reset]")
 				area_good = FALSE
+				bad_airs++
 
 			if(!A.air_vent_info.len && !is_type_in_typecache(A, exempt_from_atmos))
 				log_unit_test("[bad_msg] lacks an air vent.[ascii_reset]")
 				area_good = FALSE
+				bad_airv++
 
 			if(!(locate(/obj/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
 				log_unit_test("[bad_msg] lacks a fire alarm.[ascii_reset]")
 				area_good = FALSE
+				bad_fire++
 
-			if(!area_good)
-				bad_areas += A
+	if(bad_apc)
+		fail("\[[bad_apc]/[area_test_count]\] areas lacked an APC.")
+	if(bad_airs)
+		fail("\[[bad_airs]/[area_test_count]\] areas lacked an air scrubber.")
+	if(bad_airv)
+		fail("\[[bad_airv]/[area_test_count]\] areas lacked an air vent.")
+	if(bad_fire)
+		fail("\[[bad_fire]/[area_test_count]\] areas lacked a fire alarm.")
+	if(!bad_apc && !bad_airs && !bad_airv && !bad_fire)
+		pass("All \[[area_test_count]\] areas contained APCs, air scrubbers, air vents, and fire alarms.")
 
-	if(bad_areas.len)
-		fail("\[[bad_areas.len]/[area_test_count]\]Some areas lacked APCs, air scrubbers, or air vents.")
-	else
-		pass("All \[[area_test_count]\] areas contained APCs, air scrubbers, and air vents.")
-
-	return 1
+	return TRUE
 
 //=======================================================================================
 
