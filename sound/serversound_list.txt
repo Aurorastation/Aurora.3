@@ -1,4 +1,3 @@
-sound/music/1.ogg
 sound/music/b12_combined_start.ogg
 sound/music/clouds.ogg
 sound/music/main.ogg
