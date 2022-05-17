@@ -48,7 +48,7 @@
 				log_unit_test("[bad_msg] lacks an air vent.[ascii_reset]")
 				area_good = FALSE
 
-			if(!locate(/obj/machinery/firealarm) in A && !is_type_in_typecache(A, exempt_from_fire))
+			if(!(locate(/obj/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
 				log_unit_test("[bad_msg] lacks a fire alarm.[ascii_reset]")
 				area_good = FALSE
 
