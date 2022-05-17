@@ -22531,6 +22531,7 @@
 	dir = 1
 	},
 /obj/machinery/media/jukebox/audioconsole{
+	anchored = 1;
 	pixel_x = -8
 	},
 /turf/simulated/floor/lino/grey,
