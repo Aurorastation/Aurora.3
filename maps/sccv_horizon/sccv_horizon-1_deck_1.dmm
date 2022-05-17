@@ -7219,6 +7219,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/purple{
 	dir = 1
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "fKk" = (
@@ -8033,6 +8034,7 @@
 	c_tag = "Security - First Deck Checkpoin";
 	dir = 4
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "gnn" = (
@@ -23963,6 +23965,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/tcommsat/mainlvl_tcomms__relay)
 "tHv" = (

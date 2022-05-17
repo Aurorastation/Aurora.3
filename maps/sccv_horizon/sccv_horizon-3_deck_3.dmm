@@ -1736,6 +1736,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/nature_showcase)
 "do" = (
@@ -4533,6 +4534,7 @@
 	},
 /obj/item/circuitboard/telecomms/relay,
 /obj/item/circuitboard/ntnet_relay,
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "iv" = (
@@ -4974,6 +4976,7 @@
 /obj/structure/mirror{
 	pixel_x = 25
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/showers)
 "jh" = (
@@ -7910,6 +7913,7 @@
 	c_tag = "Bridge - Crewman Lockeroom";
 	dir = 1
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "oE" = (
@@ -9314,6 +9318,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/changing)
+"rq" = (
+/obj/machinery/porta_turret/stationary,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/reinforced,
+/area/bridge/selfdestruct)
 "rr" = (
 /obj/machinery/light_switch{
 	dir = 8;
@@ -9322,6 +9332,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/firealarm/east{
+	pixel_x = 29;
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo/showers)
 "rs" = (
@@ -9335,6 +9349,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
+"ru" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled/white,
+/area/medical/ward/isolation)
 "rv" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -12127,6 +12146,17 @@
 /obj/item/device/flashlight/lamp/lava/pink,
 /turf/simulated/floor/carpet/art,
 /area/crew_quarters/lounge/secondary)
+"wE" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/emergency)
 "wF" = (
 /obj/machinery/computer/telecomms/monitor{
 	network = "tcommsat"
@@ -14379,10 +14409,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Breakroom"
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "AP" = (
@@ -15038,6 +15068,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/bridge/third_deck_stairs)
 "Ce" = (
@@ -18473,6 +18504,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/dormitories)
 "Iy" = (
@@ -18614,6 +18646,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "IN" = (
@@ -19946,6 +19979,7 @@
 	table_reinf = "glass"
 	},
 /obj/item/folder,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
 "Li" = (
@@ -26194,6 +26228,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/washroom)
 "WN" = (
@@ -44146,7 +44181,7 @@ Rt
 ib
 qs
 Um
-qJ
+ru
 qJ
 qJ
 qJ
@@ -47599,7 +47634,7 @@ KL
 dc
 wV
 dc
-KL
+rq
 Zm
 sb
 Zr
@@ -52434,7 +52469,7 @@ po
 wK
 lT
 Lr
-Lr
+wE
 ie
 sd
 Eb
