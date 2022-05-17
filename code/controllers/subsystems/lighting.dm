@@ -52,8 +52,10 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 /datum/controller/subsystem/lighting/ExplosionStart()
 	force_queued = TRUE
+	suspend()
 
 /datum/controller/subsystem/lighting/ExplosionEnd()
+	wake()
 	if (!force_override)
 		force_queued = FALSE
 

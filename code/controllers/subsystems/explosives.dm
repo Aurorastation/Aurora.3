@@ -218,6 +218,9 @@ var/datum/controller/subsystem/explosives/SSexplosives
 			for(var/atom_movable in T.contents)	//bypass type checking since only atom/movable can be contained by turfs anyway
 				var/atom/movable/AM = atom_movable
 				if(!QDELETED(AM) && AM.simulated)
+					var/obj/O = AM
+					if(istype(O) && O.hides_under_flooring() && !T.is_plating())
+						continue
 					AM.ex_act(dist)
 
 				CHECK_TICK
@@ -396,6 +399,9 @@ var/datum/controller/subsystem/explosives/SSexplosives
 			for (var/subthing in T)
 				var/atom/movable/AM = subthing
 				if (AM.simulated)
+					var/obj/O = AM
+					if(istype(O) && O.hides_under_flooring() && !T.is_plating())
+						continue
 					AM.ex_act(severity)
 					movable_tally++
 				CHECK_TICK
