@@ -43,7 +43,7 @@
 	for(var/nw in network)
 		all_networks.Add(list(list(
 							"tag" = nw,
-							"has_access" = can_access_network(nw)
+							"has_access" = can_access_network(user, nw)
 							)))
 
 	data["networks"] = all_networks
@@ -63,10 +63,12 @@
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/machinery/computer/security/proc/can_access_network(var/nw)
-	if(nw in network)
-		return 1
-	return 0
+/obj/machinery/computer/security/proc/can_access_network(var/mob/user, var/network_access)
+	// No access passed, or 0 which is considered no access requirement. Allow it.
+	if(!network_access)
+		return TRUE
+
+	return (check_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_access(user, network_access)
 
 /obj/machinery/computer/security/Topic(href, href_list)
 	if(..())
