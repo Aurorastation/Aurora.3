@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - tweak: "Removed several visible_messages for objects being damaged in explosions, deferred powernet regeneration until after explosions completed. Explosions should now process significantly faster."
+  - bugfix: "Cables, pipes, and other objects hidden beneath floor tiles should no longer be damaged by explosions, unless the tile itself is blown off first."
