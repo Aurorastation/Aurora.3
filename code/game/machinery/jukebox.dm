@@ -261,7 +261,3 @@ datum/track/New(var/title_name, var/audio)
 	icon_state = state_base
 	if(playing)
 		add_overlay("[state_base]-running")
-
-/obj/machinery/media/jukebox/audioconsole/ui_interact(mob/user, ui_key = "jukebox", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/title = "Idris Audioconsole - Music To Your Ears"
-	var/data[0]
