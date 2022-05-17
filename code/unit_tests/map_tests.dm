@@ -39,22 +39,18 @@
 
 			if(!A.apc && !is_type_in_typecache(A, exempt_from_apc))
 				log_unit_test("[bad_msg] lacks an APC.[ascii_reset]")
-				area_good = FALSE
 				bad_apc++
 
 			if(!A.air_scrub_info.len && !is_type_in_typecache(A, exempt_from_atmos))
 				log_unit_test("[bad_msg] lacks an air scrubber.[ascii_reset]")
-				area_good = FALSE
 				bad_airs++
 
 			if(!A.air_vent_info.len && !is_type_in_typecache(A, exempt_from_atmos))
 				log_unit_test("[bad_msg] lacks an air vent.[ascii_reset]")
-				area_good = FALSE
 				bad_airv++
 
 			if(!(locate(/obj/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
 				log_unit_test("[bad_msg] lacks a fire alarm.[ascii_reset]")
-				area_good = FALSE
 				bad_fire++
 
 	if(bad_apc)
