@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds fire alarms and emergency shutters to the Runtime map (exclusively so it doesn't fail user tests, and for future easy testing)."
