@@ -1218,6 +1218,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/analysis)
 "ade" = (
@@ -2435,6 +2436,7 @@
 	dir = 1
 	},
 /obj/machinery/washing_machine,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_storage)
 "afV" = (
@@ -6833,6 +6835,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -9631,6 +9634,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
 	temperature = 278
@@ -29610,6 +29614,10 @@
 "iOl" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora_hazard)
+"iOt" = (
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/beach/water/pool,
+/area/medical/patient_wing_gym)
 "iOJ" = (
 /obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -29882,6 +29890,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
 "jkR" = (
@@ -30860,6 +30869,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/medbay4)
+"lXb" = (
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/turret_protected/ai_upload_foyer)
 "lXe" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -32682,6 +32700,7 @@
 /area/outpost/engineering/hallway)
 "poo" = (
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/engineering/backup_SMES)
 "prR" = (
@@ -83867,7 +83886,7 @@ gll
 aJk
 mWx
 lZJ
-bfE
+iOt
 eCm
 krN
 jVc
@@ -84598,7 +84617,7 @@ amO
 apf
 apE
 aqi
-apE
+lXb
 arq
 amO
 amO

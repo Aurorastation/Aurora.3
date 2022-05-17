@@ -3,4 +3,5 @@ author: JohnWildkins
 delete-after: True
 
 changes:
-  - rscadd: "Adds fire alarms and emergency shutters to the Runtime map (exclusively so it doesn't fail user tests, and for future easy testing)."
+  - bugfix: "Adds missing fire alarms and emergency shutters to several rooms on the Horizon, Aurora, and Runtime."
+  - backend: "Adds a unit test to check that all rooms that should have a fire alarm, do."
