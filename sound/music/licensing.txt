@@ -37,6 +37,12 @@ Author: the_semen_incident
 License: CC0 1.0
 Link: https://freesound.org/people/the_semen_incident/sounds/66097
 ----------
+File Name: song_game.ogg
+Original Title: Unknown (?)
+Author: Tarn Adams AKA Toady One
+License: N/A
+Link: N/A
+----------
 File Name: space.ogg
 Original Title: Solus- Endless Space Expanded
 Author: SolusLunes
@@ -74,9 +80,3 @@ Author: Naelynn
 License: CC0 1.0
 License Link: https://github.com/Aurorastation/Aurora.3/pull/7729#issuecomment-567239575
 Link: https://github.com/Aurorastation/Aurora.3/pull/7729
-----------
-File Name: song_game.ogg
-Original Title: Unknown (?)
-Author: Tarn Adams AKA Toady One
-License: N/A
-Link: N/A
