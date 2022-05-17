@@ -250,8 +250,8 @@ datum/track/New(var/title_name, var/audio)
 		new/datum/track("Phoron Will Make Us Rich", 'sound/music/audioconsole/PhoronWillMakeUsRich.ogg'),
 		new/datum/track("Amsterdam", 'sound/music/audioconsole/Amsterdam.ogg'),
 		new/datum/track("when", 'sound/music/audioconsole/When.ogg'),
-		new/datum/track("Vibe Ace", 'sound/music/audioconsole/VibeAce.ogg'),
-		new/datum/track("Backed Vibes Clean", 'sound/music/audioconsole/BackedVibesClean.ogg'),
+		new/datum/track("Number 0", 'sound/music/audioconsole/Number0.ogg'),
+		new/datum/track("The Pianist", 'sound/music/audioconsole/ThePianist.ogg'),
 		new/datum/track("Lips", 'sound/music/audioconsole/Lips.ogg'),
 		new/datum/track("Childhood", 'sound/music/audioconsole/Childhood.ogg')
 	)
