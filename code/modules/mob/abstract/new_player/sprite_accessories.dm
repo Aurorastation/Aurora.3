@@ -3618,7 +3618,7 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Tuux Goatee"
 			icon_state = "Tuux_Goatee"
 
-		tuux_tri-point
+		tuux_tri_point
 			name = "Tuux Tri-Point"
 			icon_state = "Tuux_Tri-Point"
 
