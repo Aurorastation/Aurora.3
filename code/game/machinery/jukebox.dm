@@ -245,7 +245,7 @@ datum/track/New(var/title_name, var/audio)
 	anchored = 0
 	tracks = list(
 		new/datum/track("Butterflies", 'sound/music/audioconsole/Butterflies.ogg'),
-		new/datum/track("That Ain't Chopin'", 'sound/music/audioconsole/ThatAintChopin.ogg'),
+		new/datum/track("That Ain't Chopin", 'sound/music/audioconsole/ThatAintChopin.ogg'),
 		new/datum/track("Don't Rush", 'sound/music/audioconsole/DontRush.ogg'),
 		new/datum/track("Phoron Will Make Us Rich", 'sound/music/audioconsole/PhoronWillMakeUsRich.ogg'),
 		new/datum/track("Amsterdam", 'sound/music/audioconsole/Amsterdam.ogg'),
@@ -261,3 +261,7 @@ datum/track/New(var/title_name, var/audio)
 	icon_state = state_base
 	if(playing)
 		add_overlay("[state_base]-running")
+
+/obj/machinery/media/jukebox/audioconsole/ui_interact(mob/user, ui_key = "jukebox", var/datum/nanoui/ui = null, var/force_open = 1)
+	var/title = "Idris Audioconsole - Music To Your Ears"
+	var/data[0]
