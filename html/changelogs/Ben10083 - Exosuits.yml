@@ -17,3 +17,4 @@ changes:
   - balance: "Removed phoron requirement from heavy mech construction."
   - tweak: "Removed tech requirement from exosuit treads."
   - rscadd: "Exosuit health analyzer can now switch between basic and full body scans."
+  - rscadd: "Exosuit crisis drone now nullifies some of the pain of the target."

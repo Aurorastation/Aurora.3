@@ -229,6 +229,7 @@
 		L.adjustOxyLoss(oxy_heal * -1)
 		L.adjustCloneLoss(clone_heal * -1)
 		L.adjustHalLoss(hal_heal * -1)
+		L.add_chemical_effect(CE_PAINKILLER, 50) //Pain is bad :(
 
 		if(ishuman(L) && bone_heal)
 			var/mob/living/carbon/human/H = L
