@@ -52,7 +52,7 @@
 /obj/structure/window/update_icon()
 	queue_smooth(src)
 
-/obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, var/message = TRUE)
+/obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
 	var/initialhealth = health
 
 	if(silicate)
@@ -146,7 +146,7 @@
 				shatter(0)
 				return
 			else
-				take_damage(rand(10,30), message=FALSE)
+				take_damage(rand(10,30), TRUE, FALSE)
 
 //TODO: Make full windows a separate type of window.
 //Once a full window, it will always be a full window, so there's no point
