@@ -6,7 +6,7 @@
 	var/tmp/atom/movable/openspace/multiplier/shadower		// Overlay used to multiply color of all OO overlays at once.
 
 /turf/Entered(atom/movable/thing, turf/oldLoc)
-	. = ..()
+	. = ..(thing, oldLoc)
 	if (thing.bound_overlay || thing.no_z_overlay || !TURF_IS_MIMICING(above))
 		return
 	above.update_mimic()

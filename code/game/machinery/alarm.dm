@@ -37,7 +37,6 @@
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "alarm0"
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 90
 	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
 	power_channel = ENVIRON
@@ -97,8 +96,13 @@
 
 /obj/machinery/alarm/server
 	req_one_access = list(access_rd, access_atmospherics, access_engine_equip)
-	target_temperature = 90
-	desc = "A device that controls the local air regulation machinery. This one is designed for use in server rooms."
+	target_temperature = 80
+	desc = "A device that controls the local air regulation machinery. This one is designed for use in small server rooms."
+	highpower = 1
+
+/obj/machinery/alarm/tcom
+	desc = "A device that controls the local air regulation machinery. This one is designed for use in server halls."
+	req_access = list(access_tcomsat)
 	highpower = 1
 
 /obj/machinery/alarm/freezer
@@ -177,8 +181,8 @@
 		wires = new(src)
 
 	if (highpower)
-		active_power_usage *= 6
-		idle_power_usage *= 3
+		change_power_consumption(active_power_usage * 6, POWER_USE_ACTIVE)
+		change_power_consumption(idle_power_usage * 3, POWER_USE_IDLE)
 
 	// breathable air according to human/Life()
 	TLV[GAS_OXYGEN] =			list(16, 19, 135, 140) // Partial pressure, kpa
@@ -189,7 +193,7 @@
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*0.90,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+40, T0C+66) // K
 
-/obj/machinery/alarm/machinery_process()
+/obj/machinery/alarm/process()
 	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
 		return
 
@@ -235,14 +239,14 @@
 	if (!regulating_temperature)
 		//check for when we should start adjusting temperature
 		if(!get_danger_level(target_temperature, TLV["temperature"]) && abs(environment.temperature - target_temperature) > 2.0)
-			update_use_power(2)
+			update_use_power(POWER_USE_ACTIVE)
 			regulating_temperature = 1
 			visible_message("\The [src] clicks as it starts [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
 			"You hear a click and a faint electronic hum.")
 	else
 		//check for when we should stop adjusting temperature
 		if (get_danger_level(target_temperature, TLV["temperature"]) || abs(environment.temperature - target_temperature) <= 0.5)
-			update_use_power(1)
+			update_use_power(POWER_USE_IDLE)
 			regulating_temperature = 0
 			visible_message("\The [src] clicks quietly as it stops [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
 			"You hear a click as a faint electronic humming stops.")

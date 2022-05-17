@@ -111,6 +111,7 @@
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
 /mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
+	set waitfor = FALSE
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
@@ -326,6 +327,23 @@
 
 	face_atom(A)
 	A.examine(src)
+
+/mob/proc/can_examine()
+	if(client?.eye == src)
+		return TRUE
+	return FALSE
+
+/mob/living/silicon/pai/can_examine()
+	. = ..()
+	if(!.)
+		var/atom/our_holder = recursive_loc_turf_check(src, 5)
+		if(isturf(our_holder.loc)) // Are we folded on the ground?
+			return TRUE
+
+/mob/living/simple_animal/borer/can_examine()
+	. = ..()
+	if(!. && iscarbon(loc) && isturf(loc.loc)) // We're inside someone, let us examine still.
+		return TRUE 
 
 /mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
 
@@ -955,10 +973,10 @@
 	return canmove
 
 
-/mob/proc/facedir(var/ndir)
+/mob/proc/facedir(var/ndir, var/force_change = FALSE)
 	if(!canface() || (client && client.moving))
 		return 0
-	if(facing_dir != ndir)
+	if((facing_dir != ndir) && force_change)
 		facing_dir = null
 	set_dir(ndir)
 	if(buckled_to && buckled_to.buckle_movable)

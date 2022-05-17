@@ -10415,7 +10415,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_storage)
 "asW" = (
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/bridge/aibunker)
@@ -10425,7 +10425,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -10722,7 +10722,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "atC" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -30
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -16261,7 +16261,7 @@
 	pixel_y = -6
 	},
 /turf/simulated/floor/wood,
-/area/medical/patient_a)
+/area/medical/patient_b)
 "aGu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/hologram/holopad,
@@ -17076,7 +17076,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
-/area/medical/patient_a)
+/area/medical/patient_b)
 "aIu" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
@@ -26026,6 +26026,15 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
+"bxJ" = (
+/obj/item/device/radio/intercom{
+	dir = 0;
+	name = "Station Intercom (General)";
+	pixel_x = -27
+	},
+/obj/structure/bed/stool/chair/padded/brown,
+/turf/simulated/floor/wood,
+/area/medical/patient_b)
 "bBR" = (
 /obj/machinery/light/small/emergency,
 /obj/structure/sign/vacuum{
@@ -26293,6 +26302,9 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
+"cdZ" = (
+/turf/simulated/wall,
+/area/medical/patient_b)
 "cev" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/substation/medical_sublevel)
@@ -27752,7 +27764,7 @@
 /area/rnd/test_range)
 "eIl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /turf/simulated/floor/tiled,
 /area/engineering/backup_SMES)
 "eIS" = (
@@ -29328,7 +29340,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/patient_a)
+/area/medical/patient_b)
 "hXj" = (
 /turf/simulated/floor/reinforced/airless,
 /area/security/penal_colony)
@@ -30101,10 +30113,7 @@
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
 "jVc" = (
-/obj/structure/closet{
-	icon_closed = "cabinet_closed";
-	icon_opened = "cabinet_open";
-	icon_state = "cabinet_closed";
+/obj/structure/closet/cabinet{
 	name = "Clothing Storage"
 	},
 /turf/simulated/floor/wood,
@@ -32060,7 +32069,7 @@
 /area/maintenance/medsublevel)
 "nKe" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = 30
 	},
 /obj/item/storage/toolbox/emergency,
@@ -32737,6 +32746,22 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"pzh" = (
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/bed/padded,
+/obj/item/bedsheet/medical,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/medical/patient_b)
 "pzB" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 6
@@ -32804,7 +32829,7 @@
 	specialfunctions = 4
 	},
 /turf/simulated/floor/wood,
-/area/medical/patient_a)
+/area/medical/patient_b)
 "pFa" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/suit_cycler/science,
@@ -33004,6 +33029,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
+"qcS" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/medical/patient_b)
 "qdo" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 9
@@ -33639,6 +33676,9 @@
 /obj/machinery/bluespace_beacon,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
+"rnM" = (
+/turf/simulated/wall/r_wall,
+/area/medical/patient_b)
 "rnV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -34301,6 +34341,11 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"tba" = (
+/obj/structure/closet/secure_closet/personal/patient,
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/wood,
+/area/medical/patient_b)
 "tbe" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -34797,6 +34842,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/medbay4)
+"tYh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/wood,
+/area/medical/patient_b)
 "tZw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -35731,6 +35781,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/isolation_c)
+"vMo" = (
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/wood,
+/area/medical/patient_b)
 "vMS" = (
 /obj/effect/landmark/start{
 	name = "Medical Intern"
@@ -36044,6 +36106,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
+"whf" = (
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/wood,
+/area/medical/patient_b)
 "whA" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -78383,7 +78459,7 @@ aba
 aba
 aba
 aba
-sXz
+rnM
 jXe
 cWC
 unQ
@@ -79671,9 +79747,9 @@ aaa
 sXz
 cHi
 cHi
-aFt
-aFq
-lQi
+cdZ
+tba
+bxJ
 pDN
 hWq
 aJs
@@ -79928,10 +80004,10 @@ aaa
 sXz
 sXz
 mRK
-aFt
-vlf
-aGo
-aHm
+cdZ
+whf
+tYh
+qcS
 aIt
 idF
 aKv
@@ -80185,10 +80261,10 @@ aaa
 aaa
 fvZ
 nJV
-aFt
-aFr
+cdZ
+pzh
 aGs
-qRa
+vMo
 hWq
 aJs
 aKw
@@ -80442,11 +80518,11 @@ aaa
 aaa
 fvZ
 qtU
-aFt
-aFt
-aFt
-aFt
-aFt
+cdZ
+cdZ
+cdZ
+cdZ
+cdZ
 aJw
 wwk
 aLu

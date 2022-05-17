@@ -113,7 +113,7 @@
 
 	SSatoms.InitializeAtoms(atoms) // The atoms should have been getting queued there. This flushes the queue.
 
-	SSmachinery.setup_template_powernets(cables)
+	SSmachinery.setup_powernets_for_cables(cables)
 	SSmachinery.setup_atmos_machinery(atmos_machines)
 	if(notsuspended)
 		SSmachinery.wake()

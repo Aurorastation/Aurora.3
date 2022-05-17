@@ -1,5 +1,5 @@
 /**
- * Tests whether or not all mapped in machinery appear in the SSmachinery.all_machines
+ * Tests whether or not all mapped in machinery appear in the SSmachinery.machinery
  * list after round start.
  *
  * It's not exactly the most robust, but it'll catch basic faults in new machinery
@@ -13,7 +13,7 @@
 	var/list/unfound_types = list()
 
 	for (var/obj/machinery/M in world)
-		if (!SSmachinery.all_machines[M] && !QDELETED(M))
+		if (!LAZYISIN(SSmachinery.machinery, M) && !QDELETED(M))
 			if (!unfound_types[M.type])
 				unfound_types[M.type] = 1
 			else
@@ -24,11 +24,11 @@
 
 	if (unfound_types.len)
 		for (var/t in unfound_types)
-			log_unit_test("[ascii_red]--------------- [unfound_types[t]] instances of [t] not found in SSmachinery.all_machines.")
+			log_unit_test("[ascii_red]--------------- [unfound_types[t]] instances of [t] not found in SSmachinery.machinery.")
 
-		fail("\[[unfound_types.len] / [all_types.len]\] mapped in machinery types were not found in SSmachinery.all_machines.")
+		fail("\[[unfound_types.len] / [all_types.len]\] mapped in machinery types were not found in SSmachinery.machinery.")
 	else
-		pass("All \[[all_types.len]\] mapped in machinery types were found in SSmachinery.all_machines.")
+		pass("All \[[all_types.len]\] mapped in machinery types were found in SSmachinery.machinery.")
 
 	return 1
 

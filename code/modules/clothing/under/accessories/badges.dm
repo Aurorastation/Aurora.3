@@ -212,6 +212,12 @@
 	Republic shops. Go Biesel!"
 	badge_string = "Tau Ceti Foreign Legion Veteran"
 
+/obj/item/clothing/accessory/badge/tcfl_papers/service/reservist
+	name = "\improper TCFL reservist's service card"
+	desc = "A small card identifying one as a current reservist of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+	Republic shops. Go Biesel!"
+	badge_string = "Tau Ceti Foreign Legion Reservist"
+
 /obj/item/clothing/accessory/badge/sheriff
 	name = "sheriff badge"
 	desc = "A star-shaped brass badge denoting who the law is around these parts."
@@ -462,8 +468,7 @@
 /obj/item/clothing/accessory/badge/passcard/konyang
 	name = "konyanger passcard"
 	desc = "A passcard issued to residents of the planet Konyang."
-	desc_fluff = "The 'homeworld' of the human positronic intelligence, life on Konyang is a tightly-knit tapestry of organic-synthetic relations. This is even reflected in their passcards, featuring dried moss \
-	from the planet's farms in the same plastic casing as a small sigil of the Perfection said to grant safe passage abroad for adherents."
+	desc_fluff = "The 'homeworld' of the human positronic intelligence, life on Konyang is a tightly-knit tapestry of organic-synthetic relations. The planet's unique conditions are reflected by a small piece of preserved moss stored in the card's plastic casing."
 	icon_state = "passcard_konyang"
 	item_state = "passcard_konyang"
 

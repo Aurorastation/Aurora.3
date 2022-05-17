@@ -4,7 +4,6 @@
 	icon_state = "protolathe"
 	flags = OPENCONTAINER
 
-	use_power = 1
 	idle_power_usage = 30
 	active_power_usage = 5000
 
@@ -24,7 +23,7 @@
 		/obj/item/reagent_containers/glass/beaker = 2
 	)
 
-/obj/machinery/r_n_d/protolathe/machinery_process()
+/obj/machinery/r_n_d/protolathe/process()
 	..()
 	if(stat)
 		update_icon()
@@ -150,7 +149,7 @@
 	CUT_OVERLAY_IN("protolathe_[stack.default_type]", 10)
 
 	busy = 1
-	use_power(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))
+	use_power_oneoff(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))
 	if(do_after(user, 16))
 		if(stack.use(amount))
 			to_chat(user, "<span class='notice'>You add [amount] sheets to \the [src].</span>")
@@ -194,7 +193,7 @@
 	for(var/M in D.materials)
 		power += round(D.materials[M] / 5)
 	power = max(active_power_usage, power)
-	use_power(power)
+	use_power_oneoff(power)
 	for(var/M in D.materials)
 		materials[M] = max(0, materials[M] - D.materials[M] * mat_efficiency)
 	for(var/C in D.chemicals)

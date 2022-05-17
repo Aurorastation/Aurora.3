@@ -7,7 +7,6 @@
 
 	anchored = 1
 	density = 1
-	use_power = 1
 	idle_power_usage = 40
 
 	icon_state = "bioprinter"

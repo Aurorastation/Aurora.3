@@ -565,6 +565,12 @@
 		'sound/items/wield/generic3.ogg'
 	)
 
+/decl/sound_category/generic_pour_sound
+	sounds = list(
+		'sound/effects/pour1.ogg',
+		'sound/effects/pour2.ogg'
+	)
+
 /decl/sound_category/wield_generic_sound
 	sounds = list(
 		'sound/items/wield/generic1.ogg',
@@ -683,6 +689,22 @@
 	'sound/weapons/laserdeep.ogg',
 	'sound/weapons/laserstrong.ogg'
 )
+
+/decl/sound_category/shaker_shaking
+	sounds = list(
+		'sound/items/shaking1.ogg',
+		'sound/items/shaking2.ogg',
+		'sound/items/shaking3.ogg',
+		'sound/items/shaking4.ogg',
+		'sound/items/shaking5.ogg',
+		'sound/items/shaking6.ogg'
+	)
+
+/decl/sound_category/shaker_lid_off
+	sounds = list(
+		'sound/items/shaker_lid_off1.ogg',
+		'sound/items/shaker_lid_off2.ogg'
+	)
 
 /decl/sound_category/quick_arcade // quick punchy arcade sounds
 	sounds = list(

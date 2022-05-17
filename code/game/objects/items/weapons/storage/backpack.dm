@@ -6,7 +6,7 @@
 /obj/item/storage/backpack
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
-	description_cult = "This can be reforged to become a cult backpack. Any stored items will be transferred."
+	desc_cult = "This can be reforged to become a cult backpack. Any stored items will be transferred."
 	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 		slot_l_hand_str = 'icons/mob/items/storage/lefthand_backpacks.dmi',
 		slot_r_hand_str = 'icons/mob/items/storage/righthand_backpacks.dmi'
@@ -109,7 +109,7 @@
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"
 	desc = "It's useful for both carrying extra gear and proudly declaring your insanity."
-	description_cult = null
+	desc_cult = null
 	icon_state = "cultpack"
 
 /obj/item/storage/backpack/cultpack/adorned
@@ -121,14 +121,6 @@
 	desc = "It's a backpack especially designed for use in a sterile environment."
 	icon_state = "medicalpack"
 	item_state_slots = null
-
-/obj/item/storage/backpack/medic/first_responder
-	name = "first responder backpack"
-	desc = "A bulky easy-clean backpack specially designed to carry a First Responder's equipment."
-	icon = 'icons/clothing/kit/first_responder.dmi'
-	icon_state = "firstresponderbackpack"
-	item_state = "firstresponderbackpack"
-	contained_sprite = TRUE
 
 /obj/item/storage/backpack/security
 	name = "security backpack"
@@ -667,7 +659,7 @@
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
-	hooded = !hooded 
+	hooded = !hooded
 	to_chat(usr, "You [hooded ? "raise" : "lower"] \the [src] hood.")
 	icon_state = "[initial(icon_state)][hooded ? "_up" : ""]"
 	item_state = "icon_state"
@@ -687,7 +679,7 @@
 	icon_state = "medcape"
 	item_state = "medcape"
 
-/obj/item/storage/backpack/cloak/engi 
+/obj/item/storage/backpack/cloak/engi
 	name = "engineering tunnel cloak"
 	desc = "A Vaurca cloak with storage pockets. This one has the engineering department design."
 	icon_state = "engicape"

@@ -1,4 +1,5 @@
 #define RELIGIONS_COALITION list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER, RELIGION_TRINARY)
+#define RELIGIONS_COALITION_ALL list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_MOROZ)
 #define CITIZENSHIPS_COALITION list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 
 /decl/origin_item/culture/coalition
@@ -10,8 +11,10 @@
 		/decl/origin_item/origin/vysoka,
 		/decl/origin_item/origin/coalition_offworlder,
 		/decl/origin_item/origin/gadpathur,
+		/decl/origin_item/origin/gadpathur_exile,
 		/decl/origin_item/origin/assunzione,
-		/decl/origin_item/origin/non_coalition_frontier
+		/decl/origin_item/origin/non_coalition_frontier,
+		/decl/origin_item/origin/other_coalition
 	)
 
 /decl/origin_item/origin/xanu_free_league
@@ -51,9 +54,16 @@
 	possible_citizenships = list(CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER)
 
+/decl/origin_item/origin/gadpathur_exile
+	name = "Gadpathurian Exile"
+	desc = "As an exile from Gadpathur you are, above all other things, a failure. A failure to meet the standards of Gadpathurian society found unworthy of defending it from the Solarian imperialists. You are a weakness that the planet and its people cannot afford to keep around, lest you compromise its defense. Stripped over everything that makes you Gadpathurian and cast aside to the Republic of Biesel or Coalition of Colonies, it is now up to you -- and you alone -- to make something of yourself despite your status as a failure. The one certainty is that your home will not take you back, no matter what you do."
+	possible_accents = list(ACCENT_GADPATHUR)
+	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
+	possible_religions = RELIGIONS_COALITION
+
 /decl/origin_item/origin/assunzione
 	name = "Republic of Assunzione"
-	desc = "One of the most remote planets colonized by humanity, the Republic of Assunzione is widely known for its lack of a functional sun – which burnt out mysteriously shortly after the planet was colonized – and its unusual native faith, Luceism. Luceism itself is an offshoot of traditional Abrahamic faiths and is centered around the worship of Ennoia, an abstract representation of light. Assunzionii society is quite insular and is centered around the planet's faith, with an overwhelming majority of the planet's residents adhering to Luceism."
+	desc = "One of the most remote planets colonized by humanity, the Republic of Assunzione is widely known for its lack of a functional sun - which burnt out mysteriously shortly after the planet was colonized - and its unusual native faith, Luceism. Luceism itself is an offshoot of traditional Abrahamic faiths and is centered around the worship of Ennoia, an abstract representation of light. Assunzionii society is quite insular and is centered around the planet's faith, with an overwhelming majority of the planet's residents adhering to Luceism."
 	important_information = "Assunzione's remote location and urban planning which places a premium on available housing and space has made it unattractive to outsiders as a destination for immigration. Because of this, <b>characters born on Assunzione will have names and appearances consistent with the peoples living on or around the Mediterranean Sea, much like the planet's original colonists.</b> Only native Assunzioniis may take the Assunzionii accent. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_ASSUNZIONE)
 	possible_citizenships = CITIZENSHIPS_COALITION
@@ -66,3 +76,9 @@
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL)
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_LUCEISM, RELIGION_MOROZ, RELIGION_SCARAB)
 
+/decl/origin_item/origin/other_coalition
+	name = "Other Coalition"
+	desc = "The Coalition is home to a multitude of worlds, ranging from prosperous democracies to struggling dictatorships. Nearly anything can be found within its borders, and many of its worlds are only united by their common allegiance to the Coalition."
+	possible_accents = list(ACCENT_COC, ACCENT_NCF)
+	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
+	possible_religions = RELIGIONS_COALITION
