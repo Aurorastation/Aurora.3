@@ -43,7 +43,7 @@ Author: SolusLunes
 License: CC BY 3.0
 Link: https://www.newgrounds.com/audio/listen/74946
 ----------
-File Name: THUNDERDOME.ogg
+File Name: thunderdome.ogg
 Original Title: -Sector11
 Author: MashedByMachines
 License: CC BY-NC-SA 3.0
@@ -68,7 +68,7 @@ Author: Joseph Toscano AKA Zhaytee
 License: CC BY-NC-SA 3.0
 Link: https://bandcamp.zhaytee.net/track/absconditus
 ----------
-File Name: Velvet-Rose.ogg
+File Name: velvet_rose.ogg
 Original Title: Velvet Rose
 Author: Naelynn
 License: CC0 1.0
