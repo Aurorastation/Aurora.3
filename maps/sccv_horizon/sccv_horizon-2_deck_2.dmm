@@ -16457,6 +16457,7 @@
 	c_tag = "Operations - Mail Sorting";
 	dir = 1
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "jih" = (

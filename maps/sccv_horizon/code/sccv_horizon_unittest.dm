@@ -26,6 +26,7 @@
 		,/area/bridge/aibunker
 		,/area/outpost/research/emergency_storage
 		,/area/medical/cryo
+		,/area/medical/surgery
 		,/area/turret_protected/ai
 		,/area/engineering/smes/tesla
 		,/area/tcommsat/mainlvl_tcomms__relay

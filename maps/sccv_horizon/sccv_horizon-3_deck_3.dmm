@@ -20062,10 +20062,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
-	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "Lr" = (
