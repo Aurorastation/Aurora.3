@@ -22,6 +22,8 @@
 	var/bad_airv = 0
 	var/bad_fire = 0
 
+	var/fail_message = ""
+
 	if (!current_map)
 		return
 
@@ -54,14 +56,17 @@
 				bad_fire++
 
 	if(bad_apc)
-		fail("\[[bad_apc]/[area_test_count]\] areas lacked an APC.")
+		fail_message += "\[[bad_apc]/[area_test_count]\] areas lacked an APC.\n"
 	if(bad_airs)
-		fail("\[[bad_airs]/[area_test_count]\] areas lacked an air scrubber.")
+		fail_message += "\[[bad_airs]/[area_test_count]\] areas lacked an air scrubber.\n"
 	if(bad_airv)
-		fail("\[[bad_airv]/[area_test_count]\] areas lacked an air vent.")
+		fail_message += "\[[bad_airv]/[area_test_count]\] areas lacked an air vent.\n"
 	if(bad_fire)
-		fail("\[[bad_fire]/[area_test_count]\] areas lacked a fire alarm.")
-	if(!bad_apc && !bad_airs && !bad_airv && !bad_fire)
+		fail_message += "\[[bad_fire]/[area_test_count]\] areas lacked a fire alarm.\n"
+
+	if(length(fail_message))
+		fail(fail_message)
+	else
 		pass("All \[[area_test_count]\] areas contained APCs, air scrubbers, air vents, and fire alarms.")
 
 	return TRUE
