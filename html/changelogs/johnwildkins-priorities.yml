@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - tweak: "Reduced misc. subsystem and lighting priorities, raised priority of Mob and ZAS/Air subsystems."
