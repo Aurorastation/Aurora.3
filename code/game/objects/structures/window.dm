@@ -52,7 +52,7 @@
 /obj/structure/window/update_icon()
 	queue_smooth(src)
 
-/obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
+/obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, var/message = TRUE)
 	var/initialhealth = health
 
 	if(silicate)
