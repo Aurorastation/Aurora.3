@@ -4102,7 +4102,6 @@
 /area/derelict/hallway/southwest)
 "nE" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
 	name = "kitchen crate";
 	opened = 1
 	},

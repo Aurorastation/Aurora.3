@@ -203,7 +203,11 @@ datum/unit_test/zas_area_test/mining_area
 	for(var/connection_edge/E in SSair.active_edges)
 		var/connection_edge/unsimulated/U = E
 		if(istype(U))
-			log_unit_test("[ascii_red]-------- [U.A.name] and [U.B.name] have mismatched gas mixtures![ascii_reset]")
+			var/turf/T = U.B
+			if(istype(T))
+				log_unit_test("[ascii_red]-------- [U.A.name] and [T.name] ([T.x], [T.y], [T.z]) have mismatched gas mixtures![ascii_reset]")
+			else
+				log_unit_test("[ascii_red]-------- [U.A.name] and [U.B] have mismatched gas mixtures![ascii_reset]")
 		else
 			var/connection_edge/zone/Z = E
 			if(!istype(Z))
