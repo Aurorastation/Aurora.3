@@ -441,14 +441,14 @@
 /area/template_noop)
 "bJ" = (
 /obj/structure/computerframe,
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "bK" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "bL" = (
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "bM" = (
 /obj/structure/table/standard,
@@ -512,16 +512,13 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "bX" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid,
-/area/derelict/hallway/northwest)
-"bY" = (
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "bZ" = (
 /obj/machinery/light{
@@ -584,10 +581,6 @@
 /obj/item/ammo_casing/c45,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
-"cj" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/hallway/northwest)
 "ck" = (
 /obj/machinery/door/airlock/freezer{
 	autoclose = 0;
@@ -632,18 +625,13 @@
 "cr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "cs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/hallway/northwest)
-"ct" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
 "cu" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -654,7 +642,7 @@
 	icon_state = "engineering_door";
 	layer = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
 "cv" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -2676,9 +2664,9 @@
 /turf/template_noop,
 /area/template_noop)
 "jl" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/derelict/hallway/southeast)
+/obj/structure/table/standard,
+/turf/simulated/floor/bluegrid/airless,
+/area/derelict/hallway/northwest)
 "jn" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
@@ -2876,16 +2864,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
-"jW" = (
-/turf/simulated/floor/tiled/white,
-/area/derelict/hallway/southeast)
 "jX" = (
 /obj/machinery/door/airlock/research{
 	id_tag = "researchdoor";
 	name = "Research Division Access";
 	req_access = list(47)
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jY" = (
 /obj/structure/grille,
@@ -3418,7 +3403,7 @@
 	req_access = list(47)
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "lI" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3635,7 +3620,7 @@
 	name = "Research and Development";
 	req_access = list(7)
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "mr" = (
 /obj/structure/grille,
@@ -3779,7 +3764,7 @@
 /obj/structure/door_assembly/door_assembly_med{
 	icon_state = "door_as_gmed0"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "mL" = (
 /obj/machinery/door/airlock/glass_medical{
@@ -4448,7 +4433,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "oH" = (
 /obj/machinery/door/airlock/external,
@@ -4598,7 +4583,7 @@
 /area/derelict/hallway/southeast)
 "pe" = (
 /obj/machinery/vending/medical,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pf" = (
 /obj/item/cane,
@@ -4819,12 +4804,6 @@
 /obj/structure/closet/secure_closet/miner,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
-"pO" = (
-/obj/structure/door_assembly/door_assembly_med{
-	icon_state = "door_as_med0"
-	},
-/turf/simulated/floor/tiled/white,
-/area/derelict/hallway/southeast)
 "pP" = (
 /obj/item/stack/nanopaste,
 /turf/simulated/floor/airless,
@@ -7099,12 +7078,12 @@
 /area/template_noop)
 "wd" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
 "we" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
 "wf" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7345,7 +7324,7 @@
 "wZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
 "yi" = (
 /obj/effect/decal/cleanable/dirt,
@@ -31648,11 +31627,11 @@ ac
 ae
 bK
 bK
-cj
+YY
 cr
-cj
+YY
 bK
-cT
+jl
 ae
 ac
 ae
@@ -31905,11 +31884,11 @@ ac
 ae
 bJ
 bL
-cj
+YY
 cs
-ct
+OM
 bK
-cT
+jl
 ae
 aa
 ae
@@ -32162,11 +32141,11 @@ ac
 ae
 bL
 bL
-cj
-ct
-cj
+YY
+OM
+YY
 bK
-cT
+jl
 ae
 aa
 ae
@@ -32419,9 +32398,9 @@ aa
 ae
 bL
 bX
-bY
-bY
-bY
+vV
+vV
+vV
 bX
 bL
 ae
@@ -45073,8 +45052,8 @@ ac
 aa
 Aa
 ij
-jl
-jl
+BS
+BS
 ij
 pu
 pK
@@ -45330,8 +45309,8 @@ aa
 aa
 Aa
 ij
-jW
-jl
+Aa
+BS
 pj
 ik
 pL
@@ -45588,7 +45567,7 @@ BS
 oc
 ij
 oG
-jl
+BS
 pk
 aa
 ac
@@ -45844,8 +45823,8 @@ nG
 nf
 nq
 ij
-jW
-jW
+Aa
+Aa
 ik
 ac
 ac
@@ -47404,7 +47383,7 @@ ij
 ij
 Aa
 Aa
-pO
+HF
 Aa
 Aa
 sR
