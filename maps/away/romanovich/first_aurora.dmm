@@ -766,7 +766,7 @@
 /area/template_noop)
 "cT" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "cU" = (
 /obj/machinery/light{
@@ -1271,11 +1271,11 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "eF" = (
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/northeast)
 "eG" = (
 /obj/item/stack/rods,
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/northeast)
 "eH" = (
 /obj/item/book/manual/nuclear,
@@ -2663,10 +2663,6 @@
 /obj/item/reagent_containers/spray/cleaner,
 /turf/template_noop,
 /area/template_noop)
-"jl" = (
-/obj/structure/table/standard,
-/turf/simulated/floor/bluegrid/airless,
-/area/derelict/hallway/northwest)
 "jn" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
@@ -31631,7 +31627,7 @@ YY
 cr
 YY
 bK
-jl
+cT
 ae
 ac
 ae
@@ -31888,7 +31884,7 @@ YY
 cs
 OM
 bK
-jl
+cT
 ae
 aa
 ae
@@ -32145,7 +32141,7 @@ YY
 OM
 YY
 bK
-jl
+cT
 ae
 aa
 ae
