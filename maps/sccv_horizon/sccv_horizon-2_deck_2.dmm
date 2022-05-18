@@ -2265,6 +2265,7 @@
 	name = "Powernet Sensor - Master Grid";
 	name_tag = "Master"
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "bdy" = (
@@ -4732,6 +4733,7 @@
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(24)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "cDD" = (
@@ -5797,6 +5799,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
 "dki" = (
@@ -10676,6 +10679,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
+"fYi" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/hallway)
 "fYC" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -11725,6 +11735,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "gyC" = (
@@ -12567,6 +12578,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
+"gVl" = (
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/wood,
+/area/library)
 "gVn" = (
 /turf/simulated/wall,
 /area/horizon/stairwell/central)
@@ -13505,6 +13520,11 @@
 /obj/structure/lattice,
 /turf/simulated/open/airless,
 /area/horizonexterior)
+"hwf" = (
+/obj/structure/bed/stool/padded/red,
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "hww" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -13700,6 +13720,7 @@
 	c_tag = "Engineering - Tesla Room 4";
 	dir = 1
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "hCj" = (
@@ -16293,6 +16314,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "jeb" = (
@@ -16439,6 +16461,7 @@
 	c_tag = "Operations - Mail Sorting";
 	dir = 1
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "jih" = (
@@ -16964,13 +16987,18 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
 	},
-/obj/machinery/light_switch{
-	pixel_x = 25;
-	pixel_y = 5
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/firealarm/east{
+	pixel_x = 29;
+	pixel_y = -5
+	},
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = 24;
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
@@ -18175,6 +18203,7 @@
 	c_tag = "Medical - Main Storage";
 	dir = 8
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "kiK" = (
@@ -24932,6 +24961,7 @@
 /obj/item/roller{
 	pixel_y = 4
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "off" = (
@@ -28696,6 +28726,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/item/storage/box/monkeycubes,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -28917,6 +28948,7 @@
 	c_tag = "Security - Corridor Camera 3";
 	dir = 4
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "qnl" = (
@@ -30549,6 +30581,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/engineering/smes)
 "rgH" = (
@@ -31115,6 +31148,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/engineering/engine_airlock)
 "ruS" = (
@@ -31359,6 +31393,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "rCd" = (
@@ -35163,6 +35198,10 @@
 /obj/item/circuitboard/arcade/battle,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
+"tKs" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/plating,
+/area/engineering/smes/tesla)
 "tKw" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -36381,6 +36420,7 @@
 	c_tag = "Dinner - Kitchen Freezer";
 	dir = 4
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -36755,6 +36795,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "uzL" = (
@@ -37706,6 +37747,7 @@
 	name = "south bump";
 	pixel_y = -24
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/plating,
 /area/tcommsat/mainlvl_tcomms__relay/second)
 "vbk" = (
@@ -42671,6 +42713,7 @@
 /area/maintenance/wing/starboard)
 "xGz" = (
 /obj/machinery/light,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "xGM" = (
@@ -43358,6 +43401,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "xZw" = (
@@ -65274,14 +65318,14 @@ pWx
 oNS
 lnr
 tPJ
-pea
+gVl
 rAn
 xOo
 gFc
 tpc
 mBk
 mBk
-mBk
+hwf
 dvw
 bTM
 lgB
@@ -66843,7 +66887,7 @@ mte
 mte
 cQS
 wfD
-bTg
+tKs
 bTg
 vQl
 hpw
@@ -70300,7 +70344,7 @@ viR
 rbK
 iRq
 wpb
-rnA
+fYi
 kGX
 alr
 cAx
@@ -73330,7 +73374,7 @@ mPn
 rFn
 bDv
 daM
-rnA
+fYi
 wsW
 iwF
 iwF

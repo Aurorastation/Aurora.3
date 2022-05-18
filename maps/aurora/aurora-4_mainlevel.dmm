@@ -4107,6 +4107,7 @@
 /obj/machinery/computer/cryopod/robot{
 	pixel_y = 30
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "ahZ" = (
@@ -6663,6 +6664,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "ank" = (
@@ -6833,6 +6835,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "anE" = (
@@ -16451,6 +16454,7 @@
 "aDi" = (
 /obj/effect/decal/cleanable/cobweb2,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/teleporter)
 "aDj" = (
@@ -16730,6 +16734,7 @@
 /obj/machinery/shower{
 	pixel_y = 15
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/engineering/engine_airlock)
 "aDI" = (
@@ -27228,6 +27233,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/bridge/ailobby)
 "aUO" = (
@@ -30983,6 +30989,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics_cyborgification)
 "bbC" = (
@@ -56196,7 +56203,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
-/area/maintenance/cargo)
+/area/quartermaster/storage)
 "cdC" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
@@ -59361,6 +59368,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"dez" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/plating,
+/area/storage/tech)
 "dfb" = (
 /obj/machinery/light{
 	dir = 8
@@ -60836,6 +60850,7 @@
 	dir = 9
 	},
 /obj/item/wrench,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "fNM" = (
@@ -62345,6 +62360,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
+"ijX" = (
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/wood,
+/area/journalistoffice)
 "ikm" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -63250,6 +63270,15 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
+"kzA" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/landmark/engine_setup/coolant_canister,
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/plating,
+/area/engineering/engine_room)
 "kzE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -63308,6 +63337,10 @@
 	},
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
+"kFz" = (
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/quartermaster/storage)
 "kGv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool,
@@ -68954,6 +68987,9 @@
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
 /obj/structure/table/wood,
+/obj/machinery/firealarm/east{
+	pixel_y = 6
+	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "ulG" = (
@@ -70005,6 +70041,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -70692,6 +70729,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"xin" = (
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/reinforced,
+/area/security/nuke_storage)
 "xjD" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -70888,6 +70929,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"xwD" = (
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/plating,
+/area/engineering/engine_waste)
 "xxd" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
@@ -83315,7 +83360,7 @@ aaa
 ahi
 ahU
 aiP
-ajC
+xwD
 akk
 ajC
 ahi
@@ -84361,7 +84406,7 @@ aBK
 aDF
 anu
 anu
-aDF
+kzA
 azQ
 aMB
 alk
@@ -90799,7 +90844,7 @@ aYc
 aZd
 aVq
 bbq
-bcU
+dez
 ohL
 beA
 bfO
@@ -93951,7 +93996,7 @@ caU
 cbn
 caU
 cct
-caU
+kFz
 cbo
 bZx
 cdT
@@ -110583,7 +110628,7 @@ aCb
 aSJ
 aUr
 aVD
-aRa
+ijX
 aPu
 aZS
 baU
@@ -111595,7 +111640,7 @@ aiO
 aiO
 aiO
 asf
-aoo
+xin
 ayx
 aoo
 avg
