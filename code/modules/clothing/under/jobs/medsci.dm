@@ -151,7 +151,7 @@
 	name = "medical intern's jumpsuit"
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It denotes that the wearer is a medical intern."
 	icon_state = "nt_intern"
-	worn_state = "nt_intern"
+	item_state = "nt_intern"
 
 /obj/item/clothing/under/rank/medical/intern/zeng
 	icon_state = "zeng_intern"
@@ -159,6 +159,7 @@
 
 /obj/item/clothing/under/rank/medical/intern/pmc
 	icon_state = "pmc_intern"
+	item_state = "pmc_intern"
 
 // First Responder
 
