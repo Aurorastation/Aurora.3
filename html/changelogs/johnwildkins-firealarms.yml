@@ -1,7 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Adds missing fire alarms and emergency shutters to several rooms on the Horizon, Aurora, and Runtime."
-  - backend: "Adds a unit test to check that all rooms that should have a fire alarm, do."
