@@ -627,7 +627,7 @@
 	icon_state = "engineering_door";
 	layer = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "cr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2944,11 +2944,6 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southwest)
-"kh" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/derelict/hallway/southeast)
 "ki" = (
 /obj/structure/table/standard,
 /obj/item/device/mass_spectrometer,
@@ -44092,7 +44087,7 @@ aa
 ac
 aa
 ik
-jl
+BS
 aa
 aa
 aa
@@ -44566,9 +44561,9 @@ aa
 BS
 BS
 iv
-kh
-jl
-kh
+yi
+BS
+yi
 iv
 aa
 aa
@@ -45370,7 +45365,7 @@ Aa
 ik
 ik
 aa
-jW
+Aa
 ij
 BS
 BS
@@ -45627,7 +45622,7 @@ iv
 jj
 ac
 aa
-jW
+Aa
 vj
 BS
 BS
@@ -57153,7 +57148,7 @@ aa
 aa
 iu
 iw
-rn
+ik
 aa
 aa
 aa
@@ -57409,7 +57404,7 @@ aa
 aa
 aa
 ni
-rn
+ik
 ij
 aa
 aa
@@ -57924,7 +57919,7 @@ aa
 vo
 iu
 iu
-rn
+ik
 aa
 aa
 aa
