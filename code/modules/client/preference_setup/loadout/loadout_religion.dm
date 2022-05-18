@@ -33,6 +33,10 @@
 	display_name = "rosary"
 	path = /obj/item/clothing/accessory/rosary
 
+/datum/gear/religion/shintorobe
+	display_name = "shrine maiden robe"
+	path = /obj/item/clothing/under/konyangdresstraditional/red
+
 /datum/gear/religion/kippah
 	display_name = "kippah"
 	description = "A head covering commonly worn by those of Jewish faith."

@@ -42,7 +42,7 @@
 
 /datum/bounty/item/engineer/fuel_tank
 	name = "Fuel Tank"
-	description = "After some observations of the Aurora, we think it's best if you send us a few of those fuel tanks so nobody hurts themselves."
+	description = "After observing your engineering staff, we think it's best if you send us a few of those fuel tanks so nobody hurts themselves."
 	reward_low = 2500
 	reward_high = 3500
 	required_count = 4

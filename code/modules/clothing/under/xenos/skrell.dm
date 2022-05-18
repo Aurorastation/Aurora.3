@@ -142,7 +142,7 @@
 	icon_state = "oqi_cargo"
 
 /obj/item/clothing/under/skrell/jargon/oqi/med
-	name = "Ix healthcare uniform"
+	name = "Oqi healthcare uniform"
 	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in the healthcare industry."
 	item_state = "oqi_med"
 	icon_state = "oqi_med"

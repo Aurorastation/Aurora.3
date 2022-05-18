@@ -19,15 +19,14 @@
 	var/update_locked = 0
 
 /obj/machinery/power/breakerbox/Initialize()
-	LAZYADD(SSpower.breaker_boxes, src)
+	LAZYADD(SSmachinery.breaker_boxes, src)
 	return ..()
 
 /obj/machinery/power/breakerbox/update_icon()
 	icon_state = "bbox_[on ? "on" : "off"]"
 
 /obj/machinery/power/breakerbox/Destroy()
-	LAZYREMOVE(SSpower.breaker_boxes, src)
-	SSmachinery.queue_rcon_update()
+	LAZYREMOVE(SSmachinery.breaker_boxes, src)
 	return ..()
 
 /obj/machinery/power/breakerbox/activated
@@ -99,7 +98,6 @@
 		if(newtag)
 			RCon_tag = newtag
 			to_chat(user, SPAN_NOTICE("You changed the RCON tag to: [newtag]"))
-			SSmachinery.queue_rcon_update()
 
 /obj/machinery/power/breakerbox/proc/set_state(var/state)
 	on = state

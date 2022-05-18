@@ -217,7 +217,7 @@
 	icon_state = "victorygin"
 	center_of_mass = list("x"=16, "y"=4)
 	desc_fluff = "Considered the official drink of the People's Republic of Adhomai, Victory Gin was created to celebrate the end of the revolution. It is commonly found in NanoTrasen's \
-	stations, due to a contract that allows the government to supply the corporation, and in the Tajaran communities of Tau Ceti. The destruction of Victory Gin's bottles and reserves \
+	facilities, due to a contract that allows the government to supply the corporation, and in the Tajaran communities of Tau Ceti. The destruction of Victory Gin's bottles and reserves \
 	was widespread when Republican positions and cities were taken by the opposition as the drink is deemed by many as a symbol of the Hadiist regime."
 	reagents_to_add = list(/decl/reagent/alcohol/victorygin = 100)
 

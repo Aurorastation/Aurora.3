@@ -16,13 +16,12 @@
 	anchored = 1.0
 	circuit = /obj/item/circuitboard/powermonitor
 	var/alerting = 0
-	use_power = 1
 	idle_power_usage = 300
 	active_power_usage = 300
 	var/datum/nano_module/power_monitor/power_monitor
 
 // Checks the sensors for alerts. If change (alerts cleared or detected) occurs, calls for icon update.
-/obj/machinery/computer/power_monitor/machinery_process()
+/obj/machinery/computer/power_monitor/process()
 	var/alert = check_warnings()
 	if(alert != alerting)
 		alerting = !alerting

@@ -185,7 +185,7 @@ var/global/dmm_suite/preloader/_preloader = new
 				for(var/t in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
 					var/turf/T = t
 					//we do this after we load everything in. if we don't; we'll have weird atmos bugs regarding atmos adjacent turfs
-					T.post_change(TRUE)
+					T.post_change(FALSE)
 		var/datum/map_load_metadata/M = new
 		M.bounds = bounds
 		M.atoms_to_initialise = atoms_to_initialise
