@@ -520,9 +520,6 @@
 	},
 /turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
-"bY" = (
-/turf/simulated/floor/tiled,
-/area/derelict/hallway/northwest)
 "bZ" = (
 /obj/machinery/light{
 	dir = 8
@@ -583,10 +580,6 @@
 "ci" = (
 /obj/item/ammo_casing/c45,
 /turf/simulated/floor/tiled/airless,
-/area/derelict/hallway/northeast)
-"cj" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
 /area/derelict/hallway/northeast)
 "ck" = (
 /obj/machinery/door/airlock/freezer{
@@ -2867,11 +2860,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
-"jW" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/derelict/hallway/northeast)
 "jX" = (
 /obj/machinery/door/airlock/research{
 	id_tag = "researchdoor";
@@ -2937,9 +2925,6 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southwest)
-"kh" = (
-/turf/simulated/floor/tiled,
-/area/derelict/hallway/northeast)
 "ki" = (
 /obj/structure/table/standard,
 /obj/item/device/mass_spectrometer,
@@ -33447,7 +33432,7 @@ dh
 aH
 aH
 av
-bY
+ax
 ax
 aa
 aa
@@ -40142,7 +40127,7 @@ bn
 bn
 fg
 fr
-cj
+bC
 bb
 gj
 gA
@@ -40419,7 +40404,7 @@ aa
 ad
 ik
 iu
-pp
+iu
 in
 ji
 aa
@@ -40913,7 +40898,7 @@ bb
 dB
 bC
 fs
-jW
+bR
 bC
 fX
 bC
@@ -42972,7 +42957,7 @@ ac
 aa
 aa
 bk
-kh
+bk
 bk
 bk
 bR
@@ -45049,7 +45034,7 @@ iu
 ij
 jq
 jr
-pp
+jr
 kH
 jr
 jr
