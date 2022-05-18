@@ -4,20 +4,26 @@
 /area/space)
 "b" = (
 /turf/simulated/wall,
-/area/tdome/tdome1)
+/area/space)
 "c" = (
 /turf/simulated/floor/tiled,
-/area/tdome/tdome1)
+/area/space)
 "d" = (
 /mob/living/simple_animal/schlorrgo,
 /turf/simulated/floor/tiled,
-/area/tdome/tdome1)
+/area/space)
 "e" = (
 /obj/effect/landmark/start{
 	name = "JoinLate"
 	},
 /turf/simulated/floor/tiled,
-/area/tdome/tdome1)
+/area/space)
+"V" = (
+/obj/effect/landmark{
+	name = "tdome1"
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 
 (1,1,1) = {"
 a
@@ -81,7 +87,7 @@ a
 "}
 (6,1,1) = {"
 b
-c
+V
 c
 c
 e
@@ -93,7 +99,7 @@ a
 "}
 (7,1,1) = {"
 b
-c
+V
 c
 c
 c
@@ -105,7 +111,7 @@ a
 "}
 (8,1,1) = {"
 b
-c
+V
 d
 c
 c
@@ -117,7 +123,7 @@ a
 "}
 (9,1,1) = {"
 b
-c
+V
 c
 c
 c

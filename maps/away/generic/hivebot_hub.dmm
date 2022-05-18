@@ -259,18 +259,10 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "aB" = (
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/tiled/airless,
 /area/derelict)
 "aC" = (
 /obj/structure/table/rack,
@@ -388,12 +380,6 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "aM" = (
@@ -438,14 +424,6 @@
 /area/derelict)
 "aS" = (
 /obj/random/projectile,
-/turf/simulated/floor/airless,
-/area/derelict)
-"aT" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/airless,
 /area/derelict)
 "aU" = (
@@ -572,50 +550,17 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
 /area/derelict)
-"bm" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/airless,
-/area/derelict)
-"bn" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless,
-/area/derelict)
 "bo" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/table/rack,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /turf/simulated/floor/airless,
 /area/derelict)
-"bp" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/wall,
-/area/derelict)
 "bq" = (
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
 	},
 /obj/machinery/power/apc{
 	dir = 8;
@@ -927,18 +872,8 @@
 /area/derelict)
 "ch" = (
 /obj/structure/table/standard,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /obj/machinery/light{
 	dir = 1
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
@@ -1457,39 +1392,13 @@
 /obj/machinery/door/airlock{
 	name = "Bunk room"
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
-"ec" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
 "ed" = (
 /obj/structure/closet/emcloset,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "ee" = (
@@ -32837,9 +32746,9 @@ aa
 aa
 aa
 av
-aB
-aT
-bm
+ap
+ap
+ap
 ap
 ap
 ap
@@ -33096,7 +33005,7 @@ aa
 av
 ap
 ap
-bn
+ap
 ap
 bH
 bQ
@@ -33610,7 +33519,7 @@ aa
 av
 aD
 aD
-bp
+aD
 aD
 ad
 aD
@@ -35168,7 +35077,7 @@ aM
 aM
 aM
 bV
-aI
+aB
 aM
 aM
 bh
@@ -35682,7 +35591,7 @@ du
 aM
 bJ
 dN
-ec
+cX
 er
 aM
 bJ
