@@ -10,6 +10,7 @@ fi
 cd $1
 
 ERROR_COUNT=0
+TGM_CHECK=$(echo $TGM_CHECK)
 echo "Starting Code Check" > code_error.log
 
 echo "Checking for unscoped style tags in VueUI views:" >> code_error.log
@@ -35,7 +36,6 @@ MAP_ERROR_COUNT=0
 while read p; do if [[ "$(sed -n 1p "$p")" != "$TGM_CHECK" ]]; then MAP_ERROR_COUNT=$(($MAP_ERROR_COUNT+1)) && echo "FAIL: Found non-TGM mapfile in $p" >> code_error.log; fi;done <<< "$(find maps -name \*.dmm -type f)"
 if [ $MAP_ERROR_COUNT -ne 0 ]; then
     ERROR_COUNT=$(($ERROR_COUNT+1))
-    echo "FAIL: Non-TGM maps located in maps/" >> code_error.log
 else
     echo "PASS: All maps in maps/ are TGM format!" >> code_error.log
 fi
