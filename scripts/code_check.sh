@@ -32,7 +32,7 @@ fi
 
 echo "Checking for non-TGM map files:" >> code_error.log
 MAP_ERROR_COUNT=0
-while read p; do if [[ "$TGM_CHECK" == *"$(sed -n 1p "$p")"* ]]; then MAP_ERROR_COUNT=$(($MAP_ERROR_COUNT+1)) && echo "FAIL: Found non-TGM mapfile in $p" >> code_error.log; fi;done <<< "$(find maps -name \*.dmm -type f)"
+while read p; do if [[ "$TGM_CHECK" != *"$(sed -n 1p "$p")"* ]]; then MAP_ERROR_COUNT=$(($MAP_ERROR_COUNT+1)) && echo "FAIL: Found non-TGM mapfile in $p" >> code_error.log; fi;done <<< "$(find maps -name \*.dmm -type f)"
 if [ $MAP_ERROR_COUNT -ne 0 ]; then
     ERROR_COUNT=$(($ERROR_COUNT+1))
 else
