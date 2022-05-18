@@ -133,13 +133,13 @@
 
 /obj/structure/window/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
 			return
-		if(2.0)
+		if(2)
 			shatter(0)
 			return
-		if(3.0)
+		if(3)
 			if(prob(50))
 				shatter(0)
 				return
@@ -373,18 +373,18 @@
 	basestate = "window"
 	glasstype = /obj/item/stack/material/glass
 	maximal_heat = T0C + 100
-	damage_per_fire_tick = 2.0
-	maxhealth = 12.0
+	damage_per_fire_tick = 2
+	maxhealth = 12
 
 /obj/structure/window/reinforced
 	name = "reinforced window pane"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "rwindow"
 	basestate = "rwindow"
-	maxhealth = 40.0
+	maxhealth = 40
 	reinf = TRUE
 	maximal_heat = T0C + 750
-	damage_per_fire_tick = 2.0
+	damage_per_fire_tick = 2
 	glasstype = /obj/item/stack/material/glass/reinforced
 
 /obj/structure/window/reinforced/full
@@ -410,7 +410,7 @@
 /obj/structure/window/reinforced/crescent/attackby()
 	return
 
-/obj/structure/window/reinforced/crescent/ex_act(var/severity = 2.0)
+/obj/structure/window/reinforced/crescent/ex_act(var/severity = 2)
 	return
 
 /obj/structure/window/reinforced/crescent/hitby()
@@ -463,8 +463,8 @@
 	shardtype = /obj/item/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronglass
 	maximal_heat = T0C + 2000
-	damage_per_fire_tick = 1.0
-	maxhealth = 40.0
+	damage_per_fire_tick = 1
+	maxhealth = 40
 
 /obj/structure/window/phoronreinforced
 	name = "reinforced borosilicate window pane"
@@ -475,8 +475,8 @@
 	glasstype = /obj/item/stack/material/glass/phoronrglass
 	reinf = TRUE
 	maximal_heat = T0C + 4000
-	damage_per_fire_tick = 1.0 // This should last for 80 fire ticks if the window is not damaged at all. The idea is that borosilicate windows have something like ablative layer that protects them for a while.
-	maxhealth = 80.0
+	damage_per_fire_tick = 1 // This should last for 80 fire ticks if the window is not damaged at all. The idea is that borosilicate windows have something like ablative layer that protects them for a while.
+	maxhealth = 80
 
 /obj/structure/window/phoronreinforced/skrell
 	name = "advanced borosilicate alloy window"
@@ -772,7 +772,7 @@
 /obj/structure/window/full/reinforced/indestructible/attackby()
 	return
 
-/obj/structure/window/full/reinforced/indestructible/ex_act(var/severity = 2.0)
+/obj/structure/window/full/reinforced/indestructible/ex_act(var/severity = 2)
 	return
 
 /obj/structure/window/full/reinforced/indestructible/hitby()
@@ -805,7 +805,7 @@
 /obj/structure/window/full/reinforced/polarized/indestructible/attackby()
 	return
 
-/obj/structure/window/full/reinforced/polarized/indestructible/ex_act(var/severity = 2.0)
+/obj/structure/window/full/reinforced/polarized/indestructible/ex_act(var/severity = 2)
 	return
 
 /obj/structure/window/full/reinforced/polarized/indestructible/hitby()
