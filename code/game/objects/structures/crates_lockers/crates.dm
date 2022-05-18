@@ -540,6 +540,7 @@
 	)
 
 	var/list/crates_to_use = typesof(/obj/structure/closet/crate) - typesof(/obj/structure/closet/crate/secure/gear_loadout)
+	crates_to_use -= /obj/structure/closet/crate/loot
 	var/icontype = pick(crates_to_use)
 	var/obj/structure/closet/crate/C = new icontype(get_turf(src), TRUE) //TRUE as we do not want the crate to fill(), we will fill it ourselves. 
 

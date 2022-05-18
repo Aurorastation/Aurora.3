@@ -304,7 +304,7 @@
 /obj/structure/disposaloutlet{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space_bar)
 "ble" = (
 /obj/structure/closet/lawcloset,
@@ -863,7 +863,7 @@
 /area/space_bar)
 "muk" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space_bar)
 "mEc" = (
 /obj/machinery/light{
@@ -1246,7 +1246,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space_bar)
 "vxN" = (
 /obj/structure/urinal{

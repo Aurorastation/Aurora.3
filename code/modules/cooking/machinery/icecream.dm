@@ -11,7 +11,7 @@
 
 /obj/machinery/icecream_vat
 	name = "icecream vat"
-	desc = "Ding-aling ding dong. Get your NanoTrasen-approved ice cream!"
+	desc = "Ding-aling ding dong. Get your SCC-approved ice cream!"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "icecream_vat"
 	density = 1

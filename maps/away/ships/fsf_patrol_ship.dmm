@@ -1195,7 +1195,7 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
-/obj/item/clothing/under/rank/medical/blue,
+/obj/item/clothing/under/rank/medical,
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical/w,
 /obj/machinery/light{

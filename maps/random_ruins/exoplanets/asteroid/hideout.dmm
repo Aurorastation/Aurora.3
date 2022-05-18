@@ -116,7 +116,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "jJ" = (
 /obj/structure/table/rack,
@@ -294,7 +294,7 @@
 /obj/machinery/atmospherics/valve{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "CB" = (
 /obj/structure/table/wood,
@@ -409,7 +409,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "MX" = (
 /obj/random/firstaid,
@@ -497,7 +497,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "Xa" = (
 /turf/simulated/floor/tiled/asteroid/airless,

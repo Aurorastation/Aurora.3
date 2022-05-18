@@ -2471,26 +2471,20 @@
 /turf/template_noop,
 /area/template_noop)
 "aig" = (
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "aih" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "aii" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
 /turf/space/transit/south,
 /area/template_noop)
-"aij" = (
-/obj/random/junk,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle,
-/area/template_noop)
 "aik" = (
 /obj/structure/grille,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "ain" = (
 /obj/item/stack/material/cyborg/steel,
@@ -2504,7 +2498,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "ait" = (
 /obj/structure/lattice,
@@ -2558,7 +2552,7 @@
 "aiO" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "aiQ" = (
 /turf/unsimulated/wall/steel,
@@ -2577,7 +2571,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "aiY" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
@@ -2597,7 +2591,7 @@
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "ajm" = (
 /obj/effect/decal/fake_object{
@@ -2629,11 +2623,6 @@
 "ajz" = (
 /obj/effect/shuttle_landmark/escape_pod/transit/pod3,
 /turf/space/transit/south,
-/area/template_noop)
-"ajH" = (
-/obj/random/junk,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
 /area/template_noop)
 "ajI" = (
 /obj/effect/shuttle_landmark/escape_pod/out/pod3,
@@ -2713,7 +2702,7 @@
 	name = "Recovery Shuttle Dock";
 	req_access = list(13)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "akz" = (
 /obj/structure/sign/securearea{
@@ -2980,7 +2969,7 @@
 "alP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "alR" = (
 /obj/effect/shuttle_landmark/escape_pod/out/pod1,
@@ -2990,7 +2979,7 @@
 /obj/structure/window/shuttle,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "alU" = (
 /obj/structure/bed/stool/chair{
@@ -2998,7 +2987,7 @@
 	},
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "alV" = (
 /obj/structure/lattice/catwalk/indoor/grate/light/old{
@@ -3014,7 +3003,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/rat,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "amg" = (
 /obj/machinery/door/airlock/external{
@@ -3025,18 +3014,7 @@
 	name = "Escape Pod Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/floor/shuttle,
-/area/template_noop)
-"amh" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = null;
-	locked = 1;
-	name = "Escape Pod Hatch";
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "amk" = (
 /obj/structure/shuttle_part/hapt{
@@ -3340,7 +3318,7 @@
 	name = "Recovery Shuttle Dock";
 	req_access = list(13)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "aog" = (
 /obj/structure/shuttle_part/raider{
@@ -3504,7 +3482,7 @@
 	name = "Recovery Shuttle Dock";
 	req_access = list(13)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "aoU" = (
 /obj/structure/shuttle_part/raider{
@@ -11622,7 +11600,6 @@
 /obj/item/clothing/head/softcap/pmc,
 /obj/item/clothing/head/softcap/pmc,
 /obj/item/clothing/head/softcap/pmc,
- /obj/item/clothing/head/beret/corporate/pmc,
 /obj/item/clothing/under/rank/security/zavod,
 /obj/item/clothing/under/rank/security/zavod,
 /obj/item/clothing/under/rank/security/zavod,
@@ -45301,7 +45278,7 @@ ahV
 ahV
 aiO
 aiV
-aij
+ajf
 aig
 aaM
 aaM
@@ -49155,7 +49132,7 @@ aih
 aaM
 aio
 aaM
-ajH
+aiO
 ait
 aaM
 ain
@@ -49665,7 +49642,7 @@ aaM
 aaM
 aaM
 ahT
-aij
+ajf
 aip
 aaM
 aaM
@@ -51475,7 +51452,7 @@ aaM
 aaM
 aaM
 akr
-amh
+amg
 akr
 aaM
 ahV

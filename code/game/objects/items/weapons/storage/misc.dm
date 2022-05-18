@@ -172,7 +172,10 @@
 	use_sound = 'sound/items/storage/box.ogg'
 
 /obj/item/storage/box/fancy/chewables/tobacco/update_icon()
-	icon_state = "[initial(icon_state)][contents.len]"
+	if(opened) //use the open icon.
+		icon_state = "[initial(icon_state)][contents.len]"
+	else
+		icon_state = "[initial(icon_state)]" // closed
 
 //loose leaf
 
@@ -211,4 +214,3 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/pure = 8)
 	icon_state = "roll_nico"
 	item_state = "Epacket"
-
