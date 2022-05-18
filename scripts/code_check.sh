@@ -31,7 +31,8 @@ fi
 
 echo "Checking for non-TGM map files:" >> code_error.log
 MAP_ERROR_COUNT=0
-find maps -name \*.dmm -type f | while read p; do if [ "$(sed -n 1p "$p")" != "$TGM_CHECK" ]; then MAP_ERROR_COUNT=$(($MAP_ERROR_COUNT+1)) && echo "FAIL: Found non-TGM mapfile in $p, $MAP_ERROR_COUNT" >> code_error.log; fi;done
+find maps -name \*.dmm -type f | while read p; do if [ "$(sed -n 1p "$p")" != "$TGM_CHECK" ]; then MAP_ERROR_COUNT=$(($MAP_ERROR_COUNT+1)) && echo "FAIL: Found non-TGM mapfile in $p" >> code_error.log; fi;done
+echo $MAP_ERROR_COUNT
 if [ $MAP_ERROR_COUNT -ne 0 ]; then
     ERROR_COUNT=$(($ERROR_COUNT+1))
     echo "FAIL: Non-TGM maps located in maps/" >> code_error.log
@@ -102,7 +103,7 @@ else
     echo "PASS: Did not find edge = 0/1 in code:" >> code_error.log
 fi
 
-echo "Found $ERROR_COUNT Errors while performing code check"
+echo "Found $ERROR_COUNT errors while performing code check"
 
 if [ $ERROR_COUNT -ne 0 ]; then
     cat code_error.log
