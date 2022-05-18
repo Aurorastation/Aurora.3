@@ -36,6 +36,7 @@
 	var/boss_short    = "Cap'"
 	var/company_name  = "BadMan"
 	var/company_short = "BM"
+	var/station_type  = "station"
 
 	var/command_spawn_enabled = FALSE
 	var/command_spawn_message = "Someone didn't fill this in."

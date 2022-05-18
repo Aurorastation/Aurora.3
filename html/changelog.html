@@ -35,6 +35,50 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">18 May 2022</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Machinist can now use the airlocks south west of their workshop.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Adds missing fire alarms and emergency shutters to several rooms on the Horizon, Aurora, and Runtime.</li>
+				<li class="backend">Adds a unit test to check that all rooms that should have a fire alarm, do.</li>
+			</ul>
+
+			<h2 class="date">17 May 2022</h2>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Reduced misc. subsystem and lighting priorities, raised priority of Mob and ZAS/Air subsystems.</li>
+				<li class="tweak">Replace references to the NSS Aurora with dynamic references to the current map, where possible.</li>
+				<li class="tweak">Replaced some references to NanoTrasen with the SCC, where appropriate.</li>
+				<li class="tweak">Removed several visible_messages for objects being damaged in explosions, deferred powernet regeneration until after explosions completed. Explosions should now process significantly faster.</li>
+				<li class="bugfix">Cables, pipes, and other objects hidden beneath floor tiles should no longer be damaged by explosions, unless the tile itself is blown off first.</li>
+				<li class="bugfix">Map-loading will no longer queue every turf for smoothing several times, which should slightly decrease mapgen load.</li>
+				<li class="bugfix">Fixed several areas meant to be airless containing atmos tiles, causing roundstart atmospherics processing which may have caused roundstart lag.</li>
+				<li class="rscadd">Added a unit test to catch atmos zone mismatches.</li>
+			</ul>
+			<h3 class="author">Llywelwyn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added two decks of Skrellian tarot cards to the loadout, selectable by Skrell and Diona.</li>
+			</ul>
+			<h3 class="author">Llywelwyn, RyverStyx updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the &#x27;adjust-headtails&#x27; verb to Skrell, found in the IC tab.</li>
+				<li class="rscadd">Added the following body markings to Skrell: gills, beakmouth, tearstains, and dart frog markings.</li>
+				<li class="rscadd">Added the following hairstyles to Skrell: emo for regular and long headtails, behind for long headtails, and expressive headtails.</li>
+				<li class="tweak">Tweaked the order of headtail styles in the hair selection menu for better organisation. They&#x27;re now organised by general length for ease when adjusting style.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Wardens have their peaked cap again.</li>
+			</ul>
+			<h3 class="author">WowzewoW (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed terminal sprites.</li>
+				<li class="imageadd">Ringer has a new sprite.</li>
+			</ul>
+
 			<h2 class="date">16 May 2022</h2>
 			<h3 class="author">Ben10083 updated:</h3>
 			<ul class="changes bgimages16">
@@ -84,6 +128,7 @@
 			<h3 class="author">WowzewoW (Wezzy) updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">Fixes invisible hairnets, sword sheathes, CMO uniform, XO uniform, Bridge Crew uniform, OM uniform, and a stray pixel on the DPRA cigarette packet.</li>
+				<li class="bugfix">Fixes Nico-Tine box sprite being unable to open and close.</li>
 			</ul>
 
 			<h2 class="date">15 May 2022</h2>

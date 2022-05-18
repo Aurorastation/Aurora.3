@@ -5931,7 +5931,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
 	req_access = null;
-	req_one_access = list(26, 31, 48, 67)
+	req_one_access = list(26, 31, 48, 67, 29)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "hangarlockdown";
@@ -7223,6 +7223,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/purple{
 	dir = 1
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "fKk" = (
@@ -7593,7 +7594,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
 	req_access = null;
-	req_one_access = list(26, 31, 48, 67)
+	req_one_access = list(26, 31, 48, 67, 29)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "hangarlockdown";
@@ -8039,6 +8040,7 @@
 	c_tag = "Security - First Deck Checkpoin";
 	dir = 4
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "gnn" = (
@@ -13464,7 +13466,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
 	req_access = null;
-	req_one_access = list(26, 31, 48, 67)
+	req_one_access = list(26, 31, 48, 67, 29)
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -23983,6 +23985,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/tcommsat/mainlvl_tcomms__relay)
 "tHv" = (
