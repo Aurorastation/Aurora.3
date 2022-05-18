@@ -993,8 +993,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/sfa_patrol_ship)
 "hjW" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/sfa_shuttle)
 "hsz" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
@@ -1599,10 +1599,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/sfa_patrol_ship)
-"lNz" = (
-/obj/structure/window/full,
-/turf/simulated/floor,
-/area/shuttle/sfa_patrol_ship)
 "lOH" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
@@ -1970,9 +1966,8 @@
 /turf/simulated/floor,
 /area/shuttle/sfa_patrol_ship)
 "pBY" = (
-/obj/structure/window/full,
-/obj/structure/window/full,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/sfa_patrol_ship)
 "pPS" = (
 /obj/machinery/vending/wallmed1{
@@ -2098,10 +2093,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/sfa_patrol_ship)
-"qyG" = (
-/obj/structure/window/full,
-/turf/simulated/floor/plating,
 /area/shuttle/sfa_patrol_ship)
 "qBC" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -2316,8 +2307,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/sfa_patrol_ship)
 "tvp" = (
-/obj/structure/window/full,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/sfa_patrol_ship)
 "txi" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -30724,9 +30715,9 @@ yjk
 yjk
 yjk
 yjk
-lNz
-lNz
-lNz
+pBY
+pBY
+pBY
 pBY
 xRX
 xRX
@@ -30984,7 +30975,7 @@ bgD
 kMV
 hBs
 ftq
-lNz
+pBY
 xRX
 xRX
 xRX
@@ -31241,7 +31232,7 @@ bFk
 obG
 sfM
 kmF
-lNz
+pBY
 xRX
 xRX
 xRX
@@ -31497,8 +31488,8 @@ sBA
 cdD
 kMV
 ygO
-lNz
-lNz
+pBY
+pBY
 xRX
 xRX
 xRX
@@ -31753,8 +31744,8 @@ sBA
 sBA
 bfg
 ldz
-lNz
-lNz
+pBY
+pBY
 xRX
 xRX
 xRX
@@ -32009,8 +32000,8 @@ qgw
 yjk
 yjk
 yjk
-lNz
-lNz
+pBY
+pBY
 xRX
 xRX
 xRX
@@ -37663,10 +37654,10 @@ loX
 yjk
 yjk
 yjk
-lNz
-lNz
-lNz
-lNz
+pBY
+pBY
+pBY
+pBY
 xRX
 xRX
 xRX
@@ -38935,10 +38926,10 @@ yjk
 yjk
 yjk
 yjk
-qyG
+pBY
 rzy
 taq
-qyG
+pBY
 yjk
 yjk
 yjk
@@ -38948,10 +38939,10 @@ yjk
 yjk
 yjk
 yjk
-lNz
-lNz
-lNz
-lNz
+pBY
+pBY
+pBY
+pBY
 xRX
 xRX
 xRX
@@ -39192,10 +39183,10 @@ xRX
 xRX
 xRX
 xRX
-qyG
+pBY
 iiZ
 jFZ
-qyG
+pBY
 xRX
 xRX
 xRX
@@ -39449,10 +39440,10 @@ xRX
 xRX
 xRX
 xRX
-tvp
+pBY
 ikP
 mkb
-qyG
+pBY
 xRX
 xRX
 xRX
@@ -39706,10 +39697,10 @@ xRX
 xRX
 xRX
 xRX
-qyG
+pBY
 ilo
 ilo
-qyG
+pBY
 xRX
 xRX
 xRX
