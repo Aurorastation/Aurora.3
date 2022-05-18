@@ -248,6 +248,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		C.attempt_hook_up(src)
 	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
 		H.attempt_hook_up(src)
+	for(var/obj/machinery/telecomms/T in telecomms_list)
+		T.attempt_hook_up(src)
 	for(var/datum/ship_engine/E in ship_engines)
 		if(check_ownership(E.holder))
 			engines |= E

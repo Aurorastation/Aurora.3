@@ -256,13 +256,13 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
 	var/datum/radio_frequency/connection = null
 	if(channel && channels && channels.len > 0)
-		if(channel == "department" || channel == "Ship") //Ship channel acts like department for away ships. 
+		if(channel == "department")
 			for(var/freq in channels)
 				if(freq == "Common" || freq == "Entertainment")
 					continue
 				channel = freq
 				break
-			if(channel == "department" || channel == "Ship") // didn't find one, use first one
+			if(channel == "department") // didn't find one, use first one
 				channel = channels[1]
 		connection = secure_radio_connections[channel]
 	else
@@ -359,6 +359,12 @@ var/global/list/default_medbay_channels = list(
 
 	var/turf/position = get_turf(src)
 
+	var/obj/effect/overmap/visitable/ship/sector
+	if(current_map.use_overmap)
+		var/my_sector = map_sectors["[position.z]"]
+		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
+			sector = my_sector
+
 	//#### Tagging the signal with all appropriate identity values ####//
 
 	// ||-- The mob's name identity --||
@@ -446,7 +452,8 @@ var/global/list/default_medbay_channels = list(
 			"reject" = 0,	// if nonzero, the signal will not be accepted by any broadcasting machinery
 			"level" = position.z, // The source's z level
 			"language" = speaking,
-			"verb" = verb
+			"verb" = verb,
+			"sector" = sector
 		)
 		signal.frequency = connection.frequency // Quick frequency set
 
@@ -508,7 +515,8 @@ var/global/list/default_medbay_channels = list(
 		"reject" = 0,
 		"level" = position.z,
 		"language" = speaking,
-		"verb" = verb
+		"verb" = verb,
+		"sector" = sector
 	)
 	signal.frequency = connection.frequency // Quick frequency set
 

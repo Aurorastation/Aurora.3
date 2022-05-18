@@ -56,18 +56,6 @@
 		mname = "[mname][mob_name_suffix]"
 	return mname
 
-/datum/ghostspawner/human/proc/set_headset_channel(var/mob/living/carbon/human/H)
-	if(H.get_radio())
-		var/obj/item/device/radio/R = H.get_radio()
-		var/obj/machinery/telecomms/allinone/tcomms = awaysite_tcomms[template_id]
-		if(istype(tcomms))
-			var/list/channels = list()
-			for(var/freq in tcomm.listening_freqs)
-				if(freq == "Common" || freq == "Entertainment")
-					continue
-				channels += freq
-			R.recalculateChannels(TRUE, channels)
-
 //The proc to actually spawn in the user
 /datum/ghostspawner/human/spawn_mob(mob/user)
 	//Select a spawnpoint (if available)

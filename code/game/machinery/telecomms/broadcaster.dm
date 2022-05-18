@@ -120,18 +120,24 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	machinetype = 6
 	produces_heat = 0
 	var/intercept = 0 // if nonzero, broadcasts all messages to syndicate channel
+	var/list/broadcast_zlevels = list() //The zlevels we should broadcast to. By default, only does its own. Set more here.
+
 	var/list/listening_freqs = list()
-	var/channel_color
-	var/channel_name
 
 /obj/machinery/telecomms/allinone/Initialize()
+	. = ..()
+
 	if(!listening_freqs)
 		listening_freqs = ANTAG_FREQS	//Covers any updates to ANTAG_FREQS
-	return ..()
+
+	desc += " It has an effective broadcast range of [overmap_range]."
 
 /obj/machinery/telecomms/allinone/receive_signal(datum/signal/signal)
 
 	if(!on) // has to be on to receive messages
+		return
+
+	if(!check_receive_sector(signal)) //Too far on the overmap to receive
 		return
 
 	if(is_freq_listening(signal)) // detect subspace signals
@@ -147,6 +153,9 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		if(signal.data["slow"] > 0)
 			sleep(signal.data["slow"]) // simulate the network lag if necessary
 
+		var/list/broadcast_z = broadcast_zlevels //what levels we're sending to
+		broadcast_z += z	//Do our own. Cannot do this in init currently, as when a ship launches, it changes zlevels
+
 		/* ###### Broadcast a message using signal.data ###### */
 
 		var/datum/radio_frequency/connection = signal.data["connection"]
@@ -156,35 +165,20 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 							  signal.data["vmask"], signal.data["vmessage"],
 							  signal.data["radio"], signal.data["message"],
 							  signal.data["name"], signal.data["job"],
-							  signal.data["realname"], signal.data["vname"],, signal.data["compression"], list(0), connection.frequency,
-							  signal.data["verb"], signal.data["language"], channel_name ? channel_name : signal.data["channel_tag"], channel_color ? channel_color : signal.data["channel_color"])
+							  signal.data["realname"], signal.data["vname"],, signal.data["compression"], broadcast_z, connection.frequency,
+							  signal.data["verb"], signal.data["language"])
 		else
 			if(intercept)
 				Broadcast_Message(signal.data["connection"], signal.data["mob"],
 							  signal.data["vmask"], signal.data["vmessage"],
 							  signal.data["radio"], signal.data["message"],
 							  signal.data["name"], signal.data["job"],
-							  signal.data["realname"], signal.data["vname"], 3, signal.data["compression"], list(0), connection.frequency,
+							  signal.data["realname"], signal.data["vname"], 3, signal.data["compression"], broadcast_z, connection.frequency,
 							  signal.data["verb"], signal.data["language"])
 
 
 /obj/machinery/telecomms/allinone/ship
 	listening_freqs = list(SHIP_FREQ)
-	channel_color = "#7331c4"
-	channel_name = "Ship"
-
-//This is the one that should be mapped for away sites.
-/obj/machinery/telecomms/allinone/ship/random
-
-/obj/machinery/telecomms/allinone/ship/random/Initialize()
-	if(length(avail_ship_freqs))
-		var/F = pick(avail_ship_freqs)
-		avail_ship_freqs -= F //Ensures no other ship can use this one
-		listening_freqs += F
-		radiochannels[radio_name] = F
-	else //If there's somehow no more left, we'll use the default ship frequency.
-		listening_freqs += SHIP_FREQ
-	return ..()
 
 /**
 

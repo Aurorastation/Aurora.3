@@ -38,6 +38,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	var/hide = 0				// Is it a hidden machine?
 	var/list/listening_level = 0	// 0 = auto set in New() - this is the z level that the machine is listening to.
 
+	var/overmap_range = 2 //OVERMAP: Number of sectors out we can communicate
+
 
 /obj/machinery/telecomms/proc/relay_information(datum/signal/signal, filter, copysig, amount = 20)
 	// relay signal to all linked machinery that are of type [filter]. If signal has been sent [amount] times, stop sending
@@ -105,6 +107,18 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	else
 		return 0
 
+//OVERMAP: Since telecomms is subspace, limit how far it goes. This prevents double-broadcasts across the entire overmap, and gives the ability to intrude on comms range of other ships
+/obj/machinery/telecomms/proc/check_receive_sector(datum/signal/signal)
+	if(current_map.use_overmap)
+		if(!linked) //If we're using overmap and not associated with a sector, doesn't work.
+			return FALSE
+		var/obj/effect/overmap/visitable/ship/S = signal.data["sector"]
+		if(istype(S))
+			if(S != linked) //If we're not the same ship, check range
+				if(get_dist(S, linked) > overmap_range && !(S in view(overmap_range, linked)))
+					return FALSE
+	return TRUE
+
 /obj/machinery/telecomms/New()
 	telecomms_list += src
 	..()
@@ -128,6 +142,11 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 			listening_level += above.z
 		if(below)
 			listening_level += below.z
+
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable/ship))
+			attempt_hook_up(my_sector)
 
 /obj/machinery/telecomms/Destroy()
 	telecomms_list -= src
@@ -253,6 +272,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	produces_heat = 0
 	circuitboard = "/obj/item/circuitboard/telecomms/receiver"
 
+
 /obj/machinery/telecomms/receiver/receive_signal(datum/signal/signal)
 
 	if(!on) // has to be on to receive messages
@@ -260,6 +280,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	if(!signal)
 		return
 	if(!check_receive_level(signal))
+		return
+	if(!check_receive_sector(signal))
 		return
 
 	if(signal.transmission_method == TRANSMISSION_SUBSPACE)
@@ -283,7 +305,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 				return 1
 		return 0
 	return 1
-
 
 /*
 	The HUB idles until it receives information. It then passes on that information

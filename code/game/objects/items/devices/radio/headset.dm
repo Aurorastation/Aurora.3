@@ -137,12 +137,6 @@
 			continue
 		var/obj/item/device/encryptionkey/K = keyslot
 
-		if(length(extra_channels)) //This will add the extra channels to the primary encryption key. Should only be used when setting up a headset on spawn, such as at away sites. 
-			for(var/C in extra_channels)
-				if(C in K.channels)
-					continue
-				K.additional_channels += C
-
 		for(var/ch_name in K.channels)
 			if(ch_name in src.channels)
 				continue
@@ -681,7 +675,6 @@
 /obj/item/device/radio/headset/ship
 	icon_state = "syn_headset"
 	ks1type = /obj/item/device/encryptionkey/ship
-	syndie = TRUE
 
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_ILLEGAL = 3)

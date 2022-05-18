@@ -161,6 +161,3 @@ var/list/department_funds = list(
 
 //List of exosuit tracking beacons, to save performance
 var/global/list/exo_beacons = list()
-
-//List of away site tcomm units, for generation of unique radio channels
-var/global/list/awaysite_tcomms = list()
