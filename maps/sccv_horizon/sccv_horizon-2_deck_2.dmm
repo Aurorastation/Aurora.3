@@ -169,7 +169,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hydroponics)
+/area/horizon/hydroponics)
 "adb" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
@@ -5333,6 +5333,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
+"cVb" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "cVe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -9208,8 +9215,8 @@
 	department = "Kitchen";
 	departmentType = 1;
 	name = "Kitchen Requests Console";
-	pixel_x = -4;
-	pixel_y = -2
+	pixel_y = -2;
+	pixel_x = -4
 	},
 /turf/simulated/wall,
 /area/crew_quarters/kitchen/freezer)
@@ -13512,16 +13519,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "hqS" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/button/remote/blast_door{
-	dir = 1;
 	id = "diner_shutters";
 	name = "Diner Counter Shutters";
+	pixel_y = -29;
 	pixel_x = -9;
-	pixel_y = -29
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -24775,8 +24779,9 @@
 /obj/machinery/biogenerator{
 	icon_state = "biogen-empty"
 	},
-/turf/simulated/floor/tiled,
-/area/hydroponics)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/hydroponics)
 "nJQ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -30785,8 +30790,8 @@
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light_switch{
-	pixel_x = -3;
-	pixel_y = 7
+	pixel_y = 7;
+	pixel_x = -3
 	},
 /obj/machinery/button/remote/airlock{
 	id = "dinerbolt";
@@ -34665,8 +34670,8 @@
 /area/server)
 "thY" = (
 /obj/machinery/orderterminal{
-	pixel_x = -30;
-	pixel_y = -3
+	pixel_y = -3;
+	pixel_x = -30
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/kitchen)
@@ -38006,8 +38011,8 @@
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/freezer{
-	name = "Freezer";
-	req_access = list(28)
+	req_access = list(28);
+	name = "Freezer"
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen/freezer)
@@ -43012,8 +43017,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/freezer{
-	name = "Freezer";
-	req_access = list(28)
+	req_access = list(28);
+	name = "Freezer"
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -65840,7 +65845,6 @@ maV
 asG
 maV
 pED
-pED
 qDU
 wDk
 oKf
@@ -65848,6 +65852,7 @@ gfj
 gfj
 nhR
 eOl
+cVb
 hqS
 mPl
 xer
