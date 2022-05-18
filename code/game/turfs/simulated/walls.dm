@@ -15,7 +15,10 @@
 		/turf/simulated/wall/r_wall,
 		/obj/structure/window/full/reinforced,
 		/obj/structure/window/full/phoron/reinforced,
-		/obj/structure/window/full/reinforced/polarized
+		/obj/structure/window/full/reinforced/polarized,
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty
 		)
 
 	var/damage = 0

@@ -6,10 +6,12 @@
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "win"
 	var/window_path = /obj/structure/window/basic
+	var/frame_path = /obj/structure/window_frame
 	var/grille_path = /obj/structure/grille
 	var/firedoor_path = /obj/machinery/door/firedoor
-	var/single_window = FALSE
-	var/spawn_grille = FALSE
+	var/single_window = FALSE // For full window panes and full windows.
+	var/spawn_frame = FALSE // For full windows.
+	var/spawn_grille = FALSE // For electrified windows.
 	var/spawn_firedoor = FALSE
 	var/activated
 
@@ -38,6 +40,8 @@
 /obj/effect/map_effect/window_spawner/proc/activate()
 	if(activated)
 		return
+	if(spawn_frame)
+		new frame_path(loc)
 	if(spawn_grille)
 		new grille_path(loc)
 	if(spawn_firedoor)
@@ -119,13 +123,14 @@
 		W.id = id
 
 /********** Full Windows **********/
-// Windows
+// Window
 /obj/effect/map_effect/window_spawner/full // Unused.
 	name = "unused"
 	icon_state = null
 	single_window = TRUE
+	spawn_frame = TRUE
 
-// Reinforced Windows
+// Reinforced Window
 /obj/effect/map_effect/window_spawner/full/reinforced
 	name = "full reinforced window spawner"
 	icon_state = "full_rwindow"
@@ -151,7 +156,7 @@
 	icon_state = "full_i_rwindow"
 	window_path = /obj/structure/window/full/reinforced/indestructible
 
-// Reinforced Polarized Windows
+// Reinforced Polarized Window
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized
 	name = "full reinforced polarized window spawner"
 	icon_state = "full_p_rwindow"
@@ -182,12 +187,12 @@
 	icon_state = "full_ip_rwindow"
 	window_path = /obj/structure/window/full/reinforced/polarized/indestructible
 
-// Borosilicate Windows
+// Borosilicate Window
 /obj/effect/map_effect/window_spawner/full/borosilicate // Unused.
 	name = "unused"
 	icon_state = null
 
-// Reinforced Borosilicate Windows
+// Reinforced Borosilicate Window
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced
 	name = "full reinforced borosilicate window spawner"
 	icon_state = "full_brwindow"

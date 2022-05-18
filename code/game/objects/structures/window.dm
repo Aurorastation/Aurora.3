@@ -579,8 +579,6 @@
 	base_frame = /obj/structure/window_frame
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
-		/turf/simulated/wall,
-		/turf/simulated/wall/r_wall,
 		/obj/structure/window/full/reinforced,
 		/obj/structure/window/full/reinforced/polarized,
 		/obj/structure/window/full/phoron/reinforced
@@ -621,6 +619,21 @@
 	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST) && (south_wall || east_wall))
 		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
 	return ..(adjacencies, dir_mods)
+
+/obj/structure/window/full/Initialize(mapload, start_dir = null, constructed = 0)
+	if (!mapload && constructed)
+		state = 0
+
+	if (start_dir)
+		set_dir(start_dir)
+
+	health = maxhealth
+
+	ini_dir = dir
+
+	update_nearby_tiles(need_rebuild=1)
+	update_icon()
+	update_nearby_icons()
 
 /obj/structure/window/full/attackby(obj/item/W, mob/user)
 	if(!istype(W) || istype(W, /obj/item/flag))
@@ -692,9 +705,6 @@
 		if(reinf)
 			new /obj/item/stack/rods(loc)
 
-	if(base_frame)
-		new base_frame(loc)
-
 	qdel(src)
 	return
 
@@ -722,25 +732,14 @@
 			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 	return
 
-/obj/structure/window/full/reinforced/dismantle_window()
+/obj/structure/window/full/dismantle_window()
 	var/obj/item/stack/material/mats = new glasstype(loc)
 	mats.amount = 4
-	new/obj/structure/window_frame(get_turf(src))
+	var/obj/structure/window_frame/WF = locate(/obj/structure/window_frame) in get_turf(src)
+	if(istype(WF))
+		WF.has_glass_installed = FALSE
+		WF.desc = "An empty steel window frame."
 	qdel(src)
-
-/obj/structure/window/full/Initialize(mapload, start_dir = null, constructed = 0)
-	if (!mapload && constructed)
-		state = 0
-
-	if (start_dir)
-		set_dir(start_dir)
-
-	health = maxhealth
-
-	ini_dir = dir
-
-	update_nearby_tiles(need_rebuild=1)
-	update_icon()
 	update_nearby_icons()
 
 // Reinforced Window
@@ -795,7 +794,7 @@
 		animate(src, color="#FFFFFF", time = 1 SECOND)
 		set_opacity(FALSE)
 	else
-		animate(src, color="#222222", time = 1 SECOND)
+		animate(src, color="#606060", time = 1 SECOND)
 		set_opacity(TRUE)
 
 // Indestructible Reinforced Polarized Window
@@ -821,9 +820,12 @@
 /obj/structure/window/full/phoron
 	name = "borosilicate window"
 	desc = "You aren't supposed to see this."
+	icon = 'icons/obj/smooth/full_window_phoron.dmi'
+	icon_state = "window_glass"
+	basestate = "window_glass"
 	glasstype = /obj/item/stack/material/glass/phoronglass
 	shardtype = /obj/item/material/shard/phoron
-	maxhealth = 80 // Two window panes worth of health, since that's the minimum you need to break through to get to the other side.
+	maxhealth = 80 // Two borosilicate window panes worth of health, since that's the minimum you need to break through to get to the other side.
 	maximal_heat = T0C + 2000
 	damage_per_fire_tick = 1
 
@@ -831,9 +833,6 @@
 /obj/structure/window/full/phoron/reinforced
 	name = "reinforced borosilicate window"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
-	icon = 'icons/obj/smooth/phoron_full_window.dmi'
-	icon_state = "window_glass"
-	basestate = "window_glass"
 	glasstype = /obj/item/stack/material/glass/phoronrglass
 	maxhealth = 160 // Two reinforced borosilicate window panes worth of health, since that's the minimum you need to break through to get to the other side.
 	reinf = TRUE
