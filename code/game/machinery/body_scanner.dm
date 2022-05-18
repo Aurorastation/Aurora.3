@@ -508,7 +508,7 @@
 			wounds += "Splinted."
 		if (O.status & ORGAN_BLEEDING)
 			wounds += "Bleeding."
-		if(O.is_dislocated())
+		if(ORGAN_IS_DISLOCATED(O))
 			wounds += "Dislocated."
 		if (O.status & ORGAN_BROKEN)
 			wounds += "[O.broken_description]."
@@ -721,7 +721,7 @@
 			lung_ruptured = "Lung ruptured."
 		if(e.status & ORGAN_SPLINTED)
 			splint = "Splinted."
-		if(e.is_dislocated())
+		if(ORGAN_IS_DISLOCATED(e))
 			dislocated = "Dislocated."
 		if(e.status & ORGAN_BLEEDING)
 			bled = "Bleeding."

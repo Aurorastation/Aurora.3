@@ -141,9 +141,6 @@
 /obj/item/organ/proc/bruise()
 	damage = max(damage, min_bruised_damage)
 
-/obj/item/organ/proc/can_feel_pain()
-	return (!BP_IS_ROBOTIC(src) && (!species || !(species.flags & NO_PAIN)))
-
 #define ORGAN_RECOVERY_THRESHOLD (5 MINUTES)
 /obj/item/organ/proc/can_recover()
 	return (max_damage > 0) && !(status & ORGAN_DEAD) || death_time >= world.time - ORGAN_RECOVERY_THRESHOLD
