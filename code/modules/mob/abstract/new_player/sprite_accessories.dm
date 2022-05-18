@@ -2317,118 +2317,167 @@ Follow by example and make good judgement based on length which list to include 
 
 	skr_tentacle_m
 		icon = 'icons/mob/human_face/skrell_hair.dmi'
-		name = "Skrell Short Tentacles"
+		name = "Short Headtails"
 		icon_state = "skrell_hair_m"
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
-		length = 6
-		chatname = "Short Tentacles"
+		length = 2
+		chatname = "short headtails"
 		var/scrunchy_style = "seaweed" // seaweed fits the normal tentacles pretty well
 
 		skr_tentacle_f
-			name = "Skrell Average Tentacles"
+			name = "Headtails"
 			icon_state = "skrell_hair_f"
-			length = 6
-			chatname = "Average Tentacles"
+			length = 4
+			chatname = "headtails"
 
 		skr_tentacle_short
-			name = "Skrell Very Short Tentacles"
+			name = "Very Short Headtails"
 			icon_state = "veryshort_s"
-			length = 6
-			chatname = "Short Tentacles"
+			length = 1
+			chatname = "short headtails"
 
 		skr_tentacle_long
-			name = "Skrell Very Long Tentacles"
+			name = "Long Headtails"
 			icon_state = "verylong_s"
 			length = 6
-			chatname = "Very Long Tentacles"
+			chatname = "long headtails"
 
 		skr_tentacle_doubletail
-			name = "Skrell Hoop Ponytail"
+			name = "Headtails, ponytail (hoop)"
 			icon_state = "skrell_hoop"
-			length = 3
-			chatname = "Ponytail, Hoop"
+			length = 5
+			chatname = "headtails"
 			scrunchy_style = "hoop"
 
 		skr_tentacle_flb
-			name = "Skrell Reef Ponytail"
+			name = "Headtails, ponytail (reef)"
 			icon_state = "skrell_reef"
-			length = 6
-			chatname = "Ponytail, Reef"
+			length = 5
+			chatname = "headtails"
 			scrunchy_style = "reef"
 
 		skr_tentacle_backwater
-			name = "Skrell Backwater"
+			name = "Headtails, ponytail (backwater)"
 			icon_state = "skrell_backwater"
-			length = 6
-			chatname = "Backwater"
+			length = 5
+			chatname = "headtails"
 			scrunchy_style = "backwater"
 
 		skr_tentacle_reserved
-			name = "Skrell Reserved"
+			name = "Expressive Headtails, reserved"
 			icon_state = "skrell_reserved"
 			length = 6
-			chatname = "Reserved"
+			chatname = "headtails"
+
+		skr_tentacle_excited
+			name = "Expressive Headtails, excited"
+			icon_state = "skrell_excited"
+			length = 6
+			chatname = "headtails"
+		
+		skr_tentacle_insulted
+			name = "Expressive Headtails, insulted"
+			icon_state = "skrell_insulted"
+			length = 6
+			chatname = "headtails"
 
 		skr_tentacle_tucked
-			name = "Skrell Tucked"
+			name = "Short Headtails, tucked"
 			icon_state = "skrell_tucked"
-			length = 3
-			chatname = "Tucked"
+			length = 2
+			chatname = "short headtails"
 
 		skr_tentacle_tuux_l
-			name = "Skrell Tuux, Long"
+			name = "Headtails, tuux"
 			icon_state = "skrell_long_tuux"
 			length = 5
-			chatname = "Long Tuux"
+			chatname = "headtails"
 
 		skr_tentacle_tuux_s
-			name = "Skrell Tuux, Short"
+			name = "Short Headtails, tuux"
 			icon_state = "skrell_short_tuux"
 			length = 3
-			chatname = "Short Tuux"
+			chatname = "short headtails"
 
 		skr_tentacle_slicked
-			name = "Skrell Slicked"
+			name = "Short Headtails, slicked"
 			icon_state = "skrell_slicked"
-			length = 3
-			chatname = "Slicked"
+			length = 2
+			chatname = "short headtails"
 
 		skr_tentacle_behind_r
-			name = "Skrell Behind, Right"
+			name = "Headtails, behind (right)"
 			icon_state = "skrell_right_behind"
-			length = 6
-			chatname = "Right Behind"
+			length = 4
+			chatname = "headtails"
 
 		skr_tentacle_behind_l
-			name = "Skrell Behind, Left"
+			name = "Headtails, behind (left)"
 			icon_state = "skrell_left_behind"
-			length = 6
-			chatname = "Left Behind"
+			length = 4
+			chatname = "headtails"
 
 		skr_tentacle_behind_b
-			name = "Skrell Behind, Both"
+			name = "Headtails, behind"
 			icon_state = "skrell_both_behind"
-			length = 6
-			chatname = "Average Both Behind"
+			length = 4
+			chatname = "headtails"
 
 		skr_tentacle_behind_b_s
-			name = "Skrell Behind, Both short"
+			name = "Short Headtails, behind"
 			icon_state = "skrell_both_behind_short"
-			length = 6
-			chatname = "Short Both Behind"
+			length = 2
+			chatname = "short headtails"
 
 		skr_tentacle_behind_b_l
-			name = "Skrell Behind, both long"
+			name = "Long Headtails, behind"
 			icon_state = "skrell_both_behind_long"
 			length = 6
-			chatname = "Long Both Behind"
+			chatname = "long headtails"
+
+		skr_tentacle_behind_l_l
+			name = "Long Headtails, behind (left)"
+			icon_state = "skrell_left_behind_long"
+			length = 6
+			chatname = "long headtails"
+
+		skr_tentacle_behind_r_l
+			name = "Long Headtails, behind (right)"
+			icon_state = "skrell_right_behind_long"
+			length = 6
+			chatname = "long headtails"
 
 		skr_tentacle_reef
-			name = "Skrell Reef Ponytail, short"
+			name = "Short Headtails, ponytail (reef)"
 			icon_state = "skrell_reef_short"
-			length = 4
-			chatname = "Ponytail, Reef"
+			length = 3
+			chatname = "short headtails"
 			scrunchy_style = "reef"
+
+		skr_tentacle_emo_l_l
+			name = "Long Headtails, emo (left)"
+			icon_state = "skrell_left_emo_long"
+			length = 6
+			chatname = "long headtails"
+
+		skr_tentacle_emo_r_l
+			name = "Long Headtails, emo (right)"
+			icon_state = "skrell_right_emo_long"
+			length = 6
+			chatname = "long headtails"
+
+		skr_tentacle_emo_l
+			name = "Headtails, emo (left)"
+			icon_state = "skrell_left_emo"
+			length = 4
+			chatname = "headtails"
+
+		skr_tentacle_emo_r
+			name = "Headtails, emo (right)"
+			icon_state = "skrell_right_emo"
+			length = 4
+			chatname = "headtails"
+
 
 //tajaran hair
 
@@ -4697,20 +4746,39 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list(/datum/species/bug,/datum/species/bug/type_b)
 
 	skr_tears
-		name = "Tear Stains"
+		name = "Skrell Tear Stains (Xiialt)"
 		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_tears"
 		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
+
+	skr_tears_axiori
+		name = "Skrell Tear Stains (Axiori)"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_tears_axiori"
+		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
-		do_colouration = FALSE
+
+	skr_dart_frog
+		name = "Skrell Dart Frog (Xiialt)"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_dart_frog"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
+
+	skr_dart_frog_axiori
+		name = "Skrell Dart Frog (Axiori)"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_dart_frog_axiori"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 
 	skr_axiori_eyes
 		name = "Axiori Eyes"
 		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_axiori_eyes"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/skrell, /datum/species/zombie/skrell,/datum/species/zombie/skrell)
-		do_colouration = FALSE
+		species_allowed = list(/datum/species/skrell,/datum/species/zombie/skrell)
 
 	skr_arms
 		name = "Skrell Arms"
@@ -4751,6 +4819,20 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Skrell Chin"
 		icon = 'icons/mob/human_races/markings_skrell.dmi'
 		icon_state = "skr_chin"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+
+	skr_gills
+		name = "Skrell Gills"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_gills"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
+
+	skr_xibus
+		name = "Skrell Xibus"
+		icon = 'icons/mob/human_races/markings_skrell.dmi'
+		icon_state = "skr_beak"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 

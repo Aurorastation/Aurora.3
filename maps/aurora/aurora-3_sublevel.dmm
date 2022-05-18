@@ -6,15 +6,9 @@
 /obj/effect/landmark/dungeon_spawn,
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
-"aac" = (
-/turf/simulated/floor,
-/area/mine/unexplored)
 "aad" = (
 /obj/structure/grille,
 /turf/simulated/wall/r_wall,
-/area/engineering/atmos)
-"aae" = (
-/turf/simulated/floor,
 /area/engineering/atmos)
 "aaf" = (
 /turf/simulated/floor/reinforced/phoron/scarce,
@@ -231,27 +225,27 @@
 /area/engineering/atmos)
 "aaI" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aaJ" = (
 /obj/machinery/light/small/emergency,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aaK" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aaL" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aaM" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aaN" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aaO" = (
 /turf/simulated/wall/r_wall,
@@ -1218,6 +1212,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/analysis)
 "ade" = (
@@ -1359,12 +1354,6 @@
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
-/area/engineering/atmos)
-"ads" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
-	dir = 4
-	},
-/turf/simulated/floor,
 /area/engineering/atmos)
 "adt" = (
 /obj/machinery/door/firedoor,
@@ -1880,7 +1869,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aeu" = (
 /obj/machinery/air_sensor{
@@ -2435,6 +2424,7 @@
 	dir = 1
 	},
 /obj/machinery/washing_machine,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_storage)
 "afV" = (
@@ -4305,7 +4295,7 @@
 	name = "Atmospherics Vent";
 	use_power = 1
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/engineering/atmos)
 "ajP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -5305,7 +5295,7 @@
 /turf/simulated/wall/r_wall,
 /area/mine/unexplored)
 "amc" = (
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/mine/unexplored)
 "amd" = (
 /obj/structure/grille,
@@ -5483,7 +5473,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/mine/unexplored)
 "amm" = (
 /obj/machinery/light{
@@ -6833,6 +6823,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -9631,6 +9622,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
 	temperature = 278
@@ -29610,6 +29602,10 @@
 "iOl" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora_hazard)
+"iOt" = (
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/beach/water/pool,
+/area/medical/patient_wing_gym)
 "iOJ" = (
 /obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -29882,6 +29878,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
 "jkR" = (
@@ -30860,6 +30857,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/medbay4)
+"lXb" = (
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/turret_protected/ai_upload_foyer)
 "lXe" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -32452,7 +32458,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/power/crystal_agitator,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/security/penal_colony)
 "oKh" = (
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -32682,6 +32688,7 @@
 /area/outpost/engineering/hallway)
 "poo" = (
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/engineering/backup_SMES)
 "prR" = (
@@ -57311,9 +57318,9 @@ aaa
 aaa
 aaa
 aaa
-aac
-aac
-aac
+hzE
+hzE
+hzE
 hzE
 hzE
 hzE
@@ -57568,13 +57575,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 aaO
 aaO
@@ -57825,7 +57832,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aaf
 aaf
@@ -58082,7 +58089,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aaf
 aak
@@ -58339,7 +58346,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aaf
 aaf
@@ -58596,13 +58603,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 abe
 abz
@@ -58853,13 +58860,13 @@ aaa
 aaa
 aaa
 aaa
-aac
-aae
-aae
-aae
-aae
-aae
-aae
+hzE
+hGw
+hGw
+hGw
+hGw
+hGw
+hGw
 aaO
 abf
 abA
@@ -59110,13 +59117,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 abg
 abo
@@ -59367,7 +59374,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aag
 aag
@@ -59624,7 +59631,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aag
 aal
@@ -59881,7 +59888,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aag
 aag
@@ -60138,13 +60145,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 abk
 abo
@@ -60395,7 +60402,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aah
 aah
@@ -60652,7 +60659,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aah
 aam
@@ -60909,7 +60916,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aah
 aah
@@ -61166,13 +61173,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 abo
 abo
@@ -61423,7 +61430,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aai
 aai
@@ -61680,7 +61687,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aai
 aan
@@ -61937,7 +61944,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aai
 aai
@@ -62194,13 +62201,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 abo
 abo
@@ -62451,13 +62458,13 @@ aaa
 aaa
 aaa
 aaa
-aac
-aae
-aae
-aae
-aae
-aae
-aae
+hzE
+hGw
+hGw
+hGw
+hGw
+hGw
+hGw
 aaO
 abs
 abG
@@ -62708,13 +62715,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 abt
 abH
@@ -62965,7 +62972,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aaj
 aaj
@@ -63222,7 +63229,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aaj
 aap
@@ -63479,7 +63486,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aaj
 aaj
@@ -63736,13 +63743,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 aaO
 aaO
@@ -63993,16 +64000,16 @@ aaa
 aaa
 aaa
 aaa
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
 aaO
 aaO
 aaO
@@ -64259,21 +64266,21 @@ aaa
 aaa
 aaa
 aaa
-aac
-aac
-aac
-aae
-ads
+hzE
+hzE
+hzE
+hGw
+rRi
 aet
-ads
-aae
-aae
-aae
-ads
+rRi
+hGw
+hGw
+hGw
+rRi
 aet
-ads
-aae
-aac
+rRi
+hGw
+hzE
 aaa
 aaa
 aaa
@@ -64518,19 +64525,19 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 adr
 aeg
 adr
 aad
-aae
+hGw
 aad
 adr
 tcX
 adr
 aad
-aac
+hzE
 aaa
 aaa
 aaa
@@ -64775,19 +64782,19 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 adG
 adH
 afa
 aad
-aae
+hGw
 aad
 qQq
 aZo
 iFj
 aad
-aac
+hzE
 aaa
 aaa
 aaa
@@ -65032,19 +65039,19 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 adH
 aeu
 adH
 aad
-aae
+hGw
 aad
 aZo
 hdY
 aZo
 aad
-aac
+hzE
 aaa
 aba
 aaa
@@ -65289,19 +65296,19 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 adH
 adH
 adH
 aad
-aae
+hGw
 aad
 aZo
 aZo
 aZo
 aad
-aac
+hzE
 aaa
 aba
 aba
@@ -65546,19 +65553,19 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aad
 aad
 aad
 aad
 aad
-aac
+hzE
 aaa
 aba
 aba
@@ -65803,19 +65810,19 @@ aaa
 aaa
 aaa
 aaa
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
 aaa
 aba
 aba
@@ -83867,7 +83874,7 @@ gll
 aJk
 mWx
 lZJ
-bfE
+iOt
 eCm
 krN
 jVc
@@ -84598,7 +84605,7 @@ amO
 apf
 apE
 aqi
-apE
+lXb
 arq
 amO
 amO

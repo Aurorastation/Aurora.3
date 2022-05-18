@@ -65,7 +65,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	// Equip mask to allow the drone to breathe
 	equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(src), slot_wear_mask)
 	// Set internals
-	var/obj/item/organ/vaurca/preserve/P = internal_organs_by_name[BP_PHORON_RESERVE]
+	var/obj/item/organ/internal/vaurca/preserve/P = internal_organs_by_name[BP_PHORON_RESERVE]
 	internal = P
 	// Set colour, default is grey, no biggie
 	var/list/hive = splittext(name, " ")

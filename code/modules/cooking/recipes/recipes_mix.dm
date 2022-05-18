@@ -218,7 +218,7 @@
 
 /*
 /decl/recipe/neuralbroke
-	items = list(/obj/item/organ/vaurca/neuralsocket)
+	items = list(/obj/item/organ/internal/vaurca/neuralsocket)
 	result = /obj/item/neuralbroke
 */
 

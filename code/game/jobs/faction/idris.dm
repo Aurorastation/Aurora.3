@@ -63,6 +63,7 @@
 /datum/outfit/job/warden/idris
 	name = "Warden - Idris"
 
+	head = /obj/item/clothing/head/warden/idris
 	uniform = /obj/item/clothing/under/rank/warden/idris
 	suit = /obj/item/clothing/suit/storage/toggle/warden/idris
 	id = /obj/item/card/id/idris/sec

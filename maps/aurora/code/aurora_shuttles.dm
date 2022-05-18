@@ -216,6 +216,7 @@ AURORA_ESCAPE_POD(4)
 	name = "Agent Shuttle Dock"
 	landmark_tag = "nav_ccia_dock"
 	docking_controller = "centcom_shuttle_dock_airlock"
+	base_turf = /turf/simulated/floor/reinforced/airless
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 //-// ERT Shuttle (the NT one) //-//
