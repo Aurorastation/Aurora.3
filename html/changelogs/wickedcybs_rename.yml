@@ -3,5 +3,5 @@ author: WickedCybs
 delete-after: True
 
 changes:
-  - tweak: "Renamed the 'Lizard' sprite dmi's to 'Unathi'. This is an under the hood change that should not affect anything."
+  - backend: "Renamed the 'Lizard' sprite dmi's to 'Unathi'. This is an under the hood change that should not affect anything."
   - backend: "The Unathi tail sprite files don't reference their old name of 'Soghun' anymore."
