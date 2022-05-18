@@ -117,9 +117,18 @@
 	if (user.stat || user.blinded || inoperable())
 		return 0
 	set_current(C)
+
 	if(!is_contact_area(get_area(C)))
 		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
 		return FALSE
+
+	var/access_granted = FALSE
+	for(var/network in C.network)
+		if(can_access_network(user, network))
+			access_granted = TRUE //We only need access to one of the networks.
+	if(!access_granted)
+		to_chat(user, SPAN_WARNING("Access unauthorized."))
+
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.reset_view(current_camera)

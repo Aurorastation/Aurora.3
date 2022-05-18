@@ -131,6 +131,14 @@
 		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
 		return FALSE
 
+	var/access_granted = FALSE
+	for(var/network in C.network)
+		if(can_access_network(user, get_camera_access(network)))
+			access_granted = TRUE //We only need access to one of the networks.
+	if(!access_granted)
+		to_chat(user, SPAN_WARNING("Access unauthorized."))
+		return
+
 	set_current(C)
 	user.machine = ui_host()
 	user.reset_view(current_camera)
