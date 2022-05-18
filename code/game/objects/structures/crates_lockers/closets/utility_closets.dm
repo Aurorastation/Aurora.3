@@ -104,20 +104,18 @@
 /obj/structure/closet/firecloset/fill()
 	new /obj/item/clothing/head/hardhat/firefighter(src)
 	new /obj/item/clothing/suit/fire(src)
-	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/extinguisher(src)
 
 /obj/structure/closet/firecloset/full/fill()
 	new /obj/item/clothing/head/hardhat/firefighter(src)
 	new /obj/item/clothing/suit/fire(src)
-	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/crowbar/rescue_axe(src)
 	new /obj/item/device/flashlight(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/extinguisher(src)
-
-
-
 
 /*
  * Tool Closet

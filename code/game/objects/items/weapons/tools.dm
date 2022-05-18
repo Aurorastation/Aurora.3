@@ -737,6 +737,32 @@
 	icon_state = "crowbar_red"
 	item_state = "crowbar_red"
 
+/obj/item/crowbar/rescue_axe //Not quite a fire axe. Imagine something closer to a crash axe found on airplanes or forcing tools used by emergency services
+	name = "rescue axe"
+	desc = "A short, lightweight emergency tool meant to chop, pry and pierce. Most of the handle is insulated excepting the wedge at the very bottom. The axe head atop the tool has a short pick opposite of the blade."
+	icon_state = "rescue_axe"
+	item_state = "rescue_axe"
+	w_class = ITEMSIZE_NORMAL
+	force = 12
+	sharp = TRUE
+	edge = TRUE
+	origin_tech = list(TECH_ENGINEERING = 2)
+
+/obj/item/crowbar/rescue_axe/resolve_attackby(atom/A)//Extra damage against glass to better fuffill its intended purpose. An engineer can fix the mess anyway. You my friend, have bigger issues.
+	if(istype(A, /obj/structure/window))
+		force = initial(force) * 2
+	else
+		force = initial(force)
+	. = ..()
+
+/obj/item/crowbar/rescue_axe/iscrowbar()//go ham
+	if(ismob(loc))
+		var/mob/M = loc
+		if(M.a_intent && M.a_intent == I_HURT)
+			return FALSE
+
+	return TRUE
+
 // Pipe wrench
 /obj/item/pipewrench
 	name = "pipe wrench"

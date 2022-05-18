@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Ports the emergency forcing tool from Baystation. On Aurora it's been renamed to the 'rescue axe' and true to the name, is a hand axe used to force your way into situations where a crowbar would not suffice. You can find these in the more full fire closets, fire wall lockers and in the atmos/ce lockers."
+  - tweak: "The old retro full face gas masks have been swapped for the clear faced gas mask variant within fire closets."
