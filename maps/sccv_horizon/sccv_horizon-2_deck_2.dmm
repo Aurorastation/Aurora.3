@@ -7172,10 +7172,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
-"dXB" = (
-/obj/effect/map_effect/window_spawner/reinforced,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "dXF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -20813,9 +20809,13 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "lMT" = (
-/obj/structure/lattice/catwalk,
-/turf/space/dynamic,
-/area/template_noop)
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1;
+	name = "Aux Tanks Inlet"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/aux_atmospherics/deck_2/starboard)
 "lNb" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
@@ -56336,7 +56336,7 @@ sBt
 tND
 bGk
 gvy
-vOr
+lMT
 pDn
 fdF
 uVi
@@ -74713,8 +74713,8 @@ qgN
 qgN
 qgN
 qgN
-lMT
-lMT
+mpN
+mpN
 vPk
 xRv
 xhf
@@ -74915,7 +74915,7 @@ qgN
 qgN
 qgN
 qgN
-lMT
+mpN
 vTP
 rkk
 xHv
@@ -75117,8 +75117,8 @@ qgN
 qgN
 qgN
 qgN
-lMT
-lMT
+mpN
+mpN
 vPk
 xjK
 qXJ
@@ -76756,7 +76756,7 @@ wBF
 wBF
 anb
 lBd
-dXB
+fuu
 lZQ
 lZQ
 lZQ
