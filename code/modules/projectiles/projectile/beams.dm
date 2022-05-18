@@ -1,7 +1,7 @@
 /obj/item/projectile/beam
 	name = "laser"
 	icon_state = "laser"
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 30
 	damage_type = BURN
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
@@ -19,7 +19,7 @@
 /obj/item/projectile/beam/practice
 	name = "laser"
 	icon_state = "laser"
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 0
 	damage_type = BURN
 	no_attack_log = 1
@@ -123,7 +123,7 @@
 /obj/item/projectile/beam/laser_tag
 	name = "lasertag beam"
 	icon_state = "laser"
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 0
 	no_attack_log = 1
 	damage_type = BURN
@@ -301,7 +301,7 @@
 /obj/item/projectile/beam/shotgun
 	name = "diffuse laser"
 	icon_state = "laser"
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 20
 	eyeblur = 4
 
@@ -431,7 +431,7 @@
 	icon_state = "lightning"
 	damage = 10
 	damage_type = BURN
-	pass_flags = PASSTABLE | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
 	range = 40
 	eyeblur = 0
 
@@ -456,7 +456,7 @@
 /obj/item/projectile/beam/freezer
 	name = "freezing ray"
 	icon_state = "bluelaser"
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	damage = 15
 	damage_type = BURN
 	check_armor = "energy"

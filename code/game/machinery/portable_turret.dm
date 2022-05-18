@@ -587,9 +587,9 @@
 	if(get_dist(src, L) > 7)	//if it's too far away, why bother?
 		return TURRET_NOT_TARGET
 
-	var/flags =  PASSTABLE|PASSTRACE
+	var/flags =  PASSTABLE|PASSTRACE|PASSRAILING
 	if(ispath(projectile, /obj/item/projectile/beam) || ispath(eprojectile, /obj/item/projectile/beam))
-		flags |= PASSTABLE|PASSGLASS|PASSGRILLE
+		flags |= PASSTABLE|PASSGLASS|PASSGRILLE|PASSRAILING
 
 	if(!(L in check_trajectory(L, src, pass_flags=flags)))	//check if we have true line of sight
 		return TURRET_NOT_TARGET
