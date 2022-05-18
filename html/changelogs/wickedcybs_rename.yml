@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - tweak: "Renamed the 'Lizard' sprite dmi's to 'Unathi'. This is an under the hood change that should not affect anything."
-  - tweak: "The Unathil tail sprite files don't reference their old name of 'Soghun' anymore."
+  - backend: "The Unathi tail sprite files don't reference their old name of 'Soghun' anymore."
