@@ -1102,11 +1102,11 @@
 /obj/structure/closet/walllocker/medical{
 	pixel_x = 32
 	},
-/obj/effect/floor_decal/industrial/outline,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/ointment,
 /obj/item/stack/medical/ointment,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "aWr" = (
@@ -9524,6 +9524,7 @@
 	c_tag = "First Deck - Auxiliary Hangar Emergency Supplies Closet";
 	dir = 4
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "hBV" = (

@@ -9194,7 +9194,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/janitor/stairs)
 "fht" = (
 /obj/structure/cable{
@@ -14556,6 +14556,7 @@
 	dir = 1
 	},
 /obj/machinery/light/small,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "ibU" = (
@@ -19980,7 +19981,7 @@
 	req_access = list(26)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/janitor/stairs)
 "lpu" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -24998,7 +24999,7 @@
 "oeF" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "oeI" = (
@@ -33086,9 +33087,11 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/smes)
 "sAT" = (
-/obj/structure/closet/firecloset,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "sBr" = (
@@ -34816,7 +34819,10 @@
 "tCG" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "tCP" = (
@@ -36588,7 +36594,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora_hazard)
 "uvB" = (
-/obj/structure/table/standard,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/ointment,
@@ -36599,7 +36604,7 @@
 	pixel_x = -32
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "uvM" = (
@@ -41331,7 +41336,7 @@
 	id = "shutters_deck2_auxcustdesk";
 	name = "Auxiliary Custodial Closet Desk Shutter"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/janitor/stairs)
 "wSp" = (
 /obj/structure/table/rack,
