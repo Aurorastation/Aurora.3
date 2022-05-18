@@ -1382,11 +1382,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/racers)
-"gDi" = (
-/obj/machinery/shipsensors,
-/obj/structure/lattice,
-/turf/simulated/floor/plating,
-/area/racers)
 "gHC" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
@@ -47314,7 +47309,7 @@ xRX
 xRX
 xRX
 xRX
-gDi
+qZQ
 ble
 ble
 ble
@@ -48100,7 +48095,7 @@ xRX
 xRX
 ble
 xRX
-qUf
+nfm
 qsu
 qbr
 iap
@@ -48357,7 +48352,7 @@ xRX
 xRX
 ble
 xRX
-qUf
+nfm
 jrF
 qbr
 qxQ
@@ -48614,9 +48609,9 @@ xRX
 xRX
 qZQ
 xRX
-qUf
-qUf
-qUf
+nfm
+nfm
+nfm
 nfm
 nfm
 xRX

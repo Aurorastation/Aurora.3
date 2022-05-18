@@ -627,9 +627,7 @@
 	icon_state = "engineering_door";
 	layer = 4
 	},
-/turf/simulated/floor{
-	icon_state = "dark"
-	},
+/turf/simulated/floor/plating,
 /area/derelict/hallway/northwest)
 "cr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2749,8 +2747,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jx" = (
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/southeast)
 "jy" = (
 /obj/structure/morgue{
@@ -3831,12 +3828,6 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/derelict/hallway/southeast)
-"mT" = (
-/obj/structure/door_assembly/door_assembly_ext{
-	icon_state = "door_as_ext0"
-	},
-/turf/template_noop,
-/area/template_noop)
 "mU" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -4533,21 +4524,21 @@
 	dir = 9;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "oS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "oT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "oU" = (
 /obj/machinery/door/airlock/maintenance,
@@ -4656,7 +4647,7 @@
 	dir = 8;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "pm" = (
 /obj/structure/table/glass,
@@ -4671,14 +4662,14 @@
 	listening = 1;
 	name = "Red Telephone"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "pn" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "po" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4724,18 +4715,18 @@
 	dir = 10;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "pw" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "px" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "py" = (
 /obj/machinery/door/airlock/research{
@@ -5200,7 +5191,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "qS" = (
 /obj/item/clothing/glasses/meson,
@@ -5451,7 +5442,7 @@
 "rH" = (
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "rJ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5510,10 +5501,8 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "rP" = (
-/obj/structure/door_assembly/door_assembly_science{
-	icon_state = "door_as_res0"
-	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/southeast)
 "rQ" = (
 /obj/machinery/power/solar_control{
@@ -5727,7 +5716,7 @@
 /obj/structure/table/standard,
 /obj/item/gun/launcher/syringe/rapid,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/southeast)
 "so" = (
 /obj/item/bedsheet/medical,
@@ -5840,7 +5829,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "sE" = (
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/derelict/hallway/southeast)
 "sF" = (
 /obj/structure/grille,
@@ -5859,7 +5848,7 @@
 /area/derelict/hallway/southeast)
 "sG" = (
 /obj/structure/window/reinforced,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "sH" = (
 /obj/structure/grille,
@@ -5924,7 +5913,7 @@
 /area/derelict/hallway/southeast)
 "sT" = (
 /obj/machinery/door/window/eastright,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "sU" = (
 /obj/structure/cable/yellow{
@@ -5980,7 +5969,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/southeast)
 "tb" = (
 /obj/item/material/shard{
@@ -6013,7 +6002,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "th" = (
 /obj/structure/window/reinforced{
@@ -6153,7 +6142,7 @@
 /area/template_noop)
 "tA" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/southeast)
 "tB" = (
 /obj/structure/cable/yellow{
@@ -6264,17 +6253,17 @@
 /area/derelict/hallway/southeast)
 "tO" = (
 /obj/machinery/smartfridge/secure/extract,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "tP" = (
 /obj/machinery/optable,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "tQ" = (
 /obj/machinery/computer/operating{
 	name = "Xenobiology Operating Computer"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "tR" = (
 /obj/structure/cable/yellow{
@@ -6410,7 +6399,7 @@
 "ug" = (
 /obj/item/slime_extract/gold,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "uh" = (
 /obj/structure/sink{
@@ -6419,7 +6408,7 @@
 	pixel_x = 11;
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "ui" = (
 /obj/machinery/power/solar{
@@ -6969,7 +6958,7 @@
 /area/derelict/hallway/southeast)
 "vs" = (
 /obj/machinery/door/blast/regular,
-/turf/template_noop,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
 "vu" = (
 /obj/structure/grille,
@@ -7016,7 +7005,7 @@
 	req_access = list(11)
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
 "vC" = (
 /obj/machinery/power/emitter{
@@ -7040,7 +7029,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "vF" = (
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
 "vG" = (
 /obj/machinery/power/smes/buildable,
@@ -7099,7 +7088,7 @@
 	name = "SMES Access";
 	req_access = list(11)
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
 "vY" = (
 /obj/machinery/door/blast/regular,
@@ -7113,10 +7102,6 @@
 /turf/template_noop,
 /turf/template_noop,
 /area/template_noop)
-"wc" = (
-/obj/machinery/door/blast/regular,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/hallway/southwest)
 "wd" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -7128,7 +7113,7 @@
 /area/derelict/hallway/southwest)
 "wf" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southeast)
 "wg" = (
 /obj/machinery/artifact,
@@ -7340,8 +7325,9 @@
 /turf/simulated/floor/wood/airless,
 /area/template_noop)
 "wU" = (
-/obj/random/loot,
-/turf/simulated/floor/tiled/white,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/southeast)
 "wV" = (
 /obj/structure/table/rack,
@@ -31517,8 +31503,8 @@ kQ
 kQ
 kQ
 kQ
-wc
-wc
+vs
+vs
 kQ
 kQ
 kQ
@@ -35116,7 +35102,7 @@ iq
 vF
 kQ
 kQ
-wc
+vs
 kQ
 kQ
 ws
@@ -44083,11 +44069,11 @@ ij
 ij
 ij
 ij
-qz
-qy
-qz
+rP
+wU
+rP
 iv
-qz
+rP
 aa
 in
 aa
@@ -44340,7 +44326,7 @@ ac
 aa
 Aa
 jd
-qz
+rP
 iR
 jS
 aa
@@ -44597,9 +44583,9 @@ aa
 aa
 BS
 rZ
-qz
-qy
-qy
+rP
+wU
+wU
 aa
 tl
 tz
@@ -44858,7 +44844,7 @@ sm
 sA
 iv
 ta
-tm
+jx
 tA
 in
 rj
@@ -51026,8 +51012,8 @@ in
 sG
 sT
 tg
-jW
-jW
+Aa
+Aa
 aa
 aa
 aa
@@ -51280,10 +51266,10 @@ aa
 aa
 da
 in
-jl
-jl
-jl
-jl
+BS
+BS
+BS
+BS
 aa
 ac
 aa
@@ -51537,10 +51523,10 @@ aa
 aa
 aa
 in
-jl
+BS
 aa
 od
-jl
+BS
 ik
 aa
 ac
@@ -51798,7 +51784,7 @@ ij
 ac
 aa
 ik
-jl
+BS
 tJ
 ac
 aa
@@ -52049,13 +52035,13 @@ aa
 aa
 rH
 in
-jW
+Aa
 ik
 ac
 ac
 ac
 ik
-jl
+BS
 aa
 ac
 ac
@@ -52300,19 +52286,19 @@ ac
 ac
 ac
 aa
-kh
+yi
 nt
 aP
 ac
 aa
-rP
-jW
+mC
+Aa
 ik
 aa
 ik
 aa
-jl
-jl
+BS
+BS
 ik
 aa
 ac
@@ -52563,14 +52549,14 @@ rp
 aa
 aa
 in
-jW
-jW
-jW
+Aa
+Aa
+Aa
 ij
-jl
-kh
-kh
-jW
+BS
+yi
+yi
+Aa
 ik
 aa
 aa
@@ -52824,17 +52810,17 @@ in
 in
 in
 in
-wU
-jl
-kh
-kh
-jl
-kh
+Xv
+BS
+yi
+yi
+BS
+yi
 gh
 aa
 aa
 aa
-jW
+Aa
 ij
 ij
 ij
@@ -53078,7 +53064,7 @@ aa
 og
 ac
 ik
-jW
+Aa
 in
 in
 in
@@ -53086,12 +53072,12 @@ in
 in
 in
 tO
-kh
-kh
+yi
+yi
 ij
 aa
-jW
-jW
+Aa
+Aa
 uZ
 aa
 aa
@@ -53344,7 +53330,7 @@ aa
 in
 tP
 ug
-kh
+yi
 ij
 aa
 aa
@@ -53601,7 +53587,7 @@ aa
 in
 tQ
 uh
-jx
+WJ
 ij
 cJ
 ac
@@ -54363,7 +54349,7 @@ ik
 aa
 aa
 pQ
-jW
+Aa
 in
 aa
 aa
@@ -54876,8 +54862,8 @@ aa
 aa
 ac
 ac
-jW
-jW
+Aa
+Aa
 in
 aa
 ac
@@ -56906,7 +56892,7 @@ aa
 aa
 aa
 ij
-rn
+ik
 ij
 ik
 iw
@@ -57935,7 +57921,7 @@ aa
 aa
 aa
 aa
-mT
+vo
 iu
 iu
 rn
