@@ -5916,7 +5916,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
 	req_access = null;
-	req_one_access = list(26, 31, 48, 67)
+	req_one_access = list(26, 31, 48, 67, 29)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "hangarlockdown";
@@ -7586,7 +7586,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
 	req_access = null;
-	req_one_access = list(26, 31, 48, 67)
+	req_one_access = list(26, 31, 48, 67, 29)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "hangarlockdown";
@@ -13450,7 +13450,7 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
 	req_access = null;
-	req_one_access = list(26, 31, 48, 67)
+	req_one_access = list(26, 31, 48, 67, 29)
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
