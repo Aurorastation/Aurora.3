@@ -126,7 +126,7 @@
 		recalculateChannels(TRUE)
 
 
-/obj/item/device/radio/headset/proc/recalculateChannels(var/setDescription = FALSE, var/list/extra_channels = list())
+/obj/item/device/radio/headset/proc/recalculateChannels(var/setDescription = FALSE)
 	src.channels = list()
 	src.translate_binary = FALSE
 	src.translate_hivenet = FALSE

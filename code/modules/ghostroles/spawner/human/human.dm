@@ -9,10 +9,6 @@
 	spawn_mob = /mob/living/carbon/human //The mob that should be spawned
 	variables = list() //Variables of that mob
 
-	//Vars relating to the away site associated with this spawner
-	var/template_id //If this is an Away Site role, this should be set equal to the associated map_template's id var. This is for radio/tcomms setup.
-
-
 	//Vars related to human mobs
 	var/datum/outfit/outfit = null //Outfit to equip
 	var/list/species_outfits = list() //Outfit overwrite for the species
