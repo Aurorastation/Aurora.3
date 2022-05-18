@@ -31,9 +31,10 @@ var/const/VIROLOGIST		=(1<<6)
 var/const/PSYCHIATRIST		=(1<<7)
 var/const/ROBOTICIST		=(1<<8)
 var/const/XENOBIOLOGIST		=(1<<9)
-var/const/MED_TECH			=(1<<10)
-var/const/INTERN_MED		=(1<<11)
-var/const/INTERN_SCI		=(1<<12)
+var/const/XENOBOTANIST		=(1<<10)
+var/const/MED_TECH			=(1<<11)
+var/const/INTERN_MED		=(1<<12)
+var/const/INTERN_SCI		=(1<<13)
 
 // SERVICE
 var/const/SERVICE			=(1<<2)
@@ -87,6 +88,7 @@ var/list/science_positions = list(
 	"Research Director",
 	"Scientist",
 	"Xenobiologist",
+	"Xenobotanist",
 	"Lab Assistant"
 )
 
