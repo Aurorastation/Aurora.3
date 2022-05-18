@@ -218,11 +218,11 @@ datum/track/New(var/title_name, var/audio)
 	state_base = "record"
 	anchored = 0
 	tracks = list(
-		new/datum/track("Boolean Sisters", 'sound/music/recordplayer/BooleanSisters.ogg'),
-		new/datum/track("Posin'", 'sound/music/recordplayer/Posin.ogg'),
-		new/datum/track("Jazz Instrumental", 'sound/music/recordplayer/JazzInstrumental.ogg'),
-		new/datum/track("Le Swing", 'sound/music/recordplayer/LeSwing.ogg'),
-		new/datum/track("Cosmorot", 'sound/music/recordplayer/Cosmorot.ogg')
+		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
+		new/datum/track("Electro Swing", 'sound/music/phonograph/electro_swing.ogg'),
+		new/datum/track("Jazz Instrumental", 'sound/music/phonograph/jazz_instrumental.ogg'),
+		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
+		new/datum/track("Posin'", 'sound/music/phonograph/posin.ogg')
 	)
 
 /obj/machinery/media/jukebox/phonograph/update_icon()
