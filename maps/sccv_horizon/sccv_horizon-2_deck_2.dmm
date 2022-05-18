@@ -3232,6 +3232,7 @@
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-33"
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet,
 /area/horizon/library)
 "bFN" = (
@@ -20208,6 +20209,7 @@
 /area/maintenance/wing/port/far)
 "lnr" = (
 /obj/machinery/bookbinder,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "lnv" = (
@@ -31555,6 +31557,7 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/item/pen/red,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet,
 /area/horizon/library)
 "rtP" = (

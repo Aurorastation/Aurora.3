@@ -4444,6 +4444,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
 "dEe" = (
@@ -26215,6 +26216,7 @@
 /area/engineering/atmos)
 "vuG" = (
 /obj/structure/sink/puddle,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "vxw" = (
