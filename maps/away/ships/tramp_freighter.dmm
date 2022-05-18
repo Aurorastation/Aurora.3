@@ -21,7 +21,7 @@
 /area/shuttle/tramp_freighter)
 "aap" = (
 /obj/machinery/shipsensors/weak,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/tramp_freighter)
 "aaI" = (
 /obj/machinery/light/small{

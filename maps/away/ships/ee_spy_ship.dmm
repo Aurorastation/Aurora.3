@@ -664,7 +664,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/ee_spy_ship)
 "lwj" = (
 /obj/structure/table/wood,

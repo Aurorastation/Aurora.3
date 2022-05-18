@@ -38,6 +38,10 @@
 	initial_flooring = /decl/flooring/wood
 	footstep_sound = /decl/sound_category/wood_footstep
 
+/turf/simulated/floor/wood/airless
+	oxygen = 0
+	nitrogen = 0
+
 /turf/simulated/floor/grass
 	name = "grass patch"
 	icon = 'icons/turf/flooring/grass.dmi'

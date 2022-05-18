@@ -2291,7 +2291,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/sfa_patrol_ship)
 "ttC" = (
 /obj/structure/sink{
