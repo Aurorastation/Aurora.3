@@ -136,13 +136,10 @@
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology)
 	minimal_access = list(access_research, access_xenobiology, access_tox_storage)
-	alt_titles = list("Xenobotanist")
-	title_accesses = list("Xenobotanist" = access_research, access_xenobotany, access_tox_storage)
 
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
-	alt_outfits = list("Xenobotanist" = /datum/outfit/job/scientist/xenobotanist)
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
