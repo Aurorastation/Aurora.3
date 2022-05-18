@@ -169,16 +169,16 @@
 		)
 
 	has_organ = list(
-		BP_NEURAL_SOCKET       = /obj/item/organ/vaurca/neuralsocket,
+		BP_NEURAL_SOCKET       = /obj/item/organ/internal/vaurca/neuralsocket,
 		BP_LUNGS              = /obj/item/organ/internal/lungs/vaurca,
 		BP_HEART              = /obj/item/organ/internal/heart/vaurca,
-		BP_PHORON_RESERVOIR    = /obj/item/organ/vaurca/reservoir,
+		BP_PHORON_RESERVOIR    = /obj/item/organ/internal/vaurca/reservoir,
 		BP_VAURCA_LIVER    = /obj/item/organ/internal/liver/vaurca/robo,
 		BP_VAURCA_KIDNEYS  = /obj/item/organ/internal/kidneys/vaurca/robo,
 		BP_STOMACH            = /obj/item/organ/internal/stomach,
 		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
 		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
-		BP_FILTRATION_BIT      = /obj/item/organ/vaurca/filtrationbit
+		BP_FILTRATION_BIT      = /obj/item/organ/internal/vaurca/filtrationbit
 	)
 
 	default_h_style = "Bald"
