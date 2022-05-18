@@ -4,20 +4,20 @@
 /area/space)
 "b" = (
 /turf/simulated/wall,
-/area/space)
+/area/tdome/tdome1)
 "c" = (
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tdome/tdome1)
 "d" = (
 /mob/living/simple_animal/schlorrgo,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tdome/tdome1)
 "e" = (
 /obj/effect/landmark/start{
 	name = "JoinLate"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/tdome/tdome1)
 
 (1,1,1) = {"
 a
