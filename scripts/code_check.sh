@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "Working with counts: Macro-$MACRO_COUNT Gender-$GENDER_COUNT to_world-$TO_WORLD_COUNT"
+echo "TGM check line: $TGM_CHECK"
 
 if [ $# -ne 1 ]; then
     echo "Invalid argument count. specify path to run in as first argument"
@@ -31,8 +32,7 @@ fi
 
 echo "Checking for non-TGM map files:" >> code_error.log
 MAP_ERROR_COUNT=0
-find maps -name \*.dmm -type f | while read p; do if [ "$(sed -n 1p "$p")" != "$TGM_CHECK" ]; then MAP_ERROR_COUNT=$(($MAP_ERROR_COUNT+1)) && echo "FAIL: Found non-TGM mapfile in $p" >> code_error.log; fi;done
-echo $MAP_ERROR_COUNT
+while read p; do if [[ "$(sed -n 1p "$p")" != "$TGM_CHECK" ]]; then MAP_ERROR_COUNT=$(($MAP_ERROR_COUNT+1)) && echo "FAIL: Found non-TGM mapfile in $p" >> code_error.log; fi;done <<< "$(find maps -name \*.dmm -type f)"
 if [ $MAP_ERROR_COUNT -ne 0 ]; then
     ERROR_COUNT=$(($ERROR_COUNT+1))
     echo "FAIL: Non-TGM maps located in maps/" >> code_error.log
