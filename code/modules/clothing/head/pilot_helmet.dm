@@ -1,11 +1,12 @@
 /obj/item/clothing/head/helmet/pilot
 	name = "flight helmet"
-	desc = "A helmet flip-down pilot visor mounted to it. The visor feeds its wearer in-flight information via a heads-up display."
+	desc = "A helmet with a toggleable pilot visor attached. The visor feeds its wearer in-flight information via an integrated heads-up display."
 	icon = 'icons/clothing/head/pilot_helmets.dmi'
 	icon_state = "pilot_helmet"
 	item_state = "pilot_helmet"
 	contained_sprite = TRUE
 	flags_inv = BLOCKHEADHAIR
+	body_parts_covered = HEAD|EYES
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_SMALL,
@@ -14,9 +15,14 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 	siemens_coefficient = 0.35
-	action_button_name = "Flip Pilot Visor"
+	action_button_name = "Toggle Visor"
 
-	var/flipped_up = FALSE
+	sprite_sheets = list(
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi'
+		)
+
+	var/visor_toggled = FALSE
 	var/obj/machinery/computer/shuttle_control/linked_console
 	var/obj/machinery/computer/ship/helm/linked_helm
 
@@ -59,28 +65,26 @@
 		set_hud_maptext("Vessel Status: No Vessel Linked.")
 
 /obj/item/clothing/head/helmet/pilot/attack_self()
-	flip_visor()
+	visor_toggled()
 
-/obj/item/clothing/head/helmet/pilot/verb/flip_visor()
-	set name = "Flip Pilot Visor"
+/obj/item/clothing/head/helmet/pilot/verb/visor_toggled()
+	set name = "Toggle Visor"
 	set category = "Object"
 
 	var/mob/living/carbon/human/user = usr
 	if(!istype(user))
 		return
 
-	flipped_up = !flipped_up
-	if(flipped_up)
-		icon_state = "[initial(icon_state)]_up"
-		item_state = "[initial(item_state)]_up"
-		body_parts_covered = HEAD
-		to_chat(user, SPAN_NOTICE("You flip up the pilot visor."))
+	visor_toggled = !visor_toggled
+	if(visor_toggled)
+		icon_state = "[initial(icon_state)]_off"
+		item_state = "[initial(item_state)]_off"
+		to_chat(user, SPAN_NOTICE("You deactivate the pilot visor."))
 		check_hud_overlay(user)
 	else
 		icon_state = initial(icon_state)
 		item_state = initial(item_state)
-		body_parts_covered = HEAD|EYES
-		to_chat(user, SPAN_NOTICE("You flip down the pilot visor."))
+		to_chat(user, SPAN_NOTICE("You activate the pilot visor."))
 		sound_to(user, 'sound/items/goggles_charge.ogg')
 		check_hud_overlay(user)
 	update_clothing_icon()
@@ -99,7 +103,7 @@
 		return
 	if(!equip_slot)
 		equip_slot = get_equip_slot()
-	if(!flipped_up && (equip_slot == slot_head))
+	if(!visor_toggled && (equip_slot == slot_head))
 		user.client.screen |= hud_overlay
 	else
 		user.client.screen -= hud_overlay
@@ -124,7 +128,7 @@
 		ship_overlay.icon = null
 		ship_overlay.icon_state = null
 
-	if(!flipped_up && (equip_slot == slot_head))
+	if(!visor_toggled && (equip_slot == slot_head))
 		user.client.screen |= ship_overlay
 	else
 		user.client.screen -= ship_overlay
@@ -138,7 +142,7 @@
 
 /obj/item/clothing/head/helmet/pilot/legion
 	name = "foreign legion flight helmet"
-	desc = "A helmet clearly belonging to a TCFL pilot, it has aged pilot visor mounted to it. The visor feeds its wearer in-flight information via a heads-up display."
+	desc = "A helmet clearly belonging to a TCFL pilot, it has aged pilot visor attached to it. The visor feeds its wearer in-flight information via an integrated heads-up display."
 	icon_state = "legion_pilot"
 	item_state = "legion_pilot"
 	camera = /obj/machinery/camera/network/tcfl
