@@ -19,12 +19,12 @@
 
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
-			            access_research, access_xenobiology, access_ai_upload, access_tech_storage,
+			            access_research, access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage,
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network,
 			            access_maint_tunnels, access_it, access_intrepid)
 	minimal_access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
-			            access_research, access_xenobiology, access_ai_upload, access_tech_storage,
+			            access_research, access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage,
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network,
 			            access_maint_tunnels, access_it)
 	minimal_player_age = 14
@@ -137,11 +137,12 @@
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology)
 	minimal_access = list(access_research, access_xenobiology, access_tox_storage)
 	alt_titles = list("Xenobotanist")
+	title_accesses = list("Xenobotanist" = access_research, access_xenobotany, access_tox_storage)
 
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
-	alt_outfits = list("Xenobotanist" = /datum/outfit/job/scientist/xenobiologist/botany)
+	alt_outfits = list("Xenobotanist" = /datum/outfit/job/scientist/xenobotanist)
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
@@ -149,7 +150,7 @@
 	jobtype = /datum/job/xenobiologist
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 
-/datum/outfit/job/scientist/xenobiologist/botany
+/datum/outfit/job/scientist/xenobotanist
 	name = "Xenobotanist"
 	uniform = /obj/item/clothing/under/rank/scientist/botany
 
