@@ -40,6 +40,8 @@
 	idle_power_usage = 5
 	dir = SOUTH
 
+	turf_hand_priority = 2 //Lower priority than normal doors to prevent interference
+
 	var/enable_smart_generation = TRUE
 
 	var/list/tile_info[4]
