@@ -2133,10 +2133,10 @@
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "aYP" = (
 /obj/machinery/button/switch/windowtint{
+	dir = 8;
 	id = "librarian";
 	pixel_x = 24;
-	pixel_y = 9;
-	dir = 8
+	pixel_y = 9
 	},
 /turf/simulated/floor/carpet,
 /area/horizon/library)
@@ -2993,8 +2993,8 @@
 "byq" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
-	name = "Viewing Shutter";
-	id = "shutters_deck2_hydroponicswindows"
+	id = "shutters_deck2_hydroponicswindows";
+	name = "Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
@@ -3525,8 +3525,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(35);
-	name = "Hydroponics Maintenance"
+	name = "Hydroponics Maintenance";
+	req_access = list(35)
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
@@ -5935,8 +5935,8 @@
 /area/template_noop)
 "dlG" = (
 /obj/structure/sink/kitchen{
-	name = "sink";
 	dir = 8;
+	name = "sink";
 	pixel_x = 20
 	},
 /obj/machinery/light,
@@ -9099,17 +9099,17 @@
 "fdZ" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
-	name = "Viewing Shutter";
+	dir = 8;
 	id = "shutters_deck2_hydroponicswindows";
-	dir = 8
+	name = "Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
 "fei" = (
 /obj/machinery/firealarm/west,
 /obj/structure/sink/kitchen{
-	name = "sink";
 	dir = 4;
+	name = "sink";
 	pixel_x = -20
 	},
 /obj/effect/floor_decal/corner/green/full,
@@ -9216,8 +9216,8 @@
 	department = "Kitchen";
 	departmentType = 1;
 	name = "Kitchen Requests Console";
-	pixel_y = -2;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = -2
 	},
 /turf/simulated/wall,
 /area/crew_quarters/kitchen/freezer)
@@ -9981,8 +9981,8 @@
 /area/rnd/research)
 "fEI" = (
 /obj/machinery/alarm{
-	pixel_x = 28;
-	dir = 8
+	dir = 8;
+	pixel_x = 28
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -11382,9 +11382,9 @@
 "gmt" = (
 /obj/structure/table/standard,
 /obj/machinery/light_switch{
+	dir = 4;
 	pixel_x = -24;
-	pixel_y = -9;
-	dir = 4
+	pixel_y = -9
 	},
 /obj/machinery/requests_console{
 	department = "Hydroponics";
@@ -11398,17 +11398,17 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
-	pixel_x = -40;
-	pixel_y = -7;
+	id = "shutters_deck2_hydroponicsdesk";
 	name = "Desk Shutter";
-	id = "shutters_deck2_hydroponicsdesk"
+	pixel_x = -40;
+	pixel_y = -7
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
-	pixel_x = -40;
-	pixel_y = 4;
+	id = "shutters_deck2_hydroponicswindows";
 	name = "Window Shutters";
-	id = "shutters_deck2_hydroponicswindows"
+	pixel_x = -40;
+	pixel_y = 4
 	},
 /obj/machinery/light{
 	dir = 1
@@ -11644,8 +11644,8 @@
 "gsh" = (
 /obj/structure/table/standard,
 /obj/machinery/reagentgrinder{
-	pixel_y = 7;
-	pixel_x = 1
+	pixel_x = 1;
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics)
@@ -13522,11 +13522,11 @@
 "hqS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "diner_shutters";
 	name = "Diner Counter Shutters";
-	pixel_y = -29;
 	pixel_x = -9;
-	dir = 1
+	pixel_y = -29
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -14777,9 +14777,9 @@
 /area/rnd/hallway)
 "idL" = (
 /obj/structure/disposalpipe/sortjunction/flipped{
+	icon_state = "pipe-j1s";
 	name = "Hydroponics";
-	sortType = "Hydroponics";
-	icon_state = "pipe-j1s"
+	sortType = "Hydroponics"
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -14801,9 +14801,9 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
-	name = "Viewing Shutter";
+	dir = 4;
 	id = "shutters_deck2_hydroponicswindowssafety";
-	dir = 4
+	name = "Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
@@ -20373,8 +20373,8 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/extinguisher_cabinet{
-	pixel_y = -32;
-	dir = 1
+	dir = 1;
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
@@ -20578,8 +20578,8 @@
 /area/chapel/office)
 "lBS" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12);
-	name = "Public Garden Maintenance"
+	name = "Public Garden Maintenance";
+	req_access = list(12)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -21752,12 +21752,12 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/northleft{
-	req_access = list(35);
-	name = "Hydroponics"
+	name = "Hydroponics";
+	req_access = list(35)
 	},
 /obj/machinery/door/window/southleft{
-	req_access = list(28);
-	name = "Kitchen"
+	name = "Kitchen";
+	req_access = list(28)
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 1
@@ -22473,8 +22473,8 @@
 	dir = 1
 	},
 /obj/structure/extinguisher_cabinet{
-	pixel_y = -32;
-	dir = 1
+	dir = 1;
+	pixel_y = -32
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/spline/plain/cee,
@@ -22527,9 +22527,12 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "mDD" = (
-/obj/structure/bed/stool/padded/red,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/media/jukebox/audioconsole{
+	anchored = 1;
+	pixel_x = -8
 	},
 /turf/simulated/floor/lino/grey,
 /area/hallway/primary/central_two)
@@ -29582,8 +29585,8 @@
 "quh" = (
 /obj/structure/table/standard,
 /obj/machinery/reagentgrinder{
-	pixel_y = 7;
-	pixel_x = 1
+	pixel_x = 1;
+	pixel_y = 7
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -30792,8 +30795,8 @@
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light_switch{
-	pixel_y = 7;
-	pixel_x = -3
+	pixel_x = -3;
+	pixel_y = 7
 	},
 /obj/machinery/button/remote/airlock{
 	id = "dinerbolt";
@@ -34673,8 +34676,8 @@
 /area/server)
 "thY" = (
 /obj/machinery/orderterminal{
-	pixel_y = -3;
-	pixel_x = -30
+	pixel_x = -30;
+	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/kitchen)
@@ -34710,8 +34713,8 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/radio/intercom{
-	pixel_y = -24;
-	dir = 1
+	dir = 1;
+	pixel_y = -24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics)
@@ -34745,9 +34748,9 @@
 	name = "Hydroponics Desk External"
 	},
 /obj/machinery/door/blast/shutters{
+	dir = 8;
 	id = "shutters_deck2_hydroponicsdesk";
-	name = "Hydroponics Desk Shutter";
-	dir = 8
+	name = "Hydroponics Desk Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
@@ -35915,10 +35918,10 @@
 "tRz" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
-	pixel_x = 25;
-	pixel_y = -7;
+	id = "shutters_deck2_hydroponicswindowssafety";
 	name = "Viewing Shutters";
-	id = "shutters_deck2_hydroponicswindowssafety"
+	pixel_x = 25;
+	pixel_y = -7
 	},
 /obj/structure/closet/secure_closet/hydroponics,
 /obj/item/watertank,
@@ -36684,8 +36687,8 @@
 /area/crew_quarters/kitchen/freezer)
 "uma" = (
 /obj/effect/map_effect/airlock{
-	radio_frequency = 2006;
-	name = "Security Maintenance AIrlock (2006)"
+	name = "Security Maintenance AIrlock (2006)";
+	radio_frequency = 2006
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hydroponics)
@@ -38014,8 +38017,8 @@
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/freezer{
-	req_access = list(28);
-	name = "Freezer"
+	name = "Freezer";
+	req_access = list(28)
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen/freezer)
@@ -43020,8 +43023,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/freezer{
-	req_access = list(28);
-	name = "Freezer"
+	name = "Freezer";
+	req_access = list(28)
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -43060,8 +43063,8 @@
 /area/security/armory)
 "xBv" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Public Garden";
-	dir = 2
+	dir = 2;
+	name = "Public Garden"
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -63630,7 +63633,7 @@ gHV
 ugp
 eBy
 ycL
-kAo
+tfl
 kAo
 ncN
 mZI
