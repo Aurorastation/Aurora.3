@@ -128,6 +128,7 @@
 			access_granted = TRUE //We only need access to one of the networks.
 	if(!access_granted)
 		to_chat(user, SPAN_WARNING("Access unauthorized."))
+		return
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
