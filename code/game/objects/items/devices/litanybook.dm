@@ -31,15 +31,26 @@
 			q = pick(randomquip)
 
 	if(do_after(user, 25))
-		to_chat(user, "<span class='notice'>You notice a particular verse: [q]</span>")
+		to_chat(user, "<span class='notice'>You notice a particular line: [q]</span>")
 
 /obj/item/device/litanybook/gadpathur
 	name = "\improper gadpathurian morale manual"
 	desc = "A popular Gadpathurian pocket guide, used to carry a fragment of the Commander's wisdom abroad."
 	desc_fluff = "Manufactured using recycled paper and canvas. The wisdom within the text is based on the collected speeches of Commander Patvardhan and her assorted councillors."
-	icon_state = "gadpathurbook"
-	item_state = "gadpathurbook"
+	icon_state = "bieselbook"
+	item_state = "bieselbook"
 
 /obj/item/device/litanybook/gadpathur/Initialize()
 	. = ..()
 	randomquip = file2list("ingame_manuals/gadpathur.txt")
+
+/obj/item/device/litanybook/biesel
+	name = "\improper constitution of the Republic of Biesel"
+	desc = "A thick book containing the printed text of The Federal Republic of Biesel and the Corporate Reconstruction Zone's federal constitution, adopted in 2452."
+	desc_fluff = "This book has the Republic of Biesel's iconic symbol etched on the cover, the text within details the structure of the Federal Democracy the Republic is today."
+	icon_state = "tcfl_book"
+	item_state = "book13"
+
+/obj/item/device/litanybook/biesel/Initialize()
+	. = ..()
+	randomquip = file2list("ingame_manuals/biesel.txt")
