@@ -465,16 +465,16 @@
 	color = "#990C0C"
 
 /obj/effect/floor_decal/industrial/outline/medical
-	name = "medical green outline"
-	color = COLOR_GREEN_GRAY
+	name = "medical lime outline"
+	color = COLOR_PALE_GREEN_GRAY
 
 /obj/effect/floor_decal/industrial/outline/engineering
 	name = "engineering yellow outline"
 	color = COLOR_YELLOW_ENGI
 
 /obj/effect/floor_decal/industrial/outline/service
-	name = "service lime outline"
-	color = COLOR_PALE_GREEN_GRAY
+	name = "service green outline"
+	color = COLOR_GREEN_GRAY
 
 /obj/effect/floor_decal/industrial/outline/research
 	name = "research mauve outline"

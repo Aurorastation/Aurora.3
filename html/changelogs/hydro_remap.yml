@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - maptweak: "Remaps hydroponics and changes part of the old freezer into a hydroponics-kitchen shared garden space."
