@@ -1,0 +1,6 @@
+author: listerla & Pawn
+
+delete-after: True
+
+changes:
+  - imageadd: "Replaced plastic clogs sprite with one by Pawn."
