@@ -112,7 +112,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	if(current_map.use_overmap)
 		if(!linked) //If we're using overmap and not associated with a sector, doesn't work.
 			return FALSE
-		var/obj/effect/overmap/visitable/ship/S = signal.data["sector"]
+		var/obj/effect/overmap/visitable/S = signal.data["sector"]
 		if(istype(S))
 			if(S != linked) //If we're not the same ship, check range
 				if(get_dist(S, linked) > overmap_range && !(S in view(overmap_range, linked)))
@@ -145,7 +145,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
-		if (istype(my_sector, /obj/effect/overmap/visitable/ship))
+		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
 /obj/machinery/telecomms/Destroy()

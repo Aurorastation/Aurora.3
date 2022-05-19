@@ -6,7 +6,7 @@
 	var/obj/machinery/shipsensors/sensors
 	circuit = /obj/item/circuitboard/ship/sensors
 
-/obj/machinery/computer/ship/sensors/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
+/obj/machinery/computer/ship/sensors/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
 	if(!.)
 		return

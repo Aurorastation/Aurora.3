@@ -2,16 +2,22 @@
 /obj/machinery/computer/shuttle_control/explore
 	name = "general shuttle control console"
 	ui_template = "shuttle_control_console_exploration.tmpl"
+	var/obj/effect/overmap/visitable/ship/connected //Ship we're connected to
 
-/obj/machinery/computer/shuttle_control/explore/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
+/obj/machinery/computer/shuttle_control/explore/Initialize()
+	. = ..()
+	if(istype(linked, /obj/effect/overmap/visitable/ship))
+		connected = linked
+
+/obj/machinery/computer/shuttle_control/explore/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
 
 	if(.)
-		LAZYSET(linked.consoles, src, TRUE)
+		LAZYSET(connected.consoles, src, TRUE)
 
 /obj/machinery/computer/shuttle_control/explore/Destroy()
-	if(linked)
-		LAZYREMOVE(linked.consoles, src)
+	if(connected)
+		LAZYREMOVE(connected.consoles, src)
 	. = ..()
 
 /obj/machinery/computer/shuttle_control/explore/get_ui_data(var/datum/shuttle/autodock/overmap/shuttle)
