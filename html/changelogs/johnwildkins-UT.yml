@@ -1,7 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - backend: "Fixed code_check not having proper arguments passed to it, added a check for non-TGM mapfiles."
-  - backend: "Added a unit test for testing all away sites."
