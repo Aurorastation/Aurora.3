@@ -55,6 +55,9 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
 		if(H.linked == src)
 			H.linked = null
+	for(var/obj/machinery/telecomms/T in telecomms_list)
+		if(T.linked == src)
+			T.linked = null
 
 	. = ..()
 
