@@ -56,6 +56,7 @@
 		new /obj/item/storage/backpack/medic(src)
 	else
 		new /obj/item/storage/backpack/satchel_med(src)
+	new /obj/item/storage/backpack/duffel/med(src)
 	new /obj/item/clothing/head/nursehat (src)
 	switch(pick("blue", "green", "purple"))
 		if ("blue")
@@ -142,6 +143,7 @@
 		new /obj/item/storage/backpack/medic(src)
 	else
 		new /obj/item/storage/backpack/satchel_med(src)
+	new /obj/item/storage/backpack/duffel/med(src)
 	new /obj/item/clothing/suit/bio_suit/cmo(src)
 	new /obj/item/clothing/head/bio_hood/cmo(src)
 	new /obj/item/clothing/shoes/medical(src)

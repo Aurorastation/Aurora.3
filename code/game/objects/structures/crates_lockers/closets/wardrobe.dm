@@ -302,6 +302,7 @@
 
 /obj/structure/closet/wardrobe/pharmacy_white/fill()
 	..()
+	new /obj/item/storage/backpack/duffel/pharm(src)
 	new /obj/item/clothing/under/rank/pharmacist/zeng(src)
 	new /obj/item/clothing/under/rank/pharmacist/nt(src)
 	new /obj/item/clothing/under/rank/pharmacist/pmc(src)
