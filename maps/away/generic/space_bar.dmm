@@ -66,8 +66,8 @@
 /obj/structure/closet/crate,
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/storage/box/lights,
-/obj/item/storage/box/lights/bulbs,
+/obj/item/storage/box/lights/mixed,
+/obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "amt" = (
@@ -1159,7 +1159,8 @@
 "taa" = (
 /obj/structure/table/stone/marble,
 /obj/item/holomenu{
-	pixel_y = 5
+	req_access = list(202);
+	req_one_access = null
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
