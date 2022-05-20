@@ -328,3 +328,7 @@
 /decl/emote/visible/flail
 	key = "flail"
 	emote_message_3p = "USER flails violently!"
+
+/decl/emote/visible/flick
+	key = "flick"
+	emote_message_3p = "USER's ears flick."
