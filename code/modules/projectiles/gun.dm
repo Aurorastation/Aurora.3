@@ -137,12 +137,11 @@
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
 
-	if (!pin && needspin)
-		pin = /obj/item/device/firing_pin
-
-	if(pin && needspin)
+	if (needspin)
+		if(!pin)
+			pin = /obj/item/device/firing_pin
 		pin = new pin(src)
-	else if(pin)
+	else
 		pin = null
 
 	if(istype(loc, /obj/item/robot_module))

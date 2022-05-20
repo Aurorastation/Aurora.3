@@ -92,9 +92,9 @@ main ui datum.
 	if(width && height)
 		var/winsize = winget(user, "mapwindow", "size")
 		var/map_size = splittext(winsize, "x")
-		var/screen_height = text2num(map_size[1])
+		var/screen_height = text2num(map_size[2])
 		if(height > screen_height)
-			params += "size=[width]x[screen_height - 100];"
+			params += "size=[width]x[max(screen_height - 100, 240)];"
 		else
 			params += "size=[width]x[height];"
 	send_resources_and_assets(user.client, load_asset)
