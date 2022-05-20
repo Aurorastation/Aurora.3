@@ -265,7 +265,7 @@
 /area/cursed/bridge)
 "bzw" = (
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/cursed/hangar)
 "bAa" = (
 /obj/structure/sign/flag/heph{
@@ -296,7 +296,7 @@
 	dir = 4
 	},
 /obj/item/stack/cable_coil,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/cursed/bridge)
 "bGI" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -729,7 +729,7 @@
 /area/cursed/eva_storage)
 "eyA" = (
 /obj/structure/closet,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/cursed/bridge)
 "eyD" = (
 /obj/structure/sink{
@@ -877,7 +877,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/cursed/bridge)
 "fuu" = (
 /obj/machinery/door/airlock/glass_mining,
@@ -923,7 +923,7 @@
 "fyv" = (
 /obj/structure/closet,
 /obj/machinery/light/colored/red,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/cursed/bridge)
 "fzz" = (
 /obj/structure/boulder,
@@ -1007,7 +1007,7 @@
 /area/cursed/bridge)
 "fXX" = (
 /obj/item/stack/cable_coil,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/cursed/bridge)
 "ghD" = (
 /mob/living/bot/medbot,
@@ -1137,7 +1137,7 @@
 	name = "himean drill";
 	desc = "A giant, Himean drill - usually digging tunnels deep beneath the planet Himeo."
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/cursed/bridge)
 "gSf" = (
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -2385,7 +2385,7 @@
 /area/cursed/hangar)
 "oJh" = (
 /obj/item/grenade/dynamite,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/cursed/bridge)
 "oOq" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3048,7 +3048,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/cursed/bridge)
 "rQH" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3171,6 +3171,9 @@
 /obj/item/bluespace_crystal,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
+"sDN" = (
+/turf/simulated/floor/airless,
+/area/cursed/bridge)
 "sHN" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -3179,7 +3182,7 @@
 /area/cursed/computer_core)
 "sKt" = (
 /obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/cursed/hangar)
 "sMj" = (
 /mob/living/simple_animal/rat,
@@ -3348,7 +3351,7 @@
 /obj/item/toy/figure/clown{
 	desc = "A \"Space Life\" brand clown action figure. This one has its face carved to look more personable."
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/cursed/bridge)
 "tUN" = (
 /obj/effect/floor_decal/corner/red{
@@ -3492,7 +3495,6 @@
 /obj/item/clothing/accessory/storage/overalls,
 /obj/item/clothing/accessory/storage/overalls,
 /obj/item/clothing/under/serviceoveralls,
-/obj/item/clothing/under/rank/hephaestus/tech,
 /obj/item/clothing/under/rank/miner/heph,
 /obj/item/clothing/under/rank/miner/heph,
 /turf/simulated/floor/wood,
@@ -3725,7 +3727,7 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/cursed/hangar)
 "wrR" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
@@ -41298,8 +41300,8 @@ xRX
 xRX
 xRX
 fpi
-mxK
-mxK
+sDN
+sDN
 iEm
 iEm
 iEm
@@ -43885,7 +43887,7 @@ jdh
 jdh
 bwI
 bDk
-mxK
+sDN
 rPP
 bwI
 jdh
@@ -44657,7 +44659,7 @@ jdh
 bwI
 oJh
 tTd
-mxK
+sDN
 bwI
 jdh
 jdh
@@ -44913,7 +44915,7 @@ jdh
 jdh
 jdh
 bwI
-mxK
+sDN
 bwI
 jdh
 jdh
