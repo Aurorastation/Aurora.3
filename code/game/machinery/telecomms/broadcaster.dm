@@ -120,9 +120,11 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	machinetype = 6
 	produces_heat = 0
 	var/intercept = 0 // if nonzero, broadcasts all messages to syndicate channel
-	var/list/broadcast_zlevels = list() //The zlevels we should broadcast to. By default, only does its own. Set more here.
-
 	var/list/listening_freqs = list()
+
+	//The zlevels we should broadcast to. By default, broadcasts only to itself and connected Z levels for multi-z away ships. More can be set here.
+	var/list/broadcast_zlevels = list() 
+
 
 /obj/machinery/telecomms/allinone/Initialize()
 	. = ..()
@@ -153,8 +155,11 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		if(signal.data["slow"] > 0)
 			sleep(signal.data["slow"]) // simulate the network lag if necessary
 
-		var/list/broadcast_z = broadcast_zlevels //what levels we're sending to
-		broadcast_z += z	//Do our own. Cannot do this in init currently, as when a ship launches, it changes zlevels
+		var/list/broadcast_z = broadcast_zlevels //what levels we're sending to.
+		if(linked)
+			broadcast_z += linked.map_z	//Multi-z away sites
+		else
+			broadcast_z += z	//If we're not linked to anything, just do our own z
 
 		/* ###### Broadcast a message using signal.data ###### */
 
