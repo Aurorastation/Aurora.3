@@ -155,11 +155,7 @@
 
 /obj/item/organ/internal/cell/listen()
 	if(get_charge())
-		return "faint hum of the power bank"
-
-/obj/item/organ/internal/cell/hyper
-	cell = /obj/item/cell/hyper
-	desc = "A small, powerful cell for use in fully prosthetic bodies. This one has a higher capacity than usual."
+		return "faint hum of the power bank"	
 
 /obj/item/organ/internal/surge
 	name = "surge preventor"
