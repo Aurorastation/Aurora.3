@@ -90,6 +90,6 @@
 
 	var/obj/item/sticker/S = locate() in src
 	if(!isliving(usr))
-	return
+		return
 	if(S)
 		S.remove_sticker(usr)
