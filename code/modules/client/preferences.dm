@@ -82,6 +82,7 @@ datum/preferences
 	// IPC Stuff
 	var/machine_tag_status = TRUE
 	var/machine_serial_number
+	var/microbattery_cell = /obj/item/cell/super
 	var/machine_ownership_status = IPC_OWNERSHIP_COMPANY
 
 		//Some faction information.
