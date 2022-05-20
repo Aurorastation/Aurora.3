@@ -15,7 +15,7 @@
 	if(LAZYLEN(rand_icons))
 		icon_state = pick(rand_icons)
 
-/obj/item/sticker/attack_hand(mob/user)
+/obj/item/sticker/attack_hand(mob/living/user)
 	if(!attached)
 		return ..()
 
@@ -35,7 +35,7 @@
 	if(attached_atom && user.Adjacent(attached_atom))
 		attack_hand(user)
 
-/obj/item/sticker/attackby(obj/item/I, mob/user)
+/obj/item/sticker/attackby(obj/item/I, mob/living/user)
 	if(!attached)
 		return ..()
 
@@ -44,7 +44,7 @@
 		attached_atom.attackby(I, user) // don't allow people to make sticker armor
 		return TRUE
 
-/obj/item/sticker/afterattack(atom/movable/target, mob/user, proximity_flag, click_parameters)
+/obj/item/sticker/afterattack(atom/movable/target, mob/living/user, proximity_flag, click_parameters)
 	if(!proximity_flag)
 		return
 	if(!istype(target) || (ismob(target) && !isbot(target)))
