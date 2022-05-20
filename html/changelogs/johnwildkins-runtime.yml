@@ -1,8 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Cleaned up several misc. runtime errors."
-  - bugfix: "VueUI windows will now clamp to slightly less than the current BYOND window's screen height, hopefully preventing windows from being stuck open."
-  - refactor: "Away sites with the same player-facing name no longer overwrite each other in site selection."
