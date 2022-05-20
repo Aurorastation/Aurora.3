@@ -167,6 +167,7 @@
 	mask["watcher mask"] = /obj/item/clothing/mask/skrell/watcher
 	mask["third eye mask"] = /obj/item/clothing/mask/skrell/thirdeye
 	mask["half mask"] = /obj/item/clothing/mask/skrell/half
+	mask["horned mask"] = /obj/item/clothing/mask/skrell/horned
 	gear_tweaks += new /datum/gear_tweak/path(mask)
 
 /datum/gear/ears/skrell/scrunchy
