@@ -1,0 +1,7 @@
+author: Llywelwyn, RyverStyx
+
+delete-after: True
+
+changes:
+  - rscadd: "Added srom masks to the Skrell loadout."
+  - tweak: "Dreamer mantle is renamed to 'skrell mantle', and is no longer specific to the Zi'Pluax genner vessel."

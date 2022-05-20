@@ -95,7 +95,7 @@
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/skrell
-	display_name = "zipluax mantle"
+	display_name = "skrell mantle"
 	path = /obj/item/clothing/head/skrell
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
@@ -136,6 +136,24 @@
 	path = /obj/item/clothing/mask/breath/skrell
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
+
+/datum/gear/mask/skrell/srom
+	display_name = "srom masks"
+	path = /obj/item/clothing/mask/skrell
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/mask/skrell/srom/New()
+	..()
+	var/list/mask = list()
+	mask["pinhole mask"] = /obj/item/clothing/mask/skrell
+	mask["skull mask"] = /obj/item/clothing/mask/skrell/skull
+	mask["weeping mask"] = /obj/item/clothing/mask/skrell/weeping
+	mask["watcher mask"] = /obj/item/clothing/mask/skrell/watcher
+	mask["third eye mask"] = /obj/item/clothing/mask/skrell/thirdeye
+	mask["half mask"] = /obj/item/clothing/mask/skrell/half
+	gear_tweaks += new /datum/gear_tweak/path(mask)
 
 /datum/gear/ears/skrell/scrunchy
 	display_name = "tentacle tie"

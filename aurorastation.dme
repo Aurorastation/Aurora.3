@@ -1574,6 +1574,7 @@
 #include "code\modules\clothing\masks\gasmask.dm"
 #include "code\modules\clothing\masks\miscellaneous.dm"
 #include "code\modules\clothing\masks\voice.dm"
+#include "code\modules\clothing\masks\xeno\skrell.dm"
 #include "code\modules\clothing\masks\xeno\tajara.dm"
 #include "code\modules\clothing\masks\xeno\unathi.dm"
 #include "code\modules\clothing\rings\material.dm"
