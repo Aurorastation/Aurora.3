@@ -65,7 +65,7 @@
 	A.vis_contents += src
 	A.verbs += /atom/movable/proc/take_off_sticker
 
-/obj/item/sticker/proc/remove_sticker(var/mob/user)
+/obj/item/sticker/proc/remove_sticker(var/mob/living/user)
 	user.put_in_hands(src)
 	var/atom/movable/attached_atom = attached.resolve()
 	if(attached_atom)
