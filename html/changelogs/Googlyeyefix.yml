@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - Bugfix: Made it so mischiveous ghosts can't unattach googly eyes, which was happening because it was a command verb which required no hands. It now checks if you're dead before giving a damn about what you say.
+  - Bugfix: "Made it so mischiveous ghosts can't unattach googly eyes, which was happening because it was a command verb which required no hands. It now checks if you're dead before giving a damn about what you say."
