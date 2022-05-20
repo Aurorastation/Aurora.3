@@ -89,5 +89,7 @@
 	set src in view(1)
 
 	var/obj/item/sticker/S = locate() in src
+	if(!isliving(usr))
+	return
 	if(S)
 		S.remove_sticker(usr)
