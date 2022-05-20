@@ -161,6 +161,22 @@
 	handies["gustatorial centre (left hand)"] = /obj/item/organ/internal/augment/gustatorial/hand/left
 	gear_tweaks += new /datum/gear_tweak/path(handies)
 
+/datum/gear/augment/drill
+	display_name = "integrated drill"
+	description = "A mining drill integrated in the hand."
+	path = /obj/item/organ/internal/augment/tool/drill
+	whitelisted = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
+	allowed_roles = list("Shaft Miner")
+	cost = 5
+	sort_category = "Xenowear - IPC"
+
+/datum/gear/augment/drill/New()
+	..()
+	var/list/augs = list()
+	augs["integrated drill, right hand"] = /obj/item/organ/internal/augment/tool/drill
+	augs["integrated drill, left hand"] = /obj/item/organ/internal/augment/tool/drill/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
 /datum/gear/accessory/syntheticcard
 	display_name = "synthetic residence card"
 	description = "An identification card given to free IPC residents within the Republic of Biesel."
