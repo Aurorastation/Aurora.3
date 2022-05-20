@@ -121,7 +121,7 @@
 			return
 	else if(O.GetID())
 		if (!mmi)
-			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain to remove.</span>")
+			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain.</span>")
 			return 0
 
 		var/obj/item/card/id/id_card = O.GetID()
@@ -129,17 +129,33 @@
 		if(!istype(id_card))
 			return 0
 
-		if(access_robotics in id_card.access)
-			to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
-			eject_brain()
-			if(held_item)
-				held_item.forceMove(src.loc)
-				held_item = null
-			return 1
-		else
-			to_chat(user, "<span class='danger'>You swipe your card with no effect.</span>")
-			return 0
+		var/choice = input(user, "Would you like to eject the brain or sync access?", "Swipe Mode") as null|anything in list("Eject", "Sync")
+		if(!choice)
+			return
 
+		switch(choice)
+			if("Eject")
+				if(use_check_and_message(user))
+					return 0
+				if(access_robotics in id_card.access)
+					to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
+					eject_brain()
+					if(held_item)
+						held_item.forceMove(src.loc)
+						held_item = null
+					return 1
+				else
+					to_chat(user, "<span class='danger'>You swipe your card with no effect.</span>")
+					return 0
+			if("Sync")
+				if(use_check_and_message(user))
+					return 0
+
+				internal_id.access.Cut()
+				internal_id.access = id_card.access.Copy()
+				to_chat(user, SPAN_NOTICE("Access synced with [src]."))
+				to_chat(src, SPAN_NOTICE("Access codes updated."))
+				return 1
 	else
 		O.attack(src, user, user.zone_sel.selecting)
 
@@ -203,7 +219,7 @@
 	. = ..()
 
 	radio = new radio_type(src)
-	camera = new /obj/machinery/camera(src)
+	camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
 	camera.c_tag = "spiderbot-[real_name]"
 	camera.replace_networks(list("SS13"))
 

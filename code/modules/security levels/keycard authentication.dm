@@ -15,7 +15,6 @@
 	//1 = select event
 	//2 = authenticate
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 6
 	power_channel = ENVIRON
@@ -108,7 +107,7 @@
 
 /obj/machinery/keycard_auth/proc/broadcast_request()
 	icon_state = "auth_on"
-	for(var/obj/machinery/keycard_auth/KA in SSmachinery.all_machines)
+	for(var/obj/machinery/keycard_auth/KA in SSmachinery.machinery)
 		if(KA == src) continue
 		KA.reset()
 		spawn()

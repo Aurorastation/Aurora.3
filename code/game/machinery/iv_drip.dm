@@ -51,7 +51,6 @@
 		/obj/item/stock_parts/scanning_module)
 
 /obj/machinery/iv_drip/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
 	if(attached)
 		attached = null
 		vein = null
@@ -175,7 +174,7 @@
 	last_gauge_pressure = gauge_pressure
 	add_overlay("[tank.gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure][tipped ? "_tipped" : ""]")
 
-/obj/machinery/iv_drip/machinery_process()
+/obj/machinery/iv_drip/process()
 	breather_process()
 	attached_process()
 

@@ -53,8 +53,8 @@
 	new /obj/item/clothing/under/rank/chef/idris(src)
 	new /obj/item/clothing/head/chefhat/nt(src)
 	new /obj/item/clothing/head/chefhat/idris(src)
-	new /obj/item/clothing/head/surgery/hairnet(src)
-	new /obj/item/clothing/head/surgery/hairnet(src)
+	new /obj/item/clothing/head/hairnet(src)
+	new /obj/item/clothing/head/hairnet(src)
 
 /*
  * Janitor

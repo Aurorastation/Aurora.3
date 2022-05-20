@@ -225,7 +225,6 @@
 	density = 1
 	anchored = 1
 
-	use_power = 1
 	idle_power_usage = 60
 	active_power_usage = 10000
 
@@ -296,7 +295,7 @@
 	usr.client.eye = src
 	usr.forceMove(src)
 	src.occupant = WEAKREF(usr)
-	update_use_power(2)
+	update_use_power(POWER_USE_ACTIVE)
 	flick("[initial(icon_state)]-anim", src)
 	update_icon()
 	src.add_fingerprint(usr)
@@ -319,7 +318,7 @@
 		H.client.perspective = MOB_PERSPECTIVE
 	H.forceMove(get_turf(src))
 	occupant = null
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	flick("[initial(icon_state)]-anim", src)
 	update_icon()
 	return
@@ -350,7 +349,7 @@
 		L.forceMove(src)
 		occupant = WEAKREF(L)
 
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 		flick("[initial(icon_state)]-anim", src)
 		update_icon()
 
@@ -389,7 +388,7 @@
 			H.client.eye = src
 		H.forceMove(src)
 		occupant = WEAKREF(H)
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 		flick("[initial(icon_state)]-anim", src)
 		update_icon()
 	src.add_fingerprint(user)

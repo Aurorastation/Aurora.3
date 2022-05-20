@@ -171,9 +171,10 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	if(gloves) gloves.contaminate()
 
 
-turf/Entered(obj/item/I)
-	. = ..()
+turf/Entered(atom/movable/thing, turf/oldLoc)
+	. = ..(thing, oldLoc)
 	//Items that are in phoron, but not on a mob, can still be contaminated.
+	var/obj/item/I = thing
 	if(istype(I) && vsc.plc.CLOTH_CONTAMINATION && I.can_contaminate())
 		var/datum/gas_mixture/env = return_air(1)
 		if(!env)

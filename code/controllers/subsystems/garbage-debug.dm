@@ -377,7 +377,6 @@
 	SearchVar(SSdisease)
 	SearchVar(SSmodifiers)
 	SearchVar(SSnanoui)
-	SearchVar(SSpipenet)
 	SearchVar(SSprocessing)
 	SearchVar(SSshuttle)
 	SearchVar(SSmapping)
@@ -864,5 +863,6 @@
 	SearchVar(mark)
 	SearchVar(contamination_overlay)
 	SearchVar(vsc)
+	SearchVar(cable_list)
 
 #endif

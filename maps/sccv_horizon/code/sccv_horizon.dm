@@ -29,6 +29,7 @@
 	boss_short = "SCC"
 	company_name = "Stellar Corporate Conglomerate"
 	company_short = "SCC"
+	station_type = "ship"
 
 	command_spawn_enabled = TRUE
 	command_spawn_message = "Welcome to the SCCV Horizon!"

@@ -1,7 +1,6 @@
 /datum/ghostspawner/simplemob/rat
 	short_name = "rat"
 	name = "Rat"
-	desc = "Join as a Rat on the aurora, a common nuisance to the crew."
 	welcome_message = "You are now a rat. Though you may interact with players, do not give any hints away that you are more than a simple rodent. Find food, avoid cats, and try to survive!"
 	show_on_job_select = FALSE
 	tags = list("Simple Mobs")
@@ -10,6 +9,10 @@
 
 	//Vars regarding the mob to use
 	spawn_mob = /mob/living/simple_animal/rat //The mob that should be spawned
+
+/datum/ghostspawner/simplemob/rat/New()
+	desc = "Join as a rat on the [current_map.station_name], a common nuisance to the crew."
+	..()
 
 //This proc selects the spawnpoint to use.
 /datum/ghostspawner/simplemob/rat/select_spawnlocation()

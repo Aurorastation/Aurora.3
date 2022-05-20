@@ -28,7 +28,7 @@
 	hide = 1
 	toggled = 1
 	//anchored = 1
-	//use_power = 0
+	//use_power = POWER_USE_OFF
 	//idle_power_usage = 0
 	produces_heat = 0
 	autolinkers = list("c_relay")

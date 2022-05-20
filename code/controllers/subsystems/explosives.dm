@@ -19,7 +19,6 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/ticks_without_work = 0
 	var/list/explosion_turfs
 	var/explosion_in_progress
-	var/powernet_update_pending = 0
 
 	var/mc_notified = FALSE
 
@@ -30,17 +29,12 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	work_queue = SSexplosives.work_queue
 	explosion_in_progress = SSexplosives.explosion_in_progress
 	explosion_turfs = SSexplosives.explosion_turfs
-	powernet_update_pending = SSexplosives.powernet_update_pending
 
 /datum/controller/subsystem/explosives/fire(resumed = FALSE)
 	if(!length(work_queue))
 		ticks_without_work++
-		if (powernet_update_pending && ticks_without_work > 5)
-			SSmachinery.powernet_update_queued = TRUE
-			powernet_update_pending = 0
-
-			// All explosions handled, powernet rebuilt.
-			// We can sleep now.
+		if (ticks_without_work > 5)
+			// All explosions handled, we can sleep now.
 			suspend()
 
 			mc_notified = FALSE
@@ -48,7 +42,6 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		return
 
 	ticks_without_work = 0
-	powernet_update_pending = 1
 
 	if (!mc_notified)
 		Master.ExplosionStart()
@@ -225,6 +218,9 @@ var/datum/controller/subsystem/explosives/SSexplosives
 			for(var/atom_movable in T.contents)	//bypass type checking since only atom/movable can be contained by turfs anyway
 				var/atom/movable/AM = atom_movable
 				if(!QDELETED(AM) && AM.simulated)
+					var/obj/O = AM
+					if(istype(O) && O.hides_under_flooring() && !T.is_plating())
+						continue
 					AM.ex_act(dist)
 
 				CHECK_TICK
@@ -403,6 +399,9 @@ var/datum/controller/subsystem/explosives/SSexplosives
 			for (var/subthing in T)
 				var/atom/movable/AM = subthing
 				if (AM.simulated)
+					var/obj/O = AM
+					if(istype(O) && O.hides_under_flooring() && !T.is_plating())
+						continue
 					AM.ex_act(severity)
 					movable_tally++
 				CHECK_TICK

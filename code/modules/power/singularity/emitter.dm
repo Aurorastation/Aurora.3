@@ -14,7 +14,7 @@
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_SIGNALER
 	var/id
 
-	use_power = 0	//uses powernet power, not APC power
+	use_power = POWER_USE_OFF	//uses powernet power, not APC power
 	active_power_usage = 30000	//30 kW laser. I guess that means 30 kJ per shot.
 
 	var/active = FALSE
@@ -116,7 +116,7 @@
 	activate(null)
 	return TRUE
 
-/obj/machinery/power/emitter/machinery_process()
+/obj/machinery/power/emitter/process()
 	if(stat & (BROKEN))
 		return
 	if(state != EMITTER_WELDED || (!powernet && active_power_usage))
