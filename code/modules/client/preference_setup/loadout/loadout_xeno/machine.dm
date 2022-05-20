@@ -161,6 +161,14 @@
 	handies["gustatorial centre (left hand)"] = /obj/item/organ/internal/augment/gustatorial/hand/left
 	gear_tweaks += new /datum/gear_tweak/path(handies)
 
+/datum/gear/augment/machine/microbattery
+	display_name = "microbattery (hyper)"
+	description = "A small, powerful cell for use in fully prosthetic bodies. This one has a higher capacity than usual."
+	path = /obj/item/organ/internal/cell/hyper
+	cost = 5
+	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	sort_category = "Xenowear - IPC"
+
 /datum/gear/accessory/syntheticcard
 	display_name = "synthetic residence card"
 	description = "An identification card given to free IPC residents within the Republic of Biesel."
