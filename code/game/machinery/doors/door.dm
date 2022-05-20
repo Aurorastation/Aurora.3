@@ -391,17 +391,18 @@
 		open(1)
 		return 1
 
-/obj/machinery/door/proc/take_damage(var/damage)
+/obj/machinery/door/proc/take_damage(var/damage, message = TRUE)
 	var/initialhealth = src.health
 	src.health = max(0, src.health - damage)
 	if(src.health <= 0 && initialhealth > 0)
 		src.set_broken()
-	else if(src.health < src.maxhealth / 4 && initialhealth >= src.maxhealth / 4)
-		visible_message(SPAN_WARNING("\The [src] looks like it's about to break!"))
-	else if(src.health < src.maxhealth / 2 && initialhealth >= src.maxhealth / 2)
-		visible_message(SPAN_WARNING("\The [src] looks seriously damaged!"))
-	else if(src.health < src.maxhealth * 3/4 && initialhealth >= src.maxhealth * 3/4)
-		visible_message(SPAN_WARNING("\The [src] shows signs of damage!"))
+	else if(message)
+		if(src.health < src.maxhealth / 4 && initialhealth >= src.maxhealth / 4)
+			visible_message(SPAN_WARNING("\The [src] looks like it's about to break!"))
+		else if(src.health < src.maxhealth / 2 && initialhealth >= src.maxhealth / 2)
+			visible_message(SPAN_WARNING("\The [src] looks seriously damaged!"))
+		else if(src.health < src.maxhealth * 3/4 && initialhealth >= src.maxhealth * 3/4)
+			visible_message(SPAN_WARNING("\The [src] shows signs of damage!"))
 	update_icon()
 	return
 
@@ -442,7 +443,7 @@
 				var/damage = rand(300,600)
 				if (bolted)
 					damage *= 0.8 //Bolted doors are a bit tougher
-				take_damage(damage)
+				take_damage(damage, FALSE)
 		if(2.0)
 			if((!bolted && prob(25)) || prob(20))
 				qdel(src)
@@ -450,14 +451,14 @@
 				var/damage = rand(150,300)
 				if (bolted)
 					damage *= 0.8 //Bolted doors are a bit tougher
-				take_damage(damage)
+				take_damage(damage, FALSE)
 		if(3.0)
 			if(prob(80))
 				spark(src, 2, alldirs)
 			var/damage = rand(100,150)
 			if (bolted)
 				damage *= 0.8
-			take_damage(damage)
+			take_damage(damage, FALSE)
 
 	if (health <= 0)
 		qdel(src)
