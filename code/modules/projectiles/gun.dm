@@ -143,7 +143,7 @@
 	if(pin && needspin)
 		pin = new pin(src)
 	else if(pin)
-		QDEL_NULL(pin)
+		pin = null
 
 	if(istype(loc, /obj/item/robot_module))
 		has_safety = FALSE
