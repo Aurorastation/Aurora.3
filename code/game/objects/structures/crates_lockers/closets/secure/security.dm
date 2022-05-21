@@ -349,19 +349,5 @@
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 	new /obj/item/device/radio/headset/headset_com(src)
 	new /obj/item/device/radio/headset/headset_com/alt(src)
-
-/obj/structure/closet/secure_closet/pilot
-	name = "pilot's locker"
-	req_access = list(access_bridge_crew)
-	icon_state = "sec"
-	icon_door = "hop"
-
-/obj/structure/closet/secure_closet/pilot/fill()
-	..()
-	new /obj/item/clothing/under/rank/bridge_crew(src)
-	new /obj/item/clothing/glasses/sunglasses(src)
-	new /obj/item/device/radio/headset/headset_com(src)
-	new /obj/item/device/radio/headset/headset_com/alt(src)
-	new /obj/item/clothing/head/helmet/pilot(src)
 	new /obj/item/device/radio/off(src)
 	new /obj/item/device/gps(src)
