@@ -57,7 +57,6 @@
 /datum/outfit/job/officer/pmc
 	name = "Security Officer - PMC"
 
-	head = /obj/item/clothing/head/beret/corporate/pmc
 	uniform = /obj/item/clothing/under/rank/security/pmc
 	id = /obj/item/card/id/pmc
 
@@ -73,7 +72,6 @@
 /datum/outfit/job/intern_sec/pmc
 	name = "Security Cadet - PMC"
 
-	head = /obj/item/clothing/head/softcap/pmc
 	uniform = /obj/item/clothing/under/rank/cadet/pmc
 	id = /obj/item/card/id/pmc
 

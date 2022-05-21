@@ -4,7 +4,6 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "ccharger"
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 5
 	active_power_usage = 90000	//90 kW. (this the power drawn when charging)
 	power_channel = EQUIP
@@ -62,6 +61,7 @@
 			charging = W
 			user.visible_message("[user] inserts a cell into the charger.", "You insert a cell into the charger.")
 			chargelevel = -1
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_icon()
 		return TRUE
 	else if(W.iswrench())
@@ -83,6 +83,7 @@
 		user.visible_message("[user] removes the cell from the charger.", "You remove the cell from the charger.")
 		chargelevel = -1
 		update_icon()
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	return TRUE
 
 /obj/machinery/cell_charger/attack_ai(mob/user)
@@ -104,15 +105,15 @@
 	..(severity)
 
 
-/obj/machinery/cell_charger/machinery_process()
+/obj/machinery/cell_charger/process()
 	if((stat & (BROKEN|NOPOWER)) || !anchored)
-		update_use_power(0)
+		update_use_power(POWER_USE_OFF)
 		return
 
 	if (charging && !charging.fully_charged())
 		charging.give(active_power_usage*CELLRATE*charging_efficiency)
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 
 		update_icon()
 	else
-		update_use_power(1)
+		update_use_power(POWER_USE_IDLE)

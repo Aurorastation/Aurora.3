@@ -28,7 +28,7 @@
 	if(count_drones() >= config.max_maint_drones)
 		return "The maximum number of active drones has been reached"
 	var/has_active_fabricator = FALSE
-	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.all_machines)
+	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.machinery)
 		if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
 			continue
 		has_active_fabricator = TRUE
@@ -40,7 +40,7 @@
 /datum/ghostspawner/simplemob/maintdrone/spawn_mob(mob/user)
 	var/obj/machinery/drone_fabricator/fabricator
 	var/list/all_fabricators = list()
-	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.all_machines)
+	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.machinery)
 		if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
 			continue
 		all_fabricators[DF.fabricator_tag] = DF

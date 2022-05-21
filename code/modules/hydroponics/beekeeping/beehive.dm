@@ -144,7 +144,7 @@
 			to_chat(user, SPAN_NOTICE("You take all filled honeycombs out."))
 		return
 
-/obj/machinery/beehive/machinery_process()
+/obj/machinery/beehive/process()
 	if(closed && !smoked && bee_count)
 		pollinate_flowers()
 		update_icon()

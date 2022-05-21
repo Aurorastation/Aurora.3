@@ -35,6 +35,155 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">20 May 2022</h2>
+			<h3 class="author">Afya updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a *flick emote for ear flicking. Tajara can use the flick emote.</li>
+			</ul>
+			<h3 class="author">DanseMacabre updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="soundadd">Added a more modern jukebox to the bar. It comes with ten hit songs of the future! Console sprites from Bay.</li>
+				<li class="tweak">Space jukebox is now just a normal jukebox</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Cleaned up several misc. runtime errors.</li>
+				<li class="bugfix">VueUI windows will now clamp to slightly less than the current BYOND window&#x27;s screen height, hopefully preventing windows from being stuck open.</li>
+				<li class="refactor">Away sites with the same player-facing name no longer overwrite each other in site selection.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Security no longer has access to non-Security cameras on code green.</li>
+			</ul>
+			<h3 class="author">WowzewoW (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Tweaks labcoat and warden overcoat sprites to look less bulky.</li>
+			</ul>
+
+			<h2 class="date">19 May 2022</h2>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Fixed code_check not having proper arguments passed to it, added a check for non-TGM mapfiles.</li>
+				<li class="backend">Added a unit test for testing all away sites.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Matriarch drones are not whitelisted anymore.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Remaps hydroponics and changes part of the old freezer into a hydroponics-kitchen shared garden space.</li>
+			</ul>
+
+			<h2 class="date">18 May 2022</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Machinist can now use the airlocks south west of their workshop.</li>
+				<li class="rscdel">Removed paperwork gripper from Medical Module.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Adds missing fire alarms and emergency shutters to several rooms on the Horizon, Aurora, and Runtime.</li>
+				<li class="backend">Adds a unit test to check that all rooms that should have a fire alarm, do.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Loadout uniforms once again override job uniforms.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes the CCIA shuttle venting the mining shuttle dock.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Sped up code related to pain, dislocation and shock.</li>
+			</ul>
+
+			<h2 class="date">17 May 2022</h2>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Reduced misc. subsystem and lighting priorities, raised priority of Mob and ZAS/Air subsystems.</li>
+				<li class="tweak">Replace references to the NSS Aurora with dynamic references to the current map, where possible.</li>
+				<li class="tweak">Replaced some references to NanoTrasen with the SCC, where appropriate.</li>
+				<li class="tweak">Removed several visible_messages for objects being damaged in explosions, deferred powernet regeneration until after explosions completed. Explosions should now process significantly faster.</li>
+				<li class="bugfix">Cables, pipes, and other objects hidden beneath floor tiles should no longer be damaged by explosions, unless the tile itself is blown off first.</li>
+				<li class="bugfix">Map-loading will no longer queue every turf for smoothing several times, which should slightly decrease mapgen load.</li>
+				<li class="bugfix">Fixed several areas meant to be airless containing atmos tiles, causing roundstart atmospherics processing which may have caused roundstart lag.</li>
+				<li class="rscadd">Added a unit test to catch atmos zone mismatches.</li>
+			</ul>
+			<h3 class="author">Llywelwyn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added two decks of Skrellian tarot cards to the loadout, selectable by Skrell and Diona.</li>
+			</ul>
+			<h3 class="author">Llywelwyn, RyverStyx updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the &#x27;adjust-headtails&#x27; verb to Skrell, found in the IC tab.</li>
+				<li class="rscadd">Added the following body markings to Skrell: gills, beakmouth, tearstains, and dart frog markings.</li>
+				<li class="rscadd">Added the following hairstyles to Skrell: emo for regular and long headtails, behind for long headtails, and expressive headtails.</li>
+				<li class="tweak">Tweaked the order of headtail styles in the hair selection menu for better organisation. They&#x27;re now organised by general length for ease when adjusting style.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Wardens have their peaked cap again.</li>
+			</ul>
+			<h3 class="author">WowzewoW (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed terminal sprites.</li>
+				<li class="imageadd">Ringer has a new sprite.</li>
+			</ul>
+
+			<h2 class="date">16 May 2022</h2>
+			<h3 class="author">Ben10083 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Spiderbots now get a message when access is updated.</li>
+			</ul>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Unusual containers should no longer spawn locked.</li>
+				<li class="bugfix">Unusual containers with certain appearances should no longer spawn with excess gear.</li>
+				<li class="bugfix">Ghostspawner roles will now have their ID card updated after they close the character setup window, so that it displays the correct information.</li>
+				<li class="rscadd">Ghostspawner roles will now be able to select their citizenship, based on standard origin and culture selections.</li>
+				<li class="rscadd">Citizenship selection and ID card updates will also apply to any mob using the plastic surgeon machine, assuming they have an ID equipped before using it.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Refactor power usage to not constantly recalculate every tick, only draw and update when necessary. Should ease server load.</li>
+				<li class="refactor">Refactor SSmachinery to be much more efficient in regards to processing, removes SSpipenet and SSpower and moves their responsibilities onto SSmachinery.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Berets have once again been removed from security job outfit datums.</li>
+				<li class="bugfix">Removed errant mentions of Eridani PMCs from the PMCG beret and glasses.</li>
+				<li class="bugfix">The Horizon can no longer use cameras that aren&#x27;t on its connected Z levels.</li>
+				<li class="bugfix">Ghost roles can no longer see AOOC unless they are explicitly antags.</li>
+				<li class="bugfix">Adjacency checks now respect Z levels.</li>
+				<li class="bugfix">AIs no longer remotely press their non-existant feet onto holopads.</li>
+				<li class="bugfix">Fixed errant pixels in the PMCG sunglasses.</li>
+				<li class="bugfix">Fixed the misnamed Oqi medical uniform.</li>
+				<li class="bugfix">Fixed the invisible janitor softcap.</li>
+				<li class="bugfix">Fixed inconsistencies in the Eridani asset protection ID.</li>
+			</ul>
+			<h3 class="author">RyverStyx updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes errant pixels in the Skrell Headtail Blotches.</li>
+			</ul>
+			<h3 class="author">The Stryker updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a collection of Konyanger traditional dresses to the loadout, as well as a shrine maiden outfit to the religion loadout tab.</li>
+				<li class="rscadd">Adds a horizontal sash and asymmetric dress shirt to the accessories tab.</li>
+				<li class="rscadd">Adds a long straight skirt to the skirt selection.</li>
+				<li class="bugfix">Fixes the positioning of the gat sidesprites.</li>
+			</ul>
+			<h3 class="author">Vrow updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Swaps the in-hand icons for chemical bottles and beakers so that they show in the correct hand.</li>
+			</ul>
+			<h3 class="author">WowzewoW (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes invisible hairnets, sword sheathes, CMO uniform, XO uniform, Bridge Crew uniform, OM uniform, and a stray pixel on the DPRA cigarette packet.</li>
+				<li class="bugfix">Fixes Nico-Tine box sprite being unable to open and close.</li>
+			</ul>
+
 			<h2 class="date">15 May 2022</h2>
 			<h3 class="author">Ben10083 updated:</h3>
 			<ul class="changes bgimages16">

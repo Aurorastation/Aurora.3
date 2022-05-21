@@ -16,35 +16,34 @@
 		,/area/turbolift
 		,/area/mine
 		,/area/horizonexterior
-	)
-	ut_apc_exempt_areas = list(/area/construction
-		,/area/medical/genetics
-		,/area/horizonexterior
-	)
-	ut_atmos_exempt_areas = list(/area/maintenance
-		,/area/storage
-		,/area/engineering/atmos/storage
-		,/area/rnd/test_area
 		,/area/construction
+	)
+	ut_apc_exempt_areas = list()
+	ut_atmos_exempt_areas = list(/area/maintenance
+		,/area/engineering/atmos/storage
 		,/area/server
-		,/area/security/nuke_storage
 		,/area/tcommsat/chamber
 		,/area/bridge/aibunker
-		,/area/engineering/cooling
 		,/area/outpost/research/emergency_storage
-		,/area/bridge/selfdestruct
 		,/area/medical/cryo
-		,/area/medical/patient_c
+		,/area/medical/surgery
 		,/area/turret_protected/ai
-		,/area/engineering/engine_monitoring/tesla
-		,/area/engineering/smes
-		,/area/horizonexterior
+		,/area/engineering/smes/tesla
 		,/area/tcommsat/mainlvl_tcomms__relay
 		,/area/tcommsat/mainlvl_tcomms__relay/second
-		,/area/medical/surgery
 		,/area/rnd/isolation_a
 		,/area/rnd/isolation_b
 		,/area/rnd/isolation_c
+	)
+	ut_fire_exempt_areas = list(
+		/area/maintenance,
+		/area/construction,
+		/area/bridge/aibunker,
+		/area/medical/cryo,
+		/area/horizon/crew_quarters/cryo/washroom,
+		/area/rnd/isolation_a,
+		/area/rnd/isolation_b,
+		/area/rnd/isolation_c
 	)
 
 /datum/unit_test/zas_area_test/sccv_horizon

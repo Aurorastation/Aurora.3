@@ -981,7 +981,7 @@ var/list/total_extraction_beacons = list()
 			var/obj/machinery/anti_bluespace/AB = found_inhibitor
 			if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
-			AB.use_power(AB.active_power_usage)
+			AB.use_power_oneoff(AB.active_power_usage)
 			to_chat(user, SPAN_WARNING("A nearby bluespace inhibitor interferes with \the [src]!"))
 			return
 		to_chat(user, SPAN_NOTICE("You start attaching the pack to \the [A]..."))

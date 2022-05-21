@@ -7,7 +7,6 @@
 	icon_state = "unloader"
 	density = TRUE
 	anchored = TRUE
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 	var/turf/input
@@ -48,7 +47,7 @@
 		return
 	return ..()
 
-/obj/machinery/mineral/unloading_machine/machinery_process()
+/obj/machinery/mineral/unloading_machine/process()
 	..()
 	if(src.output && src.input)
 		if(locate(/obj/structure/ore_box, input))

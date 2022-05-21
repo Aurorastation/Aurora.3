@@ -44,11 +44,11 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/door_timer/LateInitialize()
-	for(var/obj/machinery/door/window/brigdoor/M in SSmachinery.all_machines)
+	for(var/obj/machinery/door/window/brigdoor/M in SSmachinery.machinery)
 		if (M.id == src.id)
 			targets += M
 
-	for(var/obj/machinery/flasher/F in SSmachinery.all_machines)
+	for(var/obj/machinery/flasher/F in SSmachinery.machinery)
 		if(F.id == src.id)
 			targets += F
 
@@ -72,7 +72,7 @@
 //Main door timer loop, if it's timing and time is >0 reduce time by 1.
 // if it's less than 0, open door, reset timer
 // update the door_timer window and the icon
-/obj/machinery/door_timer/machinery_process()
+/obj/machinery/door_timer/process()
 	if(stat & (NOPOWER|BROKEN))	return
 
 	if(src.timing)

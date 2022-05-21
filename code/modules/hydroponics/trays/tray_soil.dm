@@ -3,7 +3,7 @@
 	desc = "A mound of earth. You could plant some seeds here."
 	icon_state = "soil"
 	density = 0
-	use_power = 0
+	use_power = POWER_USE_OFF
 	mechanical = 0
 	tray_light = 0
 	waterlevel = 0
@@ -74,7 +74,7 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil/invisible/die()
 	qdel(src)
 
-/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/machinery_process()
+/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/process()
 	if(!seed)
 		qdel(src)
 		return

@@ -57,7 +57,6 @@
 /datum/outfit/job/officer/idris
 	name = "Security Officer - Idris"
 
-	head = /obj/item/clothing/head/beret/corporate/idris
 	uniform = /obj/item/clothing/under/rank/security/idris
 	id = /obj/item/card/id/idris/sec
 
@@ -80,7 +79,6 @@
 /datum/outfit/job/intern_sec/idris
 	name = "Security Cadet - Idris"
 
-	head = /obj/item/clothing/head/softcap/idris
 	uniform = /obj/item/clothing/under/rank/cadet/idris
 	id = /obj/item/card/id/idris/sec
 

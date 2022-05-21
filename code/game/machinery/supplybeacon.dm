@@ -58,7 +58,7 @@
 /obj/machinery/power/supply_beacon/attack_hand(var/mob/user)
 
 	if(expended)
-		use_power = 0
+		update_use_power(POWER_USE_OFF)
 		to_chat(user, "<span class='warning'>\The [src] has used up its charge.</span>")
 		return
 
@@ -80,7 +80,6 @@
 		return
 	set_light(3, 3, "#00CCAA")
 	icon_state = "beacon_active"
-	use_power = 1
 	if(user) to_chat(user, "<span class='notice'>You activate the beacon. The supply drop will be dispatched soon.</span>")
 
 /obj/machinery/power/supply_beacon/proc/deactivate(var/mob/user, var/permanent)
@@ -90,7 +89,7 @@
 	else
 		icon_state = "beacon"
 	set_light(0)
-	use_power = 0
+	update_use_power(POWER_USE_OFF)
 	target_drop_time = null
 	if(user) to_chat(user, "<span class='notice'>You deactivate the beacon.</span>")
 
@@ -99,7 +98,7 @@
 		deactivate()
 	return ..()
 
-/obj/machinery/power/supply_beacon/machinery_process()
+/obj/machinery/power/supply_beacon/process()
 	if(expended)
 		return PROCESS_KILL
 	if(!use_power)
