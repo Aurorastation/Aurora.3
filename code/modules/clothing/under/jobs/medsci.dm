@@ -194,6 +194,10 @@
 
 // Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
+/obj/item/clothing/under/rank/medical/surgeon/pmc/alt
+	icon_state = "pmcalt_surgeon"
+	item_state = "pmcalt_surgeon"
+
 /obj/item/clothing/under/rank/medical/surgeon/zavod
 	icon_state = "zav_surgeon"
 	item_state = "zav_surgeon"

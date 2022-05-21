@@ -150,6 +150,16 @@
 	icon_state = "pmc"
 	item_state = "pmc"
 
+/obj/item/clothing/head/beret/corporate/pmc/alt
+	icon_state = "pmcalt"
+	item_state = "pmcalt"
+
+/obj/item/clothing/head/beret/corporate/pmc/epmc
+	name = "EPMC beret"
+	desc = "A seasoned beret with the EPMC insignia emblazoned on it."
+	icon_state = "epmc"
+	item_state = "epmc"
+
 /obj/item/clothing/head/beret/corporate/idris
 	name = "idris beret"
 	desc = "A beret with the Idris Incorporated insignia emblazoned on it."

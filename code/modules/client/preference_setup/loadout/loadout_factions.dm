@@ -1,25 +1,41 @@
+// Idris
+
+/datum/gear/uniform/surplusidris
+	display_name = "surplus idris security uniform selection"
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
+	path = /obj/item/clothing/under/surplus/idris
+	faction = "Idris Incorporated"
+
+/datum/gear/uniform/surplusidris/New()
+	..()
+	var/list/surplusidris = list()
+	surplusidris["surplus idris security uniform"] = /obj/item/clothing/under/surplus/idris
+	surplusidris["surplus idris security uniform, alt"] = /obj/item/clothing/under/surplus/idris/alt
+	gear_tweaks += new /datum/gear_tweak/path(surplusidris)
+
 /datum/gear/faction
-	display_name = "idris cap"
-	path = /obj/item/clothing/head/softcap/idris
-	slot = slot_head
+	display_name = "idris armband"
+	path = /obj/item/clothing/accessory/armband/idris
+	slot = slot_tie
 	sort_category = "Factions"
 	cost = 1
 	faction = "Idris Incorporated"
 
-/datum/gear/faction/idris_beret
-	display_name = "idris beret"
-	path = /obj/item/clothing/head/beret/corporate/idris
+/datum/gear/faction/idris_hats
+	display_name = "Zavodskoi beret selection"
+	description = "A selection of Zavodskoi hats."
+	path =  /obj/item/clothing/head/beret/corporate/zavod
+	slot = slot_head
 	faction = "Idris Incorporated"
 
-/datum/gear/faction/idris_beret_alt
-	display_name = "idris beret (alt)"
-	path = /obj/item/clothing/head/beret/corporate/idris/alt
-	faction = "Idris Incorporated"
-/datum/gear/faction/idris_armband
-	display_name = "idris armband"
-	path = /obj/item/clothing/accessory/armband/idris
-	slot = slot_tie
-	faction = "Idris Incorporated"
+/datum/gear/faction/idris_hats/New()
+	..()
+	var/list/idris_hats = list()
+	idris_hats["idris beret"] = /obj/item/clothing/head/beret/corporate/idris
+	idris_hats["idris beret, alt"] = /obj/item/clothing/head/beret/corporate/idris/alt
+	idris_hats["idris softcap"] = /obj/item/clothing/head/softcap/idris
+	idris_hats["idris softcap, alt"] = /obj/item/clothing/head/softcap/idris/alt
+	gear_tweaks += new /datum/gear_tweak/path(idris_hats)
 
 /datum/gear/faction/idris_windbreaker
 	display_name = "idris jacket"
@@ -69,24 +85,36 @@
 	idris_labcoats["labcoat, Idris alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/alt
 	gear_tweaks += new /datum/gear_tweak/path(idris_labcoats)
 
-/datum/gear/faction/zavodskoi_beret
-	display_name = "black zavodskoi beret"
-	path = /obj/item/clothing/head/beret/corporate/zavod/alt
+//Zavodskoi
+
+/datum/gear/uniform/surpluszavod
+	display_name = "surplus zavodskoi security uniform selection"
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
+	path = /obj/item/clothing/under/surplus/zavod
 	faction = "Zavodskoi Interstellar"
 
-/datum/gear/faction/zavodskoi_beret/alt
-	display_name = "brown zavodskoi beret"
-	path = /obj/item/clothing/head/beret/corporate/zavod
-	sort_category = "Factions"
+/datum/gear/uniform/surpluszavod/New()
+	..()
+	var/list/surpluszavod = list()
+	surpluszavod["surplus zavodskoi security uniform"] = /obj/item/clothing/under/surplus/zavod
+	surpluszavod["surplus zavodskoi security uniform, alt"] = /obj/item/clothing/under/surplus/zavod/alt
+	gear_tweaks += new /datum/gear_tweak/path(surpluszavod)
 
-/datum/gear/faction/zavodskoi_softcap
-	display_name = "black zavodskoi cap"
-	path = /obj/item/clothing/head/softcap/zavod/alt
+/datum/gear/faction/zavod_hats
+	display_name = "Zavodskoi beret selection"
+	description = "A selection of Zavodskoi hats."
+	path =  /obj/item/clothing/head/beret/corporate/zavod
+	slot = slot_head
 	faction = "Zavodskoi Interstellar"
 
-/datum/gear/faction/zavodskoi_softcap/alt
-	display_name = "brown zavodskoi cap"
-	path = /obj/item/clothing/head/softcap/zavod
+/datum/gear/faction/zavod_hats/New()
+	..()
+	var/list/zavod_hats = list()
+	zavod_hats["zavodskoi beret"] = /obj/item/clothing/head/beret/corporate/zavod
+	zavod_hats["zavodskoi beret, alt"] = /obj/item/clothing/head/beret/corporate/zavod/alt
+	zavod_hats["zavodskoi softcap"] = /obj/item/clothing/head/softcap/zavod
+	zavod_hats["zavodskoi softcap, alt"] = /obj/item/clothing/head/softcap/zavod/alt
+	gear_tweaks += new /datum/gear_tweak/path(zavod_hats)
 
 /datum/gear/faction/zavodskoi_labcoat
 	display_name = "zavodskoi labcoat"
@@ -110,17 +138,38 @@
 	zavod_sunglasses["aviator sunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/zavod
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sunglasses)
 
-/datum/gear/faction/pmc_beret
-	display_name = "PMCG beret"
+// PMCG (formerly EPMC)
+
+/datum/gear/uniform/surpluspmc
+	display_name = "surplus PMCG security uniform selection"
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
+	path = /obj/item/clothing/under/surplus/pmc
+	faction = "Private Military Contracting Group"
+
+/datum/gear/uniform/surpluspmc/New()
+	..()
+	var/list/surpluspmc = list()
+	surpluspmc["surplus PMCG security uniform"] = /obj/item/clothing/under/surplus/pmc
+	surpluspmc["surplus PMCG security uniform, alt"] = /obj/item/clothing/under/surplus/pmc/alt
+	gear_tweaks += new /datum/gear_tweak/path(surpluspmc)
+
+/datum/gear/faction/pmc_hats
+	display_name = "PMCG hat selection"
+	description = "A selection of PMCG hats."
 	path =  /obj/item/clothing/head/beret/corporate/pmc
 	slot = slot_head
 	faction = "Private Military Contracting Group"
 
-/datum/gear/faction/pmc_cap
-	display_name = "PMCG cap"
-	path = /obj/item/clothing/head/softcap/pmc
-	slot = slot_head
-	faction = "Private Military Contracting Group"
+/datum/gear/faction/pmc_beret/New()
+	..()
+	var/list/pmc_berets = list()
+	pmc_berets["PMCG beret"] = /obj/item/clothing/head/beret/corporate/pmc
+	pmc_berets["PMCG beret, alt"] = /obj/item/clothing/head/beret/corporate/pmc/alt
+	pmc_berets["EPMC beret"] = /obj/item/clothing/head/beret/corporate/pmc/epmc
+	pmc_berets["PMCG softcap"] = /obj/item/clothing/head/softcap/pmc
+	pmc_berets["PMCG softcap, alt"] = /obj/item/clothing/head/softcap/pmc/alt
+	pmc_berets["EPMC softcap"] = /obj/item/clothing/head/softcap/pmc/epmc
+	gear_tweaks += new /datum/gear_tweak/path(pmc_berets)
 
 /datum/gear/faction/pmc_sunglasses
 	display_name = "PMCG security HUD selection"
