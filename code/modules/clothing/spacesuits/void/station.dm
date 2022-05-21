@@ -240,7 +240,7 @@
 	//Science
 /obj/item/clothing/head/helmet/space/void/sci
 	name = "research voidsuit helmet"
-	desc = "A special helmet designed for usage by NanoTrasen research personnel in hazardous, low pressure environments."
+	desc = "A special helmet designed for usage by SCC research personnel in hazardous, low pressure environments."
 	icon_state = "rig0-sci"
 	item_state = "research_voidsuit_helmet"
 	armor = list(
@@ -253,7 +253,7 @@
 
 /obj/item/clothing/suit/space/void/sci
 	name = "research voidsuit"
-	desc = "A special suit that designed for usage by NanoTrasen research personnel in hazardous, low pressure environments."
+	desc = "A special suit that designed for usage by SCC research personnel in hazardous, low pressure environments."
 	item_state = "rig-sci"
 	icon_state = "rig-sci"
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)
