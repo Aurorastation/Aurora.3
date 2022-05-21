@@ -45,7 +45,7 @@
 		icon_state = dead_icon
 
 /obj/item/organ/internal/proc/surgical_fix(mob/user)
-	if(damage > min_broken_damage)
+	if(damage > min_broken_damage && !(status & ORGAN_ROBOT))
 		var/scarring = damage / max_damage
 		scarring = 1 - 0.5 * scarring ** 2 // Between ~15 and 50 percent loss.
 		var/new_max_dam = Floor(scarring * max_damage)
@@ -71,7 +71,10 @@
 		return ..() && !is_broken()
 
 /obj/item/organ/internal/proc/is_damaged()
-	return damage > 0
+	return damage > 0 || special_condition()
+
+/obj/item/organ/internal/proc/special_condition() // For unique conditions
+	return
 
 /obj/item/organ/internal/robotize(var/company = "Unbranded")
 	..()
@@ -105,7 +108,7 @@
 		damage = between(0, src.damage + amount, max_damage)
 
 		//only show this if the organ is not robotic
-		if(owner && can_feel_pain() && parent_organ && (amount > 5 || prob(10)))
+		if(owner && ORGAN_CAN_FEEL_PAIN(src) && parent_organ && (amount > 5 || prob(10)))
 			var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 			if(parent && !silent)
 				var/degree = ""

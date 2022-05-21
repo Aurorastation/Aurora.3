@@ -42,7 +42,7 @@
 
 /datum/bounty/item/engineer/fuel_tank
 	name = "Fuel Tank"
-	description = "After some observations of the Aurora, we think it's best if you send us a few of those fuel tanks so nobody hurts themselves."
+	description = "After observing your engineering staff, we think it's best if you send us a few of those fuel tanks so nobody hurts themselves."
 	reward_low = 2500
 	reward_high = 3500
 	required_count = 4
@@ -92,7 +92,7 @@
 	reward_high = 3000
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/structure/closet/coffin, /obj/item/material/urn)
+	wanted_types = list(/obj/structure/closet/crate/coffin, /obj/item/material/urn)
 
 /datum/bounty/item/engineer/pap
 	name = "Portable Air Pumps"
@@ -146,12 +146,12 @@
 
 /datum/bounty/item/engineer/generator
 	name = "Portable Generators"
-	description = "Another station reported some engine troubles, and needs a few portable generators to maintain critical operations. Ship any type of P.A.C.M.A.N. generators to receive a bonus."
+	description = "Another station reported some engine troubles, and needs a few portable generators to maintain critical operations. Ship any type of portable generators to receive a bonus."
 	reward_low = 5000
 	reward_high = 6200
 	required_count = 2
 	random_count = 1
-	wanted_types = list(/obj/machinery/power/port_gen/pacman)
+	wanted_types = list(/obj/machinery/power/portgen/basic)
 
 /datum/bounty/item/engineer/crossbow
 	name = "Powered Crossbow"

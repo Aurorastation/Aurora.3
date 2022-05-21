@@ -20,7 +20,7 @@
 	taste_sensitivity = TASTE_DULL
 	blurb = "Type BA, a sub-type of the generic Type B Warriors, are the second most prominent type of Vaurca society, taking the form of hive security and military grunts. \
 	Type BA can range in size from 6ft tall to 9ft tall, and are bipedal. Unlike most other Type B's, Type BA are deprived of advanced augments, especially aboard \
-	NanoTrasen stations. Warriors in general, unlike other types of Vaurca, are not typically passive. This means that they tend to be more suitable for combat \
+	SCC facilities. Warriors in general, unlike other types of Vaurca, are not typically passive. This means that they tend to be more suitable for combat \
 	orientated positions, more passive unlike workers. Compared to workers, they are more physically intimidating and more resistant to heat, but have a thinner carapace \
 	allowing for greater mobility at the cost of some trauma resistance. \
 	<b>Type BA are most comfortable obviously in security positions, but can rarely be found in the lower hierarchies of other departments.</b>"
@@ -169,16 +169,16 @@
 		)
 
 	has_organ = list(
-		BP_NEURAL_SOCKET       = /obj/item/organ/vaurca/neuralsocket,
+		BP_NEURAL_SOCKET       = /obj/item/organ/internal/vaurca/neuralsocket,
 		BP_LUNGS              = /obj/item/organ/internal/lungs/vaurca,
 		BP_HEART              = /obj/item/organ/internal/heart/vaurca,
-		BP_PHORON_RESERVOIR    = /obj/item/organ/vaurca/reservoir,
+		BP_PHORON_RESERVOIR    = /obj/item/organ/internal/vaurca/reservoir,
 		BP_VAURCA_LIVER    = /obj/item/organ/internal/liver/vaurca/robo,
 		BP_VAURCA_KIDNEYS  = /obj/item/organ/internal/kidneys/vaurca/robo,
 		BP_STOMACH            = /obj/item/organ/internal/stomach,
 		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
 		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
-		BP_FILTRATION_BIT      = /obj/item/organ/vaurca/filtrationbit
+		BP_FILTRATION_BIT      = /obj/item/organ/internal/vaurca/filtrationbit
 	)
 
 	default_h_style = "Bald"

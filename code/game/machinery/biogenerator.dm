@@ -5,7 +5,6 @@
 	icon_state = "biogen"
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 40
 	var/processing = 0
 	var/obj/item/reagent_containers/glass/beaker = null
@@ -446,7 +445,7 @@
 		updateUsrDialog()
 		playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
 		intent_message(MACHINE_SOUND)
-		use_power(S * 30)
+		use_power_oneoff(S * 30)
 		sleep((S + 1.5 SECONDS) / eat_eff)
 		processing = 0
 		update_icon()
@@ -489,7 +488,7 @@
 			return FALSE
 		else
 			points -= totake
-			use_power(totake * 0.25)
+			use_power_oneoff(totake * 0.25)
 			playsound(src.loc, /decl/sound_category/switch_sound, 50, 1)
 			intent_message(PING_SOUND)
 			if(ispath(recipe.object, /obj/item/reagent_containers/pill))
@@ -502,7 +501,7 @@
 			else if(ispath(recipe.object, /obj/item/stack))
 				var/subtract_amount = totake * (count - 1)
 				points -= subtract_amount
-				use_power(subtract_amount * 0.25)
+				use_power_oneoff(subtract_amount * 0.25)
 				new recipe.object(loc, count)
 				break
 			else

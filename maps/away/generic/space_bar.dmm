@@ -304,7 +304,7 @@
 /obj/structure/disposaloutlet{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space_bar)
 "ble" = (
 /obj/structure/closet/lawcloset,
@@ -841,6 +841,10 @@
 /obj/item/material/ashtray/glass,
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
+"lOr" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/simulated/floor/tiled/steel,
+/area/space_bar)
 "mhC" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -859,7 +863,7 @@
 /area/space_bar)
 "muk" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space_bar)
 "mEc" = (
 /obj/machinery/light{
@@ -1242,7 +1246,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/space_bar)
 "vxN" = (
 /obj/structure/urinal{
@@ -1376,7 +1380,9 @@
 /turf/simulated/floor/wood,
 /area/space_bar)
 "xFs" = (
-/obj/machinery/media/jukebox,
+/obj/machinery/media/jukebox{
+	anchored = 1
+	},
 /turf/simulated/floor/wood,
 /area/space_bar)
 "xFU" = (
@@ -27049,7 +27055,7 @@ hBd
 hBd
 qmJ
 qmJ
-qmJ
+cBD
 hBd
 hBd
 hBd
@@ -28079,7 +28085,7 @@ hBd
 hBd
 hBd
 hBd
-cBD
+qmJ
 hBd
 hBd
 hBd
@@ -29619,7 +29625,7 @@ hBd
 hBd
 hBd
 hBd
-hBd
+lOr
 hBd
 hBd
 hBd

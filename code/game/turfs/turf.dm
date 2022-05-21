@@ -62,7 +62,7 @@
 	initialized = TRUE
 
 	for(var/atom/movable/AM as mob|obj in src)
-		Entered(AM)
+		Entered(AM, src)
 
 	turfs += src
 
@@ -161,7 +161,7 @@
 
 	..()
 
-	if (!mover || !isturf(mover.loc))
+	if (!mover || !isturf(mover.loc) || isobserver(mover))
 		return 1
 
 	//First, check objects to block exit that are not on the border
@@ -200,7 +200,7 @@
 
 var/const/enterloopsanity = 100
 
-/turf/Entered(atom/movable/AM)
+/turf/Entered(atom/movable/AM, atom/old_loc)
 	if(movement_disabled)
 		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
@@ -251,7 +251,7 @@ var/const/enterloopsanity = 100
 		var/mob/living/carbon/human/H = AM
 		H.species.deploy_trail(H, src)
 
-	..()
+	..(AM, old_loc)
 
 	var/objects = 0
 	if(AM && (AM.flags & PROXMOVE) && AM.simulated)

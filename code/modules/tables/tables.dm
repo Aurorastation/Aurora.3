@@ -5,7 +5,7 @@
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
 	density = 1
 	anchored = 1
-	climbable = 1
+	climbable = TRUE
 	layer = LAYER_TABLE
 	throwpass = 1
 	var/flipped = 0
@@ -37,7 +37,7 @@
 
 	health += maxhealth - old_maxhealth
 
-/obj/structure/table/proc/take_damage(amount)
+/obj/structure/table/proc/take_damage(amount, msg = TRUE)
 	// If the table is made of a brittle material, and is *not* reinforced with a non-brittle material, damage is multiplied by TABLE_BRITTLE_MATERIAL_MULTIPLIER
 	if(material && material.is_brittle())
 		if(reinforced)
@@ -47,7 +47,8 @@
 			amount *= TABLE_BRITTLE_MATERIAL_MULTIPLIER
 	health -= amount
 	if(health <= 0)
-		visible_message(SPAN_WARNING("\The [src] breaks down!"), intent_message = THUNK_SOUND)
+		if(msg)
+			visible_message(SPAN_WARNING("\The [src] breaks down!"), intent_message = THUNK_SOUND)
 		return break_to_parts() // if we break and form shards, return them to the caller to do !FUN! things with
 
 
@@ -57,9 +58,9 @@
 			qdel(src)
 			return
 		if(2.0)
-			take_damage(rand(100,400))
+			take_damage(rand(100,400), FALSE)
 		if(3.0)
-			take_damage(rand(50,150))
+			take_damage(rand(50,150), FALSE)
 
 
 /obj/structure/table/Initialize()

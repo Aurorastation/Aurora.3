@@ -7,7 +7,7 @@
 	var/modify_state = "table2"
 	density = TRUE
 	anchored = TRUE
-	use_power = TRUE
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 1
 	active_power_usage = 5
 	component_types = list(
@@ -98,7 +98,7 @@
 	icon_state = "[modify_state]-idle"
 	return FALSE
 
-/obj/machinery/optable/machinery_process()
+/obj/machinery/optable/process()
 	check_victim()
 
 /obj/machinery/optable/proc/take_victim(mob/living/carbon/C, mob/living/carbon/user)
@@ -128,8 +128,7 @@
 	if(istype(M))
 		var/mob/living/L = target
 		var/bucklestatus = L.bucklecheck(user)
-
-		if(!bucklestatus)//We must make sure the person is unbuckled before they go in
+		if(!bucklestatus)
 			return
 
 		if(L == user)
@@ -163,8 +162,7 @@
 
 		var/mob/living/L = G.affecting
 		var/bucklestatus = L.bucklecheck(user)
-
-		if(!bucklestatus)//We must make sure the person is unbuckled before they go in
+		if(!bucklestatus)
 			return TRUE
 
 		if(L == user)
@@ -172,9 +170,6 @@
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
 		if(do_mob(user, L, 10, needhand = FALSE))
-			if(bucklestatus == 2)
-				var/obj/structure/LB = L.buckled_to
-				LB.user_unbuckle(user)
 			take_victim(G.affecting,usr)
 			qdel(W)
 		return TRUE

@@ -21,7 +21,7 @@
 /datum/event/electrical_storm/start()
 	..()
 	valid_apcs = list()
-	for(var/obj/machinery/power/apc/A in SSmachinery.all_machines)
+	for(var/obj/machinery/power/apc/A in SSmachinery.machinery)
 		if(A.z in affecting_z)
 			valid_apcs.Add(A)
 	endWhen = (severity * 60) + startWhen
@@ -29,7 +29,7 @@
 /datum/event/electrical_storm/start()
 	..()
 	valid_apcs = list()
-	for(var/obj/machinery/power/apc/A in SSmachinery.all_machines)
+	for(var/obj/machinery/power/apc/A in SSmachinery.machinery)
 		if(A.z in affecting_z)
 			valid_apcs.Add(A)
 	endWhen = (severity * 60) + startWhen

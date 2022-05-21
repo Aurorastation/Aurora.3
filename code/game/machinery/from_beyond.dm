@@ -7,9 +7,7 @@
 	anchored = 0
 	density = 1
 
-	use_power = 1
-
-	active_power_usage = 1 KILOWATTS
+	idle_power_usage = 1 KILOWATTS
 	active_power_usage = 10 KILOWATTS
 
 	var/active = FALSE
@@ -59,7 +57,7 @@
 	else
 		icon_state = "ano60"
 
-/obj/machinery/from_beyond/machinery_process()
+/obj/machinery/from_beyond/process()
 	..()
 	if(active)
 

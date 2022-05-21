@@ -100,10 +100,10 @@
 	var/decl/origin_item/culture/CL = decls_repository.get_decl(text2path(pref.culture))
 	var/decl/origin_item/origin/OR = decls_repository.get_decl(text2path(pref.origin))
 	dat += "<b>Culture: </b><a href='?src=\ref[src];open_culture_menu=1'>[CL.name]</a><br>"
-	dat += "<i>- [CL.desc]</i><hr>"
+	dat += "<i>- [CL.desc]</i>"
 	if(CL.important_information)
 		dat += "<br><i>- <font color=red>[CL.important_information]</font></i>"
-	dat += "<b>Origin: </b><a href='?src=\ref[src];open_origin_menu=1'>[OR.name]</a><br>"
+	dat += "<hr><b>Origin: </b><a href='?src=\ref[src];open_origin_menu=1'>[OR.name]</a><br>"
 	dat += "<i>- [OR.desc]</i>"
 	if(OR.important_information)
 		dat += "<br><i>- <font color=red>[OR.important_information]</font></i>"
@@ -126,7 +126,7 @@
 		var/decl/origin_item/culture/chosen_culture = options[result]
 		if(chosen_culture)
 			show_window(chosen_culture, "set_culture_data", user)
-		return TOPIC_REFRESH
+		return TOPIC_HANDLED
 
 	if(href_list["open_origin_menu"])
 		var/list/options = list()
@@ -139,14 +139,16 @@
 		var/decl/origin_item/origin/chosen_origin = options[result]
 		if(chosen_origin)
 			show_window(chosen_origin, "set_origin_data", user)
-		return TOPIC_REFRESH
+		return TOPIC_HANDLED
 
 	if(href_list["set_culture_data"])
+		user << browse(null, "window=set_culture_data")
 		pref.culture = html_decode(href_list["set_culture_data"])
 		sanitize_character()
 		return TOPIC_REFRESH
 
 	if(href_list["set_origin_data"])
+		user << browse(null, "window=set_origin_data")
 		pref.origin = html_decode(href_list["set_origin_data"])
 		sanitize_character()
 		return TOPIC_REFRESH
@@ -163,9 +165,10 @@
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		show_citizenship_menu(user, choice)
-		return TOPIC_REFRESH
+		return TOPIC_HANDLED
 
 	if(href_list["set_citizenship"])
+		user << browse(null, "window=citizen_win")
 		pref.citizenship = (html_decode(href_list["set_citizenship"]))
 		sanitize_character()
 		return TOPIC_REFRESH
@@ -176,9 +179,10 @@
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		show_religion_menu(user, choice)
-		return TOPIC_REFRESH
+		return TOPIC_HANDLED
 
 	if(href_list["set_religion"])
+		user << browse(null, "window=rel_win")
 		pref.religion = (html_decode(href_list["set_religion"]))
 		sanitize_character()
 		return TOPIC_REFRESH
@@ -189,9 +193,10 @@
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		show_accent_menu(user, choice)
-		return TOPIC_REFRESH
+		return TOPIC_HANDLED
 
 	if(href_list["set_accent"])
+		user << browse(null, "window=acc_win")
 		pref.accent = (html_decode(href_list["set_accent"]))
 		sanitize_character()
 		return TOPIC_REFRESH

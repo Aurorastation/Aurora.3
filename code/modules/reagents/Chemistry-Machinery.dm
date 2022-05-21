@@ -1,5 +1,5 @@
 // Update asset_cache.dm if you change these.
-#define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4") //list of available bottle sprites
+#define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4", "bottle-5", "bottle-6") //list of available bottle sprites
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -11,7 +11,7 @@
 	anchored = 1
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0"
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
 	layer = 2.9
 	clicksound = /decl/sound_category/button_sound
@@ -317,7 +317,7 @@
 	layer = 2.9
 	density = 0
 	anchored = 0
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 5
 	active_power_usage = 100
 	var/inuse = 0

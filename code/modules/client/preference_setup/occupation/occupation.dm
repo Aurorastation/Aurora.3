@@ -139,7 +139,7 @@
 	sanitize_faction()
 
 /datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Engineer", "Head of Security"))
-	if (SSjobs.init_state != SS_INITSTATE_DONE && SSrecords.init_state != SS_INITSTATE_DONE)
+	if (SSjobs.init_state != SS_INITSTATE_DONE || SSrecords.init_state != SS_INITSTATE_DONE)
 		return "<center><large>Jobs controller not initialized yet. Please wait a bit and reload this section.</large></center>"
 
 	var/list/dat = list(
@@ -179,7 +179,7 @@
 			dat += "<del>[dispRank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
 			continue
 		else if(!LAZYLEN(pref.GetValidTitles(job))) // we have no available jobs the character is old enough for
-			dat += "<del>[dispRank]</del></td><td> \[MINIMUM AGE: [LAZYLEN(job.alt_ages) ? min(job.alt_ages[min(job.alt_ages)], job.minimum_character_age) : job.minimum_character_age]]</td></tr>"
+			dat += "<del>[dispRank]</del></td><td> \[MINIMUM AGE: [LAZYLEN(job.alt_ages) ? min(job.get_alt_character_age(), job.get_minimum_character_age(user.get_species())) : job.get_minimum_character_age(user.get_species())]]</td></tr>"
 			continue
 		else if (ban_reason)
 			dat += "<del>[dispRank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=[rank];'>BANNED</a>]</b></td></tr>"
@@ -422,6 +422,9 @@
 	dat += factions.Join(" | ") + "</b>"
 
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
+	if(!istype(faction))
+		to_client_chat(SPAN_DANGER("Invalid faction chosen. Resetting to default."))
+		selected_faction = SSjobs.default_faction.name
 
 	if (selected_faction == pref.faction)
 		dat += "<br>\[Faction already selected\]"
@@ -464,7 +467,7 @@
 	if((global.all_species[src.species].spawn_flags & NO_AGE_MINIMUM))
 		return choices
 	for(var/t in choices)
-		if (src.age >= (LAZYACCESS(job.alt_ages, t) || job.minimum_character_age))
+		if (src.age >= (job.get_alt_character_age(t) || job.get_minimum_character_age(species)))
 			continue
 		choices -= t
 	return choices

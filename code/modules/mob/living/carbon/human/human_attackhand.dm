@@ -398,7 +398,7 @@
 					apply_effect(5, WEAKEN)
 					forceMove(GetAbove(z_eye)) //We use GetAbove so people can't cheese it by turning their sprite.
 					return
-						
+
 			if(randn <= 25)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					apply_effect(6, WEAKEN)
@@ -566,7 +566,7 @@
 	if(!target_zone)
 		return 0
 	var/obj/item/organ/external/organ = get_organ(check_zone(target_zone))
-	if(!organ || organ.is_dislocated() || organ.dislocated == -1)
+	if(!organ || ORGAN_IS_DISLOCATED(organ) || organ.dislocated == -1)
 		return 0
 
 	user.visible_message("<span class='warning'>[user] begins to dislocate [src]'s [organ.joint]!</span>")

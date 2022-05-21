@@ -225,7 +225,6 @@
 	density = 1
 	anchored = 1
 
-	use_power = 1
 	idle_power_usage = 60
 	active_power_usage = 10000
 
@@ -296,7 +295,7 @@
 	usr.client.eye = src
 	usr.forceMove(src)
 	src.occupant = WEAKREF(usr)
-	update_use_power(2)
+	update_use_power(POWER_USE_ACTIVE)
 	flick("[initial(icon_state)]-anim", src)
 	update_icon()
 	src.add_fingerprint(usr)
@@ -319,7 +318,7 @@
 		H.client.perspective = MOB_PERSPECTIVE
 	H.forceMove(get_turf(src))
 	occupant = null
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	flick("[initial(icon_state)]-anim", src)
 	update_icon()
 	return
@@ -337,25 +336,20 @@
 		to_chat(user, "<span class='warning'>The pod is locked.</span>")
 		return
 
-
 	var/mob/living/L = G.affecting
+	var/bucklestatus = L.bucklecheck(user)
+	if (!bucklestatus)
+		return
+
 	user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
-
 	if (do_mob(user, L, 30, needhand = 0))
-		var/bucklestatus = L.bucklecheck(user)
-		if (!bucklestatus)//incase the patient got buckled_to during the delay
-			return
-		if (bucklestatus == 2)
-			var/obj/structure/LB = L.buckled_to
-			LB.user_unbuckle(user)
-
 		if (L.client)
 			L.client.perspective = EYE_PERSPECTIVE
 			L.client.eye = src
 		L.forceMove(src)
 		occupant = WEAKREF(L)
 
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 		flick("[initial(icon_state)]-anim", src)
 		update_icon()
 
@@ -377,8 +371,7 @@
 		return
 
 	var/bucklestatus = H.bucklecheck(user)
-
-	if (!bucklestatus)//We must make sure the person is unbuckled before they go in
+	if (!bucklestatus)
 		return
 
 	if(H == user)
@@ -395,7 +388,7 @@
 			H.client.eye = src
 		H.forceMove(src)
 		occupant = WEAKREF(H)
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 		flick("[initial(icon_state)]-anim", src)
 		update_icon()
 	src.add_fingerprint(user)

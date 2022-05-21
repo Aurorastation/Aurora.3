@@ -36,6 +36,7 @@
 	var/boss_short    = "Cap'"
 	var/company_name  = "BadMan"
 	var/company_short = "BM"
+	var/station_type  = "station"
 
 	var/command_spawn_enabled = FALSE
 	var/command_spawn_message = "Someone didn't fill this in."
@@ -218,13 +219,13 @@
 	var/list/unavailable = list()
 	var/list/by_type = list()
 
-	for (var/site_name in SSmapping.away_sites_templates)
-		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_name]
+	for (var/site_id in SSmapping.away_sites_templates)
+		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
 		if (site.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED)
 			guaranteed += site
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight
-		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
+		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (SSatlas.current_sector.name in site.sectors))
 			available[site] = site.spawn_weight
 		by_type[site.type] = site
 

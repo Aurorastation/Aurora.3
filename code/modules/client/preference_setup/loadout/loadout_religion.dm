@@ -33,6 +33,17 @@
 	display_name = "rosary"
 	path = /obj/item/clothing/accessory/rosary
 
+/datum/gear/religion/shintorobe
+	display_name = "shrine maiden robe"
+	path = /obj/item/clothing/under/konyangdresstraditional/red
+
+/datum/gear/religion/kippah
+	display_name = "kippah"
+	description = "A head covering commonly worn by those of Jewish faith."
+	path = /obj/item/clothing/head/kippah
+	slot = slot_head
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/religion/dominia/robe
 	display_name = "dominian robe selection"
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."

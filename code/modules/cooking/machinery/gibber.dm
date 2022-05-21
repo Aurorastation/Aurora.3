@@ -14,7 +14,6 @@
 	var/gib_time = 40        // Time from starting until meat appears
 	var/gib_throw_dir = WEST // Direction to spit meat and gibs in.
 
-	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 500
 
@@ -174,7 +173,7 @@
 	if(!occupant)
 		visible_message(SPAN_DANGER("You hear a loud metallic grinding sound."))
 		return
-	use_power(1000)
+	use_power_oneoff(1000)
 	visible_message(SPAN_DANGER("You hear a loud [occupant.isSynthetic() ? "metallic" : "squelchy"] grinding sound."))
 	operating = TRUE
 	update_icon()

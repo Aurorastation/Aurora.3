@@ -9,7 +9,11 @@
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_bar)
@@ -21,10 +25,10 @@
 	name = "Bartender"
 	jobtype = /datum/job/bartender
 
-	uniform = /obj/item/clothing/under/rank/bartender/nt
-	head = /obj/item/clothing/head/flatcap/bartender/nt
+	head = /obj/item/clothing/head/flatcap/bartender
+	uniform = /obj/item/clothing/under/rank/bartender
 	shoes = /obj/item/clothing/shoes/black
-	suit = /obj/item/clothing/suit/storage/bartender/nt
+	suit = /obj/item/clothing/suit/storage/bartender
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/bartender
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender
@@ -47,7 +51,11 @@
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_kitchen)
@@ -88,7 +96,11 @@
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_hydroponics)
@@ -100,7 +112,7 @@
 	name = "Gardener"
 	jobtype = /datum/job/hydro
 
-	uniform = /obj/item/clothing/under/rank/hydroponics/nt
+	uniform = /obj/item/clothing/under/rank/hydroponics
 //	suit = /obj/item/clothing/suit/apron
 	head = /obj/item/clothing/head/bandana/hydro/nt
 	shoes = /obj/item/clothing/shoes/black
@@ -149,8 +161,8 @@
 	name = "Janitor"
 	jobtype = /datum/job/janitor
 
-	uniform = /obj/item/clothing/under/rank/janitor/nt
-	head = /obj/item/clothing/head/softcap/janitor/nt
+	uniform = /obj/item/clothing/under/rank/janitor
+	head = /obj/item/clothing/head/softcap/janitor
 	shoes = /obj/item/clothing/shoes/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/janitor
@@ -173,7 +185,11 @@
 	supervisors = "the service managaer"
 	selection_color = "#90524b"
 
-	minimum_character_age = 20
+	minimum_character_age = list(
+		SPECIES_HUMAN = 20,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	access = list(access_journalist, access_maint_tunnels)
 	minimal_access = list(access_journalist, access_maint_tunnels)
@@ -242,7 +258,7 @@
 	name = "Librarian"
 	jobtype = /datum/job/librarian
 
-	uniform = /obj/item/clothing/under/librarian/nt
+	uniform = /obj/item/clothing/under/librarian
 	shoes = /obj/item/clothing/shoes/black
 	r_pocket = /obj/item/barcodescanner
 	l_hand = /obj/item/storage/bag/books
@@ -346,14 +362,22 @@
 	selection_color = "#967032"
 	economic_modifier = 5
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 70,
+		SPECIES_SKRELL_AXIORI = 70
+	)
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
 						access_sec_doors, access_research, access_medical, access_robotics)
 	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
 						access_sec_doors, access_research, access_medical, access_robotics)
 
-	ideal_character_age = 40
+	ideal_character_age = list(
+		SPECIES_HUMAN = 40,
+		SPECIES_SKRELL = 90,
+		SPECIES_SKRELL_AXIORI = 90
+	)
 
 	outfit = /datum/outfit/job/operations_manager
 
@@ -390,7 +414,11 @@
 	supervisors = "the supply manager"
 	selection_color = "#7B431C"
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_cargo, access_cargo_bot, access_mailsorting)
@@ -415,7 +443,6 @@
 	double_headset = /obj/item/device/radio/headset/alt/double/cargo
 	wrist_radio = /obj/item/device/radio/headset/wrist/cargo
 
-
 /datum/job/mining
 	title = "Shaft Miner"
 	flag = MINER
@@ -428,7 +455,11 @@
 	selection_color = "#7B431C"
 	economic_modifier = 5
 
-	minimum_character_age = 18
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
@@ -476,7 +507,11 @@
 	selection_color = "#7B431C"
 	economic_modifier = 5
 
-	minimum_character_age = 25
+	minimum_character_age = list(
+		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 55,
+		SPECIES_SKRELL_AXIORI = 55
+	)
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research, access_mailsorting)
 	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_mailsorting)
@@ -492,7 +527,7 @@
 	jobtype = /datum/job/machinist
 
 	uniform = /obj/item/clothing/under/rank/machinist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	suit = /obj/item/clothing/suit/storage/machinist
 	shoes = /obj/item/clothing/shoes/black
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/belt/utility

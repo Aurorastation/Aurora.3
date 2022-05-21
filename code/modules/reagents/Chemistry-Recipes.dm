@@ -1720,7 +1720,7 @@
 	result = /decl/reagent/alcohol/goldschlager
 	required_reagents = list(/decl/reagent/alcohol/vodka = 10, /decl/reagent/gold = 1)
 	mix_message = null
-	reaction_sound = 'sound/effects/pour.ogg'
+	reaction_sound = /decl/sound_category/generic_pour_sound
 	result_amount = 10
 
 /datum/chemical_reaction/drink/patron

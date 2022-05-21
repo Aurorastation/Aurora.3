@@ -24,7 +24,7 @@
 	//There have to be at least two posts, so these are effectively doubled
 	var/power_draw = 30000 //30 kW. How much power is drawn from powernet. Increase this to allow the generator to sustain longer shields, at the cost of more power draw.
 	var/max_stored_power = 50000 //50 kW
-	use_power = FALSE //Draws directly from power net. Does not use APC power.
+	use_power = POWER_USE_OFF //Draws directly from power net. Does not use APC power.
 
 /obj/machinery/shieldwallgen/update_icon()
 	if(power_state >= POWER_STARTING)
@@ -83,7 +83,7 @@
 	is_powered = TRUE	// IVE GOT THE POWER!
 	return TRUE
 
-/obj/machinery/shieldwallgen/machinery_process()
+/obj/machinery/shieldwallgen/process()
 	power()
 	if(is_powered)
 		storedpower -= 2500

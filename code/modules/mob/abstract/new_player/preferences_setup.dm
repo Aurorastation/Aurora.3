@@ -225,6 +225,9 @@
 
 /datum/preferences/proc/return_chosen_high_job(var/title = FALSE)
 	var/datum/job/chosenJob
+	if(SSjobs.init_state < SS_INITSTATE_DONE)
+		return
+
 	if(job_civilian_low & ASSISTANT)
 		// Assistant is weird, has to be checked first because it overrides
 		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_low]"]

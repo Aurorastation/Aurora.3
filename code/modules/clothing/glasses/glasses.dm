@@ -660,15 +660,15 @@ BLIND     // can't see anything
 	desc = "Fat sunglasses in the colours of Zavodskoi Interstellar. They come with a red-tinted HUD."
 	icon_state = "bigsunglasses_hud_zavod"
 
-/obj/item/clothing/glasses/sunglasses/sechud/epmc
-	name = "EPMC HUDsunglasses"
-	desc = "Sunglasses in the colours of the Eridani PMC organisation. They come with a blue-tinted HUD and a chrome finish."
-	icon_state = "sunhud_epmc"
+/obj/item/clothing/glasses/sunglasses/sechud/pmc
+	name = "PMCG HUDsunglasses"
+	desc = "Sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
+	icon_state = "sunhud_pmc"
 
-/obj/item/clothing/glasses/sunglasses/sechud/big/epmc
-	name = "fat EPMC HUDsunglasses"
-	desc = "Fat sunglasses in the colours of the Eridani PMC organisation. They come with a blue-tinted HUD and a chrome finish."
-	icon_state = "bigsunglasses_hud_epmc"
+/obj/item/clothing/glasses/sunglasses/sechud/big/pmc
+	name = "fat PMCG HUDsunglasses"
+	desc = "Fat sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
+	icon_state = "bigsunglasses_hud_pmc"
 
 /obj/item/clothing/glasses/sunglasses/sechud/idris
 	name = "Idris HUDsunglasses"
@@ -756,11 +756,11 @@ BLIND     // can't see anything
 	icon_state = "aviator_sec_zavod"
 	off_state = "aviator_sec_zavod_off"
 
-/obj/item/clothing/glasses/sunglasses/sechud/aviator/epmc
-	name = "EPMC HUD aviators"
-	desc = "Eridani PMC security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
-	icon_state = "aviator_sec_epmc"
-	off_state = "aviator_sec_epmc_off"
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc
+	name = "PMCG HUD aviators"
+	desc = "PMCG security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	icon_state = "aviator_sec_pmc"
+	off_state = "aviator_sec_pmc_off"
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
 	name = "Idris HUD aviators"

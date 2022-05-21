@@ -101,7 +101,7 @@
 
 /obj/item/clothing/head/softcap/cargo
 	name = "cargo softcap"
-	desc = "It's a peaked cap in a dusty yellow and grey."
+	desc = "It's a peaked cap in a dusty yellow and black."
 	icon_state = "softcap_cargo"
 	item_state = "softcap_cargo"
 
@@ -113,35 +113,13 @@
 
 /obj/item/clothing/head/softcap/janitor
 	name = "janitor softcap"
-	desc = "It's a peaked cap in a sanitary purple and yellow."
+	desc = "It's a peaked cap, freshly sanitized and ready for a day of viscera cleanup."
+	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
+	contained_sprite = TRUE
 	icon_state = "softcap_janitor"
 	item_state = "softcap_janitor"
 
-/obj/item/clothing/head/softcap/janitor/nt
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
-	contained_sprite = TRUE
-	icon_state = "nt_janitor_cap"
-	item_state = "nt_janitor_cap"
-
-/obj/item/clothing/head/softcap/janitor/idris
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
-	contained_sprite = TRUE
-	icon_state = "idris_janitor_cap"
-	item_state = "idris_janitor_cap"
-
 // Corporate.
-
-/obj/item/clothing/head/softcap/security/corp
-	name = "corporate security cap"
-	desc = "It's field cap in corporate colors. In an oppresive grey, no doubt."
-	icon_state = "corp"
-	item_state = "corp"
-
-/obj/item/clothing/head/softcap/security/idris
-	name = "idris cap"
-	desc = "It's a company-issue Idris cap. Comes with flagrant corporate branding."
-	icon_state = "idris"
-	item_state = "idris"
 
 /obj/item/clothing/head/softcap/iac
 	name = "IAC cap"
@@ -149,34 +127,38 @@
 	icon_state = "iac"
 	item_state = "iac"
 
-/obj/item/clothing/head/softcap/eri
-	name = "eridani cap"
-	desc = "A grey EPMC fatigue cap with the symbol of the Eridani Corporate Federation on its front. For amoral mercenaries that prefer style over protection."
-	icon_state = "eridani"
-	item_state = "eridani"
+/obj/item/clothing/head/softcap/idris
+	name = "idris cap"
+	desc = "A company-issue Idris cap. Comes with flagrant corporate branding. There's a liability waiver written on the inside, somehow."
+	icon_state = "idris"
+	item_state = "idris"
+
+/obj/item/clothing/head/softcap/pmc
+	name = "PMCG cap"
+	desc = "A company-issue PMCG cap. For amoral mercenaries that prefer style over protection."
+	icon_state = "pmc"
+	item_state = "pmc"
+
+/obj/item/clothing/head/softcap/pmc/alt
+	icon_state = "pmcalt"
+	item_state = "pmcalt"
 
 /obj/item/clothing/head/softcap/zavod
 	name = "zavodskoi cap"
-	desc = "A black company-issue Zavokdskoi cap with the symbol of the corporation at its front."
-	icon_state = "zavodb"
-	item_state = "zavodb"
+	desc = "A company-issue Zavokdskoi cap with the symbol of the corporation at its front. It seems to be immaculately starched; maybe it's just the material it's made out of."
+	icon_state = "zav"
+	item_state = "zav"
 
 /obj/item/clothing/head/softcap/zavod/alt
-	desc = "A tan company-issue Zavokdskoi cap with the symbol of the corporation at its front."
-	icon_state = "zavod"
-	item_state = "zavod"
+	icon_state = "zavalt"
+	item_state = "zavalt"
 
-/obj/item/clothing/head/softcap/medical/zeng
-	desc = "A medical cap in Zeng-Hu colors."
-	icon_state = "zeng_emt_cap"
-	item_state = "zeng_emt_cap"
+/obj/item/clothing/head/softcap/zeng
+	desc = "A company-issue Zeng-Hu cap. It feels synthetic to the touch."
+	icon_state = "zeng"
+	item_state = "zeng"
 
-/obj/item/clothing/head/softcap/medical/nt
-	desc = "A medical cap in NanoTrasen colors."
-	icon_state = "nt_emt_cap"
-	item_state = "nt_emt_cap"
-
-/obj/item/clothing/head/softcap/medical/pmc
-	desc = "A medical cap in PMC colors."
-	icon_state = "epmc_emt_cap"
-	item_state = "epmc_emt_cap"
+/obj/item/clothing/head/softcap/nt
+	desc = "A company-issue NanoTrasen cap. Smells of phoron."
+	icon_state = "nt"
+	item_state = "nt"

@@ -86,6 +86,14 @@
 	cell_type = /obj/item/cell
 	req_access = list(access_captain)
 
+/obj/machinery/power/apc/intrepid
+	cell_type = /obj/item/cell/high
+	req_one_access = list(access_intrepid,access_engine_equip)
+
+/obj/machinery/power/apc/mining_pod
+	cell_type = /obj/item/cell/high
+	req_one_access = list(access_mining,access_engine_equip)
+
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
 	cell_type = /obj/item/cell/high
@@ -118,7 +126,7 @@
 
 	icon_state = "apc0"
 	anchored = TRUE
-	use_power = 0
+	use_power = POWER_USE_OFF
 	req_access = list(access_engine_equip)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	clicksound = /decl/sound_category/switch_sound
@@ -1135,7 +1143,7 @@
 /obj/machinery/power/apc/avail()
 	return terminal?.avail()
 
-/obj/machinery/power/apc/machinery_process()
+/obj/machinery/power/apc/process()
 	if(stat & (BROKEN|MAINT))
 		return
 	if(!area.requires_power)

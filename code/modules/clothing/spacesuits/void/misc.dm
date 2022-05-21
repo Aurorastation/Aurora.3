@@ -1,6 +1,6 @@
 /obj/item/clothing/head/helmet/space/void/sol
-	name = "military voidsuit helmet"
-	desc = "A sleek black space helmet designed for combat. Looks to be uniform with Sol Alliance colors."
+	name = "gargoyle voidsuit helmet"
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military."
 	icon_state = "sol_helmet"
 	item_state = "sol_helmet"
 	armor = list(
@@ -19,8 +19,8 @@
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/sol
-	name = "military voidsuit"
-	desc = "A sleek black space suit designed for combat. Looks to have seamless composite plating. Painted in Sol Alliance colors."
+	name = "gargoyle voidsuit"
+	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military."
 	icon_state = "sol_suit"
 	item_state = "sol_suit"
 	armor = list(

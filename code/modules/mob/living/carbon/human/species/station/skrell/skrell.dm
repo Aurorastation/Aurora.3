@@ -4,7 +4,7 @@
 	name_plural = "Skrell"
 	category_name = "Skrell"
 	bodytype = BODYTYPE_SKRELL
-	age_min = 30
+	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
 	economic_modifier = 12
@@ -72,8 +72,9 @@
 	ethanol_resistance = 0.5//gets drunk faster
 	taste_sensitivity = TASTE_SENSITIVE
 
-	stamina = 90
-	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
+	stamina = 80
+	sprint_cost_factor = 0.4
+	sprint_speed_factor = 0.8
 	bp_base_systolic = 100 // Default 120
 	bp_base_disatolic = 60 // Default 80
 	low_pulse = 30 // Default 40
@@ -83,11 +84,15 @@
 	max_pulse = 130 // Default 160
 	body_temperature = T0C + 27
 
-	default_h_style = "Skrell Short Tentacles"
+	default_h_style = "Headtails"
 
 	possible_cultures = list(
 		/decl/origin_item/culture/federation,
 		/decl/origin_item/culture/non_federation
+	)
+	
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/adjust_headtails
 	)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
