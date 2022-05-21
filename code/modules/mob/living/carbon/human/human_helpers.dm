@@ -147,6 +147,10 @@
 		var/list/body_markings = prefs.body_markings
 		for(var/M in body_markings)
 			var/datum/sprite_accessory/marking/mark_datum = body_marking_styles_list[M]
+
+			if(!istype(mark_datum))
+				to_chat(usr, SPAN_WARNING("Invalid body marking [M] selected! Please re-save your markings, as they may have changed."))
+				continue
 			var/mark_color = "[body_markings[M]]"
 
 			for(var/BP in mark_datum.body_parts)

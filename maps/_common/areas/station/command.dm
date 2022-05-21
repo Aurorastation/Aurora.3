@@ -46,6 +46,10 @@
 	name = "Command - Station Authentication Terminal Safe"
 	icon_state = "bridge"
 
+/area/bridge/controlroom // Horizon.
+	name = "Command - Control Room"
+	flags = RAD_SHIELDED
+
 /area/crew_quarters/captain
 	name = "Command - Captain's Office"
 	icon_state = "captain"

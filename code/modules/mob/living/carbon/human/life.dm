@@ -276,6 +276,8 @@
 					to_chat(src, "<span class='warning'>You feel strange!</span>")
 					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
 					emote("gasp")
+				hallucination = max(hallucination, 20) //At this level, you're in a constant state of low-level hallucinations. As if you didn't have enough problems.
+
 
 			if(damage)
 				adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
@@ -919,8 +921,7 @@
 
 				var/no_damage = 1
 				var/trauma_val = 0 // Used in calculating softcrit/hardcrit indicators.
-				if(can_feel_pain())
-					trauma_val = max(shock_stage,get_shock())/(species.total_health-100)
+				trauma_val = max(shock_stage,get_shock())/(species.total_health-100)
 				// Collect and apply the images all at once to avoid appearance churn.
 				var/list/health_images = list()
 				for(var/obj/item/organ/external/E in organs)
@@ -1390,7 +1391,8 @@
 	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
 		return
 
-	if (failed_last_breath || (getOxyLoss() + get_shock()) > exhaust_threshold)//Can't catch our breath if we're suffocating
+	var/shock = get_shock() // used again later for stamina regeneration
+	if (failed_last_breath || (getOxyLoss() + shock) > exhaust_threshold)//Can't catch our breath if we're suffocating
 		flash_pain(getOxyLoss()/2)
 		return
 
@@ -1407,7 +1409,7 @@
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
-		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + ((get_shock()) / exhaust_threshold), 1))
+		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + (shock / exhaust_threshold), 1))
 		if(is_drowsy())
 			regen *= 0.85
 		if (regen > 0)
@@ -1461,11 +1463,11 @@
 			bodytemperature = min(bodytemperature + fever, normal_temp)
 		else if(bodytemperature <= normal_temp + 10) //If we're hotter than max due to like, being on fire, don't keep increasing.
 			bodytemperature = normal_temp + min(fever, 10) //We use normal_temp here to maintain a steady temperature, otherwise even a small infection steadily increases bodytemp to max. This way it's easier to diagnose the intensity of an infection based on how bad the fever is.
-	//Apply side effects for having a fever. Separate from body temp changes. 
+	//Apply side effects for having a fever. Separate from body temp changes.
 	if(fever >= 2)
 		do_fever_effects(fever)
 
-		
+
 //Getting the total germ level for all infected organs, affects fever
 /mob/living/carbon/human/proc/get_infection_germ_level()
 	var/germs

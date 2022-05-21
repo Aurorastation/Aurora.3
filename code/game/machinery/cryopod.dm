@@ -182,9 +182,14 @@ var/global/list/frozen_crew = list()
 	desc = "A bewildering tangle of machinery and pipes."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "cryo_rear"
-	density = TRUE
 	anchored = TRUE
 	dir = WEST
+
+/obj/structure/cryofeed/pipes
+	name = "cryogenic feed pipes"
+	desc = "A bewildering tangle of pipes."
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "cryo_rear_pipes"
 
 //Cryopods themselves.
 /obj/machinery/cryopod
@@ -303,7 +308,7 @@ var/global/list/frozen_crew = list()
 	return TRUE
 
 //Lifted from Unity stasis.dm and refactored. ~Zuhayr
-/obj/machinery/cryopod/machinery_process()
+/obj/machinery/cryopod/process()
 	if(occupant)
 		//Allow a two minute gap between entering the pod and actually despawning.
 		if((world.time - time_entered < time_till_despawn) && occupant.ckey)

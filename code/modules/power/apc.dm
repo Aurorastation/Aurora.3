@@ -126,7 +126,7 @@
 
 	icon_state = "apc0"
 	anchored = TRUE
-	use_power = 0
+	use_power = POWER_USE_OFF
 	req_access = list(access_engine_equip)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	clicksound = /decl/sound_category/switch_sound
@@ -1143,7 +1143,7 @@
 /obj/machinery/power/apc/avail()
 	return terminal?.avail()
 
-/obj/machinery/power/apc/machinery_process()
+/obj/machinery/power/apc/process()
 	if(stat & (BROKEN|MAINT))
 		return
 	if(!area.requires_power)

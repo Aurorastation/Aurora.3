@@ -122,14 +122,6 @@
 	icon_state = "medicalpack"
 	item_state_slots = null
 
-/obj/item/storage/backpack/medic/first_responder
-	name = "first responder backpack"
-	desc = "A bulky easy-clean backpack specially designed to carry a First Responder's equipment."
-	icon = 'icons/clothing/kit/first_responder.dmi'
-	icon_state = "firstresponderbackpack"
-	item_state = "firstresponderbackpack"
-	contained_sprite = TRUE
-
 /obj/item/storage/backpack/security
 	name = "security backpack"
 	desc = "It's a very robust backpack."
@@ -344,7 +336,7 @@
 
 /obj/item/storage/backpack/duffel/cap
 	name = "captain's duffel bag"
-	desc = "A rare and special duffel bag for only the most air-headed of Nanotrasen personnel."
+	desc = "A rare and special duffel bag for only the most air-headed of SCC personnel."
 	icon_state = "duffel-captain"
 	item_state_slots = list(
 		slot_l_hand_str = "duffle_captain",
@@ -667,7 +659,7 @@
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
-	hooded = !hooded 
+	hooded = !hooded
 	to_chat(usr, "You [hooded ? "raise" : "lower"] \the [src] hood.")
 	icon_state = "[initial(icon_state)][hooded ? "_up" : ""]"
 	item_state = "icon_state"
@@ -687,7 +679,7 @@
 	icon_state = "medcape"
 	item_state = "medcape"
 
-/obj/item/storage/backpack/cloak/engi 
+/obj/item/storage/backpack/cloak/engi
 	name = "engineering tunnel cloak"
 	desc = "A Vaurca cloak with storage pockets. This one has the engineering department design."
 	icon_state = "engicape"

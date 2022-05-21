@@ -177,7 +177,10 @@
 		speaker_name = "Unknown"
 
 	var/changed_voice
-	var/accent_icon
+
+	var/accent_icon = speaker.get_accent_icon(language, src)
+	accent_icon = accent_icon ? accent_icon + " " : ""
+	part_a = replacetext(part_a, "%ACCENT%", accent_icon)
 
 	if(istype(src, /mob/living/silicon/ai) && !hard_to_hear)
 		var/jobname // the mob's "job"

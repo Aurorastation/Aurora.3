@@ -98,7 +98,7 @@
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "pad-idle"
 	anchored = TRUE
-	use_power = TRUE
+	use_power = POWER_USE_IDLE
 
 /obj/machinery/vannatusk_spawner/power_change()
 	..()

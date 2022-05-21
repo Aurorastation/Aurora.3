@@ -7,7 +7,7 @@
 	maptext_y = 11
 
 /obj/screen/mecha/proc/notify_user(var/mob/user, var/text)
-	if(user.loc == owner)
+	if(user && user.loc == owner)
 		to_chat(user, text)
 
 /obj/screen/mecha/radio

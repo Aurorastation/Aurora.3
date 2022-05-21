@@ -41,18 +41,35 @@
 	titles_to_loadout = list(
 		"Hangar Technician" = /datum/outfit/job/hangar_tech/orion,
 		"Shaft Miner" = /datum/outfit/job/mining/orion,
-		"Machinist" = /datum/outfit/job/machinist/orion
+		"Machinist" = /datum/outfit/job/machinist/orion,
+		"Corporate Liaison" = /datum/outfit/job/representative/orion
 	)
 
 /datum/outfit/job/hangar_tech/orion
 	name = "Hangar Technician - Orion Express"
+
 	uniform = /obj/item/clothing/under/rank/hangar_technician/orion
+	id = /obj/item/card/id/orion
 
 /datum/outfit/job/machinist/orion
 	name = "Machinist - Orion Express"
+
 	uniform = /obj/item/clothing/under/rank/machinist/orion
-	suit = null
+	id = /obj/item/card/id/orion
 
 /datum/outfit/job/mining/orion
 	name = "Shaft Miner - Orion Express"
+
 	uniform = /obj/item/clothing/under/rank/miner/orion
+	id = /obj/item/card/id/orion
+
+/datum/outfit/job/representative/orion
+	name = "Orion Express Corporate Liaison"
+
+	head = /obj/item/clothing/head/beret/corporate/orion
+	uniform = /obj/item/clothing/under/rank/liaison/orion
+	suit = /obj/item/clothing/suit/storage/liaison/orion
+	implants = null
+	id = /obj/item/card/id/orion
+	accessory = /obj/item/clothing/accessory/tie/corporate/orion
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate/orion

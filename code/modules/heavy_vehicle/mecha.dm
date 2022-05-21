@@ -207,7 +207,7 @@
 		radio = new(src)
 
 	if(!camera)
-		camera = new /obj/machinery/camera(src)
+		camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
 		camera.c_tag = name
 		camera.replace_networks(list(NETWORK_MECHS))
 

@@ -196,6 +196,7 @@
 	name = "secure crate"
 	desc = "A secure crate."
 	icon_state = "secure_crate"
+	locked = TRUE
 	secure = TRUE
 	secure_lights = TRUE
 	health = 200
@@ -438,6 +439,7 @@
 	name = "secure hydroponics crate"
 	desc = "A crate with a lock on it, painted in the scheme of the station's botanists."
 	icon_state = "hydro_secure_crate"
+	req_one_access = list(access_hydroponics, access_xenobiology)
 
 /obj/structure/closet/crate/secure/bin
 	name = "secure bin"
@@ -537,19 +539,24 @@
 		"3" = (100 - ((STOCK_RARE_PROB * rarity) + (STOCK_UNCOMMON_PROB * rarity)))
 	)
 
-	var/list/valid_loot = typesof(/obj/structure/closet/crate) - typesof(/obj/structure/closet/crate/secure/gear_loadout)
-	valid_loot -= typesof(/obj/structure/closet/crate/loot)
-	var/icontype = pick(valid_loot)
-	var/obj/structure/closet/crate/C = new icontype(get_turf(src))
+	var/list/crates_to_use = typesof(/obj/structure/closet/crate) - typesof(/obj/structure/closet/crate/secure/gear_loadout)
+	crates_to_use -= /obj/structure/closet/crate/loot
+	var/icontype = pick(crates_to_use)
+	var/obj/structure/closet/crate/C = new icontype(get_turf(src), TRUE) //TRUE as we do not want the crate to fill(), we will fill it ourselves. 
 
 	C.name = "unusual container"
 	C.desc = "A mysterious container of unknown origins. What mysteries lie within?"
-	if(C.secure)
-		C.secure = FALSE
-	C.update_icon()
+
 	for(var/i in 1 to quantity)
 		var/newtype = get_spawntype()
 		call(newtype)(C)
+
+	if(C.secure || C.locked) //These should always be accessible
+		C.secure = FALSE
+		C.locked = FALSE
+		C.secure_lights = FALSE
+		C.req_access = null
+	C.update_icon()
 
 	qdel(src)
 

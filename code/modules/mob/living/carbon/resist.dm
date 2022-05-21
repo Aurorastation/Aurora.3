@@ -121,7 +121,7 @@
 		if(violent_removal)
 			var/obj/item/organ/external/E = H.get_organ(pick(BP_L_ARM,BP_R_ARM))
 			var/dislocate_message = ""
-			if(E && !E.is_dislocated())
+			if(E && !ORGAN_IS_DISLOCATED(E))
 				E.dislocate(1)
 				dislocate_message = ", but dislocate your [E] in the process"
 			visible_message(

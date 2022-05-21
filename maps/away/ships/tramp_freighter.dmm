@@ -21,7 +21,7 @@
 /area/shuttle/tramp_freighter)
 "aap" = (
 /obj/machinery/shipsensors/weak,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/tramp_freighter)
 "aaI" = (
 /obj/machinery/light/small{
@@ -862,9 +862,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/tramp_freighter)
 "fRD" = (
@@ -1220,6 +1218,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tramp_freighter)
+"idS" = (
+/obj/machinery/suit_cycler/mining{
+	req_access = null
+	},
+/turf/simulated/floor,
+/area/shuttle/tramp_freighter)
 "ifO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/vehicle/train/cargo/trolley,
@@ -1510,6 +1514,7 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
+/obj/machinery/recharger,
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "ozs" = (
@@ -1852,7 +1857,6 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/shuttle/tramp_freighter)
 "vwF" = (
@@ -1865,6 +1869,12 @@
 "vCZ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
+/area/shuttle/tramp_freighter)
+"vFx" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = -33
+	},
+/turf/simulated/floor/tiled/yellow,
 /area/shuttle/tramp_freighter)
 "wci" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -32398,7 +32408,7 @@ xRX
 ylV
 ylV
 ylV
-wZf
+xto
 wZf
 sDF
 cVA
@@ -34991,7 +35001,7 @@ gcq
 gcq
 iHx
 eyx
-eCV
+vFx
 wYA
 wYA
 xRX
@@ -36000,7 +36010,7 @@ ylV
 wZf
 tGD
 biS
-biS
+idS
 uep
 dHA
 aHt

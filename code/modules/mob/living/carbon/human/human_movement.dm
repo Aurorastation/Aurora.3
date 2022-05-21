@@ -17,9 +17,9 @@
 	if(health_deficiency >= 40)
 		tally += (health_deficiency / 25)
 
-	if(can_feel_pain())
-		if(get_shock() >= 10)
-			tally += (get_shock() / 30) //pain shouldn't slow you down if you can't even feel it
+	var/shock = get_shock()
+	if(shock >= 10)
+		tally += (shock / 30) //get_shock checks if we can feel pain
 
 	tally += ClothesSlowdown()
 
