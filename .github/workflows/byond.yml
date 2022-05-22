@@ -33,8 +33,10 @@ jobs:
           python3 tools/mapmerge2/travis_mapcheck.py
           echo "6a5ae087fe5bfa66e52e508655e57120 *html/changelogs/example.yml" | md5sum -c -
       - name: Run dreamchecker
+        id: runDreamchecker
         run: ~/dreamchecker > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
       - name: Annotate Lints
+        if: failure() && steps.runDreamchecker.outcome == 'failure'
         uses: yogstation13/DreamAnnotate@v1
         with:
           outputFile: output-annotations.txt
