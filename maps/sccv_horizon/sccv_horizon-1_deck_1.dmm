@@ -3056,7 +3056,6 @@
 /turf/space,
 /area/template_noop)
 "ctI" = (
-/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	dir = 8;
 	id = "shutters_hangarseccpexternal";
@@ -3067,7 +3066,8 @@
 	id = "hangarlockdown";
 	name = "Hangar Lockdown"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/hangar/intrepid)
 "ctM" = (
 /obj/machinery/door/firedoor,
@@ -3331,15 +3331,6 @@
 /obj/item/material/shard,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
-"cFq" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 8;
-	id = "hangarlockdown";
-	name = "Hangar Lockdown"
-	},
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "cGa" = (
 /obj/machinery/shieldwallgen,
 /obj/structure/cable/green,
@@ -21696,7 +21687,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "rPN" = (
-/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "shutters_hangarseccpexternal";
@@ -21708,7 +21698,8 @@
 	name = "Hangar Lockdown";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint)
 "rPO" = (
 /turf/simulated/floor/tiled/freezer{
@@ -49452,7 +49443,7 @@ pjy
 qwB
 pjy
 hUk
-cFq
+hId
 oFN
 aRG
 xjL
@@ -50058,7 +50049,7 @@ bzv
 txa
 qFy
 bfL
-cFq
+hId
 ifJ
 clM
 clM
