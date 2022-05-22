@@ -3126,6 +3126,7 @@
 #include "maps\away\ships\sol_ship_ghostroles.dm"
 #include "maps\away\ships\wildcard.dm"
 #include "maps\away\ships\wildcard_ship_ghostroles.dm"
+#include "maps\away_sites_testing\away_sites_testing.dm"
 #include "maps\event\code\event.dm"
 #include "maps\event\odin_departure\code\odin_departure_areas.dm"
 #include "maps\event\odin_departure\code\odin_depature.dm"

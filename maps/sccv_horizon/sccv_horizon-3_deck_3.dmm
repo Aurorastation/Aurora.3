@@ -3909,7 +3909,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/third_deck_stairs)
+/area/horizon/stairwell/bridge)
 "ht" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4666,7 +4666,7 @@
 /area/maintenance/bridge)
 "iF" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/bridge/third_deck_stairs)
+/area/bridge/minibar)
 "iG" = (
 /obj/item/stock_parts/subspace/treatment,
 /obj/item/stock_parts/subspace/treatment,
@@ -6583,16 +6583,21 @@
 /area/horizon/crew_quarters/fitness/pool)
 "mg" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/carrier/officer,
-/obj/item/clothing/suit/armor/carrier/officer,
-/obj/item/clothing/head/helmet/security,
-/obj/item/clothing/head/helmet/security,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "mh" = (
@@ -8148,7 +8153,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/third_deck_stairs)
+/area/horizon/stairwell/bridge)
 "pe" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -11022,7 +11027,7 @@
 	name = "Safety Shutter"
 	},
 /turf/simulated/floor/plating,
-/area/bridge/third_deck_stairs)
+/area/horizon/stairwell/bridge)
 "uv" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/security_starboard)
@@ -11478,7 +11483,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/third_deck_stairs)
+/area/horizon/stairwell/bridge)
 "vm" = (
 /turf/simulated/wall,
 /area/maintenance/engineering_ladder)
@@ -13277,7 +13282,7 @@
 	req_access = list(19)
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/third_deck_stairs)
+/area/bridge/bridge_crew)
 "yF" = (
 /obj/structure/ladder{
 	pixel_y = 16
@@ -13395,7 +13400,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/third_deck_stairs)
+/area/horizon/stairwell/bridge)
 "yS" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -13479,8 +13484,8 @@
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
 "za" = (
-/turf/simulated/wall,
-/area/bridge/third_deck_stairs)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/stairwell/bridge)
 "zb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -14006,7 +14011,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/third_deck_stairs)
+/area/bridge/minibar)
 "zZ" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -15070,7 +15075,7 @@
 	},
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
-/area/bridge/third_deck_stairs)
+/area/horizon/stairwell/bridge)
 "Ce" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/cable/green{
@@ -16335,7 +16340,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/third_deck_stairs)
+/area/horizon/stairwell/bridge)
 "EE" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -18124,10 +18129,6 @@
 /area/maintenance/engineering_ladder)
 "HR" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/carrier/officer,
-/obj/item/clothing/suit/armor/carrier/officer,
-/obj/item/clothing/head/helmet/security,
-/obj/item/clothing/head/helmet/security,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -18136,6 +18137,15 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/head/helmet,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "HS" = (
@@ -20179,7 +20189,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/third_deck_stairs)
+/area/horizon/stairwell/bridge)
 "LB" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
@@ -21050,11 +21060,13 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "Nd" = (
-/obj/item/storage/firstaid,
-/obj/item/storage/firstaid,
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "Nf" = (
@@ -21929,7 +21941,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/bridge/third_deck_stairs)
+/area/horizon/stairwell/bridge)
 "OI" = (
 /obj/structure/lattice,
 /obj/machinery/light,
@@ -22997,7 +23009,7 @@
 /area/security/forensics_morgue)
 "Qw" = (
 /turf/simulated/open,
-/area/bridge/third_deck_stairs)
+/area/horizon/stairwell/bridge)
 "Qx" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -23826,15 +23838,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
-"Sa" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/command{
-	id_tag = "conference_room";
-	name = "Conference Room";
-	req_one_access = list(19, 38)
-	},
-/turf/simulated/floor/tiled,
-/area/bridge/third_deck_stairs)
 "Sb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -50888,13 +50891,13 @@ ci
 fT
 Fs
 TK
-za
-za
-za
-za
+gI
+gI
+gI
+gI
 yE
-za
-za
+gI
+gI
 Qc
 RC
 AP
@@ -51090,7 +51093,7 @@ er
 cf
 fn
 TK
-Sa
+ZP
 Cd
 yR
 OH
@@ -51292,7 +51295,7 @@ bc
 bc
 bc
 fS
-za
+Dg
 LA
 ED
 hs
@@ -51494,12 +51497,12 @@ Zj
 Zj
 Zj
 xx
-iF
-iF
+xx
+za
 uu
 uu
 uu
-iF
+za
 iF
 Tr
 TC
