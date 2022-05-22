@@ -1,7 +1,7 @@
-/obj/item/device/litanybook
-	name = "\improper tribunal codex"
-	desc = "A holy text of the Moroz Holy Tribunal, the state religion of the Empire of Dominia."
-	desc_fluff = "An almost mandatory possession for any Dominian household, containing a list of edicts, litanies, and rituals."
+/obj/item/device/versebook
+	name = "\improper versebook"
+	desc = "If you see this, someone fucked up. Make a issue request."
+	desc_fluff = "No, seriously. Make a issue request"
 	contained_sprite = TRUE
 	icon = 'icons/obj/human_items.dmi'
 	icon_state = "dominiabook"
@@ -13,11 +13,11 @@
 
 	var/list/randomquip = list()
 
-/obj/item/device/litanybook/Initialize()
+/obj/item/device/versebook/Initialize()
 	. = ..()
 	randomquip = file2list("ingame_manuals/dominia.txt")
 
-/obj/item/device/litanybook/attack_self(mob/user)
+/obj/item/device/versebook/attack_self(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.visible_message(SPAN_NOTICE("[user] begins to flip through [src]."))
 	playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, 1)
@@ -31,26 +31,37 @@
 			q = pick(randomquip)
 
 	if(do_after(user, 25))
-		to_chat(user, "<span class='notice'>You notice a particular line: [q]</span>")
+		to_chat(user, "<span class='notice'>You notice a particular verse: [q]</span>")
 
-/obj/item/device/litanybook/gadpathur
+/obj/item/device/versebook/tribunal
+	name = "\improper tribunal codex"
+	desc = "A holy text of the Moroz Holy Tribunal, the state religion of the Empire of Dominia."
+	desc_fluff = "An almost mandatory possession for any Dominian household, containing a list of edicts, litanies, and rituals."
+	icon_state = "dominiabook"
+	item_state = "dominiabook"
+
+/obj/item/device/versebook/tribunal/Initialize()
+	. = ..()
+	randomquip = file2list("ingame_manuals/dominia.txt")
+
+/obj/item/device/versebook/gadpathur
 	name = "\improper gadpathurian morale manual"
 	desc = "A popular Gadpathurian pocket guide, used to carry a fragment of the Commander's wisdom abroad."
 	desc_fluff = "Manufactured using recycled paper and canvas. The wisdom within the text is based on the collected speeches of Commander Patvardhan and her assorted councillors."
 	icon_state = "gadpathurbook"
 	item_state = "gadpathurbook"
 
-/obj/item/device/litanybook/gadpathur/Initialize()
+/obj/item/device/versebook/gadpathur/Initialize()
 	. = ..()
 	randomquip = file2list("ingame_manuals/gadpathur.txt")
 
-/obj/item/device/litanybook/biesel
+/obj/item/device/versebook/biesel
 	name = "\improper constitution of the Republic of Biesel"
 	desc = "A common possession by Biesel government officals, the printed text of the constitution for the Federal Republic of Biesel and the Corporate Reconstruction Zone, adopted in 2452."
 	desc_fluff = "This book has the Republic of Biesel's iconic symbol etched on the cover, the text within details the structure of the Federal Democracy the Republic is today."
 	icon_state = "bieselbook"
 	item_state = "bieselbook"
 
-/obj/item/device/litanybook/biesel/Initialize()
+/obj/item/device/versebook/biesel/Initialize()
 	. = ..()
 	randomquip = file2list("ingame_manuals/biesel.txt")
