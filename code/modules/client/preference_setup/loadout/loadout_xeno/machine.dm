@@ -163,7 +163,7 @@
 
 /datum/gear/augment/drill
 	display_name = "integrated drill"
-	description = "A mining drill integrated in the hand."
+	description = "A mining drill integrated in the hand. The drill is heavy, so only industrial IPCs can use it."
 	path = /obj/item/organ/internal/augment/tool/drill
 	whitelisted = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
 	allowed_roles = list("Shaft Miner")
