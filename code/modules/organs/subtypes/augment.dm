@@ -162,7 +162,7 @@
 	icon_state = "robotanalyzer"
 	action_button_name = "Deploy Analyzer"
 	action_button_icon = "augment-tool"
-	organ_tag = BP_AUG_CANALYZER
+	organ_tag = BP_AUG_CYBORG_ANALYZER
 	parent_organ = BP_R_HAND
 	augment_type = /obj/item/device/robotanalyzer/augment
 
