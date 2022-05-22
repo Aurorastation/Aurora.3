@@ -4725,6 +4725,12 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "cAx" = (
@@ -5316,7 +5322,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "cUZ" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -7653,15 +7659,9 @@
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "enE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
@@ -8284,10 +8284,9 @@
 /area/crew_quarters/heads/hos)
 "eEx" = (
 /obj/machinery/light/small,
-/obj/structure/flora/pottedplant/random{
-	pixel_x = -2
-	},
-/turf/simulated/floor/lino/grey,
+/obj/structure/flora/pottedplant/random,
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "eEB" = (
 /obj/item/device/radio/intercom{
@@ -9429,8 +9428,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "fnB" = (
-/obj/machinery/computer/slot_machine,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/computer/arcade/battle,
+/turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "fnP" = (
 /obj/machinery/alarm{
@@ -14514,8 +14513,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
 "hSY" = (
-/obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/computer/slot_machine,
+/turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "hTt" = (
 /obj/structure/table/standard,
@@ -17525,7 +17524,7 @@
 	icon_state = "open";
 	opacity = 0
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "jFf" = (
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -20507,7 +20506,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "lAx" = (
 /obj/structure/railing/mapped{
@@ -34075,11 +34074,15 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "sRG" = (
-/obj/structure/bed/stool/padded/red,
 /obj/machinery/camera/network/service{
 	c_tag = "Dinner - Lounge Starboard"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/item/device/radio/intercom{
+	name = "Station Intercom (General)";
+	pixel_y = 24
+	},
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "sSY" = (
 /turf/simulated/floor/plating,
@@ -35286,6 +35289,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
+"tCJ" = (
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-33"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "tCP" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -38718,11 +38728,10 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "vug" = (
-/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/device/radio/intercom{
-	pixel_x = 29
+/obj/structure/disposalpipe/junction{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
@@ -40107,11 +40116,15 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "vZy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
@@ -40573,9 +40586,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "wmh" = (
-/obj/structure/flora/pottedplant/random{
-	pixel_x = -7
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
@@ -42762,7 +42772,11 @@
 	dir = 1;
 	pixel_y = -29
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-33"
+	},
+/turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "xsU" = (
 /obj/structure/closet/crate,
@@ -44319,15 +44333,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
 "ygR" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/structure/disposalpipe/junction{
-	dir = 1
-	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "ygY" = (
@@ -61576,9 +61584,9 @@ sKJ
 uxb
 tux
 lAi
-tBB
 uzd
-tBB
+tfl
+tfl
 sKJ
 iEM
 lSo
@@ -61981,8 +61989,8 @@ cUR
 lYV
 wmh
 vZy
+tBB
 enE
-sKJ
 sKJ
 lJg
 wNI
@@ -62383,9 +62391,9 @@ dHL
 vhe
 sKJ
 sRG
-hSY
-hSY
-hSY
+tfl
+tfl
+tfl
 xsH
 sKJ
 qzH
@@ -64004,7 +64012,7 @@ tfl
 tfl
 tfl
 tfl
-wNI
+tCJ
 wNI
 vRV
 sKJ
