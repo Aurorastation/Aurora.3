@@ -122,7 +122,7 @@ datum/track/New(var/title_name, var/audio)
 	ui_interact(user)
 
 /obj/machinery/media/jukebox/ui_interact(mob/user, ui_key = "jukebox", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/title = "RetroBox - Space Style"
+	var/title = "Music Player"
 	var/data[0]
 
 	if(!(stat & (NOPOWER|BROKEN)))
