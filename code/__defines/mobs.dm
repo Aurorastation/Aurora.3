@@ -145,7 +145,7 @@
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
 #define BP_AUG_TOOL         "retractable combitool"
 #define BP_AUG_PEN          "retractable combipen"
-#define BP_AUG_CANALYZER    "retractable cyborg analyzer"
+#define BP_AUG_CYBORG_ANALYZER    "retractable cyborg analyzer"
 #define BP_AUG_LIGHTER      "retractable lighter"
 #define BP_AUG_HEALTHSCAN   "integrated health scanner"
 #define BP_AUG_GUSTATORIAL   "integrated gustatorial centre"
