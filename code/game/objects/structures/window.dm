@@ -1,3 +1,4 @@
+/********** Glass and Glass Panes Start **********/
 /obj/structure/window
 	name = "glass pane"
 	desc = "A glass pane."
@@ -9,8 +10,8 @@
 	flags = ON_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE
 	var/maxhealth = 14
-	var/maximal_heat = T0C + 100 		// Maximal heat before this window begins taking damage from fire
-	var/damage_per_fire_tick = 2 		// Amount of damage per fire tick. Regular windows are not fireproof so they might as well break quickly.
+	var/maximal_heat = T0C + 100 // Maximal heat before this window begins taking damage from fire
+	var/damage_per_fire_tick = 2 // Amount of damage per fire tick. Regular windows are not fireproof so they might as well break quickly.
 	var/health
 	var/ini_dir = null
 	var/state = 2
@@ -378,7 +379,7 @@
 
 /obj/structure/window/basic/full
 	name = "glass"
-	icon_state = "fwindow"
+	icon_state = "window"
 	dir = 5
 
 /obj/structure/window/reinforced
@@ -394,8 +395,20 @@
 
 /obj/structure/window/reinforced/full
 	name = "reinforced glass"
-	icon_state = "fwindow"
+	icon_state = "rwindow"
 	dir = 5
+
+/obj/structure/window/reinforced/tinted
+	name = "reinforced tinted glass pane"
+	desc = "It looks rather strong and opaque. Might take a few good hits to shatter it."
+	icon_state = "twindow"
+	basestate = "twindow"
+	opacity = 1
+
+/obj/structure/window/reinforced/tinted/frosted
+	name = "reinforced frosted glass pane"
+	desc = "It looks rather strong and frosted over. Looks like it might take a few less hits then a normal reinforced window."
+	maxhealth = 30
 
 /obj/structure/window/reinforced/polarized
 	name = "reinforced electrochromic glass pane"
@@ -488,21 +501,10 @@
 	basestate = "phoronwindow"
 	icon_state = "phoronwindow"
 	maxhealth = 250
+/********** Glass and Glass Panes End **********/
 
-/obj/structure/window/reinforced/tinted
-	name = "reinforced tinted glass pane"
-	desc = "It looks rather strong and opaque. Might take a few good hits to shatter it."
-	icon_state = "twindow"
-	basestate = "twindow"
-	opacity = 1
-
-/obj/structure/window/reinforced/tinted/frosted
-	name = "reinforced frosted glass pane"
-	desc = "It looks rather strong and frosted over. Looks like it might take a few less hits then a normal reinforced window."
-	icon_state = "fwindow"
-	basestate = "fwindow"
-	maxhealth = 30
-
+/********** Shuttle Windows Start **********/
+// Shuttle Windows
 /obj/structure/window/shuttle
 	name = "reinforced shuttle window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
@@ -564,11 +566,9 @@
 
 /obj/structure/window/shuttle/crescent/take_damage()
 	return
+/********** Shuttle Windows End **********/
 
-//
-// Full Windows
-//
-
+/********** Full Windows Start **********/
 // Window
 /obj/structure/window/full
 	name = "window"
@@ -847,3 +847,4 @@
 	maxhealth = 160 // Two reinforced borosilicate glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	reinf = TRUE
 	maximal_heat = T0C + 4000
+/********** Full Windows End **********/
