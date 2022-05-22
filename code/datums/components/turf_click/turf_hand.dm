@@ -1,5 +1,5 @@
 /*
-	This extension is used on airlocks and cult runes.
+	This component is used on airlocks and cult runes.
 	When a mob [attack_hand]s a turf, it will look for objects in itself containing this component.
 	If such is found, it will call attack_hand on that atom
 
