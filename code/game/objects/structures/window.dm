@@ -1,4 +1,6 @@
-/********** Glass and Glass Panes Start **********/
+//
+// Glass
+//
 /obj/structure/window
 	name = "glass pane"
 	desc = "A glass pane."
@@ -356,8 +358,7 @@
 	set_dir(ini_dir)
 	update_nearby_tiles(need_rebuild=1)
 
-//checks if this window is full-tile one
-/obj/structure/window/proc/is_fulltile()
+/obj/structure/window/proc/is_fulltile() // Checks if this window is a full-tile one.
 	if(dir & (dir - 1))
 		return 1
 	return 0
@@ -367,6 +368,7 @@
 		hit(damage_per_fire_tick, 0)
 	..()
 
+/********** Glass and Glass Panes **********/
 /obj/structure/window/basic
 	name = "glass pane"
 	desc = "It looks thin and flimsy. A few hits with anything will shatter it."
@@ -501,10 +503,8 @@
 	basestate = "phoronwindow"
 	icon_state = "phoronwindow"
 	maxhealth = 250
-/********** Glass and Glass Panes End **********/
 
-/********** Shuttle Windows Start **********/
-// Shuttle Windows
+/********** Shuttle Windows **********/
 /obj/structure/window/shuttle
 	name = "reinforced shuttle window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
@@ -566,14 +566,13 @@
 
 /obj/structure/window/shuttle/crescent/take_damage()
 	return
-/********** Shuttle Windows End **********/
 
-/********** Full Windows Start **********/
-// Window
+//
+// Full Windows
+//
 /obj/structure/window/full
 	name = "window"
 	desc = "You aren't supposed to see this."
-	icon = 'icons/error.dmi'
 	obj_flags = null
 	dir = 5
 	maxhealth = 28 // Two glass panes worth of health, since that's the minimum you need to break through to get to the other side.
@@ -752,6 +751,7 @@
 	qdel(src)
 	update_nearby_icons()
 
+/********** Full Windows **********/
 // Reinforced Window
 /obj/structure/window/full/reinforced
 	name = "reinforced window"
@@ -847,4 +847,3 @@
 	maxhealth = 160 // Two reinforced borosilicate glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	reinf = TRUE
 	maximal_heat = T0C + 4000
-/********** Full Windows End **********/

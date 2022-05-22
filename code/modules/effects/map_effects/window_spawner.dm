@@ -4,7 +4,6 @@
 /obj/effect/map_effect/window_spawner
 	name = "window spawner"
 	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "win"
 	var/window_path = /obj/structure/window/basic
 	var/frame_path = /obj/structure/window_frame
 	var/grille_path = /obj/structure/grille
@@ -79,6 +78,12 @@
 	return
 
 /********** Quarter Windows **********/
+/obj/effect/map_effect/window_spawner/basic
+	name = "window grille spawner"
+	icon_state = "window-g"
+	window_path = /obj/structure/window/basic
+	spawn_grille = TRUE
+
 /obj/effect/map_effect/window_spawner/reinforced
 	name = "reinforced window grille spawner"
 	icon_state = "rwindow-g"
