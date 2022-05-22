@@ -25804,6 +25804,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/obj/machinery/requests_console{
+	pixel_y = -32;
+	department = "Deck 1 - Pilots' Room";
+	name = "Pilots' Room Requests Console"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "vcF" = (
