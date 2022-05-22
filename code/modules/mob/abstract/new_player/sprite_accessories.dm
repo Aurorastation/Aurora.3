@@ -359,6 +359,12 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "hair bun"
 
+	bun_short2
+		name = "Bun, Short 2"
+		icon_state = "hair_bun_short2"
+		length = 2
+		chatname = "hair bun"
+
 	bun_tight
 		name = "Bun, Tight"
 		icon_state = "hair_bun_tight"
@@ -2631,25 +2637,31 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Tajara Bun"
 			icon_state = "hair_bun"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
 
 		taj_ears_smallbun
 			name = "Tajara Bun (Small)"
 			icon_state = "hair_bunsmall"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
 
 		taj_ears_lowbun
 			name = "Tajara Bun (Low)"
 			icon_state = "hair_lowbun"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
 
 		taj_ears_smalllowbun
 			name = "Tajara Bun (Low, Small)"
 			icon_state = "hair_lowbunsmall"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
+
+		taj_ears_bunshort
+			name = "Tajara Bun (Short)"
+			icon_state = "hair_bunshort"
+			length = 2
+			chatname = "hair bun"
 
 		taj_ears_wedge
 			name = "Tajara Wedge"
@@ -2904,25 +2916,31 @@ Follow by example and make good judgement based on length which list to include 
 			name = "M'sai Bun"
 			icon_state = "msai_bun"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
 
 		taj_ears_smallbun
 			name = "M'sai Bun (Small)"
 			icon_state = "msai_bunsmall"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
 
 		msai_ears_lowbun
 			name = "M'sai Bun (Low)"
 			icon_state = "msai_lowbun"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
 
 		msai_ears_lowsmallbun
 			name = "M'sai Bun (Low, Small)"
 			icon_state = "msai_lowbunsmall"
 			length = 2
-			chatname = "bun"
+			chatname = "hair bun"
+
+		msai_ears_bunshort
+			name = "M'sai Bun (Short)"
+			icon_state = "msai_bunshort"
+			length = 2
+			chatname = "hair bun"
 
 		msai_ears_wedge
 			name = "M'sai Wedge"
