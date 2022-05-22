@@ -2850,12 +2850,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
-"fm" = (
-/obj/structure/ladder{
-	pixel_y = 8
-	},
-/turf/simulated/open/airless,
-/area/template_noop)
 "fn" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
@@ -44826,7 +44820,7 @@ uN
 qB
 at
 fh
-fm
+yF
 yM
 wl
 Uj

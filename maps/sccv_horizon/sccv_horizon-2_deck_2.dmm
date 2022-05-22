@@ -172,9 +172,9 @@
 /area/horizon/hydroponics)
 "adb" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/structure/sign/drop{
+	name = "\improper DANGER: MASS EJECTOR PATH sign";
+	desc = "A warning sign which reads 'DANGER: MASS EJECTOR PATH ON THIS SIGN'."
 	},
 /turf/space/dynamic,
 /area/template_noop)
@@ -4854,15 +4854,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
 "cHC" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-33"
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/space/dynamic,
-/area/template_noop)
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "cHM" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
@@ -5177,11 +5174,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/far)
-"cPB" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
 "cQd" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
@@ -7134,14 +7126,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
-"dVE" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/space/dynamic,
-/area/template_noop)
 "dVN" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -7579,8 +7563,9 @@
 /area/maintenance/wing/starboard/far)
 "ekX" = (
 /obj/structure/ladder/up{
-	pixel_y = 32
+	pixel_y = 16
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "elh" = (
@@ -9381,15 +9366,6 @@
 /obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled,
 /area/operations/office)
-"fln" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
 "flS" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 4
@@ -12698,6 +12674,8 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "gUA" = (
@@ -13139,15 +13117,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/security/prison)
-"hha" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
 "hhx" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -14595,6 +14564,10 @@
 /obj/structure/ladder{
 	pixel_y = 16
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
 /turf/simulated/open/airless,
 /area/template_noop)
 "hUP" = (
@@ -16992,6 +16965,27 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "massdriver";
+	layer = 3.2;
+	name = "Mass Driver Interior Blast Door";
+	pixel_x = 25;
+	pixel_y = 3
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "chapel_driver";
+	layer = 3.2;
+	name = "Mass Driver Exterior Blast Door";
+	pixel_x = 25;
+	pixel_y = -7
+	},
+/obj/machinery/button/mass_driver{
+	_wifi_id = "chapel_driver";
+	id = "chapel_driver";
+	layer = 3.2;
+	pixel_x = 35;
+	pixel_y = -3
+	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "jpi" = (
@@ -17835,15 +17829,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "jPc" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/item/hullbeacon/red,
-/turf/space/dynamic,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "jPj" = (
 /obj/machinery/atm{
@@ -19950,14 +19938,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/medical)
-"lgS" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/space/dynamic,
-/area/template_noop)
 "lhH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -22003,8 +21983,8 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "mpN" = (
-/obj/structure/lattice/catwalk,
-/turf/space/dynamic,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "mpV" = (
 /obj/structure/cable/green{
@@ -22337,9 +22317,12 @@
 "mwQ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/space/dynamic,
+/turf/simulated/open/airless,
 /area/template_noop)
 "mxh" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -22960,17 +22943,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"mOy" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/item/hullbeacon/red,
-/turf/space/dynamic,
-/area/template_noop)
 "mOH" = (
 /obj/machinery/chem_master/condimaster{
 	pixel_y = 1
@@ -36727,13 +36699,9 @@
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "uot" = (
-/obj/structure/table/rack,
-/obj/random/loot,
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/hangar/port)
+/obj/machinery/shield_diffuser,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/chapel/office)
 "uoz" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Research Substation"
@@ -39298,14 +39266,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
-"vJX" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/turf/space/dynamic,
-/area/template_noop)
 "vKf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -42759,7 +42719,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/pottedplant{
-	icon_state = "plant-33"
+	icon_state = "plant-21"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -43300,29 +43260,8 @@
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora_hazard)
 "xIW" = (
-/obj/machinery/button/remote/blast_door{
-	id = "massdriver";
-	layer = 3.2;
-	name = "Mass Driver Interior Blast Door";
-	pixel_x = -5;
-	pixel_y = 27
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "chapel_driver";
-	layer = 3.2;
-	name = "Mass Driver Exterior Blast Door";
-	pixel_x = -5;
-	pixel_y = 38
-	},
-/obj/machinery/button/mass_driver{
-	_wifi_id = "chapel_driver";
-	id = "chapel_driver";
-	layer = 3.2;
-	pixel_x = 6;
-	pixel_y = 32
-	},
-/obj/structure/curtain/black,
-/turf/simulated/floor/carpet,
+/obj/structure/foamedmetal,
+/turf/simulated/floor/plating,
 /area/chapel/office)
 "xJx" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -57519,13 +57458,13 @@ ieM
 aQb
 udR
 xer
-mOy
-nJQ
-nJQ
-nJQ
-nJQ
-nJQ
-vJX
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -57724,10 +57663,10 @@ xer
 qgN
 qgN
 qgN
-sJq
 qgN
 qgN
-lgS
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -57928,9 +57867,9 @@ sJq
 kgp
 kgp
 kgp
-sJq
-jPc
-adb
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -58132,7 +58071,7 @@ kgp
 kgp
 qgN
 qgN
-lgS
+qgN
 qgN
 qgN
 qgN
@@ -58334,7 +58273,7 @@ kgp
 kgp
 kgp
 qgN
-lgS
+qgN
 qgN
 qgN
 qgN
@@ -58535,8 +58474,8 @@ kgp
 kgp
 kgp
 kgp
-sJq
-lgS
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -58738,7 +58677,7 @@ kgp
 kgp
 kgp
 qgN
-lgS
+qgN
 qgN
 qgN
 qgN
@@ -58940,7 +58879,7 @@ tqC
 kgp
 kgp
 qgN
-lgS
+qgN
 qgN
 qgN
 qgN
@@ -59142,7 +59081,7 @@ kgp
 kgp
 kgp
 qgN
-lgS
+qgN
 qgN
 qgN
 qgN
@@ -59343,9 +59282,9 @@ kgp
 kgp
 kgp
 kgp
-cHC
-mpN
-vJX
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -59539,7 +59478,7 @@ hwM
 spn
 lNQ
 kgp
-cPB
+xer
 kgp
 kgp
 kgp
@@ -59547,7 +59486,7 @@ kgp
 kgp
 mwQ
 hUK
-eYX
+qgN
 qgN
 qgN
 qgN
@@ -59741,15 +59680,15 @@ kOW
 eyu
 lCF
 kgp
-cPB
+xer
 kgp
 kgp
 kgp
 kgp
 kgp
 oFC
-mpN
-dVE
+eYX
+qgN
 qgN
 qgN
 qgN
@@ -59944,10 +59883,10 @@ oWC
 lCF
 kgp
 tMp
-fln
-fln
-fln
-hha
+mLU
+mLU
+mLU
+eTQ
 qgN
 qgN
 sVv
@@ -60546,8 +60485,8 @@ fol
 aMa
 fol
 fol
-xIW
-lCF
+pgi
+lNQ
 kgp
 kgp
 kgp
@@ -60748,17 +60687,17 @@ cKc
 aYE
 lMi
 fol
-pgi
-lNQ
-kgp
-kgp
-kgp
-kgp
-kgp
-xer
+aCS
+fRc
+mpN
+mpN
+mpN
+mpN
+mpN
+jPc
 qgN
 qgN
-sVv
+adb
 qgN
 qgN
 qgN
@@ -60950,8 +60889,8 @@ lQn
 nfL
 axL
 fol
-aCS
-fRc
+fol
+uot
 kgp
 kgp
 kgp
@@ -61152,7 +61091,7 @@ toe
 tWF
 dqs
 fol
-fol
+xIW
 lNQ
 ekX
 kgp
@@ -61354,8 +61293,8 @@ fol
 sCE
 fol
 fol
-uot
-eeQ
+fol
+lNQ
 gBp
 gBp
 gBp
@@ -63993,7 +63932,7 @@ tfl
 tfl
 tfl
 tfl
-wNI
+cHC
 wNI
 vRV
 sKJ
