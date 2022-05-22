@@ -100,19 +100,19 @@
 	window_path = /obj/structure/window/reinforced/crescent
 	grille_path = /obj/structure/grille/crescent
 
-/obj/effect/map_effect/window_spawner/phoron
+/obj/effect/map_effect/window_spawner/borosilicate
 	name = "borosilicate window grille spawner"
 	icon_state = "pwindow-g"
 	window_path = /obj/structure/window/borosilicate
 	spawn_grille = TRUE
 
-/obj/effect/map_effect/window_spawner/reinforced_phoron
+/obj/effect/map_effect/window_spawner/borosilicate/reinforced
 	name = "reinforced borosilicate window grille spawner"
 	icon_state = "prwindow-g"
 	window_path = /obj/structure/window/borosilicate/reinforced
 	spawn_grille = TRUE
 
-/obj/effect/map_effect/window_spawner/reinforced_phoron/firedoor
+/obj/effect/map_effect/window_spawner/borosilicate/reinforced/firedoor
 	name = "reinforced borosilicate window grille spawner with firedoor"
 	icon_state = "prwindow-gf"
 	spawn_firedoor = TRUE

@@ -947,7 +947,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fsf_patrol_ship)
 "hjW" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/fsf_shuttle)
 "hsz" = (
@@ -2001,7 +2001,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fsf_patrol_ship)
 "qyG" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
 /area/shuttle/fsf_patrol_ship)
 "qBC" = (
@@ -2193,7 +2193,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fsf_patrol_ship)
 "tvp" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fsf_patrol_ship)
 "txi" = (

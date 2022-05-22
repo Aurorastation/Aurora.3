@@ -764,7 +764,7 @@
 /turf/simulated/floor,
 /area/shuttle/tcfl_peacekeeper_ship)
 "mtM" = (
-/obj/effect/map_effect/window_spawner/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tcfl_peacekeeper_ship)
 "mwP" = (

@@ -446,7 +446,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
 "cF" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/flag/sol/right,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
@@ -490,7 +490,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "cL" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/flag/coalition/right,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
@@ -568,7 +568,7 @@
 	},
 /area/city/mendell)
 "db" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -1139,7 +1139,7 @@
 	},
 /area/city/mendell/interior)
 "fK" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/plating,
 /area/city/mendell)
 "fQ" = (
@@ -1735,7 +1735,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "iV" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/city)
 "iW" = (
@@ -1967,7 +1967,7 @@
 	},
 /area/city/mendell)
 "kl" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/city/mendell)
 "kt" = (
@@ -2029,7 +2029,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "kM" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor{
 	icon_state = "concrete";
 	name = "concrete"
@@ -2901,7 +2901,7 @@
 	},
 /area/city/mendell/interior)
 "qs" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/greencross{
 	name = "Emergency Room"
 	},
@@ -3227,7 +3227,7 @@
 	},
 /area/city/mendell/interior)
 "rK" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/shuttle/black,
 /area/city/mendell)
 "rL" = (
@@ -3305,7 +3305,7 @@
 	},
 /area/city/mendell/interior)
 "se" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/plating,
 /area/city/mendell/interior)
@@ -4648,7 +4648,7 @@
 	},
 /area/city/mendell)
 "Af" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/lino/grey,
 /area/city/mendell/interior)
 "Aj" = (
@@ -5501,7 +5501,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "Fb" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/city/mendell)
 "Fe" = (
@@ -5952,7 +5952,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "IA" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "IC" = (
@@ -7187,7 +7187,7 @@
 /turf/simulated/floor/plating,
 /area/city/mendell/interior)
 "OQ" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/flag/sol/left,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
@@ -8003,7 +8003,7 @@
 	},
 /area/city/mendell/interior)
 "Tp" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
@@ -8312,7 +8312,7 @@
 /turf/simulated/floor/lino/grey,
 /area/city/mendell)
 "Vh" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/flag/coalition/left,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
@@ -8903,7 +8903,7 @@
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "YI" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/plating,
 /area/shuttle/city)
 "YL" = (
