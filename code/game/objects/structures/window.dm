@@ -635,6 +635,11 @@
 	update_icon()
 	update_nearby_icons()
 
+/obj/structure/window/full/Destroy()
+	var/obj/structure/window_frame/WF = locate(/obj/structure/window_frame) in get_turf(src)
+	WF.has_glass_installed = FALSE
+	return ..()
+
 /obj/structure/window/full/attackby(obj/item/W, mob/user)
 	if(!istype(W) || istype(W, /obj/item/flag))
 		return
@@ -649,34 +654,35 @@
 
 	if(W.isscrewdriver())
 		if(state == 2)
+			playsound(src, W.usesound, 75, TRUE)
 			if(do_after(user, 2 SECONDS))
-				playsound(loc, W.usesound, 75, 1)
 				to_chat(user, SPAN_NOTICE("You have unfastened the glass from the window frame."))
 				state--
 				update_nearby_icons()
 		else if(state == 1)
+			playsound(src, W.usesound, 75, TRUE)
 			if(do_after(user, 2 SECONDS))
-				playsound(loc, W.usesound, 75, 1)
 				to_chat(user, SPAN_NOTICE("You have fastened the glass to the window frame."))
 				state++
 				update_nearby_icons()
 	else if(W.iscrowbar())
 		if(state == 1)
+			playsound(src, W.usesound, 75, TRUE)
 			if(do_after(user, 2 SECONDS))
-				playsound(loc, W.usesound, 75, 1)
 				to_chat(user, SPAN_NOTICE("You pry the glass out of the window frame."))
 				state--
 				update_nearby_icons()
 		else if(state == 0)
+			playsound(src, W.usesound, 75, TRUE)
 			if(do_after(user, 2 SECONDS))
-				playsound(loc, W.usesound, 75, 1)
 				to_chat(user, SPAN_NOTICE("You pry the glass into the window frame."))
 				state++
 				update_nearby_icons()
 	else if(W.iswrench())
 		if(state == 0)
+			playsound(src, W.usesound, 75, TRUE)
 			visible_message(SPAN_WARNING("\The [user] is dismantling \the [src]!"))
-			if(do_after(user, 10 SECONDS))
+			if(do_after(user, 2 SECONDS))
 				to_chat(user, SPAN_NOTICE("You undo the safety bolts and remove the glass from \the [src]."))
 				dismantle_window()
 	else

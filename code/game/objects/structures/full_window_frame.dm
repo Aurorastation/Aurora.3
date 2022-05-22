@@ -5,6 +5,8 @@
 	icon_state = "window_frame"
 	build_amt = 4
 	anchored = TRUE
+	density = TRUE
+	climbable = TRUE
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
 		/turf/simulated/wall,
@@ -13,8 +15,16 @@
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty
 	)
-	var/glass_needed = 4
+	var/should_check_mapload = TRUE
 	var/has_glass_installed = FALSE
+	var/glass_needed = 4
+
+/obj/structure/window_frame/unanchored // Used during in-game construction.
+	should_check_mapload = FALSE // No glass.
+	anchored = FALSE
+
+/obj/structure/window_frame/empty
+	should_check_mapload = FALSE // No glass.
 
 /obj/structure/window_frame/cardinal_smooth(adjacencies, var/list/dir_mods)
 	LAZYINITLIST(dir_mods)
@@ -59,35 +69,43 @@
 	queue_smooth(src)
 
 /obj/structure/window_frame/Initialize(mapload) // If the window frame is mapped in, it should be considered to have glass spawned in it by a window spawner.
-	if(mapload)
+	. = ..()
+	if(mapload && should_check_mapload)
 		has_glass_installed = TRUE
 
-/obj/structure/window_frame/unanchored/Initialize() // The unanchored variant should not be considered to have glass in it.
-	return
-
-/obj/structure/window_frame/empty/Initialize() // The empty variant should not be considered to have glass in it.
-	return
-
-/obj/structure/window_frame/unanchored // Used during in-game construction.
-	anchored = FALSE
-
-/obj/structure/window_frame/empty
-	// Intentionally left empty.
+/obj/structure/window_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(air_group || (height == 0))
+		return TRUE
+	if(istype(mover, /obj/structure/closet/crate))
+		return TRUE
+	if(istype(mover) && mover.checkpass(PASSTABLE))
+		return TRUE
+	if(locate(/obj/structure/window_frame) in get_turf(mover))
+		return TRUE
+	return FALSE
 
 /obj/structure/window_frame/attackby(obj/item/W, mob/user)
 	if((W.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
 		if(has_glass_installed)
 			to_chat(user, SPAN_NOTICE("You can't unfasten \the [src] if it has glass installed."))
 			return
-		var/obj/item/screwdriver/S = W
-		if(do_after(user, 2 SECONDS/S.toolspeed))
-			playsound(src, S.usesound, 50, TRUE)
-			anchored = !anchored
-			to_chat(user, SPAN_NOTICE("You [anchored ? "fasten" : "unfasten"] \the [src]."))
-			dir = 2
-			update_icon()
-			update_nearby_icons()
-			return
+		if(anchored)
+			playsound(src, W.usesound, 75, TRUE)
+			if(do_after(user, 2 SECONDS/W.toolspeed))
+				anchored = FALSE
+				to_chat(user, SPAN_NOTICE("You unfasten \the [src]."))
+				update_icon()
+				update_nearby_icons()
+				return
+		else
+			playsound(src, W.usesound, 75, TRUE)
+			if(do_after(user, 2 SECONDS/W.toolspeed))
+				anchored = TRUE
+				to_chat(user, SPAN_NOTICE("You fasten \the [src]."))
+				dir = 2
+				update_icon()
+				update_nearby_icons()
+				return
 
 	else if(W.iswelder())
 		if(has_glass_installed)
@@ -100,12 +118,12 @@
 		if(!WT.isOn())
 			to_chat(user, SPAN_NOTICE("\The [WT] isn't turned on."))
 			return
+		playsound(src, 'sound/items/welder.ogg', 50, TRUE)
 		user.visible_message(
 			SPAN_WARNING("\The [user] starts welding \the [src] apart!"),
 			SPAN_NOTICE("You start welding \the [src] apart..."),
 			"You hear deconstruction."
 		)
-		playsound(src, 'sound/items/welder.ogg', 50, TRUE)
 		if(do_after(user, 2 SECONDS/WT.toolspeed))
 			if(!src || !WT.isOn())
 				return

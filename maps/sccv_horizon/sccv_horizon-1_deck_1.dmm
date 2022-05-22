@@ -21007,7 +21007,7 @@
 	icon_state = "medium"
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/window_frame,
+/obj/structure/window_frame/empty,
 /turf/simulated/floor/tiled/dark/full,
 /area/maintenance/wing/port/deck1)
 "riI" = (
