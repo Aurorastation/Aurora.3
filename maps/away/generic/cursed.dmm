@@ -496,9 +496,9 @@
 /turf/simulated/floor,
 /area/cursed/bridge)
 "cEa" = (
-/obj/structure/window/full,
-/turf/simulated/floor,
-/area/cursed/eva_storage)
+/obj/machinery/light/spot,
+/turf/simulated/floor/airless,
+/area/cursed/bridge)
 "cGx" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -719,12 +719,11 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "eyg" = (
-/obj/structure/window/full,
 /obj/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "eyA" = (
@@ -744,8 +743,7 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "eyW" = (
-/obj/structure/window/full,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "eDl" = (
@@ -1367,8 +1365,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "iEm" = (
-/obj/structure/window/full,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/bridge)
 "iIo" = (
@@ -1411,12 +1408,12 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "jaT" = (
-/obj/structure/window/full,
 /obj/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "jdh" = (
@@ -2304,9 +2301,8 @@
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "oet" = (
-/obj/structure/window/full,
-/obj/machinery/light/spot,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/airless,
 /area/cursed/bridge)
 "omB" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
@@ -2639,12 +2635,12 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "pUH" = (
-/obj/structure/window/full,
 /obj/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/bridge)
 "pWK" = (
@@ -3271,7 +3267,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "tkd" = (
-/obj/structure/window/full,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "tqe" = (
@@ -33855,7 +33851,7 @@ lyr
 lyr
 gqk
 rqz
-cEa
+eyW
 eyW
 rqz
 kNP
@@ -34112,7 +34108,7 @@ mHz
 mHz
 lyr
 lyr
-cEa
+mHz
 eyW
 hDm
 nvp
@@ -34369,7 +34365,7 @@ dTm
 nwk
 foL
 foL
-rqz
+foL
 rqz
 tLw
 vLT
@@ -34882,7 +34878,7 @@ xRX
 xRX
 hfc
 iui
-tkd
+iui
 hfy
 hfy
 hfy
@@ -41300,8 +41296,8 @@ xRX
 xRX
 xRX
 fpi
-sDN
-sDN
+cEa
+oet
 iEm
 iEm
 iEm
@@ -41558,7 +41554,7 @@ xRX
 xRX
 xRX
 xRX
-oet
+iEm
 iEm
 jue
 bgW
@@ -41815,7 +41811,7 @@ xRX
 xRX
 xRX
 xRX
-oet
+iEm
 iEm
 lUq
 xWU
