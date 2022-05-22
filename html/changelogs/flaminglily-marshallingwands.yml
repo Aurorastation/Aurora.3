@@ -1,0 +1,7 @@
+author: FlamingLily
+
+delete-after: True
+
+changes:
+  - rscadd: "Added marshalling wands with four unique action messages (per intent) for hangar technicians to direct shuttlecraft with."
+
