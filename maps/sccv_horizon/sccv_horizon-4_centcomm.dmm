@@ -1006,36 +1006,6 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration)
-"acY" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/turf/unsimulated/floor/plating,
-/area/centcom/control)
-"acZ" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "CCIABS"
-	},
-/turf/unsimulated/floor/plating,
-/area/centcom/control)
 "ada" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Bureau Supervisor's Office";
@@ -1044,44 +1014,6 @@
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
-/area/centcom/control)
-"adb" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "CCIABS"
-	},
-/turf/unsimulated/floor/plating,
-/area/centcom/control)
-"adc" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/turf/unsimulated/floor/plating,
-/area/centcom/control)
-"add" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/turf/unsimulated/floor/plating,
 /area/centcom/control)
 "ade" = (
 /obj/effect/floor_decal/corner/grey/full,
@@ -1271,14 +1203,9 @@
 	},
 /area/centcom/control)
 "ady" = (
-/obj/structure/window/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/indestructible{
 	id = "CCIABS"
 	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "CCIABS"
-	},
-/obj/structure/grille,
 /turf/unsimulated/floor/plating,
 /area/centcom/control)
 "adz" = (
@@ -1392,18 +1319,6 @@
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
-/area/centcom/control)
-"adN" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/turf/unsimulated/floor/plating,
 /area/centcom/control)
 "adO" = (
 /obj/structure/table/reinforced,
@@ -1898,21 +1813,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/control)
-"aeA" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/turf/unsimulated/floor/plating,
-/area/centcom/control)
 "aeB" = (
 /obj/item/modular_computer/console/preset/command{
 	dir = 4
@@ -2340,22 +2240,6 @@
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/area/centcom/control)
-"afo" = (
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "CCIABS"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "CCIABS"
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "CCIABS"
-	},
-/turf/unsimulated/floor/plating,
 /area/centcom/control)
 "afp" = (
 /obj/effect/landmark{
@@ -6716,19 +6600,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
-"apb" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/merchant_station)
 "apc" = (
 /obj/structure/coatrack,
 /turf/simulated/floor/wood,
@@ -7063,16 +6934,6 @@
 /obj/item/pen/fountain/black,
 /turf/simulated/floor/carpet,
 /area/merchant_station)
-"aqi" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/merchant_station)
 "aqj" = (
 /obj/structure/plasticflaps{
 	layer = 2.6;
@@ -7297,36 +7158,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
-"aqR" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/merchant_station)
-"aqS" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/merchant_station)
-"aqT" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/merchant_station)
 "aqW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -7513,31 +7344,8 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "arw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/merchant_station)
-"arx" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/merchant_station)
-"ary" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/merchant_station)
 "arz" = (
 /obj/item/modular_computer/console/preset/merchant,
@@ -7892,27 +7700,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
-"asw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/merchant_station/warehouse)
-"asx" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/merchant_station/warehouse)
 "asy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/large_stock_marker,
@@ -7942,32 +7729,11 @@
 "asE" = (
 /turf/simulated/floor/wood,
 /area/merchant_station/warehouse)
-"asF" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/merchant_station/warehouse)
-"asG" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/merchant_station/warehouse)
 "asH" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/shuttle/merchant)
-"asI" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/wall/shuttle/scc_space_ship,
 /area/shuttle/merchant)
 "asJ" = (
 /obj/machinery/light{
@@ -8388,17 +8154,6 @@
 /obj/item/storage/secure/briefcase,
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant)
-"atC" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/merchant_station/warehouse)
 "atD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -8435,19 +8190,6 @@
 "atK" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/ramp/bottom,
-/area/merchant_station/warehouse)
-"atL" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
 "atM" = (
 /turf/simulated/floor/carpet/blue,
@@ -8515,9 +8257,6 @@
 	dir = 9
 	},
 /obj/structure/flora/pottedplant/random,
-/obj/structure/sign/vacuum{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant)
 "atV" = (
@@ -9300,16 +9039,6 @@
 	rarity = 2
 	},
 /turf/simulated/floor/tiled,
-/area/merchant_station/warehouse)
-"avO" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
 "avP" = (
 /obj/structure/closet/secure_closet/merchant,
@@ -10396,18 +10125,8 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "aya" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/merchant_station/warehouse)
 "ayr" = (
 /obj/machinery/autolathe{
@@ -40763,10 +40482,10 @@ aam
 aam
 amd
 amd
-atL
-asx
-asx
-atC
+aya
+aya
+aya
+aya
 amd
 aam
 aam
@@ -41543,7 +41262,7 @@ asu
 awZ
 amd
 aaa
-asI
+aAe
 asP
 atP
 atZ
@@ -41798,7 +41517,7 @@ axf
 axf
 avK
 axd
-asw
+aya
 aaa
 aAe
 asQ
@@ -42055,7 +41774,7 @@ avN
 axf
 avN
 axd
-asF
+aya
 aaa
 aAe
 asR
@@ -42312,7 +42031,7 @@ avN
 axf
 avN
 axd
-asG
+aya
 aaa
 aAe
 asS
@@ -43089,7 +42808,7 @@ aAe
 aAe
 aAe
 auU
-aAe
+asH
 aAe
 aAe
 aAe
@@ -43343,7 +43062,7 @@ rCq
 aya
 aAf
 aAf
-aAe
+asH
 atU
 atV
 ave
@@ -44104,12 +43823,12 @@ amf
 aof
 apc
 ajR
-atL
-atC
+aya
+aya
 amd
-atL
-avO
-avO
+aya
+aya
+aya
 aya
 amd
 aao
@@ -44617,7 +44336,7 @@ amG
 anq
 aog
 aqb
-aqR
+arw
 aaa
 aaa
 aaa
@@ -44874,7 +44593,7 @@ amH
 aog
 aog
 aqc
-aqS
+arw
 aaa
 aaa
 aaa
@@ -45131,7 +44850,7 @@ aog
 aog
 aog
 aqb
-aqT
+arw
 aaa
 aaa
 aaa
@@ -47958,7 +47677,7 @@ aof
 aof
 aoY
 aqe
-arx
+arw
 aaa
 aaa
 aaa
@@ -48215,7 +47934,7 @@ amU
 aof
 aol
 aqf
-arx
+arw
 aaa
 aaa
 aaa
@@ -48472,7 +48191,7 @@ ann
 anu
 aoZ
 aqh
-arx
+arw
 aaa
 aaa
 aaa
@@ -48727,9 +48446,9 @@ ajR
 ajR
 ajR
 ajR
-apb
-aqi
-ary
+arw
+arw
+arw
 aaa
 aaa
 aaa
@@ -60011,7 +59730,7 @@ abw
 aaI
 acm
 acG
-acY
+ady
 adv
 aaP
 aaJ
@@ -60268,7 +59987,7 @@ abx
 aaI
 acn
 acH
-acZ
+ady
 aaP
 aaP
 aed
@@ -60782,7 +60501,7 @@ aaP
 aaI
 acp
 acH
-adb
+ady
 aaP
 adM
 aef
@@ -61039,7 +60758,7 @@ aby
 aaI
 acq
 acH
-adc
+ady
 adw
 aaP
 aeg
@@ -61296,7 +61015,7 @@ aaI
 aaI
 acn
 acH
-adc
+ady
 adx
 aaP
 aaP
@@ -61553,7 +61272,7 @@ aaI
 abW
 acq
 acH
-add
+ady
 ady
 aaP
 abh
@@ -61811,13 +61530,13 @@ abX
 acq
 acI
 ade
-add
-adN
-adN
-aeA
+ady
+ady
+ady
+ady
 ada
-afo
-aeA
+ady
+ady
 aaI
 agq
 acJ
