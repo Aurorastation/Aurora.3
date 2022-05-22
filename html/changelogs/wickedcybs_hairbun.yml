@@ -1,7 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - rscadd: "Adds a new hairstyle for Humans and Tajara. Short Hair Bun 2 and Tajara Bun Short."
-  - tweak: "Changes some of the to chat names for a few Tajara hairstyles to be more descriptive."
