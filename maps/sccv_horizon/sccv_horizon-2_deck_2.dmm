@@ -2989,12 +2989,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/kitchen)
 "byq" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "shutters_deck2_hydroponicswindows";
 	name = "Viewing Shutter"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics)
 "byv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3526,7 +3526,7 @@
 	name = "Hydroponics Maintenance";
 	req_access = list(35)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "bOI" = (
 /obj/structure/disposalpipe/segment{
@@ -5087,14 +5087,6 @@
 "cNU" = (
 /turf/simulated/wall,
 /area/rnd/research)
-"cNX" = (
-/obj/machinery/door/airlock/glass_service{
-	name = "Hydroponics";
-	req_access = list(35)
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/hydroponics)
 "cOj" = (
 /obj/machinery/vending/security,
 /obj/effect/floor_decal/corner/blue{
@@ -9089,13 +9081,13 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "fdZ" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 8;
 	id = "shutters_deck2_hydroponicswindows";
 	name = "Viewing Shutter"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics)
 "fei" = (
 /obj/machinery/firealarm/west,
@@ -11373,8 +11365,8 @@
 	pixel_y = 30
 	},
 /obj/machinery/newscaster{
-	pixel_x = -26;
-	pixel_y = 5
+	pixel_x = -24;
+	pixel_y = 7
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
@@ -18734,10 +18726,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
 "kuG" = (
-/obj/effect/map_effect/window_spawner/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "librarian"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/library)
 "kuS" = (
 /obj/machinery/door/window/southright,
@@ -18874,7 +18866,7 @@
 "kze" = (
 /obj/machinery/smartfridge/secure,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/kitchen)
 "kzl" = (
 /obj/machinery/light,
@@ -21726,11 +21718,7 @@
 	name = "Kitchen";
 	req_access = list(28)
 	},
-/obj/effect/floor_decal/corner/green{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/grey,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/kitchen)
 "mgs" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -23437,7 +23425,7 @@
 	name = "Kitchen Desk Internal";
 	req_access = list(28)
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/kitchen)
 "naN" = (
 /obj/effect/floor_decal/corner/mauve/full{
@@ -32285,8 +32273,8 @@
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "rQh" = (
-/obj/effect/map_effect/window_spawner/reinforced,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/library)
 "rQB" = (
 /obj/effect/floor_decal/sign/icu,
@@ -34609,7 +34597,7 @@
 	id = "shutters_deck2_hydroponicsdesk";
 	name = "Hydroponics Desk Shutter"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics)
 "tjk" = (
 /obj/machinery/light{
@@ -38900,8 +38888,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/hallway)
 "vCa" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/garden)
 "vCl" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -64888,7 +64876,7 @@ vCa
 dvw
 dvw
 tje
-cNX
+tZR
 fdZ
 fdZ
 dvw

@@ -5143,16 +5143,6 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
-"ejc" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 8;
-	id = "shutters_hangarseccp";
-	name = "Security Checkpoint Shutter"
-	},
-/obj/effect/map_effect/window_spawner/reinforced,
-/turf/simulated/floor/plating,
-/area/security/checkpoint)
 "ejL" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Engineering Lower Deck"
@@ -11297,8 +11287,8 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
 "jeF" = (
-/obj/effect/map_effect/window_spawner/reinforced/firedoor,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "jeS" = (
 /obj/machinery/light,
