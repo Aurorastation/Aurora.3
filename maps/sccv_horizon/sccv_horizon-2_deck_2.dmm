@@ -11206,7 +11206,7 @@
 	pixel_y = 16
 	},
 /turf/simulated/open,
-/area/template_noop)
+/area/horizon/exterior)
 "ghX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -12678,7 +12678,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /turf/simulated/open,
-/area/template_noop)
+/area/horizon/exterior)
 "gUn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -13686,7 +13686,7 @@
 	},
 /obj/structure/lattice,
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "hww" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -26506,13 +26506,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "oKP" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1;
-	name = "Aux Tanks Inlet"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/aux_atmospherics/deck_2/starboard)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/exterior)
 "oKR" = (
 /obj/machinery/light/small/emergency,
 /obj/effect/floor_decal/industrial/warning{
@@ -27156,7 +27151,7 @@
 "pep" = (
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/tiled/dark/airless,
-/area/maintenance/wing/starboard)
+/area/horizon/exterior)
 "pev" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
@@ -27611,7 +27606,7 @@
 	dir = 4
 	},
 /turf/simulated/open,
-/area/template_noop)
+/area/horizon/exterior)
 "pqE" = (
 /obj/structure/closet/toolcloset,
 /obj/machinery/power/apc{
@@ -31699,7 +31694,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/open,
-/area/template_noop)
+/area/horizon/exterior)
 "rzm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -38179,14 +38174,8 @@
 /turf/simulated/wall,
 /area/maintenance/substation/wing_starboard)
 "vcM" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/airless,
-/area/maintenance/wing/starboard)
+/turf/simulated/floor/airless,
+/area/horizon/exterior)
 "vdy" = (
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
@@ -55606,8 +55595,8 @@ qgN
 dkR
 tab
 uYW
-gGB
-gGB
+oKP
+oKP
 gGB
 byZ
 oXY
@@ -55808,7 +55797,7 @@ qgN
 tvM
 tsk
 fDE
-vcM
+fDE
 pep
 oXY
 oXY
@@ -56010,8 +55999,8 @@ qgN
 jOK
 woY
 woY
-gGB
-gGB
+oKP
+oKP
 gGB
 oXY
 oXY
@@ -56822,7 +56811,7 @@ sBt
 tND
 bGk
 gvy
-oKP
+mGY
 pDn
 fdF
 uVi
@@ -60229,7 +60218,7 @@ lJE
 oSQ
 oSQ
 cEG
-dAN
+vcM
 gWf
 dAN
 dAN
