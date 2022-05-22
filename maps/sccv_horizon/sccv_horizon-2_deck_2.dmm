@@ -3158,7 +3158,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "bCl" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -3279,7 +3279,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "bGh" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/telesci)
@@ -3463,6 +3463,9 @@
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = 12
+	},
+/obj/effect/landmark/start{
+	name = "Bartender"
 	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
@@ -5741,12 +5744,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
-"dfZ" = (
-/obj/structure/bed/stool/chair/padded/red{
-	dir = 4
-	},
-/turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
 "dgw" = (
 /obj/structure/table/standard,
 /obj/item/clipboard,
@@ -6481,12 +6478,6 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
-"dBM" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
 "dBX" = (
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -7476,7 +7467,7 @@
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
 /turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "eii" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7894,7 +7885,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "eui" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -9463,7 +9454,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "fpb" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/light{
@@ -10848,7 +10839,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "fZI" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -11760,7 +11751,9 @@
 	id = "bar_port";
 	name = "Port Bar Shutters"
 	},
-/obj/item/flame/candle,
+/obj/item/flame/candle{
+	pixel_y = 16
+	},
 /obj/machinery/door/firedoor,
 /obj/structure/sign/double/barsign{
 	pixel_y = 30
@@ -11966,7 +11959,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "gBa" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -15434,7 +15427,7 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "iAB" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -16414,7 +16407,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "iYw" = (
 /obj/machinery/hologram/holopad,
 /obj/machinery/camera/network/command{
@@ -17561,7 +17554,10 @@
 	id = "bar_port";
 	name = "Port Bar Shutters"
 	},
-/obj/item/material/ashtray/bronze,
+/obj/item/material/ashtray/bronze{
+	pixel_x = -8;
+	pixel_y = 8
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
@@ -17861,7 +17857,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "jPX" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -18107,6 +18103,13 @@
 "jWh" = (
 /obj/structure/table/stone/marble,
 /obj/structure/curtain/black,
+/obj/item/reagent_containers/glass/rag,
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = 7
+	},
+/obj/item/reagent_containers/food/drinks/teapot{
+	pixel_y = 7
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "jWj" = (
@@ -18932,9 +18935,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
-"kAo" = (
-/turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
 "kAJ" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -19263,7 +19263,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "kKO" = (
 /obj/machinery/newscaster{
 	pixel_x = 30
@@ -19454,7 +19454,7 @@
 	pixel_y = -10
 	},
 /turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "kRH" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -19789,10 +19789,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
-"lbO" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
 "lbP" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -20599,10 +20595,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard/far)
-"lCr" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
 "lCF" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -22530,12 +22522,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/media/jukebox/audioconsole{
-	anchored = 1;
-	pixel_x = -8
-	},
+/obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "mDQ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -23449,13 +23438,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
-"mZI" = (
-/obj/structure/curtain/black{
-	icon_state = "open";
-	opacity = 0
-	},
-/turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
 "nac" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
@@ -24282,12 +24264,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
-"nts" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hallway/primary/central_two)
 "ntt" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_room/tesla)
@@ -24486,18 +24462,10 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "nAq" = (
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/rag,
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "bar_port";
-	name = "Port Bar Shutters"
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/obj/item/reagent_containers/food/drinks/shaker{
-	pixel_x = 7
-	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "nAz" = (
 /obj/structure/cable{
@@ -24674,9 +24642,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/far)
-"nEC" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/hallway/primary/central_two)
 "nES" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped{
@@ -26875,15 +26840,15 @@
 /area/medical/first_responder)
 "oUu" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/drinks/teapot{
-	pixel_y = 7
-	},
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "bar_port";
 	name = "Port Bar Shutters"
 	},
 /obj/machinery/door/firedoor,
+/obj/item/flame/candle{
+	pixel_y = 16
+	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "oVe" = (
@@ -28891,7 +28856,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "pYU" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -30623,7 +30588,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "qVS" = (
 /obj/item/modular_computer/console/preset/engineering{
 	dir = 8
@@ -33740,7 +33705,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "sGG" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline,
@@ -34591,9 +34556,9 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "tfl" = (
-/obj/structure/bed/stool/padded/red,
+/obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "tfr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
@@ -34761,12 +34726,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring)
-"tju" = (
-/obj/structure/bed/stool/chair/padded/red{
-	dir = 8
-	},
-/turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
 "tjP" = (
 /obj/structure/closet/crate,
 /obj/machinery/alarm{
@@ -35914,7 +35873,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "tRz" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
@@ -37130,7 +37089,7 @@
 "uwe" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "uwi" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/structure/cable/green{
@@ -38005,7 +37964,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "uUa" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/particle_accelerator/control_box,
@@ -38136,13 +38095,16 @@
 /turf/template_noop,
 /area/template_noop)
 "uZh" = (
-/obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
-/area/hallway/primary/central_two)
+/obj/machinery/vending/cigarette,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/lino/grey,
+/area/crew_quarters/bar)
 "uZs" = (
 /obj/machinery/light,
 /obj/structure/table/wood,
@@ -39202,9 +39164,11 @@
 /turf/simulated/floor/plating,
 /area/engineering/smes/tesla)
 "vGT" = (
-/obj/machinery/vending/cigarette,
+/obj/machinery/media/jukebox/audioconsole/wall{
+	pixel_x = -32
+	},
 /turf/simulated/floor/lino/grey,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "vHl" = (
 /obj/structure/ladder{
 	pixel_y = 16
@@ -39716,7 +39680,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "vSd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -44135,7 +44099,10 @@
 	name = "Port Bar Shutters"
 	},
 /obj/machinery/door/firedoor,
-/obj/item/flame/candle,
+/obj/item/flame/candle{
+	pixel_y = 8;
+	pixel_x = -8
+	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "ycV" = (
@@ -44462,7 +44429,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/area/crew_quarters/bar)
 "ylk" = (
 /obj/machinery/power/apc/low{
 	dir = 8;
@@ -63433,11 +63400,11 @@ sUD
 ulp
 uZh
 vGT
-ncN
-mZI
-dfZ
+nAq
+xPY
+tKB
 etT
-nts
+kvd
 qgN
 qgN
 qgN
@@ -63628,18 +63595,18 @@ bKX
 wNI
 vUm
 fUj
-ugp
+gHV
 gHV
 ugp
 eBy
 ycL
 tfl
-kAo
-ncN
-mZI
+wNI
+nAq
+xPY
 kRB
 ehU
-nts
+kvd
 qgN
 qgN
 qgN
@@ -63830,18 +63797,18 @@ swH
 exU
 sKJ
 gul
-oUu
-nAq
 pFr
-ycL
+pFr
+pFr
+oUu
 jFo
 tfl
-kAo
-ncN
-mZI
+wNI
+nAq
+xPY
 foz
-tju
-nts
+tux
+kvd
 qgN
 qgN
 qgN
@@ -64030,20 +63997,20 @@ xJx
 fKe
 cMF
 eSd
-ayF
+sKJ
 mDD
 tfl
 tfl
 tfl
 tfl
 tfl
-kAo
-kAo
+wNI
+wNI
 vRV
-ayF
-ayF
-ayF
-nEC
+sKJ
+sKJ
+sKJ
+eeQ
 qgN
 qgN
 qgN
@@ -64233,19 +64200,19 @@ wVT
 wNk
 hPM
 uwe
-gBE
-gBE
-gBE
-lbO
-dBM
-gBE
-gBE
-gBE
-ncN
-mZI
+tBB
+tBB
+tBB
+tre
+uzd
+tBB
+tBB
+tBB
+nAq
+xPY
 sGq
 pYK
-nts
+kvd
 qgN
 qgN
 qgN
@@ -64442,12 +64409,12 @@ uTY
 qVJ
 ylh
 fZC
-lCr
+pIs
 bBP
-mZI
+xPY
 kRB
 ehU
-nts
+kvd
 qgN
 qgN
 qgN
@@ -64639,17 +64606,17 @@ gBE
 uwe
 gAP
 jPj
-gBE
+tBB
 bGg
 izV
 kKM
-jgb
-gBE
-gBE
-mZI
-tju
-tju
-nts
+ugc
+tBB
+tBB
+xPY
+tux
+tux
+kvd
 qgN
 qgN
 qgN
@@ -64838,8 +64805,8 @@ fuX
 ayo
 cMF
 uLh
-ayF
-ayF
+sKJ
+sKJ
 pED
 oRn
 xtu

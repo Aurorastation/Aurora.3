@@ -238,7 +238,7 @@ datum/track/New(var/title_name, var/audio)
 
 /obj/machinery/media/jukebox/audioconsole
 	name = "audioconsole"
-	desc = "An Idris-designed jukebox for the 25th century. Unfortunately, someone made a mistake setting this one up - it isn't connected to the extranet - and only plays the demo music it was preprogrammed with."
+	desc = "An Idris-designed jukebox for the 25th century. Unfortunately, someone made a mistake setting this one up. It isn't connected to the extranet and only plays the demo music it was pre-programmed with."
 	icon = 'icons/obj/audioconsole.dmi'
 	icon_state = "audioconsole-nopower"
 	state_base = "audioconsole"
@@ -249,7 +249,7 @@ datum/track/New(var/title_name, var/audio)
 		new/datum/track("Don't Rush", 'sound/music/audioconsole/DontRush.ogg'),
 		new/datum/track("Phoron Will Make Us Rich", 'sound/music/audioconsole/PhoronWillMakeUsRich.ogg'),
 		new/datum/track("Amsterdam", 'sound/music/audioconsole/Amsterdam.ogg'),
-		new/datum/track("when", 'sound/music/audioconsole/When.ogg'),
+		new/datum/track("Whenever", 'sound/music/audioconsole/When.ogg'),
 		new/datum/track("Number 0", 'sound/music/audioconsole/Number0.ogg'),
 		new/datum/track("The Pianist", 'sound/music/audioconsole/ThePianist.ogg'),
 		new/datum/track("Lips", 'sound/music/audioconsole/Lips.ogg'),
@@ -261,3 +261,8 @@ datum/track/New(var/title_name, var/audio)
 	icon_state = state_base
 	if(playing)
 		add_overlay("[state_base]-running")
+
+/obj/machinery/media/jukebox/audioconsole/wall
+	icon = 'icons/obj/audioconsole_wall.dmi'
+	density = FALSE
+	anchored = TRUE
