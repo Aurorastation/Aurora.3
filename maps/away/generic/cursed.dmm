@@ -2426,7 +2426,7 @@
 /obj/machinery/door/blast/shutters{
 	id = "cursedshutters"
 	},
-/obj/effect/map_effect/wingrille_spawn/full/phoron,
+/obj/effect/map_effect/window_spawner/full/phoron,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "oVA" = (

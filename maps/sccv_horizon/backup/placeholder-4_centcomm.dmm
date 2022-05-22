@@ -3608,7 +3608,7 @@
 	name = "\improper Ninja Base"
 	})
 "ajU" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -6502,7 +6502,7 @@
 	},
 /area/shuttle/administration/centcom)
 "aqC" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/shuttle/administration/centcom)
 "aqD" = (
@@ -6989,7 +6989,7 @@
 /turf/unsimulated/floor,
 /area/centcom/living)
 "asq" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor,
 /area/centcom/living)
 "asu" = (
@@ -8432,7 +8432,7 @@
 	},
 /area/centcom/living)
 "avR" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -8558,7 +8558,7 @@
 	},
 /area/centcom/living)
 "awh" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/template_noop,
 /area/centcom/control)
 "awi" = (
@@ -9466,7 +9466,7 @@
 	},
 /area/centcom/specops)
 "axZ" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -9582,7 +9582,7 @@
 	},
 /area/centcom/control)
 "ayn" = (
-/obj/effect/wingrille_spawn/reinforced_phoron,
+/obj/effect/window_spawner/reinforced_phoron,
 /turf/unsimulated/floor{
 	icon_state = "whiteshiny"
 	},
@@ -9677,7 +9677,7 @@
 	},
 /area/centcom/control)
 "ayw" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -10024,7 +10024,7 @@
 	},
 /area/centcom/specops)
 "azi" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 8
@@ -10576,7 +10576,7 @@
 	},
 /area/centcom/control)
 "aAr" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor,
 /area/centcom/control)
 "aAs" = (
@@ -11575,7 +11575,7 @@
 	},
 /area/centcom/holding)
 "aCm" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aCn" = (
@@ -11876,7 +11876,7 @@
 	},
 /area/centcom/holding)
 "aDb" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -13928,7 +13928,7 @@
 	},
 /area/centcom/holding)
 "aHV" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -15352,7 +15352,7 @@
 	},
 /area/centcom/holding)
 "aKZ" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -16486,7 +16486,7 @@
 	},
 /area/centcom/spawning)
 "aNw" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /obj/machinery/status_display/arrivals_display,
 /turf/unsimulated/floor{
 	name = "plating"
@@ -17779,7 +17779,7 @@
 	},
 /area/centcom/holding)
 "aQw" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -18661,7 +18661,7 @@
 /turf/unsimulated/wall/riveted,
 /area/tdome)
 "aSq" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -19293,11 +19293,11 @@
 	},
 /area/tdome)
 "aTR" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/simulated/floor,
 /area/tdome)
 "aTS" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor,
 /area/tdome)
@@ -19563,7 +19563,7 @@
 /turf/simulated/floor,
 /area/tdome)
 "aUF" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor,
 /area/tdome)
@@ -20113,7 +20113,7 @@
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape/centcom)
 "aWg" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "CentComArrivalsForeChkpt";
@@ -20206,7 +20206,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "aWr" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "CentComArrivalsAftChkpt";
@@ -22526,7 +22526,7 @@
 	},
 /area/centcom/legion/hangar5)
 "eLM" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -24131,7 +24131,7 @@
 	},
 /area/centcom/living)
 "hHP" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -24973,7 +24973,7 @@
 	},
 /area/centcom/holding)
 "jiF" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /obj/machinery/door/blast/odin/shuttle/ert,
 /turf/unsimulated/floor{
 	name = "plating"
@@ -25969,7 +25969,7 @@
 	},
 /area/centcom/checkpoint/aft)
 "lBN" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -26189,7 +26189,7 @@
 	},
 /area/centcom/evac)
 "mbM" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/template_noop,
 /area/centcom/evac)
 "mcC" = (
@@ -27840,12 +27840,12 @@
 	},
 /area/centcom/legion/hangar5)
 "oQu" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/wall/riveted,
 /area/centcom/living)
 "oQO" = (
 /obj/structure/lattice,
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/template_noop,
 /area/centcom/evac)
 "oRK" = (
@@ -29370,7 +29370,7 @@
 /area/centcom/legion)
 "rOK" = (
 /obj/structure/lattice,
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/template_noop,
 /area/centcom/control)
 "rPy" = (
@@ -29603,7 +29603,7 @@
 	},
 /area/centcom/legion/hangar5)
 "slC" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
 	name = "KEEP CLEAR: DOCKING AREA";
@@ -29701,7 +29701,7 @@
 	},
 /area/centcom/legion/hangar5)
 "srl" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -31746,7 +31746,7 @@
 /turf/space/transit/east/shuttlespace_ew4,
 /area/shuttle/distress/transit)
 "wyM" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
