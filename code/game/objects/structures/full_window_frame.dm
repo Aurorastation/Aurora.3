@@ -20,13 +20,6 @@
 	var/has_glass_installed = FALSE
 	var/glass_needed = 4
 
-/obj/structure/window_frame/unanchored // Used during in-game construction.
-	should_check_mapload = FALSE // No glass.
-	anchored = FALSE
-
-/obj/structure/window_frame/empty
-	should_check_mapload = FALSE // No glass.
-
 /obj/structure/window_frame/cardinal_smooth(adjacencies, var/list/dir_mods)
 	LAZYINITLIST(dir_mods)
 	var/north_wall = FALSE
@@ -166,3 +159,10 @@
 				return
 		else
 			to_chat(user, SPAN_WARNING("You need at least [glass_needed] sheets of [MATERIAL_GLASS_REINFORCED_PHORON] to finished the window."))
+
+/obj/structure/window_frame/unanchored // Used during in-game construction.
+	should_check_mapload = FALSE // No glass.
+	anchored = FALSE
+
+/obj/structure/window_frame/empty
+	should_check_mapload = FALSE // No glass.
