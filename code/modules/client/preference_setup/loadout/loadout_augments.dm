@@ -84,7 +84,7 @@
 /datum/gear/augment/analyzer
 	display_name = "retractable cyborg analyzer"
 	description = "An augment that allows the user to deploy a retractable cyborg analyzer."
-	path = /obj/item/organ/internal/augment/tool/cAnalyzer
+	path = /obj/item/organ/internal/augment/tool/cyborg_analyzer
 	allowed_roles = list("Machinist")
 	cost = 3
 
