@@ -424,11 +424,31 @@
 
 /obj/item/flag/jargon
 	name = "Jargon Federation flag"
-	desc = "The insignia of the Jargon Federation"
+	desc = "The insignia of the Jargon Federation."
 	flag_path = "jargon"
 
 /obj/item/flag/jargon/l
 	name = "Large Jargon Federation flag"
+	flag_size = 1
+	
+/obj/structure/sign/flag/traverse
+	name = "Free Traverser flag"
+	desc = "The insignia of the Free Traversers."
+	icon_state = "traverse"
+
+/obj/structure/sign/flag/traverse/left
+	icon_state = "traverse_l"
+
+/obj/structure/sign/flag/traverse/right
+	icon_state = "traverse_r"
+
+/obj/item/flag/traverse
+	name = "Free Traverser flag"
+	desc = "The insignia of the Free Traversers."
+	flag_path = "traverse"
+
+/obj/item/flag/traverse/l
+	name = "Large Free Traverser flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/nanotrasen
