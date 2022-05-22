@@ -8,6 +8,7 @@
 	density = TRUE
 	climbable = TRUE
 	smooth = SMOOTH_TRUE
+	can_be_unanchored = TRUE
 	canSmoothWith = list(
 		/turf/simulated/wall,
 		/turf/simulated/wall/r_wall,
