@@ -92,7 +92,7 @@
 	..()
 	var/list/augs = list()
 	augs["retractable cyborg analyzer, right hand"] = /obj/item/organ/internal/augment/tool/cyborg_analyzer
-	augs["retractable cyborg analyzer, left hand"] = /obj/item/organ/internal/augment/tool/cAnalyzer/left
+	augs["retractable cyborg analyzer, left hand"] = /obj/item/organ/internal/augment/tool/cyborg_analyzer/left
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
 /datum/gear/augment/health_scanner
