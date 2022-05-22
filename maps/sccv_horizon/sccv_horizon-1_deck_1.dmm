@@ -19060,13 +19060,13 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
 /obj/effect/floor_decal/corner/white{
 	dir = 9
+	},
+/obj/machinery/power/apc/super{
+	dir = 8;
+	pixel_x = -24;
+	name = "west bump"
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
