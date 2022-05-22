@@ -80,6 +80,8 @@
 	return 1
 
 /obj/machinery/atmospherics/unary/cryo_cell/relaymove(mob/user as mob)
+	if(user != occupant)
+		return
 	if(user.stat)
 		return
 	go_out()
