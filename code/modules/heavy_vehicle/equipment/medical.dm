@@ -299,7 +299,7 @@
 
 	if(ishuman(user) && !(user.l_hand && user.r_hand))
 		user.put_in_hands(R)
-	user.visible_message("\The [src] spits out a piece of paper.")
+	user.visible_message(SPAN_NOTICE("\The [src] spits out a piece of paper."))
 
 /obj/item/device/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/human/H)
 	if (!ishuman(H))
