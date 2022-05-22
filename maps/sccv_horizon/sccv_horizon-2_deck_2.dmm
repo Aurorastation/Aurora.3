@@ -2391,6 +2391,7 @@
 	dir = 1;
 	pixel_y = -28
 	},
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "bfF" = (
