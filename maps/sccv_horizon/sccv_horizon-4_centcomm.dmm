@@ -27500,10 +27500,10 @@
 /area/template_noop)
 "bmg" = (
 /obj/structure/shuttle/engine/heater,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
@@ -27512,17 +27512,17 @@
 /obj/structure/shuttle/engine/heater{
 	icon_state = "router"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "bmi" = (
 /obj/structure/shuttle/engine/heater,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,

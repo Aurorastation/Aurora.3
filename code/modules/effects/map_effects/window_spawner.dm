@@ -98,13 +98,13 @@
 /obj/effect/map_effect/window_spawner/phoron
 	name = "borosilicate window grille spawner"
 	icon_state = "pwindow-g"
-	window_path = /obj/structure/window/phoronbasic
+	window_path = /obj/structure/window/borosilicate
 	spawn_grille = TRUE
 
 /obj/effect/map_effect/window_spawner/reinforced_phoron
 	name = "reinforced borosilicate window grille spawner"
 	icon_state = "prwindow-g"
-	window_path = /obj/structure/window/phoronreinforced
+	window_path = /obj/structure/window/borosilicate/reinforced
 	spawn_grille = TRUE
 
 /obj/effect/map_effect/window_spawner/reinforced_phoron/firedoor

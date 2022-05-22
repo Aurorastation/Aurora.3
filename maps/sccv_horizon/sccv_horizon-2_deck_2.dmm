@@ -4130,7 +4130,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "cei" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
@@ -4917,7 +4917,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
 "cKa" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /obj/machinery/atmospherics/binary/pump{
@@ -7289,7 +7289,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "eah" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7802,10 +7802,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 10
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -8362,7 +8362,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_two)
 "eGV" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -11754,7 +11754,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "guv" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -15411,7 +15411,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "iAF" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -18251,7 +18251,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "kaQ" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
@@ -18933,7 +18933,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 10
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -20610,7 +20610,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -21416,7 +21416,7 @@
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "lYP" = (
-/obj/structure/window/phoronreinforced/skrell{
+/obj/structure/window/borosilicate/reinforced/skrell{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -21425,7 +21425,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Fore"
 	},
-/obj/structure/window/phoronreinforced/skrell,
+/obj/structure/window/borosilicate/reinforced/skrell,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "lYV" = (
@@ -22264,7 +22264,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_two)
 "mwv" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -23258,7 +23258,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "mWY" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -23527,7 +23527,7 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "ndD" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -24386,7 +24386,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "nzf" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -26693,7 +26693,7 @@
 /area/security/prison)
 "oRc" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan,
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "oRn" = (
@@ -28271,7 +28271,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "pLA" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
@@ -31378,10 +31378,10 @@
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "rrK" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -34672,7 +34672,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_port)
 "tlh" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -38556,10 +38556,10 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
 "vsM" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -39393,7 +39393,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "vOS" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
 /obj/structure/cable/orange{
@@ -41972,8 +41972,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
 	},
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced,
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -42837,7 +42837,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "xxw" = (
-/obj/structure/window/phoronreinforced/skrell{
+/obj/structure/window/borosilicate/reinforced/skrell{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -42852,7 +42852,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/structure/window/phoronreinforced/skrell,
+/obj/structure/window/borosilicate/reinforced/skrell,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "xxy" = (
@@ -43825,7 +43825,7 @@
 /turf/simulated/open,
 /area/operations/office)
 "yag" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -43968,7 +43968,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "ycD" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{

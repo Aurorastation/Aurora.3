@@ -7984,12 +7984,12 @@
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced,
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
@@ -8527,11 +8527,11 @@
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -8575,7 +8575,7 @@
 	},
 /area/centcom/control)
 "awk" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
@@ -8980,7 +8980,7 @@
 /obj/structure/artilleryplaceholder{
 	icon_state = "16"
 	},
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -8989,7 +8989,7 @@
 /obj/structure/artilleryplaceholder{
 	icon_state = "17"
 	},
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -8998,7 +8998,7 @@
 /obj/structure/artilleryplaceholder{
 	icon_state = "18"
 	},
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/unsimulated/floor{
 	icon_state = "gcircuit"
 	},
@@ -9143,14 +9143,14 @@
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "25"
 	},
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/unsimulated/floor{
 	icon_state = "podhatch";
 	dir = 10
 	},
 /area/centcom/control)
 "axB" = (
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/unsimulated/floor{
 	icon_state = "podhatch"
 	},
@@ -9159,11 +9159,11 @@
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "26"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /obj/structure/banner,
 /turf/unsimulated/floor{
 	icon_state = "podhatch"
@@ -9182,7 +9182,7 @@
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "30"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
@@ -9573,7 +9573,7 @@
 	},
 /area/centcom/control)
 "aym" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -9724,7 +9724,7 @@
 /turf/space/transit/north/shuttlespace_ns7,
 /area/shuttle/escape/transit)
 "ayE" = (
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -10887,7 +10887,7 @@
 	},
 /area/centcom/control)
 "aAV" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
@@ -11012,7 +11012,7 @@
 	},
 /area/centcom/control)
 "aBf" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
@@ -11145,7 +11145,7 @@
 /turf/space/transit/north/shuttlespace_ns10,
 /area/shuttle/escape/transit)
 "aBu" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -11155,7 +11155,7 @@
 	},
 /area/centcom/control)
 "aBv" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -11413,7 +11413,7 @@
 	},
 /area/centcom/control)
 "aBR" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
@@ -23891,7 +23891,7 @@
 /obj/structure/shuttle/engine/heater{
 	icon_state = "router"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -25133,11 +25133,11 @@
 /area/centcom/legion)
 "jBl" = (
 /obj/structure/shuttle/engine/heater,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -28177,11 +28177,11 @@
 /area/centcom/shared_dream)
 "pDD" = (
 /obj/structure/shuttle/engine/heater,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},

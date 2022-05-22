@@ -376,6 +376,10 @@
 	damage_per_fire_tick = 2
 	maxhealth = 12
 
+/obj/structure/window/basic/full
+	icon_state = "fwindow"
+	dir = 5
+
 /obj/structure/window/reinforced
 	name = "reinforced window pane"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
@@ -455,7 +459,7 @@
 	if(active && !powered(power_channel))
 		toggle_tint()
 
-/obj/structure/window/phoronbasic
+/obj/structure/window/borosilicate
 	name = "borosilicate window pane"
 	desc = "A borosilicate alloy window. It seems to be quite strong."
 	basestate = "phoronwindow"
@@ -463,22 +467,20 @@
 	shardtype = /obj/item/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronglass
 	maximal_heat = T0C + 2000
-	damage_per_fire_tick = 1
+	damage_per_fire_tick = 1 // This should last for 80 fire ticks if the window is not damaged at all. The idea is that borosilicate windows have something like ablative layer that protects them for a while.
 	maxhealth = 40
 
-/obj/structure/window/phoronreinforced
+/obj/structure/window/borosilicate/reinforced
 	name = "reinforced borosilicate window pane"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
 	basestate = "phoronrwindow"
 	icon_state = "phoronrwindow"
-	shardtype = /obj/item/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronrglass
 	reinf = TRUE
 	maximal_heat = T0C + 4000
-	damage_per_fire_tick = 1 // This should last for 80 fire ticks if the window is not damaged at all. The idea is that borosilicate windows have something like ablative layer that protects them for a while.
 	maxhealth = 80
 
-/obj/structure/window/phoronreinforced/skrell
+/obj/structure/window/borosilicate/reinforced/skrell
 	name = "advanced borosilicate alloy window"
 	desc = "A window made out of a higly advanced borosilicate alloy. It seems to be extremely strong."
 	basestate = "phoronwindow"
