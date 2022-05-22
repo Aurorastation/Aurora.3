@@ -1,7 +1,7 @@
 /datum/outfit/admin/ert/ap_eridani
 	name = "Eridani Asset Protection Specialist"
 
-	uniform = /obj/item/clothing/under/rank/surplus/epmc
+	uniform = /obj/item/clothing/under/surplus/epmc
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/projectile/automatic/x9 = 1)
 	suit = /obj/item/clothing/suit/space/void/cruiser
@@ -59,7 +59,7 @@
 /datum/outfit/admin/ert/ap_eridani/lead
 	name = "Eridani Section Leader"
 
-	uniform = /obj/item/clothing/under/rank/surplus/epmc/alt
+	uniform = /obj/item/clothing/under/surplus/epmc/alt
 	suit = null
 	head =  /obj/item/clothing/head/beret/corporate/pmc/epmc
 	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
@@ -85,7 +85,7 @@
 /datum/outfit/admin/ert/ap_eridani/doctor
 	name = "Eridani Medical Officer"
 
-	uniform = /obj/item/clothing/under/rank/surplus/epmc/ft
+	uniform = /obj/item/clothing/under/rank/medical/first_responder/epmc
 	suit = /obj/item/clothing/suit/storage/medical_chest_rig
 	suit_store = /obj/item/clothing/head/hardhat/first_responder
 	head =  /obj/item/clothing/head/beret/corporate/pmc
@@ -129,7 +129,7 @@
 /datum/outfit/admin/ert/ap_eridani/corpsman
 	name = "Eridani Corpsman"
 
-	uniform = /obj/item/clothing/under/rank/surplus/epmc/ft
+	uniform = /obj/item/clothing/under/rank/medical/first_responder/epmc
 	suit = /obj/item/clothing/suit/storage/medical_chest_rig
 	suit_store = /obj/item/clothing/head/hardhat/first_responder
 	head = /obj/item/clothing/head/softcap/pmc
