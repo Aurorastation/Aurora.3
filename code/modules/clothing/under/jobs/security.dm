@@ -138,7 +138,7 @@
 
 /obj/item/clothing/under/surplus
 	name = "security uniform"
-	desc = "Old fashioned security uniforms."
+	desc = "A surplus security uniform. Hey, so long as it follows uniform regulations, right?"
 	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
 	armor = list(
 		melee = ARMOR_MELEE_SMALL
@@ -147,8 +147,8 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/surplus/zavod
-	name = "necropolis industries security uniform"
-	desc = "A depreciated design, the label on the tag still reads 'PROPERTY OF NECROPOLIS INDUSTRIES'. Nostalgic." // LORE
+	name = "zavodskoi security uniform"
+	desc = "An alternate uniform design for Zavodskoi security. It seems to be immaculately starched, and smells of gunpowder."
 	icon_state = "necro"
 	item_state = "necro"
 
@@ -156,19 +156,24 @@
 	icon_state = "necro_alt"
 	item_state = "necro_alt"
 
-/obj/item/clothing/under/surplus/pmc
+/obj/item/clothing/under/surplus/epmc
 	name = "EPMC security uniform"
-	desc = "A uniform that has seemingly survived the corporate re-structuring of the Private Military Contracting Group, holding it gives you a sense of familiarity."
+	desc = "A uniform for amoral mercenaries who pledge allegiance to no flag nor nation, but the almighty credit."
 	icon_state = "epmc"
 	item_state = "epmc"
 
-/obj/item/clothing/under/surplus/pmc/alt
+/obj/item/clothing/under/surplus/epmc/alt
 	icon_state = "epmc_alt"
 	item_state = "epmc_alt"
 
+/obj/item/clothing/under/surplus/pmc
+	name = "EPMC security uniform"
+	icon_state = "pmc"
+	item_state = "pmc"
+
 /obj/item/clothing/under/surplus/idris
 	name = "idris security uniform"
-	desc = "A scrapped uniform design for Idris security. Not wearing a tie is a benefit for some, you know."
+	desc = "An alternate uniform design for Idris security. Not wearing a tie is a benefit for some, you know."
 	icon_state = "idris"
 	item_state = "idris"
 

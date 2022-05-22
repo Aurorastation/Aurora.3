@@ -27,7 +27,7 @@
 #################################
 
 # Your name.
-author: WowzewoW (Wezzy)
+author: WowzewoW (Wezzy), stev/Memescope, Vrow
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -40,9 +40,14 @@ delete-after: True
 changes:
   - tweak: "Idris alt labcoat has big logo again."
   - tweak: "Zeng-Hu labcoat highlights have been made more vibrant."
-  - rscadd: "Adds surplus security uniforms. They're the old Aurora corporate uniforms, tweaked to match the new uniforms."
+  - rscadd: "Adds surplus security uniforms. They're the old Aurora Zavodskoi, and EPMC corporate uniforms, tweaked to match the new uniforms."
+  - rscadd: "Idris also has new uniforms in this style."
+  - rscadd: "Re-adds old all-grey PMCG uniform."
   - rscadd: "Adds, or re-adds, new hats and berets to match the old Aurora corporate uniforms."
   - tweak: "Collapses the faction hat selections to be neater. Please check your loadouts!"
   - tweak: "Undoes the swapping of officer and warden uniforms, and tweaks the other uniforms accordingly."
   - rscadd: "Zavodskoi scrubs made blacker, original black scrubs renamed to PMCG grey scrubs."
+  - rscadd: "Added the PMCG Armband, which was made fully by Memescope (who also reworked the current PMCG sprites to the nifty, clean and organized state as they currently are)"
+  - bugfix: "Fixed EPMC AP's IDs being invisible, also using the incorrect PMCG uniforms instead of their proper ERT"
+  - bugfix: "Properly names PMCG items as PMCG instead of just PMC."
 

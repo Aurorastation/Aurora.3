@@ -149,9 +149,16 @@
 /datum/gear/uniform/surpluspmc/New()
 	..()
 	var/list/surpluspmc = list()
+	surpluspmc["surplus EPMC security uniform"] = /obj/item/clothing/under/surplus/epmc
+	surpluspmc["surplus EPMC security uniform, alt"] = /obj/item/clothing/under/surplus/epmc/alt
 	surpluspmc["surplus PMCG security uniform"] = /obj/item/clothing/under/surplus/pmc
-	surpluspmc["surplus PMCG security uniform, alt"] = /obj/item/clothing/under/surplus/pmc/alt
 	gear_tweaks += new /datum/gear_tweak/path(surpluspmc)
+
+/datum/gear/uniform/surpluspmcft
+	display_name = "surplus EPMC first responder uniform"
+	path = /obj/item/clothing/under/rank/medical/first_responder/epmc
+	faction = "Private Military Contracting Group"
+	allowed_roles = list("First Responder")
 
 /datum/gear/faction/pmc_hats
 	display_name = "PMCG hat selection"
@@ -200,6 +207,12 @@
 	pmc_labcoats["labcoat, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	pmc_labcoats["labcoat alt, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
 	gear_tweaks += new /datum/gear_tweak/path(pmc_labcoats)
+
+/datum/gear/faction/pmc_patch
+	display_name = "PMCG armband"
+	path = /obj/item/clothing/accessory/armband/pmc
+	slot = slot_tie
+	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/zenghu_beret
 	display_name = "Zeng-Hu beret selection"
@@ -261,7 +274,7 @@
 	allowed_roles = list("Security Officer","Investigator","Warden")
 
 /datum/gear/faction/erisec_patch
-	display_name = "PMCG sleeve patch"
+	display_name = "EPMC sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/erisec
 	slot = slot_tie
 	faction = "Private Military Contracting Group"
