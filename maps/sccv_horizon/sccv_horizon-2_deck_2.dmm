@@ -5918,7 +5918,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "dkZ" = (
 /obj/structure/cable/green{
@@ -6084,7 +6084,7 @@
 "dpj" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "dpE" = (
 /obj/structure/cable{
@@ -11200,11 +11200,12 @@
 /turf/simulated/floor/reinforced,
 /area/crew_quarters/heads/chief)
 "ghq" = (
-/obj/structure/ladder{
-	pixel_y = 16
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 9
 	},
-/turf/simulated/open,
-/area/template_noop)
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/horizonexterior)
 "ghX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11349,7 +11350,7 @@
 "gmo" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "gmt" = (
 /obj/structure/table/standard,
@@ -12674,7 +12675,7 @@
 "gTy" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/template_noop)
 "gUn" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -16827,7 +16828,7 @@
 	},
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "jmp" = (
 /obj/structure/table/standard,
@@ -17750,7 +17751,10 @@
 /area/hallway/primary/central_two)
 "jMJ" = (
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/open/airless,
 /area/template_noop)
 "jMO" = (
 /obj/machinery/door/airlock/glass_security{
@@ -17805,7 +17809,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "jPb" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -19140,7 +19144,7 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "kIp" = (
 /turf/simulated/floor/tiled,
@@ -20234,7 +20238,7 @@
 	dir = 8
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "lqJ" = (
 /obj/effect/floor_decal/corner/lime/full{
@@ -20602,13 +20606,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
-"lCL" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/template_noop,
-/area/template_noop)
 "lCV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
@@ -20855,7 +20852,7 @@
 /area/crew_quarters/heads/hor)
 "lJE" = (
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "lJP" = (
 /obj/structure/cable{
@@ -21311,7 +21308,7 @@
 	dir = 6
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "lVe" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -22529,7 +22526,7 @@
 	},
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "mFD" = (
 /obj/effect/floor_decal/corner/blue{
@@ -26733,7 +26730,7 @@
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "oTa" = (
 /turf/simulated/floor/tiled,
@@ -27591,7 +27588,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/template_noop)
 "pqE" = (
 /obj/structure/closet/toolcloset,
@@ -28482,7 +28479,7 @@
 	},
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "pQj" = (
 /obj/structure/cable/green{
@@ -29010,7 +29007,7 @@
 "qeZ" = (
 /obj/structure/lattice,
 /obj/machinery/shield_diffuser,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "qff" = (
 /obj/machinery/light{
@@ -31388,7 +31385,7 @@
 	dir = 5
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "rsp" = (
 /obj/machinery/door/firedoor,
@@ -31662,7 +31659,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/open,
+/turf/simulated/open/airless,
 /area/template_noop)
 "rzm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -32089,7 +32086,7 @@
 	dir = 10
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "rNe" = (
 /obj/structure/shuttle_part/scc_space_ship{
@@ -32660,7 +32657,7 @@
 /obj/structure/lattice,
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "saJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -34219,7 +34216,7 @@
 "tab" = (
 /obj/machinery/door/window/westright,
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "tae" = (
 /obj/structure/cable/green{
@@ -37359,7 +37356,7 @@
 	dir = 1;
 	network = list("Command","Bunker")
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "uHh" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -37970,7 +37967,7 @@
 /obj/structure/sign/drop{
 	pixel_y = -32
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "uZh" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
@@ -38513,7 +38510,7 @@
 /obj/structure/lattice,
 /obj/structure/grille,
 /obj/structure/grille,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/horizonexterior)
 "vrC" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -40600,7 +40597,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/template_noop)
 "wpb" = (
 /obj/structure/cable/green{
@@ -55735,7 +55732,7 @@ qgN
 qgN
 qgN
 qgN
-lCL
+mwQ
 tsk
 fDE
 vcM
@@ -56738,7 +56735,7 @@ gmo
 gmo
 gmo
 gmo
-xPj
+ghq
 lVd
 rrN
 oSQ
@@ -56941,7 +56938,7 @@ gmo
 gmo
 gmo
 gmo
-xPj
+ghq
 lqa
 lqa
 qgN
@@ -57535,13 +57532,13 @@ dpj
 dpj
 lJE
 lVd
-xPj
+ghq
 lVd
 gmo
 gmo
 gmo
 kHS
-xPj
+ghq
 lJE
 sSY
 sSY
@@ -57738,7 +57735,7 @@ lJE
 lJE
 oSQ
 lVd
-xPj
+ghq
 wcr
 wcr
 wcr
@@ -57938,7 +57935,7 @@ dpj
 dpj
 lJE
 lVd
-xPj
+ghq
 oSQ
 wcr
 wcr
@@ -58141,7 +58138,7 @@ lJE
 lJE
 oSQ
 lVd
-xPj
+ghq
 wcr
 wcr
 wcr
@@ -58341,7 +58338,7 @@ dpj
 lJE
 lJE
 lVd
-xPj
+ghq
 oSQ
 wcr
 wcr
@@ -58542,9 +58539,9 @@ dpj
 lJE
 lJE
 lVd
-xPj
+ghq
 lVd
-xPj
+ghq
 wcr
 wcr
 sLp
@@ -58743,7 +58740,7 @@ qgN
 dpj
 lJE
 lVd
-xPj
+ghq
 lVd
 xPj
 wcr
@@ -58946,7 +58943,7 @@ dpj
 lJE
 oSQ
 lVd
-xPj
+ghq
 wcr
 wcr
 wcr
@@ -59428,7 +59425,7 @@ kgp
 kgp
 kgp
 kgp
-mwQ
+jMJ
 hUK
 eYX
 qgN
@@ -63192,7 +63189,7 @@ dpj
 lJE
 rMw
 gmo
-xPj
+ghq
 beY
 kUf
 rBh
@@ -66420,7 +66417,7 @@ qgN
 qgN
 qgN
 qgN
-jMJ
+mpN
 gXy
 dcU
 fgh
@@ -66622,7 +66619,7 @@ qgN
 qgN
 qgN
 qgN
-jMJ
+mpN
 fgh
 fgh
 fgh
@@ -68310,7 +68307,7 @@ rfi
 vOL
 mfV
 xer
-ghq
+hUK
 gTy
 qgN
 qgN
