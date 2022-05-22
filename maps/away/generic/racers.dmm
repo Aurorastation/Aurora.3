@@ -1452,9 +1452,9 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "hkp" = (
-/obj/effect/map_effect/window_spawner/full/phoron,
 /obj/item/material/sword/amohdan_sword,
 /obj/machinery/door/blast/shutters/open,
+/obj/effect/map_effect/window_spawner/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/racers)
 "hkT" = (
@@ -2811,9 +2811,9 @@
 /turf/simulated/floor/carpet,
 /area/racers)
 "nRF" = (
-/obj/effect/map_effect/window_spawner/full/phoron,
 /obj/item/melee/ceremonial_sword,
 /obj/machinery/door/blast/shutters/open,
+/obj/effect/map_effect/window_spawner/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/racers)
 "nUG" = (
@@ -3875,11 +3875,11 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "sOd" = (
-/obj/effect/map_effect/window_spawner/full/phoron,
 /obj/item/clothing/head/unathi/maxtlatl{
 	pixel_y = -4
 	},
 /obj/machinery/door/blast/shutters/open,
+/obj/effect/map_effect/window_spawner/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/racers)
 "sRo" = (
