@@ -1,6 +1,6 @@
 /obj/structure/window
-	name = "window pane"
-	desc = "A window pane."
+	name = "glass pane"
+	desc = "A glass pane."
 	icon = 'icons/obj/structures.dmi'
 	density = TRUE
 	w_class = ITEMSIZE_NORMAL
@@ -367,7 +367,7 @@
 	..()
 
 /obj/structure/window/basic
-	name = "window pane"
+	name = "glass pane"
 	desc = "It looks thin and flimsy. A few hits with anything will shatter it."
 	icon_state = "window"
 	basestate = "window"
@@ -377,11 +377,12 @@
 	maxhealth = 12
 
 /obj/structure/window/basic/full
+	name = "glass"
 	icon_state = "fwindow"
 	dir = 5
 
 /obj/structure/window/reinforced
-	name = "reinforced window pane"
+	name = "reinforced glass pane"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "rwindow"
 	basestate = "rwindow"
@@ -392,11 +393,12 @@
 	glasstype = /obj/item/stack/material/glass/reinforced
 
 /obj/structure/window/reinforced/full
+	name = "reinforced glass"
 	icon_state = "fwindow"
 	dir = 5
 
 /obj/structure/window/reinforced/polarized
-	name = "reinforced electrochromic window pane"
+	name = "reinforced electrochromic glass pane"
 	desc = "Adjusts its tint with voltage. Might take a few good hits to shatter it."
 	var/id
 
@@ -460,7 +462,7 @@
 		toggle_tint()
 
 /obj/structure/window/borosilicate
-	name = "borosilicate window pane"
+	name = "borosilicate glass pane"
 	desc = "A borosilicate alloy window. It seems to be quite strong."
 	basestate = "phoronwindow"
 	icon_state = "phoronwindow"
@@ -471,7 +473,7 @@
 	maxhealth = 40
 
 /obj/structure/window/borosilicate/reinforced
-	name = "reinforced borosilicate window pane"
+	name = "reinforced borosilicate glass pane"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
 	basestate = "phoronrwindow"
 	icon_state = "phoronrwindow"
@@ -488,14 +490,14 @@
 	maxhealth = 250
 
 /obj/structure/window/reinforced/tinted
-	name = "reinforced tinted window pane"
+	name = "reinforced tinted glass pane"
 	desc = "It looks rather strong and opaque. Might take a few good hits to shatter it."
 	icon_state = "twindow"
 	basestate = "twindow"
 	opacity = 1
 
 /obj/structure/window/reinforced/tinted/frosted
-	name = "reinforced frosted window pane"
+	name = "reinforced frosted glass pane"
 	desc = "It looks rather strong and frosted over. Looks like it might take a few less hits then a normal reinforced window."
 	icon_state = "fwindow"
 	basestate = "fwindow"
@@ -574,7 +576,7 @@
 	icon = 'icons/error.dmi'
 	obj_flags = null
 	dir = 5
-	maxhealth = 28 // Two window panes worth of health, since that's the minimum you need to break through to get to the other side.
+	maxhealth = 28 // Two glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	glasstype = /obj/item/stack/material/glass
 	shardtype = /obj/item/material/shard
 	layer = 2.99
@@ -833,7 +835,7 @@
 	basestate = "window_glass"
 	glasstype = /obj/item/stack/material/glass/phoronglass
 	shardtype = /obj/item/material/shard/phoron
-	maxhealth = 80 // Two borosilicate window panes worth of health, since that's the minimum you need to break through to get to the other side.
+	maxhealth = 80 // Two borosilicate glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	maximal_heat = T0C + 2000
 	damage_per_fire_tick = 1
 
@@ -842,6 +844,6 @@
 	name = "reinforced borosilicate window"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
 	glasstype = /obj/item/stack/material/glass/phoronrglass
-	maxhealth = 160 // Two reinforced borosilicate window panes worth of health, since that's the minimum you need to break through to get to the other side.
+	maxhealth = 160 // Two reinforced borosilicate glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	reinf = TRUE
 	maximal_heat = T0C + 4000
