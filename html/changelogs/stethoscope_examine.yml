@@ -1,0 +1,6 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a toggleable verb for Stethoscopes between Manual and Automatic usage. Automatic usage means you'll use the stethoscope automatically on the selected body part when examining someone adjacent to you. Manual means the automatic examine doesn't happen."
