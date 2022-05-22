@@ -2426,7 +2426,7 @@
 /obj/machinery/door/blast/shutters{
 	id = "cursedshutters"
 	},
-/obj/effect/map_effect/window_spawner/full/phoron,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "oVA" = (
