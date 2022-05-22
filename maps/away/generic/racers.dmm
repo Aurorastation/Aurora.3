@@ -1454,7 +1454,7 @@
 "hkp" = (
 /obj/item/material/sword/amohdan_sword,
 /obj/machinery/door/blast/shutters/open,
-/obj/effect/map_effect/window_spawner/full/reinforced_phoron,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "hkT" = (
@@ -2813,7 +2813,7 @@
 "nRF" = (
 /obj/item/melee/ceremonial_sword,
 /obj/machinery/door/blast/shutters/open,
-/obj/effect/map_effect/window_spawner/full/reinforced_phoron,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "nUG" = (
@@ -3879,7 +3879,7 @@
 	pixel_y = -4
 	},
 /obj/machinery/door/blast/shutters/open,
-/obj/effect/map_effect/window_spawner/full/reinforced_phoron,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "sRo" = (
