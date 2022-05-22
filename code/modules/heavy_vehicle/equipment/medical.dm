@@ -270,11 +270,8 @@
 	
 /obj/item/device/healthanalyzer/mech/Initialize()
 	. = ..()
-	if(!internal_bodyscanner)
-		var/obj/machinery/body_scanconsole/S = new (src)
-		S.forceMove(src)
-		S.use_power = FALSE
-		internal_bodyscanner = S
+	internal_bodyscanner = new /obj/machinery/body_scanconsole(src)
+	internal_bodyscanner.use_power = FALSE
 
 /obj/item/mecha_equipment/mounted_system/medanalyzer/CtrlClick(mob/user)
 	var/obj/item/device/healthanalyzer/mech/HA = holding
