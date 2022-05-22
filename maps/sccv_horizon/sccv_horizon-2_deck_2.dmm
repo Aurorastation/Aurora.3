@@ -4731,6 +4731,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
 "cAx" = (
@@ -6663,10 +6666,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "dHL" = (
-/obj/machinery/disposal/small/west,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
+/obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "dHV" = (
@@ -7533,10 +7533,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "ekw" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "ekI" = (
@@ -8231,9 +8227,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "eDK" = (
-/obj/structure/disposalpipe/junction{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -8242,6 +8235,10 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
@@ -14512,10 +14509,6 @@
 /obj/item/pen,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
-"hSY" = (
-/obj/machinery/computer/slot_machine,
-/turf/simulated/floor/lino/grey,
-/area/crew_quarters/bar)
 "hTt" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -19496,12 +19489,6 @@
 "kSM" = (
 /turf/simulated/floor/tiled/dark,
 /area/security/main)
-"kUb" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crew_quarters/bar)
 "kUc" = (
 /obj/structure/railing/mapped,
 /obj/structure/table/standard,
@@ -21881,12 +21868,6 @@
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "miP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
@@ -21895,6 +21876,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 4
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
@@ -22843,6 +22827,9 @@
 /area/maintenance/wing/port/far)
 "mLL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
@@ -31887,9 +31874,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random{
-	pixel_x = -2
-	},
+/obj/structure/bed/stool/chair/sofa/left/brown,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "rDR" = (
@@ -32503,10 +32488,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "rTC" = (
+/obj/structure/bed/stool/chair/sofa/brown,
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
+	dir = 1
 	},
-/obj/structure/bed/stool/chair/sofa/left/brown,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "rTP" = (
@@ -34758,12 +34743,13 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "tki" = (
-/obj/machinery/computer/arcade/battle,
 /obj/machinery/camera/network/service{
 	c_tag = "Dinner - Lounge Aft";
 	dir = 8
 	},
-/turf/simulated/floor/carpet,
+/obj/structure/flora/pottedplant/random,
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "tkB" = (
 /obj/effect/floor_decal/spline/plain{
@@ -38167,6 +38153,10 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/disposal/small/north,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "uZU" = (
@@ -38360,6 +38350,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/computer/slot_machine,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "vhn" = (
@@ -43073,14 +43064,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "xCx" = (
@@ -61176,14 +61163,14 @@ lNQ
 ekX
 kgp
 kgp
-eeQ
 kvd
-kvd
-eeQ
-eeQ
 kvd
 kvd
 eeQ
+kvd
+kvd
+kvd
+kvd
 tMp
 mLU
 mLU
@@ -61382,8 +61369,8 @@ eeQ
 sVO
 wNI
 lAi
-kUb
-hSY
+tBB
+fnB
 fnB
 eeQ
 kvd
