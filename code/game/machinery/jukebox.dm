@@ -249,7 +249,7 @@ datum/track/New(var/title_name, var/audio)
 		new/datum/track("Don't Rush", 'sound/music/audioconsole/DontRush.ogg'),
 		new/datum/track("Phoron Will Make Us Rich", 'sound/music/audioconsole/PhoronWillMakeUsRich.ogg'),
 		new/datum/track("Amsterdam", 'sound/music/audioconsole/Amsterdam.ogg'),
-		new/datum/track("Whenever", 'sound/music/audioconsole/When.ogg'),
+		new/datum/track("When", 'sound/music/audioconsole/When.ogg'),
 		new/datum/track("Number 0", 'sound/music/audioconsole/Number0.ogg'),
 		new/datum/track("The Pianist", 'sound/music/audioconsole/ThePianist.ogg'),
 		new/datum/track("Lips", 'sound/music/audioconsole/Lips.ogg'),
