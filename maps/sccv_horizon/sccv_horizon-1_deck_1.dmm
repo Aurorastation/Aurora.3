@@ -3061,7 +3061,6 @@
 	id = "shutters_hangarseccpexternal";
 	name = "Security Checkpoint External Shutter"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "hangarlockdown";
 	name = "Hangar Lockdown"
@@ -21692,7 +21691,6 @@
 	id = "shutters_hangarseccpexternal";
 	name = "Security Checkpoint External Shutter"
 	},
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "hangarlockdown";
 	name = "Hangar Lockdown";
