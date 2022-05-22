@@ -97,7 +97,7 @@
 		if (notify)
 			to_chat(src, SPAN_WARNING("You lack the power to interact with mechanical constructs."))
 		return FALSE
-	if(is_special_character(T) && (!(vampire_check.status & VAMP_ISTHRALL)))
+	if(is_special_character(T) && (!(vampire_check?.status & VAMP_ISTHRALL)))
 		if (notify)
 			to_chat(src, "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>")
 		return FALSE

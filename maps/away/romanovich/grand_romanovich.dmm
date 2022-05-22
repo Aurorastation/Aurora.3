@@ -2781,7 +2781,7 @@
 /area/grand_romanovich)
 "gF" = (
 /obj/machinery/porta_turret/cannon,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/grand_romanovich)
 "gG" = (
 /turf/unsimulated/wall/fakepdoor,
@@ -5573,7 +5573,7 @@
 "oM" = (
 /obj/machinery/porta_turret/cannon,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/grand_romanovich)
 "oP" = (
 /obj/structure/curtain/open/shower,

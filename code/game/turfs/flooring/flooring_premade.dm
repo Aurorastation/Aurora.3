@@ -10,6 +10,10 @@
 	icon_state = "bcarpet"
 	initial_flooring = /decl/flooring/carpet/blue
 
+/turf/simulated/floor/carpet/blue/airless
+	oxygen = 0
+	nitrogen = 0
+
 /turf/simulated/floor/carpet/rubber
 	name = "rubber carpet"
 	icon_state = "rub_carpet"
@@ -37,6 +41,10 @@
 	icon_state = "wood"
 	initial_flooring = /decl/flooring/wood
 	footstep_sound = /decl/sound_category/wood_footstep
+
+/turf/simulated/floor/wood/airless
+	oxygen = 0
+	nitrogen = 0
 
 /turf/simulated/floor/grass
 	name = "grass patch"
