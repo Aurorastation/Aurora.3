@@ -5150,7 +5150,7 @@
 	id = "shutters_hangarseccp";
 	name = "Security Checkpoint Shutter"
 	},
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/security/checkpoint)
 "ejL" = (
@@ -11297,7 +11297,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
 "jeF" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics/lower)
 "jeS" = (

@@ -2991,7 +2991,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/kitchen)
 "byq" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "shutters_deck2_hydroponicswindows";
 	name = "Viewing Shutter"
@@ -9092,7 +9092,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "fdZ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 8;
 	id = "shutters_deck2_hydroponicswindows";
@@ -18742,7 +18742,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
 "kuG" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
+/obj/effect/map_effect/window_spawner/reinforced/polarized{
 	id = "librarian"
 	},
 /turf/simulated/floor/plating,
@@ -21068,7 +21068,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "lMT" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/horizon/library)
@@ -32296,7 +32296,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "rQh" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/reinforced,
 /turf/simulated/floor/plating,
 /area/horizon/library)
 "rQB" = (
@@ -38907,7 +38907,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/hallway)
 "vCa" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics/garden)
 "vCl" = (
