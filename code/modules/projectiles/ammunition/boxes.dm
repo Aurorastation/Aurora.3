@@ -334,6 +334,9 @@
 	multiple_sprites = 1
 	insert_sound = 'sound/weapons/clip_insert.ogg'
 
+/obj/item/ammo_magazine/boltaction/blank
+	ammo_type = /obj/item/ammo_casing/a762/blank
+
 /obj/item/ammo_magazine/boltaction/vintage
 	name = "vintage stripper clip"
 	ammo_type = /obj/item/ammo_casing/vintage

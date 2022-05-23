@@ -165,6 +165,7 @@
 	SearchVar(latejoin_cryo)
 	SearchVar(latejoin_cyborg)
 	SearchVar(latejoin_merchant)
+	SearchVar(latejoin_living_quarters_lift)
 	SearchVar(kickoffsloc)
 	SearchVar(prisonwarp)
 	SearchVar(holdingfacility)
@@ -376,7 +377,6 @@
 	SearchVar(SSdisease)
 	SearchVar(SSmodifiers)
 	SearchVar(SSnanoui)
-	SearchVar(SSpipenet)
 	SearchVar(SSprocessing)
 	SearchVar(SSshuttle)
 	SearchVar(SSmapping)
@@ -863,5 +863,6 @@
 	SearchVar(mark)
 	SearchVar(contamination_overlay)
 	SearchVar(vsc)
+	SearchVar(cable_list)
 
 #endif

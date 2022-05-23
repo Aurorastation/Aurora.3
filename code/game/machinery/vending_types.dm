@@ -537,7 +537,7 @@
 		/obj/item/reagent_containers/pill/antitox = 6,
 		/obj/item/reagent_containers/pill/cetahydramine = 6,
 		/obj/item/reagent_containers/pill/perconol = 6,
-		/obj/item/reagent_containers/food/drinks/medcup = 4,
+		/obj/item/reagent_containers/glass/beaker/medcup = 4,
 		/obj/item/storage/pill_bottle = 4,
 		/obj/item/reagent_containers/spray/sterilizine = 2
 	)
@@ -595,6 +595,7 @@
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 4,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 4,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/device/breath_analyzer  = 1
 	)
@@ -703,6 +704,17 @@
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 
+/obj/machinery/vending/hydronutrients/xenobotany
+	products = list(
+		/obj/item/reagent_containers/glass/fertilizer/ez = 6,
+		/obj/item/reagent_containers/glass/fertilizer/l4z = 5,
+		/obj/item/reagent_containers/glass/fertilizer/rh = 3,
+		/obj/item/plantspray/pests = 20,
+		/obj/item/reagent_containers/syringe = 5,
+		/obj/item/storage/bag/plants = 5,
+		/obj/item/reagent_containers/glass/bottle/mutagen = 3
+	)
+
 /obj/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"
 	desc = "When you need seeds fast!"
@@ -715,8 +727,10 @@
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
+		/obj/item/seeds/blackraspberryseed = 3,
 		/obj/item/seeds/blizzard = 3,
 		/obj/item/seeds/blueberryseed = 3,
+		/obj/item/seeds/blueraspberryseed = 3,
 		/obj/item/seeds/cabbageseed = 3,
 		/obj/item/seeds/carrotseed = 3,
 		/obj/item/seeds/chantermycelium = 3,
@@ -751,11 +765,14 @@
 		/obj/item/seeds/pumpkinseed = 3,
 		/obj/item/seeds/qlortseed = 3,
 		/obj/item/seeds/clam/rasval = 3,
+		/obj/item/seeds/raspberryseed = 3,
 		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/reishimycelium = 3,
 		/obj/item/seeds/riceseed = 3,
+		/obj/item/seeds/richcoffeeseed = 3,
 		/obj/item/seeds/shandseed = 3,
 		/obj/item/seeds/soyaseed = 3,
+		/obj/item/seeds/strawberryseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
 		/obj/item/seeds/sugartree = 2,
@@ -785,8 +802,10 @@
 		/obj/item/seeds/appleseed = 50,
 		/obj/item/seeds/bananaseed = 60,
 		/obj/item/seeds/berryseed = 40,
+		/obj/item/seeds/blackraspberryseed = 40,
 		/obj/item/seeds/blizzard = 60,
 		/obj/item/seeds/blueberryseed = 30,
+		/obj/item/seeds/blueraspberryseed = 40,
 		/obj/item/seeds/cabbageseed = 40,
 		/obj/item/seeds/carrotseed = 20,
 		/obj/item/seeds/chantermycelium = 20,
@@ -821,11 +840,14 @@
 		/obj/item/seeds/pumpkinseed = 40,
 		/obj/item/seeds/qlortseed = 70,
 		/obj/item/seeds/clam/rasval = 100,
+		/obj/item/seeds/raspberryseed = 40,
 		/obj/item/seeds/reishimycelium = 30,
 		/obj/item/seeds/replicapod = 200,
 		/obj/item/seeds/riceseed = 20,
+		/obj/item/seeds/richcoffeeseed = 140,
 		/obj/item/seeds/shandseed = 60,
 		/obj/item/seeds/soyaseed = 40,
+		/obj/item/seeds/strawberryseed = 40,
 		/obj/item/seeds/sugarcaneseed = 20,
 		/obj/item/seeds/sunflowerseed = 20,
 		/obj/item/seeds/sugartree = 40,
@@ -1124,7 +1146,7 @@
 	vend_id = "robo-tools"
 	products = list(
 		/obj/item/clothing/suit/storage/toggle/labcoat = 4,
-		/obj/item/clothing/under/rank/roboticist = 4,
+		/obj/item/clothing/under/rank/machinist = 4,
 		/obj/item/stack/cable_coil = 4,
 		/obj/item/device/flash/synthetic = 4,
 		/obj/item/cell/high = 12,
@@ -1160,34 +1182,34 @@
 	desc = "An energy drink vendor provided by the Getmore Corporation in partnership with the brood of Ta'Akaix'Xakt'yagz'isk Zo'ra."
 	icon_state = "zoda"
 	icon_vend = "zoda-vend"
-	product_slogans = "Safe for human consumption!;Made by hard-working bound drones!;The most refreshing taste in the sector!;A product of two thousand years!"
-	product_ads = "Refreshing!;Hope you're thirsty!;Thirsty? Why not Zora?;Please, have some!;Drink up!;ZZZOOODDDAAA!"
+	product_slogans = "Safe for consumption by all species!;Made by hard-working bound drones!;The most refreshing energy drink around!;A product of two thousand years!"
+	product_ads = "Tired? Try some Zo'ra Soda!;Thirsty? Why not Zo'ra Soda?;Bored? Have some Zo'ra Soda!;Zo'ra Soda. Drink up!;ZZZOOO'RRRAAA SSSOOODDDAAA!"
 	vend_id = "zora"
 	products = list(
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zorakois = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zoraklax = 4,
-		/obj/item/reagent_containers/food/drinks/cans/zoraphoron = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zoravenom = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zoradrone = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/klax = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 5
 	)
 	contraband = list(
-		/obj/item/reagent_containers/food/drinks/cans/zoracthur = 2,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm = 5
 	)
 	premium = list(
-		/obj/item/reagent_containers/food/drinks/cans/zorajelly = 2,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly = 3
 	)
 	prices = list(
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda = 30,
-		/obj/item/reagent_containers/food/drinks/cans/zorakois = 27,
-		/obj/item/reagent_containers/food/drinks/cans/zoraklax = 30,
-		/obj/item/reagent_containers/food/drinks/cans/zoraphoron = 30,
-		/obj/item/reagent_containers/food/drinks/cans/zoravenom = 30,
-		/obj/item/reagent_containers/food/drinks/cans/zorahozm = 50,
-		/obj/item/reagent_containers/food/drinks/cans/zoraklax = 31,
-		/obj/item/reagent_containers/food/drinks/cans/zoradrone = 30,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/klax = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 29
 	)
-	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	idle_power_usage = 211
 	temperature_setting = -1
 	light_color = COLOR_CULT_REINFORCED
 
@@ -1227,3 +1249,63 @@
 	restock_items = FALSE
 	random_itemcount = FALSE
 	light_color = COLOR_BABY_BLUE
+
+/obj/machinery/vending/casino
+	name = "grand romanovich vending machine"
+	desc = "A vending machine commonly found in Crevus' casinos."
+	icon_state = "casinovend"
+	product_slogans = "The House always wins!;Spends your chips right here!;Let Go and Begin Again..."
+	product_ads = "Finding it, though, that's not the hard part. It's letting go."
+	vend_id = "casino"
+	products = list(
+		/obj/item/coin/casino = 50
+	)
+	contraband = list(
+		/obj/item/ammo_magazine/boltaction = 2
+	)
+	premium = list(
+		/obj/item/gun/projectile/shotgun/pump/rifle/blank = 3,
+		/obj/item/ammo_magazine/boltaction/blank = 10,
+		/obj/item/storage/box/fancy/cigarettes/dpra = 5,
+		/obj/item/storage/chewables/tobacco/bad = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/messa_mead = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/victorygin = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/pwine = 5,
+		/obj/item/reagent_containers/food/snacks/hardbread = 5,
+		/obj/item/reagent_containers/food/drinks/cans/adhomai_milk = 5,
+		/obj/item/reagent_containers/food/snacks/adhomian_can = 5,
+		/obj/item/reagent_containers/food/snacks/clam = 5,
+		/obj/item/reagent_containers/food/snacks/tajaran_bread = 5,
+		/obj/item/toy/plushie/farwa = 2,
+		/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube = 2,
+		/obj/item/razor = 2,
+		/obj/item/toy/balloon/syndicate = 2,
+		/obj/item/grenade/fake = 2,
+		/obj/item/eightball/haunted = 5,
+		/obj/item/spirit_board = 5,
+		/obj/item/device/flashlight/maglight = 5,
+		/obj/item/contraband/poster = 5,
+		/obj/item/spacecash/ewallet/lotto = 15,
+		/obj/item/device/laser_pointer = 5,
+		/obj/item/beach_ball = 1,
+		/obj/item/material/knife/butterfly/switchblade = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/stimpack = 2,
+		/obj/item/clothing/under/tajaran/summer = 2,
+		/obj/item/clothing/under/pants/tajaran = 2,
+		/obj/item/clothing/under/dress/tajaran =2,
+		/obj/item/clothing/under/dress/tajaran/blue = 2,
+		/obj/item/clothing/under/dress/tajaran/green = 2,
+		/obj/item/clothing/under/dress/tajaran/red = 2,
+		/obj/item/clothing/head/tajaran/circlet = 2,
+		/obj/item/clothing/head/tajaran/circlet/silver = 2,
+		/obj/item/gun/energy/lasertag/red = 2,
+		/obj/item/clothing/suit/armor/riot/laser_tag = 2,
+		/obj/item/gun/energy/lasertag/blue = 2,
+		/obj/item/clothing/suit/armor/riot/laser_tag/blue = 2
+		)
+	prices = list(
+		/obj/item/coin/casino = 500
+	)
+
+	restock_items = FALSE
+	random_itemcount = FALSE

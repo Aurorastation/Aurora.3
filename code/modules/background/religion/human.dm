@@ -34,6 +34,10 @@
 	description = "An Indian nontheistic religion encompassing a variety of traditions, beliefs and spiritual practices based on the teachings of the Buddha. Someone who practices Buddhism is called a Buddhist."
 	book_name = "tripitaka"
 
+/datum/religion/shintoism
+	name = RELIGION_SHINTO
+	description = "The word Shinto, which literally means \"the way of kami\" (generally sacred or divine power, specifically the various gods or deities), came into use in order to distinguish indigenous Japanese beliefs from Buddhism, which had been introduced into Japan in the 6th century ce. Shinto has no founder, no official sacred scriptures in the strict sense, and no fixed dogmas, but it has preserved its guiding beliefs throughout the ages. Someone who practices Shinto is called a Shintoist."
+
 /datum/religion/moroz
 	name = RELIGION_MOROZ
 	description = "The state religion of the Empire of Dominia, the Moroz Holy Tribunal is an eclectic mixture of old Earth faiths and the adaptations given to those faiths by the \

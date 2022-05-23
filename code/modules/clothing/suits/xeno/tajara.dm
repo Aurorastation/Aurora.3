@@ -151,6 +151,49 @@
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 
+/obj/item/clothing/suit/storage/hooded/tajaran/amohda
+	name = "amohdan cloak"
+	desc = "Originally used by the Amohdan swordsmen before the First Revolution, this cloak is now commonly worn by the island population."
+	icon_state = "amohda_cloak"
+	item_state = "amohda_cloak"
+	desc_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
+	single combat in their quests to become the greatest swordsman. Modern Amohda is under the control of the DPRA's Adhomai Liberation Army, further solidified after the defeat \
+	of a Nationalist revolt vying for a truly independent Amohda. The region is still beset by trouble within and without as a deeply divided Amohdan people continue to struggle in the \
+	bloody conflict to stamp out Nationalistic and to a lesser extent, divided Monarchistic sentiments while their rivals from the New Kingdom of Adhomai watch from the seas they rule \
+	and the People's Republic of Adhomai looms over the southern end of the island..."
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/tajaran/winter
+	name = "adhomian winter cloak"
+	desc = "A simple wool cloak used during the early days of the lesser winter."
+	icon_state = "winter_cloak"
+	item_state = "winter_cloak"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/tajaran/royalist
+	name = "adhomian royalist cloak"
+	desc = "An Adhomian cloak with an asymmetric design. The symbol of the New Kingdom of Adhomai is at its back."
+	icon_state = "royalist_cloak"
+	item_state = "royalist_cloak"
+	desc_fluff = "The New Kingdom of Adhomai culture is characterized as traditional; instead of trying to change the Tajaran caste system, those divisions are seen as a natural \
+	part of the Adhomian way of life. While the government makes no effort in enforcing this separation, there is a great societal expectation that each Tajara will attempt to stay in \
+	their customary roles related to their ethnicity."
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/tajaran/maroon
+	name = "adhomian maroon cloak"
+	desc = "A simple maroon colored Adhomian cloak."
+	icon_state = "maroon_cloak"
+	item_state = "maroon_cloak"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/tajaran/fancy
+	name = "fancy adhomian cloak"
+	desc = "A fancy black Adhomian cloak."
+	icon_state = "hb_cloak"
+	item_state = "hb_cloak"
+	flags_inv = 0
+
 /obj/item/clothing/suit/armor/amohda
 	name = "amohdan swordsman armor"
 	desc = "A suit of armor used by the traditional warriors of Amohda."
@@ -191,14 +234,18 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 
-/obj/item/clothing/suit/storage/tajaran
-	name = "republican service jacket"
-	desc = "An olive military jacket worn by the forces of the Grand People's Army."
+/obj/item/clothing/suit/storage/tajaran/pra_jacket
+	name = "hadiist surplus jacket"
+	desc = "An olive surplus jacket worn by the forces of the Grand People's Army."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "greenservice"
 	item_state = "greenservice"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
+/obj/item/clothing/suit/storage/tajaran/pra_jacket/armored
+	name = "hadiist service jacket"
+	desc = "An olive military jacket worn by the forces of the Grand People's Army."
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -206,4 +253,23 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.50
+
+/obj/item/clothing/suit/storage/tajaran/dpra_jacket
+	name = "al'mariist jacket"
+	desc = "A jacket based on the Liberation Army's old equipment."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "dpra_jacket"
+	item_state = "dpra_jacket"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/tajaran/fancy
+	name = "fancy royalist jacket"
+	desc = "An adhomian jacket frequently worn by the New Kingdom's nobility."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "nka_Jacket"
+	item_state = "nka_Jacket"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	contained_sprite = TRUE
+	contained_sprite = TRUE

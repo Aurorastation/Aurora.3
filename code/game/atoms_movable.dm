@@ -232,7 +232,7 @@
 
 	if(anchored)
 		return
-	
+
 	if(!universe.OnTouchMapEdge(src))
 		return
 
@@ -325,9 +325,10 @@
 /atom/movable/proc/forceMove(atom/destination)
 	if(destination)
 		if(loc)
-			loc.Exited(src)
+			loc.Exited(src, destination)
+		var/old_loc = loc
 		loc = destination
-		loc.Entered(src)
+		loc.Entered(src, old_loc)
 		if (contained_mobs)
 			update_client_hook(loc)
 		return 1

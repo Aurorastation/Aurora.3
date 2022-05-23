@@ -316,6 +316,7 @@
 		return
 
 	var/turf/dest = null
+	var/turf/v_turf = get_turf(src)
 
 	//find a turf to unload to
 	if(direction)	//if direction specified, unload in that direction
@@ -327,16 +328,24 @@
 		dest = get_step_to(src, get_step(src, turn(dir, 90))) //try unloading to the side of the vehicle first if neither of the above are present
 
 	//if these all result in the same turf as the vehicle or nullspace, pick a new turf with open space
-	if(!dest || dest == get_turf(src))
+	if(!dest || dest == v_turf || dest.is_hole)
 		var/list/options = new()
+		var/list/safe_options = new()
 		for(var/test_dir in alldirs)
-			var/new_dir = get_step_to(src, get_step(src, test_dir))
-			if(new_dir && load.Adjacent(new_dir))
-				options += new_dir
-		if(options.len)
+			var/turf/T = get_step_to(src, get_step(src, test_dir))
+			if(istype(T) && load.Adjacent(T))
+				options += T
+				if(!T.is_hole)
+					safe_options += T
+		if(safe_options.len)
+			dest = pick(safe_options)
+		else if(!v_turf.is_hole)
+			dest = v_turf
+		else if(options.len) // No safe tiles to unload -- you're going to the shadow realm, jimbo
 			dest = pick(options)
-		else
-			dest = get_turf(src)	//otherwise just dump it on the same turf as the vehicle
+
+	if(!isturf(dest))
+		dest = v_turf	//otherwise just dump it on the same turf as the vehicle
 
 	if(!isturf(dest))	//if there still is nowhere to unload, cancel out since the vehicle is probably in nullspace
 		return 0

@@ -101,7 +101,7 @@
 			singulo.target = src
 	icon_state = "[icontype]1"
 	active = 1
-	SSmachinery.processing_machines |= src
+	START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	if(user)
 		to_chat(user, "<span class='notice'>You activate the beacon.</span>")
 
@@ -113,6 +113,7 @@
 			singulo.target = null
 	icon_state = "[icontype]0"
 	active = 0
+	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	if(user)
 		to_chat(user, "<span class='notice'>You deactivate the beacon.</span>")
 
@@ -133,23 +134,21 @@
 	if(W.isscrewdriver())
 		if(active)
 			to_chat(user, "<span class='danger'>You need to deactivate the beacon first!</span>")
-			return
+			return TRUE
 
 		if(anchored)
 			anchored = 0
 			to_chat(user, "<span class='notice'>You unscrew the beacon from the floor.</span>")
 			disconnect_from_network()
-			return
+			return TRUE
 		else
 			if(!connect_to_network())
 				to_chat(user, "This device must be placed over an exposed cable.")
-				return
+				return TRUE
 			anchored = 1
 			to_chat(user, "<span class='notice'>You screw the beacon to the floor and attach the cable.</span>")
-			return
-	..()
-	return
-
+			return TRUE
+	return ..()
 
 /obj/machinery/power/singularity_beacon/Destroy()
 	if(active)
@@ -157,7 +156,7 @@
 	return ..()
 
 //stealth direct power usage
-/obj/machinery/power/singularity_beacon/machinery_process()
+/obj/machinery/power/singularity_beacon/process()
 	if(!active)
 		return PROCESS_KILL
 	else

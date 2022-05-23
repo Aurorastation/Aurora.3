@@ -137,11 +137,12 @@
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
 
-	if (!pin && needspin)
-		pin = /obj/item/device/firing_pin
-
-	if(pin && needspin)
+	if (needspin)
+		if(!pin)
+			pin = /obj/item/device/firing_pin
 		pin = new pin(src)
+	else
+		pin = null
 
 	if(istype(loc, /obj/item/robot_module))
 		has_safety = FALSE
@@ -311,6 +312,8 @@
 	user.setClickCooldown(shoot_time)
 	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
+	
+	user.face_atom(target, TRUE)
 
 	return TRUE
 
@@ -873,32 +876,32 @@
 
 		if(bayonet)
 			to_chat(user, SPAN_DANGER("There is a bayonet attached to \the [src] already."))
-			return
+			return TRUE
 
 		user.drop_from_inventory(I,src)
 		bayonet = I
 		to_chat(user, SPAN_NOTICE("You attach \the [I] to the front of \the [src]."))
 		update_icon()
-		return
+		return TRUE
 
 	if(istype(pin) && pin.attackby(I, user)) //Allows users to use their ID on a gun with a wireless-control firing pin to register their identity.
-		return
+		return TRUE
 
 	if(istype(I, /obj/item/ammo_display))
 		if(!can_ammo_display)
 			to_chat(user, SPAN_WARNING("\The [I] cannot attach to \the [src]."))
-			return
+			return TRUE
 		if(ammo_display)
 			to_chat(user, SPAN_WARNING("\The [src] already has a holographic ammo display."))
-			return
+			return TRUE
 		if(displays_maptext)
 			to_chat(user, SPAN_WARNING("\The [src] is already displaying its ammo count."))
-			return
+			return TRUE
 		user.drop_from_inventory(I, src)
 		ammo_display = I
 		displays_maptext = TRUE
 		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
-		return
+		return TRUE
 
 	if(I.iscrowbar() && bayonet)
 		to_chat(user, SPAN_NOTICE("You detach \the [bayonet] from \the [src]."))
@@ -906,7 +909,7 @@
 		user.put_in_hands(bayonet)
 		bayonet = null
 		update_icon()
-		return
+		return TRUE
 
 	if(I.iswrench() && ammo_display)
 		to_chat(user, SPAN_NOTICE("You wrench the ammo display loose from \the [src]."))
@@ -915,7 +918,7 @@
 		ammo_display = null
 		displays_maptext = FALSE
 		maptext = ""
-		return
+		return TRUE
 
 	if(pin && I.isscrewdriver())
 		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
@@ -932,12 +935,12 @@
 				"You hear a metallic crack.")
 				qdel(pin)
 				pin = null
-		return
+		return TRUE
 
 	if(is_sharp(I))
 		user.visible_message("<b>[user]</b> carves a notched mark into \the [src].", SPAN_NOTICE("You carve a notched mark into \the [src]."))
 		markings++
-		return
+		return TRUE
 
 	return ..()
 
@@ -945,7 +948,7 @@
 	return 0
 
 //Autofire
-/obj/item/gun/proc/can_autofire()
+/obj/item/gun/proc/can_autofire(object, location, params)
 	return (can_autofire && world.time >= next_fire_time)
 
 /obj/item/gun/proc/update_maptext()

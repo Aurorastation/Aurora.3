@@ -7,7 +7,7 @@
 /datum/computer_file/program/comm
 	filename = "comm"
 	filedesc = "Command and Communications Program"
-	program_icon_state = "comm"
+	program_icon_state = "command"
 	nanomodule_path = /datum/nano_module/program/comm
 	extended_desc = "Used to command and control the station. Can relay long-range communications."
 	required_access_run = access_heads
@@ -385,7 +385,7 @@ Command action procs
 
 
 /proc/is_relay_online()
-	for(var/obj/machinery/bluespacerelay/M in SSmachinery.all_machines)
+	for(var/obj/machinery/bluespacerelay/M in SSmachinery.machinery)
 		if(M.stat == 0)
 			return TRUE
 	return FALSE

@@ -33,10 +33,22 @@
 	display_name = "rosary"
 	path = /obj/item/clothing/accessory/rosary
 
+/datum/gear/religion/shintorobe
+	display_name = "shrine maiden robe"
+	path = /obj/item/clothing/under/konyangdresstraditional/red
+
+/datum/gear/religion/kippah
+	display_name = "kippah"
+	description = "A head covering commonly worn by those of Jewish faith."
+	path = /obj/item/clothing/head/kippah
+	slot = slot_head
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/religion/dominia/robe
 	display_name = "dominian robe selection"
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/robe/New()
 	..()
@@ -49,6 +61,7 @@
 	display_name = "dominian beret selection"
 	description = "A selection of modified berets belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/beret/New()
 	..()
@@ -61,6 +74,7 @@
 	display_name = "dominian outerwear selection"
 	description = "A selection of capes and outerwear worn by the Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/cape/New()
 	..()
@@ -74,6 +88,7 @@
 	display_name = "assunzione robe selection"
 	description = "A selection of robes worn by adherents to Luceism."
 	path = /obj/item/clothing/accessory/poncho/assunzione
+	origin_restriction = list(/decl/origin_item/origin/assunzione, /decl/origin_item/origin/ipc_assunzione)
 
 /datum/gear/religion/assunzione/robe/New()
 	..()
@@ -91,6 +106,7 @@
 	display_name = "tribunalist medical beret"
 	path = /obj/item/clothing/head/beret/dominia/medical
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/shaman_staff
 	display_name = "shaman staff"
@@ -101,33 +117,40 @@
 	description = "The traditional red-black-gold uniform of a priestly member of His Majesty's Diplomatic Service."
 	path = /obj/item/clothing/under/dominia/priest/consular
 	allowed_roles = list("Consular Officer")
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/beret_consular
 	display_name = "tribunalist consular beret"
 	description = "A n elegant and well-tailored gold-and-red beret worn by priestly members of His Majesty's Diplomatic Service."
 	path = /obj/item/clothing/head/beret/dominia/consular
 	allowed_roles = list("Consular Officer")
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/cape_consular
 	display_name = "tribunalist cousular cape"
 	description = "A truly majestic gold and red cape worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
 	path = /obj/item/clothing/accessory/poncho/dominia/consular
 	allowed_roles = list("Consular Officer")
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/assunzione/accessory
 	display_name = "luceian amulet"
 	path = /obj/item/clothing/accessory/assunzione
+	origin_restriction = list(/decl/origin_item/origin/assunzione, /decl/origin_item/origin/ipc_assunzione)
 
 /datum/gear/religion/assunzioneorb
 	display_name = "assunzione warding sphere"
 	description = "A religious artefact commonly associated with Luceism."
 	path = /obj/item/assunzioneorb
+	origin_restriction = list(/decl/origin_item/origin/assunzione, /decl/origin_item/origin/ipc_assunzione)
 
 /datum/gear/religion/assunzionesheath
 	display_name = "assunzione warding sphere sheath"
 	description = "A small metal shell designed to hold a warding sphere."
 	path = /obj/item/storage/assunzionesheath
+	origin_restriction = list(/decl/origin_item/origin/assunzione, /decl/origin_item/origin/ipc_assunzione)
 
 /datum/gear/religion/dominia/codex
 	display_name = "tribunal codex"
 	path = /obj/item/device/litanybook
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)

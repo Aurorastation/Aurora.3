@@ -17,7 +17,7 @@
 	var/mob/target_mob
 	var/obj/machinery/beehive/parent
 	var/loner = 0
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	turns_per_move = 6
 	var/obj/machinery/portable_atmospherics/hydroponics/my_hydrotray
 	emote_sounds = list('sound/effects/creatures/bees.ogg')
@@ -140,9 +140,9 @@
 				parent.owned_bee_swarms.Add(B)
 
 	//make some noise
-	if(prob(3))
-		src.visible_message("<span class='notice'>[pick("Buzzzz.","Hmmmmm.","Bzzz.")]</span>")
-		playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 15, 1,-4)
+	if(prob(2))
+		src.audible_message("[SPAN_BOLD("\The [src]")] [pick("buzz", "hum")].")
+		playsound(src, pick('sound/effects/Buzz1.ogg', 'sound/effects/Buzz2.ogg'), 10, TRUE, -4)
 
 	if (feral && isturf(loc))
 		//smoke, water and steam calms us down

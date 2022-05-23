@@ -1,6 +1,7 @@
 var/datum/controller/subsystem/lighting/SSlighting
 
 /var/lighting_profiling = FALSE
+/var/lighting_overlays_initialized = FALSE
 
 /datum/controller/subsystem/lighting
 	name = "Lighting"
@@ -51,8 +52,10 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 /datum/controller/subsystem/lighting/ExplosionStart()
 	force_queued = TRUE
+	suspend()
 
 /datum/controller/subsystem/lighting/ExplosionEnd()
+	wake()
 	if (!force_override)
 		force_queued = FALSE
 
@@ -84,6 +87,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 			overlaycount++
 
 			CHECK_TICK
+
+	lighting_overlays_initialized = TRUE
 
 	admin_notice(SPAN_DANGER("Created [overlaycount] lighting overlays in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 

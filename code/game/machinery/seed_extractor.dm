@@ -32,6 +32,7 @@ obj/machinery/seed_extractor/attackby(var/obj/item/O as obj, var/mob/user as mob
 			to_chat(user, "[O] doesn't seem to have any usable seeds inside it.")
 
 		qdel(O)
+		return TRUE
 
 	//Grass.
 	else if(istype(O, /obj/item/stack/tile/grass_alt))
@@ -39,5 +40,6 @@ obj/machinery/seed_extractor/attackby(var/obj/item/O as obj, var/mob/user as mob
 		if (S.use(1))
 			to_chat(user, "<span class='notice'>You extract some seeds from the grass tile.</span>")
 			new /obj/item/seeds/grassseed(loc)
+		return TRUE
 
-	return
+	return ..()

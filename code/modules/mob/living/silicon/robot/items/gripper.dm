@@ -34,7 +34,6 @@
 	var/obj/item/wrapped
 
 	var/force_holder
-	var/just_dropped = FALSE //When set to 1, the gripper has just dropped its item, and should not attempt to trigger anything
 
 /obj/item/gripper/examine(var/mob/user)
 	..()
@@ -54,7 +53,7 @@
 		return FALSE
 	return TRUE
 
-/obj/item/gripper/proc/grip_item(var/obj/item/I, var/mob/user, var/feedback = 1)
+/obj/item/gripper/proc/grip_item(var/obj/item/I, var/mob/user, var/feedback = TRUE)
 	//This function returns 1 if we successfully took the item, or 0 if it was invalid. This information is useful to the caller
 	if(!wrapped)
 		if((can_hold && is_type_in_list(I, can_hold)) || (cant_hold && !is_type_in_list(I, cant_hold)))
@@ -125,14 +124,14 @@
 	update_icon()
 	return TRUE
 
-/obj/item/gripper/attack(mob/living/carbon/M, mob/living/carbon/user)
+/obj/item/gripper/attack(mob/M, mob/user)
 	if(wrapped) //The force of the wrapped obj gets set to zero during the attack() and afterattack().
 		force_holder = wrapped.force
 		wrapped.force = 0
-		wrapped.attack(M,user)
+		var/resolved = wrapped.attack(M,user)
 		if(QDELETED(wrapped))
-			wrapped = null
-		return TRUE
+			drop(get_turf(src), user, FALSE)
+		return resolved
 	else // mob interactions
 		switch(user.a_intent)
 			if(I_HELP)
@@ -146,28 +145,26 @@
 	return FALSE
 
 /obj/item/gripper/attackby(obj/item/O, mob/user)
+	var/resolved = FALSE
 	if(wrapped)
 		if(O == wrapped)
-			attack_self(user) //Allows gripper to be clicked to use item. 
-			return
-		var/resolved = wrapped.attackby(O,user)
-		if(!resolved && wrapped && O)
-			O.afterattack(wrapped, user ,1)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
-	return
+			attack_self(user) //Allows gripper to be clicked to use item.
+			return TRUE
+		resolved = wrapped.attackby(O,user)
+		if(!resolved)
+			O.afterattack(wrapped, user, TRUE)//We pass along things targeting the gripper, to objects inside the gripper. So that we can draw chemicals from held beakers for instance
+	return resolved
 
 /obj/item/gripper/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 	if(!proximity)
-		return // This will prevent them using guns at range but adminbuse can add them directly to modules, so eh.
-	//There's some weirdness with items being lost inside the arm. Trying to fix all cases. ~Z
-	if(!wrapped)
-		for(var/obj/item/thing in src.contents)
-			wrapped = thing
-			break
+		return
 	if(wrapped) //Already have an item.
-		return //This is handled in /mob/living/silicon/robot/GripperClickOn
+		wrapped.afterattack(target, user, TRUE, params)
+		if(QDELETED(wrapped))
+			drop(get_turf(src), user, FALSE)
 	else if(istype(target, /obj/item/storage) && !istype(target, /obj/item/storage/pill_bottle) && !istype(target, /obj/item/storage/secure))
-		for(var/obj/item/C in target.contents)
-			if(grip_item(C, user, 0))
+		for(var/obj/item/C in target)
+			if(grip_item(C, user, FALSE))
 				to_chat(user, SPAN_NOTICE("You grab \the [C] from inside \the [target.name]."))
 				return
 		to_chat(user, SPAN_NOTICE("There is nothing inside the box that your gripper can collect."))
@@ -179,9 +176,14 @@
 		grip_item(target, user)
 	else if (istype(target, /obj/machinery/mining)) // to prevent them from activating it by accident
 		return
-	else if (!just_dropped)
+	else
 		target.attack_ai(user)
-	just_dropped = FALSE
+
+/obj/item/gripper/resolve_attackby(atom/A, mob/user, var/click_parameters)
+	if(wrapped)
+		return wrapped.resolve_attackby(A, user, click_parameters)
+	else
+		. = ..()
 
 /*
 	//Definitions of gripper subtypes
@@ -221,7 +223,9 @@
 		/obj/item/smallDelivery,
 		/obj/item/gift,
 		/obj/item/stack/packageWrap,
-		/obj/item/stack/wrapping_paper
+		/obj/item/stack/wrapping_paper,
+		/obj/item/computer_hardware/hard_drive/portable,
+		/obj/item/photo
 		)
 
 /obj/item/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
@@ -281,7 +285,6 @@
 		/obj/item/stack/material/phoron,
 		/obj/item/reagent_containers/blood,
 		/obj/item/reagent_containers/food/drinks/sillycup,
-		/obj/item/reagent_containers/food/drinks/medcup,
 		/obj/item/smallDelivery,
 		/obj/item/gift,
 		/obj/item/reagent_containers/chem_disp_cartridge

@@ -305,6 +305,7 @@
 		/obj/item/surgery/retractor = 1,
 		/obj/item/surgery/scalpel = 1,
 		/obj/item/surgery/surgicaldrill = 1,
+		/obj/item/surgery/cautery = 1,
 		/obj/item/autopsy_scanner = 1,
 		/obj/item/device/mass_spectrometer = 1,
 		/obj/item/reagent_containers/glass/beaker/vial = 1,
@@ -317,8 +318,27 @@
 		/obj/item/surgery/retractor,
 		/obj/item/surgery/scalpel,
 		/obj/item/surgery/surgicaldrill,
+		/obj/item/surgery/cautery,
 		/obj/item/autopsy_scanner,
 		/obj/item/device/mass_spectrometer,
 		/obj/item/reagent_containers/glass/beaker/vial,
 		/obj/item/reagent_containers/syringe
+	)
+
+/obj/item/storage/box/fancy/tray/robotics
+	starts_with = list(
+		/obj/item/surgery/circular_saw = 1,
+		/obj/item/surgery/hemostat = 1,
+		/obj/item/surgery/retractor = 1,
+		/obj/item/surgery/scalpel = 1,
+		/obj/item/surgery/surgicaldrill = 1
+	)
+
+	can_hold = list(
+		/obj/item/surgery/circular_saw,
+		/obj/item/surgery/circular_saw,
+		/obj/item/surgery/hemostat,
+		/obj/item/surgery/retractor,
+		/obj/item/surgery/scalpel,
+		/obj/item/surgery/surgicaldrill
 	)

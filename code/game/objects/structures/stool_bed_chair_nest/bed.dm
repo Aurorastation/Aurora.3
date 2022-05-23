@@ -316,6 +316,10 @@
 	icon_state = "psychbed"
 	base_icon = "psychbed"
 
+/obj/structure/bed/bunk
+	icon_state = "bunkbed"
+	base_icon = "bunkbed"
+
 /obj/structure/bed/psych/New(var/newloc)
 	..(newloc, MATERIAL_WOOD, MATERIAL_LEATHER)
 
@@ -571,8 +575,7 @@
 			to_chat(user, SPAN_NOTICE("You collect the roller bed."))
 			src.forceMove(RH)
 			RH.held = src
-			return
-	..()
+		return TRUE
 
 /obj/item/roller/proc/deploy_roller(mob/user, atom/location)
 	var/obj/structure/bed/roller/R = new origin_type(location)

@@ -5,6 +5,7 @@
 	icon = 'icons/obj/contained_items/tools/suitcooler.dmi'
 	icon_state = "suitcooler0"
 	item_state = "coolingpack"
+	action_button_name = "Toggle Cooling Unit"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BACK	//you can carry it on your back if you want, but it won't do anything unless attached to suit storage
 
@@ -31,12 +32,11 @@
 
 /obj/item/device/suit_cooling_unit/Initialize()
 	. = ..()
-	START_PROCESSING(SSprocessing, src)
 	if(celltype)
 		cell = new celltype(src)
 
 /obj/item/device/suit_cooling_unit/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSmob, src)
 	QDEL_NULL(cell)
 	return ..()
 
@@ -111,6 +111,7 @@
 		return
 
 	on = TRUE
+	START_PROCESSING(SSmob, src)
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/proc/turn_off()
@@ -118,6 +119,7 @@
 		var/mob/M = src.loc
 		to_chat(M, SPAN_WARNING("\The [src] clicks and whines as it powers down."))
 	on = FALSE
+	STOP_PROCESSING(SSmob, src)
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/attack_self(mob/user)
@@ -146,7 +148,7 @@
 	else
 		turn_on()
 		if(on)
-			to_chat(user, SPAN_NOTICE("You switch on the [src]."))
+			to_chat(user, SPAN_NOTICE("You switch on \the [src]."))
 
 /obj/item/device/suit_cooling_unit/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())

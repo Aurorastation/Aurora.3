@@ -105,6 +105,11 @@
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
 	enrolled = 1
 
+/obj/item/modular_computer/console/preset/command/teleporter
+	name = "teleporter control console"
+	desc = "A computer that has a special teleporter control program loaded."
+	_app_preset_type = /datum/modular_computer_app_presets/command/teleporter
+
 // Civilian
 /obj/item/modular_computer/console/preset/civilian
 	name = "civilian console"

@@ -9,6 +9,7 @@
 	taste_description = "bitterness"
 	taste_mult = 1.2
 	fallback_specific_heat = 0.75
+	overdose = 10
 
 	var/target_organ // needs to be null by default
 	var/strength = 2 // How much damage it deals per unit
@@ -36,6 +37,7 @@
 					C.take_damage(removed * 2)
 		if(dam)
 			M.adjustToxLoss(target_organ ? (dam * 0.5) : dam)
+			M.add_chemical_effect(CE_TOXIN, removed * strength)
 
 /decl/reagent/toxin/plasticide
 	name = "Plasticide"
@@ -102,13 +104,13 @@
 
 		if(alien == IS_VAURCA && H.species.has_organ[BP_FILTRATION_BIT])
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
-			var/obj/item/organ/vaurca/filtrationbit/F = H.internal_organs_by_name[BP_FILTRATION_BIT]
+			var/obj/item/organ/internal/vaurca/filtrationbit/F = H.internal_organs_by_name[BP_FILTRATION_BIT]
 			if(isnull(F))
 				..()
 			else if(F.is_broken())
 				..()
 			else if(H.species.has_organ[BP_PHORON_RESERVE])
-				var/obj/item/organ/vaurca/preserve/P = H.internal_organs_by_name[BP_PHORON_RESERVE]
+				var/obj/item/organ/internal/vaurca/preserve/P = H.internal_organs_by_name[BP_PHORON_RESERVE]
 				if(isnull(P))
 					return
 				else if(P.is_broken())
@@ -285,6 +287,7 @@
 	color = "#664330"
 	taste_description = "plant food"
 	taste_mult = 0.5
+	touch_mul = 0
 	unaffected_species = IS_MACHINE
 
 /decl/reagent/toxin/fertilizer/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -292,7 +295,27 @@
 		M.adjustNutritionLoss(-removed*3)
 		//Fertilizer is good for plants
 	else
-		..()
+		if(prob(15))
+			M.add_chemical_effect(CE_NEPHROTOXIC, 1)
+
+/decl/reagent/toxin/fertilizer/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(alien == IS_DIONA)
+		M.adjustNutritionLoss(-removed*3)
+	else if(REAGENT_VOLUME(holder, type) > 15)
+		M.adjustOxyLoss(2 * removed)
+		if(M.losebreath < 15)
+			M.losebreath++
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "Your insides are on fire!", "Your feel a burning pain in your chest!")))
+	else
+		if(prob(5))
+			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something really digusting.", "Your chest doesn't feel so great.")))
+
+/decl/reagent/toxin/fertilizer/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(!(alien == IS_DIONA))
+		M.adjustFireLoss(10)
+		to_chat(M, SPAN_WARNING(pick("Your skin burns!", "The chemical is melting your skin!", "Wash it off, wash it off!")))
+		remove_self(REAGENT_VOLUME(holder, type), holder)
 
 /decl/reagent/toxin/fertilizer/eznutrient
 	name = "EZ Nutrient"
@@ -587,7 +610,7 @@
 	reagent_state = SOLID
 	color = "#333300"
 	taste_description = "cheap tobacco"
-	strength = 0.004
+	strength = 0
 	taste_mult = 10
 	var/nicotine = 0.2
 
@@ -598,14 +621,12 @@
 	name = "Earth Tobacco"
 	description = "Nicknamed 'Earth Tobacco', this plant is much higher quality than its spacefaring counterpart."
 	taste_description = "luxury tobacco"
-	strength = 0.002
 	nicotine = 0.5
 
 /decl/reagent/toxin/tobacco/fake
 	name = "Cheap Tobacco"
 	description = "This actually appears to be mostly ground up leaves masquerading as tobacco. There's maybe some nicotine in there somewhere..."
 	taste_description = "acrid smoke"
-	strength = 0.008
 	nicotine = 0.1
 
 /decl/reagent/toxin/tobacco/liquid
@@ -677,48 +698,31 @@
 	color = "#800080"
 	strength = 5
 	overdose = 5  //5 units per ghostmushroom.
-	od_minimum_dose = 1
+	od_minimum_dose = 11
 	taste_description = "acid"
 	metabolism = REM * 0.5
 	unaffected_species = IS_DIONA | IS_MACHINE
+	var/berserked = FALSE
 
 /decl/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
-	..()
-	if(!(REAGENT_VOLUME(holder, type) > 5))
-		M.hallucination = max(M.hallucination, 20)
-		if(prob(20))
-			M.see_invisible = SEE_INVISIBLE_CULT
-		if(M.chem_doses[type] < 5)
-			if(prob(10))
-				M.emote("shiver")
-				to_chat(M, SPAN_GOOD(pick("You hear the clinking of dinner plates and laughter.", "You hear a distant voice of someone you know talking to you.", "Fond memories of a departed loved one flocks to your mind.", "You feel the reassuring presence of a departed loved one.", "You feel a hand squeezing yours.")))
+	M.add_chemical_effect(CE_HAUNTED, M.chem_doses[type])
 
 /decl/reagent/toxin/spectrocybin/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
-	M.see_invisible = SEE_INVISIBLE_CULT
-	M.make_jittery(5)
-	if(M.chem_doses[type] < 5)
-		if(prob(5))
-			M.visible_message("<b>[M]</b> trembles uncontrollably.", "<span class='warning'>You tremble uncontrollably.</span>")
-			to_chat(M, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
-	else
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
-			if(M.chem_doses[type] <= (get_overdose(H, holder = holder) + metabolism))
-				H.berserk_start()
-			else
-				H.berserk_process()
-		M.hallucination = 0 //Brings down hallucination quickly to prevent message spam from being switched between harm and help by hallucinoatory pacification and berserk.
-		M.add_chemical_effect(CE_BERSERK, 1)
-		if(M.a_intent != I_HURT)
-			M.a_intent_change(I_HURT)
-		if(prob(10))
-			M.emote(pick("shiver", "twitch"))
-			to_chat(M, SPAN_CULT(pick("You feel a cold and threatening air wrapping around you.", "Whispering shadows, ceaseless in their demands, twist your thoughts...", "The whispering, anything to make them stop!", "Your head spins amid the cacophony of screaming, wailing and maniacal laughter of distant loved ones.", "You feel vestiges of decaying souls cling to you, trying to re-enter the world of the living.")))
+	var/mob/living/carbon/human/H = M
+	if(ishuman(M) && !berserked)
+		H.berserk_start()
+		berserked = TRUE
+	else if(ishuman(M) && berserked)
+		H.berserk_process()
+	M.add_chemical_effect(CE_BERSERK, 1)
+	if(M.a_intent != I_HURT)
+		M.a_intent_change(I_HURT)
 
 /decl/reagent/toxin/spectrocybin/final_effect(mob/living/carbon/human/H, datum/reagents/holder)
 	. = ..()
 	if(istype(H) && H.chem_doses[type] >= get_overdose(H, holder = holder))
 		H.berserk_stop()
+		berserked = FALSE
 
 /decl/reagent/toxin/trioxin
 	name = "Trioxin"
@@ -764,15 +768,13 @@
 			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
 			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
 
-
-
 /decl/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"
 	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."
 	reagent_state = LIQUID
 	color = "#002067"
 	spectro_hidden = TRUE
-	metabolism = REM * 0.2
+	metabolism = REM/3
 	strength = 0
 	taste_description = "danger"
 

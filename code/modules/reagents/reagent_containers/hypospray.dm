@@ -165,7 +165,7 @@
 		to_chat(user, SPAN_NOTICE("Using \the [W], you unsecure the autoinjector's lid.")) // it locks shut after being secured
 		flags |= OPENCONTAINER
 		update_icon()
-		return
+		return TRUE
 	. = ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon()
@@ -181,6 +181,7 @@
 		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinjector_reagents")
 		reagent_overlay.color = reagents.get_color()
 		add_overlay(reagent_overlay)
+	update_held_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
@@ -193,6 +194,10 @@
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
 	name_label = "inaprovaline"
 	reagents_to_add = list(/decl/reagent/inaprovaline = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/dylovene
+	name_label = "dylovene"
+	reagents_to_add = list(/decl/reagent/dylovene = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/emergency
 	name_label = "emergency"

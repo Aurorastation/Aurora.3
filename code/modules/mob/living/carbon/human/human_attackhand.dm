@@ -372,6 +372,33 @@
 								return M.attackby(W,src)
 
 			var/randn = rand(1, 100)
+			if(z_eye && z_eye.tile_shifted) //They're looking down in front of them.
+				var/turf/T = loc
+				var/obj/structure/railing/problem_railing
+				var/same_loc = FALSE
+				for(var/obj/structure/railing/R in T)
+					if(R.dir == dir)
+						problem_railing = R
+						break
+				for(var/obj/structure/railing/R in get_step(T, dir))
+					if(R.dir == reverse_dir[dir])
+						problem_railing = R
+						same_loc = TRUE
+						break
+				if(problem_railing)
+					if(!problem_railing.turf_is_crowded(TRUE))
+						visible_message(SPAN_DANGER("[H] shoves [src] over the railing!"), SPAN_DANGER("[H] shoves you over the railing!"))
+						apply_effect(5, WEAKEN)
+						forceMove(same_loc ? problem_railing.loc : problem_railing.get_destination_turf(src))
+						return
+					else
+						to_chat(H, SPAN_NOTICE("It's too crowded, you can't push [src] off the railing!")) //No return is intentional - it'll continue with a normal shove.
+				else
+					visible_message(SPAN_DANGER("[H] pushes [src] forward!"), SPAN_DANGER("[H] pushes you forward!"))
+					apply_effect(5, WEAKEN)
+					forceMove(GetAbove(z_eye)) //We use GetAbove so people can't cheese it by turning their sprite.
+					return
+
 			if(randn <= 25)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					apply_effect(6, WEAKEN)
@@ -539,7 +566,7 @@
 	if(!target_zone)
 		return 0
 	var/obj/item/organ/external/organ = get_organ(check_zone(target_zone))
-	if(!organ || organ.is_dislocated() || organ.dislocated == -1)
+	if(!organ || ORGAN_IS_DISLOCATED(organ) || organ.dislocated == -1)
 		return 0
 
 	user.visible_message("<span class='warning'>[user] begins to dislocate [src]'s [organ.joint]!</span>")

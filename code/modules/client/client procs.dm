@@ -610,6 +610,14 @@ var/list/localhost_addresses = list(
 	prefs.save_preferences()
 	toggle_fullscreen(prefs.toggles_secondary & FULLSCREEN_MODE)
 
+/client/verb/toggle_accent_tag_text()
+	set name = "Toggle Accent Tag Text"
+	set category = "Preferences"
+	set desc = "Toggles whether accents will be shown as text or images.."
+
+	prefs.toggles_secondary ^= ACCENT_TAG_TEXT
+	prefs.save_preferences()
+
 /client/proc/toggle_fullscreen(new_value)
 	if(new_value)
 		winset(src, "mainwindow", "is-maximized=false;can-resize=false;titlebar=false;menu=menu")
@@ -771,6 +779,9 @@ var/list/localhost_addresses = list(
 	. = ..()
 
 	if(over_object)
+		if(autofire_aiming_at[1])
+			autofire_aiming_at[1] = over_object
+			autofire_aiming_at[2] = params
 		var/mob/living/M = mob
 		if(istype(get_turf(over_object), /atom))
 			var/atom/A = get_turf(over_object)
@@ -780,15 +791,35 @@ var/list/localhost_addresses = list(
 
 		if(istype(M) && !M.incapacitated())
 			var/obj/item/I = M.get_active_hand()
-			if(istype(I, /obj/item/gun))
-				var/obj/item/gun/gun = I
-				if(gun.can_autofire())
-					M.set_dir(get_dir(M, over_object))
-					gun.Fire(get_turf(over_object), M, params, (get_dist(over_object, M) <= 1), FALSE)
-
 			if(istype(I, /obj/item/rfd/mining) && isturf(over_object))
 				var/proximity = M.Adjacent(over_object)
 				var/obj/item/rfd/mining/RFDM = I
 				RFDM.afterattack(over_object, M, proximity, params, FALSE)
 
 	CHECK_TICK
+
+/client/MouseDown(object, location, control, params)
+	var/obj/item/I = mob.get_active_hand()
+	var/obj/O = object
+	if(istype(I, /obj/item/gun))
+		var/obj/item/gun/G = I
+		if(G.can_autofire(object, location, params) && O.is_auto_clickable())
+			autofire_aiming_at[1] = object
+			autofire_aiming_at[2] = params
+			while(autofire_aiming_at[1])
+				G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE)
+				mob.set_dir(get_dir(mob, autofire_aiming_at[1]))
+				sleep(G.fire_delay)
+			CHECK_TICK
+
+/client/MouseUp(object, location, control, params)
+	autofire_aiming_at[1] = null
+
+/atom/proc/is_auto_clickable()
+	return TRUE
+
+/obj/screen/is_auto_clickable()
+	return FALSE
+
+/obj/screen/click_catcher/is_auto_clickable()
+	return TRUE

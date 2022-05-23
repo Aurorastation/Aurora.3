@@ -24,7 +24,6 @@
 	icon_state = SEED_NOUN_SEEDS
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 100
 
 	var/list/datum/seed_pile/piles = list()
@@ -44,8 +43,10 @@
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
+		/obj/item/seeds/blackraspberryseed = 3,
 		/obj/item/seeds/blizzard = 3,
 		/obj/item/seeds/blueberryseed = 3,
+		/obj/item/seeds/blueraspberryseed = 3,
 		/obj/item/seeds/cabbageseed = 3,
 		/obj/item/seeds/carrotseed = 3,
 		/obj/item/seeds/chantermycelium = 3,
@@ -77,12 +78,15 @@
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
 		/obj/item/seeds/qlortseed = 2,
+		/obj/item/seeds/raspberryseed = 3,
 		/obj/item/seeds/reishimycelium = 2,
 		/obj/item/seeds/replicapod = 3,
 		/obj/item/seeds/riceseed = 3,
+		/obj/item/seeds/richcoffeeseed = 3,
 		/obj/item/seeds/seaweed = 3,
 		/obj/item/seeds/shandseed = 2,
 		/obj/item/seeds/soyaseed = 3,
+		/obj/item/seeds/strawberryseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sugartree = 2,
 		/obj/item/seeds/sunflowerseed = 3,
@@ -111,8 +115,10 @@
 		/obj/item/seeds/amanitamycelium = 2,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
+		/obj/item/seeds/blackraspberryseed = 3,
 		/obj/item/seeds/blizzard = 3,
 		/obj/item/seeds/blueberryseed = 3,
+		/obj/item/seeds/blueraspberryseed = 3,
 		/obj/item/seeds/cabbageseed = 3,
 		/obj/item/seeds/carrotseed = 3,
 		/obj/item/seeds/chantermycelium = 3,
@@ -145,9 +151,12 @@
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
+		/obj/item/seeds/raspberryseed = 3,
 		/obj/item/seeds/reishimycelium = 2,
 		/obj/item/seeds/riceseed = 3,
+		/obj/item/seeds/richcoffeeseed = 3,
 		/obj/item/seeds/soyaseed = 3,
+		/obj/item/seeds/strawberryseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
 		/obj/item/seeds/sugartree = 2,

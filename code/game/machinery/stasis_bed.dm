@@ -32,11 +32,11 @@
 
 /obj/machinery/stasis_bed/attackby(obj/item/I, mob/user)
 	if(default_part_replacement(user, I))
-		return
+		return TRUE
 	else if(default_deconstruction_screwdriver(user, I))
-		return
+		return TRUE
 	else if(default_deconstruction_crowbar(user, I))
-		return
+		return TRUE
 	return ..()
 
 /obj/machinery/stasis_bed/proc/play_power_sound()
@@ -92,14 +92,14 @@
 
 	playsound(src, 'sound/effects/spray.ogg', 5, TRUE, 2, frequency = rand(24750, 26550))
 	target.ExtinguishMobCompletely()
-	update_use_power(2)
+	update_use_power(POWER_USE_ACTIVE)
 	chilled_occupant = TRUE
 
 /obj/machinery/stasis_bed/proc/thaw_occupant(mob/living/target)
 	if(target != occupant)
 		return
 
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	occupant = null
 	chilled_occupant = FALSE
 
@@ -112,11 +112,11 @@
 		thaw_occupant(H)
 	update_icon()
 
-/obj/machinery/stasis_bed/machinery_process()
+/obj/machinery/stasis_bed/process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(!occupant)
-		update_use_power(1)
+		update_use_power(POWER_USE_IDLE)
 		return
 
 	if(!chilled_occupant)

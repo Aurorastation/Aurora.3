@@ -2,6 +2,16 @@
 #define START_PROCESSING(Processor, Datum) if (!Datum.isprocessing) {Datum.isprocessing = 1;Processor.processing += Datum}
 #define STOP_PROCESSING(Processor, Datum) Datum.isprocessing = 0;Processor.processing -= Datum
 
+/// START specific to SSmachinery
+#define START_PROCESSING_MACHINE(machine, flag)\
+	if(!istype(machine, /obj/machinery)) CRASH("A non-machine [log_info_line(machine)] was queued to process on the machinery subsystem.");\
+	machine.processing_flags |= flag;\
+	START_PROCESSING(SSmachinery, machine)
+
+/// STOP specific to SSmachinery
+#define STOP_PROCESSING_MACHINE(machine, flag)\
+	machine.processing_flags &= ~flag;\
+	if(machine.processing_flags == 0) STOP_PROCESSING(SSmachinery, machine)
 
 // -- SStimer stuff --
 //Don't run if there is an identical unique timer active
@@ -114,7 +124,8 @@
 #define DEPARTMENT_ENGINEERING "Engineering"
 #define DEPARTMENT_MEDICAL "Medical"
 #define DEPARTMENT_SCIENCE "Science"
-#define DEPARTMENT_CARGO "Cargo"
+#define DEPARTMENT_CARGO "Operations"
+#define DEPARTMENT_SERVICE "Service"
 #define DEPARTMENT_CIVILIAN "Civilian"
 #define DEPARTMENT_EQUIPMENT "Equipment"
 #define DEPARTMENT_MISCELLANEOUS "Miscellaneous"
@@ -125,6 +136,7 @@
 	DEPARTMENT_MEDICAL = list(),\
 	DEPARTMENT_SCIENCE = list(),\
 	DEPARTMENT_CARGO = list(),\
+	DEPARTMENT_SERVICE = list(),\
 	DEPARTMENT_CIVILIAN = list(),\
 	DEPARTMENT_EQUIPMENT = list(),\
 	DEPARTMENT_MISCELLANEOUS = list(),\

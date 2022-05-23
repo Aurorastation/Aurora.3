@@ -44,7 +44,7 @@
 	// Interaction
 	universal_speak = FALSE
 	universal_understand = TRUE
-	pass_flags = PASSTABLE | PASSDOORHATCH
+	pass_flags = PASSTABLE | PASSDOORHATCH | PASSRAILING
 	density = FALSE
 	possession_candidate = TRUE
 	mob_size = 4
@@ -144,6 +144,9 @@
 		return default_language
 	return all_languages[LANGUAGE_LOCAL_DRONE]
 
+/mob/living/silicon/robot/drone/fall_impact()
+  ..(damage_mod = 0.25) //reduces fall damage by 75%
+
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
 	name = "construction drone"
@@ -176,7 +179,7 @@
 
 /mob/living/silicon/robot/drone/construction/welcome_drone()
 	to_chat(src, SPAN_NOTICE("<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."))
-	to_chat(src, SPAN_NOTICE("You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
+	to_chat(src, SPAN_NOTICE("You are assigned to an SCC construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
 	to_chat(src, SPAN_NOTICE("Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."))
 	to_chat(src, SPAN_NOTICE("<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."))
 
@@ -200,12 +203,15 @@
 	module_type = /obj/item/robot_module/drone/construction/matriarch
 	law_type = /datum/ai_laws/matriarch_drone
 	can_swipe = FALSE
+	maxHealth = 50
+	health = 50
 
-	var/matrix_tag = STATION_TAG
+	var/matrix_tag
 
 /mob/living/silicon/robot/drone/construction/matriarch/Initialize()
 	. = ..()
 	check_add_to_late_firers()
+	matrix_tag = current_map.station_short
 
 /mob/living/silicon/robot/drone/construction/matriarch/shut_down()
 	return

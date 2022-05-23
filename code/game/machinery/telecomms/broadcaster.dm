@@ -16,7 +16,6 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	desc = "A dish-shaped machine used to broadcast processed subspace signals."
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 25
 	machinetype = 5
 	produces_heat = 0
@@ -116,11 +115,19 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	desc = "A compact machine used for portable subspace telecommuniations processing."
 	density = 1
 	anchored = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 	machinetype = 6
 	produces_heat = 0
 	var/intercept = 0 // if nonzero, broadcasts all messages to syndicate channel
+	var/listening_freqs
+	var/channel_color
+	var/channel_name
+
+/obj/machinery/telecomms/allinone/Initialize()
+	if(!listening_freqs)
+		listening_freqs = ANTAG_FREQS	//Covers any updates to ANTAG_FREQS
+	return ..()
 
 /obj/machinery/telecomms/allinone/receive_signal(datum/signal/signal)
 
@@ -144,13 +151,13 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		var/datum/radio_frequency/connection = signal.data["connection"]
 
-		if(connection.frequency in ANTAG_FREQS) // if antag broadcast, just
+		if(connection.frequency in listening_freqs) // if antag broadcast, just
 			Broadcast_Message(signal.data["connection"], signal.data["mob"],
 							  signal.data["vmask"], signal.data["vmessage"],
 							  signal.data["radio"], signal.data["message"],
 							  signal.data["name"], signal.data["job"],
 							  signal.data["realname"], signal.data["vname"],, signal.data["compression"], list(0), connection.frequency,
-							  signal.data["verb"], signal.data["language"])
+							  signal.data["verb"], signal.data["language"], channel_name ? channel_name : signal.data["channel_tag"], channel_color ? channel_color : signal.data["channel_color"])
 		else
 			if(intercept)
 				Broadcast_Message(signal.data["connection"], signal.data["mob"],
@@ -161,6 +168,10 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 							  signal.data["verb"], signal.data["language"])
 
 
+/obj/machinery/telecomms/allinone/ship
+	listening_freqs = list(SHIP_FREQ)
+	channel_color = "#7331c4"
+	channel_name = "Ship"
 
 /**
 
@@ -230,9 +241,6 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	var/display_freq = freq
 
 	var/list/obj/item/device/radio/radios = list()
-
-	// --- Gets the accent icon, if there is any ---
-	var/accent_icon = M.get_accent_icon(speaking, M)
 
 	// --- Broadcast only to intercom devices ---
 
@@ -349,7 +357,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_b_extra = ""
 		if(data == 3) // intercepted radio message
 			part_b_extra = " <i>(Intercepted)</i>"
-		var/part_a = "<span class='[frequency_span_class(display_freq)]'>[accent_icon ? accent_icon + " " : ""]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
+		var/part_a = "<span class='[frequency_span_class(display_freq)]'>%ACCENT%<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
 
 		// --- Some more pre-message formatting ---
 		var/part_b = "</span> <span class='message'></span>" // Tweaked for security headsets -- TLE
@@ -401,6 +409,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)
 					SSfeedback.msg_service += blackbox_msg
+				if(SHIP_FREQ)
+					SSfeedback.msg_ship += blackbox_msg
 				else
 					SSfeedback.messages += blackbox_msg
 
@@ -410,7 +420,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 
 	  	/* --- Process all the mobs that heard a masked voice (understood) --- */
-
+		//Note that accent tags are handled in hear_radio.
 		if (length(heard_masked))
 			for (var/mob/R in heard_masked)
 				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 0, name)
@@ -590,6 +600,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)
 					SSfeedback.msg_service += blackbox_msg
+				if(SHIP_FREQ)
+					SSfeedback.msg_ship += blackbox_msg
 				else
 					SSfeedback.messages += blackbox_msg
 

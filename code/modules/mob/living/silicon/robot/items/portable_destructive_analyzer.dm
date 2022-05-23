@@ -57,7 +57,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] is empty. Put something inside it first."))
 	if(response == "Sync")
 		var/success = FALSE
-		for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
+		for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
 			for(var/id in files.known_tech) //Uploading
 				var/datum/tech/T = files.known_tech[id]
 				S.files.AddTech2Known(T)

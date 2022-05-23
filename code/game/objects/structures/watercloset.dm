@@ -133,7 +133,7 @@
 	icon_state = "shower"
 	density = 0
 	anchored = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	var/spray_amount = 20
 	var/on = 0
 	var/obj/effect/mist/mymist = null
@@ -349,7 +349,7 @@
 			if(istype(E,/obj/effect/rune) || istype(E,/obj/effect/decal/cleanable) || istype(E,/obj/effect/overlay))
 				qdel(E)
 
-/obj/machinery/shower/machinery_process()
+/obj/machinery/shower/process()
 	if(!on)
 		return
 	wash_floor()
@@ -482,7 +482,7 @@
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
 				var/max_reagents = RG.reagents.maximum_volume
 				user.visible_message("<b>[user]</b> empties [empty_amount == max_reagents ? "all of \the [RG]" : "some of \the [RG]"] into \a [src].")
-				playsound(src.loc, 'sound/effects/pour.ogg', 10, 1)
+				playsound(src.loc, /decl/sound_category/generic_pour_sound, 10, 1)
 		return
 
 	// Filling/empying Syringes

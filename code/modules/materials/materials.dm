@@ -988,7 +988,6 @@
 	name = MATERIAL_SHUTTLE
 	display_name = "spaceship alloy"
 	stack_type = null
-	icon_colour = "#6C7364"
 	icon_base = "shuttle"
 	integrity = 1200
 	melting_point = 6000       // Hull plating.
@@ -1002,3 +1001,18 @@
 	display_name = "superadvanced alloy"
 	icon_colour = null
 	icon_base = "skrell"
+
+/material/graphite
+	name = MATERIAL_GRAPHITE
+	stack_type = /obj/item/stack/material/graphite
+	icon_base = "graphite"
+	icon_colour = "#666666"
+	shard_type = SHARD_STONE_PIECE
+	weight = 20
+	hardness = 20
+	protectiveness = 5 // 20%
+	conductivity = 5
+	sheet_singular_name = "bar"
+	sheet_plural_name = "bars"
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'

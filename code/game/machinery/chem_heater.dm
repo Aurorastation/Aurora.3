@@ -5,7 +5,7 @@
 	desc = "A simple device that can be used to heat the contents of a beaker to a precise temperature."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0b"
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 100
 	density = 1
 	anchored = 1
@@ -31,26 +31,26 @@
 
 /obj/machinery/chem_heater/attackby(obj/item/O, mob/user)
 	if(default_deconstruction_screwdriver(user, O))
-		return
+		return TRUE
 	if(default_deconstruction_crowbar(user, O))
-		return
+		return TRUE
 	if(default_part_replacement(user, O))
-		return
+		return TRUE
 	if(istype(O, /obj/item/reagent_containers/glass) || istype(O, /obj/item/reagent_containers/food))
 		if(container)
 			to_chat(user, SPAN_WARNING("There is already \a [container] on \the [src]!"))
-			return
+			return TRUE
 
 		var/obj/item/reagent_containers/RC = O
 		if(!RC.is_open_container())
 			to_chat(user, SPAN_WARNING("You don't see how \the [src] could heat up the reagents in \the [RC]."))
-			return
+			return TRUE
 
 		container =  RC
 		user.drop_from_inventory(RC,src)
 		to_chat(user, SPAN_NOTICE("You set \the [RC] in \the [src]."))
 		updateUsrDialog()
-		return
+		return TRUE
 
 /obj/machinery/chem_heater/interact(mob/user as mob)
 	if(stat & BROKEN)
@@ -94,7 +94,7 @@
 
 	switch(href_list["action"])
 		if("togglepower")
-			use_power = !use_power
+			update_use_power(!use_power)
 			if(container)
 				should_heat = target_temperature >= container.get_temperature()
 		if("removebeaker")
@@ -111,7 +111,7 @@
 
 	updateUsrDialog()
 
-/obj/machinery/chem_heater/machinery_process()
+/obj/machinery/chem_heater/process()
 
 	..()
 
@@ -124,11 +124,11 @@
 		var/target_temperature_limited = slow_mode ? current_temperature + SLOW_MODE_MAX_TEMP_CHANGE : target_temperature
 
 		if(should_heat && current_temperature >= target_temperature)
-			use_power = 0
+			update_use_power(POWER_USE_OFF)
 			updateUsrDialog()
 			return
 		else if(!should_heat && current_temperature <= target_temperature)
-			use_power = 0
+			update_use_power(POWER_USE_OFF)
 			updateUsrDialog()
 			return
 
@@ -144,11 +144,11 @@
 
 		container.reagents.add_thermal_energy(thermal_energy_change)
 		container.reagents.handle_reactions()
-		use_power(joules_to_use)
+		use_power_oneoff(joules_to_use)
 		updateUsrDialog()
 
 	else
-		use_power = 0
+		update_use_power(POWER_USE_IDLE)
 		updateUsrDialog()
 		return
 

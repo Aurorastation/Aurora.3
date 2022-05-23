@@ -5,7 +5,7 @@
 	wait = 1 MINUTE
 	flags = SS_NO_TICK_CHECK | SS_BACKGROUND
 	priority = SS_PRIORITY_STATISTICS
-	
+
 	var/kicked_clients = 0
 
 	var/list/messages = list()		//Stores messages of non-standard frequencies
@@ -25,6 +25,7 @@
 	var/list/msg_bluespace = list()
 	var/list/msg_cargo = list()
 	var/list/msg_service = list()
+	var/list/msg_ship = list()
 
 	var/list/datum/statistic/simple_statistics = list()
 
@@ -115,7 +116,7 @@
 	var/pda_msg_amt = 0
 	var/rc_msg_amt = 0
 
-	for(var/obj/machinery/message_server/MS in SSmachinery.all_machines)
+	for(var/obj/machinery/message_server/MS in SSmachinery.machinery)
 		if(MS.pda_msgs.len > pda_msg_amt)
 			pda_msg_amt = MS.pda_msgs.len
 		if(MS.rc_msgs.len > rc_msg_amt)

@@ -327,7 +327,7 @@
 /turf/simulated/floor/greengrid,
 /area/derelict/ship)
 "bb" = (
-/obj/machinery/power/port_gen/pacman/super,
+/obj/machinery/power/portgen/basic/advanced,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bc" = (
@@ -676,7 +676,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "cf" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	desc = "It's wall-mounted storage unit for medical supplies. It has almost come off its mounts.";
 	name = "Dilapitated medical closet";
 	pixel_y = -32

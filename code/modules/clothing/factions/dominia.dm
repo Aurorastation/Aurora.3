@@ -132,9 +132,6 @@
 	item_state = "dominia_uniform_red"
 	contained_sprite = TRUE
 
-	rolled_sleeves = FALSE
-	rolled_down = FALSE
-
 /obj/item/clothing/under/dominia/black
 	icon = 'icons/clothing/under/uniforms/dominia_uniform_black.dmi'
 	icon_state = "dominia_uniform_black"

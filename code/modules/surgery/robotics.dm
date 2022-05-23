@@ -99,7 +99,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> has closed the maintenance hatch on [target]'s [affected.name] with \the [tool].", \
 		SPAN_NOTICE("You have closed the maintenance hatch on [target]'s [affected.name] with \the [tool]."),)
-	affected.open = ORGAN_OPEN_INCISION
+	affected.open = ORGAN_CLOSED
 
 /decl/surgery_step/robotics/screw_hatch/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -232,7 +232,8 @@
 /decl/surgery_step/robotics/repair_burn
 	name = "Repair burns"
 	allowed_tools = list(
-		/obj/item/stack/cable_coil = 100
+		/obj/item/stack/cable_coil = 100,
+		/obj/item/stack/cable_coil/cyborg = 100
 	)
 
 	min_duration = 50

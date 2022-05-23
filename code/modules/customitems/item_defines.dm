@@ -718,53 +718,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mira_uniform"
 	contained_sprite = TRUE
 
-/obj/item/clothing/under/fluff/mira_uniform/Initialize()
-	. = ..()
-	rolled_sleeves = 0
-	rolled_down = 0
-
-/obj/item/clothing/under/fluff/mira_uniform/rollsuit()
-	set name = "Roll Down Jumpsuit"
-	set category = "Object"
-
-	set src in usr
-	if (use_check_and_message(usr, USE_DISALLOW_SILICONS))
-		return
-
-	if(rolled_sleeves)
-		to_chat(usr, "<span class='warning'>You must roll up your [src]'s sleeves first!</span>")
-		return
-
-	rolled_down = !rolled_down
-	if(rolled_down)
-		body_parts_covered &= LOWER_TORSO|LEGS|FEET
-		item_state = "[item_state]_d"
-	else
-		body_parts_covered = initial(body_parts_covered)
-		item_state = initial(item_state)
-	update_clothing_icon()
-
-/obj/item/clothing/under/fluff/mira_uniform/rollsleeves()
-	set name = "Roll Up Sleeves"
-	set category = "Object"
-	set src in usr
-
-	if (use_check_and_message(usr, USE_DISALLOW_SILICONS))
-		return
-
-	if(rolled_down)
-		to_chat(usr, "<span class='warning'>You must roll up your [src] first!</span>")
-		return
-
-	rolled_sleeves = !rolled_sleeves
-	if(rolled_sleeves)
-		body_parts_covered &= ~(ARMS|HANDS)
-		item_state = "[item_state]_r"
-	else
-		body_parts_covered = initial(body_parts_covered)
-		item_state = initial(item_state)
-	update_clothing_icon()
-
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mira_robes //Junior Alchemist Robes - Mira Akhandi - ladyfowl
 	name = "junior alchemist robes"
 	desc = "A  robe with a light silky gold colored belt around the waist. Placed upon the print is two red jewels pinned to it neatly."
@@ -1849,42 +1802,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "godard_cape"
 	contained_sprite = TRUE
 
-/obj/item/organ/internal/augment/fluff/kath_legbrace // Leg Support Augment - Kathira El-Hashem - thegreywolf
-	name = "leg support augment"
-	desc = "A leg augment to aid in the mobility of an otherwise disabled leg."
-	icon = 'icons/obj/custom_items/kathira_legbrace.dmi'
-	icon_override = 'icons/obj/custom_items/kathira_legbrace.dmi'
-	on_mob_icon = 'icons/obj/custom_items/kathira_legbrace.dmi'
-	icon_state = "kathira_legbrace"
-	item_state = "kathira_legbrace_onmob"
-	parent_organ = BP_R_LEG
-	supports_limb = TRUE
-	min_broken_damage = 15
-	min_bruised_damage = 5
-	var/last_drop = 0
-
-/obj/item/organ/internal/augment/fluff/kath_legbrace/process()
-	if(QDELETED(src) || !owner)
-		return
-	if(last_drop + 6 SECONDS > world.time)
-		return
-	if(owner.lying || owner.buckled_to || length(owner.grabbed_by))
-		return
-
-	if(is_bruised())
-		if(is_broken())
-			collapse(40, 3, 110)
-		else
-			collapse()
-
-/obj/item/organ/internal/augment/fluff/kath_legbrace/proc/collapse(var/prob_chance = 20, var/weaken_strength = 2, var/pain_strength = 40)
-	if(prob(prob_chance))
-		var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
-		owner.Weaken(weaken_strength)
-		last_drop = world.time
-		owner.custom_pain("Something inside your [E.name] hurts too much to stand!", pain_strength, TRUE, E, TRUE)
-		owner.visible_message("<b>[owner]</b> collapses!")
-
 /obj/item/flame/lighter/zippo/fluff/sezrak_zippo //Imperial 16th Zippo - Sezrak Han'san - captaingecko
 	name = "imperial 16th zippo"
 	desc = "A zippo lighter given by the Empire of Dominia to the men of the 16th Regiment of the Imperial Army, also known as the \"Suicide Regiments\", that would manage to survive more \
@@ -2029,15 +1946,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "pax_bag"
 	contained_sprite = TRUE
 
-/obj/item/journal/fluff/kathira // Blue Leather-Bound Journal - Kathira El-Hashem - TheGreyWolf
-	name = "blue leather-bound journal"
-	desc = "A blue journal emblazoned with the New Kingdom of Adhomai's flag across the cover."
-	closed_desc = " The pages within are a mix of clearly indexed case files, and study notes alongside less clearly indexed pages that appears to be fragmented thoughts, not unlike a diary. The very first page of the journal reads 'dedicated to Qirandri Mrorirhaldarr' and is signed 'Mrradar Sanufar' underneath."
-	icon = 'icons/obj/custom_items/kathira_journal.dmi'
-	icon_override = 'icons/obj/custom_items/kathira_journal.dmi'
-	icon_state = "kath_journal"
-	item_state = "kath_journal"
-
 /obj/item/storage/pill_bottle/dice/fluff/suraya_dicebag //Crevan Dice Bag - Suraya Al-Zahrani - Omicega
 	name = "velvet dice bag"
 	desc = "A deep purple dice bag fashioned from Adhomian velvet, with two little drawstrings to tighten the neck closed."
@@ -2093,90 +2001,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "old synthetic vocal cords"
 	desc = "A set of Old Age Synthetic Vocal Cords. They look barely functional."
 
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak // Handsewn Idris Cloak - Kathira El-Hashem - TheGreyWolf
-	name = "handsewn Idris cloak"
-	desc = "A carefully handsewn cloak proudly emblazoned with the symbol of Idris Banking in silver treading and the words ‘Astronomical Figures. Unlimited Power.’ Embroidered beneath it.\nOn close examination, the inside of the cloak appears to be colored differently."
-	icon = 'icons/obj/custom_items/kathira_cloak.dmi'
-	icon_override = 'icons/obj/custom_items/kathira_cloak.dmi'
-	icon_state = "idris_cloak"
-	item_state = "idris_cloak"
-	var/style = "nka_cloak"
-	var/name2 = "handmade royalist cloak"
-	var/desc2 = "A blue cloak with the symbol of the New Kingdom of Adhomai proudly displayed on the back.\nUpon closer examination it appears to be a patchwork of older textile and newer fabrics, with the inside of the cloak appearing to be colored differently."
-	var/changed = FALSE
-
-	var/hoodtype = /obj/item/clothing/head/winterhood/fluff/kathira_hood
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/Initialize()
-	. = ..()
-	new hoodtype(src)
-
-/obj/item/clothing/head/winterhood/fluff/kathira_hood
-	name = "handsewn hood"
-	desc = "A hood attached to a cloak."
-	icon = 'icons/obj/custom_items/kathira_cloak.dmi'
-	icon_override = 'icons/obj/custom_items/kathira_cloak.dmi'
-	icon_state = "idris_cloak_hood"
-	contained_sprite = TRUE
-	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/update_icon(var/hooded = FALSE)
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
-	K.icon_state = "[K.changed ? K.style : initial(K.icon_state)]"
-	SEND_SIGNAL(K, COMSIG_ITEM_STATE_CHECK, args)
-	K.item_state = "[K.icon_state][hooded ? "_up" : ""]"
-	K.name = "[K.changed ? K.name2 : initial(K.name)]"
-	K.desc = "[K.changed ? K.desc2 : initial(K.desc)]"
-	K.accessory_mob_overlay = null
-	. = ..()
-	SEND_SIGNAL(K, COMSIG_ITEM_ICON_UPDATE)
-	if(usr)
-		usr.update_inv_w_uniform()
-		usr.update_inv_wear_suit()
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak()
-	set name = "Change Cloak"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return
-
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
-	if(!K)
-		return
-
-	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."))
-	K.changed = !K.changed
-	K.update_icon()
-	SEND_SIGNAL(K, COMSIG_ITEM_REMOVE, K)
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_attached(obj/item/clothing/S, mob/user as mob)
-	..()
-	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak
-	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_removed(mob/user as mob)
-	if(has_suit)
-		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak
-		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood
-	..()
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood()
-	set name = "Toggle Hood"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return
-
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
-	if(!K)
-		return
-
-	SEND_SIGNAL(K, COMSIG_ITEM_UPDATE_STATE, K)
-	K.update_icon()
-
 /obj/item/clothing/suit/storage/toggle/fluff/leonid_chokha //Old Rebel's Chokha - Leonid Myagmar - lucaken
 	name = "old rebel's chokha"
 	desc = "A not-so traditional Vysokan Chokha made out of beat-up gurmori leathers, worn-out to the point of seeming ancient. Though it might have been a Host-boy's garment once, it is now \
@@ -2188,7 +2012,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "leonid_chokha"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/toggle/fluff/sezrak_coat //red Domelkoan Coat - Sezrak Han'san - captaingecko
+/obj/item/clothing/suit/storage/toggle/fluff/sezrak_coat //Red Domelkoan Coat - Sezrak Han'san - captaingecko
 	name = "red Domelkoan Coat"
 	desc = "A warm coat made in Domelkos. This red coat is stuffed with yupmi fur and made out of reinforced cloth-like synthetic materials, both to keep the wearer warm in the cold winters of \
 	Moroz, and to resist all but the rougher treatments... All the while remaining good-looking enough. Both shoulders on this coat feature the standard of the Han'san clan-house, presented in a \
@@ -2342,7 +2166,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	flash_protection = FLASH_PROTECTION_NONE
 	tint = TINT_NONE
 
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/fluff/iliasz_jacket
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/fluff/iliasz_jacket //Naval Pilot's Jacket - Iliasz Jajszczyk - dansemacabre
 	name = "naval pilot's jacket"
 	desc = "A sturdy grey-green neonomex-lined jacket, flame-resistant and sleek. A garment of choice for anyone who might be in the cockpit of something with a risk of catching fire. \
 	There's a name patch sewn onto the breast of this one, reading \"JAJSZCZYK\". It seems to be more rugged than a typical flight jacket, and also appears to have some waterproofing. \
@@ -2352,3 +2176,234 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "iliasz_jacket"
 	item_state = "iliasz_jacket"
 	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock // Corporate Smock - Dekel Mrrhazrughan - veterangary
+	name = "corporate smock"
+	desc = "A dark coloured surplus winter smock repurposed for interstellar use that has a hood shaded with corporate colors. A traditional Stellar Corporate Conglomerate star is embroidered on the back."
+	icon = 'icons/obj/custom_items/dekel_smock.dmi'
+	icon_override = 'icons/obj/custom_items/dekel_smock.dmi'
+	icon_state = "seccloak"
+	item_state = "seccloak"
+	contained_sprite = TRUE
+	var/hoodtype = /obj/item/clothing/head/winterhood/fluff/dekel_hood
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/Initialize()
+	. = ..()
+	new hoodtype(src)
+
+/obj/item/clothing/head/winterhood/fluff/dekel_hood
+	name = "corporate hood"
+	desc = "A hood attached to a corporate smock."
+	icon = 'icons/obj/custom_items/dekel_smock.dmi'
+	icon_override = 'icons/obj/custom_items/dekel_smock.dmi'
+	icon_state = "seccloak_hood"
+	item_state = "seccloak_hood"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS | BLOCKHAIR
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/on_attached(obj/item/clothing/S, mob/user as mob)
+	..()
+	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/verb/change_hood
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/on_removed(mob/user as mob)
+	if(has_suit)
+		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/verb/change_hood
+	..()
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/verb/change_hood()
+	set name = "Toggle Hood"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/D = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock)
+	if(!D)
+		return
+
+	SEND_SIGNAL(D, COMSIG_ITEM_UPDATE_STATE, D)
+
+
+/obj/item/fluff/nasira_burner //Adhomian Incense Burner - Nasira Nahnikh - ramke
+	name = "adhomian incense burner"
+	desc = "A traditional Adhomian incense burner with blue and yellow suns depicted on the front. The metal cover is blackened from use, and there appear to be unclear etchings on the inside."
+	icon = 'icons/obj/custom_items/nasira_burner.dmi'
+	icon_state = "burner"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+	var/matchmsg = "USER lights NAME with their FLAME."
+	var/lightermsg = "USER manages to awkwardly light NAME with FLAME."
+	var/zippomsg = "With a flick of their wrist, USER lights NAME with their FLAME."
+	var/weldermsg = "USER lights NAME with FLAME. That looked rather unsafe!"
+	var/ignitermsg = "USER fiddles with FLAME, and eventually manages to light NAME."
+	var/genericmsg = "USER lights NAME with their FLAME."
+	var/lit = FALSE
+
+/obj/item/fluff/nasira_burner/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/fluff/nasira_burner/examine(mob/user)
+	..(user)
+	if(lit)
+		to_chat(user, "\The [src] is currently lit.")
+
+/obj/item/fluff/nasira_burner/proc/light(var/lighting_text)
+	if(!lit)
+		lit = TRUE
+		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
+		if(lighting_text)
+			var/turf/T = get_turf(src)
+			T.visible_message(SPAN_NOTICE(lighting_text))
+		set_light(2, 0.25, "#E38F46")
+		icon_state = "burner_lit"
+		START_PROCESSING(SSprocessing, src)
+
+/obj/item/fluff/nasira_burner/attack_self(mob/user as mob)
+	if(lit)
+		lit = FALSE
+		var/turf/T = get_turf(src)
+		T.visible_message(SPAN_NOTICE("[user] extinguishes \the [src]."))
+		set_light(0)
+		icon_state = initial(icon_state)
+		STOP_PROCESSING(SSprocessing, src)
+
+/obj/item/fluff/nasira_burner/attackby(obj/item/W as obj, mob/user as mob)
+	..()
+	if(W.isFlameSource())
+		var/text = matchmsg
+		if(istype(W, /obj/item/flame/match))
+			text = matchmsg
+		else if(istype(W, /obj/item/flame/lighter/zippo))
+			text = zippomsg
+		else if(istype(W, /obj/item/flame/lighter))
+			text = lightermsg
+		else if(W.iswelder())
+			text = weldermsg
+		else if(istype(W, /obj/item/device/assembly/igniter))
+			text = ignitermsg
+		else
+			text = genericmsg
+		text = replacetext(text, "USER", "\the [user]")
+		text = replacetext(text, "NAME", "\the [name]")
+		text = replacetext(text, "FLAME", "\the [W.name]")
+		light(text)
+
+/obj/item/fluff/nasira_burner/process()
+	if(prob(10))
+		var/lit_message
+
+		lit_message = pick( "The smell of ceremonial incense reaches your nose.",
+								"Adhomian incense permeates the air around you.",
+								"The soft glow of the incense burner illuminates the vicinity.")
+
+		if(lit_message)
+			visible_message(SPAN_NOTICE(lit_message), range = 3)
+
+/obj/item/clothing/under/fluff/yanna_dress //Techno-Conglomerate CR dress - Yanna Trevidic - simplemaroon
+	name = "techno-conglomerate CR dress"
+	desc = "A sky blue-colored comfort-and-relaxation dress designed for off-worlders. This one is made to Techno-Conglomerate specifications, \
+	with sensors outlined across the ribcage that grow brighter or duller based on the wearer's emotional intensity."
+	icon = 'icons/obj/custom_items/yanna_dress.dmi'
+	icon_override = 'icons/obj/custom_items/yanna_dress.dmi'
+	icon_state = "yanna_dress"
+	item_state = "yanna_dress"
+	contained_sprite = TRUE
+	var/list/emotional_settings = list("0", "1", "2", "3")
+	var/emotional_choice
+	action_button_name = "Adjust Emotional Setting"
+
+/obj/item/clothing/under/fluff/yanna_dress/Initialize()
+	for(var/setting in emotional_settings)
+		emotional_settings[setting] = image('icons/obj/custom_items/yanna_dress.dmi', "level_[emotional_settings.Find(setting) - 1]")
+	.=..()
+
+/obj/item/clothing/under/fluff/yanna_dress/attack_self(mob/user)
+	choose_setting(user)
+
+/obj/item/clothing/under/fluff/yanna_dress/verb/adjust_setting()
+	set category = "Object"
+	set name = "Adjust Emotional Setting"
+	set src in usr
+
+	choose_setting(usr)
+
+/obj/item/clothing/under/fluff/yanna_dress/proc/choose_setting(mob/user)
+	var/emotional_setting = RADIAL_INPUT(user, emotional_settings)
+	if(!emotional_setting)
+		return
+	set_light(text2num(emotional_setting) * 0.4, text2num(emotional_setting) * 0.4, COLOR_BRIGHT_GREEN)
+	emotional_choice = "level_" + emotional_setting
+	update_icon()
+	update_clothing_icon()
+	get_mob_overlay(TRUE)
+
+/obj/item/clothing/under/fluff/yanna_dress/update_icon()
+	cut_overlays()
+	add_overlay(emotional_choice)
+
+/obj/item/clothing/under/fluff/yanna_dress/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	I.add_overlay(emotional_choice + "_un")
+	return I
+
+
+/obj/item/clothing/suit/vaurca/fluff/bells_zora_cloak //Tailored Hive Cloak - Ka'Akaix'Bells Zo'ra - shestrying
+	name = "tailored hive cloak"
+	desc = "A typical-looking Vaurca hive cloak design, tailored from what looks to be labcoat material."
+	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
+	icon_override = 'icons/obj/custom_items/bells_zora_items.dmi'
+	icon_state = "bells_zora_cloak"
+	item_state = "bells_zora_cloak"
+	contained_sprite = TRUE
+
+/obj/item/storage/box/fancy/fluff/bells_zora_box //Taffy Basket - Ka'Akaix'Bells Zo'ra - shestrying
+	name = "taffy basket"
+	desc = "A round, wicker basket full to the brim with taffy! "
+	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
+	icon_override = 'icons/obj/custom_items/bells_zora_items.dmi'
+	icon_state = "bells_zora_box_full"
+	item_state = "bells_zora_box_full"
+	can_hold = list(/obj/item/reagent_containers/food/snacks/fluff/taffy)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/fluff/taffy = 6, /obj/item/reagent_containers/food/snacks/fluff/taffy/pink = 6, /obj/item/reagent_containers/food/snacks/fluff/taffy/blue = 6)
+	storage_slots = 18
+	contained_sprite = TRUE
+	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
+	use_sound = 'sound/items/storage/wrapper.ogg'
+
+/obj/item/storage/box/fancy/fluff/bells_zora_box/fill()
+	. = ..()
+	update_icon()
+
+/obj/item/storage/box/fancy/fluff/bells_zora_box/update_icon()
+	if(contents.len == 0)
+		icon_state = "bells_zora_box_empty"
+		desc = " A round, wicker basket. There's some colorful crumbs on the bottom of the linen lining. "
+	else if(contents.len <= 11)
+		icon_state = "bells_zora_box_half"
+		desc = "A round, wicker basket with some taffy inside!"
+	else if(contents.len >= 12)
+		icon_state = "bells_zora_box_full"
+		desc = "A round, wicker basket full to the brim with taffy!"
+
+
+/obj/item/reagent_containers/food/snacks/fluff/taffy
+	name = "orange taffy"
+	desc = "A piece of handmade taffy, rolled up in a cute spiral!"
+	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
+	icon_state = "orange_taffy"
+	reagents_to_add = list(/decl/reagent/nutriment = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("bittersweetness, insect meat and regret" = 1))
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/fluff/taffy/pink
+	name = "pink taffy"
+	icon_state = "pink_taffy"
+	reagent_data = list(/decl/reagent/nutriment = list("sweetness and a hint of strawberry" = 1))
+
+/obj/item/reagent_containers/food/snacks/fluff/taffy/blue
+	name = "blue taffy"
+	icon_state = "blue_taffy"
+	reagent_data = list(/decl/reagent/nutriment = list("salty-sweet, tangy taffy" = 1))

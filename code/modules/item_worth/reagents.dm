@@ -207,6 +207,9 @@
 /decl/reagent/alcohol/wine
 	value = 0.1
 
+/decl/reagent/alcohol/wine/vintage
+	value = 15
+
 /decl/reagent/alcohol/acid_spit
 	value = 0.15
 
@@ -806,3 +809,6 @@
 
 /decl/reagent/toxin/undead
 	value = 300
+
+/decl/reagent/ambrosia_extract
+	value = 2.8

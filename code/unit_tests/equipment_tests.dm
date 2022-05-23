@@ -10,21 +10,20 @@ datum/unit_test/vision_glasses/
 	async = 1
 
 datum/unit_test/vision_glasses/start_test()
-	spawn(0)
-		var/list/test = create_test_mob_with_mind(null, /mob/living/carbon/human)
-		if(isnull(test))
-			fail("Check Runtimed in Mob creation")
+	var/list/test = create_test_mob_with_mind(null, /mob/living/carbon/human)
+	if(isnull(test))
+		fail("Check Runtimed in Mob creation")
 
-		if(test["result"] == FAILURE)
-			fail(test["msg"])
-			async = 0
+	if(test["result"] == FAILURE)
+		fail(test["msg"])
+		async = 0
 
-			return 0
+		return 0
 
-		H = locate(test["mobref"])
+	H = locate(test["mobref"])
 
-		var/obj/item/clothing/glasses/G = new glasses_type()
-		H.glasses = G
+	var/obj/item/clothing/glasses/G = new glasses_type()
+	H.glasses = G
 
 	return 1
 
@@ -32,7 +31,7 @@ datum/unit_test/vision_glasses/start_test()
 datum/unit_test/vision_glasses/check_result()
 
 	if(isnull(H) || H.life_tick < 2)
-		return 0       
+		return 0
 
 	if(isnull(H.glasses))
 		fail("Mob doesn't have glasses on")

@@ -7,7 +7,6 @@
 	icon = 'icons/obj/machines/research.dmi'
 	density = 1
 	anchored = 1
-	use_power = 1
 	var/busy = 0
 	var/obj/machinery/computer/rdconsole/linked_console
 
@@ -31,20 +30,3 @@
 		if("diamond")
 			return /obj/item/stack/material/diamond
 	return null
-
-/obj/machinery/r_n_d/proc/getMaterialName(var/type)
-	switch(type)
-		if(/obj/item/stack/material/steel)
-			return DEFAULT_WALL_MATERIAL
-		if(/obj/item/stack/material/glass)
-			return "glass"
-		if(/obj/item/stack/material/gold)
-			return "gold"
-		if(/obj/item/stack/material/silver)
-			return "silver"
-		if(/obj/item/stack/material/phoron)
-			return "phoron"
-		if(/obj/item/stack/material/uranium)
-			return "uranium"
-		if(/obj/item/stack/material/diamond)
-			return "diamond"

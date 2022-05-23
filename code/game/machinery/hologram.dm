@@ -36,7 +36,6 @@ Possible to do for anyone motivated enough:
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
-	use_power = 1
 
 	var/holopad_id
 
@@ -55,6 +54,8 @@ Possible to do for anyone motivated enough:
 
 	var/forcing_call = FALSE
 
+	var/max_overmap_call_range = 0
+
 /obj/machinery/hologram/holopad/Initialize()
 	. = ..()
 
@@ -64,6 +65,7 @@ Possible to do for anyone motivated enough:
 	get_holopad_id()
 	desc += " Its ID is '[holopad_id]'"
 
+	SSmachinery.all_holopads += src
 	listening_objects += src
 
 	light_color = long_range ? rgb(225, 173, 125) : rgb(125, 180, 225)
@@ -91,8 +93,9 @@ Possible to do for anyone motivated enough:
 		icon_state = "holopad0[icon_state_suffix]"
 		set_light(0)
 
-/obj/machinery/hologram/holopad/attack_hand(var/mob/user) //Carn: Hologram requests.
-	user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
+/obj/machinery/hologram/holopad/attack_hand(var/mob/user)
+	if(user.Adjacent(src))
+		user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
 	if(incoming_connection)
 		audible_message("The pad hums quietly as it establishes a connection.")
 		take_call()
@@ -121,11 +124,12 @@ Possible to do for anyone motivated enough:
 /obj/machinery/hologram/holopad/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	data = data || list()
 	LAZYINITLIST(data["holopad_list"])
-	for(var/obj/machinery/hologram/holopad/H in SSmachinery.processing_machines - src)
+	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads - src)
 		if(can_connect(H) && H.operable())
 			data["holopad_list"]["\ref[H]"] = list("id" = H.holopad_id, "busy" = (H.has_established_connection() || H.incoming_connection), "ref" = "\ref[H]")
 	data["command_auth"] = has_command_auth(user)
 	data["forcing_call"] = forcing_call
+	data["call_range"] = max_overmap_call_range
 	return data
 
 /obj/machinery/hologram/holopad/proc/has_command_auth(var/mob/user)
@@ -339,7 +343,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	LAZYREMOVE(active_holograms, M)
 	update_icon()
 
-/obj/machinery/hologram/holopad/machinery_process()
+/obj/machinery/hologram/holopad/process()
 	for(var/thing in active_holograms)
 		var/mob/M = thing
 		var/is_inactive_ai = FALSE
@@ -351,14 +355,10 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			continue
 
 	if(has_established_connection())
-		if(connected_pad.stat & NOPOWER)
-			end_call()
+		if(!check_connected_pad())
 			return TRUE
-		if(!hacked)
-			create_holos()
-			update_holos()
 
-	use_power(power_per_hologram * LAZYLEN(active_holograms))
+	use_power_oneoff(power_per_hologram * LAZYLEN(active_holograms))
 
 	if(last_request + 20 SECONDS < world.time && incoming_connection)
 		incoming_connection = FALSE
@@ -370,6 +370,15 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			connected_pad.update_icon()
 			connected_pad = null
 			update_icon()
+	return TRUE
+
+/obj/machinery/hologram/holopad/proc/check_connected_pad()
+	if(connected_pad.stat & NOPOWER)
+		end_call()
+		return FALSE
+	if(!hacked)
+		create_holos()
+		update_holos()
 	return TRUE
 
 /obj/machinery/hologram/holopad/proc/move_hologram(mob/living/silicon/ai/user)
@@ -394,6 +403,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	icon_state = "holopad0_lr"
 	icon_state_suffix = "_lr"
 	long_range = TRUE
+	max_overmap_call_range = 4
 
 /obj/machinery/hologram/holopad/long_range/get_holopad_id()
 	holopad_id = ""
@@ -412,12 +422,15 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(current_map.use_overmap)
 		if(!linked || !HP.linked)
 			return FALSE
-		if(!(HP.linked in view(4, linked)))
+		if(get_dist(HP.linked, linked) > 1 && !(HP.linked in view(max_overmap_call_range, linked)))
 			return FALSE
 	return TRUE
 
 /obj/machinery/hologram/holopad/long_range/has_command_auth(var/mob/user)
 	return FALSE
+
+/obj/machinery/hologram/holopad/long_range/check_connected_pad()
+	return ..() && can_connect(connected_pad)
 
 /*
  * Hologram
@@ -426,7 +439,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram
 	icon = 'icons/obj/holopad.dmi'
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 5
 	active_power_usage = 100
 
@@ -447,6 +459,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		end_call()
 	clear_holos(TRUE)
 	listening_objects -= src
+	SSmachinery.all_holopads -= src
 	return ..()
 
 /obj/effect/overlay/hologram

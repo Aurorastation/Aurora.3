@@ -364,7 +364,10 @@ var/list/asset_datums = list()
 		"faction_NT.png" = 'icons/misc/factions/NanoTrasenlogo.png',
 		"faction_Idris.png" = 'icons/misc/factions/Idrislogo.png',
 		"faction_Hepht.png" = 'icons/misc/factions/Hephaestuslogo.png',
-		"faction_unaffiliated.png" = 'icons/misc/factions/Unaffiliatedlogo.png'
+		"faction_unaffiliated.png" = 'icons/misc/factions/Unaffiliatedlogo.png',
+		"faction_PMCG.png" = 'icons/misc/factions/pmcglogo.png',
+		"faction_Orion.png" = 'icons/misc/factions/Orionlogo.png',
+		"faction_SCC.png" = 'icons/misc/factions/SCClogo.png'
 	)
 
 /datum/asset/simple/jquery
@@ -416,7 +419,9 @@ var/list/asset_datums = list()
 		"zhlogo.png" = 'html/images/zhlogo.png',
 		"idrislogo.png" = 'html/images/idrislogo.png',
 		"eridanilogo.png" = 'html/images/eridanilogo.png',
+		"pmcglogo.png" = 'html/images/pmcglogo.png',
 		"zavodlogo.png" = 'html/images/zavodlogo.png',
+		"orionlogo.png" = 'html/images/orionlogo.png',
 		"hplogo.png" = 'html/images/hplogo.png',
 		"beflag.png" = 'html/images/beflag.png',
 		"elyraflag.png" = 'html/images/elyraflag.png',
@@ -526,7 +531,7 @@ var/list/asset_datums = list()
 
 /datum/asset/spritesheet/chem_master
 	name = "chemmaster"
-	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4")
+	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4", "bottle-5", "bottle-6")
 	var/max_pill_sprite = 20
 
 /datum/asset/spritesheet/chem_master/register()

@@ -11,23 +11,31 @@
 	selection_color = "#a44799"
 	economic_modifier = 15
 
-	minimum_character_age = 35
+	minimum_character_age = list(
+		SPECIES_HUMAN = 35,
+		SPECIES_SKRELL = 80,
+		SPECIES_SKRELL_AXIORI = 80
+	)
 
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
-			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
+			            access_research, access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage,
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network,
-			            access_maint_tunnels, access_it)
+			            access_maint_tunnels, access_it, access_intrepid)
 	minimal_access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
-			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
+			            access_research, access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage,
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network,
 			            access_maint_tunnels, access_it)
 	minimal_player_age = 14
-	ideal_character_age = 50
+	ideal_character_age = list(
+		SPECIES_HUMAN = 50,
+		SPECIES_SKRELL = 100,
+		SPECIES_SKRELL_AXIORI = 100
+	)
 	outfit = /datum/outfit/job/rd
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/rd
 	name = "Research Director"
@@ -66,7 +74,11 @@
 	selection_color = "#a44799"
 	economic_modifier = 7
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
@@ -75,14 +87,14 @@
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/scientist
 	alt_outfits = list("Xenoarcheologist"=/datum/outfit/job/scientist/xenoarcheologist)
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/scientist
 	name = "Scientist"
 	jobtype = /datum/job/scientist
 
 	uniform = /obj/item/clothing/under/rank/scientist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/science
 	id = /obj/item/card/id/white
 
@@ -110,88 +122,61 @@
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 2
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "the research director"
 	selection_color = "#a44799"
 	economic_modifier = 7
 
-	minimum_character_age = 30
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology)
 	minimal_access = list(access_research, access_xenobiology, access_tox_storage)
-	alt_titles = list("Xenobotanist")
 
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
-	alt_outfits = list("Xenobotanist"=/datum/outfit/job/scientist/xenobiologist/xenobotanist)
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
+	uniform = /obj/item/clothing/under/rank/scientist/xenobio
 	jobtype = /datum/job/xenobiologist
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 
-/datum/outfit/job/scientist/xenobiologist/xenobotanist
-	name = "Xenobotanist"
-	uniform = /obj/item/clothing/under/rank/scientist/botany
-
-/datum/job/roboticist
-	title = "Roboticist"
-	flag = ROBOTICIST
+/datum/job/xenobotanist
+	title = "Xenobotanist"
+	flag = XENOBOTANIST
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
-	supervisors = "research director"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the research director"
 	selection_color = "#a44799"
-	economic_modifier = 5
+	economic_modifier = 7
 
-	minimum_character_age = 25
-
-	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
-	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
-
-	minimal_player_age = 7
-
-	outfit = /datum/outfit/job/roboticist
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
-
-/datum/outfit/job/roboticist
-	name = "Roboticist"
-	jobtype = /datum/job/roboticist
-
-	uniform = /obj/item/clothing/under/rank/roboticist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
-	shoes = /obj/item/clothing/shoes/black
-	id = /obj/item/card/id/white
-	belt = /obj/item/storage/belt/utility
-
-	headset = /obj/item/device/radio/headset/headset_sci
-	bowman = /obj/item/device/radio/headset/headset_sci/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/sci
-	wrist_radio = /obj/item/device/radio/headset/wrist/sci
-
-	tab_pda = /obj/item/modular_computer/handheld/pda/research/robotics
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/advanced/research/robotics
-	tablet = /obj/item/modular_computer/handheld/preset/research/robotics
-
-	backpack = /obj/item/storage/backpack/toxins
-	satchel = /obj/item/storage/backpack/satchel_tox
-	dufflebag = /obj/item/storage/backpack/duffel/tox
-	messengerbag = /obj/item/storage/backpack/messenger/tox
-
-	belt_contents = list(
-		/obj/item/screwdriver = 1,
-		/obj/item/wrench = 1,
-		/obj/item/weldingtool = 1,
-		/obj/item/crowbar = 1,
-		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
 	)
+
+	access = list(access_tox_storage, access_research, access_xenobotany, access_robotics, access_tox)
+	minimal_access = list(access_tox_storage, access_research, access_xenobotany)
+
+	minimal_player_age = 14
+
+	outfit = /datum/outfit/job/scientist/xenobotanist
+
+/datum/outfit/job/scientist/xenobotanist
+	name = "Xenobotanist"
+	uniform = /obj/item/clothing/under/rank/scientist/botany
+	jobtype = /datum/job/xenobotanist
+	tab_pda = /obj/item/modular_computer/handheld/pda/research
 
 /datum/job/intern_sci
 	title = "Lab Assistant"
@@ -206,7 +191,7 @@
 	access = list(access_research, access_tox)
 	minimal_access = list(access_research, access_tox)
 	outfit = /datum/outfit/job/intern_sci
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/intern_sci
 	name = "Lab Assistant"

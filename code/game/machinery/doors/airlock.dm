@@ -112,7 +112,7 @@
 		wires = new/datum/wires/airlock(src)
 
 	if(mapload && src.closeOtherId != null)
-		for (var/obj/machinery/door/airlock/A in SSmachinery.processing_machines)
+		for (var/obj/machinery/door/airlock/A in SSmachinery.machinery)
 			if(A.closeOtherId == src.closeOtherId && A != src)
 				src.closeOther = A
 				break
@@ -140,6 +140,24 @@
 	if(mineral)
 		return SSmaterials.get_material_by_name(mineral)
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
+
+/obj/machinery/door/airlock/service // Service Airlock
+	icon = 'icons/obj/doors/doorser.dmi'
+	assembly_type = /obj/structure/door_assembly/door_assembly_ser
+	hatch_colour = "#6f8751"
+
+/obj/machinery/door/airlock/glass_service // Service Airlock (Glass)
+	name = "Glass Airlock"
+	icon = 'icons/obj/doors/doorserglass.dmi'
+	hitsound = 'sound/effects/glass_hit.ogg'
+	maxhealth = 300
+	explosion_resistance = 5
+	opacity = FALSE
+	assembly_type = /obj/structure/door_assembly/door_assembly_ser
+	glass = 1
+	hatch_colour = "#6f8751"
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/command
 	icon = 'icons/obj/doors/Doorcom.dmi'
@@ -233,7 +251,7 @@
 
 /obj/machinery/door/airlock/centcom/attackby(obj/item/I, mob/user)
 	if (operating)
-		return
+		return TRUE
 
 	if (allowed(user) && operable())
 		if (density)
@@ -242,6 +260,7 @@
 			close()
 	else
 		do_animate("deny")
+	return TRUE
 
 /obj/machinery/door/airlock/centcom/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -272,7 +291,7 @@
 
 obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	if (operating)
-		return
+		return TRUE
 
 	if (allowed(user) && operable())
 		if (density)
@@ -281,6 +300,7 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 			close()
 	else
 		do_animate("deny")
+	return TRUE
 
 /obj/machinery/door/airlock/glass_centcom/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -545,7 +565,7 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	var/last_event = 0
 	hatch_colour = "#004400"
 
-/obj/machinery/door/airlock/uranium/machinery_process()
+/obj/machinery/door/airlock/uranium/process()
 	if(world.time > last_event+20)
 		if(prob(50))
 			radiate()
@@ -1248,22 +1268,22 @@ About the new airlock wires panel:
 	if(!istype(usr, /mob/living/silicon))
 		if(src.isElectrified())
 			if(src.shock(user, 75))
-				return
+				return TRUE
 	if(istype(C, /obj/item/taperoll) || istype(C, /obj/item/rfd))
 		return
 	if(!istype(C, /obj/item/forensics))
 		src.add_fingerprint(user)
 	if (!repairing && (stat & BROKEN) && src.locked) //bolted and broken
 		if (!cut_bolts(C,user))
-			..()
-		return
+			return ..()
+		return TRUE
 	if (istype(C, /obj/item/device/magnetic_lock))
 		if (bracer)
 			to_chat(user, SPAN_NOTICE("There is already a [bracer] on [src]!"))
-			return
+			return TRUE
 		var/obj/item/device/magnetic_lock/newbracer = C
 		newbracer.attachto(src, user)
-		return
+		return TRUE
 	if(!repairing && (C.iswelder() && !( src.operating > 0 ) && src.density))
 		var/obj/item/weldingtool/WT = C
 		if(WT.isOn())
@@ -1274,16 +1294,14 @@ About the new airlock wires panel:
 			)
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			if (!do_after(user, 2/C.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
-				return
+				return TRUE
 			if(!WT.remove_fuel(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
-				return
+				return TRUE
 			playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 			welded = !welded
 			update_icon()
-			return
-		else
-			return
+		return TRUE
 	else if(C.isscrewdriver())
 		if (src.p_open)
 			if (stat & BROKEN)
@@ -1295,6 +1313,7 @@ About the new airlock wires panel:
 			src.p_open = TRUE
 			to_chat(user, SPAN_NOTICE("You carefully unscrew the panel on \the [src]"))
 		src.update_icon()
+		return TRUE
 	else if(C.iswirecutter())
 		return src.attack_hand(user)
 	else if(C.ismultitool())
@@ -1304,6 +1323,7 @@ About the new airlock wires panel:
 	else if(istype(C, /obj/item/pai_cable))	// -- TLE
 		var/obj/item/pai_cable/cable = C
 		cable.plugin(src, user)
+		return TRUE
 	else if(!repairing && C.iscrowbar())
 		if(istype(C, /obj/item/melee/arm_blade))
 			if(!arePowerSystemsOn()) //if this check isn't done and empty, the armblade will never be used to hit the airlock
@@ -1332,6 +1352,7 @@ About the new airlock wires panel:
 				open(1)
 			else
 				close(1)
+		return TRUE
 	else if(istype(C, /obj/item/material/twohanded/fireaxe) && !arePowerSystemsOn())
 		if(locked && user.a_intent != I_HURT)
 			to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
@@ -1350,6 +1371,7 @@ About the new airlock wires panel:
 					close(1)
 				else
 					to_chat(user, SPAN_WARNING("You need to be wielding \the [C] to do that."))
+		return TRUE
 	else if(istype(C, /obj/item/melee/hammer) && !arePowerSystemsOn())
 		if(locked && user.a_intent != I_HURT)
 			to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
@@ -1360,6 +1382,7 @@ About the new airlock wires panel:
 				open(1)
 			else
 				close(1)
+		return TRUE
 	else if(density && istype(C, /obj/item/material/twohanded/chainsaw))
 		var/obj/item/material/twohanded/chainsaw/ChainSawVar = C
 		if(!ChainSawVar.wielded)
@@ -1420,14 +1443,14 @@ About the new airlock wires panel:
 				open(1)
 				take_damage(50)
 			ChainSawVar.cutting = 0
+		return TRUE
 	else
-		..()
-	return
+		return ..()
 
 /obj/machinery/door/airlock/phoron/attackby(C as obj, mob/user as mob)
 	if(C)
 		ignite(is_hot(C))
-	..()
+	return ..()
 
 /obj/machinery/door/airlock/set_broken()
 	src.p_open = TRUE
@@ -1447,7 +1470,7 @@ About the new airlock wires panel:
 	if(!can_open(forced))
 
 		return 0
-	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
+	use_power_oneoff(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 
 	//if the door is unpowered then it doesn't make sense to hear the woosh of a pneumatic actuator
 	if(!forced && arePowerSystemsOn())
@@ -1565,7 +1588,7 @@ About the new airlock wires panel:
 				has_opened_hatch = TRUE
 			else if(AM.airlock_crush(DOOR_CRUSH_DAMAGE))
 				take_damage(DOOR_CRUSH_DAMAGE)
-	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
+	use_power_oneoff(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
 	if(arePowerSystemsOn())
 		playsound(src.loc, close_sound_powered, 100, 1)
 	else

@@ -233,13 +233,13 @@
 	name = "Zoom Pill"
 	desc = "Zoooom!"
 	icon_state = "pill18"
-	reagents_to_add = list(/decl/reagent/impedrezene = 10, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5)
+	reagents_to_add = list(/decl/reagent/impedrezene = 5, /decl/reagent/synaptizine = 5, /decl/reagent/hyperzine = 5)
 
-obj/item/reagent_containers/pill/tranquility
-	name = "Tranquility Pill"
+obj/item/reagent_containers/pill/joy
+	name = "Joy Pill"
 	desc = "Peace, at last."
 	icon_state = "pill8"
-	reagents_to_add = list(/decl/reagent/mental/neurapan = 15, /decl/reagent/impedrezene = 10)
+	reagents_to_add = list(/decl/reagent/joy = 5)
 
 /obj/item/reagent_containers/pill/thetamycin
 	name = "15u Thetamycin Pill"
@@ -269,3 +269,9 @@ obj/item/reagent_containers/pill/tranquility
 	desc = "Used to treat coughing, sneezing and itching."
 	icon_state = "pill19"
 	reagents_to_add = list(/decl/reagent/cetahydramine = 5)
+
+/obj/item/reagent_containers/pill/skrell_nootropic
+	name = "5u Co'qnixq Wuxi Pill"
+	desc = "Used to treat dementia."
+	icon_state = "pill8"
+	reagents_to_add = list(/decl/reagent/skrell_nootropic = 5)

@@ -82,8 +82,8 @@
 			updateUsrDialog()
 		else if(giver)
 			to_chat(user, "<span class='warning'>There is already ID card inside.</span>")
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/machinery/computer/guestpass/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))

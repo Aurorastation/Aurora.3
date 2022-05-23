@@ -146,11 +146,18 @@
 	)
 
 /obj/item/storage/box/syndie_kit/special_pens
-	name = "box (P)"
+	name = "penjector kit"
 	starts_with = list(
 		/obj/item/pen/reagent/healing = 1,
 		/obj/item/pen/reagent/pacifier = 1,
 		/obj/item/pen/reagent/hyperzine = 1
+	)
+
+/obj/item/storage/box/syndie_kit/parapen
+	name = "parapen kit"
+	starts_with = list(
+		/obj/item/pen/reagent/paralysis = 1,
+		/obj/item/pen/reagent/purge = 1
 	)
 
 /obj/item/storage/box/syndie_kit/spy

@@ -276,6 +276,8 @@
 					to_chat(src, "<span class='warning'>You feel strange!</span>")
 					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
 					emote("gasp")
+				hallucination = max(hallucination, 20) //At this level, you're in a constant state of low-level hallucinations. As if you didn't have enough problems.
+
 
 			if(damage)
 				adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
@@ -626,6 +628,25 @@
 				if(prob(2))
 					to_chat(src, SPAN_WARNING(pick("The itch is becoming progressively worse.", "You need to scratch that itch!", "The itch isn't going!")))
 
+		if(CE_HAUNTED in chem_effects)
+			var/haunted = chem_effects[CE_HAUNTED]
+			if(haunted < 5)
+				if(prob(20))
+					set_see_invisible(SEE_INVISIBLE_CULT)
+				if(prob(5))
+					emote("shiver")
+					to_chat(src, SPAN_GOOD(pick("You hear the clinking of dinner plates and laughter.", "You hear a distant voice of someone you know talking to you.", "Fond memories of a departed loved one flocks to your mind.", "You feel the reassuring presence of a departed loved one.", "You feel a hand squeezing yours.")))
+			if(haunted >= 5)
+				set_see_invisible(SEE_INVISIBLE_CULT)
+				make_jittery(5)
+				if(prob(5))
+					visible_message("<b>[src]</b> trembles uncontrollably.", "<span class='warning'>You tremble uncontrollably.</span>")
+					to_chat(src, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
+			if(haunted >= 10)
+				if(prob(5))
+					emote(pick("shiver", "twitch"))
+					to_chat(src, SPAN_CULT(pick("You feel a cold and threatening air wrapping around you.", "Whispering shadows, ceaseless in their demands, twist your thoughts...", "The whispering, anything to make them stop!", "Your head spins amid the cacophony of screaming, wailing and maniacal laughter of distant loved ones.", "You feel vestiges of decaying souls cling to you, trying to re-enter the world of the living.")))
+
 		sprint_speed_factor = species.sprint_speed_factor
 		max_stamina = species.stamina
 		stamina_recovery = species.stamina_recovery
@@ -900,8 +921,7 @@
 
 				var/no_damage = 1
 				var/trauma_val = 0 // Used in calculating softcrit/hardcrit indicators.
-				if(can_feel_pain())
-					trauma_val = max(shock_stage,get_shock())/(species.total_health-100)
+				trauma_val = max(shock_stage,get_shock())/(species.total_health-100)
 				// Collect and apply the images all at once to avoid appearance churn.
 				var/list/health_images = list()
 				for(var/obj/item/organ/external/E in organs)
@@ -1331,6 +1351,8 @@
 			reset_view(null)
 	else
 		var/isRemoteObserve = 0
+		if(z_eye && client?.eye == z_eye && !is_physically_disabled())
+			isRemoteObserve = 1
 		if((mRemote in mutations) && remoteview_target)
 			if(remoteview_target.stat==CONSCIOUS)
 				isRemoteObserve = 1
@@ -1369,7 +1391,8 @@
 	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
 		return
 
-	if (failed_last_breath || (getOxyLoss() + get_shock()) > exhaust_threshold)//Can't catch our breath if we're suffocating
+	var/shock = get_shock() // used again later for stamina regeneration
+	if (failed_last_breath || (getOxyLoss() + shock) > exhaust_threshold)//Can't catch our breath if we're suffocating
 		flash_pain(getOxyLoss()/2)
 		return
 
@@ -1386,7 +1409,7 @@
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
-		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + ((get_shock()) / exhaust_threshold), 1))
+		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + (shock / exhaust_threshold), 1))
 		if(is_drowsy())
 			regen *= 0.85
 		if (regen > 0)
@@ -1440,11 +1463,11 @@
 			bodytemperature = min(bodytemperature + fever, normal_temp)
 		else if(bodytemperature <= normal_temp + 10) //If we're hotter than max due to like, being on fire, don't keep increasing.
 			bodytemperature = normal_temp + min(fever, 10) //We use normal_temp here to maintain a steady temperature, otherwise even a small infection steadily increases bodytemp to max. This way it's easier to diagnose the intensity of an infection based on how bad the fever is.
-	//Apply side effects for having a fever. Separate from body temp changes. 
+	//Apply side effects for having a fever. Separate from body temp changes.
 	if(fever >= 2)
 		do_fever_effects(fever)
 
-		
+
 //Getting the total germ level for all infected organs, affects fever
 /mob/living/carbon/human/proc/get_infection_germ_level()
 	var/germs

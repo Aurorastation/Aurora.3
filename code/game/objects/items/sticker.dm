@@ -16,7 +16,7 @@
 		icon_state = pick(rand_icons)
 
 /obj/item/sticker/attack_hand(mob/user)
-	if(!attached)
+	if(!isliving(user) || !attached)
 		return ..()
 
 	if(user.a_intent == I_HELP)
@@ -42,6 +42,7 @@
 	var/atom/movable/attached_atom = attached.resolve()
 	if(attached_atom)
 		attached_atom.attackby(I, user) // don't allow people to make sticker armor
+		return TRUE
 
 /obj/item/sticker/afterattack(atom/movable/target, mob/user, proximity_flag, click_parameters)
 	if(!proximity_flag)
@@ -87,6 +88,8 @@
 	set name = "Remove Sticker"
 	set src in view(1)
 
+	if(!isliving(usr))
+		return
 	var/obj/item/sticker/S = locate() in src
 	if(S)
 		S.remove_sticker(usr)

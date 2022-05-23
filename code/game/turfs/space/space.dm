@@ -34,7 +34,7 @@
 	initialized = TRUE
 
 	for(var/atom/movable/AM as mob|obj in src)
-		src.Entered(AM)
+		src.Entered(AM, AM.loc)
 
 	turfs += src
 
@@ -62,17 +62,15 @@
 
 	return 0
 
-/turf/space/proc/update_starlight()
-	if(config.starlight)
-		for (var/T in RANGE_TURFS(1, src))
-			if (istype(T, /turf/space))
-				continue
-
-			set_light(config.starlight)
-			return
-
-		if (light_range)
-			set_light(0)
+/turf/space/proc/update_starlight(var/validate = TRUE)
+	if(!config.starlight)
+		return
+	if(!validate) // basically a hack for places where the check was already done for us
+		set_light(1, config.starlight)
+	else if(locate(/turf/simulated) in RANGE_TURFS(1, src))
+		set_light(1, config.starlight)
+	else
+		set_light(0)
 
 /turf/space/attackby(obj/item/C as obj, mob/user as mob)
 
@@ -109,7 +107,7 @@
 	if(movement_disabled)
 		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
-	..()
+	..(A, A.loc)
 	if ((!(A) || src != A.loc))	return
 
 	inertial_drift(A)
@@ -208,3 +206,6 @@
 
 /turf/space/ChangeTurf(var/turf/N, var/tell_universe=TRUE, var/force_lighting_update = FALSE, keep_air = FALSE)
 	return ..(N, tell_universe, TRUE, keep_air)
+
+/turf/space/is_open()
+	return TRUE

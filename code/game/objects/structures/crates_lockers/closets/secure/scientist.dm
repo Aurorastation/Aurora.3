@@ -1,12 +1,7 @@
 /obj/structure/closet/secure_closet/scientist
 	name = "scientist's locker"
 	req_access = list(access_tox_storage)
-	icon_state = "secureres1"
-	icon_closed = "secureres"
-	icon_locked = "secureres1"
-	icon_opened = "secureresopen"
-	icon_broken = "secureresbroken"
-	icon_off = "secureresoff"
+	icon_state = "science"
 
 /obj/structure/closet/secure_closet/scientist/fill()
 	new /obj/item/clothing/under/rank/scientist(src)
@@ -21,19 +16,12 @@
 /obj/structure/closet/secure_closet/RD
 	name = "research director's locker"
 	req_access = list(access_rd)
-	icon_state = "rdsecure1"
-	icon_closed = "rdsecure"
-	icon_locked = "rdsecure1"
-	icon_opened = "rdsecureopen"
-	icon_broken = "rdsecurebroken"
-	icon_off = "rdsecureoff"
+	icon_state = "rd"
 
 /obj/structure/closet/secure_closet/RD/fill()
 	new /obj/item/clothing/suit/bio_suit/scientist(src)
 	new /obj/item/clothing/head/bio_hood/scientist(src)
 	new /obj/item/clothing/under/rank/research_director(src)
-	new /obj/item/clothing/under/rank/research_director/rdalt(src)
-	new /obj/item/clothing/under/rank/research_director/dress_rd(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/shoes/science(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)
@@ -52,17 +40,10 @@
 /obj/structure/closet/secure_closet/RD2
 	name = "research director's attire"
 	req_access = list(access_rd)
-	icon_state = "rdsecure1"
-	icon_closed = "rdsecure"
-	icon_locked = "rdsecure1"
-	icon_opened = "rdsecureopen"
-	icon_broken = "rdsecurebroken"
-	icon_off = "rdsecureoff"
+	icon_state = "rd"
 
 /obj/structure/closet/secure_closet/RD2/fill()
 	new /obj/item/clothing/under/rank/research_director(src)
-	new /obj/item/clothing/under/rank/research_director/rdalt(src)
-	new /obj/item/clothing/under/rank/research_director/dress_rd(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/shoes/science(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)

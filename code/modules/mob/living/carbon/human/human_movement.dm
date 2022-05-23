@@ -17,9 +17,9 @@
 	if(health_deficiency >= 40)
 		tally += (health_deficiency / 25)
 
-	if(can_feel_pain())
-		if(get_shock() >= 10)
-			tally += (get_shock() / 30) //pain shouldn't slow you down if you can't even feel it
+	var/shock = get_shock()
+	if(shock >= 10)
+		tally += (shock / 30) //get_shock checks if we can feel pain
 
 	tally += ClothesSlowdown()
 
@@ -146,6 +146,10 @@
 			return
 		last_x = x
 		last_y = y
+		if(shoes)
+			var/obj/item/clothing/shoes/S = shoes
+			if(S.do_special_footsteps(m_intent))
+				return
 		if (m_intent == M_RUN)
 			playsound(src, is_noisy ? footsound : species.footsound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else

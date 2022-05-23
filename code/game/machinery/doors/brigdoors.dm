@@ -44,11 +44,11 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/door_timer/LateInitialize()
-	for(var/obj/machinery/door/window/brigdoor/M in SSmachinery.all_machines)
+	for(var/obj/machinery/door/window/brigdoor/M in SSmachinery.machinery)
 		if (M.id == src.id)
 			targets += M
 
-	for(var/obj/machinery/flasher/F in SSmachinery.all_machines)
+	for(var/obj/machinery/flasher/F in SSmachinery.machinery)
 		if(F.id == src.id)
 			targets += F
 
@@ -60,11 +60,19 @@
 		stat |= BROKEN
 	update_icon()
 
+/obj/machinery/door_timer/examine(mob/user)
+	. = ..()
+	if(stat & (NOPOWER|BROKEN))	return
+	
+	if(src.timing)
+		var/second = round(timeleft() % 60)
+		var/minute = round((timeleft() - second) / 60)
+		to_chat(user, "Time remaining: [minute]:[second]")
 
 //Main door timer loop, if it's timing and time is >0 reduce time by 1.
 // if it's less than 0, open door, reset timer
 // update the door_timer window and the icon
-/obj/machinery/door_timer/machinery_process()
+/obj/machinery/door_timer/process()
 	if(stat & (NOPOWER|BROKEN))	return
 
 	if(src.timing)
@@ -109,7 +117,7 @@
 		if(C.broken)	continue
 		if(C.opened && !C.close())	continue
 		C.locked = 1
-		C.icon_state = C.icon_locked
+		C.update_icon()
 
 	timing = 1
 
@@ -139,7 +147,7 @@
 		if(C.opened)
 			continue
 		C.locked = 0
-		C.icon_state = C.icon_closed
+		C.update_icon()
 
 	if(broadcast)
 		broadcast_security_hud_message("The timer for [id] has expired.", src)
@@ -282,12 +290,12 @@
 				src.updateUsrDialog()
 		else
 			to_chat(user,  "<span class='alert'>\The [src] buzzes, \"There's already an active sentence!\"</span>")
-		return
+		return TRUE
 	else if( istype( O, /obj/item/paper ))
 		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\"</span>")
-		return
+		return TRUE
 
-	..()
+	return ..()
 
 /obj/machinery/door_timer/proc/import( var/obj/item/paper/incident/I, var/user )
 	if( !istype( I ))

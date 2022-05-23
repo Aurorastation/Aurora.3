@@ -52,7 +52,7 @@
 /obj/structure/window/update_icon()
 	queue_smooth(src)
 
-/obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1)
+/obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
 	var/initialhealth = health
 
 	if(silicate)
@@ -61,18 +61,21 @@
 	health = max(0, health - damage)
 
 	if(health <= 0)
-		shatter()
+		shatter(message)
 	else
 		if(sound_effect)
 			playsound(loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
-			visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
+			if(message)
+				visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
 			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
-			visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
+			if(message)
+				visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
 			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
-			visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
+			if(message)
+				visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
 			playsound(loc, /decl/sound_category/glasscrack_sound, 100, 1)
 	return
 
@@ -143,7 +146,7 @@
 				shatter(0)
 				return
 			else
-				take_damage(rand(10,30))
+				take_damage(rand(10,30), TRUE, FALSE)
 
 //TODO: Make full windows a separate type of window.
 //Once a full window, it will always be a full window, so there's no point
@@ -457,6 +460,7 @@
 	dir = 5
 	smooth = SMOOTH_TRUE
 	can_be_unanchored = TRUE
+	layer = 2.99
 
 /obj/structure/window/shuttle/legion
 	name = "cockpit window"
@@ -479,13 +483,6 @@
 		/obj/structure/window/shuttle/skrell
 	)
 
-/obj/structure/window/shuttle/scc
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
-	icon_state = "scc_window"
-	basestate = "scc_window"
-	health = 160
-	maxhealth = 160
-	smooth = 0
 
 /obj/structure/window/shuttle/scc_space_ship
 	name = "window"
@@ -503,12 +500,9 @@
 	smooth = SMOOTH_MORE
 
 /obj/structure/window/shuttle/scc
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
-	icon_state = "scc_window"
-	basestate = "scc_window"
+	icon = 'icons/obj/smooth/scc_shuttle_window.dmi'
 	health = 160
 	maxhealth = 160
-	smooth = 0
 
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."
@@ -559,7 +553,7 @@
 	toggle_tint()
 
 /obj/machinery/button/switch/windowtint/proc/toggle_tint()
-	use_power(5)
+	use_power_oneoff(5)
 
 	active = !active
 	update_icon()
@@ -588,12 +582,6 @@
 	reinf = TRUE
 	maximal_heat = T0C + 750
 	dir = 5
-	smooth = SMOOTH_MORE
-	canSmoothWith = list(
-		/obj/structure/window/full,
-		/turf/simulated/wall,
-		/turf/unsimulated/wall
-	)
 	damage_per_fire_tick = 2.0
 	can_be_unanchored = TRUE
 	glasstype = /obj/item/stack/material/glass/reinforced

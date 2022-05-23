@@ -120,9 +120,10 @@
 			M.playsound_to(source_turf, S, use_random_freq = use_random_freq, use_pressure = use_pressure, modify_environment = modify_environment)
 
 /proc/playsound_lineofsight(atom/source, sound/S, use_random_freq = FALSE, use_pressure = TRUE, modify_environment = TRUE, required_preferences = 0, required_asfx_toggles = 0)
-	var/list/mobs = get_mobs_or_objects_in_view(world.view, source, include_objects = FALSE)
-
 	var/turf/source_turf = get_turf(source)
+	var/list/mobs = list()
+	var/list/objs = list()
+	get_mobs_or_objs_in_view(source_turf, world.view, mobs, objs, ONLY_GHOSTS_IN_VIEW)
 
 	for (var/MM in mobs)
 		var/mob/M = MM
@@ -230,6 +231,9 @@
 /mob/proc/playsound_simple(source, soundin, volume, use_random_freq = FALSE, frequency = 0, falloff = 0, use_pressure = TRUE, required_preferences = 0, required_asfx_toggles = 0)
 	var/sound/S = playsound_get_sound(soundin, volume, falloff, frequency)
 	return playsound_to(source ? get_turf(source) : null, S, use_random_freq, use_pressure = use_pressure, required_preferences = required_preferences, required_asfx_toggles = required_asfx_toggles)
+
+/proc/playsound_in(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0, frequency = 0, time)
+	addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, source, soundin, vol, vary, extrarange, falloff, is_global, usepressure, environment, required_preferences, required_asfx_toggles, frequency), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
 
 /client/proc/playtitlemusic()
 	if(!SSticker.login_music)
@@ -564,6 +568,12 @@
 		'sound/items/wield/generic3.ogg'
 	)
 
+/decl/sound_category/generic_pour_sound
+	sounds = list(
+		'sound/effects/pour1.ogg',
+		'sound/effects/pour2.ogg'
+	)
+
 /decl/sound_category/wield_generic_sound
 	sounds = list(
 		'sound/items/wield/generic1.ogg',
@@ -682,6 +692,22 @@
 	'sound/weapons/laserdeep.ogg',
 	'sound/weapons/laserstrong.ogg'
 )
+
+/decl/sound_category/shaker_shaking
+	sounds = list(
+		'sound/items/shaking1.ogg',
+		'sound/items/shaking2.ogg',
+		'sound/items/shaking3.ogg',
+		'sound/items/shaking4.ogg',
+		'sound/items/shaking5.ogg',
+		'sound/items/shaking6.ogg'
+	)
+
+/decl/sound_category/shaker_lid_off
+	sounds = list(
+		'sound/items/shaker_lid_off1.ogg',
+		'sound/items/shaker_lid_off2.ogg'
+	)
 
 /decl/sound_category/quick_arcade // quick punchy arcade sounds
 	sounds = list(

@@ -157,6 +157,7 @@
 	banners["banner, Elyra"] = /obj/item/flag/elyra
 	banners["banner, Hegemony"] = /obj/item/flag/hegemony
 	banners["banner, Jargon"] = /obj/item/flag/jargon
+	banners["banner, Traverse"] = /obj/item/flag/traverse
 	banners["banner, NanoTrasen"] = /obj/item/flag/nanotrasen
 	banners["banner, Eridani Fed"] = /obj/item/flag/eridani
 	banners["banner, Sedantis"] = /obj/item/flag/vaurca
@@ -206,6 +207,7 @@
 	flags["flag, Elyra"] = /obj/item/flag/elyra/l
 	flags["flag, Hegemony"] = /obj/item/flag/hegemony/l
 	flags["flag, Jargon"] = /obj/item/flag/jargon/l
+	flags["flag, Traverse"] = /obj/item/flag/traverse/l
 	flags["flag, NanoTrasen"] = /obj/item/flag/nanotrasen/l
 	flags["flag, Eridani Fed"] = /obj/item/flag/eridani/l
 	flags["flag, Sedantis"] = /obj/item/flag/vaurca/l
@@ -326,3 +328,9 @@
 /datum/gear/gadbook
 	display_name = "gadpathurian morale manual"
 	path = /obj/item/device/litanybook/gadpathur
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
+
+/datum/gear/aurora_miniature
+	display_name = "aurora miniature"
+	description = "A commemorative miniature of the NSS Aurora."
+	path = /obj/item/toy/aurora

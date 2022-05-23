@@ -30,6 +30,7 @@
 	spawn_flags = CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS | HAS_SKIN_PRESET
 	remains_type = /obj/effect/decal/remains/human
+	dust_remains_type = /obj/effect/decal/remains/human/burned
 
 	stamina = 130	// Humans can sprint for longer than any other species
 	stamina_recovery = 5
@@ -41,6 +42,14 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/tie_hair)
+
+	possible_cultures = list(
+		/decl/origin_item/culture/biesellite,
+		/decl/origin_item/culture/solarian,
+		/decl/origin_item/culture/dominia,
+		/decl/origin_item/culture/coalition,
+		/decl/origin_item/culture/elyran
+	)
 
 	zombie_type = SPECIES_ZOMBIE
 	base_color = "#25032"
@@ -66,7 +75,7 @@
 		var/maxdam = 0
 		var/obj/item/organ/external/damaged_organ = null
 		for(var/obj/item/organ/external/E in H.organs)
-			if(!E.can_feel_pain())
+			if(!ORGAN_CAN_FEEL_PAIN(E))
 				continue
 			var/dam = E.get_damage()
 			// make the choice of the organ depend on damage,

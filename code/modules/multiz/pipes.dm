@@ -62,7 +62,7 @@
 		invisibility = i ? 101 : 0
 	queue_icon_update()
 
-/obj/machinery/atmospherics/pipe/zpipe/machinery_process()
+/obj/machinery/atmospherics/pipe/zpipe/process()
 	if(!parent) //This should cut back on the overhead calling build_network thousands of times per cycle
 		..()
 	else
@@ -287,3 +287,8 @@
 	color = PIPE_COLOR_BLUE
 /obj/machinery/atmospherics/pipe/zpipe/down/blue
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/zpipe/up/purple
+	color = PIPE_COLOR_PURPLE
+/obj/machinery/atmospherics/pipe/zpipe/down/purple
+	color = PIPE_COLOR_PURPLE

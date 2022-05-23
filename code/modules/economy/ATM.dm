@@ -20,7 +20,6 @@ log transactions
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "atm"
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 10
 	var/datum/money_account/authenticated_account
 	var/number_incorrect_tries = 0
@@ -64,7 +63,7 @@ log transactions
 		var/mutable_appearance/card_overlay = mutable_appearance(icon, "atm-cardin", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(card_overlay)
 
-/obj/machinery/atm/machinery_process()
+/obj/machinery/atm/process()
 	if(stat & NOPOWER)
 		cut_overlays()
 		set_light(FALSE)

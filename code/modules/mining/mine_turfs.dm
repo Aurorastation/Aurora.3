@@ -131,7 +131,10 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj, /obj/item/projectile/beam/plasmacutter))
 		var/obj/item/projectile/beam/plasmacutter/PC_beam = Proj
-		. = PC_beam.pass_check(src)
+		var/list/cutter_results = PC_beam.pass_check(src)
+		. = cutter_results[1]
+		if(cutter_results[2]) // the cutter mined the turf, just pass on
+			return
 
 	// Emitter blasts
 	if(istype(Proj, /obj/item/projectile/beam/emitter))
@@ -477,10 +480,21 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 8,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
+		ORE_SILVER = 2
+	)
+	var/mineralChance = 55
+
+/turf/simulated/mineral/random/phoron
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 2,
+		ORE_PLATINUM = 2,
+		ORE_IRON = 8,
+		ORE_COAL = 8,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 2,
 		ORE_SILVER = 2,
 		ORE_PHORON = 5
 	)
-	var/mineralChance = 55
 
 /turf/simulated/mineral/random/Initialize()
 	if(prob(mineralChance) && !mineral)
@@ -499,12 +513,34 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 2,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
-		ORE_SILVER = 2,
-		ORE_PHORON = 3
+		ORE_SILVER = 2
 	)
 	mineralChance = 55
 
+/turf/simulated/mineral/random/high_chance/phoron
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 2,
+		ORE_PLATINUM = 2,
+		ORE_IRON = 2,
+		ORE_COAL = 2,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 2,
+		ORE_SILVER = 2
+	)
+
 /turf/simulated/mineral/random/higher_chance
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 3,
+		ORE_PLATINUM = 3,
+		ORE_IRON = 1,
+		ORE_COAL = 1,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 3,
+		ORE_SILVER = 3
+	)
+	mineralChance = 75
+
+/turf/simulated/mineral/random/higher_chance/phoron
 	mineralSpawnChanceList = list(
 		ORE_URANIUM = 3,
 		ORE_PLATINUM = 3,
@@ -515,7 +551,6 @@ var/list/mineral_can_smooth_with = list(
 		ORE_SILVER = 3,
 		ORE_PHORON = 2
 	)
-	mineralChance = 75
 
 /turf/simulated/mineral/attack_hand(var/mob/user)
 	add_fingerprint(user)

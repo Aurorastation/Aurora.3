@@ -67,6 +67,7 @@
 #define FLOATING_MESSAGES 0x10
 #define HOTKEY_DEFAULT 0x20
 #define FULLSCREEN_MODE 0x40
+#define ACCENT_TAG_TEXT 0x80
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC|CHAT_GHOSTLOOC)
 
@@ -480,6 +481,11 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define COOK_CHECK_EXTRA	0
 #define COOK_CHECK_EXACT	1
 
+// Moved from tanks/tanks.dm
+#define TANK_MAX_RELEASE_PRESSURE 		(3*ONE_ATMOSPHERE)
+#define TANK_DEFAULT_RELEASE_PRESSURE 	24 // kPa
+#define TANK_IDEAL_PRESSURE 			1015 //Arbitrary.
+
 #define STATION_TAG "Aurora"
 
 //Planet habitability class
@@ -495,3 +501,5 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 
 //Ruin map template flags
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it.
+
+#define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets

@@ -183,15 +183,15 @@ LINEN BINS
 			to_chat(user, SPAN_NOTICE("You poke eyeholes in \the [src]!"))
 			new /obj/item/bedsheet/costume(get_turf(src))
 			qdel(src)
-		return
+		return TRUE
 	else if(is_sharp(I))
 		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up \the [src] with \the [I]."), SPAN_NOTICE("You begin cutting up \the [src] with \the [I]."))
 		if(do_after(user, 50 / I.toolspeed))
 			to_chat(user, SPAN_NOTICE("You cut \the [src] into pieces!"))
 			new /obj/item/stack/material/cloth(get_turf(src), rand(2, 5))
 			qdel(src)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/bedsheet/grey
 	icon_state = "sheetgrey"
@@ -269,14 +269,14 @@ LINEN BINS
 	icon_state = "sheetcmo"
 	item_state = "sheetcmo"
 
-/obj/item/bedsheet/qm
-	name = "quartermaster's bedsheet"
+/obj/item/bedsheet/operation_manager
+	name = "operation manager's bedsheet"
 	desc = "It is decorated with a crate emblem in silver lining.  It's rather tough, and just the thing to lie on after a hard day of pushing paper."
 	icon_state = "sheetqm"
 	item_state = "sheetqm"
 
-/obj/item/bedsheet/hop
-	name = "head of personnel's bedsheet"
+/obj/item/bedsheet/xo
+	name = "executive officer's bedsheet"
 	desc = "It is decorated with a key emblem. For those rare moments when you can rest and cuddle with Ian without someone screaming for you over the radio."
 	icon_state = "sheethop"
 	item_state = "sheethop"

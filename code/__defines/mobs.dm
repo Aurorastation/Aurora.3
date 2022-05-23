@@ -145,6 +145,7 @@
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
 #define BP_AUG_TOOL         "retractable combitool"
 #define BP_AUG_PEN          "retractable combipen"
+#define BP_AUG_CYBORG_ANALYZER    "retractable cyborg analyzer"
 #define BP_AUG_LIGHTER      "retractable lighter"
 #define BP_AUG_HEALTHSCAN   "integrated health scanner"
 #define BP_AUG_GUSTATORIAL   "integrated gustatorial centre"
@@ -203,7 +204,7 @@
 #define APPEARANCE_FACIAL_HAIR 				64
 #define APPEARANCE_FACIAL_HAIR_COLOR 		128
 #define APPEARANCE_EYE_COLOR 				256
-#define APPEARANCE_ACCENT					512
+#define APPEARANCE_CULTURE					512
 #define APPEARANCE_LANGUAGE					1024
 #define APPEARANCE_ALL						65535
 #define APPEARANCE_ALL_HAIR					(APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
@@ -245,7 +246,7 @@
 
 #define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR)
 
-// Defines the argument used for get_mobs_and_objs_in_view_fast
+// Defines the argument used for get_mobs_or_objs_in_view
 #define GHOSTS_ALL_HEAR 1
 #define ONLY_GHOSTS_IN_VIEW 0
 

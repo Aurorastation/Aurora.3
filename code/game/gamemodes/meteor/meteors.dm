@@ -1,62 +1,4 @@
-//Meteor groups, used for various random events and the Meteor gamemode.
-
-// Dust, used by space dust event and during earliest stages of meteor mode.
-/var/list/meteors_dust = list(/obj/effect/meteor/dust)
-
-// Standard meteors, used during early stages of the meteor gamemode.
-/var/list/meteors_normal = list(\
-		/obj/effect/meteor/medium=8,\
-		/obj/effect/meteor/dust=3,\
-		/obj/effect/meteor/irradiated=3,\
-		/obj/effect/meteor/big=3,\
-		/obj/effect/meteor/flaming=1,\
-		/obj/effect/meteor/golden=1,\
-		/obj/effect/meteor/silver=1\
-		)
-
-// Threatening meteors, used during the meteor gamemode.
-/var/list/meteors_threatening = list(\
-		/obj/effect/meteor/big=10,\
-		/obj/effect/meteor/medium=5,\
-		/obj/effect/meteor/golden=3,\
-		/obj/effect/meteor/silver=3,\
-		/obj/effect/meteor/flaming=3,\
-		/obj/effect/meteor/irradiated=3,\
-		/obj/effect/meteor/emp=3\
-		)
-
-// Catastrophic meteors, pretty dangerous without shields and used during the meteor gamemode.
-/var/list/meteors_catastrophic = list(\
-		/obj/effect/meteor/big=75,\
-		/obj/effect/meteor/flaming=10,\
-		/obj/effect/meteor/irradiated=10,\
-		/obj/effect/meteor/emp=10,\
-		/obj/effect/meteor/medium=5,\
-		/obj/effect/meteor/golden=4,\
-		/obj/effect/meteor/silver=4
-		)
-
-// Armageddon meteors, very dangerous, and currently used only during the meteor gamemode.
-/var/list/meteors_armageddon = list(\
-		/obj/effect/meteor/big=25,\
-		/obj/effect/meteor/flaming=10,\
-		/obj/effect/meteor/irradiated=10,\
-		/obj/effect/meteor/emp=10,\
-		/obj/effect/meteor/medium=3,\
-		/obj/effect/meteor/golden=2,\
-		/obj/effect/meteor/silver=2\
-		)
-
-// Cataclysm meteor selection. Very very dangerous and effective even against shields. Used in late game meteor gamemode only.
-/var/list/meteors_cataclysm = list(\
-		/obj/effect/meteor/big=40,\
-		/obj/effect/meteor/emp=20,\
-		/obj/effect/meteor/irradiated=10,\
-		/obj/effect/meteor/golden=10,\
-		/obj/effect/meteor/silver=10,\
-		/obj/effect/meteor/flaming=10,\
-		/obj/effect/meteor/supermatter=1\
-		)
+//Meteor groups, used for the Meteor gamemode.
 
 /proc/spawn_meteors(var/number = 10, var/list/meteortypes, var/startSide, var/zlevel)
 	for(var/i = 0; i < number; i++)
@@ -117,7 +59,7 @@
 	icon_state = "large"
 	density = TRUE
 	anchored = TRUE
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 
 	var/hits = 4
 	var/hitpwr = 2 //Level of ex_act to be called on hit.
@@ -181,8 +123,8 @@
 /obj/effect/meteor/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/pickaxe))
 		qdel(src)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/effect/meteor/proc/make_debris()
 	for(var/throws = dropamt, throws > 0, throws--)
@@ -221,7 +163,7 @@
 /obj/effect/meteor/dust
 	name = "space dust"
 	icon_state = "dust"
-	pass_flags = PASSTABLE | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
 	meteor_loot = list(/obj/item/ore/glass)
 	dropamt = 1
 

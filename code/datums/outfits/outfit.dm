@@ -167,10 +167,6 @@
 		else
 			equip_item(H, back, slot_back)
 
-	if(istype(H.back,/obj/item/storage/backpack))
-		var/obj/item/storage/backpack/B = H.back
-		B.autodrobe_no_remove = TRUE
-
 	if(allow_headset_choice)
 		switch(H.headset_choice)
 			if (OUTFIT_NOTHING)
@@ -185,15 +181,15 @@
 			else
 				l_ear = headset //Department headset
 	if(l_ear)
-		equip_item(H, l_ear, slot_l_ear, TRUE)
+		equip_item(H, l_ear, slot_l_ear)
 	else if (wrist)
-		equip_item(H, wrist, slot_wrists, TRUE)
+		equip_item(H, wrist, slot_wrists)
 
 	return
 
-// Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del. 
+// Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
 //override_collect temporarily allows equip_or_collect without enabling it for the job. Mostly used to prevent weirdness with hand equips when the player is missing one
-/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/set_no_remove = FALSE, var/override_collect = FALSE)
+/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE)
 	var/obj/item/I
 
 	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
@@ -207,9 +203,6 @@
 		I = G.spawn_random()
 	else
 		I = new path(H) //As fallback treat it as a path
-
-	if(set_no_remove)
-		I.autodrobe_no_remove = TRUE
 
 	if(collect_not_del || override_collect)
 		H.equip_or_collect(I, slot)
@@ -313,7 +306,7 @@
 	if(suit_store)
 		equip_item(H, suit_store, slot_s_store)
 
-	//Hand equips. If person is missing an arm or hand it attempts to put it in the other hand. 
+	//Hand equips. If person is missing an arm or hand it attempts to put it in the other hand.
 	//Override_collect should attempt to collect any items that can't be equipped regardless of collect_not_del settings for the outfit.
 	if(l_hand)
 		var/obj/item/organ/external/O
@@ -503,7 +496,7 @@
 	. = GetAssignment(H)
 
 	if (. && . != "Unassigned" && H?.mind?.selected_faction)
-		if (!H.mind.selected_faction.is_default && H.mind.selected_faction.title_suffix)
+		if (H.mind.selected_faction.title_suffix)
 			. += " ([H.mind.selected_faction.title_suffix])"
 
 /datum/outfit/proc/get_id_rank(mob/living/carbon/human/H)

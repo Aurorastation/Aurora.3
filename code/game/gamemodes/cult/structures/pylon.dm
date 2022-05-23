@@ -351,7 +351,7 @@
 		var/obj/item/holder/H = W
 		if(H.contained)
 			present_sacrifice(user, H.contained)
-		return
+		return TRUE
 
 	attackpylon(user, W.force, W)
 

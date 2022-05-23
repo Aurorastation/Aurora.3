@@ -61,12 +61,39 @@
 	augs["retractable lighter, left hand"] = /obj/item/organ/internal/augment/tool/combitool/lighter/left
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
+/datum/gear/augment/pen
+	display_name = "retractable pen"
+	description = "An augment that allows the user to deploy a retractable pen."
+	path = /obj/item/organ/internal/augment/tool/pen
+	cost = 1
+
+/datum/gear/augment/pen/New()
+	..()
+	var/list/augs = list()
+	augs["retractable pen, right hand"] = /obj/item/organ/internal/augment/tool/pen
+	augs["retractable pen, left hand"] = /obj/item/organ/internal/augment/tool/pen/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
 /datum/gear/augment/cochlear
 	display_name = "cochlear implant"
 	description = "A synthetic replacement for the structures within the ear, allowing the user to hear without requiring external tools."
 	path = /obj/item/organ/internal/augment/cochlear
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
 	cost = 3
+
+/datum/gear/augment/analyzer
+	display_name = "retractable cyborg analyzer"
+	description = "An augment that allows the user to deploy a retractable cyborg analyzer."
+	path = /obj/item/organ/internal/augment/tool/cyborg_analyzer
+	allowed_roles = list("Machinist")
+	cost = 3
+
+/datum/gear/augment/analyzer/New()
+	..()
+	var/list/augs = list()
+	augs["retractable cyborg analyzer, right hand"] = /obj/item/organ/internal/augment/tool/cyborg_analyzer
+	augs["retractable cyborg analyzer, left hand"] = /obj/item/organ/internal/augment/tool/cyborg_analyzer/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
 
 /datum/gear/augment/health_scanner
 	display_name = "integrated health scanner"
@@ -151,7 +178,7 @@
 	display_name = "retractable glare dampeners"
 	description = "A subdermal implant installed just above the brow line that deploys a thin sheath of hyperpolycarbonate that protects from eye damage associated with arc flash."
 	path = /obj/item/organ/internal/augment/tool/correctivelens/glare_dampener
-	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
+	allowed_roles = list("Chief Engineer", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist")
 	cost = 2
 
 /datum/gear/augment/head_fluff

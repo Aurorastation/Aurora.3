@@ -37,6 +37,7 @@
 
 /obj/item/clothing/shoes/magboots/rig/light
 	name = "shoes"
+	footstep_sound_override = null
 
 /obj/item/clothing/head/helmet/space/rig/light
 	name = "hood"

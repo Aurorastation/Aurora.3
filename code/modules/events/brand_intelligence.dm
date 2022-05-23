@@ -8,11 +8,11 @@
 
 
 /datum/event/brand_intelligence/announce()
-	command_announcement.Announce("Rampant brand intelligence has been detected aboard the [station_name()]. The origin is believed to be \a \"[initial(originMachine.name)]\" type. Infection of other machines is likely.", "[station_name()] Machine Monitoring" , new_sound = 'sound/AI/brandintelligence.ogg')
+	command_announcement.Announce("Rampant brand intelligence has been detected aboard the [location_name()]. The origin is believed to be \a \"[initial(originMachine.name)]\" type. Infection of other machines is likely.", "[station_name()] Machine Monitoring" , new_sound = 'sound/AI/brandintelligence.ogg')
 
 
 /datum/event/brand_intelligence/start()
-	for(var/obj/machinery/vending/V in SSmachinery.processing_machines)
+	for(var/obj/machinery/vending/V in SSmachinery.processing)
 		if(isNotStationLevel(V.z))	continue
 		vendingMachines.Add(V)
 

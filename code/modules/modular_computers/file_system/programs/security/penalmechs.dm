@@ -1,7 +1,7 @@
 /datum/computer_file/program/penal_mechs
 	filename = "penalrobotics"
 	filedesc = "Remote Penal Monitoring"
-	program_icon_state = "security"
+	program_icon_state = "sec"
 	extended_desc = "This program allows monitoring and control of active penal robotics."
 	required_access_run = access_armory
 	required_access_download = access_armory
@@ -35,7 +35,7 @@
 
 	// Gather data for computer header
 	data["_PC"] = get_header_data(data["_PC"])
-	
+
 	var/datum/signal/signal
 	signal = telecomms_process_active(user.loc.z)
 
@@ -136,6 +136,10 @@
 		A.eyeobj.setLoc(get_turf(C))
 		A.client.eye = A.eyeobj
 		return TRUE
+
+	if(!is_contact_area(get_area(C)))
+		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
+		return FALSE
 
 	set_current(C)
 	user.machine = ui_host()

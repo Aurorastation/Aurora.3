@@ -30,7 +30,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole
 	name = "R&D control console"
 
-	icon_screen = "rdcomp"
+	icon_screen = "sci"
 	light_color = "#a97faa"
 	circuit = /obj/item/circuitboard/rdconsole
 	var/datum/research/files							//Stores all the collected research data.
@@ -96,7 +96,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	return
 
 /obj/machinery/computer/rdconsole/proc/SyncTechs()
-	for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
+	for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
 		var/server_processed = 0
 		if((id in S.id_with_upload) || istype(S, /obj/machinery/r_n_d/server/centcom))
 			for(var/tech_id in files.known_tech)
@@ -111,7 +111,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	updateUsrDialog()
 
 /obj/machinery/computer/rdconsole/proc/griefProtection() //Have it automatically push research to the centcomm server so wild griffins can't fuck up R&D's work
-	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.all_machines)
+	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.machinery)
 		for(var/tech_id in files.known_tech)
 			var/datum/tech/T = files.known_tech[tech_id]
 			C.files.AddTech2Known(files.known_tech[T])
@@ -121,7 +121,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	..()
 	files = new /datum/research(src) //Setup the research data holder.
 	if(!id)
-		for(var/obj/machinery/r_n_d/server/centcom/S in SSmachinery.all_machines)
+		for(var/obj/machinery/r_n_d/server/centcom/S in SSmachinery.machinery)
 			S.setup()
 			break
 	SyncRDevices()
@@ -286,7 +286,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 									qdel(I)
 									linked_destroy.icon_state = "d_analyzer"
 
-						use_power(linked_destroy.active_power_usage)
+						use_power_oneoff(linked_destroy.active_power_usage)
 						screen = 1.0
 						updateUsrDialog()
 
@@ -863,7 +863,6 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	id = 1
 	req_access = list(access_robotics)
 	allow_analyzer = FALSE
-	allow_lathe = FALSE
 
 /obj/machinery/computer/rdconsole/core
 	name = "core R&D console"
