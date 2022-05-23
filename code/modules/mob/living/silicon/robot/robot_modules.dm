@@ -287,6 +287,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 	modules += new /obj/item/borg/rescue/mobility(src)
 	modules += new /obj/item/taperoll/medical(src)
+	modules += new /obj/item/auto_cpr/cyborg(src)
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
 	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
