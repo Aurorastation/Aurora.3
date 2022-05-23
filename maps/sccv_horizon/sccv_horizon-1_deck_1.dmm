@@ -3067,7 +3067,7 @@
 "ctz" = (
 /obj/structure/lattice/catwalk,
 /turf/space,
-/area/template_noop)
+/area/horizon/exterior)
 "ctI" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /obj/machinery/door/blast/shutters/open{
@@ -5987,7 +5987,7 @@
 /obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /turf/space,
-/area/template_noop)
+/area/horizon/exterior)
 "eMK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -22288,11 +22288,6 @@
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
-"snD" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/template_noop,
-/area/template_noop)
 "soD" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
@@ -26366,7 +26361,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "vHR" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -28153,7 +28148,7 @@
 /obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "xjq" = (
 /obj/structure/railing/mapped{
 	dir = 4
