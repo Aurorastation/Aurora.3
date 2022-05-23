@@ -304,15 +304,6 @@
 /area/shuttle/intrepid/cockpit 
 	name = "Cockpit"
 
-
-// Exterior
-/area/horizonexterior
-	name = "Exterior"
-	icon_state = "exterior"
-	has_gravity = FALSE
-	base_turf = /turf/space
-	station_area = TRUE
-
 //
 // Areas for the SCCV Horizon Map
 //
@@ -320,6 +311,17 @@
 	name = "Horizon (PARENT AREA - DON'T USE)"
 	icon_state = "unknown"
 	station_area = TRUE
+
+// Exterior
+/area/horizon/exterior
+	name = "Horizon - Exterior"
+	icon_state = "exterior"
+	base_turf = /turf/space
+	dynamic_lighting = TRUE
+	requires_power = FALSE
+	has_gravity = FALSE
+	no_light_control = TRUE
+	allow_nightmode = FALSE
 
 // Hallways
 /area/horizon/hallway

@@ -22,8 +22,6 @@
 	var/count = 0 //How ofen has this spawner been used
 	var/req_perms = null //What permission flags are required to use this spawner
 	var/req_perms_edit = R_ADMIN
-	var/req_head_whitelist = FALSE //If a head of staff whitelist is required
-	var/req_species_whitelist = null //Name/Datum of the species whitelist that is required, or null
 	var/enabled = TRUE //If the spawnpoint is enabled
 	var/enable_chance = null //If set to a value other than null, has the set chance to become enabled
 	var/enable_dmessage = TRUE //The message to send to deadchat if the ghostspawner is enabled or TRUE for a default message
@@ -63,16 +61,9 @@
 	if(loc_type == GS_LOC_ATOM && !length(spawn_atoms))
 		return "No spawn atoms available"
 
-	if(req_head_whitelist && !check_whitelist(user))
-		return "Missing Head of Staff Whitelist"
-
 	var/ban_reason = jobban_isbanned(user,jobban_job)
 	if(jobban_job && ban_reason)
 		return "[ban_reason]"
-
-	if(req_species_whitelist)
-		if(!is_alien_whitelisted(user, req_species_whitelist))
-			return "Missing Species Whitelist"
 
 	if(observers_only && !isobserver(user))
 		return "Observers Only"

@@ -42,6 +42,8 @@
 				L.update_icon()
 				break
 
+	AddComponent(/datum/component/turf_hand)
+
 	update_icon()
 
 /obj/structure/ladder/Destroy()
