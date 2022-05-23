@@ -20,6 +20,7 @@
 	)
 	ut_apc_exempt_areas = list()
 	ut_atmos_exempt_areas = list(/area/maintenance
+		,/area/horizon/maintenance
 		,/area/engineering/atmos/storage
 		,/area/server
 		,/area/tcommsat/chamber
@@ -37,6 +38,7 @@
 	)
 	ut_fire_exempt_areas = list(
 		/area/maintenance,
+		/area/horizon/maintenance,
 		/area/construction,
 		/area/bridge/aibunker,
 		/area/medical/cryo,
