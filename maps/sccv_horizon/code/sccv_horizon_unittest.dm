@@ -18,23 +18,26 @@
 		,/area/horizon/exterior
 		,/area/construction
 	)
+
 	ut_apc_exempt_areas = list()
-	ut_atmos_exempt_areas = list(/area/maintenance
-		,/area/horizon/maintenance
-		,/area/engineering/atmos/storage
-		,/area/server
-		,/area/tcommsat/chamber
-		,/area/bridge/aibunker
-		,/area/outpost/research/emergency_storage
-		,/area/medical/cryo
-		,/area/medical/surgery
-		,/area/turret_protected/ai
-		,/area/engineering/smes/tesla
-		,/area/tcommsat/mainlvl_tcomms__relay
-		,/area/tcommsat/mainlvl_tcomms__relay/second
-		,/area/rnd/isolation_a
-		,/area/rnd/isolation_b
-		,/area/rnd/isolation_c
+
+	ut_atmos_exempt_areas = list(
+		/area/maintenance,
+		/area/horizon/maintenance,
+		/area/engineering/atmos/storage,
+		/area/server,
+		/area/tcommsat/chamber,
+		/area/bridge/aibunker,
+		/area/outpost/research/emergency_storage,
+		/area/medical/cryo,
+		/area/medical/surgery,
+		/area/turret_protected/ai,
+		/area/engineering/smes/tesla,
+		/area/tcommsat/mainlvl_tcomms__relay,
+		/area/tcommsat/mainlvl_tcomms__relay/second,
+		/area/rnd/isolation_a,
+		/area/rnd/isolation_b,
+		/area/rnd/isolation_c
 	)
 	ut_fire_exempt_areas = list(
 		/area/maintenance,
@@ -50,6 +53,7 @@
 
 /datum/unit_test/zas_area_test/sccv_horizon
 	map_path = "sccv_horizon"
+
 /datum/unit_test/zas_area_test/sccv_horizon/storage
 	name = "ZAS: Operations Bay"
 	area_path = /area/operations/storage
