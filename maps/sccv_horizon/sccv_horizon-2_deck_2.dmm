@@ -24734,6 +24734,10 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "nyw" = (
@@ -25110,6 +25114,15 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics)
+"nJy" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/bar)
 "nJQ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -36960,6 +36973,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "uhE" = (
@@ -63651,7 +63665,7 @@ qvd
 vWX
 nxI
 bYY
-nxW
+nJy
 nxI
 feu
 aNL
