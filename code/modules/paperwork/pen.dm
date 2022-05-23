@@ -211,8 +211,16 @@ Pen exclusive commands
  */
 /obj/item/pen/reagent/paralysis
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/toxin/dextrotoxin = 10)
+	reagents_to_add = list(/decl/reagent/toxin/dextrotoxin = 10) //~~5 minutes worth of Dextrotoxin
+	icon_state = "pen_red"
+	colour = "red"
 
+/obj/item/pen/reagent/purge
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	reagents_to_add = list(/decl/reagent/fluvectionem = 5)
+	icon_state = "pen_green"
+	colour = "green"
+ 
 /obj/item/pen/reagent/healing
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
 	reagents_to_add = list(/decl/reagent/tricordrazine = 10, /decl/reagent/dermaline = 5, /decl/reagent/bicaridine = 5)

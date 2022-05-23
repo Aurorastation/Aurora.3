@@ -439,7 +439,7 @@
 	name = "secure hydroponics crate"
 	desc = "A crate with a lock on it, painted in the scheme of the station's botanists."
 	icon_state = "hydro_secure_crate"
-	req_one_access = list(access_hydroponics, access_xenobiology)
+	req_one_access = list(access_hydroponics, access_xenobotany)
 
 /obj/structure/closet/crate/secure/bin
 	name = "secure bin"

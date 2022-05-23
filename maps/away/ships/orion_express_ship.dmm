@@ -180,6 +180,7 @@
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 1
 	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "ccm" = (
@@ -424,6 +425,8 @@
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 1
 	},
+/obj/item/gun/energy/stunrevolver,
+/obj/item/gun/energy/blaster/carbine,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "goI" = (
@@ -610,6 +613,12 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_express_ship)
+"juh" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = -33
+	},
+/turf/simulated/floor/wood,
+/area/shuttle/orion_express_ship)
 "jEu" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
@@ -665,14 +674,13 @@
 /turf/simulated/floor/wood,
 /area/shuttle/orion_express_ship)
 "kYf" = (
-/obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/white,
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor,
 /area/shuttle/orion_express_ship)
 "lev" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/extinguisher_cartridges,
+/obj/structure/table/standard,
+/obj/item/device/hand_labeler,
+/obj/item/stack/packageWrap,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "lhC" = (
@@ -722,6 +730,23 @@
 /obj/item/reagent_containers/toothbrush/green,
 /obj/item/reagent_containers/toothpaste,
 /turf/simulated/floor/tiled/white,
+/area/shuttle/orion_express_ship)
+"mfi" = (
+/obj/structure/closet,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
+/obj/item/clothing/suit/storage/toggle/supply_dep_jacket,
+/obj/item/clothing/suit/storage/toggle/supply_dep_jacket,
+/obj/item/clothing/suit/storage/toggle/bomber,
+/obj/item/clothing/under/shorts/khaki,
+/obj/item/clothing/under/shorts/khaki/female,
+/obj/item/clothing/shoes/workboots/dark,
+/obj/item/clothing/shoes/workboots/toeless/dark,
+/obj/item/clothing/gloves/brown,
+/obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/accessory/bandanna,
+/obj/item/clothing/accessory/bandanna/black,
+/turf/simulated/floor/wood,
 /area/shuttle/orion_express_ship)
 "mkb" = (
 /turf/simulated/floor,
@@ -943,6 +968,7 @@
 /area/shuttle/orion_express_ship)
 "pxS" = (
 /obj/effect/floor_decal/corner_wide/beige/full,
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "pAh" = (
@@ -1094,12 +1120,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
 "tra" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(201)
-	},
-/obj/item/gun/energy/blaster/carbine,
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 4
+	},
+/obj/machinery/computer/ship/engines{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_express_ship)
@@ -31963,7 +31988,7 @@ riA
 riA
 hiw
 riA
-lev
+vUu
 ccm
 xwj
 ccm
@@ -32498,7 +32523,7 @@ riA
 gOy
 uaE
 uaE
-kYf
+pXP
 wmd
 wmd
 wmd
@@ -32734,7 +32759,7 @@ riA
 fnY
 mkb
 riA
-ccm
+lev
 ccm
 ccm
 xQS
@@ -32988,7 +33013,7 @@ xRX
 xRX
 xRX
 riA
-mkb
+kYf
 mkb
 riA
 riA
@@ -34296,7 +34321,7 @@ hZq
 riA
 riA
 riA
-uCl
+mfi
 wmd
 riA
 kPs
@@ -35582,7 +35607,7 @@ ccm
 pJZ
 riA
 dKJ
-wmd
+juh
 riA
 xRX
 xRX

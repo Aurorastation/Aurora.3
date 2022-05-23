@@ -207,7 +207,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] has no resource field to draw data from!"))
 			return
 		to_chat(user, SPAN_NOTICE("You start drawing the data from \the [src]..."))
-		if(do_after(user, 50, TRUE))
+		if(O.use_tool(src, user, 50, volume = 50))
 			if(!length(resource_field))
 				to_chat(user, SPAN_WARNING("\The [src] has no resource field to draw data from!"))
 				return
@@ -252,7 +252,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a satchel attached to it!"))
 			return
 		user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [attached_satchel]."), SPAN_NOTICE("You start detaching \the [attached_satchel]."))
-		if(do_after(user, 30, TRUE, src))
+		if(O.use_tool(src, user, 30, volume = 50))
 			if(!attached_satchel)
 				return
 			attached_satchel.forceMove(get_turf(user))

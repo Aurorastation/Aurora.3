@@ -241,3 +241,19 @@
 	path = /obj/item/clothing/accessory/badge/passcard/burzsia
 	slot = slot_tie
 	faction = "Hephaestus Industries"
+
+/datum/gear/faction/nt_custodialjumpsuit
+	display_name = "nanotrasen custodial jumpsuit, alternative"
+	path = /obj/item/clothing/under/rank/janitor/alt
+	slot = slot_w_uniform
+	cost = 0
+	faction = "NanoTrasen"
+	allowed_roles = list("Janitor")
+
+/datum/gear/faction/idris_custodialjumpsuit
+	display_name = "idris custodial jumpsuit, alternative"
+	path = /obj/item/clothing/under/rank/janitor/idris/alt
+	slot = slot_w_uniform
+	cost = 0
+	faction = "Idris Incorporated"
+	allowed_roles = list("Janitor")

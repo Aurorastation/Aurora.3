@@ -16,7 +16,7 @@
 		icon_state = pick(rand_icons)
 
 /obj/item/sticker/attack_hand(mob/user)
-	if(!attached)
+	if(!isliving(user) || !attached)
 		return ..()
 
 	if(user.a_intent == I_HELP)
@@ -88,6 +88,8 @@
 	set name = "Remove Sticker"
 	set src in view(1)
 
+	if(!isliving(usr))
+		return
 	var/obj/item/sticker/S = locate() in src
 	if(S)
 		S.remove_sticker(usr)

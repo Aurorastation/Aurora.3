@@ -667,6 +667,21 @@
 	center_of_mass = list("x" = 16, "y" = 5)
 	reagents_to_add = list(/decl/reagent/alcohol/pulque = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine //can't make it a child of wine, or else reagents double-fill 
+	name = "Vintage Wine"
+	desc = "A fine bottle of high-quality wine, produced in a small batch and aged for decades, if not centuries. It's likely that few bottles like it remain."
+	icon_state = "vwinebottle"
+	desc_fluff = "Small-batch wines produced by local, independent wineries are highly sought-after by those who can afford them. They are considered highly-collectable items \
+	due to how relatively few exist compared to more mass-produced wines. The attention to detail can be seen in the bottle, and felt in the taste. While megacorporations and their \
+	subsidiaries don't produce bad products, wine afficianados across the spur agree that nothing comes close to these locally-produced treasures. They can easily be worth thousands of credits."
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/decl/reagent/alcohol/wine/vintage = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine/Initialize()
+	. = ..()
+	name = pick("Triesto Pre-Dimming Sangiovese", "New Beirut 2340", "Vysokan Artisans Merlot", "Silver Seas Original Merlot", "Domelkos Morozian Treasure", "Belle Cote Serene Moth 2395",
+			"Malta Sol Nebbiolo", "Ashkhaimi Gardens Shiraz", "Old Cairo 2375", "Artisan Empire 2354")
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
