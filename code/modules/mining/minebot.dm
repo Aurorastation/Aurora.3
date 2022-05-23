@@ -8,7 +8,7 @@
 	holder_type = /obj/item/holder/drone/mining
 	maxHealth = 45
 	health = 45
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE|PASSRAILING
 	req_access = list(access_mining, access_robotics)
 	id_card_type = /obj/item/card/id/minedrone
 	speed = -1

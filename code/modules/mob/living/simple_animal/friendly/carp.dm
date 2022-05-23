@@ -45,7 +45,7 @@
 	stomach_size_mult = 3 //They're just baby
 
 	density = TRUE
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
 

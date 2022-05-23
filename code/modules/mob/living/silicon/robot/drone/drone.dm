@@ -44,7 +44,7 @@
 	// Interaction
 	universal_speak = FALSE
 	universal_understand = TRUE
-	pass_flags = PASSTABLE | PASSDOORHATCH
+	pass_flags = PASSTABLE | PASSDOORHATCH | PASSRAILING
 	density = FALSE
 	possession_candidate = TRUE
 	mob_size = 4

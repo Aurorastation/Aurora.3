@@ -79,7 +79,7 @@
 /obj/structure/railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSTABLE))
+	if(!istype(mover) || mover.checkpass(PASSRAILING))
 		return TRUE
 	if(get_dir(loc, target) == dir)
 		return !density
