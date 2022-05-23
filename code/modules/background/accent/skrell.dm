@@ -72,3 +72,9 @@
 	resulted in this accent being seen by Skrell as anti-Federation by association."
 	tag_icon = "skrell_coalition"
 	text_tag = "CSS"
+
+/datum/accent/skrell/srom
+	name = ACCENT_SKRELLSROM
+	description = "Bruh bruh bruh."
+	tag_icon = "skrell_srom"
+	text_tag = "SRM"
