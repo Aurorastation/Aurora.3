@@ -807,6 +807,7 @@
 		if(prob(stun_probability))
 			M.visible_message("<b>[M]</b> [pick("coughs!","coughs hysterically!","splutters!")]")
 			M.Stun(3)
+			M.apply_damage(10, PAIN)
 
 /decl/reagent/capsaicin/condensed/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
