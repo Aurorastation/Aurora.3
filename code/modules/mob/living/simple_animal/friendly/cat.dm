@@ -332,17 +332,17 @@
 	icon_rest = "penny_rest"
 	holder_type = /obj/item/holder/cat/penny
 
-/mob/living/simple_animal/cat/crusher // Goodbye Runtime, make way for the new girl in town.
+/mob/living/simple_animal/cat/crusher
 	name = "Crusher"
 	desc = "A cream coloured, young, and cuddly cat, with a small tag on her collar that says \"Dr. Crusher\". She never lets an opportunity pass to receive some pets or prey on some unsuspecting mice."
 	named = TRUE
 	gender = FEMALE
-	icon_state = "styx"
-	icon_state = "styx"
-	icon_living = "styx"
-	icon_dead = "styx_dead"
-	icon_rest = "styx_rest"
-	can_nap = 1
+	icon_state = "crusher"
+	icon_state = "crusher"
+	icon_living = "crusher"
+	icon_dead = "crusher_dead"
+	icon_rest = "crusher_rest"
+	can_nap = TRUE
 	holder_type = /obj/item/holder/cat/crusher
 
 /mob/living/simple_animal/cat/crusher/examine(mob/user)
