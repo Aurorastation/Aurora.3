@@ -6,8 +6,8 @@
 	icon_state = "custodial"
 
 /obj/structure/closet/secure_closet/custodial/fill()
-	new /obj/item/clothing/head/softcap/janitor/nt(src)
-	new /obj/item/clothing/head/softcap/janitor/idris(src)
+	new /obj/item/clothing/head/softcap/nt/custodian(src)
+	new /obj/item/clothing/head/softcap/idris/custodian(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/clothing/under/rank/janitor(src)
 	new /obj/item/clothing/under/rank/janitor/idris(src)
