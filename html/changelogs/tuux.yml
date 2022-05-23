@@ -1,0 +1,7 @@
+author: Ryverstyx
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds more Skrell hair styles."
+  - tweak: "Changes names of existing Skrell styles to be uniform and descriptive."
