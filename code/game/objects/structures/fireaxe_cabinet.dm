@@ -38,9 +38,9 @@
 	else
 		add_overlay("locked")
 	if(open)
-		add_overlay("glass")
-	else
 		add_overlay("glass_raised")
+	else
+		add_overlay("glass")
 
 
 /obj/structure/fireaxecabinet/New()
