@@ -29774,6 +29774,7 @@
 	},
 /obj/machinery/light/small,
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "qmy" = (
