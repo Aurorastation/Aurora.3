@@ -9,6 +9,7 @@
 		new /obj/item/storage/backpack/captain(src)
 	else
 		new /obj/item/storage/backpack/satchel_cap(src)
+	new /obj/item/storage/backpack/duffel/cap(src)
 	// Armor
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
@@ -103,6 +104,7 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
+	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/suit/armor/carrier/hos(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
@@ -142,6 +144,7 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
+	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/suit/armor/carrier/hos(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
@@ -172,6 +175,7 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
+	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
@@ -206,6 +210,7 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
+	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/head/beret/security(src)
 	new /obj/item/clothing/head/softcap/security(src)
 	new /obj/item/clothing/suit/storage/hazardvest/security(src)
@@ -234,6 +239,7 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
+	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
