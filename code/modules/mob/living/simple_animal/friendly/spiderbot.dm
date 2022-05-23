@@ -45,8 +45,11 @@
 	var/obj/item/held_item = null //Storage for single item they can hold.
 	speed = -1                    //Spiderbots gotta go fast.
 	pass_flags = PASSTABLE | PASSDOORHATCH
-	speak_emote = list("beeps","clicks","chirps")
 	universal_understand = TRUE
+	speak_emote = list("beeps","clicks","chirps")
+	mob_size = 4
+	can_pull_size = 3
+	can_pull_mobs = MOB_PULL_SMALLER
 
 	psi_pingable = FALSE
 
