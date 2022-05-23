@@ -217,7 +217,7 @@
 	icon_state = "victorygin"
 	center_of_mass = list("x"=16, "y"=4)
 	desc_fluff = "Considered the official drink of the People's Republic of Adhomai, Victory Gin was created to celebrate the end of the revolution. It is commonly found in NanoTrasen's \
-	stations, due to a contract that allows the government to supply the corporation, and in the Tajaran communities of Tau Ceti. The destruction of Victory Gin's bottles and reserves \
+	facilities, due to a contract that allows the government to supply the corporation, and in the Tajaran communities of Tau Ceti. The destruction of Victory Gin's bottles and reserves \
 	was widespread when Republican positions and cities were taken by the opposition as the drink is deemed by many as a symbol of the Hadiist regime."
 	reagents_to_add = list(/decl/reagent/alcohol/victorygin = 100)
 
@@ -666,6 +666,21 @@
 	icon_state = "pulquebottle"
 	center_of_mass = list("x" = 16, "y" = 5)
 	reagents_to_add = list(/decl/reagent/alcohol/pulque = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine //can't make it a child of wine, or else reagents double-fill 
+	name = "Vintage Wine"
+	desc = "A fine bottle of high-quality wine, produced in a small batch and aged for decades, if not centuries. It's likely that few bottles like it remain."
+	icon_state = "vwinebottle"
+	desc_fluff = "Small-batch wines produced by local, independent wineries are highly sought-after by those who can afford them. They are considered highly-collectable items \
+	due to how relatively few exist compared to more mass-produced wines. The attention to detail can be seen in the bottle, and felt in the taste. While megacorporations and their \
+	subsidiaries don't produce bad products, wine afficianados across the spur agree that nothing comes close to these locally-produced treasures. They can easily be worth thousands of credits."
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/decl/reagent/alcohol/wine/vintage = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine/Initialize()
+	. = ..()
+	name = pick("Triesto Pre-Dimming Sangiovese", "New Beirut 2340", "Vysokan Artisans Merlot", "Silver Seas Original Merlot", "Domelkos Morozian Treasure", "Belle Cote Serene Moth 2395",
+			"Malta Sol Nebbiolo", "Ashkhaimi Gardens Shiraz", "Old Cairo 2375", "Artisan Empire 2354")
 
 // Butanol-based alcoholic drinks
 //=====================================

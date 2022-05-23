@@ -18,7 +18,6 @@
 	assigned_role = "Zeng-Hu Survivor"
 	special_role = "Zeng-Hu Survivor"
 	respawn_flag = null
-	uses_species_whitelist = TRUE
 
 /datum/outfit/admin/zenghu_survivor
 	name = "Zeng-Hu Employee"

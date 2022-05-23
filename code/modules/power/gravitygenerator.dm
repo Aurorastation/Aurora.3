@@ -21,7 +21,7 @@
 	icon = 'icons/obj/machines/gravity_generator.dmi'
 	anchored = 1
 	density = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	unacidable = 1
 	var/sprite_number = 0
 	light_color = LIGHT_COLOR_CYAN
@@ -110,7 +110,6 @@
 	active_power_usage = 3000
 	power_channel = ENVIRON
 	sprite_number = 8
-	use_power = 1
 	interact_offline = 1
 	var/on = 1
 	var/breaker = 1
@@ -207,7 +206,7 @@
 		if(GRAV_NEEDS_WELDING)
 			if(I.iswelder())
 				var/obj/item/weldingtool/WT = I
-				if(WT.remove_fuel(1, user))
+				if(WT.use(1, user))
 					to_chat(user, "<span class='notice'>You mend the damaged framework.</span>")
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 					broken_state++
@@ -340,7 +339,7 @@
 	charging_state = POWER_IDLE
 	var/gravity_changed = (on != new_state)
 	on = new_state
-	use_power = on ? 2 : 1
+	update_use_power(on ? POWER_USE_ACTIVE : POWER_USE_IDLE)
 	// Sound the alert if gravity was just enabled or disabled.
 	var/alert = 0
 	var/area/area = get_area(src)
@@ -365,7 +364,7 @@
 
 // Charge/Discharge and turn on/off gravity when you reach 0/100 percent.
 // Also emit radiation and handle the overlays.
-/obj/machinery/gravity_generator/main/machinery_process()
+/obj/machinery/gravity_generator/main/process()
 	if(stat & BROKEN)
 		return
 	if(charging_state != POWER_IDLE)

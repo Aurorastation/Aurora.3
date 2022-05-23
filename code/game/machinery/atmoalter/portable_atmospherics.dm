@@ -1,6 +1,6 @@
 /obj/machinery/portable_atmospherics
 	name = "atmoalter"
-	use_power = 0
+	use_power = POWER_USE_OFF
 	var/datum/gas_mixture/air_contents = new
 
 	var/obj/machinery/atmospherics/portables_connector/connected_port
@@ -35,7 +35,7 @@
 /obj/machinery/portable_atmospherics/canister/LateInitialize()
 	update_icon()
 
-/obj/machinery/portable_atmospherics/machinery_process()
+/obj/machinery/portable_atmospherics/process()
 	if(!connected_port) //only react when pipe_network will ont it do it for you
 		//Allow for reactions
 		air_contents.react()
@@ -152,7 +152,6 @@
 	var/power_losses
 	var/last_power_draw = 0
 	var/obj/item/cell/cell
-	has_special_power_checks = TRUE
 
 /obj/machinery/portable_atmospherics/powered/powered()
 	if(use_power) //using area power

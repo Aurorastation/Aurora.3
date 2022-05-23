@@ -5,7 +5,7 @@
 	//Input is searched from the 'dir' direction
 	var/obj/structure/cable/input
 
-/obj/machinery/logic/indicator/machinery_process()
+/obj/machinery/logic/indicator/process()
 	if(input)
 		return 1
 
@@ -25,7 +25,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "bulb0"
 
-/obj/machinery/logic/indicator/bulb/machinery_process()
+/obj/machinery/logic/indicator/bulb/process()
 	if(!..())	//Parent proc checks if input1 exists.
 		return
 
@@ -46,7 +46,7 @@
 	//Output is searched from the 'dir' direction
 	var/obj/structure/cable/output
 
-/obj/machinery/logic/sensor/machinery_process()
+/obj/machinery/logic/sensor/process()
 	if(output)
 		return 1
 
@@ -66,7 +66,7 @@
 	icon = 'icons/obj/atmospherics/outlet_injector.dmi'
 	icon_state = "off"
 
-/obj/machinery/logic/sensor/constant_high/machinery_process()
+/obj/machinery/logic/sensor/constant_high/process()
 	if(!..())	//Parent proc checks if input1 exists.
 		return
 
@@ -88,7 +88,7 @@
 	icon = 'icons/atmos/heat.dmi'
 	icon_state = "intact"
 
-/obj/machinery/logic/oneinput/machinery_process()
+/obj/machinery/logic/oneinput/process()
 	if(input && output)
 		return 1
 
@@ -114,7 +114,7 @@
 	return 0	//On the process() call, where everything is still being searched for, it returns 0. It will return 1 on the next process() call.
 
 //NOT GATE
-/obj/machinery/logic/oneinput/not/machinery_process()
+/obj/machinery/logic/oneinput/not/process()
 	if(!..())	//Parent proc checks if input1, input2 and output exist.
 		return
 
@@ -151,7 +151,7 @@
 	icon = 'icons/obj/atmospherics/mixer.dmi'
 	icon_state = "intact_off"
 
-/obj/machinery/logic/twoinput/machinery_process()
+/obj/machinery/logic/twoinput/process()
 	if(input1 && input2 && output)
 		return 1
 
@@ -185,7 +185,7 @@
 	return 0	//On the process() call, where everything is still being searched for, it returns 0. It will return 1 on the next process() call.
 
 //AND GATE
-/obj/machinery/logic/twoinput/and/machinery_process()
+/obj/machinery/logic/twoinput/and/process()
 	if(!..())	//Parent proc checks if input1, input2 and output exist.
 		return
 
@@ -205,7 +205,7 @@
 		pn_output.draw_power(LOGIC_HIGH)		//Otherwise increase the load to 5
 
 //OR GATE
-/obj/machinery/logic/twoinput/or/machinery_process()
+/obj/machinery/logic/twoinput/or/process()
 	if(!..())	//Parent proc checks if input1, input2 and output exist.
 		return
 
@@ -225,7 +225,7 @@
 		pn_output.draw_power(LOGIC_HIGH)		//Otherwise increase the load to 5
 
 //XOR GATE
-/obj/machinery/logic/twoinput/xor/machinery_process()
+/obj/machinery/logic/twoinput/xor/process()
 	if(!..())	//Parent proc checks if input1, input2 and output exist.
 		return
 
@@ -245,7 +245,7 @@
 		pn_output.draw_power(LOGIC_HIGH)		//Otherwise increase the load to 5
 
 //XNOR GATE (EQUIVALENCE)
-/obj/machinery/logic/twoinput/xnor/machinery_process()
+/obj/machinery/logic/twoinput/xnor/process()
 	if(!..())	//Parent proc checks if input1, input2 and output exist.
 		return
 
@@ -267,7 +267,7 @@
 #define RELAY_POWER_TRANSFER 2000	//How much power a relay transfers through.
 
 //RELAY - input1 governs the flow from input2 to output
-/obj/machinery/logic/twoinput/relay/machinery_process()
+/obj/machinery/logic/twoinput/relay/process()
 	if(!..())	//Parent proc checks if input1, input2 and output exist.
 		return
 

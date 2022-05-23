@@ -242,10 +242,6 @@
 	name = "Bridge Crew Preparation"
 	icon_state = "bridge_crew"
 
-/area/bridge/third_deck_stairs
-	name = "Bridge Stairs"
-	icon_state = "bridge_stairs"
-
 /area/bridge/helm
 	name = "Bridge Helm"
 	icon_state = "bridge_helm"
@@ -308,15 +304,6 @@
 /area/shuttle/intrepid/cockpit 
 	name = "Cockpit"
 
-
-// Exterior
-/area/horizonexterior
-	name = "Exterior"
-	icon_state = "exterior"
-	has_gravity = FALSE
-	base_turf = /turf/space
-	station_area = TRUE
-
 //
 // Areas for the SCCV Horizon Map
 //
@@ -324,6 +311,17 @@
 	name = "Horizon (PARENT AREA - DON'T USE)"
 	icon_state = "unknown"
 	station_area = TRUE
+
+// Exterior
+/area/horizon/exterior
+	name = "Horizon - Exterior"
+	icon_state = "exterior"
+	base_turf = /turf/space
+	dynamic_lighting = TRUE
+	requires_power = FALSE
+	has_gravity = FALSE
+	no_light_control = TRUE
+	allow_nightmode = FALSE
 
 // Hallways
 /area/horizon/hallway
@@ -346,11 +344,17 @@
 	name = "Horizon - Stairwell (PARENT AREA - DON'T USE)"
 	flags = RAD_SHIELDED
 
-/area/horizon/stairwell/central // Central stairwell.
+/area/horizon/stairwell/central
 	name = "Horizon - Central Stairwell"
 	icon_state = "stairwell"
 	sound_env = SMALL_ENCLOSED
 
+/area/horizon/stairwell/bridge
+	name = "Horizon - Bridge Stairwell"
+	icon_state = "bridge_stairs"
+	sound_env = SMALL_ENCLOSED
+
+/********** Crew Quarters Start **********/
 // Crew Quarters
 /area/horizon/crew_quarters
 	name = "Horizon - Crew Quarters (PARENT AREA - DON'T USE)"
@@ -409,7 +413,104 @@
 	name = "Horizon - Fitness Center - Lounge"
 	icon_state = "fitness_lounge"
 	sound_env = SMALL_SOFTFLOOR
+/********** Crew Quarters End **********/
 
+/********** Holodeck Start **********/
+// Holodeck
+/area/horizon/holodeck
+	name = "Horizon - Holodeck (PARENT AREA - DON'T USE)"
+	icon_state = "Holodeck"
+	sound_env = LARGE_ENCLOSED
+	no_light_control = TRUE
+	dynamic_lighting = FALSE
+	flags = RAD_SHIELDED | NO_GHOST_TELEPORT_ACCESS
+
+/area/horizon/holodeck/alphadeck
+	name = "Horizon - Holodeck Alpha"
+	dynamic_lighting = TRUE
+
+/area/horizon/holodeck/source_plating
+	name = "Horizon - Holodeck - Off"
+
+/area/horizon/holodeck/source_chapel
+	name = "Horizon - Holodeck - Chapel"
+
+/area/horizon/holodeck/source_gym
+	name = "Horizon - Holodeck - Gym"
+	sound_env = ARENA
+
+/area/horizon/holodeck/source_range
+	name = "Horizon - Holodeck - Range"
+	sound_env = ARENA
+
+/area/horizon/holodeck/source_emptycourt
+	name = "Horizon - Holodeck - Empty Court"
+	sound_env = ARENA
+
+/area/horizon/holodeck/source_boxingcourt
+	name = "Horizon - Holodeck - Boxing Court"
+	sound_env = ARENA
+
+/area/horizon/holodeck/source_basketball
+	name = "Horizon - Holodeck - Basketball Court"
+	sound_env = ARENA
+
+/area/horizon/holodeck/source_thunderdomecourt
+	name = "Horizon - Holodeck - Thunderdome Court"
+	sound_env = ARENA
+
+/area/horizon/holodeck/source_courtroom
+	name = "Horizon - Holodeck - Courtroom"
+	sound_env = AUDITORIUM
+
+/area/horizon/holodeck/source_beach
+	name = "Horizon - Holodeck - Beach"
+	sound_env = PLAIN
+
+/area/horizon/holodeck/source_burntest
+	name = "Horizon - Holodeck - Atmospheric Burn Test"
+
+/area/horizon/holodeck/source_wildlife
+	name = "Horizon - Holodeck - Wildlife Simulation"
+
+/area/horizon/holodeck/source_meetinghall
+	name = "Horizon - Holodeck - Meeting Hall"
+	sound_env = AUDITORIUM
+
+/area/horizon/holodeck/source_theatre
+	name = "Horizon - Holodeck - Theatre"
+	sound_env = CONCERT_HALL
+
+/area/horizon/holodeck/source_picnicarea
+	name = "Horizon - Holodeck - Picnic Area"
+	sound_env = PLAIN
+
+/area/horizon/holodeck/source_dininghall
+	name = "Horizon - Holodeck - Dining Hall"
+	sound_env = PLAIN
+
+/area/horizon/holodeck/source_snowfield
+	name = "Horizon - Holodeck - Snow Field"
+	sound_env = FOREST
+
+/area/horizon/holodeck/source_desert
+	name = "Horizon - Holodeck - Desert"
+	sound_env = PLAIN
+
+/area/horizon/holodeck/source_space
+	name = "Horizon - Holodeck - Space"
+	has_gravity = 0
+	sound_env = SPACE
+
+/area/horizon/holodeck/source_battlemonsters
+	name = "Horizon - Holodeck - Battlemonsters Arena"
+	sound_env = ARENA
+
+/area/horizon/holodeck/source_chessboard
+	name = "Horizon - Holodeck - Chessboard"
+/********** Holodeck End **********/
+
+/********** Decks Start **********/
 // Cafeteria
 /area/horizon/deck_three/cafeteria
 	name = "Horizon - Deck 3 - Cafeteria"
@@ -420,3 +521,24 @@
 	name = "Horizon - Deck 3 - Nature Showcase"
 	icon_state = "nature_showcase"
 	sound_env = SMALL_ENCLOSED
+/********** Decks End **********/
+
+/********** Unique Start **********/
+// Hydroponics
+/area/horizon/hydroponics
+	name = "Horizon - Hydroponics"
+	icon_state = "hydro"
+
+/area/horizon/hydroponics/lower
+	name = "Horizon - Hydroponics - Lower"
+
+/area/horizon/hydroponics/garden
+	name = "Horizon - Public Garden"
+	icon_state = "garden"
+
+// Library
+/area/horizon/library
+ 	name = "Horizon - Library"
+ 	icon_state = "library"
+ 	sound_env = LARGE_SOFTFLOOR
+/********** Unique End **********/

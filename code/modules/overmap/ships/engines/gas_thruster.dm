@@ -36,12 +36,12 @@
 
 /datum/ship_engine/gas_thruster/toggle()
 	if(nozzle.use_power)
-		nozzle.update_use_power(0)
+		nozzle.update_use_power(POWER_USE_OFF)
 	else
 		if(nozzle.blockage)
 			if(nozzle.check_blockage())
 				return
-		nozzle.update_use_power(1)
+		nozzle.update_use_power(POWER_USE_IDLE)
 		if(nozzle.stat & NOPOWER)//try again
 			nozzle.power_change()
 		if(nozzle.is_on())//if everything is in working order, start booting!
@@ -61,7 +61,7 @@
 	density = 1
 	atmos_canpass = CANPASS_NEVER
 
-	use_power = 0
+	use_power = POWER_USE_OFF
 	power_channel = EQUIP
 	idle_power_usage = 21600 //6 Wh per tick for default 2 capacitor. Gives them a reason to turn it off, really to nerf backup battery
 
@@ -148,7 +148,7 @@
 /obj/machinery/atmospherics/unary/engine/power_change()
 	. = ..()
 	if(stat & NOPOWER)
-		update_use_power(0)
+		update_use_power(POWER_USE_OFF)
 
 /obj/machinery/atmospherics/unary/engine/update_use_power()
 	. = ..()
@@ -185,9 +185,9 @@
 /obj/machinery/atmospherics/unary/engine/proc/burn()
 	if(!is_on())
 		return 0
-	if(!check_fuel() || (0 < use_power(charge_per_burn)) || check_blockage())
+	if(!check_fuel() || (0 < use_power_oneoff(charge_per_burn)) || check_blockage())
 		audible_message(src,"<span class='warning'>[src] coughs once and goes silent!</span>")
-		update_use_power(0)
+		update_use_power(POWER_USE_OFF)
 		return 0
 
 	var/datum/gas_mixture/removed = air_contents.remove_ratio(volume_per_burn * thrust_limit / air_contents.volume)

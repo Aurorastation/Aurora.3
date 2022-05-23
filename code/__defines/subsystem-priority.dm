@@ -48,14 +48,14 @@
 // Normal
 #define SS_PRIORITY_TICKER     100	// Gameticker.
 //#define SS_PRIORITY_DEFAULT   50	// This is defined somewhere else.
-#define SS_PRIORITY_LIGHTING    50	// Queued lighting engine updates.
-#define SS_PRIORITY_MOB         30	// Mob Life().
-#define SS_PRIORITY_AIR         30	// ZAS processing.
+#define SS_PRIORITY_MOB         40	// Mob Life().
+#define SS_PRIORITY_AIR         40	// ZAS processing.
 #define SS_PRIORITY_CHAT        30  // Chat
-#define SS_PRIORITY_NANOUI      20	// UI updates.
+#define SS_PRIORITY_LIGHTING    25	// Queued lighting engine updates.
+#define SS_PRIORITY_MACHINERY   25	// Machinery + powernet ticks.
+#define SS_PRIORITY_NANOUI      25	// UI updates.
 #define SS_PRIORITY_VOTE        20
 #define SS_PRIORITY_ELECTRONICS 20	// Integrated Electronics processing.
-#define SS_PRIORITY_MACHINERY   20	// Machinery + powernet ticks.
 #define SS_PRIORITY_CALAMITY    20	// Singularity, Tesla, Nar'sie, blob, etc.
 #define SS_PRIORITY_EVENT       20
 #define SS_PRIORITY_DISEASE     20	// Disease ticks.

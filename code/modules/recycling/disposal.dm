@@ -143,10 +143,9 @@
 				to_chat(user, SPAN_WARNING("Eject the items first!"))
 				return TRUE
 			var/obj/item/weldingtool/W = I
-			if(W.remove_fuel(0,user))
-				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
+			if(W.use(0,user))
 				to_chat(user, SPAN_NOTICE("You start slicing the floorweld off the disposal unit."))
-				if(do_after(user, 20 / W.toolspeed))
+				if(W.use_tool(src, user, 20, volume = 50))
 					if(!src || !W.isOn())
 						return TRUE
 					to_chat(user, SPAN_NOTICE("You sliced the floorweld off the disposal unit."))
@@ -469,9 +468,9 @@
 
 // timed process
 // charge the gas reservoir and perform flush if ready
-/obj/machinery/disposal/machinery_process()
+/obj/machinery/disposal/process()
 	if(!air_contents || (stat & BROKEN))			// nothing can happen if broken
-		update_use_power(0)
+		update_use_power(POWER_USE_OFF)
 		return
 
 	flush_count++
@@ -489,7 +488,7 @@
 		flush()
 
 	if(mode != 1) //if off or ready, no need to charge
-		update_use_power(1)
+		update_use_power(POWER_USE_IDLE)
 	else if((air_contents.return_pressure() >= SEND_PRESSURE || !uses_air))
 		mode = 2 //if full enough, switch to ready mode
 		update()
@@ -498,7 +497,7 @@
 
 /obj/machinery/disposal/proc/pressurize()
 	if(stat & NOPOWER)			// won't charge if no power
-		update_use_power(0)
+		update_use_power(POWER_USE_OFF)
 		return
 
 	var/atom/L = loc						// recharging from loc turf
@@ -510,7 +509,7 @@
 		power_draw = pump_gas(src, env, air_contents, transfer_moles, active_power_usage)
 
 	if (power_draw > 0)
-		use_power(power_draw)
+		use_power_oneoff(power_draw)
 
 // perform a flush
 /obj/machinery/disposal/proc/flush()
@@ -974,11 +973,11 @@
 	if(I.iswelder())
 		var/obj/item/weldingtool/W = I
 
-		if(W.remove_fuel(0,user))
+		if(W.use(0,user))
 			playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 			// check if anything changed over 3 seconds
 			to_chat(user, "Slicing the disposal pipe...")
-			if (do_after(user, 3/W.toolspeed SECONDS, act_target = src))
+			if(W.use_tool(src, user, 30, volume = 50))
 				if(!src || !W.isOn()) return
 				welded()
 			else
@@ -1446,11 +1445,11 @@
 	if(I.iswelder())
 		var/obj/item/weldingtool/W = I
 
-		if(W.remove_fuel(0,user))
+		if(W.use(0,user))
 			playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 			// check if anything changed over 3 seconds
 			to_chat(user, "Slicing the disposal pipe.")
-			if (do_after(user, 3/W.toolspeed SECONDS, act_target = src))
+			if(W.use_tool(src, user, 30, volume = 50))
 				if(!src || !W.isOn()) return
 				welded()
 			else
@@ -1614,10 +1613,9 @@
 			return
 	else if(I.iswelder() && mode==1)
 		var/obj/item/weldingtool/W = I
-		if(W.remove_fuel(0,user))
-			playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
+		if(W.use(0,user))
 			to_chat(user, "You start slicing the floorweld off the disposal outlet.")
-			if(do_after(user,20/W.toolspeed))
+			if(W.use_tool(src, user, 20, volume = 50))
 				if(!src || !W.isOn()) return
 				to_chat(user, "You slice the floorweld off the disposal outlet.")
 				var/obj/structure/disposalconstruct/C = new (src.loc)

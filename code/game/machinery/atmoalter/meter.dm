@@ -9,7 +9,6 @@
 	power_channel = ENVIRON
 	var/frequency = 0
 	var/id
-	use_power = 1
 	idle_power_usage = 15
 
 
@@ -18,7 +17,7 @@
 	if (!target)
 		src.target = locate(/obj/machinery/atmospherics/pipe) in loc
 
-/obj/machinery/meter/machinery_process()
+/obj/machinery/meter/process()
 	if(!target)
 		icon_state = "meterX"
 		return 0
@@ -92,18 +91,16 @@
 	return ..()
 
 /obj/machinery/meter/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (W.iswrench())
-		playsound(src.loc, W.usesound, 50, 1)
-		to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-		if (do_after(user, 40/W.toolspeed))
-			user.visible_message( \
-				"<span class='notice'>\The [user] unfastens \the [src].</span>", \
-				"<span class='notice'>You have unfastened \the [src].</span>", \
-				"You hear ratchet.")
-			new /obj/item/pipe_meter(src.loc)
-			qdel(src)
-		return TRUE
-	return ..()
+	if (!W.iswrench())
+		return ..()
+	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
+	if(W.use_tool(src, user, 40, volume = 50))
+		user.visible_message( \
+			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
+			"<span class='notice'>You have unfastened \the [src].</span>", \
+			"You hear ratchet.")
+		new /obj/item/pipe_meter(src.loc)
+		qdel(src)
 
 // TURF METER - REPORTS A TILE'S AIR CONTENTS
 

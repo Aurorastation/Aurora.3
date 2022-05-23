@@ -90,7 +90,7 @@
 		return 0
 	return round(cell.charge*(1 - damage/max_damage))
 
-/obj/item/organ/internal/cell/proc/use(var/amount)
+/obj/item/organ/internal/cell/use(var/amount)
 	if(!is_usable() || !cell)
 		return
 	return cell.use(amount)

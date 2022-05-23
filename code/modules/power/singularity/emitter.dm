@@ -14,7 +14,7 @@
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_SIGNALER
 	var/id
 
-	use_power = 0	//uses powernet power, not APC power
+	use_power = POWER_USE_OFF	//uses powernet power, not APC power
 	active_power_usage = 30000	//30 kW laser. I guess that means 30 kJ per shot.
 
 	var/active = FALSE
@@ -116,7 +116,7 @@
 	activate(null)
 	return TRUE
 
-/obj/machinery/power/emitter/machinery_process()
+/obj/machinery/power/emitter/process()
 	if(stat & (BROKEN))
 		return
 	if(state != EMITTER_WELDED || (!powernet && active_power_usage))
@@ -193,12 +193,12 @@
 			if(EMITTER_LOOSE)
 				to_chat(user, SPAN_WARNING("\The [src] needs to be wrenched to the floor."))
 			if(EMITTER_BOLTED)
-				if(WT.remove_fuel(0, user))
+				if(WT.use(0, user))
 					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
 					user.visible_message(SPAN_NOTICE("\The [user] starts to weld \the [src] to the floor."), \
 						SPAN_NOTICE("You start to weld \the [src] to the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))
-					if(do_after(user, 20 / W.toolspeed, act_target = src))
+					if(W.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
 							return
 						state = EMITTER_WELDED
@@ -207,12 +207,12 @@
 				else
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 			if(EMITTER_WELDED)
-				if(WT.remove_fuel(0, user))
+				if(WT.use(0, user))
 					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
 					user.visible_message(SPAN_NOTICE("\The [user] starts to cut \the [src] free from the floor."), \
 						SPAN_NOTICE("You start to cut \the [src] free from the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))
-					if(do_after(user, 20 / W.toolspeed, act_target = src))
+					if(W.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
 							return
 						state = EMITTER_BOLTED

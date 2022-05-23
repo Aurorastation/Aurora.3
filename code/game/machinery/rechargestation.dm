@@ -5,9 +5,7 @@
 	icon_state = "borgcharger0"
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 75
-	has_special_power_checks = TRUE
 	var/mob/occupant = null
 	var/obj/item/cell/cell = null
 	var/icon_update_tick = 0	// Used to rebuild the overlay only once every 10 ticks
@@ -37,7 +35,7 @@
 /obj/machinery/recharge_station/proc/has_cell_power()
 	return cell && cell.percent() > 0
 
-/obj/machinery/recharge_station/machinery_process()
+/obj/machinery/recharge_station/process()
 	if(stat & (BROKEN))
 		return
 	if(!cell) // Shouldn't be possible, but sanity check
@@ -60,7 +58,9 @@
 		recharge_amount = (occupant ? restore_power_active : restore_power_passive) * CELLRATE
 
 		recharge_amount = cell.give(recharge_amount*charging_efficiency)
-		use_power(recharge_amount / CELLRATE)
+		use_power_oneoff(recharge_amount / CELLRATE)
+	else
+		cell.use(get_power_usage() * CELLRATE)
 
 	if(icon_update_tick >= 10)
 		icon_update_tick = 0
@@ -69,19 +69,6 @@
 
 	if(occupant || recharge_amount)
 		update_icon()
-
-//since the recharge station can still be on even with NOPOWER. Instead it draws from the internal cell.
-/obj/machinery/recharge_station/auto_use_power()
-	if(!(stat & NOPOWER))
-		return ..()
-
-	if(!has_cell_power())
-		return FALSE
-	if(src.use_power == 1)
-		cell.use(idle_power_usage * CELLRATE)
-	else if(src.use_power >= 2)
-		cell.use(active_power_usage * CELLRATE)
-	return TRUE
 
 //Processes the occupant, drawing from the internal power cell if needed.
 /obj/machinery/recharge_station/proc/process_occupant()

@@ -13,7 +13,6 @@
 	var/open = FALSE
 	var/power_output = 1
 	var/portgen_lightcolour = "#000000"
-	has_special_power_checks = TRUE
 
 /obj/machinery/power/portgen/Initialize()
 	. = ..()
@@ -33,7 +32,7 @@
 /obj/machinery/power/portgen/proc/handleInactive()
 	return
 
-/obj/machinery/power/portgen/machinery_process()
+/obj/machinery/power/portgen/process()
 	if(active && HasFuel() && !IsBroken() && anchored)
 		set_light(2, 1, l_color = portgen_lightcolour)
 		if(powernet)

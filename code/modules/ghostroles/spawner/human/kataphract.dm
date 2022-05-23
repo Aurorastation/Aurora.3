@@ -28,8 +28,6 @@
 	name = "Kataphract-Hopeful Klaxan"
 	desc = "Display honour in everything you do. Be an excellent person. Learn how to be a proper Kataphract by your fellow Unathi."
 	max_count = 1
-	uses_species_whitelist = TRUE
-	req_species_whitelist = SPECIES_VAURCA_WARRIOR
 
 	spawnpoints = list("kataphract_klax")
 
@@ -42,8 +40,6 @@
 	name = "Kataphract Knight"
 	desc = "Display honour in everything you do. Be an excellent person. Be a co-leader of the Kataphract Chapter, along with the other knight."
 	max_count = 2
-	uses_species_whitelist = TRUE
-	req_species_whitelist = SPECIES_UNATHI
 
 	mob_name_prefix = "Saa "
 
@@ -123,7 +119,7 @@
 
 /datum/outfit/admin/kataphract/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
-		var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
+		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 

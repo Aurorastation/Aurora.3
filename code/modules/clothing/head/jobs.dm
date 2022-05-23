@@ -18,11 +18,12 @@
 	item_state = "idris_chef_hat"
 
 
-/obj/item/clothing/head/surgery/hairnet
+/obj/item/clothing/head/hairnet
 	name = "hairnet"
 	desc = "A hairnet used to keep the hair out of the way and out of the food."
 	icon_state = "hairnet"
 	item_state = "hairnet"
+	flags_inv = BLOCKHEADHAIR
 	sprite_sheets = list(
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi'
 		)
@@ -90,10 +91,6 @@
 /obj/item/clothing/head/surgery/zeng
 	icon_state = "surgcap_zeng"
 	item_state = "surgcap_zeng"
-
-/obj/item/clothing/head/surgery/pmc
-	icon_state = "surgcap_pmc"
-	item_state = "surgcap_pmc"
 
 /obj/item/clothing/head/surgery/pmc
 	icon_state = "surgcap_pmc"

@@ -14,6 +14,8 @@
 			return access_engine
 		if(NETWORK_MEDICAL)
 			return access_medical
+		if(NETWORK_SECURITY)
+			return access_security
 		if(NETWORK_RESEARCH,NETWORK_RESEARCH_OUTPOST)
 			return access_research
 		if(NETWORK_MINE,NETWORK_SUPPLY,NETWORK_CIVILIAN_WEST,NETWORK_EXPEDITION,NETWORK_CALYPSO,NETWORK_POD)
@@ -84,7 +86,7 @@
 	if(!network_access)
 		return TRUE
 
-	return check_access(user, access_security) || check_access(user, network_access)
+	return (check_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_access(user, network_access)
 
 /datum/nano_module/camera_monitor/Topic(href, href_list)
 	if(..())
@@ -95,6 +97,14 @@
 		if(!C)
 			return
 		if(!(current_network in C.network))
+			return
+
+		var/access_granted = FALSE
+		for(var/network in C.network)
+			if(can_access_network(usr, get_camera_access(network)))
+				access_granted = TRUE //We only need access to one of the networks.
+		if(!access_granted)
+			to_chat(usr, SPAN_WARNING("Access unauthorized."))
 			return
 
 		switch_to_camera(usr, C)
@@ -124,6 +134,10 @@
 		A.eyeobj.setLoc(get_turf(C))
 		A.client.eye = A.eyeobj
 		return TRUE
+
+	if(!is_contact_area(get_area(C)))
+		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
+		return FALSE
 
 	set_current(C)
 	user.machine = ui_host()

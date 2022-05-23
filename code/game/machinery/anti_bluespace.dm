@@ -7,7 +7,6 @@ var/global/list/bluespace_inhibitors
 	icon_state = "nopad"
 	anchored = 1
 	density = 1
-	use_power = 1
 	active_power_usage = 5000
 	idle_power_usage = 1000
 
@@ -40,7 +39,7 @@ var/global/list/bluespace_inhibitors
 	emp_act(1)
 	return TRUE
 
-/obj/machinery/anti_bluespace/machinery_process()
+/obj/machinery/anti_bluespace/process()
 	. = ..()
 	update_icon()
 
@@ -131,5 +130,3 @@ var/global/list/bluespace_inhibitors
 		to_chat(AM, SPAN_WARNING("Bluespace energy teleports you somewhere else!"))
 		do_teleport(AM, target)
 		AM.visible_message("\The [AM] phases in!")
-
-

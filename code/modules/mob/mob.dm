@@ -111,6 +111,7 @@
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
 /mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
+	set waitfor = FALSE
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
@@ -152,7 +153,7 @@
 		O.see_emote(src, message)
 
 	if(intent_message)
-		intent_message(intent_message, intent_range)
+		intent_message(intent_message, intent_range, messagemobs)
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
@@ -342,7 +343,7 @@
 /mob/living/simple_animal/borer/can_examine()
 	. = ..()
 	if(!. && iscarbon(loc) && isturf(loc.loc)) // We're inside someone, let us examine still.
-		return TRUE 
+		return TRUE
 
 /mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
 
