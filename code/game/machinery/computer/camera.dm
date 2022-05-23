@@ -43,7 +43,7 @@
 	for(var/nw in network)
 		all_networks.Add(list(list(
 							"tag" = nw,
-							"has_access" = can_access_network(user, nw)
+							"has_access" = can_access_network(user, get_camera_access(nw))
 							)))
 
 	data["networks"] = all_networks
