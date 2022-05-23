@@ -59,7 +59,7 @@
 #define COMPFRICTION 5e5
 #define COMPSTARTERLOAD 2800
 
-/obj/machinery/compressor/machinery_process()
+/obj/machinery/compressor/process()
 	if(!starter)
 		return
 	cut_overlays()
@@ -79,7 +79,7 @@
 
 
 	if(starter && !(stat & NOPOWER))
-		use_power(2800)
+		use_power_oneoff(2800)
 		if(rpm<1000)
 			rpmtarget = 1000
 	else
@@ -117,7 +117,7 @@
 #define TURBGENQ 20000
 #define TURBGENG 0.8
 
-/obj/machinery/power/turbine/machinery_process()
+/obj/machinery/power/turbine/process()
 	if(!compressor.starter)
 		return
 	cut_overlays()
@@ -218,11 +218,11 @@
 /obj/machinery/computer/turbine_computer/New()
 	..()
 	spawn(5)
-		for(var/obj/machinery/compressor/C in SSmachinery.all_machines)
+		for(var/obj/machinery/compressor/C in SSmachinery.machinery)
 			if(id == C.comp_id)
 				compressor = C
 		doors = new /list()
-		for(var/obj/machinery/door/blast/P in SSmachinery.all_machines)
+		for(var/obj/machinery/door/blast/P in SSmachinery.machinery)
 			if(P.id == id)
 				doors += P
 
@@ -277,6 +277,6 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/turbine_computer/machinery_process()
+/obj/machinery/computer/turbine_computer/process()
 	src.updateDialog()
 	return

@@ -219,6 +219,7 @@
 	shirt["dress shirt, v-neck alt rolled up"] = /obj/item/clothing/accessory/dressshirt/alt/vneck/rolled
 	shirt["dress shirt, deep v-neck"] = /obj/item/clothing/accessory/dressshirt/deepv
 	shirt["dress shirt, deep v-neck rolled up"] = /obj/item/clothing/accessory/dressshirt/deepv/rolled
+	shirt["dress shirt, asymmetric"] = /obj/item/clothing/accessory/dressshirt/asymmetric
 	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
 	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_s
 	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_sb
@@ -393,6 +394,11 @@
 	sash["purple sash"] = /obj/item/clothing/accessory/sash/purple
 	sash["white sash"] =/obj/item/clothing/accessory/sash/white
 	gear_tweaks += new /datum/gear_tweak/path(sash)
+
+/datum/gear/accessory/sash_horizontal
+	display_name = "horizontal sash (colourable)"
+	path = /obj/item/clothing/accessory/sash/horizontal
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/passcard
 	display_name = "human passcard selection"

@@ -352,7 +352,7 @@
 
 /datum/gear/head/hairnet
 	display_name = "hairnet"
-	path = /obj/item/clothing/head/surgery/hairnet
+	path = /obj/item/clothing/head/hairnet
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /*

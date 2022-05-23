@@ -26,7 +26,6 @@
 	interact_offline = TRUE
 
 	var/on = 0
-	use_power = 1
 	idle_power_usage = 20
 	active_power_usage = 200
 	clicksound = 'sound/machines/buttonbeep.ogg'
@@ -59,7 +58,7 @@
 			node = target
 			break
 
-/obj/machinery/atmospherics/unary/cryo_cell/machinery_process()
+/obj/machinery/atmospherics/unary/cryo_cell/process()
 	..()
 	if(!node)
 		return
@@ -326,7 +325,7 @@
 		occupant.bodytemperature = 261									  // Changed to 70 from 140 by Zuhayr due to reoccurance of bug.
 	occupant = null
 	current_heat_capacity = initial(current_heat_capacity)
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	update_icon()
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/human/M as mob)
@@ -355,7 +354,7 @@
 		to_chat(M, "<span class='notice'><b>You feel a cold liquid surround you. Your skin starts to freeze up.</b></span>")
 	occupant = M
 	current_heat_capacity = HEAT_CAPACITY_HUMAN
-	update_use_power(2)
+	update_use_power(POWER_USE_ACTIVE)
 //	M.metabslow = 1
 	add_fingerprint(usr)
 	update_icon()

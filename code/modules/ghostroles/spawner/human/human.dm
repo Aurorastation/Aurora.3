@@ -106,12 +106,6 @@
 	M.forceMove(T)
 	M.lastarea = get_area(M.loc) //So gravity doesnt fuck them.
 
-	//Setup the appearance
-	if(allow_appearance_change)
-		M.change_appearance(allow_appearance_change, M)
-	else //otherwise randomize
-		M.client.prefs.randomize_appearance_for(M, FALSE)
-
 	//Setup the mob age and name
 	if(!mname)
 		mname = random_name(M.gender, M.species.name)
@@ -133,6 +127,12 @@
 	else if(outfit)
 		M.preEquipOutfit(outfit, FALSE)
 		M.equipOutfit(outfit, FALSE)
+
+	//Setup the appearance
+	if(allow_appearance_change)
+		M.change_appearance(allow_appearance_change, M, update_id = TRUE)
+	else //otherwise randomize
+		M.client.prefs.randomize_appearance_for(M, FALSE)
 
 	for(var/language in extra_languages)
 		M.add_language(language)

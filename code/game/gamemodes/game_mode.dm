@@ -229,6 +229,7 @@ var/global/list/additional_antag_types = list()
 			EMajor.delay_modifier = event_delay_mod_major
 
 /datum/game_mode/proc/pre_setup()
+	SHOULD_CALL_PARENT(TRUE)
 	for(var/datum/antagonist/antag in antag_templates)
 		antag.update_current_antag_max()
 		antag.update_initial_spawn_target()
