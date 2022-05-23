@@ -4271,7 +4271,7 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/door/airlock/glass_research{
 	name = "XenoBotanical Lab";
-	req_access = list(55)
+	req_access = list(52)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -14355,7 +14355,7 @@
 /area/crew_quarters/kitchen/freezer)
 "hPH" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(55);
+	req_access = list(52);
 	req_one_access = null
 	},
 /obj/machinery/door/firedoor,
@@ -15792,7 +15792,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/research{
 	name = "XenoBotanical Contaiment";
-	req_access = list(55)
+	req_access = list(52)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -19394,7 +19394,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "XenoBotanical Contaiment";
-	req_access = list(55)
+	req_access = list(52)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -23814,7 +23814,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Hazardous Specimens";
-	req_access = list(55)
+	req_access = list(52)
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/structure/cable/green{
