@@ -877,13 +877,13 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "auU" = (
-/obj/structure/closet/walllocker/firecloset{
-	pixel_x = -30;
-	pixel_y = 31
-	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/structure/closet/walllocker/firecloset/medical{
+	pixel_x = -32;
+	pixel_y = 31
 	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
@@ -15491,6 +15491,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/item/pipewrench,
+/obj/item/crowbar/rescue_axe/red,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "iIf" = (
@@ -16025,6 +16026,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
+/obj/item/crowbar/rescue_axe/red,
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/heads/chief)
 "iVp" = (
@@ -16720,6 +16722,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/item/pipewrench,
+/obj/item/crowbar/rescue_axe/red,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "jnV" = (
@@ -30015,6 +30018,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/item/pipewrench,
+/obj/item/crowbar/rescue_axe/red,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "qSn" = (
