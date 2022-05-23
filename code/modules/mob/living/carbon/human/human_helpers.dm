@@ -220,6 +220,21 @@
 		return TRUE
 	return FALSE
 
+/mob/living/carbon/human/proc/has_stethoscope_active()
+	var/obj/item/clothing/under/uniform = w_uniform
+	var/obj/item/clothing/suit/suit = wear_suit
+	if(suit)
+		var/obj/item/clothing/accessory/stethoscope/stet = locate() in suit.accessories
+		if(stet)
+			if(stet.auto_examine)
+				return TRUE
+	if(uniform)
+		var/obj/item/clothing/accessory/stethoscope/stet = locate() in uniform.accessories
+		if(stet)
+			if(stet.auto_examine)
+				return TRUE
+	return FALSE
+
 /mob/living/carbon/human/proc/is_submerged()
 	if(lying && istype(loc, /turf/simulated/floor/beach/water)) // replace this when we port fluids
 		return TRUE
