@@ -20,8 +20,6 @@
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/kataphract/klax
 	mob_name_prefix = "Zosaa "
-	uses_species_whitelist = TRUE
-	req_species_whitelist = SPECIES_VAURCA_WARRIOR // Kataphract K'lax would be more difficult
 	possible_species = list(SPECIES_VAURCA_WARRIOR)
 	extra_languages = list(LANGUAGE_VAURCA)
 
