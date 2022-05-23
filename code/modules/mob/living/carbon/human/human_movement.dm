@@ -26,16 +26,6 @@
 	if(species)
 		tally += species.get_species_tally(src)
 
-	if (nutrition < (max_nutrition * 0.2))
-		tally++
-		if (nutrition < (max_nutrition * 0.1))
-			tally++
-
-	if (hydration < (max_hydration * 0.2))
-		tally++
-		if (hydration < (max_hydration * 0.1))
-			tally++
-
 	tally += species.handle_movement_tally(src)
 
 	if (can_feel_pain())
