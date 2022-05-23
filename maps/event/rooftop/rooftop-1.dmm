@@ -7741,7 +7741,7 @@
 /turf/simulated/floor/lino/grey,
 /area/city/mendell)
 "RD" = (
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /obj/item/gun/launcher/grenade{
 	name = "active cleaning utility dispenser"
 	},
