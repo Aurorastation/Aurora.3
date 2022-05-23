@@ -43,6 +43,8 @@
 
 	var/image/hatch_image
 
+	var/turf_hand_priority = 3
+
 	//Multi-tile doors
 	dir = SOUTH
 	var/width = 1
@@ -78,6 +80,8 @@
 	update_nearby_tiles(need_rebuild=1)
 	if(hashatch && !(width > 1))
 		setup_hatch()
+	if(turf_hand_priority)
+		AddComponent(/datum/component/turf_hand, turf_hand_priority)
 
 /obj/machinery/door/Move(new_loc, new_dir)
 	. = ..()

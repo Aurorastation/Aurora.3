@@ -274,6 +274,7 @@
 #include "code\datums\components\multitool\multitool.dm"
 #include "code\datums\components\multitool\circuitboards\circuitboards.dm"
 #include "code\datums\components\multitool\circuitboards\stationalert.dm"
+#include "code\datums\components\turf_click\turf_hand.dm"
 #include "code\datums\discord\bot.dm"
 #include "code\datums\discord\webhook.dm"
 #include "code\datums\elements\_element.dm"
