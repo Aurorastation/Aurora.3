@@ -1,6 +1,7 @@
 /obj/structure/extinguisher_cabinet
 	name = "extinguisher cabinet"
 	desc = "A small wall mounted cabinet designed to hold a fire extinguisher."
+	desc_info = "Alt-click to close the door."
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "cabinet"
 	anchored = 1
@@ -8,9 +9,10 @@
 	var/obj/item/extinguisher/has_extinguisher
 	var/opened = 0
 
-/obj/structure/extinguisher_cabinet/New()
+/obj/structure/extinguisher_cabinet/Initialize()
 	..()
 	has_extinguisher = new/obj/item/extinguisher(src)
+	update_icon()
 
 /obj/structure/extinguisher_cabinet/attackby(obj/item/O, mob/user)
 	if(isrobot(user))
@@ -35,25 +37,20 @@
 /obj/structure/extinguisher_cabinet/attack_hand(mob/user)
 	if(isrobot(user))
 		return
-	if (ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
-		if (user.hand)
-			temp = H.organs_by_name[BP_L_HAND]
-		if(temp && !temp.is_usable())
-			to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
-			return
+	if(use_check_and_message(usr))
+		return 0
 	if(has_extinguisher)
 		user.put_in_hands(has_extinguisher)
 		to_chat(user, "<span class='notice'>You take [has_extinguisher] from [src].</span>")
 		playsound(src.loc, 'sound/effects/extout.ogg', 50, 0)
 		has_extinguisher = null
-		opened = 1
+		opened = TRUE
 	else
 		opened = !opened
 	update_icon()
 
 /obj/structure/extinguisher_cabinet/update_icon()
+	cut_overlays()
 	if(has_extinguisher)
 		if(istype(has_extinguisher, /obj/item/extinguisher/mini))
 			add_overlay("extinguisher_mini")
@@ -68,7 +65,7 @@
 	if(has_extinguisher)
 		has_extinguisher.dropInto(loc)
 		has_extinguisher = null
-		opened = 1
+		opened = TRUE
 	else
 		opened = !opened
 	update_icon()
