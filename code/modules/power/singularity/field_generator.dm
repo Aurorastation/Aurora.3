@@ -128,12 +128,12 @@ field_generator power level display
 				to_chat(user, "<span class='warning'>The [src.name] needs to be wrenched to the floor.</span>")
 				return
 			if(1)
-				if (WT.remove_fuel(0,user))
+				if (WT.use(0,user))
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 					user.visible_message("[user.name] starts to weld the [src.name] to the floor.", \
 						"You start to weld the [src] to the floor.", \
 						"You hear welding")
-					if (do_after(user,20/W.toolspeed, act_target = src))
+					if(W.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn()) return
 						state = 2
 						to_chat(user, "You weld the field generator to the floor.")
@@ -141,12 +141,12 @@ field_generator power level display
 				else
 					return
 			if(2)
-				if (WT.remove_fuel(0,user))
+				if (WT.use(0,user))
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 					user.visible_message("[user.name] starts to cut the [src.name] free from the floor.", \
 						"You start to cut the [src] free from the floor.", \
 						"You hear welding")
-					if (do_after(user,20/W.toolspeed, act_target = src))
+					if(W.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn()) return
 						state = 1
 						to_chat(user, "You cut the [src] free from the floor.")

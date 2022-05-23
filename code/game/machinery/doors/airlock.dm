@@ -1028,7 +1028,7 @@ About the new airlock wires panel:
 		var/obj/item/weldingtool/WT = tool
 		if(!WT.isOn())
 			return
-		if(!WT.remove_fuel(0,user))
+		if(!WT.use(0,user))
 			to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 			return
 		cut_verb = "cutting"
@@ -1293,9 +1293,9 @@ About the new airlock wires panel:
 				"You hear a welding torch on metal."
 			)
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
-			if (!do_after(user, 2/C.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
+			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
 				return TRUE
-			if(!WT.remove_fuel(0,user))
+			if(!WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 				return TRUE
 			playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
@@ -1334,9 +1334,8 @@ About the new airlock wires panel:
 			if(locked)
 				to_chat(user, SPAN_WARNING("The airlock bolts are in the way of the electronics, you need to raise them before you can reach them."))
 				return
-			playsound(src.loc, C.usesound, 100, 1)
 			user.visible_message("<b>[user]</b> starts removing the electronics from the airlock assembly.", SPAN_NOTICE("You start removing the electronics from the airlock assembly."))
-			if(do_after(user,40/C.toolspeed))
+			if(C.use_tool(src, user, 40, volume = 50))
 				user.visible_message("<b>[user]</b> removes the electronics from the airlock assembly.", SPAN_NOTICE("You remove the electronics from the airlock assembly."))
 				CreateAssembly()
 				return
@@ -1372,7 +1371,7 @@ About the new airlock wires panel:
 				else
 					to_chat(user, SPAN_WARNING("You need to be wielding \the [C] to do that."))
 		return TRUE
-	else if(istype(C, /obj/item/melee/hammer) && !arePowerSystemsOn())
+	else if(C.ishammer() && !arePowerSystemsOn())
 		if(locked && user.a_intent != I_HURT)
 			to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
 		else if(locked && user.a_intent == I_HURT)
