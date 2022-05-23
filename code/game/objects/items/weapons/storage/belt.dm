@@ -88,7 +88,7 @@
 	update_clothing_icon()
 
 /obj/item/storage/belt/utility
-	name = "utility belt"
+	name = "tool belt"
 	desc = "A sturdy belt for holding various tools and equipment."
 	icon_state = "utilitybelt"
 	item_state = "utility"
@@ -116,7 +116,7 @@
 		/obj/item/device/radio,
 		/obj/item/device/debugger,
 		/obj/item/device/eftpos
-		)
+	)
 	content_overlays = TRUE
 
 /obj/item/storage/belt/utility/ce
