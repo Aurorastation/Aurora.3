@@ -299,15 +299,3 @@
 	if (href_list["viewing"])
 		viewing_overmap(usr) ? unlook(usr) : look(usr)
 		return TOPIC_REFRESH
-
-/obj/machinery/computer/ship/navigation/telescreen	//little hacky but it's only used on one ship so it should be okay
-	icon_state = "tele_nav"
-	density = 0
-
-/obj/machinery/computer/ship/navigation/telescreen/update_icon()
-	if(stat & (NOPOWER|BROKEN))
-		icon_state = "tele_off"
-		set_light(0)
-	else
-		icon_state = "tele_nav"
-		set_light(2, 2, "#33FAAA")

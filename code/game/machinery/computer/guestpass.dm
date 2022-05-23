@@ -4,6 +4,7 @@
 /obj/item/card/id/guest
 	name = "guest pass"
 	desc = "Allows temporary access to station areas."
+	icon = 'icons/obj/computer.dmi'
 	icon_state = "guest"
 	overlay_state = "guest"
 
