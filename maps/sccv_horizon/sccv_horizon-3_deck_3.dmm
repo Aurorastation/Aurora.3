@@ -268,7 +268,7 @@
 "az" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/hologram/holopad,
-/mob/living/simple_animal/cat/fluff/Runtime,
+/mob/living/simple_animal/cat/crusher,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "aA" = (
