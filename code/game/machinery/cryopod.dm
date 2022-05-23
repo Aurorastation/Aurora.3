@@ -14,7 +14,7 @@ var/global/list/frozen_crew = list()
 /obj/machinery/computer/cryopod
 	name = "cryogenic oversight console"
 	desc = "An interface between crew and the cryogenic storage oversight systems."
-	icon = 'icons/obj/modular_console.dmi'
+	icon = 'icons/obj/computer.dmi'
 	icon_state = "altcomputerw"
 	circuit = /obj/item/circuitboard/cryopodcontrol
 	density = FALSE
