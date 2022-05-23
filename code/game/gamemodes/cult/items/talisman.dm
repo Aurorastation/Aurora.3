@@ -31,7 +31,7 @@
 		to_chat(user, SPAN_CULT("The smell of blood permeates this paper. That can't be good."))
 		return
 
-/obj/item/paper/talisman/proc/use()
+/obj/item/paper/talisman/use()
 	uses--
 	if(uses <= 0)
 		qdel(src)

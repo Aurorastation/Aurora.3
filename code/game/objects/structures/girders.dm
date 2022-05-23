@@ -73,16 +73,14 @@
 /obj/structure/girder/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench() && state == 0)
 		if(anchored && !reinf_material)
-			playsound(src.loc, W.usesound, 100, 1)
 			to_chat(user, "<span class='notice'>Now disassembling the girder...</span>")
-			if(do_after(user,40/W.toolspeed))
+			if(W.use_tool(src, user, 40, volume = 50))
 				if(!src) return
 				to_chat(user, "<span class='notice'>You dissasembled the girder!</span>")
 				dismantle()
 		else if(!anchored)
-			playsound(src.loc, W.usesound, 100, 1)
 			to_chat(user, "<span class='notice'>Now securing the girder...</span>")
-			if(do_after(user, 40/W.toolspeed))
+			if(W.use_tool(src, user, 40, volume = 50))
 				to_chat(user, "<span class='notice'>You secured the girder!</span>")
 				reset_girder()
 
@@ -101,7 +99,7 @@
 		var/obj/item/melee/energy/WT = W
 		if(WT.active)
 			to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-			if(do_after(user,30/W.toolspeed))
+			if(W.use_tool(src, user, 30, volume = 50))
 				if(!src) return
 				to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 				dismantle()
@@ -111,7 +109,7 @@
 
 	else if(istype(W, /obj/item/melee/energy/blade))
 		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-		if(do_after(user,30/W.toolspeed))
+		if(W.use_tool(src, user, 30, volume = 50))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 			dismantle()
@@ -120,7 +118,7 @@
 		var/obj/item/melee/chainsword/WT = W
 		if(WT.active)
 			to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-			if(do_after(user,60/W.toolspeed))
+			if(WT.use_tool(src, user, 60, volume = 50))
 				if(!src) return
 				to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 				dismantle()
@@ -142,32 +140,29 @@
 
 	else if(W.isscrewdriver())
 		if(state == 2)
-			playsound(src.loc, W.usesound, 100, 1)
 			to_chat(user, "<span class='notice'>Now unsecuring support struts...</span>")
-			if(do_after(user,40/W.toolspeed))
+			if(W.use_tool(src, user, 40, volume = 50))
 				if(!src)
 					return
 				to_chat(user, "<span class='notice'>You unsecured the support struts!</span>")
 				state = 1
 		else if(anchored && !reinf_material)
-			playsound(src.loc, W.usesound, 100, 1)
+			playsound(src.loc, W.usesound, 50, 1)
 			reinforcing = !reinforcing
 			to_chat(user, "<span class='notice'>\The [src] can now be [reinforcing? "reinforced" : "constructed"]!</span>")
 			return
 
 	else if(W.iswirecutter() && state == 1)
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now removing support struts...</span>")
-		if(do_after(user,40/W.toolspeed))
+		if(W.use_tool(src, user, 40, volume = 50))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You removed the support struts!</span>")
 			reinf_material = null
 			reset_girder()
 
 	else if(W.iscrowbar() && state == 0 && anchored)
-		playsound(src.loc, W.usesound, 100, 1)
 		to_chat(user, "<span class='notice'>Now dislodging the girder...</span>")
-		if(do_after(user, 40/W.toolspeed))
+		if(W.use_tool(src, user, 40, volume = 50))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You dislodged the girder!</span>")
 			icon_state = "displaced"
@@ -331,15 +326,14 @@
 
 /obj/structure/girder/cult/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench())
-		playsound(src.loc, W.usesound, 100, 1)
 		to_chat(user, "<span class='notice'>Now disassembling the girder...</span>")
-		if(do_after(user,40/W.toolspeed))
+		if(W.use_tool(src, user, 40, volume = 50))
 			to_chat(user, "<span class='notice'>You dissasembled the girder!</span>")
 			dismantle()
 
 	else if(istype(W, /obj/item/gun/energy/plasmacutter))
 		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-		if(do_after(user,30/W.toolspeed))
+		if(W.use_tool(src, user, 30, volume = 50))
 			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 		dismantle()
 
@@ -352,7 +346,7 @@
 		var/obj/item/melee/energy/WT = W
 		if(WT.active)
 			to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-			if(do_after(user,30/W.toolspeed))
+			if(W.use_tool(src, user, 30, volume = 50))
 				to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 			dismantle()
 		else
@@ -361,7 +355,7 @@
 
 	else if(istype(W, /obj/item/melee/energy/blade))
 		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-		if(do_after(user,30/W.toolspeed))
+		if(W.use_tool(src, user, 30, volume = 50))
 			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 		dismantle()
 
@@ -369,7 +363,7 @@
 		var/obj/item/melee/chainsword/WT = W
 		if(WT.active)
 			to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-			if(do_after(user,60/W.toolspeed))
+			if(WT.use_tool(src, user, 60, volume = 50))
 				to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 			dismantle()
 		else
