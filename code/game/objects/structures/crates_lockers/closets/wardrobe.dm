@@ -287,7 +287,7 @@
 	..()
 	new /obj/item/storage/backpack/duffel/pharm(src)
 	new /obj/item/clothing/under/rank/medical/pharmacist/zeng(src)
-	new /obj/item/clothing/under/rank/medical/pharmacist/nt(src)
+	new /obj/item/clothing/under/rank/medical/pharmacist(src)
 	new /obj/item/clothing/under/rank/medical/pharmacist/pmc(src)
 	new /obj/item/clothing/shoes/chemist(src)
 	new /obj/item/clothing/shoes/chemist(src)
