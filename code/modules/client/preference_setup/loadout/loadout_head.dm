@@ -62,7 +62,7 @@
 	softcaps["softcap, hydroponics"] = /obj/item/clothing/head/softcap/hydro
 	softcaps["softcap, cargo"] = /obj/item/clothing/head/softcap/cargo
 	softcaps["softcap, mining"] = /obj/item/clothing/head/softcap/miner
-	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/janitor
+	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/custodian
 	softcaps["softcap, tcfl"] = /obj/item/clothing/head/softcap/tcfl
 
 	gear_tweaks += new /datum/gear_tweak/path(softcaps)

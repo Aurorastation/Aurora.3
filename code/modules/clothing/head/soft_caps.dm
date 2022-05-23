@@ -27,7 +27,7 @@
 	icon_state = "[initial(icon_state)][flipped ? "_flipped" : ""]"
 	item_state = icon_state
 	to_chat(usr, "You flip the hat [flipped ? "backwards" : "forwards"].")
-	update_clothing_icon()	//so our mob-overlays update
+	update_clothing_icon()	// So our mob-overlays update.
 
 /obj/item/clothing/head/softcap/colorable
 	icon_state = "softcap_colorable"
@@ -55,8 +55,7 @@
 	icon_state = "tcfl"
 	item_state = "tcfl"
 
-// Departmental softcaps. By Wowzewow (Wezzy).
-
+// Departmental Softcaps (By Wowzewow (Wezzy))
 /obj/item/clothing/head/softcap/captain
 	name = "captain's softcap"
 	desc = "It's a peaked cap in a authoritative blue and yellow."
@@ -111,16 +110,13 @@
 	icon_state = "softcap_miner"
 	item_state = "softcap_miner"
 
-/obj/item/clothing/head/softcap/janitor
-	name = "janitor softcap"
-	desc = "It's a peaked cap, freshly sanitized and ready for a day of viscera cleanup."
-	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
-	contained_sprite = TRUE
-	icon_state = "softcap_janitor"
-	item_state = "softcap_janitor"
+/obj/item/clothing/head/softcap/custodian
+	name = "custodial softcap"
+	desc = "A peaked cap in a purple colour with a yellow brim."
+	icon_state = "custodian"
+	item_state = "custodian"
 
-// Corporate.
-
+// Corporate
 /obj/item/clothing/head/softcap/iac
 	name = "IAC cap"
 	desc = "An IAC cap. Standard issue and utilitarian."
@@ -168,3 +164,16 @@
 	desc = "A company-issue NanoTrasen cap. Smells of phoron."
 	icon_state = "nt"
 	item_state = "nt"
+
+// Departmental Corporate Softcaps
+/obj/item/clothing/head/softcap/nt/custodian
+	name = "nt custodial softcap"
+	desc = "A peaked cap in a blue colour with a purple brim."
+	icon_state = "custodian_nt"
+	item_state = "custodian_nt"
+
+/obj/item/clothing/head/softcap/idris/custodian
+	name = "idris custodial softcap"
+	desc = "A peaked cap in a teal colour with a purple brim."
+	icon_state = "custodian_idris"
+	item_state = "custodian_idris"

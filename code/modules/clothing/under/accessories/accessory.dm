@@ -207,14 +207,17 @@
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
+	desc_info = "Click on the UI action button toggle between the examination modes. Automatic will use the stethoscope on the person you're \
+	examining when adjacent to them, automatically using it on the selected body part. Manual will make it so you don't automatically use it via examine."
 	icon_state = "stethoscope"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
 		)
 	flippable = 1
+	var/auto_examine = FALSE
 
-/obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/human/M, mob/living/user)
+/obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/human/M, mob/user)
 	if(ishuman(M) && isliving(user))
 		if(user.a_intent == I_HELP)
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
@@ -223,6 +226,38 @@
 									 "You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
 				return
 	return ..(M,user)
+
+/obj/item/clothing/accessory/stethoscope/attack_self(mob/user)
+	toggle_examine()
+
+/obj/item/clothing/accessory/stethoscope/on_attached(obj/item/clothing/S, mob/user)
+	..()
+	has_suit.verbs += /obj/item/clothing/accessory/stethoscope/verb/toggle_examine
+
+/obj/item/clothing/accessory/stethoscope/on_removed(mob/user)
+	if(has_suit)
+		has_suit.verbs -= /obj/item/clothing/accessory/stethoscope/verb/toggle_examine
+	..()
+
+/obj/item/clothing/accessory/stethoscope/proc/mode_switch(mob/user)
+	auto_examine = !auto_examine
+	to_chat(user, SPAN_NOTICE("\The [src]'s Examination Mode is now [auto_examine ? "Automatic" : "Manual"]."))
+
+/obj/item/clothing/accessory/stethoscope/verb/toggle_examine()
+	set name = "Toggle Examination Mode"
+	set category = "Object"
+	set src in usr
+
+	if(!ishuman(usr))
+		return
+	if(usr.incapacitated())
+		return
+
+	var/obj/item/clothing/accessory/stethoscope/stet = get_accessory(/obj/item/clothing/accessory/stethoscope)
+	if(!stet)
+		return
+
+	stet.mode_switch(usr)
 
 //Religious items
 /obj/item/clothing/accessory/rosary

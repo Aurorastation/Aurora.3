@@ -106,7 +106,7 @@
 	check_armor = "bomb"
 	damage = 60
 	damage_type = BRUTE
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	range = 100
 	embed = 0
 	speed = 8
@@ -148,7 +148,7 @@
 	icon_state = "bluespace"
 	damage = 0
 	damage_type = BRUTE
-	pass_flags = PASSTABLE | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
 	range = 10
 	embed = 0
 	speed = 2
@@ -176,7 +176,7 @@
 	check_armor = "bio"
 	damage = 5
 	damage_type = BRUTE
-	pass_flags = PASSTABLE | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
 	embed = 0
 	weaken = 0
 
@@ -198,13 +198,13 @@
 	check_armor = "laser"
 	damage_type = BURN
 	damage_flags = DAM_LASER
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 	hit_effect = /obj/effect/temp_visual/blaster_effect
 
 /obj/item/projectile/energy/blaster/disruptor
 	damage = 20
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 
 /obj/item/projectile/energy/disruptorstun
 	name = "disruptor bolt"
@@ -214,7 +214,7 @@
 	speed = 0.4
 	damage_type = BURN
 	eyeblur = TRUE
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 
 /obj/item/projectile/energy/blaster/heavy

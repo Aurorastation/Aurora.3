@@ -43,6 +43,8 @@
 
 	var/image/hatch_image
 
+	var/turf_hand_priority = 3
+
 	//Multi-tile doors
 	dir = SOUTH
 	var/width = 1
@@ -78,6 +80,8 @@
 	update_nearby_tiles(need_rebuild=1)
 	if(hashatch && !(width > 1))
 		setup_hatch()
+	if(turf_hand_priority)
+		AddComponent(/datum/component/turf_hand, turf_hand_priority)
 
 /obj/machinery/door/Move(new_loc, new_dir)
 	. = ..()
@@ -338,10 +342,9 @@
 			return TRUE
 
 		var/obj/item/weldingtool/welder = I
-		if(welder.remove_fuel(0,user))
+		if(welder.use(0,user))
 			to_chat(user, "<span class='notice'>You start to fix dents and weld \the [repairing] into place.</span>")
-			playsound(src, 'sound/items/welder.ogg', 100, 1)
-			if(do_after(user, 5 * repairing.amount) && welder && welder.isOn())
+			if(welder.use_tool(src, user, 5 * repairing.amount, volume = 50) && welder && welder.isOn())
 				to_chat(user, "<span class='notice'>You finish repairing the damage to \the [src].</span>")
 				health = between(health, health + repairing.amount*DOOR_REPAIR_AMOUNT, maxhealth)
 				update_icon()
@@ -351,7 +354,7 @@
 
 	if(repairing && I.iscrowbar())
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
-		playsound(src.loc, I.usesound, 100, 1)
+		playsound(src.loc, I.usesound, 50, 1)
 		repairing.forceMove(user.loc)
 		repairing = null
 		return TRUE
