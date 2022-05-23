@@ -36,6 +36,7 @@
 		/area/rnd/isolation_b,
 		/area/rnd/isolation_c
 	)
+
 	ut_fire_exempt_areas = list(
 		/area/maintenance,
 		/area/horizon/maintenance,
