@@ -5,7 +5,7 @@
 	max_co2 = 0
 	minbodytemp = 0
 	maxbodytemp = 500
-	mob_size = MOB_SMALL
+	mob_size = MOB_TINY
 
 	var/radio_type = /obj/item/device/radio/borg
 	var/obj/item/device/radio/borg/radio = null
@@ -47,7 +47,6 @@
 	pass_flags = PASSTABLE | PASSDOORHATCH
 	universal_understand = TRUE
 	speak_emote = list("beeps","clicks","chirps")
-	mob_size = 4
 	can_pull_size = 3
 	can_pull_mobs = MOB_PULL_SMALLER
 
