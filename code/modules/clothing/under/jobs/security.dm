@@ -33,6 +33,14 @@
 	icon_state = "pmc_officer"
 	item_state = "pmc_officer"
 
+/obj/item/clothing/under/rank/security/pmc/epmc // Note: Item Icon placeholder
+	icon_state = "epmc_officer"
+	item_state = "epmc_officer"
+
+/obj/item/clothing/under/rank/security/pmc/epmc_alt // Note: Item Icon placeholder
+	icon_state = "epmc_officer_alt"
+	item_state = "epmc_officer_alt"
+
 /obj/item/clothing/under/rank/cadet
 	name = "security cadet's uniform"
 	desc = "It's made of a slightly sturdier material, to allow for robust protection."
