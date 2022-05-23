@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Renames \"tool-belt\" to \"utility belt\", as originally intended."
+  - bugfix: "Fixes a typo in the tool belt's name, i.e. \"tool-belt\" to \"tool belt\"."
