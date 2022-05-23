@@ -19,7 +19,7 @@
 	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HEAD
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.65
 	w_class = ITEMSIZE_NORMAL
 	var/obj/machinery/camera/camera
 	drop_sound = 'sound/items/drop/helm.ogg'
@@ -91,7 +91,7 @@
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_MINOR
 		)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.35
 	flags_inv = HIDEEARS
 	action_button_name = "Toggle Visor"
 
@@ -143,7 +143,7 @@
 		laser = ARMOR_LASER_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.5
 
 /obj/item/clothing/head/helmet/merc
 	name = "combat helmet"
@@ -247,7 +247,7 @@
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.6
+	siemens_coefficient = 0.5
 
 
 /obj/item/clothing/head/helmet/augment
@@ -293,7 +293,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.75
+	siemens_coefficient = 0.5
 
 /obj/item/clothing/head/helmet/unathi/hegemony
 	name = "hegemony helmet"
@@ -324,7 +324,7 @@
 		bomb = ARMOR_BOMB_PADDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
-	siemens_coefficient = 0.6
+	siemens_coefficient = 0.5
 
 /obj/item/clothing/head/helmet/tank
 	name = "padded cap"

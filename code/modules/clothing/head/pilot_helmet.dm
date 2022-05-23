@@ -14,7 +14,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	siemens_coefficient = 0.35
+	siemens_coefficient = 0.5
 	action_button_name = "Flip Pilot Visor"
 
 	sprite_sheets = list(

@@ -9,7 +9,7 @@
 	armor = list(
 		rad = ARMOR_RAD_MINOR
 	)
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/atmospheric_technician
 	name = "atmospheric technician's jumpsuit"

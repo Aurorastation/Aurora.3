@@ -14,6 +14,7 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
+	siemens_coefficient = 0.1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 
@@ -54,6 +55,7 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
+	siemens_coefficient = 0.1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
@@ -180,6 +182,7 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
+	siemens_coefficient = 0.1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
@@ -228,6 +231,7 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
 	)
+	siemens_coefficient = 0.1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
@@ -295,6 +299,7 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
 	)
+	siemens_coefficient = 0.1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
@@ -345,6 +350,7 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 	)
+	siemens_coefficient = 0.1
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = -30
 	slowdown = 8
@@ -383,6 +389,7 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 	)
+	siemens_coefficient = 0.1
 	offline_vision_restriction = TINT_HEAVY
 	offline_slowdown = 10
 

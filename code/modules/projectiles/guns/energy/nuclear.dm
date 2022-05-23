@@ -12,6 +12,7 @@
 	slot_flags = SLOT_BELT
 	accuracy = 2
 	max_shots = 10
+	fire_delay = 6
 	can_turret = TRUE
 	secondary_projectile_type = /obj/item/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
