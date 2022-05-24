@@ -5815,6 +5815,13 @@
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
+"dio" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/operations/lobby)
 "dit" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -7008,6 +7015,14 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/brig/processing)
+"dQT" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/door/window/westleft,
+/obj/machinery/light,
+/obj/structure/window/reinforced,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/operations/lobby)
 "dQZ" = (
 /obj/machinery/ai_status_display,
 /turf/simulated/wall,
@@ -12526,6 +12541,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"gOS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/operations/lobby)
 "gPs" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
@@ -16055,6 +16075,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
+"iOj" = (
+/obj/effect/map_effect/airlock/long/square{
+	radio_frequency = 1450
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/operations/lobby)
 "iOD" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -17310,6 +17336,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"jyW" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/template_noop)
 "jzq" = (
 /obj/structure/table/standard,
 /obj/machinery/light{
@@ -17520,6 +17549,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
+"jEX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/operations/lobby)
 "jFc" = (
 /obj/machinery/door/firedoor,
 /obj/structure/curtain/black{
@@ -17920,9 +17956,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/structure/bed/stool/chair/padded/brown{
-	dir = 8
-	},
+/obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "jRO" = (
@@ -18343,6 +18377,10 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/green,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"kdB" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/operations/lobby)
 "kdK" = (
 /obj/machinery/light{
 	dir = 1
@@ -19373,6 +19411,12 @@
 "kPA" = (
 /turf/simulated/wall,
 /area/rnd/xenobiology/xenoflora)
+"kQl" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/operations/lobby)
 "kQA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor,
@@ -21658,6 +21702,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"mek" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/tiled,
+/area/operations/lobby)
 "mep" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
@@ -26027,12 +26078,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/turbolift/scc_ship/morgue_lift)
 "ozs" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/vending/cigarette,
-/turf/simulated/floor/tiled,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/operations/lobby)
 "ozz" = (
 /obj/structure/disposalpipe/segment{
@@ -27260,10 +27306,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/structure/table/wood,
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
+/obj/machinery/vending/zora,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "pgi" = (
@@ -27315,6 +27361,19 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard)
+"phf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/operations/lobby)
 "phF" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
@@ -29498,6 +29557,15 @@
 "qsw" = (
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
+"qsA" = (
+/turf/simulated/floor/plating,
+/area/operations/lobby)
+"qtA" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/operations/lobby)
 "qtB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -29876,6 +29944,15 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/operations/qm)
+"qDF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/meter,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/operations/lobby)
 "qDU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -30597,6 +30674,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
+"qWw" = (
+/obj/effect/shuttle_landmark/horizon/nav3,
+/turf/template_noop,
+/area/template_noop)
 "qWJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -32816,9 +32897,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
 "sbW" = (
-/obj/structure/foamedmetal,
-/turf/simulated/floor/plating,
-/area/engineering/storage/tech)
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/green/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/operations/lobby)
 "sci" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -36548,12 +36634,16 @@
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "ukM" = (
-/obj/effect/floor_decal/corner/green/full,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/status_display{
-	pixel_x = -32
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 1;
+	name = "Starboard Docking Arm"
 	},
-/obj/machinery/vending/zora,
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "ukV" = (
@@ -38496,6 +38586,10 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
+"vmS" = (
+/obj/effect/floor_decal/corner/red,
+/turf/simulated/floor/tiled,
+/area/operations/lobby)
 "vnz" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-1"
@@ -38704,6 +38798,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"vtF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/light,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/operations/lobby)
 "vtM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -39291,14 +39393,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "vJR" = (
-/obj/effect/floor_decal/corner/green/full{
-	dir = 8
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/machinery/ai_status_display{
-	pixel_x = -32
+/obj/effect/floor_decal/corner/green{
+	dir = 5
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "vJX" = (
@@ -40926,6 +41026,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
+"wut" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8;
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/operations/lobby)
 "wuJ" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner_wide/green{
@@ -40989,6 +41102,12 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
+"wxd" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/operations/lobby)
 "wxr" = (
 /turf/simulated/wall,
 /area/medical/or1)
@@ -42870,16 +42989,22 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering/smes/tesla)
+"xwj" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/machinery/door/window/westright,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/operations/lobby)
 "xwo" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/structure/bed/stool/chair/padded/brown{
-	dir = 4
-	},
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "xwU" = (
@@ -50250,7 +50375,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+qWw
 qgN
 qgN
 qgN
@@ -51858,14 +51983,14 @@ euX
 scx
 qgN
 qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+ozs
+kQl
+kQl
+kQl
+ozs
+ozs
+ozs
+iOj
 qgN
 qgN
 qgN
@@ -52060,14 +52185,14 @@ xTS
 whe
 qgN
 qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+kQl
+mek
+dio
+gOS
+qsA
+qsA
+qsA
+qsA
 qgN
 qgN
 qgN
@@ -52262,14 +52387,14 @@ cpl
 kLo
 scx
 qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+ozs
+kJw
+jEX
+vte
+qsA
+qsA
+qsA
+qsA
 qgN
 qgN
 qgN
@@ -52464,14 +52589,14 @@ rDw
 xhs
 whe
 qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
-qgN
+ozs
+kJw
+vtF
+ozs
+ozs
+ozs
+ozs
+ozs
 qgN
 qgN
 qgN
@@ -52664,13 +52789,13 @@ oJT
 ipL
 mhm
 cpl
-euX
-scx
-qgN
-qgN
-qgN
-qgN
-qgN
+ozs
+ozs
+ozs
+kJw
+jEX
+ozs
+xer
 qgN
 qgN
 qgN
@@ -52866,13 +52991,13 @@ otw
 xfq
 uEI
 cpl
-xTS
-whe
-qgN
-qgN
-qgN
-qgN
-qgN
+sbW
+qtA
+qtA
+kJw
+jEX
+kQl
+xer
 qgN
 qgN
 qgN
@@ -53068,13 +53193,13 @@ deL
 ipL
 cAf
 cpl
-sbW
-euX
-scx
-qgN
-qgN
-qgN
-qgN
+lWB
+vmS
+wxd
+kdB
+qDF
+kQl
+xer
 qgN
 qgN
 qgN
@@ -53270,13 +53395,13 @@ aiP
 hLb
 rYx
 cpl
-sbW
-xTS
-whe
-qgN
-qgN
-qgN
-qgN
+lWB
+kJw
+phf
+xwj
+dQT
+ozs
+xer
 qgN
 qgN
 qgN
@@ -53472,13 +53597,13 @@ cpl
 cpl
 cpl
 cpl
-cpl
-cpl
-kLo
-scx
-qgN
-qgN
-qgN
+vJR
+kJw
+wut
+wut
+wut
+ozs
+xer
 qgN
 qgN
 qgN
@@ -53673,14 +53798,14 @@ gJM
 qxy
 tAX
 rCR
-vJR
-ozs
+rCR
+lWB
 ukM
-aRu
-whe
-qgN
-qgN
-qgN
+ozs
+ozs
+ozs
+ozs
+jyW
 qgN
 qgN
 qgN
