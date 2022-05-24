@@ -2195,6 +2195,9 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
+/obj/machinery/computer/cryopod{
+	pixel_x = -28
+	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcfl_peacekeeper_ship)
 "ofl" = (
