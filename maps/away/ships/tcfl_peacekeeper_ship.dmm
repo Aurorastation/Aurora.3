@@ -2684,6 +2684,16 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/shuttle/tcfl_peacekeeper_ship)
+"sbb" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black,
+/obj/item/clothing/suit/storage/legion,
+/obj/effect/ghostspawpoint{
+	identifier = "tcfl_peacekeeper_pilot";
+	name = "igs - tcfl_peacekeeper_pilot"
+	},
+/turf/simulated/floor/carpet,
+/area/shuttle/tcfl_peacekeeper_ship)
 "sfQ" = (
 /obj/machinery/light/small,
 /turf/simulated/floor,
@@ -28401,7 +28411,7 @@ xRX
 xRX
 xoc
 sWY
-abb
+ive
 heP
 heP
 inf
@@ -28946,7 +28956,7 @@ mSl
 mSl
 nFw
 mSl
-mSl
+sbb
 yjk
 xji
 xji
@@ -29429,7 +29439,7 @@ xRX
 xRX
 xoc
 sWY
-ive
+abb
 heP
 bJD
 aHt

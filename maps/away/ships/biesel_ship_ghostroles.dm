@@ -8,7 +8,7 @@
 	mob_name_prefix = "Lgn. "
 
 	spawnpoints = list("tcfl_peacekeeper")
-	max_count = 2
+	max_count = 3
 
 	outfit = /datum/outfit/admin/tcfl_peacekeeper
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -106,49 +106,3 @@
 /obj/item/card/id/tcfl_ship
 	name = "tcfl peacekeeper ship id"
 	access = list(access_tcfl_peacekeeper_ship, access_external_airlocks)
-
-/datum/ghostspawner/human/tcfl_detainee
-	short_name = "tcfl_detainee"
-	name = "TCFL Detainee"
-	desc = "Rot in the Tau Ceti Foreign Legion ship's holding cell. Try not to get bored - you're stuck in a room under armed guard."
-	tags = list("External")
-
-	spawnpoints = list("tcfl_detainee")
-	max_count = 2
-
-	outfit = /datum/outfit/admin/tcfl_detainee
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-
-	assigned_role = "TCFL Detainee"
-	special_role = "TCFL Detainee"
-	respawn_flag = null
-
-
-/datum/outfit/admin/tcfl_detainee
-	name = "TCFL Detainee"
-
-	uniform = /obj/item/clothing/under/color/orange
-	shoes = /obj/item/clothing/shoes/orange
-	species_shoes = list(
-		SPECIES_UNATHI = /obj/item/clothing/shoes/footwraps,
-		SPECIES_TAJARA = /obj/item/clothing/shoes/footwraps,
-		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/footwraps,
-		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/footwraps,
-		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/footwraps,
-		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/footwraps
-	)
-
-/datum/outfit/admin/tcfl_detainee/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
-		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
-		H.internal = preserve
-		H.internals.icon_state = "internal1"
-		var/obj/item/reagent_containers/inhaler/phoron_special/PS = new /obj/item/reagent_containers/inhaler/phoron_special(get_turf(H))
-		H.put_in_hands(PS)
-
-	if(isoffworlder(H))
-		var/obj/item/storage/pill_bottle/rmt/PB = new /obj/item/storage/pill_bottle/rmt(get_turf(H))
-		H.put_in_hands(PB)
