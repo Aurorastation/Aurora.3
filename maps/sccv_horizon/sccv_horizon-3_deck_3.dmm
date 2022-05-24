@@ -1489,7 +1489,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "cN" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -9641,9 +9641,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
-"rW" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/exterior)
 "rX" = (
 /obj/machinery/light{
 	dir = 4
@@ -27252,12 +27249,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
-"Ys" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/shuttle/scc_space_ship,
-/turf/simulated/floor/plating,
-/area/horizon/exterior)
 "Yt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -38592,9 +38583,9 @@ at
 at
 at
 at
-rW
-Ys
-Ys
+mP
+Cm
+Cm
 RM
 Tv
 Vr
@@ -38794,9 +38785,9 @@ at
 at
 at
 at
-at
-at
-at
+Ob
+Ob
+Ob
 Ob
 Jg
 Px
@@ -38996,9 +38987,9 @@ at
 at
 at
 at
-at
+Ob
 cM
-at
+Ob
 Ob
 Xv
 Zt
@@ -39198,9 +39189,9 @@ at
 at
 at
 at
-rW
-Ys
-Ys
+mP
+Cm
+Cm
 mP
 Xv
 Zt
