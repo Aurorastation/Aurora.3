@@ -80,6 +80,8 @@
 	return 1
 
 /obj/machinery/atmospherics/unary/cryo_cell/relaymove(mob/user as mob)
+	if(user != occupant) //Put this in because apparently if you open the ui and press a button, you're counted as user and can trigger relaymove, this checks if you're inside, and if you aren't it ignores you for the purposes of the relaymove. - Risingvaliant
+		return
 	if(user.stat)
 		return
 	go_out()

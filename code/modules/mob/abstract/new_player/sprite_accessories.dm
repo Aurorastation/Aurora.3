@@ -3674,64 +3674,84 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Glorp"
 			icon_state = "glorp"
 
-	anglerfish
+	tuux_patch
 		icon = 'icons/mob/human_face/skrell_beards.dmi'
-		name = "Anglerfish"
-		icon_state = "Anglerfish"
+		name = "Tuux Chin Patch"
+		icon_state = "Tuux_Patch"
 		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori)
 		gender = NEUTER
 
-		triton
-			name = "Triton"
-			icon_state = "Triton"
+		tuux_goatee
+			name = "Tuux Goatee"
+			icon_state = "Tuux_Goatee"
 
-		big_triton
-			name = "Big Triton"
-			icon_state = "Big_Triton"
+		tuux_tri_point
+			name = "Tuux Tri-Point"
+			icon_state = "Tuux_Tri-Point"
 
-		ahab
-			name = "Ahab"
-			icon_state = "Ahab"
+		tuux_strap
+			name = "Tuux Chin Strap"
+			icon_state = "Tuux_Strap"
 
-		monotail
-			name = "Monotail"
-			icon_state = "Monotail"
+		tuux_monotail
+			name = "Tuux Monotail"
+			icon_state = "Tuux_Monotail"
 
-		long_monotail
-			name = "Long Monotail"
-			icon_state = "Long_Monotail"
+		tuux_monotail_long
+			name = "Tuux Monotail (Long)"
+			icon_state = "Tuux_Monotail_Long"
 
-		face_adorns
-			name = "Face Adorns"
-			icon_state = "Face_Adorns"
+		tuux_full
+			name = "Tuux Full Beard"
+			icon_state = "Tuux_Full"
 
-		sea_captain
-			name = "Sea Captain"
-			icon_state = "Sea_Captain"
+		tuux_chops
+			name = "Tuux Chops"
+			icon_state = "Tuux_Chops"
+			
+		tuux_chops_big
+			name = "Tuux Chops (Big)"
+			icon_state = "Tuux_Chops_Big"
 
-		fisherman
-			name = "Fisherman"
-			icon_state = "Fisherman"
+		tuux_adorns
+			name = "Tuux Face Adorns"
+			icon_state = "Tuux_Adorns"
 
-		sailor
-			name = "Sailor"
-			icon_state = "Sailor"
+		tuux_handlebar
+			name = "Tuux Handlebar"
+			icon_state = "Tuux_Handlebar"
 
-		overgrown
-			name = "Overgrown"
-			icon_state = "Overgrown"
+		tuux_fumanchu
+			name = "Tuux FuManChu"
+			icon_state = "Tuux_FuManChu"
 
-		marauder_left
-			name = "Marauder (Left)"
-			icon_state = "Marauder_Left"
+		tuux_overeye_left
+			name = "Tuux Overeye (Left)"
+			icon_state = "Tuux_Overeye_Left"
 
-		marauder_right
-			name = "Marauder (Right)"
-			icon_state = "Marauder_Right"
+		tuux_overeye_right
+			name = "Tuux Overeye (Right)"
+			icon_state = "Tuux_Overeye_Right"
 
-		Pilot
-			name = "Pilot"
-			icon_state = "Pilot"
+		tuux_mustache
+			name = "Tuux Stache"
+			icon_state = "Tuux_Mustache"
+			
+		tuux_overgrown
+			name = "Tuux Overgrown"
+			icon_state = "Tuux_Overgrown"
+			
+		tuux_braided
+			name = "Tuux Braided"
+			icon_state = "Tuux_Braided"
+			
+		tuux_braided_long
+			name = "Tuux Braided (Long)"
+			icon_state = "Tuux_Braided_Long"
+			
+		tuux_braided_double
+			name = "Tuux Braided (Double)"
+			icon_state = "Tuux_Braided_Double"
 
 //Vaurca mandibles
 	clicky

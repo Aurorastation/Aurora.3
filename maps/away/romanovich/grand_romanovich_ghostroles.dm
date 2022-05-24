@@ -15,7 +15,6 @@
 	special_role = "Grand Romanovich Host"
 	respawn_flag = null
 
-	req_species_whitelist = SPECIES_TAJARA
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
 /datum/outfit/admin/grand_romanovich_host

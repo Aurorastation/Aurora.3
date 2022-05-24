@@ -17,7 +17,7 @@
 	var/mob/target_mob
 	var/obj/machinery/beehive/parent
 	var/loner = 0
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	turns_per_move = 6
 	var/obj/machinery/portable_atmospherics/hydroponics/my_hydrotray
 	emote_sounds = list('sound/effects/creatures/bees.ogg')

@@ -31,7 +31,7 @@
 	unacidable = 1//Just to be sure.
 	var/def_zone
 	flags = PROXMOVE
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 
 /var/list/acting_rank_prefixes = list("acting", "temporary", "interim", "provisional")
 
