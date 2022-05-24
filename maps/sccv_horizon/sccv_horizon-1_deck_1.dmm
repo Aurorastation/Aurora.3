@@ -5681,12 +5681,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "eDa" = (
-/obj/machinery/requests_console{
-	department = "Mining";
-	departmentType = 2;
-	name = "Mining Requests Console";
-	pixel_x = 30
-	},
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
@@ -11938,7 +11932,7 @@
 	pixel_y = -24
 	},
 /obj/machinery/camera/network/supply{
-	c_tag = "Operations - Warehouse Entrance";
+	c_tag = "Operations - Lower Warehouse 4";
 	dir = 1
 	},
 /obj/vehicle/train/cargo/trolley,
@@ -13580,6 +13574,12 @@
 "kSe" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
+	},
+/obj/machinery/requests_console{
+	department = "Mining";
+	departmentType = 2;
+	name = "Mining Requests Console";
+	pixel_x = -30
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
@@ -22288,11 +22288,6 @@
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
-"snD" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/template_noop,
-/area/template_noop)
 "soD" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
@@ -24693,7 +24688,7 @@
 	dir = 1
 	},
 /obj/machinery/requests_console{
-	department = "Operations";
+	department = "Machinist Workshop";
 	departmentType = 2;
 	name = "Machinist Workshop";
 	pixel_y = -30

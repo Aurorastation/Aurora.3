@@ -136,9 +136,8 @@
 /obj/structure/closet/walllocker/medical{
 	pixel_y = 32
 	},
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/ointment,
-/obj/item/storage/firstaid,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/o2,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "ao" = (
@@ -1167,6 +1166,7 @@
 /area/horizon/stairwell/central)
 "ci" = (
 /obj/structure/table/wood,
+/obj/item/clipboard,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
 "cj" = (
@@ -2930,7 +2930,8 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/requests_console{
 	department = "Conference Room";
-	pixel_y = -32
+	pixel_y = -32;
+	name = "Conference Room Requests Console"
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
@@ -16751,7 +16752,7 @@
 	},
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine{
-	department = "Head of Personnel's Office"
+	department = "Executive Officer's Office"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
@@ -20340,6 +20341,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/item/clipboard,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "LO" = (

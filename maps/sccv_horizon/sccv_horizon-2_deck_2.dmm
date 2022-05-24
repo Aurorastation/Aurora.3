@@ -16363,13 +16363,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
-"iXv" = (
-/obj/machinery/camera/network/security{
-	c_tag = "Security - Second Deck Checkpoint";
-	dir = 4
-	},
-/turf/simulated/wall,
-/area/security/checkpoint2)
 "iXI" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -26832,10 +26825,11 @@
 	pixel_y = 13
 	},
 /obj/machinery/requests_console{
-	department = "Supply Manager";
+	department = "Operations Manager";
 	departmentType = 5;
-	name = "Supply Manager Request Console";
-	pixel_x = -32
+	name = "Operations Manager Request Console";
+	pixel_x = -32;
+	announcementConsole = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -28181,7 +28175,7 @@
 	dir = 9
 	},
 /obj/machinery/requests_console{
-	department = "Cargo Bay";
+	department = "Operations Office";
 	departmentType = 2;
 	name = "Operations Requests Console";
 	pixel_x = -32
@@ -34623,7 +34617,7 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/light,
 /obj/machinery/camera/network/service{
-	c_tag = "Dinner - Hydroponics 1";
+	c_tag = "Service- Hydroponics 2";
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -34686,7 +34680,7 @@
 /area/rnd/strongroom)
 "tjS" = (
 /obj/machinery/camera/network/service{
-	c_tag = "Dinner - Hydroponics 1";
+	c_tag = "Dinner - Kitchen";
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment{
@@ -35373,7 +35367,9 @@
 /area/horizon/library)
 "tFX" = (
 /obj/structure/table/standard,
-/obj/item/paper_scanner,
+/obj/machinery/photocopier/faxmachine{
+	department = "Operations Manager's Office"
+	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "tGb" = (
@@ -37476,7 +37472,7 @@
 "uHY" = (
 /obj/machinery/power/portgen/basic,
 /obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Secure Technical Storage";
+	c_tag = "Engineering - Hard Storage";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -57249,7 +57245,7 @@ tBZ
 vua
 tXc
 trC
-iXv
+jWV
 xnv
 qlp
 dwy
