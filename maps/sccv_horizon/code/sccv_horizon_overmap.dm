@@ -63,5 +63,5 @@
 /obj/effect/shuttle_landmark/horizon/nav3
 	name = "Starboard Primary Docking Arm"
 	landmark_tag = "nav_hangar_horizon_3"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
+	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/horizon/exterior

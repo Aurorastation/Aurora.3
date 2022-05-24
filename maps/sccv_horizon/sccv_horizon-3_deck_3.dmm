@@ -1484,6 +1484,12 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
+"cM" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "cN" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -7706,6 +7712,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
+"ok" = (
+/obj/effect/shuttle_landmark/horizon/nav3,
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "ol" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -9631,6 +9641,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
+"rW" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/exterior)
 "rX" = (
 /obj/machinery/light{
 	dir = 4
@@ -18896,6 +18909,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/washroom)
+"Jg" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "Jh" = (
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
@@ -21601,6 +21621,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"Ob" = (
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "Oc" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -22405,6 +22428,19 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
+"Px" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "Py" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -23679,6 +23715,10 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
+"RM" = (
+/obj/effect/map_effect/airlock/s_to_n/long/square,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "RN" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -27212,6 +27252,12 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
+"Ys" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
+/turf/simulated/floor/plating,
+/area/horizon/exterior)
 "Yt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -38343,7 +38389,7 @@ at
 at
 at
 at
-at
+ok
 at
 at
 at
@@ -38546,10 +38592,10 @@ at
 at
 at
 at
-at
-at
-at
-mP
+rW
+Ys
+Ys
+RM
 Tv
 Vr
 mP
@@ -38751,9 +38797,9 @@ at
 at
 at
 at
-Cm
-Xv
-Zt
+Ob
+Jg
+Px
 GQ
 at
 at
@@ -38951,9 +38997,9 @@ at
 at
 at
 at
+cM
 at
-at
-Cm
+Ob
 Xv
 Zt
 GQ
@@ -39152,10 +39198,10 @@ at
 at
 at
 at
-at
-at
-at
-Cm
+rW
+Ys
+Ys
+mP
 Xv
 Zt
 GQ
