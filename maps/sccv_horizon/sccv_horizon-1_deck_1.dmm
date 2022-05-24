@@ -2388,6 +2388,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
+"bNR" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/obj/machinery/meter,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/intrepid/atmos_compartment)
 "bNT" = (
 /obj/effect/floor_decal/corner/black/full{
 	dir = 4
@@ -4030,21 +4043,12 @@
 	},
 /area/engineering/atmos/propulsion)
 "dir" = (
-/obj/structure/table/standard,
-/obj/item/pipewrench,
-/obj/item/wrench{
-	pixel_y = -8
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
 	},
-/obj/machinery/firealarm/west{
-	pixel_x = 0;
-	pixel_y = -31;
-	dir = 2
-	},
-/obj/machinery/cell_charger,
-/obj/random/powercell,
-/obj/effect/floor_decal/corner/blue/full,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/atmos_compartment)
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid/cargo_bay)
 "diJ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4330,20 +4334,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "dzg" = (
-/obj/machinery/portable_atmospherics/canister/empty,
-/obj/machinery/door/window/westright,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/machinery/computer/ship/engines,
 /obj/effect/floor_decal/corner/blue{
-	dir = 6
+	dir = 5
 	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
@@ -4952,10 +4948,9 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
 "eaS" = (
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/toolcloset,
+/turf/simulated/floor/tiled,
 /area/shuttle/intrepid/crew_compartment)
 "ebd" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -5467,15 +5462,14 @@
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "evK" = (
-/obj/machinery/computer/ship/engines,
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 6
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4;
+	layer = 2.8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/engine_compartment)
+/area/shuttle/intrepid/crew_compartment)
 "ewy" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -5884,7 +5878,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "eKc" = (
-/obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -7935,7 +7931,12 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "ghP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/blue/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "gix" = (
@@ -8069,14 +8070,29 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
 "gpR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
+	frequency = 1380;
+	id_tag = "intrepid_shuttle_cargo";
+	layer = 3.3;
+	master_tag = "intrepid_shuttle";
+	pixel_x = 24;
+	tag_airpump = "intrepid_shuttle_cargo_pump";
+	tag_chamber_sensor = "intrepid_shuttle_cargo_sensor";
+	tag_exterior_door = "intrepid_shuttle_cargo_out";
+	tag_exterior_sensor = "intrepid_shuttle_cargo_exterior_sensor";
+	tag_interior_door = "intrepid_shuttle_cargo_in"
 	},
-/obj/effect/floor_decal/corner/blue/full,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/crew_compartment)
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "intrepid_shuttle_cargo_pump"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid/cargo_bay)
 "gqn" = (
 /obj/machinery/computer/shuttle_control/lift{
 	pixel_y = -1;
@@ -8440,11 +8456,8 @@
 /area/engineering/atmos/air)
 "gDj" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/fuel_port{
-	pixel_x = -32
-	},
-/obj/structure/bed/handrail{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
@@ -8531,10 +8544,23 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "gGb" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/toolcloset,
-/turf/simulated/floor/tiled,
-/area/shuttle/intrepid/crew_compartment)
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "intrepid_shuttle_cargo_sensor";
+	pixel_x = -24;
+	pixel_y = -6
+	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1380;
+	id_tag = "intrepid_shuttle_cargo_pump"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid/cargo_bay)
 "gGg" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -8546,25 +8572,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
-"gGj" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	frequency = 1380;
-	id_tag = "intrepid_shuttle_cargo";
-	layer = 3.3;
-	master_tag = "intrepid_shuttle";
-	pixel_x = 24;
-	tag_airpump = "intrepid_shuttle_cargo_pump";
-	tag_chamber_sensor = "intrepid_shuttle_cargo_sensor";
-	tag_exterior_door = "intrepid_shuttle_cargo_out";
-	tag_exterior_sensor = "intrepid_shuttle_cargo_exterior_sensor";
-	tag_interior_door = "intrepid_shuttle_cargo_in"
-	},
-/obj/structure/bed/handrail{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/intrepid/cargo_bay)
 "gGE" = (
 /obj/machinery/light{
 	dir = 1
@@ -8765,6 +8772,22 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod1)
+"gRA" = (
+/obj/structure/table/standard,
+/obj/item/pipewrench,
+/obj/item/wrench{
+	pixel_y = -8
+	},
+/obj/machinery/firealarm/west{
+	pixel_x = 0;
+	pixel_y = -31;
+	dir = 2
+	},
+/obj/machinery/cell_charger,
+/obj/random/powercell,
+/obj/effect/floor_decal/corner/blue/full,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/intrepid/atmos_compartment)
 "gTi" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 6
@@ -9011,10 +9034,23 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "hdY" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/reagent_dispensers/extinguisher,
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/door/window/westright,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/crew_compartment)
+/area/shuttle/intrepid/engine_compartment)
 "her" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -9429,6 +9465,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"huS" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/intrepid/crew_compartment)
 "hvO" = (
 /obj/machinery/vending/robotics,
 /obj/structure/sign/nosmoking_1{
@@ -11093,8 +11133,8 @@
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_west_in"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
@@ -12370,9 +12410,7 @@
 	icon_state = "door_locked";
 	id_tag = "intrepid_shuttle_cargo_in"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "jYy" = (
@@ -13187,9 +13225,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "kDY" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
-/area/shuttle/intrepid/cargo_bay)
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/wood,
+/area/shuttle/intrepid/crew_compartment)
 "kEg" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
@@ -13650,10 +13688,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
-"kTU" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/engine_compartment)
 "kTW" = (
 /obj/structure/closet/crate/bin{
 	name = "subject clothing"
@@ -14274,7 +14308,7 @@
 /area/outpost/mining_main/eva)
 "lzb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -15197,9 +15231,20 @@
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
 "mlL" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/wood,
-/area/shuttle/intrepid/crew_compartment)
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "intrepid_shuttle_cargo_pump"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid/cargo_bay)
 "mmh" = (
 /obj/structure/closet/walllocker/emerglocker/south,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -16766,18 +16811,20 @@
 /turf/simulated/floor/plating,
 /area/rnd/eva)
 "nwF" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/fuel_port{
+	pixel_x = -32
+	},
+/obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/machinery/meter,
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1380;
+	id_tag = "intrepid_shuttle_cargo_pump"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/atmos_compartment)
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid/cargo_bay)
 "nwI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -16807,7 +16854,9 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 0
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
 "nyl" = (
@@ -16823,11 +16872,8 @@
 /area/horizon/hydroponics/lower)
 "nyz" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/structure/bed/handrail{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
@@ -16994,8 +17040,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "nGN" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/ore_box,
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "nGZ" = (
@@ -18419,7 +18466,9 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "pfx" = (
-/obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -19386,18 +19435,9 @@
 /turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
 "pTp" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_in"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/cargo_bay)
+/area/shuttle/intrepid/engine_compartment)
 "pTs" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -22307,18 +22347,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
 "snD" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "intrepid_shuttle_cargo_sensor";
-	pixel_x = -24;
-	pixel_y = -6
-	},
-/obj/structure/bed/handrail{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/intrepid/cargo_bay)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/intrepid/crew_compartment)
 "soD" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
@@ -22633,11 +22664,7 @@
 /area/shuttle/escape_pod/pod2)
 "syS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
-	},
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "szM" = (
@@ -23279,7 +23306,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -23361,7 +23388,7 @@
 	},
 /area/horizon/stairwell/bridge)
 "tfR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -27709,7 +27736,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "wQr" = (
-/obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -29548,11 +29577,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/operations/loading)
 "yib" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1380;
-	id_tag = "intrepid_shuttle_cargo_pump"
-	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "yif" = (
@@ -48695,12 +48723,12 @@ iRC
 iRC
 bJr
 eYN
-dir
+gRA
 aEw
 pZv
 joi
 aEw
-nGN
+lRu
 rKh
 xqo
 aEw
@@ -48896,21 +48924,21 @@ aUk
 iRC
 iRC
 xjL
-nwF
+bNR
 wZl
 aEw
 dZT
 iau
 aEw
-nGN
-lRu
-xqo
+snD
+snD
+snD
 aEw
 iQL
 cpn
 aEw
+evK
 syS
-hdY
 aEw
 mSf
 iRC
@@ -49110,7 +49138,7 @@ ovh
 edO
 tdy
 umg
-ghP
+huS
 tfR
 qtp
 aEw
@@ -49502,8 +49530,8 @@ cFq
 oFN
 aRG
 xjL
-gDj
-snD
+nwF
+gGb
 xjL
 mwR
 dVS
@@ -49704,8 +49732,8 @@ uOO
 dhi
 pvn
 xvk
-kDY
-yib
+gDj
+dir
 jXW
 wnV
 nQH
@@ -49906,9 +49934,9 @@ iZk
 dhi
 ayq
 xvk
-kDY
+nyz
 yib
-pTp
+jXW
 nxj
 vkB
 vkB
@@ -50108,8 +50136,8 @@ cFq
 ifJ
 clM
 clM
-nyz
-gGj
+mlL
+gpR
 clM
 gTl
 csz
@@ -50321,7 +50349,7 @@ dSD
 xpT
 sex
 ksy
-gpR
+ghP
 xPX
 aFx
 uSZ
@@ -50523,8 +50551,8 @@ qWV
 jwo
 ebd
 uSd
-eaS
-mlL
+nGN
+kDY
 dnX
 cfY
 aEw
@@ -50714,8 +50742,8 @@ aUk
 iRC
 iRC
 clM
-evK
-kTU
+dzg
+pTp
 fTb
 tWc
 lXC
@@ -50726,7 +50754,7 @@ iwX
 kxl
 wGn
 lvI
-mlL
+kDY
 jWI
 wjM
 dwt
@@ -50918,7 +50946,7 @@ iRC
 kMG
 ggY
 eVn
-dzg
+hdY
 fQU
 vfk
 rmT
@@ -50926,7 +50954,7 @@ eeD
 hXw
 aMg
 eJu
-gGb
+eaS
 tZm
 aEw
 aEw
@@ -51128,7 +51156,7 @@ acn
 rmT
 fAj
 vqV
-gGb
+eaS
 sRX
 aEw
 adv
