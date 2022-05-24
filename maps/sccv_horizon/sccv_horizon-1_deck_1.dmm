@@ -6964,6 +6964,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Atmos Compartment";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/ramp,
 /area/shuttle/intrepid/atmos_compartment)
 "fAj" = (
@@ -12582,6 +12586,10 @@
 	frequency = 1380;
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
+/obj/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Airlock Aft";
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "kkS" = (
@@ -14924,7 +14932,7 @@
 /area/hangar/control)
 "lXC" = (
 /obj/machinery/camera/network/intrepid{
-	c_tag = "Intrepid - Crew Area";
+	c_tag = "Intrepid - Engine Compartment";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
@@ -15564,7 +15572,9 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 8
 	},
-/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
 	density = 1;
@@ -22638,7 +22648,7 @@
 /area/shuttle/escape_pod/pod2)
 "syS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/reagent_dispensers/extinguisher,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "szM" = (
@@ -23365,6 +23375,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
+/obj/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Side Doors";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "tgR" = (
@@ -23460,8 +23474,9 @@
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
 	icon_state = "me2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 9
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
