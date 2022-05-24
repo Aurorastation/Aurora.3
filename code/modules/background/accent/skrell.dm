@@ -74,7 +74,7 @@
 	text_tag = "CSS"
 
 /datum/accent/skrell/srom
-	name = ACCENT_SKRELLSROM
-	description = "Bruh bruh bruh."
+	name = ACCENT_SROM
+	description = "The projection of one's inner voice within the Srom. Anyone can understand or speak this language innately upon entering the Srom."
 	tag_icon = "skrell_srom"
 	text_tag = "SRM"
