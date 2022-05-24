@@ -301,6 +301,7 @@
 /obj/item/toy/comic
 	name = "comic book"
 	desc = "A magazine presenting a fictional story through a sequence of images. Perfect for those long, boring shifts."
+	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "comic"
 	item_state = "comic"
