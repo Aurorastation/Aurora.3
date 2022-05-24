@@ -1,7 +1,6 @@
-
-
 author: anconfuzedrock
 
 delete-after: True
 
+changes:
   - bugfix: "The unathi droopy dorsal frill option now has the frill facing right in all four of its sprites instead of left in the back one."
