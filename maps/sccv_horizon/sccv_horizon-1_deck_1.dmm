@@ -10367,10 +10367,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "ijU" = (
@@ -22298,13 +22294,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
 "snD" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
-/area/hangar/intrepid)
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "soD" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
@@ -24365,11 +24359,6 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
-	},
-/obj/machinery/door/airlock/glass_mining{
-	name = "Mining Shuttle Bay";
-	req_access = null;
-	req_one_access = list(31, 48, 67)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
@@ -29575,12 +29564,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
-"yiN" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/mining)
 "yiT" = (
 /obj/machinery/mineral/stacking_unit_console{
 	id = "stacking_w";
@@ -45690,7 +45673,7 @@ ozA
 krP
 tzo
 rMm
-yiN
+snD
 rMm
 dgD
 uUP
@@ -49913,7 +49896,7 @@ ydI
 ydI
 kEt
 hYy
-snD
+apf
 iZk
 dhi
 ayq
