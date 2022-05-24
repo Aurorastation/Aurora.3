@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes Xenobotanists not spawning in the research meeting room. Fixes them not being able to choose wristbounds. Fixes engineering medical wall locker."
