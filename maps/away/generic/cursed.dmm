@@ -229,11 +229,6 @@
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
-"bcx" = (
-/mob/living/simple_animal/rat/white,
-/obj/machinery/power/portgen/basic,
-/turf/simulated/floor/tiled/yellow,
-/area/cursed/bridge)
 "beQ" = (
 /obj/item/device/mmi/digital/posibrain,
 /obj/machinery/constructable_frame/temp_deco,
@@ -365,25 +360,9 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "bPz" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor,
-/area/cursed/engineering)
+/mob/living/simple_animal/hostile/carp,
+/turf/template_noop,
+/area/space)
 "bPX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/can/adhomian_can,
@@ -436,11 +415,6 @@
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
-"cad" = (
-/mob/living/simple_animal/hostile/gnat,
-/obj/structure/lattice,
-/turf/template_noop,
-/area/space)
 "cdH" = (
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/hangar)
@@ -448,6 +422,16 @@
 /obj/item/trash/lollibutt,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/hangar)
+"cgG" = (
+/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/cursed/engineering)
 "chs" = (
 /obj/effect/shuttle_landmark/automatic,
 /turf/template_noop,
@@ -529,9 +513,19 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /turf/simulated/floor,
 /area/cursed/engineering)
@@ -846,7 +840,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "fbt" = (
-/mob/living/simple_animal/carp/baby,
+/mob/living/simple_animal/hostile/carp,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "feJ" = (
@@ -1344,13 +1338,9 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "idh" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/reinforced,
-/area/cursed/computer_core)
+/mob/living/simple_animal/carp/baby,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/space)
 "idV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 5
@@ -2460,9 +2450,15 @@
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "oAe" = (
-/mob/living/simple_animal/hostile/carp,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/cursed/engineering)
 "oDz" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -2473,9 +2469,10 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/engineering)
 "oFM" = (
-/mob/living/simple_animal/hostile/carp,
-/turf/template_noop,
-/area/space)
+/mob/living/simple_animal/rat/white,
+/obj/machinery/power/portgen/basic,
+/turf/simulated/floor/tiled/yellow,
+/area/cursed/bridge)
 "oHu" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood,
@@ -3148,6 +3145,11 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/cursed/eva_storage)
+"rHa" = (
+/mob/living/simple_animal/hostile/gnat,
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
 "rJw" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
@@ -3664,16 +3666,6 @@
 /obj/item/stack/material/graphite/full,
 /turf/simulated/floor,
 /area/cursed/engineering)
-"uLn" = (
-/obj/machinery/door/airlock/glass_mining,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/cursed/engineering)
 "uMi" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -3875,7 +3867,9 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "wkw" = (
-/obj/effect/shuttle_landmark/automatic,
+/obj/effect/shuttle_landmark/automatic{
+	name = "Hangar Navpoint"
+	},
 /turf/simulated/floor,
 /area/cursed/hangar)
 "wpM" = (
@@ -4075,6 +4069,14 @@
 /obj/structure/sign/flag/heph,
 /turf/simulated/wall,
 /area/cursed/storage)
+"xIK" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/reinforced,
+/area/cursed/computer_core)
 "xNb" = (
 /turf/simulated/wall/r_wall,
 /area/cursed/mineral_processing)
@@ -28107,7 +28109,7 @@ xRX
 xRX
 xRX
 xRX
-oFM
+bPz
 xRX
 xRX
 xRX
@@ -28368,7 +28370,7 @@ xRX
 xRX
 xRX
 xRX
-oFM
+bPz
 jdh
 jdh
 jdh
@@ -29131,10 +29133,10 @@ xRX
 xRX
 xRX
 xRX
-oFM
+bPz
 xRX
 xRX
-oFM
+bPz
 xRX
 xRX
 xRX
@@ -29907,7 +29909,7 @@ xRX
 xRX
 xRX
 xRX
-oFM
+bPz
 xRX
 eHC
 jdh
@@ -30673,7 +30675,7 @@ xRX
 xRX
 xRX
 xRX
-cad
+rHa
 jdh
 jdh
 nnf
@@ -30682,7 +30684,7 @@ jdh
 jdh
 jdh
 gSf
-oAe
+fbt
 jdh
 jdh
 ksj
@@ -30935,10 +30937,10 @@ jdh
 gSf
 vvq
 boQ
-oAe
+fbt
 jdh
 gSf
-oAe
+fbt
 jdh
 jdh
 jdh
@@ -31188,7 +31190,7 @@ jdh
 jdh
 xRX
 gSf
-oAe
+fbt
 gSf
 apu
 vOE
@@ -31706,7 +31708,7 @@ jdh
 gSf
 gSf
 gSf
-fbt
+idh
 jdh
 jdh
 snd
@@ -31961,13 +31963,13 @@ jdh
 xRX
 jdh
 jdh
-oAe
+fbt
 gSf
 jdh
 jdh
 jdh
 jdh
-fbt
+idh
 ubc
 jdh
 ksj
@@ -32474,7 +32476,7 @@ xRX
 xRX
 jdh
 jdh
-oAe
+fbt
 gSf
 jdh
 eHC
@@ -32504,7 +32506,7 @@ jdh
 bpR
 bpR
 niL
-idh
+xIK
 iee
 pxi
 bpR
@@ -41756,7 +41758,7 @@ fWE
 oUb
 uPc
 bXM
-cBh
+oAe
 nUF
 pCb
 lHg
@@ -42018,7 +42020,7 @@ jGB
 pCb
 pCb
 pCb
-uLn
+cgG
 hON
 mZz
 idV
@@ -42272,12 +42274,12 @@ pCb
 pCb
 xkq
 kNW
-cBh
+oAe
 oUb
+oAe
 cBh
-bPz
-cBh
-cBh
+oAe
+oAe
 fiI
 oUb
 sNG
@@ -42778,7 +42780,7 @@ vrJ
 rZN
 vrJ
 bLr
-bcx
+oFM
 vza
 uFs
 jdh
