@@ -7017,6 +7017,7 @@
 /obj/machinery/door/window/westleft,
 /obj/machinery/light,
 /obj/structure/window/reinforced,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/operations/lobby)
 "dQZ" = (
@@ -27330,6 +27331,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/operations/lobby)
 "phF" = (
@@ -42929,6 +42931,7 @@
 	dir = 8
 	},
 /obj/machinery/door/window/westright,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/operations/lobby)
 "xwo" = (
@@ -50309,7 +50312,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+qWw
 qgN
 qgN
 qgN
@@ -51117,7 +51120,7 @@ qgN
 qgN
 qgN
 qgN
-qWw
+qgN
 qgN
 qgN
 qgN
