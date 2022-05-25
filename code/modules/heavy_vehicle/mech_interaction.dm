@@ -599,7 +599,7 @@
 		// Checking whether we have a leader or not
 		if(!leader)
 			if(!maintenance_protocols) // don't select a leader unless we have maintenance protocols set
-				say("Maintenance protocols must be enabled to unlink.")
+				say("Maintenance protocols must be enabled to link.")
 				return
 			// If we have no leader, we listen to the keywords 'listen to'
 			if(findtext(text, "listen to"))
