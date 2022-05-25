@@ -204,7 +204,7 @@
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
 
 	backpack_contents = list(
-		/obj/item/storage/box/survival/engineer = 1, 
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs = 1
 	)
