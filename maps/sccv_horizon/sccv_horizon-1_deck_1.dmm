@@ -3740,6 +3740,9 @@
 "cUJ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan,
 /obj/machinery/meter,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "cVj" = (
@@ -5121,6 +5124,9 @@
 "eeV" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue,
 /obj/machinery/meter,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "efM" = (
@@ -6759,6 +6765,7 @@
 	dir = 1
 	},
 /obj/machinery/meter,
+/obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "fqA" = (
@@ -14219,6 +14226,9 @@
 	pixel_x = -32;
 	sensors = list("n_sensor" = "Tank")
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "lvq" = (
@@ -16391,6 +16401,9 @@
 	pixel_x = 32;
 	sensors = list("air_sensor" = "Tank")
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "nfO" = (
@@ -17375,7 +17388,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "nVO" = (
@@ -18710,6 +18722,9 @@
 	output_tag = "n2o_out";
 	pixel_x = 32;
 	sensors = list("n2o_sensor" = "Tank")
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -24645,6 +24660,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
+"uez" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "ufi" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -25892,6 +25914,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
+"vgD" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/meter,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "vgS" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
@@ -26112,6 +26139,7 @@
 	dir = 1
 	},
 /obj/machinery/meter,
+/obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "vpX" = (
@@ -26781,6 +26809,9 @@
 	output_tag = "o2_out";
 	pixel_x = -32;
 	sensors = list("o2_sensor" = "Tank")
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -51565,10 +51596,10 @@ kDF
 hVE
 hVE
 xHX
-hVE
+vgD
 nVb
 rNv
-rNv
+uez
 rNv
 rNv
 nCC

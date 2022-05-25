@@ -888,7 +888,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -933,7 +933,7 @@
 /area/engineering/engine_room)
 "avM" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/atmos{
+/obj/machinery/door/airlock/glass_atmos{
 	name = "Atmospherics Locker Room";
 	req_access = list(24)
 	},
@@ -971,6 +971,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
+"axa" = (
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/aft)
 "axB" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1124,6 +1130,8 @@
 	pixel_y = 32
 	},
 /obj/structure/table/standard,
+/obj/item/device/flashlight/heavy,
+/obj/item/device/flashlight/heavy,
 /obj/item/device/flashlight/heavy,
 /obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/dark,
@@ -1313,7 +1321,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engine Monitoring Room";
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -1664,7 +1672,7 @@
 "aQc" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1716,7 +1724,7 @@
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "SMES Access";
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -2683,7 +2691,7 @@
 	id = "EngineEmitterPortWest";
 	name = "Engine Room Blast Doors";
 	pixel_x = -25;
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
@@ -3859,7 +3867,7 @@
 	id_tag = "engine_electrical_maintenance";
 	locked = 1;
 	name = "Electrical Maintenance";
-	req_access = list(10)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -5010,7 +5018,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering EVA Storage";
-	req_one_access = list(11,24)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -5838,7 +5846,7 @@
 	id_tag = "engine_airlock_exterior";
 	locked = 1;
 	name = "Engine Airlock Exterior";
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -5847,7 +5855,7 @@
 	name = "Engine Access Button";
 	pixel_x = 24;
 	pixel_y = -5;
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -7041,8 +7049,8 @@
 	id = "engine_electrical_maintenance";
 	name = "Door Bolt Control";
 	pixel_y = -25;
-	req_access = list(10);
-	specialfunctions = 4
+	specialfunctions = 4;
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/smes)
@@ -7853,7 +7861,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -10435,7 +10443,7 @@
 	id = "EngineEmitterPortWest";
 	name = "Engine Room Blast Doors";
 	pixel_x = 25;
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -10466,7 +10474,7 @@
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Engine Waste";
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
@@ -13081,7 +13089,7 @@
 	id = "EngineVent";
 	name = "Engine Ventillatory Control";
 	pixel_x = -24;
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -13231,7 +13239,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = list(10)
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
@@ -13554,7 +13562,7 @@
 "hrZ" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering EVA Storage";
-	req_one_access = list(11,24)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -14463,7 +14471,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Substation";
-	req_one_access = list(11,24)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -15064,7 +15072,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
@@ -15702,6 +15710,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/item/pipewrench,
+/obj/item/device/pipe_painter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "iIf" = (
@@ -15845,6 +15854,7 @@
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
 "iKg" = (
@@ -16950,6 +16960,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/item/pipewrench,
+/obj/item/device/pipe_painter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "jnV" = (
@@ -17167,7 +17178,7 @@
 	id_tag = "engine_airlock_interior";
 	locked = 1;
 	name = "Engine Airlock Interior";
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -17176,7 +17187,7 @@
 	name = "Engine Access Button";
 	pixel_x = -24;
 	pixel_y = 5;
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -17691,6 +17702,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "jLM" = (
@@ -18126,7 +18138,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(11, 24)
+	req_access = list(11)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/smes/tesla)
@@ -20090,6 +20102,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/closet/radiation,
 /turf/simulated/floor/tiled,
 /area/engineering/engine_airlock)
 "llp" = (
@@ -21019,7 +21032,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = list(10)
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
@@ -21487,6 +21500,7 @@
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
 "lZQ" = (
@@ -24831,7 +24845,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = list(10)
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
@@ -25025,7 +25039,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
-	locked = 1
+	locked = 1;
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -27082,7 +27097,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -27536,7 +27551,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Substation";
-	req_one_access = list(11,24)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -28168,7 +28183,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(10)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -30387,6 +30402,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/item/pipewrench,
+/obj/item/device/pipe_painter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "qSn" = (
@@ -31160,6 +31176,7 @@
 "rmG" = (
 /obj/machinery/door/window/brigdoor/eastleft{
 	dir = 1;
+	req_one_access = list(11, 24);
 	req_access = null
 	},
 /turf/simulated/floor/plating,
@@ -33097,7 +33114,8 @@
 /obj/machinery/button/remote/driver{
 	id = "enginecore";
 	name = "Emergency Core Eject";
-	pixel_x = 25
+	pixel_x = 25;
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -33357,7 +33375,7 @@
 /area/security/security_office)
 "sui" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -35307,7 +35325,6 @@
 	tag_exterior_door = "engine_airlock_exterior";
 	tag_interior_door = "engine_airlock_interior"
 	},
-/obj/structure/closet/radiation,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
 "tEE" = (
@@ -35537,11 +35554,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "tJB" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(24);
+	name = "Atmospherics Locker Room Maintenance"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/aft)
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/storage)
 "tJP" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -36435,7 +36453,7 @@
 "uje" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -37720,7 +37738,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering EVA Storage";
-	req_one_access = list(11,24)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -40023,7 +40041,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -40654,7 +40672,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
-	locked = 1
+	locked = 1;
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -41410,7 +41429,7 @@
 	name = "Engine Emitter";
 	pixel_x = 6;
 	pixel_y = 7;
-	req_access = list(10)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine charging port.";
@@ -41418,14 +41437,14 @@
 	name = "Reactor Blast Doors";
 	pixel_x = -6;
 	pixel_y = 7;
-	req_access = list(10)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine control room blast doors.";
 	id = "EngineBlast";
 	name = "Engine Monitoring Room Blast Doors";
 	pixel_y = -3;
-	req_access = list(10)
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring)
@@ -42289,7 +42308,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = list(10)
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
@@ -66905,7 +66924,7 @@ nlG
 nlG
 fnn
 fnn
-fnn
+tJB
 fnn
 fnn
 nAz
@@ -67106,9 +67125,9 @@ dVN
 xHd
 jWI
 bkv
+axa
+uxE
 aUB
-tJB
-tJB
 wFh
 xpv
 nHq
