@@ -1,6 +1,6 @@
 /obj/item/vaurca_projector
 	name = "virtual reality looking-glass"
-	desc = "A holographic projector using advanced technology that is developed and distributed by Hive Zo'ra. It allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur and control a drone within them."
+	desc = "A holographic projector using advanced technology that immerses someone into a scene using full panoramic holograms, smell and 3d spatial sound projection. It is developed and distributed by Hive Zo'ra and allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur. Typically using one would allow you to control a drone but this is a smaller portable version and as such only allows a user to move around set-locations."
 	icon = 'icons/obj/contained_items/skrell/nralakk_projector.dmi'
 	icon_state = "projector"
 	light_color = LIGHT_COLOR_HALOGEN
@@ -35,7 +35,7 @@
 		update_icon()
 		STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/skrell_projector/proc/apply_world(var/choice)
+/obj/item/vaurca_projector/proc/apply_world(var/choice)
 	var/brightness = 2
 
 	if(choice)
@@ -45,9 +45,9 @@
 			light_color = "#1122c2"
 		if("Hive War exhibition")
 			light_color = "#83290b"
-        if("Celestial Landing Ground")
+		if("Celestial Landing Ground")
 			light_color = "#f5e61d"
-		
+
 		else
 			brightness = 0
 			working = FALSE
@@ -67,7 +67,7 @@
 
 	if(prob(message_frequency))
 		var/hologram_message
-		switch(selected_world) 
+		switch(selected_world)
 
 			if("Moana")
 				hologram_message = pick("You see a golden fortress floating majestically above an ocean of sapphire.",
@@ -81,14 +81,14 @@
 										"You smell burning and rusted metal. An exhibition showcases the Battle of a Thousand Titans.",
 										"You see a  memorial to the lives lost, a sad hymn flowing in the background.")
 
-            if("Celestial Landing Ground")
+			if("Celestial Landing Ground")
 				hologram_message = pick("An awe inspiring fortress of gold dominates the landscape and bathes the surrounding area in yellow luminescence.",
 										"A loud hymn is chanted in an unknown language accompanied by a smell of morning Dew in the countryside.",
 										"Unbound workers moving through the realm stop to gaze up in awe at the distant structure before returning to previous activities.",
                                         "Distant chattering can be heard coming from the fortress including what almost like jovial laughter.",
-                                        "The turquoise water emits a jubilant smell of freshly cut lemons which lasts for only for a moment.".
+                                        "The turquoise water emits a jubilant smell of freshly cut lemons which lasts for only for a moment.",
                                         "You see the gas giant Sedantis dominating a starry sky.")
-			
+
 
 		if(hologram_message)
 			visible_message("<span class='notice'>[hologram_message]</span>")
