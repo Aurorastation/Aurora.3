@@ -667,6 +667,10 @@
 			
 			// unlink the leader to get a new one
 			if(findtext(text, "unlink"))
+
+				if(!maintenance_protocols || hatch_locked) // Can't lock yourself out
+					return
+
 				unassign_leader()
 				say("Leader dropped, awaiting new leader.")
 				return
