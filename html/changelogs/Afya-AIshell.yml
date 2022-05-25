@@ -1,6 +1,0 @@
-author: Afya
-
-delete-after: True
-
-changes:
-  - bugfix: "AI shell no longer shows up on end of round text."
