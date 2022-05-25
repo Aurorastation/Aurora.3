@@ -8,7 +8,7 @@
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
-	var/list/worlds_selection = list("Moana", "Hive War exhibition", "Celestial Landing Ground")
+	var/list/worlds_selection = list("Moana", "Hive War exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
 	var/selected_world
 	var/working = FALSE
 	var/message_frequency = 10
@@ -47,6 +47,10 @@
 			light_color = "#83290b"
 		if("Celestial Landing Ground")
 			light_color = "#f5e61d"
+		if("City of New Sedantis")
+			light_color = "#1395c9"
+		if("Titan Prime")
+			light_color = "#418144"
 
 		else
 			brightness = 0
@@ -87,7 +91,22 @@
 										"Unbound workers moving through the realm stop to gaze up in awe at the distant structure before returning to previous activities.",
                                         "Distant chattering can be heard coming from the fortress including what almost like jovial laughter.",
                                         "The turquoise water emits a jubilant smell of freshly cut lemons which lasts for only for a moment.",
-                                        "You see the gas giant Sedantis dominating a starry sky.")
+                                        "You see the gas giant Sedantis dominating a starry sky.",
+										"For a moment the Golden Fortress towering above starts to glimmer majestically catching the light from the imposing gas giant in the sky")
+
+			if("City of New Sedantis")
+				hologram_message = pick("“A towering cavernous city takes up the viewfinder, great buildings of stone jutting out of the ground and twisting towards the ceiling.”,
+										"A loud hymn is chanted in an unknown language and seems to shake the very ground itself.",
+										"A mellow blue light comes from thousands of resplendent crystals lining the wall and mingles with the inviting yellow glow from a distant golden fortress.",
+                                        "Distant chattering can be heard coming from the city.",
+                                        "A distant forge emits lavender Phoron gas from a tower atop its lofty silhouette, as worker drones collect lilac stained glass from within.",
+										"A group of Vaurca warriors move through the streets below seemingly practicing for some task unknown.")	
+			
+			if("Titan Prime")
+				hologram_message = pick("An imposing vessel of steel emits a soft glow as it travels through the starry sky aimlessly.",
+										"The engines of the towering vessel above emit a soft glow, accompanied by a brief smell of a warm ocean breeze.",
+										"A green light flickers from the steel vessel above bathing the surrounding idyllic landscape in its majesty.",
+                                        "You see the gas giant Sedantis dominating a starry sky, an imposing vessel of steel blotting out but a small portion of it.")											
 
 
 		if(hologram_message)
