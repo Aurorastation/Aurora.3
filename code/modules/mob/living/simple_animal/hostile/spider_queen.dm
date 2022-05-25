@@ -39,7 +39,7 @@
 	attacktext = "bit"
 	attack_sound = 'sound/weapons/bite.ogg'
 
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE|PASSRAILING
 	move_to_delay = 6
 	speed = 1
 	mob_size = 15

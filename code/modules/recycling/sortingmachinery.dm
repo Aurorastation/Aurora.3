@@ -373,10 +373,9 @@
 			return
 	else if(I.iswelder() && c_mode==1)
 		var/obj/item/weldingtool/W = I
-		if(W.remove_fuel(1,user))
+		if(W.use(1,user))
 			to_chat(user, "You start slicing the floorweld off the delivery chute.")
-			if(do_after(user,20/W.toolspeed))
-				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
+			if(W.use_tool(src, user, 20, volume = 50))
 				if(!src || !W.isOn()) return
 				to_chat(user, "You sliced the floorweld off the delivery chute.")
 				var/obj/structure/disposalconstruct/C = new (src.loc)

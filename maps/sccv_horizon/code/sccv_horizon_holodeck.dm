@@ -35,7 +35,7 @@
 		),
 		"space" = new /datum/holodeck_program(/area/horizon/holodeck/source_space,
 			list(
-				'sound/ambience/ambispace.ogg',
+				'sound/music/ambispace.ogg',
 				'sound/music/main.ogg',
 				'sound/music/space.ogg',
 				'sound/music/traitor.ogg'

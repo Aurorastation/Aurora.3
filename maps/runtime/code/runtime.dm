@@ -5,7 +5,7 @@
 
 	force_spawnpoint = TRUE
 
-	lobby_icons = list('icons/misc/titlescreens/runtime/developers.dmi')
+	lobby_icons = list('icons/misc/titlescreens/runtime/developers.dmi', 'icons/misc/titlescreens/runtime/away.dmi')
 	lobby_transitions = 10 SECONDS
 
 	station_levels = list(1, 2, 3)

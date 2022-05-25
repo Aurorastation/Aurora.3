@@ -31,7 +31,7 @@
 	flying = TRUE
 	smart_melee = FALSE
 	see_in_dark = 8
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE|PASSRAILING
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 	psi_pingable = FALSE

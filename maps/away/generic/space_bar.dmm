@@ -8,6 +8,11 @@
 /area/space_bar)
 "aaJ" = (
 /obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/bearmeat,
+/obj/item/reagent_containers/food/snacks/bearmeat,
+/obj/item/reagent_containers/food/snacks/dwellermeat,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -22,6 +27,8 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/crabmeat,
+/obj/item/reagent_containers/food/snacks/crabmeat,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -59,8 +66,8 @@
 /obj/structure/closet/crate,
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/storage/box/lights,
-/obj/item/storage/box/lights/bulbs,
+/obj/item/storage/box/lights/mixed,
+/obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "amt" = (
@@ -165,7 +172,9 @@
 	},
 /area/space_bar)
 "aDG" = (
-/obj/structure/closet/crate/trashcart,
+/obj/machinery/cryopod{
+	dir = 4
+	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "aEq" = (
@@ -239,6 +248,7 @@
 	pixel_x = 3;
 	pixel_y = 1
 	},
+/obj/item/reagent_containers/glass/bottle/capsaicin,
 /turf/simulated/floor/tiled/white,
 /area/space_bar)
 "aHw" = (
@@ -349,6 +359,14 @@
 "ccm" = (
 /obj/structure/closet/wardrobe/xenos,
 /turf/simulated/floor/holofloor/tiled,
+/area/space_bar)
+"cqJ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/white,
 /area/space_bar)
 "ctn" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -466,6 +484,7 @@
 	pixel_x = -5;
 	pixel_y = 4
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/space_bar)
 "fgX" = (
@@ -620,11 +639,12 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "hus" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/disposal/small/south,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/white,
 /area/space_bar)
 "huE" = (
 /obj/structure/table/stone/marble,
@@ -683,9 +703,7 @@
 /area/space_bar)
 "hZq" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full{
-	pixel_y = 5
-	},
+/obj/machinery/chemical_dispenser/bar_alc/full/space,
 /turf/simulated/floor/lino/grey,
 /area/space_bar)
 "irX" = (
@@ -922,6 +940,13 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/space_bar)
+"odP" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/disposal/small/east,
+/turf/simulated/floor/wood,
+/area/space_bar)
 "ofl" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -1037,6 +1062,11 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/space_bar)
+"qWo" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/space_bar)
 "riA" = (
 /obj/structure/sink{
 	dir = 8;
@@ -1112,6 +1142,12 @@
 /obj/item/flame/candle,
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
+"sBD" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = 32
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/space_bar)
 "sFQ" = (
 /obj/machinery/biogenerator{
 	icon_state = "biogen-empty"
@@ -1123,7 +1159,8 @@
 "taa" = (
 /obj/structure/table/stone/marble,
 /obj/item/holomenu{
-	pixel_y = 5
+	req_access = list(202);
+	req_one_access = null
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
@@ -1189,6 +1226,12 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel,
+/area/space_bar)
+"uuL" = (
+/obj/structure/mopbucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/mop,
+/turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "uwM" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -1276,9 +1319,17 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "vWJ" = (
-/obj/item/mop,
-/obj/structure/mopbucket,
-/obj/item/reagent_containers/glass/bucket,
+/obj/structure/closet/cabinet{
+	name = "special reserve cabinet";
+	desc = "Contains shelves of the good stuff."
+	},
+/obj/item/reagent_containers/food/drinks/bottle/patron,
+/obj/item/reagent_containers/food/drinks/bottle/goldschlager,
+/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
+/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing,
+/obj/item/reagent_containers/food/drinks/bottle/darmadhir_brew,
+/obj/item/storage/box/fancy/cigarettes/cigar,
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine,
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "wfU" = (
@@ -32937,7 +32988,7 @@ pre
 frn
 wmd
 hFr
-jMP
+odP
 jMP
 wfU
 wfU
@@ -33193,8 +33244,8 @@ gfL
 pxS
 rtf
 pJZ
-hus
-jMP
+xwj
+rYT
 jMP
 jIR
 jIR
@@ -33442,7 +33493,7 @@ ygr
 ygr
 ygr
 ygr
-iXO
+sBD
 ble
 ygr
 gxE
@@ -34212,7 +34263,7 @@ xRX
 ygr
 ams
 iXO
-iXO
+uuL
 iXO
 ccm
 ygr
@@ -36783,7 +36834,7 @@ ygr
 ygr
 awG
 ygr
-ndF
+hus
 ndF
 ygr
 jnP
@@ -37040,15 +37091,15 @@ aaI
 arY
 arY
 ygr
-ndF
-ndF
+cqJ
+qWo
 fgm
-jMP
-jMP
-jMP
-jMP
-jMP
-xQS
+pJZ
+pJZ
+pJZ
+pJZ
+pJZ
+xPN
 jMP
 hON
 hON

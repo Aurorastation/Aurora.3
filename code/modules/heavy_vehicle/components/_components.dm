@@ -124,7 +124,7 @@
 	if(!WT.isOn())
 		to_chat(user, SPAN_WARNING("Turn \the [WT] on, first."))
 		return
-	if(WT.remove_fuel(0, user))
+	if(WT.use(0, user))
 		var/repair_value = 15
 		if(brute_damage)
 			repair_brute_damage(repair_value)

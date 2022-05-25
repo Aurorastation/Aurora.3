@@ -147,6 +147,10 @@
 		var/list/body_markings = prefs.body_markings
 		for(var/M in body_markings)
 			var/datum/sprite_accessory/marking/mark_datum = body_marking_styles_list[M]
+
+			if(!istype(mark_datum))
+				to_chat(usr, SPAN_WARNING("Invalid body marking [M] selected! Please re-save your markings, as they may have changed."))
+				continue
 			var/mark_color = "[body_markings[M]]"
 
 			for(var/BP in mark_datum.body_parts)
@@ -214,6 +218,21 @@
 		return TRUE
 	if(has_functioning_augment(BP_AUG_COCHLEAR))
 		return TRUE
+	return FALSE
+
+/mob/living/carbon/human/proc/has_stethoscope_active()
+	var/obj/item/clothing/under/uniform = w_uniform
+	var/obj/item/clothing/suit/suit = wear_suit
+	if(suit)
+		var/obj/item/clothing/accessory/stethoscope/stet = locate() in suit.accessories
+		if(stet)
+			if(stet.auto_examine)
+				return TRUE
+	if(uniform)
+		var/obj/item/clothing/accessory/stethoscope/stet = locate() in uniform.accessories
+		if(stet)
+			if(stet.auto_examine)
+				return TRUE
 	return FALSE
 
 /mob/living/carbon/human/proc/is_submerged()
