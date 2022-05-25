@@ -3,4 +3,4 @@ author: Afya
 delete-after: True
 
 changes:
-  - rscadd: "Added a childlock to mechs. You can no longer lock yourself out via unlinking."
+  - rscadd: "Added a childlock to mechs. Mechs must be in maintenance mode and unlocked to unlink."
