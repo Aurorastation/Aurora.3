@@ -274,15 +274,14 @@ var/datum/controller/subsystem/ticker/SSticker
 			dronecount++
 			continue
 
-		if(!istype(robo,/mob/living/silicon/robot/shell))
-			if (!robo.connected_ai)
-				if (robo.stat != 2)
-					to_world("<b>[robo.name] survived as an AI-less borg! Its laws were:</b>")
-				else
-					to_world("<b>[robo.name] was unable to survive the rigors of being a cyborg without an AI. Its laws were:</b>")
+		if (!robo.connected_ai && !istype(robo,/mob/living/silicon/robot/shell))
+			if (robo.stat != 2)
+				to_world("<b>[robo.name] survived as an AI-less borg! Its laws were:</b>")
+			else
+				to_world("<b>[robo.name] was unable to survive the rigors of being a cyborg without an AI. Its laws were:</b>")
 
-				if(robo) //How the hell do we lose robo between here and the world messages directly above this?
-					robo.laws.show_laws(world)
+			if(robo) //How the hell do we lose robo between here and the world messages directly above this?
+				robo.laws.show_laws(world)
 
 	if(dronecount)
 		to_world("<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance drone\s at the end of this round.</b>")
