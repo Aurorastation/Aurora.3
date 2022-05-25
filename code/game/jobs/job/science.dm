@@ -143,9 +143,9 @@
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
-	uniform = /obj/item/clothing/under/rank/scientist/xenobio
 	jobtype = /datum/job/xenobiologist
-	tab_pda = /obj/item/modular_computer/handheld/pda/research
+
+	uniform = /obj/item/clothing/under/rank/scientist/xenobio
 
 /datum/job/xenobotanist
 	title = "Xenobotanist"
@@ -174,9 +174,9 @@
 
 /datum/outfit/job/scientist/xenobotanist
 	name = "Xenobotanist"
-	uniform = /obj/item/clothing/under/rank/scientist/botany
 	jobtype = /datum/job/xenobotanist
-	tab_pda = /obj/item/modular_computer/handheld/pda/research
+
+	uniform = /obj/item/clothing/under/rank/scientist/botany
 
 /datum/job/intern_sci
 	title = "Lab Assistant"
