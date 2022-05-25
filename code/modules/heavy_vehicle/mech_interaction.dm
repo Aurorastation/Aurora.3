@@ -599,6 +599,7 @@
 		// Checking whether we have a leader or not
 		if(!leader)
 			if(!maintenance_protocols) // don't select a leader unless we have maintenance protocols set
+				say("Maintenance protocols must be enabled to unlink.")
 				return
 			// If we have no leader, we listen to the keywords 'listen to'
 			if(findtext(text, "listen to"))
@@ -667,7 +668,8 @@
 			
 			// unlink the leader to get a new one
 			if(findtext(text, "unlink"))
-				if(!maintenance_protocols || hatch_locked) // Can't lock yourself out
+				if(!maintenance_protocols) // Can't lock yourself out
+					say("Maintenance protocols must be enabled to unlink.")
 					return
 
 				unassign_leader()
