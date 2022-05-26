@@ -95,7 +95,7 @@
 										"For a moment the Golden Fortress towering above starts to glimmer majestically catching the light from the imposing gas giant in the sky")
 
 			if("City of New Sedantis")
-				hologram_message = pick("A towering cavernous city takes up the viewfinder, great buildings of stone jutting out of the ground and twisting towards the ceiling.”,
+				hologram_message = pick("A towering cavernous city takes up the viewfinder, great buildings of stone jutting out of the ground and twisting towards the ceiling.",
 										"A loud hymn is chanted in an unknown language and seems to shake the very ground itself.",
 										"A mellow blue light comes from thousands of resplendent crystals lining the wall and mingles with the inviting yellow glow from a distant golden fortress.",
                                         "Distant chattering can be heard coming from the city.",
