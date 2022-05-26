@@ -6095,7 +6095,7 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/open/airless,
-/area/rnd/xenobiology/xenoflora)
+/area/horizon/exterior)
 "dpE" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -39613,7 +39613,7 @@
 /obj/structure/lattice,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/open/airless,
-/area/rnd/xenobiology/xenoflora)
+/area/horizon/exterior)
 "vTY" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
@@ -41855,10 +41855,6 @@
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"wWJ" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/open/airless,
-/area/rnd/xenobiology/xenoflora)
 "wXp" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/sink{
@@ -75093,8 +75089,8 @@ qgN
 qgN
 qgN
 qgN
-wWJ
-wWJ
+kUf
+kUf
 vPk
 xRv
 xhf
@@ -75497,8 +75493,8 @@ qgN
 qgN
 qgN
 qgN
-wWJ
-wWJ
+kUf
+kUf
 vPk
 xjK
 qXJ
