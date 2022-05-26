@@ -1166,10 +1166,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "aAx" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-1"
-	},
-/turf/space/dynamic,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/rnd/xenobiology/xenoflora)
 "aAC" = (
 /obj/effect/floor_decal/spline/plain,
@@ -4813,8 +4810,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "cEG" = (
-/turf/template_noop,
-/area/horizon/exterior)
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-33"
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology/xenoflora)
 "cGd" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/window/reinforced,
@@ -5927,7 +5932,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
-/turf/space/dynamic,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "dlG" = (
 /obj/structure/sink/kitchen{
@@ -6084,10 +6089,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/assembly/chargebay)
 "dpj" = (
-/obj/structure/lattice,
-/obj/structure/grille,
-/turf/template_noop,
-/area/horizon/exterior)
+/obj/structure/lattice/catwalk,
+/obj/structure/disposaloutlet{
+	dir = 1
+	},
+/obj/structure/disposalpipe/trunk,
+/turf/simulated/open/airless,
+/area/rnd/xenobiology/xenoflora)
 "dpE" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -9618,6 +9626,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "ftj" = (
@@ -11336,7 +11347,7 @@
 "gmo" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "gmt" = (
 /obj/structure/table/standard,
@@ -16811,7 +16822,7 @@
 	},
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "jmp" = (
 /obj/structure/table/standard,
@@ -17786,7 +17797,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
-/turf/space/dynamic,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "jPb" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -19126,7 +19137,7 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "kIp" = (
 /turf/simulated/floor/tiled,
@@ -20220,7 +20231,7 @@
 	dir = 8
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "lqJ" = (
 /obj/effect/floor_decal/corner/lime/full{
@@ -21290,7 +21301,7 @@
 	dir = 6
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "lVe" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -22502,7 +22513,7 @@
 	},
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "mFD" = (
 /obj/effect/floor_decal/corner/blue{
@@ -23355,14 +23366,14 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 1
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -26711,7 +26722,7 @@
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "oTa" = (
 /turf/simulated/floor/tiled,
@@ -28470,7 +28481,7 @@
 	},
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "pQj" = (
 /obj/structure/cable/green{
@@ -28998,7 +29009,7 @@
 "qeZ" = (
 /obj/structure/lattice,
 /obj/machinery/shield_diffuser,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "qff" = (
 /obj/machinery/light{
@@ -31024,8 +31035,9 @@
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "rkk" = (
-/obj/structure/window/borosilicate/reinforced,
-/turf/space/dynamic,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "rkq" = (
 /obj/structure/railing/mapped,
@@ -31370,7 +31382,7 @@
 	dir = 5
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "rsp" = (
 /obj/machinery/door/firedoor,
@@ -31989,9 +32001,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "rKj" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -32004,6 +32013,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -32065,7 +32077,7 @@
 	dir = 10
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "rNe" = (
 /obj/structure/shuttle_part/scc_space_ship{
@@ -32636,7 +32648,7 @@
 /obj/structure/lattice,
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "saJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -34061,11 +34073,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "sVF" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-6"
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
 	},
-/turf/simulated/wall/r_wall,
-/area/rnd/xenobiology/xenoflora)
+/turf/simulated/open/airless,
+/area/horizon/exterior)
 "sVO" = (
 /obj/structure/bed/stool/chair/padded/red,
 /turf/simulated/floor/lino/grey,
@@ -34195,7 +34208,7 @@
 "tab" = (
 /obj/machinery/door/window/westright,
 /obj/structure/lattice/catwalk,
-/turf/space/dynamic,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "tae" = (
 /obj/structure/cable/green{
@@ -37950,7 +37963,7 @@
 /obj/structure/sign/drop{
 	pixel_y = -32
 	},
-/turf/space/dynamic,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "uZh" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
@@ -38487,7 +38500,7 @@
 /obj/structure/lattice,
 /obj/structure/grille,
 /obj/structure/grille,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "vrC" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -39399,13 +39412,8 @@
 /turf/simulated/wall/r_wall,
 /area/security/armory)
 "vPk" = (
-/obj/structure/window/borosilicate/reinforced,
-/obj/structure/lattice,
-/obj/structure/disposalpipe/trunk,
-/obj/structure/disposaloutlet{
-	dir = 1
-	},
-/turf/space/dynamic,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "vPt" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -39609,7 +39617,8 @@
 /area/maintenance/hangar/port)
 "vTP" = (
 /obj/structure/lattice,
-/turf/space/dynamic,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/open/airless,
 /area/rnd/xenobiology/xenoflora)
 "vTY" = (
 /obj/effect/floor_decal/corner_wide/lime{
@@ -40569,7 +40578,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
-/turf/space/dynamic,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "wpb" = (
 /obj/structure/cable/green{
@@ -41853,10 +41862,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "wWJ" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-4"
-	},
-/turf/simulated/wall/r_wall,
+/obj/structure/lattice/catwalk,
+/turf/simulated/open/airless,
 /area/rnd/xenobiology/xenoflora)
 "wXp" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -43370,7 +43377,7 @@
 	dir = 9
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "xPm" = (
 /turf/simulated/wall,
@@ -44301,10 +44308,10 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "yme" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-5"
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 1
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 
 (1,1,1) = {"
@@ -55698,7 +55705,7 @@ qgN
 qgN
 qgN
 qgN
-tvM
+sVF
 tsk
 fDE
 fDE
@@ -56093,12 +56100,12 @@ qgN
 qgN
 qgN
 qgN
-dpj
-dpj
-dpj
-dpj
-dpj
-dpj
+avu
+avu
+avu
+avu
+avu
+avu
 qgN
 qgN
 qgN
@@ -56289,18 +56296,18 @@ qgN
 qgN
 qgN
 qgN
-dpj
-dpj
-dpj
-dpj
-dpj
-dpj
+avu
+avu
+avu
+avu
+avu
+avu
 sau
-lJE
-lJE
-lJE
-lJE
-dpj
+kUf
+kUf
+kUf
+kUf
+avu
 qgN
 qgN
 qgN
@@ -56491,14 +56498,14 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
-lJE
-lJE
-lJE
-lJE
-lJE
-lJE
+avu
+kUf
+kUf
+kUf
+kUf
+kUf
+kUf
+kUf
 lVd
 gmo
 gmo
@@ -56693,15 +56700,15 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 lVd
 gmo
 gmo
 gmo
 gmo
 gmo
-ghq
+xsX
 lVd
 rrN
 oSQ
@@ -56890,13 +56897,13 @@ qgN
 qgN
 qgN
 qgN
-dpj
-dpj
-dpj
-dpj
-dpj
+avu
+avu
+avu
+avu
+avu
 sau
-lJE
+kUf
 pQg
 jmm
 gmo
@@ -56904,7 +56911,7 @@ gmo
 gmo
 gmo
 gmo
-ghq
+xsX
 lqa
 lqa
 qgN
@@ -57091,17 +57098,17 @@ qgN
 qgN
 qgN
 qgN
-dpj
-dpj
-lJE
-lJE
-lJE
-lJE
-lJE
-lJE
+avu
+avu
+kUf
+kUf
+kUf
+kUf
+kUf
+kUf
 oSQ
 oSQ
-lJE
+kUf
 wcr
 wcr
 wcr
@@ -57293,9 +57300,9 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
-lJE
+avu
+kUf
+kUf
 lVd
 gmo
 gmo
@@ -57303,7 +57310,7 @@ gmo
 gmo
 mFz
 oSQ
-lJE
+kUf
 sSY
 sSY
 aVo
@@ -57494,18 +57501,18 @@ qgN
 qgN
 qgN
 qgN
-dpj
-dpj
-lJE
+avu
+avu
+kUf
 lVd
-ghq
+xsX
 lVd
 gmo
 gmo
 gmo
 kHS
-ghq
-lJE
+xsX
+kUf
 sSY
 sSY
 sSY
@@ -57696,9 +57703,9 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
-lJE
+avu
+kUf
+kUf
 oSQ
 lVd
 ghq
@@ -57897,11 +57904,11 @@ qgN
 qgN
 qgN
 qgN
-dpj
-dpj
-lJE
+avu
+avu
+kUf
 lVd
-ghq
+xsX
 oSQ
 wcr
 wcr
@@ -58098,13 +58105,13 @@ qgN
 qgN
 qgN
 qgN
-dpj
-dpj
-lJE
-lJE
+avu
+avu
+kUf
+kUf
 oSQ
 lVd
-ghq
+xsX
 wcr
 wcr
 wcr
@@ -58299,12 +58306,12 @@ qgN
 qgN
 qgN
 qgN
-dpj
-dpj
-lJE
-lJE
+avu
+avu
+kUf
+kUf
 lVd
-ghq
+xsX
 oSQ
 wcr
 wcr
@@ -58501,13 +58508,13 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
-lJE
+avu
+kUf
+kUf
 lVd
-ghq
+xsX
 lVd
-ghq
+xsX
 wcr
 wcr
 sLp
@@ -58703,10 +58710,10 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 lVd
-ghq
+xsX
 lVd
 xPj
 wcr
@@ -58905,8 +58912,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 oSQ
 lVd
 ghq
@@ -59107,8 +59114,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 oSQ
 oSQ
 wcr
@@ -59309,8 +59316,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 oSQ
 oSQ
 wcr
@@ -59511,8 +59518,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 oSQ
 oSQ
 wcr
@@ -59713,8 +59720,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 oSQ
 oSQ
 wcr
@@ -59915,8 +59922,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 oSQ
 oSQ
 wcr
@@ -60118,10 +60125,10 @@ qgN
 qgN
 qgN
 qeZ
-lJE
+kUf
 oSQ
 oSQ
-cEG
+kuh
 vcM
 gWf
 dAN
@@ -60319,8 +60326,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 oSQ
 oSQ
 wcr
@@ -60521,8 +60528,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 oSQ
 oSQ
 wcr
@@ -60723,8 +60730,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 oSQ
 oSQ
 wcr
@@ -60925,8 +60932,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 oSQ
 oSQ
 wcr
@@ -61127,8 +61134,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 oSQ
 oSQ
 wcr
@@ -61329,8 +61336,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 oSQ
 rMw
 rrN
@@ -61531,8 +61538,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 rMw
 rrN
 rMw
@@ -61733,9 +61740,9 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
-lJE
+avu
+kUf
+kUf
 rMw
 rrN
 rMw
@@ -61935,10 +61942,10 @@ qgN
 qgN
 qgN
 qgN
-dpj
-dpj
-lJE
-lJE
+avu
+avu
+kUf
+kUf
 rMw
 rrN
 oSQ
@@ -62138,10 +62145,10 @@ qgN
 qgN
 qgN
 qgN
-dpj
-dpj
-lJE
-lJE
+avu
+avu
+kUf
+kUf
 oSQ
 oSQ
 tNa
@@ -62341,9 +62348,9 @@ qgN
 qgN
 qgN
 qgN
-dpj
-dpj
-lJE
+avu
+avu
+kUf
 oSQ
 oSQ
 tNa
@@ -62544,8 +62551,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 oSQ
 rMw
 rrN
@@ -62746,8 +62753,8 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
+avu
+kUf
 rMw
 rrN
 oSQ
@@ -62948,9 +62955,9 @@ qgN
 qgN
 qgN
 qgN
-dpj
-lJE
-lJE
+avu
+kUf
+kUf
 oSQ
 rMw
 rrN
@@ -63150,12 +63157,12 @@ qgN
 qgN
 qgN
 qgN
-dpj
-dpj
-lJE
+avu
+avu
+kUf
 rMw
 gmo
-ghq
+xsX
 beY
 kUf
 rBh
@@ -63354,10 +63361,10 @@ qgN
 qgN
 qgN
 vrk
-lJE
-lJE
-lJE
-lJE
+kUf
+kUf
+kUf
+kUf
 beY
 kUf
 ydI
@@ -63555,11 +63562,11 @@ qgN
 qgN
 qgN
 qgN
-dpj
-dpj
-dpj
-dpj
-dpj
+avu
+avu
+avu
+avu
+avu
 avu
 kUf
 vbc
@@ -73884,7 +73891,7 @@ qgN
 qgN
 qgN
 vnz
-wWJ
+rFn
 jrr
 ipy
 rFn
@@ -74086,7 +74093,7 @@ qgN
 qgN
 qgN
 iox
-yme
+rFn
 atQ
 ekM
 rFn
@@ -74288,7 +74295,7 @@ qgN
 qgN
 qgN
 dmK
-sVF
+rFn
 rKj
 fti
 ldu
@@ -74491,7 +74498,7 @@ qgN
 qgN
 qgN
 aAx
-rFn
+yme
 mYL
 fHr
 lDs
@@ -74692,8 +74699,8 @@ qgN
 qgN
 vPk
 vPk
-rFn
-rFn
+aAx
+cEG
 kDx
 ngG
 lHs
@@ -75092,8 +75099,8 @@ qgN
 qgN
 qgN
 qgN
-mpN
-mpN
+wWJ
+wWJ
 vPk
 xRv
 xhf
@@ -75294,7 +75301,7 @@ qgN
 qgN
 qgN
 qgN
-mpN
+dpj
 vTP
 rkk
 xHv
@@ -75496,8 +75503,8 @@ qgN
 qgN
 qgN
 qgN
-mpN
-mpN
+wWJ
+wWJ
 vPk
 xjK
 qXJ
@@ -76108,7 +76115,7 @@ qgN
 qgN
 qgN
 qgN
-dmK
+qgN
 xIN
 ajV
 ais
