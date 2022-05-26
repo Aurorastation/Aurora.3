@@ -1,7 +1,6 @@
 sound/music/ambimine.ogg
 sound/music/ambispace.ogg
 sound/music/b12_combined_start.ogg
-sound/music/battlemonsters_theme.ogg
 sound/music/clouds.s3m
 sound/music/main.ogg
 sound/music/song_game.ogg

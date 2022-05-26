@@ -60,11 +60,6 @@
 	icon_state = "coin_mythril_heads"
 	cmineral = "mythril"
 
-/obj/item/coin/battlemonsters
-	name = "battlemonsters coin"
-	icon_state = "coin_battlemonsters_heads"
-	cmineral = "battlemonsters"
-
 /obj/item/coin/mining
 	name = "mining coin"
 	desc = "A flat disc or piece of metal with an official stamp. This coin can be used at a mining vendor to gain access to additional equipment."

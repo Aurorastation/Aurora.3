@@ -36296,13 +36296,6 @@
 "bKR" = (
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/horizon/holodeck/source_dininghall)
-"bKS" = (
-/obj/structure/banner/scc,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/horizon/holodeck/source_battlemonsters)
-"bKT" = (
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/horizon/holodeck/source_battlemonsters)
 "bKU" = (
 /turf/simulated/floor/holofloor/space,
 /area/horizon/holodeck/source_space)
@@ -36331,24 +36324,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/horizon/holodeck/source_dininghall)
-"bLa" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/horizon/holodeck/source_battlemonsters)
-"bLb" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/horizon/holodeck/source_battlemonsters)
-"bLc" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/horizon/holodeck/source_battlemonsters)
 "bLd" = (
 /obj/effect/landmark{
 	name = "Holocarp Spawn Random"
@@ -36385,17 +36360,6 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/horizon/holodeck/source_dininghall)
-"bLj" = (
-/obj/structure/holostool,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/horizon/holodeck/source_battlemonsters)
-"bLk" = (
-/obj/structure/window/reinforced/holowindow{
-	dir = 4
-	},
-/obj/structure/holostool,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/horizon/holodeck/source_battlemonsters)
 "bLl" = (
 /turf/unsimulated/beach/sand{
 	density = 1;
@@ -37220,15 +37184,6 @@
 	name = "ocean"
 	},
 /area/centcom/shared_dream)
-"bSm" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_right"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
 "cWp" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -37239,12 +37194,6 @@
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_snowfield)
-"dEu" = (
-/obj/structure/dueling_table{
-	icon_state = "center_center"
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
 "dFn" = (
 /obj/effect/landmark{
 	name = "Penguin Spawn Random"
@@ -37252,24 +37201,6 @@
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_snowfield)
-"dZU" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_right"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
-"dZX" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_leftt"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
 "ech" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -37294,15 +37225,6 @@
 /obj/random/highvalue/no_weapon,
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
-"fcH" = (
-/obj/structure/dueling_table{
-	icon_state = "center_right"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
 "fdU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -37319,21 +37241,6 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
-"fWR" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_center"
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
-"gkn" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_right"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
 "gwW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -37342,21 +37249,8 @@
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
 "gRV" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/reinforced,
-/area/horizon/holodeck/source_battlemonsters)
-"hev" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/horizon/holodeck/source_battlemonsters)
-"hIG" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/horizon/holodeck/source_battlemonsters)
+/turf/space,
+/area/space)
 "hYO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -37377,28 +37271,12 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_emptycourt)
-"kfB" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_center"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
 "kqd" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_emptycourt)
-"kzB" = (
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
-	},
-/obj/structure/holostool,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/horizon/holodeck/source_battlemonsters)
 "kAb" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -37406,28 +37284,6 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
-"kHj" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_center"
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
-"lSt" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_center"
-	},
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
-"mAl" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_leftt"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
 "olV" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -37436,21 +37292,6 @@
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
-"oIf" = (
-/obj/effect/decal/battlemonsters_logo{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/horizon/holodeck/source_battlemonsters)
-"oZf" = (
-/obj/structure/dueling_table{
-	icon_state = "center_left"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
 "pGQ" = (
 /obj/effect/landmark{
 	name = "Penguin Spawn Emperor"
@@ -37472,15 +37313,6 @@
 	},
 /turf/unsimulated/wall/riveted,
 /area/template_noop)
-"rnL" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_left"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
 "rph" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
@@ -37504,25 +37336,6 @@
 /obj/structure/flora/grass/brown,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_snowfield)
-"vMz" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_right"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
-"xFz" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_left"
-	},
-/obj/effect/decal/battlemonsters_logo,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
 "xRX" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -95218,16 +95031,16 @@ bJQ
 bJC
 bJQ
 bGp
-bKS
-bKT
-bLj
-bLj
-bLj
-bLj
-bLj
-bLj
-bKT
-bKS
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
 rlY
 aaa
 aaa
@@ -95475,16 +95288,16 @@ bJR
 bJD
 bJC
 bGp
-bKT
-bKT
-bLj
-bLj
-bLj
-bLj
-bLj
-bLj
-bKT
-bKT
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
 bGq
 aaa
 aaa
@@ -95732,16 +95545,16 @@ bJD
 bJR
 bJQ
 bGp
-bKT
-bKT
-bLk
-bLk
-bLk
-bLk
-bLk
-bLk
-bKT
-bKT
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
 bGq
 aaa
 aaa
@@ -95989,16 +95802,16 @@ bJS
 bJS
 bKE
 bGp
-bKT
-bLa
-xFz
-oZf
-dZX
-rnL
-oZf
-mAl
-hev
-oIf
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
 bGq
 aaa
 aaa
@@ -96246,16 +96059,16 @@ bJT
 bJT
 bKF
 bGp
-bKT
-bLb
-kfB
-dEu
-kHj
-fWR
-dEu
-lSt
 gRV
-bKT
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
 bGq
 aaa
 aaa
@@ -96503,16 +96316,16 @@ bJU
 bJU
 bKG
 bGp
-bKT
-bLc
-gkn
-fcH
-dZU
-bSm
-fcH
-vMz
-hIG
-bKT
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
 bGq
 aaa
 aaa
@@ -96760,16 +96573,16 @@ bJJ
 bJV
 bJW
 bGp
-bKT
-bKT
-kzB
-kzB
-kzB
-kzB
-kzB
-kzB
-bKT
-bKT
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
 bGq
 aaa
 aaa
@@ -97017,16 +96830,16 @@ bJV
 bJJ
 bJK
 bGp
-bKT
-bKT
-bLj
-bLj
-bLj
-bLj
-bLj
-bLj
-bKT
-bKT
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
 bGq
 aaa
 aaa
@@ -97274,16 +97087,16 @@ bJW
 bJK
 bJW
 bGp
-bKS
-bKT
-bLj
-bLj
-bLj
-bLj
-bLj
-bLj
-bKT
-bKS
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
+gRV
 rlY
 aaa
 aaa

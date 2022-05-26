@@ -18,12 +18,6 @@ Author: Tarn Adams AKA Toady One
 License: N/A
 Link: N/A
 ----------
-File Name: battlemonsters_theme.ogg
-Original Title: battlemonsters_theme
-Author: BurgerBB
-License: GNU AGPL Version 3
-Link: N/A
-----------
 File Name: clouds.s3m
 Original Title: Clouds Of Fire
 Author: Hector AKA hec/dMk

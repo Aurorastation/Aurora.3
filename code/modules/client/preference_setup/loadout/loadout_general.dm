@@ -240,10 +240,6 @@
 	display_name = "holo board game"
 	path = /obj/item/board
 
-/datum/gear/battlemonsters
-	display_name = "battlemonsters starter deck"
-	path = /obj/item/battle_monsters/wrapped
-
 /datum/gear/squidplushie
 	display_name = "colourable squid plushie"
 	path = /obj/item/toy/plushie/squidcolour

@@ -56,12 +56,6 @@
 		"wildlifecarp" = new /datum/holodeck_program(/area/horizon/holodeck/source_wildlife, list()),
 		"chapel" = new /datum/holodeck_program(/area/horizon/holodeck/source_chapel, list()),
 		"gym" = new /datum/holodeck_program(/area/horizon/holodeck/source_gym),
-		"battlemonsters" = new /datum/holodeck_program(/area/horizon/holodeck/source_battlemonsters,
-			list(
-				'sound/music/battlemonsters_theme.ogg'
-			),
-			FALSE
-		),
 		"chessboard" = new /datum/holodeck_program(/area/horizon/holodeck/source_chessboard),
 		"turnoff" = new /datum/holodeck_program(/area/horizon/holodeck/source_plating)
 	)
@@ -82,7 +76,6 @@
 		"Courtroom"         = "courtroom",
 		"Chapel"            = "chapel",
 		"Xavier Trasen Memorial Gymnasium" = "gym",
-		"Battle Monsters Duelling Arena" = "battlemonsters",
 		"Chessboard" = "chessboard"
 	)
 	holodeck_restricted_programs = list(

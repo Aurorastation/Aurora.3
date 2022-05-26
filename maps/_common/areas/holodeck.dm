@@ -84,9 +84,5 @@
 	has_gravity = 0
 	sound_env = SPACE
 
-/area/holodeck/source_battlemonsters
-	name = "Holodeck - Battlemonsters Arena"
-	sound_env = ARENA
-
 /area/holodeck/source_chessboard
 	name = "Holodeck - Chessboard"

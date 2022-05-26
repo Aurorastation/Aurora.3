@@ -925,11 +925,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tramp_freighter)
-"fZq" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/battlemonsters,
-/turf/simulated/floor,
-/area/shuttle/tramp_freighter)
 "gab" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor,
@@ -31645,7 +31640,7 @@ ylI
 pzo
 pzo
 aHt
-fZq
+sDf
 pzo
 dbx
 pzo

@@ -4149,9 +4149,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/control)
-"aBS" = (
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
 "aBV" = (
 /obj/effect/overlay/palmtree_l,
 /turf/unsimulated/beach/sand,
@@ -4356,27 +4353,6 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
-"aDf" = (
-/obj/structure/holostool,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
-"aDg" = (
-/obj/structure/window/reinforced/holowindow{
-	dir = 4
-	},
-/obj/structure/holostool,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
-"aDh" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_left"
-	},
-/obj/effect/decal/battlemonsters_logo,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
 "aDj" = (
 /obj/structure/table/standard,
 /turf/unsimulated/beach/sand,
@@ -4402,15 +4378,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/evac)
-"aDr" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_center"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
 "aDs" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
@@ -4433,15 +4400,6 @@
 /obj/item/beach_ball,
 /turf/unsimulated/beach/sand,
 /area/beach)
-"aDA" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_right"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
 "aDB" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/coffeemaster/full,
@@ -4449,13 +4407,6 @@
 	icon_state = "lino_grey"
 	},
 /area/centcom/bar)
-"aDJ" = (
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
-	},
-/obj/structure/holostool,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
 "aDK" = (
 /obj/structure/shuttle_part/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -4464,15 +4415,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
-"aDL" = (
-/obj/structure/dueling_table{
-	icon_state = "center_left"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
 "aDM" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 4
@@ -4556,15 +4498,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
-"aEr" = (
-/obj/structure/dueling_table{
-	icon_state = "center_right"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
 "aEt" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -4650,21 +4583,6 @@
 	icon_state = "wood_light"
 	},
 /area/centcom/holding)
-"aER" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_leftt"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
-"aET" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_center"
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
 "aEW" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -4727,24 +4645,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
-"aFl" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_right"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
-"aFm" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_left"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
 "aFn" = (
 /obj/structure/window/shuttle/unique/transfer{
 	icon_state = "5,21"
@@ -4876,12 +4776,6 @@
 	name = "transport shuttle"
 	},
 /area/shuttle/escape)
-"aGa" = (
-/obj/effect/decal/battlemonsters_logo{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
 "aGc" = (
 /obj/structure/shuttle_part/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -5160,12 +5054,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"aHL" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_battlemonsters)
 "aHM" = (
 /obj/structure/bed/stool/chair/office/bridge{
 	dir = 4
@@ -5780,10 +5668,6 @@
 	name = "autoshuttle"
 	},
 /area/shuttle/arrival)
-"aMa" = (
-/obj/structure/banner,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
 "aMf" = (
 /obj/structure/shuttle_part/arrivals{
 	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
@@ -7055,12 +6939,6 @@
 	name = "transport shuttle"
 	},
 /area/shuttle/escape)
-"aWE" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_center"
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
 "aWF" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -7235,37 +7113,9 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
-"aXl" = (
-/obj/structure/dueling_table/no_collide/above_layer{
-	icon_state = "top_right"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
-"aXm" = (
-/obj/structure/dueling_table{
-	icon_state = "center_center"
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
 "aXn" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_leftt"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
-"aXo" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_center"
-	},
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/turf/space,
+/area/space)
 "aXp" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
@@ -7283,43 +7133,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
-"aXr" = (
-/obj/structure/dueling_table/no_collide{
-	icon_state = "bottom_right"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
-"aXs" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_battlemonsters)
-"aXt" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_battlemonsters)
-"aXu" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_battlemonsters)
-"aXv" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_battlemonsters)
-"aXw" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_battlemonsters)
 "aXz" = (
 /obj/structure/bed/stool/chair/padded/beige,
 /turf/unsimulated/floor{
@@ -92474,16 +92287,16 @@ adl
 acP
 adl
 aaO
-aMa
-aBS
-aDf
-aDf
-aDf
-aDf
-aDf
-aDf
-aBS
-aMa
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
 aeO
 aaM
 aaM
@@ -92731,16 +92544,16 @@ adm
 acQ
 acP
 aaO
-aBS
-aBS
-aDg
-aDg
-aDg
-aDg
-aDg
-aDg
-aBS
-aBS
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
 aeO
 aaM
 aaM
@@ -92988,16 +92801,16 @@ acQ
 adm
 adl
 aaO
-aBS
-aHL
-aDh
-aDL
-aER
-aFm
-aDL
 aXn
-aXu
-aGa
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
 aeO
 aaM
 aaM
@@ -93245,16 +93058,16 @@ adn
 adn
 aeA
 aaO
-aBS
-aXs
-aDr
-aXm
-aET
-aWE
-aXm
-aXo
-aXv
-aBS
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
 aeO
 aaM
 aaM
@@ -93502,16 +93315,16 @@ acU
 ado
 adp
 aaO
-aBS
-aXt
-aDA
-aEr
-aFl
-aXl
-aEr
-aXr
-aXw
-aBS
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
 aeO
 aaM
 aaM
@@ -93759,16 +93572,16 @@ ado
 acU
 acV
 aaO
-aBS
-aBS
-aDJ
-aDJ
-aDJ
-aDJ
-aDJ
-aDJ
-aBS
-aBS
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
 aeO
 aaM
 aaM
@@ -94016,16 +93829,16 @@ adp
 acV
 adp
 aaO
-aMa
-aBS
-aDf
-aDf
-aDf
-aDf
-aDf
-aDf
-aBS
-aMa
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
+aXn
 aeO
 aaM
 aaM

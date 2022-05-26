@@ -502,10 +502,6 @@
 	has_gravity = 0
 	sound_env = SPACE
 
-/area/horizon/holodeck/source_battlemonsters
-	name = "Horizon - Holodeck - Battlemonsters Arena"
-	sound_env = ARENA
-
 /area/horizon/holodeck/source_chessboard
 	name = "Horizon - Holodeck - Chessboard"
 /********** Holodeck End **********/

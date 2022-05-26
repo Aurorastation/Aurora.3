@@ -20176,7 +20176,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "lnr" = (
-/obj/machinery/bookbinder,
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/wood,
 /area/horizon/library)
@@ -26598,10 +26597,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "oNS" = (
-/obj/machinery/vending/battlemonsters,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/machinery/bookbinder,
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "oOi" = (

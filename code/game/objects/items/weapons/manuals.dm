@@ -1444,14 +1444,6 @@
 			</html>
 			"}
 
-/obj/item/book/manual/wiki/battlemonsters
-	name = "\improper Guide to Battlemonsters"
-	icon_state ="battlemonsters"
-	item_state = "book5"
-	author = "Macro Toy Company"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
-	title = "Guide to Battlemonsters"
-	sub_page = "Guide_to_Battlemonsters"
-
 /obj/item/book/manual/pra_manifesto
 	name = "hadiist manifesto"
 	desc = "A compact red book with the ideas and guidance of Hadii for the Tajaran society."

@@ -38,7 +38,6 @@
 		/obj/item/device/vending_refill/hydro = 1,
 		/obj/item/device/vending_refill/cutlery = 1,
 		/obj/item/device/vending_refill/robo = 1,
-		/obj/item/device/vending_refill/battlemonsters = 1,
 	)
 	random_itemcount = 0
 	light_color = COLOR_GOLD
@@ -1212,43 +1211,6 @@
 	idle_power_usage = 211
 	temperature_setting = -1
 	light_color = COLOR_CULT_REINFORCED
-
-/obj/machinery/vending/battlemonsters
-	name = "\improper Battlemonsters vendor"
-	desc = "A good place to dump all your rent money."
-	icon_state = "battlemonsters"
-	icon_vend = "battlemonsters-vend"
-	vend_id = "battlemonsters"
-	products = list(
-		/obj/item/book/manual/wiki/battlemonsters = 10,
-		/obj/item/battle_monsters/wrapped/basic = 20,
-		/obj/item/battle_monsters/wrapped = 20,
-		/obj/item/battle_monsters/wrapped/pro = 20,
-		/obj/item/battle_monsters/wrapped/species = 10, //Human monsters
-		/obj/item/battle_monsters/wrapped/species/lizard = 10, //Reptile Monsters
-		/obj/item/battle_monsters/wrapped/species/cat = 10, //Feline Monsters
-		/obj/item/battle_monsters/wrapped/species/ant = 10, //Ant Monsters
-		/obj/item/battle_monsters/wrapped/rare = 10
-	)
-	prices = list(
-		/obj/item/book/manual/wiki/battlemonsters = 12,
-		/obj/item/battle_monsters/wrapped = 100,
-		/obj/item/battle_monsters/wrapped/pro = 75,
-		/obj/item/battle_monsters/wrapped/species = 50,
-		/obj/item/battle_monsters/wrapped/species/lizard = 50,
-		/obj/item/battle_monsters/wrapped/species/cat = 50,
-		/obj/item/battle_monsters/wrapped/species/ant = 50,
-		/obj/item/battle_monsters/wrapped/rare = 100
-	)
-	contraband = list(
-		/obj/item/battle_monsters/wrapped/legendary = 5
-	)
-	premium = list(
-		/obj/item/coin/battlemonsters = 10
-	)
-	restock_items = FALSE
-	random_itemcount = FALSE
-	light_color = COLOR_BABY_BLUE
 
 /obj/machinery/vending/casino
 	name = "grand romanovich vending machine"
