@@ -167,7 +167,7 @@
 
 /obj/machinery/telecomms/server/presets/common
 	id = "Common Server"
-	freq_listening = list(PUB_FREQ, AI_FREQ, ENT_FREQ, SHIP_FREQ) // AI Private, Ship, and Common
+	freq_listening = list(PUB_FREQ, AI_FREQ, ENT_FREQ) // AI Private and Common
 	autolinkers = list("common")
 
 // "Unused" channels, AKA all others.

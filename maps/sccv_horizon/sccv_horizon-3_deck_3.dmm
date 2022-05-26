@@ -22393,6 +22393,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
+"Px" = (
+/obj/machinery/telecomms/allinone/ship/station_relay,
+/turf/simulated/floor/bluegrid,
+/area/tcommsat/chamber)
 "Py" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -47444,7 +47448,7 @@ Wh
 fc
 TU
 xe
-PB
+Px
 Mg
 PY
 wF
