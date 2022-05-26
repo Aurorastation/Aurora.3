@@ -657,30 +657,30 @@
 
 	if(W.isscrewdriver())
 		if(state == 2)
-			if(W.usetool(src, user, 2 SECONDS, volume = 50))
+			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You have unfastened the glass from the window frame."))
 				state--
 				update_nearby_icons()
 		else if(state == 1)
-			if(W.usetool(src, user, 2 SECONDS, volume = 50))
+			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You have fastened the glass to the window frame."))
 				state++
 				update_nearby_icons()
 	else if(W.iscrowbar())
 		if(state == 1)
-			if(W.usetool(src, user, 2 SECONDS, volume = 50))
+			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You pry the glass out of the window frame."))
 				state--
 				update_nearby_icons()
 		else if(state == 0)
-			if(W.usetool(src, user, 2 SECONDS, volume = 50))
+			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You pry the glass into the window frame."))
 				state++
 				update_nearby_icons()
 	else if(W.iswrench())
 		if(state == 0)
 			visible_message(SPAN_WARNING("\The [user] is dismantling \the [src]!"))
-			if(W.usetool(src, user, 2 SECONDS, volume = 50))
+			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You undo the safety bolts and remove the glass from \the [src]."))
 				dismantle_window()
 	else
