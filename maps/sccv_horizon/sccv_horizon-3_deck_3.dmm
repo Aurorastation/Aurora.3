@@ -3921,9 +3921,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
 "drc" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
@@ -5255,6 +5252,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo)
+"ewX" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/security/investigations)
 "exk" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/reinforced/wood,
@@ -10704,6 +10710,19 @@
 /obj/item/device/taperecorder,
 /turf/simulated/floor/carpet,
 /area/journalistoffice)
+"iWL" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
 "iWY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -19330,6 +19349,18 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/bridge)
+"pWK" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
 "pWX" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -25206,12 +25237,6 @@
 "uJD" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
 	},
 /obj/machinery/newscaster{
 	pixel_x = -32
@@ -55503,7 +55528,7 @@ nWP
 mqW
 shA
 uJD
-bpk
+pWK
 bpk
 bWq
 bpk
@@ -55704,8 +55729,8 @@ byy
 fFt
 feD
 fFt
-lWl
-uIF
+ewX
+iWL
 fVO
 lSg
 uIF
