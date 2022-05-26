@@ -18500,6 +18500,11 @@
 /area/operations/lobby)
 "kkW" = (
 /obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/requests_console{
+	department = "Warden's Desk";
+	departmentType = 5;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "kmc" = (
@@ -22142,12 +22147,6 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora_hazard)
-"muo" = (
-/obj/structure/window/borosilicate/reinforced{
-	dir = 8
-	},
-/turf/space/dynamic,
-/area/rnd/xenobiology/xenoflora)
 "muy" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -27288,15 +27287,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
-"piq" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-2"
-	},
-/obj/structure/window/borosilicate/reinforced{
-	dir = 4
-	},
-/turf/space/dynamic,
-/area/rnd/xenobiology/xenoflora)
 "piz" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -27469,8 +27459,12 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "plL" = (
-/turf/space/dynamic,
-/area/rnd/xenobiology/xenoflora)
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/security/warden)
 "pmb" = (
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for shutters.";
@@ -31114,14 +31108,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
-"rmG" = (
-/obj/machinery/door/window/brigdoor/eastleft{
-	dir = 1;
-	req_one_access = list(11, 24);
-	req_access = null
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_room)
 "rmR" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -31321,12 +31307,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
-"rqs" = (
-/obj/structure/window/borosilicate/reinforced{
-	dir = 4
-	},
-/turf/space/dynamic,
-/area/rnd/xenobiology/xenoflora)
 "rqu" = (
 /obj/machinery/power/emitter{
 	dir = 8
@@ -31805,15 +31785,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"rDR" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-2"
-	},
-/obj/structure/window/borosilicate/reinforced{
-	dir = 8
-	},
-/turf/space/dynamic,
-/area/rnd/xenobiology/xenoflora)
 "rEk" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -41334,14 +41305,7 @@
 /obj/item/book/manual/wiki/security_space_law,
 /obj/item/folder/sec,
 /obj/item/stamp/warden,
-/obj/machinery/firealarm/south{
-	pixel_x = -32
-	},
-/obj/machinery/requests_console{
-	department = "Warden's Desk";
-	departmentType = 5;
-	pixel_y = -32
-	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "wKa" = (
@@ -69107,7 +69071,7 @@ aaa
 wDa
 xHB
 wJh
-dkZ
+plL
 wdF
 ddH
 pvS

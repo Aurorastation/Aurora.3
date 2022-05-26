@@ -20882,13 +20882,6 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
-"MR" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
-	id = "Recovery1"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/medical/ward)
 "MS" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/corner/green{

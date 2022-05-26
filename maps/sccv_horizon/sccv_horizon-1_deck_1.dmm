@@ -22311,11 +22311,6 @@
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
-"snD" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/template_noop,
-/area/template_noop)
 "soD" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
