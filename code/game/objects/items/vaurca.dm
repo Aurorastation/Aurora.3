@@ -8,7 +8,7 @@
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
-	var/list/worlds_selection = list("Moana", "Hive War exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
+	var/list/worlds_selection = list("Ocean", "Hive War exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
 	var/selected_world
 	var/working = FALSE
 	var/message_frequency = 8
@@ -41,7 +41,7 @@
 	if(choice)
 		selected_world = choice
 	switch(choice)
-		if("Moana")
+		if("Ocean")
 			light_color = "#1122c2"
 		if("Hive War exhibition")
 			light_color = "#83290b"
@@ -73,7 +73,7 @@
 		var/hologram_message
 		switch(selected_world)
 
-			if("Moana")
+			if("Ocean")
 				hologram_message = pick("You see a golden fortress floating majestically above an ocean of sapphire.",
 										"A euphoric smell of the ocean fills your senses as the water gently ebbs and flows.",
 										"You hear the faint humming of a hymn as a gentle wave envelops the viewfinder.",
