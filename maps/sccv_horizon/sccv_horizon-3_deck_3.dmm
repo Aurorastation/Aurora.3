@@ -906,6 +906,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
 "aKZ" = (
@@ -1946,6 +1952,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
@@ -10768,6 +10777,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "iWY" = (
@@ -12710,6 +12722,12 @@
 /turf/simulated/floor/carpet/art,
 /area/crew_quarters/lounge)
 "kIO" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
@@ -15921,6 +15939,12 @@
 /turf/simulated/floor,
 /area/maintenance/substation/civilian_east)
 "nnU" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -21131,14 +21155,20 @@
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "riI" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
@@ -26941,15 +26971,6 @@
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "vYt" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
@@ -28471,6 +28492,15 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
@@ -56758,8 +56788,8 @@ oec
 qph
 vXr
 fpW
-bCH
 kIO
+xld
 xld
 otj
 mID
@@ -56960,9 +56990,9 @@ mgB
 qph
 rBs
 jDM
-bCH
 nnU
 jaz
+xld
 cWw
 qzu
 qzu
@@ -57162,7 +57192,7 @@ kud
 qph
 gMD
 jnk
-bCH
+nnU
 oEQ
 xld
 wJS
