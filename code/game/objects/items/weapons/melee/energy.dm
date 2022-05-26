@@ -132,11 +132,11 @@
 	name = "energy glaive"
 	desc = "An energized glaive."
 	icon_state = "eglaive0"
+	force = 20
+	throwforce = 30
 	active_force = 40
 	active_throwforce = 60
 	active_w_class = ITEMSIZE_HUGE
-	force = 30
-	throwforce = 40
 	armor_penetration = 20 
 	throw_speed = 5
 	throw_range = 10

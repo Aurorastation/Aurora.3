@@ -41,4 +41,3 @@ changes:
   - tweak: "The ninja esword no longer has 100 armor piercing for no reason at all."
   - tweak: "The ninja esword no longer has a 100 percent guaranteed deflection rate on projectiles. It is now closer to 65 percent when shot with a laser rifle."
   - tweak: "Energy sword parrying now functions off of the integrated shield power. If the shield power falls to below zero, parrying is no longer possible. Energy swords have 100 shield power, while the Ninja energy sword has 150. Shield power receives three fourths of the damage parried."
-  - tweak: "The energy glaive now does 30 damage 10 AP 40 throw damage, instead of 20 damage 10 AP 40 throw damage."
