@@ -89,7 +89,7 @@
 				hologram_message = pick("An awe inspiring fortress of gold dominates the landscape and bathes the surrounding area in yellow luminescence.",
 										"A loud hymn is chanted in an unknown language accompanied by a smell of morning Dew in the countryside.",
 										"Unbound workers moving through the realm stop to gaze up in awe at the distant structure before returning to previous activities.",
-                                        "Distant chattering can be heard coming from the fortress including what almost like jovial laughter.",
+                                        "Distant chattering can be heard coming from the fortress including what sounds almost like jovial laughter.",
                                         "The turquoise water emits a jubilant smell of freshly cut lemons which lasts for only for a moment.",
                                         "You see the gas giant Sedantis dominating a starry sky.",
 										"For a moment the Golden Fortress towering above starts to glimmer majestically catching the light from the imposing gas giant in the sky")
