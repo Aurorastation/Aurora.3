@@ -84,16 +84,14 @@
 			to_chat(user, SPAN_NOTICE("You can't unfasten \the [src] if it has glass installed."))
 			return
 		if(anchored)
-			playsound(src, W.usesound, 75, TRUE)
-			if(do_after(user, 2 SECONDS/W.toolspeed))
+			if(W.usetool(src, user, 2 SECONDS, volume = 50)
 				anchored = FALSE
 				to_chat(user, SPAN_NOTICE("You unfasten \the [src]."))
 				update_icon()
 				update_nearby_icons()
 				return
 		else
-			playsound(src, W.usesound, 75, TRUE)
-			if(do_after(user, 2 SECONDS/W.toolspeed))
+			if(W.usetool(src, user, 2 SECONDS, volume = 50)
 				anchored = TRUE
 				to_chat(user, SPAN_NOTICE("You fasten \the [src]."))
 				dir = 2
@@ -118,7 +116,7 @@
 			SPAN_NOTICE("You start welding \the [src] apart..."),
 			"You hear deconstruction."
 		)
-		if(do_after(user, 2 SECONDS/WT.toolspeed))
+		if(W.usetool(src, user, 2 SECONDS, volume = 50)
 			if(!src || !WT.isOn())
 				return
 			if(WT.use(0, user))
