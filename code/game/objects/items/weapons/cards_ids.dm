@@ -521,7 +521,7 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/distress/ap_eridani
-	name = "\improper Eridani identification card"
+	name = "\improper Eridani Private Military Contractor ID"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
 	assignment = "EPMC Asset Protection"
 	icon_state = "pmc_card"

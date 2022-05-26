@@ -148,6 +148,7 @@
 #define BP_AUG_CYBORG_ANALYZER    "retractable cyborg analyzer"
 #define BP_AUG_LIGHTER      "retractable lighter"
 #define BP_AUG_HEALTHSCAN   "integrated health scanner"
+#define BP_AUG_DRILL        "integrated mining drill"
 #define BP_AUG_GUSTATORIAL   "integrated gustatorial centre"
 #define BP_AUG_TESLA        "tesla spine"
 #define BP_AUG_EYE_SENSORS  "integrated eyes sensors"
