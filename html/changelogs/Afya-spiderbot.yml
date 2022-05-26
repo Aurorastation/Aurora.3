@@ -1,0 +1,7 @@
+author: Afya
+
+delete-after: True
+
+changes:
+  - bugfix: "Spiderbots can no longer drag all the things."
+  - tweak: "Spiderbots are now considered tiny mobs."
