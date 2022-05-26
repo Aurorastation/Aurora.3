@@ -1,0 +1,5 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - tweak: "Using ; to send radio messages while on an admin z-level, such as centcomm, ert, and antag bases, will send the message to your department channel, aka your :h key channel, to prevent miscomms from antags or event setup. You can still use :a to type on common."
+  - tweak: "You can use ; to talk into handheld radios instead of having to use :r and :l, provided you are not wearing a headset or wristbound, as those are given priority. It will only broadcast to the channel it's set to, as usual."

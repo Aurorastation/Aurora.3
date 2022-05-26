@@ -159,6 +159,12 @@
 		if(client && (client.prefs.primary_radio_slot in headsets))
 			return headsets[client.prefs.primary_radio_slot]
 		return headsets[headsets[1]]
+
+	//No headsets. Check for radios in-hand
+	if(istype(r_hand, /obj/item/device/radio))
+		return r_hand
+	if(istype(l_hand, /obj/item/device/radio))
+		return l_hand
 	return null
 
 /mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper, var/is_singing = FALSE)
@@ -176,7 +182,7 @@
 			var/obj/item/device/radio/R = get_radio()
 			if(R)
 				used_radios += R
-				if(R.talk_into(src, message, null, verb, speaking))
+				if(R.talk_into(src, message, isAdminLevel(z) ? "department" : null, verb, speaking))
 					successful_radio += R
 		if("right ear")
 			var/obj/item/device/radio/R
