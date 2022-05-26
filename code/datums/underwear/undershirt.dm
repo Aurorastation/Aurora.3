@@ -294,13 +294,13 @@
 	name = "Shirt, Zavodskoi Interstellar Feminine"
 	icon_state = "shirt_necropolis_fem"
 
-/datum/category_item/underwear/undershirt/shirt_pmc
-	name = "Shirt, PMCG"
-	icon_state = "shirt_pmc"
+/datum/category_item/underwear/undershirt/shirt_epmc
+	name = "Shirt, EPMC"
+	icon_state = "shirt_epmc"
 
-/datum/category_item/underwear/undershirt/shirt_pmc_fem
-	name = "Shirt, PMCG Feminine"
-	icon_state = "shirt_pmc_fem"
+/datum/category_item/underwear/undershirt/shirt_epmc_fem
+	name = "Shirt, EPMC Feminine"
+	icon_state = "shirt_epmc_fem"
 
 /datum/category_item/underwear/undershirt/polo
 	name = "Polo"

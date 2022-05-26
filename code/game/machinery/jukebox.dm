@@ -1,5 +1,3 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
-
 datum/track
 	var/title
 	var/sound
@@ -8,7 +6,7 @@ datum/track/New(var/title_name, var/audio)
 	title = title_name
 	sound = audio
 
-/obj/machinery/media/jukebox/
+/obj/machinery/media/jukebox
 	name = "jukebox"
 	icon = 'icons/obj/jukebox.dmi'
 	icon_state = "jukebox-nopower"
@@ -24,19 +22,16 @@ datum/track/New(var/title_name, var/audio)
 
 	var/datum/track/current_track
 	var/list/datum/track/tracks = list(
-		new/datum/track("Beyond", 'sound/ambience/ambispace.ogg'),
+		new/datum/track("Beyond", 'sound/music/ambispace.ogg'),
 		new/datum/track("Clouds of Fire", 'sound/music/clouds.s3m'),
 		new/datum/track("D`Bert", 'sound/music/title2.ogg'),
-		new/datum/track("D`Fort", 'sound/ambience/song_game.ogg'),
+		new/datum/track("D`Fort", 'sound/music/song_game.ogg'),
 		new/datum/track("Floating", 'sound/music/main.ogg'),
 		new/datum/track("Endless Space", 'sound/music/space.ogg'),
-		new/datum/track("Part A", 'sound/misc/TestLoop1.ogg'),
 		new/datum/track("Scratch", 'sound/music/title1.ogg'),
-		new/datum/track("Trai`Tor", 'sound/music/traitor.ogg'),
-		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg'),
-		new/datum/track("Space Oddity", 'sound/music/space_oddity.ogg'),
-		new/datum/track("Space Asshole", 'sound/music/space_asshole.ogg'),
-		new/datum/track("Velvet Rose", 'sound/music/Velvet-Rose.ogg')
+		new/datum/track("Suspenseful", 'sound/music/traitor.ogg'),
+		new/datum/track("Thunderdome", 'sound/music/thunderdome.ogg'),
+		new/datum/track("Velvet Rose", 'sound/music/velvet_rose.ogg')
 	)
 
 
@@ -223,11 +218,11 @@ datum/track/New(var/title_name, var/audio)
 	state_base = "record"
 	anchored = 0
 	tracks = list(
-		new/datum/track("Boolean Sisters", 'sound/music/recordplayer/BooleanSisters.ogg'),
-		new/datum/track("Posin'", 'sound/music/recordplayer/Posin.ogg'),
-		new/datum/track("Jazz Instrumental", 'sound/music/recordplayer/JazzInstrumental.ogg'),
-		new/datum/track("Le Swing", 'sound/music/recordplayer/LeSwing.ogg'),
-		new/datum/track("Cosmorot", 'sound/music/recordplayer/Cosmorot.ogg')
+		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
+		new/datum/track("Electro Swing", 'sound/music/phonograph/electro_swing.ogg'),
+		new/datum/track("Jazz Instrumental", 'sound/music/phonograph/jazz_instrumental.ogg'),
+		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
+		new/datum/track("Posin'", 'sound/music/phonograph/posin.ogg')
 	)
 
 /obj/machinery/media/jukebox/phonograph/update_icon()

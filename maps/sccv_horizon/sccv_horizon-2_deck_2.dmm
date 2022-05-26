@@ -177,7 +177,7 @@
 	dir = 8
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "adw" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
@@ -309,7 +309,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "aic" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/iv_drip,
@@ -889,7 +889,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -924,7 +924,7 @@
 /obj/structure/lattice,
 /obj/structure/grille,
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "avy" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/light{
@@ -934,7 +934,7 @@
 /area/engineering/engine_room)
 "avM" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/atmos{
+/obj/machinery/door/airlock/glass_atmos{
 	name = "Atmospherics Locker Room";
 	req_access = list(24)
 	},
@@ -972,6 +972,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
+"axa" = (
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/aft)
 "axB" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1126,6 +1132,8 @@
 	},
 /obj/structure/table/standard,
 /obj/item/device/flashlight/heavy,
+/obj/item/device/flashlight/heavy,
+/obj/item/device/flashlight/heavy,
 /obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
@@ -1158,7 +1166,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "aAx" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/structure/shuttle_part/scc_space_ship{
+	icon_state = "d3-1"
+	},
+/turf/space/dynamic,
 /area/rnd/xenobiology/xenoflora)
 "aAC" = (
 /obj/effect/floor_decal/spline/plain,
@@ -1310,8 +1321,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_engineering{
-	name = "SM Reactor Monitoring Room";
-	req_access = list(11)
+	name = "Engine Monitoring Room";
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -1660,7 +1671,7 @@
 "aQc" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1711,8 +1722,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	name = "SM Reactor Electrical Maintenance";
-	req_access = list(11)
+	name = "SMES Access";
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -2376,7 +2387,7 @@
 "beY" = (
 /obj/structure/grille,
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "bff" = (
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - External";
@@ -2444,6 +2455,7 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "bhT" = (
@@ -2620,7 +2632,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/sign/emerg_exitZ,
 /turf/simulated/floor/reinforced/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "bmM" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2681,7 +2693,7 @@
 	id = "EngineEmitterPortWest";
 	name = "Engine Room Blast Doors";
 	pixel_x = -25;
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
@@ -3854,8 +3866,8 @@
 	icon_state = "door_locked";
 	id_tag = "engine_electrical_maintenance";
 	locked = 1;
-	name = "SM Reactor Electrical Maintenance";
-	req_access = list(10)
+	name = "Electrical Maintenance";
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -4267,7 +4279,7 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/door/airlock/glass_research{
 	name = "XenoBotanical Lab";
-	req_access = list(55)
+	req_access = list(52)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4802,10 +4814,7 @@
 /area/hallway/primary/central_two)
 "cEG" = (
 /turf/template_noop,
-/area/horizonexterior)
-"cFw" = (
-/turf/simulated/floor/reinforced/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "cGd" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/window/reinforced,
@@ -4843,7 +4852,7 @@
 	dir = 8
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "cHM" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
@@ -5008,7 +5017,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering EVA Storage";
-	req_one_access = list(11,24)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -5154,7 +5163,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "cQd" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
@@ -5827,8 +5836,8 @@
 	icon_state = "door_locked";
 	id_tag = "engine_airlock_exterior";
 	locked = 1;
-	name = "SM Reactor Airlock Exterior";
-	req_access = list(11)
+	name = "Engine Airlock Exterior";
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -5837,7 +5846,7 @@
 	name = "Engine Access Button";
 	pixel_x = 24;
 	pixel_y = -5;
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -5919,14 +5928,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/space/dynamic,
-/area/template_noop)
-"dkZ" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/tiled/dark/full,
-/area/security/warden)
+/area/horizon/exterior)
 "dlG" = (
 /obj/structure/sink/kitchen{
 	dir = 8;
@@ -6084,8 +6086,8 @@
 "dpj" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "dpE" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -6984,12 +6986,6 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/chapel/main)
-"dPV" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/locker_room)
 "dQR" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -7039,8 +7035,8 @@
 	id = "engine_electrical_maintenance";
 	name = "Door Bolt Control";
 	pixel_y = -25;
-	req_access = list(10);
-	specialfunctions = 4
+	specialfunctions = 4;
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/smes)
@@ -7069,7 +7065,7 @@
 "dUw" = (
 /obj/structure/lattice,
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "dVc" = (
 /obj/machinery/light{
 	dir = 1
@@ -7130,7 +7126,7 @@
 	dir = 4
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "dVN" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -7571,7 +7567,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "elh" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled/ramp,
@@ -7847,7 +7843,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -7881,14 +7877,11 @@
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "eui" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 32
 	},
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/item/storage/firstaid/regular,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "euT" = (
@@ -8620,7 +8613,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "eUa" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -8853,7 +8846,7 @@
 /obj/structure/railing/mapped,
 /obj/item/hullbeacon/red,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "eZc" = (
 /obj/machinery/firealarm/south,
 /obj/structure/disposalpipe/trunk{
@@ -9388,7 +9381,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "flS" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 4
@@ -9534,12 +9527,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/armory)
-"fri" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/horizonexterior)
 "frL" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
@@ -9753,7 +9740,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "fxe" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -9928,7 +9915,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "fDV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -10141,7 +10128,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "fJX" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -10435,7 +10422,7 @@
 	id = "EngineEmitterPortWest";
 	name = "Engine Room Blast Doors";
 	pixel_x = 25;
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -10464,8 +10451,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	name = "SM Reactor Waste Management";
-	req_access = list(11)
+	name = "Engine Waste";
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
@@ -10515,7 +10502,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "fRi" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -11203,9 +11190,8 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 9
 	},
-/obj/structure/lattice,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/simulated/open,
+/area/horizon/exterior)
 "ghX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11350,8 +11336,8 @@
 "gmo" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "gmt" = (
 /obj/structure/table/standard,
 /obj/machinery/light_switch{
@@ -12675,8 +12661,8 @@
 "gTy" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
-/turf/simulated/open/airless,
-/area/template_noop)
+/turf/simulated/open,
+/area/horizon/exterior)
 "gUn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -13079,7 +13065,7 @@
 	id = "EngineVent";
 	name = "Engine Ventillatory Control";
 	pixel_x = -24;
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -13137,7 +13123,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "hhx" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -13232,7 +13218,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = list(10)
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
@@ -13555,7 +13541,7 @@
 "hrZ" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering EVA Storage";
-	req_one_access = list(11,24)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -13590,7 +13576,7 @@
 	dir = 5
 	},
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "htd" = (
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
 /area/horizon/stairwell/bridge)
@@ -13677,7 +13663,7 @@
 	},
 /obj/structure/lattice,
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "hww" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -13854,7 +13840,7 @@
 "hBN" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/reinforced/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "hBQ" = (
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -13976,7 +13962,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "hEd" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
@@ -14345,7 +14331,7 @@
 /area/crew_quarters/kitchen/freezer)
 "hPH" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(55);
+	req_access = list(52);
 	req_one_access = null
 	},
 /obj/machinery/door/firedoor,
@@ -14453,7 +14439,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Substation";
-	req_one_access = list(11,24)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -14583,7 +14569,7 @@
 	pixel_y = 16
 	},
 /turf/simulated/open/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "hUP" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -15048,7 +15034,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
@@ -15274,12 +15260,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
-"ity" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/horizonexterior)
 "itX" = (
 /turf/simulated/floor/wood,
 /area/chapel/main)
@@ -15697,6 +15677,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/item/pipewrench,
+/obj/item/device/pipe_painter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "iIf" = (
@@ -15776,7 +15757,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/research{
 	name = "XenoBotanical Contaiment";
-	req_access = list(55)
+	req_access = list(52)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -15832,6 +15813,7 @@
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
 "iKg" = (
@@ -16808,6 +16790,7 @@
 	},
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "jlQ" = (
@@ -16828,8 +16811,8 @@
 	},
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "jmp" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/snack{
@@ -16943,6 +16926,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/item/pipewrench,
+/obj/item/device/pipe_painter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "jnV" = (
@@ -17162,8 +17146,8 @@
 	icon_state = "door_locked";
 	id_tag = "engine_airlock_interior";
 	locked = 1;
-	name = "SM Reactor Airlock Interior";
-	req_access = list(11)
+	name = "Engine Airlock Interior";
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -17172,7 +17156,7 @@
 	name = "Engine Access Button";
 	pixel_x = -24;
 	pixel_y = 5;
-	req_access = list(11)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -17749,13 +17733,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
-"jMJ" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/open/airless,
-/area/template_noop)
 "jMO" = (
 /obj/machinery/door/airlock/glass_security{
 	desc = "It opens and closes. Hazardous lifeforms ahead. Caution advised!";
@@ -17810,7 +17787,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "jPb" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
@@ -17834,7 +17811,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "jPj" = (
 /obj/machinery/atm{
 	pixel_x = 32
@@ -18141,7 +18118,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(11, 24)
+	req_access = list(11)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/smes/tesla)
@@ -18402,7 +18379,7 @@
 /area/crew_quarters/heads/hos)
 "kgp" = (
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "kgK" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -18718,7 +18695,7 @@
 /area/engineering/engine_room)
 "kuh" = (
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "kur" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(47)
@@ -19144,8 +19121,8 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "kIp" = (
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
@@ -19407,7 +19384,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "XenoBotanical Contaiment";
-	req_access = list(55)
+	req_access = list(52)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -19497,7 +19474,7 @@
 "kUf" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "kUp" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -19948,7 +19925,7 @@
 	dir = 1
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "lhH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -20238,8 +20215,8 @@
 	dir = 8
 	},
 /obj/structure/lattice,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "lqJ" = (
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 8
@@ -20565,7 +20542,7 @@
 "lBV" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "lBW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -20852,8 +20829,8 @@
 /area/crew_quarters/heads/hor)
 "lJE" = (
 /obj/structure/lattice/catwalk,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "lJP" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -21033,7 +21010,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = list(10)
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
@@ -21308,8 +21285,8 @@
 	dir = 6
 	},
 /obj/structure/lattice,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "lVe" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/hologram/holopad,
@@ -21493,6 +21470,7 @@
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
 "lZQ" = (
@@ -21981,7 +21959,7 @@
 "mpN" = (
 /obj/structure/lattice/catwalk,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "mpV" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -22164,6 +22142,12 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora_hazard)
+"muo" = (
+/obj/structure/window/phoronreinforced{
+	dir = 8
+	},
+/turf/space/dynamic,
+/area/rnd/xenobiology/xenoflora)
 "muy" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -22295,13 +22279,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
-"mwQ" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/space/dynamic,
-/area/template_noop)
 "mxh" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 5
@@ -22526,8 +22503,8 @@
 	},
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "mFD" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -22610,9 +22587,13 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "mGY" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/reinforced/airless,
-/area/horizonexterior)
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1;
+	name = "Aux Tanks Inlet"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/aux_atmospherics/deck_2/starboard)
 "mGZ" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/low{
@@ -22824,7 +22805,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "mMf" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -22931,7 +22912,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "mOH" = (
 /obj/machinery/chem_master/condimaster{
 	pixel_y = 1
@@ -23803,7 +23784,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Hazardous Specimens";
-	req_access = list(55)
+	req_access = list(52)
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/structure/cable/green{
@@ -24722,7 +24703,7 @@
 	dir = 4
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "nKc" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
@@ -24825,7 +24806,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = list(10)
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
@@ -24841,7 +24822,7 @@
 	dir = 1
 	},
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "nNv" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
@@ -24885,7 +24866,7 @@
 "nPG" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "nQm" = (
 /turf/simulated/wall,
 /area/maintenance/substation/medical)
@@ -25020,7 +25001,7 @@
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
 	locked = 1;
-	name = "SM Reactor Access"
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -26306,7 +26287,7 @@
 	dir = 4
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "oGm" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -26506,13 +26487,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "oKP" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1;
-	name = "Aux Tanks Inlet"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/aux_atmospherics/deck_2/starboard)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/exterior)
 "oKR" = (
 /obj/machinery/light/small/emergency,
 /obj/effect/floor_decal/industrial/warning{
@@ -26736,8 +26712,8 @@
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "oTa" = (
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
@@ -26753,6 +26729,12 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
 	},
+/obj/machinery/power/apc{
+	pixel_x = 24;
+	dir = 4
+	},
+/obj/structure/cable/green,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "oTK" = (
@@ -27084,7 +27066,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -27153,7 +27135,7 @@
 "pep" = (
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/tiled/dark/airless,
-/area/maintenance/wing/starboard)
+/area/horizon/exterior)
 "pev" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
@@ -27306,10 +27288,16 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
-"piz" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+"piq" = (
+/obj/structure/shuttle_part/scc_space_ship{
+	icon_state = "d3-2"
 	},
+/obj/structure/window/phoronreinforced{
+	dir = 4
+	},
+/turf/space/dynamic,
+/area/rnd/xenobiology/xenoflora)
+"piz" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -27480,6 +27468,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
+"plL" = (
+/turf/space/dynamic,
+/area/rnd/xenobiology/xenoflora)
 "pmb" = (
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for shutters.";
@@ -27525,7 +27516,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Substation";
-	req_one_access = list(11,24)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -27594,8 +27585,8 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/open/airless,
-/area/template_noop)
+/turf/simulated/open,
+/area/horizon/exterior)
 "pqE" = (
 /obj/structure/closet/toolcloset,
 /obj/machinery/power/apc{
@@ -28146,7 +28137,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(10)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -28485,8 +28476,8 @@
 	},
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "pQj" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -28880,7 +28871,7 @@
 	dir = 1
 	},
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "qav" = (
 /turf/simulated/wall,
 /area/assembly/chargebay)
@@ -29013,8 +29004,8 @@
 "qeZ" = (
 /obj/structure/lattice,
 /obj/machinery/shield_diffuser,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "qff" = (
 /obj/machinery/light{
 	dir = 4
@@ -29185,12 +29176,6 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
-"qjS" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/horizonexterior)
 "qkm" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -29934,7 +29919,7 @@
 	dir = 9
 	},
 /obj/effect/landmark/start{
-	name = "Xenobiologist"
+	name = "Xenobotanist"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
@@ -30369,6 +30354,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/item/pipewrench,
+/obj/item/device/pipe_painter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "qSn" = (
@@ -30538,7 +30524,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "qXx" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 1
@@ -31044,9 +31030,8 @@
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "rkk" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/window/phoronreinforced,
+/turf/space/dynamic,
 /area/rnd/xenobiology/xenoflora)
 "rkq" = (
 /obj/structure/railing/mapped,
@@ -31129,6 +31114,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
+"rmG" = (
+/obj/machinery/door/window/brigdoor/eastleft{
+	dir = 1;
+	req_one_access = list(11, 24);
+	req_access = null
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_room)
 "rmR" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -31219,7 +31212,7 @@
 	dir = 10
 	},
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "roP" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -31328,6 +31321,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
+"rqs" = (
+/obj/structure/window/phoronreinforced{
+	dir = 4
+	},
+/turf/space/dynamic,
+/area/rnd/xenobiology/xenoflora)
 "rqu" = (
 /obj/machinery/power/emitter{
 	dir = 8
@@ -31391,8 +31390,8 @@
 	dir = 5
 	},
 /obj/structure/lattice,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "rsp" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -31566,12 +31565,6 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_airlock)
-"rwy" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/horizonexterior)
 "rwW" = (
 /obj/structure/cable/orange{
 	icon_state = "1-2"
@@ -31665,8 +31658,8 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/open/airless,
-/area/template_noop)
+/turf/simulated/open,
+/area/horizon/exterior)
 "rzm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -31721,7 +31714,7 @@
 	dir = 6
 	},
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "rBL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -31812,6 +31805,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
+"rDR" = (
+/obj/structure/shuttle_part/scc_space_ship{
+	icon_state = "d3-2"
+	},
+/obj/structure/window/phoronreinforced{
+	dir = 8
+	},
+/turf/space/dynamic,
+/area/rnd/xenobiology/xenoflora)
 "rEk" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -32092,8 +32094,8 @@
 	dir = 10
 	},
 /obj/structure/lattice,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "rNe" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d2-1-f"
@@ -32494,7 +32496,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "rVL" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
@@ -32520,7 +32522,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "rWp" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -32663,8 +32665,8 @@
 /obj/structure/lattice,
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "saJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -33039,7 +33041,8 @@
 /obj/machinery/button/remote/driver{
 	id = "enginecore";
 	name = "Emergency Core Eject";
-	pixel_x = 25
+	pixel_x = 25;
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -33298,8 +33301,7 @@
 /area/security/security_office)
 "sui" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(11);
-	name = "SM Reactor Electrical Maintenance"
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -33706,7 +33708,7 @@
 "sJq" = (
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "sJS" = (
 /obj/structure/cable/orange{
 	icon_state = "4-8"
@@ -34081,7 +34083,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "sVB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped,
@@ -34122,7 +34124,7 @@
 	dir = 1
 	},
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "sXb" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -34223,7 +34225,7 @@
 /obj/machinery/door/window/westright,
 /obj/structure/lattice/catwalk,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "tae" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -34800,7 +34802,7 @@
 "tqC" = (
 /obj/effect/shuttle_landmark/ccia/dock,
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "tqF" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/large,
@@ -34838,7 +34840,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "tsA" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -34941,6 +34943,13 @@
 	temperature = 253.15
 	},
 /area/crew_quarters/kitchen/freezer)
+"tvM" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/space/dynamic,
+/area/horizon/exterior)
 "tvX" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -35467,11 +35476,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "tJB" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(24);
+	name = "Atmospherics Locker Room Maintenance"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/aft)
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/storage)
 "tJP" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -35586,7 +35596,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "tME" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -36340,7 +36350,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "uiq" = (
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
@@ -36372,7 +36382,7 @@
 "uje" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -36671,7 +36681,7 @@
 	},
 /obj/structure/lattice,
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "upl" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -37076,10 +37086,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
-"uyP" = (
-/obj/structure/closet/walllocker/medical,
-/turf/simulated/wall/r_wall,
-/area/engineering/storage_hard)
 "uzd" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -37362,8 +37368,8 @@
 	dir = 1;
 	network = list("Command","Bunker")
 	},
-/turf/space/dynamic,
-/area/template_noop)
+/turf/template_noop,
+/area/horizon/exterior)
 "uHh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -37647,7 +37653,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering EVA Storage";
-	req_one_access = list(11,24)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -37974,7 +37980,7 @@
 	pixel_y = -32
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "uZh" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/pottedplant/random,
@@ -38058,7 +38064,7 @@
 	dir = 4
 	},
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "vbe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -38104,14 +38110,8 @@
 /turf/simulated/wall,
 /area/maintenance/substation/wing_starboard)
 "vcM" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/airless,
-/area/maintenance/wing/starboard)
+/turf/simulated/floor/airless,
+/area/horizon/exterior)
 "vdy" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -38161,7 +38161,7 @@
 	pixel_y = 16
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "veO" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 1
@@ -38516,8 +38516,8 @@
 /obj/structure/lattice,
 /obj/structure/grille,
 /obj/structure/grille,
-/turf/space/dynamic,
-/area/horizonexterior)
+/turf/template_noop,
+/area/horizon/exterior)
 "vrC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -38720,12 +38720,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"vxL" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/locker_room)
 "vxY" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -39201,7 +39195,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "vKf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -39434,8 +39428,13 @@
 /turf/simulated/wall/r_wall,
 /area/security/armory)
 "vPk" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/window/phoronreinforced,
+/obj/structure/lattice,
+/obj/structure/disposalpipe/trunk,
+/obj/structure/disposaloutlet{
+	dir = 1
+	},
+/turf/space/dynamic,
 /area/rnd/xenobiology/xenoflora)
 "vPt" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -39639,12 +39638,8 @@
 /area/maintenance/hangar/port)
 "vTP" = (
 /obj/structure/lattice,
-/obj/structure/disposaloutlet{
-	dir = 1
-	},
-/obj/structure/disposalpipe/trunk,
 /turf/space/dynamic,
-/area/template_noop)
+/area/rnd/xenobiology/xenoflora)
 "vTY" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
@@ -39970,7 +39965,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
-	req_one_access = list(11,24)
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -40398,7 +40393,7 @@
 /obj/structure/lattice,
 /obj/structure/grille/broken,
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "wkN" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -40604,7 +40599,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "wpb" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -40630,7 +40625,7 @@
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
 	locked = 1;
-	name = "SM Reactor Access"
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -40735,6 +40730,7 @@
 	},
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "wrK" = (
@@ -40932,7 +40928,7 @@
 "wzs" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "wzD" = (
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/camera/network/engineering{
@@ -41362,7 +41358,7 @@
 	name = "Engine Emitter";
 	pixel_x = 6;
 	pixel_y = 7;
-	req_access = list(10)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine charging port.";
@@ -41370,14 +41366,14 @@
 	name = "Reactor Blast Doors";
 	pixel_x = -6;
 	pixel_y = 7;
-	req_access = list(10)
+	req_one_access = list(11, 24)
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine control room blast doors.";
 	id = "EngineBlast";
 	name = "Engine Monitoring Room Blast Doors";
 	pixel_y = -3;
-	req_access = list(10)
+	req_one_access = list(11, 24)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring)
@@ -42080,11 +42076,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "xbv" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
@@ -42217,7 +42213,7 @@
 "xer" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "xeF" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -42252,7 +42248,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
-	req_one_access = list(10)
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
@@ -42665,7 +42661,7 @@
 	dir = 9
 	},
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "xsY" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -43411,7 +43407,7 @@
 	},
 /obj/structure/lattice,
 /turf/template_noop,
-/area/horizonexterior)
+/area/horizon/exterior)
 "xPm" = (
 /turf/simulated/wall,
 /area/maintenance/substation/wing_port)
@@ -44051,7 +44047,7 @@
 	dir = 4
 	},
 /turf/simulated/open/airless,
-/area/horizonexterior)
+/area/horizon/exterior)
 "ydL" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -55539,8 +55535,8 @@ qgN
 dkR
 tab
 uYW
-gGB
-gGB
+oKP
+oKP
 gGB
 byZ
 oXY
@@ -55738,10 +55734,10 @@ qgN
 qgN
 qgN
 qgN
-mwQ
+tvM
 tsk
 fDE
-vcM
+fDE
 pep
 oXY
 oXY
@@ -55943,8 +55939,8 @@ qgN
 jOK
 woY
 woY
-gGB
-gGB
+oKP
+oKP
 gGB
 oXY
 oXY
@@ -56755,7 +56751,7 @@ sBt
 tND
 bGk
 gvy
-oKP
+mGY
 pDn
 fdF
 uVi
@@ -58774,7 +58770,7 @@ cRu
 nlr
 nlr
 nlr
-uyP
+nlr
 laB
 mUy
 laB
@@ -59379,10 +59375,10 @@ iGY
 mKJ
 laB
 eui
-dPV
+bHe
 piz
-dPV
-vxL
+bHe
+bHe
 eIU
 laB
 kec
@@ -59431,7 +59427,7 @@ kgp
 kgp
 kgp
 kgp
-jMJ
+tvM
 hUK
 eYX
 qgN
@@ -60162,7 +60158,7 @@ lJE
 oSQ
 oSQ
 cEG
-dAN
+vcM
 gWf
 dAN
 dAN
@@ -63402,10 +63398,10 @@ beY
 kUf
 ydI
 fRg
-ity
+mLU
 hBN
-ity
-fri
+mLU
+eTQ
 ydI
 dSU
 lGx
@@ -63604,10 +63600,10 @@ avu
 kUf
 vbc
 qWJ
-cFw
+kgp
 hBN
-cFw
-mGY
+kgp
+xer
 vbc
 kQS
 lOf
@@ -63808,8 +63804,8 @@ rWg
 hBN
 hBN
 hBN
-cFw
-mGY
+kgp
+xer
 vbc
 lMD
 sMn
@@ -64008,10 +64004,10 @@ beY
 kUf
 vbc
 qWJ
-cFw
+kgp
 hBN
-cFw
-mGY
+kgp
+xer
 vbc
 inD
 lZP
@@ -64210,10 +64206,10 @@ beY
 kUf
 ydI
 hDE
-qjS
+rVv
 hBN
-qjS
-rwy
+rVv
+uhP
 ydI
 lMD
 qMd
@@ -64614,10 +64610,10 @@ beY
 kUf
 ydI
 fRg
-ity
+mLU
 hBN
-ity
-fri
+mLU
+eTQ
 ydI
 lMD
 hwH
@@ -64816,10 +64812,10 @@ beY
 kUf
 vbc
 qWJ
-cFw
+kgp
 hBN
-cFw
-mGY
+kgp
+xer
 vbc
 inD
 nCJ
@@ -65020,8 +65016,8 @@ rWg
 hBN
 hBN
 hBN
-cFw
-mGY
+kgp
+xer
 vbc
 lMD
 fsA
@@ -65220,9 +65216,9 @@ beY
 kUf
 vbc
 qWJ
-cFw
+kgp
 hBN
-cFw
+kgp
 bmH
 vbc
 lMD
@@ -66423,7 +66419,7 @@ qgN
 qgN
 qgN
 qgN
-mpN
+lJE
 gXy
 dcU
 fgh
@@ -66625,7 +66621,7 @@ qgN
 qgN
 qgN
 qgN
-mpN
+lJE
 fgh
 fgh
 fgh
@@ -66849,7 +66845,7 @@ nlG
 nlG
 fnn
 fnn
-fnn
+tJB
 fnn
 fnn
 nAz
@@ -67050,9 +67046,9 @@ dVN
 xHd
 jWI
 bkv
+axa
+uxE
 aUB
-tJB
-tJB
 wFh
 xpv
 nHq
@@ -76148,7 +76144,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+dmK
 xIN
 ajV
 ais

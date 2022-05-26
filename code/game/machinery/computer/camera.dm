@@ -43,7 +43,7 @@
 	for(var/nw in network)
 		all_networks.Add(list(list(
 							"tag" = nw,
-							"has_access" = can_access_network(user, nw)
+							"has_access" = can_access_network(user, get_camera_access(nw))
 							)))
 
 	data["networks"] = all_networks
@@ -68,7 +68,7 @@
 	if(!network_access)
 		return TRUE
 
-	return (check_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_access(user, network_access)
+	return (check_camera_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
 
 /obj/machinery/computer/security/Topic(href, href_list)
 	if(..())
@@ -78,6 +78,14 @@
 		if(!C)
 			return
 		if(!(current_network in C.network))
+			return
+
+		var/access_granted = FALSE
+		for(var/network in C.network)
+			if(can_access_network(usr, get_camera_access(network)))
+				access_granted = TRUE //We only need access to one of the networks.
+		if(!access_granted)
+			to_chat(usr, SPAN_WARNING("Access unauthorized."))
 			return
 
 		switch_to_camera(usr, C)
@@ -122,14 +130,6 @@
 		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
 		return FALSE
 
-	var/access_granted = FALSE
-	for(var/network in C.network)
-		if(can_access_network(user, network))
-			access_granted = TRUE //We only need access to one of the networks.
-	if(!access_granted)
-		to_chat(user, SPAN_WARNING("Access unauthorized."))
-		return
-
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.reset_view(current_camera)
@@ -137,6 +137,22 @@
 		user.reset_view(current_camera)
 	check_eye(user)
 	return 1
+
+/obj/machinery/computer/security/proc/check_camera_access(var/mob/user, var/access)
+	if(!access)
+		return 1
+
+	if(!istype(user))
+		return 0
+
+	var/obj/item/card/id/I = user.GetIdCard()
+	if(!I)
+		return 0
+
+	if(access in I.access)
+		return 1
+
+	return 0
 
 //Camera control: moving.
 /obj/machinery/computer/security/proc/jump_on_click(var/mob/user,var/A)

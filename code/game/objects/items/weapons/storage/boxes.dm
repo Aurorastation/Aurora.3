@@ -969,7 +969,7 @@
 	else if(O.isscrewdriver())
 		if(length(contents) == 0)
 			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
-			if (do_after(user, 10/O.toolspeed, act_target = src))
+			if(O.use_tool(src, user, 30))
 				if(choice == "SmileyFace")
 					var/obj/item/clothing/head/papersack/smiley/S = new()
 					user.put_in_hands(S)
