@@ -276,7 +276,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	produces_heat = 0
 	circuitboard = "/obj/item/circuitboard/telecomms/receiver"
 
-
 /obj/machinery/telecomms/receiver/receive_signal(datum/signal/signal)
 
 	if(!on) // has to be on to receive messages

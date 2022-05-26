@@ -106,8 +106,7 @@ var/list/DEPT_FREQS_ASSOC = list(
 	"[SCI_FREQ]" = TRUE,
 	"[SRV_FREQ]" = TRUE,
 	"[SUP_FREQ]" = TRUE,
-	"[ENT_FREQ]" = TRUE,
-	"[SHIP_FREQ]" = TRUE
+	"[ENT_FREQ]" = TRUE
 )
 
 #define TRANSMISSION_WIRE        0 // Wired transmission, unused at the moment

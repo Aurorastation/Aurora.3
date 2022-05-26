@@ -183,7 +183,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	listening_freqs = list(SHIP_FREQ)
 
 //This goes on the station map so away ships can maintain radio contact.
-//Regular telecomms machines cannot listen to broadcasts coming from other z-levels. If we did this, comms would be receiving a substantial amount of duplicated messages.
+//Regular telecomms machines cannot listen to broadcasts coming from non-station z-levels. If we did this, comms would be receiving a substantial amount of duplicated messages.
 /obj/machinery/telecomms/allinone/ship/station_relay
 	name = "External Signal Receiver"
 	icon = 'icons/obj/machines/telecomms.dmi'
