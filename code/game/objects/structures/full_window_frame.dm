@@ -121,7 +121,7 @@
 		if(do_after(user, 2 SECONDS/WT.toolspeed))
 			if(!src || !WT.isOn())
 				return
-			if(WT.remove_fuel(0, user))
+			if(WT.use(0, user))
 				to_chat(user, SPAN_NOTICE("You use \the [WT] to weld apart \the [src]."))
 				playsound(src, WT.usesound, 50, 1)
 				new /obj/item/stack/material/steel(get_turf(src), 4)
