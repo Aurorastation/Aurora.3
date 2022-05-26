@@ -88,13 +88,12 @@
 	update_clothing_icon()
 
 /obj/item/storage/belt/utility
-	name = "tool-belt" //Carn: utility belt is nicer, but it bamboozles the text parsing.
-	desc = "A sturdy belt for holding various tools."
+	name = "tool belt"
+	desc = "A sturdy belt for holding various tools and equipment."
 	icon_state = "utilitybelt"
 	item_state = "utility"
 	equip_sound = 'sound/items/equip/toolbelt.ogg'
 	can_hold = list(
-		///obj/item/combitool,
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
 		/obj/item/weldingtool,
@@ -117,7 +116,7 @@
 		/obj/item/device/radio,
 		/obj/item/device/debugger,
 		/obj/item/device/eftpos
-		)
+	)
 	content_overlays = TRUE
 
 /obj/item/storage/belt/utility/ce
