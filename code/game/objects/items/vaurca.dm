@@ -11,7 +11,7 @@
 	var/list/worlds_selection = list("Moana", "Hive War exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
 	var/selected_world
 	var/working = FALSE
-	var/message_frequency = 10
+	var/message_frequency = 8
 
 /obj/item/vaurca_projector/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -96,10 +96,10 @@
 
 			if("City of New Sedantis")
 				hologram_message = pick("A towering cavernous city takes up the viewfinder, great buildings of stone jutting out of the ground and twisting towards the ceiling.",
-										"A loud hymn is chanted in an unknown language and seems to shake the very ground itself.",
+										"A loud hymn is being chanted in an unknown language and seems to shake the very ground itself.",
 										"A mellow blue light comes from thousands of resplendent crystals lining the wall and mingles with the inviting yellow glow from a distant golden fortress.",
                                         "Distant chattering can be heard coming from the city.",
-                                        "A distant forge emits lavender Phoron gas from a tower atop its lofty silhouette, as worker drones collect lilac stained glass from within.",
+                                        "A distant forge emits Phoron gas from a tower atop its lofty form, as worker drones collect lilac stained glass from within.",
 										"A group of Vaurca warriors move through the streets below seemingly practicing for some task unknown.")
 
 			if("Titan Prime")
