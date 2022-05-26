@@ -242,10 +242,6 @@
 	name = "Bridge Crew Preparation"
 	icon_state = "bridge_crew"
 
-/area/bridge/third_deck_stairs
-	name = "Bridge Stairs"
-	icon_state = "bridge_stairs"
-
 /area/bridge/helm
 	name = "Bridge Helm"
 	icon_state = "bridge_helm"
@@ -308,15 +304,6 @@
 /area/shuttle/intrepid/cockpit 
 	name = "Cockpit"
 
-
-// Exterior
-/area/horizonexterior
-	name = "Exterior"
-	icon_state = "exterior"
-	has_gravity = FALSE
-	base_turf = /turf/space
-	station_area = TRUE
-
 //
 // Areas for the SCCV Horizon Map
 //
@@ -324,6 +311,17 @@
 	name = "Horizon (PARENT AREA - DON'T USE)"
 	icon_state = "unknown"
 	station_area = TRUE
+
+// Exterior
+/area/horizon/exterior
+	name = "Horizon - Exterior"
+	icon_state = "exterior"
+	base_turf = /turf/space
+	dynamic_lighting = TRUE
+	requires_power = FALSE
+	has_gravity = FALSE
+	no_light_control = TRUE
+	allow_nightmode = FALSE
 
 // Hallways
 /area/horizon/hallway
@@ -346,9 +344,14 @@
 	name = "Horizon - Stairwell (PARENT AREA - DON'T USE)"
 	flags = RAD_SHIELDED
 
-/area/horizon/stairwell/central // Central stairwell.
+/area/horizon/stairwell/central
 	name = "Horizon - Central Stairwell"
 	icon_state = "stairwell"
+	sound_env = SMALL_ENCLOSED
+
+/area/horizon/stairwell/bridge
+	name = "Horizon - Bridge Stairwell"
+	icon_state = "bridge_stairs"
 	sound_env = SMALL_ENCLOSED
 
 /********** Crew Quarters Start **********/
@@ -519,3 +522,23 @@
 	icon_state = "nature_showcase"
 	sound_env = SMALL_ENCLOSED
 /********** Decks End **********/
+
+/********** Unique Start **********/
+// Hydroponics
+/area/horizon/hydroponics
+	name = "Horizon - Hydroponics"
+	icon_state = "hydro"
+
+/area/horizon/hydroponics/lower
+	name = "Horizon - Hydroponics - Lower"
+
+/area/horizon/hydroponics/garden
+	name = "Horizon - Public Garden"
+	icon_state = "garden"
+
+// Library
+/area/horizon/library
+ 	name = "Horizon - Library"
+ 	icon_state = "library"
+ 	sound_env = LARGE_SOFTFLOOR
+/********** Unique End **********/

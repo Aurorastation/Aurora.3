@@ -2634,6 +2634,15 @@
 	glass_desc = "A very classy looking drink."
 	glass_center_of_mass = list("x"=15, "y"=7)
 
+/decl/reagent/alcohol/wine/vintage
+	name = "Fine Wine"
+	description = "A high-class artisan wine, made in a small batch and aged for decades or centuries."
+	strength = 20
+	taste_description = "rich and full-bodied sweetness unlike anything you've ever had"
+
+	glass_name = "glass of vintage wine"
+	glass_desc = "A very classy and expensive-looking drink."
+
 // Cocktails
 
 /decl/reagent/alcohol/acid_spit

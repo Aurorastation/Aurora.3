@@ -95,9 +95,17 @@
 		bio = ARMOR_BIO_MINOR
 	)
 
+/obj/item/clothing/under/rank/janitor/alt
+	icon_state = "nt_janitor_alt"
+	item_state = "nt_janitor_alt"
+
 /obj/item/clothing/under/rank/janitor/idris
 	icon_state = "idris_janitor"
 	item_state = "idris_janitor"
+
+/obj/item/clothing/under/rank/janitor/idris/alt
+	icon_state = "idris_janitor_alt"
+	item_state = "idris_janitor_alt"
 
 // Lawyer (to be replaced by modularization)
 

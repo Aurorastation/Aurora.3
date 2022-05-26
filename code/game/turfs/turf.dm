@@ -138,21 +138,36 @@
 	return 0
 
 /turf/attack_hand(mob/user)
-	if(!(user.canmove) || user.restrained() || !(user.pulling))
-		return 0
-	if(user.pulling.anchored || !isturf(user.pulling.loc))
-		return 0
-	if(user.pulling.loc != user.loc && get_dist(user, user.pulling) > 1)
-		return 0
-	if(ismob(user.pulling))
-		var/mob/M = user.pulling
-		var/atom/movable/t = M.pulling
-		M.stop_pulling()
-		step(user.pulling, get_dir(user.pulling.loc, src))
-		M.start_pulling(t)
-	else
-		step(user.pulling, get_dir(user.pulling.loc, src))
-	return 1
+	if(!(user.canmove) || user.restrained())
+		return FALSE
+	if(user.pulling)
+		if(user.pulling.anchored || !isturf(user.pulling.loc))
+			return FALSE
+		if(user.pulling.loc != user.loc && get_dist(user, user.pulling) > 1)
+			return FALSE
+		if(ismob(user.pulling))
+			var/mob/M = user.pulling
+			var/atom/movable/t = M.pulling
+			M.stop_pulling()
+			step(user.pulling, get_dir(user.pulling.loc, src))
+			M.start_pulling(t)
+		else
+			step(user.pulling, get_dir(user.pulling.loc, src))
+
+	. = handle_hand_interception(user)
+	if (!.)
+		return TRUE
+	return TRUE
+
+/turf/proc/handle_hand_interception(var/mob/user)
+	var/datum/component/turf_hand/THE
+	for (var/atom/A in src)
+		var/datum/component/turf_hand/TH = A.GetComponent(/datum/component/turf_hand)
+		if (istype(TH) && TH.priority > THE?.priority) //Only overwrite if the new one is higher. For matching values, its first come first served
+			THE = TH
+
+	if (THE)
+		return THE.OnHandInterception(user)
 
 /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)

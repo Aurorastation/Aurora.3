@@ -12,6 +12,7 @@
 	if(legs)
 		frame.legs = legs
 		legs.forceMove(frame)
+		pass_flags &= PASSRAILING //if previously was hoverthrusters, need to update pass flag
 		legs = null
 	if(body)
 		frame.body = body

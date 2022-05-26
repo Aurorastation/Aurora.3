@@ -37,7 +37,5 @@
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/fsf/synth
 	mob_name_prefix = null
-	uses_species_whitelist = TRUE
-	req_species_whitelist = SPECIES_IPC
 	possible_species = list(SPECIES_IPC)
 

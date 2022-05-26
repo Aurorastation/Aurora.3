@@ -8,6 +8,7 @@
 		new /obj/item/storage/backpack/industrial(src)
 	else
 		new /obj/item/storage/backpack/satchel_eng(src)
+	new /obj/item/storage/backpack/duffel/eng(src)
 	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/blueprints(src)
 	new /obj/item/clothing/under/rank/chief_engineer(src)
@@ -95,6 +96,7 @@
 		new /obj/item/storage/backpack/industrial(src)
 	else
 		new /obj/item/storage/backpack/satchel_eng(src)
+	new /obj/item/storage/backpack/duffel/eng(src)
 	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/storage/toolbox/mechanical(src)
 	new /obj/item/device/radio/headset/headset_eng(src)
@@ -115,6 +117,7 @@
 		new /obj/item/storage/backpack/industrial(src)
 	else
 		new /obj/item/storage/backpack/satchel_eng(src)
+	new /obj/item/storage/backpack/duffel/eng(src)
 	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/clothing/suit/fire/atmos(src)
 	new /obj/item/clothing/head/hardhat/red/atmos(src)
