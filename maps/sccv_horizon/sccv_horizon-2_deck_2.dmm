@@ -11197,12 +11197,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/crew_quarters/heads/chief)
-"ghq" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 9
-	},
-/turf/simulated/open,
-/area/horizon/exterior)
 "ghX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -56708,7 +56702,7 @@ gmo
 gmo
 gmo
 gmo
-xsX
+xPj
 lVd
 rrN
 oSQ
@@ -56911,7 +56905,7 @@ gmo
 gmo
 gmo
 gmo
-xsX
+xPj
 lqa
 lqa
 qgN
@@ -57505,13 +57499,13 @@ avu
 avu
 kUf
 lVd
-xsX
+xPj
 lVd
 gmo
 gmo
 gmo
 kHS
-xsX
+xPj
 kUf
 sSY
 sSY
@@ -57708,7 +57702,7 @@ kUf
 kUf
 oSQ
 lVd
-ghq
+xPj
 wcr
 wcr
 wcr
@@ -57908,7 +57902,7 @@ avu
 avu
 kUf
 lVd
-xsX
+xPj
 oSQ
 wcr
 wcr
@@ -58111,7 +58105,7 @@ kUf
 kUf
 oSQ
 lVd
-xsX
+xPj
 wcr
 wcr
 wcr
@@ -58311,7 +58305,7 @@ avu
 kUf
 kUf
 lVd
-xsX
+xPj
 oSQ
 wcr
 wcr
@@ -58512,9 +58506,9 @@ avu
 kUf
 kUf
 lVd
-xsX
+xPj
 lVd
-xsX
+xPj
 wcr
 wcr
 sLp
@@ -58713,7 +58707,7 @@ qgN
 avu
 kUf
 lVd
-xsX
+xPj
 lVd
 xPj
 wcr
@@ -58916,7 +58910,7 @@ avu
 kUf
 oSQ
 lVd
-ghq
+xPj
 wcr
 wcr
 wcr
@@ -60128,7 +60122,7 @@ qeZ
 kUf
 oSQ
 oSQ
-kuh
+dUw
 vcM
 gWf
 dAN
@@ -63162,7 +63156,7 @@ avu
 kUf
 rMw
 gmo
-xsX
+xPj
 beY
 kUf
 rBh
