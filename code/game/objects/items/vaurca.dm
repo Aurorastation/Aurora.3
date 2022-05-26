@@ -1,5 +1,5 @@
 /obj/item/vaurca_projector
-	name = "virtual reality looking-glass"
+	name = "virtual reality looking glass"
 	desc = "A holographic projector using advanced technology that immerses someone into a scene using full panoramic holograms, smell and 3D spatial sound projection. It is developed and distributed by Hive Zo'ra and allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur. Typically using one would allow you to control a drone but this is a smaller portable version and as such only allows a user to move around set-locations."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "zora_projector"
@@ -20,7 +20,7 @@
 /obj/item/vaurca_projector/examine(mob/user)
 	..(user)
 	if(selected_world && working)
-		to_chat(user, "\The [src] displays a hologram of [selected_world].")
+		to_chat(user, "\The [src] displays a hologram of the [selected_world].")
 
 /obj/item/vaurca_projector/attack_self(mob/user as mob)
 	working = !working
