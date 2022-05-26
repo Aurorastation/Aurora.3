@@ -109,7 +109,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 //OVERMAP: Since telecomms is subspace, limit how far it goes. This prevents double-broadcasts across the entire overmap, and gives the ability to intrude on comms range of other ships
 /obj/machinery/telecomms/proc/check_receive_sector(datum/signal/signal)
-	if(z in current_map.admin_levels) //Centcomm levels can hear regardless of overmap stuff
+	if(isAdminLevel(z) || isAdminLevel(signal.data["level"])) //Messages to and from centcomm levels are not sector-restricted. 
 		return TRUE
 	if(current_map.use_overmap)
 		if(!linked) //If we're using overmap and not associated with a sector, doesn't work.
@@ -119,6 +119,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 			if(S != linked) //If we're not the same ship, check range
 				if(get_dist(S, linked) > overmap_range && !(S in view(overmap_range, linked)))
 					return FALSE
+		else
+			return FALSE
 	return TRUE
 
 /obj/machinery/telecomms/New()
@@ -297,7 +299,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/receiver/proc/check_receive_level(datum/signal/signal)
 
-	if(signal.data["level"] != listening_level)
+	if(!(signal.data["level"] in listening_level))
 		for(var/obj/machinery/telecomms/hub/H in links)
 			var/list/connected_levels = list()
 			for(var/obj/machinery/telecomms/relay/R in H.links)

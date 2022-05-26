@@ -13,6 +13,7 @@
 	. = ..()
 
 	if(.)
+		connected = linked
 		LAZYSET(connected.consoles, src, TRUE)
 
 /obj/machinery/computer/shuttle_control/explore/Destroy()

@@ -120,6 +120,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	. = ..()
 
 	if(.)
+		connected = linked
 		LAZYSET(connected.consoles, src, TRUE)
 
 /obj/machinery/computer/ship/Initialize()
