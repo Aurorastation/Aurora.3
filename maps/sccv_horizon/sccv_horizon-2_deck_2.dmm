@@ -22143,7 +22143,7 @@
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora_hazard)
 "muo" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /turf/space/dynamic,
@@ -27292,7 +27292,7 @@
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-2"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /turf/space/dynamic,
@@ -31030,7 +31030,7 @@
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "rkk" = (
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/space/dynamic,
 /area/rnd/xenobiology/xenoflora)
 "rkq" = (
@@ -31322,7 +31322,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "rqs" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /turf/space/dynamic,
@@ -31809,7 +31809,7 @@
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-2"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /turf/space/dynamic,
@@ -39428,7 +39428,7 @@
 /turf/simulated/wall/r_wall,
 /area/security/armory)
 "vPk" = (
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /obj/structure/lattice,
 /obj/structure/disposalpipe/trunk,
 /obj/structure/disposaloutlet{
