@@ -1,0 +1,6 @@
+author: Afya
+
+delete-after: True
+
+changes:
+  - tweak: "XO now has basic access to operations."
