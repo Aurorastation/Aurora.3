@@ -29,6 +29,9 @@
 		keyslot1 = new ks1type(src)
 	if(ks2type)
 		keyslot2 = new ks2type(src)
+	if(syndie)
+		desc_antag = "<u>Only while at an off-station base:</u> the ; key will talk into your antagonist channel; you can use :a to speak on the station common radio.\
+		While on station, ; will transmit to the common channel, as usual."
 	recalculateChannels(TRUE)
 
 /obj/item/device/radio/headset/Destroy()
