@@ -1,0 +1,6 @@
+author: Afya
+
+delete-after: True
+
+changes:
+  - bugfix: "XO preset now shows up on hte ID card modification program"
