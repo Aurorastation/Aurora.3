@@ -29300,12 +29300,9 @@
 /area/rnd/hallway)
 "pZV" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Longarms)"
+	name = "Weaponry (Shotguns)"
 	},
 /obj/effect/decal/warning_stripes,
-/obj/item/gun/projectile/automatic/rifle/carbine{
-	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
-	},
 /obj/item/gun/projectile/shotgun/pump,
 /obj/item/gun/projectile/shotgun/pump,
 /turf/simulated/floor/tiled/dark,
@@ -30061,6 +30058,12 @@
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/reagent_containers/spray/pepper,
+/obj/item/storage/box/firingpins,
+/obj/item/storage/box/teargas,
+/obj/item/storage/box/flashbangs{
+	pixel_x = 2;
+	pixel_y = -2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "qvZ" = (
@@ -36439,13 +36442,13 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/structure/table/rack,
-/obj/item/storage/box/flashbangs{
-	pixel_x = 2;
-	pixel_y = -2
+/obj/effect/decal/warning_stripes,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Ballistic Carbine)"
 	},
-/obj/item/storage/box/firingpins,
-/obj/item/storage/box/teargas,
+/obj/item/gun/projectile/automatic/rifle/carbine{
+	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "tTW" = (
