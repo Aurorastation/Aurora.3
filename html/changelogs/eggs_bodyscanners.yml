@@ -3,5 +3,5 @@ author: Vrow
 delete-after: True
 
 changes:
-  - tweak: "Greimorian Eggs and Larvae in people now show as "Abnormal organic body" in body scanners and medscans."
+  - tweak: "Greimorian Eggs and Larvae in people now show as 'Abnormal organic body' in body scanners and medscans."
   - tweak: "Added the Electronic Implants from integrated circuits in the body scanner's known implants list."
