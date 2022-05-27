@@ -247,7 +247,7 @@
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "body_scannerconsole"
 	var/obj/machinery/bodyscanner/connected
-	var/known_implants = list(/obj/item/implant/chem, /obj/item/implant/death_alarm, /obj/item/implant/mindshield, /obj/item/implant/tracking)
+	var/known_implants = list(/obj/item/implant/chem, /obj/item/implant/death_alarm, /obj/item/implant/mindshield, /obj/item/implant/tracking, /obj/item/implant/integrated_circuit)
 	var/collapse_desc = ""
 	var/broken_desc = ""
 	var/has_internal_injuries = FALSE
@@ -526,6 +526,8 @@
 			for (var/atom/movable/I in O.implants)
 				if (is_type_in_list(I, known_implants))
 					wounds += "\a [I.name] is installed."
+				if(istype(I, /obj/effect/spider))
+					wounds += "Abnormal organic body detected."
 				else
 					unk += 1
 			if (unk)
@@ -743,6 +745,8 @@
 			for(var/I in e.implants)
 				if(is_type_in_list(I,known_implants))
 					imp += "[I] implanted:"
+				if(istype(I, /obj/effect/spider))
+					imp += "Abnormal organic body present:"
 				else
 					unknown_body++
 			if(unknown_body)

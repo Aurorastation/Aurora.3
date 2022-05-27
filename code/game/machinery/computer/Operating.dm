@@ -309,6 +309,8 @@
 			for(var/I in e.implants)
 				if(is_type_in_list(I,internal_bodyscanner.known_implants))
 					imp += "[I] implanted:"
+				if(istype(I, /obj/effect/spider))
+					imp += "Abnormal organic body present:"
 				else
 					unknown_body++
 			if(unknown_body)
