@@ -2851,9 +2851,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "fm" = (
-/obj/structure/ladder{
-	pixel_y = 8
+/obj/structure/railing/mapped{
+	dir = 8
 	},
+/obj/structure/lattice,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "fn" = (
@@ -7984,6 +7985,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"oK" = (
+/obj/structure/ladder{
+	pixel_y = 16
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/open/airless,
+/area/horizon/exterior)
 "oL" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -11983,6 +11994,15 @@
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"wk" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/item/hullbeacon/red,
+/obj/structure/railing/mapped,
+/turf/simulated/open/airless,
+/area/horizon/exterior)
 "wl" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -13308,6 +13328,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
+"yI" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "yJ" = (
 /obj/machinery/light{
 	dir = 8
@@ -15873,6 +15898,13 @@
 "DK" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/medical/washroom)
+"DL" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "DM" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
@@ -19395,6 +19427,10 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
+"JZ" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "Ka" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -21069,6 +21105,15 @@
 /obj/item/clothing/accessory/armband/med,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
+"Ne" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/securearea{
+	name = "\improper BRIG COMMUNAL AREA sign";
+	desc = "A caution sign which reads 'CAUTION: BRIG COMMUNAL AREA' and 'SECURE AREA'."
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "Nf" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -21601,6 +21646,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"Ob" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/open/airless,
+/area/horizon/exterior)
 "Oc" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -23838,6 +23890,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
+"Sa" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "Sb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -44826,7 +44885,7 @@ uN
 qB
 at
 fh
-fm
+yF
 yM
 wl
 Uj
@@ -51501,8 +51560,8 @@ uu
 uu
 za
 iF
-Tr
 TC
+at
 at
 at
 at
@@ -51703,8 +51762,8 @@ yM
 yM
 yM
 yM
-yM
 Sb
+Tr
 Tr
 Tr
 Tr
@@ -51897,7 +51956,7 @@ at
 at
 fh
 oy
-oy
+fm
 oy
 oy
 oy
@@ -52099,8 +52158,8 @@ at
 at
 fh
 aa
-Wm
-Wm
+sP
+aa
 Wm
 Wm
 Wm
@@ -52300,9 +52359,9 @@ at
 at
 at
 fh
+Ob
+wk
 aa
-Wm
-Wm
 Wm
 Wm
 Wm
@@ -52502,9 +52561,9 @@ at
 at
 at
 fh
+SL
+oK
 aa
-Wm
-Wm
 Wm
 Wm
 Wm
@@ -53511,7 +53570,7 @@ at
 at
 at
 at
-fh
+Sa
 aa
 Wm
 Wm
@@ -53712,9 +53771,9 @@ at
 at
 at
 at
-at
-VM
-Mo
+JZ
+Ne
+aa
 Wm
 Wm
 Wm
@@ -53914,9 +53973,9 @@ at
 at
 at
 at
-at
-at
-fh
+JZ
+yI
+aa
 Wm
 Wm
 Wm
@@ -54116,9 +54175,9 @@ at
 at
 at
 at
-at
-Rh
-PF
+JZ
+yI
+aa
 Wm
 Wm
 Wm
@@ -54318,8 +54377,8 @@ at
 at
 at
 at
-at
-fh
+JZ
+Ne
 aa
 Wm
 Wm
@@ -54520,9 +54579,9 @@ at
 at
 at
 at
-at
-VM
-Mo
+JZ
+yI
+aa
 Wm
 Wm
 Wm
@@ -54722,9 +54781,9 @@ at
 at
 at
 at
-at
-at
-fh
+JZ
+yI
+aa
 Wm
 Wm
 Wm
@@ -54924,9 +54983,9 @@ at
 at
 at
 at
-at
-Rh
-PF
+JZ
+Ne
+aa
 Wm
 Wm
 Wm
@@ -55127,7 +55186,7 @@ at
 at
 at
 at
-fh
+DL
 aa
 Wm
 Wm
@@ -55935,9 +55994,9 @@ at
 at
 at
 at
-VM
-KN
-Mo
+fh
+aa
+Wm
 Wm
 Wm
 Wm
@@ -56137,9 +56196,9 @@ at
 at
 at
 at
-at
-at
 fh
+aa
+Wm
 Wm
 Wm
 Wm
@@ -56339,9 +56398,9 @@ at
 at
 at
 at
-Rh
-Tr
-PF
+fh
+aa
+Wm
 Wm
 Wm
 Wm
