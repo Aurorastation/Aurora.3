@@ -3,4 +3,5 @@ author: Afya
 delete-after: True
 
 changes:
-  - tweak: "XO now has basic access to operations."
+  - bugfix: "XO, CE, and RD now have basic access to operations."
+  - bugfix: "OM now has basic access to engineering."
