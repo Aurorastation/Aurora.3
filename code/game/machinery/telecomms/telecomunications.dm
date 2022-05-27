@@ -115,12 +115,10 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 		if(!linked) //If we're using overmap and not associated with a sector, doesn't work.
 			return FALSE
 		var/obj/effect/overmap/visitable/S = signal.data["sector"]
-		if(istype(S))
+		if(istype(S)) //If our signal isn't sending a sector, it's something associated with telecomms_process_active(), which has their own limits. 
 			if(S != linked) //If we're not the same ship, check range
 				if(get_dist(S, linked) > overmap_range && !(S in view(overmap_range, linked)))
 					return FALSE
-		else
-			return FALSE
 	return TRUE
 
 /obj/machinery/telecomms/New()
