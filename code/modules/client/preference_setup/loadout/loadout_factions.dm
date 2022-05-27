@@ -159,6 +159,13 @@
 	slot = slot_tie
 	faction = "Private Military Contracting Group"
 
+/datum/gear/faction/pmc_modsuit
+	display_name = "PMCG modsuit"
+	description = "A modular PMCG fatigue jumpsuit."
+	path = /obj/item/clothing/under/pmc_modsuit
+	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+
 // Eridani Private Military Contractors
 /datum/gear/faction/epmc_headwear
 	display_name = "EPMC headwear selection"
