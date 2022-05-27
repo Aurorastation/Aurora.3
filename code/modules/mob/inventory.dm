@@ -183,6 +183,7 @@ var/list/slot_equipment_priority = list( \
 		if(!(W && W.loc))
 			return TRUE
 		W.forceMove(target)
+		W.do_drop_animation(src)
 		update_icon()
 		return TRUE
 	return FALSE

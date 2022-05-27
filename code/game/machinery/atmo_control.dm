@@ -160,6 +160,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	icon = 'icons/obj/modular_telescreen.dmi'
 	icon_state = "telescreen"
 	icon_screen = "engi"
+	density = FALSE
 
 /obj/machinery/computer/general_air_control/large_tank_control/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
