@@ -26,8 +26,11 @@
 	var/wall_mounted = FALSE //never solid (You can always pass over it)
 	var/health = 100
 	var/breakout = 0 //if someone is currently breaking out. mutex
-	var/storage_capacity = 40 //Tying this to mob sizes was dumb
-	//This is so that someone can't pack hundreds of items in a locker/crate then open it in a populated area to crash clients.
+
+	var/storage_capacity = 45 //Tying this to mob sizes was dumb
+	//This is so that someone can't pack hundreds of items in a locker/crate
+							  //then open it in a populated area to crash clients.
+
 	var/open_sound = 'sound/effects/closet_open.ogg'
 	var/close_sound = 'sound/effects/closet_close.ogg'
 	var/open_sound_volume = 35
@@ -336,7 +339,7 @@
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
 				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
 					return
-				if(!WT.remove_fuel(0,user))
+				if(!WT.use(0,user))
 					to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 					return
 				else
@@ -379,9 +382,9 @@
 				"You hear a welding torch on metal."
 			)
 			playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
-			if (!do_after(user, 2/W.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+			if(!W.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_closed)))
 				return
-			if(!WT.remove_fuel(0,user))
+			if(!WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 				return
 			welded = !welded

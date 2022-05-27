@@ -177,6 +177,10 @@
 	icon_state = "pmc_emt"
 	item_state = "pmc_emt"
 
+/obj/item/clothing/under/rank/medical/first_responder/pmc/epmc // Note: Item Icon placeholder
+	icon_state = "epmc_emt"
+	item_state = "epmc_emt"
+
 // Surgeon
 /obj/item/clothing/under/rank/medical/surgeon
 	name = "surgeon's scrubs"

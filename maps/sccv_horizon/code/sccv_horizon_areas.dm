@@ -263,9 +263,6 @@
 	name = "Secondary Crew Lounge"
 	icon_state = "lounge2"
 
-/area/crew_quarters/sleep/cryo/living_quarters_lift
-	name = "Living Quarters Lift"
-
 // Maintenance
 
 /area/maintenance/operations
@@ -304,15 +301,6 @@
 /area/shuttle/intrepid/cockpit 
 	name = "Cockpit"
 
-
-// Exterior
-/area/horizonexterior
-	name = "Exterior"
-	icon_state = "exterior"
-	has_gravity = FALSE
-	base_turf = /turf/space
-	station_area = TRUE
-
 //
 // Areas for the SCCV Horizon Map
 //
@@ -321,6 +309,35 @@
 	icon_state = "unknown"
 	station_area = TRUE
 
+// Exterior
+/area/horizon/exterior
+	name = "Horizon - Exterior"
+	icon_state = "exterior"
+	base_turf = /turf/space
+	dynamic_lighting = TRUE
+	requires_power = FALSE
+	has_gravity = FALSE
+	no_light_control = TRUE
+	allow_nightmode = FALSE
+
+/********** Maintenance Start **********/
+// Maintenance
+/area/horizon/maintenance
+	name = "Horizon - Maintenance (PARENT AREA - DON'T USE)"
+	icon_state = "maintenance"
+	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
+	sound_env = TUNNEL_ENCLOSED
+	turf_initializer = new /datum/turf_initializer/maintenance()
+	ambience = AMBIENCE_MAINTENANCE
+
+/area/horizon/maintenance/deck_two/fore/starboard
+	name = "Horizon - Maintenance - Deck Two - Fore Starboard"
+
+/area/horizon/maintenance/deck_two/fore/port
+	name = "Horizon - Maintenance - Deck Two - Fore Port"
+/********** Maintenance End **********/
+
+/********** Hallways Start **********/
 // Hallways
 /area/horizon/hallway
 	name = "Horizon - Hallway (PARENT AREA - DON'T USE)"
@@ -337,6 +354,12 @@
 /area/horizon/hallway/deck_three/primary/starboard/docks
 	name = "Horizon - Deck 3 - Starboard Primary Hallway - Docks"
 
+/area/horizon/hallway/deck_two/fore
+	name = "Horizon - Deck 2 - Fore Hallway"
+	icon_state = "hallF"
+/********** Hallways End **********/
+
+/********** Stairwells Start **********/
 // Stairwells
 /area/horizon/stairwell
 	name = "Horizon - Stairwell (PARENT AREA - DON'T USE)"
@@ -351,6 +374,7 @@
 	name = "Horizon - Bridge Stairwell"
 	icon_state = "bridge_stairs"
 	sound_env = SMALL_ENCLOSED
+/********** Stairwells End **********/
 
 /********** Crew Quarters Start **********/
 // Crew Quarters
@@ -362,6 +386,10 @@
 /area/horizon/crew_quarters/cryo
 	name = "Horizon - Cryogenic Storage"
 	icon_state = "Sleep"
+
+/area/horizon/crew_quarters/cryo/living_quarters_lift
+	name = "Horizon - Living Quarters Lift"
+	sound_env = SMALL_ENCLOSED
 
 /area/horizon/crew_quarters/cryo/dormitories
 	name = "Horizon - Cryogenic Storage - Dormitories"
@@ -411,6 +439,19 @@
 	name = "Horizon - Fitness Center - Lounge"
 	icon_state = "fitness_lounge"
 	sound_env = SMALL_SOFTFLOOR
+
+// Lounges
+/area/horizon/crew_quarters/lounge/bar
+	name = "Horizon - Bar Lounge"
+	icon_state = "lounge"
+	sound_env = SMALL_SOFTFLOOR
+
+// Miscellanous
+/area/horizon/crew_quarters/washroom/central
+	name = "Horizon - Central Washroom"
+	icon_state = "washroom"
+	sound_env = SMALL_ENCLOSED
+
 /********** Crew Quarters End **********/
 
 /********** Holodeck Start **********/
@@ -536,7 +577,26 @@
 
 // Library
 /area/horizon/library
- 	name = "Horizon - Library"
- 	icon_state = "library"
- 	sound_env = LARGE_SOFTFLOOR
+	name = "Horizon - Library"
+	icon_state = "library"
+	sound_env = LARGE_SOFTFLOOR
+
+// Kitchen
+/area/horizon/kitchen
+	name = "Horizon - Kitchen"
+	icon_state = "kitchen"
+	allow_nightmode = FALSE
+
+/area/horizon/kitchen/hallway
+	name = "Horizon - Kitchen - Hallway"
+
+/area/horizon/kitchen/freezer
+	name = "Horizon - Kitchen - Freezer"
+	sound_env = SMALL_ENCLOSED
+
+// Bar
+/area/horizon/bar
+	name = "Horizon - Bar"
+	icon_state = "bar"
+	allow_nightmode = FALSE
 /********** Unique End **********/

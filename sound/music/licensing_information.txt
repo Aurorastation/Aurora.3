@@ -1,0 +1,82 @@
+MUSIC LICENSING INFORMATION
+----------
+File Name: ambimine.ogg
+Original Title: N/A
+Author: N/A
+License: N/A
+Link: N/A
+----------
+File Name: ambispace.ogg
+Original Title: N/A
+Author: N/A
+License: N/A
+Link: N/A
+----------
+File Name: b12_combined_start.ogg
+Original Title: b12 Combined Start (?)
+Author: Tarn Adams AKA Toady One
+License: N/A
+Link: N/A
+----------
+File Name: battlemonsters_theme.ogg
+Original Title: battlemonsters_theme
+Author: BurgerBB
+License: GNU AGPL Version 3
+Link: N/A
+----------
+File Name: clouds.s3m
+Original Title: Clouds Of Fire
+Author: Hector AKA hec/dMk
+License: Mod Archive Distribution License (?)
+License Link: https://modarchive.org/index.php?terms-upload
+Link: https://modarchive.org/index.php?request=view_by_moduleid&query=73980
+----------
+File Name: main.ogg
+Original Title: another_drone
+Author: the_semen_incident
+License: CC0 1.0
+Link: https://freesound.org/people/the_semen_incident/sounds/66097
+----------
+File Name: song_game.ogg
+Original Title: Unknown (?)
+Author: Tarn Adams AKA Toady One
+License: N/A
+Link: N/A
+----------
+File Name: space.ogg
+Original Title: Solus- Endless Space Expanded
+Author: SolusLunes
+License: CC BY 3.0
+Link: https://www.newgrounds.com/audio/listen/74946
+----------
+File Name: thunderdome.ogg
+Original Title: -Sector11
+Author: MashedByMachines
+License: CC BY-NC-SA 3.0
+Link: https://www.newgrounds.com/audio/listen/312622
+----------
+File Name: title1.ogg
+Original Title: flip-flap
+Author: Wojciech Panufnik AKA X-CEED
+License: CC BY 3.0 (?)
+Link: https://aminet.net/package/mods/xceed/Flipflap
+Link 2: https://amp.dascene.net/detail.php?detail=modules&view=8236
+----------
+File Name: title2.ogg
+Original Title: robocop
+Author: Eric Schumaker AKA CBoyardee
+License: N/A
+Link: N/A
+----------
+File Name: traitor.ogg
+Original Title: Absconditus
+Author: Joseph Toscano AKA Zhaytee
+License: CC BY-NC-SA 3.0
+Link: https://bandcamp.zhaytee.net/track/absconditus
+----------
+File Name: velvet_rose.ogg
+Original Title: Velvet Rose
+Author: Naelynn
+License: CC0 1.0
+License Link: https://github.com/Aurorastation/Aurora.3/pull/7729#issuecomment-567239575
+Link: https://github.com/Aurorastation/Aurora.3/pull/7729

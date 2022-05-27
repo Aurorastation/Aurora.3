@@ -331,3 +331,21 @@
 	icon_dead = "penny_dead"
 	icon_rest = "penny_rest"
 	holder_type = /obj/item/holder/cat/penny
+
+/mob/living/simple_animal/cat/crusher
+	name = "Crusher"
+	desc = "A cream coloured, young, and cuddly cat, with a small tag on her collar that says \"Dr. Crusher\". She never lets an opportunity pass to receive some pets or prey on some unsuspecting mice."
+	named = TRUE
+	gender = FEMALE
+	icon_state = "crusher"
+	icon_state = "crusher"
+	icon_living = "crusher"
+	icon_dead = "crusher_dead"
+	icon_rest = "crusher_rest"
+	can_nap = TRUE
+	holder_type = /obj/item/holder/cat/crusher
+
+/mob/living/simple_animal/cat/crusher/examine(mob/user)
+	..()
+	if(stat == DEAD)
+		to_chat(user, "Crusher's dead. How could this have happened? She counted on you!")

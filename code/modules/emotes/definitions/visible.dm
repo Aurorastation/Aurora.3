@@ -332,3 +332,7 @@
 /decl/emote/visible/flick
 	key = "flick"
 	emote_message_3p = "USER's ears flick."
+
+/decl/emote/visible/tflick
+	key = "tflick"
+	emote_message_3p = "USER's tail flicks."
