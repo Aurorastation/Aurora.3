@@ -13318,9 +13318,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/security/prison)
-"hha" = (
-/turf/simulated/open/airless,
-/area/template_noop)
 "hhx" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -25037,6 +25034,7 @@
 /obj/structure/ladder/up{
 	pixel_y = 16
 	},
+/obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "nJq" = (
@@ -70658,7 +70656,7 @@ hPb
 gis
 pSv
 jPc
-qgN
+kuh
 fdj
 qgN
 qgN
@@ -71062,7 +71060,7 @@ pJE
 oXo
 pSv
 jPc
-hha
+kuh
 fdj
 qgN
 qgN
@@ -71264,7 +71262,7 @@ pJE
 hgO
 pSv
 dVE
-hha
+kuh
 fdj
 qgN
 qgN
@@ -71466,7 +71464,7 @@ pJE
 gEa
 pSv
 jPc
-hha
+kuh
 fdj
 qgN
 qgN
@@ -71870,7 +71868,7 @@ hKM
 rGx
 pSv
 jPc
-qgN
+kuh
 fdj
 qgN
 qgN
