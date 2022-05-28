@@ -324,7 +324,7 @@ GATEWAY_DELAY 18000
 #ASSISTANT_MAINT
 
 ## Uncomment to restrict non-admins from using humanoid alien races
-USEALIENWHITELIST
+#USEALIENWHITELIST
 
 ## Adjust this time to modify the time offset (in hours) of the station time from GMT
 TIME_OFFSET 6
