@@ -5,4 +5,5 @@
 # Ranks can be anything defined in admin_ranks.json          ~Carn   #
 ######################################################################
 
+# not_a_user - Head Admin/Dev
 # risingvaliant - Head Admin/Dev
