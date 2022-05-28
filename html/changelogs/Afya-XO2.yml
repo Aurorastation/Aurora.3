@@ -1,7 +1,0 @@
-author: Afya
-
-delete-after: True
-
-changes:
-  - bugfix: "XO, CE, and RD now have basic access to operations."
-  - bugfix: "OM now has basic access to engineering."
