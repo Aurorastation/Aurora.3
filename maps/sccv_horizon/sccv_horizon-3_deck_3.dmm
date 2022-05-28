@@ -1484,12 +1484,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
-"cM" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
 "cN" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -2857,9 +2851,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "fm" = (
-/obj/structure/ladder{
-	pixel_y = 8
+/obj/structure/railing/mapped{
+	dir = 8
 	},
+/obj/structure/lattice,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "fn" = (
@@ -3366,6 +3361,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"gp" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "gq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/table/standard,
@@ -3880,6 +3888,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
+"ho" = (
+/obj/effect/map_effect/airlock/s_to_n/long/square,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "hp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -4905,6 +4917,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/starboard)
+"iZ" = (
+/obj/effect/shuttle_landmark/horizon/nav3,
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "ja" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -7713,8 +7729,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "ok" = (
-/obj/effect/shuttle_landmark/horizon/nav3,
-/turf/simulated/floor/reinforced/airless,
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/horizon/exterior)
 "ol" = (
 /obj/structure/cable/green{
@@ -7994,6 +8012,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"oK" = (
+/obj/structure/ladder{
+	pixel_y = 16
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/open/airless,
+/area/horizon/exterior)
 "oL" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -9925,6 +9953,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
+"su" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "sv" = (
@@ -11941,6 +11976,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
+"we" = (
+/turf/simulated/floor/plating,
+/area/horizon/exterior)
 "wf" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
@@ -11993,6 +12031,15 @@
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"wk" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/item/hullbeacon/red,
+/obj/structure/railing/mapped,
+/turf/simulated/open/airless,
+/area/horizon/exterior)
 "wl" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -13318,6 +13365,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
+"yI" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "yJ" = (
 /obj/machinery/light{
 	dir = 8
@@ -15883,6 +15935,13 @@
 "DK" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/medical/washroom)
+"DL" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "DM" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
@@ -18906,13 +18965,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/washroom)
-"Jg" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
 "Jh" = (
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
@@ -19411,6 +19463,10 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
+/area/horizon/exterior)
+"JZ" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "Ka" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -21086,6 +21142,15 @@
 /obj/item/clothing/accessory/armband/med,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
+"Ne" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/securearea{
+	desc = "A caution sign which reads 'CAUTION: BRIG COMMUNAL AREA' and 'SECURE AREA'.";
+	name = "\improper BRIG COMMUNAL AREA sign"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "Nf" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -21619,8 +21684,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "Ob" = (
-/turf/simulated/floor/reinforced/airless,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/open/airless,
+/area/horizon/exterior)
 "Oc" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -22134,6 +22203,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
+"OX" = (
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "OY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -22425,19 +22497,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
-"Px" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
 "Py" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -23712,10 +23771,6 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
-"RM" = (
-/obj/effect/map_effect/airlock/s_to_n/long/square,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
 "RN" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -23875,6 +23930,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
+"Sa" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "Sb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -27249,6 +27311,9 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
+"Ys" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/exterior)
 "Yt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -38380,11 +38445,11 @@ at
 at
 at
 at
-ok
+iZ
 at
 at
 at
-mP
+GQ
 NE
 OL
 mP
@@ -38583,10 +38648,10 @@ at
 at
 at
 at
-mP
-Cm
-Cm
-RM
+Ys
+ok
+ok
+ho
 Tv
 Vr
 mP
@@ -38785,12 +38850,12 @@ at
 at
 at
 at
-Ob
-Ob
-Ob
-Ob
-Jg
-Px
+we
+we
+we
+OX
+su
+gp
 GQ
 at
 at
@@ -38987,10 +39052,10 @@ at
 at
 at
 at
-Ob
-cM
-Ob
-Ob
+we
+we
+we
+OX
 Xv
 Zt
 GQ
@@ -39189,9 +39254,9 @@ at
 at
 at
 at
-mP
-Cm
-Cm
+Ys
+ok
+ok
 mP
 Xv
 Zt
@@ -39394,7 +39459,7 @@ at
 at
 at
 at
-mP
+GQ
 Tv
 Zt
 mP
@@ -44863,7 +44928,7 @@ uN
 qB
 at
 fh
-fm
+yF
 yM
 wl
 Uj
@@ -51538,8 +51603,8 @@ uu
 uu
 za
 iF
-Tr
 TC
+at
 at
 at
 at
@@ -51740,8 +51805,8 @@ yM
 yM
 yM
 yM
-yM
 Sb
+Tr
 Tr
 Tr
 Tr
@@ -51934,7 +51999,7 @@ at
 at
 fh
 oy
-oy
+fm
 oy
 oy
 oy
@@ -52136,8 +52201,8 @@ at
 at
 fh
 aa
-Wm
-Wm
+sP
+aa
 Wm
 Wm
 Wm
@@ -52337,9 +52402,9 @@ at
 at
 at
 fh
+Ob
+wk
 aa
-Wm
-Wm
 Wm
 Wm
 Wm
@@ -52539,9 +52604,9 @@ at
 at
 at
 fh
+SL
+oK
 aa
-Wm
-Wm
 Wm
 Wm
 Wm
@@ -53548,7 +53613,7 @@ at
 at
 at
 at
-fh
+Sa
 aa
 Wm
 Wm
@@ -53749,9 +53814,9 @@ at
 at
 at
 at
-at
-VM
-Mo
+JZ
+Ne
+aa
 Wm
 Wm
 Wm
@@ -53951,9 +54016,9 @@ at
 at
 at
 at
-at
-at
-fh
+JZ
+yI
+aa
 Wm
 Wm
 Wm
@@ -54153,9 +54218,9 @@ at
 at
 at
 at
-at
-Rh
-PF
+JZ
+yI
+aa
 Wm
 Wm
 Wm
@@ -54355,8 +54420,8 @@ at
 at
 at
 at
-at
-fh
+JZ
+Ne
 aa
 Wm
 Wm
@@ -54557,9 +54622,9 @@ at
 at
 at
 at
-at
-VM
-Mo
+JZ
+yI
+aa
 Wm
 Wm
 Wm
@@ -54759,9 +54824,9 @@ at
 at
 at
 at
-at
-at
-fh
+JZ
+yI
+aa
 Wm
 Wm
 Wm
@@ -54961,9 +55026,9 @@ at
 at
 at
 at
-at
-Rh
-PF
+JZ
+Ne
+aa
 Wm
 Wm
 Wm
@@ -55164,7 +55229,7 @@ at
 at
 at
 at
-fh
+DL
 aa
 Wm
 Wm
@@ -55972,9 +56037,9 @@ at
 at
 at
 at
-VM
-KN
-Mo
+fh
+aa
+Wm
 Wm
 Wm
 Wm
@@ -56174,9 +56239,9 @@ at
 at
 at
 at
-at
-at
 fh
+aa
+Wm
 Wm
 Wm
 Wm
@@ -56376,9 +56441,9 @@ at
 at
 at
 at
-Rh
-Tr
-PF
+fh
+aa
+Wm
 Wm
 Wm
 Wm
