@@ -4,7 +4,6 @@
 	icon_state = "computer"
 	density = 1
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 300
 	active_power_usage = 300
 	clicksound = /decl/sound_category/keyboard_sound
@@ -118,10 +117,9 @@
 	text = replacetext(text, "\n", "<BR>")
 	return text
 
-/obj/machinery/computer/attackby(var/obj/W, user as mob)
+/obj/machinery/computer/attackby(var/obj/item/W as obj, user as mob)
 	if(W.isscrewdriver() && circuit)
-		playsound(src.loc,  W.usesound, 50, 1)
-		if(do_after(user, 20))
+		if(W.use_tool(src, user, 20, volume = 50))
 			var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 			var/obj/item/circuitboard/M = new circuit( A )
 			A.circuit = M

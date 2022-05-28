@@ -20,6 +20,8 @@ var/global/datum/universal_state/universe = new
 
 var/global/list/global_map = null
 
+var/global/list/cable_list = list()
+
 var/diary               = null
 var/diary_runtime  = null
 var/diary_date_string = null

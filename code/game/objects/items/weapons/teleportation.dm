@@ -231,7 +231,7 @@ Frequency:
 	if(user == loc)
 		var/turf/current_location = get_turf(src)
 		var/list/teleport_options = list()
-		for(var/obj/machinery/teleport/pad/P in SSmachinery.all_machines)
+		for(var/obj/machinery/teleport/pad/P in SSmachinery.machinery)
 			if(AreConnectedZLevels(current_location.z, P.z))
 				var/area/A = get_area(P)
 				if(P.engaged)

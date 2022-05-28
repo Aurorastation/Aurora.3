@@ -662,12 +662,12 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/sunglasses/sechud/pmc
 	name = "PMCG HUDsunglasses"
-	desc = "Sunglasses in the colours of the Eridani PMC organisation. They come with a blue-tinted HUD and a chrome finish."
+	desc = "Sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "sunhud_pmc"
 
 /obj/item/clothing/glasses/sunglasses/sechud/big/pmc
 	name = "fat PMCG HUDsunglasses"
-	desc = "Fat sunglasses in the colours of the Eridani PMC organisation. They come with a blue-tinted HUD and a chrome finish."
+	desc = "Fat sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "bigsunglasses_hud_pmc"
 
 /obj/item/clothing/glasses/sunglasses/sechud/idris
@@ -758,7 +758,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc
 	name = "PMCG HUD aviators"
-	desc = "Eridani PMC security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	desc = "PMCG security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "aviator_sec_pmc"
 	off_state = "aviator_sec_pmc_off"
 

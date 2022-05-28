@@ -44,7 +44,7 @@
 	for(var/nw in network)
 		all_networks.Add(list(list(
 							"tag" = nw,
-							"has_access" = can_access_network(nw)
+							"has_access" = can_access_network(user, get_camera_access(nw))
 							)))
 
 	data["networks"] = all_networks
@@ -64,10 +64,12 @@
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/machinery/computer/security/proc/can_access_network(var/nw)
-	if(nw in network)
-		return 1
-	return 0
+/obj/machinery/computer/security/proc/can_access_network(var/mob/user, var/network_access)
+	// No access passed, or 0 which is considered no access requirement. Allow it.
+	if(!network_access)
+		return TRUE
+
+	return (check_camera_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
 
 /obj/machinery/computer/security/Topic(href, href_list)
 	if(..())
@@ -77,6 +79,14 @@
 		if(!C)
 			return
 		if(!(current_network in C.network))
+			return
+
+		var/access_granted = FALSE
+		for(var/network in C.network)
+			if(can_access_network(usr, get_camera_access(network)))
+				access_granted = TRUE //We only need access to one of the networks.
+		if(!access_granted)
+			to_chat(usr, SPAN_WARNING("Access unauthorized."))
 			return
 
 		switch_to_camera(usr, C)
@@ -116,6 +126,11 @@
 	if (user.stat || user.blinded || inoperable())
 		return 0
 	set_current(C)
+
+	if(!is_contact_area(get_area(C)))
+		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
+		return FALSE
+
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.reset_view(current_camera)
@@ -123,6 +138,22 @@
 		user.reset_view(current_camera)
 	check_eye(user)
 	return 1
+
+/obj/machinery/computer/security/proc/check_camera_access(var/mob/user, var/access)
+	if(!access)
+		return 1
+
+	if(!istype(user))
+		return 0
+
+	var/obj/item/card/id/I = user.GetIdCard()
+	if(!I)
+		return 0
+
+	if(access in I.access)
+		return 1
+
+	return 0
 
 //Camera control: moving.
 /obj/machinery/computer/security/proc/jump_on_click(var/mob/user,var/A)
@@ -164,7 +195,7 @@
 	if(can_access_camera(jump_to))
 		switch_to_camera(user,jump_to)
 
-/obj/machinery/computer/security/machinery_process()
+/obj/machinery/computer/security/process()
 	if(cache_id != camera_repository.camera_cache_id)
 		cache_id = camera_repository.camera_cache_id
 		SSnanoui.update_uis(src)
@@ -184,7 +215,7 @@
 
 	src.current_camera = C
 	if(current_camera)
-		use_power = 2
+		update_use_power(POWER_USE_ACTIVE)
 		var/mob/living/L = current_camera.loc
 		if(istype(L))
 			L.tracking_initiated()
@@ -195,7 +226,7 @@
 		if(istype(L))
 			L.tracking_cancelled()
 	current_camera = null
-	use_power = 1
+	update_use_power(POWER_USE_IDLE)
 
 //Camera control: mouse.
 /atom/DblClick()

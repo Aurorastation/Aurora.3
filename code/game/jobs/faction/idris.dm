@@ -57,7 +57,6 @@
 /datum/outfit/job/officer/idris
 	name = "Security Officer - Idris"
 
-	head = /obj/item/clothing/head/beret/corporate/idris
 	uniform = /obj/item/clothing/under/rank/security/idris
 	id = /obj/item/card/id/idris/sec
 
@@ -68,7 +67,7 @@
 	uniform = /obj/item/clothing/under/rank/warden/idris
 	suit = /obj/item/clothing/suit/storage/toggle/warden/idris
 	id = /obj/item/card/id/idris/sec
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud/idris
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
 
 /datum/outfit/job/forensics/idris
 	name = "Investigator - Idris"
@@ -80,7 +79,6 @@
 /datum/outfit/job/intern_sec/idris
 	name = "Security Cadet - Idris"
 
-	head = /obj/item/clothing/head/softcap/idris
 	uniform = /obj/item/clothing/under/rank/cadet/idris
 	id = /obj/item/card/id/idris/sec
 
@@ -111,7 +109,7 @@
 	name = "Janitor - Idris"
 
 	uniform = /obj/item/clothing/under/rank/janitor/idris
-	head = /obj/item/clothing/head/softcap/janitor/idris
+	head = /obj/item/clothing/head/softcap/idris/custodian
 	id = /obj/item/card/id/idris
 
 /datum/outfit/job/librarian/idris

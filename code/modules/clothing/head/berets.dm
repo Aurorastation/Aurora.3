@@ -145,10 +145,16 @@
 	item_state = "heph"
 
 /obj/item/clothing/head/beret/corporate/pmc
-	name = "eridani beret"
-	desc = "A beret with the Eridani PMC insignia emblazoned on it."
+	name = "PMCG beret"
+	desc = "A beret with the PMCG insignia emblazoned on it."
 	icon_state = "pmc"
 	item_state = "pmc"
+
+/obj/item/clothing/head/beret/corporate/pmc/epmc
+	name = "epmc beret"
+	desc = "A beret with the Eridani Private Military Contractor logo emblazoned on it."
+	icon_state = "epmc"
+	item_state = "epmc"
 
 /obj/item/clothing/head/beret/corporate/idris
 	name = "idris beret"

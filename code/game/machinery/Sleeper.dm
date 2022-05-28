@@ -35,7 +35,6 @@
 	var/disallow_occupant_types = list()
 	var/display_loading_message = TRUE
 
-	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 250 //builtin health analyzer, dialysis machine, injectors.
 	var/parts_power_usage
@@ -54,7 +53,7 @@
 	update_icon()
 	parts_power_usage = active_power_usage
 
-/obj/machinery/sleeper/machinery_process()
+/obj/machinery/sleeper/process()
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -103,7 +102,7 @@
 
 	beaker = locate(/obj/item/reagent_containers/glass/beaker) in component_parts
 
-	active_power_usage = initial(active_power_usage) - (cap_rating + scan_rating)*2
+	change_power_consumption((initial(active_power_usage) - (cap_rating + scan_rating)*2), POWER_USE_ACTIVE)
 	parts_power_usage = active_power_usage
 
 /obj/machinery/sleeper/attack_hand(var/mob/user)
@@ -209,7 +208,7 @@
 		var/nstasis = text2num(href_list["stasis"])
 		if(stasis != nstasis && (nstasis in stasis_settings))
 			stasis = text2num(href_list["stasis"])
-			active_power_usage = parts_power_usage + (stasis_power * (stasis - 1))
+			change_power_consumption(parts_power_usage + (stasis_power * (stasis-1)), POWER_USE_ACTIVE)
 
 	return TRUE
 
@@ -253,7 +252,7 @@
 
 			var/mob/M = G.affecting
 			M.forceMove(src)
-			update_use_power(2)
+			update_use_power(POWER_USE_ACTIVE)
 			occupant = M
 			update_icon()
 			qdel(G)
@@ -338,7 +337,7 @@
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
 		M.forceMove(src)
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 		occupant = M
 		update_icon()
 
@@ -354,7 +353,7 @@
 		if(A == beaker)
 			continue
 		A.forceMove(get_turf(src))
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	update_icon()
 	toggle_filter()
 	toggle_pump()
@@ -386,7 +385,7 @@
 					to_chat(user, SPAN_WARNING("The subject has too much tricordrazine."))
 					return
 		if(chemical_amount + add_amount <= REAGENTS_OVERDOSE)
-			use_power(add_amount * CHEM_SYNTH_ENERGY)
+			use_power_oneoff(add_amount * CHEM_SYNTH_ENERGY)
 			occupant.reagents.add_reagent(chemical, add_amount)
 		else
 			to_chat(user, SPAN_WARNING("The subject has too many chemicals."))

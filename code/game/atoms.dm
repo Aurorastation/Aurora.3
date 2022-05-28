@@ -2,6 +2,7 @@
 	layer = 2
 	var/level = 2
 	var/flags = 0
+	var/init_flags = 0
 	var/list/fingerprints
 	var/list/fingerprintshidden
 	var/fingerprintslast = null
@@ -575,7 +576,7 @@
 			M.show_message(blind_message, 2)
 
 	if(intent_message)
-		intent_message(intent_message, intent_range)
+		intent_message(intent_message, intent_range, mobs) // pass our mobs list through to intent_message so it doesn't have to call get_mobs_or_objs_in_view again
 
 // Show a message to all mobs and objects in earshot of this atom.
 // Use for objects performing audible actions.
@@ -600,15 +601,14 @@
 		O.show_message(message,2,deaf_message,1)
 
 	if(intent_message)
-		intent_message(intent_message, intent_range)
+		intent_message(intent_message, intent_range, mobs) // pass our mobs list through to intent_message so it doesn't have to call get_mobs_or_objs_in_view again
 
-/atom/proc/intent_message(var/message, var/range = 7)
+/atom/proc/intent_message(var/message, var/range = 7, var/list/mobs = list())
 	set waitfor = FALSE
 	if(air_sound(src))
 		var/turf/T = get_turf(src)
-		var/list/mobs = list()
-		var/list/objs = list()
-		get_mobs_or_objs_in_view(T, range, mobs, objs, ONLY_GHOSTS_IN_VIEW)
+		if(!mobs.len)
+			get_mobs_or_objs_in_view(T, range, mobs, checkghosts = ONLY_GHOSTS_IN_VIEW)
 		for(var/mob/living/carbon/human/H as anything in intent_listener)
 			if(!(H in mobs))
 				if(src.z == H.z && get_dist(src, H) <= range)

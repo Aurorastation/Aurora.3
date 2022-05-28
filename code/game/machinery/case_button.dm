@@ -5,7 +5,6 @@
 	icon = 'icons/obj/glasscasebutton.dmi'
 	icon_state = "c1"
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 50 //50W because the forcefield is disabled
 	active_power_usage = 2000 //2kW because of the forcefield
 	power_channel = EQUIP
@@ -77,7 +76,7 @@
 /obj/machinery/case_button/update_icon()
 	cut_overlays()
 	if(stat & NOPOWER)
-		update_use_power(0)
+		update_use_power(POWER_USE_OFF)
 		add_overlay("b[button]d") //Add the deactivated button overlay
 		add_overlay("g[cover]d") //Add the deactivated cover overlay
 		return

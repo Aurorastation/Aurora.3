@@ -162,7 +162,7 @@
 	jobtype = /datum/job/janitor
 
 	uniform = /obj/item/clothing/under/rank/janitor
-	head = /obj/item/clothing/head/softcap/janitor
+	head = /obj/item/clothing/head/softcap/nt/custodian
 	shoes = /obj/item/clothing/shoes/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/janitor

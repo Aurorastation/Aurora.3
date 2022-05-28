@@ -93,7 +93,7 @@
 		return TRUE
 
 	else if(href_list["toggledoor"])
-		for(var/obj/machinery/door/blast/M in SSmachinery.all_machines)
+		for(var/obj/machinery/door/blast/M in SSmachinery.machinery)
 			if(M.id == href_list["toggledoor"])
 				if(M.density)
 					M.open()

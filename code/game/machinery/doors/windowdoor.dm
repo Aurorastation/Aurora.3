@@ -76,7 +76,7 @@
 	. = ..()
 	if(inoperable()) // Unpowered windoors can just be slid open
 		return TRUE
-	use_power(50) // Just powering the RFID and maybe a weak motor
+	use_power_oneoff(50) // Just powering the RFID and maybe a weak motor
 	if(operable() && . == FALSE)
 		flick("[base_state]deny", src)
 
@@ -176,9 +176,8 @@
 
 	//If it's emagged, crowbar can pry electronics out.
 	if (emagged == 1 && I.iscrowbar())
-		playsound(src.loc, I.usesound, 100, 1)
 		user.visible_message("[user] dismantles the windoor.", "You start to dismantle the windoor.")
-		if (do_after(user,60/I.toolspeed))
+		if(I.use_tool(src, user, 60, volume = 50))
 			to_chat(user, SPAN_NOTICE("You dismantled the windoor!"))
 			new /obj/item/trash/broken_electronics(loc)
 			var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)

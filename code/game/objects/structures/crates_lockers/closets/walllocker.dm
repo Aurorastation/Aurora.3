@@ -6,9 +6,9 @@
 	desc = "A wall mounted storage locker."
 	icon = 'icons/obj/walllocker.dmi'
 	icon_state = "walllocker" //...man, how OLD is this $#!?
-	door_anim_angle = 108
-	door_anim_squish = 0.26
-	door_hinge = 9.5
+	door_anim_angle = 132
+	door_anim_squish = 0.38
+	door_hinge = -7
 	door_anim_time = 2.7
 	store_mobs = FALSE
 	density = FALSE
@@ -70,5 +70,6 @@
 	desc = "It's a secure wall-mounted storage unit for first aid supplies."
 	icon_door = "medical_wall_secure"
 	icon_door_override = TRUE
+	locked = TRUE
 	secure = TRUE
 	req_access = list(access_medical_equip)

@@ -148,8 +148,7 @@
 
 /obj/machinery/computer/telecomms/server/attackby(var/obj/item/D, var/mob/user)
 	if(D.isscrewdriver())
-		playsound(src.loc, D.usesound, 50, 1)
-		if(do_after(user, 20/D.toolspeed))
+		if(D.use_tool(src, user, 20, volume = 50))
 			if (src.stat & BROKEN)
 				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
@@ -232,6 +231,4 @@
 			. += "<li><font color = #990000>[C.name]</font>  <font color = #FF0000><a href='?src=\ref[src];delete=[i]'>\[X\]</a></font><br>"
 			. += "<u><font color = #787700>Output</font></u>: \"[C.parameters["message"]]\"<br>"
 			. += "</li><br>"
-
-
 	. += "</ol>"

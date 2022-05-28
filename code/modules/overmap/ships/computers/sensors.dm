@@ -16,7 +16,7 @@
 /obj/machinery/computer/ship/sensors/proc/find_sensors()
 	if(!linked)
 		return
-	for(var/obj/machinery/shipsensors/S in SSmachinery.all_machines)
+	for(var/obj/machinery/shipsensors/S in SSmachinery.machinery)
 		if(linked.check_ownership(S))
 			sensors = S
 			break
@@ -103,7 +103,7 @@
 			new/obj/item/paper/(get_turf(src), O.get_scan_data(usr), "paper (Sensor Scan - [O])")
 		return TOPIC_HANDLED
 
-/obj/machinery/computer/ship/sensors/machinery_process()
+/obj/machinery/computer/ship/sensors/process()
 	..()
 	if(!linked)
 		return
@@ -136,10 +136,10 @@
 		if(!WT.isOn())
 			return
 
-		if(WT.remove_fuel(0,user))
+		if(WT.use(0,user))
 			to_chat(user, "<span class='notice'>You start repairing the damage to [src].</span>")
 			playsound(src, 'sound/items/welder.ogg', 100, 1)
-			if(do_after(user, max(5, damage / 5), src) && WT && WT.isOn())
+			if(WT.use_tool(src, user, max(5, damage / 5),, volume = 50) && WT && WT.isOn())
 				to_chat(user, "<span class='notice'>You finish repairing the damage to [src].</span>")
 				take_damage(-damage)
 		else
@@ -181,11 +181,11 @@
 	if(!use_power && (health == 0 || !in_vacuum()))
 		return // No turning on if broken or misplaced.
 	if(!use_power) //need some juice to kickstart
-		use_power(idle_power_usage*5)
+		use_power_oneoff(idle_power_usage*5)
 	update_use_power(!use_power)
 	queue_icon_update()
 
-/obj/machinery/shipsensors/machinery_process()
+/obj/machinery/shipsensors/process()
 	..()
 	if(use_power) //can't run in non-vacuum
 		if(!in_vacuum())
@@ -208,7 +208,7 @@
 
 /obj/machinery/shipsensors/proc/set_range(nrange)
 	range = nrange
-	active_power_usage = (1500 * (range**2)) //Exponential increase, also affects speed of overheating
+	change_power_consumption(1500 * (range**2), POWER_USE_ACTIVE)
 
 /obj/machinery/shipsensors/emp_act(severity)
 	if(!use_power)

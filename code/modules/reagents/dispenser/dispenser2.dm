@@ -17,9 +17,8 @@
 	var/accept_drinking = 0
 	var/amount = 30
 	var/list/forbidden_containers = list(/obj/item/reagent_containers/glass/bucket) //For containers we don't want people to shove into the chem machine. Like big-ass buckets.
-	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment) //Allow these cans/glasses/condiment bottles but forbid ACTUAL food. 
+	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment) //Allow these cans/glasses/condiment bottles but forbid ACTUAL food.
 
-	use_power = 1
 	idle_power_usage = 100
 	density = 1
 	anchored = 1
@@ -72,9 +71,8 @@
 
 /obj/machinery/chemical_dispenser/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
-		playsound(src.loc, W.usesound, 50, 1)
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "un" : ""]fasten [src]."))
-		if (do_after(user, 20))
+		if(W.use_tool(src, user, 20, volume = 50))
 			user.visible_message(
 				SPAN_NOTICE("[user] [anchored ? "un" : ""]fastens [src]."),
 				SPAN_NOTICE("You have [anchored ? "un" : ""]fastened [src]."),

@@ -36,7 +36,6 @@ Possible to do for anyone motivated enough:
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
-	use_power = 1
 
 	var/holopad_id
 
@@ -94,8 +93,9 @@ Possible to do for anyone motivated enough:
 		icon_state = "holopad0[icon_state_suffix]"
 		set_light(0)
 
-/obj/machinery/hologram/holopad/attack_hand(var/mob/user) //Carn: Hologram requests.
-	user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
+/obj/machinery/hologram/holopad/attack_hand(var/mob/user)
+	if(user.Adjacent(src))
+		user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
 	if(incoming_connection)
 		audible_message("The pad hums quietly as it establishes a connection.")
 		take_call()
@@ -343,7 +343,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	LAZYREMOVE(active_holograms, M)
 	update_icon()
 
-/obj/machinery/hologram/holopad/machinery_process()
+/obj/machinery/hologram/holopad/process()
 	for(var/thing in active_holograms)
 		var/mob/M = thing
 		var/is_inactive_ai = FALSE
@@ -358,7 +358,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(!check_connected_pad())
 			return TRUE
 
-	use_power(power_per_hologram * LAZYLEN(active_holograms))
+	use_power_oneoff(power_per_hologram * LAZYLEN(active_holograms))
 
 	if(last_request + 20 SECONDS < world.time && incoming_connection)
 		incoming_connection = FALSE
@@ -439,7 +439,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram
 	icon = 'icons/obj/holopad.dmi'
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 5
 	active_power_usage = 100
 

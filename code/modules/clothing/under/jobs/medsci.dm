@@ -130,7 +130,7 @@
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It denotes that the wearer is a trained medical physician."
 	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
 	icon_state = "nt_phys"
-	worn_state = "nt_phys"
+	item_state = "nt_phys"
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
@@ -151,7 +151,7 @@
 	name = "medical intern's jumpsuit"
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It denotes that the wearer is a medical intern."
 	icon_state = "nt_intern"
-	worn_state = "nt_intern"
+	item_state = "nt_intern"
 
 /obj/item/clothing/under/rank/medical/intern/zeng
 	icon_state = "zeng_intern"
@@ -159,6 +159,7 @@
 
 /obj/item/clothing/under/rank/medical/intern/pmc
 	icon_state = "pmc_intern"
+	item_state = "pmc_intern"
 
 // First Responder
 
@@ -175,6 +176,10 @@
 /obj/item/clothing/under/rank/medical/first_responder/pmc
 	icon_state = "pmc_emt"
 	item_state = "pmc_emt"
+
+/obj/item/clothing/under/rank/medical/first_responder/pmc/epmc // Note: Item Icon placeholder
+	icon_state = "epmc_emt"
+	item_state = "epmc_emt"
 
 // Surgeon
 /obj/item/clothing/under/rank/medical/surgeon
@@ -195,8 +200,8 @@
 // Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
 /obj/item/clothing/under/rank/medical/surgeon/zavod
-	icon_state = "zavod_surgeon"
-	item_state = "zavod_surgeon"
+	icon_state = "zav_surgeon"
+	item_state = "zav_surgeon"
 
 /obj/item/clothing/under/rank/medical/surgeon/idris
 	icon_state = "idris_surgeon"
@@ -208,7 +213,7 @@
 	name = "psychiatrist's jumpsuit"
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a psychiatrist."
 	icon_state = "nt_psych"
-	worn_state = "nt_psych"
+	item_state = "nt_psych"
 
 /obj/item/clothing/under/rank/medical/psych/zeng
 	icon_state = "zeng_psych"

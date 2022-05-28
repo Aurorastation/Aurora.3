@@ -18,7 +18,7 @@
 	. = INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/pod/LateInitialize()
-	for(var/obj/machinery/mass_driver/M in SSmachinery.processing_machines)
+	for(var/obj/machinery/mass_driver/M in SSmachinery.machinery)
 		if(M.id == id)
 			connected = M
 			return
@@ -33,14 +33,14 @@
 
 	var/list/same_id = list()
 
-	for(var/obj/machinery/door/blast/M in SSmachinery.processing_machines)
+	for(var/obj/machinery/door/blast/M in SSmachinery.machinery)
 		if(M.id == id)
 			same_id += M
 			M.open()
 
 	sleep(20)
 
-	for(var/obj/machinery/mass_driver/M in SSmachinery.processing_machines)
+	for(var/obj/machinery/mass_driver/M in SSmachinery.machinery)
 		if(M.id == id)
 			M.power = connected.power
 			M.drive()
@@ -89,7 +89,7 @@
 	return
 
 
-/obj/machinery/computer/pod/machinery_process()
+/obj/machinery/computer/pod/process()
 	if(inoperable())
 		return
 	if(timing)
@@ -114,7 +114,7 @@
 	if(href_list["alarm"])
 		alarm()
 	if(href_list["drive"])
-		for(var/obj/machinery/mass_driver/M in SSmachinery.processing_machines)
+		for(var/obj/machinery/mass_driver/M in SSmachinery.machinery)
 			if(M.id == id)
 				M.power = connected.power
 				M.drive()
@@ -126,7 +126,7 @@
 		time += tp
 		time = min(max(round(time), 0), 120)
 	if(href_list["door"])
-		for(var/obj/machinery/door/blast/M in SSmachinery.processing_machines)
+		for(var/obj/machinery/door/blast/M in SSmachinery.machinery)
 			if(M.id == id)
 				if(M.density)
 					M.open()

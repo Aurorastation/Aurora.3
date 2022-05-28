@@ -242,7 +242,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		var/log_msg = message
 		var/pass = FALSE
 		screen = RCS_SENTFAIL
-		for(var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
+		for(var/obj/machinery/message_server/MS in SSmachinery.processing)
 			if(!MS.active)
 				continue
 			MS.send_rc_message(ckey(href_list["department"]), department, log_msg, msgStamped, msgVerified, priority)
@@ -414,7 +414,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		return TRUE
 
 /obj/machinery/requests_console/proc/can_send()
-	for(var/obj/machinery/message_server/MS in SSmachinery.processing_machines)
+	for(var/obj/machinery/message_server/MS in SSmachinery.processing)
 		if(!MS.active)
 			continue
 		return TRUE

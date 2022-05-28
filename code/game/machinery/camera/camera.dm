@@ -3,7 +3,7 @@
 	desc = "It's used to monitor rooms."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "camera"
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 5
 	active_power_usage = 10
 	layer = 5
@@ -66,7 +66,7 @@
 	wires = null
 	return ..()
 
-/obj/machinery/camera/machinery_process()
+/obj/machinery/camera/process()
 	if((stat & EMPED) && world.time >= affected_by_emp_until)
 		stat &= ~EMPED
 		cancelCameraAlarm()
@@ -369,7 +369,7 @@
 	playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
 	WT.eyecheck(user)
 	busy = 1
-	if(do_after(user, 100/WT.toolspeed))
+	if(WT.use_tool(src, user, 100, volume = 50))
 		busy = 0
 		if(!WT.isOn())
 			return 0

@@ -57,7 +57,6 @@
 /datum/outfit/job/officer/pmc
 	name = "Security Officer - PMC"
 
-	head = /obj/item/clothing/head/beret/corporate/pmc
 	uniform = /obj/item/clothing/under/rank/security/pmc
 	id = /obj/item/card/id/pmc
 
@@ -68,12 +67,11 @@
 	uniform = /obj/item/clothing/under/rank/warden/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/warden/pmc
 	id = /obj/item/card/id/pmc
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud/pmc
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc
 
 /datum/outfit/job/intern_sec/pmc
 	name = "Security Cadet - PMC"
 
-	head = /obj/item/clothing/head/softcap/pmc
 	uniform = /obj/item/clothing/under/rank/cadet/pmc
 	id = /obj/item/card/id/pmc
 
@@ -118,7 +116,7 @@
 /datum/outfit/job/med_tech/pmc
 	name = "First Responder - PMC"
 
-	head = /obj/item/clothing/head/softcap/medical/pmc
+	head = /obj/item/clothing/head/softcap/pmc
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/pmc
 	id = /obj/item/card/id/pmc

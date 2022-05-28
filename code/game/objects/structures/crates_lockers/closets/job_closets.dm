@@ -53,8 +53,8 @@
 	new /obj/item/clothing/under/rank/chef/idris(src)
 	new /obj/item/clothing/head/chefhat/nt(src)
 	new /obj/item/clothing/head/chefhat/idris(src)
-	new /obj/item/clothing/head/surgery/hairnet(src)
-	new /obj/item/clothing/head/surgery/hairnet(src)
+	new /obj/item/clothing/head/hairnet(src)
+	new /obj/item/clothing/head/hairnet(src)
 
 /*
  * Janitor
@@ -65,11 +65,13 @@
 	icon_door = "mixed"
 
 /obj/structure/closet/jcloset/fill()
+	new /obj/item/clothing/head/softcap/nt/custodian(src)
 	new /obj/item/clothing/under/rank/janitor(src)
+	new /obj/item/clothing/head/softcap/idris/custodian(src)
 	new /obj/item/clothing/under/rank/janitor/idris(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/head/softcap/janitor(src)
+	new /obj/item/clothing/head/softcap/custodian(src)
 	new /obj/item/clothing/head/bandana/janitor(src)
 	new /obj/item/clothing/head/beret/janitor(src)
 	new /obj/item/gun/energy/mousegun(src)

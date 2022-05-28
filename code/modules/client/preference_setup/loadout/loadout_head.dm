@@ -62,7 +62,7 @@
 	softcaps["softcap, hydroponics"] = /obj/item/clothing/head/softcap/hydro
 	softcaps["softcap, cargo"] = /obj/item/clothing/head/softcap/cargo
 	softcaps["softcap, mining"] = /obj/item/clothing/head/softcap/miner
-	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/janitor
+	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/custodian
 	softcaps["softcap, tcfl"] = /obj/item/clothing/head/softcap/tcfl
 
 	gear_tweaks += new /datum/gear_tweak/path(softcaps)
@@ -248,11 +248,11 @@
 /datum/gear/head/surgical/New()
 	..()
 	var/list/surgical = list()
-	surgical["surgical cap, nanotrasen navy blue"] = /obj/item/clothing/under/rank/medical/surgeon/zeng
-	surgical["surgical cap, zeng-hu purple"] = /obj/item/clothing/under/rank/medical/surgeon/zeng
+	surgical["surgical cap, nanotrasen navy blue"] = /obj/item/clothing/head/surgery
+	surgical["surgical cap, zeng-hu purple"] = /obj/item/clothing/head/surgery/zeng
 	surgical["surgical cap, PMCG blue"] = /obj/item/clothing/head/surgery/pmc
-	surgical["surgical cap, zavodskoi black"] = /obj/item/clothing/under/rank/medical/surgeon/zavod
-	surgical["surgical cap, idris green"] = /obj/item/clothing/under/rank/medical/surgeon/idris
+	surgical["surgical cap, zavodskoi black"] = /obj/item/clothing/head/surgery/zavod
+	surgical["surgical cap, idris green"] = /obj/item/clothing/head/surgery/idris
 	gear_tweaks += new /datum/gear_tweak/path(surgical)
 
 /datum/gear/head/headbando
@@ -352,7 +352,7 @@
 
 /datum/gear/head/hairnet
 	display_name = "hairnet"
-	path = /obj/item/clothing/head/surgery/hairnet
+	path = /obj/item/clothing/head/hairnet
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /*
