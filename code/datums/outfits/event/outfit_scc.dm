@@ -14,7 +14,7 @@
 	id = /obj/item/card/id
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1
+		/obj/item/storage/box/survival/engineer = 1
 	)
 
 	id_icon = "centcom"
@@ -46,7 +46,7 @@
 	accessory_contents = list(/obj/item/gun/energy/repeater)
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/reagent_containers/spray/pepper = 1,
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/grenade/chem_grenade/gas = 1,
