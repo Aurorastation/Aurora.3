@@ -53,13 +53,27 @@
 /obj/structure/closet/walllocker/firecloset/fill()
 	new /obj/item/clothing/head/hardhat/firefighter(src)
 	new /obj/item/clothing/suit/fire(src)
-	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/device/flashlight(src)
+	new /obj/item/crowbar/rescue_axe/red(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/extinguisher(src)
+	new /obj/item/inflatable/door(src)
+	new /obj/item/inflatable/wall(src)
+	new /obj/item/inflatable/wall(src)
 
 	if (prob(25))
 		new /obj/item/ladder_mobile(src)
+
+/obj/structure/closet/walllocker/firecloset/medical/fill()
+	new /obj/item/clothing/head/hardhat/firefighter(src)
+	new /obj/item/clothing/suit/fire(src)
+	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/device/flashlight(src)
+	new /obj/item/tank/oxygen/red(src)
+	new /obj/item/extinguisher(src)
+	new /obj/item/ladder_mobile(src)
+	new /obj/item/storage/bag/inflatable/emergency(src)
 
 /obj/structure/closet/walllocker/medical //wall mounted medical closet
 	name = "first-aid closet"
