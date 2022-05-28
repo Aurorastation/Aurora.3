@@ -1,0 +1,7 @@
+author: Afya
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a childlock to mechs. Mechs must be in maintenance mode to unlink."
+  - rscadd: "Mechs give more feedback when commands fail."
