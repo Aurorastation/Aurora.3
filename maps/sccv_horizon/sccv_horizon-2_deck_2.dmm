@@ -878,13 +878,13 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "auU" = (
-/obj/structure/closet/walllocker/firecloset{
-	pixel_x = -30;
-	pixel_y = 31
-	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/structure/closet/walllocker/firecloset/medical{
+	pixel_x = -32;
+	pixel_y = 31
 	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
@@ -4850,12 +4850,12 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/newscaster{
-	pixel_y = 32
-	},
 /obj/machinery/hologram/holopad,
 /obj/machinery/camera/network/service{
 	c_tag = "Service - Deck 2 - Lounge Starboard"
+	},
+/obj/machinery/atm{
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/lounge/bar)
@@ -9980,6 +9980,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "fAn" = (
@@ -10241,7 +10244,8 @@
 /area/maintenance/wing/starboard/far)
 "fHJ" = (
 /obj/machinery/power/radial_floodlight,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "fIE" = (
 /obj/structure/table/rack,
@@ -10492,7 +10496,7 @@
 	name = "emergency tesla beacon"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "fOj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -12218,7 +12222,7 @@
 "gCl" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "gCv" = (
 /obj/structure/railing/mapped,
@@ -12672,7 +12676,7 @@
 /obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "gOi" = (
 /obj/effect/floor_decal/industrial/outline/red,
@@ -13318,9 +13322,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/security/prison)
-"hha" = (
-/turf/simulated/open/airless,
-/area/template_noop)
 "hhx" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -13462,6 +13463,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "hlM" = (
@@ -13929,6 +13931,9 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
@@ -15254,7 +15259,7 @@
 "ikb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/extinguisher,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "iku" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -15806,9 +15811,6 @@
 /area/turret_protected/ai_upload)
 "iEM" = (
 /obj/structure/bed/stool/chair/padded/red,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
 	},
@@ -15910,6 +15912,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/item/pipewrench,
+/obj/item/crowbar/rescue_axe/red,
 /obj/item/device/pipe_painter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
@@ -16450,6 +16453,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
+/obj/item/crowbar/rescue_axe/red,
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/heads/chief)
 "iVp" = (
@@ -17178,6 +17182,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/item/pipewrench,
+/obj/item/crowbar/rescue_axe/red,
 /obj/item/device/pipe_painter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
@@ -17440,6 +17445,9 @@
 "juH" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
@@ -17985,6 +17993,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
@@ -18565,6 +18576,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"kca" = (
+/obj/machinery/media/jukebox/audioconsole/wall,
+/turf/simulated/wall,
+/area/horizon/crew_quarters/lounge/bar)
 "kcy" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -18778,7 +18793,7 @@
 "kiK" = (
 /obj/machinery/shieldgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "kiT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -21149,9 +21164,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/atm{
-	pixel_y = 28
-	},
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -21776,7 +21788,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/firealarm/west,
+/obj/machinery/newscaster{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/lounge/bar)
 "lYZ" = (
@@ -24790,6 +24804,9 @@
 /obj/effect/landmark{
 	name = "borerstart"
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "nBf" = (
@@ -25004,6 +25021,9 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "nHq" = (
@@ -25037,6 +25057,7 @@
 /obj/structure/ladder/up{
 	pixel_y = 16
 	},
+/obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "nJq" = (
@@ -27103,7 +27124,8 @@
 /obj/item/camera_assembly,
 /obj/item/camera_assembly,
 /obj/item/camera_assembly,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "oSM" = (
 /obj/structure/cable/green{
@@ -27307,10 +27329,9 @@
 /area/maintenance/wing/starboard)
 "oYp" = (
 /obj/structure/closet/crate/solar,
-/obj/item/stack/material/phoron{
-	amount = 25
-	},
-/turf/simulated/floor/tiled,
+/obj/item/stack/material/graphite/full,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "oYH" = (
 /obj/structure/closet/crate/trashcart,
@@ -27920,7 +27941,7 @@
 "pmU" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "pnj" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
@@ -28029,6 +28050,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
 "prk" = (
@@ -28182,7 +28204,7 @@
 "pwO" = (
 /obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "pxh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -29282,7 +29304,7 @@
 "pZu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "pZQ" = (
 /obj/structure/cable/green{
@@ -30843,6 +30865,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/item/pipewrench,
+/obj/item/crowbar/rescue_axe/red,
 /obj/item/device/pipe_painter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
@@ -31909,6 +31932,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
@@ -34887,7 +34913,8 @@
 /obj/item/smes_coil/super_capacity,
 /obj/item/smes_coil/super_io,
 /obj/item/smes_coil/super_io,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "taQ" = (
 /obj/machinery/photocopier,
@@ -36441,6 +36468,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "tUR" = (
@@ -37403,7 +37431,7 @@
 "urs" = (
 /obj/machinery/power/emitter,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "urP" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -38044,7 +38072,8 @@
 	c_tag = "Engineering - Secure Technical Storage";
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "uIa" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -40536,7 +40565,7 @@
 /obj/machinery/shieldgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "vYv" = (
 /obj/structure/cable/green{
@@ -40650,7 +40679,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/firealarm/east,
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "vZy" = (
 /obj/structure/disposalpipe/segment{
@@ -42427,6 +42456,9 @@
 "wRk" = (
 /obj/machinery/light/small{
 	dir = 1
+	},
+/obj/machinery/alarm{
+	pixel_y = 28
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
@@ -62583,7 +62615,7 @@ ygR
 vZy
 jCt
 enE
-sKJ
+kca
 lJg
 uZi
 rBi
@@ -70654,7 +70686,7 @@ hPb
 gis
 pSv
 jPc
-qgN
+kuh
 fdj
 qgN
 qgN
@@ -71058,7 +71090,7 @@ pJE
 oXo
 pSv
 jPc
-hha
+kuh
 fdj
 qgN
 qgN
@@ -71260,7 +71292,7 @@ pJE
 hgO
 pSv
 dVE
-hha
+kuh
 fdj
 qgN
 qgN
@@ -71462,7 +71494,7 @@ pJE
 gEa
 pSv
 jPc
-hha
+kuh
 fdj
 qgN
 qgN
@@ -71866,7 +71898,7 @@ hKM
 rGx
 pSv
 jPc
-qgN
+kuh
 fdj
 qgN
 qgN
