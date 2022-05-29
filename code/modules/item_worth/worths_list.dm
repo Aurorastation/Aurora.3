@@ -50,7 +50,6 @@ var/list/worths = list(
 					/obj/item/gun/energy/floragun = 1500,
 					/obj/item/gun/energy/mindflayer = 4500,
 					/obj/item/gun/energy/toxgun = 3500,
-					/obj/item/gun/energy/beegun = 4500,
 					/obj/item/gun/energy/mousegun = 2000,
 					/obj/item/gun/energy/net = 3500,
 					/obj/item/gun/energy/vaurca/bfg = 20000,
