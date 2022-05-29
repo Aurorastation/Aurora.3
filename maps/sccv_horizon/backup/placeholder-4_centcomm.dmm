@@ -30769,11 +30769,6 @@
 	name = "dead plant"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/poster{
-	icon_state = "grillposter";
-	pixel_x = -32;
-	poster_type = "/datum/poster/bay_69"
-	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
