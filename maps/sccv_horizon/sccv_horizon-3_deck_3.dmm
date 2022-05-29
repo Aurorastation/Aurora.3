@@ -555,16 +555,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "bb" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "green_dock_aft_exterior";
-	locked = 1;
-	name = "Emergency Services Dock";
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
+/obj/effect/shuttle_landmark/legion/green,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "bc" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -2691,7 +2684,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -3002,6 +2995,18 @@
 /obj/machinery/telecomms/server/presets/command,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
+"fE" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/emergency)
 "fF" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4208,10 +4213,15 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck - Emergency Service Dock Port";
 	dir = 1
+	},
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -5792,8 +5802,12 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "kI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -7054,12 +7068,7 @@
 	dir = 1;
 	pixel_y = -28
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "nc" = (
@@ -8607,23 +8616,22 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
 "pU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
 	icon_state = "door_locked";
-	id_tag = "green_dock_aft_interior";
+	id_tag = "green_dock_aft_exterior";
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13)
 	},
 /obj/machinery/access_button{
-	command = "cycle_interior";
+	command = "cycle_exterior";
 	frequency = 1337;
 	layer = 3.4;
 	master_tag = "green_dock_aft_airlock";
-	name = "interior access button";
-	pixel_x = 26;
-	pixel_y = -7;
+	name = "exterior access button";
+	pixel_x = -27;
+	pixel_y = 7;
 	req_access = list(13)
 	},
 /turf/simulated/floor/plating,
@@ -10804,9 +10812,16 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/showers)
 "tW" = (
-/obj/effect/shuttle_landmark/legion/green,
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "green_dock_aft_exterior";
+	locked = 1;
+	name = "Emergency Services Dock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/emergency)
 "tX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -14057,9 +14072,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Ab" = (
@@ -16101,15 +16113,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"Eg" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "Eh" = (
 /turf/simulated/wall/r_wall,
 /area/medical/ward/isolation)
@@ -18747,23 +18750,18 @@
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "IR" = (
-/obj/machinery/door/airlock/external{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "green_dock_aft_exterior";
-	locked = 1;
-	name = "Emergency Services Dock";
-	req_access = list(13)
+	id_tag = "green_dock_aft_pump"
 	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
+/obj/machinery/airlock_sensor{
 	frequency = 1337;
+	id_tag = "green_dock_aft_sensor";
 	layer = 3.4;
-	master_tag = "green_dock_aft_airlock";
-	name = "exterior access button";
-	pixel_x = -27;
-	pixel_y = 7;
-	req_access = list(13)
+	pixel_x = -28
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
@@ -24911,6 +24909,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Ug" = (
@@ -26157,12 +26158,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Wx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -27093,18 +27090,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Yc" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external{
 	frequency = 1337;
-	id_tag = "green_dock_aft_pump"
+	icon_state = "door_locked";
+	id_tag = "green_dock_aft_interior";
+	locked = 1;
+	name = "Emergency Services Dock";
+	req_access = list(13)
 	},
-/obj/machinery/airlock_sensor{
+/obj/machinery/access_button{
+	command = "cycle_interior";
 	frequency = 1337;
-	id_tag = "green_dock_aft_sensor";
 	layer = 3.4;
-	pixel_x = -28
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
+	master_tag = "green_dock_aft_airlock";
+	name = "interior access button";
+	pixel_x = 26;
+	pixel_y = -7;
+	req_access = list(13)
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
@@ -54549,10 +54552,10 @@ at
 at
 at
 at
-yP
-yP
-yP
-Eg
+at
+at
+Cu
+Wx
 sa
 Gr
 if
@@ -54747,15 +54750,15 @@ at
 at
 at
 at
-tW
 at
 at
 at
-IR
-Yc
-KE
+at
+at
+at
+Cu
 Wx
-IY
+fE
 Gr
 Lo
 Fo
@@ -54953,9 +54956,9 @@ at
 at
 at
 at
-bb
-Kv
-pU
+at
+at
+Cu
 Wx
 hW
 Gr
@@ -55155,10 +55158,10 @@ at
 at
 at
 at
-yP
-yP
-yP
-Eg
+at
+at
+Cu
+Wx
 Uf
 Gr
 Lo
@@ -55357,9 +55360,9 @@ at
 at
 at
 at
-at
-at
-Cu
+yP
+yP
+yP
 eS
 iJ
 Gr
@@ -55555,15 +55558,15 @@ at
 at
 at
 at
+bb
 at
 at
 at
-at
-at
-at
-Cu
+pU
+IR
+KE
 kI
-Aa
+IY
 Gr
 Lo
 Fj
@@ -55761,9 +55764,9 @@ at
 at
 at
 at
-at
-at
-yP
+tW
+Kv
+Yc
 kI
 nb
 Gr
@@ -55963,10 +55966,10 @@ at
 at
 at
 at
-at
-at
 yP
-kI
+yP
+yP
+eS
 Aa
 Gr
 Lo
@@ -56167,7 +56170,7 @@ at
 at
 at
 at
-yP
+Cu
 LI
 IY
 Gr
