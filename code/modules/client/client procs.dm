@@ -806,10 +806,12 @@ var/list/localhost_addresses = list(
 		if(G.can_autofire(O, location, params) && O.is_auto_clickable() && !(G.safety()) && !(G == O))
 			autofire_aiming_at[1] = O
 			autofire_aiming_at[2] = params
+			var/accuracy_dec = 0
 			while(autofire_aiming_at[1])
-				G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE)
+				G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), accuracy_decrease = accuracy_dec)
 				mob.set_dir(get_dir(mob, autofire_aiming_at[1]))
 				sleep(G.fire_delay)
+				accuracy_dec += 0.25
 			CHECK_TICK
 
 /client/MouseUp(object, location, control, params)
