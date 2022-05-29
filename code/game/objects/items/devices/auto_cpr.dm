@@ -4,10 +4,10 @@
 	name = "stabilizer harness" 
 	desc = "A specialized medical harness that gives regular compressions to the patient's ribcage for cases of urgent heart issues, and functions as an emergency \
 	artificial respirator for cases of urgent lung issues."
-	desc_info = "The Stabilizer Harness' CPR mode is capable of restarting the heart at a much higher chance than manual CPR with a lower chance for rib cracking ONLY IF \
-	the patient is flat lining, while the EPP mode can keep the patient breathing during transport for as long as there's appropriate air in the installed tank. Both use \
-	power from the battery. <br> Use this item in your hand to toggle the CPR or EPP modes on/off.<br> Use a Screwdriver on it to unscrew the panel to be able to remove/add \
-	other items. The tank can be removed with a Wrench. The battery can be removed with a crowbar. Use the item in your hand the panel unscrewed to remove the breath mask."
+	desc_info = "The Stabilizer Harness' CPR mode is capable of restarting the heart much like manual CPR with a chance for rib cracking ONLY IF the patient is flat lining,\
+	 while the EPP mode can keep the patient breathing during transport for as long as there's appropriate air in the installed tank. Both use power from the battery. \
+	 <br> Use this item in your hand to toggle the CPR or EPP modes on/off.<br> Use a Screwdriver on it to unscrew the panel to be able to remove/add other items. \
+	 The tank can be removed with a Wrench. The battery can be removed with a crowbar. Use the item in your hand the panel unscrewed to remove the breath mask."
 	icon = 'icons/obj/med_harness.dmi'
 	icon_state = "med_harness"
 	item_state = "med_harness"
@@ -307,9 +307,9 @@
 		battery.use(charge_cost)
 
 	if(H.is_asystole())
-		if(H.stat != DEAD && prob(25))
+		if(H.stat != DEAD && prob(10))
 			H.resuscitate()
-		if(prob(5 * rand(1, 1.5)))
+		if(prob(5 * rand(2, 3)))
 			var/obj/item/organ/external/chest = H.get_organ(BP_CHEST)
 			if(chest)
 				chest.fracture()
