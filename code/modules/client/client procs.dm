@@ -808,7 +808,7 @@ var/list/localhost_addresses = list(
 			autofire_aiming_at[2] = params
 			var/accuracy_dec = 0
 			while(autofire_aiming_at[1])
-				G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), accuracy_decrease = accuracy_dec)
+				G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE, accuracy_dec)
 				mob.set_dir(get_dir(mob, autofire_aiming_at[1]))
 				sleep(G.fire_delay)
 				accuracy_dec += 0.25
