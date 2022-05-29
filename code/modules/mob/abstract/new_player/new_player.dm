@@ -216,6 +216,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if (!(job.type in faction_allowed_roles))
 		return FALSE
 
+	if(!faction.can_select(client.prefs,src))
+		return FALSE
+
 	if(!(client.prefs.GetPlayerAltTitle(job) in client.prefs.GetValidTitles(job))) // does age/species check for us!
 		return FALSE
 

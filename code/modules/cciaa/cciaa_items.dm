@@ -1,5 +1,8 @@
 //CCIAA's tape recorder
 /obj/item/device/taperecorder/cciaa
+	name = "Human Resources Recorder"
+	desc = "A recorder modified for the specific use-cases of human resource departments around the galaxy."
+	desc_fluff = "This recorder is a modified version of the standard universal recorder. It features additional audit-proof records keeping, additional access controls and is tied to a central management system."
 	w_class = ITEMSIZE_TINY
 	timestamp = list()	//This actually turns timestamp into a string later on
 
@@ -40,7 +43,7 @@
 	set name = "Start Recording"
 	set category = "Recorder"
 
-	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
+	if(!check_rights(R_CCIAA,FALSE) || usr.character_id) //TODO: Add a condition here to check the job of the user as an ALTERNATIVE to the char id
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 	if(use_check_and_message(usr))

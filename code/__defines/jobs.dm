@@ -10,6 +10,7 @@
 #define EQUIPMENT_ROLES list(/datum/job/ai, /datum/job/cyborg)
 #define INDEP_ROLES list(/datum/job/merchant, /datum/job/passenger, /datum/job/consular, /datum/job/journalist, /datum/job/chaplain)
 #define ALL_FACTION_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/representative)
+#define ADMIN_ROLES list(/datum/job/hra)
 #define ALL_JOBS list(COMMAND_ROLES, ENGINEERING_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, CARGO_ROLES, MEDICAL_ROLES, SCIENCE_ROLES, SECURITY_ROLES, EQUIPMENT_ROLES, INDEP_ROLES)
 
 // Factions

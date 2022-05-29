@@ -414,6 +414,9 @@
 
 	var/list/factions = list()
 	for (var/datum/faction/faction in SSjobs.factions)
+		if(!faction.is_visible(user))
+			continue
+
 		if (faction.name == selected_faction)
 			factions += "[faction.name]"
 		else
@@ -428,10 +431,10 @@
 
 	if (selected_faction == pref.faction)
 		dat += "<br>\[Faction already selected\]"
-	else if (faction.can_select(pref))
+	else if (faction.can_select(pref,user))
 		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>Select faction</a>\]"
 	else
-		dat += "<br><span class='warning'>[faction.get_selection_error(pref)]</span>"
+		dat += "<br><span class='warning'>[faction.get_selection_error(pref, user)]</span>"
 
 	dat += "</center><hr><center><large><u>[faction.name]</u></large>"
 	dat += {"<br><img style="height:100px;" src="[faction.get_logo_name()]"></center>"}
