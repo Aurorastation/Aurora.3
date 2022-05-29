@@ -757,7 +757,7 @@
 			handle_hallucinations()
 
 		if(get_shock() >= species.total_health)
-			if(!stat)
+			if(!stat && !paralysis)
 				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
