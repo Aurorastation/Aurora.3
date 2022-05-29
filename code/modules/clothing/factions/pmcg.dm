@@ -57,4 +57,7 @@
 	set name = "Change Modsuit"
 	set category = "Object"
 	set src in usr
+	if(use_check_and_message(usr))
+		return
+
 	select_modsuit(usr)
