@@ -162,3 +162,8 @@
 			linked_pad.visible_message(SPAN_NOTICE("Locked in."), range = 2)
 
 	SSvueui.check_uis_for_change(src)
+
+/datum/computer_file/program/teleporter/ninja
+	required_access_run = list()
+	requires_ntnet = FALSE
+	requires_access_to_run = FALSE
