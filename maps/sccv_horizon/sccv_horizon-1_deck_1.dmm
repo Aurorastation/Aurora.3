@@ -1920,9 +1920,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "bzh" = (
@@ -14665,22 +14662,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
-"lOm" = (
-/obj/item/pipewrench,
-/obj/item/wrench{
-	pixel_y = -8
-	},
-/obj/machinery/firealarm/west{
-	pixel_x = 0;
-	pixel_y = -31;
-	dir = 2
-	},
-/obj/machinery/cell_charger,
-/obj/random/powercell,
-/obj/effect/floor_decal/corner/blue/full,
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/atmos_compartment)
 "lOn" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -21450,6 +21431,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
+"rsY" = (
+/obj/item/pipewrench,
+/obj/item/wrench{
+	pixel_y = -8
+	},
+/obj/machinery/firealarm/west{
+	pixel_x = 0;
+	pixel_y = -31;
+	dir = 2
+	},
+/obj/machinery/cell_charger,
+/obj/random/powercell,
+/obj/effect/floor_decal/corner/blue/full,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/intrepid/atmos_compartment)
 "rtC" = (
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
@@ -48827,7 +48824,7 @@ iRC
 iRC
 bJr
 eYN
-lOm
+rsY
 aEw
 pZv
 joi
