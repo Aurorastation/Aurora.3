@@ -12,7 +12,7 @@
 		/area/supply/dock,
 		/area/turbolift,
 		/area/mine,
-		/area/horizon/exterior,
+		/area/horizon/,
 		/area/construction
 	)
 

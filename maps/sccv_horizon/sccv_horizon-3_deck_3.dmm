@@ -208,7 +208,7 @@
 /area/crew_quarters/lounge/secondary)
 "at" = (
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "au" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/warning{
@@ -1052,7 +1052,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "bV" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
@@ -1240,7 +1240,7 @@
 "cq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "cr" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/robotics_cyborgs,
@@ -2216,7 +2216,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/mop,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "dX" = (
 /obj/structure/table/reinforced/wood,
 /obj/machinery/computer/guestpass{
@@ -2265,7 +2265,7 @@
 	dir = 8
 	},
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "eb" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2799,7 +2799,7 @@
 "fh" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "fi" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/paleblue{
@@ -2856,7 +2856,7 @@
 	},
 /obj/structure/lattice,
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "fn" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
@@ -5505,7 +5505,7 @@
 "kh" = (
 /obj/effect/shuttle_landmark/merc_ship/dock,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "ki" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -7994,7 +7994,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "oL" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -8379,7 +8379,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "px" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -8444,7 +8444,7 @@
 "pE" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "pF" = (
 /obj/structure/filingcabinet{
 	pixel_x = -8
@@ -8560,7 +8560,7 @@
 	dir = 4
 	},
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "pQ" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -9136,7 +9136,7 @@
 	dir = 8
 	},
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "qY" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
@@ -10116,7 +10116,7 @@
 "sP" = (
 /obj/structure/lattice,
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "sQ" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -9;
@@ -10806,7 +10806,7 @@
 "tW" = (
 /obj/effect/shuttle_landmark/legion/green,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "tX" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -11204,7 +11204,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "uN" = (
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -12002,7 +12002,7 @@
 /obj/item/hullbeacon/red,
 /obj/structure/railing/mapped,
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "wl" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -12590,7 +12590,7 @@
 "xo" = (
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "xp" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/crew_quarters/fitness/lounge)
@@ -13308,7 +13308,7 @@
 	pixel_y = 16
 	},
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "yG" = (
 /obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/coffee,
@@ -13332,7 +13332,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "yJ" = (
 /obj/machinery/light{
 	dir = 8
@@ -13369,7 +13369,7 @@
 "yM" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "yN" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -13768,7 +13768,7 @@
 	dir = 1
 	},
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "zz" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -15169,7 +15169,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/toy/figure/janitor,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Co" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -15904,7 +15904,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "DM" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
@@ -16184,7 +16184,7 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Eo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
@@ -18126,7 +18126,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "HO" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -19090,7 +19090,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Jw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -19426,11 +19426,11 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "JZ" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Ka" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -19811,7 +19811,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "KO" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -20049,7 +20049,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Ll" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor,
@@ -20646,14 +20646,14 @@
 	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Mp" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Mq" = (
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -20972,7 +20972,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "MR" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "Recovery1"
@@ -21108,12 +21108,12 @@
 "Ne" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	name = "\improper BRIG COMMUNAL AREA sign";
-	desc = "A caution sign which reads 'CAUTION: BRIG COMMUNAL AREA' and 'SECURE AREA'."
+	desc = "A caution sign which reads 'CAUTION: BRIG COMMUNAL AREA' and 'SECURE AREA'.";
+	name = "\improper BRIG COMMUNAL AREA sign"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Nf" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -21223,7 +21223,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Nq" = (
 /turf/simulated/wall,
 /area/crew_quarters/lounge/secondary)
@@ -21652,7 +21652,7 @@
 	dir = 8
 	},
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Oc" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -22542,7 +22542,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "PG" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -22658,7 +22658,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "PQ" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -23435,7 +23435,7 @@
 "Rh" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Ri" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -23896,13 +23896,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Sb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Sc" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -24245,7 +24245,7 @@
 	dir = 4
 	},
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "SM" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -24541,7 +24541,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Ts" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -24663,7 +24663,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "TD" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/bedsheet/medical{
@@ -24678,7 +24678,7 @@
 	dir = 1
 	},
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "TF" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -24957,7 +24957,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Uk" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -25398,7 +25398,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "UZ" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -25830,7 +25830,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "VN" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/closet/emcloset,
@@ -25977,7 +25977,7 @@
 "Wb" = (
 /obj/effect/shuttle_landmark/ert/dock,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Wc" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
@@ -26137,7 +26137,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "Wv" = (
 /obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/corner/yellow/diagonal,
