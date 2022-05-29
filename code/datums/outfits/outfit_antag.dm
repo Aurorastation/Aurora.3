@@ -18,7 +18,7 @@
 	id = /obj/item/card/id/syndicate
 	r_pocket = /obj/item/device/radio/uplink
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/device/flashlight = 1,
 		/obj/item/card/emag = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
@@ -59,7 +59,7 @@
 	l_hand = /obj/item/tank/jetpack/void
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1,
 		/obj/item/gun/projectile/automatic/x9 = 1,
 		/obj/item/ammo_magazine/c45m/auto = 1,
@@ -81,7 +81,7 @@
 	r_pocket = null // stop them getting a radio uplink, they get an implant instead
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/device/flashlight = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
@@ -153,7 +153,7 @@
 	pda = /obj/item/modular_computer/handheld/pda/syndicate
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1
 	)
 
