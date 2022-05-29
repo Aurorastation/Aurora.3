@@ -41,3 +41,4 @@ changes:
   - bugfix: "The ninja teleporter console in their base works again."
   - bugfix: "Drop pods now work correctly."
   - bugfix: "Fixed shuttles that dock to the Horizon's exterior being unable to dock."
+  - bugfix: "TCFL ERT shuttle can now actually dock with the Horizon."
