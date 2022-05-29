@@ -9980,6 +9980,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "fAn" = (
@@ -10241,7 +10244,8 @@
 /area/maintenance/wing/starboard/far)
 "fHJ" = (
 /obj/machinery/power/radial_floodlight,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "fIE" = (
 /obj/structure/table/rack,
@@ -10492,7 +10496,7 @@
 	name = "emergency tesla beacon"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "fOj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -12218,7 +12222,7 @@
 "gCl" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "gCv" = (
 /obj/structure/railing/mapped,
@@ -12672,7 +12676,7 @@
 /obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "gOi" = (
 /obj/effect/floor_decal/industrial/outline/red,
@@ -13462,6 +13466,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "hlM" = (
@@ -13929,6 +13934,9 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
@@ -15254,7 +15262,7 @@
 "ikb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/extinguisher,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "iku" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -17444,6 +17452,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "juY" = (
@@ -17988,6 +17999,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
@@ -18781,7 +18795,7 @@
 "kiK" = (
 /obj/machinery/shieldgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "kiT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -24793,6 +24807,9 @@
 /obj/effect/landmark{
 	name = "borerstart"
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "nBf" = (
@@ -25006,6 +25023,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
@@ -27106,7 +27126,8 @@
 /obj/item/camera_assembly,
 /obj/item/camera_assembly,
 /obj/item/camera_assembly,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "oSM" = (
 /obj/structure/cable/green{
@@ -27310,10 +27331,9 @@
 /area/maintenance/wing/starboard)
 "oYp" = (
 /obj/structure/closet/crate/solar,
-/obj/item/stack/material/phoron{
-	amount = 25
-	},
-/turf/simulated/floor/tiled,
+/obj/item/stack/material/graphite/full,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "oYH" = (
 /obj/structure/closet/crate/trashcart,
@@ -27923,7 +27943,7 @@
 "pmU" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "pnj" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
@@ -28185,7 +28205,7 @@
 "pwO" = (
 /obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "pxh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -29285,7 +29305,7 @@
 "pZu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "pZQ" = (
 /obj/structure/cable/green{
@@ -31913,6 +31933,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
@@ -34891,7 +34914,8 @@
 /obj/item/smes_coil/super_capacity,
 /obj/item/smes_coil/super_io,
 /obj/item/smes_coil/super_io,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "taQ" = (
 /obj/machinery/photocopier,
@@ -36445,6 +36469,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "tUR" = (
@@ -37407,7 +37432,7 @@
 "urs" = (
 /obj/machinery/power/emitter,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "urP" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -38048,7 +38073,8 @@
 	c_tag = "Engineering - Secure Technical Storage";
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "uIa" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -40540,7 +40566,7 @@
 /obj/machinery/shieldgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "vYv" = (
 /obj/structure/cable/green{
@@ -40654,7 +40680,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/firealarm/east,
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "vZy" = (
 /obj/structure/disposalpipe/segment{
