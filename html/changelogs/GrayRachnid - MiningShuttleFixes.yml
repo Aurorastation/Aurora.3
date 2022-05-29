@@ -1,0 +1,6 @@
+author: GrayRachnid
+
+delete-after: True
+
+changes:
+  - maptweak: "Gives the mining shuttle a proper cycler and an additional air canister and a single vent. Miners now also have access to their own fire alarm to enable the vent."

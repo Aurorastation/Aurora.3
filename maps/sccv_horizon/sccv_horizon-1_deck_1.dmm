@@ -6420,6 +6420,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/handrail,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1380;
+	id_tag = "mining_shuttle_pump"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "fbL" = (
@@ -11546,12 +11550,10 @@
 /area/outpost/mining_main/refinery)
 "jpU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
 /obj/structure/bed/handrail{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "jqc" = (
@@ -18186,13 +18188,14 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "oSA" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/firealarm/east,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "oSD" = (
@@ -20093,9 +20096,11 @@
 /area/operations/loading)
 "qqS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/tank/air{
-	dir = 4
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4;
+	layer = 2.8
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "qrh" = (
@@ -22367,6 +22372,12 @@
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
+"snD" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/mining)
 "soD" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
@@ -23680,7 +23691,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28;
-	req_one_access = list(24,11,55)
+	req_one_access = list(24,11,48)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -26714,6 +26725,9 @@
 /area/hangar/intrepid)
 "vSC" = (
 /obj/structure/closet/walllocker/emerglocker/east,
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "vSF" = (
@@ -45777,7 +45791,7 @@ ozA
 krP
 tzo
 rMm
-rMm
+snD
 rMm
 dgD
 uUP
