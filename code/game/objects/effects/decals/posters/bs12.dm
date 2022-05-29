@@ -243,8 +243,3 @@
 	icon_state = "tcflposter2"
 	name = "Tau Ceti Foreign Legion"
 	desc = "A TCFL recruitment poster showcasing the benefits Synthetics gain when enlisting."
-
-/datum/poster/bay_69
-	icon_state = "grillposter"
-	name = "grill"
-	desc = "A poster of a smug looking tajaran grilling at a company get-together."
