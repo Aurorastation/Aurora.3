@@ -4850,12 +4850,12 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/newscaster{
-	pixel_y = 32
-	},
 /obj/machinery/hologram/holopad,
 /obj/machinery/camera/network/service{
 	c_tag = "Service - Deck 2 - Lounge Starboard"
+	},
+/obj/machinery/atm{
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/lounge/bar)
@@ -13322,9 +13322,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/security/prison)
-"hha" = (
-/turf/simulated/open/airless,
-/area/template_noop)
 "hhx" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -15814,9 +15811,6 @@
 /area/turret_protected/ai_upload)
 "iEM" = (
 /obj/structure/bed/stool/chair/padded/red,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
 	},
@@ -18582,6 +18576,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"kca" = (
+/obj/machinery/media/jukebox/audioconsole/wall,
+/turf/simulated/wall,
+/area/horizon/crew_quarters/lounge/bar)
 "kcy" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -21166,9 +21164,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/atm{
-	pixel_y = 28
-	},
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -21793,7 +21788,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/firealarm/west,
+/obj/machinery/newscaster{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/lounge/bar)
 "lYZ" = (
@@ -25060,6 +25057,7 @@
 /obj/structure/ladder/up{
 	pixel_y = 16
 	},
+/obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "nJq" = (
@@ -28052,6 +28050,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
 "prk" = (
@@ -42457,6 +42456,9 @@
 "wRk" = (
 /obj/machinery/light/small{
 	dir = 1
+	},
+/obj/machinery/alarm{
+	pixel_y = 28
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
@@ -62613,7 +62615,7 @@ ygR
 vZy
 jCt
 enE
-sKJ
+kca
 lJg
 uZi
 rBi
@@ -70684,7 +70686,7 @@ hPb
 gis
 pSv
 jPc
-qgN
+kuh
 fdj
 qgN
 qgN
@@ -71088,7 +71090,7 @@ pJE
 oXo
 pSv
 jPc
-hha
+kuh
 fdj
 qgN
 qgN
@@ -71290,7 +71292,7 @@ pJE
 hgO
 pSv
 dVE
-hha
+kuh
 fdj
 qgN
 qgN
@@ -71492,7 +71494,7 @@ pJE
 gEa
 pSv
 jPc
-hha
+kuh
 fdj
 qgN
 qgN
@@ -71896,7 +71898,7 @@ hKM
 rGx
 pSv
 jPc
-qgN
+kuh
 fdj
 qgN
 qgN
