@@ -12,7 +12,6 @@
 		/area/supply/dock,
 		/area/turbolift,
 		/area/mine,
-		/area/horizon/,
 		/area/construction
 	)
 
