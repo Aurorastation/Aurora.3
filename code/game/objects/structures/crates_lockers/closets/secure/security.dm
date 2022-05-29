@@ -82,7 +82,6 @@
 /obj/structure/closet/secure_closet/xo2/fill()
 	..()
 	new /obj/item/clothing/under/rank/xo(src)
-	new /obj/item/clothing/under/lawyer/black(src)
 	new /obj/item/clothing/under/lawyer/red(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/black(src)

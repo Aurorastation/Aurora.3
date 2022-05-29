@@ -64044,7 +64044,6 @@
 	name = "legal closet";
 	desc = "It's a storage unit for courtroom apparel and items."
 	},
-/obj/item/clothing/under/lawyer/black,
 /obj/item/clothing/under/lawyer/red,
 /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket,
 /obj/item/clothing/under/lawyer/purple,

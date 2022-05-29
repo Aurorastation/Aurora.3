@@ -176,8 +176,6 @@
 	new /obj/item/clothing/gloves/white(src.loc)
 	new /obj/item/clothing/shoes/white(src.loc)
 	new /obj/item/clothing/under/suit_jacket/white(src.loc)
-	if (prob(30))
-		new /obj/item/clothing/head/cueball(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/highlander/New()
