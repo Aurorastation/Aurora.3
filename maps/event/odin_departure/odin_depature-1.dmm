@@ -4127,7 +4127,6 @@
 /turf/unsimulated/beach/sand,
 /area/beach)
 "aBx" = (
-/obj/structure/signpost,
 /turf/unsimulated/beach/sand,
 /area/beach)
 "aBy" = (
@@ -4540,7 +4539,6 @@
 /turf/unsimulated/beach/sand,
 /area/beach)
 "aEd" = (
-/mob/living/simple_animal/crab/Coffee,
 /turf/unsimulated/beach/sand,
 /area/beach)
 "aEf" = (

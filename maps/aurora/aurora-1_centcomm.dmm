@@ -4096,10 +4096,6 @@
 "aBw" = (
 /turf/unsimulated/beach/sand,
 /area/beach)
-"aBx" = (
-/obj/structure/signpost,
-/turf/unsimulated/beach/sand,
-/area/beach)
 "aBy" = (
 /obj/structure/closet,
 /turf/unsimulated/beach/sand,
@@ -4504,10 +4500,6 @@
 /obj/effect/landmark{
 	name = "endgame_exit"
 	},
-/turf/unsimulated/beach/sand,
-/area/beach)
-"aEd" = (
-/mob/living/simple_animal/crab/Coffee,
 /turf/unsimulated/beach/sand,
 /area/beach)
 "aEf" = (
@@ -101230,7 +101222,7 @@ aaM
 aaP
 ahV
 aBh
-aBx
+aBw
 aBw
 aBw
 aBw
@@ -104068,7 +104060,7 @@ aBw
 aBw
 aBw
 aBw
-aEd
+aBw
 aBw
 aBw
 aEF

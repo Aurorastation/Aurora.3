@@ -36119,10 +36119,6 @@
 "bLm" = (
 /turf/unsimulated/beach/sand,
 /area/beach)
-"bLn" = (
-/obj/structure/signpost,
-/turf/unsimulated/beach/sand,
-/area/beach)
 "bLo" = (
 /obj/structure/closet,
 /turf/unsimulated/beach/sand,
@@ -36396,10 +36392,6 @@
 /obj/effect/landmark{
 	name = "endgame_exit"
 	},
-/turf/unsimulated/beach/sand,
-/area/beach)
-"bMi" = (
-/mob/living/simple_animal/crab/Coffee,
 /turf/unsimulated/beach/sand,
 /area/beach)
 "bMk" = (
@@ -96549,7 +96541,7 @@ aaa
 bFf
 aam
 bLl
-bLn
+bLm
 bLm
 bLm
 bLm
@@ -99387,7 +99379,7 @@ bLm
 bLm
 bLm
 bLm
-bMi
+bLm
 bLm
 bLm
 bMv
