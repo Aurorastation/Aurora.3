@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - tweak: "The mercenary ship has windows at the cockpit area again."
+  - rscadd: "Adds one inflatables box to the merc ship."

@@ -26816,8 +26816,15 @@
 /area/shuttle/mercenary)
 "bkr" = (
 /obj/structure/table/reinforced,
-/obj/item/airbubble/syndie,
-/obj/item/airbubble/syndie,
+/obj/item/airbubble/syndie{
+	pixel_y = 4
+	},
+/obj/item/airbubble/syndie{
+	pixel_y = 4
+	},
+/obj/item/storage/bag/inflatable{
+	pixel_y = -5
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bkt" = (
