@@ -76,6 +76,18 @@
 		if (!movement_target)
 			walk_to(src,0)
 
+		if(prob(2)) //spooky
+			var/mob/abstract/observer/spook = locate() in range(src,5)
+			if(spook)
+				var/turf/T = spook.loc
+				var/list/visible = list()
+				for(var/obj/O in T.contents)
+					if(!O.invisibility && O.name)
+						visible += O
+				if(visible.len)
+					var/atom/A = pick(visible)
+					visible_emote("suddenly stops and stares at something unseen[istype(A) ? " near [A]":""].",0)
+
 /mob/living/simple_animal/cat/proc/attack_mice()
 	if((src.loc) && isturf(src.loc))
 		if(!stat && !resting && !buckled_to)
