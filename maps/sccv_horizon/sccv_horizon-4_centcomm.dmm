@@ -36115,23 +36115,23 @@
 	density = 1;
 	opacity = 1
 	},
-/area/beach)
+/area/template_noop)
 "bLm" = (
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bLo" = (
 /obj/structure/closet,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bLp" = (
 /obj/effect/overlay/palmtree_l,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bLq" = (
 /obj/effect/overlay/palmtree_r,
 /obj/effect/overlay/coconut,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bLr" = (
 /turf/simulated/floor/holofloor/space{
 	blocks_air = 1;
@@ -36143,7 +36143,7 @@
 "bLs" = (
 /obj/effect/overlay/coconut,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bLt" = (
 /turf/unsimulated/mineral/asteroid{
 	name = "asteroid";
@@ -36174,7 +36174,7 @@
 "bLx" = (
 /obj/effect/overlay/palmtree_r,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bLy" = (
 /obj/effect/step_trigger/thrower/shuttle/north,
 /turf/space/transit/south,
@@ -36191,7 +36191,7 @@
 	name = "endgame_exit"
 	},
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bLB" = (
 /obj/effect/step_trigger/thrower/shuttle/northwest,
 /turf/space/transit/south,
@@ -36203,7 +36203,7 @@
 "bLD" = (
 /obj/structure/table/standard,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bLE" = (
 /obj/structure/table/standard,
 /obj/item/clothing/under/rainbow,
@@ -36212,12 +36212,12 @@
 	pixel_y = 5
 	},
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bLF" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/chips,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bLG" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/cans/cola,
@@ -36227,11 +36227,11 @@
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bLH" = (
 /obj/item/beach_ball,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bLI" = (
 /obj/effect/step_trigger/thrower/shuttle/west,
 /turf/space/transit/south,
@@ -36393,7 +36393,7 @@
 	name = "endgame_exit"
 	},
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bMk" = (
 /obj/item/shovel,
 /obj/effect/decal/fake_object{
@@ -36448,7 +36448,7 @@
 "bMp" = (
 /obj/item/clothing/head/collectable/paper,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "bMq" = (
 /obj/effect/shuttle_landmark/research/interim,
 /turf/space/transit/south,
@@ -36482,10 +36482,10 @@
 	density = 1;
 	opacity = 1
 	},
-/area/beach)
+/area/template_noop)
 "bMv" = (
 /turf/unsimulated/beach/coastline,
-/area/beach)
+/area/template_noop)
 "bMw" = (
 /obj/item/pickaxe,
 /turf/unsimulated/floor/asteroid/ash/rocky{
@@ -36554,10 +36554,10 @@
 	density = 1;
 	opacity = 1
 	},
-/area/beach)
+/area/template_noop)
 "bMD" = (
 /turf/unsimulated/beach/water,
-/area/beach)
+/area/template_noop)
 "bME" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
