@@ -35240,6 +35240,10 @@
 /area/rnd/strongroom)
 "tjS" = (
 /obj/machinery/disposal/small/north,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "tjT" = (
