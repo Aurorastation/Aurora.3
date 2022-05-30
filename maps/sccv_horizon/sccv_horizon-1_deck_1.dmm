@@ -22417,15 +22417,12 @@
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
-<<<<<<< HEAD
-=======
 "snD" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
->>>>>>> 8e5dbb9314844242531f9931eaf38fc8a397008a
 "soD" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
