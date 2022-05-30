@@ -288,7 +288,6 @@
 		target.client.perspective = EYE_PERSPECTIVE
 		target.client.eye = src
 
-	target.simple_move_animation(src)
 	target.forceMove(src)
 
 	for (var/mob/C in viewers(src))
