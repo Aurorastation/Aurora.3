@@ -37357,6 +37357,13 @@
 	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/source_battlemonsters)
+"hTO" = (
+/obj/structure/window/full{
+	maxhealth = 100
+	},
+/obj/structure/grille,
+/turf/simulated/floor/shuttle/advanced,
+/area/shuttle/mercenary)
 "hYO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -42636,10 +42643,10 @@ aaa
 aaa
 aaa
 aaa
-bxw
-bxw
-bxw
-bxw
+hTO
+hTO
+hTO
+hTO
 bxw
 bxw
 bjG
@@ -42893,7 +42900,7 @@ aaa
 aaa
 aaa
 aaa
-bxw
+hTO
 bfX
 bgO
 bhB
@@ -43150,7 +43157,7 @@ aaa
 aaa
 aaa
 aaa
-bxw
+hTO
 bfY
 bgP
 bhC
@@ -43407,7 +43414,7 @@ aaa
 aaa
 aaa
 aaa
-bxw
+hTO
 bfZ
 bgQ
 bhD
@@ -43664,10 +43671,10 @@ aaa
 aaa
 aaa
 aaa
-bxw
-bxw
-bxw
-bxw
+hTO
+hTO
+hTO
+hTO
 bxw
 bxw
 bjK
