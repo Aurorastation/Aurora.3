@@ -825,11 +825,6 @@
 	c_tag = "Medical - First Responder Room"
 	},
 /obj/structure/closet/secure_closet/medical_fr,
-/obj/item/storage/toolbox/emergency,
-/obj/item/storage/toolbox/mechanical{
-	pixel_x = -1;
-	pixel_y = 5
-	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "auG" = (
@@ -906,6 +901,7 @@
 "avl" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
+/obj/item/storage/toolbox,
 /obj/item/reagent_containers/hypospray{
 	pixel_x = 5
 	},
@@ -42977,11 +42973,6 @@
 	pixel_y = 32
 	},
 /obj/structure/closet/secure_closet/medical_fr,
-/obj/item/storage/toolbox/emergency,
-/obj/item/storage/toolbox/mechanical{
-	pixel_x = -1;
-	pixel_y = 5
-	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "xBX" = (
