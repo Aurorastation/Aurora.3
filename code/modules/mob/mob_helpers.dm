@@ -1187,7 +1187,7 @@ proc/is_blind(A)
 /mob/proc/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	SHOULD_CALL_PARENT(TRUE)
 	var/used_accent = force_accent ? force_accent : accent
-	if(used_accent && speaking?.allow_accents)
+	if(used_accent && (speaking?.allow_accents || !speaking))
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		if(istype(a))
 			if(hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
