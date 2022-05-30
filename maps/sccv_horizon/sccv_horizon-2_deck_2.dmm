@@ -901,7 +901,7 @@
 "avl" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/item/storage/toolbox,
+/obj/item/storage/toolbox/mechanical,
 /obj/item/reagent_containers/hypospray{
 	pixel_x = 5
 	},
