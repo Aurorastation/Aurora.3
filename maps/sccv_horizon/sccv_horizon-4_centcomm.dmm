@@ -37358,10 +37358,6 @@
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/source_battlemonsters)
 "hTO" = (
-/obj/structure/window/full{
-	maxhealth = 100
-	},
-/obj/structure/grille,
 /turf/simulated/floor/shuttle/advanced,
 /area/shuttle/mercenary)
 "hYO" = (
@@ -42643,7 +42639,7 @@ aaa
 aaa
 aaa
 aaa
-hTO
+bxw
 hTO
 hTO
 hTO
@@ -43671,7 +43667,7 @@ aaa
 aaa
 aaa
 aaa
-hTO
+bxw
 hTO
 hTO
 hTO
