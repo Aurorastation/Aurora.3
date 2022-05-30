@@ -229,7 +229,7 @@
 	ammo_type = /obj/item/ammo_casing/a556/ap
 
 /obj/item/ammo_magazine/a556/polymer
-	name = "magazine (5.56mm polymer)"
+	name = "magazine (5.56mm lethal polymer)"
 	icon_state = "5.56AP"
 	ammo_type = /obj/item/ammo_casing/a556/polymer
 
@@ -254,7 +254,7 @@
 	ammo_type = /obj/item/ammo_casing/a556/ap
 
 /obj/item/ammo_magazine/a556/carbine/polymer
-	name = "carbine magazine (5.56mm polymer)"
+	name = "carbine magazine (5.56mm lethal polymer)"
 	icon_state = "5.56APc"
 	ammo_type = /obj/item/ammo_casing/a556/polymer
 
