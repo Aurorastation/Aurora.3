@@ -1868,11 +1868,6 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "hr" = (
-/obj/structure/closet{
-	icon_opened = "cabinet_open";
-	icon_state = "cabinet_closed";
-	name = "Wardrobe"
-	},
 /turf/simulated/floor/airless,
 /area/derelict)
 "hs" = (
