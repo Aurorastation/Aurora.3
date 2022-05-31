@@ -5,6 +5,7 @@ changes:
   - bugfix: "Diona can now take the headtails 'hair' option again."
   - bugfix: "Anomaly power utilizers no longer go invisible when a battery is removed."
   - bugfix: "Morph turfs no longer spread through windows or doors, unless the door is open."
+  - bugfix: "You can now throw items over railing again."
   - bugfix: "Freedom implants now allow you to select a trigger emote, instead of randomly selecting one you may not be able to use."
   - tweak: "Freedom implants are now more obvious when they're out of uses."
   - tweak: "You can now secure extinguisher refill canisters with a screwdriver, giving a way for borgs and drones to refill their extinguishers."
