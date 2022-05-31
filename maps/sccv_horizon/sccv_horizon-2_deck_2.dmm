@@ -6055,7 +6055,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
-/turf/space/dynamic,
+/turf/simulated/open/airless,
 /area/template_noop)
 "dlG" = (
 /obj/structure/sink/kitchen{
@@ -6212,9 +6212,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/assembly/chargebay)
 "dpj" = (
-/obj/structure/lattice,
-/obj/structure/grille,
-/turf/template_noop,
+/obj/structure/disposalpipe/trunk,
+/obj/structure/lattice/catwalk,
+/obj/structure/disposaloutlet{
+	dir = 1
+	},
+/turf/simulated/open/airless,
 /area/template_noop)
 "dpE" = (
 /obj/structure/cable{
@@ -11351,12 +11354,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/crew_quarters/heads/chief)
-"ghq" = (
-/obj/structure/ladder{
-	pixel_y = 16
-	},
-/turf/simulated/open/airless,
-/area/template_noop)
 "ghX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11501,7 +11498,7 @@
 "gmo" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "gmt" = (
 /obj/structure/table/standard,
@@ -17038,7 +17035,7 @@
 	},
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "jmp" = (
 /obj/structure/table/standard,
@@ -18059,7 +18056,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk,
-/turf/space/dynamic,
+/turf/simulated/open/airless,
 /area/template_noop)
 "jPb" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -19451,7 +19448,7 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "kIp" = (
 /turf/simulated/floor/tiled,
@@ -20560,7 +20557,7 @@
 	dir = 8
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "lqJ" = (
 /obj/effect/floor_decal/corner/lime/full{
@@ -21176,10 +21173,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hor)
-"lJE" = (
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/template_noop)
 "lJP" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -21644,7 +21637,7 @@
 	dir = 6
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "lVe" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -22848,7 +22841,7 @@
 	},
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "mFD" = (
 /obj/effect/floor_decal/corner/blue{
@@ -27087,7 +27080,7 @@
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "oTa" = (
 /turf/simulated/floor/tiled,
@@ -27708,7 +27701,6 @@
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "piY" = (
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_two/fore)
 "pjK" = (
@@ -28908,7 +28900,7 @@
 	},
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "pQj" = (
 /obj/structure/cable/green{
@@ -29442,7 +29434,7 @@
 "qeZ" = (
 /obj/structure/lattice,
 /obj/machinery/shield_diffuser,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "qff" = (
 /obj/machinery/light{
@@ -31568,14 +31560,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
-"rmG" = (
-/obj/machinery/door/window/brigdoor/eastleft{
-	dir = 1;
-	req_access = null;
-	req_one_access = list(11, 24)
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_room)
 "rmR" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -31842,7 +31826,7 @@
 	dir = 5
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "rsp" = (
 /obj/machinery/door/firedoor,
@@ -32260,15 +32244,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
-"rDR" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d3-2"
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/turf/space/dynamic,
-/area/rnd/xenobiology/xenoflora)
 "rEk" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -32566,7 +32541,7 @@
 	dir = 10
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "rNe" = (
 /obj/structure/shuttle_part/scc_space_ship{
@@ -33135,7 +33110,7 @@
 /obj/structure/lattice,
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "saJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -33871,7 +33846,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "swH" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "shutters_deck2_barwindows";
@@ -34593,13 +34567,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"sVF" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/open/airless,
-/area/horizon/exterior)
 "sVO" = (
 /obj/structure/bed/stool/chair/padded/red,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -34738,7 +34705,7 @@
 "tab" = (
 /obj/machinery/door/window/westright,
 /obj/structure/lattice/catwalk,
-/turf/space/dynamic,
+/turf/simulated/open/airless,
 /area/template_noop)
 "tae" = (
 /obj/structure/cable/green{
@@ -35495,12 +35462,14 @@
 	},
 /area/horizon/kitchen/freezer)
 "tvM" = (
-/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
-	dir = 1
+	dir = 4
 	},
-/turf/space/dynamic,
-/area/template_noop)
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/flora/pottedplant,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology/xenoflora)
 "tvX" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -37944,7 +37913,7 @@
 	dir = 1;
 	network = list("Command","Bunker")
 	},
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "uHh" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -38580,7 +38549,7 @@
 /obj/structure/sign/drop{
 	pixel_y = -32
 	},
-/turf/space/dynamic,
+/turf/simulated/open/airless,
 /area/template_noop)
 "uZh" = (
 /obj/machinery/light{
@@ -39134,7 +39103,7 @@
 /obj/structure/lattice,
 /obj/structure/grille,
 /obj/structure/grille,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "vrC" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -40275,7 +40244,7 @@
 /obj/structure/lattice,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/open/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "vTY" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
@@ -41238,7 +41207,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
-/turf/space/dynamic,
+/turf/simulated/open/airless,
 /area/template_noop)
 "wpb" = (
 /obj/structure/cable/green{
@@ -42242,7 +42211,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
 "wMP" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "wNk" = (
@@ -44075,7 +44043,7 @@
 	dir = 9
 	},
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "xPm" = (
 /turf/simulated/wall,
@@ -56405,7 +56373,7 @@ qgN
 qgN
 qgN
 qgN
-sVF
+pqs
 tsk
 fDE
 fDE
@@ -60828,7 +60796,7 @@ qeZ
 kUf
 oSQ
 oSQ
-qgN
+kuh
 vcM
 gWf
 dAN
@@ -67090,7 +67058,7 @@ qgN
 qgN
 qgN
 qgN
-lJE
+kUf
 gXy
 dcU
 fgh
@@ -67292,7 +67260,7 @@ qgN
 qgN
 qgN
 qgN
-lJE
+kUf
 fgh
 fgh
 fgh
@@ -71793,7 +71761,7 @@ uNK
 sGm
 tuD
 rXd
-nri
+gjU
 aac
 aac
 joH
@@ -75399,8 +75367,8 @@ qgN
 qgN
 vPk
 vPk
-aAx
-cEG
+rFn
+tvM
 kDx
 ngG
 lHs
