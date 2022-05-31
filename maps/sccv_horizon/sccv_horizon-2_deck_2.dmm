@@ -2047,12 +2047,6 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/structure/table/standard,
 /obj/item/paper_scanner,
 /turf/simulated/floor/carpet/rubber,
@@ -5834,9 +5828,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "dfO" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/machinery/computer/telescience{
 	starting_crystals = 4
 	},
@@ -6362,7 +6353,7 @@
 /obj/machinery/door/window/eastleft{
 	name = "Bar Desk External Access"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar)
 "duk" = (
 /obj/structure/girder,
@@ -9336,11 +9327,8 @@
 /turf/simulated/floor/plating,
 /area/bridge/aibunker)
 "fgZ" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/telesci)
 "fha" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -10241,9 +10229,6 @@
 /obj/item/clothing/head/helmet/space/void/sci,
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/oxygen,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
 "fJc" = (
@@ -13777,9 +13762,6 @@
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
 /area/horizon/stairwell/bridge)
 "hte" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/machinery/suit_cycler/science,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
@@ -16305,9 +16287,6 @@
 	},
 /obj/item/device/multitool,
 /obj/structure/table/steel,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/railing/mapped,
 /obj/item/device/gps/science{
 	pixel_x = -9;
@@ -33851,7 +33830,8 @@
 	id = "shutters_deck2_barwindows";
 	name = "Viewing Shutter"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar)
 "sxl" = (
 /obj/structure/table/standard,
@@ -34841,13 +34821,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "tci" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/machinery/door/window/southleft,
-/obj/machinery/door/window/northleft,
 /obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled/ramp,
+/obj/machinery/door/window/northleft,
+/obj/machinery/door/window/southleft,
+/turf/simulated/floor/tiled/ramp{
+	dir = 1
+	},
 /area/rnd/telesci)
 "tcQ" = (
 /obj/effect/floor_decal/corner_wide/green{
@@ -42211,7 +42190,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
 "wMP" = (
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "wNk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -44024,10 +44004,6 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
-"xOT" = (
-/obj/structure/window/reinforced,
-/turf/simulated/floor/reinforced,
-/area/rnd/telesci)
 "xPd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
@@ -68294,7 +68270,7 @@ kvZ
 bGh
 fFx
 vBy
-vBy
+fFx
 fgZ
 dfO
 gWW
@@ -68497,7 +68473,7 @@ bGh
 pbS
 pbS
 vzv
-xOT
+fgZ
 hte
 ihe
 jAT
@@ -68699,7 +68675,7 @@ bGh
 ihe
 ejw
 iid
-xOT
+fgZ
 fIE
 rtb
 ikB
@@ -68901,7 +68877,7 @@ bGh
 sDQ
 sDQ
 uoA
-xOT
+fgZ
 aWy
 iRN
 tHv
@@ -69101,10 +69077,10 @@ uEq
 kvZ
 bGh
 fsL
-vBy
 bHL
 fsL
 tci
+hyL
 hyL
 ayA
 bGh
