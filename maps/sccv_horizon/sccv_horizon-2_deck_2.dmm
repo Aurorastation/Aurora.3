@@ -8344,9 +8344,6 @@
 /obj/structure/closet/secure_closet/hos,
 /obj/item/device/multitool,
 /obj/item/reagent_containers/spray/pepper,
-/obj/item/clothing/suit/space/void/hos,
-/obj/item/clothing/head/helmet/space/void/hos,
-/obj/item/clothing/shoes/magboots,
 /obj/item/tank/oxygen,
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -8355,7 +8352,7 @@
 /obj/item/device/taperecorder,
 /obj/item/device/flashlight/heavy,
 /obj/item/device/megaphone/sec,
-/obj/item/device/suit_cooling_unit,
+/obj/item/rig/hazard/equipped,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "eDf" = (
