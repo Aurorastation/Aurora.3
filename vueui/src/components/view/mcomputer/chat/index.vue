@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h2 v-if="!s.service" class="red">Chat service is not enabled, please enable it from main menu.</h2>
-    <h2 v-else-if="!s.registered" class="red">No registered user detected.</h2>
+    <h2 v-if="!s.registered" class="red">No registered user detected.</h2>
     <template v-else>
       <div>
         <vui-button v-if="s.can_netadmin_mode || s.netadmin_mode" :class="{ on: s.netadmin_mode }" :params="{toggleadmin: 1}">Admin Mode</vui-button>
