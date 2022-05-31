@@ -1,7 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - rscadd: "Added two more reading outputs for damage. The cap for damage readout now is Fatal (over 100 damage), in contrast to Severe (over 50 damage)."
-  - bugfix: "Fixed the Burn Severity reading from being hard numbers to the minor/moderate/significant/severe/critical/fatal."

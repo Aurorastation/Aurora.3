@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed antag uplinks not working off-station (for real this time). Chat clients on PDAs can now be opened off-Horizon, but with limited functionality."
