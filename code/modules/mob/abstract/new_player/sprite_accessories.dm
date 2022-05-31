@@ -1407,11 +1407,11 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "horny"
 
 		headtails
-			name = "Headtails"
+			name = "Head tails"
 			icon_state = "headtails"
 
 		headtails_2
-			name = "Headtails 2"
+			name = "Head tails 2"
 			icon_state = "headtails2"
 
 		tiny_eye
