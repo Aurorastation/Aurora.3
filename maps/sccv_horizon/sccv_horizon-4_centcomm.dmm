@@ -15414,6 +15414,7 @@
 	name = "Shuttle Hatch";
 	req_access = list(13)
 	},
+/obj/effect/shuttle_landmark/ccia/start,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
 "aLv" = (
@@ -15848,10 +15849,6 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
-"aMu" = (
-/obj/effect/shuttle_landmark/ccia/start,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/transport1)
 "aMv" = (
 /obj/machinery/light{
 	dir = 4;
@@ -15975,7 +15972,7 @@
 /area/shuttle/transport1)
 "aMT" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
-	dir = 8
+	dir = 4
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
@@ -55185,7 +55182,7 @@ aKe
 aKH
 aNt
 aMa
-aMu
+aMb
 aMQ
 aNt
 aNR
@@ -56212,9 +56209,9 @@ aJx
 aKf
 aKG
 aNt
-aMe
-aMy
 aMT
+aMy
+aMe
 aNt
 aNR
 aNR

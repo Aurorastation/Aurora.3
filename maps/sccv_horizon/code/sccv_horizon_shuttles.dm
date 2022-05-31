@@ -190,10 +190,9 @@
 /obj/effect/shuttle_landmark/mining/hangar
 	name = "Mining Shuttle Hangar"
 	landmark_tag = "nav_hangar_mining"
-	docking_controller = "mining_dock"
-	base_turf = /turf/simulated/floor/plating
+	docking_controller = "mining_shuttle_dock"
+	base_turf = /turf/simulated/floor/airless
 
 /obj/effect/shuttle_landmark/mining/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_mining"
-
