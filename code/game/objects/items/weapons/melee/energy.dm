@@ -382,7 +382,7 @@
 	flags = NOBLOODY
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	var/mob/living/creator
-	base_reflectchance = 75
+	base_reflectchance = 140
 	base_block_chance = 75
 	can_block_bullets = TRUE
 	active = TRUE
