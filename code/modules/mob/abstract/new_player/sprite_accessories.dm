@@ -1141,9 +1141,20 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_punk_halfshaved"
 		chatname = "unshaved hair"		// grabbing the parts that can be grabbed
 
+	punk_halfshaved_alt
+		name = "Punk Shave, Half-Shaved (alt)"
+		icon_state = "hair_punk_halfshaved_alt"
+		chatname = "unshaved hair"
+
 	punk_halfshaved_bun
 		name = "Punk Shave, Half-Shaved Bun"
 		icon_state = "hair_punk_halfshaved_bun"
+		length = 2
+		chatname = "hair bun"
+
+	punk_halfshaved_bun_alt
+		name = "Punk Shave, Half-Shaved Bun (alt)"
+		icon_state = "hair_punk_halfshaved_bun_alt"
 		length = 2
 		chatname = "hair bun"
 
