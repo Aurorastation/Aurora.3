@@ -33827,13 +33827,13 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
 "bCB" = (
-/obj/item/modular_computer/console/preset/command/teleporter,
+/obj/item/modular_computer/console/preset/command/teleporter/ninja,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
 /area/antag/ninja)
 "bCC" = (
-/obj/machinery/teleport/pad,
+/obj/machinery/teleport/pad/ninja,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
