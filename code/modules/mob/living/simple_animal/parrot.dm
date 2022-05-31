@@ -65,6 +65,8 @@
 	var/list/speech_buffer = list()
 	var/list/available_channels = list()
 
+	var/obj/item/device/radio/headset/ears = null
+
 	//The thing the parrot is currently interested in. This gets used for items the parrot wants to pick up, mobs it wants to steal from,
 	//mobs it wants to attack or mobs that have attacked it
 	var/atom/movable/parrot_interest = null
