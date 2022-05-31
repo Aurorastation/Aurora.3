@@ -6329,6 +6329,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "dsw" = (
@@ -17043,6 +17045,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "jlQ" = (
@@ -27019,6 +27022,7 @@
 /obj/item/stack/material/glass/phoronrglass{
 	amount = 20
 	},
+/obj/item/stack/material/wood/full,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "oPE" = (
@@ -36139,6 +36143,8 @@
 /obj/structure/table/steel,
 /obj/item/circuitboard/arcade/orion_trail,
 /obj/item/circuitboard/arcade/battle,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "tKs" = (
@@ -39110,6 +39116,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/scanning_module,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "voX" = (
@@ -41428,6 +41437,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "wrK" = (
