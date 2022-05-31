@@ -379,12 +379,13 @@ var/list/slot_equipment_priority = list( \
 				to_chat(src, SPAN_NOTICE("You offer \the [I] to \the [target]."))
 				do_give(H)
 			return TRUE
+
 		var/turf/T = get_turf(target)
-		if(T.contains_dense_objects()) //Walls, windows, etc. Can't put things inside of them!
+		if(T.contains_dense_objects() && !istype(target, /obj/structure/table)) //Stop at dense objects, like walls and windows. Allow placing on tables.
 			return TRUE //Takes off throw mode
 		remove_from_mob(I)
 		make_item_drop_sound(I)
-		I.forceMove(get_turf(target))
+		I.forceMove(T)
 		return TRUE
 
 	remove_from_mob(item)
