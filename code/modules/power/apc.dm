@@ -88,10 +88,12 @@
 
 /obj/machinery/power/apc/intrepid
 	cell_type = /obj/item/cell/high
+	req_access = null
 	req_one_access = list(access_intrepid,access_engine_equip)
 
-/obj/machinery/power/apc/mining_pod
+/obj/machinery/power/apc/mining_shuttle
 	cell_type = /obj/item/cell/high
+	req_access = null
 	req_one_access = list(access_mining,access_engine_equip)
 
 // Construction site APC, starts turned off

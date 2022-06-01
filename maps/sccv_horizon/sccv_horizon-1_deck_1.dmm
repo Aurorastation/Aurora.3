@@ -899,7 +899,6 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "aNO" = (
-/obj/machinery/bluespace_beacon,
 /obj/machinery/hologram/holopad/long_range,
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3722,7 +3721,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "mining_shuttle_dock_doors"
+	id_tag = "mining_shuttle_dock_doors";
+	req_access = list(13)
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -7071,7 +7071,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "mining_shuttle_internal"
+	id_tag = "mining_shuttle_internal";
+	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
@@ -7957,7 +7958,8 @@
 "glb" = (
 /obj/structure/railing/mapped,
 /obj/structure/sign/emerg_exit/evac{
-	dir = 8
+	dir = 8;
+	layer = 2.1
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -10617,7 +10619,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/sign/fire{
 	desc = "A warning sign which reads 'DANGER: SHUTTLE THRUSTERS IN USE' and 'MIND THE DISTANCE'.";
-	name = "\improper DANGER: THRUSTERS sign"
+	name = "\improper DANGER: THRUSTERS sign";
+	layer = 2.1
 	},
 /turf/simulated/floor/tiled/airless,
 /area/hangar/operations)
@@ -13368,7 +13371,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "mining_shuttle_dock_doors"
+	id_tag = "mining_shuttle_dock_doors";
+	req_access = list(13)
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -13493,12 +13497,14 @@
 	master_tag = "mining_shuttle_controller";
 	name = "exterior access button";
 	pixel_x = -25;
-	pixel_y = 10
+	pixel_y = 10;
+	req_one_access = list(31, 48, 67)
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "mining_shuttle_external"
+	id_tag = "mining_shuttle_external";
+	req_access = list(13)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -15535,7 +15541,8 @@
 /area/hangar/auxiliary)
 "mFO" = (
 /obj/structure/sign/emerg_exit/evac{
-	dir = 8
+	dir = 8;
+	layer = 2.1
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
@@ -17559,7 +17566,8 @@
 	dir = 10
 	},
 /obj/structure/sign/emerg_exit/evac{
-	dir = 8
+	dir = 8;
+	layer = 2.1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
@@ -20481,7 +20489,7 @@
 	pixel_y = -25;
 	tag_door = "mining_shuttle_dock_doors";
 	pixel_x = 6;
-	req_access = list(48)
+	req_one_access = list(31, 48, 67)
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -21580,7 +21588,8 @@
 "rKM" = (
 /obj/structure/sign/fire{
 	desc = "A warning sign which reads 'DANGER: SHUTTLE THRUSTERS IN USE' and 'MIND THE DISTANCE'.";
-	name = "\improper DANGER: THRUSTERS sign"
+	name = "\improper DANGER: THRUSTERS sign";
+	layer = 2.1
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -21605,6 +21614,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 4
 	},
+/obj/machinery/bluespace_beacon,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "rNe" = (
@@ -22308,7 +22318,8 @@
 	tag_chamber_sensor = "mining_shuttle_sensor";
 	tag_exterior_door = "mining_shuttle_external";
 	tag_interior_door = "mining_shuttle_internal";
-	pixel_x = 25
+	pixel_x = 25;
+	req_one_access = list(31, 48, 67)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -23171,7 +23182,8 @@
 /area/engineering/atmos)
 "sXU" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1
+	dir = 1;
+	name = "Fuel Tank to Thrusters"
 	},
 /obj/machinery/door/window/southright,
 /obj/structure/cable/green{
@@ -24377,6 +24389,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
+"tVI" = (
+/obj/machinery/door/window/northleft{
+	name = "Mining Shuttle Maintenance Exterior";
+	req_access = list(48)
+	},
+/obj/machinery/door/window/southleft{
+	name = "Mining Shuttle Maintenance Interior";
+	req_access = list(48)
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/tiled,
+/area/hangar/operations)
 "tWc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/structure/cable/green{
@@ -24565,6 +24590,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
+/obj/item/device/gps/stationary/mining_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "ucG" = (
@@ -25530,12 +25556,14 @@
 	master_tag = "mining_shuttle_controller";
 	name = "interior access button";
 	pixel_x = 23;
-	pixel_y = -10
+	pixel_y = -10;
+	req_one_access = list(31, 48, 67)
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "mining_shuttle_internal"
+	id_tag = "mining_shuttle_internal";
+	req_access = list(13)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -26857,7 +26885,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "mining_shuttle_external"
+	id_tag = "mining_shuttle_external";
+	req_access = list(13)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -27796,14 +27825,16 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/atmos)
 "wSS" = (
-/obj/machinery/door/window/northleft{
-	name = "Mining Shuttle Maintenance Exterior"
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/window/northright{
+	name = "Mining Shuttle Maintenance Exterior";
+	req_access = list(48)
 	},
-/obj/machinery/door/window/southleft{
-	name = "Mining Shuttle Maintenance Interior"
+/obj/machinery/door/window/southright{
+	name = "Mining Shuttle Maintenance Interior";
+	req_access = list(48)
 	},
 /obj/structure/plasticflaps/airtight,
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "wSZ" = (
@@ -28194,12 +28225,12 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/mining_pod{
-	dir = 4;
-	pixel_x = 24
-	},
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
+	},
+/obj/machinery/power/apc/mining_shuttle{
+	pixel_x = 24;
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -44696,7 +44727,7 @@ wkD
 wos
 rcA
 oXD
-wSS
+tVI
 ixU
 pgW
 gyo

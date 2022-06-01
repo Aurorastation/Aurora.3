@@ -415,7 +415,9 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/structure/sign/emerg_exitZ_stairs/evac,
+/obj/structure/sign/emerg_exitZ_stairs/evac{
+	layer = 2.1
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
