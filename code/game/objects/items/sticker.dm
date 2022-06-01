@@ -63,7 +63,6 @@
 	user.drop_from_inventory(src, A)
 	attached = WEAKREF(A)
 	A.vis_contents += src
-	A.verbs += /atom/movable/proc/take_off_sticker
 
 /obj/item/sticker/proc/remove_sticker(var/mob/user)
 	user.put_in_hands(src)
@@ -71,7 +70,6 @@
 	if(attached_atom)
 		to_chat(user, SPAN_NOTICE("You remove \the [src] from \the [attached_atom]."))
 		attached_atom.vis_contents -= src
-		attached_atom.verbs -= /atom/movable/proc/take_off_sticker
 		attached = null
 
 /obj/item/sticker/googly_eye
