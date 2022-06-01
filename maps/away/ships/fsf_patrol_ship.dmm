@@ -1195,7 +1195,7 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
-/obj/item/clothing/under/rank/medical/blue,
+/obj/item/clothing/under/rank/medical,
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical/w,
 /obj/machinery/light{
@@ -2168,7 +2168,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/fsf_patrol_ship)
 "ttC" = (
 /obj/structure/sink{

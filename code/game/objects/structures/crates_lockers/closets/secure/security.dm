@@ -9,6 +9,7 @@
 		new /obj/item/storage/backpack/captain(src)
 	else
 		new /obj/item/storage/backpack/satchel_cap(src)
+	new /obj/item/storage/backpack/duffel/cap(src)
 	// Armor
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
@@ -103,10 +104,10 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
+	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/suit/armor/carrier/hos(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
-	new /obj/item/clothing/head/hos/corp(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/suit/storage/security/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
@@ -143,10 +144,10 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
+	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/suit/armor/carrier/hos(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
-	new /obj/item/clothing/head/beret/security/corp(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/suit/storage/security/hos(src)
 	//Tools
@@ -174,11 +175,10 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
+	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
-	new /obj/item/clothing/head/beret/security/corp(src)
-	new /obj/item/clothing/head/warden/corp(src)
 	new /obj/item/clothing/head/helmet/security(src)
 	new	/obj/item/clothing/suit/storage/security/warden(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
@@ -210,9 +210,10 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
+	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/head/beret/security(src)
 	new /obj/item/clothing/head/softcap/security(src)
-	new /obj/item/clothing/suit/storage/hazardvest/cadet(src)
+	new /obj/item/clothing/suit/storage/hazardvest/security(src)
 	new /obj/item/clothing/under/rank/cadet(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
@@ -238,11 +239,10 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
+	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
-	new /obj/item/clothing/head/beret/security/corp(src)
-	new /obj/item/clothing/head/softcap/security/corp(src)
 	new /obj/item/clothing/head/helmet/security(src)
 	new /obj/item/clothing/suit/storage/security/officer(src)
 	new /obj/item/clothing/accessory/badge/officer(src)
@@ -271,10 +271,11 @@
 	//Appearance
 	new /obj/item/storage/backpack/satchel/leather(src)
 	new /obj/item/clothing/suit/storage/det_jacket(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/under/det(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat/security(src)
-	new /obj/item/clothing/under/det/black(src)
-	new /obj/item/clothing/under/det/classic(src)
+	new /obj/item/clothing/under/det/idris(src)
+	new /obj/item/clothing/under/det/pmc(src)
+	new /obj/item/clothing/under/det/zavod(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
 	new /obj/item/clothing/suit/storage/toggle/forensics(src)
 	new /obj/item/clothing/gloves/black/forensic(src)
@@ -354,19 +355,5 @@
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 	new /obj/item/device/radio/headset/headset_com(src)
 	new /obj/item/device/radio/headset/headset_com/alt(src)
-
-/obj/structure/closet/secure_closet/pilot
-	name = "pilot's locker"
-	req_access = list(access_bridge_crew)
-	icon_state = "sec"
-	icon_door = "hop"
-
-/obj/structure/closet/secure_closet/pilot/fill()
-	..()
-	new /obj/item/clothing/under/rank/bridge_crew(src)
-	new /obj/item/clothing/glasses/sunglasses(src)
-	new /obj/item/device/radio/headset/headset_com(src)
-	new /obj/item/device/radio/headset/headset_com/alt(src)
-	new /obj/item/clothing/head/helmet/pilot(src)
 	new /obj/item/device/radio/off(src)
 	new /obj/item/device/gps(src)

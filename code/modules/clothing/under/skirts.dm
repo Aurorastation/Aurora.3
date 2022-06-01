@@ -9,7 +9,6 @@
 	item_state = "skirt_casual"
 	worn_state = "skirt_casual"
 	body_parts_covered = LOWER_TORSO
-	rolled_sleeves = -1
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/skirt/puffy
@@ -83,6 +82,14 @@
 	icon_state = "skirt_tube"
 	item_state = "skirt_tube"
 	worn_state = "skirt_tube"
+
+/obj/item/clothing/under/skirt/straightlong
+	name = "straight long skirt"
+	desc = "A skirt that goes all the way down to the ankles."
+	desc_fluff = "Enough fabric for two skirts, and then some."
+	icon_state = "skirt_straightlong"
+	item_state = "skirt_straightlong"
+	worn_state = "skirt_straightlong"
 
 /obj/item/clothing/under/skirt/offworlder
 	name = "\improper CR skirt"

@@ -462,6 +462,7 @@
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	var/z_velocity = 5*(levels_fallen**2)
+
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
 
 	apply_damage(damage, BRUTE)

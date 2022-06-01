@@ -25,10 +25,10 @@
 	name = "Bartender"
 	jobtype = /datum/job/bartender
 
-	uniform = /obj/item/clothing/under/rank/bartender/nt
-	head = /obj/item/clothing/head/flatcap/bartender/nt
+	head = /obj/item/clothing/head/flatcap/bartender
+	uniform = /obj/item/clothing/under/rank/bartender
 	shoes = /obj/item/clothing/shoes/black
-	suit = /obj/item/clothing/suit/storage/bartender/nt
+	suit = /obj/item/clothing/suit/storage/bartender
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/bartender
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/bartender
@@ -112,8 +112,8 @@
 	name = "Gardener"
 	jobtype = /datum/job/hydro
 
-	uniform = /obj/item/clothing/under/rank/hydroponics/nt
-	suit = /obj/item/clothing/suit/apron
+	uniform = /obj/item/clothing/under/rank/hydroponics
+//	suit = /obj/item/clothing/suit/apron
 	head = /obj/item/clothing/head/bandana/hydro/nt
 	shoes = /obj/item/clothing/shoes/black
 	suit_store = /obj/item/device/analyzer/plant_analyzer
@@ -161,8 +161,8 @@
 	name = "Janitor"
 	jobtype = /datum/job/janitor
 
-	uniform = /obj/item/clothing/under/rank/janitor/nt
-	head = /obj/item/clothing/head/softcap/janitor/nt
+	uniform = /obj/item/clothing/under/rank/janitor
+	head = /obj/item/clothing/head/softcap/nt/custodian
 	shoes = /obj/item/clothing/shoes/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/janitor
@@ -258,7 +258,7 @@
 	name = "Librarian"
 	jobtype = /datum/job/librarian
 
-	uniform = /obj/item/clothing/under/librarian/nt
+	uniform = /obj/item/clothing/under/librarian
 	shoes = /obj/item/clothing/shoes/black
 	r_pocket = /obj/item/barcodescanner
 	l_hand = /obj/item/storage/bag/books
@@ -369,9 +369,9 @@
 	)
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
-						access_sec_doors, access_research, access_medical, access_robotics)
+						access_sec_doors, access_research, access_medical, access_robotics, access_engine)
 	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
-						access_sec_doors, access_research, access_medical, access_robotics)
+						access_sec_doors, access_research, access_medical, access_robotics, access_engine)
 
 	ideal_character_age = list(
 		SPECIES_HUMAN = 40,
@@ -442,7 +442,6 @@
 	bowman = /obj/item/device/radio/headset/headset_cargo/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/cargo
 	wrist_radio = /obj/item/device/radio/headset/wrist/cargo
-
 
 /datum/job/mining
 	title = "Shaft Miner"
@@ -528,7 +527,7 @@
 	jobtype = /datum/job/machinist
 
 	uniform = /obj/item/clothing/under/rank/machinist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	suit = /obj/item/clothing/suit/storage/machinist
 	shoes = /obj/item/clothing/shoes/black
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/belt/utility

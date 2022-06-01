@@ -43,6 +43,8 @@
 
 	var/image/hatch_image
 
+	var/turf_hand_priority = 3
+
 	//Multi-tile doors
 	dir = SOUTH
 	var/width = 1
@@ -78,6 +80,8 @@
 	update_nearby_tiles(need_rebuild=1)
 	if(hashatch && !(width > 1))
 		setup_hatch()
+	if(turf_hand_priority)
+		AddComponent(/datum/component/turf_hand, turf_hand_priority)
 
 /obj/machinery/door/Move(new_loc, new_dir)
 	. = ..()
@@ -338,10 +342,9 @@
 			return TRUE
 
 		var/obj/item/weldingtool/welder = I
-		if(welder.remove_fuel(0,user))
+		if(welder.use(0,user))
 			to_chat(user, "<span class='notice'>You start to fix dents and weld \the [repairing] into place.</span>")
-			playsound(src, 'sound/items/welder.ogg', 100, 1)
-			if(do_after(user, 5 * repairing.amount) && welder && welder.isOn())
+			if(welder.use_tool(src, user, 5 * repairing.amount, volume = 50) && welder && welder.isOn())
 				to_chat(user, "<span class='notice'>You finish repairing the damage to \the [src].</span>")
 				health = between(health, health + repairing.amount*DOOR_REPAIR_AMOUNT, maxhealth)
 				update_icon()
@@ -351,7 +354,7 @@
 
 	if(repairing && I.iscrowbar())
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
-		playsound(src.loc, I.usesound, 100, 1)
+		playsound(src.loc, I.usesound, 50, 1)
 		repairing.forceMove(user.loc)
 		repairing = null
 		return TRUE
@@ -391,17 +394,18 @@
 		open(1)
 		return 1
 
-/obj/machinery/door/proc/take_damage(var/damage)
+/obj/machinery/door/proc/take_damage(var/damage, message = TRUE)
 	var/initialhealth = src.health
 	src.health = max(0, src.health - damage)
 	if(src.health <= 0 && initialhealth > 0)
 		src.set_broken()
-	else if(src.health < src.maxhealth / 4 && initialhealth >= src.maxhealth / 4)
-		visible_message(SPAN_WARNING("\The [src] looks like it's about to break!"))
-	else if(src.health < src.maxhealth / 2 && initialhealth >= src.maxhealth / 2)
-		visible_message(SPAN_WARNING("\The [src] looks seriously damaged!"))
-	else if(src.health < src.maxhealth * 3/4 && initialhealth >= src.maxhealth * 3/4)
-		visible_message(SPAN_WARNING("\The [src] shows signs of damage!"))
+	else if(message)
+		if(src.health < src.maxhealth / 4 && initialhealth >= src.maxhealth / 4)
+			visible_message(SPAN_WARNING("\The [src] looks like it's about to break!"))
+		else if(src.health < src.maxhealth / 2 && initialhealth >= src.maxhealth / 2)
+			visible_message(SPAN_WARNING("\The [src] looks seriously damaged!"))
+		else if(src.health < src.maxhealth * 3/4 && initialhealth >= src.maxhealth * 3/4)
+			visible_message(SPAN_WARNING("\The [src] shows signs of damage!"))
 	update_icon()
 	return
 
@@ -442,7 +446,7 @@
 				var/damage = rand(300,600)
 				if (bolted)
 					damage *= 0.8 //Bolted doors are a bit tougher
-				take_damage(damage)
+				take_damage(damage, FALSE)
 		if(2.0)
 			if((!bolted && prob(25)) || prob(20))
 				qdel(src)
@@ -450,14 +454,14 @@
 				var/damage = rand(150,300)
 				if (bolted)
 					damage *= 0.8 //Bolted doors are a bit tougher
-				take_damage(damage)
+				take_damage(damage, FALSE)
 		if(3.0)
 			if(prob(80))
 				spark(src, 2, alldirs)
 			var/damage = rand(100,150)
 			if (bolted)
 				damage *= 0.8
-			take_damage(damage)
+			take_damage(damage, FALSE)
 
 	if (health <= 0)
 		qdel(src)

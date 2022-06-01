@@ -54,7 +54,7 @@
 		"Medical Intern" = /datum/outfit/job/intern_med/zeng_hu,
 		"Scientist" = /datum/outfit/job/scientist/zeng_hu,
 		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
-		"Xenobotanist" = /datum/outfit/job/scientist/xenobiologist/botany/zeng_hu,
+		"Xenobotanist" = /datum/outfit/job/scientist/xenobotanist/zeng_hu,
 		"Lab Assistant" = /datum/outfit/job/intern_sci/zeng_hu,
 		"Xenoarcheologist"= /datum/outfit/job/scientist/xenoarcheologist/zeng_hu,
 		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
@@ -72,28 +72,32 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
-	head = /obj/item/clothing/head/surgery/zeng
 	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/doctor/surgeon/zeng_hu/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(!isskrell(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/zeng(H), slot_head)
 
 /datum/outfit/job/pharmacist/zeng_hu
 	name = "Pharmacist - Zeng-Hu"
 
-	uniform = /obj/item/clothing/under/rank/pharmacist/zeng
+	uniform = /obj/item/clothing/under/rank/medical/pharmacist/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/psychiatrist/zeng_hu
 	name = "Psychiatrist - Zeng-Hu"
 
+	uniform = /obj/item/clothing/under/rank/medical/psych/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
-	uniform = /obj/item/clothing/under/rank/psych/zeng
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/med_tech/zeng_hu
 	name = "First Responder - Zeng-Hu"
 
-	head = /obj/item/clothing/head/softcap/medical/pmc
+	head = /obj/item/clothing/head/softcap/zeng
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
 	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/intern_med/zeng_hu
@@ -116,7 +120,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
 
-/datum/outfit/job/scientist/xenobiologist/botany/zeng_hu
+/datum/outfit/job/scientist/xenobotanist/zeng_hu
 	name = "Xenobotanist - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/scientist/botany/zeng
@@ -135,16 +139,17 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/intern/zeng
 	id = /obj/item/card/id/zeng_hu
-	suit = null
 
 /datum/outfit/job/representative/zeng_hu
 	name = "Zeng-Hu Corporate Liaison"
 
-	uniform = /obj/item/clothing/under/rank/zeng/civilian
-	head = null
-	suit = null
+	head = /obj/item/clothing/head/beret/corporate/zeng
+	uniform = /obj/item/clothing/under/rank/liaison/zeng
+	suit = /obj/item/clothing/suit/storage/liaison/zeng
 	implants = null
 	id = /obj/item/card/id/zeng_hu
+	accessory = /obj/item/clothing/accessory/tie/corporate/zeng
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate/zeng
 
 	backpack_contents = list(
 		/obj/item/device/camera = 1,

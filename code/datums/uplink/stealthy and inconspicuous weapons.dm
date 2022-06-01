@@ -26,9 +26,10 @@
 	path = /obj/item/storage/box/syndie_kit/special_pens
 
 /datum/uplink_item/item/stealthy_weapons/parapen
-	name = "Paralysis pen"
+	name = "Paralysis Pen"
+	desc = "A kit containing: a red parapen (lasts approximately 5 minutes) and a green pen loaded with a purging chemical if you want to remove the paralytic early."
 	item_cost = 3
-	path = /obj/item/pen/reagent/paralysis
+	path = /obj/item/storage/box/syndie_kit/parapen
 
 /datum/uplink_item/item/stealthy_weapons/concealed_cane
 	name = "Concealed Cane Sword"

@@ -113,7 +113,7 @@
 	description = "Eridani, or the Eridani Corporate Federation, is a dystopian oligarchic republic in the Epsilon Eridani system, dominated entirely by a council of mega-corporations \
 	that seek profit and expansion at any cost. It is characterized by a stark class divide, with citizens falling into one into two groups - pristine, inoffensive and rich Corporates, \
 	and poor, yet free-willed and provocative Dregs. The Federation is controlled by several megacorporations, and although NanoTrasen is not one of them, it is a common former \
-	workplace of various contractors on board NSS Aurora."
+	workplace of various contractors on-board."
 
 	job_species_blacklist = list(
 		"Consular Officer" = ALL_SPECIES

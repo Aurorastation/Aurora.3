@@ -8,7 +8,6 @@
 	name = "teleporter pad"
 	desc = "It's the pad of a teleporting machine."
 	icon_state = "pad"
-	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 2000
 
@@ -20,12 +19,13 @@
 	var/max_teleport_range = 4 //max overmap teleport distance
 	var/calibration = 0 // a percentage chance for teleporting into space instead of your target. 0 is perfectly calibrated, 100 is totally uncalibrated
 	var/engaged = FALSE
+	var/ignore_distance = FALSE // For antag teleporters.
 
 /obj/machinery/teleport/pad/Initialize()
 	. = ..()
 	queue_icon_update()
 
-/obj/machinery/teleport/pad/machinery_process()
+/obj/machinery/teleport/pad/process()
 	var/old_engaged = engaged
 	if(locked_obj)
 		if(stat & (NOPOWER|BROKEN) || !within_range(locked_obj))
@@ -38,7 +38,7 @@
 /obj/machinery/teleport/pad/CollidedWith(M as mob|obj)
 	if(engaged)
 		teleport(M)
-		use_power(5000)
+		use_power_oneoff(5000)
 
 /obj/machinery/teleport/pad/proc/teleport(atom/movable/M as mob|obj)
 	if(!locked_obj)
@@ -69,6 +69,8 @@
 			add_overlay(I)
 
 /obj/machinery/teleport/pad/proc/within_range(var/target)
+	if(ignore_distance)
+		return TRUE
 	if (isweakref(target))
 		var/datum/weakref/target_ref = target
 		target = target_ref.resolve()
@@ -87,8 +89,8 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 
-	use_power(5000)
-	update_use_power(2)
+	use_power_oneoff(5000)
+	update_use_power(POWER_USE_ACTIVE)
 	visible_message(SPAN_NOTICE("Teleporter engaged!"))
 	add_fingerprint(usr)
 	engaged = TRUE
@@ -98,7 +100,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	locked_obj = null
 	locked_obj_name = null
 	visible_message(SPAN_NOTICE("Teleporter disengaged!"))
@@ -116,3 +118,6 @@
 /obj/machinery/teleport/pad/proc/recalibrate()
 	calibration = 0
 	audible_message(SPAN_NOTICE("Calibration complete."))
+
+/obj/machinery/teleport/pad/ninja
+	ignore_distance = TRUE

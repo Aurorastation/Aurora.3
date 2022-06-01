@@ -18,7 +18,7 @@
 	id = /obj/item/card/id/syndicate
 	r_pocket = /obj/item/device/radio/uplink
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/device/flashlight = 1,
 		/obj/item/card/emag = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
@@ -59,7 +59,7 @@
 	l_hand = /obj/item/tank/jetpack/void
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1,
 		/obj/item/gun/projectile/automatic/x9 = 1,
 		/obj/item/ammo_magazine/c45m/auto = 1,
@@ -81,7 +81,7 @@
 	r_pocket = null // stop them getting a radio uplink, they get an implant instead
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/device/flashlight = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
@@ -153,7 +153,7 @@
 	pda = /obj/item/modular_computer/handheld/pda/syndicate
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/reagent_containers/pill/cyanide = 1
 	)
 
@@ -189,7 +189,7 @@
 
 	uniform = list(
 		/obj/item/clothing/under/serviceoveralls,
-		/obj/item/clothing/under/det,
+		/obj/item/clothing/under/det/zavod,
 		/obj/item/clothing/under/brown,
 		/obj/item/clothing/under/syndicate/tracksuit,
 		/obj/item/clothing/under/captainformal,
@@ -205,7 +205,7 @@
 		/obj/item/clothing/under/pants/khaki,
 		/obj/item/clothing/under/pants/musthang,
 		/obj/item/clothing/under/rank/bartender,
-		/obj/item/clothing/under/rank/cargo,
+		/obj/item/clothing/under/rank/hangar_technician/heph,
 		/obj/item/clothing/under/rank/chef,
 		/obj/item/clothing/under/rank/chaplain,
 		/obj/item/clothing/under/rank/engineer,
@@ -216,7 +216,7 @@
 		/obj/item/clothing/under/tactical,
 		/obj/item/clothing/under/tajaran,
 		/obj/item/clothing/under/tajaran/nt,
-		/obj/item/clothing/under/rank/hephaestus/tech,
+		/obj/item/clothing/under/rank/engineer/apprentice/heph,
 		/obj/item/clothing/under/unathi,
 		/obj/item/clothing/under/waiter
 		)
@@ -687,7 +687,7 @@
 	. = ..()
 	if(visualsOnly)
 		return
-	
+
 	to_chat(H, "<b>You are the Technomancer's apprentice! Your goal is to assist them in their mission at the [station_name()].</b>")
 	to_chat(H, "<b>Your service has not gone unrewarded, however. Studying under them, you have learned how to use a Manipulation Core \
 	of your own.  You also have a catalog, to purchase your own functions and equipment as you see fit.</b>")

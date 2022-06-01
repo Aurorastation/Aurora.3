@@ -521,11 +521,11 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/distress/ap_eridani
-	name = "\improper Eridani identification card"
+	name = "\improper Eridani Private Military Contractor ID"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
 	assignment = "EPMC Asset Protection"
-	icon_state = "erisec_card"
-	overlay_state = "erisec_card"
+	icon_state = "pmc_card"
+	overlay_state = "pmc_card"
 
 /obj/item/card/id/distress/ap_eridani/New()
 	access = get_distress_access()
@@ -574,8 +574,8 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/pmc
 	name = "\improper PMCG identification card"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Private Military Contracting Group."
-	icon_state = "erisec_card"
-	overlay_state = "erisec_card"
+	icon_state = "pmc_card"
+	overlay_state = "pmc_card"
 
 /obj/item/card/id/zeng_hu
 	name = "\improper Zeng-Hu Pharmaceuticals identification card"
@@ -606,6 +606,12 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "einstein_card"
 	overlay_state = "einstein_card"
 	iff_faction = IFF_EE
+
+/obj/item/card/id/orion
+	name = "\improper Orion Express identification card"
+	desc = "A well-worn identification pass, retrofitted with wireless transmission technology."
+	icon_state = "orion_card"
+	overlay_state = "orion_card"
 
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"

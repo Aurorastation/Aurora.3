@@ -4,7 +4,7 @@
 	icon_state = "autolathe"
 	density = TRUE
 	anchored = TRUE
-	use_power = TRUE
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 10
 	active_power_usage = 2000
 	clicksound = /decl/sound_category/keyboard_sound
@@ -218,7 +218,7 @@
 			return
 
 		busy = TRUE
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 
 		intent_message(MACHINE_SOUND)
 
@@ -240,7 +240,7 @@
 		sleep(build_time)
 
 		busy = FALSE
-		update_use_power(1)
+		update_use_power(POWER_USE_IDLE)
 
 		//Sanity check.
 		if(!build_item || !src)

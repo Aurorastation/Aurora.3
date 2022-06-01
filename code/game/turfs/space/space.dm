@@ -34,7 +34,7 @@
 	initialized = TRUE
 
 	for(var/atom/movable/AM as mob|obj in src)
-		src.Entered(AM)
+		src.Entered(AM, AM.loc)
 
 	turfs += src
 
@@ -107,7 +107,7 @@
 	if(movement_disabled)
 		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
-	..()
+	..(A, A.loc)
 	if ((!(A) || src != A.loc))	return
 
 	inertial_drift(A)

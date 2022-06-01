@@ -97,11 +97,11 @@
 	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
-		BP_NEURAL_SOCKET        = /obj/item/organ/vaurca/neuralsocket,
+		BP_NEURAL_SOCKET        = /obj/item/organ/internal/vaurca/neuralsocket,
 		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
-		BP_FILTRATION_BIT       = /obj/item/organ/vaurca/filtrationbit,
+		BP_FILTRATION_BIT       = /obj/item/organ/internal/vaurca/filtrationbit,
 		BP_HEART               = /obj/item/organ/internal/heart/vaurca,
-		BP_PHORON_RESERVE  = /obj/item/organ/vaurca/preserve,
+		BP_PHORON_RESERVE  = /obj/item/organ/internal/vaurca/preserve,
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
@@ -156,7 +156,7 @@
 
 /datum/species/bug/has_psi_potential()
 	return FALSE
-	
+
 /datum/species/bug/is_naturally_insulated()
 	return TRUE
 

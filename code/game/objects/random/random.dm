@@ -832,7 +832,6 @@
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen = 0.7,
 		/obj/item/clothing/suit/storage/vest = 0.2,
 		/obj/item/clothing/suit/syndicatefake = 0.6,
-		/obj/item/clothing/under/mime = 0.1,
 		/obj/item/clothing/under/overalls = 1,
 		/obj/item/clothing/under/rainbow = 0.9,
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,
@@ -1103,7 +1102,8 @@
 		/obj/item/rig/military = 0.5,
 		/obj/item/rig/unathi/fancy = 0.5,
 		/obj/item/rig/vaurca/minimal = 0.5,
-		/obj/item/anomaly_core = 0.5
+		/obj/item/anomaly_core = 0.5,
+		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = 0.1
 	)
 
 /obj/random/highvalue/no_crystal
@@ -1118,8 +1118,28 @@
 		/obj/item/rig/military = 0.5,
 		/obj/item/rig/unathi/fancy = 0.5,
 		/obj/item/rig/vaurca/minimal = 0.5,
-		/obj/item/anomaly_core = 0.5
+		/obj/item/anomaly_core = 0.5,
+		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = 0.1
 	)
+
+//Can be good loot for away sites as well as a guaranteed valuable for a merchant.
+/obj/random/highvalue/no_weapon
+	problist = list(
+		/obj/item/bluespace_crystal = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = 0.1,
+		/obj/item/clothing/glasses/thermal = 0.5,
+		/obj/item/anomaly_core = 0.5,
+		/obj/item/rig/military = 0.2,
+		/obj/item/rig/unathi/fancy = 0.2,
+		/obj/item/stack/material/phoron/full = 0.1,
+		/obj/item/stack/material/plasteel/full = 0.8,
+		/obj/random/voidsuit = 1,
+		/obj/item/rfd/construction = 0.4,
+		/obj/item/vaurca/box = 0.1,
+		/obj/item/melee/vaurca/rock = 0.1,
+		/obj/item/device/personal_shield = 0.1,
+		/obj/item/storage/secure/briefcase/money = 0.1
+		)
 
 /obj/random/junk
 	name = "random trash"

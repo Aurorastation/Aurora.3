@@ -26,12 +26,16 @@
 	var/requires_power = 1
 	var/always_unpowered = 0	//this gets overriden to 1 for space in area/New()
 
-	var/power_equip = 1
+	var/power_equip = 1 // Status vars
 	var/power_light = 1
 	var/power_environ = 1
-	var/used_equip = 0
+	var/used_equip = 0 // Continuous drain; don't touch these directly.
 	var/used_light = 0
 	var/used_environ = 0
+	var/oneoff_equip 	= 0 // Used once and cleared each tick.
+	var/oneoff_light 	= 0
+	var/oneoff_environ 	= 0
+
 	var/alwaysgravity = 0
 	var/nevergravity = 0
 
@@ -50,7 +54,6 @@
 	var/emergency_lights = FALSE 
 	var/station_area = 0
 	var/centcomm_area = 0
-	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.
 
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
@@ -257,64 +260,6 @@
 
 #undef DO_PARTY
 
-
-/*
-#define EQUIP 1
-#define LIGHT 2
-#define ENVIRON 3
-*/
-
-/area/proc/powered(var/chan)		// return true if the area has power to given channel
-
-	if(!requires_power)
-		return 1
-	if(always_unpowered)
-		return 0
-	switch(chan)
-		if(EQUIP)
-			return power_equip
-		if(LIGHT)
-			return power_light
-		if(ENVIRON)
-			return power_environ
-
-	return 0
-
-// called when power status changes
-/area/proc/power_change()
-	for(var/obj/machinery/M in src)	// for each machine in the area
-		M.power_change()			// reverify power status (to update icons etc.)
-	if (fire || eject || party)
-		update_icon()
-
-/area/proc/usage(var/chan)
-	var/used = 0
-	switch(chan)
-		if(LIGHT)
-			used += used_light
-		if(EQUIP)
-			used += used_equip
-		if(ENVIRON)
-			used += used_environ
-		if(TOTAL)
-			used += used_light + used_equip + used_environ
-	return used
-
-/area/proc/clear_usage()
-	used_equip = 0
-	used_light = 0
-	used_environ = 0
-
-/area/proc/use_power(var/amount, var/chan)
-	switch(chan)
-		if(EQUIP)
-			used_equip += amount
-		if(LIGHT)
-			used_light += amount
-		if(ENVIRON)
-			used_environ += amount
-
-
 var/list/mob/living/forced_ambiance_list = new
 
 /area/Entered(mob/living/L)
@@ -441,8 +386,6 @@ var/list/mob/living/forced_ambiance_list = new
 		if (istype(A, /area/security/penal_colony))
 			continue
 		if (istype(A, /area/mine))
-			continue
-		if (istype(A, /area/horizonexterior))
 			continue
 
 		//Although hostile mobs instadying to turrets is fun

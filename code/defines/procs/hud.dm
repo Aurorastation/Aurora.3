@@ -1,10 +1,16 @@
+// Consider these images/atoms as part of the UI/HUD (apart of the appearance_flags)
+/// Used for progress bars and chat messages
+#define APPEARANCE_UI_IGNORE_ALPHA (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
+/// Used for HUD objects
+#define APPEARANCE_UI (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|PIXEL_SCALE)
+
 /* Using the HUD procs is simple. Call these procs in the life.dm of the intended mob.
 Use the regular_hud_updates() proc before process_med_hud(mob) or process_sec_hud(mob) so
 the HUD updates properly! */
 
 //HUD image type used to properly clear client.images precisely
 /image/hud_overlay
-	appearance_flags = RESET_COLOR|RESET_ALPHA|RESET_TRANSFORM
+	appearance_flags = APPEARANCE_UI
 
 //Medical HUD outputs. Called by the Life() proc of the mob using it, usually.
 proc/process_med_hud(var/mob/M, var/local_scanner, var/mob/Alt)

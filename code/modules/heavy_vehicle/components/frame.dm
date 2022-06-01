@@ -250,7 +250,7 @@
 		if(!WT.isOn())
 			to_chat(user, SPAN_WARNING("Turn \the [WT] on, first."))
 			return
-		if(WT.remove_fuel(1, user))
+		if(WT.use(1, user))
 			visible_message("\The [user] [(is_reinforced == 3) ? "unwelds the reinforcement from" : "welds the reinforcement into"] \the [src].")
 			is_reinforced = (is_reinforced == FRAME_REINFORCED_WELDED) ? FRAME_REINFORCED_SECURE : FRAME_REINFORCED_WELDED
 			playsound(user.loc, thing.usesound, 50, 1)

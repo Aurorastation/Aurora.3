@@ -37,7 +37,7 @@
 	jobtype = /datum/job/hos
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
-	head = /obj/item/clothing/head/hos/scc
+	head = /obj/item/clothing/head/hos
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/navy
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
@@ -95,8 +95,9 @@
 	jobtype = /datum/job/warden
 
 	uniform = /obj/item/clothing/under/rank/warden
+	suit = /obj/item/clothing/suit/storage/toggle/warden
 	shoes = /obj/item/clothing/shoes/jackboots
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/headset_warden
@@ -145,7 +146,7 @@
 	name = "Investigator"
 	jobtype = /datum/job/investigator
 
-	uniform = /obj/item/clothing/under/det/forensics
+	uniform = /obj/item/clothing/under/det
 	shoes = /obj/item/clothing/shoes/laceup
 
 	headset = /obj/item/device/radio/headset/headset_sec
@@ -196,6 +197,7 @@
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security
+	suit = /obj/item/clothing/suit/storage/hazardvest/security/officer
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_pocket = /obj/item/device/flash
 
@@ -243,7 +245,7 @@
 	jobtype = /datum/job/intern_sec
 
 	uniform = /obj/item/clothing/under/rank/cadet
-	suit = /obj/item/clothing/suit/storage/hazardvest/cadet
+	suit = /obj/item/clothing/suit/storage/hazardvest/security
 	head = /obj/item/clothing/head/beret/security
 	shoes = /obj/item/clothing/shoes/jackboots
 

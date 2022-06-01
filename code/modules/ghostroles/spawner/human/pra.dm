@@ -18,7 +18,6 @@
 	special_role = "Kosmostrelki"
 	respawn_flag = null
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	uses_species_whitelist = FALSE
 	away_site = TRUE
 
 /datum/ghostspawner/human/pra_cosmonaut/commissar
@@ -33,7 +32,6 @@
 
 	outfit = /datum/outfit/admin/pra_cosmonaut/commissar
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
-	req_species_whitelist = SPECIES_TAJARA
 
 /datum/outfit/admin/pra_cosmonaut
 	name = "Kosmostrelki"

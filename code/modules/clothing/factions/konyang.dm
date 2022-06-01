@@ -73,3 +73,49 @@
 	item_state = "konyang_dress"
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 	contained_sprite = TRUE
+
+/obj/item/clothing/under/konyangdresstraditional
+	name = "konyanger traditional dress"
+	desc = "A traditional hakama and kosode pairing worn on Konyang, usually at formal functions or by shrine maidens. This one features a pink hakama and white kosode."
+	desc_fluff = "Carried over to Konyang from Earth, this dress was usually worn by shrine maidens of the Shinto faith back on Earth. \
+	It has since been appropriated by many Konyangers as a type of formal dress, and simply as a manner of fashion. The hot and humid climate of the planet however, has necessitated \
+	that most dresses of this type are made of lighter fabrics indigenous to the planet."
+	icon = 'icons/clothing/under/uniforms/konyang_dress_traditional.dmi'
+	icon_state = "konyang_dress_traditional"
+	item_state = "konyang_dress_traditional"
+	slot_flags = SLOT_ICLOTHING
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/konyangdresstraditional/red
+	desc = "A traditional red hakama and white kosode pairing worn by Shintoist shrine maidens."
+	icon_state = "konyang_dress_traditional_red"
+	item_state = "konyang_dress_traditional_red"
+
+/obj/item/clothing/under/konyangdresstraditional/green
+	desc = "A traditional hakama and kosode pairing worn on Konyang, usually at formal functions or by shrine maidens. This one features a green hakama and white kosode."
+	icon_state = "konyang_dress_traditional_green"
+	item_state = "konyang_dress_traditional_green"
+
+/obj/item/clothing/under/konyangdresstraditional/blue
+	desc = "A traditional hakama and kosode pairing worn on Konyang, usually at formal functions or by shrine maidens. This one features a blue hakama and white kosode."
+	icon_state = "konyang_dress_traditional_blue"
+	item_state = "konyang_dress_traditional_blue"
+
+/obj/item/clothing/under/konyangdresstraditional/national
+	desc = "A traditional hakama and kosode pairing worn on Konyang, usually at formal functions or by shrine maidens. This one features a blue hakama and yellow kosode \
+	the colors of the flag of Konyang."
+	desc_fluff = "The colors of the traditional shrine maiden outfit on Earth were designed to evoke the spirit of its host nation. Similarly, as Shinto evolved on Konyang to explain \
+	the equality of IPC and humans, many outfits were tailored in these new colors to represent the values of the nation, yellow representing prosperity, and blue representing the waterways \
+	of the planet. Although tailored for Shintoist monks, some Konyangers wear the outfit as a sign of patriotism on national holildays."
+	icon_state = "konyang_dress_traditional_national"
+	item_state = "konyang_dress_traditional_national"
+
+/obj/item/clothing/under/konyangdresstraditional/national/vest
+	desc = "A traditional hakama and kosode pairing worn on Konyang, usually at formal functions or by shrine maidens. This one features a blue hakama, white vest, and yellow kosode \
+	the colors of the flag of Konyang."
+	desc_fluff = "The colors of the traditional shrine maiden outfit on Earth were designed to evoke the spirit of its host nation. Similarly, as Shinto evolved on Konyang to explain \
+	the equality of IPC and humans, many outfits were tailored in these new colors to represent the values of the nation, white representing purity, yellow representing prosperity, and blue representing the waterways \
+	of the planet. Given the climate, the addition of a vest renders the outfit uncomfortably hot, however this is regarded as an acceptable drawback for protecting the rest of the ensemble from the perrenial rains on the planet. \
+	Although tailored for Shintoist monks, some Konyangers wear the outfit as a sign of patriotism on national holildays."
+	icon_state = "konyang_dress_traditional_national_vest"
+	item_state = "konyang_dress_traditional_national_vest"

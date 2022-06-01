@@ -15019,9 +15019,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"aJT" = (
-/turf/unsimulated/floor,
-/area/centcom/spawning)
 "aKc" = (
 /obj/effect/decal/fake_object{
 	color = "#545c68";
@@ -15407,7 +15404,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_emptycourt)
+/area/horizon/holodeck/source_emptycourt)
 "aLr" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -21906,15 +21903,15 @@
 	icon_door = "white";
 	name = "Fresh Scrubs"
 	},
-/obj/item/clothing/under/rank/medical/blue,
-/obj/item/clothing/under/rank/medical/blue,
-/obj/item/clothing/under/rank/medical/blue,
+/obj/item/clothing/under/rank/medical/surgeon/pmc,
+/obj/item/clothing/under/rank/medical/surgeon/pmc,
+/obj/item/clothing/under/rank/medical/surgeon/pmc,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/shoes/white,
 /obj/item/clothing/shoes/white,
-/obj/item/clothing/head/surgery/blue,
-/obj/item/clothing/head/surgery/blue,
-/obj/item/clothing/head/surgery/blue,
+/obj/item/clothing/head/surgery/pmc,
+/obj/item/clothing/head/surgery/pmc,
+/obj/item/clothing/head/surgery/pmc,
 /obj/item/clothing/suit/apron/surgery,
 /obj/item/bodybag,
 /obj/item/bodybag,
@@ -30927,64 +30924,63 @@
 	icon_door = "blue";
 	name = "megacorp clothing"
 	},
-/obj/item/clothing/under/rank/einstein_engines,
-/obj/item/clothing/under/rank/einstein_engines,
-/obj/item/clothing/under/rank/einstein_engines,
-/obj/item/clothing/under/rank/einstein_engines,
-/obj/item/clothing/under/rank/security/eridani,
-/obj/item/clothing/under/rank/security/eridani,
-/obj/item/clothing/under/rank/security/eridani,
-/obj/item/clothing/under/rank/security/eridani,
+/obj/item/clothing/under/rank/engineer/heph,
+/obj/item/clothing/under/rank/engineer/heph,
+/obj/item/clothing/under/rank/engineer/heph,
+/obj/item/clothing/under/rank/engineer/heph,
+/obj/item/clothing/under/rank/security/pmc,
+/obj/item/clothing/under/rank/security/pmc,
+/obj/item/clothing/under/rank/security/pmc,
+/obj/item/clothing/under/rank/security/pmc,
 /obj/item/clothing/accessory/sleevepatch/erisec,
 /obj/item/clothing/accessory/sleevepatch/erisec,
 /obj/item/clothing/accessory/sleevepatch/erisec,
 /obj/item/clothing/accessory/sleevepatch/erisec,
-/obj/item/clothing/head/softcap/eri,
-/obj/item/clothing/head/softcap/eri,
-/obj/item/clothing/head/softcap/eri,
-/obj/item/clothing/head/beret/security/eri,
-/obj/item/clothing/under/rank/zavodskoi,
-/obj/item/clothing/under/rank/zavodskoi,
-/obj/item/clothing/under/rank/zavodskoi,
-/obj/item/clothing/under/rank/zavodskoi,
-/obj/item/clothing/under/rank/security/zavodskoi/alt,
-/obj/item/clothing/under/rank/security/zavodskoi/alt,
-/obj/item/clothing/under/rank/security/zavodskoi/alt,
-/obj/item/clothing/under/rank/security/zavodskoi/alt,
+/obj/item/clothing/head/softcap/pmc,
+/obj/item/clothing/head/softcap/pmc,
+/obj/item/clothing/head/softcap/pmc,
+/obj/item/clothing/under/rank/security/zavod,
+/obj/item/clothing/under/rank/security/zavod,
+/obj/item/clothing/under/rank/security/zavod,
+/obj/item/clothing/under/rank/security/zavod,
+/obj/item/clothing/under/rank/warden/zavod,
+/obj/item/clothing/under/rank/warden/zavod,
+/obj/item/clothing/under/rank/warden/zavod,
+/obj/item/clothing/under/rank/warden/zavod,
 /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi,
 /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi,
 /obj/item/clothing/accessory/sleevepatch/zavodskoisec,
 /obj/item/clothing/accessory/sleevepatch/zavodskoisec,
 /obj/item/clothing/accessory/sleevepatch/zavodskoisec,
 /obj/item/clothing/accessory/sleevepatch/zavodskoisec,
-/obj/item/clothing/head/beret/security/zavodskoi/alt,
-/obj/item/clothing/head/beret/security/zavodskoi/alt,
-/obj/item/clothing/head/beret/security/zavodskoi/alt,
-/obj/item/clothing/head/beret/security/zavodskoi/alt,
-/obj/item/clothing/head/beret/security/zavodskoi,
-/obj/item/clothing/head/beret/security/zavodskoi,
-/obj/item/clothing/head/beret/security/zavodskoi,
-/obj/item/clothing/head/beret/security/zavodskoi,
-/obj/item/clothing/under/rank/hephaestus/tech,
-/obj/item/clothing/under/rank/hephaestus/tech,
-/obj/item/clothing/under/rank/hephaestus,
-/obj/item/clothing/under/rank/hephaestus,
-/obj/item/clothing/head/beret/heph,
-/obj/item/clothing/head/beret/heph,
-/obj/item/clothing/head/beret/heph,
-/obj/item/clothing/head/beret/heph,
+/obj/item/clothing/head/beret/corporate/zavod/alt,
+/obj/item/clothing/head/beret/corporate/zavod/alt,
+/obj/item/clothing/head/beret/corporate/zavod/alt,
+/obj/item/clothing/head/beret/corporate/zavod/alt,
+/obj/item/clothing/head/beret/corporate/zavod,
+/obj/item/clothing/head/beret/corporate/zavod,
+/obj/item/clothing/head/beret/corporate/zavod,
+/obj/item/clothing/head/beret/corporate/zavod,
+/obj/item/clothing/under/rank/engineer/apprentice/heph,
+/obj/item/clothing/under/rank/engineer/apprentice/heph,
+/obj/item/clothing/under/rank/engineer/heph,
+/obj/item/clothing/under/rank/engineer/heph,
+/obj/item/clothing/head/beret/corporate/heph,
+/obj/item/clothing/head/beret/corporate/heph,
+/obj/item/clothing/head/beret/corporate/heph,
+/obj/item/clothing/head/beret/corporate/heph,
 /obj/item/clothing/suit/storage/toggle/labcoat/heph,
 /obj/item/clothing/suit/storage/toggle/labcoat/heph,
-/obj/item/clothing/under/rank/zeng/alt,
-/obj/item/clothing/under/rank/zeng/alt,
-/obj/item/clothing/under/rank/zeng/alt,
-/obj/item/clothing/under/rank/zeng/civilian,
+/obj/item/clothing/under/rank/scientist/zeng,
+/obj/item/clothing/under/rank/scientist/zeng,
+/obj/item/clothing/under/rank/scientist/zeng,
+/obj/item/clothing/under/rank/liaison/zeng,
 /obj/item/clothing/suit/storage/toggle/labcoat/zeng,
 /obj/item/clothing/suit/storage/toggle/labcoat/zeng,
-/obj/item/clothing/head/beret/zeng/alt,
-/obj/item/clothing/head/beret/zeng/alt,
-/obj/item/clothing/head/beret/zeng/alt,
-/obj/item/clothing/head/beret/zeng,
+/obj/item/clothing/head/beret/corporate/zeng/alt,
+/obj/item/clothing/head/beret/corporate/zeng/alt,
+/obj/item/clothing/head/beret/corporate/zeng/alt,
+/obj/item/clothing/head/beret/corporate/zeng,
 /obj/item/clothing/accessory/sleevepatch/idrissec,
 /obj/item/clothing/accessory/sleevepatch/idrissec,
 /obj/item/clothing/accessory/sleevepatch/idrissec,
@@ -30994,10 +30990,10 @@
 /obj/item/clothing/under/rank/security/idris,
 /obj/item/clothing/under/rank/security/idris,
 /obj/item/clothing/under/rank/security/idris,
-/obj/item/clothing/head/beret/security/idris,
-/obj/item/clothing/head/beret/security/idris,
-/obj/item/clothing/head/beret/security/idris,
-/obj/item/clothing/head/beret/security/idris,
+/obj/item/clothing/head/beret/corporate/idris,
+/obj/item/clothing/head/beret/corporate/idris,
+/obj/item/clothing/head/beret/corporate/idris,
+/obj/item/clothing/head/beret/corporate/idris,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -34112,13 +34108,13 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
 "bCB" = (
-/obj/item/modular_computer/console/preset/command/teleporter,
+/obj/item/modular_computer/console/preset/command/teleporter/ninja,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
 /area/antag/ninja)
 "bCC" = (
-/obj/machinery/teleport/pad,
+/obj/machinery/teleport/pad/ninja,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -34400,39 +34396,39 @@
 /obj/effect/landmark/costume,
 /obj/structure/table/rack/holorack,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bFi" = (
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bFj" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFk" = (
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFl" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFm" = (
 /turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_wildlife)
+/area/horizon/holodeck/source_wildlife)
 "bFn" = (
 /turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_plating)
+/area/horizon/holodeck/source_plating)
 "bFo" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_emptycourt)
+/area/horizon/holodeck/source_emptycourt)
 "bFp" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_emptycourt)
+/area/horizon/holodeck/source_emptycourt)
 "bFq" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -34444,20 +34440,20 @@
 	name = "Holocarp Spawn"
 	},
 /turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_wildlife)
+/area/horizon/holodeck/source_wildlife)
 "bFs" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_emptycourt)
+/area/horizon/holodeck/source_emptycourt)
 "bFt" = (
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_emptycourt)
+/area/horizon/holodeck/source_emptycourt)
 "bFu" = (
 /obj/structure/bed/stool/chair/holochair,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFv" = (
 /obj/structure/window/reinforced/holowindow{
 	dir = 1
@@ -34467,7 +34463,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFw" = (
 /obj/machinery/door/window/holowindoor{
 	dir = 1;
@@ -34486,16 +34482,16 @@
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFx" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bFy" = (
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bFz" = (
 /obj/structure/window/reinforced/holowindow,
 /obj/machinery/door/window/holowindoor{
@@ -34504,7 +34500,7 @@
 	},
 /obj/structure/bed/stool/chair/holochair,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFA" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced/holowindow,
@@ -34512,12 +34508,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFB" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced/holowindow,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFC" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced/holowindow,
@@ -34525,7 +34521,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFD" = (
 /obj/structure/window/reinforced/holowindow,
 /obj/machinery/door/window/holowindoor{
@@ -34536,7 +34532,7 @@
 	},
 /obj/structure/bed/stool/chair/holochair,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFE" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 8
@@ -34554,7 +34550,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFF" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 8
@@ -34566,10 +34562,10 @@
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFG" = (
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bFH" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
@@ -34581,13 +34577,13 @@
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bFI" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bFJ" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
@@ -34599,7 +34595,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bFK" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
@@ -34611,13 +34607,13 @@
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFL" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFM" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
@@ -34629,7 +34625,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFN" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 8
@@ -34641,7 +34637,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFO" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 8
@@ -34650,52 +34646,52 @@
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFP" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bFQ" = (
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bFR" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bFS" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFT" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFU" = (
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFV" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFW" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_emptycourt)
+/area/horizon/holodeck/source_emptycourt)
 "bFX" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 1
@@ -34704,13 +34700,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFY" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bFZ" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 1
@@ -34719,19 +34715,19 @@
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bGa" = (
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bGb" = (
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bGc" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet,
@@ -34742,12 +34738,12 @@
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bGd" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bGe" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
@@ -34758,7 +34754,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
+/area/horizon/holodeck/source_theatre)
 "bGf" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 8
@@ -34774,7 +34770,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bGg" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 8
@@ -34787,7 +34783,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bGh" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 1
@@ -34800,23 +34796,23 @@
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bGi" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 1
 	},
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bGj" = (
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bGk" = (
 /obj/effect/floor_decal/carpet,
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bGl" = (
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
@@ -34826,24 +34822,24 @@
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bGm" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
+/area/horizon/holodeck/source_courtroom)
 "bGn" = (
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_emptycourt)
+/area/horizon/holodeck/source_emptycourt)
 "bGo" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_emptycourt)
+/area/horizon/holodeck/source_emptycourt)
 "bGp" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -34860,52 +34856,52 @@
 /area/template_noop)
 "bGr" = (
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bGs" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bGt" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bGu" = (
 /obj/structure/holohoop,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bGv" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bGw" = (
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert1"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bGx" = (
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert4"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bGy" = (
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bGz" = (
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert0"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bGA" = (
 /obj/structure/table/holotable,
 /obj/machinery/readybutton,
@@ -34913,7 +34909,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bGB" = (
 /obj/structure/table/holotable,
 /obj/item/clothing/head/helmet/thunderdome,
@@ -34924,38 +34920,38 @@
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bGC" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bGD" = (
 /obj/structure/table/holotable,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bGE" = (
 /obj/structure/table/holotable,
 /obj/item/toy/ringbell,
 /obj/item/clothing/gloves/boxing/hologlove,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bGF" = (
 /obj/structure/table/holotable,
 /obj/item/clothing/gloves/boxing/hologlove,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bGG" = (
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bGH" = (
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bGI" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
@@ -34968,14 +34964,14 @@
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bGJ" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
 	},
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bGK" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
@@ -34988,68 +34984,68 @@
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bGL" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bGM" = (
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bGN" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bGO" = (
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert3"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bGP" = (
 /obj/effect/overlay/palmtree_r,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bGQ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bGR" = (
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bGS" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bGT" = (
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bGU" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bGV" = (
 /obj/item/clothing/glasses/sunglasses,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert0"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bGW" = (
 /obj/effect/overlay/palmtree_l,
 /obj/effect/overlay/coconut,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert0"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bGX" = (
 /obj/machinery/door/window/holowindoor{
 	base_state = "right";
@@ -35057,47 +35053,47 @@
 	name = "Red Corner"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bGY" = (
 /obj/structure/window/reinforced/holowindow,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bGZ" = (
 /turf/simulated/floor/holofloor/lino,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bHa" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/lino,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bHb" = (
 /obj/item/beach_ball,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert0"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bHc" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bHd" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bHe" = (
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bHf" = (
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bHg" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
@@ -35110,14 +35106,14 @@
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bHh" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bHi" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
@@ -35130,67 +35126,67 @@
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bHj" = (
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bHk" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bHl" = (
 /obj/item/beach_ball/holoball,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bHm" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bHn" = (
 /obj/item/inflatable_duck,
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bHo" = (
 /obj/structure/window/reinforced/holowindow/disappearing,
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bHp" = (
 /obj/structure/window/reinforced/holowindow/disappearing,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bHq" = (
 /obj/structure/window/reinforced/holowindow/disappearing,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bHr" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bHs" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bHt" = (
 /obj/effect/step_trigger/thrower/shuttle/northwest,
 /turf/space/transit/west,
@@ -35200,59 +35196,59 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bHv" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bHw" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bHx" = (
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bHy" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bHz" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bHA" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bHB" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bHC" = (
 /turf/simulated/floor/beach/sand{
 	icon_state = "beachcorner"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bHD" = (
 /turf/simulated/floor/beach/sand{
 	icon_state = "beach"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bHE" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
 /turf/space/transit/west,
@@ -35270,7 +35266,7 @@
 	dir = 1;
 	icon_state = "beachcorner"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bHI" = (
 /obj/structure/window/reinforced/holowindow/disappearing{
 	dir = 1
@@ -35279,7 +35275,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bHJ" = (
 /obj/structure/window/reinforced/holowindow/disappearing{
 	dir = 1
@@ -35288,7 +35284,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bHK" = (
 /obj/structure/window/reinforced/holowindow/disappearing{
 	dir = 1
@@ -35297,40 +35293,40 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bHL" = (
 /obj/effect/floor_decal/corner/blue/full,
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bHM" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bHN" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bHO" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bHP" = (
 /turf/simulated/floor/beach/sand{
 	dir = 6;
 	icon_state = "beach"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bHQ" = (
 /turf/simulated/floor/beach/sand{
 	icon_state = "seashallow"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bHR" = (
 /obj/effect/step_trigger/thrower/shuttle/west,
 /turf/space/transit/west,
@@ -35344,50 +35340,50 @@
 	dir = 10;
 	icon_state = "beach"
 	},
-/area/holodeck/source_beach)
+/area/horizon/holodeck/source_beach)
 "bHU" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bHV" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bHW" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bHX" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bHY" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bHZ" = (
 /obj/structure/window/reinforced/holowindow{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bIa" = (
 /obj/machinery/door/window/holowindoor{
 	dir = 1;
 	name = "Green Corner"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bIb" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet,
@@ -35398,12 +35394,12 @@
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bIc" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bId" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
@@ -35414,11 +35410,11 @@
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
+/area/horizon/holodeck/source_meetinghall)
 "bIe" = (
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bIf" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -35427,18 +35423,18 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bIg" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/area/horizon/holodeck/source_basketball)
 "bIh" = (
 /obj/effect/floor_decal/corner/green/full,
 /obj/structure/table/holotable,
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bIi" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -35449,13 +35445,13 @@
 /obj/item/clothing/under/color/green,
 /obj/item/holo/esword/green,
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bIj" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bIk" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
@@ -35463,7 +35459,7 @@
 /obj/structure/table/holotable,
 /obj/machinery/readybutton,
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
+/area/horizon/holodeck/source_thunderdomecourt)
 "bIl" = (
 /obj/structure/table/holotable,
 /obj/item/clothing/gloves/boxing/hologlove{
@@ -35471,66 +35467,66 @@
 	item_state = "boxinggreen"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_boxingcourt)
+/area/horizon/holodeck/source_boxingcourt)
 "bIm" = (
 /turf/simulated/floor/tiled,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bIn" = (
 /obj/effect/floor_decal/spline/fancy,
 /turf/simulated/floor/tiled,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bIo" = (
 /obj/structure/weightlifter,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bIp" = (
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bIq" = (
 /obj/structure/table/wood,
 /obj/item/flame/candle,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bIr" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bIs" = (
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bIt" = (
 /obj/structure/bed/stool/chair/holochair,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bIu" = (
 /turf/simulated/floor/holofloor/desert,
-/area/holodeck/source_desert)
+/area/horizon/holodeck/source_desert)
 "bIv" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/holofloor/desert,
-/area/holodeck/source_desert)
+/area/horizon/holodeck/source_desert)
 "bIw" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bIx" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bIy" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bIz" = (
 /turf/simulated/floor/holofloor/beach/sand,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bIA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -35541,44 +35537,44 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bIB" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bIC" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/pointybush,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bID" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bIE" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bIF" = (
 /obj/item/chess_piece/rook/black,
 /turf/simulated/floor/marble,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bIG" = (
 /obj/item/chess_piece/knight/black,
 /turf/simulated/floor/marble/dark,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bIH" = (
 /obj/item/chess_piece/bishop/black,
 /turf/simulated/floor/marble,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bII" = (
 /obj/effect/shuttle_landmark/arrival/interim,
 /turf/space/transit/west,
@@ -35594,30 +35590,30 @@
 "bIL" = (
 /obj/item/chess_piece/queen/black,
 /turf/simulated/floor/marble/dark,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bIM" = (
 /obj/item/chess_piece/king/black,
 /turf/simulated/floor/marble,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bIN" = (
 /obj/item/chess_piece/bishop/black,
 /turf/simulated/floor/marble/dark,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bIO" = (
 /obj/item/chess_piece/knight/black,
 /turf/simulated/floor/marble,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bIP" = (
 /obj/item/chess_piece/rook/black,
 /turf/simulated/floor/marble/dark,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bIQ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bIR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -35627,63 +35623,63 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bIS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bIT" = (
 /obj/item/chess_piece/black,
 /turf/simulated/floor/marble/dark,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bIU" = (
 /obj/item/chess_piece/black,
 /turf/simulated/floor/marble,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bIV" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/weightlifter,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bIW" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bIX" = (
 /obj/structure/weightlifter,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bIY" = (
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bIZ" = (
 /obj/structure/banner/scc,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJa" = (
 /obj/structure/table/stone/marble,
 /obj/item/flame/candle,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJb" = (
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJc" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/holofloor/desert,
-/area/holodeck/source_desert)
+/area/horizon/holodeck/source_desert)
 "bJd" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bJe" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
@@ -35691,7 +35687,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/pointybush,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bJf" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/pointybush,
@@ -35700,7 +35696,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bJg" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -35708,7 +35704,7 @@
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bJh" = (
 /obj/structure/flora/ausbushes/leafybush,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -35716,7 +35712,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bJi" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/pointybush,
@@ -35725,7 +35721,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bJj" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
@@ -35736,41 +35732,41 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bJk" = (
 /turf/simulated/floor/marble,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bJl" = (
 /turf/simulated/floor/marble/dark,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bJm" = (
 /obj/effect/floor_decal/corner/white/full{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bJn" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bJo" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/hatch,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bJp" = (
 /obj/effect/floor_decal/corner/white/full{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bJq" = (
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJr" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -35779,20 +35775,20 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJs" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
 /obj/effect/floor_decal/chapel,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJt" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJu" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -35801,7 +35797,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJv" = (
 /obj/effect/shuttle_landmark/distress/interim,
 /turf/space/transit/west,
@@ -35818,7 +35814,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJy" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -35826,23 +35822,23 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bJz" = (
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/beach/sand,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bJA" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bJB" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bJC" = (
 /obj/effect/floor_decal/chapel{
 	dir = 4
@@ -35851,7 +35847,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJD" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
@@ -35859,14 +35855,14 @@
 	},
 /obj/effect/floor_decal/chapel,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJE" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJF" = (
 /obj/effect/floor_decal/carpet{
 	dir = 8
@@ -35878,13 +35874,13 @@
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJG" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJH" = (
 /obj/effect/floor_decal/carpet{
 	dir = 4
@@ -35896,14 +35892,14 @@
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJI" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJJ" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/chapel,
@@ -35911,7 +35907,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJK" = (
 /obj/effect/floor_decal/chapel{
 	dir = 1
@@ -35920,17 +35916,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJL" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/beach/sand,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bJM" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bJN" = (
 /obj/structure/sink{
 	dir = 8;
@@ -35941,27 +35937,27 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bJO" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bJP" = (
 /obj/structure/punching_bag,
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bJQ" = (
 /obj/effect/floor_decal/chapel{
 	dir = 8
 	},
 /obj/effect/floor_decal/chapel,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJR" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
@@ -35971,22 +35967,22 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJS" = (
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJT" = (
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJU" = (
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJV" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/chapel{
@@ -35996,59 +35992,59 @@
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJW" = (
 /obj/effect/floor_decal/chapel,
 /obj/effect/floor_decal/chapel{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bJX" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/pointybush,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bJY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bJZ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bKa" = (
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bKb" = (
 /obj/structure/punching_bag,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bKc" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKd" = (
 /obj/item/chess_piece,
 /turf/simulated/floor/marble,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bKe" = (
 /obj/item/chess_piece,
 /turf/simulated/floor/marble/dark,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bKf" = (
 /obj/structure/sink{
 	dir = 8;
@@ -36057,7 +36053,7 @@
 	},
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bKg" = (
 /obj/effect/step_trigger/thrower/shuttle/southeast,
 /turf/space/transit/west,
@@ -36067,14 +36063,14 @@
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bKi" = (
 /obj/structure/punching_bag,
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bKj" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
@@ -36084,7 +36080,7 @@
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKk" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
@@ -36092,7 +36088,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKl" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
@@ -36101,7 +36097,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKm" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -36113,7 +36109,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/palebush,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKn" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
@@ -36122,7 +36118,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKo" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -36132,81 +36128,81 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKp" = (
 /obj/item/chess_piece/rook,
 /turf/simulated/floor/marble/dark,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bKq" = (
 /obj/item/chess_piece/knight,
 /turf/simulated/floor/marble,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bKr" = (
 /obj/item/chess_piece/bishop,
 /turf/simulated/floor/marble/dark,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bKs" = (
 /obj/item/chess_piece/queen,
 /turf/simulated/floor/marble,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bKt" = (
 /obj/item/chess_piece/king,
 /turf/simulated/floor/marble/dark,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bKu" = (
 /obj/item/chess_piece/bishop,
 /turf/simulated/floor/marble,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bKv" = (
 /obj/item/chess_piece/knight,
 /turf/simulated/floor/marble/dark,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bKw" = (
 /obj/item/chess_piece/rook,
 /turf/simulated/floor/marble,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bKx" = (
 /obj/effect/floor_decal/corner/white/full,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bKy" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/hatch,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bKz" = (
 /obj/effect/floor_decal/corner/white/full{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bKA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKB" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKC" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/holodeck/source_chessboard)
+/area/horizon/holodeck/source_chessboard)
 "bKD" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_gym)
+/area/horizon/holodeck/source_gym)
 "bKE" = (
 /obj/effect/floor_decal/carpet{
 	dir = 8
@@ -36216,11 +36212,11 @@
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bKF" = (
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bKG" = (
 /obj/effect/floor_decal/carpet{
 	dir = 4
@@ -36230,14 +36226,14 @@
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_chapel)
+/area/horizon/holodeck/source_chapel)
 "bKH" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKI" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/leafybush,
@@ -36245,7 +36241,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKJ" = (
 /obj/effect/shuttle_landmark/emergency/interim,
 /turf/space/transit/south,
@@ -36257,14 +36253,14 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKL" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
 /obj/structure/flora/ausbushes/pointybush,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKM" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/pointybush,
@@ -36272,14 +36268,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKN" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
+/area/horizon/holodeck/source_picnicarea)
 "bKO" = (
 /turf/simulated/floor/holofloor/reinforced,
 /area/template_noop)
@@ -36289,30 +36285,30 @@
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "bKQ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fernybush,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "bKR" = (
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "bKS" = (
 /obj/structure/banner/scc,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "bKT" = (
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "bKU" = (
 /turf/simulated/floor/holofloor/space,
-/area/holodeck/source_space)
+/area/horizon/holodeck/source_space)
 "bKV" = (
 /turf/simulated/floor/holofloor/snow,
-/area/holodeck/source_snowfield)
+/area/horizon/holodeck/source_snowfield)
 "bKW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -36320,86 +36316,86 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "bKX" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "bKY" = (
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "bKZ" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "bLa" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "bLb" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "bLc" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "bLd" = (
 /obj/effect/landmark{
 	name = "Holocarp Spawn Random"
 	},
 /turf/simulated/floor/holofloor/space,
-/area/holodeck/source_space)
+/area/horizon/holodeck/source_space)
 "bLe" = (
 /obj/structure/flora/grass/both,
 /turf/simulated/floor/holofloor/snow,
-/area/holodeck/source_snowfield)
+/area/horizon/holodeck/source_snowfield)
 "bLf" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "bLg" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "bLh" = (
 /obj/structure/table/wood,
 /obj/item/flame/candle{
 	pixel_x = 10
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "bLi" = (
 /obj/structure/table/wood,
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "bLj" = (
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "bLk" = (
 /obj/structure/window/reinforced/holowindow{
 	dir = 4
 	},
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "bLl" = (
 /turf/unsimulated/beach/sand{
 	density = 1;
@@ -37232,30 +37228,30 @@
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "cWp" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "dwR" = (
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/holofloor/snow,
-/area/holodeck/source_snowfield)
+/area/horizon/holodeck/source_snowfield)
 "dEu" = (
 /obj/structure/dueling_table{
 	icon_state = "center_center"
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "dFn" = (
 /obj/effect/landmark{
 	name = "Penguin Spawn Random"
 	},
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/holofloor/snow,
-/area/holodeck/source_snowfield)
+/area/horizon/holodeck/source_snowfield)
 "dZU" = (
 /obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_right"
@@ -37264,7 +37260,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "dZX" = (
 /obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_leftt"
@@ -37273,21 +37269,31 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "ech" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "eBq" = (
 /obj/structure/table/wood,
 /obj/item/flame/candle{
 	pixel_x = -10
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
+"eOw" = (
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/holofloor/wood,
+/area/horizon/holodeck/source_gym)
+"eQT" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/drop,
+/obj/random/highvalue/no_weapon,
+/turf/simulated/floor/tiled,
+/area/merchant_station/warehouse)
 "fcH" = (
 /obj/structure/dueling_table{
 	icon_state = "center_right"
@@ -37296,7 +37302,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "fdU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -37304,7 +37310,7 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "fQK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -37312,13 +37318,13 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "fWR" = (
 /obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_center"
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "gkn" = (
 /obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_right"
@@ -37327,50 +37333,50 @@
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "gwW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "gRV" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "hev" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "hIG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "hYO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "jyC" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "kcw" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_emptycourt)
+/area/horizon/holodeck/source_emptycourt)
 "kfB" = (
 /obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_center"
@@ -37379,33 +37385,40 @@
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "kqd" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_emptycourt)
+/area/horizon/holodeck/source_emptycourt)
 "kzB" = (
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
+"kAb" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_thunderdomecourt)
 "kHj" = (
 /obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_center"
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "lSt" = (
 /obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_center"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "mAl" = (
 /obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_leftt"
@@ -37414,7 +37427,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "olV" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -37422,13 +37435,13 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
 "oIf" = (
 /obj/effect/decal/battlemonsters_logo{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "oZf" = (
 /obj/structure/dueling_table{
 	icon_state = "center_left"
@@ -37437,14 +37450,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "pGQ" = (
 /obj/effect/landmark{
 	name = "Penguin Spawn Emperor"
 	},
 /obj/structure/flora/tree/pine,
 /turf/simulated/floor/holofloor/snow,
-/area/holodeck/source_snowfield)
+/area/horizon/holodeck/source_snowfield)
 "pTp" = (
 /obj/effect/shuttle_landmark/intrepid/transit,
 /turf/space/transit/south,
@@ -37467,13 +37480,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "rph" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_emptycourt)
+/area/horizon/holodeck/source_emptycourt)
 "rCq" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1337;
@@ -37483,10 +37496,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
+"sEv" = (
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/horizon/holodeck/source_boxingcourt)
 "tIz" = (
 /obj/structure/flora/grass/brown,
 /turf/simulated/floor/holofloor/snow,
-/area/holodeck/source_snowfield)
+/area/horizon/holodeck/source_snowfield)
 "vMz" = (
 /obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_right"
@@ -37495,7 +37512,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "xFz" = (
 /obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_left"
@@ -37505,14 +37522,21 @@
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_battlemonsters)
+/area/horizon/holodeck/source_battlemonsters)
 "xRX" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
+/area/horizon/holodeck/source_dininghall)
+"xXJ" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_thunderdomecourt)
 
 (1,1,1) = {"
 aab
@@ -43055,7 +43079,7 @@ amd
 arJ
 asE
 asC
-avN
+eQT
 axf
 avN
 axd
@@ -65950,7 +65974,7 @@ aHU
 aHU
 aIG
 aHC
-aJT
+aMo
 aJQ
 aLa
 aLM
@@ -66725,11 +66749,11 @@ aPo
 aLb
 aLb
 aLO
-aJT
-aJT
+aMo
+aMo
 aNb
-aJT
-aJT
+aMo
+aMo
 aNX
 aON
 aJQ
@@ -66982,11 +67006,11 @@ aPo
 aLb
 aLb
 aLP
-aJT
-aJT
+aMo
+aMo
 aNc
-aJT
-aJT
+aMo
+aMo
 aMF
 aOO
 aJQ
@@ -67239,11 +67263,11 @@ aIH
 aIH
 aLc
 aLP
-aJT
+aMo
 aMF
 aJi
 aNH
-aJT
+aMo
 aMF
 aHC
 aHC
@@ -67496,7 +67520,7 @@ aHC
 aHC
 aHC
 aLQ
-aJT
+aMo
 aMG
 aHC
 aNI
@@ -67753,7 +67777,7 @@ aIH
 aIH
 aLc
 aLP
-aJT
+aMo
 aMF
 aHC
 aNJ
@@ -68010,7 +68034,7 @@ aPo
 aLb
 aLb
 aLP
-aJT
+aMo
 aMF
 aNd
 aNK
@@ -68267,7 +68291,7 @@ aPo
 aLb
 aLb
 aLP
-aJT
+aMo
 aMH
 aHC
 aNJ
@@ -69563,8 +69587,8 @@ aOt
 aOt
 aHC
 aQC
-aJT
-aJT
+aMo
+aMo
 aHC
 aaa
 aaa
@@ -93619,7 +93643,7 @@ aaa
 aaa
 aaa
 bFe
-bFk
+bFl
 bFk
 bFk
 bFB
@@ -93641,7 +93665,7 @@ bHY
 bGM
 bIf
 bGp
-bIp
+eOw
 bIp
 bIW
 bJo
@@ -93876,7 +93900,7 @@ aaa
 aaa
 aaa
 bFe
-bFl
+bFk
 bFk
 bFj
 bFC
@@ -95697,7 +95721,7 @@ bHQ
 bHQ
 bHQ
 bGp
-bIs
+bIt
 bIs
 bJa
 bJs
@@ -95954,7 +95978,7 @@ bHQ
 bHQ
 bHQ
 bGp
-bIt
+bIs
 bIs
 bJb
 bJt
@@ -96211,8 +96235,8 @@ bHQ
 bHQ
 bHQ
 bGp
-bIt
 bIs
+bIt
 bJb
 bJt
 bJG
@@ -96468,7 +96492,7 @@ bHQ
 bHQ
 bHQ
 bGp
-bIt
+bIs
 bIs
 bJb
 bJt
@@ -96725,7 +96749,7 @@ bHQ
 bHQ
 bHQ
 bGp
-bIs
+bIt
 bIs
 bJa
 bJu
@@ -98256,7 +98280,7 @@ bFn
 bFn
 bFn
 bGp
-bGC
+bGB
 bGR
 bGR
 bGR
@@ -98265,7 +98289,7 @@ bHJ
 bGR
 bGR
 bGR
-bIj
+bIi
 bGp
 bIu
 bIu
@@ -98513,7 +98537,7 @@ bFn
 bFn
 bFn
 bGp
-bGB
+bGC
 bGR
 bGR
 bGR
@@ -98522,7 +98546,7 @@ bHJ
 bGR
 bGR
 bGR
-bIi
+bIj
 bGp
 bIu
 bIu
@@ -98770,7 +98794,7 @@ bFn
 bFn
 bFn
 bGp
-bGC
+kAb
 bGR
 bGR
 bGR
@@ -98779,7 +98803,7 @@ bHJ
 bGR
 bGR
 bGR
-bIj
+xXJ
 bGp
 bIv
 bIu
@@ -98790,7 +98814,7 @@ bIu
 bIu
 bIu
 bIu
-bIu
+bJc
 bGp
 bKU
 bLd
@@ -99027,7 +99051,7 @@ bFn
 bFn
 bFn
 bGp
-bGB
+bGC
 bGR
 bGR
 bGR
@@ -99036,7 +99060,7 @@ bHJ
 bGR
 bGR
 bGR
-bIi
+bIj
 bGp
 bIu
 bIu
@@ -99047,7 +99071,7 @@ bIu
 bIu
 bIu
 bIu
-bJc
+bIu
 bGp
 bKU
 bKU
@@ -99284,7 +99308,7 @@ bFn
 bFn
 bFn
 bGp
-bGC
+bGB
 bGR
 bGR
 bGR
@@ -99293,7 +99317,7 @@ bHJ
 bGR
 bGR
 bGR
-bIj
+bIi
 bGp
 bIu
 bIu
@@ -101340,7 +101364,7 @@ bFt
 bFt
 bGo
 bGp
-bGG
+sEv
 bGG
 bGG
 bHf
@@ -101349,7 +101373,7 @@ bHf
 bHf
 bGG
 bGG
-bGG
+sEv
 bGp
 bIA
 bIR
@@ -101371,7 +101395,7 @@ bKV
 bKV
 bKV
 dFn
-bKV
+tIz
 bGq
 aaa
 aaa
@@ -101628,7 +101652,7 @@ bKV
 bLe
 bKV
 bKV
-tIz
+bKV
 bGq
 aaa
 aaa

@@ -17,7 +17,7 @@
 	centers during the recent transfer of leadership, and you know it. Zeng-Hu may have a reputation for
 	being the best in the Orion Spur, but they are in the past - Zavodskoi is the future. You are a
 	professional through-and-through, and consider yourself a (literal) cut above whatever washouts
-	NanoTrasen can hire as surgeons. Just remember, you need to prove that you're better than Zeng-Hu.
+	the SCC can hire as surgeons. Just remember, you need to prove that you're better than Zeng-Hu.
 	We need these medical contracts, lest we have to cut back the medical division just like the genetics one.</li>
 	<li><b>Personal Security Professional</b>: Excellent customer service and client
 	care is why Zavodskoi's private security personnel win security contracts and
@@ -26,7 +26,7 @@
 	force to work for and as such, you have corporate standards to uphold! The protection
 	of Zavodskoi staff is your first priority, but every member of the crew
 	should be treated as a valued customer. After all, imagine how bad it would look to
-	the shareholders if you were found beating a drunk like some kind of NanoTrasen officer.
+	the shareholders if you were found beating a drunk like some kind of merc.
 	The reputation would last, but your career certainly wouldn't.</li>
 	</ul></p>"}
 	title_suffix = "Zavod"
@@ -71,7 +71,7 @@
 		"Investigator" =/datum/outfit/job/forensics/zavodskoi,
 		"Scientist" = /datum/outfit/job/scientist/zavodskoi,
 		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zavodskoi,
-		"Xenobotanist" = /datum/outfit/job/scientist/xenobiologist/botany/zavodskoi,
+		"Xenobotanist" = /datum/outfit/job/scientist/xenobotanist/zavodskoi,
 		"Lab Assistant" = /datum/outfit/job/intern_sci/zavodskoi,
 		"Xenoarcheologist"= /datum/outfit/job/scientist/xenoarcheologist/zavodskoi,
 		"Engineer" = /datum/outfit/job/engineer/zavodskoi,
@@ -89,9 +89,11 @@
 /datum/outfit/job/warden/zavodskoi
 	name = "Warden - Zavodskoi Interstellar"
 
-	uniform = /obj/item/clothing/under/rank/warden/zavod
-	id = /obj/item/card/id/zavodskoi/sec
 	head = /obj/item/clothing/head/warden/zavod
+	uniform = /obj/item/clothing/under/rank/warden/zavod
+	suit = /obj/item/clothing/suit/storage/toggle/warden/zavod
+	id = /obj/item/card/id/zavodskoi/sec
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator/zavod
 
 /datum/outfit/job/intern_sec/zavodskoi
 	name = "Security Cadet - Zavodskoi Interstellar"
@@ -120,7 +122,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	id = /obj/item/card/id/zavodskoi
 
-/datum/outfit/job/scientist/xenobiologist/botany/zavodskoi
+/datum/outfit/job/scientist/xenobotanist/zavodskoi
 	name = "Xenobotanist - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/scientist/botany/zavod
@@ -160,11 +162,14 @@
 
 /datum/outfit/job/representative/zavodskoi
 	name = "Zavodskoi Interstellar Corporate Liaison"
-	uniform = /obj/item/clothing/under/rank/zavodskoi
-	head = null
-	suit = null
+
+	head = /obj/item/clothing/head/beret/corporate/zavod
+	uniform = /obj/item/clothing/under/rank/liaison/zavod
+	suit = /obj/item/clothing/suit/storage/liaison/zavod
 	implants = null
 	id = /obj/item/card/id/zavodskoi
+	accessory = /obj/item/clothing/accessory/tie/corporate/zavod
+	suit_accessory = /obj/item/clothing/accessory/pin/corporate/zavod
 
 	backpack_contents = list(
 		/obj/item/device/camera = 1,

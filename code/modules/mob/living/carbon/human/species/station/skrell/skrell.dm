@@ -84,11 +84,15 @@
 	max_pulse = 130 // Default 160
 	body_temperature = T0C + 27
 
-	default_h_style = "Skrell Short Tentacles"
+	default_h_style = "Headtails"
 
 	possible_cultures = list(
 		/decl/origin_item/culture/federation,
 		/decl/origin_item/culture/non_federation
+	)
+	
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/adjust_headtails
 	)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL

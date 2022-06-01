@@ -44,7 +44,7 @@
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Ensure the interests of Federation citizens are upheld by the vessel. This includes C'thur and Diona of Federation origin",
 							"Legally curtail the advancements and liberal thinking towards synthetics",
-							"The [current_map.station_short] hosts some of the brightest minds in the galaxy; winning them over towards the Federation is a major victory")
+							"The [current_map.station_name] hosts some of the brightest minds in the galaxy; winning them over towards the Federation is a major victory")
 		else
 			rep_objectives = pick("Consider assisting crew within the capacity of your role, an altruistic image is good PR towards the federation",
 							"Some Skrell are not part of the Federation; attempt to convince them to become a citizen")

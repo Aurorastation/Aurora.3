@@ -37,7 +37,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	jobtype = /datum/job/captain
 
 	uniform = /obj/item/clothing/under/scc_captain
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/laceup/brown
 	head = /obj/item/clothing/head/caphat/scc
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/gold
@@ -110,11 +110,11 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	access = list(access_sec_doors, access_medical, access_engine, access_change_ids, access_eva, access_heads,
 			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction,
-			            access_crematorium, access_kitchen, access_hydroponics,access_chapel_office, access_library, access_research,
+			            access_crematorium, access_kitchen, access_hydroponics,access_chapel_office, access_library, access_research, access_mining, access_mailsorting,
 			            access_janitor, access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid)
 	minimal_access = list(access_sec_doors, access_medical, access_engine, access_change_ids, access_eva, access_heads,
 			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction,
-			            access_crematorium, access_kitchen, access_hydroponics, access_chapel_office, access_library, access_research,
+			            access_crematorium, access_kitchen, access_hydroponics, access_chapel_office, access_library, access_research, access_mining, access_mailsorting,
 			            access_janitor,   access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist, access_bridge_crew, access_intrepid)
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
@@ -125,7 +125,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	head = /obj/item/clothing/head/caphat/xo
 	uniform = /obj/item/clothing/under/rank/xo
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/laceup/brown
 	id = /obj/item/card/id/navy
 
 	headset = /obj/item/device/radio/headset/heads/xo
@@ -181,7 +181,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	head = /obj/item/clothing/head/caphat/bridge_crew
 	uniform = /obj/item/clothing/under/rank/bridge_crew
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/laceup
 
 	headset = /obj/item/device/radio/headset/headset_com
 	bowman = /obj/item/device/radio/headset/headset_com/alt

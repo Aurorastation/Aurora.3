@@ -95,7 +95,7 @@
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/skrell
-	display_name = "zipluax mantle"
+	display_name = "skrell mantle"
 	path = /obj/item/clothing/head/skrell
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
@@ -112,6 +112,20 @@
 	path = /obj/item/skrell_projector
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Skrell"
+
+/datum/gear/homeworld_deck
+	display_name = "qweipaqui homeworld deck"
+	path = /obj/item/deck/tarot/jargon
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_NO_SELECTION
+
+/datum/gear/colonist_deck // Intentionally separate from homeworld_deck, so that both can be chosen. -Lly
+	display_name = "qweipaqui colonist deck"
+	path = /obj/item/deck/tarot/nonjargon
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_NO_SELECTION
 
 /datum/gear/ears/skrell/goop
 	display_name = "glowing algae"
@@ -136,6 +150,25 @@
 	path = /obj/item/clothing/mask/breath/skrell
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
+
+/datum/gear/mask/skrell/srom
+	display_name = "srom masks"
+	path = /obj/item/clothing/mask/skrell
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/mask/skrell/srom/New()
+	..()
+	var/list/mask = list()
+	mask["pinhole mask"] = /obj/item/clothing/mask/skrell
+	mask["skull mask"] = /obj/item/clothing/mask/skrell/skull
+	mask["weeping mask"] = /obj/item/clothing/mask/skrell/weeping
+	mask["watcher mask"] = /obj/item/clothing/mask/skrell/watcher
+	mask["third eye mask"] = /obj/item/clothing/mask/skrell/thirdeye
+	mask["half mask"] = /obj/item/clothing/mask/skrell/half
+	mask["horned mask"] = /obj/item/clothing/mask/skrell/horned
+	gear_tweaks += new /datum/gear_tweak/path(mask)
 
 /datum/gear/ears/skrell/scrunchy
 	display_name = "tentacle tie"
