@@ -22478,23 +22478,9 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "Px" = (
-/obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12)
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/engineering_ladder)
+/obj/machinery/telecomms/allinone/ship/station_relay,
+/turf/simulated/floor/bluegrid,
+/area/tcommsat/chamber)
 "Py" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -47540,7 +47526,7 @@ Wh
 fc
 TU
 xe
-PB
+Px
 Mg
 PY
 wF
