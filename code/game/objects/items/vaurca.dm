@@ -3,11 +3,9 @@
 	desc = "A holographic projector using advanced technology that immerses someone into a scene using full panoramic holograms, smell and 3D spatial sound projection. It is developed and distributed by Hive Zo'ra and allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur. Typically using one would allow you to control a drone but this is a smaller portable version and as such only allows a user to move around set-locations."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "zora_projector"
-	var/list/worlds_selection_vaurca = list("Ocean", "Hive War exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
+	var/list/worlds_selection_vaurca = list("Ocean", "Hive War Exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
 	var/selected_world_vaurca
 	var/working_vaurca = FALSE
-	var/message_frequency_vaurca = 9
-
 
 
 /obj/item/skrell_projector/vaurca_projector/attack_self(mob/user as mob)
@@ -55,24 +53,24 @@
 
 
 
-	if(prob(message_frequency_vaurca))
-		var/hologram_message
+	if(prob(message_frequency))
+		var/hologram_message_vaurca
 		switch(selected_world_vaurca)
 
 			if("Ocean")
-				hologram_message = pick("You see a golden fortress floating majestically above an ocean of sapphire.",
+				hologram_message_vaurca = pick("You see a golden fortress floating majestically above an ocean of sapphire.",
 										"A euphoric smell of the ocean fills your senses as the water gently ebbs and flows.",
 										"You hear the faint humming of a hymn as a gentle wave envelops the viewfinder.",
                                         "You can hear a quiet celestial chanting the source of which feels just beyond sight",
                                         "The turquoise water emits a jubilant smell of freshly cut lemons which lasts for only for a moment.",
                                         "You see the gas giant Sedantis dominating a starry sky.")
 			if("Hive War exhibition")
-				hologram_message = pick("You see a carefully crafted exhibition detailing the Great Hive War. It explains in brief the details of the event through paintings and dioramas.",
+				hologram_message_vaurca = pick("You see a carefully crafted exhibition detailing the Great Hive War. It explains in brief the details of the event through paintings and dioramas.",
 										"You smell burning and rusted metal. An exhibition showcases the Battle of a Thousand Titans.",
 										"You see a  memorial to the lives lost, a sad hymn flowing in the background.")
 
 			if("Celestial Landing Ground")
-				hologram_message = pick("An awe inspiring fortress of gold dominates the landscape and bathes the surrounding area in yellow luminescence.",
+				hologram_message_vaurca = pick("An awe inspiring fortress of gold dominates the landscape and bathes the surrounding area in yellow luminescence.",
 										"A loud hymn is chanted in an unknown language accompanied by a smell of morning Dew in the countryside.",
 										"Unbound workers moving through the realm stop to gaze up in awe at the distant structure before returning to previous activities.",
                                         "Distant chattering can be heard coming from the fortress including what sounds almost like jovial laughter.",
@@ -81,7 +79,7 @@
 										"For a moment the Golden Fortress towering above starts to glimmer majestically catching the light from the imposing gas giant in the sky")
 
 			if("City of New Sedantis")
-				hologram_message = pick("A towering cavernous city takes up the viewfinder, great buildings of stone jutting out of the ground and twisting towards the ceiling.",
+				hologram_message_vaurca = pick("A towering cavernous city takes up the viewfinder, great buildings of stone jutting out of the ground and twisting towards the ceiling.",
 										"A loud hymn is being chanted in an unknown language and seems to shake the very ground itself.",
 										"A mellow blue light comes from thousands of resplendent crystals lining the wall and mingles with the inviting yellow glow from a distant golden fortress.",
                                         "Distant chattering can be heard coming from the city.",
@@ -89,11 +87,11 @@
 										"A group of Vaurca warriors move through the streets below seemingly practicing for some task unknown.")
 
 			if("Titan Prime")
-				hologram_message = pick("An imposing vessel of steel emits a soft glow as it travels through the starry sky aimlessly.",
+				hologram_message_vaurca = pick("An imposing vessel of steel emits a soft glow as it travels through the starry sky aimlessly.",
 										"The engines of the towering vessel above emit a soft glow, accompanied by a brief smell of a warm ocean breeze.",
 										"A green light flickers from the steel vessel above bathing the surrounding idyllic landscape in its majesty.",
                                         "You see the gas giant Sedantis dominating a starry sky, an imposing vessel of steel blotting out but a small portion of it.")
 
 
-		if(hologram_message)
-			visible_message("<span class='notice'>[hologram_message]</span>")
+		if(hologram_message_vaurca)
+			visible_message("<span class='notice'>[hologram_message_vaurca]</span>")
