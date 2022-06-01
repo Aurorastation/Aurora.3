@@ -21977,6 +21977,10 @@
 	pixel_y = 32
 	},
 /obj/structure/table/rack,
+/obj/structure/closet/walllocker/firecloset{
+	pixel_y = 32;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "rZu" = (
