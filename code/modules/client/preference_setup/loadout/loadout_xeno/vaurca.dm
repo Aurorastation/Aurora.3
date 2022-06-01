@@ -179,7 +179,7 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 
-/datum/gear/vaurca_projector
+/datum/gear/skrell_projector/vaurca_projector
 	display_name = "virtual reality looking-glass"
 	description = "A holographic projector using advanced technology that immerses someone into a scene. It is developed and distributed by Hive Zo'ra and allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur."
 	cost = 2
