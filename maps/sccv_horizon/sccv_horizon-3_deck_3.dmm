@@ -11331,18 +11331,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
-"uW" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/mob/living/simple_animal/corgi/Ian,
-/obj/machinery/door/window/westleft{
-	name = "Ian's Cage Access";
-	req_access = list(57)
-	},
-/turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hop/xo)
 "uX" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -17808,7 +17796,6 @@
 /turf/simulated/floor,
 /area/crew_quarters/heads/hop/xo)
 "Hj" = (
-/mob/living/simple_animal/corgi/fox/Chauncey,
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/effect/floor_decal/plaque{
 	desc = "The Stellar Corporate Conglomerate Logo Engraved in bronze." ;
@@ -48713,7 +48700,7 @@ Uq
 YU
 Hi
 Bk
-uW
+Dd
 Bl
 bJ
 og
