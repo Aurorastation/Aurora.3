@@ -15,7 +15,7 @@
 
 	if(working_vaurca)
 		var/choice = input("You change the projector's holographic viewfinder to display:","Change the projector's viewfinder.") as null|anything in worlds_selection_vaurca
-		apply_world(choice)
+		apply_world_vaurca(choice)
 		START_PROCESSING(SSprocessing, src)
 	else
 		set_light(0)
@@ -23,7 +23,7 @@
 		update_icon()
 		STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/skrell_projector/vaurca_projector/proc/apply_world(var/choice)
+/obj/item/skrell_projector/vaurca_projector/proc/apply_world_vaurca(var/choice)
 	var/brightness = 2
 
 	if(choice)
