@@ -491,7 +491,7 @@
 /obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/airless,
 /area/hangar/auxiliary)
 "axv" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2501,7 +2501,7 @@
 /area/maintenance/engineering)
 "bSM" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hangar/intrepid)
 "bSO" = (
 /obj/structure/cable{
@@ -3266,7 +3266,7 @@
 /area/engineering/storage/lower)
 "cCq" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hangar/auxiliary)
 "cCv" = (
 /obj/structure/cable/green{
@@ -3331,7 +3331,7 @@
 /obj/machinery/shieldwallgen,
 /obj/structure/cable/green,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/airless,
 /area/hangar/intrepid)
 "cHx" = (
 /obj/machinery/artifact_scanpad,
@@ -4543,7 +4543,7 @@
 /obj/machinery/shieldwallgen,
 /obj/structure/cable/green,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/airless,
 /area/hangar/operations)
 "dJT" = (
 /obj/structure/cable/green{
@@ -8949,7 +8949,7 @@
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/airless,
 /area/hangar/auxiliary)
 "hcD" = (
 /obj/machinery/light/small{
@@ -9378,7 +9378,7 @@
 /area/hangar/intrepid)
 "htv" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hangar/operations)
 "htx" = (
 /obj/machinery/door/firedoor,
@@ -9519,7 +9519,7 @@
 /obj/machinery/shieldwallgen,
 /obj/structure/cable/green,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/airless,
 /area/hangar/auxiliary)
 "hBn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -11888,7 +11888,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hangar/operations)
 "jCl" = (
 /turf/simulated/floor/plating,
@@ -16366,7 +16366,7 @@
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/airless,
 /area/hangar/operations)
 "nhw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -22511,7 +22511,7 @@
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/airless,
 /area/hangar/operations)
 "suA" = (
 /obj/vehicle/train/cargo/trolley/pussywagon,
