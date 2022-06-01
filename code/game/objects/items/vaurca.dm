@@ -27,7 +27,7 @@
 	var/brightness = 2
 
 	if(choice)
-		selected_world = choice
+		selected_world_vaurca = choice
 	switch(choice)
 		if("Ocean")
 			light_color = "#1122c2"
