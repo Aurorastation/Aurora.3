@@ -6,7 +6,7 @@
 	var/list/worlds_selection_vaurca = list("Ocean", "Hive War exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
 	var/selected_world_vaurca
 	var/working_vaurca = FALSE
-	var/message_frequency_vaurca = 8
+	var/message_frequency_vaurca = 9
 
 
 
