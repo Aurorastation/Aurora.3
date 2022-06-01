@@ -492,7 +492,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green,
 /turf/simulated/floor/airless,
-/area/hangar/auxiliary)
+/area/template_noop)
 "axv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/greenglow,
@@ -3264,10 +3264,6 @@
 /obj/item/ladder_mobile,
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
-"cCq" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/airless,
-/area/hangar/auxiliary)
 "cCv" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4539,12 +4535,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
-"dJQ" = (
-/obj/machinery/shieldwallgen,
-/obj/structure/cable/green,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/airless,
-/area/hangar/operations)
 "dJT" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -8943,14 +8933,6 @@
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
-"hbU" = (
-/obj/machinery/shieldwallgen,
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/airless,
-/area/hangar/auxiliary)
 "hcD" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -9379,7 +9361,7 @@
 "htv" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
-/area/hangar/operations)
+/area/template_noop)
 "htx" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -9520,7 +9502,7 @@
 /obj/structure/cable/green,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
-/area/hangar/auxiliary)
+/area/template_noop)
 "hBn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -11889,7 +11871,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
-/area/hangar/operations)
+/area/template_noop)
 "jCl" = (
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
@@ -16367,7 +16349,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
-/area/hangar/operations)
+/area/template_noop)
 "nhw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -16759,7 +16741,7 @@
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
 	},
-/area/hangar/auxiliary)
+/area/template_noop)
 "nyV" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(48);
@@ -22512,7 +22494,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
-/area/hangar/operations)
+/area/template_noop)
 "suA" = (
 /obj/vehicle/train/cargo/trolley/pussywagon,
 /obj/effect/floor_decal/industrial/warning{
@@ -24213,11 +24195,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
-"tNp" = (
-/turf/unsimulated/wall/fakepdoor{
-	dir = 4
-	},
-/area/hangar/operations)
 "tNx" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
@@ -42321,7 +42298,7 @@ san
 san
 kWB
 iHE
-dJQ
+hAZ
 jEx
 pRz
 eSV
@@ -42522,9 +42499,9 @@ mwO
 mwO
 mwO
 mwO
-tNp
+nyL
 htv
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -42724,9 +42701,9 @@ mwO
 mwO
 mwO
 mwO
-tNp
+nyL
 htv
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -42926,9 +42903,9 @@ mwO
 mwO
 mwO
 mwO
-tNp
+nyL
 htv
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -43128,9 +43105,9 @@ mwO
 mwO
 mwO
 mwO
-tNp
+nyL
 htv
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -43330,9 +43307,9 @@ mwO
 mwO
 mwO
 mwO
-tNp
+nyL
 htv
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -43532,9 +43509,9 @@ mwO
 mwO
 mwO
 mwO
-tNp
+nyL
 htv
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -43734,9 +43711,9 @@ mwO
 mwO
 mwO
 mwO
-tNp
+nyL
 htv
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -43936,9 +43913,9 @@ mwO
 mwO
 mwO
 mwO
-tNp
+nyL
 htv
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -44138,9 +44115,9 @@ mwO
 mwO
 mwO
 mwO
-tNp
+nyL
 htv
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -44341,7 +44318,7 @@ tgY
 tgY
 gub
 iHE
-dJQ
+hAZ
 jEx
 xGF
 eSV
@@ -44946,9 +44923,9 @@ iuk
 oDr
 vHW
 fja
-tNp
+nyL
 jCg
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -45148,9 +45125,9 @@ ePy
 xpX
 tqs
 sxP
-tNp
+nyL
 jCg
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -45350,9 +45327,9 @@ ePy
 sVu
 tqs
 sxP
-tNp
+nyL
 jCg
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -45552,9 +45529,9 @@ ePy
 sVu
 tqs
 vhg
-tNp
+nyL
 jCg
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -45754,9 +45731,9 @@ ePy
 sVu
 tqs
 sxP
-tNp
+nyL
 jCg
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -45956,9 +45933,9 @@ ePy
 xpX
 tqs
 sxP
-tNp
+nyL
 jCg
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -46158,9 +46135,9 @@ iuk
 iZi
 oSA
 hMj
-tNp
+nyL
 jCg
-tNp
+nyL
 eSV
 eSV
 eSV
@@ -54037,7 +54014,7 @@ moI
 moI
 moI
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -54239,7 +54216,7 @@ bJa
 bJa
 bJa
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -54441,7 +54418,7 @@ bJa
 bJa
 bJa
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -54643,7 +54620,7 @@ bJa
 bJa
 bJa
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -54845,7 +54822,7 @@ bJa
 bJa
 bJa
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -55047,7 +55024,7 @@ bJa
 bJa
 bJa
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -55249,7 +55226,7 @@ tGr
 tGr
 tGr
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -56057,7 +56034,7 @@ moI
 moI
 moI
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -56259,7 +56236,7 @@ bJa
 bJa
 bJa
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -56461,7 +56438,7 @@ bJa
 bJa
 bJa
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -56663,7 +56640,7 @@ bJa
 bJa
 bJa
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -56865,7 +56842,7 @@ bJa
 bJa
 bJa
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -57067,7 +57044,7 @@ bJa
 bJa
 bJa
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -57269,7 +57246,7 @@ tGr
 tGr
 tGr
 nyL
-cCq
+htv
 nyL
 eSV
 eSV
@@ -57471,7 +57448,7 @@ ygC
 ygC
 ygC
 nCG
-hbU
+suw
 nCG
 xGF
 eSV
