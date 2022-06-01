@@ -465,11 +465,11 @@
 
 /obj/item/gun/projectile/pistol/super_heavy
 	name = "super-heavy pistol"
-	desc = "A big, bulky and extremely powerful pistol, intended to pierce even your strongest enemy. For your own safety you should wield this thing with two hands."
+	desc = "A big, bulky and extremely powerful pistol, intended to pierce even your strongest enemy. You should wield this thing with two hands, if you want your wrists to stay intact."
 	desc_fluff = "The Kumar Arms 2557 is a newly designed type of \"super-heavy\" pistol. \
 	It features a light-weight polymer pistol grip, a bulky plasteel frame and an extra long barrel. \
-	It is chambered in the newly developed .599 Kumar Super rifle cartridge. Newly developed propellant turns this into a pistol, which fires rifle cartridges, upping the stopping power significantly. \
-	Kumar Arms guarantees your enemy's armor penetrated or your money back. It features a revolutionary automatic revolving bolt system, which ensures accuracy at the cost of fire rate."
+	It is chambered in the newly developed .599 Kumar Super rifle cartridge. Despite designed for rifle use, the newly developed propellants allows this cartridge for use in the Kumar Arms 2557, upping the stopping power significantly. \
+	Kumar Arms guarantees your enemy's armor penetrated or your money back. It features a revolving bolt system with an electromagnetic striker, allowing for hammerless actuation. It has a revolutinary blowback system to ensure accuracy at the cost of fire rate."
 	icon = 'icons/obj/contained_items/weapons/k_arms.dmi'
 	icon_state = "k2557-loaded"
 	item_state = "k2557-loaded"
