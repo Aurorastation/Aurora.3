@@ -83,13 +83,3 @@
 	name = "gold star"
 	desc = "A sticker of a gold star, for those overachievers."
 	icon_state = "goldstar"
-
-/atom/movable/proc/take_off_sticker()
-	set name = "Remove Sticker"
-	set src in view(1)
-
-	if(!isliving(usr))
-		return
-	var/obj/item/sticker/S = locate() in src
-	if(S)
-		S.remove_sticker(usr)
