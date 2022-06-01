@@ -6464,8 +6464,22 @@
 	name = "Security - Investigations Office"
 	})
 "lV" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/turf/simulated/floor,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(12)
+	},
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/engineering_ladder)
 "lW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -48091,7 +48105,7 @@ yW
 VN
 vm
 vm
-Px
+lV
 vm
 vm
 vm
@@ -48699,9 +48713,9 @@ Bq
 vm
 Fl
 FH
-lV
 FH
-lV
+FH
+FH
 FH
 FH
 hL
