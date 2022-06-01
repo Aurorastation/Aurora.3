@@ -3,39 +3,27 @@
 	desc = "A holographic projector using advanced technology that immerses someone into a scene using full panoramic holograms, smell and 3D spatial sound projection. It is developed and distributed by Hive Zo'ra and allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur. Typically using one would allow you to control a drone but this is a smaller portable version and as such only allows a user to move around set-locations."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "zora_projector"
-	light_color = LIGHT_COLOR_HALOGEN
-	w_class = ITEMSIZE_TINY
-	matter = list(MATERIAL_GLASS = 200)
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
-	var/list/worlds_selection = list("Ocean", "Hive War exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
-	var/selected_world
-	var/working = FALSE
-	var/message_frequency = 8
+	var/list/worlds_selection_vaurca = list("Ocean", "Hive War exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
+	var/selected_world_vaurca
+	var/working_vaurca = FALSE
+	var/message_frequency_vaurca = 8
 
-/obj/item/vaurca_projector/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
 
-/obj/item/vaurca_projector/examine(mob/user)
-	..(user)
-	if(selected_world && working)
-		to_chat(user, "\The [src] displays a hologram of the [selected_world].")
 
-/obj/item/vaurca_projector/attack_self(mob/user as mob)
-	working = !working
+/obj/item/skrell_projector/vaurca_projector/attack_self(mob/user as mob)
+	working_vaurca = !working_vaurca
 
-	if(working)
-		var/choice = input("You change the projector's holographic viewfinder to display:","Change the projector's viewfinder.") as null|anything in worlds_selection
+	if(working_vaurca)
+		var/choice = input("You change the projector's holographic viewfinder to display:","Change the projector's viewfinder.") as null|anything in worlds_selection_vaurca
 		apply_world(choice)
 		START_PROCESSING(SSprocessing, src)
 	else
 		set_light(0)
-		working = FALSE
+		working_vaurca = FALSE
 		update_icon()
 		STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/vaurca_projector/proc/apply_world(var/choice)
+/obj/item/skrell_projector/vaurca_projector/proc/apply_world(var/choice)
 	var/brightness = 2
 
 	if(choice)
@@ -59,19 +47,17 @@
 	set_light(brightness)
 	update_icon()
 
-/obj/item/vaurca_projector/update_icon()
+/obj/item/skrell_projector/vaurca_projector/update_icon()
 	cut_overlays()
 	if(working)
 		var/image/overlay = overlay_image(icon, "zo'ra_projector_light", light_color, RESET_COLOR)
 		add_overlay(overlay)
 
-/obj/item/vaurca_projector/process()
-	if(!selected_world)
-		return
 
-	if(prob(message_frequency))
+
+	if(prob(message_frequency_vaurca))
 		var/hologram_message
-		switch(selected_world)
+		switch(selected_world_vaurca)
 
 			if("Ocean")
 				hologram_message = pick("You see a golden fortress floating majestically above an ocean of sapphire.",
