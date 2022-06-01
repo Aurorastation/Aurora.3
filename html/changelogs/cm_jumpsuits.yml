@@ -1,0 +1,8 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - rscdel: "Completely removes the Rainbow and the Psychodelic jumpsuits."
+  - imagedel: "Removes old Jumpsuits sprites."
+  - imageadd: "Ported and tweaked most of CM's Redone Bay Colored Jumpsuit sprites! Details on the tweaks can be found in the GitHub PR, and they're all Bulwark friendly as well!"
