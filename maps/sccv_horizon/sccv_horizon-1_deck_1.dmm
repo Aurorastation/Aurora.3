@@ -17871,7 +17871,9 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "oDr" = (
-/obj/machinery/shipsensors/weak,
+/obj/machinery/shipsensors/weak{
+	density = 1
+	},
 /obj/structure/railing/mapped{
 	dir = 8
 	},
