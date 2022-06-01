@@ -130,7 +130,7 @@
 	can_hold = list(
 				/obj/item/clothing/mask,
 				/obj/item/tank/emergency_oxygen,
-				/obj/item/device/flashlight/flare/glowstick,
+				/obj/item/device/flashlight/flare,
 				/obj/item/stack/medical,
 				/obj/item/reagent_containers/hypospray/autoinjector,
 				/obj/item/reagent_containers/inhaler,
@@ -154,8 +154,15 @@
 					/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 					)
 
-/obj/item/storage/box/engineer
-	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/tank/emergency_oxygen/engi = 1)
+/obj/item/storage/box/survival/engineer
+		starts_with = list(
+					/obj/item/clothing/mask/breath = 1,
+					/obj/item/tank/emergency_oxygen/engi = 1,
+					/obj/item/device/oxycandle = 1,
+					/obj/item/device/flashlight/flare = 1,
+					/obj/item/stack/medical/bruise_pack = 1,
+					/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
+					)
 
 /obj/item/storage/box/vaurca
 	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/reagent_containers/inhaler/phoron_special = 1)

@@ -87,10 +87,11 @@
 
 	if(ismob(user))
 		var/mob/M = user
+		var/check_ghost_hearing = M.client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
 		if(message_type == AUDIBLE_MESSAGE)
-			M.audible_message(message = use_3p, self_message = use_1p, deaf_message = emote_message_impaired, hearing_distance = use_range)
+			M.audible_message(message = use_3p, self_message = use_1p, deaf_message = emote_message_impaired, hearing_distance = use_range, ghost_hearing = check_ghost_hearing)
 		else
-			M.visible_message(message = use_3p, self_message = use_1p, blind_message = emote_message_impaired, range = use_range)
+			M.visible_message(message = use_3p, self_message = use_1p, blind_message = emote_message_impaired, range = use_range, show_observers = FALSE)
 
 	do_extra(user, target)
 

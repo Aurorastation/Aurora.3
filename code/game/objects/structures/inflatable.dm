@@ -289,6 +289,8 @@
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
 /obj/item/storage/bag/inflatable/emergency
+	name = "emergency inflatable barrier box"
+	desc = "Contains inflatable walls and doors. This box has emergency labelling on it and outlines that there's only enough inflatables within to secure a small area."
 	starts_with = list(/obj/item/inflatable/door = 2, /obj/item/inflatable/wall = 3)
 
 #undef STATE_CLOSED

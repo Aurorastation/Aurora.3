@@ -35,6 +35,106 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">01 June 2022</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Radio communications are now limited by sector distance. The default max range is two grids. The centcomm level, ERT staging, and antagonist bases are exempt from this.</li>
+				<li class="tweak">Ships will now only hear other ships&#x27; communications if they are within this range. Get close on the overmap if you want to eavesdrop. Note that away ships will still only hear the Ship Frequency, not Horizon comms.</li>
+				<li class="bugfix">Away ship roles should no longer get duplicated radio messages, even when in comms range of multiple other away ships.</li>
+				<li class="tweak">As away shuttles do not have telecomms units, they will no longer receive radio broadcasts when departed, if they were previously able to. Intrepid/Mining shuttle can still speak DURING the bluespace jump, away ships cannot. Holopads are unaffected.</li>
+				<li class="maptweak">Added an External Signal Receiver to the Horizon tcomms room. This does not need any special setup or connections, and while powered, will allow away ships to communicate with their crew who are aboard the Horizon. This has no bearing on antagonists, so disabling it won&#x27;t help you there, crafty engineers.</li>
+			</ul>
+
+			<h2 class="date">31 May 2022</h2>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed antag uplinks not working off-station (for real this time). Chat clients on PDAs can now be opened off-Horizon, but with limited functionality.</li>
+			</ul>
+			<h3 class="author">Vrow updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added two more reading outputs for damage. The cap for damage readout now is Fatal (over 100 damage), in contrast to Severe (over 50 damage).</li>
+				<li class="bugfix">Fixed the Burn Severity reading from being hard numbers to the minor/moderate/significant/severe/critical/fatal.</li>
+				<li class="tweak">Greimorian Eggs and Larvae in people now show as &#x27;Abnormal organic body&#x27; in body scanners and medscans.</li>
+				<li class="tweak">Added the Electronic Implants from integrated circuits in the body scanner&#x27;s known implants list.</li>
+			</ul>
+
+			<h2 class="date">30 May 2022</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">You can now dismantle reinforced walls again.</li>
+				<li class="bugfix">The additional description info for reinforced walls and girders now shows the correct disassembly steps.</li>
+			</ul>
+			<h3 class="author">GrayRachnid updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">The Intrepid now has faster cycling airlocks and a bigger aft cycling space.</li>
+				<li class="maptweak">The Intrepid has also gone through a little bit of remodeling. There&#x27;s empty spaces for people to park equipment rather than unnecessary items that will never get used.</li>
+			</ul>
+			<h3 class="author">MattAtlas, RyverStyx updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new accent for mobs in the Srom.</li>
+			</ul>
+
+			<h2 class="date">29 May 2022</h2>
+			<h3 class="author">Afya updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed color of Ya&#x27;ssa in light mode.</li>
+			</ul>
+			<h3 class="author">GrayRachnid updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Gives the mining shuttle a proper cycler and an additional air canister and a single vent. Miners now also have access to their own fire alarm to enable the vent.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Ghosts do not receive pain messages unless they are in range.</li>
+				<li class="tweak">Ghosts do not receive halloss messages unless they are in range.</li>
+				<li class="tweak">Halloss messages should now happen less often.</li>
+				<li class="bugfix">The ninja teleporter console in their base works again.</li>
+				<li class="bugfix">Drop pods now work correctly.</li>
+				<li class="bugfix">Fixed shuttles that dock to the Horizon&#x27;s exterior being unable to dock.</li>
+				<li class="bugfix">TCFL ERT shuttle can now actually dock with the Horizon.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Adds a secondary audioconsole to the western bar.</li>
+				<li class="bugfix">Fixes the portable generator crate in engineering storage spawning with the wrong fuel.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Replaces Goon slot machine sprite with modified Eris slot machine sprite.</li>
+			</ul>
+
+			<h2 class="date">28 May 2022</h2>
+			<h3 class="author">Afya updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">XO, CE, and RD now have basic access to operations.</li>
+				<li class="bugfix">OM now has basic access to engineering.</li>
+				<li class="rscadd">Added a childlock to mechs. Mechs must be in maintenance mode to unlink.</li>
+				<li class="rscadd">Mechs give more feedback when commands fail.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fix power networks not updating properly when single cables are cut.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The alternate Idris Beret has had its logo area made more teal like in the original rendition.</li>
+				<li class="balance">The engineer survival box that most antags and a lot of admin or ccia ghost spawners start with now has what survival boxes usually get. Main difference is that their oxygen tank is upgraded to an expanded capacity variant and the glowstick is replaced with a flare. Horizon engineering department members get it too now, it is an engineering box after all.</li>
+				<li class="rscadd">Ports the emergency forcing tool from Baystation. On Aurora it&#x27;s been renamed to the &#x27;rescue axe&#x27; and true to the name, is a hand axe used to force your way into situations where a crowbar would not suffice. You can find these in fire closets or in the CE/Atmos tech engineering lockers.</li>
+				<li class="tweak">The old retro full face gas masks have been swapped for the clear faced gas mask variant within fire closets and engineering lockers.</li>
+				<li class="tweak">Fireclosets have been buffed overall. They&#x27;ll usually contain a very small amount of inflatables totalling to one door, two walls. The EMTs and the bridge will have variants that have two doors, three walls. The EMTs also get a ladder in their firecloset.</li>
+				<li class="tweak">Firesuits can have a few more things in their suit slots. Crowbars of any type, the rescue axe, the fire axe and full oxygen tanks.</li>
+			</ul>
+
+			<h2 class="date">27 May 2022</h2>
+			<h3 class="author">Afya updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">XO preset now shows up on the ID card modification program.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a wall-mounted variant of the Audioconsole.</li>
+			</ul>
+
 			<h2 class="date">26 May 2022</h2>
 			<h3 class="author">Afya updated:</h3>
 			<ul class="changes bgimages16">
