@@ -42,7 +42,7 @@
 
 		else
 			brightness = 0
-			working = FALSE
+			working_vaurca = FALSE
 			STOP_PROCESSING(SSprocessing, src)
 	set_light(brightness)
 	update_icon()
