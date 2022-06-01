@@ -1,6 +1,6 @@
 /obj/item/clothing/under/color
 	name = "grey jumpsuit"
-	desc = "A basic jumpsuit"
+	desc = "A basic jumpsuit."
 	desc_info = "Jumpsuits can have their sleeves rolled up/down via the Roll Up/Down Sleeves verb, and also have their upper body part be up/down via the \
 	the Rolled Up/Down verb."
 	icon = 'icons/clothing/under/uniforms/jumpsuits.dmi'
@@ -42,115 +42,115 @@
 
 /obj/item/clothing/under/color/black
 	name = "black jumpsuit"
-	desc = "A bleak black jumpsuit"
+	desc = "A black jumpsuit."
 	icon_state = "black"
 	item_state = "black"
 
 /obj/item/clothing/under/color/grey
 	name = "grey jumpsuit"
-	desc = "A generic grey jumpsuit"
+	desc = "A grey jumpsuit."
 	icon_state = "grey"
 	item_state = "grey"
 
 /obj/item/clothing/under/color/white
 	name = "white jumpsuit"
-	desc = "A wrinkly white jumpsuit"
+	desc = "A white jumpsuit."
 	icon_state = "white"
 	item_state = "white"
 
 /obj/item/clothing/under/color/darkred
 	name = "darkred jumpsuit"
-	desc = "A dark red jumpsuit"
+	desc = "A dark red jumpsuit."
 	icon_state = "darkred"
 	item_state = "darkred"
 
 /obj/item/clothing/under/color/red
 	name = "red jumpsuit"
-	desc = "A reliable red jumpsuit"
+	desc = "A red jumpsuit."
 	icon_state = "red"
 	item_state = "red"
 
 /obj/item/clothing/under/color/lightred
 	name = "lightred jumpsuit"
-	desc = "A light red jumpsuit"
+	desc = "A light red jumpsuit."
 	icon_state = "lightred"
 	item_state = "lightred"
 
 /obj/item/clothing/under/color/lightbrown
 	name = "lightbrown jumpsuit"
-	desc = "A light brown jumpsuit"
+	desc = "A light brown jumpsuit."
 	icon_state = "lightbrown"
 	item_state = "lightbrown"
 
 /obj/item/clothing/under/color/brown
 	name = "brown jumpsuit"
-	desc = "A boring brown jumpsuit"
+	desc = "A brown jumpsuit."
 	icon_state = "brown"
 	item_state = "brown"
 
 /obj/item/clothing/under/color/yellow
 	name = "yellow jumpsuit"
-	desc = "A yokelish yellow jumpsuit"
+	desc = "A yellow jumpsuit."
 	icon_state = "yellow"
 	item_state = "yellow"
 
 /obj/item/clothing/under/color/yellowgreen
 	name = "yellowgreen jumpsuit"
-	desc = "A yellow green jumpsuit"
+	desc = "A yellow green jumpsuit."
 	icon_state = "yellowgreen"
 	item_state = "yellowgreen"
 
 /obj/item/clothing/under/color/lightgreen
 	name = "lightgreen jumpsuit"
-	desc = "A light green jumpsuit"
+	desc = "A light green jumpsuit."
 	icon_state = "lightgreen"
 	item_state = "lightgreen"
 
 /obj/item/clothing/under/color/green
 	name = "green jumpsuit"
-	desc = "A gauche green jumpsuit"
+	desc = "A green jumpsuit."
 	icon_state = "green"
 	item_state = "green"
 
 /obj/item/clothing/under/color/aqua
 	name = "aqua jumpsuit"
-	desc = "An appropriate aqua jumpsuit"
+	desc = "An aqua jumpsuit."
 	icon_state = "aqua"
 	item_state = "aqua"
 
 /obj/item/clothing/under/color/lightblue
 	name = "lightblue jumpsuit"
-	desc = "A light blue jumpsuit"
+	desc = "A light blue jumpsuit."
 	icon_state = "lightblue"
 	item_state = "lightblue"
 
 /obj/item/clothing/under/color/blue
 	name = "blue jumpsuit"
-	desc = "A beady blue jumpsuit"
+	desc = "A blue jumpsuit."
 	icon_state = "blue"
 	item_state = "blue"
 
 /obj/item/clothing/under/color/darkblue
 	name = "darkblue jumpsuit"
-	desc = "A dark blue jumpsuit"
+	desc = "A dark blue jumpsuit."
 	icon_state = "darkblue"
 	item_state = "darkblue"
 
 /obj/item/clothing/under/color/purple
 	name = "purple jumpsuit"
-	desc = "A placid purple jumpsuit"
+	desc = "A purple jumpsuit."
 	icon_state = "purple"
 	item_state = "purple"
 
 /obj/item/clothing/under/color/lightpurple
 	name = "lightpurple jumpsuit"
-	desc = "A light purple jumpsuit"
+	desc = "A light purple jumpsuit."
 	icon_state = "lightpurple"
 	item_state = "lightpurple"
 
 /obj/item/clothing/under/color/pink
 	name = "pink jumpsuit"
-	desc = "A perky pink jumpsuit"
+	desc = "A pink jumpsuit."
 	icon_state = "pink"
 	item_state = "pink"
 
