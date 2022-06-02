@@ -147,3 +147,27 @@
 		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
 		return 0
 	return ..()
+
+/obj/item/gun/projectile/automatic_grenade_launcer
+	name = "automatic grenade launcher"
+	desc = "Zavodskoi placeholder automatic grenade launcher description."
+	desc_fluff = "placeholder about techno mumbo jumbo"
+	icon = placeholder
+	icon_state = placeholder
+	caliber = "40mm"
+	w_class = ITEMSIZE_LARGE
+	load_method = MAGAZINE
+
+	magazine_type = 
+	allowed_magazine =
+	
+	slot_flags = SLOT_BACK
+	fire_sound = 
+	ammo_type = 
+
+	fire_delay = 9
+	is_wieldable = TRUE
+	auto_eject = TRUE
+	max_shells = 6
+	recoil = 8
+
