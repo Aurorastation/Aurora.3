@@ -1,4 +1,4 @@
-/decl/recipe/onionsoup
+	/decl/recipe/onionsoup
 	appliance = SAUCEPAN | POT
 	fruit = list("onion" = 1)
 	reagents = list(/decl/reagent/water = 10)
@@ -106,6 +106,19 @@
 	reagents = list(/decl/reagent/water = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/fish)
 	result = /obj/item/reagent_containers/food/snacks/soup/brudet
+
+/decl/recipe/maeuntang
+	appliance = SAUCEPAN | POT
+	fruit = list("chili" = 1, "moss" = 1)
+	reagents = list(/decl/reagent/water = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/fish)
+	result = /obj/item/reagent_containers/food/snacks/soup/maeuntang
+
+/decl/recipe/miyeokguk
+	appliance = SAUCEPAN | POT
+	fruit = list("moss" = 1, "seaweed" = 1)
+	reagents = list(/decl/reagent/water = 10)
+	result = /obj/item/reagent_containers/food/snacks/soup/miyeokguk
 
 // Stews
 /decl/recipe/stew
