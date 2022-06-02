@@ -40,6 +40,11 @@
 	item_cost = 1
 	path = /obj/item/storage/box/syndie_kit/stimulants
 
+/datum/uplink_item/item/medical/berserk_injectors
+	name = "Box of Berserk Injectors"
+	item_cost = 2
+	path = /obj/item/storage/box/syndie_kit/berserk_injectors
+
 /datum/uplink_item/item/medical/sideeffectbegone
 	name = "Box of Sideeffect-Be-Gone Injectors"
 	item_cost = 1
