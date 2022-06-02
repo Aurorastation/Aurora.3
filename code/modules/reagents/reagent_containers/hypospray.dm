@@ -245,7 +245,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/berserk
 	name_label = "berserk injector"
-	desc = "An injector containing Red Nightshade. Used before fights to induce a berserk state - lasts ~2.5 minutes."
+	desc = "An injector containing Red Nightshade. Used before fights to induce a berserk state."
 	volume = 5
 	amount_per_transfer_from_this = 5
 

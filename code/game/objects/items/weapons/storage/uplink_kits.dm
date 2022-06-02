@@ -264,7 +264,7 @@
 
 /obj/item/storage/box/syndie_kit/berserk_injectors
 	name = "box of berserk injectors"
-	desc = "Comes with 2x autoinjectors filled with Red Nightshade - used to induce a berserk state lasting ~2.5 minutes per injector. Using both injectors will increase time berserk, but will lead to liver failure."
+	desc = "Comes with 2x autoinjectors filled with Red Nightshade used to induce a berserk state."
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/berserk = 2
 	)
