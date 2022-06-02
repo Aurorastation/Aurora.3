@@ -492,6 +492,20 @@
 	item_state = "asymmetriccoat"
 	body_parts_covered = UPPER_TORSO
 
+/obj/item/clothing/suit/storage/toggle/highloft
+	name = "high loft jacket"
+	desc = "A high loft insulated jacket intended for long hours in cold station conditions."
+	icon = 'icons/clothing/suits/highloft.dmi'
+	icon_state = "highloft"
+	item_state = "highloft"
+	worn_overlay = "over"
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	body_parts_covered = UPPER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = T0C - 20
+	siemens_coefficient = 0.75
+
 /*
  * Department Jackets
  */
