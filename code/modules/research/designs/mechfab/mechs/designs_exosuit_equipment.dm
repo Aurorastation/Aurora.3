@@ -14,6 +14,12 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	build_path = /obj/item/mecha_equipment/drill
 
+/datum/design/item/mechfab/exosuit_equipment/thermal_drill
+	name = "Thermal Drill"
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GOLD = 2000, MATERIAL_URANIUM = 2000)
+	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
+	build_path = /obj/item/mecha_equipment/mounted_system/thermaldrill
+
 /datum/design/item/mechfab/exosuit_equipment/taser
 	name = "Mounted Taser"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)

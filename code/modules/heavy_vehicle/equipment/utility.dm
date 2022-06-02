@@ -439,6 +439,34 @@
 			to_chat(user, SPAN_WARNING("You must stay still while the drill is engaged!"))
 		return 1
 
+/obj/item/mecha_equipment/mounted_system/thermaldrill
+	name = "thermal drill"
+	desc = "Pierce the heavens? Son, there won't <i>be</i> any heavens when you're through with it."
+	icon_state = "mech_flaregun"
+	holding_type = /obj/item/gun/energy/vaurca/mountedthermaldrill/mech
+	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	restricted_software = list(MECH_SOFTWARE_UTILITY)
+
+/obj/item/mecha_equipment/mounted_system/thermaldrill/CtrlClick(mob/user)
+	if(owner && istype(holding, /obj/item/gun/energy/vaurca/mountedthermaldrill/mech))
+		var/obj/item/gun/energy/vaurca/mountedthermaldrill/mech/G = holding
+		G.toggle_firing_mode(user)
+	else
+		return ..()
+
+/obj/item/gun/energy/vaurca/mountedthermaldrill/mech
+	use_external_power = TRUE
+	self_recharge = TRUE
+	has_safety = FALSE
+	max_shots = 120
+	sel_mode = 3
+
+	firemodes = list(
+		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20, fire_delay_wielded = 20),
+		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, fire_delay_wielded = 40),
+		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, fire_delay_wielded = 60), //No semi auto, wouldnt work with how the exosuit has a cooldown between module use
+		)
+
 /obj/item/mecha_equipment/mounted_system/flarelauncher
 	name = "flare launcher"
 	desc = "The SGL-6 Special grenade launcher has been retooled to fire lit flares for emergency illumination."

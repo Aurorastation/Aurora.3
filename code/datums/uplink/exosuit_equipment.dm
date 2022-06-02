@@ -59,6 +59,12 @@
 	item_cost = 1
 	path = /obj/item/mecha_equipment/drill
 
+/datum/uplink_item/item/exosuit_equipment/mounted_tool/thermaldrill
+	name = "Mounted Thermal Drill"
+	desc = "An exosuit-mounted thermal drill."
+	item_cost = 3
+	path = /obj/item/mecha_equipment/mounted_system/thermaldrill
+
 /datum/uplink_item/item/exosuit_equipment/mounted_tool/passenger
 	name = "Mounted Passenger Compartment"
 	desc = "An exosuit-mounted passenger compartment."
