@@ -434,8 +434,8 @@
 	if(user)
 		to_chat(user, SPAN_DANGER("*click*"))
 	else
-		src.visible_message("*click click*")
-	playsound(loc, 'sound/weapons/empty.ogg', 100, 1)
+		src.visible_message("*click*")
+	playsound(loc, /decl/sound_category/out_of_ammo, 100, 1)
 
 //called after successfully firing
 /obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)

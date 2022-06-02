@@ -564,6 +564,26 @@
 		'sound/items/drop/casing25.ogg',
 	)
 
+/decl/sound_category/out_of_ammo
+	sounds = list(
+		'sound/weapons/empty/empty2.ogg',
+		'sound/weapons/empty/empty3.ogg',
+		'sound/weapons/empty/empty4.ogg',
+		'sound/weapons/empty/empty5.ogg',
+		'sound/weapons/empty/empty6.ogg',
+	)
+
+/decl/sound_category/out_of_ammo_revolver
+	sounds = list(
+		'sound/weapons/empty/empty_revolver.ogg',
+	)
+
+/decl/sound_category/out_of_ammo_rifle
+	sounds = list(
+		'sound/weapons/empty/empty_rifle1.ogg',
+		'sound/weapons/empty/empty_rifle2.ogg',
+	)
+
 /decl/sound_category/drillhit_sound
 	sounds = list(
 		'sound/weapons/saw/drillhit1.ogg',
