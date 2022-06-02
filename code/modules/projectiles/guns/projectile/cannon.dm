@@ -148,7 +148,7 @@
 		return 0
 	return ..()
 
-/obj/item/gun/projectile/automatic_grenade_launcer
+/obj/item/gun/projectile/agl
 	name = "automatic grenade launcher"
 	desc = "Zavodskoi placeholder automatic grenade launcher description."
 	desc_fluff = "placeholder about techno mumbo jumbo"
@@ -160,7 +160,7 @@
 
 	magazine_type = 
 	allowed_magazine =
-	
+
 	slot_flags = SLOT_BACK
 	fire_sound = 
 	ammo_type = 
