@@ -118,6 +118,7 @@
 	appliance = SAUCEPAN | POT
 	fruit = list("moss" = 1, "seaweed" = 1)
 	reagents = list(/decl/reagent/water = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/soup/miyeokguk
 
 // Stews
