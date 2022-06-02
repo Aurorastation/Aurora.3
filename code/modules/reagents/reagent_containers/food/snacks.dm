@@ -1742,7 +1742,7 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5)
 
 /obj/item/reagent_containers/food/snacks/soup/maeuntang
-	name = "konyanger maeuntang"
+	name = "maeuntang"
 	desc = "A popular fish soup originating from Korea, this spicy dish has been given a distinctly Konyanger twist by the addition of \
 	moss to the ingredients, and has since proven to be a staple on the planet."
 	icon_state = "maeuntang"
