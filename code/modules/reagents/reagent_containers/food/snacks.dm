@@ -1750,7 +1750,7 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5)
 
 /obj/item/reagent_containers/food/snacks/soup/miyeokguk
-	name = "konyanger miyeokguk"
+	name = "miyeokguk"
 	desc = "A simple soup made from fish broth, beef, seaweed, and moss. It is known for its health properties and commonly eaten on celebrations."
 	icon_state = "miyeokguk"
 	reagent_data = list(/decl/reagent/nutriment = list("hot stew" = 3, "beef" = 1, "seaweed" = 2, "moss" = 2))
