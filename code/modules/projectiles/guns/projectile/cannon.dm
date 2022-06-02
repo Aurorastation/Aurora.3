@@ -150,13 +150,16 @@
 
 /obj/item/gun/projectile/agl
 	name = "automatic grenade launcher"
-	desc = "Zavodskoi placeholder automatic grenade launcher description."
-	desc_fluff = "placeholder about techno mumbo jumbo"
+	desc = "A belt-fed, select fire grenade launcher. Ready to dispense a lot of opinion amplifiers towards your enemies."
+	desc_fluff = "The Zavodskoi APGL-406 is an all-purpose, select fire grenade launcher. Taking a belt of six grenades and firing at 60 rounds per minute in full auto, \
+	this weapon was originally produced for riot control. A wide range of different types of ammunition types, are making this launcher a true all-rounder. \
+	The selection ranges from high explosive, over armour piercing to smoke grenades. The belt can individually be put together to maximize flexibility."
 	icon = placeholder
 	icon_state = placeholder
 	caliber = "40mm"
 	w_class = ITEMSIZE_LARGE
 	load_method = MAGAZINE
+	handle_casings = EJECT_CASINGS
 
 	magazine_type = 
 	allowed_magazine =
@@ -170,4 +173,10 @@
 	auto_eject = TRUE
 	max_shells = 6
 	recoil = 8
+
+/obj/item/gun/projectile/agl/special_check(mob/user)
+	if(!wielded)
+		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
+		return 0
+	return ..()
 
