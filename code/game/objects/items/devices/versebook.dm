@@ -56,7 +56,7 @@
 	randomquip = file2list("ingame_manuals/gadpathur.txt")
 
 /obj/item/device/versebook/biesel
-	name = "\improper constitution of the Republic of Biesel"
+	name = "\improper Constitution of the Republic of Biesel"
 	desc = "A common possession by Biesel government officals, the printed text of the constitution for the Federal Republic of Biesel and the Corporate Reconstruction Zone, adopted in 2452."
 	desc_fluff = "This book has the Republic of Biesel's iconic symbol etched on the cover, the text within details the structure of the Federal Democracy the Republic is today."
 	icon_state = "bieselbook"
