@@ -39,12 +39,12 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Red Nightshade induced berserk state now increases your melee damage by 50%."
-  - rsctweak: "Red Nightshade's metabolisation speed has been decreased, so the berserk state lasts a lot longer. This also prevents all the toxins immediately destroying your liver in 30 seconds."
+  - tweak: "Red Nightshade's metabolisation speed has been decreased, so the berserk state lasts a lot longer. This also prevents all the toxins immediately destroying your liver in 30 seconds."
   - rscadd: "An examine message makes it obvious when someone is using Nightshade, in addition to the jitters already present."
   - rscadd: "Adds flavour messages which appear when using Red Nightshhade."
-  - rsctweak: "Moves Nightshade's cardiotoxicity to OD only. The liver damage will still be severe regardless of ODing."
-  - rsctweak: "Changes Nightshade's recipe to something more sensical and in-line with it's effects (now 1u Stimm, 1u Synaptizine, 0.1u Phoron)."    
+  - tweak: "Moves Nightshade's cardiotoxicity to OD only. The liver damage will still be severe regardless of ODing."
+  - tweak: "Changes Nightshade's recipe to something more sensical and in-line with it's effects (now 1u Stimm, 1u Synaptizine, 0.1u Phoron)."    
   - rscadd: "Adds Red Nightshade to the Random Toxin Kit uplink purchase, maintenance contraband spawn and xenobotany plant chemicals pool."
   - rscadd: "Adds a Box of Berserk Injectors to the Uplink for 2 TC, containing 2 doses of Red Nightshade lasting 2.5 minutes each."
-  - rsctweak: "The Random Toxins Kit comes with 3 random toxins instead of just the 1."
+  - tweak: "The Random Toxins Kit comes with 3 random toxins instead of just the 1."
 
