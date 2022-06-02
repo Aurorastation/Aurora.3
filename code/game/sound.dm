@@ -541,7 +541,27 @@
 		'sound/items/drop/casing2.ogg',
 		'sound/items/drop/casing3.ogg',
 		'sound/items/drop/casing4.ogg',
-		'sound/items/drop/casing5.ogg'
+		'sound/items/drop/casing5.ogg',
+		'sound/items/drop/casing6.ogg',
+		'sound/items/drop/casing7.ogg',
+		'sound/items/drop/casing8.ogg',
+		'sound/items/drop/casing9.ogg',
+		'sound/items/drop/casing10.ogg',
+		'sound/items/drop/casing11.ogg',
+		'sound/items/drop/casing12.ogg',
+		'sound/items/drop/casing13.ogg',
+		'sound/items/drop/casing14.ogg',
+		'sound/items/drop/casing15.ogg',
+		'sound/items/drop/casing16.ogg',
+		'sound/items/drop/casing17.ogg',
+		'sound/items/drop/casing18.ogg',
+		'sound/items/drop/casing19.ogg',
+		'sound/items/drop/casing20.ogg',
+		'sound/items/drop/casing21.ogg',
+		'sound/items/drop/casing22.ogg',
+		'sound/items/drop/casing23.ogg',
+		'sound/items/drop/casing24.ogg',
+		'sound/items/drop/casing25.ogg',
 	)
 
 /decl/sound_category/drillhit_sound
