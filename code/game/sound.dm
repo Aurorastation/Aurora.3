@@ -578,6 +578,23 @@
 		'sound/weapons/empty/empty_revolver.ogg',
 	)
 
+/decl/sound_category/metal_slide_reload
+	sounds = list(
+		'sound/weapons/reloads/pistol_metal_slide1.ogg',
+		'sound/weapons/reloads/pistol_metal_slide2.ogg',
+		'sound/weapons/reloads/pistol_metal_slide3.ogg',
+		'sound/weapons/reloads/pistol_metal_slide4.ogg',
+		'sound/weapons/reloads/pistol_metal_slide5.ogg',
+		'sound/weapons/reloads/pistol_metal_slide6.ogg',
+	)
+
+/decl/sound_category/polymer_slide_reload
+	sounds = list(
+		'sound/weapons/reloads/pistol_polymer_slide1.ogg',
+		'sound/weapons/reloads/pistol_polymer_slide2.ogg',
+		'sound/weapons/reloads/pistol_polymer_slide3.ogg',
+	)
+
 /decl/sound_category/out_of_ammo_rifle
 	sounds = list(
 		'sound/weapons/empty/empty_rifle1.ogg',
