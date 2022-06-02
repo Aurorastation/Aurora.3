@@ -1,4 +1,4 @@
-	/decl/recipe/onionsoup
+/decl/recipe/onionsoup
 	appliance = SAUCEPAN | POT
 	fruit = list("onion" = 1)
 	reagents = list(/decl/reagent/water = 10)
