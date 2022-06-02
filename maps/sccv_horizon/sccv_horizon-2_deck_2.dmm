@@ -14093,18 +14093,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/operations/mail_room)
-"hCo" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/window/westleft{
-	name = "Pun Pun's Cage Access";
-	req_access = list(57)
-	},
-/mob/living/carbon/human/monkey/punpun,
-/turf/simulated/floor/carpet,
-/area/horizon/bar)
 "hCF" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
@@ -63991,7 +63979,7 @@ qyA
 pjQ
 qlX
 nxI
-hCo
+wZF
 ayT
 nxI
 ePg
