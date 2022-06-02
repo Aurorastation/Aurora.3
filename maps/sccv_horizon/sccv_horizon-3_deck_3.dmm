@@ -5936,6 +5936,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/item/folder/red,
+/obj/item/folder/yellow,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "kT" = (
@@ -14628,8 +14630,8 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clipboard,
 /obj/item/pen/multi,
-/obj/item/device/camera,
 /obj/structure/closet/lawcloset,
+/obj/item/device/camera,
 /obj/item/stamp/denied,
 /obj/item/stamp{
 	name = "consular stamp"
@@ -14641,6 +14643,8 @@
 	dir = 6
 	},
 /obj/machinery/light,
+/obj/item/folder/blue,
+/obj/item/folder/white,
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
 "Bg" = (
@@ -24741,6 +24745,13 @@
 /area/crew_quarters/heads/hop/xo)
 "TM" = (
 /obj/structure/table/reinforced/wood,
+/obj/item/folder/blue{
+	pixel_x = -3
+	},
+/obj/item/folder/red,
+/obj/item/folder/yellow{
+	pixel_x = 3
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "TN" = (
