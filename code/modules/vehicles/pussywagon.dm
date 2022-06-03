@@ -5,10 +5,10 @@
 	name = "\improper C8000 deluxe custodial truck"
 	desc = "A C8000 deluxe custodial truck. The bread to the custodians' butter."
 	desc_info = "Click-drag yourself onto the truck to climb onto it.<br>\
-		CTRL-click the truck to open the ignition and controls menu.<br>\
-		ALT-click the truck to remove the key from the ignition.<br>\
-		Click the truck to open a UI menu.<br>\
-		Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the truck."
+		- CTRL-click the truck to open the ignition and controls menu.<br>\
+		- ALT-click the truck to remove the key from the ignition.<br>\
+		- Click the truck to open a UI menu.<br>\
+		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the truck."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "janicart_off"
 	light_range = 0 // Turn off the light inherited from the parent.
