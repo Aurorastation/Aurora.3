@@ -19238,10 +19238,6 @@
 /area/security/checkpoint2)
 "kAM" = (
 /obj/structure/table/wood,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
-	},
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet,
 /area/medical/psych)
