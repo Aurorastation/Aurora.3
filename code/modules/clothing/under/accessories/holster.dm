@@ -1,3 +1,6 @@
+//
+// Holsters
+//
 /obj/item/clothing/accessory/holster
 	name = "shoulder holster"
 	desc = "A handgun holster."
@@ -171,12 +174,19 @@
 	name = "brown thigh holster"
 	icon_state = "holster_brown_thigh"
 
+//
+// Utility Holsters
+//
+
 // Custodial Holster
-// Only allows the pestgun and xenogun.
 /obj/item/clothing/accessory/holster/custodial/armpit/brown
 	name = "brown custodial armpit holster"
+	desc = "A brown utility holster which can't hold actual firearms. This particular one is designed for custodial personnel."
+	desc_fluff = "In a universe where various utility firearms and tools have become more common for diverse applications, it is important that there are ways to store them where \
+	they are kept safe from wear and tear as well as from misuse. Thus as an alternative to regular firearm holsters, specialized utility firearm and tool holsters exist, which \
+	allow non-standard firearms to be stored inside, whilst at the same time keeping individuals from storing actual firearms in one."
 	icon_state = "holster_brown"
-	var/list/allowedObjects = list(
+	var/list/allowed_objects = list( // A list of allowed items.
 		/obj/item/gun/energy/mousegun,
 		/obj/item/gun/energy/mousegun/xenofauna,
 		/obj/item/gun/projectile/revolver/capgun,
@@ -185,26 +195,8 @@
 	)
 
 /obj/item/clothing/accessory/holster/custodial/armpit/brown/holster(var/obj/item/I, var/mob/living/user)
-	if(holstered && istype(user))
-		to_chat(user, "<span class='warning'>There is already \a [holstered] holstered here!</span>")
+	if(!is_type_in_list(I, allowed_objects))
+		to_chat(user, "<span class='notice'>\The [I] won't fit in \the [src].</span>")
 		return
 
-	if(!(I.slot_flags & SLOT_HOLSTER))
-		to_chat(user, "<span class='warning'>[I] won't fit in [src]!</span>")
-		return
-
-	if(!is_type_in_list(I, allowedObjects))
-		to_chat(user, "<span class='warning'>[I] won't fit in [src]!</span>")
-		return
-
-	if(sound_in)
-		playsound(get_turf(src), sound_in, 50)
-
-	if(istype(user))
-		user.stop_aiming(no_message=1)
-	holstered = I
-	user.drop_from_inventory(holstered,src)
-	holstered.add_fingerprint(user)
-	w_class = max(w_class, holstered.w_class)
-	user.visible_message("<span class='notice'>[user] holsters \the [holstered].</span>", "<span class='notice'>You holster \the [holstered].</span>")
-	update_name()
+	..()
