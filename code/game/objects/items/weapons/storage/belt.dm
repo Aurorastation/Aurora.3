@@ -389,7 +389,7 @@
 
 /obj/item/storage/belt/custodial
 	name = "custodial belt"
-	desc = "A belt used to hold most custodial supplies."
+	desc = "A utility belt used to hold custodial supplies."
 	icon_state = "custodialbelt"
 	item_state = "custodialbelt"
 	storage_slots = 8
@@ -403,7 +403,7 @@
 		/obj/item/extinguisher/mini,
 		/obj/item/device/radio,
 		/obj/item/clothing/gloves,
-		/obj/item/clothing/glasses/material,
+		/obj/item/clothing/glasses,
 		/obj/item/reagent_containers/spray,
 		/obj/item/grenade/chem_grenade,
 		/obj/item/device/lightreplacer,
@@ -412,7 +412,7 @@
 		/obj/item/reagent_containers/glass/rag,
 		/obj/item/gun/energy/mousegun,
 		/obj/item/device/gps
-		)
+	)
 
 /obj/item/storage/belt/mining
 	name = "explorer's belt"
