@@ -381,8 +381,18 @@ var/list/slot_equipment_priority = list( \
 			return TRUE
 
 		var/turf/T = get_turf(target)
-		if(T.contains_dense_objects() && !istype(target, /obj/structure/table)) //Stop at dense objects, like walls and windows. Allow placing on tables.
+		if(T.density) //Don't put the item in dense turfs
 			return TRUE //Takes off throw mode
+		if(T.contains_dense_objects())
+			for(var/obj/O in T)
+				if(!O.density) //We don't care about you.
+					continue
+				if(O.CanPass(item, T)) //Items have CANPASS for tables/railings, allows placement. Also checks windows. 
+					continue
+				if(istype(O, /obj/structure/closet/crate)) //Placing on/in crates is fine.
+					continue
+				return TRUE //Something is stopping us. Takes off throw mode.
+				
 		remove_from_mob(I)
 		make_item_drop_sound(I)
 		I.forceMove(T)
