@@ -13,10 +13,6 @@
 
 	var/list/randomquip = list()
 
-/obj/item/device/versebook/Initialize()
-	. = ..()
-	randomquip = file2list("") //Needs a .txt file, each line is a 'verse' the book will randomly choose to display to user.
-
 /obj/item/device/versebook/attack_self(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.visible_message(SPAN_NOTICE("[user] begins to flip through [src]."))
@@ -42,7 +38,7 @@
 
 /obj/item/device/versebook/tribunal/Initialize()
 	. = ..()
-	randomquip = file2list("ingame_manuals/dominia.txt")
+	randomquip = file2list("ingame_manuals/dominia.txt")  //Needs a .txt file, each line is a 'verse' the book will randomly choose to display to user.
 
 /obj/item/device/versebook/gadpathur
 	name = "\improper gadpathurian morale manual"
