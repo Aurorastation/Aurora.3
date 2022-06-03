@@ -430,7 +430,7 @@
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
 
-/obj/effect/foam_dart_dummy // I have no idea what this is for. - Gem
+/obj/effect/foam_dart_dummy
 	name = null
 	desc = null
 	icon = 'icons/obj/toy.dmi'
