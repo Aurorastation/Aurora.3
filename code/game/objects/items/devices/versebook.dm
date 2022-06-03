@@ -15,7 +15,7 @@
 
 /obj/item/device/versebook/Initialize()
 	. = ..()
-	randomquip = file2list("ingame_manuals/dominia.txt")
+	randomquip = file2list("") //Needs a .txt file, each line is a 'verse' the book will randomly choose to display to user.
 
 /obj/item/device/versebook/attack_self(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
