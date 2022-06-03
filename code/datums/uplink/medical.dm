@@ -44,7 +44,7 @@
 	name = "Box of Berserk Injectors"
 	item_cost = 2
 	path = /obj/item/storage/box/syndie_kit/berserk_injectors
-	desc = "Comes with 2x autoinjectors filled with Red Nightshade - used to induce a berserk state lasting ~2.5 minutes per injector. Using both injectors will increase time berserk, but will lead to liver failure."
+	desc = "Comes with 2x autoinjectors filled with Red Nightshade - used to induce a berserk state lasting ~2.5 minutes per injector. You cannot use advanced tools (guns/computer consoles/etc.) while berserk. Using both injectors will increase time berserk, but will lead to liver failure."
 
 /datum/uplink_item/item/medical/sideeffectbegone
 	name = "Box of Sideeffect-Be-Gone Injectors"
