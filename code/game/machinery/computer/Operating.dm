@@ -306,15 +306,19 @@
 
 		if (e.implants.len)
 			var/unknown_body = 0
+			var/list/organic = list()
 			for(var/I in e.implants)
 				if(is_type_in_list(I,internal_bodyscanner.known_implants))
 					imp += "[I] implanted:"
 				if(istype(I, /obj/effect/spider))
-					imp += "Abnormal organic body present:"
-				else
+					organic += I
+				if(!is_type_in_list(I, internal_bodyscanner.known_implants) && !istype(I, /obj/effect/spider))
 					unknown_body++
 			if(unknown_body)
 				imp += "Unknown body present:"
+			var/friends = length(organic)
+			if(friends)
+				imp += friends > 1 ? "Multiple abnormal organic bodies present:" : "Abnormal organic body present:"
 
 		if(!AN && !open && !infected && !imp)
 			AN = "None:"
