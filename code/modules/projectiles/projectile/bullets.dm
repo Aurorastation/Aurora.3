@@ -434,3 +434,29 @@
 	icon_state = "peac"
 	damage = 45
 	penetrating = TRUE
+
+/obj/item/projectile/bullet/agl/40mmhe
+	name = "high explosive 40mm grenade"
+	icon_state =
+	damage = 
+
+	explosion placeholder
+
+/obj/item/projectile/bullet/agl/40mmheat
+	name = "high explosive anti tank 40m grenade"
+	icon_state =
+	damage = 
+
+	explosion placeholder
+
+/obj/item/projectile/bullet/agl/40mmsm
+	name = "smoke 40mm grenade"
+	icon_state =
+	damage = 
+
+	explosion smoke placeholder
+
+/obj/item/projectile/bullet/agl/40mmsp
+	name = "rubber 40mm grenade"
+	icon_state =
+	damage = 
