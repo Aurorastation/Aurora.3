@@ -180,10 +180,10 @@
 /obj/item/clothing/accessory/holster/utility
 	name = "utility holster"
 	desc = "A utility holster."
-	var/list/allowed_objects = list() // A list of allowed items.
+	var/list/allowed_items = list() // A list of allowed items.
 
 /obj/item/clothing/accessory/holster/utility/holster(var/obj/item/I, var/mob/living/user)
-	if(!is_type_in_list(I, allowed_objects))
+	if(!is_type_in_list(I, allowed_items))
 		to_chat(user, "<span class='notice'>\The [I] won't fit in \the [src].</span>")
 		return
 
@@ -197,7 +197,7 @@
 	they are kept safe from wear and tear as well as from misuse. Thus as an alternative to regular firearm holsters, specialized utility firearm and tool holsters exist, which \
 	allow non-standard firearms to be stored inside, whilst at the same time keeping individuals from storing actual firearms in one."
 	icon_state = "holster_brown"
-	allowed_objects = list(
+	allowed_items = list(
 		/obj/item/gun/energy/mousegun,
 		/obj/item/gun/energy/mousegun/xenofauna,
 		/obj/item/gun/projectile/revolver/capgun,
