@@ -233,8 +233,8 @@
 	anti_materiel_potential = 2
 
 /obj/item/projectile/rifle/kumar_super
-	damage = 35
-	armor_penetration = 20
+	damage = 40
+	armor_penetration = 30
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/vintage
