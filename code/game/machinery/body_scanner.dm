@@ -527,9 +527,9 @@
 			for (var/atom/movable/I in O.implants)
 				if(is_type_in_list(I, known_implants))
 					wounds += "\a [I.name] is installed."
-				if(istype(I, /obj/effect/spider))
+				else if(istype(I, /obj/effect/spider))
 					organic += I
-				if(!is_type_in_list(I, known_implants) && !istype(I, /obj/effect/spider))
+				else
 					unk += 1
 			if (unk)
 				wounds += "Has an abnormal mass present."
@@ -750,9 +750,9 @@
 			for(var/I in e.implants)
 				if(is_type_in_list(I,known_implants))
 					imp += "[I] implanted:"
-				if(istype(I, /obj/effect/spider))
+				else if(istype(I, /obj/effect/spider))
 					organic += I
-				if(!is_type_in_list(I, known_implants) && !istype(I, /obj/effect/spider))
+				else
 					unknown_body++
 			if(unknown_body)
 				imp += "Unknown body present:"
