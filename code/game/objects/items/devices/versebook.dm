@@ -6,6 +6,7 @@
 	icon = 'icons/obj/human_items.dmi'
 	icon_state = "dominiabook"
 	item_state = "dominiabook"
+	var/reading = FALSE
 
 	drop_sound = 'sound/items/drop/book.ogg'
 
@@ -15,6 +16,12 @@
 
 /obj/item/device/versebook/attack_self(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+
+	if(reading) //So you can't read twice.
+		to_chat(usr, SPAN_WARNING("You are already reading this book."))
+		return
+	reading = TRUE //begin reading
+
 	user.visible_message(SPAN_NOTICE("[user] begins to flip through [src]."))
 	playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, 1)
 
@@ -28,6 +35,7 @@
 
 	if(do_after(user, 25))
 		to_chat(user, "<span class='notice'>You notice a particular verse: [q]</span>")
+	reading = FALSE
 
 /obj/item/device/versebook/tribunal
 	name = "\improper tribunal codex"
