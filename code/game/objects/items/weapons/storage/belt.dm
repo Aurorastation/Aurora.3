@@ -387,7 +387,7 @@
 	icon_state = "militarybelt_syndie"
 	item_state = "militarybelt_syndie"
 
-/obj/item/storage/belt/custodian
+/obj/item/storage/belt/custodial
 	name = "custodial belt"
 	desc = "A belt used to hold most custodial supplies."
 	icon_state = "custodialbelt"

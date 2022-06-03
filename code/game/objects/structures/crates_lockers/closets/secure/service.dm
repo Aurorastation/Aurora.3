@@ -12,7 +12,7 @@
 	new /obj/item/clothing/under/rank/janitor(src)
 	new /obj/item/clothing/under/rank/janitor/idris(src)
 	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/storage/belt/custodian(src)
+	new /obj/item/storage/belt/custodial(src)
 	new /obj/item/clothing/accessory/holster/utility/custodial/armpit/brown(src)
 	new /obj/item/clothing/shoes/galoshes(src)
 	new /obj/item/gun/energy/mousegun(src)
