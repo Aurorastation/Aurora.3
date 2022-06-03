@@ -177,26 +177,30 @@
 //
 // Utility Holsters
 //
+/obj/item/clothing/accessory/holster/utility
+	name = "utility holster"
+	desc = "A utility holster."
+	var/list/allowed_objects = list() // A list of allowed items.
+
+/obj/item/clothing/accessory/holster/utility/holster(var/obj/item/I, var/mob/living/user)
+	if(!is_type_in_list(I, allowed_objects))
+		to_chat(user, "<span class='notice'>\The [I] won't fit in \the [src].</span>")
+		return
+
+	..()
 
 // Custodial Holster
-/obj/item/clothing/accessory/holster/custodial/armpit/brown
+/obj/item/clothing/accessory/holster/utility/custodial/armpit/brown
 	name = "brown custodial armpit holster"
 	desc = "A brown utility holster which can't hold actual firearms. This particular one is designed for custodial personnel."
 	desc_fluff = "In a universe where various utility firearms and tools have become more common for diverse applications, it is important that there are ways to store them where \
 	they are kept safe from wear and tear as well as from misuse. Thus as an alternative to regular firearm holsters, specialized utility firearm and tool holsters exist, which \
 	allow non-standard firearms to be stored inside, whilst at the same time keeping individuals from storing actual firearms in one."
 	icon_state = "holster_brown"
-	var/list/allowed_objects = list( // A list of allowed items.
+	allowed_objects = list(
 		/obj/item/gun/energy/mousegun,
 		/obj/item/gun/energy/mousegun/xenofauna,
 		/obj/item/gun/projectile/revolver/capgun,
 		/obj/item/toy/crossbow,
 		/obj/item/reagent_containers/food/snacks/grown/banana
 	)
-
-/obj/item/clothing/accessory/holster/custodial/armpit/brown/holster(var/obj/item/I, var/mob/living/user)
-	if(!is_type_in_list(I, allowed_objects))
-		to_chat(user, "<span class='notice'>\The [I] won't fit in \the [src].</span>")
-		return
-
-	..()
