@@ -436,6 +436,7 @@
 	else
 		src.visible_message("*click*")
 	playsound(loc, /decl/sound_category/out_of_ammo, 100, 1)
+	
 	var/empty_sound = /decl/sound_category/out_of_ammo_revolver
 
 //called after successfully firing
