@@ -44,7 +44,7 @@ changes:
   - rscadd: "Adds flavour messages which appear when using Red Nightshhade."
   - tweak: "Moves Nightshade's cardiotoxicity to OD only. The liver damage will still be severe regardless of ODing."
   - tweak: "Changes Nightshade's recipe to something more sensical and in-line with it's effects (now 1u Stimm, 1u Synaptizine, 0.1u Phoron)."    
-  - rscadd: "Adds Red Nightshade to the Random Toxin Kit uplink purchase, maintenance contraband spawn and xenobotany plant chemicals pool."
+  - rscadd: "Adds Red Nightshade to the Random Toxin Kit uplink purchase, maintenance contraband spawn, and xenobotany/L7 vines biohazard random chemicals pool."
   - rscadd: "Adds a Box of Berserk Injectors to the Uplink for 2 TC, containing 2 doses of Red Nightshade lasting 2.5 minutes each."
   - tweak: "The Random Toxins Kit comes with 3 random toxins instead of just the 1."
 
