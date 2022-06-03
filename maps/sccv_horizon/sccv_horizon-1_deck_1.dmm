@@ -22696,8 +22696,7 @@
 	},
 /obj/machinery/power/apc/mining_pod{
 	dir = 8;
-	pixel_x = -30;
-	req_access = null
+	pixel_x = -30
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark,
