@@ -139,7 +139,7 @@
 	sanitize_faction()
 
 /datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Engineer", "Head of Security"))
-	if (SSjobs.init_state != SS_INITSTATE_DONE && SSrecords.init_state != SS_INITSTATE_DONE)
+	if (SSjobs.init_state != SS_INITSTATE_DONE || SSrecords.init_state != SS_INITSTATE_DONE)
 		return "<center><large>Jobs controller not initialized yet. Please wait a bit and reload this section.</large></center>"
 
 	var/list/dat = list(
@@ -422,6 +422,9 @@
 	dat += factions.Join(" | ") + "</b>"
 
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
+	if(!istype(faction))
+		to_client_chat(SPAN_DANGER("Invalid faction chosen. Resetting to default."))
+		selected_faction = SSjobs.default_faction.name
 
 	if (selected_faction == pref.faction)
 		dat += "<br>\[Faction already selected\]"

@@ -34108,13 +34108,13 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
 "bCB" = (
-/obj/item/modular_computer/console/preset/command/teleporter,
+/obj/item/modular_computer/console/preset/command/teleporter/ninja,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
 /area/antag/ninja)
 "bCC" = (
-/obj/machinery/teleport/pad,
+/obj/machinery/teleport/pad/ninja,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -37288,6 +37288,12 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_gym)
+"eQT" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/drop,
+/obj/random/highvalue/no_weapon,
+/turf/simulated/floor/tiled,
+/area/merchant_station/warehouse)
 "fcH" = (
 /obj/structure/dueling_table{
 	icon_state = "center_right"
@@ -43073,7 +43079,7 @@ amd
 arJ
 asE
 asC
-avN
+eQT
 axf
 avN
 axd

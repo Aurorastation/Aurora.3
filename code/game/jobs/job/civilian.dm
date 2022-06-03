@@ -162,7 +162,7 @@
 	jobtype = /datum/job/janitor
 
 	uniform = /obj/item/clothing/under/rank/janitor
-	head = /obj/item/clothing/head/softcap/janitor
+	head = /obj/item/clothing/head/softcap/nt/custodian
 	shoes = /obj/item/clothing/shoes/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/janitor
@@ -369,9 +369,9 @@
 	)
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
-						access_sec_doors, access_research, access_medical, access_robotics)
+						access_sec_doors, access_research, access_medical, access_robotics, access_engine)
 	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
-						access_sec_doors, access_research, access_medical, access_robotics)
+						access_sec_doors, access_research, access_medical, access_robotics, access_engine)
 
 	ideal_character_age = list(
 		SPECIES_HUMAN = 40,

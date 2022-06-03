@@ -47,13 +47,11 @@
 	if(W.iswrench())
 		switch(stage)
 			if(1)
-				playsound(get_turf(src), W.usesound, 75, TRUE)
 				to_chat(user, SPAN_NOTICE("You begin taking \the [src] apart..."))
-				if (!do_after(usr, 30, act_target = src))
+				if(!W.use_tool(src, usr, 30, volume = 50))
 					return
 				new /obj/item/stack/material/steel(get_turf(src), sheets_refunded)
 				user.visible_message(SPAN_NOTICE("\The [user] takes \the [src] apart."), SPAN_WARNING("You take \the [src] apart."))
-				playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 75, TRUE)
 				if(cell)
 					cell.forceMove(get_turf(src))
 					cell = null

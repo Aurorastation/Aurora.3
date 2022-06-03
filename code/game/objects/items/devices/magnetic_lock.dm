@@ -165,11 +165,11 @@
 
 			if (I.iswelder())
 				var/obj/item/weldingtool/WT = I
-				if (WT.remove_fuel(2, user))
+				if (WT.use(2, user))
 					user.visible_message(SPAN_NOTICE("[user] starts welding the metal shell of [src]."), SPAN_NOTICE("You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
 					playsound(loc, 'sound/items/welder.ogg', 50, 1)
 					add_overlay("overlay_welding")
-					if (do_after(user, 25/I.toolspeed))
+					if(WT.use_tool(src, user, 25, volume = 50))
 						to_chat(user, SPAN_NOTICE("You are able to [hacked ? "repair" : "weld through"] the metal shell of [src]."))
 						if (hacked) locked = 1
 						else locked = 0

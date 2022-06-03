@@ -54,8 +54,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		'sound/music/space.ogg',
 		'sound/music/traitor.ogg',
 		'sound/music/title2.ogg',
-		'sound/music/clouds.s3m',
-		'sound/music/space_oddity.ogg'
+		'sound/music/clouds.s3m'
 	)
 
 	var/lobby_ready = FALSE
@@ -275,7 +274,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			dronecount++
 			continue
 
-		if (!robo.connected_ai)
+		if (!robo.connected_ai && !istype(robo,/mob/living/silicon/robot/shell))
 			if (robo.stat != 2)
 				to_world("<b>[robo.name] survived as an AI-less borg! Its laws were:</b>")
 			else
@@ -352,7 +351,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(!istype(prefs) || force_name)
 		// trawl the whole list - we only do this on logout or job swap, aka when we can't guarantee the job datum being accurate
 		for(var/dept in ready_player_jobs)
-			if(LAZYISIN(ready_player_jobs[dept], ident))
+			if(!. && LAZYISIN(ready_player_jobs[dept], ident))
 				. = TRUE
 			ready_player_jobs[dept] -= ident
 		if(.)
@@ -361,10 +360,14 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/datum/job/ready_job = prefs.return_chosen_high_job()
 
+	if(!istype(ready_job))
+		// literally how
+		return FALSE
+
 	for(var/dept in ready_job.departments)
-		if(ready_player_jobs[dept][prefs.real_name])
+		if(!. && ready_player_jobs[dept][prefs.real_name])
 			. = TRUE
-		LAZYREMOVE(ready_player_jobs[dept], prefs.real_name)
+		ready_player_jobs[dept] -= prefs.real_name
 
 	if(.)
 		update_ready_count()

@@ -31,7 +31,7 @@
 	flying = 1
 	mob_size = MOB_LARGE
 	see_in_dark = 8
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE|PASSRAILING
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 	var/turf/last_processed_turf

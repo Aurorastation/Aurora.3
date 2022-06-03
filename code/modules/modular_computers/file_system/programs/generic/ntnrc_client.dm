@@ -173,8 +173,7 @@
 			if((!computer.registered_id && !computer.register_account(src)))
 				return
 	if(service_state == PROGRAM_STATE_DISABLED)
-		if(!computer.enable_service(null, user, src))
-			return
+		computer.enable_service(null, user, src)
 	return ..(user)
 
 /datum/computer_file/program/chat_client/event_registered()

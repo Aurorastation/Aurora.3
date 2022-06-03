@@ -150,6 +150,12 @@
 	icon_state = "pmc"
 	item_state = "pmc"
 
+/obj/item/clothing/head/beret/corporate/pmc/epmc
+	name = "epmc beret"
+	desc = "A beret with the Eridani Private Military Contractor logo emblazoned on it."
+	icon_state = "epmc"
+	item_state = "epmc"
+
 /obj/item/clothing/head/beret/corporate/idris
 	name = "idris beret"
 	desc = "A beret with the Idris Incorporated insignia emblazoned on it."
