@@ -81,8 +81,8 @@ default behaviour is:
 				return
 
 			if(can_swap_with(tmob)) // mutual brohugs all around!
-				var/turf/tmob_oldloc = tmob.loc
-				var/turf/src_oldloc = loc
+				var/turf/tmob_oldloc = get_turf(tmob)
+				var/turf/src_oldloc = get_turf(src)
 				if(pulling?.density)
 					tmob.forceMove(pulling.loc)
 					forceMove(tmob_oldloc)

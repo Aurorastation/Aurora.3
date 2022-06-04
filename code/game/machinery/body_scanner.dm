@@ -523,15 +523,19 @@
 
 		if (O.implants.len)
 			var/unk = 0
+			var/list/organic = list()
 			for (var/atom/movable/I in O.implants)
-				if (is_type_in_list(I, known_implants))
+				if(is_type_in_list(I, known_implants))
 					wounds += "\a [I.name] is installed."
-				if(istype(I, /obj/effect/spider))
-					wounds += "Abnormal organic body detected."
+				else if(istype(I, /obj/effect/spider))
+					organic += I
 				else
 					unk += 1
 			if (unk)
 				wounds += "Has an abnormal mass present."
+			var/friends = length(organic)
+			if(friends)
+				wounds += friends > 1 ? "Multiple abnormal organic bodies present." : "Abnormal organic body present."
 
 		if(length(wounds) || brute_damage != "None" || burn_damage != "None")
 			has_external_injuries = TRUE
@@ -742,15 +746,19 @@
 
 		if (e.implants.len)
 			var/unknown_body = 0
+			var/list/organic = list()
 			for(var/I in e.implants)
 				if(is_type_in_list(I,known_implants))
 					imp += "[I] implanted:"
-				if(istype(I, /obj/effect/spider))
-					imp += "Abnormal organic body present:"
+				else if(istype(I, /obj/effect/spider))
+					organic += I
 				else
 					unknown_body++
 			if(unknown_body)
 				imp += "Unknown body present:"
+			var/friends = length(organic)
+			if(friends)
+				imp += friends > 1 ? "Multiple abnormal organic bodies present:" : "Abnormal organic body present:"
 
 		if(!AN && !open && !infected && !imp)
 			AN = "None:"

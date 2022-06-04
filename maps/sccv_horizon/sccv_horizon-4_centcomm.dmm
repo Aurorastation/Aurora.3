@@ -36164,6 +36164,37 @@
 /obj/effect/step_trigger/thrower/shuttle/northeast,
 /turf/space/transit/south,
 /area/template_noop)
+"bLD" = (
+/obj/structure/table/standard,
+/turf/unsimulated/beach/sand,
+/area/beach)
+"bLE" = (
+/obj/structure/table/standard,
+/obj/item/clothing/glasses/sunglasses,
+/obj/item/clothing/head/collectable/petehat{
+	pixel_y = 5
+	},
+/turf/unsimulated/beach/sand,
+/area/beach)
+"bLF" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/snacks/chips,
+/turf/unsimulated/beach/sand,
+/area/beach)
+"bLG" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/cans/cola,
+/obj/item/reagent_containers/food/drinks/cans/cola,
+/obj/item/reagent_containers/food/drinks/cans/cola,
+/obj/item/reagent_containers/food/drinks/cans/cola,
+/obj/item/reagent_containers/food/drinks/cans/cola,
+/obj/item/reagent_containers/food/drinks/cans/cola,
+/turf/unsimulated/beach/sand,
+/area/beach)
+"bLH" = (
+/obj/item/beach_ball,
+/turf/unsimulated/beach/sand,
+/area/beach)
 "bLI" = (
 /obj/effect/step_trigger/thrower/shuttle/west,
 /turf/space/transit/south,
