@@ -1,0 +1,10 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fix machinery not being disconnected from powernets when node cables (O-X) are cut."
+  - bugfix: "Fix windoors turning invisible when power is cut."
+  - bugfix: "Fix interacting with windoors with objects (i.e. hitting them)."
+  - tweak: "Colliding with unpowered windoors now pushes them open as if you clicked on them, rather than opening instantly."
+  - bugfix: "Fix colliding with a pulled simple-mob being picked up sending players into another player's columbo dimension."
