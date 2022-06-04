@@ -1,0 +1,7 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes medscans/body scanners/operating consoles thinking there's something else when someone only has an implant in them."
+  - bugfix: "Fixes the above counting each and every single greimorian larva inside a limb that has eggs implanted."
