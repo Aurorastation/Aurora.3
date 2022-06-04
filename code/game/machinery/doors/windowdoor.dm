@@ -57,7 +57,7 @@
 		if(inoperable())
 			if(do_after(M, 1 SECOND, TRUE, src))
 				// The VM here is before open and the wording is backwards because density gets set after a background sleep in open
-				visible_message("\The [user] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
+				visible_message("\The [M] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
 				open()
 		else
 			open()
