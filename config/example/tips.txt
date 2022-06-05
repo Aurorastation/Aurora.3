@@ -40,7 +40,7 @@ As the Research Director, you can spy on and even forge PDA communications with 
 As an Engineer, the supermatter crystal is an extremely dangerous piece of equipment: touching it will disintegrate you.
 As an Engineer, you can electrify grilles by placing wire "nodes" beneath them: the big seemingly unconnected bulges from a half completed wiring job.
 As an Engineer, you can lock emitters using your ID card to prevent others from disabling them.
-As an Atmospheric Technician, you can't unwrench a pipe if the pressure within is too high.
+As an Atmospheric Technician, you can't unwrench a pipe if the pressure within is too high, unless you use a pipewrench.
 As the Head of Security, you are expected to coordinate your security force to handle any threat that comes to the ship. Sometimes it means making use of the armory to handle a blob, sometimes it means being ruthless during a revolution or cult.
 As the Head of Security, don't let the power go to your head. You may have high access, great equipment, and a miniature army at your side, but being a terrible person without a good reason is grounds for a bwoink.
 As the Warden, your duty is to be the watchdog of the brig and handler of prisoners when little is happening, and to hand out equipment and weapons to the security officers when a crisis strikes.
@@ -51,7 +51,7 @@ As the Warden, you can use handcuffs on orange prisoner shoes to turn them into 
 As a Security Officer, communicate and coordinate with your fellow officers using the security channel (:s) to avoid confusion.
 As a Security Officer, your sechuds or HUDsunglasses can not only see crewmates' job assignments and criminal status, but also if they have a mindshield implant. Use this to your advantage in a revolution to definitively tell who is on your side!
 As a Security Officer, examining someone while wearing sechuds or HUDsunglasses will let you set their arrest level.
-As the Forensic Technician, you can dust almost any surface for prints. People leave fingerprints on everywhere they touch unless they are wearing gloves. However, as gloves leave fibres specific to their type, such as black or nitrile, it is possible to guess what general department they come from.
+As the Investigator, you can dust almost any surface for prints. People leave fingerprints on everywhere they touch unless they are wearing gloves. However, as gloves leave fibres specific to their type, such as black or nitrile, it is possible to guess what general department they come from.
 As the Executive Officer, you are just as large a target as the Captain because of the potential power your ID and computer can hand out.
 As the Chaplain, your bible is also a container that can store small items.
 As the Chaplain, your null rod has a lot of functions: it can convert water into holy water, which has a few practical applications. The rod itself can be used against evil and supernatural elements aswell.
@@ -65,7 +65,6 @@ As the Bartender, you can use a circular saw on your shotgun to make it easier t
 As a Janitor, if someone steals your janicart, you can instead use your space cleaner spray, grenades, water sprayer or order another from Cargo.
 As a Janitor, mousetraps can be used to create bombs or booby-trap containers.
 As the Librarian, be sure to keep the shelves stocked and the library clean for the crew.
-As a Hangar Technician, you can hack MULEbots to make them faster, run over people in their way, and even let you ride them!
 As a Hangar Technician, you can earn more cargo points by shipping back crates from maintenance, liquid containers, phoron sheets, rare seeds from hydroponics, and more!
 As the Operations Manager, be sure to check the manifests on crates you receive to make sure all the info is correct. If there's a mistake, stamp the manifest DENIED and send it back in a crate with the items untouched for a refund!
 As a Shaft Miner, always have a GPS on you, so a fellow miner or cyborg can come to save you if you die.
@@ -92,24 +91,24 @@ As a Cultist, the Blood Boil rune will deal massive amounts of brute damage to n
 As a Cultist, you can create an army of manifested goons using a combination of the Manifest rune, which creates homunculi from ghosts, and the Blood Drain rune, which drains life from anyone standing on any blood drain rune.
 As a Ghost, you can double click on people, bots, or the singularity to follow them.
 Occasionally the tip of the round might lie to you. Don't panic, this is normal.
-To defeat your enemy, shoot at them until they die and go horizontal.
+To defeat your enemy, click on them until they go horizontal.
 Sometimes you won't be able to avoid dying no matter how good you are at the game. it's part of the game, so try not to stress too much about it.
 When a round ends nearly everything about it is lost forever, leave your salt behind with it.
 Killing the entire ship isn't fun except when it is.
 You can win a pulse rifle from the arcade machine. Honest.
 Just like real life the entropy of the game can only increase with time. If things aren't on fire yet, just wait.
-Completingthe objectives you set yourself is good practice, but the best antagonists will strive to do more than the bare minimum to really leave an impression.
+Setting your own objectives and working to complete them is good practice, but the best antagonists will strive to do more than the bare minimum to really leave an impression.
 The more obscure and underused a game mechanic is, the less likely your victims are to be able to deal with it.
 Cleanbot.
 Some antagonists are supposed to be extremely strong in one on one combat, stop getting mad about it.
 Sometimes a round will just be a bust. C'est la vie.
 This is a game that is constantly being developed for. Expect things to be added, removed, fixed, and broken on a daily basis.
 It's fun to try and predict the round type from the tip of the round message.
-The Quartermaster has finally become a Head of Staff. He only needed to be renamed. It can be that easy, kids.
+The Quartermaster has finally become a Head of Staff. He only needed to be renamed to Operations Manager. It can be that easy, kids.
 Your sprite represents your hitbox, so that floor length braid makes you easier to kill. The sacrifices we make for snowflake points.
 Spacemen can't move diagonally but most animals can. Blame the slow decline of the numpad.
 Sometimes admins will just do stuff. Roll with it.
-The remake will maybe even come out.
+The remake might come out.
 Plenty of things that aren't traditionally considered weapons can still be used to slowly brutalize someone to death, get creative!
 DEATH IS IMMINENT!
 This game is older than many of the people playing it.
