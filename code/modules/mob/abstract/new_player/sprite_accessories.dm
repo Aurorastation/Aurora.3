@@ -808,6 +808,24 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_mulder"
 		chatname = "short hair"
 
+	mullet
+		name = "Mullet"
+		icon_state = "hair_mullet"
+		length = 3
+		chatname = "mullet"
+
+	mullet_undercut
+		name = "Mullet, Undercut"
+		icon_state = "hair_mullet_undercut"
+		length = 3
+		chatname = "mullet"
+
+	mullet_balding
+		name = "Mullet, Balding"
+		icon_state = "hair_mullet_balding"
+		length = 3
+		chatname = "balding mullet"
+
 	neat
 		name = "Neat"
 		icon_state = "hair_neat"
@@ -1084,6 +1102,10 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "large bun"
 
+	patchy
+		name = "Patchy"
+		icon_state = "hair_patchy"
+		chatname = "patchy hair"
 	poofy
 		name = "Poofy"
 		icon_state = "hair_poofy"
@@ -1886,6 +1908,11 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Abraham Lincoln Beard"
 		icon_state = "facial_abe"
 
+	animal
+		name = "Animal"
+		icon_state = "facial_animal"
+
+
 	biker
 		name = "Biker Beard"
 		icon_state = "facial_biker"
@@ -1906,9 +1933,17 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Chinstrap"
 		icon_state = "facial_chinstrap"
 
+	comandante
+		name = "Comandante"
+		icon_state = "facial_comandante"
+
 	croppedbeard
 		name = "Full Cropped Beard"
 		icon_state = "facial_croppedfullbeard"
+
+	desperado
+		name = "Desperado"
+		icon_state = "facial_desperado"
 
 	dwarf
 		name = "Dwarf Beard"
@@ -1935,6 +1970,17 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Goatee 3"
 		icon_state = "facial_gt3"
 
+	gt_white
+		name = "Goatee, White"
+		icon_state = "facial_gt_white"
+
+	hawk
+		name = "Hawk"
+		icon_state = "facial_hawk"
+
+	hellboy
+		name = "Hellboy"
+		icon_state = "facial_hellboy"
 	hip
 		name = "Hipster Beard"
 		icon_state = "facial_hip"
