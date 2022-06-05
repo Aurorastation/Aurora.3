@@ -6,7 +6,7 @@
 /obj/machinery/computer/power_monitor
 	name = "Power Monitoring Console"
 	desc = "Computer designed to remotely monitor power levels around the station"
-	icon_screen = "power"
+	icon_screen = "power_monitor"
 	icon_keyboard = "yellow_key"
 	light_color = LIGHT_COLOR_YELLOW
 
@@ -31,9 +31,9 @@
 	if(stat & NOPOWER)
 		icon_screen = null
 	else if(alerting)
-		icon_screen = "power_alert"
+		icon_screen = "power_monitor_warn"
 	else
-		icon_screen = "power"
+		icon_screen = "power_monitor"
 	. = ..()
 
 // On creation automatically connects to active sensors. This is delayed to ensure sensors already exist.
