@@ -16663,13 +16663,15 @@
 /area/maintenance/wing/port/deck1)
 "noZ" = (
 /obj/item/modular_computer/console/preset/civilian{
-	dir = 8
+	dir = 8;
+	pixel_x = 5
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	frequency = 1380;
 	id_tag = "escape_pod_2";
 	pixel_y = 25;
-	tag_door = "escape_pod_2_hatch"
+	tag_door = "escape_pod_2_hatch";
+	pixel_x = -9
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod2)
@@ -18646,11 +18648,13 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	frequency = 1380;
 	id_tag = "escape_pod_1";
+	tag_door = "escape_pod_1_hatch";
 	pixel_y = 25;
-	tag_door = "escape_pod_1_hatch"
+	pixel_x = -9
 	},
 /obj/item/modular_computer/console/preset/civilian{
-	dir = 8
+	dir = 8;
+	pixel_x = 5
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod1)
