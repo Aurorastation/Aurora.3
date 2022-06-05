@@ -65,8 +65,10 @@
 /datum/gear/faction/idris_labcoat/New()
 	..()
 	var/list/idris_labcoats = list()
-	idris_labcoats["labcoat, Idris"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris
-	idris_labcoats["labcoat, Idris alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/alt
+	idris_labcoats["idris labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris
+	idris_labcoats["idris labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/alt
+	idris_labcoats["idris letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/letterman
+	idris_labcoats["idris letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/letterman/alt
 	gear_tweaks += new /datum/gear_tweak/path(idris_labcoats)
 
 /datum/gear/faction/zavodskoi_beret
@@ -93,6 +95,15 @@
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	slot = slot_wear_suit
 	faction = "Zavodskoi Interstellar"
+
+/datum/gear/faction/zavodskoi_labcoat/New()
+	..()
+	var/list/zavodskoi_labcoats = list()
+	zavodskoi_labcoats["zavodskoi labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
+	zavodskoi_labcoats["zavodskoi labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/alt
+	zavodskoi_labcoats["zavodskoi letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman
+	zavodskoi_labcoats["zavodskoi letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman/alt
+	gear_tweaks += new /datum/gear_tweak/path(zenghu_labcoats)
 
 /datum/gear/faction/zavod_sunglasses
 	display_name = "zavodskoi security HUD selection"
@@ -140,8 +151,8 @@
 	gear_tweaks += new /datum/gear_tweak/path(pmc_sunglasses)
 
 /datum/gear/faction/pmc_labcoat
-	display_name = "PMCG labcoat selection"
-	description = "A selection of PMCG labcoats."
+	display_name = "PMCG/EPMC labcoat selection"
+	description = "A selection of PMCG/EPMC labcoats."
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	slot = slot_wear_suit
 	faction = "Private Military Contracting Group"
@@ -151,6 +162,7 @@
 	var/list/pmc_labcoats = list()
 	pmc_labcoats["labcoat, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	pmc_labcoats["labcoat alt, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
+	pmc_labcoats["labcoat, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/epmc
 	gear_tweaks += new /datum/gear_tweak/path(pmc_labcoats)
 
 /datum/gear/faction/pmc_patch
@@ -233,11 +245,15 @@
 
 /datum/gear/faction/zenghu_labcoat/New()
 	..()
-	var/list/masks = list()
-	masks["zeng-hu labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
-	masks["zeng-hu labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
-	masks["zeng-hu first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
-	gear_tweaks += new /datum/gear_tweak/path(masks)
+	var/list/zenghu_labcoats = list()
+	zenghu_labcoats["zeng-hu labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	zenghu_labcoats["zeng-hu labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+	zenghu_labcoats["zeng-hu labcoat, classic"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt2
+	zenghu_labcoats["zeng-hu letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman
+	zenghu_labcoats["zeng-hu letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt
+	zenghu_labcoats["zeng-hu letterman labcoat, classic"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt2
+	zenghu_labcoats["zeng-hu first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
+	gear_tweaks += new /datum/gear_tweak/path(zenghu_labcoats)
 
 /datum/gear/faction/zenghu_apron
 	display_name = "zeng-hu vinyl apron"
@@ -282,6 +298,13 @@
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/heph
 	slot = slot_wear_suit
 	faction = "Hephaestus Industries"
+
+/datum/gear/faction/heph_labcoat/New()
+	..()
+	var/list/heph_labcoats = list()
+	heph_labcoats["hephaestus labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/heph
+	heph_labcoats["hephaestus letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/heph/letterman
+	gear_tweaks += new /datum/gear_tweak/path(heph_labcoats)
 
 /datum/gear/faction/heph_beret
 	display_name = "hephaestus beret"
