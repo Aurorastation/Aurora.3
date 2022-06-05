@@ -24,7 +24,7 @@
 /obj/item/skrell_projector/vaurca_projector/proc/apply_world_vaurca(var/choice_vaurca)
 
 	if(choice_vaurca)
-		selected_world_vaurca = choice
+		selected_world_vaurca = choice_vaurca
 	switch(choice_vaurca)
 		if("Ocean")
 			light_color = "#1122c2"
@@ -38,10 +38,8 @@
 			light_color = "#418144"
 
 		else
-			brightness = 0
 			working_vaurca = FALSE
 			STOP_PROCESSING(SSprocessing, src)
-	set_light(brightness)
 	update_icon()
 
 /obj/item/skrell_projector/vaurca_projector/update_icon()
