@@ -103,7 +103,7 @@
 	zavodskoi_labcoats["zavodskoi labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/alt
 	zavodskoi_labcoats["zavodskoi letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman
 	zavodskoi_labcoats["zavodskoi letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman/alt
-	gear_tweaks += new /datum/gear_tweak/path(zenghu_labcoats)
+	gear_tweaks += new /datum/gear_tweak/path(zavodskoi_labcoats)
 
 /datum/gear/faction/zavod_sunglasses
 	display_name = "zavodskoi security HUD selection"
