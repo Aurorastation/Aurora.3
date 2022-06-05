@@ -21,12 +21,11 @@
 		update_icon()
 		STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/skrell_projector/vaurca_projector/proc/apply_world_vaurca(var/choice)
-	var/brightness = 2
+/obj/item/skrell_projector/vaurca_projector/proc/apply_world_vaurca(var/choice_vaurca)
 
-	if(choice)
+	if(choice_vaurca)
 		selected_world_vaurca = choice
-	switch(choice)
+	switch(choice_vaurca)
 		if("Ocean")
 			light_color = "#1122c2"
 		if("Hive War Exhibition")
