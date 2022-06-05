@@ -6,7 +6,7 @@
 	var/list/worlds_selection_vaurca = list("Ocean", "Hive War Exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
 	var/selected_world_vaurca
 	var/working_vaurca = FALSE
-
+	var/message_frequency_vaurca = 9
 
 /obj/item/skrell_projector/vaurca_projector/attack_self(mob/user as mob)
 	working_vaurca = !working_vaurca
@@ -53,7 +53,7 @@
 
 
 
-	if(prob(message_frequency))
+	if(prob(message_frequency_vaurca))
 		var/hologram_message_vaurca
 		switch(selected_world_vaurca)
 
