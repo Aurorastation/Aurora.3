@@ -77,6 +77,21 @@
 /obj/item/seeds/seaweed
 	seed_type = "seaweed"
 
+/datum/seed/grass/moss
+	name = "moss"
+	seed_name = "moss"
+	display_name = "moss"
+	kitchen_tag = "moss"
+
+/datum/seed/grass/moss/setup_traits()
+	..()
+	set_trait(TRAIT_PRODUCT_ICON,"moss")
+	set_trait(TRAIT_PRODUCT_COLOUR, "#83D27F")
+	set_trait(TRAIT_PLANT_COLOUR, "#589755")
+
+/obj/item/seeds/mossseed
+	seed_type = "moss"
+
 /datum/seed/peppercorn
 	name = "peppercorn"
 	seed_name = "peppercorn"

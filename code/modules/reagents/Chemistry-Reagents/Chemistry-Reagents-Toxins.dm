@@ -135,7 +135,18 @@
 		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 			return
 
-	M.take_organ_damage(0, removed * 0.1) //being splashed directly with phoron causes minor chemical burns
+	M.take_organ_damage(0, removed * 0.3) //being splashed directly with phoron causes minor chemical burns
+	if(prob(50))
+		M.pl_effects()
+
+/decl/reagent/toxin/phoron/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(istype(M, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
+		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
+			return
+
+	M.take_organ_damage(0, removed * 0.6) //Breathing phoron? Oh hell no boy my boy.
 	if(prob(50))
 		M.pl_effects()
 

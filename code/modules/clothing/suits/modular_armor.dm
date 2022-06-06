@@ -19,8 +19,9 @@
 
 /obj/item/clothing/suit/armor/carrier/hos
 	starting_accessories = list(
-		/obj/item/clothing/accessory/armor_plate/hos,
-		/obj/item/clothing/accessory/storage/modular_pouch/large
+		/obj/item/clothing/accessory/armor_plate,
+		/obj/item/clothing/accessory/storage/modular_pouch/large,
+		/obj/item/clothing/accessory/sec_commander_stripes
 	)
 
 /obj/item/clothing/suit/armor/carrier/generic
@@ -207,6 +208,8 @@
 /obj/item/clothing/accessory/storage/modular_pouch/large
 	name = "large plate carrier pouches"
 	desc = "A comfortable set of pouches that can be attached to a plate carrier, allowing the wearer to store some small items. This one uses advanced sewing techniques for additional storage capacity."
+	icon_state = "modular_pouch_l"
+	item_state = "modular_pouch_l"
 	slots = 3
 
 /obj/item/clothing/accessory/holster/modular
@@ -217,6 +220,16 @@
 	item_state = "modular_holster"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	flippable = FALSE
+
+/obj/item/clothing/accessory/sec_commander_stripes
+	name = "head of security stripes"
+	desc = "A set of high visibility inserts for use in armour. This one declares the wearer as a Head of Security."
+	icon = 'icons/clothing/kit/modular_armor_accessories.dmi'
+	icon_state = "sec_commander_stripes"
+	item_state = "sec_commander_stripes"
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_GENERIC
 	flippable = FALSE
 
 /obj/item/clothing/accessory/armor_plate/heavy/sec
@@ -274,3 +287,4 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+

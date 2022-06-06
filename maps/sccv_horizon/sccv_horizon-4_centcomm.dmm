@@ -2024,7 +2024,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/item/ammo_magazine/assault_shotgun,
 /obj/item/ammo_magazine/assault_shotgun,
@@ -6725,7 +6726,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -6811,7 +6813,8 @@
 "apn" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -7300,7 +7303,8 @@
 "aqR" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -7311,7 +7315,8 @@
 "aqS" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
@@ -7319,7 +7324,8 @@
 "aqT" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -7519,7 +7525,8 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -7527,7 +7534,8 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -7899,7 +7907,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
@@ -7946,7 +7955,8 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
@@ -7957,7 +7967,8 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
@@ -8445,7 +8456,8 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
@@ -10083,7 +10095,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/item/paper_bin{
 	pixel_x = -2;
@@ -10404,7 +10417,8 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
@@ -15422,6 +15436,7 @@
 	name = "Shuttle Hatch";
 	req_access = list(13)
 	},
+/obj/effect/shuttle_landmark/ccia/start,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
 "aLv" = (
@@ -15856,10 +15871,6 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
-"aMu" = (
-/obj/effect/shuttle_landmark/ccia/start,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/transport1)
 "aMv" = (
 /obj/machinery/light{
 	dir = 4;
@@ -15983,7 +15994,7 @@
 /area/shuttle/transport1)
 "aMT" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
-	dir = 8
+	dir = 4
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
@@ -19963,7 +19974,8 @@
 /area/centcom/legion)
 "aWj" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -19999,7 +20011,8 @@
 /area/centcom/legion)
 "aWm" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -21856,7 +21869,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -22828,7 +22842,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
@@ -22836,7 +22851,8 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -23893,7 +23909,8 @@
 /area/centcom/legion/hangar5)
 "bdY" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -23933,7 +23950,8 @@
 /area/centcom/legion/hangar5)
 "beb" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -23987,7 +24005,8 @@
 /area/centcom/legion/hangar5)
 "bee" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -26824,8 +26843,15 @@
 /area/shuttle/mercenary)
 "bkr" = (
 /obj/structure/table/reinforced,
-/obj/item/airbubble/syndie,
-/obj/item/airbubble/syndie,
+/obj/item/airbubble/syndie{
+	pixel_y = 4
+	},
+/obj/item/airbubble/syndie{
+	pixel_y = 4
+	},
+/obj/item/storage/bag/inflatable{
+	pixel_y = -5
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bkt" = (
@@ -29551,7 +29577,8 @@
 /area/shuttle/mercenary)
 "bqq" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -34577,7 +34604,394 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_theatre)
 "bFM" = (
-/obj/effect/overlay/palmtree_r,
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bFN" = (
+/obj/structure/bed/stool/chair/holochair{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bFO" = (
+/obj/structure/bed/stool/chair/holochair{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bFP" = (
+/obj/structure/holostool,
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_theatre)
+"bFQ" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_theatre)
+"bFR" = (
+/obj/structure/holostool,
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_theatre)
+"bFS" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bFT" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bFU" = (
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bFV" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bFW" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_emptycourt)
+"bFX" = (
+/obj/structure/bed/stool/chair/holochair{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bFY" = (
+/obj/structure/bed/stool/chair/holochair{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bFZ" = (
+/obj/structure/bed/stool/chair/holochair{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bGa" = (
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bGb" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bGc" = (
+/obj/structure/holostool,
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 10
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_theatre)
+"bGd" = (
+/obj/structure/holostool,
+/obj/effect/floor_decal/carpet,
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_theatre)
+"bGe" = (
+/obj/structure/holostool,
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_theatre)
+"bGf" = (
+/obj/structure/bed/stool/chair/holochair{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 10
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bGg" = (
+/obj/structure/bed/stool/chair/holochair{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bGh" = (
+/obj/structure/bed/stool/chair/holochair{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 10
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bGi" = (
+/obj/structure/bed/stool/chair/holochair{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet,
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bGj" = (
+/obj/effect/floor_decal/carpet,
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bGk" = (
+/obj/effect/floor_decal/carpet,
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bGl" = (
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
+"bGm" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/horizon/holodeck/source_courtroom)
+"bGn" = (
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_emptycourt)
+"bGo" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_emptycourt)
+"bGp" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 140
+	},
+/turf/unsimulated/wall/riveted,
+/area/template_noop)
+"bGq" = (
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced,
+/turf/unsimulated/wall/riveted,
+/area/template_noop)
+"bGr" = (
+/turf/simulated/floor/holofloor/wood,
+/area/horizon/holodeck/source_meetinghall)
+"bGs" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_basketball)
+"bGt" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_basketball)
+"bGu" = (
+/obj/structure/holohoop,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_basketball)
+"bGv" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_basketball)
+"bGw" = (
+/turf/simulated/floor/beach/sand{
+	icon_state = "desert1"
+	},
+/area/horizon/holodeck/source_beach)
+"bGx" = (
+/turf/simulated/floor/beach/sand{
+	icon_state = "desert4"
+	},
+/area/horizon/holodeck/source_beach)
+"bGy" = (
+/turf/simulated/floor/beach/sand{
+	icon_state = "desert"
+	},
+/area/horizon/holodeck/source_beach)
+"bGz" = (
+/turf/simulated/floor/beach/sand{
+	icon_state = "desert0"
+	},
+/area/horizon/holodeck/source_beach)
+"bGA" = (
+/obj/structure/table/holotable,
+/obj/machinery/readybutton,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_thunderdomecourt)
+"bGB" = (
+/obj/structure/table/holotable,
+/obj/item/clothing/head/helmet/thunderdome,
+/obj/item/clothing/suit/armor/tdome/red,
+/obj/item/clothing/under/color/red,
+/obj/item/holo/esword/red,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_thunderdomecourt)
+"bGC" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_thunderdomecourt)
+"bGD" = (
+/obj/structure/table/holotable,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_thunderdomecourt)
+"bGE" = (
+/obj/structure/table/holotable,
+/obj/item/toy/ringbell,
+/obj/item/clothing/gloves/boxing/hologlove,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/horizon/holodeck/source_boxingcourt)
+"bGF" = (
+/obj/structure/table/holotable,
+/obj/item/clothing/gloves/boxing/hologlove,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/horizon/holodeck/source_boxingcourt)
+"bGG" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/horizon/holodeck/source_boxingcourt)
+"bGH" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/horizon/holodeck/source_boxingcourt)
+"bGI" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 10
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 9
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_meetinghall)
+"bGJ" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet,
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_meetinghall)
+"bGK" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_meetinghall)
+"bGL" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_basketball)
+"bGM" = (
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_basketball)
+"bGN" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_basketball)
+"bGO" = (
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert3"
 	},
@@ -36840,7 +37254,23 @@
 /turf/simulated/floor/holofloor/tiled/ramp{
 	dir = 8
 	},
-/area/horizon/holodeck/source_theatre)
+/turf/simulated/floor/holofloor/grass,
+/area/horizon/holodeck/source_dininghall)
+"duV" = (
+/obj/structure/window/reinforced{
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	maxhealth = 140
+	},
+/obj/structure/grille,
+/turf/simulated/floor/shuttle/advanced,
+/area/shuttle/mercenary)
 "dwR" = (
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/holofloor/snow,
@@ -36903,14 +37333,23 @@
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
-/obj/effect/floor_decal/carpet{
-	dir = 10
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/horizon/holodeck/source_dininghall)
+"fPY" = (
+/obj/structure/window/reinforced{
+	maxhealth = 140
 	},
-/turf/simulated/floor/holofloor/carpet,
-/area/horizon/holodeck/source_theatre)
-"fka" = (
-/obj/structure/bed/stool/chair/holochair,
-/obj/structure/window/reinforced/holowindow{
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 140
+	},
+/obj/structure/grille,
+/turf/simulated/floor/shuttle/advanced,
+/area/shuttle/mercenary)
+"fQK" = (
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/structure/window/reinforced/holowindow{
@@ -36954,6 +37393,27 @@
 /obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_leftt"
 	},
+/turf/simulated/floor/holofloor/reinforced,
+/area/horizon/holodeck/source_battlemonsters)
+"hIG" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/holofloor/reinforced,
+/area/horizon/holodeck/source_battlemonsters)
+"hTO" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	maxhealth = 140
+	},
+/obj/structure/grille,
+/turf/simulated/floor/shuttle/advanced,
+/area/shuttle/mercenary)
+"hYO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -37094,12 +37554,22 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
-"nev" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
+"nCh" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
 	},
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_battlemonsters)
+/obj/structure/window/reinforced{
+	dir = 8;
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 140
+	},
+/obj/structure/grille,
+/turf/simulated/floor/shuttle/advanced,
+/area/shuttle/mercenary)
 "olV" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 1
@@ -37190,18 +37660,9 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
 "rlY" = (
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 10
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/horizon/holodeck/source_courtroom)
-"rmW" = (
-/obj/effect/decal/battlemonsters_logo{
-	dir = 1
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_battlemonsters)
@@ -37228,51 +37689,43 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "sEv" = (
-/obj/structure/window/reinforced/holowindow/disappearing,
-/obj/effect/floor_decal/corner/red/full,
-/turf/simulated/floor/holofloor/tiled,
-/area/horizon/holodeck/source_thunderdomecourt)
-"sMX" = (
-/obj/structure/bed/stool/chair/holochair,
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/horizon/holodeck/source_boxingcourt)
+"sPP" = (
+/obj/structure/window/reinforced{
+	maxhealth = 140
 	},
-/obj/structure/window/reinforced/holowindow{
-	dir = 4
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 140
 	},
-/obj/structure/window/reinforced/holowindow,
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/wood,
-/area/horizon/holodeck/source_courtroom)
-"sWV" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/holofloor/grass/alt,
-/area/horizon/holodeck/source_dininghall)
-"tBV" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/horizon/holodeck/source_thunderdomecourt)
+/obj/structure/grille,
+/turf/simulated/floor/shuttle/advanced,
+/area/shuttle/mercenary)
 "tIz" = (
 /obj/structure/flora/grass/brown,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_snowfield)
-"tVR" = (
-/obj/effect/floor_decal/carpet,
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/holofloor/carpet,
-/area/horizon/holodeck/source_courtroom)
-"uDN" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
+"url" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
 	},
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/holofloor/grass/alt,
-/area/horizon/holodeck/source_dininghall)
+/obj/structure/window/reinforced{
+	dir = 8;
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	maxhealth = 140
+	},
+/obj/structure/grille,
+/turf/simulated/floor/shuttle/advanced,
+/area/shuttle/mercenary)
 "vMz" = (
 /obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_right"
@@ -42422,9 +42875,9 @@ aaa
 aaa
 aaa
 bxw
-bxw
-bxw
-bxw
+nCh
+hTO
+url
 bxw
 bxw
 bjG
@@ -42678,7 +43131,7 @@ aaa
 aaa
 aaa
 aaa
-bxw
+duV
 bfX
 bgO
 bhB
@@ -42935,7 +43388,7 @@ aaa
 aaa
 aaa
 aaa
-bxw
+fPY
 bfY
 bgP
 bhC
@@ -43192,7 +43645,7 @@ aaa
 aaa
 aaa
 aaa
-bxw
+sPP
 bfZ
 bgQ
 bhD
@@ -43450,9 +43903,9 @@ aaa
 aaa
 aaa
 bxw
-bxw
-bxw
-bxw
+nCh
+hTO
+url
 bxw
 bxw
 bjK
@@ -54970,7 +55423,7 @@ aKe
 aKH
 aNt
 aMa
-aMu
+aMb
 aMQ
 aNt
 aNR
@@ -55997,9 +56450,9 @@ aJx
 aKf
 aKG
 aNt
-aMe
-aMy
 aMT
+aMy
+aMe
 aNt
 aNR
 aNR
@@ -72560,32 +73013,32 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -72817,65 +73270,65 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -73074,41 +73527,6 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
@@ -73132,7 +73550,42 @@ aac
 aac
 aac
 aac
+aac
+aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -73331,41 +73784,6 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
@@ -73389,7 +73807,42 @@ aac
 aac
 aac
 aac
+aac
+aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -73588,41 +74041,6 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
@@ -73646,7 +74064,42 @@ aac
 aac
 aac
 aac
+aac
+aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -73845,41 +74298,6 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
@@ -73903,7 +74321,42 @@ aac
 aac
 aac
 aac
+aac
+aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -74102,41 +74555,6 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
@@ -74160,7 +74578,42 @@ aac
 aac
 aac
 aac
+aac
+aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -74359,41 +74812,6 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
@@ -74401,16 +74819,18 @@ aac
 aac
 aac
 aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aac
 aac
 aac
@@ -74418,6 +74838,39 @@ aac
 aac
 aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -74616,41 +75069,13 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
 aab
 aac
 aac
@@ -74662,12 +75087,7 @@ aac
 aac
 aac
 aac
-aac
-aac
-aac
-aac
-aac
-aac
+aab
 aac
 aac
 aac
@@ -74675,6 +75095,39 @@ aac
 aac
 aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -74873,56 +75326,13 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
 aac
 aac
 aac
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+aac
 aab
 aac
 aac
@@ -74931,7 +75341,50 @@ aac
 aac
 aac
 aac
+aac
+aac
+aac
 aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -75130,48 +75583,16 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
 aac
 aac
 aac
+aac
 aab
+aac
+aac
 aac
 aac
 aac
@@ -75187,8 +75608,40 @@ aac
 aac
 aac
 aac
-aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -75387,48 +75840,16 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
 aac
 aac
 aac
+aac
 aab
+aac
+aac
 aac
 aac
 aac
@@ -75444,8 +75865,40 @@ aac
 aac
 aac
 aac
-aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -75644,56 +76097,24 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
 aac
 aac
 aac
+aac
 aab
-aac
-aac
-aac
-aac
 reg
 aac
 aac
 aac
+aac
+aac
+aac
+aac
+aac
+aac
 aab
 aac
 aac
@@ -75701,8 +76122,40 @@ aac
 aac
 aac
 aac
-aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -75901,42 +76354,19 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aac
@@ -75949,17 +76379,40 @@ aac
 aac
 aac
 aac
-aac
-aac
 aab
-aab
-aac
-aac
-aac
-aac
-aac
-aac
-aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -76158,48 +76611,15 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
 aac
 aac
 aac
+aac
 aab
+aac
 aac
 aac
 aac
@@ -76217,6 +76637,39 @@ aac
 aac
 aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -76415,47 +76868,14 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
 aac
 aac
 aac
+aac
+aab
 aab
 aab
 aab
@@ -76474,6 +76894,39 @@ aac
 aac
 aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -76672,41 +77125,6 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
@@ -76730,7 +77148,42 @@ aac
 aac
 aac
 aac
+aac
+aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -76929,41 +77382,6 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
@@ -76987,7 +77405,42 @@ aac
 aac
 aac
 aac
+aac
+aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -77186,41 +77639,6 @@ bFg
 bFg
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
@@ -77244,7 +77662,42 @@ aac
 aac
 aac
 aac
+aac
+aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -77443,41 +77896,6 @@ bFc
 bFc
 bFc
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
@@ -77501,7 +77919,42 @@ aac
 aac
 aac
 aac
+aac
+aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -77700,41 +78153,6 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
@@ -77758,7 +78176,42 @@ aac
 aac
 aac
 aac
+aac
+aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -77957,41 +78410,6 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aab
 aac
 aac
@@ -78015,7 +78433,42 @@ aac
 aac
 aac
 aac
+aac
+aac
 aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -78214,65 +78667,65 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+bFb
 aab
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
 aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -78506,30 +78959,30 @@ aaa
 aaa
 aaa
 aaa
-bFb
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa

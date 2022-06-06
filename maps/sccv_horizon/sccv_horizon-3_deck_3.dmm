@@ -136,9 +136,8 @@
 /obj/structure/closet/walllocker/medical{
 	pixel_y = 32
 	},
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/ointment,
-/obj/item/storage/firstaid,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/o2,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "ao" = (
@@ -1167,6 +1166,7 @@
 /area/horizon/stairwell/central)
 "ci" = (
 /obj/structure/table/wood,
+/obj/item/clipboard,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
 "cj" = (
@@ -2917,7 +2917,8 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/requests_console{
 	department = "Conference Room";
-	pixel_y = -32
+	pixel_y = -32;
+	name = "Conference Room Requests Console"
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
@@ -3362,6 +3363,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"gp" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "gq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/table/standard,
@@ -3876,6 +3890,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
+"ho" = (
+/obj/effect/map_effect/airlock/s_to_n/long/square,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "hp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -4897,6 +4915,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/starboard)
+"iZ" = (
+/obj/effect/shuttle_landmark/horizon/nav3,
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "ja" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -5919,6 +5941,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/item/folder/red,
+/obj/item/folder/yellow,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "kT" = (
@@ -7723,6 +7747,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
+"ok" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/horizon/exterior)
 "ol" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -8925,7 +8955,9 @@
 	c_tag = "Third Deck - Central Stairwell";
 	dir = 4
 	},
-/obj/structure/sign/emerg_exitZ_stairs/evac,
+/obj/structure/sign/emerg_exitZ_stairs/evac{
+	layer = 2.1
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
@@ -9197,7 +9229,9 @@
 /area/tcommsat/entrance)
 "re" = (
 /obj/item/modular_computer/console/preset/command/captain{
-	dir = 8
+	dir = 8;
+	pixel_x = 10;
+	pixel_y = -4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -9938,6 +9972,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
+"su" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "sv" = (
@@ -11961,6 +12002,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
+"we" = (
+/turf/simulated/floor/plating,
+/area/horizon/exterior)
 "wf" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
@@ -12023,9 +12067,11 @@
 /turf/simulated/open/airless,
 /area/template_noop)
 "wl" = (
+/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
-	dir = 1
+	dir = 8
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/open/airless,
 /area/template_noop)
 "wm" = (
@@ -14635,8 +14681,8 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clipboard,
 /obj/item/pen/multi,
-/obj/item/device/camera,
 /obj/structure/closet/lawcloset,
+/obj/item/device/camera,
 /obj/item/stamp/denied,
 /obj/item/stamp{
 	name = "consular stamp"
@@ -14648,6 +14694,8 @@
 	dir = 6
 	},
 /obj/machinery/light,
+/obj/item/folder/blue,
+/obj/item/folder/white,
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
 "Bg" = (
@@ -16799,7 +16847,7 @@
 	},
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine{
-	department = "Head of Personnel's Office"
+	department = "Executive Officer's Office"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
@@ -17178,9 +17226,18 @@
 /turf/simulated/wall,
 /area/horizon/crew_quarters/cryo/washroom)
 "Gd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/item/modular_computer/console/preset/security{
+	dir = 8;
+	pixel_x = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"Ge" = (
+/obj/machinery/computer/HolodeckControl/Horizon{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -20387,6 +20444,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/item/clipboard,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "LO" = (
@@ -22199,6 +22257,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
+"OX" = (
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "OY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -24774,6 +24835,13 @@
 /area/crew_quarters/heads/hop/xo)
 "TM" = (
 /obj/structure/table/reinforced/wood,
+/obj/item/folder/blue{
+	pixel_x = -3
+	},
+/obj/item/folder/red,
+/obj/item/folder/yellow{
+	pixel_x = 3
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "TN" = (
@@ -25666,12 +25734,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
-"Vu" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/open/airless,
-/area/template_noop)
 "Vv" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -27294,6 +27356,9 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
+"Ys" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/exterior)
 "Yt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -31411,7 +31476,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+Gd
 Wm
 Wm
 Wm
@@ -38436,11 +38501,11 @@ at
 at
 at
 at
+iZ
 at
 at
 at
-at
-mP
+GQ
 NE
 OL
 mP
@@ -38639,10 +38704,10 @@ at
 at
 at
 at
-at
-at
-at
-mP
+Ys
+ok
+ok
+ho
 Tv
 Vr
 mP
@@ -38841,12 +38906,12 @@ at
 at
 at
 at
-at
-at
-at
-Cm
-Xv
-Zt
+we
+we
+we
+OX
+su
+gp
 GQ
 at
 at
@@ -39043,10 +39108,10 @@ at
 at
 at
 at
-at
-at
-at
-Cm
+we
+we
+we
+OX
 Xv
 Zt
 GQ
@@ -39245,10 +39310,10 @@ at
 at
 at
 at
-at
-at
-at
-Cm
+Ys
+ok
+ok
+mP
 Xv
 Zt
 GQ
@@ -39450,7 +39515,7 @@ at
 at
 at
 at
-mP
+GQ
 Tv
 Zt
 mP
@@ -41081,7 +41146,7 @@ Mc
 Kd
 at
 fh
-aa
+Wm
 Wm
 Wm
 Wm
@@ -41283,14 +41348,14 @@ VQ
 Mc
 at
 fh
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -41485,14 +41550,14 @@ gt
 gW
 at
 fh
-aa
 Wm
 Wm
 Wm
 Wm
 Wm
 Wm
-aa
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -41687,15 +41752,15 @@ ZM
 gW
 at
 fh
-aa
 Wm
 Wm
-aa
-aa
-aa
 Wm
-aa
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -41889,15 +41954,15 @@ sr
 gW
 at
 fh
-aa
 Wm
 Wm
-aa
-aa
-aa
 Wm
 Wm
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -42091,15 +42156,15 @@ iv
 eA
 at
 fh
-aa
 Wm
-aa
-aa
-aa
-aa
-aa
 Wm
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -42293,15 +42358,15 @@ vS
 eA
 at
 fh
-aa
 Wm
-aa
-aa
-aa
-aa
-aa
 Wm
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -42495,15 +42560,15 @@ Fy
 sR
 at
 fh
-aa
 Wm
-aa
-aa
-aa
-aa
-aa
 Wm
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -42699,13 +42764,13 @@ at
 VM
 KN
 Mo
-aa
-aa
-aa
-aa
-aa
 Wm
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -42901,13 +42966,13 @@ at
 at
 at
 fh
-aa
-aa
-aa
-aa
-aa
 Wm
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -43103,14 +43168,14 @@ at
 Rh
 Tr
 PF
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -43303,16 +43368,16 @@ Rc
 sR
 at
 fh
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -43505,16 +43570,16 @@ Nq
 nt
 at
 fh
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -43707,15 +43772,15 @@ Bm
 sR
 at
 fh
-aa
-aa
-aa
-aa
-aa
-aa
 Wm
 Wm
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -43909,15 +43974,15 @@ ZY
 sR
 at
 fh
-aa
-aa
-aa
-aa
-aa
-aa
 Wm
 Wm
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -44111,15 +44176,15 @@ Wc
 sR
 at
 fh
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -44313,15 +44378,15 @@ ZY
 sR
 at
 fh
-aa
-aa
-aa
-aa
-aa
-aa
 Wm
 Wm
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -44515,15 +44580,15 @@ zA
 sR
 at
 fh
-Vu
-Vu
-aa
-aa
-aa
-aa
 Wm
 Wm
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -44717,18 +44782,18 @@ nP
 zc
 at
 fh
-yM
-yM
+Ob
 wl
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -44920,8 +44985,8 @@ qB
 at
 fh
 yF
-yM
-wl
+Jv
+Wm
 Uj
 KN
 KN
@@ -44931,10 +44996,10 @@ KN
 KN
 KN
 Mo
-aa
-aa
-aa
-aa
+Wm
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
@@ -45137,7 +45202,7 @@ KN
 KN
 KN
 Mo
-aa
+Wm
 Wm
 Wm
 Wm
@@ -45340,7 +45405,7 @@ at
 at
 VM
 Mo
-aa
+Wm
 Wm
 Wm
 Wm
