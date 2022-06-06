@@ -1,0 +1,11 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - tweak: "Fully separated CPR into: Full CPR (Compressions + Mouth-to-Mouth), Compressions only, and Mouth-to-Mouth only. With an added buff that Mouth-to-Mouth will work if you've Lung Rescued someone with collapsed lungs."
+  - rscadd: "Reworked the Auto-Compressor into a Stabilizer Harness. The Stabilizer Harness now draws power from a cell with a default load of 1k (which means you can also bother Science for better cells), and it can be put into rechargers."
+  - rscadd: "The new Stabilizer Harness now has the same toggleable Emergency Positive Pressure system as the IVs! But it can only handle small tanks like Emergency ones and use a good mount of power."
+  - rscadd: "The Stabilizer Harness toggleable Auto-CPR mode now has a chance to Restart Asystole/Flat Lined hearts! Although it also has a low chance to crack the ribs ONLY IF the patient is Asystole/Flat Lining."
+  - imageadd: "Tweaked the Auto-Compressor sprites to better fit Stabilizer Harness! Now with in-hands, visible battery, and tank pressure indicators!"
+  - tweak: "Added a small percent helper in the tanks.dm."
