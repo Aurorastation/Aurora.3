@@ -566,6 +566,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
+"iOV" = (
+/obj/machinery/computer/ship/engines{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ee_spy_ship)
 "jEu" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 1
@@ -33638,7 +33644,7 @@ dfe
 yjk
 pwR
 xQS
-xQS
+iOV
 pAh
 xRX
 xRX

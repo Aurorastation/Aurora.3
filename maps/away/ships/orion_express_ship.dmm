@@ -1044,6 +1044,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
+"rAR" = (
+/obj/effect/floor_decal/corner_wide/beige,
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion_express_ship)
 "rNp" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -1108,6 +1113,15 @@
 	},
 /obj/machinery/computer/ship/engines{
 	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion_express_ship)
+"tzT" = (
+/obj/effect/floor_decal/corner_wide/beige/full{
+	dir = 4
+	},
+/obj/machinery/computer/ship/navigation{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -33798,8 +33812,8 @@ ccm
 aUD
 riA
 pwR
-pjp
-ruQ
+rAR
+tzT
 gNW
 xRX
 xRX
