@@ -1141,9 +1141,20 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_punk_halfshaved"
 		chatname = "unshaved hair"		// grabbing the parts that can be grabbed
 
+	punk_halfshaved_alt
+		name = "Punk Shave, Half-Shaved (alt)"
+		icon_state = "hair_punk_halfshaved_alt"
+		chatname = "unshaved hair"
+
 	punk_halfshaved_bun
 		name = "Punk Shave, Half-Shaved Bun"
 		icon_state = "hair_punk_halfshaved_bun"
+		length = 2
+		chatname = "hair bun"
+
+	punk_halfshaved_bun_alt
+		name = "Punk Shave, Half-Shaved Bun (alt)"
+		icon_state = "hair_punk_halfshaved_bun_alt"
 		length = 2
 		chatname = "hair bun"
 
@@ -2524,6 +2535,12 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "braid"
 
+		taj_ears_braid_alt
+			name = "Tajara Braid Alt"
+			icon_state = "hair_braid_alt"
+			length = 3
+			chatname = "braid"
+
 		taj_ears_clean
 			name = "Tajara Clean"
 			icon_state = "hair_clean"
@@ -2800,6 +2817,12 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_braid
 			name = "M'sai Braid"
 			icon_state = "msai_braid"
+			length = 3
+			chatname = "braid"
+
+		msai_ears_braid_alt
+			name = "M'sai Braid Alt"
+			icon_state = "msai_braid_alt"
 			length = 3
 			chatname = "braid"
 
