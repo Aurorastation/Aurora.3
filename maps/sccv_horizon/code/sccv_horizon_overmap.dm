@@ -64,4 +64,4 @@
 	name = "Starboard Primary Docking Arm"
 	landmark_tag = "nav_hangar_horizon_3"
 	base_turf = /turf/simulated/floor/reinforced/airless
-	base_area = /area/horizon/exterior
+	base_area = /area/template_noop
