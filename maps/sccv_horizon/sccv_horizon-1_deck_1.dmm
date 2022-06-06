@@ -3727,6 +3727,7 @@
 	id_tag = "mining_shuttle_dock_doors";
 	req_access = list(13)
 	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "cWd" = (
@@ -11488,13 +11489,23 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "jpU" = (
-/obj/machinery/computer/ship/helm{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/steel,
+/obj/machinery/cell_charger,
+/obj/random/powercell{
+	pixel_x = -3;
+	pixel_y = 1
+	},
+/obj/item/clothing/head/helmet/pilot{
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/obj/item/device/radio{
+	pixel_x = 8;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "jqc" = (
@@ -13372,6 +13383,7 @@
 	id_tag = "mining_shuttle_dock_doors";
 	req_access = list(13)
 	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "kKz" = (
@@ -19994,11 +20006,11 @@
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "qqS" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/brown/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/ship/sensors{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "qrh" = (
@@ -21405,13 +21417,13 @@
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
 "rAa" = (
-/obj/machinery/computer/shuttle_control/explore/mining_shuttle{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/ship/helm{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "rAb" = (
@@ -25424,19 +25436,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "uNw" = (
-/obj/structure/table/steel,
-/obj/machinery/cell_charger,
-/obj/random/powercell{
-	pixel_x = -3;
-	pixel_y = 1
-	},
-/obj/item/clothing/head/helmet/pilot{
-	pixel_x = -6;
-	pixel_y = 7
-	},
-/obj/item/device/radio{
-	pixel_x = 8;
-	pixel_y = 3
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/shuttle_control/explore/mining_shuttle{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
