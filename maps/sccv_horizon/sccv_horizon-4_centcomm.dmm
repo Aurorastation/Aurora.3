@@ -10770,7 +10770,7 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "aAe" = (
-/turf/simulated/wall/shuttle/scc_space_ship,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/merchant)
 "aAf" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -36590,6 +36590,18 @@
 	icon_state = "desert0"
 	},
 /area/horizon/holodeck/source_desert)
+"eKp" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "merchant_bridge";
+	name = "viewing shutter"
+	},
+/obj/structure/grille/diagonal{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/merchant)
 "eQT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/drop,
@@ -36628,6 +36640,19 @@
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_emptycourt)
+"fEN" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "merchant_bridge";
+	name = "viewing shutter";
+	dir = 2
+	},
+/obj/structure/grille/diagonal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/merchant)
 "fPY" = (
 /obj/structure/window/reinforced{
 	maxhealth = 140
@@ -36803,6 +36828,18 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
+"lwe" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "merchant_bridge";
+	name = "viewing shutter"
+	},
+/obj/structure/grille/diagonal{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/shuttle/merchant)
 "lGe" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced{
@@ -36973,6 +37010,19 @@
 /obj/structure/window/reinforced/holowindow/disappearing,
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
+"sLS" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "merchant_bridge";
+	name = "viewing shutter";
+	dir = 2
+	},
+/obj/structure/grille/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/shuttle/merchant)
 "sPP" = (
 /obj/structure/window/reinforced{
 	maxhealth = 140
@@ -36988,6 +37038,16 @@
 /obj/structure/grille,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mercenary)
+"tbb" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "merchant_bridge";
+	name = "viewing shutter"
+	},
+/obj/structure/grille/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/merchant)
 "tIz" = (
 /obj/structure/flora/grass/brown,
 /turf/simulated/floor/holofloor/snow,
@@ -38499,11 +38559,11 @@ aaa
 aaa
 aaa
 aaa
-asM
+lwe
 avZ
 avZ
 avZ
-aAH
+sLS
 aaa
 aaa
 aaa
@@ -38755,13 +38815,13 @@ aaa
 aaa
 aaa
 aaa
-asM
-asM
+eKp
+tbb
 atA
 atX
 auW
-aAH
-aAH
+fEN
+sLS
 aaa
 aaa
 aaa
@@ -40031,10 +40091,10 @@ aam
 aam
 aam
 aam
-aao
-aao
-aao
-aao
+ayX
+ayX
+ayX
+ayX
 aam
 aam
 aam
@@ -42865,9 +42925,9 @@ atI
 axf
 asv
 rCq
-aAf
-aAf
-aAf
+amd
+amd
+amd
 aAg
 atU
 avY
@@ -43379,9 +43439,9 @@ atK
 axf
 axf
 axf
-aAf
-aAf
-aAf
+amd
+amd
+amd
 aAg
 atW
 auV
@@ -43637,7 +43697,7 @@ aAf
 aAf
 aAf
 amd
-aao
+ayX
 aaa
 aAe
 aAe
@@ -43886,15 +43946,15 @@ anr
 aoh
 anr
 ajR
-aao
-aao
-aao
-aao
-aao
-aao
-aao
-aao
-aao
+ayX
+ayX
+ayX
+ayX
+ayX
+ayX
+ayX
+ayX
+ayX
 aaa
 aAe
 apk
