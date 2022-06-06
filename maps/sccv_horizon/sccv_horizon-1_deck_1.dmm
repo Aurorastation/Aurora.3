@@ -1953,7 +1953,8 @@
 "bBA" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "mwr1"
+	icon_state = "mwr1";
+	opacity = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
@@ -2224,7 +2225,8 @@
 "bJr" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "se2"
+	icon_state = "se2";
+	opacity = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2654,7 +2656,8 @@
 "cbM" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "mwr3"
+	icon_state = "mwr3";
+	opacity = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
@@ -7736,7 +7739,8 @@
 "geN" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "mlw4"
+	icon_state = "mlw4";
+	opacity = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/atmos_compartment)
@@ -13449,7 +13453,8 @@
 "kMG" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "se2"
+	icon_state = "se2";
+	opacity = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -14778,7 +14783,8 @@
 "lVN" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "mlw1"
+	icon_state = "mlw1";
+	opacity = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/atmos_compartment)
@@ -24221,7 +24227,8 @@
 "tNx" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "mlw2"
+	icon_state = "mlw2";
+	opacity = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/atmos_compartment)
@@ -26983,7 +26990,8 @@
 "weU" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "mwr2"
+	icon_state = "mwr2";
+	opacity = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/engine_compartment)
