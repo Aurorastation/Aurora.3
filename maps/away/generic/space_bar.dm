@@ -6,6 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "space_bar"
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /decl/submap_archetype/space_bar
 	map = "space bar"
@@ -18,6 +19,7 @@
 /area/space_bar
 	name = "Spacer Bar"
 	icon_state = "bar"
+	flags = RAD_SHIELDED
 	requires_power = FALSE
 	base_turf = /turf/space
 	no_light_control = TRUE
