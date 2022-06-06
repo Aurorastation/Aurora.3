@@ -71,6 +71,17 @@
 	shadeColour = input(user, "Please select the shade colour.", "Crayon colour") as color
 	return
 
+/obj/item/pen/crayon/rainbow/augment
+	icon_state = "crayonaugment"
+	desc = "A crayon that is integrated into a user's finger. It can synthesize a multitude of colors."
+
+/obj/item/pen/crayon/rainbow/augment/throw_at(atom/target, range, speed, mob/user)
+	user.drop_from_inventory(src)
+
+/obj/item/pen/crayon/rainbow/augment/dropped()
+	loc = null
+	qdel(src)
+
 /obj/item/pen/crayon/afterattack(atom/target, mob/user as mob, proximity)
 	if(!proximity) return
 	if(istype(target,/turf/simulated/floor))
