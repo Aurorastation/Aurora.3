@@ -9204,7 +9204,9 @@
 /area/tcommsat/entrance)
 "re" = (
 /obj/item/modular_computer/console/preset/command/captain{
-	dir = 8
+	dir = 8;
+	pixel_x = 10;
+	pixel_y = -4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -17173,6 +17175,13 @@
 "Gc" = (
 /turf/simulated/wall,
 /area/horizon/crew_quarters/cryo/washroom)
+"Gd" = (
+/obj/item/modular_computer/console/preset/security{
+	dir = 8;
+	pixel_x = 8
+	},
+/turf/template_noop,
+/area/template_noop)
 "Ge" = (
 /obj/machinery/computer/HolodeckControl/Horizon{
 	pixel_y = -32
@@ -31395,7 +31404,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+Gd
 Wm
 Wm
 Wm

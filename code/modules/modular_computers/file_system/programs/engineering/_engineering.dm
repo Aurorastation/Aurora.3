@@ -36,6 +36,7 @@
 /datum/computer_file/program/alarm_monitor
 	filename = "alarmmonitor"
 	filedesc = "Alarm Monitoring"
+	program_key_icon_state = "cyan_key"
 	nanomodule_path = /datum/nano_module/alarm_monitor/engineering
 	ui_header = "alarm_green.gif"
 	program_icon_state = "alert:0"
