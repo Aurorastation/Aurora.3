@@ -113,7 +113,6 @@ var/list/lunchables_drink_reagents_ = list(
 // This default list is a bit different, it contains items we don't want
 var/list/lunchables_alcohol_reagents_ = list(
 	/decl/reagent/alcohol,
-	/decl/reagent/alcohol/butanol,
 	/decl/reagent/alcohol/acid_spit,
 	/decl/reagent/alcohol/atomicbomb,
 	/decl/reagent/alcohol/beepsky_smash,

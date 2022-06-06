@@ -490,9 +490,9 @@
 	var/organs = list()
 	for (var/obj/item/organ/external/O in H.organs)
 		var/list/data = list()
-		var/burn_damage = get_wound_severity(O.burn_ratio, TRUE)
+		var/burn_damage = get_severity(O.burn_dam, TRUE)
 		data["burnDmg"] = burn_damage
-		var/brute_damage = get_wound_severity(O.brute_ratio, TRUE)
+		var/brute_damage = get_severity(O.brute_dam, TRUE)
 		data["bruteDmg"] = brute_damage
 		data["name"] = capitalize_first_letters(O.name)
 
