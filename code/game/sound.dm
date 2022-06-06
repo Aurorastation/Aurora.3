@@ -561,16 +561,21 @@
 		'sound/items/drop/casing22.ogg',
 		'sound/items/drop/casing23.ogg',
 		'sound/items/drop/casing24.ogg',
-		'sound/items/drop/casing25.ogg',
+		'sound/items/drop/casing25.ogg'
 	)
 
+/decl/sound_category/casing_shotgun_drop_sound
+	sounds = list(
+		'sound/items/drop/casing_shotgun1.ogg',
+		'sound/items/drop/casing_shotgun2.ogg'
+	)
 /decl/sound_category/out_of_ammo
 	sounds = list(
 		'sound/weapons/empty/empty2.ogg',
 		'sound/weapons/empty/empty3.ogg',
 		'sound/weapons/empty/empty4.ogg',
 		'sound/weapons/empty/empty5.ogg',
-		'sound/weapons/empty/empty6.ogg',
+		'sound/weapons/empty/empty6.ogg'
 	)
 
 /decl/sound_category/out_of_ammo_revolver
@@ -581,7 +586,12 @@
 /decl/sound_category/out_of_ammo_rifle
 	sounds = list(
 		'sound/weapons/empty/empty_rifle1.ogg',
-		'sound/weapons/empty/empty_rifle2.ogg',
+		'sound/weapons/empty/empty_rifle2.ogg'
+	)
+
+/decl/sound_category/out_of_ammo_shotgun
+	sounds = list(
+		'sound/weapons/empty/empty_shotgun1.ogg'
 	)
 
 /decl/sound_category/metal_slide_reload
@@ -591,14 +601,22 @@
 		'sound/weapons/reloads/pistol_metal_slide3.ogg',
 		'sound/weapons/reloads/pistol_metal_slide4.ogg',
 		'sound/weapons/reloads/pistol_metal_slide5.ogg',
-		'sound/weapons/reloads/pistol_metal_slide6.ogg',
+		'sound/weapons/reloads/pistol_metal_slide6.ogg'
 	)
 
 /decl/sound_category/polymer_slide_reload
 	sounds = list(
 		'sound/weapons/reloads/pistol_polymer_slide1.ogg',
 		'sound/weapons/reloads/pistol_polymer_slide2.ogg',
-		'sound/weapons/reloads/pistol_polymer_slide3.ogg',
+		'sound/weapons/reloads/pistol_polymer_slide3.ogg'
+	)
+
+/decl/sound_category/shotgun_pump
+	sounds = list(
+		'sound/weapons/shotgun_pump.ogg',
+		'sound/weapons/shotgun_pump2.ogg',
+		'sound/weapons/shotgun_pump3.ogg',
+		'sound/weapons/shotgun_pump5.ogg'
 	)
 /decl/sound_category/drillhit_sound
 	sounds = list(
@@ -609,13 +627,13 @@
 /decl/sound_category/generic_drop_sound
 	sounds = list(
 		'sound/items/drop/generic1.ogg',
-		'sound/items/drop/generic2.ogg',
+		'sound/items/drop/generic2.ogg'
 	)
 /decl/sound_category/generic_pickup_sound
 	sounds = list(
 		'sound/items/pickup/generic1.ogg',
 		'sound/items/pickup/generic2.ogg',
-		'sound/items/pickup/generic3.ogg',
+		'sound/items/pickup/generic3.ogg'
 	)
 /decl/sound_category/generic_wield_sound
 	sounds = list(
