@@ -24853,7 +24853,12 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/storage/tech)
 "nEe" = (
-)
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/open/airless,
+/area/template_noop)
 "nEx" = (
 /obj/structure/railing/mapped,
 /turf/simulated/open,
@@ -35283,6 +35288,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/tiled/dark/airless,
 /area/template_noop)
 "tsA" = (
