@@ -306,4 +306,4 @@
 	requires_power = 0
 	sound_env = STANDARD_STATION
 	no_light_control = 1
-  flags = RAD_SHIELDED | SPAWN_ROOF
+	flags = RAD_SHIELDED | SPAWN_ROOF
