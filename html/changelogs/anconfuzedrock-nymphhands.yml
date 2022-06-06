@@ -1,0 +1,6 @@
+author: anconfuzedrock
+
+delete-after: True
+
+changes:
+  - bugfix: "Diona Nymph Limbs can now be reattached to hands and feet, rather than just arms and legs."
