@@ -1353,7 +1353,6 @@
 /obj/item/spacecash/c20,
 /obj/item/material/twohanded/pike/flag,
 /obj/item/gun/energy/blaster/revolver,
-/obj/item/clothing/accessory/legion,
 /obj/item/rig/retro/equipped{
 	req_access = list(204);
 	req_one_access = null
@@ -3106,6 +3105,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/gun/energy/blaster/carbine,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tcfl_peacekeeper_ship)
 "vdX" = (
