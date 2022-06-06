@@ -1,0 +1,7 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - tweak: "Away ships are no longer shuttle subtypes. The ships will spawn on the overmap, there is no need to 'launch to open space' first, and there will not be a 'faint ship activity' sector. Away ships still have their own shuttles."
+  - maptweak: "Replaced the no longer needed shuttle control consoles with engine control consoles in away ship helms, if the ship did not have one in the helm."
+  - bugfix: "Fixed bugs relating to airlocks disappearing or not functioning once one leaves the 'faint ship activity' area, since this no longer happens."
+  

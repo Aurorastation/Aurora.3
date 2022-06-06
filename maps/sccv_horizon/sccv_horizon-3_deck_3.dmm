@@ -184,7 +184,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
 	name = "Shield Generator Room";
-	req_one_access = list(11, 24)
+	req_one_access = list(11,24)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -334,7 +334,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19, 38)
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -1273,10 +1273,10 @@
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/brigdoor/westright{
-	req_access = list(1, 19)
+	req_access = list(1,19)
 	},
 /obj/machinery/door/window/brigdoor/eastleft{
-	req_access = list(1, 19)
+	req_access = list(1,19)
 	},
 /obj/machinery/door/blast/regular{
 	id = "crew_armoury_desk";
@@ -1341,7 +1341,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19, 38)
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -1535,7 +1535,7 @@
 "cT" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Shield Generator Room";
-	req_one_access = list(11, 24)
+	req_one_access = list(11,24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3150,7 +3150,7 @@
 "fV" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = null;
-	req_one_access = list(11, 24)
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -3209,7 +3209,7 @@
 "ga" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Crew Armoury";
-	req_one_access = list(1, 19)
+	req_one_access = list(1,19)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3278,7 +3278,7 @@
 "gf" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = null;
-	req_one_access = list(11, 24)
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -3955,7 +3955,7 @@
 "hv" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Deck 3 Civilian Substation";
-	req_one_access = list(11, 24)
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -4834,7 +4834,7 @@
 "iR" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Deck 3 Civilian Substation";
-	req_one_access = list(11, 24)
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -4931,7 +4931,7 @@
 "iZ" = (
 /obj/effect/shuttle_landmark/horizon/nav3,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "ja" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -7740,12 +7740,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
-"ok" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/horizon/exterior)
 "ol" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7756,7 +7750,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19, 38)
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -10477,7 +10471,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/engineering{
 	name = "Telecommunications - Access and Bridge Substation";
-	req_one_access = list(11, 24, 57)
+	req_one_access = list(11,24,57)
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
@@ -10636,7 +10630,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19, 38)
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -10648,7 +10642,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/atmos{
 	name = "Deck 3 Port Auxiliary Atmospherics";
-	req_one_access = list(11, 24)
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_3)
@@ -11949,7 +11943,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "vZ" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12, 26)
+	req_one_access = list(12,26)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -11998,9 +11992,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
-"we" = (
-/turf/simulated/floor/plating,
-/area/horizon/exterior)
 "wf" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
@@ -13268,7 +13259,7 @@
 "yy" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Crew Armoury Desk";
-	req_one_access = list(1, 19)
+	req_one_access = list(1,19)
 	},
 /obj/machinery/door/blast/regular{
 	id = "crew_armoury_desk";
@@ -14088,7 +14079,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	name = "Break Room";
-	req_one_access = list(19, 38)
+	req_one_access = list(19,38)
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -15834,7 +15825,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19, 38)
+	req_one_access = list(19,38)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -16469,7 +16460,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19, 38)
+	req_one_access = list(19,38)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor,
@@ -17866,7 +17857,7 @@
 /mob/living/simple_animal/corgi/fox/Chauncey,
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/effect/floor_decal/plaque{
-	desc = "The Stellar Corporate Conglomerate Logo Engraved in bronze." ;
+	desc = "The Stellar Corporate Conglomerate Logo Engraved in bronze.";
 	desc_fluff = "The unbreakable chainklink, the one thing holding the Orion Spur together...";
 	name = "Commemorative SCC Plaque"
 	},
@@ -17931,7 +17922,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19, 38)
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -19340,7 +19331,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19, 38)
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -21543,7 +21534,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19, 38)
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -22227,7 +22218,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Cryogenics Maintenance";
-	req_one_access = list(12, 26)
+	req_one_access = list(12,26)
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo)
@@ -23038,7 +23029,7 @@
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Break Room";
-	req_one_access = list(19, 38)
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -25735,7 +25726,7 @@
 	},
 /obj/machinery/door/window/southleft{
 	name = "Cryogenics Maintenance";
-	req_one_access = list(12, 26)
+	req_one_access = list(12,26)
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -26289,7 +26280,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/atmos{
 	name = "Deck 3 Port Auxiliary Atmospherics";
-	req_one_access = list(11, 24)
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_3)
@@ -26459,7 +26450,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Helm";
-	req_one_access = list(19, 38)
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -26581,7 +26572,7 @@
 /obj/structure/cryofeed,
 /obj/machinery/door/window/southright{
 	name = "Cryogenics Maintenance";
-	req_one_access = list(12, 26)
+	req_one_access = list(12,26)
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -27338,9 +27329,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
-"Ys" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/exterior)
 "Yt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -28174,7 +28162,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19, 38)
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -38675,9 +38663,9 @@ at
 at
 at
 at
-Ys
-ok
-ok
+mP
+GQ
+GQ
 ho
 Tv
 Vr
@@ -38877,9 +38865,9 @@ at
 at
 at
 at
-we
-we
-we
+OX
+OX
+OX
 OX
 su
 gp
@@ -39079,9 +39067,9 @@ at
 at
 at
 at
-we
-we
-we
+OX
+OX
+OX
 OX
 Xv
 Zt
@@ -39281,9 +39269,9 @@ at
 at
 at
 at
-Ys
-ok
-ok
+mP
+GQ
+GQ
 mP
 Xv
 Zt
