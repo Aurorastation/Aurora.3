@@ -1,0 +1,8 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - maptweak: "Remaps the mining shuttle, giving it more space for cargo; and other QoL features."
+  - bugfix: "Fixes some floor-mounted signs layering above mobs."
+  - rscadd: "Adds static GPS, which are intended for use in shuttles."
