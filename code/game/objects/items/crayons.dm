@@ -71,14 +71,33 @@
 	shadeColour = input(user, "Please select the shade colour.", "Crayon colour") as color
 	return
 
-/obj/item/pen/crayon/rainbow/augment
+/obj/item/pen/crayon/augment
 	icon_state = "crayonaugment"
+	colour = "#FFF200"
+	shadeColour = "#886422"
 	desc = "A crayon that is integrated into a user's finger. It can synthesize a multitude of colors."
 
-/obj/item/pen/crayon/rainbow/augment/throw_at(atom/target, range, speed, mob/user)
+/obj/item/pen/crayon/augment/Initialize()
+	. = ..()
+	name = "integrated crayon"
+	update_icon()
+
+/obj/item/pen/crayon/augment/attack_self(mob/living/user as mob)
+	colour = input(user, "Please select the main colour.", "Crayon colour") as color
+	update_icon()
+	shadeColour = input(user, "Please select the shade colour.", "Crayon colour") as color
+	return
+
+/obj/item/pen/crayon/augment/update_icon()
+	cut_overlays()
+	var/image/crayon_tip = image('icons/obj/crayons.dmi', "crayonaugment_tip")
+	crayon_tip.color = colour
+	add_overlay(crayon_tip)
+
+/obj/item/pen/crayon/augment/throw_at(atom/target, range, speed, mob/user)
 	user.drop_from_inventory(src)
 
-/obj/item/pen/crayon/rainbow/augment/dropped()
+/obj/item/pen/crayon/augment/dropped()
 	loc = null
 	qdel(src)
 
