@@ -3164,7 +3164,7 @@
 /turf/simulated/floor/lino/grey,
 /area/racers)
 "pyN" = (
-/mob/living/simple_animal/hostile/carp/old,
+/mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "pCU" = (

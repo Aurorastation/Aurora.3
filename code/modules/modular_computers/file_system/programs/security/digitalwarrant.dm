@@ -2,7 +2,8 @@
 	filename = "digitalwarrant"
 	filedesc = "Warrant Assistant"
 	extended_desc = "Official NTsec program for creation and handling of warrants."
-	program_icon_state = "sec"
+	program_icon_state = "security"
+	program_key_icon_state = "yellow_key"
 	color = LIGHT_COLOR_ORANGE
 	size = 8
 	requires_ntnet = TRUE
