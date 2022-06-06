@@ -22573,6 +22573,11 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
+"mxf" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "mxh" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 5
@@ -24847,6 +24852,8 @@
 "nDK" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/storage/tech)
+"nEe" = (
+)
 "nEx" = (
 /obj/structure/railing/mapped,
 /turf/simulated/open,
@@ -37792,6 +37799,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
+"uGh" = (
+/obj/structure/ladder{
+	pixel_y = 16
+	},
+/turf/simulated/open/airless,
+/area/template_noop)
 "uGp" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -56302,7 +56315,7 @@ qgN
 qgN
 qgN
 qgN
-pqs
+nEe
 tsk
 fDE
 fDE
@@ -57159,9 +57172,9 @@ ipr
 fzh
 kAJ
 eYD
-wFj
-wFj
-wFj
+udR
+udR
+udR
 qgN
 qgN
 qgN
@@ -57563,9 +57576,9 @@ jWV
 jWV
 haK
 aQb
-wFj
-wFj
-wFj
+udR
+udR
+udR
 qgN
 qgN
 qgN
@@ -57766,7 +57779,7 @@ hfR
 xdl
 iWN
 wFj
-xer
+mxf
 qgN
 qgN
 qgN
@@ -58371,7 +58384,7 @@ bCv
 hfR
 eWm
 tAN
-udR
+wFj
 xer
 qgN
 qgN
@@ -58573,7 +58586,7 @@ pNX
 ojV
 veP
 vbH
-udR
+wFj
 xer
 qgN
 qgN
@@ -59180,7 +59193,7 @@ hUe
 oGp
 ebR
 wFj
-xer
+mxf
 qgN
 qgN
 qgN
@@ -59381,9 +59394,9 @@ pkH
 pkH
 pkH
 aQb
-wFj
-wFj
-wFj
+udR
+udR
+udR
 qgN
 qgN
 qgN
@@ -59785,9 +59798,9 @@ jWV
 jWV
 jWV
 jWV
-wFj
-wFj
-wFj
+udR
+udR
+udR
 qgN
 qgN
 qgN
@@ -59989,7 +60002,7 @@ hwM
 spn
 lNQ
 xer
-ghq
+uGh
 qgN
 qgN
 qgN
@@ -68877,7 +68890,7 @@ rfi
 vOL
 mfV
 xer
-hUK
+nEe
 gTy
 qgN
 qgN

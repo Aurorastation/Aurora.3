@@ -7738,6 +7738,7 @@
 	pixel_x = -24;
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "ggE" = (
@@ -22453,10 +22454,6 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
-"sup" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/wall,
-/area/maintenance/hangar/starboard)
 "suw" = (
 /obj/machinery/shieldwallgen,
 /obj/structure/cable/green{
