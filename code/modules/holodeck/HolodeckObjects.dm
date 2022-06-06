@@ -20,6 +20,12 @@
 	initial_flooring = /decl/flooring/carpet
 	footstep_sound = /decl/sound_category/carpet_footstep
 
+/turf/simulated/floor/holofloor/carpet/rubber
+	name = "rubber carpet"
+	icon = 'icons/turf/flooring/carpet.dmi'
+	icon_state = "rub_carpet"
+	initial_flooring = /decl/flooring/carpet/rubber
+
 /turf/simulated/floor/holofloor/tiled
 	name = "floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -61,6 +67,12 @@
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
 	footstep_sound = /decl/sound_category/grass_footstep
+
+/turf/simulated/floor/holofloor/grass/alt
+	name = "lush grass"
+	icon = 'icons/turf/total_floors.dmi'
+	icon_state = "grass_alt"
+	initial_flooring = /decl/flooring/grass/alt
 
 /turf/simulated/floor/holofloor/snow
 	name = "snow"
