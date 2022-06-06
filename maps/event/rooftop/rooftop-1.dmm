@@ -391,13 +391,6 @@
 	icon_state = "wood_light"
 	},
 /area/city/mendell/interior)
-"ci" = (
-/obj/structure/signpost{
-	desc = "An informative signpost indicating that northwards leads to scenario selection.";
-	name = "directions"
-	},
-/turf/simulated/floor/bluegrid,
-/area/city/mendell)
 "cj" = (
 /obj/machinery/light/small,
 /obj/structure/closet/secure_closet/cabinet/bar,
@@ -29329,7 +29322,7 @@ Hh
 hP
 QX
 QX
-ci
+QX
 QX
 QX
 QX
@@ -29593,7 +29586,7 @@ zn
 Ty
 xD
 xD
-ci
+QX
 hP
 hP
 hP
@@ -30289,7 +30282,7 @@ QX
 QX
 xD
 xD
-ci
+QX
 hP
 hP
 hP
@@ -30547,7 +30540,7 @@ QX
 QX
 QX
 QX
-ci
+QX
 QX
 QX
 QX
