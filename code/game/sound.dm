@@ -575,7 +575,7 @@
 
 /decl/sound_category/out_of_ammo_revolver
 	sounds = list(
-		'sound/weapons/empty/empty_revolver.ogg',
+		'sound/weapons/empty/empty_revolver.ogg'
 	)
 
 /decl/sound_category/out_of_ammo_rifle

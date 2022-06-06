@@ -83,6 +83,7 @@
 	var/displays_maptext = FALSE
 	var/can_ammo_display = TRUE
 	var/obj/item/ammo_display
+	var/empty_sound = /decl/sound_category/out_of_ammo
 	maptext_x = 22
 	maptext_y = 2
 
@@ -312,7 +313,7 @@
 	user.setClickCooldown(shoot_time)
 	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
-	
+
 	user.face_atom(target, TRUE)
 
 	return TRUE
@@ -435,9 +436,10 @@
 		to_chat(user, SPAN_DANGER("*click*"))
 	else
 		src.visible_message("*click*")
-	playsound(loc, /decl/sound_category/out_of_ammo, 100, 1)
-	
-	var/empty_sound = /decl/sound_category/out_of_ammo_revolver
+	playsound(loc, empty_sound, 100, 1)
+
+
+
 
 //called after successfully firing
 /obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
