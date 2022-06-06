@@ -2575,10 +2575,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	icon_state = "bridge_legion"
 	},
-/obj/item/clothing/suit/storage/hazardvest/green{
-	desc = "A high-visibility vest worm by a gunner's mate in the Solarian Navy. This one is green.";
-	name = "gunner's mate vest"
-	},
+/obj/item/clothing/suit/storage/hazardvest/fsf,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fsf_patrol_ship)
 "xdk" = (
