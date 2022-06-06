@@ -390,7 +390,7 @@
 		victim.take_internal_damage(damage_amt)
 		return TRUE
 
-/obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon,var/brute,var/burn)
+/obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon, var/brute, var/burn)
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
 		if((limb_flags & ORGAN_CAN_AMPUTATE) && config.limbs_can_break)
@@ -412,7 +412,7 @@
 					if(W.w_class >= w_class && (dam_flags & DAM_EDGE))
 						edge_eligible = TRUE
 
-				if(!blunt_eligible && edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus))
+				if(!blunt_eligible && edge_eligible && (brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus)))
 					droplimb(0, DROPLIMB_EDGE)
 				else if(burn >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
 					droplimb(0, DROPLIMB_BURN)
@@ -1468,7 +1468,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	pain = max(0, min(pain + amount, species.total_health * 2))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
-	if(amount > 5)
+	if(amount > 5 && owner)
 		owner.undo_srom_pull()
 	return pain-last_pain
 

@@ -427,22 +427,24 @@ obj/structure/cable/proc/cableColor(var/colorC)
 // cut the cable's powernet at this cable and updates the powergrid
 /obj/structure/cable/proc/cut_cable_from_powernet()
 	var/turf/T1 = loc
+	var/turf/T2
 	var/list/P_list
 	if(!T1)	return
-	for(var/obj/machinery/power/P in T1)
-		if(!P.connect_to_network()) //can't find a node cable on a the turf to connect to
-			P.disconnect_from_network() //remove from current network
 
 	for(var/check_dir in list(d1, d2))
 		if(check_dir)
-			T1 = get_step(loc, check_dir)
-			P_list += power_list(T1, src, turn(check_dir,180),0,cable_only = 1)	// what adjacently joins on to cut cable...
+			T2 = get_step(loc, check_dir)
+			P_list += power_list(T2, src, turn(check_dir,180),0,cable_only = 1)	// what adjacently joins on to cut cable...
 
 	P_list += power_list(loc, src, d1, 0, cable_only = 1)//... and on turf
 
 	// remove the cut cable from its turf and powernet, so that it doesn't get count in propagate_network worklist
 	loc = null
 	powernet.remove_cable(src) //remove the cut cable from its powernet
+
+	for(var/obj/machinery/power/P in T1)
+		if(!P.connect_to_network()) //can't find a node cable on a the turf to connect to
+			P.disconnect_from_network() //remove from current network
 
 	var/first = TRUE
 	for(var/obj/O in P_list)
