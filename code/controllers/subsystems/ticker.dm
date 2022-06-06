@@ -54,8 +54,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		'sound/music/space.ogg',
 		'sound/music/traitor.ogg',
 		'sound/music/title2.ogg',
-		'sound/music/clouds.s3m',
-		'sound/music/space_oddity.ogg'
+		'sound/music/clouds.s3m'
 	)
 
 	var/lobby_ready = FALSE
@@ -275,7 +274,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			dronecount++
 			continue
 
-		if (!robo.connected_ai)
+		if (!robo.connected_ai && !istype(robo,/mob/living/silicon/robot/shell))
 			if (robo.stat != 2)
 				to_world("<b>[robo.name] survived as an AI-less borg! Its laws were:</b>")
 			else

@@ -81,8 +81,8 @@ default behaviour is:
 				return
 
 			if(can_swap_with(tmob)) // mutual brohugs all around!
-				var/turf/tmob_oldloc = tmob.loc
-				var/turf/src_oldloc = loc
+				var/turf/tmob_oldloc = get_turf(tmob)
+				var/turf/src_oldloc = get_turf(src)
 				if(pulling?.density)
 					tmob.forceMove(pulling.loc)
 					forceMove(tmob_oldloc)
@@ -221,22 +221,16 @@ default behaviour is:
 
 //sort of a legacy burn method for /electrocute, /shock
 /mob/living/proc/burn_skin(burn_amount)
-	if(istype(src, /mob/living/carbon/human))
-		if(mShock in src.mutations) //shockproof
-			return 0
-		if (COLD_RESISTANCE in src.mutations) //fireproof
-			return 0
-		var/mob/living/carbon/human/H = src	//make this damage method divide the damage to be done among all the body parts, then burn each body part for that much damage. will have better effect then just randomly picking a body part
-		var/divided_damage = (burn_amount)/(H.organs.len)
-		var/extradam = 0	//added to when organ is at max dam
-		for(var/obj/item/organ/external/affecting in H.organs)
-			if(!affecting)	continue
-			if(affecting.take_damage(0, divided_damage+extradam))	//TODO: fix the extradam stuff. Or, ebtter yet...rewrite this entire proc ~Carn
-				H.UpdateDamageIcon()
-		H.updatehealth()
-		return 1
-	else if(istype(src, /mob/living/silicon/ai))
-		return 0
+	take_overall_damage(0, burn_amount)
+	return TRUE
+
+/mob/living/carbon/human/burn_skin(burn_amount)
+	if(mShock in mutations) //shockproof
+		return FALSE
+	if (COLD_RESISTANCE in mutations) //fireproof
+		return FALSE
+	. = ..()
+	updatehealth()
 
 /mob/living/proc/adjustBodyTemp(actual, desired, incrementboost)
 	var/temperature = actual

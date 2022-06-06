@@ -489,6 +489,18 @@
 	condiment_icon_state = "rice"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
+/decl/reagent/nutriment/moss
+	name = "Moss"
+	description = "Enjoy the Konyanger taste of nothing."
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#FFFFFF"
+	taste_description = "moss"
+	taste_mult = 0.4
+	condiment_name = "moss sack"
+	condiment_icon_state = "moss"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 /decl/reagent/nutriment/cherryjelly
 	name = "Cherry Jelly"
 	description = "Totally the best. Only to be spread on foods with excellent lateral symmetry."

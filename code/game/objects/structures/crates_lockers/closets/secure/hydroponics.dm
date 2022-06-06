@@ -23,7 +23,7 @@
 
 /obj/structure/closet/secure_closet/xenobotany
 	name = "xenobotanist's locker"
-	req_access = list(access_xenobiology)
+	req_access = list(access_xenobotany)
 	icon_state = "xenobot"
 
 /obj/structure/closet/secure_closet/xenobotany/fill()

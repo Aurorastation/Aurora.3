@@ -86,8 +86,9 @@ obj/machinery/air_sensor/Destroy()
 /obj/machinery/computer/general_air_control
 	name = "atmosphere monitoring console"
 	desc = "A console that gives an atmospheric condition readout of various sensors connected to it."
-	icon_screen = "engi"
-	light_color = "#ffcc33"
+	icon_screen = "tank"
+	icon_keyboard = "cyan_key"
+	light_color = LIGHT_COLOR_CYAN
 
 	var/frequency = 1439
 	var/list/sensors = list()
@@ -160,6 +161,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	icon = 'icons/obj/modular_telescreen.dmi'
 	icon_state = "telescreen"
 	icon_screen = "engi"
+	density = FALSE
 
 /obj/machinery/computer/general_air_control/large_tank_control/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
@@ -233,7 +235,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 5) //Just in case we get no new data
 
 /obj/machinery/computer/general_air_control/supermatter_core
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/modular_console.dmi'
 
 	frequency = 1438
 	var/input_tag
@@ -319,7 +321,9 @@ obj/machinery/computer/general_air_control/Destroy()
 	addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 5) //Just in case we get no new data
 
 /obj/machinery/computer/general_air_control/fuel_injection
-	icon_screen = "engi_alarm_off"
+	icon_screen = "alert:0"
+	icon_keyboard = "cyan_key"
+	light_color = LIGHT_COLOR_CYAN
 
 	var/device_tag
 	var/list/device_info

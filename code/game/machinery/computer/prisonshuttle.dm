@@ -14,7 +14,8 @@ var/prison_shuttle_timeleft = 0
 	name = "prison shuttle control console"
 
 	icon_screen = "syndishuttle"
-	light_color = "#00ffff"
+	icon_keyboard = "red_key"
+	light_color = LIGHT_COLOR_RED
 	req_access = list(access_security)
 	circuit = /obj/item/circuitboard/prison_shuttle
 	var/temp = null
@@ -27,8 +28,7 @@ var/prison_shuttle_timeleft = 0
 
 	attackby(I as obj, user as mob)
 		if(I.isscrewdriver())
-			playsound(src.loc,  P.usesound, 50, 1)
-			if(do_after(user, 20/I.toolspeed))
+			if(P.use_tool(src, user, 20, volume = 50))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				var/obj/item/circuitboard/prison_shuttle/M = new /obj/item/circuitboard/prison_shuttle( A )
 				for (var/obj/C in src)

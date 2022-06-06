@@ -2,8 +2,9 @@
 /obj/machinery/computer/security
 	name = "security camera monitor"
 	desc = "Used to access the various cameras on the station."
-	icon_screen = "sec"
-	light_color = "#a91515"
+	icon_screen = "cameras"
+	icon_keyboard = "yellow_key"
+	light_color = LIGHT_COLOR_YELLOW
 	var/current_network = null
 	var/obj/machinery/camera/current_camera = null
 	var/last_pic = 1.0
@@ -43,7 +44,7 @@
 	for(var/nw in network)
 		all_networks.Add(list(list(
 							"tag" = nw,
-							"has_access" = can_access_network(user, nw)
+							"has_access" = can_access_network(user, get_camera_access(nw))
 							)))
 
 	data["networks"] = all_networks
@@ -68,7 +69,7 @@
 	if(!network_access)
 		return TRUE
 
-	return (check_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_access(user, network_access)
+	return (check_camera_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
 
 /obj/machinery/computer/security/Topic(href, href_list)
 	if(..())
@@ -78,6 +79,14 @@
 		if(!C)
 			return
 		if(!(current_network in C.network))
+			return
+
+		var/access_granted = FALSE
+		for(var/network in C.network)
+			if(can_access_network(usr, get_camera_access(network)))
+				access_granted = TRUE //We only need access to one of the networks.
+		if(!access_granted)
+			to_chat(usr, SPAN_WARNING("Access unauthorized."))
 			return
 
 		switch_to_camera(usr, C)
@@ -122,14 +131,6 @@
 		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
 		return FALSE
 
-	var/access_granted = FALSE
-	for(var/network in C.network)
-		if(can_access_network(user, network))
-			access_granted = TRUE //We only need access to one of the networks.
-	if(!access_granted)
-		to_chat(user, SPAN_WARNING("Access unauthorized."))
-		return
-
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.reset_view(current_camera)
@@ -137,6 +138,22 @@
 		user.reset_view(current_camera)
 	check_eye(user)
 	return 1
+
+/obj/machinery/computer/security/proc/check_camera_access(var/mob/user, var/access)
+	if(!access)
+		return 1
+
+	if(!istype(user))
+		return 0
+
+	var/obj/item/card/id/I = user.GetIdCard()
+	if(!I)
+		return 0
+
+	if(access in I.access)
+		return 1
+
+	return 0
 
 //Camera control: moving.
 /obj/machinery/computer/security/proc/jump_on_click(var/mob/user,var/A)
@@ -221,6 +238,7 @@
 /obj/machinery/computer/security/telescreen
 	name = "Telescreen"
 	desc = "Used for watching an empty arena."
+	icon = 'icons/obj/computer.dmi'
 	icon_state = "wallframe"
 	icon_screen = null
 	light_range_on = 0
@@ -240,6 +258,7 @@
 /obj/machinery/computer/security/wooden_tv
 	name = "security camera monitor"
 	desc = "An old TV hooked into the stations camera network."
+	icon = 'icons/obj/computer.dmi'
 	icon_state = "television"
 	icon_screen = "detective_tv"
 	circuit = null
@@ -249,17 +268,20 @@
 /obj/machinery/computer/security/mining
 	name = "outpost camera monitor"
 	desc = "Used to access the various cameras on the outpost."
-	icon_screen = "sec"
+	icon_screen = "miningcameras"
+	icon_keyboard = "purple_key"
+	light_color = LIGHT_COLOR_PURPLE
 	network = list("MINE")
 	circuit = /obj/item/circuitboard/security/mining
-	light_color = "#F9BBFC"
+	light_color = LIGHT_COLOR_PURPLE
 
 /obj/machinery/computer/security/engineering
 	name = "engineering camera monitor"
 	desc = "Used to monitor fires and breaches."
-	icon_screen = "sec"
+	icon_screen = "engineeringcameras"
+	icon_keyboard = "yellow_key"
+	light_color = LIGHT_COLOR_YELLOW
 	circuit = /obj/item/circuitboard/security/engineering
-	light_color = "#FAC54B"
 
 /obj/machinery/computer/security/engineering/Initialize()
 	if(!network)
@@ -269,11 +291,11 @@
 /obj/machinery/computer/security/nuclear
 	name = "head mounted camera monitor"
 	desc = "Used to access the built-in cameras in helmets."
-	icon = 'icons/obj/primitive_computer.dmi'
-	icon_screen = "syndicate"
+	icon_screen = "syndicam"
+	icon_keyboard = "red_key"
+	light_color = LIGHT_COLOR_RED
 	network = list(NETWORK_MERCENARY)
 	circuit = null
-	is_holographic = FALSE	// I mean, it is, but the holo effect looks terrible with the current merc shuttle floor.
 
 /obj/machinery/computer/security/nuclear/Initialize()
 	. = ..()

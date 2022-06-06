@@ -51,9 +51,8 @@
  */
 /obj/item/canvas/attackby(obj/item/I, mob/user, params)
 	if(I.iswrench())
-		playsound(src.loc, I.usesound, 100, 1)
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "loosen" : "tighten"] \the [src]..."))
-		if(do_after(user, 40 / I.toolspeed))
+		if(I.use_tool(src, user, 40, volume = 50))
 			user.visible_message("<b>[user]</b> [anchored ? "loosens" : "tightens"] \the [src].", SPAN_NOTICE("You [anchored ? "loosen" : "tighten"] \the [src]."), SPAN_NOTICE("You hear a ratchet."))
 			anchored = !anchored
 		return TRUE

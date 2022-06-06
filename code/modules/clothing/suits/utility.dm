@@ -26,7 +26,7 @@
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	siemens_coefficient = 0.5
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/extinguisher)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/tank/oxygen,/obj/item/extinguisher,/obj/item/crowbar,/obj/item/material/twohanded/fireaxe)
 	slowdown = 0.8 // slightly better than voidsuits
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE

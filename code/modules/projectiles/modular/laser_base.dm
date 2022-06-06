@@ -61,7 +61,7 @@
 		return
 	if(malus == base_malus)
 		return 0
-	if(W.remove_fuel(5))
+	if(W.use(5))
 		malus = max(malus - 5, base_malus)
 		return 1
 	return 0

@@ -40,7 +40,9 @@
 	center_of_mass = null
 	var/icon_state_unpowered								// Icon state when the computer is turned off
 	var/icon_state_menu = "menu"							// Icon state overlay when the computer is turned on, but no program is loaded that would override the screen.
+	var/icon_state_menu_key = "black_key"
 	var/icon_state_screensaver
+	var/icon_state_screensaver_key
 	var/icon_state_broken
 	var/screensaver_light_range = 0
 	var/screensaver_light_color

@@ -2,6 +2,7 @@
 	filename = "ntn_dos"
 	filedesc = "DoS Traffic Generator"
 	program_icon_state = "hostile"
+	program_key_icon_state = "red_key"
 	extended_desc = "This advanced script can perform denial of service attacks against NTNet quantum relays. The system administrator will probably notice this. Multiple devices can run this program together against the same relay for increased effect."
 	size = 20
 	requires_ntnet = TRUE

@@ -2,14 +2,15 @@
 	name = "wall"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "riveted"
-	opacity = 1
-	density = 1
+	opacity = TRUE
+	density = TRUE
+	blocks_air = TRUE
 
 /turf/unsimulated/wall/fakeglass
 	name = "window"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "fakewindows"
-	opacity = 0
+	opacity = FALSE
 
 /turf/unsimulated/wall/other
 	icon = 'icons/turf/walls.dmi'

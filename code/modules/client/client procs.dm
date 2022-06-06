@@ -801,14 +801,16 @@ var/list/localhost_addresses = list(
 /client/MouseDown(object, location, control, params)
 	var/obj/item/I = mob.get_active_hand()
 	var/obj/O = object
-	if(istype(I, /obj/item/gun))
+	if(istype(I, /obj/item/gun) && !mob.in_throw_mode)
 		var/obj/item/gun/G = I
-		if(G.can_autofire(object, location, params) && O.is_auto_clickable())
-			autofire_aiming_at[1] = object
+		if(G.can_autofire(O, location, params) && O.is_auto_clickable() && !(G.safety()) && !(G == O))
+			autofire_aiming_at[1] = O
 			autofire_aiming_at[2] = params
+			var/accuracy_dec = 0
 			while(autofire_aiming_at[1])
-				G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE)
+				G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE, accuracy_dec)
 				mob.set_dir(get_dir(mob, autofire_aiming_at[1]))
+				accuracy_dec = min(accuracy_dec + 0.25, 2)
 				sleep(G.fire_delay)
 			CHECK_TICK
 

@@ -157,7 +157,7 @@
 	var/obj/item/I = used_atom
 	if(I.iswelder())
 		var/obj/item/weldingtool/W = I
-		if (W.remove_fuel(0, user))
+		if (W.use(0, user))
 			playsound(holder, 'sound/items/welder_pry.ogg', 50, 1)
 		else
 			return 0

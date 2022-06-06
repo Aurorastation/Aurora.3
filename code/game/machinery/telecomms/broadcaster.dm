@@ -120,18 +120,22 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	machinetype = 6
 	produces_heat = 0
 	var/intercept = 0 // if nonzero, broadcasts all messages to syndicate channel
-	var/listening_freqs
-	var/channel_color
-	var/channel_name
+	var/list/listening_freqs = list()
+
 
 /obj/machinery/telecomms/allinone/Initialize()
+	. = ..()
+
 	if(!listening_freqs)
 		listening_freqs = ANTAG_FREQS	//Covers any updates to ANTAG_FREQS
-	return ..()
+
+	desc += " It has an effective broadcast range of [overmap_range] grids on the overmap."
 
 /obj/machinery/telecomms/allinone/receive_signal(datum/signal/signal)
-
 	if(!on) // has to be on to receive messages
+		return
+
+	if(!check_receive_sector(signal) && !intercept) //Too far on the overmap to receive. Antag (intercept) don't care about sector checks.
 		return
 
 	if(is_freq_listening(signal)) // detect subspace signals
@@ -147,19 +151,26 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		if(signal.data["slow"] > 0)
 			sleep(signal.data["slow"]) // simulate the network lag if necessary
 
+		var/list/broadcast_levels = list()
+		if(!intercept)
+			broadcast_levels = list(z)
+			broadcast_levels += GetConnectedZlevels(z) //For multi-z away sites
+		else
+			broadcast_levels = list(0) //This lets antag headsets work everywhere
+
 		/* ###### Broadcast a message using signal.data ###### */
 
 		var/datum/radio_frequency/connection = signal.data["connection"]
 
-		if(connection.frequency in listening_freqs) // if antag broadcast, just
+		if(connection.frequency in listening_freqs) //Regular broadcasts
 			Broadcast_Message(signal.data["connection"], signal.data["mob"],
 							  signal.data["vmask"], signal.data["vmessage"],
 							  signal.data["radio"], signal.data["message"],
 							  signal.data["name"], signal.data["job"],
-							  signal.data["realname"], signal.data["vname"],, signal.data["compression"], list(0), connection.frequency,
-							  signal.data["verb"], signal.data["language"], channel_name ? channel_name : signal.data["channel_tag"], channel_color ? channel_color : signal.data["channel_color"])
+							  signal.data["realname"], signal.data["vname"],, signal.data["compression"], broadcast_levels, connection.frequency,
+							  signal.data["verb"], signal.data["language"])
 		else
-			if(intercept)
+			if(intercept) //Antag Broadcast intercepting station messages
 				Broadcast_Message(signal.data["connection"], signal.data["mob"],
 							  signal.data["vmask"], signal.data["vmessage"],
 							  signal.data["radio"], signal.data["message"],
@@ -170,8 +181,21 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 /obj/machinery/telecomms/allinone/ship
 	listening_freqs = list(SHIP_FREQ)
-	channel_color = "#7331c4"
-	channel_name = "Ship"
+
+//This goes on the station map so away ships can maintain radio contact.
+//Regular telecomms machines cannot listen to broadcasts coming from non-station z-levels. If we did this, comms would be receiving a substantial amount of duplicated messages.
+/obj/machinery/telecomms/allinone/ship/station_relay
+	name = "External Signal Receiver"
+	icon = 'icons/obj/machines/telecomms.dmi'
+	icon_state = "ntnet"
+	desc = "This device allows nearby third-party ships to maintain radio contact with their crew that are aboard the %STATIONNAME."
+	desc_info = "This device does not need to be linked to other telecommunications equipment; it will receive and broadcast on its own. It only needs to be powered."
+	use_power = POWER_USE_IDLE
+	idle_power_usage = 25
+
+/obj/machinery/telecomms/allinone/ship/station_relay/Initialize()
+	. = ..()
+	desc = replacetext(desc, "%STATIONNAME", current_map.station_name)
 
 /**
 
