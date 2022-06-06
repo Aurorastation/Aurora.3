@@ -1,7 +1,0 @@
-author: SinfulBehaviors
-
-delete-after: True
-
-changes:
-  - rscadd: "Added three previously unused body markings."
-  - bugfix: "Fixed Lower Cheek Right not being available in the markings list."

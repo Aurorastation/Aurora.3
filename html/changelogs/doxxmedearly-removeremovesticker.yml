@@ -1,4 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-changes:
-  - rscdel: "Removes the 'Remove Sticker' verb for stickers and googly eyes, since you can just click them to remove them."

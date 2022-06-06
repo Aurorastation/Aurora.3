@@ -1,7 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - tweak: "Body Scanner VueUI will now show the additional damage readouts of Critical and Fatal, and accurately as well in accordance to how the health analyzers/medscans do it."
-  - bugfix: "Fixed the Body Scanner VueUI damage readouts not being colored."
