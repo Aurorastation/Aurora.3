@@ -308,7 +308,6 @@
 	flags = RAD_SHIELDED | SPAWN_ROOF
 
 //Away ships, third party ships, etc. Mostly for the ships that are expected to move on the overmap and/or have ghost roles.
-
 /area/ship
 	name = "Ship"
 	icon_state = "ship"
