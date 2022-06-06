@@ -4918,7 +4918,7 @@
 "iZ" = (
 /obj/effect/shuttle_landmark/horizon/nav3,
 /turf/simulated/floor/reinforced/airless,
-/area/horizon/exterior)
+/area/template_noop)
 "ja" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -7747,12 +7747,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
-"ok" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/horizon/exterior)
 "ol" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -12002,9 +11996,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
-"we" = (
-/turf/simulated/floor/plating,
-/area/horizon/exterior)
 "wf" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
@@ -17226,23 +17217,14 @@
 /turf/simulated/wall,
 /area/horizon/crew_quarters/cryo/washroom)
 "Gd" = (
-/obj/item/modular_computer/console/preset/security{
-	dir = 8;
-	pixel_x = 8
-	},
-/turf/template_noop,
-/area/template_noop)
-"Ge" = (
-/obj/machinery/computer/HolodeckControl/Horizon{
-	pixel_y = -32
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
 "Gf" = (
@@ -27356,9 +27338,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
-"Ys" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/exterior)
 "Yt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -31476,7 +31455,7 @@ Wm
 Wm
 Wm
 Wm
-Gd
+Wm
 Wm
 Wm
 Wm
@@ -38501,7 +38480,7 @@ at
 at
 at
 at
-iZ
+at
 at
 at
 at
@@ -38704,9 +38683,9 @@ at
 at
 at
 at
-Ys
-ok
-ok
+mP
+GQ
+GQ
 ho
 Tv
 Vr
@@ -38906,9 +38885,9 @@ at
 at
 at
 at
-we
-we
-we
+OX
+OX
+OX
 OX
 su
 gp
@@ -39107,10 +39086,10 @@ at
 at
 at
 at
-at
-we
-we
-we
+iZ
+OX
+OX
+OX
 OX
 Xv
 Zt
@@ -39310,9 +39289,9 @@ at
 at
 at
 at
-Ys
-ok
-ok
+mP
+GQ
+GQ
 mP
 Xv
 Zt
