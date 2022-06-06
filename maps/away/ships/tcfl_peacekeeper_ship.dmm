@@ -1781,15 +1781,9 @@
 /turf/simulated/floor,
 /area/shuttle/tcfl_peacekeeper_ship)
 "kQl" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "tcfl_shuttle_out"
-	},
-/obj/effect/decal/cleanable/dirt,
 /obj/effect/shuttle_landmark/tcfl_shuttle/hangar,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/tcfl_shuttle)
+/turf/simulated/floor,
+/area/shuttle/tcfl_peacekeeper_ship)
 "kSQ" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/electrical,
@@ -29435,7 +29429,7 @@ dcm
 dcm
 dcm
 wJV
-pPl
+kQl
 dfd
 sWY
 gMA
@@ -30206,7 +30200,7 @@ jqE
 jyv
 jRX
 kJI
-kQl
+lej
 dfd
 sWY
 yjk
