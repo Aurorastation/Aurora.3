@@ -11948,7 +11948,6 @@
 /area/beach)
 "aDk" = (
 /obj/structure/table/standard,
-/obj/item/clothing/under/rainbow,
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/head/collectable/petehat{
 	pixel_y = 5

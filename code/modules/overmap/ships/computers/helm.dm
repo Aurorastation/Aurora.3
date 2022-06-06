@@ -3,8 +3,9 @@
 
 /obj/machinery/computer/ship/helm
 	name = "helm control console"
-	icon_screen = "command"
-	light_color = "#7faaff"
+	icon_screen = "helm"
+	icon_keyboard = "cyan_key"
+	light_color = LIGHT_COLOR_CYAN
 	var/autopilot = 0
 	var/list/known_sectors = list()
 	var/dx		//desitnation
@@ -252,7 +253,9 @@
 
 /obj/machinery/computer/ship/navigation
 	name = "navigation console"
-	icon_screen = "command"
+	icon_screen = "nav"
+	icon_keyboard = "cyan_key"
+	light_color = LIGHT_COLOR_CYAN
 
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!connected)
@@ -296,15 +299,3 @@
 	if (href_list["viewing"])
 		viewing_overmap(usr) ? unlook(usr) : look(usr)
 		return TOPIC_REFRESH
-
-/obj/machinery/computer/ship/navigation/telescreen	//little hacky but it's only used on one ship so it should be okay
-	icon_state = "tele_nav"
-	density = 0
-
-/obj/machinery/computer/ship/navigation/telescreen/update_icon()
-	if(stat & (NOPOWER|BROKEN))
-		icon_state = "tele_off"
-		set_light(0)
-	else
-		icon_state = "tele_nav"
-		set_light(2, 2, "#33FAAA")
