@@ -120,14 +120,13 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	. = ..()
 
 	if(.)
-		connected = linked
-		LAZYSET(connected.consoles, src, TRUE)
+		if(istype(linked, /obj/effect/overmap/visitable/ship)) //Only ships get ship computers
+			connected = linked
+			LAZYSET(connected.consoles, src, TRUE)
 
 /obj/machinery/computer/ship/Initialize()
 	. = ..()
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
-		if (istype(my_sector, /obj/effect/overmap/visitable))
+		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
-	if(istype(linked, /obj/effect/overmap/visitable/ship))
-		connected = linked

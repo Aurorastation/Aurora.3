@@ -1,8 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aaa" = (
-/obj/effect/overmap/visitable/sector/tcfl_peacekeeper_ship,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
 "aab" = (
 /obj/machinery/computer/shuttle_control/explore/tcfl_shuttle{
 	dir = 4
@@ -13,24 +9,18 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
-"aac" = (
-/obj/machinery/computer/shuttle_control/explore/tcfl_peacekeeper_ship{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
 "aaI" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aaJ" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms"
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "ajL" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/legion,
@@ -40,19 +30,19 @@
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aow" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "asG" = (
 /obj/structure/sign/flag/biesel/right,
 /turf/simulated/wall/shuttle/legion,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "atj" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "awG" = (
 /obj/structure/table/rack,
 /obj/item/clothing/head/helmet/tank/legion,
@@ -62,7 +52,7 @@
 /obj/item/shield/riot/tact/legion,
 /obj/item/shield/riot/tact/legion,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aBD" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -70,12 +60,12 @@
 	id_tag = "tcfl_peacekeeper_ship_out"
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aCd" = (
 /obj/structure/table/steel,
 /obj/item/material/ashtray/glass,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aEq" = (
 /obj/structure/table/rack,
 /obj/machinery/light{
@@ -86,7 +76,7 @@
 /obj/item/device/magnetic_lock/security/legion,
 /obj/item/device/magnetic_lock/security/legion,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aEB" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -98,37 +88,37 @@
 /obj/item/clothing/suit/storage/vest/legion,
 /obj/item/clothing/head/helmet/legion,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aHs" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aHt" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/meter,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aHv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aHw" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aJd" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
 	layer = 2.8
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aMB" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -137,58 +127,58 @@
 	name = "trashbin"
 	},
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aOU" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aSi" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aSm" = (
 /obj/machinery/door/airlock/silver{
 	name = "Toilet"
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aSJ" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "aSN" = (
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "bcf" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "bci" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1;
 	req_access = list(204)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "bgV" = (
 /turf/simulated/wall/shuttle/legion/cardinal,
 /area/shuttle/tcfl_shuttle)
 "bkQ" = (
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "buA" = (
 /obj/structure/table/standard,
 /obj/item/stack/medical/bruise_pack/full,
 /obj/item/stack/medical/ointment/full,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "buK" = (
 /obj/machinery/appliance/cooker/fryer,
 /obj/machinery/light{
@@ -197,7 +187,7 @@
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "buM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -208,23 +198,23 @@
 	id_tag = "tcfl_peacekeeper_ship_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "bGI" = (
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "ctQ" = (
 /obj/machinery/bodyscanner,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "cEG" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "cMo" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "cQs" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -234,26 +224,26 @@
 "cTq" = (
 /obj/structure/bookcase/manuals,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "cVA" = (
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "cYw" = (
 /obj/machinery/vending/zora,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "dqJ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "dHA" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/cups,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "dQZ" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/machinery/light/small,
@@ -261,14 +251,14 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "dTw" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Hangar";
 	req_access = list(204)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "eiL" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -279,17 +269,17 @@
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/regular,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "eiR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "epw" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "etL" = (
 /turf/space/transit/south,
 /area/space)
@@ -297,13 +287,13 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "ewW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "exg" = (
 /obj/machinery/light{
 	dir = 1;
@@ -313,24 +303,24 @@
 /obj/item/storage/box/bodybags,
 /obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "eCV" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "eIb" = (
 /obj/machinery/vending/engivend{
 	req_access = list(204)
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "eMT" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "eTH" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/electrical,
@@ -339,23 +329,23 @@
 /obj/item/device/lightreplacer,
 /obj/item/storage/belt/utility,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "eYX" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "fnE" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/overmap/visitable/ship/landable/tcfl_peacekeeper_ship,
+/obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "fnY" = (
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "frn" = (
 /obj/machinery/light{
 	dir = 4;
@@ -365,7 +355,7 @@
 	name = "trashbin"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "frC" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/vending/wallmed1{
@@ -380,7 +370,7 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "fws" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -393,38 +383,38 @@
 	tag_interior_door = "tcfl_peacekeeper_ship_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "fNZ" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "fQq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Head";
 	req_access = list(204)
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "fRD" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 25
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "fVv" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "fZq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Brig";
 	req_access = list(204)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "gcq" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(204)
@@ -434,7 +424,7 @@
 	},
 /obj/item/gun/energy/blaster,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "goI" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/shuttle/black,
@@ -445,27 +435,27 @@
 	},
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "gyl" = (
 /obj/machinery/vending/tool,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "gHC" = (
 /obj/structure/fuel_port{
 	pixel_x = -32
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "gNW" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/legion,
 /turf/simulated/floor/plating,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "gOy" = (
 /obj/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "hdb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
@@ -473,7 +463,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "heP" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -487,14 +477,14 @@
 /obj/item/mop,
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "hiw" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
 	req_access = list(204)
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "hjH" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -504,7 +494,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "hsz" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
@@ -524,16 +514,16 @@
 /obj/item/melee/baton/loaded,
 /obj/item/melee/baton/loaded,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "huE" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "hBd" = (
 /obj/structure/table/standard,
 /obj/item/soap,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "hBs" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
@@ -548,11 +538,11 @@
 	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "hGt" = (
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "hQA" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
@@ -562,28 +552,28 @@
 	},
 /obj/item/clothing/suit/storage/legion,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "hWh" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "hZq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Dock";
 	req_access = list(204)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "iaK" = (
 /obj/structure/toilet,
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "ibU" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin,
@@ -591,7 +581,7 @@
 /obj/item/deck/cards,
 /obj/item/board,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "iiZ" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -612,7 +602,7 @@
 "irX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "ive" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -622,7 +612,7 @@
 "iDc" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "iGK" = (
 /obj/machinery/shower{
 	dir = 1
@@ -635,48 +625,48 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "iNo" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "jEu" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "jOw" = (
 /obj/structure/sign/flag/biesel,
 /turf/simulated/wall/shuttle/legion,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "kaR" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "kfX" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "kpR" = (
 /obj/machinery/light/small,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "kqx" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "krH" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Prefect's Quarters";
 	req_access = list(204)
 	},
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "ktN" = (
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
@@ -685,23 +675,23 @@
 	name = "igs - tcfl_detainee"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "kwe" = (
 /obj/structure/sign/flag/biesel,
 /turf/simulated/wall/shuttle/legion/cardinal,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "kzm" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "kAt" = (
 /obj/structure/table/wood,
 /obj/item/clothing/suit/storage/legion,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "kPs" = (
 /obj/structure/closet/cabinet,
 /obj/item/flag/biesel/l,
@@ -720,7 +710,7 @@
 /obj/item/spacecash/c20,
 /obj/item/material/twohanded/pike/flag,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "lev" = (
 /obj/structure/bed,
 /obj/effect/ghostspawpoint{
@@ -728,14 +718,14 @@
 	name = "igs - tcfl_detainee"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "lhC" = (
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
 	req_access = list(204)
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "lpe" = (
 /obj/effect/overmap/visitable/ship/landable/tcfl_shuttle,
 /obj/machinery/hologram/holopad/long_range,
@@ -748,34 +738,34 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "lwj" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/lava/blue,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "lFg" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/toothbrush/green,
 /obj/item/reagent_containers/toothpaste,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "mkb" = (
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "mtM" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "mwP" = (
 /obj/item/device/flashlight/lamp,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "mxc" = (
 /obj/structure/bed,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "mEc" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -783,7 +773,7 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "mET" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -793,19 +783,19 @@
 	name = "trashbin"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "mLa" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "mPM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "ntt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -815,7 +805,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "nty" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/plate/bowl,
@@ -840,12 +830,12 @@
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "nDn" = (
 /obj/item/device/flashlight/lamp,
 /obj/structure/table/steel,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "nPN" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/shuttle/black,
@@ -856,17 +846,17 @@
 	},
 /obj/structure/bed/stool,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "nVi" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "ofl" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "ofY" = (
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
@@ -882,7 +872,7 @@
 	pixel_y = 31
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "opS" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -890,14 +880,14 @@
 	id_tag = "tcfl_peacekeeper_ship_pump"
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "oNi" = (
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "pfE" = (
 /obj/structure/fuel_port{
 	pixel_x = -32
@@ -927,7 +917,7 @@
 /obj/item/reagent_containers/food/drinks/milk,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "pwR" = (
 /obj/machinery/light{
 	dir = 1;
@@ -937,12 +927,12 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "pAh" = (
 /obj/structure/window/shuttle/legion,
 /obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "pCa" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -955,7 +945,7 @@
 	pixel_y = 26
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "pDZ" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
@@ -975,13 +965,13 @@
 	pixel_x = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "pJZ" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
@@ -994,15 +984,15 @@
 	id_tag = "tcfl_peacekeeper_ship_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "pXP" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "qds" = (
 /turf/simulated/wall/shuttle/legion/cardinal,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "qil" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
@@ -1018,7 +1008,7 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "que" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/south,
@@ -1028,7 +1018,7 @@
 	dir = 10
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "qHO" = (
 /obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/transit,
 /turf/space/transit/south,
@@ -1036,19 +1026,19 @@
 "qMx" = (
 /obj/structure/sign/flag/biesel/left,
 /turf/simulated/wall/shuttle/legion,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "rdB" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "rtf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "ryh" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/sink/kitchen{
@@ -1056,7 +1046,7 @@
 	pixel_x = -19
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "rNp" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -1074,7 +1064,7 @@
 	pixel_y = -8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "szY" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
@@ -1093,14 +1083,14 @@
 /area/shuttle/tcfl_shuttle)
 "sBA" = (
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "sGi" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Cockpit";
 	req_access = list(204)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "sOb" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
@@ -1114,15 +1104,11 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
-"ths" = (
-/obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/start,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "tnP" = (
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "tpL" = (
 /obj/machinery/light{
 	dir = 1;
@@ -1133,7 +1119,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "tra" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(204)
@@ -1142,7 +1128,7 @@
 /obj/item/gun/energy/blaster/carbine,
 /obj/item/gun/energy/blaster/carbine,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "tCH" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin,
@@ -1150,15 +1136,15 @@
 /obj/item/device/binoculars,
 /obj/item/clothing/head/helmet/tank/legion,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "uaE" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "upC" = (
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "uwT" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -1169,13 +1155,13 @@
 	pixel_y = -10
 	},
 /turf/template_noop,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "uCl" = (
 /obj/machinery/cryopod{
 	dir = 2
 	},
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "uNN" = (
 /obj/structure/bed/padded,
 /obj/effect/ghostspawpoint{
@@ -1185,13 +1171,13 @@
 /obj/item/bedsheet/black,
 /obj/item/clothing/suit/storage/legion,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "uWn" = (
 /obj/structure/table/steel,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/storage/belt/medical/first_responder/combat,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "uYP" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -1206,14 +1192,14 @@
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "vdX" = (
 /obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/nav1,
 /turf/template_noop,
 /area/space)
 "vwF" = (
 /turf/unsimulated/wall/fakepdoor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "vxN" = (
 /obj/structure/closet/crate,
 /obj/item/stack/material/phoron{
@@ -1230,7 +1216,7 @@
 /obj/item/clothing/glasses/welding,
 /obj/item/clothing/glasses/welding,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "vCD" = (
 /obj/machinery/door/window/northleft{
 	dir = 2;
@@ -1239,7 +1225,7 @@
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "vLp" = (
 /obj/structure/closet/crate/secure/legion{
 	req_access = list(204)
@@ -1249,7 +1235,7 @@
 /obj/item/stack/material/glass/full,
 /obj/item/stack/material/glass/reinforced/full,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "vMq" = (
 /obj/structure/bed/padded,
 /obj/effect/ghostspawpoint{
@@ -1258,20 +1244,20 @@
 	},
 /obj/item/bedsheet/black,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "vTv" = (
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "vUu" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "wfy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -1285,10 +1271,10 @@
 	req_access = list(204)
 	},
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "wmd" = (
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "wrJ" = (
 /obj/effect/shuttle_landmark/tcfl_shuttle/transit,
 /turf/space/transit/south,
@@ -1298,7 +1284,7 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "wCo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -1311,21 +1297,21 @@
 "wLs" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "wPz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/effect/shuttle_landmark/tcfl_shuttle/hangar,
 /turf/simulated/floor,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "wUJ" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
 /obj/machinery/optable,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "wXi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
@@ -1337,7 +1323,7 @@
 /obj/item/clothing/head/helmet/legion,
 /obj/item/clothing/suit/storage/vest/legion,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "wZf" = (
 /obj/structure/window/shuttle/legion,
 /obj/structure/grille,
@@ -1346,7 +1332,7 @@
 "xbK" = (
 /obj/structure/bed/stool,
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "xoc" = (
 /turf/simulated/wall/shuttle/legion,
 /area/shuttle/tcfl_shuttle)
@@ -1357,12 +1343,12 @@
 /obj/structure/curtain/open/privacy,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "xzv" = (
 /obj/structure/bed/stool,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "xPN" = (
 /obj/machinery/computer/ship/helm{
 	req_access = list(204)
@@ -1375,7 +1361,7 @@
 	req_access = list(204)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "xRX" = (
 /turf/template_noop,
 /area/space)
@@ -1384,10 +1370,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/tan,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 "yjk" = (
 /turf/simulated/wall/shuttle/legion,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/ship/tcfl_peacekeeper_ship)
 
 (1,1,1) = {"
 xRX
@@ -33617,9 +33603,9 @@ sBA
 sBA
 sBA
 sBA
-ths
 sBA
-aaa
+sBA
+sBA
 sBA
 sBA
 sBA
@@ -33885,7 +33871,7 @@ pJZ
 yjk
 pwR
 sBA
-aac
+sBA
 gNW
 xRX
 xRX

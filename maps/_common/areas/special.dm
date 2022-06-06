@@ -307,12 +307,12 @@
 	icon_state = "purple"
 	flags = RAD_SHIELDED | SPAWN_ROOF
 
-//Misc
+//Away ships, third party ships, etc. Mostly for the ships that are expected to move on the overmap and/or have ghost roles.
 
-/area/beach
-	name = "Keelin's private beach"
-	icon_state = "yellow"
-	luminosity = 1
-	dynamic_lighting = 0
+/area/ship
+	name = "Ship"
+	icon_state = "ship"
 	requires_power = 0
+	sound_env = STANDARD_STATION
 	no_light_control = 1
+	flags = RAD_SHIELDED | SPAWN_ROOF

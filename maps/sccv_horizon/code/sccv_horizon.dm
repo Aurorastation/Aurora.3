@@ -110,16 +110,10 @@
 		/datum/shuttle/autodock/ferry/merchant_aurora,
 		/datum/shuttle/autodock/ferry/autoreturn/ccia,
 		/datum/shuttle/autodock/overmap/orion_express_shuttle,
-		/datum/shuttle/autodock/overmap/orion_express_ship,
-		/datum/shuttle/autodock/overmap/sfa_patrol_ship,
 		/datum/shuttle/autodock/overmap/sfa_shuttle,
-		/datum/shuttle/autodock/overmap/tcfl_peacekeeper_ship,
 		/datum/shuttle/autodock/overmap/tcfl_shuttle,
-		/datum/shuttle/autodock/overmap/ee_spy_ship,
 		/datum/shuttle/autodock/overmap/ee_shuttle,
-		/datum/shuttle/autodock/overmap/fsf_patrol_ship,
 		/datum/shuttle/autodock/overmap/fsf_shuttle,
-		/datum/shuttle/autodock/overmap/tramp_freighter,
 		/datum/shuttle/autodock/overmap/freighter_shuttle
 	)
 
