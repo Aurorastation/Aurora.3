@@ -8,7 +8,7 @@
 /obj/item/mecha_equipment/mounted_system/rfd/CtrlClick(mob/user)
 	if(owner && istype(holding, /obj/item/rfd/construction/mounted/exosuit))
 		var/obj/item/rfd/construction/mounted/exosuit/R = holding
-		var/current_mode = show_radial_menu(user, src, R.radial_modes, radius = 42, require_near = TRUE, tooltips = TRUE)
+		var/current_mode = show_radial_menu(user, owner, R.radial_modes, radius = 42, require_near = FALSE , tooltips = TRUE)
 		switch(current_mode)
 			if("Floors and Walls")
 				R.mode = 1
