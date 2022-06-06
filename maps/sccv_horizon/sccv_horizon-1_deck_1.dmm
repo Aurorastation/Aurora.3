@@ -6393,9 +6393,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
 "fdb" = (
-/obj/machinery/computer/ship/engines{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
@@ -6404,6 +6401,9 @@
 	dir = 4;
 	name = "Station Intercom (General)";
 	pixel_x = -24
+	},
+/obj/machinery/computer/ship/engines{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -13486,7 +13486,6 @@
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "kNN" = (
-/obj/effect/shuttle_landmark/mining/hangar,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -26905,6 +26904,7 @@
 	id_tag = "mining_shuttle_external";
 	req_access = list(13)
 	},
+/obj/effect/shuttle_landmark/mining/hangar,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "vZT" = (
