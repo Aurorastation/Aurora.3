@@ -5702,12 +5702,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "eDa" = (
-/obj/machinery/requests_console{
-	department = "Mining";
-	departmentType = 2;
-	name = "Mining Requests Console";
-	pixel_x = 30
-	},
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
@@ -11986,7 +11980,7 @@
 	pixel_y = -24
 	},
 /obj/machinery/camera/network/supply{
-	c_tag = "Operations - Warehouse Entrance";
+	c_tag = "Operations - Lower Warehouse 4";
 	dir = 1
 	},
 /obj/vehicle/train/cargo/trolley,
@@ -13647,6 +13641,12 @@
 "kSe" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
+	},
+/obj/machinery/requests_console{
+	department = "Mining";
+	departmentType = 2;
+	name = "Mining Requests Console";
+	pixel_x = -30
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
@@ -24837,7 +24837,7 @@
 	dir = 1
 	},
 /obj/machinery/requests_console{
-	department = "Operations";
+	department = "Machinist Workshop";
 	departmentType = 2;
 	name = "Machinist Workshop";
 	pixel_y = -30
