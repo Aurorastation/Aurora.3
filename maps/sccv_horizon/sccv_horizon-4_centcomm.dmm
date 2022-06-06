@@ -2024,7 +2024,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/item/ammo_magazine/assault_shotgun,
 /obj/item/ammo_magazine/assault_shotgun,
@@ -6725,7 +6726,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -6811,7 +6813,8 @@
 "apn" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -7300,7 +7303,8 @@
 "aqR" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -7311,7 +7315,8 @@
 "aqS" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
@@ -7319,7 +7324,8 @@
 "aqT" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -7519,7 +7525,8 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -7527,7 +7534,8 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -7899,7 +7907,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
@@ -7946,7 +7955,8 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
@@ -7957,7 +7967,8 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
@@ -8445,7 +8456,8 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
@@ -10083,7 +10095,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/item/paper_bin{
 	pixel_x = -2;
@@ -10404,7 +10417,8 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
@@ -19952,7 +19966,8 @@
 /area/centcom/legion)
 "aWj" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -19988,7 +20003,8 @@
 /area/centcom/legion)
 "aWm" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -21845,7 +21861,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -22817,7 +22834,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
@@ -22825,7 +22843,8 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -23882,7 +23901,8 @@
 /area/centcom/legion/hangar5)
 "bdY" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -23922,7 +23942,8 @@
 /area/centcom/legion/hangar5)
 "beb" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -23976,7 +23997,8 @@
 /area/centcom/legion/hangar5)
 "bee" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -26813,8 +26835,15 @@
 /area/shuttle/mercenary)
 "bkr" = (
 /obj/structure/table/reinforced,
-/obj/item/airbubble/syndie,
-/obj/item/airbubble/syndie,
+/obj/item/airbubble/syndie{
+	pixel_y = 4
+	},
+/obj/item/airbubble/syndie{
+	pixel_y = 4
+	},
+/obj/item/storage/bag/inflatable{
+	pixel_y = -5
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bkt" = (
@@ -29540,7 +29569,8 @@
 /area/shuttle/mercenary)
 "bqq" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -34840,13 +34870,15 @@
 "bGp" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/unsimulated/wall/riveted,
 /area/template_noop)
 "bGq" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /obj/structure/window/reinforced,
 /turf/unsimulated/wall/riveted,
@@ -37231,6 +37263,21 @@
 	},
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
+"duV" = (
+/obj/structure/window/reinforced{
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	maxhealth = 140
+	},
+/obj/structure/grille,
+/turf/simulated/floor/shuttle/advanced,
+/area/shuttle/mercenary)
 "dwR" = (
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/holofloor/snow,
@@ -37307,6 +37354,17 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_dininghall)
+"fPY" = (
+/obj/structure/window/reinforced{
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 140
+	},
+/obj/structure/grille,
+/turf/simulated/floor/shuttle/advanced,
+/area/shuttle/mercenary)
 "fQK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -37353,6 +37411,18 @@
 	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/source_battlemonsters)
+"hTO" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	maxhealth = 140
+	},
+/obj/structure/grille,
+/turf/simulated/floor/shuttle/advanced,
+/area/shuttle/mercenary)
 "hYO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -37424,6 +37494,22 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
+"nCh" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 140
+	},
+/obj/structure/grille,
+/turf/simulated/floor/shuttle/advanced,
+/area/shuttle/mercenary)
 "olV" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -37464,7 +37550,8 @@
 /area/template_noop)
 "rlY" = (
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 1;
+	maxhealth = 140
 	},
 /turf/unsimulated/wall/riveted,
 /area/template_noop)
@@ -37496,10 +37583,40 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/horizon/holodeck/source_boxingcourt)
+"sPP" = (
+/obj/structure/window/reinforced{
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
+	},
+/obj/structure/grille,
+/turf/simulated/floor/shuttle/advanced,
+/area/shuttle/mercenary)
 "tIz" = (
 /obj/structure/flora/grass/brown,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_snowfield)
+"url" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	maxhealth = 140
+	},
+/obj/structure/window/reinforced{
+	maxhealth = 140
+	},
+/obj/structure/grille,
+/turf/simulated/floor/shuttle/advanced,
+/area/shuttle/mercenary)
 "vMz" = (
 /obj/structure/dueling_table/no_collide{
 	icon_state = "bottom_right"
@@ -42633,9 +42750,9 @@ aaa
 aaa
 aaa
 bxw
-bxw
-bxw
-bxw
+nCh
+hTO
+url
 bxw
 bxw
 bjG
@@ -42889,7 +43006,7 @@ aaa
 aaa
 aaa
 aaa
-bxw
+duV
 bfX
 bgO
 bhB
@@ -43146,7 +43263,7 @@ aaa
 aaa
 aaa
 aaa
-bxw
+fPY
 bfY
 bgP
 bhC
@@ -43403,7 +43520,7 @@ aaa
 aaa
 aaa
 aaa
-bxw
+sPP
 bfZ
 bgQ
 bhD
@@ -43661,9 +43778,9 @@ aaa
 aaa
 aaa
 bxw
-bxw
-bxw
-bxw
+nCh
+hTO
+url
 bxw
 bxw
 bjK
