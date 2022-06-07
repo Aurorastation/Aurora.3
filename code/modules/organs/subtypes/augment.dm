@@ -171,7 +171,7 @@
 	aug_slot = slot_l_hand
 
 /obj/item/organ/internal/augment/tool/crayon
-	name = "Integrated crayon"
+	name = "integrated crayon"
 	icon_state = "crayonaugment"
 	action_button_name = "Deploy Crayon"
 	action_button_icon = "crayonaugment"
