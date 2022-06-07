@@ -20,7 +20,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	if(reading) //So you can't read twice.
-		to_chat(usr, SPAN_WARNING("You are already reading this book."))
+		to_chat(user, SPAN_WARNING("You are already reading this book."))
 		return
 	reading = TRUE //begin reading
 
