@@ -4,6 +4,7 @@
 	icon = 'icons/mob/clothing/suit/hazardvest.dmi'
 	icon_state = "hazard"
 	item_state = "hazard"
+	contained_sprite = TRUE
 	blood_overlay_type = "armor"
 	allowed = list (/obj/item/device/analyzer, /obj/item/device/flashlight, /obj/item/device/multitool, /obj/item/device/pipe_painter, /obj/item/device/radio, /obj/item/device/t_scanner, \
 	/obj/item/crowbar, /obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/tank/emergency_oxygen, \
