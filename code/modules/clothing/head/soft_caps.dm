@@ -129,6 +129,10 @@
 	icon_state = "idris"
 	item_state = "idris"
 
+/obj/item/clothing/head/softcap/idris/alt
+	icon_state = "idrisalt"
+	item_state = "idrisalt"
+
 /obj/item/clothing/head/softcap/pmc
 	name = "PMCG cap"
 	desc = "A company-issue PMCG cap. For amoral mercenaries that prefer style over protection."

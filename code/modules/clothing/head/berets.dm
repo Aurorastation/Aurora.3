@@ -138,7 +138,7 @@
 	icon_state = "zavalt"
 	item_state = "zavalt"
 
-/obj/item/clothing/head/beret/corporate/necro
+/obj/item/clothing/head/beret/corporate/zavod/necro
 	icon_state = "necro"
 	item_state = "necro"
 
