@@ -87,7 +87,6 @@
 	shadeColour = input(user, "Please select the shade colour.", "Crayon colour") as color
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 50, 0)
 	update_icon()
-	return
 
 /obj/item/pen/crayon/augment/update_icon()
 	cut_overlays()
