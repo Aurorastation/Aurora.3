@@ -754,7 +754,7 @@
 	name = "Red Nightshade"
 	id = "berserk"
 	result = /decl/reagent/toxin/berserk
-	required_reagents = list(/decl/reagent/psilocybin = 1, /decl/reagent/alcohol/moonshine = 1)
+	required_reagents = list(/decl/reagent/toxin/stimm = 1, /decl/reagent/synaptizine = 1, /decl/reagent/toxin/phoron = 0.1)
 	result_amount = 1
 
 /datum/chemical_reaction/joy

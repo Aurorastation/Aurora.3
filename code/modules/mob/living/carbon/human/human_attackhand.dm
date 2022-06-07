@@ -84,7 +84,7 @@
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
 
-			if(HULK in H.mutations)
+			if(HULK in H.mutations || H.is_berserk())
 				damage += 5
 
 			playsound(loc, /decl/sound_category/punch_sound, 25, 1, -1)
@@ -267,6 +267,9 @@
 			if(HULK in H.mutations)
 				real_damage *= 2 // Hulks do twice the damage
 				rand_damage *= 2
+			if(H.is_berserk())
+				real_damage *= 1.5 // Nightshade increases damage by 50%
+				rand_damage *= 1.5
 
 			real_damage = max(1, real_damage)
 
