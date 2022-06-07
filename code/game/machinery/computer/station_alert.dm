@@ -65,4 +65,4 @@
 			var/list/alarms = alarm_monitor.major_alarms()
 			if(alarms.len)
 				icon_screen = "alert:2"
-	..()
+	. = ..()
