@@ -1,6 +1,0 @@
-author: Doxxmedearly, MattAtlas
-delete-after: True
-changes:
-  - bugfix: "The library book upload scanner and book binder can now be anchored and unanchored."
-  - bugfix: "You are no longer able to put a paper in the book binder while it is already binding a book."
-  - tweak: "Adjusted some visible messages relating to some library machines."
