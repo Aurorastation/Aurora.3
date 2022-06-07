@@ -404,11 +404,22 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 	density = 1
 	var/obj/item/book/cache		// Last scanned book
 
-/obj/machinery/libraryscanner/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/machinery/libraryscanner/attackby(var/obj/O, var/mob/user)
 	if(istype(O, /obj/item/book))
 		user.drop_from_inventory(O,src)
+	if(O.iswrench())
+		playsound(get_turf(src), O.usesound, 75, TRUE)
+		if(anchored)
+			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."), \
+				SPAN_NOTICE("You unsecure \the [src] from the floor."), \
+				SPAN_WARNING("You hear a ratcheting noise."))
+		else
+			user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
+				SPAN_NOTICE("You secure \the [src] to the floor."), \
+				SPAN_WARNING("You hear a ratcheting noise."))
+		anchored = !anchored
 
-/obj/machinery/libraryscanner/attack_hand(var/mob/user as mob)
+/obj/machinery/libraryscanner/attack_hand(var/mob/user)
 	usr.set_machine(src)
 	var/dat = "<HEAD><TITLE>Scanner Control Interface</TITLE></HEAD><BODY>\n" // <META HTTP-EQUIV='Refresh' CONTENT='10'>
 	if(cache)
