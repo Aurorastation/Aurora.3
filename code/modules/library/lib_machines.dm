@@ -413,8 +413,16 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 			return	
 		user.drop_from_inventory(O,src)
 	if(O.iswrench())
+		playsound(get_turf(src), O.usesound, 75, TRUE)
+		if(anchored)
+			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."), \
+				SPAN_NOTICE("You unsecure \the [src] from the floor."), \
+				SPAN_WARNING("You hear a ratcheting noise."))
+		else
+			user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
+				SPAN_NOTICE("You secure \the [src] to the floor."), \
+				SPAN_WARNING("You hear a ratcheting noise."))
 		anchored = !anchored
-		to_chat(user, SPAN_NOTICE("You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor."))
 
 /obj/machinery/libraryscanner/attack_hand(var/mob/user as mob)
 	usr.set_machine(src)
@@ -494,6 +502,13 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 		qdel(O)
 		return
 	if(O.iswrench())
+		playsound(get_turf(src), O.usesound, 75, TRUE)
+		if(anchored)
+			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."), \
+				SPAN_NOTICE("You unsecure \the [src] from the floor."), \
+				SPAN_WARNING("You hear a ratcheting noise."))
+		else
+			user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
+				SPAN_NOTICE("You secure \the [src] to the floor."), \
+				SPAN_WARNING("You hear a ratcheting noise."))
 		anchored = !anchored
-		to_chat(user, SPAN_NOTICE("You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor."))
-		return
