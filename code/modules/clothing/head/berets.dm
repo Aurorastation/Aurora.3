@@ -138,6 +138,10 @@
 	icon_state = "zavalt"
 	item_state = "zavalt"
 
+/obj/item/clothing/head/beret/corporate/necro
+	icon_state = "necro"
+	item_state = "necro"
+
 /obj/item/clothing/head/beret/corporate/heph
 	name = "hephaestus beret"
 	desc = "A green beret with the Hephaestus insignia emblazoned on it."

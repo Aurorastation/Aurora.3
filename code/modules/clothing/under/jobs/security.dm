@@ -25,21 +25,41 @@
 	icon_state = "zav_officer"
 	item_state = "zav_officer"
 
+/obj/item/clothing/under/rank/security/zavod/necro // Note: Item Icon placeholder
+	icon_state = "necro"
+	item_state = "necro"
+
+/obj/item/clothing/under/rank/security/zavod/necro_alt // Note: Item Icon placeholder
+	icon_state = "necro_alt"
+	item_state = "necro_alt"
+
 /obj/item/clothing/under/rank/security/idris
 	icon_state = "idris_officer"
 	item_state = "idris_officer"
+
+/obj/item/clothing/under/rank/security/idris/idrissec
+	icon_state = "idris"
+	item_state = "idris"
+
+/obj/item/clothing/under/rank/security/idris/idrissec/alt
+	icon_state = "idris_alt"
+	item_state = "idris_alt"
 
 /obj/item/clothing/under/rank/security/pmc
 	icon_state = "pmc_officer"
 	item_state = "pmc_officer"
 
-/obj/item/clothing/under/rank/security/pmc/epmc // Note: Item Icon placeholder
-	icon_state = "epmc_officer"
-	item_state = "epmc_officer"
+/obj/item/clothing/under/rank/security/pmc/alt
+	icon_state = "pmc"
+	item_state = "pmc"
 
-/obj/item/clothing/under/rank/security/pmc/epmc_alt // Note: Item Icon placeholder
-	icon_state = "epmc_officer_alt"
-	item_state = "epmc_officer_alt"
+/obj/item/clothing/under/rank/security/pmc/epmc // Note: Item Icon placeholder
+	icon_state = "epmc"
+	item_state = "epmc"
+
+/obj/item/clothing/under/rank/security/pmc/epmc/alt // Note: Item Icon placeholder
+	icon_state = "epmc_alt"
+	item_state = "epmc_alt"
 
 /obj/item/clothing/under/rank/cadet
 	name = "security cadet's uniform"
