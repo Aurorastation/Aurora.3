@@ -15,6 +15,8 @@
 	var/list/randomquip = list()
 
 /obj/item/device/versebook/attack_self(mob/user)
+	if(!length(randomquip))
+		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	if(reading) //So you can't read twice.
@@ -26,12 +28,7 @@
 	playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, 1)
 
 	var/q // recycled from tip of the day code. it just works!(TM)
-	var/quip // in actuality it randomly determines a value, then uses that value to select a particular line from the txt below
-	if(quip)
-		q = quip
-	else
-		if(randomquip.len)
-			q = pick(randomquip)
+	q = pick(randomquip)
 
 	if(do_after(user, 25))
 		to_chat(user, "<span class='notice'>You notice a particular verse: [q]</span>")
