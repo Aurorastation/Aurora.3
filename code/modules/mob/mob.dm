@@ -202,9 +202,9 @@
 	var/list/objs = list()
 	get_mobs_or_objs_in_view(T, range, mobs, objs, ghost_hearing)
 
-
 	for(var/m in mobs)
 		var/mob/M = m
+		message = "[get_accent_icon(null, M)] " + message
 		if(self_message && M==src)
 			M.show_message(self_message,2,deaf_message,1)
 			continue
@@ -213,6 +213,7 @@
 
 	for(var/o in objs)
 		var/obj/O = o
+		message = "[get_accent_icon(null, src)] " + message
 		O.show_message(message,2,deaf_message,1)
 
 /mob/proc/findname(msg)
