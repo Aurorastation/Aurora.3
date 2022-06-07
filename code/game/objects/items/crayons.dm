@@ -82,7 +82,7 @@
 	name = "integrated crayon"
 	update_icon()
 
-/obj/item/pen/crayon/augment/attack_self(mob/living/user as mob)
+/obj/item/pen/crayon/augment/attack_self(mob/living/user)
 	colour = input(user, "Please select the main colour.", "Crayon colour") as color
 	shadeColour = input(user, "Please select the shade colour.", "Crayon colour") as color
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 50, 0)
