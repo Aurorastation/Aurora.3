@@ -2,6 +2,7 @@
 	filename = "ntndownloader"
 	filedesc = "NTNet Software Download Tool"
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program allows the download of software from official NT repositories."
 	color = LIGHT_COLOR_GREEN
 	unsendable = TRUE

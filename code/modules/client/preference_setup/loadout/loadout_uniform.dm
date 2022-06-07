@@ -18,26 +18,26 @@
 /datum/gear/uniform/jumpsuit/New()
 	..()
 	var/list/jumpsuit = list()
-	jumpsuit["grey jumpsuit"] = /obj/item/clothing/under/color/grey
 	jumpsuit["black jumpsuit"] = /obj/item/clothing/under/color/black
-	jumpsuit["blue jumpsuit"] = /obj/item/clothing/under/color/blue
-	jumpsuit["green jumpsuit"] = /obj/item/clothing/under/color/green
-	jumpsuit["orange jumpsuit"] = /obj/item/clothing/under/color/orange
-	jumpsuit["pink jumpsuit"] = /obj/item/clothing/under/color/pink
-	jumpsuit["red jumpsuit"] = /obj/item/clothing/under/color/red
+	jumpsuit["grey jumpsuit"] = /obj/item/clothing/under/color/grey
 	jumpsuit["white jumpsuit"] = /obj/item/clothing/under/color/white
+	jumpsuit["dark red jumpsuit"] = /obj/item/clothing/under/color/darkred
+	jumpsuit["red jumpsuit"] = /obj/item/clothing/under/color/red
+	jumpsuit["light red jumpsuit"] = /obj/item/clothing/under/color/lightred
+	jumpsuit["light brown jumpsuit"] = /obj/item/clothing/under/color/lightbrown
+	jumpsuit["brown jumpsuit"] = /obj/item/clothing/under/color/brown
 	jumpsuit["yellow jumpsuit"] = /obj/item/clothing/under/color/yellow
-	jumpsuit["light blue jumpsuit"] = /obj/item/clothing/under/lightblue
-	jumpsuit["aqua jumpsuit"] = /obj/item/clothing/under/aqua
-	jumpsuit["purple jumpsuit"] = /obj/item/clothing/under/purple
-	jumpsuit["light purple jumpsuit"] = /obj/item/clothing/under/lightpurple
-	jumpsuit["light green jumpsuit"] = /obj/item/clothing/under/lightgreen
-	jumpsuit["brown jumpsuit"] = /obj/item/clothing/under/brown
-	jumpsuit["light brown jumpsuit"] = /obj/item/clothing/under/lightbrown
-	jumpsuit["yellow green jumpsuit"] = /obj/item/clothing/under/yellowgreen
-	jumpsuit["light red jumpsuit"] = /obj/item/clothing/under/lightred
-	jumpsuit["dark red jumpsuit"] = /obj/item/clothing/under/darkred
-	jumpsuit["rainbow jumpsuit"] = /obj/item/clothing/under/rainbow
+	jumpsuit["yellow green jumpsuit"] = /obj/item/clothing/under/color/yellowgreen
+	jumpsuit["light green jumpsuit"] = /obj/item/clothing/under/color/lightgreen
+	jumpsuit["green jumpsuit"] = /obj/item/clothing/under/color/green
+	jumpsuit["aqua jumpsuit"] = /obj/item/clothing/under/color/aqua
+	jumpsuit["light blue jumpsuit"] = /obj/item/clothing/under/color/lightblue
+	jumpsuit["blue jumpsuit"] = /obj/item/clothing/under/color/blue
+	jumpsuit["dark blue jumpsuit"] = /obj/item/clothing/under/color/darkblue
+	jumpsuit["purple jumpsuit"] = /obj/item/clothing/under/color/purple
+	jumpsuit["light purple jumpsuit"] = /obj/item/clothing/under/color/lightpurple
+	jumpsuit["pink jumpsuit"] = /obj/item/clothing/under/color/pink
+	jumpsuit["orange jumpsuit"] = /obj/item/clothing/under/color/orange
 	gear_tweaks += new /datum/gear_tweak/path(jumpsuit)
 
 /datum/gear/uniform/colorjumpsuit

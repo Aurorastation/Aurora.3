@@ -140,6 +140,8 @@
 				holographic_overlay(src, src.icon, icon_state_screensaver)
 			else
 				add_overlay(icon_state_screensaver)
+		if(icon_state_screensaver_key && working)
+			add_overlay(icon_state_screensaver_key)
 
 		if (screensaver_light_range && working && !flashlight)
 			set_light(screensaver_light_range, light_power, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
@@ -148,10 +150,12 @@
 		return
 	if(active_program)
 		var/state = active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu
+		var/state_key = active_program.program_key_icon_state ? active_program.program_key_icon_state : icon_state_menu_key // for corresponding keyboards.
 		if (is_holographic)
 			holographic_overlay(src, src.icon, state)
 		else
 			add_overlay(state)
+		add_overlay(state_key)
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = active_program.color)
 	else
@@ -159,6 +163,7 @@
 			holographic_overlay(src, src.icon, icon_state_menu)
 		else
 			add_overlay(icon_state_menu)
+		add_overlay(icon_state_menu_key)
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = menu_light_color)
 
@@ -392,7 +397,7 @@
 		enabled_services += S
 		S.service_state = PROGRAM_STATE_ACTIVE
 		return TRUE
-		
+
 
 
 /obj/item/modular_computer/proc/disable_service(service, mob/user, var/datum/computer_file/program/S = null)

@@ -1005,19 +1005,19 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_ponytail_short"
 		length = 2
 		chatname = "short ponytail"
-			
+
 	ponytail_short2
 		name = "Ponytail, Short 2"
 		icon_state = "hair_ponytail_short2"
 		length = 2
 		chatname = "short ponytail"
-			
+
 	ponytail_short3
 		name = "Ponytail, Short 3"
 		icon_state = "hair_ponytail_short3"
 		length = 2
 		chatname = "short ponytail"
-			
+
 	ponytail_short4
 		name = "Ponytail, Short 4"
 		icon_state = "hair_ponytail_short4"
@@ -1141,9 +1141,20 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_punk_halfshaved"
 		chatname = "unshaved hair"		// grabbing the parts that can be grabbed
 
+	punk_halfshaved_alt
+		name = "Punk Shave, Half-Shaved (alt)"
+		icon_state = "hair_punk_halfshaved_alt"
+		chatname = "unshaved hair"
+
 	punk_halfshaved_bun
 		name = "Punk Shave, Half-Shaved Bun"
 		icon_state = "hair_punk_halfshaved_bun"
+		length = 2
+		chatname = "hair bun"
+
+	punk_halfshaved_bun_alt
+		name = "Punk Shave, Half-Shaved Bun (alt)"
+		icon_state = "hair_punk_halfshaved_bun_alt"
 		length = 2
 		chatname = "hair bun"
 
@@ -2380,7 +2391,7 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "skrell_excited"
 			length = 6
 			chatname = "headtails"
-		
+
 		skr_tentacle_insulted
 			name = "Expressive Headtails, insulted"
 			icon_state = "skrell_insulted"
@@ -2521,6 +2532,12 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_braid
 			name = "Tajara Braid"
 			icon_state = "hair_braid"
+			length = 3
+			chatname = "braid"
+
+		taj_ears_braid_alt
+			name = "Tajara Braid Alt"
+			icon_state = "hair_braid_alt"
 			length = 3
 			chatname = "braid"
 
@@ -2800,6 +2817,12 @@ Follow by example and make good judgement based on length which list to include 
 		msai_ears_braid
 			name = "M'sai Braid"
 			icon_state = "msai_braid"
+			length = 3
+			chatname = "braid"
+
+		msai_ears_braid_alt
+			name = "M'sai Braid Alt"
+			icon_state = "msai_braid_alt"
 			length = 3
 			chatname = "braid"
 
@@ -3708,7 +3731,7 @@ Follow by example and make good judgement based on length which list to include 
 		tuux_chops
 			name = "Tuux Chops"
 			icon_state = "Tuux_Chops"
-			
+
 		tuux_chops_big
 			name = "Tuux Chops (Big)"
 			icon_state = "Tuux_Chops_Big"
@@ -3736,19 +3759,19 @@ Follow by example and make good judgement based on length which list to include 
 		tuux_mustache
 			name = "Tuux Stache"
 			icon_state = "Tuux_Mustache"
-			
+
 		tuux_overgrown
 			name = "Tuux Overgrown"
 			icon_state = "Tuux_Overgrown"
-			
+
 		tuux_braided
 			name = "Tuux Braided"
 			icon_state = "Tuux_Braided"
-			
+
 		tuux_braided_long
 			name = "Tuux Braided (Long)"
 			icon_state = "Tuux_Braided_Long"
-			
+
 		tuux_braided_double
 			name = "Tuux Braided (Double)"
 			icon_state = "Tuux_Braided_Double"
@@ -4117,6 +4140,24 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_CHEST)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi, /datum/species/bug, /datum/species/bug/type_b)
 
+	aug_lowerjaw
+		name = "Augment (Lower Jaw)"
+		icon_state = "aug_lowerjaw"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell,/datum/species/skrell/axiori,/datum/species/unathi)
+
+	aug_headcase
+		name = "Augment (Headcase)"
+		icon_state = "aug_headcase"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	aug_headcaselight
+		name = "Augment (Headcase, Light)"
+		icon_state = "aug_headcaselight"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
 	vaurca_augs
 		name = "Mecha Chest"
 		icon = 'icons/mob/human_races/markings_vaurca.dmi'
@@ -4377,7 +4418,7 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori)
 
-	lowercheek_left
+	lowercheek_right
 		name = "Lower Cheek Right"
 		icon_state = "lowercheek_r"
 		body_parts = list(BP_HEAD)
