@@ -13688,7 +13688,6 @@
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
 	},
-/obj/structure/window/reinforced,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -23212,7 +23211,6 @@
 	dir = 1;
 	name = "Fuel Tank to Thrusters"
 	},
-/obj/machinery/door/window/southright,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
