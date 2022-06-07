@@ -1,7 +1,0 @@
-author: stev/Memescope, Vrow
-
-delete-after: True
-
-changes:
-  - rscdel: "Removed the Shorts Only mode in the PMCG Modsuit."
-  - bugfix: "Fixed the right facing pants blue band being offset by one pixel."
