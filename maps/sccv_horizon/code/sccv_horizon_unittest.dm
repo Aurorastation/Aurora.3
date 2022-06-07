@@ -7,7 +7,6 @@
 		/area/supply/station,
 		/area/tdome,
 		/area/centcom,
-		/area/beach,
 		/area/prison,
 		/area/supply/dock,
 		/area/turbolift,

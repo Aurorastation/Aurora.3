@@ -4111,7 +4111,7 @@
 	density = 1;
 	opacity = 1
 	},
-/area/beach)
+/area/template_noop)
 "aBl" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -4125,15 +4125,14 @@
 /area/centcom/spawning)
 "aBw" = (
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBx" = (
-/obj/structure/signpost,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBy" = (
 /obj/structure/closet,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBD" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -4188,12 +4187,12 @@
 "aBV" = (
 /obj/effect/overlay/palmtree_l,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBW" = (
 /obj/effect/overlay/palmtree_r,
 /obj/effect/overlay/coconut,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBX" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -4209,7 +4208,7 @@
 "aCa" = (
 /obj/effect/overlay/coconut,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aCb" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -4332,7 +4331,7 @@
 "aCH" = (
 /obj/effect/overlay/palmtree_r,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aCI" = (
 /obj/machinery/light{
 	dir = 8;
@@ -4359,7 +4358,7 @@
 	name = "endgame_exit"
 	},
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aCU" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -4413,7 +4412,7 @@
 "aDj" = (
 /obj/structure/table/standard,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDk" = (
 /obj/structure/table/standard,
 /obj/item/clothing/glasses/sunglasses,
@@ -4421,7 +4420,7 @@
 	pixel_y = 5
 	},
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDo" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -4450,7 +4449,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/chips,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDu" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/cans/cola,
@@ -4460,11 +4459,11 @@
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDv" = (
 /obj/item/beach_ball,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDA" = (
 /obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_right"
@@ -4537,11 +4536,10 @@
 	name = "endgame_exit"
 	},
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aEd" = (
-/mob/living/simple_animal/crab/Coffee,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aEf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -4551,7 +4549,7 @@
 "aEi" = (
 /obj/item/clothing/head/collectable/paper,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aEj" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -4660,10 +4658,10 @@
 	density = 1;
 	opacity = 1
 	},
-/area/beach)
+/area/template_noop)
 "aEF" = (
 /turf/unsimulated/beach/coastline,
-/area/beach)
+/area/template_noop)
 "aEG" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,11"
@@ -4713,10 +4711,10 @@
 	density = 1;
 	opacity = 1
 	},
-/area/beach)
+/area/template_noop)
 "aEY" = (
 /turf/unsimulated/beach/water,
-/area/beach)
+/area/template_noop)
 "aFa" = (
 /obj/machinery/light{
 	icon_state = "tube1"
