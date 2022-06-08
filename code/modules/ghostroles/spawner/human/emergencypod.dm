@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/rescuepodsurv
 	short_name = "rescuepodsurv"
 	name = "Rescue Pod Survivor"
-	desc = "You managed to get into a rescue pod and landed somewhere on an asteroid."
+	desc = "You managed to get into a rescue pod and landed somewhere on an asteroid in the sector."
 	tags = list("External")
 
 	enabled = FALSE
@@ -68,8 +68,8 @@
 		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_UNATHI)
 
 /datum/ghostspawner/human/rescuepodsurv/select_spawnlocation(var/use=TRUE)
-	//Randomly select a Turf on the asteroid.
-	var/turf/T = pick_area_turf(/area/mine/unexplored)
+	var/list/possible_areas = list(/area/exoplanet/barren/asteroid) 
+	var/turf/T = pick_area_turf(pick(possible_areas))
 	if(!use) //If we are just checking if we can get one, return the turf we found
 		return T
 
