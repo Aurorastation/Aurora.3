@@ -87,3 +87,8 @@
 	name = "Ship Sensors Console"
 	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 2)
 	build_path = /obj/item/circuitboard/ship/sensors
+
+/datum/design/circuit/computer/engines
+	name = "Helm Control Console"
+	req_tech = list(TECH_ENGINEERING = 3)
+	build_path = /obj/item/circuitboard/ship/engines
