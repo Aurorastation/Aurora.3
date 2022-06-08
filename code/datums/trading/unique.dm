@@ -164,6 +164,11 @@
 		/obj/item/clothing/head/helmet/space/void/vaurca = TRADER_THIS_TYPE,
 		/obj/item/clothing/shoes/magboots/vaurca     = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE
+		/obj/item/clothing/suit/space/void/scout	= TRADER_THIS_TYPE
+		/obj/item/clothing/head/helmet/space/void/scout	= TRADER_THIS_TYPE
+		/obj/item/clothing/suit/space/void/commando	= TRADER_THIS_TYPE
+		/obj/item/clothing/head/helmet/space/void/commando = TRADER_THIS_TYPE
+		/obj/item/clothing/mask/gas/vaurca = TRADER_THIS_TYPE
 	)
 
 	speech = list(
