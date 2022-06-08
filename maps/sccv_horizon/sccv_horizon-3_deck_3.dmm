@@ -5715,7 +5715,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/structure/sign/meeting_point{
+/obj/structure/sign/emergency/meetingpoint{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8949,7 +8949,7 @@
 	c_tag = "Third Deck - Central Stairwell";
 	dir = 4
 	},
-/obj/structure/sign/emerg_exitZ_stairs/evac{
+/obj/structure/sign/emergency/evacuation/stairs{
 	layer = 2.1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -16255,7 +16255,7 @@
 	c_tag = "Bridge - Deck 3- Bunker Escape Route";
 	network = list("Command","Bunker")
 	},
-/obj/structure/sign/emerg_exitZ{
+/obj/structure/sign/emergency/exit/ladder{
 	pixel_x = -32
 	},
 /obj/machinery/light/small{
@@ -19611,12 +19611,12 @@
 	req_access = list(20);
 	specialfunctions = 4
 	},
-/obj/structure/sign/emerg_exit{
+/obj/structure/sign/emergency/exit{
 	dir = 1;
 	pixel_x = 32
 	},
 /obj/structure/lattice,
-/obj/structure/sign/emerg_exitZ{
+/obj/structure/sign/emergency/exit/ladder{
 	pixel_x = -32
 	},
 /turf/simulated/open,
@@ -23336,7 +23336,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
-/obj/structure/sign/emerg_exit{
+/obj/structure/sign/emergency/exit{
 	dir = 4;
 	pixel_y = 37
 	},
@@ -23346,7 +23346,7 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo)
 "QR" = (
-/obj/structure/sign/emerg_exit{
+/obj/structure/sign/emergency/exit{
 	dir = 8;
 	pixel_x = -32
 	},
@@ -26217,7 +26217,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,

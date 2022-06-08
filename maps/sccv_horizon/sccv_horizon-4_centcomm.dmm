@@ -20541,7 +20541,7 @@
 	name = "mechanical supply crate";
 	pixel_x = 1
 	},
-/obj/structure/sign/emerg_exitZ{
+/obj/structure/sign/emergency/exit/ladder{
 	dir = 1;
 	pixel_x = -9;
 	pixel_y = 30
@@ -21014,7 +21014,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "aYn" = (
-/obj/structure/sign/emerg_exit{
+/obj/structure/sign/emergency/exit{
 	dir = 8;
 	pixel_y = 32
 	},
