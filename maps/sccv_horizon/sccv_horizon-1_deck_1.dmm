@@ -11208,13 +11208,14 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/structure/sign/securearea{
-	pixel_y = -32;
-	name = "\improper DANGER: DEPRESSURIZED AREA sign";
-	desc = "A danger sign which reads 'DANGER: THE MINING SHUTTLE HANGAR IS A DEPRESSURIZED AREA'."
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -17728,6 +17729,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "ovh" = (
@@ -18170,6 +18172,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "oYp" = (
@@ -20920,11 +20923,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/sign/securearea{
-	pixel_y = -32;
-	name = "\improper DANGER: DEPRESSURIZED AREA sign";
-	desc = "A danger sign which reads 'DANGER: THE MINING SHUTTLE HANGAR IS A DEPRESSURIZED AREA'."
+/obj/structure/sign/vacuum{
+	pixel_y = -32
 	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "rcA" = (
@@ -28505,6 +28507,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "xol" = (
