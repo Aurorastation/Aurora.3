@@ -225,4 +225,4 @@
 	icon_state = "laser"
 	damage = 30
 	armor_penetration = 10
-	incinerate = 5
+	incinerate = 4
