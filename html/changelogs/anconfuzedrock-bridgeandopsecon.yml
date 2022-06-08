@@ -2,4 +2,5 @@ author: anconfuzedrock
 
 delete-after: True
 
+changes:
   - tweak: "Operations managers now make more money (same as other heads) and bridge crew make less (same as miners and engineers)."
