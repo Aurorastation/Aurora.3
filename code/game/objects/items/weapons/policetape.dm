@@ -3,7 +3,7 @@ var/list/tape_roll_applications = list()
 //Define all tape types in policetape.dm
 /obj/item/taperoll
 	name = "tape roll"
-	icon = 'icons/policetape.dmi'
+	icon = 'icons/obj/policetape.dmi'
 	icon_state = "tape"
 	w_class = ITEMSIZE_SMALL
 	var/static/list/hazard_overlays
@@ -23,7 +23,7 @@ var/list/tape_roll_applications = list()
 
 /obj/item/tape
 	name = "tape"
-	icon = 'icons/policetape.dmi'
+	icon = 'icons/obj/policetape.dmi'
 	anchored = 1
 	layer = 3.1 // Above closed airlocks.
 	var/lifted = 0
