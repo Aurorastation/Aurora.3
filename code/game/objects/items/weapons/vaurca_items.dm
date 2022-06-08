@@ -76,6 +76,13 @@
 	icon_state = "vacshroudbrown"
 	item_state = "vacshroudbrown"
 
+/obj/item/clothing/head/shroud/colorable
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles."
+	icon_state = "vacshroudcol"
+	item_state = "vacshroudcol"
+	worn_overlay = "over"
+	build_from_parts = TRUE
+
 /obj/item/melee/energy/vaurca
 	name = "thermal knife"
 	desc = "A Vaurcae-designed combat knife with a thermal energy blade designed for close-quarter encounters."

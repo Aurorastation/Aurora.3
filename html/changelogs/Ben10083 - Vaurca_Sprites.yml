@@ -38,7 +38,8 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "New gear harnesses for vaurca."
+  - rscadd: "New gear harnesses for Vaurca."
   - imageadd: "New vaurca undershirt sprite."
   - imageadd: "New vaurca blinders sprite."
   - imageadd: "New vaurca shoes sprite."
+  - rscadd: "New colorable vaurcan shroud for Vaurca."

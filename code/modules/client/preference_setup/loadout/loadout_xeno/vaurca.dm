@@ -150,6 +150,15 @@
 	shrouds["vaurcan shroud, brown"] = /obj/item/clothing/head/shroud/brown
 	gear_tweaks += new /datum/gear_tweak/path(shrouds)
 
+/datum/gear/suit/vaurca_shroud_colorable
+	display_name = "vaurcan shroud (colorable)"
+	description = "A selection of vaurca colored shrouds."
+	path = /obj/item/clothing/head/shroud/colorable
+	cost = 1
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/vaurca_mantle
 	display_name = "vaurcan mantle"
 	path = /obj/item/clothing/accessory/poncho/vaurca
