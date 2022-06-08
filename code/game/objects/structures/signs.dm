@@ -283,6 +283,11 @@
 	desc = "A danger sign which reads \"DANGER: DROP HAZARD\"."
 	icon_state = "drop"
 
+/obj/structure/sign/vacuum
+	name = "\improper DANGER: VACUUM sign"
+	desc = "A danger sign which reads \"DANGER: VACUUM\"."
+	icon_state = "vacuum"
+
 //
 // Emergency Signs
 //
