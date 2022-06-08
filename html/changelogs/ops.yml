@@ -1,0 +1,8 @@
+author: RyverStyx
+
+delete-after: True
+
+changes:
+  - tweak: "Changes the sprites for the Orion/Heph Tech Alt to be the old sprites with the vest."
+  - tweak: "Changes Heph Tech default to not include the vest. Gives the position a Hephaestus themed jump instead of being generic."
+  - tweak: "Changes the Heph Miner to be thematic with Hephaestus as an industry."
