@@ -11030,7 +11030,7 @@
 	density = 1;
 	opacity = 1
 	},
-/area/beach)
+/area/template_noop)
 "aBi" = (
 /obj/structure/table/reinforced,
 /obj/item/clothing/mask/gas,
@@ -11167,15 +11167,14 @@
 /area/centcom/control)
 "aBw" = (
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBx" = (
-/obj/structure/signpost,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBy" = (
 /obj/structure/closet,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBz" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/bodybags,
@@ -11442,12 +11441,12 @@
 "aBV" = (
 /obj/effect/overlay/palmtree_l,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBW" = (
 /obj/effect/overlay/palmtree_r,
 /obj/effect/overlay/coconut,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBX" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -11487,7 +11486,7 @@
 "aCa" = (
 /obj/effect/overlay/coconut,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aCb" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -11735,7 +11734,7 @@
 "aCH" = (
 /obj/effect/overlay/palmtree_r,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aCI" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -11802,7 +11801,7 @@
 	name = "endgame_exit"
 	},
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aCT" = (
 /turf/simulated/wall/shuttle/dark/corner/underlay{
 	dir = 10;
@@ -11945,16 +11944,15 @@
 "aDj" = (
 /obj/structure/table/standard,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDk" = (
 /obj/structure/table/standard,
-/obj/item/clothing/under/rainbow,
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/head/collectable/petehat{
 	pixel_y = 5
 	},
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDl" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 4;
@@ -12020,7 +12018,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/chips,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDu" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/cans/cola,
@@ -12030,11 +12028,11 @@
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDv" = (
 /obj/item/beach_ball,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDw" = (
 /turf/unsimulated/floor{
 	icon_state = "green";
@@ -12313,11 +12311,10 @@
 	name = "endgame_exit"
 	},
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aEd" = (
-/mob/living/simple_animal/crab/Coffee,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aEe" = (
 /turf/unsimulated/floor{
 	icon_state = "warnplate";
@@ -12346,7 +12343,7 @@
 "aEi" = (
 /obj/item/clothing/head/collectable/paper,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aEj" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -12420,7 +12417,7 @@
 /turf/unsimulated/floor{
 	icon_state = "sandwater"
 	},
-/area/beach)
+/area/template_noop)
 "aEt" = (
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
@@ -12514,10 +12511,10 @@
 	density = 1;
 	opacity = 1
 	},
-/area/beach)
+/area/template_noop)
 "aEF" = (
 /turf/unsimulated/beach/coastline,
-/area/beach)
+/area/template_noop)
 "aEG" = (
 /obj/item/coin/gold,
 /turf/unsimulated/floor{
@@ -12652,10 +12649,10 @@
 	density = 1;
 	opacity = 1
 	},
-/area/beach)
+/area/template_noop)
 "aEY" = (
 /turf/unsimulated/beach/water,
-/area/beach)
+/area/template_noop)
 "aEZ" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;

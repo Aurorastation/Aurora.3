@@ -34,6 +34,7 @@
 		list(/decl/reagent/toxin/dextrotoxin = 10)								= 1,
 		list(/decl/reagent/toxin/spectrocybin = 15)								= 1,
 		list(/decl/reagent/joy = 10, /decl/reagent/water = 20)					= 1,
+		list(/decl/reagent/toxin/berserk = 10)                                  = 1,
 		list(/decl/reagent/ammonia = 15)										= 3)
 
 /obj/item/reagent_containers/glass/beaker/vial/random/Initialize()

@@ -190,7 +190,7 @@
 	uniform = list(
 		/obj/item/clothing/under/serviceoveralls,
 		/obj/item/clothing/under/det/zavod,
-		/obj/item/clothing/under/brown,
+		/obj/item/clothing/under/color/brown,
 		/obj/item/clothing/under/syndicate/tracksuit,
 		/obj/item/clothing/under/captainformal,
 		/obj/item/clothing/under/dominia,

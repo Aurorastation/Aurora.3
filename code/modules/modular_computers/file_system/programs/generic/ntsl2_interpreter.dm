@@ -3,6 +3,7 @@
 	filedesc = "NTSL2++ Interpreter"
 	extended_desc = "This program is used to run NTSL2++ scripts."
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
 	usage_flags = PROGRAM_ALL
 	size = 8
 	requires_ntnet = TRUE
@@ -40,7 +41,7 @@
 		var/datum/computer_file/script/F = HDD.find_file_by_name(href_list["execute_file"])
 		if(istype(F))
 			var/code = F.code
-			
+
 			if(istype(running))
 				running.execute(code, usr)
 				is_running = TRUE
@@ -90,7 +91,7 @@
 		if(istype(running))
 			running.handle_topic(href_list["terminal_topic"])
 		. = TRUE
-	
+
 	if(.)
 		SSvueui.check_uis_for_change(src)
 		return FALSE
@@ -115,7 +116,7 @@
 		. = data
 
 	var/obj/item/computer_hardware/hard_drive/hdd = computer?.hard_drive
-	
+
 	if(is_running && istype(running))
 		data["mode"] = "program"
 		data["terminal"] = running.buffer
@@ -126,7 +127,7 @@
 	else
 		VUEUI_SET_CHECK(data["mode"], "list", ., data)
 
-	
+
 	data["files"] = list()
 	for(var/datum/computer_file/script/F in hdd?.stored_files)
 		if(F.filetype == "NTS" && !F.password)
@@ -136,7 +137,7 @@
 				"size" = F.size,
 				"undeletable" = F.undeletable
 			))
-	
+
 
 /datum/computer_file/program/ntsl2_interpreter/proc/buffer_callback_handler()
 	SSvueui.check_uis_for_change(src)

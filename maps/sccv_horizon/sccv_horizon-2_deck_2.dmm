@@ -160,15 +160,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
-"adb" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/shield_diffuser,
-/obj/structure/sign/drop{
-	desc = "A warning sign which reads 'DANGER: MASS EJECTOR PATH ON THIS SIGN'.";
-	name = "\improper DANGER: MASS EJECTOR PATH sign"
-	},
-/turf/simulated/open/airless,
-/area/template_noop)
 "adw" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
@@ -424,7 +415,9 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/structure/sign/emerg_exitZ_stairs/evac,
+/obj/structure/sign/emerg_exitZ_stairs/evac{
+	layer = 2.1
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
@@ -6329,6 +6322,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "dsw" = (
@@ -7725,6 +7720,9 @@
 	pixel_y = 16
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "elh" = (
@@ -14788,16 +14786,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/starboard)
-"hUK" = (
-/obj/structure/ladder{
-	pixel_y = 16
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/open/airless,
-/area/template_noop)
 "hUP" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -16575,13 +16563,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
-"iXv" = (
-/obj/machinery/camera/network/security{
-	c_tag = "Security - Second Deck Checkpoint";
-	dir = 4
-	},
-/turf/simulated/wall,
-/area/security/checkpoint2)
 "iXI" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -17043,6 +17024,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "jlQ" = (
@@ -19238,10 +19220,6 @@
 /area/security/checkpoint2)
 "kAM" = (
 /obj/structure/table/wood,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
-	},
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet,
 /area/medical/psych)
@@ -20130,10 +20108,13 @@
 /area/rnd/conference)
 "lcu" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/shield_diffuser,
 /obj/structure/sign/drop{
 	desc = "A warning sign which reads 'DANGER: MASS EJECTOR PATH ON THIS SIGN'.";
 	name = "\improper DANGER: MASS EJECTOR PATH sign"
 	},
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "lcy" = (
@@ -22336,8 +22317,10 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "mpN" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/reinforced/airless,
+/obj/machinery/shield_diffuser,
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/simulated/open/airless,
 /area/template_noop)
 "mpV" = (
 /obj/structure/cable/green{
@@ -26666,16 +26649,6 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_two)
-"oFC" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/open/airless,
-/area/template_noop)
 "oGm" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -27019,6 +26992,7 @@
 /obj/item/stack/material/glass/phoronrglass{
 	amount = 20
 	},
+/obj/item/stack/material/wood/full,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "oPE" = (
@@ -27228,10 +27202,11 @@
 	pixel_y = 13
 	},
 /obj/machinery/requests_console{
-	department = "Supply Manager";
+	department = "Operations Manager";
 	departmentType = 5;
-	name = "Supply Manager Request Console";
-	pixel_x = -32
+	name = "Operations Manager Request Console";
+	pixel_x = -32;
+	announcementConsole = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -28019,13 +27994,6 @@
 /obj/item/clothing/glasses/safety/goggles,
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
-"pqs" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/open/airless,
-/area/template_noop)
 "pqE" = (
 /obj/structure/closet/toolcloset,
 /obj/machinery/power/apc{
@@ -28621,7 +28589,7 @@
 	dir = 9
 	},
 /obj/machinery/requests_console{
-	department = "Cargo Bay";
+	department = "Operations Office";
 	departmentType = 2;
 	name = "Operations Requests Console";
 	pixel_x = -32
@@ -33557,14 +33525,14 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
 "slk" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/shield_diffuser,
+/obj/structure/lattice/catwalk,
 /obj/structure/sign/drop{
 	desc = "A warning sign which reads 'DANGER: MASS EJECTOR PATH ON THIS SIGN'.";
 	name = "\improper DANGER: MASS EJECTOR PATH sign"
 	},
-/turf/simulated/floor/reinforced/airless,
+/obj/item/hullbeacon/red,
+/turf/simulated/open/airless,
 /area/template_noop)
 "slm" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -34663,14 +34631,6 @@
 /obj/machinery/porta_turret,
 /turf/simulated/floor/reinforced,
 /area/turret_protected/ai_upload_foyer)
-"sVv" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/open/airless,
-/area/template_noop)
 "sVB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped,
@@ -35187,7 +35147,7 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/light,
 /obj/machinery/camera/network/service{
-	c_tag = "Dinner - Hydroponics 1";
+	c_tag = "Service- Hydroponics 2";
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -35245,11 +35205,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "tjS" = (
+/obj/machinery/disposal/small/north,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/obj/machinery/disposal/small/north,
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "tjT" = (
@@ -35429,7 +35389,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "tqC" = (
-/obj/effect/shuttle_landmark/ccia/dock,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "tqF" = (
@@ -35938,7 +35900,9 @@
 /area/horizon/library)
 "tFX" = (
 /obj/structure/table/standard,
-/obj/item/paper_scanner,
+/obj/machinery/photocopier/faxmachine{
+	department = "Operations Manager's Office"
+	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "tGb" = (
@@ -36139,6 +36103,8 @@
 /obj/structure/table/steel,
 /obj/item/circuitboard/arcade/orion_trail,
 /obj/item/circuitboard/arcade/battle,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "tKs" = (
@@ -37271,9 +37237,9 @@
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "uot" = (
-/obj/machinery/shield_diffuser,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/chapel/office)
+/obj/effect/shuttle_landmark/ccia/dock,
+/turf/template_noop,
+/area/template_noop)
 "uoz" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Research Substation"
@@ -38066,7 +38032,7 @@
 "uHY" = (
 /obj/machinery/power/portgen/basic,
 /obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Secure Technical Storage";
+	c_tag = "Engineering - Hard Storage";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -39110,6 +39076,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/scanning_module,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "voX" = (
@@ -41428,6 +41397,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "wrK" = (
@@ -42442,7 +42412,8 @@
 /area/engineering/engine_monitoring/tesla)
 "wRd" = (
 /obj/item/modular_computer/console/preset/security{
-	dir = 8
+	dir = 8;
+	pixel_x = 8
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/newscaster/security_unit{
@@ -57947,7 +57918,7 @@ tBZ
 vua
 tXc
 trC
-iXv
+jWV
 xnv
 qlp
 dwy
@@ -58563,11 +58534,11 @@ eWm
 tAN
 udR
 xer
-dUw
-dUw
-kgp
-kgp
-kgp
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -58767,9 +58738,9 @@ udR
 xer
 qgN
 qgN
-kgp
-kgp
-kgp
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -58968,11 +58939,11 @@ aFJ
 udR
 xer
 qgN
-kgp
-kgp
-kgp
-kgp
-kgp
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -59169,12 +59140,12 @@ sXT
 aQb
 udR
 xer
-dUw
-kgp
-kgp
-kgp
-kgp
-kgp
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -59372,11 +59343,11 @@ ebR
 wFj
 xer
 qgN
-kgp
-kgp
-kgp
-kgp
-kgp
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -59574,11 +59545,11 @@ aQb
 wFj
 wFj
 wFj
-kgp
-kgp
-tqC
-kgp
-kgp
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -59776,11 +59747,11 @@ aSd
 qqK
 hoZ
 blJ
-kgp
-kgp
-kgp
-kgp
-kgp
+uot
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -59978,11 +59949,11 @@ jWV
 wFj
 wFj
 wFj
-kgp
-kgp
-kgp
-kgp
-kgp
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -60178,15 +60149,15 @@ bGI
 hwM
 spn
 lNQ
-kgp
 xer
-kgp
-kgp
-kgp
-kgp
-kgp
-pqs
-hUK
+ghq
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -60380,15 +60351,15 @@ mOS
 kOW
 eyu
 lCF
-kgp
 xer
-kgp
-kgp
-kgp
-kgp
-kgp
-oFC
-ryR
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -60582,15 +60553,15 @@ jEL
 jEL
 oWC
 lCF
-kgp
-tMp
-mLU
-mLU
-mLU
-eTQ
+xer
 qgN
 qgN
-sVv
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -60784,15 +60755,15 @@ off
 bCD
 vKF
 lCF
-kgp
-kgp
-kgp
-kgp
-kgp
 xer
 qgN
 qgN
-sVv
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -60986,15 +60957,15 @@ oKE
 jpf
 vYI
 lCF
-kgp
-kgp
-kgp
-kgp
-kgp
 xer
-nJQ
-nJQ
-ryR
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -61188,15 +61159,15 @@ fol
 fol
 pgi
 lNQ
-kgp
-kgp
-kgp
-kgp
-kgp
 xer
 qgN
 qgN
-sVv
+qgN
+qgN
+qgN
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -61391,18 +61362,18 @@ fol
 aCS
 fRc
 lcu
+qgN
+qgN
 mpN
-mpN
-mpN
-mpN
+qgN
+qgN
 slk
 qgN
 qgN
-adb
+mpN
 qgN
 qgN
-adb
-qgN
+slk
 qgN
 qgN
 qgN
@@ -61591,20 +61562,20 @@ nfL
 axL
 fol
 fol
-uot
-kgp
-kgp
-kgp
-kgp
-kgp
-tMp
+lNQ
+xer
+qgN
+fRg
+mLU
+mLU
+mLU
 aib
 mLU
 mLU
 mLU
 mLU
 eTQ
-qgN
+dUw
 qgN
 qgN
 qgN
@@ -61795,8 +61766,8 @@ fol
 xIW
 lNQ
 ekX
-kgp
-kgp
+mLU
+tqC
 dLP
 dLP
 dLP

@@ -529,6 +529,10 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/space_bar)
+"fWG" = (
+/obj/machinery/cryopod,
+/turf/simulated/floor/tiled/freezer,
+/area/space_bar)
 "fZJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -31443,7 +31447,7 @@ ygr
 fSX
 lkB
 piw
-piw
+fWG
 vxN
 vxN
 ygr

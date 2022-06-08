@@ -114,7 +114,7 @@
 
 /datum/outfit/job/scientist/xenoarcheologist
     name = "Xenoarcheologist"
-    uniform = /obj/item/clothing/under/rank/xenoarcheologist
+    uniform = /obj/item/clothing/under/rank/scientist/xenoarcheologist
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"

@@ -132,7 +132,7 @@
 /datum/outfit/job/scientist/xenoarcheologist/zavodskoi
 	name = "Xenoarcheologist - Zavodskoi Interstellar"
 
-	uniform = /obj/item/clothing/under/rank/xenoarcheologist/zavod
+	uniform = /obj/item/clothing/under/rank/scientist/xenoarcheologist/zavod
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	id = /obj/item/card/id/zavodskoi
 
