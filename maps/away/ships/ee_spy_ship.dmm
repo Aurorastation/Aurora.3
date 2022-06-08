@@ -1006,6 +1006,9 @@
 /obj/machinery/cryopod{
 	dir = 2
 	},
+/obj/machinery/computer/cryopod{
+	pixel_y = 30
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/ee_spy_ship)
 "uNN" = (

@@ -179,7 +179,7 @@
 /obj/item/storage/box/syndie_kit/toxin
 	name = "toxin kit"
 	desc = "An apple will not be enough to keep the doctor away after this."
-	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1, /obj/item/reagent_containers/syringe = 1)
+	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 3, /obj/item/reagent_containers/syringe = 1)
 
 /obj/item/storage/box/syndie_kit/cigarette
 	name = "tricky smokes"
@@ -260,4 +260,11 @@
 	desc = "Comes with 4x autoinjectors filled with drugs to counter chemical side-effects. Each injector has 2 uses."
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 4
+	)
+
+/obj/item/storage/box/syndie_kit/berserk_injectors
+	name = "box of berserk injectors"
+	desc = "Comes with 2x autoinjectors filled with Red Nightshade used to induce a berserk state."
+	starts_with = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/berserk = 2
 	)
