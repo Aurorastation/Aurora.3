@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes mining shuttle sensors console being inaccessible. Fixes the possibility of the operations hangar being vented if the mining shuttle airlock is forced."
