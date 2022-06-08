@@ -79,14 +79,15 @@
 	path = /obj/item/clothing/head/beret/corporate/zavod
 	sort_category = "Factions"
 
+/datum/gear/faction/zavodskoi_softcap
+	display_name = "brown zavodskoi cap"
+	path = /obj/item/clothing/head/softcap/zavod
+
 /datum/gear/faction/zavodskoi_softcap/alt
 	display_name = "black zavodskoi cap"
 	path = /obj/item/clothing/head/softcap/zavod/alt
 	faction = "Zavodskoi Interstellar"
 
-/datum/gear/faction/zavodskoi_softcap
-	display_name = "brown zavodskoi cap"
-	path = /obj/item/clothing/head/softcap/zavod
 
 /datum/gear/faction/zavodskoi_labcoat
 	display_name = "zavodskoi labcoat"

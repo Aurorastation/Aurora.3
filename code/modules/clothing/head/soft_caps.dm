@@ -152,8 +152,8 @@
 	item_state = "zav"
 
 /obj/item/clothing/head/softcap/zavod/alt
-	icon_state = "zavalt_cap"
-	item_state = "zavalt_cap"
+	icon_state = "zavalt"
+	item_state = "zavalt"
 
 /obj/item/clothing/head/softcap/zeng
 	desc = "A company-issue Zeng-Hu cap. It feels synthetic to the touch."
