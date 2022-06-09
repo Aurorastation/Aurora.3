@@ -118,7 +118,7 @@
 /datum/gear/faction/zavod_sec_uniforms
 	display_name = "zavodskoi security uniform selection"
 	description = "A selection of zavodskoi security uniforms."
-	path = /obj/item/clothing/under/rank/security/zavod/necro
+	path = /obj/item/clothing/under/rank/security/zavod/zavodsec
 	slot = slot_w_uniform
 	faction = "Zavodskoi Interstellar"
 	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden")
@@ -126,8 +126,8 @@
 /datum/gear/faction/zavod_sec_uniforms/New()
 	..()
 	var/list/zavod_sec_uniforms = list()
-	zavod_sec_uniforms["zavodskoi uniform"] = /obj/item/clothing/under/rank/security/zavod/necro
-	zavod_sec_uniforms["zavodskoi uniform, alt"] = /obj/item/clothing/under/rank/security/zavod/necro_alt
+	zavod_sec_uniforms["zavodskoi uniform"] = /obj/item/clothing/under/rank/security/zavod/zavodsec
+	zavod_sec_uniforms["zavodskoi uniform, alt"] = /obj/item/clothing/under/rank/security/zavod/zavodsec/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sec_uniforms)
 
 /datum/gear/faction/zavodskoi_labcoat

@@ -22,22 +22,26 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/security/zavod
+	name = "zavodskoi interstellar security officer's uniform"
 	icon_state = "zav_officer"
 	item_state = "zav_officer"
 
-/obj/item/clothing/under/rank/security/zavod/necro // Note: Item Icon placeholder
-	icon_state = "necro"
-	item_state = "necro"
+/obj/item/clothing/under/rank/security/zavod/zavodsec
+	name = "zavodskoi interstellar security uniform"
+	icon_state = "zavod"
+	item_state = "zavod"
 
-/obj/item/clothing/under/rank/security/zavod/necro_alt // Note: Item Icon placeholder
-	icon_state = "necro_alt"
-	item_state = "necro_alt"
+/obj/item/clothing/under/rank/security/zavod/zavodsec/alt
+	icon_state = "zavod_alt"
+	item_state = "zavod_alt"
 
 /obj/item/clothing/under/rank/security/idris
+	name = "idris incorporated security officer's uniform"
 	icon_state = "idris_officer"
 	item_state = "idris_officer"
 
 /obj/item/clothing/under/rank/security/idris/idrissec
+	name = "idris incorporated security uniform"
 	icon_state = "idris"
 	item_state = "idris"
 
@@ -46,14 +50,13 @@
 	item_state = "idris_alt"
 
 /obj/item/clothing/under/rank/security/pmc
+	name = "PMCG security officer's uniform"
 	icon_state = "pmc_officer"
 	item_state = "pmc_officer"
 
-/obj/item/clothing/under/rank/security/pmc/alt
-	icon_state = "pmc"
-	item_state = "pmc"
-
 /obj/item/clothing/under/rank/security/pmc/epmc // Note: Item Icon placeholder
+	name = "EPMC security uniform"
+	desc_fluff = "The EPMC is a subsidiary of the PMCG."
 	icon_state = "epmc"
 	item_state = "epmc"
 
@@ -74,14 +77,17 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/rank/cadet/zavod
+	name = "zavodskoi interstellar security cadet's uniform"
 	icon_state = "zav_cadet"
 	item_state = "zav_cadet"
 
 /obj/item/clothing/under/rank/cadet/idris
+	name = "idris incorporated security cadet's uniform"
 	icon_state = "idris_cadet"
 	item_state = "idris_cadet"
 
 /obj/item/clothing/under/rank/cadet/pmc
+	name = "PMCG security cadet's uniform"
 	icon_state = "pmc_cadet"
 	item_state = "pmc_cadet"
 
@@ -107,14 +113,17 @@
 	sensor_mode = 0
 
 /obj/item/clothing/under/rank/warden/zavod
+	name = "zavodskoi interstellar warden's uniform"
 	icon_state = "zav_warden"
 	item_state = "zav_warden"
 
 /obj/item/clothing/under/rank/warden/idris
+	name = "idris incorporated warden's uniform"
 	icon_state = "idris_warden"
 	item_state = "idris_warden"
 
 /obj/item/clothing/under/rank/warden/pmc
+	name = "PMCG warden's uniform"
 	icon_state = "pmc_warden"
 	item_state = "pmc_warden"
 
@@ -135,14 +144,17 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/det/zavod
+	name = "zavodskoi interstellar investigator's uniform"
 	icon_state = "zav_invest"
 	item_state = "zav_invest"
 
 /obj/item/clothing/under/det/idris
+	name = "idris incorporated investigator's uniform"
 	icon_state = "idris_invest"
 	item_state = "idris_invest"
 
 /obj/item/clothing/under/det/pmc
+	name = "PMCG investigator's uniform"
 	icon_state = "pmc_invest"
 	item_state = "pmc_invest"
 
