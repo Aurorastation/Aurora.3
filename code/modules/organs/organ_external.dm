@@ -187,19 +187,22 @@
 	..()
 
 /obj/item/organ/external/proc/dislocate(var/primary)
-	if(dislocated != -1)
-		if(primary)
-			dislocated = 2
-		else
-			dislocated = 1
+	if(dislocated == -1)
+		return
+	if(primary)
+		dislocated = 2
+	else
+		dislocated = 1
 	owner.verbs |= /mob/living/carbon/human/proc/undislocate
 	if(children && children.len)
 		for(var/obj/item/organ/external/child in children)
 			child.dislocate()
 
 /obj/item/organ/external/proc/undislocate()
-	if(dislocated != -1)
-		dislocated = 0
+	if(dislocated == -1)
+		return
+
+	dislocated = 0
 	if(children && children.len)
 		for(var/obj/item/organ/external/child in children)
 			if(child.dislocated == 1)
