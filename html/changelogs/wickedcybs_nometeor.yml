@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweaks: "Meteors and ship debris have been removed from the random event rotation the Horizon experiences."
