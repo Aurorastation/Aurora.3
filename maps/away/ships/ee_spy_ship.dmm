@@ -717,6 +717,15 @@
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
+"ncB" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "ee_spy_ship_out"
+	},
+/obj/effect/shuttle_landmark/ee_spy_ship/nav2,
+/turf/simulated/floor,
+/area/ship/ee_spy_ship)
 "ntt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -987,7 +996,7 @@
 	pixel_y = -10
 	},
 /turf/template_noop,
-/area/ship/ee_spy_ship)
+/area/space)
 "uxz" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/cups,
@@ -36715,7 +36724,7 @@ xRX
 xRX
 xRX
 pAh
-aBD
+ncB
 aBD
 pAh
 xRX

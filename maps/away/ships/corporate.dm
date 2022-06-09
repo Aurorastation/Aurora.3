@@ -37,7 +37,8 @@
 	)
 
 	initial_generic_waypoints = list(
-		"nav_orion_express_ship_1"
+		"nav_orion_express_ship_1",
+		"nav_orion_express_ship_2"
 	)
 
 /obj/effect/overmap/visitable/ship/orion_express_ship/New()
@@ -45,10 +46,16 @@
 	..()
 
 /obj/effect/shuttle_landmark/orion_express_ship/nav1
-	name = "Orion Express Ship #1"
+	name = "Orion Express Ship - Port Side"
 	landmark_tag = "nav_orion_express_ship_1"
 	base_turf = /turf/space/dynamic
-	base_area = /area/template_noop
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/orion_express_ship/nav2
+	name = "Orion Express Ship - Port Airlock"
+	landmark_tag = "nav_orion_express_ship_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/orion_express_ship/transit
 	name = "In transit"
@@ -136,7 +143,8 @@
 	)
 
 	initial_generic_waypoints = list(
-		"nav_ee_spy_ship_1"
+		"nav_ee_spy_ship_1",
+		"nav_ee_spy_ship_2"
 	)
 
 /obj/effect/overmap/visitable/ship/ee_spy_ship/New()
@@ -144,10 +152,16 @@
 	..()
 
 /obj/effect/shuttle_landmark/ee_spy_ship/nav1
-	name = "Einstein Engines Research Ship #1"
+	name = "Einstein Engines Research Ship - Port Side"
 	landmark_tag = "nav_ee_spy_ship_1"
 	base_turf = /turf/space/dynamic
-	base_area = /area/template_noop
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/ee_spy_ship/nav2
+	name = "Einstein Engines Research Ship - Port Airlock"
+	landmark_tag = "nav_ee_spy_ship_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/ee_spy_ship/transit
 	name = "In transit"

@@ -2241,6 +2241,15 @@
 "oAY" = (
 /turf/simulated/wall/shuttle/legion/cardinal,
 /area/ship/tcfl_peacekeeper_ship)
+"oJg" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "tcfl_peacekeeper_ship_out"
+	},
+/obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/nav2,
+/turf/simulated/floor,
+/area/ship/tcfl_peacekeeper_ship)
 "oLC" = (
 /obj/machinery/light/small,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -2615,7 +2624,7 @@
 	pixel_y = -10
 	},
 /turf/template_noop,
-/area/ship/tcfl_peacekeeper_ship)
+/area/space)
 "rgX" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/floor_decal/corner/blue{
@@ -32513,7 +32522,7 @@ pwR
 yjk
 xRX
 qYw
-soZ
+oJg
 soZ
 qYw
 xRX

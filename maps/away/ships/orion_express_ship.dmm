@@ -892,7 +892,7 @@
 	pixel_y = -10
 	},
 /turf/template_noop,
-/area/ship/tcfl_peacekeeper_ship)
+/area/space)
 "pbp" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -1199,6 +1199,15 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/captain,
 /turf/simulated/floor/wood,
+/area/ship/orion_express_ship)
+"vRM" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "orion_traveler_out"
+	},
+/obj/effect/shuttle_landmark/orion_express_ship/nav2,
+/turf/simulated/floor,
 /area/ship/orion_express_ship)
 "vTv" = (
 /obj/machinery/light{
@@ -36884,7 +36893,7 @@ xRX
 xRX
 xRX
 gNW
-lsi
+vRM
 lsi
 gNW
 xRX

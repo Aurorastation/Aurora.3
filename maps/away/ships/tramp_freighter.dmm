@@ -394,7 +394,7 @@
 	pixel_y = -10
 	},
 /turf/template_noop,
-/area/ship/tramp_freighter)
+/area/space)
 "ctQ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/sink{
@@ -1496,6 +1496,15 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/yellow,
+/area/ship/tramp_freighter)
+"ouS" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "sfa_patrol_ship_out"
+	},
+/obj/effect/shuttle_landmark/tramp_freighter/nav2,
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "oyE" = (
 /obj/structure/table/steel,
@@ -37033,7 +37042,7 @@ ylV
 xRX
 xRX
 lXE
-loX
+ouS
 loX
 lXE
 xRX

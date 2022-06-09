@@ -144,7 +144,7 @@
 	pixel_y = -10
 	},
 /turf/template_noop,
-/area/ship/sfa_patrol_ship)
+/area/space)
 "aCd" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
@@ -944,6 +944,15 @@
 	pixel_y = 25
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
+"gXv" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "sfa_patrol_ship_out"
+	},
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav2,
+/turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "gXx" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -39698,7 +39707,7 @@ xRX
 xRX
 xRX
 qyG
-ilo
+gXv
 ilo
 qyG
 xRX

@@ -37,7 +37,8 @@
 	)
 
 	initial_generic_waypoints = list(
-		"nav_tcfl_peacekeeper_ship_1"
+		"nav_tcfl_peacekeeper_ship_1",
+		"nav_tcfl_peacekeeper_ship_2"
 	)
 
 /obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship/New()
@@ -45,10 +46,16 @@
 	..()
 
 /obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/nav1
-	name = "TCFL Peacekeeper Ship #1"
+	name = "TCFL Peacekeeper Ship - Port Side"
 	landmark_tag = "nav_tcfl_peacekeeper_ship_1"
 	base_turf = /turf/space/dynamic
-	base_area = /area/template_noop
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/nav2
+	name = "TCFL Peacekeeper Ship - Port Airlock"
+	landmark_tag = "nav_tcfl_peacekeeper_ship_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/transit
 	name = "In transit"

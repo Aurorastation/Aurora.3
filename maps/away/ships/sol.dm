@@ -37,7 +37,8 @@
 	)
 
 	initial_generic_waypoints = list(
-		"nav_sfa_patrol_ship_1"
+		"nav_sfa_patrol_ship_1",
+		"nav_sfa_patrol_ship_2"
 	)
 
 /obj/effect/overmap/visitable/ship/sfa_patrol_ship/New()
@@ -45,10 +46,16 @@
 	..()
 
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav1
-	name = "SFA Patrol Ship #1"
+	name = "SFA Patrol Ship - Port Side"
 	landmark_tag = "nav_sfa_patrol_ship_1"
 	base_turf = /turf/space/dynamic
-	base_area = /area/template_noop
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav2
+	name = "SFA Patrol Ship - Port Airlock"
+	landmark_tag = "nav_sfa_patrol_ship_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sfa_patrol_ship/transit
 	name = "In transit"
@@ -136,7 +143,8 @@
 	)
 
 	initial_generic_waypoints = list(
-		"nav_fsf_patrol_ship_1"
+		"nav_fsf_patrol_ship_1",
+		"nav_fsf_patrol_ship_2"
 	)
 
 /obj/effect/overmap/visitable/ship/fsf_patrol_ship/New()
@@ -144,10 +152,16 @@
 	..()
 
 /obj/effect/shuttle_landmark/fsf_patrol_ship/nav1
-	name = "FSF Patrol Ship #1"
+	name = "FSF Patrol Ship - Port Side"
 	landmark_tag = "nav_fsf_patrol_ship_1"
 	base_turf = /turf/space/dynamic
-	base_area = /area/template_noop
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/fsf_patrol_ship/nav2
+	name = "FSF Patrol Ship - Port Side"
+	landmark_tag = "nav_fsf_patrol_ship_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/fsf_patrol_ship/transit
 	name = "In transit"

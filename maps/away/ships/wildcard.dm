@@ -37,7 +37,8 @@
 	)
 
 	initial_generic_waypoints = list(
-		"nav_tramp_freighter_1"
+		"nav_tramp_freighter_1",
+		"nav_tramp_freighter_2"
 	)
 
 /obj/effect/overmap/visitable/ship/tramp_freighter/New()
@@ -45,10 +46,16 @@
     ..()
 
 /obj/effect/shuttle_landmark/tramp_freighter/nav1
-	name = "Tramp Freighter #1"
+	name = "Tramp Freighter - Port Side"
 	landmark_tag = "nav_tramp_freighter_1"
 	base_turf = /turf/space/dynamic
-	base_area = /area/template_noop
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/tramp_freighter/nav2
+	name = "Tramp Freighter - Port Airlock"
+	landmark_tag = "nav_tramp_freighter_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tramp_freighter/transit
 	name = "In transit"
