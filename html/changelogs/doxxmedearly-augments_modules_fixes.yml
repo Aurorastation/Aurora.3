@@ -1,0 +1,7 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Deployed augment items (Combitools, lighters, and the like) can no longer be removed from their hand slot, placed or thrown on the ground, put in bags or pockets, etc."
+  - bugfix: "Attached items (Augments, robot modules, exosuit equipment) will no longer embed in mobs if used to attack."
+  - bugfix: "Attached items can no longer be removed via disarming. This applies to the above, as well as some special equipment, like changeling armblades."
+  - bugfix: "The autolathe will (once again) no longer eat robot modules."
