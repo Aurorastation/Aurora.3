@@ -89,6 +89,6 @@
 	build_path = /obj/item/circuitboard/ship/sensors
 
 /datum/design/circuit/computer/engines
-	name = "Helm Control Console"
+	name = "Ship Engines Control Console"
 	req_tech = list(TECH_ENGINEERING = 3)
 	build_path = /obj/item/circuitboard/ship/engines
