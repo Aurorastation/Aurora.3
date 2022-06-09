@@ -111,8 +111,8 @@
 	zavodskoi_headwear["brown zavodskoi cap"] = /obj/item/clothing/head/softcap/zavod
 	zavodskoi_headwear["grey zavodskoi beret"] = /obj/item/clothing/head/beret/corporate/zavod/alt
 	zavodskoi_headwear["grey zavodskoi cap"] = /obj/item/clothing/head/softcap/zavod/alt
-	zavodskoi_headwear["black zavodskoi beret"] = /obj/item/clothing/head/beret/corporate/zavod/necro
-	zavodskoi_headwear["black zavodskoi cap"] = /obj/item/clothing/head/softcap/zavod/necro
+	zavodskoi_headwear["black zavodskoi beret"] = /obj/item/clothing/head/beret/corporate/zavod/zavodsec
+	zavodskoi_headwear["black zavodskoi cap"] = /obj/item/clothing/head/softcap/zavod/zavodsec
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoi_headwear)
 
 /datum/gear/faction/zavod_sec_uniforms

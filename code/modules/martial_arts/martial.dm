@@ -106,6 +106,9 @@
 	if(HULK in A.mutations)
 		real_damage *= 2 // Hulks do twice the damage
 		rand_damage *= 2
+	if(A.is_berserk())
+		real_damage *= 1.5 // Nightshade increases damage by 50%
+		rand_damage *= 1.5
 
 	real_damage = max(1, real_damage)
 

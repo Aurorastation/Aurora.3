@@ -1217,6 +1217,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turbolift/scc_ship/cargo_lift)
+"aBr" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5;
+	color = s
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/research)
 "aBx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -4334,20 +4344,18 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "cil" = (
-/obj/structure/closet/jcloset,
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/item/reagent_containers/spray/cleaner,
-/obj/item/grenade/chem_grenade/cleaner,
-/obj/item/grenade/chem_grenade/cleaner,
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_y = 24
 	},
+/obj/structure/closet/secure_closet/custodial,
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
 "ciP" = (
@@ -6322,6 +6330,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "dsw" = (
@@ -7040,13 +7050,9 @@
 /area/operations/lobby)
 "dMf" = (
 /obj/structure/table/steel,
-/obj/item/storage/box/lights/mixed{
-	pixel_x = 5;
-	pixel_y = 6
-	},
-/obj/item/storage/box/mousetraps,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
 "dMG" = (
@@ -16150,10 +16156,10 @@
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "iMG" = (
@@ -17022,6 +17028,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "jlQ" = (
@@ -23149,6 +23156,7 @@
 	pixel_x = -24;
 	pixel_y = -9
 	},
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
 "mLU" = (
@@ -24003,22 +24011,19 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/lobby)
 "ngg" = (
-/obj/structure/janitorialcart{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/structure/mopbucket,
-/obj/item/mop,
-/obj/item/reagent_containers/glass/bucket,
+/obj/structure/janitorialcart/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
 "ngA" = (
@@ -26989,6 +26994,7 @@
 /obj/item/stack/material/glass/phoronrglass{
 	amount = 20
 	},
+/obj/item/stack/material/wood/full,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "oPE" = (
@@ -36099,6 +36105,8 @@
 /obj/structure/table/steel,
 /obj/item/circuitboard/arcade/orion_trail,
 /obj/item/circuitboard/arcade/battle,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "tKs" = (
@@ -39070,6 +39078,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/scanning_module,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "voX" = (
@@ -41388,6 +41399,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/device/gps/engineering,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "wrK" = (
@@ -68585,7 +68597,7 @@ bGh
 cnQ
 tDc
 etv
-tdD
+aBr
 gPM
 lFE
 ulB

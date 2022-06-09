@@ -243,6 +243,14 @@
 
 	reagents_to_add = list(/decl/reagent/tricordrazine = 15, /decl/reagent/inaprovaline = 5, /decl/reagent/dexalin/plus = 5, /decl/reagent/oxycomorphine = 3, /decl/reagent/synaptizine = 2, /decl/reagent/mental/corophenidate = 5)
 
+/obj/item/reagent_containers/hypospray/autoinjector/berserk
+	name_label = "berserk injector"
+	desc = "An injector containing Red Nightshade. Used before fights to induce a berserk state."
+	volume = 5
+	amount_per_transfer_from_this = 5
+
+	reagents_to_add = list(/decl/reagent/toxin/berserk = 5)
+
 /obj/item/reagent_containers/hypospray/autoinjector/trauma
 	name = "trauma hypo-injector"
 	desc = "A special hypospray made to combat most forms of physical trauma."

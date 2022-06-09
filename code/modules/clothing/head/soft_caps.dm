@@ -159,9 +159,9 @@
 	icon_state = "zavalt"
 	item_state = "zavalt"
 
-/obj/item/clothing/head/softcap/zavod/necro
-	icon_state = "necro"
-	item_state = "necro"
+/obj/item/clothing/head/softcap/zavod/zavodsec
+	icon_state = "zavod"
+	item_state = "zavod"
 
 /obj/item/clothing/head/softcap/zeng
 	desc = "A company-issue Zeng-Hu cap. It feels synthetic to the touch."

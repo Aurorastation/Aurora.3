@@ -22,11 +22,11 @@
 /datum/outfit/admin/sfa_navy_crewman
 	name = "SFA Navy Crewman"
 
-	uniform = /obj/item/clothing/under/rank/fatigues/
+	uniform = /obj/item/clothing/under/rank/sol/
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel_norm
 	belt = /obj/item/storage/belt/utility/full
-	head = /obj/item/clothing/head/navy
+	head = /obj/item/clothing/head/sol
 	accessory = /obj/item/clothing/accessory/storage/brown_vest
 
 	id = /obj/item/card/id/sfa_ship
@@ -60,10 +60,10 @@
 /datum/outfit/admin/sfa_navy_officer
 	name = "SFA Navy Officer"
 
-	uniform = /obj/item/clothing/under/rank/dress/subofficer
+	uniform = /obj/item/clothing/under/rank/sol/dress/subofficer
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel
-	head = /obj/item/clothing/head/dress
+	head = /obj/item/clothing/head/sol/dress
 	accessory = /obj/item/clothing/accessory/holster/thigh
 
 	id = /obj/item/card/id/sfa_ship
@@ -97,11 +97,11 @@
 /datum/outfit/admin/sfa_marine
 	name = "SFA Marine"
 
-	uniform = /obj/item/clothing/under/rank/fatigues/marine
+	uniform = /obj/item/clothing/under/rank/sol/marine
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel_norm
 	belt = /obj/item/storage/belt/military
-	head = /obj/item/clothing/head/navy/marine
+	head = /obj/item/clothing/head/sol/marine
 	accessory = /obj/item/clothing/accessory/storage/pouches/black
 
 	id = /obj/item/card/id/sfa_ship
@@ -143,11 +143,11 @@
 /datum/outfit/admin/fsf_navy_crewman
 	name = "FSF Navy Crewman"
 
-	uniform = /obj/item/clothing/under/rank/fatigues/
+	uniform = /obj/item/clothing/under/rank/sol/
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel_norm
 	belt = /obj/item/storage/belt/utility/full
-	head = /obj/item/clothing/head/navy
+	head = /obj/item/clothing/head/sol
 	accessory = /obj/item/clothing/accessory/storage/brown_vest
 
 	id = /obj/item/card/id/fsf_ship
@@ -181,10 +181,10 @@
 /datum/outfit/admin/fsf_navy_officer
 	name = "FSF Navy Officer"
 
-	uniform = /obj/item/clothing/under/rank/dress/subofficer
+	uniform = /obj/item/clothing/under/rank/sol/dress/subofficer
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel
-	head = /obj/item/clothing/head/dress
+	head = /obj/item/clothing/head/sol/dress
 	accessory = /obj/item/clothing/accessory/holster/thigh
 
 	id = /obj/item/card/id/fsf_ship
