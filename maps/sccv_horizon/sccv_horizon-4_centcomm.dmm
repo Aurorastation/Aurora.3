@@ -15169,7 +15169,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aKp" = (
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
