@@ -2577,6 +2577,8 @@
 #include "code\modules\overmap\sectors.dm"
 #include "code\modules\overmap\spacetravel.dm"
 #include "code\modules\overmap\events\event.dm"
+#include "maps\event\odin_departure\code\odin_departure_areas.dm"
+#include "maps\event\odin_departure\code\odin_departure.dm"
 #include "code\modules\overmap\exoplanets\exoplanet.dm"
 #include "code\modules\overmap\exoplanets\random_map.dm"
 #include "code\modules\overmap\exoplanets\theme.dm"
