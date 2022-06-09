@@ -222,6 +222,8 @@
 	return 0
 
 /mob/proc/movement_delay()
+	if(lying) //Crawling, it's slower
+		. += (8 + ((weakened * 3) + (confused * 2)))
 	. = get_pulling_movement_delay()
 
 /mob/proc/get_pulling_movement_delay()
@@ -943,7 +945,7 @@
 			lying = 0
 		else
 			lying = incapacitated(INCAPACITATION_KNOCKDOWN)
-			canmove = !incapacitated(INCAPACITATION_DISABLED)
+			canmove = !incapacitated(INCAPACITATION_KNOCKOUT)
 
 	if(lying)
 		density = 0
