@@ -588,7 +588,7 @@
 			var/obj/item/organ/external/l_hand = get_organ(BP_L_HAND)
 			var/obj/item/organ/external/r_hand = get_organ(BP_R_HAND)
 
-			if(prob(50) && l_hand.dislocated != -1)
+			if(prob(50) && l_hand && l_hand.dislocated != -1)
 				fall_message("left wrist", "bends unnaturally")
 				l_hand.dislocate(TRUE)
 			else if(r_hand && r_hand.dislocated != -1)
