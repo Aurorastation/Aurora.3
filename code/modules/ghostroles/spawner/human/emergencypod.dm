@@ -285,7 +285,7 @@
 
 /datum/outfit/admin/pod/fsf
 	name = "RescuePod - FSF Crewman"
-	uniform = /obj/item/clothing/under/rank/fatigues/
+	uniform = /obj/item/clothing/under/rank/sol/
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/satchel_norm
@@ -305,7 +305,7 @@
 	)
 
 	backpack_contents = list(
-		/obj/item/clothing/head/navy = 1
+		/obj/item/clothing/head/sol = 1
 	)
 
 /datum/outfit/admin/pod/fsf/get_id_assignment()
