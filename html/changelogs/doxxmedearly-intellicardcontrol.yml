@@ -1,4 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-changes:
-  - bugfix: "Intellicarded AIs can no longer remote control the AI shell. When carded, they will be kicked out of the shell, if they are in it."
