@@ -14,7 +14,7 @@
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection."
 	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
 	icon_state = "nt_officer"
-	worn_state = "nt_officer"
+	item_state = "nt_officer"
 	armor = list(
 		melee = ARMOR_MELEE_SMALL
 		)
@@ -69,7 +69,7 @@
 	desc = "It's made of a slightly sturdier material, to allow for robust protection."
 	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
 	icon_state = "nt_cadet"
-	worn_state = "nt_cadet"
+	item_state = "nt_cadet"
 	armor = list(
 		melee = ARMOR_MELEE_SMALL
 		)
@@ -96,7 +96,7 @@
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection."
 	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
 	icon_state = "nt_warden"
-	worn_state = "nt_warden"
+	item_state = "nt_warden"
 	armor = list(
 		melee = ARMOR_MELEE_SMALL
 		)
