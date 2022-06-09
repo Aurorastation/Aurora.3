@@ -567,68 +567,56 @@
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
 
-/obj/item/clothing/head/navy
+/obj/item/clothing/head/sol
 	name = "sol navy utility cover"
 	desc = "A military cover issued to Sol Alliance navy members as part of their field uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
 	icon_state = "greyutility"
 	item_state = "greyutility"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_MINOR
 		)
-/obj/item/clothing/head/navy/marine
+
+/obj/item/clothing/head/sol/marine
 	name = "sol marine utility cover"
 	desc = "An eight pointed cover issued to Sol Alliance marines as part of their field uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "greenutility"
 	item_state = "greenutility"
-	contained_sprite = 1
 
-/obj/item/clothing/head/navy/garrison
+/obj/item/clothing/head/sol/garrison
 	name = "sol marine garrison cap"
 	desc = "A green garrison cap issued to Sol Alliance marines."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "greengarrisoncap"
 	item_state = "greengarrisoncap"
-	contained_sprite = 1
 
-/obj/item/clothing/head/dress
+/obj/item/clothing/head/sol/dress
 	name = "sol navy black peaked cap"
 	desc = "A black cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by junior officers."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "whitepeakcap"
 	item_state = "whitepeakcap"
-	contained_sprite = 1
-
-/obj/item/clothing/head/dress/marine
+/obj/item/clothing/head/sol/dress/marine
 	name = "sol marine peaked cap"
 	desc = "A green cap issued as part of the Sol Alliance marine service and dress uniforms."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "whitepeakcap"
 	item_state = "whitepeakcap"
-	contained_sprite = 1
 
-/obj/item/clothing/head/dress/officer
+/obj/item/clothing/head/sol/dress/officer
 	name = "sol navy officer peaked cap"
 	desc = "A white cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by senior officers."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "whitewheelcap"
 	item_state = "whitewheelcap"
-	contained_sprite = 1
 
-/obj/item/clothing/head/dress/admiral
+/obj/item/clothing/head/sol/dress/admiral
 	name = "sol navy admiral peaked cap"
 	desc = "A white cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by admirals."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "admiral_cap"
 	item_state = "admiral_cap"
-	contained_sprite = 1
 
 /obj/item/clothing/head/helmet/sol
 	name = "sol combat helmet"
 	desc = "A woodland colored helmet made from advanced ceramic."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
 	icon_state = "helmet_tac_sol"
 	item_state = "helmet_tac_sol"
 	armor = list(
@@ -638,7 +626,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/head/nonla
 	name = "non la"

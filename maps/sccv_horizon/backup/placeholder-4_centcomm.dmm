@@ -9706,7 +9706,7 @@
 	},
 /area/centcom/control)
 "ayB" = (
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -10962,9 +10962,9 @@
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
-/obj/item/storage/belt/janitor,
-/obj/item/storage/belt/janitor,
-/obj/item/storage/belt/janitor,
+/obj/item/storage/belt/custodial,
+/obj/item/storage/belt/custodial,
+/obj/item/storage/belt/custodial,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1

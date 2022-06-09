@@ -106,6 +106,19 @@ var/list/tape_roll_applications = list()
 		return
 	return ..()
 
+/obj/item/taperoll/custodial
+	name = "custodial holographic tape"
+	desc = "A high-tech roll of custodial tape, used to prevent people from tracking dirt everywhere and getting their shoes dirty."
+	icon_state = "custodial_start"
+	tape_type = /obj/item/tape/custodial
+	icon_base = "custodial"
+
+/obj/item/tape/custodial
+	name = "custodial holographic tape"
+	desc = "A length of custodial tape. Better not cross it."
+	req_one_access = list(access_janitor)
+	icon_base = "custodial"
+
 /obj/item/taperoll/attack_self(mob/user as mob)
 	if(icon_state == "[icon_base]_start")
 		start = get_turf(src)
