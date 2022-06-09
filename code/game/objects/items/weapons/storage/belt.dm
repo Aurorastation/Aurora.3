@@ -412,7 +412,8 @@
 		/obj/item/storage/bag/trash,
 		/obj/item/reagent_containers/glass/rag,
 		/obj/item/gun/energy/mousegun,
-		/obj/item/device/gps
+		/obj/item/device/gps,
+		/obj/item/taperoll/custodial
 	)
 
 /obj/item/storage/belt/mining
