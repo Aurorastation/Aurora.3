@@ -22,7 +22,10 @@
 //set disable_warning to disable the 'you are unable to equip that' warning.
 //unset redraw_mob to prevent the mob from being redrawn at the end.
 /mob/proc/equip_to_slot_if_possible(obj/item/W as obj, slot, del_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, ignore_blocked = FALSE, assisted_equip = FALSE)
-	if(!istype(W)) return 0
+	if(!istype(W))
+		return FALSE
+	if(W.item_flags & NOMOVE) //Cannot move NOMOVE items from one inventory slot to another. Cannot do canremove here because then BSTs spawn naked. 
+		return FALSE
 
 	if(!W.mob_can_equip(src, slot, disable_warning, ignore_blocked))
 		if(del_on_fail)
@@ -393,12 +396,13 @@ var/list/slot_equipment_priority = list( \
 					continue
 				return TRUE //Something is stopping us. Takes off throw mode.
 				
-		remove_from_mob(I)
-		make_item_drop_sound(I)
-		I.forceMove(T)
-		return TRUE
+		if(unEquip(I))
+			make_item_drop_sound(I)
+			I.forceMove(T)
+			return TRUE
 
-	remove_from_mob(item)
+	if(!unEquip(item))
+		return TRUE
 
 	if(is_pacified())
 		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")

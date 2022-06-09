@@ -788,13 +788,6 @@
 	required_reagents = list(/decl/reagent/fuel = 1, /decl/reagent/drink/rewriter = 5)
 	result_amount = 6
 
-/datum/chemical_reaction/lean
-	name = "Lean"
-	id = "lean"
-	result = /decl/reagent/toxin/lean
-	required_reagents = list(/decl/reagent/drink/spaceup = 2, /decl/reagent/coughsyrup = 2, /decl/reagent/sugar = 1)
-	result_amount = 5
-
 /datum/chemical_reaction/krokjuice
 	name = "Krok Juice"
 	id = "krok"

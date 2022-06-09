@@ -1208,6 +1208,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/embed(var/obj/item/W, var/silent = 0, var/supplied_message)
 	if(!owner || loc != owner)
 		return
+	if(!W.canremove || is_robot_module(W)) //Modules and augments cannot embed
+		return
 	if(species.flags & NO_EMBED)
 		return
 	if(!silent)
