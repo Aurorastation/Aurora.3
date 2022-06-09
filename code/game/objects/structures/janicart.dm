@@ -12,6 +12,8 @@
 	climbable = TRUE
 	flags = OPENCONTAINER
 	build_amt = 15
+	slowdown = 0
+
 	//copypaste sorry
 	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
 	var/obj/item/storage/bag/trash/mybag	= null
@@ -25,6 +27,20 @@
 	var/mob/living/pulling
 
 /obj/structure/janitorialcart/full/Initialize()
+	. = ..()
+	mybag = new /obj/item/storage/bag/trash(src)
+	mymop = new /obj/item/mop(src)
+	myspray = new /obj/item/reagent_containers/spray/cleaner(src)
+	myreplacer = new /obj/item/device/lightreplacer(src)
+
+	mybucket = new /obj/structure/mopbucket(src)
+
+	for(signs, signs < 4, signs++)
+		new /obj/item/clothing/suit/caution(src)
+
+	update_icon()
+
+/obj/structure/janitorialcart/full/water/Initialize()
 	. = ..()
 	mybag = new /obj/item/storage/bag/trash(src)
 	mymop = new /obj/item/mop(src)
