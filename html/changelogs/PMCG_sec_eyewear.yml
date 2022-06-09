@@ -1,0 +1,7 @@
+author: stev/Memescope, Vrow
+
+delete-after: True
+
+changes:
+  - tweak: "Tweaks the PMCG Aviators, HUDsunglasses, and fat HUDsunglasses palette to be more consistent with the PMCG colors."
+  - bugfix: "Fixed Security Aviators in-hand sprites being invisible."
