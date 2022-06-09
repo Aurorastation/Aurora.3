@@ -107,12 +107,10 @@
 /datum/gear/faction/zavodskoi_headwear/New()
 	..()
 	var/list/zavodskoi_headwear = list()
-	zavodskoi_headwear["brown zavodskoi beret"] = /obj/item/clothing/head/beret/corporate/zavod
-	zavodskoi_headwear["brown zavodskoi cap"] = /obj/item/clothing/head/softcap/zavod
-	zavodskoi_headwear["grey zavodskoi beret"] = /obj/item/clothing/head/beret/corporate/zavod/alt
-	zavodskoi_headwear["grey zavodskoi cap"] = /obj/item/clothing/head/softcap/zavod/alt
-	zavodskoi_headwear["black zavodskoi beret"] = /obj/item/clothing/head/beret/corporate/zavod/zavodsec
-	zavodskoi_headwear["black zavodskoi cap"] = /obj/item/clothing/head/softcap/zavod/zavodsec
+	zavodskoi_headwear["zavodskoi beret"] = /obj/item/clothing/head/beret/corporate/zavod
+	zavodskoi_headwear["zavodskoi beret, alt"] = /obj/item/clothing/head/beret/corporate/zavod/alt
+	zavodskoi_headwear["zavodskoi cap"] = /obj/item/clothing/head/softcap/zavod
+	zavodskoi_headwear["zavodskoi cap, alt"] = /obj/item/clothing/head/softcap/zavod/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoi_headwear)
 
 /datum/gear/faction/zavod_sec_uniforms

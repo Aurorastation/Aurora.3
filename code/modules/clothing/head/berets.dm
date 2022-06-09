@@ -138,10 +138,6 @@
 	icon_state = "zavalt"
 	item_state = "zavalt"
 
-/obj/item/clothing/head/beret/corporate/zavod/zavodsec
-	icon_state = "zavod"
-	item_state = "zavod"
-
 /obj/item/clothing/head/beret/corporate/heph
 	name = "hephaestus beret"
 	desc = "A green beret with the Hephaestus insignia emblazoned on it."
