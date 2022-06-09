@@ -74,6 +74,19 @@
 	augs["retractable pen, left hand"] = /obj/item/organ/internal/augment/tool/pen/left
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
+/datum/gear/augment/crayon
+	display_name = "retractable crayon"
+	description = "An augment that allows the user to deploy a retractable crayon."
+	path = /obj/item/organ/internal/augment/tool/crayon
+	cost = 1
+
+/datum/gear/augment/crayon/New()
+	..()
+	var/list/augs = list()
+	augs["retractable crayon, right hand"] = /obj/item/organ/internal/augment/tool/crayon
+	augs["retractable crayon, left hand"] = /obj/item/organ/internal/augment/tool/crayon/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
 /datum/gear/augment/cochlear
 	display_name = "cochlear implant"
 	description = "A synthetic replacement for the structures within the ear, allowing the user to hear without requiring external tools."
