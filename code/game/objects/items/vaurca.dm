@@ -3,8 +3,8 @@
 	desc = "A holographic projector using advanced technology that immerses someone into a scene using full panoramic holograms, smell and 3D spatial sound projection. It is developed and distributed by Hive Zo'ra and allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "zora_projector"
-	var/list/worlds_selection = list("Ocean", "Hive War Exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
-	var/message_frequency = 9
+	list/worlds_selection = list("Ocean", "Hive War Exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
+	message_frequency = 9
 
 /obj/item/skrell_projector/vaurca_projector/attack_self(mob/user as mob)
 	working = !working
@@ -19,7 +19,7 @@
 		update_icon()
 		STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/skrell_projector/vaurca_projector/apply_world(var/choice)
+/obj/item/skrell_projector/vaurca_projector/apply_world(choice)
 	var/brightness = 2
 
 	if(choice)
@@ -49,9 +49,9 @@
 		var/image/overlay = overlay_image(icon, "zo'ra_projector_light", light_color, RESET_COLOR)
 		add_overlay(overlay)
 
-	/obj/item/skrell_projector/vaurca_projector/process()
-    if(!selected_world)
-        return
+/obj/item/skrell_projector/vaurca_projector/process()
+	if(!selected_world)
+		return
 
 	if(prob(message_frequency))
 		var/hologram_message
