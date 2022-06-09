@@ -149,6 +149,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
+	sprite_sheets = null
 	body_parts_covered = 0
 	var/lit = 0
 	var/icon_on

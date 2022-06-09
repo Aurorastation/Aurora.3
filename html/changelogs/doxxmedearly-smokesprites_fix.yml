@@ -1,0 +1,4 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Cigarettes/cigars worn in the ear slot by unathi and tajara will no longer show as being in their mouth on their sprite."
