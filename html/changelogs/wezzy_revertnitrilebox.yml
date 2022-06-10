@@ -39,3 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - tweak: "Reverts nitrile boxes so they work like normal boxes again."
+  - balance: "You can snip gloves much more liberally now, so long as the item you use is sharp."
+  - rscadd: "Adds latex and nitrile glove selections to Xenowear loadouts."

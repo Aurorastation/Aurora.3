@@ -418,7 +418,7 @@
 
 /obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 	..()
-	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
+	if(is_sharp(W))
 		if(clipped)
 			to_chat(user, SPAN_NOTICE("\The [src] have already been clipped!"))
 			update_icon()

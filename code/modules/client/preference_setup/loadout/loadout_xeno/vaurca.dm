@@ -92,6 +92,19 @@
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/gloves/vaurca
+	display_name = "vaurca sterile gloves selection"
+	path = /obj/item/clothing/gloves/latex/vaurca
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	sort_category = "Xenowear - Vaurca"
+
+/datum/gear/gloves/vaurca/New()
+	..()
+	var/list/vaurca_gloves = list()
+	vaurca_gloves["latex gloves"] = /obj/item/clothing/gloves/latex/vaurca
+	vaurca_gloves["nitrile gloves"] =  /obj/item/clothing/gloves/latex/nitrile/vaurca
+	gear_tweaks += new /datum/gear_tweak/path(vaurca_gloves)
+
 /datum/gear/suit/vaurca
 	display_name = "shaper robes"
 	path = /obj/item/clothing/suit/vaurca/shaper
@@ -169,7 +182,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_vaurca(), lunchables_vaurca_snack(), lunchables_drinks(), lunchables_utensil())
 
-/datum/gear/ears/vaurca/rings 
+/datum/gear/ears/vaurca/rings
 	display_name = "bulwark horn rings"
 	description = "Rings worn by Bulwarks to decorate their horns."
 	cost = 1

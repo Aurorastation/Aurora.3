@@ -40,6 +40,8 @@
 	taj_gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow/tajara
 	taj_gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather/tajara
 	taj_gloves["machinist gloves"] =  /obj/item/clothing/gloves/black/tajara/smithgloves
+	taj_gloves["latex gloves"] = /obj/item/clothing/gloves/latex/tajara
+	taj_gloves["nitrile gloves"] =  /obj/item/clothing/gloves/latex/nitrile/tajara
 	gear_tweaks += new /datum/gear_tweak/path(taj_gloves)
 
 /datum/gear/suit/tajara_coat
