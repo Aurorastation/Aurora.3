@@ -213,7 +213,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine
 	name = "bullpup carbine"
-	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, chambered in the same 5.56 caliber but only accepting smaller magazines. It lacks the integral grenade launcher of the Bulldog."
+	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, chambered in the same 5.56 caliber but only capable of accepting smaller magazines. It lacks the integral grenade launcher and the burst fire of the Bulldog."
 	desc_fluff = "It makes you feel like a corporate goon when you hold it."
 	icon = 'icons/obj/guns/civcarbine.dmi'
 	icon_state = "civcarbine"
@@ -222,7 +222,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine/update_icon()
 	..()
-	icon_state = (ammo_magazine)? "civcarbine" : "civcarbine - empty"
+	icon_state = (ammo_magazine)? "civcarbine" : "civcarbine-empty"
 
 /obj/item/gun/projectile/automatic/rifle/sol
 	name = "solarian assault rifle"
