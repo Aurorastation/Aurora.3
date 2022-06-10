@@ -195,7 +195,7 @@
 	pmc_labcoats["labcoat alt, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
 	gear_tweaks += new /datum/gear_tweak/path(pmc_labcoats)
 
-/datum/gear/faction/pcmg_headwear
+/datum/gear/faction/pmcg_headwear
 	display_name = "PMCG and EPMC headwear selection"
 	description = "A selection of PCMG and EPMC headwear."
 	path = /obj/item/clothing/head/softcap/pmc
