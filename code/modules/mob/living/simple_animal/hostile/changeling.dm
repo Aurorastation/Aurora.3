@@ -144,7 +144,7 @@
 	visible_message("<span class='warning'>\The [src]'s skin bulges and tears, launching a bone-dart at [target]!</span>")
 
 	playsound(src.loc, 'sound/weapons/bloodyslice.ogg', 50, 1)
-	var/obj/item/bone_dart/A = new /obj/item/bone_dart(usr.loc)
+	var/obj/item/projectile/bonedart/ling/A = new /obj/item/projectile/bonedart/ling(usr.loc)
 	A.throw_at(target, 10, 20, usr)
 	add_logs(src, target, "launched a bone dart at")
 
