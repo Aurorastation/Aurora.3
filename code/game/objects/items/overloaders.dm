@@ -12,4 +12,11 @@
 	if (!isSynthetic(M))
 		return
 	
+/obj/item/overloader/shutdown
+	name = "shutdown overloader"
+	desc = "An IPC overloader. This one looks very dangerous."
 
+/obj/item/overloader/shutdown/do_overloader_effects(mob/living/carbon/human/M)
+	. = ..()
+
+	
