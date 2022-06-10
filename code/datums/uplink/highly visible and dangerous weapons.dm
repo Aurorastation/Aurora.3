@@ -81,7 +81,7 @@
 
 /datum/uplink_item/item/visible_weapons/gatling
 	name = "Gatling Machine Gun"
-	item_cost = 30
+	item_cost = 40
 	path = /obj/item/minigunpack
 
 /datum/uplink_item/item/visible_weapons/chainsaw
@@ -151,10 +151,20 @@
 
 /datum/uplink_item/item/visible_weapons/random_weapon
 	name = "Random Gun"
-	item_cost = 3
+	item_cost = 8
 	path = /obj/item/storage/box/syndie_kit/random_weapon
 
 /datum/uplink_item/item/visible_weapons/ionrifle
 	name = "Ion Rifle"
 	item_cost = 5
 	path = /obj/item/gun/energy/rifle/ionrifle
+
+/datum/uplink_item/item/visible_weapons/lmg
+	name = "Light Machine Gun"
+	item_cost = 20
+	path = /obj/item/gun/projectile/automatic/rifle/l6_saw
+
+/datum/uplink_item/item/visible_weapons/random_weapon
+	name = "Random Gun"
+	item_cost = 8
+	path = /obj/item/storage/box/syndie_kit/random_weapon

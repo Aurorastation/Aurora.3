@@ -89,7 +89,7 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 	var/list/exclusion = list(/decl/reagent/drink, /decl/reagent, /decl/reagent/adminordrazine, /decl/reagent/polysomnine/beer2, /decl/reagent/azoth, /decl/reagent/elixir,\
 		/decl/reagent/liquid_fire, /decl/reagent/philosopher_stone, /decl/reagent/toxin/undead, /decl/reagent/love_potion, /decl/reagent/shapesand, /decl/reagent/usolve,\
 		/decl/reagent/sglue, /decl/reagent/black_matter, /decl/reagent/bottle_lightning, /decl/reagent/toxin/trioxin, /decl/reagent/toxin/nanites, /decl/reagent/nitroglycerin, \
-		/decl/reagent/aslimetoxin)
+		/decl/reagent/aslimetoxin, /decl/reagent/sanasomnum, /decl/reagent/rezadone)
 	chems -= exclusion
 	for (var/i in 1 to rand(2, 4))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)

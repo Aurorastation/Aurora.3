@@ -58,6 +58,12 @@
 	path = /obj/item/ammo_magazine/a556/carbine 
 	desc = "Contains 15 rounds of 5.56."
 
+/datum/uplink_item/item/ammo/lmg_drum
+	name = "7.62 LMG drum"
+	item_cost = 5
+	path = /obj/item/ammo_magazine/a762
+	desc = "Contains 50 rounds of 7.62."
+
 /datum/uplink_item/item/ammo/peac
 	name = "Anti-materiel Cannon Cartridge"
 	path = /obj/item/ammo_casing/peac
