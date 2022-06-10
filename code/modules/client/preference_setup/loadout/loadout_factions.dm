@@ -210,7 +210,7 @@
 	pcmg_headwear["PMCG softcap, alt"] = /obj/item/clothing/head/softcap/pmc/alt
 	pmcg_headwear["EPMC beret"] = /obj/item/clothing/head/beret/corporate/pmc/epmc
 	pmcg_headwear["EPMC softcap"] = /obj/item/clothing/head/softcap/pmc/epmc
-	gear_tweaks += new /datum/gear_tweak/path(pcmg_headwear)
+	gear_tweaks += new /datum/gear_tweak/path(pmcg_headwear)
 
 /datum/gear/faction/pmc_modsuit
 	display_name = "PMCG modsuit"
