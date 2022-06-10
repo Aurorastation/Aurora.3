@@ -11,15 +11,15 @@
 		var/current_mode = show_radial_menu(user, owner, R.radial_modes, radius = 42, require_near = FALSE , tooltips = TRUE)
 		switch(current_mode)
 			if("Floors and Walls")
-				R.mode = 1
+				R.mode = RFD_FLOORS_AND_WALL
 			if("Windows and Grille")
-				R.mode = 2
+				R.mode = RFD_WINDOWS_AND_GRILLE
 			if("Airlock")
-				R.mode = 3
+				R.mode = RFD_AIRLOCK
 			if("Deconstruct")
-				R.mode = 4
+				R.mode = RFD_DECONSTRUCT
 			else
-				R.mode = 1
+				R.mode = RFD_FLOORS_AND_WALL
 		if(current_mode)
 			to_chat(user, SPAN_NOTICE("You set the device to <i>\"[current_mode]\"</i>."))
 			if(R.mode == 3)
