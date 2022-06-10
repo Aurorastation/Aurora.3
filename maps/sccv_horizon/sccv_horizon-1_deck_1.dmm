@@ -3573,6 +3573,10 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
+"cPq" = (
+/obj/effect/shuttle_landmark/horizon/deckone/starboard_propulsion,
+/turf/template_noop,
+/area/template_noop)
 "cPE" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
 /obj/structure/lattice/catwalk/indoor,
@@ -11279,6 +11283,10 @@
 /obj/item/stack/flag/red,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
+"jbS" = (
+/obj/effect/shuttle_landmark/horizon/deckone/starboard,
+/turf/template_noop,
+/area/template_noop)
 "jcT" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable{
@@ -16436,6 +16444,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
+"nhU" = (
+/obj/effect/shuttle_landmark/horizon/deckone/fore,
+/turf/template_noop,
+/area/template_noop)
 "niw" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -17148,6 +17160,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/primary/aft)
+"nOU" = (
+/obj/effect/shuttle_landmark/horizon/deckone/port,
+/turf/template_noop,
+/area/template_noop)
 "nPa" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -21551,12 +21567,16 @@
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
+"rDi" = (
+/obj/effect/shuttle_landmark/horizon/deckone/aft,
+/turf/template_noop,
+/area/template_noop)
 "rDE" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(11, 24)
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
@@ -28147,13 +28167,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/atmos_compartment)
+"xaf" = (
+/obj/effect/shuttle_landmark/horizon/deckone/port_propulsion,
+/turf/template_noop,
+/area/template_noop)
 "xaE" = (
 /obj/machinery/computer/general_air_control/large_tank_control/wall{
 	input_tag = "mixed_in";
 	name = "Mixed Gas Tank Monitor";
 	output_tag = "mixed_out";
 	pixel_y = -3;
-	sensors = list("mixed_sensor" = "Tank")
+	sensors = list("mixed_sensor"="Tank")
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/atmos)

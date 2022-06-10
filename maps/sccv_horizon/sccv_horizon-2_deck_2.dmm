@@ -6605,6 +6605,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
+"dAy" = (
+/obj/effect/shuttle_landmark/horizon/decktwo/starboard_fore,
+/turf/template_noop,
+/area/template_noop)
 "dAN" = (
 /turf/simulated/floor/airless,
 /area/engineering/engine_room)
@@ -6713,6 +6717,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
+"dDO" = (
+/obj/effect/shuttle_landmark/horizon/decktwo/port_fore,
+/turf/template_noop,
+/area/template_noop)
 "dDS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7360,6 +7368,10 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
+"dXD" = (
+/obj/effect/shuttle_landmark/horizon/decktwo/port_aft,
+/turf/template_noop,
+/area/template_noop)
 "dXF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -8183,6 +8195,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
+"exF" = (
+/obj/effect/shuttle_landmark/horizon/decktwo/fore,
+/turf/template_noop,
+/area/template_noop)
 "exU" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
@@ -16885,6 +16901,10 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
+"jib" = (
+/obj/effect/shuttle_landmark/horizon/decktwo/aft,
+/turf/template_noop,
+/area/template_noop)
 "jih" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -33671,6 +33691,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
+"sph" = (
+/obj/effect/shuttle_landmark/horizon/decktwo/starboard_aft,
+/turf/template_noop,
+/area/template_noop)
 "spn" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
