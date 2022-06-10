@@ -19,11 +19,11 @@
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
-	maxHealth = 750
-	health = 750
+	maxHealth = 1750
+	health = 1750
 	harm_intent_damage = 0
-	melee_damage_lower = 30
-	melee_damage_upper = 30
+	melee_damage_lower = 40
+	melee_damage_upper = 60
 	resist_mod = 3
 	mob_size = 25
 	environment_smash = 2
@@ -58,7 +58,8 @@
 
 /mob/living/simple_animal/hostile/true_changeling/Life()
 	..()
-	adjustBruteLoss(-10) //it will slowly heal brute damage, making fire/laser a stronger option
+	adjustBruteLoss(-15)
+	adjustFireLoss(-10)
 
 /mob/living/simple_animal/hostile/true_changeling/mind_initialize()
 	..()
