@@ -8339,7 +8339,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/ward/isolation)
 "pq" = (
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 1;
 	pixel_y = -1
 	},

@@ -4228,7 +4228,7 @@
 /area/grand_romanovich)
 "ll" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 11;
 	pixel_y = 12
 	},

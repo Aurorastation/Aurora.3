@@ -5836,7 +5836,7 @@
 "eJu" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 5;
 	pixel_y = -1
 	},
@@ -10090,7 +10090,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks,
 /obj/item/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/dark,
@@ -10823,7 +10823,7 @@
 "iFU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/steel,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
@@ -24331,7 +24331,7 @@
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/emergency,
 /obj/item/storage/box/samplebags,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/lights/mixed{
 	pixel_x = 5;
 	pixel_y = -2
