@@ -58,8 +58,7 @@
 
 /mob/living/simple_animal/hostile/true_changeling/Life()
 	..()
-	adjustBruteLoss(-10)
-	adjustFireLoss(-10)
+	adjustBruteLoss(-15)
 
 /mob/living/simple_animal/hostile/true_changeling/mind_initialize()
 	..()
