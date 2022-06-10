@@ -1343,6 +1343,7 @@
 	if (!(CE_UNDEXTROUS in M.chem_effects))
 		to_chat(M, SPAN_WARNING("Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
 		M.confused = max(M.confused, 250)
+		M.make_dizzy(10)
 	if(M.chem_doses[type] > 0.2)
 		M.Weaken(10)
 	if(M.chem_doses[type] > 5)
