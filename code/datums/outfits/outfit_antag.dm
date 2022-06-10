@@ -316,6 +316,7 @@
 	back = null
 	belt = null
 	gloves = null
+	glasses = /obj/item/clothing/glasses/sunglasses
 	l_ear = /obj/item/device/radio/headset/raider
 	l_pocket = /obj/item/device/contract_uplink
 	r_pocket = list(
