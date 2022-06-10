@@ -1,0 +1,5 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Removed an unattached scrubber in the living quarters lift area."
+  - bugfix: "Added a missing pipe for the TCFL right thrusters."
