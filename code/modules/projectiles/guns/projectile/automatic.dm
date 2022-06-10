@@ -220,6 +220,10 @@
 	item_state = "civcarbine"
 	can_bayonet = FALSE
 
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "civcarbine" : "civcarbine"
+
 /obj/item/gun/projectile/automatic/rifle/sol
 	name = "solarian assault rifle"
 	desc = "A reliable assault rifle manufactured by Zavodskoi Interstellar, the M469 is the standard service rifle of the Solarian Armed Forces, most commonly associated with its ground forces. \
