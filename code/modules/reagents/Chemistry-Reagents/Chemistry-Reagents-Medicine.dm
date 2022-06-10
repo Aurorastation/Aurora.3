@@ -1337,21 +1337,14 @@
 		M.resuscitate()
 	if(M.chem_doses[type] > 3)
 		M.status_flags &= ~DISFIGURED
-	if(M.chem_doses[type] > 10)
-		M.make_dizzy(5)
-		M.make_jittery(5)
 	var/mob/living/carbon/human/H = M
-	if(istype(H) && (H.species.flags & NO_BLOOD))
+	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
-	var/dose = M.chem_doses[type]
-	if(dose == metabolism)
-		M.confused += 2
-		M.drowsiness += 2
-	else if(dose < 2)
-		M.Weaken(30)
-		M.eye_blurry = max(M.eye_blurry, 10)
-	else
-		M.sleeping = max(M.sleeping, 30)
+	if (!(CE_UNDEXTROUS in M.chem_effects))
+		to_chat(M, SPAN_WARNING("Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
+		M.confused = max(M.confused, 250)
+	if(M.chem_doses[type] > 0.2)
+		M.Weaken(10)
 	if(M.chem_doses[type] > 5)
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_ARTERY_CUT && prob(10))
