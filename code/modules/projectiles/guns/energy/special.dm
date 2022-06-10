@@ -96,27 +96,6 @@
 	turret_is_lethal = 0
 	turret_sprite_set = "net"
 
-/obj/item/gun/energy/beegun
-	name = "\improper NanoTrasen Portable Apiary"
-	desc = "An experimental firearm that converts energy into bees, for purely botanical purposes."
-	icon = 'icons/obj/guns/gyrorifle.dmi'
-	icon_state = "gyrorifle"
-	item_state = "gyrorifle"
-	has_item_ratio = FALSE
-	charge_meter = 0
-	w_class = ITEMSIZE_LARGE
-	fire_sound = 'sound/effects/Buzz2.ogg'
-	force = 5
-	projectile_type = /obj/item/projectile/energy/bee
-	slot_flags = SLOT_BACK
-	max_shots = 9
-	sel_mode = 1
-	burst = 3
-	burst_delay = 1
-	move_delay = 3
-	fire_delay = 0
-	dispersion = list(0, 8)
-
 /obj/item/gun/energy/mousegun
 	name = "pest gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."

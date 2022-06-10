@@ -169,28 +169,6 @@
 /obj/item/projectile/energy/gravitydisabler/proc/turnongravity(var/area/A)
 	A.gravitychange(TRUE)
 
-/obj/item/projectile/energy/bee
-	name = "bees"
-	icon = 'icons/obj/apiary_bees_etc.dmi'
-	icon_state = "beegun"
-	check_armor = "bio"
-	damage = 5
-	damage_type = BRUTE
-	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
-	embed = 0
-	weaken = 0
-
-/obj/item/projectile/energy/bee/on_impact(var/atom/A)
-	playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 70, 1)
-	var/turf/T = get_turf(A)
-	if(!istype(T, /turf/simulated/wall) && !istype(A, /obj/structure/window) && !istype(A, /obj/machinery/door))
-		for(var/i=1, i<=8, i++)
-			var/atom/movable/x = new /mob/living/simple_animal/bee/beegun //hackmaster pro, butt fuck it
-			x.forceMove(T)
-	else
-		src.visible_message("<span class='danger'>[src] splat sickly against [T]!</span>")
-	..()
-
 /obj/item/projectile/energy/blaster
 	name = "blaster bolt"
 	icon_state = "heavybolt"

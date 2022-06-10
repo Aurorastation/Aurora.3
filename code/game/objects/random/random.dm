@@ -413,7 +413,7 @@
 		/obj/item/storage/belt/medical/first_responder/combat = 0.1,
 		/obj/item/storage/belt/security/tactical = 0.1,
 		/obj/item/storage/belt/military = 0.1,
-		/obj/item/storage/belt/janitor = 0.4
+		/obj/item/storage/belt/custodial = 0.4
 	)
 
 // Spawns a random backpack.
