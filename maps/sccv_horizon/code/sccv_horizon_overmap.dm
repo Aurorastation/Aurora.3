@@ -15,22 +15,22 @@
 	"nav_hangar_horizon_1",
 	"nav_hangar_horizon_2",
 	"nav_hangar_horizon_3",
-	"deck_one_near_starboard_propulsion",
-	"deck_one_aft_of_horizon",
-	"deck_one_near_port_propulsion",
+	"deck_one_fore_of_horizon",
 	"deck_one_starboard_side",
 	"deck_one_port_side",
-	"deck_one_fore_of_horizon",
-	"deck_two_starboard_aft",
-	"deck_two_port_aft",
+	"deck_one_aft_of_horizon",
+	"deck_one_near_starboard_propulsion",
+	"deck_one_near_port_propulsion",
+	"deck_two_fore_of_horizon",
 	"deck_two_starboard_fore",
 	"deck_two_port_fore",
-	"deck_two_fore_of_horizon",
 	"deck_two_aft_of_horizon",
+	"deck_two_port_aft",
+	"deck_two_starboard_aft",
 	"deck_three_fore_of_horizon",
-	"deck_three_aft_of_horizon",
 	"deck_three_starboard_of_horizon",
-	"deck_three_port_of_horizon"
+	"deck_three_port_of_horizon",
+	"deck_three_aft_of_horizon"
 	)
 
 
@@ -80,12 +80,12 @@
 	name = "Starboard Primary Docking Arm"
 	landmark_tag = "nav_hangar_horizon_3"
 	base_turf = /turf/simulated/floor/reinforced/airless
-	base_area = /area/template_noop
+	base_area = /area/space
 
 //Deck one landmarks that overmap shuttles can go to
 /obj/effect/shuttle_landmark/horizon/deckone
 	base_turf = /turf/space
-	base_area = /area/template_noop
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/horizon/deckone/fore
 	name = "Deck One, Fore of Horizon"
@@ -115,7 +115,7 @@
 ////Deck two landmarks that overmap shuttles can go to
 /obj/effect/shuttle_landmark/horizon/decktwo
 	base_turf = /turf/space
-	base_area = /area/template_noop
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/horizon/decktwo/fore
 	name = "Deck Two, Fore of Horizon"
@@ -145,7 +145,7 @@
 ////Deck three landmarks that overmap shuttles can go to
 /obj/effect/shuttle_landmark/horizon/deckthree
 	base_turf = /turf/space
-	base_area = /area/template_noop
+	base_area = /area/space
 
 //This is in front of the bridge, which I think deserves particular notice here
 /obj/effect/shuttle_landmark/horizon/deckthree/fore
