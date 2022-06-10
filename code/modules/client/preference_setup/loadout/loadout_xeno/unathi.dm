@@ -67,8 +67,8 @@
 	un_gloves["white gloves"] = /obj/item/clothing/gloves/white/unathi
 	un_gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow/unathi
 	un_gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather/unathi
-	taj_gloves["latex gloves"] = /obj/item/clothing/gloves/latex/unathi
-	taj_gloves["nitrile gloves"] =  /obj/item/clothing/gloves/latex/nitrile/unathi
+	un_gloves["latex gloves"] = /obj/item/clothing/gloves/latex/unathi
+	un_gloves["nitrile gloves"] =  /obj/item/clothing/gloves/latex/nitrile/unathi
 	gear_tweaks += new /datum/gear_tweak/path(un_gloves)
 
 /datum/gear/gloves/unathi_handwraps
