@@ -221,7 +221,7 @@
 
 /datum/gear/faction/pmcg_sec_uniforms
 	display_name = "EPMC security uniform selection"
-	description = "A selection of PCMG and EPMC security uniforms."
+	description = "A selection of PMCG and EPMC security uniforms."
 	path = /obj/item/clothing/under/rank/security/pmc/epmc
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
