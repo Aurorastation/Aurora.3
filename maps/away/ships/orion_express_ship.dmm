@@ -1,20 +1,16 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aaa" = (
-/obj/effect/overmap/visitable/sector/orion_express_ship,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
 "aaI" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aaJ" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms"
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "ajL" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/scc,
@@ -24,24 +20,24 @@
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aow" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "atj" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/heavy,
 /obj/item/device/flashlight/heavy,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "awG" = (
 /obj/structure/table/rack,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aEq" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -51,84 +47,84 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aEB" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aHs" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aHt" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/meter,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aHv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aHw" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aJd" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
 	layer = 2.8
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aMB" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aOU" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aSi" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aSm" = (
 /obj/machinery/door/airlock/silver{
 	name = "Toilet"
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aSJ" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aSN" = (
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aSO" = (
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "aUD" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -137,11 +133,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "bcf" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "bci" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1;
@@ -151,22 +147,22 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "bkQ" = (
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "ble" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "buA" = (
 /obj/structure/table/standard,
 /obj/item/stack/medical/bruise_pack/full,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "buK" = (
 /obj/machinery/appliance/cooker/fryer,
 /obj/machinery/light{
@@ -175,28 +171,28 @@
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "bGI" = (
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 1
 	},
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "ccm" = (
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "ctQ" = (
 /obj/structure/bed/stool/bar/padded/beige,
 /turf/simulated/floor/carpet,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "cuQ" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
 	},
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "cLC" = (
 /obj/machinery/light{
 	dir = 1;
@@ -207,11 +203,11 @@
 	},
 /obj/machinery/vending/zora,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "cMo" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "cQs" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -221,17 +217,17 @@
 "cTq" = (
 /obj/structure/bookcase/manuals,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "cVA" = (
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "dqJ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "drY" = (
 /obj/machinery/light{
 	dir = 1;
@@ -241,16 +237,16 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "dHA" = (
 /obj/structure/table/wood,
 /obj/item/pizzabox/meat,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "dKJ" = (
 /obj/machinery/cryopod,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "dQZ" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/machinery/light/small,
@@ -258,19 +254,19 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "dTw" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Hangar"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "eiR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "etL" = (
 /turf/space/transit/south,
 /area/space)
@@ -281,13 +277,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "ewW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "exg" = (
 /obj/structure/table/wood,
 /obj/machinery/light{
@@ -296,50 +292,50 @@
 	},
 /obj/item/material/ashtray,
 /turf/simulated/floor/carpet,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "eCV" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "eIb" = (
 /obj/machinery/vending/engivend{
 	req_access = list(201)
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "eMT" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "eTH" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/electrical,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "eYX" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "fnE" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/overmap/visitable/ship/landable/orion_express_ship,
 /obj/effect/ghostspawpoint{
 	identifier = "orion_express_captain";
 	name = "igs - orion_express_captain"
 	},
+/obj/effect/overmap/visitable/ship/orion_express_ship,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "fnY" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "frn" = (
 /obj/machinery/light{
 	dir = 4;
@@ -349,17 +345,17 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "frC" = (
 /turf/simulated/floor/carpet,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "fAJ" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner_wide/beige/full,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "fNZ" = (
 /obj/structure/bed/stool/bar/padded/beige,
 /obj/effect/ghostspawpoint{
@@ -367,13 +363,13 @@
 	name = "igs - orion_express_courier"
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "fQq" = (
 /obj/machinery/door/airlock/mining{
 	name = "Restroom"
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "fRD" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 25
@@ -382,7 +378,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "fSX" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
@@ -397,7 +393,7 @@
 	pixel_y = -8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "fXG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/door/airlock/external{
@@ -406,14 +402,14 @@
 	id_tag = "orion_traveler_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "fZq" = (
 /obj/machinery/door/airlock/mining{
 	name = "Warehouse";
 	req_access = list(201)
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "gcq" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(201)
@@ -428,7 +424,7 @@
 /obj/item/gun/energy/stunrevolver,
 /obj/item/gun/energy/blaster/carbine,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "goI" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/shuttle/black,
@@ -438,17 +434,17 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "gyl" = (
 /obj/machinery/vending/tool,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "gHC" = (
 /obj/structure/fuel_port{
 	pixel_x = -32
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "gNV" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -456,17 +452,17 @@
 	id_tag = "orion_traveler_pump"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "gNW" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "gOy" = (
 /obj/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "gZw" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 9
@@ -476,7 +472,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "hdb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
@@ -484,7 +480,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "heP" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -498,7 +494,7 @@
 	name = "Maintenance"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "hjH" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -508,18 +504,18 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "hrA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/effect/shuttle_landmark/orion_express_shuttle/hangar,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "huE" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "hzn" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -532,12 +528,12 @@
 	tag_interior_door = "orion_traveler_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "hBd" = (
 /obj/structure/table/standard,
 /obj/item/stack/medical/ointment/full,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "hBs" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
@@ -551,35 +547,26 @@
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
-"hJi" = (
-/obj/effect/floor_decal/corner_wide/beige/full{
-	dir = 4
-	},
-/obj/machinery/computer/shuttle_control/explore/orion_express_ship{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
 "hME" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "hZq" = (
 /obj/machinery/door/airlock/mining{
 	name = "Dock";
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "iaK" = (
 /obj/structure/toilet,
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "iiZ" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -600,7 +587,7 @@
 "irX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "ive" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -612,19 +599,19 @@
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "juh" = (
 /obj/machinery/computer/cryopod{
 	pixel_y = -33
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "jEu" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "kaR" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 9
@@ -633,63 +620,63 @@
 	pixel_x = -25
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "kpR" = (
 /obj/machinery/light/small,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "krH" = (
 /obj/machinery/door/airlock/mining{
 	name = "Captain's Quarters";
 	req_access = list(201)
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "ktN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/largecrate/animal/cow,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "kzm" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "kAt" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/lava/red,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "kJp" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "kPs" = (
 /obj/structure/closet/cabinet,
 /obj/item/coin/phoron,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "kYf" = (
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "lev" = (
 /obj/structure/table/standard,
 /obj/item/device/hand_labeler,
 /obj/item/stack/packageWrap,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "lhC" = (
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
 	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "lpe" = (
 /obj/effect/overmap/visitable/ship/landable/orion_express_shuttle,
 /obj/machinery/hologram/holopad/long_range,
@@ -702,7 +689,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "lsi" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -710,27 +697,27 @@
 	id_tag = "orion_traveler_out"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "lvc" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "lwj" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray,
 /obj/item/storage/box/fancy/cigarettes,
 /obj/item/flame/lighter/zippo,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "lFg" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/toothbrush/green,
 /obj/item/reagent_containers/toothpaste,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "mfi" = (
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
@@ -747,10 +734,10 @@
 /obj/item/clothing/accessory/bandanna,
 /obj/item/clothing/accessory/bandanna/black,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "mkb" = (
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "mwP" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -758,12 +745,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "mxc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "mCc" = (
 /obj/machinery/computer/shuttle_control/explore/orion_express_shuttle{
 	dir = 4
@@ -777,19 +764,19 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "mLa" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "mPM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "ntt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -799,7 +786,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "nty" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/plate/bowl,
@@ -824,7 +811,7 @@
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "nBz" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -835,7 +822,7 @@
 	dir = 6
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "nJz" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -848,37 +835,37 @@
 	pixel_y = 26
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "nMV" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "nSQ" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "nTM" = (
 /obj/structure/bed/stool/bar/padded/beige,
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "nVi" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "ofl" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "ofY" = (
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
@@ -894,7 +881,7 @@
 	pixel_y = 31
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "oEN" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -905,13 +892,13 @@
 	pixel_y = -10
 	},
 /turf/template_noop,
-/area/shuttle/tcfl_peacekeeper_ship)
+/area/space)
 "pbp" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "pfE" = (
 /obj/structure/fuel_port{
 	pixel_x = -32
@@ -941,18 +928,18 @@
 /obj/item/reagent_containers/food/drinks/milk,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "pjp" = (
 /obj/effect/floor_decal/corner_wide/beige,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "pre" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "pwR" = (
 /obj/machinery/light{
 	dir = 1;
@@ -965,17 +952,17 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "pxS" = (
 /obj/effect/floor_decal/corner_wide/beige/full,
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "pAh" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "pDZ" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
@@ -994,7 +981,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "pJZ" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -1003,7 +990,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
@@ -1012,7 +999,7 @@
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "qil" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
@@ -1020,7 +1007,7 @@
 	},
 /obj/machinery/suit_storage_unit,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "que" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/south,
@@ -1030,7 +1017,7 @@
 	dir = 10
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "qHO" = (
 /obj/effect/shuttle_landmark/orion_express_ship/transit,
 /turf/space/transit/south,
@@ -1041,22 +1028,27 @@
 	},
 /obj/effect/floor_decal/corner_wide/beige/full,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "riA" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "rtf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "ruQ" = (
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
+"rAR" = (
+/obj/effect/floor_decal/corner_wide/beige,
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion_express_ship)
 "rNp" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -1068,7 +1060,7 @@
 /obj/random/voidsuit/no_nanotrasen,
 /obj/random/voidsuit/no_nanotrasen,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "szY" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
@@ -1090,14 +1082,14 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "sGi" = (
 /obj/machinery/door/airlock/mining{
 	name = "Cockpit";
 	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "sOb" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
@@ -1110,15 +1102,11 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
-"ths" = (
-/obj/effect/shuttle_landmark/orion_express_ship/start,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "tjM" = (
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "tra" = (
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 4
@@ -1127,33 +1115,42 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
+"tzT" = (
+/obj/effect/floor_decal/corner_wide/beige/full{
+	dir = 4
+	},
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion_express_ship)
 "tCH" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
 /obj/effect/floor_decal/corner_wide/beige/full,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "uaE" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "uwT" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "uCl" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "uNN" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "uYP" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -1168,21 +1165,21 @@
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "vdX" = (
 /obj/effect/shuttle_landmark/orion_express_ship/nav1,
 /turf/template_noop,
 /area/space)
 "vwF" = (
 /turf/unsimulated/wall/fakepdoor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "vxN" = (
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "orion_warehouse"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "vCD" = (
 /obj/machinery/door/window/northleft{
 	dir = 2;
@@ -1191,30 +1188,39 @@
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "vLp" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "vMq" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/captain,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
+"vRM" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "orion_traveler_out"
+	},
+/obj/effect/shuttle_landmark/orion_express_ship/nav2,
+/turf/simulated/floor,
+/area/ship/orion_express_ship)
 "vTv" = (
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "vUu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "wfy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -1228,10 +1234,10 @@
 	req_access = list(201)
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "wmd" = (
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "wrJ" = (
 /obj/effect/shuttle_landmark/orion_express_shuttle/transit,
 /turf/space/transit/south,
@@ -1241,7 +1247,7 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "wCo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -1253,7 +1259,7 @@
 "wLs" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "wNk" = (
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/orion_express_shuttle)
@@ -1265,7 +1271,7 @@
 /obj/structure/bed/stool/bar/padded/beige,
 /obj/structure/bed/stool/bar/padded/beige,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "xoc" = (
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/orion_express_shuttle)
@@ -1279,19 +1285,19 @@
 	amount = 20
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "xwj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /obj/item/stack/material/plasteel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "xzv" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /obj/random/voidsuit,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "xPN" = (
 /obj/machinery/computer/ship/helm{
 	req_access = list(201)
@@ -1306,7 +1312,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "xRX" = (
 /turf/template_noop,
 /area/space)
@@ -1315,10 +1321,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 "yjk" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_express_ship)
+/area/ship/orion_express_ship)
 
 (1,1,1) = {"
 xRX
@@ -33548,9 +33554,9 @@ ccm
 ccm
 ccm
 ccm
-ths
 ccm
-aaa
+ccm
+ccm
 ccm
 ccm
 ccm
@@ -33815,8 +33821,8 @@ ccm
 aUD
 riA
 pwR
-pjp
-hJi
+rAR
+tzT
 gNW
 xRX
 xRX
@@ -36887,7 +36893,7 @@ xRX
 xRX
 xRX
 gNW
-lsi
+vRM
 lsi
 gNW
 xRX
