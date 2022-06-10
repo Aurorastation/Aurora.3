@@ -204,7 +204,7 @@
 
 /datum/gear/faction/pcmg_headwear/New()
 	..()
-	var/list/pcmg_headwear = list()
+	var/list/pmcg_headwear = list()
 	pcmg_headwear["PCMG beret"] = /obj/item/clothing/head/beret/corporate/pmc
 	pcmg_headwear["PCMG softcap"] = /obj/item/clothing/head/softcap/pmc
 	pcmg_headwear["PCMG softcap, alt"] = /obj/item/clothing/head/softcap/pmc/alt
