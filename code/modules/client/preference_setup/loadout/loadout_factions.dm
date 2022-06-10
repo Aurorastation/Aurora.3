@@ -202,12 +202,12 @@
 	slot = slot_head
 	faction = "Private Military Contracting Group"
 
-/datum/gear/faction/pcmg_headwear/New()
+/datum/gear/faction/pmcg_headwear/New()
 	..()
 	var/list/pmcg_headwear = list()
-	pcmg_headwear["PMCG beret"] = /obj/item/clothing/head/beret/corporate/pmc
-	pcmg_headwear["PMCG softcap"] = /obj/item/clothing/head/softcap/pmc
-	pcmg_headwear["PMCG softcap, alt"] = /obj/item/clothing/head/softcap/pmc/alt
+	pmcg_headwear["PMCG beret"] = /obj/item/clothing/head/beret/corporate/pmc
+	pmcg_headwear["PMCG softcap"] = /obj/item/clothing/head/softcap/pmc
+	pmcg_headwear["PMCG softcap, alt"] = /obj/item/clothing/head/softcap/pmc/alt
 	pmcg_headwear["EPMC beret"] = /obj/item/clothing/head/beret/corporate/pmc/epmc
 	pmcg_headwear["EPMC softcap"] = /obj/item/clothing/head/softcap/pmc/epmc
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_headwear)
