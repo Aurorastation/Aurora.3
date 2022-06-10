@@ -283,6 +283,27 @@
 	else
 		..()
 
+/obj/item/organ/internal/dataport
+	name = "data port"
+	organ_tag = BP_DATAPORT
+	parent_organ = BP_HEAD
+	icon = 'icons/obj/robot_component.dmi'
+	icon_state = "working"
+	item_state = "working"
+	dead_icon = "broken"
+	contained_sprite = TRUE
+	robotic_sprite = FALSE
+	var/obj/item/overloader/overloader
+
+/obj/item/organ/internal/dataport/Initialize()
+	robotize()
+	. = ..()
+
+/obj/item/organ/internal/dataport/process()
+
+
+
+
 // Used for an MMI or posibrain being installed into a human.
 /obj/item/organ/internal/mmi_holder
 	name = "brain"

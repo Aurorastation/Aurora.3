@@ -134,9 +134,10 @@
 #define BP_ADRENAL  "adrenal"
 
 //IPC organs
-#define BP_CELL     "cell"
-#define BP_OPTICS   "optics"
-#define BP_IPCTAG   "ipc tag"
+#define BP_CELL      "cell"
+#define BP_OPTICS    "optics"
+#define BP_IPCTAG    "ipc tag"
+#define BP_DATAPORT "data port"
 
 // Zombie organ
 #define BP_ZOMBIE_PARASITE "zombieparasite"

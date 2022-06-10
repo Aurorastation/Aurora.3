@@ -87,6 +87,7 @@
 		BP_CELL    = /obj/item/organ/internal/cell,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
+		BP_DATAPORT = /obj/item/organ/internal/dataport
 	)
 
 	vision_organ = BP_EYES
