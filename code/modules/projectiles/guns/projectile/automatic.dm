@@ -222,7 +222,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine/update_icon()
 	..()
-	icon_state = (ammo_magazine)? "civcarbine" : "civcarbine"
+	icon_state = (ammo_magazine)? "civcarbine" : "civcarbine - empty"
 
 /obj/item/gun/projectile/automatic/rifle/sol
 	name = "solarian assault rifle"
