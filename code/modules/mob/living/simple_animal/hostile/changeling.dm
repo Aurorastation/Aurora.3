@@ -19,8 +19,9 @@
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
-	maxHealth = 4500
-	health = 4500
+	blood_amount = 1250
+	maxHealth = 1500
+	health = 1500
 	harm_intent_damage = 0
 	melee_damage_lower = 40
 	melee_damage_upper = 60
@@ -58,7 +59,7 @@
 
 /mob/living/simple_animal/hostile/true_changeling/Life()
 	..()
-	adjustBruteLoss(-15)
+	adjustBruteLoss(-10)
 
 /mob/living/simple_animal/hostile/true_changeling/mind_initialize()
 	..()
