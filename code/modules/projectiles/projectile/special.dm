@@ -313,3 +313,8 @@
 	embed = TRUE
 	sharp = TRUE
 	shrapnel_type = /obj/item/bone_dart/vannatusk
+
+/obj/item/projectile/bonedart/ling
+	name = "bone dart"
+	damage = 30
+	check_armor = "bullet"
