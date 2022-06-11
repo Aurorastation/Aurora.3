@@ -14,7 +14,7 @@
 	level = 1
 
 	var/enabled = TRUE
-	var/diffuser_range = 1 // 1 tile, including the tile its on.
+	var/diffuser_range = 1 // 1x1 tiles, including the tile its on.
 
 /obj/machinery/shield_diffuser/process()
 	if(stat & BROKEN)
