@@ -2,6 +2,7 @@
 // Shield Diffusers
 //
 
+
 /obj/machinery/shield_diffuser
 	name = "shield diffuser"
 	desc = "A small underfloor device specifically designed to disrupt energy barriers."
