@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - bugfix: "Fixes the xenobotanist not having access to the hazardous specimens air alarm."
+  - bugfix: "Fixes the chaplain's shield diffusers leaving the bar exposed to meteors."
