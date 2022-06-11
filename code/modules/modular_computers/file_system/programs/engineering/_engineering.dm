@@ -85,7 +85,7 @@
 	filename = "rcon"
 	filedesc = "RCON Remote Control"
 	nanomodule_path = /datum/nano_module/rcon
-	program_icon_state = "power"
+	program_icon_state = "power_monitor"
 	program_key_icon_state = "yellow_key"
 	extended_desc = "This program allows remote control of power distribution systems around the station. This program can not be run on tablet computers."
 	required_access_run = access_engine
@@ -102,7 +102,7 @@
 	filename = "lightctrl"
 	filedesc = "Lighting Controller"
 	nanomodule_path = /datum/nano_module/lighting_ctrl
-	program_icon_state = "power"
+	program_icon_state = "power_monitor"
 	program_key_icon_state = "yellow_key"
 	extended_desc = "This program allows mass-control of the station's lighting systems. This program cannot be run on tablet computers."
 	required_access_run = access_heads
