@@ -56,6 +56,8 @@
 	..()
 	update_icon()
 
+//
 // 3x3 Range Shield Diffuser
+//
 /obj/machinery/shield_diffuser/3x3
 	diffuser_range = 3
