@@ -1218,8 +1218,7 @@
 /area/turbolift/scc_ship/cargo_lift)
 "aBr" = (
 /obj/effect/floor_decal/corner/mauve{
-	dir = 5;
-	color = s
+	dir = 5
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -35035,15 +35034,6 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/security/brig/processing_secondary)
-"tdD" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/research)
 "tdM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/mauve,
@@ -68885,7 +68875,7 @@ bGh
 ljp
 tDc
 oGR
-tdD
+aBr
 lWQ
 bGj
 cNU
