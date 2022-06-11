@@ -1,0 +1,4 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - tweak: "Active magboots no longer stop you from entering open turfs if you're lying down, grabbed, or buckled to an object."
