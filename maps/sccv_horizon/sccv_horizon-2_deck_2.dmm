@@ -26179,6 +26179,7 @@
 	},
 /obj/item/circuitboard/ship/helm,
 /obj/item/circuitboard/ship/sensors,
+/obj/item/circuitboard/ship/engines,
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{

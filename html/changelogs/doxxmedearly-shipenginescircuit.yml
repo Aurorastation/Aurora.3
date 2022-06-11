@@ -1,0 +1,4 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - rscadd: "Added a circuitboard for the ship engines control computer, so it can be rebuilt if needed."
