@@ -360,7 +360,7 @@
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#967032"
-	economic_modifier = 5
+	economic_modifier = 10
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
