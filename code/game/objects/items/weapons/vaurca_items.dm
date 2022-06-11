@@ -306,7 +306,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "commando"
 	item_state = "commando"
-	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
+	desc = "A design perfected by the Zo'ra, this armor is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
