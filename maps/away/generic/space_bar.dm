@@ -6,6 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "space_bar"
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /decl/submap_archetype/space_bar
 	map = "space bar"
@@ -20,5 +21,9 @@
 	icon_state = "bar"
 	flags = RAD_SHIELDED
 	requires_power = FALSE
-	base_turf = /turf/space
+	base_turf = /turf/simulated/floor/plating
 	no_light_control = TRUE
+
+/area/space_bar/hangar
+	name = "Spacer Bar Hangar"
+	icon_state = "exit"
