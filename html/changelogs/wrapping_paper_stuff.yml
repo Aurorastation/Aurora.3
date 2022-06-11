@@ -1,9 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes the Package Wrapper not properly wrapping boxes if it had enough space to get stored in. It now asks whether you want to wrap it or store it if the box has enough space to store it."
-  - bugfix: "Fixes the Wrapping Paper (for Gifts) and the Package Wrapper not properly turning into cardboard tubes when used up completely"
-  - bugfix: "Fixes the above not updating their amount number when used"
-  - bugfix: "Fixes the Package Wrapper and Cardboard Tube in-hands not showing up properly"
