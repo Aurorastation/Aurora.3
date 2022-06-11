@@ -435,7 +435,7 @@
 	dat += "</h2></center><hr/>"
 	dat += "<table padding='8px'>"
 	dat += "<tr>"
-	dat += "<td width = 450>[faction.description]</td>"
+	dat += "<td width = 500>[faction.description]</td>"
 	dat += "<td width = 200 align='center'>"
 	dat += {"<img style="height:132px;" src="[faction.get_logo_name()]">"}
 
@@ -455,7 +455,7 @@
 		dat += "<br><span class='warning'>[faction.get_selection_error(pref)]</span>"
 
 	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat.Join()), "window=factionpreview;size=800x500")
+	user << browse(enable_ui_theme(user, dat.Join()), "window=factionpreview;size=750x450")
 
 /datum/category_item/player_setup_item/occupation/proc/validate_and_set_faction(selected_faction)
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
