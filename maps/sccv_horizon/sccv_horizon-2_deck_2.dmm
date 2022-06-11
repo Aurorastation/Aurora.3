@@ -147,9 +147,8 @@
 /obj/machinery/alarm{
 	alarm_id = 1601;
 	dir = 8;
-	name = "Hazardous Specimens";
 	pixel_x = 28;
-	req_one_access = list(24,11,55)
+	req_one_access = list(11, 24, 52)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora_hazard)
