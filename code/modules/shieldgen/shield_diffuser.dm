@@ -15,7 +15,7 @@
 	level = 1
 
 	var/diffuser_enabled = TRUE
-	var/diffuser_range = 1 // 1x1 tiles, including the tile its on.
+	var/diffuser_range = 0 // 1x1 tiles, including the tile its on.
 
 /obj/machinery/shield_diffuser/process()
 	if(stat & BROKEN)
@@ -24,7 +24,7 @@
 	if(!diffuser_enabled || stat & NOPOWER)
 		return
 
-	for(var/obj/effect/energy_field/S in range((diffuser_range - 1), src)) // "Range - 1" because of how the BYOND proc works, i.e. excluding the source object.
+	for(var/obj/effect/energy_field/S in range(diffuser_range, src))
 		S.diffuse(5)
 
 /obj/machinery/shield_diffuser/update_icon()
@@ -63,4 +63,4 @@
 
 // 3x3 Range Shield Diffuser
 /obj/machinery/shield_diffuser/threebythree
-	diffuser_range = 3
+	diffuser_range = 1 // 3x3 tiles, including the tile its on.

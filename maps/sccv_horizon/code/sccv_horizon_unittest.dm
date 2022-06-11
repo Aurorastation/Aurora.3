@@ -11,7 +11,8 @@
 		/area/supply/dock,
 		/area/turbolift,
 		/area/mine,
-		/area/construction
+		/area/construction,
+		/area/horizon/exterior
 	)
 
 	ut_apc_exempt_areas = list()

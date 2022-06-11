@@ -2901,9 +2901,15 @@
 /turf/space/dynamic,
 /area/template_noop)
 "cnE" = (
+/obj/structure/lattice/catwalk,
 /obj/machinery/shield_diffuser,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/maintenance/disposal)
+/obj/item/hullbeacon/red,
+/obj/structure/sign/drop{
+	desc = "A warning sign which reads 'DANGER: MASS EJECTOR PATH ON THIS SIGN'.";
+	name = "\improper DANGER: MASS EJECTOR PATH sign"
+	},
+/turf/space/dynamic,
+/area/template_noop)
 "cnV" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -47389,7 +47395,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+cnE
 uza
 hEZ
 aZP
@@ -47592,7 +47598,7 @@ eSV
 eSV
 eSV
 eSV
-cnE
+nEm
 cYs
 rOV
 fzU
