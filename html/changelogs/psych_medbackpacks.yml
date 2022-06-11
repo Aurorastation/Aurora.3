@@ -1,6 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes Psychiatrists and Psychologists not having the department specific backpacks/satchels/duffel/messenger bags."
