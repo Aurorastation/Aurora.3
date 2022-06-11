@@ -23,7 +23,7 @@
 	if(!enabled || stat & NOPOWER)
 		return
 
-	for(var/obj/effect/energy_field/S in range((diffuser_range - 1), src)) // Range - 1 because of how the BYOND proc works, i.e. excluding the source object.
+	for(var/obj/effect/energy_field/S in range((diffuser_range - 1), src)) // "Range - 1" because of how the BYOND proc works, i.e. excluding the source object.
 		S.diffuse(5)
 
 /obj/machinery/shield_diffuser/update_icon()
