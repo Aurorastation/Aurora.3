@@ -22324,7 +22324,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "mpN" = (
-/obj/machinery/shield_diffuser,
 /obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
@@ -33530,13 +33529,12 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
 "slk" = (
-/obj/machinery/shield_diffuser,
 /obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
 /obj/structure/sign/drop{
 	desc = "A warning sign which reads 'DANGER: MASS EJECTOR PATH ON THIS SIGN'.";
 	name = "\improper DANGER: MASS EJECTOR PATH sign"
 	},
-/obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
 /area/template_noop)
 "slm" = (
