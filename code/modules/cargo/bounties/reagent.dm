@@ -167,7 +167,6 @@
 		/decl/reagent/impedrezene,
 		/decl/reagent/night_juice,
 		/decl/reagent/toxin/cardox,
-		/decl/reagent/toxin/lean,
 		/decl/reagent/toxin/stimm,
 		/decl/reagent/ambrosia_extract)
 

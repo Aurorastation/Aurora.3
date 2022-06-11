@@ -29,6 +29,28 @@
 	sleep(30)
 	deploy()
 
+/obj/structure/droppod_door/attackby(obj/item/W, mob/user)
+	. = ..()
+	if(W.iswelder())
+		var/obj/item/weldingtool/WT = W
+		if(WT.isOn())
+			user.visible_message(
+				SPAN_NOTICE("[user] begins cutting \the [src]'s safety bolts."),
+				SPAN_NOTICE("You begin welding \the [src]'s safety bolts."),
+				SPAN_NOTICE("You hear a welding torch on metal.")
+			)
+			if(!WT.use_tool(src, user, 50, volume = 50))
+				return
+			if(!WT.use(1, user))
+				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
+				return
+			user.visible_message(
+				SPAN_NOTICE("[user] cuts \the [src]'s safety bolts and removes the plating."),
+				SPAN_NOTICE("You cut \the [src]'s safety bolts and remove the plating.")
+			)
+			new /obj/item/stack/material/steel(get_turf(src), 5)
+			qdel(src)
+
 /obj/structure/droppod_door/proc/deploy()
 	if(deployed)
 		return
