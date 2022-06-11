@@ -25,7 +25,9 @@
 	harm_intent_damage = 0
 	melee_damage_lower = 40
 	melee_damage_upper = 60
-	resist_mod = 3
+	ranged = 1
+	projectiletype = /obj/item/projectile/bonedart/ling
+	resist_mod = 15
 	mob_size = 25
 	environment_smash = 2
 	attacktext = "mangled"
@@ -56,10 +58,6 @@
 
 /mob/living/simple_animal/hostile/true_changeling/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
-
-/mob/living/simple_animal/hostile/true_changeling/Life()
-	..()
-	adjustBruteLoss(-5)
 
 /mob/living/simple_animal/hostile/true_changeling/mind_initialize()
 	..()
