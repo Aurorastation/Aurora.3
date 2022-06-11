@@ -46,11 +46,6 @@
 	var/is_devouring = FALSE
 	var/mob/living/carbon/human/occupant = null
 
-	if(last_special > world.time)
-		return
-	
-	last_special = world.time + 30
-
 /mob/living/simple_animal/hostile/true_changeling/Initialize()
 	. = ..()
 	if(prob(25))
@@ -130,27 +125,6 @@
 	last_special = world.time + 100
 	src.is_devouring = FALSE
 	return
-
-/mob/living/simple_animal/hostile/true_changeling/verb/dart(mob/living/target as mob in oview())
-	set name = "Launch Bone Dart"
-	set desc = "Launches a Bone Dart at a target."
-	set category = "Changeling"
-
-	if(!health)
-		to_chat(usr, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
-		return
-
-	if(last_special > world.time)
-		return
-
-	last_special = world.time + 30
-
-	visible_message("<span class='warning'>\The [src]'s skin bulges and tears, launching a bone-dart at [target]!</span>")
-
-	playsound(src.loc, 'sound/weapons/bloodyslice.ogg', 50, 1)
-	var/obj/item/projectile/bonedart/ling/A = new /obj/item/projectile/bonedart/ling(usr.loc)
-	A.throw_at(target, 10, 20, usr)
-	add_logs(src, target, "launched a bone dart at")
 
 /mob/living/simple_animal/hostile/lesser_changeling
 	name = "crawling horror"
