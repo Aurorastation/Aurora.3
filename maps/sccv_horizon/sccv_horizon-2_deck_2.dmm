@@ -5030,9 +5030,6 @@
 	c_tag = "Second Deck - Living Quarters Lift";
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -28
@@ -8341,6 +8338,16 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/lounge/bar)
+"eCD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/landmark/start{
+	name = "Assistant"
+	},
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "eCI" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
@@ -12997,6 +13004,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/garden)
+"gXh" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "gXu" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/plating,
@@ -14267,7 +14279,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/operations/lobby)
+/area/storage/primary)
 "hFm" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -14927,13 +14939,8 @@
 /area/engineering/storage_eva)
 "ibE" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck - Starboard Emergency Supplies Closet";
-	dir = 1
-	},
-/obj/machinery/light/small,
 /turf/simulated/floor/tiled,
-/area/operations/lobby)
+/area/storage/primary)
 "ibU" = (
 /turf/simulated/wall/r_wall,
 /area/security/brig/processing)
@@ -18288,9 +18295,6 @@
 "jUU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
-	},
-/obj/effect/landmark/start{
-	name = "Assistant"
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -25677,11 +25681,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "oeF" = (
-/obj/structure/reagent_dispensers/extinguisher,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/operations/lobby)
+/obj/structure/shuttle_part/scc_space_ship{
+	icon_state = "d2-1"
+	},
+/turf/simulated/wall,
+/area/storage/primary)
 "oeI" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
@@ -26196,6 +26200,7 @@
 	},
 /obj/item/circuitboard/ship/helm,
 /obj/item/circuitboard/ship/sensors,
+/obj/item/circuitboard/ship/engines,
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -34016,7 +34021,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/operations/lobby)
+/area/storage/primary)
 "sBr" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -35792,8 +35797,11 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled,
-/area/operations/lobby)
+/area/storage/primary)
 "tCP" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -37607,7 +37615,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/operations/lobby)
+/area/storage/primary)
 "uvM" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
@@ -41706,9 +41714,11 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_waste)
 "wBh" = (
+/obj/structure/reagent_dispensers/extinguisher,
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/operations/lobby)
+/area/storage/primary)
 "wBq" = (
 /obj/structure/bed/stool/padded/green,
 /obj/structure/disposalpipe/segment{
@@ -55523,10 +55533,10 @@ fhq
 vSd
 eZN
 plH
-rCR
+fzh
 uvB
 sAT
-aRu
+dGz
 whe
 qgN
 qgN
@@ -55726,10 +55736,10 @@ ubX
 eau
 kJw
 hFg
-wBh
 ibE
-rCR
-bYl
+ibE
+gXh
+oeF
 scx
 qgN
 qgN
@@ -55927,11 +55937,11 @@ kmc
 eim
 nFO
 aTa
-rCR
+fzh
 tCG
-oeF
-rCR
-mLw
+ibE
+wBh
+dGz
 whe
 qgN
 qgN
@@ -56129,12 +56139,12 @@ kmc
 qTC
 mpV
 qTC
-rCR
-rCR
-rCR
-rCR
-rCR
-tSl
+fzh
+fzh
+hFg
+fzh
+fzh
+oeF
 scx
 qgN
 qgN
@@ -56939,7 +56949,7 @@ uci
 pfB
 fzh
 pqE
-pxh
+eCD
 kzO
 jSP
 fzh

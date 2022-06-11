@@ -391,3 +391,11 @@
 	projectile_type = /obj/item/projectile/bullet/recoilless_rifle/peac
 	reload_sound = 'sound/weapons/railgun_insert_emp.ogg'
 	max_stack = 1
+
+/obj/item/ammo_casing/kumar_super
+	name =".599 kumar super casing"
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+	caliber = ".599 Kumar Super"
+	projectile_type = /obj/item/projectile/bullet
+	max_stack = 5

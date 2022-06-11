@@ -168,3 +168,9 @@
 	name = "Random Gun"
 	item_cost = 8
 	path = /obj/item/storage/box/syndie_kit/random_weapon
+
+/datum/uplink_item/item/visible_weapons/super_heavy_pistol
+	name = "Super Heavy Pistol"
+	item_cost = 4
+	path = /obj/item/gun/projectile/pistol/super_heavy
+
