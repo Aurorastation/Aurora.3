@@ -27,6 +27,7 @@
 	melee_damage_upper = 60
 	ranged = 1
 	projectiletype = /obj/item/projectile/bonedart/ling
+	projectilesound = 'sound/weapons/bloodyslice.ogg'
 	resist_mod = 15
 	mob_size = 25
 	environment_smash = 2
@@ -44,6 +45,11 @@
 
 	var/is_devouring = FALSE
 	var/mob/living/carbon/human/occupant = null
+
+	if(last_special > world.time)
+		return
+	
+	last_special = world.time + 30
 
 /mob/living/simple_animal/hostile/true_changeling/Initialize()
 	. = ..()
