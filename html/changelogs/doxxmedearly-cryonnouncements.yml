@@ -1,5 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-changes:
-  - bugfix: "Ghost roles jobs will no longer show up as a blank space when entering cryo."
-  - tweak: "The cryogenic oversight announcer will only announce when people cryo if the cryopod is on the Horizon."
