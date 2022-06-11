@@ -1,3 +1,6 @@
+//
+// Shield Diffusers
+//
 /obj/machinery/shield_diffuser
 	name = "shield diffuser"
 	desc = "A small underfloor device specifically designed to disrupt energy barriers."
@@ -11,6 +14,7 @@
 	level = 1
 
 	var/enabled = TRUE
+	var/diffuser_range = 1 // 1 tile, including the tile its on.
 
 /obj/machinery/shield_diffuser/process()
 	if(stat & BROKEN)
@@ -19,7 +23,7 @@
 	if(!enabled || stat & NOPOWER)
 		return
 
-	for(var/obj/effect/energy_field/S in range(1, src))
+	for(var/obj/effect/energy_field/S in range((diffuser_range - 1), src)) // Range - 1 because of how the BYOND proc works, i.e. excluding the source object.
 		S.diffuse(5)
 
 /obj/machinery/shield_diffuser/update_icon()
@@ -51,3 +55,7 @@
 /obj/machinery/shield_diffuser/power_change()
 	..()
 	update_icon()
+
+// 3x3 Range Shield Diffuser
+/obj/machinery/shield_diffuser/3x3
+	diffuser_range = 3
