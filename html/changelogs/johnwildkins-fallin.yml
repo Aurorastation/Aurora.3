@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Fall damage no longer dislocates joints that can't normally be dislocated."
