@@ -1116,19 +1116,19 @@ mob/living/carbon/human/proc/change_monitor()
 	set category = "Abilities"
 
 	if(incapacitated())
-		to_chat(user, SPAN_WARNING("You can't get your dataport to respond at the moment!"))
+		to_chat(src, SPAN_WARNING("You can't get your dataport to respond at the moment!"))
 		return
 
 	var/obj/item/organ/internal/dataport/dport = internal_organs_by_name[BP_DATAPORT]
 	
 	if (!length(dport.contents))
-		to_chat(user, SPAN_WARNING("Your dataport is already empty!"))
+		to_chat(src, SPAN_WARNING("Your dataport is already empty!"))
 		return
 		
 	var/obj/item/overloader/O = locate() in dport
 	if(O)
-		user.visible_message(SPAN_WARNING("[user] ejects \the [O.name] from their dataport."))
-		user.put_in_hands(O)
+		src.visible_message(SPAN_WARNING("[src] ejects \the [O.name] from their dataport."))
+		src.put_in_hands(O)
 
 /mob/living/carbon/human/proc/check_tag()
 	set name = "Check Tag"
