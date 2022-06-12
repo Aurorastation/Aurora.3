@@ -302,7 +302,7 @@
 /obj/item/organ/internal/dataport/process()
 	. = ..()
 	
-	if (installed = null)
+	if (installed == null)
 		return
 
 	installed.do_overloader_effects(src.owner)
