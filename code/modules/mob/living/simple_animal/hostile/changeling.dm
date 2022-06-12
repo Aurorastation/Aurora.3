@@ -23,7 +23,7 @@
 	maxHealth = 1500
 	health = 1500
 	harm_intent_damage = 0
-	melee_damage_lower = 40
+	melee_damage_lower = 30
 	melee_damage_upper = 60
 	ranged = 1
 	projectiletype = /obj/item/projectile/bonedart/ling

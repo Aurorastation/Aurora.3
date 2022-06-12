@@ -453,10 +453,10 @@
 
 /mob/proc/horror_form()
 	set category = "Changeling"
-	set name = "Horror Form (20)"
+	set name = "Horror Form (50)"
 	set desc = "Tear apart your human disguise, revealing your true form."
 
-	var/datum/changeling/changeling = changeling_power(20,0,0)
+	var/datum/changeling/changeling = changeling_power(50,0,0)
 	if(!changeling)
 		return FALSE
 
@@ -465,10 +465,10 @@
 
 	var/mob/living/carbon/human/M = src
 
-	if(alert("Are we sure we wish to reveal ourselves? This will only revert after ten minutes.", , "Yes", "No") == "No") //Changelings have to confirm whether they want to go full horrorform
+	if(alert("Are we sure we wish to reveal ourselves? This will only revert after forty-five minutes.", , "Yes", "No") == "No") //Changelings have to confirm whether they want to go full horrorform
 		return
 
-	changeling.chem_charges -= 20
+	changeling.chem_charges -= 50
 
 	M.visible_message("<span class='danger'>[M] writhes and contorts, their body expanding to inhuman proportions!</span>", \
 						"<span class='danger'>We begin our transformation to our true form!</span>")
@@ -510,7 +510,7 @@
 	M.forceMove(ling) //move inside the new dude to hide him.
 	ling.occupant = M
 	M.status_flags |= GODMODE //dont want him to die or breathe or do ANYTHING
-	addtimer(CALLBACK(src, .proc/revert_horror_form,ling), 10 MINUTES)
+	addtimer(CALLBACK(src, .proc/revert_horror_form,ling), 45 MINUTES)
 
 /mob/proc/revert_horror_form(var/mob/living/ling)
 	if(QDELETED(ling))
