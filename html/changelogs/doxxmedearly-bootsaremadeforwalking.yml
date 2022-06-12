@@ -1,5 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-changes:
-  - bugfix: "Magboots should once more prevent you from being flung about during shuttle launches."
-  - bugfix: "Magboots should now always function if there's solid ground beneath you, including at away sites, and newly built floors in space."
