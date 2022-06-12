@@ -24,7 +24,7 @@
 	dir = 4
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "abQ" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -1393,7 +1393,7 @@
 	dir = 6
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "beF" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -1618,11 +1618,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "boH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "boN" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
@@ -2848,7 +2848,7 @@
 	dir = 4
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "ckB" = (
 /turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
@@ -2876,7 +2876,7 @@
 "clT" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "cnb" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2900,11 +2900,17 @@
 	dir = 4
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "cnE" = (
+/obj/structure/lattice/catwalk,
 /obj/machinery/shield_diffuser,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/maintenance/disposal)
+/obj/item/hullbeacon/red,
+/obj/structure/sign/drop{
+	desc = "A warning sign which reads 'DANGER: MASS EJECTOR PATH ON THIS SIGN'.";
+	name = "\improper DANGER: MASS EJECTOR PATH sign"
+	},
+/turf/space/dynamic,
+/area/template_noop)
 "cnV" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2970,7 +2976,7 @@
 "cpF" = (
 /obj/structure/grille/diagonal,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "cpU" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -4193,7 +4199,7 @@
 	dir = 9
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "dpK" = (
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
@@ -4685,7 +4691,7 @@
 	dir = 8
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "dPt" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -5567,7 +5573,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "eyW" = (
 /obj/machinery/camera/network/intrepid{
 	c_tag = "Intrepid - Airlock Starboard"
@@ -5751,7 +5757,7 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "eGE" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
@@ -6110,7 +6116,7 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "eRF" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -6876,7 +6882,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "fwA" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -7730,7 +7736,7 @@
 	dir = 1
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "gdR" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -12557,7 +12563,7 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/valve/open,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "kiw" = (
 /obj/structure/sign/securearea{
 	pixel_y = 32
@@ -13108,7 +13114,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "kBF" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -13163,7 +13169,7 @@
 	},
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "kDf" = (
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
@@ -15512,7 +15518,7 @@
 "mBc" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/black,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "mBx" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
@@ -16689,7 +16695,7 @@
 	},
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "ntJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
@@ -17437,12 +17443,12 @@
 	},
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "oap" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "oaZ" = (
 /obj/machinery/door/window/westright,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -17684,7 +17690,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/black,
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "oos" = (
 /obj/machinery/door/blast/regular/open{
 	id = "hangarlockdown";
@@ -19542,6 +19548,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"pYB" = (
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/horizon/exterior)
 "pYD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -19805,7 +19815,7 @@
 "qgu" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "qhz" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
 /obj/machinery/meter,
@@ -20087,7 +20097,7 @@
 	dir = 4
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "qsq" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/decal/fake_object{
@@ -20112,7 +20122,7 @@
 	},
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "qtm" = (
 /obj/machinery/papershredder,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -20445,7 +20455,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "qEK" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -20861,7 +20871,7 @@
 	dir = 4
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "qZj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -21571,7 +21581,7 @@
 	dir = 4
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "rEl" = (
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
@@ -22205,7 +22215,7 @@
 	dir = 4
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "sfh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -23108,7 +23118,7 @@
 /obj/structure/lattice,
 /obj/structure/grille,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "sPQ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
@@ -24061,7 +24071,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "tFO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -25683,7 +25693,7 @@
 	},
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "uVF" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
@@ -27532,7 +27542,7 @@
 	dir = 4
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "wuD" = (
 /turf/simulated/wall,
 /area/hangar/intrepid)
@@ -27586,7 +27596,7 @@
 	},
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "wxs" = (
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations - Mining Shuttle Dock Starboard";
@@ -27661,6 +27671,9 @@
 /mob/living/silicon/robot/drone/construction/matriarch,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"wEY" = (
+/turf/space/dynamic,
+/area/horizon/exterior)
 "wGn" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled,
@@ -27952,7 +27965,7 @@
 	dir = 6
 	},
 /turf/space/dynamic,
-/area/template_noop)
+/area/horizon/exterior)
 "wUz" = (
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /obj/machinery/door/window/westright{
@@ -47396,7 +47409,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+cnE
 uza
 hEZ
 aZP
@@ -47599,7 +47612,7 @@ eSV
 eSV
 eSV
 eSV
-cnE
+nEm
 cYs
 rOV
 fzU
@@ -48609,8 +48622,8 @@ eSV
 eSV
 oam
 cpF
-dEC
-hoV
+wEY
+pYB
 onU
 qEq
 oap
@@ -48810,8 +48823,8 @@ eSV
 eSV
 eSV
 sPo
-hoV
-hoV
+pYB
+pYB
 oDB
 bID
 fOC
@@ -49012,8 +49025,8 @@ eSV
 eSV
 eSV
 sPo
-dEC
-dEC
+wEY
+wEY
 jvE
 lPP
 xHW
@@ -49214,14 +49227,14 @@ eSV
 eSV
 eSV
 sPo
-dEC
-dEC
+wEY
+wEY
 twq
 dBA
 pMX
 dBA
 ipg
-dEC
+wEY
 wup
 ckd
 hWb
@@ -49416,8 +49429,8 @@ eSV
 eSV
 eSV
 sPo
-dEC
-dEC
+wEY
+wEY
 foN
 htn
 nnh
@@ -49618,8 +49631,8 @@ eSV
 eSV
 eSV
 sPo
-hoV
-hoV
+pYB
+pYB
 oDB
 nAX
 vWL
@@ -49627,7 +49640,7 @@ mnL
 oDB
 ckd
 wup
-dEC
+wEY
 gaC
 lqh
 rNy
@@ -49820,13 +49833,13 @@ eSV
 eSV
 eSV
 sPo
-dEC
-dEC
-hoV
-dEC
-dEC
-dEC
-hoV
+wEY
+wEY
+pYB
+wEY
+wEY
+wEY
+pYB
 nto
 cnx
 kid
@@ -50022,16 +50035,16 @@ eSV
 eSV
 eSV
 sPo
-hoV
-hoV
+pYB
+pYB
 oDB
 kna
 uAi
 wVU
 oDB
-dEC
+wEY
 wup
-dEC
+wEY
 hWb
 aph
 sXy
@@ -50224,8 +50237,8 @@ eSV
 eSV
 eSV
 sPo
-dEC
-dEC
+wEY
+wEY
 xJv
 ebN
 sEE
@@ -50426,16 +50439,16 @@ eSV
 eSV
 eSV
 sPo
-dEC
-dEC
+wEY
+wEY
 tBT
 dKY
 nRZ
 dKY
 fFm
-dEC
+wEY
 wup
-dEC
+wEY
 gaC
 keQ
 eIS
@@ -50628,8 +50641,8 @@ eSV
 eSV
 eSV
 sPo
-dEC
-dEC
+wEY
+wEY
 wnz
 bGf
 enn
@@ -50830,8 +50843,8 @@ eSV
 eSV
 eSV
 sPo
-hoV
-hoV
+pYB
+pYB
 oDB
 eMK
 lzc
@@ -50839,7 +50852,7 @@ iMg
 oDB
 tFM
 wup
-dEC
+wEY
 hWb
 aph
 btw
@@ -51032,13 +51045,13 @@ eSV
 eSV
 eSV
 sPo
-dEC
-dEC
-hoV
-dEC
+wEY
+wEY
+pYB
+wEY
 mBc
-dEC
-hoV
+wEY
+pYB
 wUo
 qsn
 eRb
@@ -51234,8 +51247,8 @@ eSV
 eSV
 eSV
 sPo
-hoV
-hoV
+pYB
+pYB
 oDB
 vbv
 dEU
@@ -51243,7 +51256,7 @@ bFw
 oDB
 qZc
 wup
-dEC
+wEY
 gaC
 bBR
 uPe
@@ -51436,8 +51449,8 @@ eSV
 eSV
 eSV
 sPo
-dEC
-dEC
+wEY
+wEY
 uKu
 vuB
 jpI
@@ -51638,14 +51651,14 @@ eSV
 eSV
 eSV
 sPo
-dEC
-dEC
+wEY
+wEY
 lJK
 ckB
 pTj
 ckB
 xki
-dEC
+wEY
 wup
 qZc
 hWb
@@ -51840,8 +51853,8 @@ eSV
 eSV
 eSV
 sPo
-dEC
-dEC
+wEY
+wEY
 fQZ
 wdX
 onN
@@ -52042,16 +52055,16 @@ eSV
 eSV
 eSV
 sPo
-hoV
-hoV
+pYB
+pYB
 oDB
 ukl
 eeb
 iES
 oDB
-dEC
+wEY
 wup
-dEC
+wEY
 gCN
 aYt
 pAp
@@ -52245,15 +52258,15 @@ eSV
 eSV
 wxd
 abr
-dEC
-hoV
+wEY
+pYB
 clT
 eyU
 boC
 boC
 fvy
 wup
-dEC
+wEY
 gCN
 kzi
 heH
