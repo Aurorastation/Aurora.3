@@ -77,7 +77,7 @@
 
 /mob/living/simple_animal/hostile/true_changeling/verb/ling_devour(mob/living/target as mob in oview())
 	set category = "Changeling"
-	set name = "Devour"
+	set name = "Devour (Heal)"
 	set desc = "Devours a creature, destroying its body and regenerating health."
 
 	if(!Adjacent(target))
