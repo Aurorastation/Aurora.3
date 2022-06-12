@@ -5,6 +5,7 @@
 	icon_state = "overloader"
 	item_state = "overloader"
 	var/runtime = 30
+	var expended = FALSE
 
 /obj/item/overloader/attack(mob/living/carbon/human/M, mob/user, def_zone)
 	if(!istype(M))
@@ -22,7 +23,18 @@
 		D.installed = src
 
 /obj/item/overloader/proc/do_overloader_effects(mob/living/carbon/human/M)
+	if (runtime == 0)
+		expend()
 	return
+	
+/obj/item/overloader/proc/expend()
+	expended = TRUE
+	update_icon()
+
+/obj/item/overloader/update_icon()
+	..()
+	icon_state = "[initial(icon_state)][expended]"
+	item_state = "[initial(item_state)][expended]"
 
 /obj/item/overloader/seizure
 	name = "seizure overloader"
@@ -30,6 +42,5 @@
 	runtime = 1
 
 /obj/item/overloader/seizure/do_overloader_effects(mob/living/carbon/human/M)
-
 	if (runtime > 0)
 		M.seizure()
