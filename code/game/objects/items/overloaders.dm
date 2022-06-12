@@ -9,7 +9,7 @@
 	if(!istype(M))
 		return
 	
-	var/obj/item/organ/internal/dataport/D = M.internal_organs_by_name[dataport]
+	var/obj/item/organ/internal/dataport/D = M.internal_organs_by_name[BP_DATAPORT]
 
 	if (D && M.isSynthetic())
 		forceMove(D)
