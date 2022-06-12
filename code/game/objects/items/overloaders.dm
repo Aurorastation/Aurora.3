@@ -20,7 +20,7 @@
 		user.visible_message(SPAN_WARNING("[user] slots \the [src.name] into [M]'s dataport."))
 		user.drop_from_inventory(src, D)
 
-/obj/item/overloader/do_overloader_effects(mob/living/carbon/human/M)
+/obj/item/overloader/proc/do_overloader_effects(mob/living/carbon/human/M)
 	runtime--
 	return
 
