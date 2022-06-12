@@ -69,7 +69,9 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag,
-		/mob/living/carbon/human/proc/tie_hair)
+		/mob/living/carbon/human/proc/tie_hair,
+		/mob/living/carbon/human/proc/remove_hardware
+		)
 
 	bodyfall_sound = /decl/sound_category/bodyfall_sound
 
@@ -173,7 +175,8 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/human/proc/check_tag,
+		/mob/living/carbon/human/proc/remove_hardware
 		)
 
 /datum/species/machine/industrial/get_light_color()
@@ -317,7 +320,8 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/human/proc/check_tag,
+		/mob/living/carbon/human/proc/remove_hardware
 	)
 
 	examine_color = "#688359"
@@ -449,7 +453,8 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/human/proc/check_tag,
+		/mob/living/carbon/human/proc/remove_hardware
 		)
 
 
@@ -496,7 +501,8 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/human/proc/check_tag,
+		/mob/living/carbon/human/proc/remove_hardware
 		)
 
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
@@ -536,7 +542,8 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/human/proc/check_tag,
+		/mob/living/carbon/human/proc/remove_hardware
 		)
 
 /datum/species/machine/unbranded/remote
