@@ -306,6 +306,7 @@
 		return
 
 	installed.do_overloader_effects(src.owner)
+	installed.runtime--
 
 
 // Used for an MMI or posibrain being installed into a human.

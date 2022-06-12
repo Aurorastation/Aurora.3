@@ -22,8 +22,7 @@
 		D.installed = src
 
 /obj/item/overloader/proc/do_overloader_effects(mob/living/carbon/human/M)
-	while (runtime > 0)
-		runtime--
+	return
 
 /obj/item/overloader/seizure
 	name = "seizure overloader"
@@ -31,7 +30,6 @@
 	runtime = 1
 
 /obj/item/overloader/seizure/do_overloader_effects(mob/living/carbon/human/M)
-	. = ..()
 
-	while (runtime >= 1)
-	M.seizure()
+	if (runtime > 0)
+		M.seizure()
