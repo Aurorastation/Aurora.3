@@ -4,6 +4,7 @@
 	icon = 'icons/obj/overloader.dmi'
 	icon_state = "overloader"
 	item_state = "overloader"
+	runtime = 30
 
 /obj/item/overloader/attack(mob/living/carbon/human/M, mob/user, def_zone)
 	if(!istype(M))
@@ -18,3 +19,17 @@
 
 		user.visible_message(SPAN_WARNING("[user] slots \the [src.name] into [M]'s dataport."))
 		user.drop_from_inventory(src, D)
+
+/obj/item/overloader/do_overloader_effects(mob/living/carbon/human/M)
+	runtime--
+	return
+
+/obj/item/overloader/seizure
+	name = "seizure overloader"
+	desc = "An IPC overloader. This one appears to cause seizures, since it's a placeholder overloader for testing purposes."
+
+/obj/item/overloader/do_overloader_effects(mob/living/carbon/human/M)
+	. = ..()
+
+	while (runtime > 1)
+	M.seizure()

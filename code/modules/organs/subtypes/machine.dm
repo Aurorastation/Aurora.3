@@ -293,14 +293,19 @@
 	dead_icon = "broken"
 	contained_sprite = TRUE
 	robotic_sprite = FALSE
-	var/obj/item/overloader/overloader
+	var/obj/item/overloader/installed
 
 /obj/item/organ/internal/dataport/Initialize()
 	robotize()
 	. = ..()
 
+/obj/item/organ/internal/dataport/process()
+	. = ..()
 
+	if (length(src.contents))
+	installed = locate() in src
 
+	installed.do_overloader_effects(src.owner)
 
 
 // Used for an MMI or posibrain being installed into a human.
