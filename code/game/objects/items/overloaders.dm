@@ -12,5 +12,9 @@
 	var/obj/item/organ/internal/dataport/D = M.internal_organs_by_name[BP_DATAPORT]
 
 	if (D && M.isSynthetic())
-		user.visible_message(SPAN_WARNING("[user] slots \the overloader into [M]'s dataport."))
+		if (length(D.contents))
+			to_chat(user, SPAN_WARNING("[M]'s dataport already has something in it!"))
+			return
+
+		user.visible_message(SPAN_WARNING("[user] slots \the [src.name] into [M]'s dataport."))
 		user.drop_from_inventory(src, D)
