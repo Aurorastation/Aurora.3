@@ -613,10 +613,17 @@
 
 /decl/sound_category/shotgun_pump
 	sounds = list(
-		'sound/weapons/shotgun_pump.ogg',
-		'sound/weapons/shotgun_pump2.ogg',
-		'sound/weapons/shotgun_pump3.ogg',
-		'sound/weapons/shotgun_pump5.ogg'
+		'sound/weapons/reloads/shotgun_pump.ogg',
+		'sound/weapons/reloads/shotgun_pump2.ogg',
+		'sound/weapons/reloads/shotgun_pump3.ogg',
+		'sound/weapons/reloads/shotgun_pump5.ogg'
+	)
+
+/decl/sound_category/heavy_machine_gun_reload
+	sounds = list(
+		'sound/weapons/reloads/hmg_reload1.ogg',
+		'sound/weapons/reloads/hmg_reload2.ogg',
+		'sound/weapons/reloads/hmg_reload3.ogg'
 	)
 /decl/sound_category/drillhit_sound
 	sounds = list(
