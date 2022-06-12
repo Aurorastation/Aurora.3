@@ -12,4 +12,4 @@
 	var/obj/item/organ/internal/dataport/D = M.internal_organs_by_name[BP_DATAPORT]
 
 	if (D && M.isSynthetic())
-		forceMove(D)
+		user.drop_from_inventory(src, D)
