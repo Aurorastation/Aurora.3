@@ -4,7 +4,7 @@
 	icon = 'icons/obj/overloader.dmi'
 	icon_state = "overloader"
 	item_state = "overloader"
-	runtime = 30
+	var/runtime = 30
 
 /obj/item/overloader/attack(mob/living/carbon/human/M, mob/user, def_zone)
 	if(!istype(M))

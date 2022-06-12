@@ -303,7 +303,7 @@
 	. = ..()
 
 	if (length(src.contents))
-	installed = locate() in src
+		installed = locate() in src
 
 	installed.do_overloader_effects(src.owner)
 
