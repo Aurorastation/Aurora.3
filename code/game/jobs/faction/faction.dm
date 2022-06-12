@@ -2,7 +2,7 @@
 	var/name
 	var/description
 	var/title_suffix
-	var/departments // this sucks donkey dong but it was already hardtyped so
+	var/departments
 
 	var/list/allowed_role_types
 	var/list/allowed_species_types
