@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/tcfl_peacekeeper_ship
 	name = "TCFL Peacekeeper Ship"
-	description = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus. This one’s transponder identifies it as a Tau Ceti Foreign Legion patrol vessel."
+	description = "Serving as the very foundation of the SCC’s (And more specifically, NanoTrasen’s) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design’s interdiction counterpart - the Hydrus-class shuttle. This one’s transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
 	suffix = "ships/tcfl_peacekeeper_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	spawn_weight = 1
@@ -10,7 +10,7 @@
 
 /decl/submap_archetype/tcfl_peacekeeper_ship
 	map = "TCFL Peacekeeper Ship"
-	descriptor = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus. This one’s transponder identifies it as a Tau Ceti Foreign Legion patrol vessel."
+	descriptor = "Serving as the very foundation of the SCC’s (And more specifically, NanoTrasen’s) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design’s interdiction counterpart - the Hydrus-class shuttle. This one’s transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
 
 //areas
 /area/ship/tcfl_peacekeeper_ship
@@ -24,7 +24,7 @@
 
 /obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship
 	name = "TCFL Peacekeeper Ship"
-	desc = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus. This one’s transponder identifies it as a Tau Ceti Foreign Legion patrol vessel."
+	desc = "Serving as the very foundation of the SCC’s (And more specifically, NanoTrasen’s) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design’s interdiction counterpart - the Hydrus-class shuttle. This one’s transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"	
 	max_speed = 1/(2 SECONDS)
@@ -65,7 +65,7 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tcfl_shuttle
 	name = "TCFL Shuttle"
-	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one’s transponder identifies it as belonging to the Tau Ceti Foreign Legion."
+	desc = "A large and unusually-shaped shuttle, the Hydrus-class is deceptively fast and is designed to operate out of a Cetus-class corvette’s rear hangar bay, interdicting targets that its mothership intercepts. This one’s transponder identifies it as a Tau Ceti Foreign Legion shuttle, and as a Velite-class Interceptor - the TCFL designation for this design."
 	shuttle = "TCFL Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
