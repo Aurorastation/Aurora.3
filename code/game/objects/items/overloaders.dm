@@ -12,4 +12,4 @@
 	var/obj/item/organ/internal/dataport/dataport
 
 	if (M.internal_organs_by_name[dataport] && M.isSynthetic())
-		usr.drop_from_inventory(src, M.dataport)
+		usr.drop_from_inventory(src, M.internal_organs_by_name[dataport])
