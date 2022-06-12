@@ -9,7 +9,7 @@
 	if(!istype(M))
 		return
 	
-	var/obj/item/organ/internal/dataport/dataport
+	var/obj/item/organ/internal/dataport/D = M.internal_organs_by_name[dataport]
 
-	if (M.internal_organs_by_name[dataport] && M.isSynthetic())
-		usr.drop_from_inventory(src, M.internal_organs_by_name[dataport])
+	if (D && M.isSynthetic())
+		forceMove(D)
