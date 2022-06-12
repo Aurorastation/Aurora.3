@@ -34,7 +34,7 @@
 	category_item_type = /datum/category_item/player_setup_item/skills
 
 /datum/category_group/player_setup_category/occupation_preferences
-	name = "Occupation / Faction"
+	name = "Occupation"
 	sort_order = 4
 	category_item_type = /datum/category_item/player_setup_item/occupation
 
