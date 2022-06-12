@@ -28,9 +28,10 @@
 /obj/item/overloader/seizure
 	name = "seizure overloader"
 	desc = "An IPC overloader. This one appears to cause seizures, since it's a placeholder overloader for testing purposes."
+	runtime = 1
 
-/obj/item/overloader/do_overloader_effects(mob/living/carbon/human/M)
+/obj/item/overloader/seizure/do_overloader_effects(mob/living/carbon/human/M)
 	. = ..()
 
-	while (runtime > 1)
+	while (runtime >= 1)
 	M.seizure()
