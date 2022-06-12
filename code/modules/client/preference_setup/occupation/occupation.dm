@@ -442,7 +442,7 @@
 	dat += "</tr>"
 	dat += "</table><center><hr/>"
 
-	dat += "<center>You can learn more about this faction on <a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>.</center>"
+	dat += "You can learn more about this faction on <a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>.</center>"
 
 	if (selected_faction == pref.faction)
 		dat += "<br>\[selected\]"
