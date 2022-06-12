@@ -299,7 +299,6 @@
 	robotize()
 	. = ..()
 
-/obj/item/organ/internal/dataport/process()
 
 
 
