@@ -46,7 +46,7 @@
 /obj/item/skrell_projector/vaurca_projector/update_icon()
 	cut_overlays()
 	if(working)
-		var/image/overlay = overlay_image(icon, "zo'ra_projector_light", light_color, RESET_COLOR)
+		var/image/overlay = overlay_image(icon, "zora_projector_light", light_color, RESET_COLOR)
 		add_overlay(overlay)
 
 /obj/item/skrell_projector/vaurca_projector/process()
