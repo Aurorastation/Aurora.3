@@ -228,6 +228,12 @@ datum/gear/suit/colorvest
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/suit/highloft_colorable
+	display_name = "colorable high loft jacket"
+	description = "An upper arms and back bands colorable high loft jacket."
+	path = /obj/item/clothing/suit/storage/toggle/highloft
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/suit/secjacketofficer
 	display_name = "security jacket selection (Security Officer)"
 	path = /obj/item/clothing/suit/storage/security/officer

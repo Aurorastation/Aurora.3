@@ -754,7 +754,7 @@
 	name = "Red Nightshade"
 	id = "berserk"
 	result = /decl/reagent/toxin/berserk
-	required_reagents = list(/decl/reagent/psilocybin = 1, /decl/reagent/alcohol/moonshine = 1)
+	required_reagents = list(/decl/reagent/toxin/stimm = 1, /decl/reagent/synaptizine = 1, /decl/reagent/toxin/phoron = 0.1)
 	result_amount = 1
 
 /datum/chemical_reaction/joy
@@ -787,13 +787,6 @@
 	result = /decl/reagent/toxin/stimm
 	required_reagents = list(/decl/reagent/fuel = 1, /decl/reagent/drink/rewriter = 5)
 	result_amount = 6
-
-/datum/chemical_reaction/lean
-	name = "Lean"
-	id = "lean"
-	result = /decl/reagent/toxin/lean
-	required_reagents = list(/decl/reagent/drink/spaceup = 2, /decl/reagent/coughsyrup = 2, /decl/reagent/sugar = 1)
-	result_amount = 5
 
 /datum/chemical_reaction/krokjuice
 	name = "Krok Juice"

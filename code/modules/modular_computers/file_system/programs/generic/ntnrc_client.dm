@@ -1,7 +1,8 @@
 /datum/computer_file/program/chat_client
 	filename = "ntnrc_client"
 	filedesc = "Chat Client"
-	program_icon_state = "generic"
+	program_icon_state = "command"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program allows communication over the NTRC network."
 	size = 2
 	requires_ntnet = FALSE
@@ -173,8 +174,7 @@
 			if((!computer.registered_id && !computer.register_account(src)))
 				return
 	if(service_state == PROGRAM_STATE_DISABLED)
-		if(!computer.enable_service(null, user, src))
-			return
+		computer.enable_service(null, user, src)
 	return ..(user)
 
 /datum/computer_file/program/chat_client/event_registered()

@@ -297,3 +297,53 @@ var/list/GPS_list = list()
 	gps_prefix = "JAN"
 	compass_color = "#6eaa2c"
 	gpstag = "JAN0"
+
+// Static GPS
+/obj/item/device/gps/stationary
+	name = "static GPS"
+	desc = "A static global positioning system."
+	gpstag = "STAT0"
+
+/obj/item/device/gps/stationary/Initialize()
+	compass = new(src)
+	update_position()
+
+	if(ismob(loc))
+		if(ishuman(loc))
+			var/mob/living/carbon/human/H = loc
+			if(src in H.get_equipped_items())
+				held_by = H
+			else
+				implanted_into = loc
+		else if(issilicon(loc))
+			held_by = loc
+			implanted_into = loc
+	else if(istype(loc, /obj/item/robot_module))
+		held_by = loc.loc
+		implanted_into = loc.loc
+
+	update_icon()
+
+	if(held_by)
+		moved_event.register(held_by, src, /obj/item/device/gps/proc/update_position)
+	if(implanted_into)
+		moved_event.register(implanted_into, src, /obj/item/device/gps/proc/update_position)
+	moved_event.register(src, src, /obj/item/device/gps/proc/update_position)
+
+	for(var/gps in GPS_list)
+		tracking += GPS_list[gps]["tag"]
+
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/device/gps/stationary/attack_hand() // Don't let users pick it up.
+	return
+
+/obj/item/device/gps/stationary/mining_shuttle
+	name = "static GPS (mining shuttle)"
+	desc = "A static global positioning system helpful for finding your way back to the mining shuttle."
+	icon_state = "gps-m"
+	anchored = TRUE
+	layer = 2.1
+	gps_prefix = "MIN"
+	compass_color = "#5F4519"
+	gpstag = "MINSHUT"

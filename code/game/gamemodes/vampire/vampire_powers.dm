@@ -998,7 +998,7 @@
 
 	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"))
 
-	var/obj/item/grab/G = new(src, T)
+	var/obj/item/grab/G = new(src, src, T)
 	if(use_hand == "left")
 		l_hand = G
 	else

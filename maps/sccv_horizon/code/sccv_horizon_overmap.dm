@@ -13,7 +13,8 @@
 
 	initial_generic_waypoints = list(
 	"nav_hangar_horizon_1",
-	"nav_hangar_horizon_2"
+	"nav_hangar_horizon_2",
+	"nav_hangar_horizon_3"
 	)
 
 
@@ -58,3 +59,9 @@
 	landmark_tag = "nav_hangar_horizon_2"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/hangar/auxiliary
+
+/obj/effect/shuttle_landmark/horizon/nav3
+	name = "Starboard Primary Docking Arm"
+	landmark_tag = "nav_hangar_horizon_3"
+	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/space
