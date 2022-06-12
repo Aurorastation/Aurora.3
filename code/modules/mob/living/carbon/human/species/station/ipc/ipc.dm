@@ -70,7 +70,8 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/change_monitor,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/human/proc/check_tag,
+		/mob/living/carbon/human/proc/remove_hardware
 	)
 
 	flags = IS_IPC
