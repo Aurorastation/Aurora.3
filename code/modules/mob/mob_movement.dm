@@ -472,7 +472,7 @@
 	return -1
 
 //Checks if a mob has solid ground to stand on
-//If there's no gravity then there's no up or down so naturally you can't stand on anything.
+//If there's no gravity then there's no up or down so naturally you can't stand on anything, unless you have grip.
 //For the same reason lattices in space don't count - those are things you grip, presumably.
 /mob/proc/check_solid_ground()
 	var/turf/T = get_turf(src)
@@ -484,7 +484,7 @@
 
 	var/area/A = T.loc
 
-	if (!A.has_gravity())
+	if (!A.has_gravity() && !Check_Shoegrip())
 		return 0
 
 	return 1
