@@ -67,9 +67,13 @@ datum/gear/suit/colorvest
 	..()
 	var/list/hazard = list()
 	hazard["hazard vest, orange"] = /obj/item/clothing/suit/storage/hazardvest
-	hazard["hazard vest, blue"] = /obj/item/clothing/suit/storage/hazardvest/blue
 	hazard["hazard vest, white"] = /obj/item/clothing/suit/storage/hazardvest/white
-	hazard["hazard vest, green"] = /obj/item/clothing/suit/storage/hazardvest/green
+	hazard["hazard vest, nanotrasen navy blue"] = /obj/item/clothing/suit/storage/hazardvest/nblue
+	hazard["hazard vest, zavodskoi red"] = /obj/item/clothing/suit/storage/hazardvest/red
+	hazard["hazard vest, zeng-hu purple"] = /obj/item/clothing/suit/storage/hazardvest/purple
+	hazard["hazard vest, PMCG blue"] = /obj/item/clothing/suit/storage/hazardvest/blue
+	hazard["hazard vest, idris teal"] = /obj/item/clothing/suit/storage/hazardvest/teal
+	hazard["hazard vest, hephaestus green"] = /obj/item/clothing/suit/storage/hazardvest/green
 	gear_tweaks += new /datum/gear_tweak/path(hazard)
 
 /datum/gear/suit/hoodie
@@ -122,14 +126,14 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/iac_outerwear
 	display_name = "IAC outerwear (jackets, vests, rigs)"
-	path = /obj/item/clothing/suit/storage/iacvest
+	path = /obj/item/clothing/suit/storage/hazardvest/iac
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/iac_outerwear/New()
 	..()
 	var/list/iac_outerwear = list()
-	iac_outerwear["IAC vest"] = /obj/item/clothing/suit/storage/iacvest
+	iac_outerwear["IAC hazard vest"] = /obj/item/clothing/suit/storage/hazardvest/iac
 	iac_outerwear["IAC labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	gear_tweaks += new /datum/gear_tweak/path(iac_outerwear)
 
