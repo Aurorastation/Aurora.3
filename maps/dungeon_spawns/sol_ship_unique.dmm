@@ -613,7 +613,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/fatigues,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0
@@ -627,7 +627,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/clothing/head/sol/dress/officer,
+/obj/item/clothing/head/dress/officer,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0

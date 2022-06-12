@@ -4111,7 +4111,7 @@
 	density = 1;
 	opacity = 1
 	},
-/area/template_noop)
+/area/beach)
 "aBl" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -4125,14 +4125,15 @@
 /area/centcom/spawning)
 "aBw" = (
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aBx" = (
+/obj/structure/signpost,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aBy" = (
 /obj/structure/closet,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aBD" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -4187,12 +4188,12 @@
 "aBV" = (
 /obj/effect/overlay/palmtree_l,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aBW" = (
 /obj/effect/overlay/palmtree_r,
 /obj/effect/overlay/coconut,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aBX" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -4208,7 +4209,7 @@
 "aCa" = (
 /obj/effect/overlay/coconut,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aCb" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -4331,7 +4332,7 @@
 "aCH" = (
 /obj/effect/overlay/palmtree_r,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aCI" = (
 /obj/machinery/light{
 	dir = 8;
@@ -4358,7 +4359,7 @@
 	name = "endgame_exit"
 	},
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aCU" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -4412,15 +4413,16 @@
 "aDj" = (
 /obj/structure/table/standard,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aDk" = (
 /obj/structure/table/standard,
+/obj/item/clothing/under/rainbow,
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/head/collectable/petehat{
 	pixel_y = 5
 	},
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aDo" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -4449,7 +4451,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/chips,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aDu" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/cans/cola,
@@ -4459,11 +4461,11 @@
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aDv" = (
 /obj/item/beach_ball,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aDA" = (
 /obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_right"
@@ -4536,10 +4538,11 @@
 	name = "endgame_exit"
 	},
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aEd" = (
+/mob/living/simple_animal/crab/Coffee,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aEf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -4549,7 +4552,7 @@
 "aEi" = (
 /obj/item/clothing/head/collectable/paper,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aEj" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -4658,10 +4661,10 @@
 	density = 1;
 	opacity = 1
 	},
-/area/template_noop)
+/area/beach)
 "aEF" = (
 /turf/unsimulated/beach/coastline,
-/area/template_noop)
+/area/beach)
 "aEG" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,11"
@@ -4711,10 +4714,10 @@
 	density = 1;
 	opacity = 1
 	},
-/area/template_noop)
+/area/beach)
 "aEY" = (
 /turf/unsimulated/beach/water,
-/area/template_noop)
+/area/beach)
 "aFa" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -18739,7 +18742,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/syndicate_elite)
 "hRS" = (
-/obj/structure/closet/secure_closet/custodial,
+/obj/structure/closet/jcloset,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -28384,18 +28387,18 @@
 /obj/structure/closet/gimmick{
 	name = "sol clothing"
 	},
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/fatigues,
+/obj/item/clothing/under/rank/fatigues,
+/obj/item/clothing/under/rank/fatigues,
+/obj/item/clothing/under/rank/fatigues,
 /obj/item/flag/sol,
 /obj/item/flag/sol,
 /obj/item/flag/sol/l,
 /obj/item/flag/sol/l,
-/obj/item/clothing/under/rank/sol/marine,
-/obj/item/clothing/under/rank/sol/marine,
-/obj/item/clothing/under/rank/sol/marine,
-/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/fatigues/marine,
+/obj/item/clothing/under/rank/fatigues/marine,
+/obj/item/clothing/under/rank/fatigues/marine,
+/obj/item/clothing/under/rank/fatigues/marine,
 /obj/item/clothing/suit/storage/vest/sol,
 /obj/item/clothing/suit/storage/vest/sol,
 /obj/item/clothing/suit/storage/vest/sol,
@@ -28404,15 +28407,15 @@
 /obj/item/clothing/head/helmet/sol,
 /obj/item/clothing/head/helmet/sol,
 /obj/item/clothing/head/helmet/sol,
-/obj/item/clothing/head/sol,
-/obj/item/clothing/head/sol,
-/obj/item/clothing/head/sol,
-/obj/item/clothing/head/sol,
-/obj/item/clothing/head/sol/marine,
-/obj/item/clothing/head/sol/marine,
-/obj/item/clothing/head/sol/marine,
-/obj/item/clothing/head/sol/garrison,
-/obj/item/clothing/head/sol/dress/admiral,
+/obj/item/clothing/head/navy,
+/obj/item/clothing/head/navy,
+/obj/item/clothing/head/navy,
+/obj/item/clothing/head/navy,
+/obj/item/clothing/head/navy/marine,
+/obj/item/clothing/head/navy/marine,
+/obj/item/clothing/head/navy/marine,
+/obj/item/clothing/head/navy/garrison,
+/obj/item/clothing/head/dress/admiral,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"

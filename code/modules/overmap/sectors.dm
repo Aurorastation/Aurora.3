@@ -44,21 +44,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	LAZYADD(SSshuttle.sectors_to_initialize, src) //Queued for further init. Will populate the waypoint lists; waypoints not spawned yet will be added in as they spawn.
 	SSshuttle.clear_init_queue()
 
-/obj/effect/overmap/visitable/Destroy()
-	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
-		if(H.linked == src)
-			H.linked = null
-	for(var/obj/machinery/telecomms/T in telecomms_list)
-		if(T.linked == src)
-			T.linked = null
-	. = ..()
-
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.
 /obj/effect/overmap/visitable/proc/populate_sector_objects()
-	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
-		H.attempt_hook_up(src)
-	for(var/obj/machinery/telecomms/T in telecomms_list)
-		T.attempt_hook_up(src)
 
 /obj/effect/overmap/visitable/proc/get_areas()
 	return get_filtered_areas(list(/proc/area_belongs_to_zlevels = map_z))

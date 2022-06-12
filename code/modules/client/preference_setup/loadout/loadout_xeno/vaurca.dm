@@ -92,30 +92,6 @@
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/uniform/vaurca_harness
-	display_name = "vaurcan gear harness"
-	description = "A selection of vaurca colored gear harnesses."
-	path = /obj/item/clothing/under/vaurca/gearharness
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
-	sort_category = "Xenowear - Vaurca"
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
-
-/datum/gear/uniform/vaurca_harness/New()
-	..()
-	var/list/harness = list()
-	harness["vaurcan gear harness, brown"] = /obj/item/clothing/under/vaurca/gearharness
-	harness["vaurcan gear harness, white"] = /obj/item/clothing/under/vaurca/gearharness/white
-	harness["vaurcan gear harness, black"] = /obj/item/clothing/under/vaurca/gearharness/black
-	gear_tweaks += new /datum/gear_tweak/path(harness)
-
-/datum/gear/uniform/vaurca_harness_colorable
-	display_name = "vaurcan gear harness (colorable)"
-	description = "A tight-fitting gear harness designed for the Vaurcan form. Mass-produced from equally mass-produced materials."
-	path = /obj/item/clothing/under/vaurca/gearharness/colorable
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
-	sort_category = "Xenowear - Vaurca"
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/suit/vaurca
 	display_name = "shaper robes"
 	path = /obj/item/clothing/suit/vaurca/shaper
@@ -149,15 +125,6 @@
 	shrouds["vaurcan shroud, purple"] = /obj/item/clothing/head/shroud/purple
 	shrouds["vaurcan shroud, brown"] = /obj/item/clothing/head/shroud/brown
 	gear_tweaks += new /datum/gear_tweak/path(shrouds)
-
-/datum/gear/suit/vaurca_shroud_colorable
-	display_name = "vaurcan shroud (colorable)"
-	description = "A selection of vaurca colored shrouds."
-	path = /obj/item/clothing/head/shroud/colorable
-	cost = 1
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
-	sort_category = "Xenowear - Vaurca"
-	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/vaurca_mantle
 	display_name = "vaurcan mantle"

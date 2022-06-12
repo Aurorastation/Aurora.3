@@ -341,7 +341,7 @@
 					cut_cover = 1
 				if(cut_cover)
 					to_chat(user, SPAN_NOTICE("You begin slicing through the support rods."))
-					if(!W.use_tool(src, user , 70, volume = 50) || !istype(src, /turf/simulated/wall) || construction_stage != 1)
+					if(!!W.use_tool(src, user , 70, volume = 50) || !istype(src, /turf/simulated/wall) || construction_stage != 1)
 						return
 					construction_stage = 0
 					update_icon()

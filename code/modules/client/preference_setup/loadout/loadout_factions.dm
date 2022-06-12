@@ -77,18 +77,16 @@
 /datum/gear/faction/zavodskoi_beret/alt
 	display_name = "brown zavodskoi beret"
 	path = /obj/item/clothing/head/beret/corporate/zavod
-	faction = "Zavodskoi Interstellar"
+	sort_category = "Factions"
 
 /datum/gear/faction/zavodskoi_softcap
-	display_name = "brown zavodskoi cap"
-	path = /obj/item/clothing/head/softcap/zavod
-	faction = "Zavodskoi Interstellar"
-
-/datum/gear/faction/zavodskoi_softcap/alt
 	display_name = "black zavodskoi cap"
 	path = /obj/item/clothing/head/softcap/zavod/alt
 	faction = "Zavodskoi Interstellar"
 
+/datum/gear/faction/zavodskoi_softcap/alt
+	display_name = "brown zavodskoi cap"
+	path = /obj/item/clothing/head/softcap/zavod
 
 /datum/gear/faction/zavodskoi_labcoat
 	display_name = "zavodskoi labcoat"
@@ -159,13 +157,6 @@
 	display_name = "PMCG armband"
 	path = /obj/item/clothing/accessory/armband/pmc
 	slot = slot_tie
-	faction = "Private Military Contracting Group"
-
-/datum/gear/faction/pmc_modsuit
-	display_name = "PMCG modsuit"
-	description = "A modular PMCG fatigue jumpsuit."
-	path = /obj/item/clothing/under/pmc_modsuit
-	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 
 // Eridani Private Military Contractors

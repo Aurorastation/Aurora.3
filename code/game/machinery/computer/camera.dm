@@ -2,9 +2,8 @@
 /obj/machinery/computer/security
 	name = "security camera monitor"
 	desc = "Used to access the various cameras on the station."
-	icon_screen = "cameras"
-	icon_keyboard = "yellow_key"
-	light_color = LIGHT_COLOR_YELLOW
+	icon_screen = "sec"
+	light_color = "#a91515"
 	var/current_network = null
 	var/obj/machinery/camera/current_camera = null
 	var/last_pic = 1.0
@@ -238,7 +237,6 @@
 /obj/machinery/computer/security/telescreen
 	name = "Telescreen"
 	desc = "Used for watching an empty arena."
-	icon = 'icons/obj/computer.dmi'
 	icon_state = "wallframe"
 	icon_screen = null
 	light_range_on = 0
@@ -258,7 +256,6 @@
 /obj/machinery/computer/security/wooden_tv
 	name = "security camera monitor"
 	desc = "An old TV hooked into the stations camera network."
-	icon = 'icons/obj/computer.dmi'
 	icon_state = "television"
 	icon_screen = "detective_tv"
 	circuit = null
@@ -268,20 +265,17 @@
 /obj/machinery/computer/security/mining
 	name = "outpost camera monitor"
 	desc = "Used to access the various cameras on the outpost."
-	icon_screen = "miningcameras"
-	icon_keyboard = "purple_key"
-	light_color = LIGHT_COLOR_PURPLE
+	icon_screen = "sec"
 	network = list("MINE")
 	circuit = /obj/item/circuitboard/security/mining
-	light_color = LIGHT_COLOR_PURPLE
+	light_color = "#F9BBFC"
 
 /obj/machinery/computer/security/engineering
 	name = "engineering camera monitor"
 	desc = "Used to monitor fires and breaches."
-	icon_screen = "engineeringcameras"
-	icon_keyboard = "yellow_key"
-	light_color = LIGHT_COLOR_YELLOW
+	icon_screen = "sec"
 	circuit = /obj/item/circuitboard/security/engineering
+	light_color = "#FAC54B"
 
 /obj/machinery/computer/security/engineering/Initialize()
 	if(!network)
@@ -291,11 +285,11 @@
 /obj/machinery/computer/security/nuclear
 	name = "head mounted camera monitor"
 	desc = "Used to access the built-in cameras in helmets."
-	icon_screen = "syndicam"
-	icon_keyboard = "red_key"
-	light_color = LIGHT_COLOR_RED
+	icon = 'icons/obj/primitive_computer.dmi'
+	icon_screen = "syndicate"
 	network = list(NETWORK_MERCENARY)
 	circuit = null
+	is_holographic = FALSE	// I mean, it is, but the holo effect looks terrible with the current merc shuttle floor.
 
 /obj/machinery/computer/security/nuclear/Initialize()
 	. = ..()

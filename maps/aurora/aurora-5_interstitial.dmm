@@ -10150,7 +10150,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "PP" = (
-/obj/structure/closet/secure_closet/custodial,
+/obj/structure/closet/jcloset,
 /obj/item/reagent_containers/spray/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,

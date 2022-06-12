@@ -2,23 +2,16 @@
 /obj/machinery/computer/shuttle_control/explore
 	name = "general shuttle control console"
 	ui_template = "shuttle_control_console_exploration.tmpl"
-	var/obj/effect/overmap/visitable/ship/connected //Ship we're connected to
 
-/obj/machinery/computer/shuttle_control/explore/Initialize()
-	. = ..()
-	if(istype(linked, /obj/effect/overmap/visitable/ship))
-		connected = linked
-
-/obj/machinery/computer/shuttle_control/explore/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
+/obj/machinery/computer/shuttle_control/explore/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
 	. = ..()
 
 	if(.)
-		connected = linked
-		LAZYSET(connected.consoles, src, TRUE)
+		LAZYSET(linked.consoles, src, TRUE)
 
 /obj/machinery/computer/shuttle_control/explore/Destroy()
-	if(connected)
-		LAZYREMOVE(connected.consoles, src)
+	if(linked)
+		LAZYREMOVE(linked.consoles, src)
 	. = ..()
 
 /obj/machinery/computer/shuttle_control/explore/get_ui_data(var/datum/shuttle/autodock/overmap/shuttle)
@@ -50,10 +43,11 @@
 	if(href_list["pick"])
 		var/list/possible_d = shuttle.get_possible_destinations()
 		var/D
-		if(length(possible_d))
+		if(possible_d.len)
 			D = input("Choose shuttle destination", "Shuttle Destination") as null|anything in possible_d
 		else
 			to_chat(usr,"<span class='warning'>No valid landing sites in range.</span>")
+		possible_d = shuttle.get_possible_destinations()
 		if(CanInteract(usr, physical_state) && (D in possible_d))
 			shuttle.set_destination(possible_d[D])
 		return TOPIC_REFRESH

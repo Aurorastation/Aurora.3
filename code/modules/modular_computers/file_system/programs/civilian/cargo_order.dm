@@ -2,8 +2,6 @@
 	filename = "cargoorder"
 	filedesc = "Cargo Order"
 	extended_desc = "Application to Order Items from Cargo."
-	program_icon_state = "request"
-	program_key_icon_state = "yellow_key"
 	size = 10
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE

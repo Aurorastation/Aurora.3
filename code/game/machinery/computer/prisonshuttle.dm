@@ -14,8 +14,7 @@ var/prison_shuttle_timeleft = 0
 	name = "prison shuttle control console"
 
 	icon_screen = "syndishuttle"
-	icon_keyboard = "red_key"
-	light_color = LIGHT_COLOR_RED
+	light_color = "#00ffff"
 	req_access = list(access_security)
 	circuit = /obj/item/circuitboard/prison_shuttle
 	var/temp = null

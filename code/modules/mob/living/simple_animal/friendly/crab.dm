@@ -34,3 +34,13 @@
 				Move(get_step(src,pick(4,8)))
 				turns_since_move = 0
 	regenerate_icons()
+
+//COFFEE! SQUEEEEEEEEE!
+/mob/living/simple_animal/crab/Coffee
+	name = "Coffee"
+	real_name = "Coffee"
+	desc = "It's Coffee, the other pet!"
+	named = TRUE
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "stomps"

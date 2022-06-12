@@ -52,10 +52,9 @@
 /obj/structure/sign/double/barsign
 	icon = 'icons/obj/barsigns.dmi'
 	icon_state = "Off"
-	layer = 2.99
-	anchored = TRUE
-	req_access = list(access_bar) //Has to initalize at first, this is updated by instance's req_access
+	anchored = 1
 	var/cult = 0
+	req_access = list(access_bar) //Has to initalize at first, this is updated by instance's req_access
 	var/choice_types = /decl/sign/double/bar
 
 /obj/structure/sign/double/barsign/kitchensign

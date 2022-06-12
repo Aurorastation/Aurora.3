@@ -210,10 +210,9 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 			dat += "<H3>Upload a New Title</H3>"
 			if(!scanner)
 				for(var/obj/machinery/libraryscanner/S in range(9))
-					if(S.anchored)
-						scanner = S
-						break
-			if(!(scanner?.anchored))
+					scanner = S
+					break
+			if(!scanner)
 				dat += "<FONT color=red>No scanner found within wireless network range.</FONT><BR>"
 			else if(!scanner.cache)
 				dat += "<FONT color=red>No data found in scanner memory.</FONT><BR>"
@@ -241,7 +240,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 		src.emagged = 1
 		return 1
 
-/obj/machinery/librarycomp/attackby(obj/item/W, mob/user)
+/obj/machinery/librarycomp/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/barcodescanner))
 		var/obj/item/barcodescanner/scanner = W
 		scanner.computer = src
@@ -326,7 +325,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 		if(newcategory)
 			upload_category = newcategory
 	if(href_list["upload"])
-		if(scanner?.anchored)
+		if(scanner)
 			if(scanner.cache)
 				var/choice = input("Are you certain you wish to upload this title to the Archive?") in list("Confirm", "Abort")
 				if(choice == "Confirm")
@@ -397,32 +396,17 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
  * Library Scanner
  */
 /obj/machinery/libraryscanner
-	name = "upload scanner"
-	desc = "A machine that scans books for upload to the library database."
+	name = "scanner"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "bigscanner"
 	var/insert_anim = "bigscanner1"
-	anchored = TRUE
-	density = TRUE
+	anchored = 1
+	density = 1
 	var/obj/item/book/cache		// Last scanned book
 
-/obj/machinery/libraryscanner/attackby(obj/item/O, mob/user)
+/obj/machinery/libraryscanner/attackby(var/obj/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/book))
-		if(!anchored)
-			to_chat(user, SPAN_WARNING("\The [src] must be secured to the floor first!"))
-			return	
 		user.drop_from_inventory(O,src)
-	if(O.iswrench())
-		playsound(get_turf(src), O.usesound, 75, TRUE)
-		if(anchored)
-			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."), \
-				SPAN_NOTICE("You unsecure \the [src] from the floor."), \
-				SPAN_WARNING("You hear a ratcheting noise."))
-		else
-			user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
-				SPAN_NOTICE("You secure \the [src] to the floor."), \
-				SPAN_WARNING("You hear a ratcheting noise."))
-		anchored = !anchored
 
 /obj/machinery/libraryscanner/attack_hand(var/mob/user as mob)
 	usr.set_machine(src)
@@ -465,50 +449,25 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
  * Book binder
  */
 /obj/machinery/bookbinder
-	name = "book binder"
-	desc = "A machine that takes paper and binds them into books. Fascinating!"
+	name = "Book Binder"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "binder"
-	anchored = TRUE
-	density = TRUE
-	var/binding = FALSE
+	anchored = 1
+	density = 1
 
-/obj/machinery/bookbinder/attackby(var/obj/O, mob/user)
+/obj/machinery/bookbinder/attackby(var/obj/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/paper))
-		if(!anchored)
-			to_chat(user, SPAN_WARNING("\The [src] must be secured to the floor first!"))
-			return
-		if(binding)
-			to_chat(user, SPAN_WARNING("You must wait for \the [src] to finish its current operation!"))
-			return
-		var/turf/T = get_turf(src)
 		user.drop_from_inventory(O,src)
-		user.visible_message(SPAN_NOTICE("\The [user] loads some paper into \the [src]."), SPAN_NOTICE("You load some paper into \the [src]."))
-		visible_message(SPAN_NOTICE("\The [src] begins to hum as it warms up its printing drums."))
-		playsound(T, 'sound/bureaucracy/binder.ogg', 75, 1)
-		binding = TRUE
+		user.visible_message("[user] loads some paper into [src].", "You load some paper into [src].")
+		src.visible_message("[src] begins to hum as it warms up its printing drums.")
+		playsound(src.loc, 'sound/bureaucracy/binder.ogg', 75, 1)
 		sleep(rand(200,400))
-		binding = FALSE
-		if(!anchored)
-			visible_message(SPAN_WARNING("\The [src] buzzes and flashes an error light."))
-			O.forceMove(T)
-			return
-		visible_message(SPAN_NOTICE("\The [src] whirs as it prints and binds a new book."))
-		playsound(T, 'sound/bureaucracy/print.ogg', 75, 1)
-		var/obj/item/book/b = new(T)
+		src.visible_message("[src] whirs as it prints and binds a new book.")
+		playsound(src.loc, 'sound/bureaucracy/print.ogg', 75, 1)
+		var/obj/item/book/b = new(src.loc)
 		b.dat = O:info
 		b.name = "Print Job #" + "[rand(100, 999)]"
 		b.icon_state = "book[rand(1,7)]"
 		qdel(O)
-		return
-	if(O.iswrench())
-		playsound(get_turf(src), O.usesound, 75, TRUE)
-		if(anchored)
-			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."), \
-				SPAN_NOTICE("You unsecure \the [src] from the floor."), \
-				SPAN_WARNING("You hear a ratcheting noise."))
-		else
-			user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
-				SPAN_NOTICE("You secure \the [src] to the floor."), \
-				SPAN_WARNING("You hear a ratcheting noise."))
-		anchored = !anchored
+	else
+		..()

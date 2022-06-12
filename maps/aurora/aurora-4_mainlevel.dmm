@@ -33237,7 +33237,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "bfH" = (
-/obj/structure/closet/secure_closet/custodial,
+/obj/structure/closet/jcloset,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,

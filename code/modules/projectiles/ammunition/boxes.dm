@@ -512,13 +512,3 @@
 	ammo_type = /obj/item/ammo_casing/nuke
 	max_ammo = 2
 	multiple_sprites = 1
-/obj/item/ammo_magazine/super_heavy
-	name = ".599 magazine"
-	desc = "A bulky magazine for the Kumar Arms 2557."
-	icon_state = "k2557"
-	caliber = ".599 Kumar Super"
-	ammo_type = /obj/item/ammo_casing/kumar_super
-	mag_type = MAGAZINE
-	max_ammo = 5
-	multiple_sprites = 1
-	insert_sound = 'sound/weapons/k2557-insert.ogg'

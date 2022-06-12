@@ -44,7 +44,7 @@
 
 /decl/xgm_gas/sleeping_agent
 	id = GAS_N2O
-	name = "Nitrous Oxide"
+	name = "Sleeping Agent"
 	specific_heat = 40	// J/(mol*K)
 	molar_mass = 0.044	// kg/mol. N2O
 	tile_overlay = "sleeping_agent"

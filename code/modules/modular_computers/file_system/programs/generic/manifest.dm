@@ -1,8 +1,7 @@
 /datum/computer_file/program/manifest
 	filename = "manifest"
 	filedesc = "Crew Manifest"
-	program_icon_state = "menu"
-	program_key_icon_state = "black_key"
+	program_icon_state = "generic"
 	extended_desc = "This program is used for viewing the crew manifest."
 	usage_flags = PROGRAM_ALL
 	size = 3

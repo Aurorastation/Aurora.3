@@ -45,12 +45,16 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	SSshuttle.ships -= src
+
 	for(var/obj/machinery/computer/ship/S in SSmachinery.machinery)
 		if(S.linked == src)
 			S.linked = null
 	for(var/obj/machinery/computer/shuttle_control/explore/C in SSmachinery.machinery)
 		if(C.linked == src)
 			C.linked = null
+	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
+		if(H.linked == src)
+			H.linked = null
 
 	. = ..()
 
@@ -242,6 +246,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		S.attempt_hook_up(src)
 	for(var/obj/machinery/computer/shuttle_control/explore/C in SSmachinery.machinery)
 		C.attempt_hook_up(src)
+	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
+		H.attempt_hook_up(src)
 	for(var/datum/ship_engine/E in ship_engines)
 		if(check_ownership(E.holder))
 			engines |= E

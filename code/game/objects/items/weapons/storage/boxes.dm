@@ -122,20 +122,6 @@
 			qdel(src)
 			user.put_in_hands(trash)
 
-/obj/item/storage/box/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/packageWrap))
-		var/total_storage_space = W.get_storage_cost()
-		for(var/obj/item/I in contents)
-			total_storage_space += I.get_storage_cost()
-		if(total_storage_space <= max_storage_space)
-			var/question = alert(user, "Will you want to wrap \the [src] or store the item inside?", "Wrap or Store", "Wrap", "Store")
-			if(question == "Wrap")
-				return
-			else if(question == "Store")
-				return ..()
-	else
-		..()
-
 /obj/item/storage/box/survival
 	name = "emergency survival box"
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
@@ -144,7 +130,7 @@
 	can_hold = list(
 				/obj/item/clothing/mask,
 				/obj/item/tank/emergency_oxygen,
-				/obj/item/device/flashlight/flare,
+				/obj/item/device/flashlight/flare/glowstick,
 				/obj/item/stack/medical,
 				/obj/item/reagent_containers/hypospray/autoinjector,
 				/obj/item/reagent_containers/inhaler,
@@ -168,15 +154,8 @@
 					/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 					)
 
-/obj/item/storage/box/survival/engineer
-		starts_with = list(
-					/obj/item/clothing/mask/breath = 1,
-					/obj/item/tank/emergency_oxygen/engi = 1,
-					/obj/item/device/oxycandle = 1,
-					/obj/item/device/flashlight/flare = 1,
-					/obj/item/stack/medical/bruise_pack = 1,
-					/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
-					)
+/obj/item/storage/box/engineer
+	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/tank/emergency_oxygen/engi = 1)
 
 /obj/item/storage/box/vaurca
 	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/reagent_containers/inhaler/phoron_special = 1)

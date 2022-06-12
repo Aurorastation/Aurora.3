@@ -1,13 +1,12 @@
 /obj/machinery/computer/ship/sensors
 	name = "sensors console"
-	icon_screen = "sensors"
-	icon_keyboard = "cyan_key"
-	light_color = LIGHT_COLOR_CYAN
+	icon_screen = "command"
+	light_color = "#77fff8"
 	extra_view = 4
 	var/obj/machinery/shipsensors/sensors
 	circuit = /obj/item/circuitboard/ship/sensors
 
-/obj/machinery/computer/ship/sensors/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
+/obj/machinery/computer/ship/sensors/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
 	. = ..()
 	if(!.)
 		return

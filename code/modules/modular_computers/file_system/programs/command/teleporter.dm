@@ -2,8 +2,7 @@
 	filename = "teleporter"
 	filedesc = "Teleporter Control"
 	extended_desc = "A NanoTrasen command remote teleportation hub controller."
-	program_icon_state = "teleport"
-	program_key_icon_state = "lightblue_key"
+	program_icon_state = "command"
 	color = LIGHT_COLOR_BLUE
 	size = 8
 	requires_ntnet = TRUE
@@ -163,8 +162,3 @@
 			linked_pad.visible_message(SPAN_NOTICE("Locked in."), range = 2)
 
 	SSvueui.check_uis_for_change(src)
-
-/datum/computer_file/program/teleporter/ninja
-	required_access_run = list()
-	requires_ntnet = FALSE
-	requires_access_to_run = FALSE

@@ -205,10 +205,8 @@
 
 /obj/machinery/computer/scan_consolenew
 	name = "DNA Modifier Access Console"
-	desc = "Scan DNA."
-	icon_screen = "dna"
-	icon_keyboard = "teal_key"
-	light_color = LIGHT_COLOR_BLUE
+	desc = "Scand DNA."
+	icon_screen = "med"
 	density = 1
 	circuit = /obj/item/circuitboard/scan_consolenew
 	var/selected_ui_block = 1.0

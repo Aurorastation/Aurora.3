@@ -1,7 +1,6 @@
 /obj/machinery/computer/arcade/
 	name = "random arcade"
 	desc = "random arcade machine"
-	icon = 'icons/obj/computer.dmi'
 	icon_state = "arcade2"
 	icon_screen = "battler"
 	icon_broken = "broken-arcade"

@@ -2,8 +2,6 @@
 	filename = "crushercontrol"
 	filedesc = "Crusher Control"
 	extended_desc = "Application to Control the Crusher"
-	program_icon_state = "command"
-	program_key_icon_state = "green_key"
 	size = 8
 	requires_ntnet = FALSE
 	available_on_ntnet = FALSE
@@ -71,7 +69,7 @@
 			if(arlk.id_tag != "crusher")
 				continue
 			airlocks += arlk
-
+		
 		airlock_open()
 
 	if(href_list["hatch_open"])
@@ -86,11 +84,11 @@
 		message = "Crushing"
 		airlock_close()
 		crush_start()
-
+		
 	if(href_list["abort"])
 		message = "Aborting"
 		crush_stop()
-
+	
 	if(href_list["close"])
 		message = null
 

@@ -49,7 +49,7 @@
 /area/cursed/mineral_processing)
 "atI" = (
 /obj/structure/table/wood,
-/obj/item/device/versebook/gadpathur{
+/obj/item/device/litanybook/gadpathur{
 	pixel_y = 2
 	},
 /turf/simulated/floor/wood,
@@ -60,8 +60,6 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
@@ -107,12 +105,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/cursed/eva_storage)
 "aGT" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "aHj" = (
@@ -120,19 +116,20 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/cursed/living_area)
 "aHG" = (
 /mob/living/simple_animal/rat/brown,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /obj/item/stack/material/cyborg/steel{
 	amount = 50
 	},
@@ -154,11 +151,6 @@
 /obj/item/stack/material/uranium{
 	amount = 2
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "aHV" = (
@@ -176,8 +168,6 @@
 "aRg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/white,
@@ -215,6 +205,9 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
@@ -331,8 +324,6 @@
 	pixel_x = 32
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -355,8 +346,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "bPz" = (
-/mob/living/simple_animal/rat/white,
-/obj/machinery/power/portgen/basic,
+/obj/machinery/power/portgen,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "bPX" = (
@@ -372,12 +362,10 @@
 "bQC" = (
 /obj/machinery/door/airlock/glass_mining,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/door/firedoor,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "bQS" = (
@@ -398,8 +386,6 @@
 "bXM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/ramp,
@@ -450,8 +436,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -499,8 +483,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -556,7 +538,7 @@
 /area/cursed/living_area)
 "dcH" = (
 /obj/machinery/computer/ship/sensors{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
@@ -629,12 +611,10 @@
 "dBX" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "dEv" = (
@@ -671,12 +651,14 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/machinery/light_switch{
-	pixel_x = -35
+/obj/machinery/power/terminal{
+	dir = 8
 	},
 /obj/structure/cable{
-	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/light_switch{
+	pixel_x = -35
 	},
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
@@ -789,9 +771,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /turf/simulated/floor,
 /area/cursed/engineering)
 "eOt" = (
@@ -806,12 +785,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /mob/living/simple_animal/rat/brown/Tom,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/cursed/living_area)
 "faM" = (
@@ -821,11 +798,6 @@
 "fbt" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
@@ -839,14 +811,10 @@
 "fhD" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "1-2"
 	},
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor,
 /area/cursed/living_area)
@@ -857,8 +825,6 @@
 	},
 /obj/machinery/meter,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -886,13 +852,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /obj/machinery/alarm{
 	pixel_y = 28
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /turf/simulated/floor,
 /area/cursed/living_area)
@@ -920,12 +884,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/storage)
 "fuF" = (
@@ -936,8 +898,6 @@
 /area/cursed/storage)
 "fuI" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
 	icon_state = "1-4"
 	},
 /turf/simulated/floor,
@@ -1039,12 +999,10 @@
 "fWE" = (
 /obj/machinery/door/airlock/glass_mining,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/door/firedoor,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/bridge)
 "fXX" = (
@@ -1084,8 +1042,6 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
@@ -1190,17 +1146,13 @@
 /turf/simulated/mineral,
 /area/cursed/hangar)
 "gWN" = (
-/obj/item/pipewrench,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/item/pipewrench,
 /turf/simulated/floor,
 /area/cursed/engineering)
 "gZj" = (
@@ -1293,8 +1245,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -1324,13 +1274,13 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "idh" = (
+/obj/machinery/door/airlock/glass_mining,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/reinforced,
-/area/cursed/computer_core)
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/cursed/engineering)
 "idV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 5
@@ -1342,11 +1292,6 @@
 	dir = 8;
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
@@ -1400,13 +1345,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 9
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/light/colored/red{
 	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/cursed/storage)
@@ -1433,12 +1376,10 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
 "iIZ" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "iJt" = (
@@ -1549,19 +1490,15 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "jCo" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -1579,8 +1516,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
@@ -1644,8 +1579,6 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -1659,15 +1592,17 @@
 	name = "north bump";
 	pixel_y = 24
 	},
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /obj/machinery/light/small{
 	dir = 1
 	},
 /obj/machinery/light_switch{
 	pixel_y = 34
-	},
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
@@ -1687,8 +1622,6 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
@@ -1712,8 +1645,6 @@
 /area/mine)
 "ksd" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -1735,12 +1666,10 @@
 /area/cursed/storage)
 "kGw" = (
 /obj/machinery/door/airlock/glass_mining,
-/obj/machinery/door/firedoor,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "kGC" = (
@@ -1781,8 +1710,6 @@
 	dir = 10
 	},
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
 	icon_state = "2-8"
 	},
 /turf/simulated/floor,
@@ -1790,12 +1717,10 @@
 "kPZ" = (
 /obj/machinery/door/airlock/glass_mining,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/door/firedoor,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "kSw" = (
@@ -1828,12 +1753,14 @@
 	name = "north bump";
 	pixel_y = 24
 	},
-/obj/machinery/light_switch{
-	pixel_y = 34
+/obj/machinery/power/terminal{
+	dir = 1
 	},
 /obj/structure/cable{
-	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/light_switch{
+	pixel_y = 34
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
@@ -1892,8 +1819,6 @@
 /area/cursed/living_area)
 "lBD" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -1908,6 +1833,9 @@
 "lEx" = (
 /obj/machinery/power/terminal{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
@@ -1928,11 +1856,10 @@
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "lHg" = (
+/obj/machinery/power/smes/buildable/power_shuttle,
 /obj/structure/cable{
-	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/smes/buildable/horizon_shuttle,
 /turf/simulated/floor,
 /area/cursed/engineering)
 "lIW" = (
@@ -1987,12 +1914,14 @@
 	name = "north bump";
 	pixel_y = 24
 	},
-/obj/machinery/light_switch{
-	pixel_y = 34
+/obj/machinery/power/terminal{
+	dir = 1
 	},
 /obj/structure/cable{
-	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/light_switch{
+	pixel_y = 34
 	},
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
@@ -2002,8 +1931,6 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
 	icon_state = "1-4"
 	},
 /turf/simulated/floor,
@@ -2097,11 +2024,11 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "mpi" = (
+/obj/machinery/porta_turret,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /obj/machinery/light/small/emergency,
-/obj/machinery/porta_turret/xray,
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "mqj" = (
@@ -2145,8 +2072,9 @@
 	dir = 9
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
 	icon_state = "1-8"
 	},
 /turf/simulated/floor,
@@ -2161,7 +2089,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/cursed/eva_storage)
 "mQc" = (
-/obj/item/device/versebook/tribunal,
+/obj/item/device/litanybook,
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine{
 	pixel_x = 9;
@@ -2175,12 +2103,10 @@
 /area/cursed/living_area)
 "mSo" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/storage/toolbox/mechanical,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "mTG" = (
@@ -2196,12 +2122,14 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/machinery/light_switch{
-	pixel_x = -34
+/obj/machinery/power/terminal{
+	dir = 8
 	},
 /obj/structure/cable{
-	d2 = 4;
 	icon_state = "0-4"
+	},
+/obj/machinery/light_switch{
+	pixel_x = -34
 	},
 /turf/simulated/floor,
 /area/cursed/engineering)
@@ -2233,12 +2161,10 @@
 "nha" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/cursed/living_area)
 "niL" = (
@@ -2258,13 +2184,9 @@
 /area/mine)
 "nmn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor,
 /area/cursed/hangar)
@@ -2300,12 +2222,10 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "nvp" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "nwk" = (
@@ -2344,14 +2264,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "4-8"
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor,
 /area/cursed/engineering)
@@ -2381,10 +2297,10 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "oar" = (
+/obj/machinery/porta_turret,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/machinery/porta_turret/xray,
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "oet" = (
@@ -2419,8 +2335,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/manifold4w/visible/supply,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
@@ -2435,12 +2349,13 @@
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "oAe" = (
-/obj/machinery/door/airlock/glass_mining,
-/obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor,
 /area/cursed/engineering)
@@ -2454,18 +2369,11 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/engineering)
 "oFM" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
-	dir = 8
-	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light/spot,
-/turf/simulated/floor,
-/area/cursed/engineering)
+/turf/simulated/floor/reinforced,
+/area/cursed/computer_core)
 "oHu" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood,
@@ -2506,13 +2414,11 @@
 "oUb" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/light/colored/red{
 	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/cursed/engineering)
@@ -2525,9 +2431,6 @@
 /area/cursed/hangar)
 "oVA" = (
 /obj/item/trash/broken_electronics,
-/obj/structure/fireaxecabinet{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "oVJ" = (
@@ -2541,10 +2444,10 @@
 /turf/simulated/floor,
 /area/cursed/bridge)
 "pco" = (
+/obj/machinery/porta_turret,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/porta_turret/xray,
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "pdA" = (
@@ -2614,13 +2517,11 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /obj/machinery/alarm{
 	pixel_y = 28
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /turf/simulated/floor,
 /area/cursed/storage)
@@ -2632,14 +2533,18 @@
 /area/cursed/hangar)
 "ptF" = (
 /obj/item/modular_computer/console/preset/merchant{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "pxi" = (
-/obj/item/stack/material/graphite/full,
-/obj/machinery/power/portgen/basic,
-/obj/structure/cable,
+/obj/machinery/power/portgen/basic/super,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/item/stack/material/uranium{
+	amount = 20
+	},
 /turf/simulated/floor,
 /area/cursed/computer_core)
 "pBw" = (
@@ -2660,17 +2565,13 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/cursed/storage)
 "pIp" = (
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor,
 /area/cursed/engineering)
@@ -2684,17 +2585,17 @@
 	name = "north bump";
 	pixel_y = 24
 	},
-/obj/machinery/light_switch{
-	pixel_y = 34
+/obj/machinery/power/terminal{
+	dir = 1
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+/obj/machinery/light_switch{
+	pixel_y = 34
 	},
 /turf/simulated/floor,
 /area/cursed/living_area)
@@ -2791,13 +2692,11 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /obj/machinery/light/small{
 	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
@@ -2826,8 +2725,6 @@
 	dir = 6
 	},
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
 	icon_state = "2-4"
 	},
 /turf/simulated/floor,
@@ -2853,8 +2750,6 @@
 /area/cursed/hangar)
 "qri" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/reinforced,
@@ -2935,16 +2830,14 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /obj/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor,
 /area/cursed/engineering)
 "qLL" = (
@@ -2964,9 +2857,6 @@
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
 	},
 /turf/simulated/floor,
 /area/cursed/engineering)
@@ -2998,8 +2888,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /mob/living/simple_animal/rat/white,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -3012,14 +2900,10 @@
 "qZU" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor,
 /area/cursed/storage)
@@ -3033,8 +2917,6 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
@@ -3053,8 +2935,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -3104,9 +2984,6 @@
 	start_pressure = 5066.26;
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /turf/simulated/floor,
 /area/cursed/engineering)
 "rzp" = (
@@ -3120,8 +2997,6 @@
 	dir = 10
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -3152,7 +3027,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/light/spot,
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "rLf" = (
@@ -3212,8 +3086,6 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -3242,12 +3114,14 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/machinery/light_switch{
-	pixel_x = -35
+/obj/machinery/power/terminal{
+	dir = 8
 	},
 /obj/structure/cable{
-	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/light_switch{
+	pixel_x = -35
 	},
 /turf/simulated/floor,
 /area/cursed/bridge)
@@ -3257,32 +3131,16 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
 /area/cursed/storage)
 "snd" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	icon_state = "4-8"
 	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor,
-/area/cursed/engineering)
+/turf/simulated/floor/greengrid,
+/area/cursed/computer_core)
 "stt" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -3341,8 +3199,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -3358,16 +3214,19 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "sTa" = (
-/obj/structure/sign/staff_only,
-/turf/simulated/wall/r_wall,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "sUr" = (
-/obj/machinery/power/emitter,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/power/emitter,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "sXl" = (
@@ -3391,12 +3250,10 @@
 "tcu" = (
 /obj/machinery/door/airlock/glass_mining,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/door/firedoor,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/living_area)
 "tcP" = (
@@ -3434,8 +3291,8 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "tuf" = (
+/obj/machinery/porta_turret,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/porta_turret/sniper,
 /turf/simulated/floor/reinforced/airless,
 /area/cursed/eva_storage)
 "tyS" = (
@@ -3450,12 +3307,10 @@
 "tDC" = (
 /obj/machinery/door/airlock/medical,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/door/firedoor,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
 "tLw" = (
@@ -3545,13 +3400,11 @@
 /area/mine)
 "ueM" = (
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/light/colored/red{
 	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
@@ -3597,8 +3450,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -3607,13 +3458,9 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
 	icon_state = "2-8"
 	},
 /turf/simulated/floor,
@@ -3656,8 +3503,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/manifold4w/visible/supply,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
@@ -3672,14 +3517,12 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/machinery/power/portgen/basic,
-/obj/item/stack/material/graphite/full,
+/obj/machinery/power/portgen/basic/super,
+/obj/item/stack/material/uranium,
 /turf/simulated/floor,
 /area/cursed/engineering)
 "uMi" = (
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -3690,8 +3533,6 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -3727,20 +3568,16 @@
 /area/space)
 "uZY" = (
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "vaE" = (
 /mob/living/simple_animal/rat,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "vgl" = (
@@ -3767,7 +3604,7 @@
 /area/cursed/living_area)
 "vrJ" = (
 /obj/item/modular_computer/console/preset/civilian{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
@@ -3794,12 +3631,10 @@
 /area/cursed/computer_core)
 "vHw" = (
 /obj/structure/closet,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "vID" = (
@@ -3818,18 +3653,20 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "vLT" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/power/apc/low{
 	dir = 4;
 	pixel_x = 25
 	},
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
 /obj/machinery/light_switch{
 	pixel_x = 35
 	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "vOE" = (
@@ -3877,9 +3714,7 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "wkw" = (
-/obj/effect/shuttle_landmark/automatic{
-	name = "Hangar Navpoint"
-	},
+/obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "wpM" = (
@@ -3898,13 +3733,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 5
 	},
-/obj/machinery/light/colored/red,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/light/colored/red,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
 "wsg" = (
@@ -3968,10 +3801,15 @@
 	dir = 4;
 	pixel_x = 25
 	},
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
 /obj/machinery/light_switch{
 	pixel_x = 35
 	},
-/obj/structure/cable,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "xbU" = (
@@ -3988,8 +3826,6 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
@@ -4032,11 +3868,11 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "xuu" = (
+/obj/machinery/porta_turret,
 /obj/structure/railing/mapped,
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/machinery/porta_turret/xray,
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "xvo" = (
@@ -4045,8 +3881,6 @@
 	pixel_y = 30
 	},
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
 	icon_state = "2-4"
 	},
 /turf/simulated/floor,
@@ -4056,12 +3890,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/cursed/living_area)
 "xFn" = (
@@ -4119,12 +3951,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/living_area)
 "yen" = (
@@ -4145,18 +3975,6 @@
 /area/cursed/medical)
 "ylQ" = (
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/greengrid,
@@ -31739,12 +31557,12 @@ jTE
 bpR
 bpR
 bpR
-fbt
+sTa
 jMh
 lEx
 pco
 niL
-sTa
+bpR
 jMh
 jMh
 sHN
@@ -31998,7 +31816,7 @@ bpR
 lQd
 ylQ
 beQ
-jMh
+snd
 niL
 niL
 phX
@@ -32255,10 +32073,10 @@ bpR
 bpR
 fbt
 jMh
-niL
+oFM
 oar
 niL
-sTa
+bpR
 xuu
 niL
 ncr
@@ -32510,7 +32328,7 @@ jdh
 bpR
 bpR
 niL
-idh
+niL
 iee
 pxi
 bpR
@@ -40479,7 +40297,7 @@ iui
 iui
 iui
 bbT
-nYp
+nmn
 pJr
 pJr
 pJr
@@ -40735,7 +40553,7 @@ hfy
 hfy
 iui
 fSX
-nmn
+kqQ
 xbd
 bIf
 xdi
@@ -41249,7 +41067,7 @@ lAf
 lAf
 pCb
 xkq
-oFM
+gqw
 pCb
 dsM
 mWr
@@ -41496,7 +41314,7 @@ vza
 vza
 iva
 ptF
-wpM
+rZN
 dcH
 bBc
 vza
@@ -41768,7 +41586,7 @@ pCb
 lHg
 uJN
 pIp
-pdA
+fuI
 eMN
 eDl
 pCb
@@ -42024,8 +41842,8 @@ jGB
 pCb
 pCb
 pCb
-oAe
 hON
+idh
 mZz
 idV
 pCb
@@ -42281,8 +42099,8 @@ kNW
 cBh
 oUb
 cBh
-snd
 cBh
+oAe
 cBh
 fiI
 oUb
@@ -42781,10 +42599,10 @@ vza
 xPp
 mux
 vrJ
-rZN
+wpM
 vrJ
-bLr
 bPz
+bNQ
 vza
 uFs
 jdh

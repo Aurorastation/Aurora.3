@@ -4,8 +4,7 @@
 	name = "pod launch control console"
 	desc = "A control console for launching pods. Some people prefer firing Mechas."
 	icon_screen = "command"
-	icon_keyboard = "green_key"
-	light_color = LIGHT_COLOR_GREEN
+	light_color = "#00b000"
 	circuit = /obj/item/circuitboard/pod
 	var/id = 1.0
 	var/obj/machinery/mass_driver/connected = null

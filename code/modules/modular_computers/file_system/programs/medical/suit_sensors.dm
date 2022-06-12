@@ -1,8 +1,7 @@
 /datum/computer_file/program/suit_sensors
 	filename = "sensormonitor"
 	filedesc = "Suit Sensors Monitoring"
-	program_icon_state = "crew"
-	program_key_icon_state = "teal_key"
+	program_icon_state = "med"
 	extended_desc = "This program connects to life signs monitoring system to provide basic information on crew health."
 	required_access_run = access_medical
 	required_access_download = access_cmo

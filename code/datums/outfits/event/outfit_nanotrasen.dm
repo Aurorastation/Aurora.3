@@ -10,7 +10,7 @@
 	id = /obj/item/card/id
 
 	backpack_contents = list(
-		/obj/item/storage/box/survival/engineer = 1
+		/obj/item/storage/box/engineer = 1
 	)
 
 	id_icon = "centcom"
@@ -50,7 +50,7 @@
 	belt = /obj/item/storage/belt/security
 
 	backpack_contents = list(
-		/obj/item/storage/box/survival/engineer = 1,
+		/obj/item/storage/box/engineer = 1,
 		/obj/item/clothing/head/helmet/swat/peacekeeper = 1,
 		/obj/item/clothing/accessory/holster/hip = 1,
 		/obj/item/gun/energy/disruptorpistol/magnum = 1
@@ -204,7 +204,7 @@
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
 
 	backpack_contents = list(
-		/obj/item/storage/box/survival/engineer = 1,
+		/obj/item/storage/box/engineer = 1,
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs = 1
 	)
@@ -227,7 +227,7 @@
 	)
 
 	backpack_contents = list(
-		/obj/item/storage/box/survival/engineer = 1,
+		/obj/item/storage/box/engineer = 1,
 		/obj/item/storage/box/zipties = 1,
 		/obj/item/clothing/head/helmet = 1
 	)

@@ -11,6 +11,7 @@
 		,/area/tdome
 		,/area/centcom
 		,/area/antag
+		,/area/beach
 		,/area/prison
 		,/area/supply/dock
 		,/area/turbolift

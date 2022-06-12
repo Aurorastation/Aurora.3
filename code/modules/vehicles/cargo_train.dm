@@ -91,8 +91,8 @@
 	if(.)
 		return TRUE
 
-	if(load && load != usr)
-		to_chat(usr, SPAN_WARNING("You can't interact with \the [src] while its in use."))
+	if(load && usr != load)
+		to_chat(usr, SPAN_WARNING("You can't interact with \the [src] unless you're the driver, or you're adjacent to it while it has no driver."))
 		return TRUE
 
 	if(href_list["toggle_engine"])

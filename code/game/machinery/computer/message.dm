@@ -3,9 +3,8 @@
 /obj/machinery/computer/message_monitor
 	name = "messaging monitor console"
 	desc = "Used to access and maintain data on messaging servers. Allows you to view requests console messages."
-	icon_screen = "comm_logs"
-	icon_keyboard = "green_key"
-	light_color = LIGHT_COLOR_GREEN
+	icon_screen = "sci"
+	light_color = "#a97faa"
 	var/hack_icon = "error"
 	circuit = /obj/item/circuitboard/message_monitor
 	//Server linked to.

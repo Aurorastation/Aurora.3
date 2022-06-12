@@ -283,8 +283,6 @@
 
 		owner.last_special = world.time + 100
 		var/obj/item/M = new augment_type(owner)
-		M.canremove = FALSE
-		M.item_flags |= NOMOVE
 		owner.put_in_active_hand(M)
 		owner.visible_message("<span class='notice'>\The [M] slides out of \the [owner]'s [src].</span>","<span class='notice'>You deploy \the [M]!</span>")
 

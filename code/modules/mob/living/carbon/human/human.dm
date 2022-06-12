@@ -896,12 +896,10 @@
 
 /mob/living/carbon/human/proc/check_has_mouth()
 	// Todo, check stomach organ when implemented.
-	var/obj/item/organ/external/E = get_organ(BP_HEAD)
-	if(E && !E.is_stump())
-		var/obj/item/organ/external/head/H = E
-		if(!H.can_intake_reagents)
-			return FALSE
-	return TRUE
+	var/obj/item/organ/external/head/H = get_organ(BP_HEAD)
+	if(!H || !H.can_intake_reagents)
+		return 0
+	return 1
 
 /mob/living/proc/empty_stomach()
 	return

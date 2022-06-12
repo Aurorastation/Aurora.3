@@ -26,11 +26,11 @@
 
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
-			            access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
+			            access_heads, access_construction, access_sec_doors, access_research, access_medical,
 			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_intrepid)
 	minimal_access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
-			            access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
+			            access_heads, access_construction, access_sec_doors, access_research, access_medical,
 			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_bridge_crew, access_intrepid)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
@@ -40,7 +40,6 @@
 /datum/outfit/job/chief_engineer
 	name = "Chief Engineer"
 	jobtype = /datum/job/chief_engineer
-	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
@@ -99,7 +98,6 @@
 /datum/outfit/job/engineer
 	name = "Engineer"
 	jobtype = /datum/job/engineer
-	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/engineer
 	head = /obj/item/clothing/head/hardhat
@@ -157,7 +155,6 @@
 /datum/outfit/job/atmos
 	name = "Atmospheric Technician"
 	jobtype = /datum/job/atmos
-	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician
 	belt = /obj/item/storage/belt/utility
@@ -213,7 +210,6 @@
 /datum/outfit/job/intern_eng
 	name = "Engineering Apprentice"
 	jobtype = /datum/job/intern_eng
-	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice
 	shoes = /obj/item/clothing/shoes/orange

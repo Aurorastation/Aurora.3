@@ -100,7 +100,6 @@ var/list/cargo_positions = list(
 )
 
 var/list/service_positions = list(
-	"Executive Officer",
 	"Corporate Liaison",
 	"Consular Officer",
 	"Bartender",

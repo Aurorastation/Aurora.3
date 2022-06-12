@@ -2,8 +2,7 @@
 	filename = "newsbrowser"
 	filedesc = "News Browser"
 	extended_desc = "This program may be used to view and download news articles from the network."
-	program_icon_state = "menu"
-	program_key_icon_state = "black_key"
+	program_icon_state = "generic"
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_STATIONBOUND | PROGRAM_WRISTBOUND
 	size = 2
 	requires_ntnet = TRUE

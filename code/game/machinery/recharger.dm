@@ -21,8 +21,7 @@
 		/obj/item/computer_hardware/battery_module,
 		/obj/item/device/flashlight/survival,
 		/obj/item/clothing/mask/smokable/ecig,
-		/obj/item/inductive_charger/handheld,
-		/obj/item/auto_cpr
+		/obj/item/inductive_charger/handheld
 	)
 	var/icon_state_charged = "recharger100"
 	var/icon_state_charging = "recharger"

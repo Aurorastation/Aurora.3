@@ -613,7 +613,7 @@
 	locked = 0;
 	pixel_y = 23
 	},
-/obj/structure/closet/secure_closet/custodial,
+/obj/structure/closet/jcloset,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bz" = (

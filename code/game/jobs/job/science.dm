@@ -18,12 +18,12 @@
 	)
 
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
-			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction, access_mining, access_mailsorting,
+			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
 			            access_research, access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage,
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network,
 			            access_maint_tunnels, access_it, access_intrepid)
 	minimal_access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
-			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction, access_mining, access_mailsorting,
+			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
 			            access_research, access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage,
 			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network,
 			            access_maint_tunnels, access_it)
@@ -80,8 +80,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_intrepid)
-	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_intrepid)
+	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
+	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
 	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher")
 
 	minimal_player_age = 14
@@ -114,7 +114,7 @@
 
 /datum/outfit/job/scientist/xenoarcheologist
     name = "Xenoarcheologist"
-    uniform = /obj/item/clothing/under/rank/scientist/xenoarcheologist
+    uniform = /obj/item/clothing/under/rank/xenoarcheologist
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
@@ -143,9 +143,9 @@
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
-	jobtype = /datum/job/xenobiologist
-
 	uniform = /obj/item/clothing/under/rank/scientist/xenobio
+	jobtype = /datum/job/xenobiologist
+	tab_pda = /obj/item/modular_computer/handheld/pda/research
 
 /datum/job/xenobotanist
 	title = "Xenobotanist"
@@ -174,9 +174,9 @@
 
 /datum/outfit/job/scientist/xenobotanist
 	name = "Xenobotanist"
-	jobtype = /datum/job/xenobotanist
-
 	uniform = /obj/item/clothing/under/rank/scientist/botany
+	jobtype = /datum/job/xenobotanist
+	tab_pda = /obj/item/modular_computer/handheld/pda/research
 
 /datum/job/intern_sci
 	title = "Lab Assistant"

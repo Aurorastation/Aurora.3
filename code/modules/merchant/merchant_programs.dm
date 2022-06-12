@@ -2,8 +2,7 @@
 	filename = "mlist"
 	filedesc = "Merchant's List"
 	extended_desc = "Allows communication and trade between passing vessels, even while jumping."
-	program_icon_state = "comm"
-	program_key_icon_state = "lightblue_key"
+	program_icon_state = "command"
 	nanomodule_path = /datum/nano_module/program/merchant
 	requires_ntnet = 0
 	available_on_ntnet = 0

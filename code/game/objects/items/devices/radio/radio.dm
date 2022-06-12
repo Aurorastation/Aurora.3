@@ -359,12 +359,6 @@ var/global/list/default_medbay_channels = list(
 
 	var/turf/position = get_turf(src)
 
-	var/obj/effect/overmap/visitable/sector
-	if(current_map.use_overmap)
-		var/my_sector = map_sectors["[position.z]"]
-		if(istype(my_sector, /obj/effect/overmap/visitable))
-			sector = my_sector
-
 	//#### Tagging the signal with all appropriate identity values ####//
 
 	// ||-- The mob's name identity --||
@@ -452,8 +446,7 @@ var/global/list/default_medbay_channels = list(
 			"reject" = 0,	// if nonzero, the signal will not be accepted by any broadcasting machinery
 			"level" = position.z, // The source's z level
 			"language" = speaking,
-			"verb" = verb,
-			"sector" = sector
+			"verb" = verb
 		)
 		signal.frequency = connection.frequency // Quick frequency set
 
@@ -515,8 +508,7 @@ var/global/list/default_medbay_channels = list(
 		"reject" = 0,
 		"level" = position.z,
 		"language" = speaking,
-		"verb" = verb,
-		"sector" = sector
+		"verb" = verb
 	)
 	signal.frequency = connection.frequency // Quick frequency set
 

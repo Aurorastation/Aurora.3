@@ -391,6 +391,13 @@
 	icon_state = "wood_light"
 	},
 /area/city/mendell/interior)
+"ci" = (
+/obj/structure/signpost{
+	desc = "An informative signpost indicating that northwards leads to scenario selection.";
+	name = "directions"
+	},
+/turf/simulated/floor/bluegrid,
+/area/city/mendell)
 "cj" = (
 /obj/machinery/light/small,
 /obj/structure/closet/secure_closet/cabinet/bar,
@@ -7734,7 +7741,7 @@
 /turf/simulated/floor/lino/grey,
 /area/city/mendell)
 "RD" = (
-/obj/structure/closet/secure_closet/custodial,
+/obj/structure/closet/jcloset,
 /obj/item/gun/launcher/grenade{
 	name = "active cleaning utility dispenser"
 	},
@@ -29322,7 +29329,7 @@ Hh
 hP
 QX
 QX
-QX
+ci
 QX
 QX
 QX
@@ -29586,7 +29593,7 @@ zn
 Ty
 xD
 xD
-QX
+ci
 hP
 hP
 hP
@@ -30282,7 +30289,7 @@ QX
 QX
 xD
 xD
-QX
+ci
 hP
 hP
 hP
@@ -30540,7 +30547,7 @@ QX
 QX
 QX
 QX
-QX
+ci
 QX
 QX
 QX

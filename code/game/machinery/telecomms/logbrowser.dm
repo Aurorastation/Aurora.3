@@ -6,9 +6,7 @@
 /obj/machinery/computer/telecomms/server
 	name = "Telecommunications Server Monitor"
 	desc = "A monitor that contains and displays the logs of a selected telecommunications server to authorized personnel."
-	icon_screen = "comm_logs"
-	icon_keyboard = "green_key"
-	light_color = LIGHT_COLOR_GREEN
+	icon_screen = "sci"
 
 	var/screen = 0				// the screen number:
 	var/list/servers = list()	// the servers located by the computer

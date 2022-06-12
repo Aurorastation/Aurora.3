@@ -152,5 +152,5 @@
 
 /datum/gear/religion/dominia/codex
 	display_name = "tribunal codex"
-	path = /obj/item/device/versebook/tribunal
+	path = /obj/item/device/litanybook
 	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)

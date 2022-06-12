@@ -3,8 +3,7 @@
 /datum/computer_file/program/account_db
 	filename = "accdb"
 	filedesc = "Account Database"
-	program_icon_state = "employment_record"
-	program_key_icon_state = "lightblue_key"
+	program_icon_state = "command"
 	extended_desc = "Access transaction logs, account data and all kinds of other financial records."
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE

@@ -42,7 +42,7 @@
 							"Curtail the spreading of written literature or verbal notions that contain negative connotations towards the Federation")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Ensure the interests of Federation citizens are upheld by the vessel. This includes C'thur and Diona of Federation origin",
+			rep_objectives = pick("Ensure the interests of Federation citizens are upheld by the station. This includes C'thur and Diona of Federation origin",
 							"Legally curtail the advancements and liberal thinking towards synthetics",
 							"The [current_map.station_name] hosts some of the brightest minds in the galaxy; winning them over towards the Federation is a major victory")
 		else

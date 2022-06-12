@@ -9706,7 +9706,7 @@
 	},
 /area/centcom/control)
 "ayB" = (
-/obj/structure/closet/secure_closet/custodial,
+/obj/structure/closet/jcloset,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -10962,9 +10962,9 @@
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
-/obj/item/storage/belt/custodial,
-/obj/item/storage/belt/custodial,
-/obj/item/storage/belt/custodial,
+/obj/item/storage/belt/janitor,
+/obj/item/storage/belt/janitor,
+/obj/item/storage/belt/janitor,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -11030,7 +11030,7 @@
 	density = 1;
 	opacity = 1
 	},
-/area/template_noop)
+/area/beach)
 "aBi" = (
 /obj/structure/table/reinforced,
 /obj/item/clothing/mask/gas,
@@ -11167,14 +11167,15 @@
 /area/centcom/control)
 "aBw" = (
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aBx" = (
+/obj/structure/signpost,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aBy" = (
 /obj/structure/closet,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aBz" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/bodybags,
@@ -11441,12 +11442,12 @@
 "aBV" = (
 /obj/effect/overlay/palmtree_l,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aBW" = (
 /obj/effect/overlay/palmtree_r,
 /obj/effect/overlay/coconut,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aBX" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -11486,7 +11487,7 @@
 "aCa" = (
 /obj/effect/overlay/coconut,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aCb" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -11734,7 +11735,7 @@
 "aCH" = (
 /obj/effect/overlay/palmtree_r,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aCI" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -11801,7 +11802,7 @@
 	name = "endgame_exit"
 	},
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aCT" = (
 /turf/simulated/wall/shuttle/dark/corner/underlay{
 	dir = 10;
@@ -11944,15 +11945,16 @@
 "aDj" = (
 /obj/structure/table/standard,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aDk" = (
 /obj/structure/table/standard,
+/obj/item/clothing/under/rainbow,
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/head/collectable/petehat{
 	pixel_y = 5
 	},
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aDl" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 4;
@@ -12018,7 +12020,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/chips,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aDu" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/cans/cola,
@@ -12028,11 +12030,11 @@
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aDv" = (
 /obj/item/beach_ball,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aDw" = (
 /turf/unsimulated/floor{
 	icon_state = "green";
@@ -12311,10 +12313,11 @@
 	name = "endgame_exit"
 	},
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aEd" = (
+/mob/living/simple_animal/crab/Coffee,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aEe" = (
 /turf/unsimulated/floor{
 	icon_state = "warnplate";
@@ -12343,7 +12346,7 @@
 "aEi" = (
 /obj/item/clothing/head/collectable/paper,
 /turf/unsimulated/beach/sand,
-/area/template_noop)
+/area/beach)
 "aEj" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -12417,7 +12420,7 @@
 /turf/unsimulated/floor{
 	icon_state = "sandwater"
 	},
-/area/template_noop)
+/area/beach)
 "aEt" = (
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
@@ -12511,10 +12514,10 @@
 	density = 1;
 	opacity = 1
 	},
-/area/template_noop)
+/area/beach)
 "aEF" = (
 /turf/unsimulated/beach/coastline,
-/area/template_noop)
+/area/beach)
 "aEG" = (
 /obj/item/coin/gold,
 /turf/unsimulated/floor{
@@ -12649,10 +12652,10 @@
 	density = 1;
 	opacity = 1
 	},
-/area/template_noop)
+/area/beach)
 "aEY" = (
 /turf/unsimulated/beach/water,
-/area/template_noop)
+/area/beach)
 "aEZ" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;

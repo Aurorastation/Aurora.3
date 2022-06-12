@@ -214,7 +214,6 @@
 		bio = ARMOR_BIO_MINOR,
 		rad = ARMOR_RAD_MINOR
 	)
-	slowdown = 0
 	airtight = 0
 	seal_delay = 5
 	helm_type = /obj/item/clothing/head/lightrig/offworlder

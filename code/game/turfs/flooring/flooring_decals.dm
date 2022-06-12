@@ -464,10 +464,6 @@
 	name = "red outline"
 	color = "#990C0C"
 
-/obj/effect/floor_decal/industrial/outline/custodial
-	name = "custodial purple outline"
-	color = COLOR_PURPLE_GRAY
-
 /obj/effect/floor_decal/industrial/outline/medical
 	name = "medical lime outline"
 	color = COLOR_PALE_GREEN_GRAY
@@ -482,7 +478,7 @@
 
 /obj/effect/floor_decal/industrial/outline/research
 	name = "research mauve outline"
-	color = COLOR_PALE_PURPLE_GRAY
+	color = COLOR_PURPLE_GRAY
 
 /obj/effect/floor_decal/industrial/outline/security
 	name = "security blue outline"

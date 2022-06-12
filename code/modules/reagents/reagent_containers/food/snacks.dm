@@ -1741,21 +1741,6 @@
 	reagent_data = list(/decl/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2))
 	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5)
 
-/obj/item/reagent_containers/food/snacks/soup/maeuntang
-	name = "maeuntang"
-	desc = "A popular fish soup originating from Korea, this spicy dish has been given a distinctly Konyanger twist by the addition of \
-	moss to the ingredients, and has since proven to be a staple on the planet."
-	icon_state = "maeuntang"
-	reagent_data = list(/decl/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2, "moss" = 2))
-	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5)
-
-/obj/item/reagent_containers/food/snacks/soup/miyeokguk
-	name = "miyeokguk"
-	desc = "A simple soup made from fish broth, beef, seaweed, and moss. It is known for its health properties and commonly eaten on celebrations."
-	icon_state = "miyeokguk"
-	reagent_data = list(/decl/reagent/nutriment = list("hot stew" = 3, "beef" = 1, "seaweed" = 2, "moss" = 2))
-	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5)
-
 /obj/item/reagent_containers/food/snacks/hotchili
 	name = "hot chili"
 	desc = "A five alarm Texan Chili!"
@@ -4684,14 +4669,6 @@
 	reagent_data = list(/decl/reagent/nutriment = list("flatbread" = 3))
 	filling_color = "#BD8939"
 
-/obj/item/reagent_containers/food/snacks/moss_dumplings
-	name = "moss dumplings"
-	desc = "A relatively common Konyanger dish, this appears to be steamed moss set in steamed dough."
-	icon_state = "moss_dumplings"
-	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/protein = 3)
-	reagent_data = list(/decl/reagent/nutriment = list("flatbread" = 3))
-	filling_color = "#589755"
-
 /obj/item/reagent_containers/food/snacks/fish_taco
 	name = "fish taco"
 	desc = "A questionably cooked fish taco decorated with herbs, spices, and special sauce."
@@ -5028,16 +5005,6 @@
 	bitesize = 2
 
 	reagents_to_add = list(/decl/reagent/nutriment/rice = 6, /decl/reagent/nutriment/protein = 4)
-
-/obj/item/reagent_containers/food/snacks/mossbowl
-	name = "moss bowl"
-	desc = "A bowl of fried rice with moss on top."
-	icon_state = "mossbowl"
-	trash = /obj/item/trash/snack_bowl
-	filling_color = "#FFFBDB"
-	bitesize = 2
-
-	reagents_to_add = list(/decl/reagent/nutriment/moss = 6, /decl/reagent/nutriment/protein/egg = 3)
 
 /obj/item/reagent_containers/food/snacks/mashedpotato
 	name = "mashed potato"

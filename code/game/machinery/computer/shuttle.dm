@@ -3,8 +3,8 @@
 	desc = "For shuttle control."
 
 	is_holographic = FALSE
-	icon_screen = "shuttle"
-	light_color = LIGHT_COLOR_CYAN
+	icon_screen = "command"
+	light_color = "#00ffff"
 	var/auth_need = 3.0
 	var/list/authorized = list(  )
 

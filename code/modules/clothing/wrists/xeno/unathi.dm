@@ -23,6 +23,4 @@
 	predate the latest to pass away."
 	icon_state = "maxtlatl-wrists"
 	item_state = "maxtlatl-wrists"
-	species_restricted = list(BODYTYPE_UNATHI)
-	contained_sprite = TRUE
 	gender = PLURAL

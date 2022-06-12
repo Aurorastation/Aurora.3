@@ -2,7 +2,6 @@
 	filename = "pai_radio"
 	filedesc = "Radio Configuration"
 	program_icon_state = "generic"
-	program_key_icon_state = "green_key"
 	extended_desc = "This program is used to configure the integrated pAI radio."
 	size = 0
 
@@ -26,7 +25,7 @@
 	var/headerdata = get_header_data(data["_PC"])
 	if(headerdata)
 		data["_PC"] = headerdata
-
+	
 	if(!istype(computer, /obj/item/modular_computer/silicon))
 		return
 	var/obj/item/modular_computer/silicon/true_computer = computer
