@@ -344,7 +344,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/overgrown_mining_station)
 "ny" = (
-/obj/machinery/power/supermatter,
+/obj/machinery/power/supermatter/shard,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "nP" = (

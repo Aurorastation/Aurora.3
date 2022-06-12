@@ -235,6 +235,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
 	tablet = /obj/item/modular_computer/handheld/preset/medical/psych
 
+	backpack = /obj/item/storage/backpack/medic
+	satchel = /obj/item/storage/backpack/satchel_med
+	dufflebag = /obj/item/storage/backpack/duffel/med
+	messengerbag = /obj/item/storage/backpack/messenger/med
+
 /datum/outfit/job/psychiatrist/psycho
 	name = "Psychologist"
 	jobtype = /datum/job/psychiatrist

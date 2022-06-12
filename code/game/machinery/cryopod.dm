@@ -402,8 +402,8 @@ var/global/list/frozen_crew = list()
 				W.forceMove(control_computer)
 			else
 				W.forceMove(T)
-
-	global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message] [on_store_location].", "[on_store_name]")
+	if(isStationLevel(z))
+		global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message] [on_store_location].", "[on_store_name]")
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."))
 	playsound(loc, on_store_sound, 25)
 	frozen_crew += occupant

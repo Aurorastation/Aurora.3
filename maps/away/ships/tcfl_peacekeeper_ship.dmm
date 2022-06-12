@@ -3005,15 +3005,6 @@
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
-"ulV" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Maintenance";
-	req_access = list(204)
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/carpet/rubber,
-/area/ship/tcfl_peacekeeper_ship)
 "upC" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -32771,7 +32762,7 @@ yjk
 yjk
 yjk
 yjk
-ulV
+jrJ
 yjk
 yjk
 yjk

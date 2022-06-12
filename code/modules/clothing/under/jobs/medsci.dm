@@ -117,8 +117,8 @@
 	desc = "It's a blue and white jumpsuit, the IAC logo plastered across the back."
 	name = "IAC uniform"
 	icon = 'icons/clothing/under/uniforms/iac_uniform.dmi'
-	icon_state = "iacuniform"
-	item_state = "iacuniform"
+	icon_state = "iac"
+	item_state = "iac"
 	contained_sprite = TRUE
 	permeability_coefficient = 0.50
 	armor = list(
