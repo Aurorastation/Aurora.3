@@ -910,6 +910,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
+/obj/structure/bed/handrail,
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining - Shuttle"
 	},
@@ -16888,6 +16889,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "nBK" = (
@@ -23282,6 +23286,9 @@
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
+	},
+/obj/structure/bed/handrail{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -45631,7 +45638,7 @@ aNO
 uNw
 rAa
 ePy
-sVu
+xpX
 tqs
 vhg
 tNp
