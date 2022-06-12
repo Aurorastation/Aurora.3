@@ -7,16 +7,22 @@
 	var/expended = FALSE
 	var/runtime = 30
 
-/obj/item/overloader/do_overloader_effects(mob/living/carbon/human/M)
+/obj/item/overloader/process()
+	if (!expended && istype(loc, /obj/item/organ/internal/dataport))
+		do_overloader_effects()
 
-	if (!isSynthetic(M))
+/obj/item/overloader/attack(mob/living/carbon/human/M, mob/user, def_zone)
+	if(!istype(M))
 		return
 	
-/obj/item/overloader/shutdown
-	name = "shutdown overloader"
-	desc = "An IPC overloader. This one looks very dangerous."
+	var/obj/item/organ/internal/dataport/dataport
 
-/obj/item/overloader/shutdown/do_overloader_effects(mob/living/carbon/human/M)
-	. = ..()
+	if (M.internal_organs_by_name[dataport] && M.isSynthetic())
+		usr.drop_from_inventory(src, M.dataport)
 
 	
+
+
+/obj/item/overloader/do_overloader_effects(mob/living/carbon/human/M)
+	if (!isSynthetic(M))
+		return
