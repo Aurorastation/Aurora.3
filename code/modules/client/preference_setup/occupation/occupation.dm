@@ -271,9 +271,6 @@
 		if(SetJob(user, href_list["set_job"]))
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
-	else if(href_list["show_faction"])
-
-
 	else if(href_list["faction_preview"])
 		show_faction_menu(user, html_decode(href_list["faction_preview"]))
 		return TOPIC_NOACTION
