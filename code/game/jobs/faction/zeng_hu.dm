@@ -11,7 +11,7 @@
 	controversial field that is now more accepted today.
 	</p>"}
 
-	departments = {"Science<br>Medical"}
+	departments = {"Medical<br>Science"}
 	title_suffix = "Zeng"
 
 	allowed_role_types = ZENG_ROLES

@@ -9,7 +9,7 @@
 	Only some liaisons and bureaucrats work behind the scenes to hire and manage the contractors;
 	the rest of its members are part of several organizations contracted to supply the PMCG.
 	</p>"}
-	departments = {"Security<br>Medical"}
+	departments = {"Medical<br>Security"}
 	title_suffix = "PMCG"
 
 	allowed_role_types = PMC_ROLES
