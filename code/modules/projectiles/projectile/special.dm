@@ -316,6 +316,6 @@
 
 /obj/item/projectile/bonedart/ling
 	name = "bone dart"
-	damage = 8
+	damage = 10
 	armor_penetration = 10
 	check_armor = "bullet"

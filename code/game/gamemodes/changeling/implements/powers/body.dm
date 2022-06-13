@@ -465,7 +465,7 @@
 
 	var/mob/living/carbon/human/M = src
 
-	if(alert("Are we sure we wish to reveal ourselves? This will only revert after forty-five minutes.", , "Yes", "No") == "No") //Changelings have to confirm whether they want to go full horrorform
+	if(alert("Are we sure we wish to reveal ourselves and assume our ultimate form? This is irreversible, and we will not be able to revert to our disguised form.", , "Yes", "No") == "No") //Changelings have to confirm whether they want to go full horrorform
 		return
 
 	changeling.chem_charges -= 50
@@ -510,16 +510,3 @@
 	M.forceMove(ling) //move inside the new dude to hide him.
 	ling.occupant = M
 	M.status_flags |= GODMODE //dont want him to die or breathe or do ANYTHING
-	addtimer(CALLBACK(src, .proc/revert_horror_form,ling), 45 MINUTES)
-
-/mob/proc/revert_horror_form(var/mob/living/ling)
-	if(QDELETED(ling))
-		return
-	src.status_flags &= ~GODMODE //no more godmode.
-	if(ling.mind)
-		ling.mind.transfer_to(src)
-	else
-		src.key = ling.key
-	playsound(get_turf(src),'sound/effects/blobattack.ogg',50,1)
-	src.forceMove(get_turf(ling))
-	qdel(ling)
