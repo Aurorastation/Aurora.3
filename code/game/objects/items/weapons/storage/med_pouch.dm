@@ -11,7 +11,7 @@ Single Use Emergency Pouches
 	max_w_class = ITEMSIZE_SMALL
 	icon_state = "pack0"
 	var/opened = FALSE
-	open_sound = 'sound/items/rip1.ogg'
+	var/open_sound = 'sound/items/rip1.ogg'
 	var/injury_type = "generic"
 	var/static/image/cross_overlay
 
@@ -31,7 +31,6 @@ Single Use Emergency Pouches
 	for(var/obj/item/reagent_containers/pill/P in contents)
 		P.color = color
 	for(var/obj/item/reagent_containers/hypospray/autoinjector/A in contents)
-		A.band_color = color
 		A.update_icon()
 
 /obj/item/storage/med_pouch/update_icon()
@@ -58,6 +57,7 @@ Single Use Emergency Pouches
 
 	starts_with = list(
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
+	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/coagzolug,
 	/obj/item/reagent_containers/pill/pouch_pill/inaprovaline,
 	/obj/item/reagent_containers/pill/pouch_pill/perconol,
 	/obj/item/stack/medical/bruise_pack = 2,
@@ -65,7 +65,8 @@ Single Use Emergency Pouches
 
 	desc_info = "1) Tear open the emergency medical pack using the easy open tab at the top.\
 	2) Carefully remove all items from the pouch and discard the pouch \
-	3) Apply all autoinjectors to the injured party \
+	3) Apply the inaprovaline autoinjector to the injured party \
+	4) Apply the coagzolug autoinjector if the injured party is gushing blood.\
 	4) Use bandages to stop bleeding if required.\
 	5) Force the injured party to swallow all pills. \
 	6) Contact the medical team with your location. \
