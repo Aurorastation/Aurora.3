@@ -32,7 +32,7 @@
 	resist_mod = 15
 	mob_size = 25
 	environment_smash = 2
-	attacktext = list("mangles", "eviscerates", "hacks", "mutilates", "rends", "butchers", "mauls", "rips", "tears")
+	attacktext = null
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 	emote_sounds = list('sound/effects/creatures/bear_loud_1.ogg', 'sound/effects/creatures/bear_loud_2.ogg', 'sound/effects/creatures/bear_loud_3.ogg', 'sound/effects/creatures/bear_loud_4.ogg')
 
@@ -70,6 +70,12 @@
 	..()
 	mind.assigned_role = "Changeling"
 
+
+/mob/living/simple_animal/hostile/true_changeling/AttackingTarget()
+	var/targetname = target_mob.name
+	if(..())
+		turns_since_hit = 0
+		custom_emote(VISIBLE_MESSAGE, pick( list("mangles [targetname] with its arms", "slashes [targetname]", "bites [targetname]", "mauls [targetname]", "tears into [targetname]", "rends [targetname]", "rips at [targetname]", "eviscerates [targetname]", "hacks [targetname]", "butchers [targetname]", "mutilates [targetname]") ) )
 
 /mob/living/simple_animal/hostile/true_changeling/Life()
 	if(prob(10))
