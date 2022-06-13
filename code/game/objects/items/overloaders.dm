@@ -30,9 +30,9 @@
 /obj/item/overloader/proc/do_overloader_effects(mob/living/carbon/human/M)
 	if (runtime > 0 || expended)
 		return
-	expend()
+	expend(M)
 	
-/obj/item/overloader/proc/expend()
+/obj/item/overloader/proc/expend(mob/living/carbon/human/M))
 	expended = TRUE
 
 /obj/item/overloader/proc/on_eject()
@@ -68,10 +68,10 @@
 		M.slowdown -= speedup
 	..()
 
-/obj/item/overloader/redline/expend()
+/obj/item/overloader/redline/expend(mob/living/carbon/human/M)
 	..()
-	affected.slowdown = initial_speed
-	affected.passive_temp_gain = initial_heat
+	M.slowdown = initial_speed
+	M.passive_temp_gain = initial_heat
 
 /obj/item/overloader/redline/on_eject()
 	affected.slowdown = initial_speed

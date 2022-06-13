@@ -384,7 +384,7 @@
 			user.visible_message(SPAN_WARNING("\The [user] is trying to remove something from \the [H]'s dataport!"))
 			if(do_after(user, HUMAN_STRIP_DELAY, act_target = H))
 				var/obj/item/organ/internal/dataport/D = locate() in H.organs_by_name[BP_HEAD]
-				var/obj/item/overloader/O = locate() in D.internal_organs_by_name[BP_DATAPORT]
+				var/obj/item/overloader/O = locate() in D
 				if(!O)
 					to_chat(user, SPAN_WARNING("\The [H] had nothing in their dataport."))
 					return
