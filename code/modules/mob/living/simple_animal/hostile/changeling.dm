@@ -47,6 +47,10 @@
 
 	var/is_devouring = FALSE
 	var/mob/living/carbon/human/occupant = null
+	var/loud_sounds = list('sound/effects/creatures/bear_loud_1.ogg',
+	'sound/effects/creatures/bear_loud_2.ogg',
+	'sound/effects/creatures/bear_loud_3.ogg',
+	'sound/effects/creatures/bear_loud_4.ogg')
 
 /mob/living/simple_animal/hostile/true_changeling/Initialize()
 	. = ..()
@@ -66,11 +70,11 @@
 	..()
 	mind.assigned_role = "Changeling"
 
+
 /mob/living/simple_animal/hostile/true_changeling/Life()
 	if(prob(5))
-		var/action = pick("roars", "shrieks", "snarls")
-			audible_emote("[action]")
-			playsound(loc, 'sound/effects/creatures/vannatusk_attack.ogg', 30, 1)
+	var/sound = pick(loud_sounds)
+	playsound(src, sound, 85, 1, 5, usepressure = 0)
 
 
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)
