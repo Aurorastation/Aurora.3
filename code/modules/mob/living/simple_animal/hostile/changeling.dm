@@ -34,7 +34,7 @@
 	environment_smash = 2
 	attacktext = "mangled"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
-	emote_sounds = list('sound/effects/creatures/vannatusk_attack.ogg')
+	emote_sounds = list('sound/effects/creatures/bear_loud_1.ogg', 'sound/effects/creatures/bear_loud_2.ogg', 'sound/effects/creatures/bear_loud_3.ogg', 'sound/effects/creatures/bear_loud_4.ogg')
 
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
@@ -66,11 +66,18 @@
 	..()
 	mind.assigned_role = "Changeling"
 
+/mob/living/simple_animal/hostile/true_changeling/Life()
+	if(prob(5))
+		var/action = pick("roars", "shrieks", "snarls")
+			audible_emote("[action]")
+			playsound(loc, 'sound/effects/creatures/vannatusk_attack.ogg', 30, 1)
+
+
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)
 	..()
 	if(!gibbed)
 		visible_message("<b>[src]</b> lets out a waning scream as it falls, twitching, to the floor!")
-		playsound(loc, 'sound/effects/creepyshriek.ogg', 30, 1)
+		playsound(loc, 'sound/effects/creatures/vannatusk_attack.ogg', 30, 1)
 		if(occupant)
 			qdel(occupant)
 		gibs(src.loc)
