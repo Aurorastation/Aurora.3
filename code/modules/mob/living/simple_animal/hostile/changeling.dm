@@ -16,7 +16,7 @@
 
 	tameable = FALSE
 
-	organ_names = list("gaping maw", "misshapen head", "twisted torso", "engorged tail", "warped legs", "scythelike arms", "armblade")
+	organ_names = list("gaping maw", "misshapen head", "engorged abdomen", "bladed tail", "warped legs", "scythelike armblade")
 	response_help  = "pokes"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
