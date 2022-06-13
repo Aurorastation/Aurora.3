@@ -550,7 +550,6 @@
 		'sound/items/drop/casing11.ogg',
 		'sound/items/drop/casing12.ogg',
 		'sound/items/drop/casing13.ogg',
-		'sound/items/drop/casing14.ogg',
 		'sound/items/drop/casing15.ogg',
 		'sound/items/drop/casing16.ogg',
 		'sound/items/drop/casing17.ogg',
@@ -616,14 +615,17 @@
 		'sound/weapons/reloads/shotgun_pump.ogg',
 		'sound/weapons/reloads/shotgun_pump2.ogg',
 		'sound/weapons/reloads/shotgun_pump3.ogg',
-		'sound/weapons/reloads/shotgun_pump5.ogg'
+		'sound/weapons/reloads/shotgun_pump4.ogg',
+		'sound/weapons/reloads/shotgun_pump5.ogg',
+		'sound/weapons/reloads/shotgun_pump6.ogg'
 	)
 
 /decl/sound_category/shotgun_reload
 	sounds = list(
 		'sound/weapons/reloads/reload_shell.ogg',
 		'sound/weapons/reloads/reload_shell2.ogg',
-		'sound/weapons/reloads/reload_shell3.ogg'
+		'sound/weapons/reloads/reload_shell3.ogg',
+		'sound/weapons/reloads/reload_shell4.ogg'
 	)
 
 /decl/sound_category/heavy_machine_gun_reload
