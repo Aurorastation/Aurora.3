@@ -320,7 +320,7 @@
 
 		move_delay += tally
 
-		if(mob_is_human)
+		if(mob_is_human && mob.lying)
 			var/mob/living/carbon/human/H = mob
 			var/crawl_tally = H.get_crawl_tally()
 			if(crawl_tally >= 120)
