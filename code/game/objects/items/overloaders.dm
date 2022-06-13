@@ -52,27 +52,16 @@
 	name = "Redline overloader"
 	desc = "An IPC overloader. This one is programmed with an instance of Redline."
 	desc_fluff = "Redline is a dangerous overclocking whatever blah blah blah Konyang."
-	var/initial_heat
 	var/initial_speed
-	var/overheat = 100
 	var/speedup = 0.5
 
 /obj/item/overloader/redline/install(mob/living/carbon/human/M)
 	..()
-	initial_heat = affected.passive_temp_gain
-	initial_speed = affected.slowdown
-
-/obj/item/overloader/redline/do_overloader_effects(mob/living/carbon/human/M)
-	if (runtime > 0)
-		M.passive_temp_gain = overheat
-		M.slowdown -= speedup
-	..()
+	affected.move_delay_mod -= speedup
 
 /obj/item/overloader/redline/expend(mob/living/carbon/human/M)
 	..()
-	M.slowdown = initial_speed
-	M.passive_temp_gain = initial_heat
+	affected.move_delay_mod = initial_speed
 
 /obj/item/overloader/redline/on_eject()
-	affected.slowdown = initial_speed
-	affected.passive_temp_gain = initial_heat
+	affected.move_delay_mod = initial_speed
