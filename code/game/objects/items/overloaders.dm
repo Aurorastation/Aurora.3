@@ -32,7 +32,7 @@
 		return
 	expend(M)
 	
-/obj/item/overloader/proc/expend(mob/living/carbon/human/M))
+/obj/item/overloader/proc/expend((mob/living/carbon/human/M))
 	expended = TRUE
 
 /obj/item/overloader/proc/on_eject()
