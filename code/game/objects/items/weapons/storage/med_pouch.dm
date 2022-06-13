@@ -53,7 +53,6 @@ Single Use Emergency Pouches
 
 	starts_with = list(
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1,
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/coagzolug = 1,
 	/obj/item/reagent_containers/pill/pouch_pill/inaprovaline = 1,
 	/obj/item/reagent_containers/pill/pouch_pill/perconol = 1,
 	/obj/item/stack/medical/bruise_pack = 2

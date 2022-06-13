@@ -24,7 +24,7 @@
 
 /obj/item/storage/box/fancy/open(mob/user)
 	. = ..()
-	if(!opened) 
+	if(!opened)
 		opened = TRUE
 		update_icon() // the reason why this isn't a clean catch-all update_icon() for fancy boxes is because of cigarette packets and donut boxes being different.
 
