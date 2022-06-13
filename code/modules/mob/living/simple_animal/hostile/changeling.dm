@@ -45,6 +45,7 @@
 	max_co2 = 0
 	max_tox = 0
 
+	var/turns_since_hit = 0
 	var/is_devouring = FALSE
 	var/mob/living/carbon/human/occupant = null
 	var/loud_sounds = list('sound/effects/creatures/bear_loud_1.ogg',
@@ -58,10 +59,6 @@
 		icon_state = "horror"
 		icon_living = "horror"
 		icon_dead = "horror_dead"
-	else if(prob(25))
-		icon_state = "horror_alt"
-		icon_living = "horror_alt"
-		icon_dead = "horror_alt_dead"
 
 /mob/living/simple_animal/hostile/true_changeling/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
