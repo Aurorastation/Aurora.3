@@ -25,6 +25,7 @@
 		uses *= 3
 		enhanced = TRUE
 		qdel(O)
+	..()
 
 /obj/item/slime_extract/Initialize()
 	. = ..()
