@@ -1,0 +1,8 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Mention the pouches."
+  - rscadd: "Mention the new autoinjector chem."
+  - tweak: "Mention the medical supply buffs in various locations."
