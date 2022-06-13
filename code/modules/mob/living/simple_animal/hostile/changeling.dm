@@ -1,7 +1,8 @@
 /mob/living/simple_animal/hostile/true_changeling
 	name = "shambling horror"
-	desc = "An entity ripped from your nightmares. A monstrous creature, a warped parody of a living being. It is created from twisted flesh and bone, covered in oozing sores with bony protrusions sticking from them and serrated knife-like blades of bone. Looking at it makes you feel ill."
-	speak_emote = list("gibbers")
+	desc = "An entity ripped from your nightmares. A monstrous creature, a warped parody of a living being. It is created from twisted amalgamation of flesh and bone, covered in oozing sores with bony protrusions sticking from them and serrated knife-like blades of bone. Looking at it makes you feel ill."
+	speak_emote = list("snarls")
+	emote_hear = list("gibbers")
 	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "abomination"
 	icon_living = "abomination"
@@ -33,6 +34,7 @@
 	environment_smash = 2
 	attacktext = "mangled"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
+	emote_sounds = list('sound/effects/creatures/vannatusk_attack.ogg')
 
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
