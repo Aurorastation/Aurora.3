@@ -348,7 +348,7 @@
 /decl/reagent/deletrathol //this is essentially a chemical for the crew rather than medical, it's only found in special autoinjectors
 	name = "Deletrathol"
 	description = "Deletrathol is an advanced, powerful analgesic medication which is highly \
-	effective at treating mild-severe pain as a result of first, second and third degree burns. \
+	effective at treating mid-severe pain as a result of first, second and third degree burns. \
 	Deletrathol is not effective when inhaled and is usually found within speciality \
 	pills or autoinjectors for burn treatment."
 	reagent_state = LIQUID
@@ -373,12 +373,12 @@
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 80)
 		M.make_dizzy(5)
+		M.confused = max(M.confused, 10)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)
 		if(!M.chem_effects[CE_STRAIGHTWALK])
 			M.confused = max(M.confused, 10)
 		if(!(REAGENT_VOLUME(holder, type) > 10)) //Prevents doubling up with overdose
-			M.confused = max(M.confused, 10)
 			M.slurring = max(M.slurring, 50)
 
 	var/mob/living/carbon/human/H = M

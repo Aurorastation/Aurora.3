@@ -6,7 +6,7 @@ Single Use Emergency Pouches
 	name = "emergency medical pouch"
 	desc = "For use in emergency situations only."
 	icon = 'icons/obj/med_pouch.dmi'
-	storage_slots = 7
+	storage slots = 7
 	w_class = ITEMSIZE_SMALL
 	max_w_class = ITEMSIZE_SMALL
 	icon_state = "pack0"
@@ -38,7 +38,7 @@ Single Use Emergency Pouches
 	overlays.Cut()
 	if(!cross_overlay)
 		cross_overlay = image(icon, "cross")
-		cross_overlay.appearance_flags = RESET_COLOR | RESET_COLOR
+		cross_overlay.appearance_flags = RESET_ALPHA | RESET_COLOR
 	overlays += cross_overlay
 	icon_state = "pack[opened]"
 
@@ -56,11 +56,11 @@ Single Use Emergency Pouches
 	color = COLOR_RED
 
 	starts_with = list(
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/coagzolug,
-	/obj/item/reagent_containers/pill/pouch_pill/inaprovaline,
-	/obj/item/reagent_containers/pill/pouch_pill/perconol,
-	/obj/item/stack/medical/bruise_pack = 2,
+	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1,
+	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/coagzolug = 1,
+	/obj/item/reagent_containers/pill/pouch_pill/inaprovaline = 1,
+	/obj/item/reagent_containers/pill/pouch_pill/perconol = 1,
+	/obj/item/stack/medical/bruise_pack = 2
 		)
 
 	desc_info = "1) Tear open the emergency medical pack using the easy open tab at the top.\
@@ -78,11 +78,11 @@ Single Use Emergency Pouches
 	color = COLOR_SEDONA
 
 	starts_with = list(
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/deletrathol,
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
-	/obj/item/reagent_containers/pill/pouch_pill/perconol,
-	/obj/item/stack/medical/ointment = 2,
+	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1,
+	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/deletrathol = 1,
+	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline = 1,
+	/obj/item/reagent_containers/pill/pouch_pill/perconol = 1,
+	/obj/item/stack/medical/ointment = 2
 		)
 
 	desc_info = "1) Tear open the emergency medical pack using the easy open tab at the top.\
@@ -100,11 +100,11 @@ Single Use Emergency Pouches
 	color = COLOR_BLUE
 
 	starts_with = list(
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin,
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
-	/obj/item/reagent_containers/pill/pouch_pill/inaprovaline,
-	/obj/item/reagent_containers/pill/pouch_pill/dexalin,
+	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1,
+	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin = 1,
+	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline = 1,
+	/obj/item/reagent_containers/pill/pouch_pill/inaprovaline = 1,
+	/obj/item/reagent_containers/pill/pouch_pill/dexalin = 1
 		)
 
 	desc_info = "1) Tear open the emergency medical pack using the easy open tab at the top.\
@@ -123,8 +123,8 @@ Single Use Emergency Pouches
 	color = COLOR_GREEN
 
 	starts_with = list(
-	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dylovene,
-	/obj/item/reagent_containers/pill/pouch_pill/dylovene,
+	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dylovene = 1,
+	/obj/item/reagent_containers/pill/pouch_pill/dylovene = 1
 		)
 
 	desc_info = "1) Tear open the emergency medical pack using the easy open tab at the top.\
@@ -140,8 +140,8 @@ Single Use Emergency Pouches
 	color = COLOR_AMBER
 
 	starts_with = list(
-	/obj/item/reagent_containers/hypospray/autoinjector/hyronalin,
-	/obj/item/reagent_containers/pill/pouch_pill/dylovene,
+	/obj/item/reagent_containers/hypospray/autoinjector/hyronalin = 1,
+	/obj/item/reagent_containers/pill/pouch_pill/dylovene = 1
 		)
 
 	desc_info = "1) Tear open the emergency medical pack using the easy open tab at the top.\
