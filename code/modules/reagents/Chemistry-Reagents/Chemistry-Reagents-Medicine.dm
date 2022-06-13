@@ -371,13 +371,12 @@
 		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
 	
 	if(check_min_dose(M))
-		M.add_chemical_effect(CE_PAINKILLER, 80)
-		M.make_dizzy(5)
-		M.confused = max(M.confused, 10)
+		M.add_chemical_effect(CE_PAINKILLER, 70)
+		M.make_dizzy(15)
 		if(!M.chem_effects[CE_CLEARSIGHT])
-			M.eye_blurry = max(M.eye_blurry, 5)
+			M.eye_blurry = max(M.eye_blurry, 15)
 		if(!M.chem_effects[CE_STRAIGHTWALK])
-			M.confused = max(M.confused, 10)
+			M.confused = max(M.confused, 25)
 		if(!(REAGENT_VOLUME(holder, type) > 10)) //Prevents doubling up with overdose
 			M.slurring = max(M.slurring, 50)
 

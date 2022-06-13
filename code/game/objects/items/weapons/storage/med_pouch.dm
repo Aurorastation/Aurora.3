@@ -6,7 +6,7 @@ Single Use Emergency Pouches
 	name = "emergency medical pouch"
 	desc = "For use in emergency situations only."
 	icon = 'icons/obj/med_pouch.dmi'
-	storage slots = 7
+	storage_slots = 7
 	w_class = ITEMSIZE_SMALL
 	max_w_class = ITEMSIZE_SMALL
 	icon_state = "pack0"
@@ -38,7 +38,7 @@ Single Use Emergency Pouches
 	overlays.Cut()
 	if(!cross_overlay)
 		cross_overlay = image(icon, "cross")
-		cross_overlay.appearance_flags = RESET_ALPHA | RESET_COLOR
+		cross_overlay.appearance_flags = RESET_COLOR
 	overlays += cross_overlay
 	icon_state = "pack[opened]"
 
@@ -47,8 +47,10 @@ Single Use Emergency Pouches
 
 /obj/item/storage/med_pouch/open(mob/user)
 	if(!opened)
+		opened = TRUE
 		user.visible_message("<span class='notice'>\The [user] tears open [src], breaking the vacuum seal!</span>", "<span class='notice'>You tear open [src], breaking the vacuum seal!</span>")
-	. = ..()
+		icon_state = "pack1"
+		. = ..()
 
 /obj/item/storage/med_pouch/trauma
 	name = "trauma pouch"
