@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/true_changeling
 	name = "shambling horror"
-	desc = "An entity ripped from your nightmares. A monstrous creature, a warped parody of a living being. It is created from twisted amalgamation of flesh and bone, covered in oozing sores with bony protrusions sticking from them and serrated knife-like blades of bone. Looking at it makes you feel ill."
+	desc = "An entity ripped from your nightmares. A monstrous creature, a warped parody of a living being. It is created from a twisted amalgamation of flesh and bone, covered in oozing sores, open wounds, and serrated knife-like blades of bone. Looking at it makes you feel ill."
 	speak_emote = list("snarls")
 	emote_hear = list("gibbers")
 	icon = 'icons/mob/npc/animal.dmi'
@@ -16,8 +16,8 @@
 
 	tameable = FALSE
 
-	organ_names = list("head", "chest", "tail", "leg")
-	response_help  = "pets"
+	organ_names = list("gaping maw", "misshapen head", "twisted torso", "engorged tail", "warped legs", "scythelike arms", "armblade")
+	response_help  = "pokes"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
 	blood_amount = 1250
@@ -32,7 +32,7 @@
 	resist_mod = 15
 	mob_size = 25
 	environment_smash = 2
-	attacktext = "mangled"
+	attacktext = list("mangles", "eviscerates", "hacks", "mutilates", "rends", "butchers", "mauls", "hacks")
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 	emote_sounds = list('sound/effects/creatures/bear_loud_1.ogg', 'sound/effects/creatures/bear_loud_2.ogg', 'sound/effects/creatures/bear_loud_3.ogg', 'sound/effects/creatures/bear_loud_4.ogg')
 
@@ -75,14 +75,14 @@
 	if(prob(10))
 		custom_emote(VISIBLE_MESSAGE, pick( list("shrieks!","roars!", "screeches!", "snarls!", "bellows!", "screams!") ) )
 		var/sound = pick(loud_sounds)
-		playsound(src, sound, 85, 1, 7, usepressure = 0)
+		playsound(src, sound, 90, 1, 15, usepressure = 0)
 
 
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)
 	..()
 	if(!gibbed)
-		visible_message("<b>[src]</b> lets out a waning scream as it falls, twitching, to the floor!")
-		playsound(loc, 'sound/effects/creatures/vannatusk_attack.ogg', 85, 1, 7)
+		visible_message("<b>[src]</b> lets out a waning scream as it disintegrates into a pile of flesh!")
+		playsound(loc, 'sound/effects/creatures/vannatusk_attack.ogg', 90, 1, 15)
 		if(occupant)
 			qdel(occupant)
 		gibs(src.loc)
