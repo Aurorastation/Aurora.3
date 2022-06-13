@@ -573,6 +573,9 @@
 /decl/reagent/perconol
 	value = 3.3
 
+/decl/reagent/deletrathol
+	value = 3.0
+
 /decl/reagent/mortaphenyl
 	value = 3.1
 

@@ -345,6 +345,63 @@
 	if(!M.chem_effects[CE_STRAIGHTWALK])
 		M.confused = max(M.confused, 6)
 
+/decl/reagent/deletrathol //this is essentially a chemical for the crew rather than medical, it's only found in special autoinjectors
+	name = "Deletrathol"
+	description = "Deletrathol is an advanced, powerful analgesic medication which is highly \
+	effective at treating mild-severe pain as a result of first, second and third degree burns. \
+	Deletrathol is not effective when inhaled and is usually found within speciality \
+	pills or autoinjectors for burn treatment."
+	reagent_state = LIQUID
+	color = "#800080"
+	overdose = 15
+	scannable = TRUE
+	od_minimum_dose = 2
+	metabolism = REM / 3.33 // 0.06ish units per tick
+	ingest_met = REM * 2 // .4 units per tick
+	breathe_met = REM * 4 // .8 units per tick
+	taste_description = "acrid"
+	metabolism_min = 0.005
+	breathe_mul = 0
+
+/decl/reagent/deletrathol/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+	to_chat(M, SPAN_GOOD(pick("You lean back and begin to fall... and fall... and fall.", "A feeling of ecstasy builds within you.", "You're startled by just how amazing you suddenly feel.")))
+
+/decl/reagent/deletrathol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(prob(3))
+		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
+	
+	if(check_min_dose(M))
+		M.add_chemical_effect(CE_PAINKILLER, 80)
+		M.make_dizzy(5)
+		if(!M.chem_effects[CE_CLEARSIGHT])
+			M.eye_blurry = max(M.eye_blurry, 5)
+		if(!M.chem_effects[CE_STRAIGHTWALK])
+			M.confused = max(M.confused, 10)
+		if(!(REAGENT_VOLUME(holder, type) > 10)) //Prevents doubling up with overdose
+			M.confused = max(M.confused, 10)
+			M.slurring = max(M.slurring, 50)
+
+	var/mob/living/carbon/human/H = M
+	if(!istype(H))
+		return
+	var/bac = H.get_blood_alcohol()
+	if(bac >= 0.03)
+		M.hallucination = max(M.hallucination, bac * 300)
+		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/6)
+	if(bac >= 0.08)
+		if(M.losebreath < 15)
+			M.losebreath++
+
+	if(REAGENT_VOLUME(M.reagents, /decl/reagent/oxycomorphine)) //Straight to overdose.
+		overdose(M, alien, holder)
+
+/decl/reagent/deletrathol/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
+	..()
+	M.hallucination = max(M.hallucination, 40)
+	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/6)
+	if(M.losebreath < 15)
+		M.losebreath++
+
 /decl/reagent/oxycomorphine
 	name = "Oxycomorphine"
 	description = "Oxycomorphine is a highly advanced, powerful analgesic medication which is extremely effective at treating severe-agonising pain as a result of injuries usually incompatible with life. The drug is highly addictive and sense-numbing. Oxycomorphine is not effective when inhaled."
