@@ -184,19 +184,22 @@
         }
       },
     damageLabel(value) {
-      if(value == "extreme" || value < 20) {
+      if(value == "Fatal" || value < 10) {
         return "Crimson"
       }
-      else if(value == "severe" || value < 40) {
+      if(value == "Critical" || value < 20) {
+        return "Crimson"
+      }
+      else if(value == "Severe" || value < 40) {
         return "OrangeRed"
       }
-      else if(value == "significant" || value < 60) {
+      else if(value == "Significant" || value < 60) {
         return "Tomato"
       }
-      else if(value == "moderate" || value < 80) {
+      else if(value == "Moderate" || value < 80) {
         return "Orange"
       }
-      else if(value == "minor" || value < 100) {
+      else if(value == "Minor" || value < 100) {
         return "LawnGreen"
       }
       else {

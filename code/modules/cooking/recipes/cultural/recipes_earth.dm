@@ -96,6 +96,12 @@
 	reagents = list(/decl/reagent/water = 5, /decl/reagent/nutriment/rice = 10)
 	result = /obj/item/reagent_containers/food/snacks/boiledrice
 
+/decl/recipe/mossbowl
+	appliance = SAUCEPAN | POT
+	reagents = list(/decl/reagent/water = 5, /decl/reagent/nutriment/protein/egg = 3)
+	fruit = list("moss" = 2)
+	result = /obj/item/reagent_containers/food/snacks/mossbowl
+
 /decl/recipe/ricepudding
 	appliance = SAUCEPAN | POT
 	reagents = list(/decl/reagent/drink/milk = 5, /decl/reagent/nutriment/rice = 10)

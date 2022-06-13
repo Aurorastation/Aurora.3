@@ -153,3 +153,8 @@
 	name = "Ion Rifle"
 	item_cost = 5
 	path = /obj/item/gun/energy/rifle/ionrifle
+
+/datum/uplink_item/item/visible_weapons/super_heavy_pistol
+	name = "Super Heavy Pistol"
+	item_cost = 4
+	path = /obj/item/gun/projectile/pistol/super_heavy

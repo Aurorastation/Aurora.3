@@ -413,7 +413,7 @@
 		/obj/item/storage/belt/medical/first_responder/combat = 0.1,
 		/obj/item/storage/belt/security/tactical = 0.1,
 		/obj/item/storage/belt/military = 0.1,
-		/obj/item/storage/belt/janitor = 0.4
+		/obj/item/storage/belt/custodial = 0.4
 	)
 
 // Spawns a random backpack.
@@ -762,17 +762,17 @@
 		/obj/item/clothing/under/color/red,
 		/obj/item/clothing/under/color/white,
 		/obj/item/clothing/under/color/yellow,
-		/obj/item/clothing/under/lightblue,
-		/obj/item/clothing/under/aqua,
-		/obj/item/clothing/under/purple,
-		/obj/item/clothing/under/lightpurple,
-		/obj/item/clothing/under/lightgreen,
-		/obj/item/clothing/under/lightbrown,
-		/obj/item/clothing/under/brown,
-		/obj/item/clothing/under/yellowgreen,
-		/obj/item/clothing/under/darkblue,
-		/obj/item/clothing/under/lightred,
-		/obj/item/clothing/under/darkred
+		/obj/item/clothing/under/color/lightblue,
+		/obj/item/clothing/under/color/aqua,
+		/obj/item/clothing/under/color/purple,
+		/obj/item/clothing/under/color/lightpurple,
+		/obj/item/clothing/under/color/lightgreen,
+		/obj/item/clothing/under/color/lightbrown,
+		/obj/item/clothing/under/color/brown,
+		/obj/item/clothing/under/color/yellowgreen,
+		/obj/item/clothing/under/color/darkblue,
+		/obj/item/clothing/under/color/lightred,
+		/obj/item/clothing/under/color/darkred
 	)
 
 /obj/random/loot
@@ -833,7 +833,6 @@
 		/obj/item/clothing/suit/storage/vest = 0.2,
 		/obj/item/clothing/suit/syndicatefake = 0.6,
 		/obj/item/clothing/under/overalls = 1,
-		/obj/item/clothing/under/rainbow = 0.9,
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
 		/obj/item/device/firing_pin = 0.3,

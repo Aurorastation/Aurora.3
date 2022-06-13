@@ -56,3 +56,9 @@
 	name = "Anti-materiel Cannon Cartridge"
 	path = /obj/item/ammo_casing/peac
 	desc = "Contains one anti-materiel cannon cartridge."
+
+/datum/uplink_item/item/ammo/super_heavy
+	name = "K2557 Magazine"
+	item_cost = 2
+	path = /obj/item/ammo_magazine/super_heavy
+	desc = "A spare magazine, for the super heavy K2557 pistol."

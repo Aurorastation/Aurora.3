@@ -1,7 +1,7 @@
 /datum/outfit/admin/ert/fsf
 	name = "Free Solarian Fleets Marine"
 
-	uniform = /obj/item/clothing/under/rank/fatigues/marine
+	uniform = /obj/item/clothing/under/rank/sol/marine
 	shoes = /obj/item/clothing/shoes/swat/ert
 	gloves = /obj/item/clothing/gloves/swat/ert
 	belt = /obj/item/storage/belt/military
@@ -107,11 +107,11 @@
 		/obj/item/ammo_magazine/mc9mm = 2,
 		/obj/item/handcuffs/ziptie = 2
 	)
-	
+
 /datum/outfit/admin/ert/fsf/synth
 	name = "Free Solarian Fleets Synthetic Unit"
 
-	uniform = /obj/item/clothing/under/rank/fatigues
+	uniform = /obj/item/clothing/under/rank/sol
 	accessory = /obj/item/clothing/accessory/storage/webbingharness/pouches/ert
 	accessory_contents = list(/obj/item/gun/projectile/pistol/sol = 1, /obj/item/ammo_magazine/mc9mm = 2)
 	shoes = /obj/item/clothing/shoes/jackboots
