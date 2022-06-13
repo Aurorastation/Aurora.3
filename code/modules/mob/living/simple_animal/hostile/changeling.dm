@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/true_changeling
 	name = "shambling horror"
-	desc = "A monstrous creature, made of twisted flesh and bone."
+	desc = "An entity ripped from your nightmares. A monstrous creature, a warped parody of a living being. It is created from twisted flesh and bone, covered in oozing sores with bony protrusions sticking from them and serrated knife-like blades of bone. Looking at it makes you feel ill."
 	speak_emote = list("gibbers")
 	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "abomination"
@@ -23,7 +23,7 @@
 	maxHealth = 1500
 	health = 1500
 	harm_intent_damage = 0
-	melee_damage_lower = 30
+	melee_damage_lower = 40
 	melee_damage_upper = 60
 	ranged = 1
 	projectiletype = /obj/item/projectile/bonedart/ling
@@ -39,7 +39,7 @@
 
 	minbodytemp = 0
 	maxbodytemp = 350
-	min_oxy = 0
+	min_oxy = 5
 	max_co2 = 0
 	max_tox = 0
 
