@@ -108,6 +108,7 @@
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
 	reload_sound = /decl/sound_category/shotgun_reload
+	drop_sound = /decl/sound_category/casing_drop_sound_shotgun
 
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"

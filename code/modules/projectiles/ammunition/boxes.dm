@@ -151,6 +151,7 @@
 	origin_tech = list(TECH_COMBAT = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	caliber = "9mm"
+	insert_sound = /decl/sound_category/polymer_slide_reload
 	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 30
 
@@ -164,6 +165,7 @@
 	ammo_type = /obj/item/ammo_casing/c9mm
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
 	caliber = "9mm"
+	insert_sound = /decl/sound_category/polymer_slide_reload
 	max_ammo = 20
 	multiple_sprites = 1
 
@@ -196,6 +198,7 @@
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "10mm"
+	insert_sound = /decl/sound_category/polymer_slide_reload
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 	ammo_type = /obj/item/ammo_casing/c10mm
 	max_ammo = 20
@@ -350,6 +353,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
 	caliber = ".45"
 	max_ammo = 16
+	insert_sound = /decl/sound_category/polymer_slide_reload
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/c45uzi/empty
@@ -362,6 +366,7 @@
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 	caliber = ".45"
+	insert_sound = /decl/sound_category/polymer_slide_reload
 	max_ammo = 20
 
 /obj/item/ammo_magazine/submachinemag/empty
@@ -375,6 +380,7 @@
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	caliber = ".45"
+	insert_sound = /decl/sound_category/polymer_slide_reload
 	max_ammo = 50
 
 /obj/item/ammo_magazine/caps

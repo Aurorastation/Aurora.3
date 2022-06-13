@@ -563,10 +563,13 @@
 		'sound/items/drop/casing25.ogg'
 	)
 
-/decl/sound_category/casing_shotgun_drop_sound
+/decl/sound_category/casing_drop_sound_shotgun
 	sounds = list(
 		'sound/items/drop/casing_shotgun1.ogg',
-		'sound/items/drop/casing_shotgun2.ogg'
+		'sound/items/drop/casing_shotgun2.ogg',
+		'sound/items/drop/casing_shotgun3.ogg',
+		'sound/items/drop/casing_shotgun4.ogg',
+		'sound/items/drop/casing_shotgun5.ogg'
 	)
 /decl/sound_category/out_of_ammo
 	sounds = list(
