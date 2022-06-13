@@ -11,12 +11,14 @@
 
 
 /datum/modifier/overloader //i don't really know what i'm doing but i am copying matt and begging wildkins
+	var/obj/item/overloader/O
 	var/start_text = SPAN_NOTICE("Injected code from an overloader floods through your systems!")
 	var/end_text = SPAN_WARNING("You feel the injection of overloader code scrub itself from your systems.")
 
 
 /datum/modifier/overloader/activate()
-	if (source.expended)
+	O = source
+	if (O.expended)
 		return
 	
 	..()
@@ -27,9 +29,9 @@
 	..()
 	to_chat(target, end_text)
 	
-	source.runtime = duration
-	if (source.runtime <= 0 SECONDS)
-		source.expend()
+	O.runtime = duration
+	if (O.runtime <= 0 SECONDS)
+		O.expend()
 
 
 /obj/item/overloader/attack(mob/living/carbon/human/M, mob/user, def_zone)
@@ -64,12 +66,7 @@
 /obj/item/overloader/seizure
 	name = "seizure overloader"
 	desc = "An IPC overloader. This one appears to cause seizures, since it's a placeholder overloader for testing purposes."
-	runtime = 1
-
-/obj/item/overloader/seizure/do_overloader_effects(mob/living/carbon/human/M)
-	if (runtime > 0)
-		M.seizure()
-	..()
+	runtime = 5 SECONDS
 
 /obj/item/overloader/redline
 	name = "Redline overloader"
