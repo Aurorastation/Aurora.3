@@ -72,9 +72,9 @@
 
 
 /mob/living/simple_animal/hostile/true_changeling/Life()
-	if(prob(5))
-	var/sound = pick(loud_sounds)
-	playsound(src, sound, 85, 1, 5, usepressure = 0)
+	if(prob(20))
+		var/sound = pick(loud_sounds)
+		playsound(src, sound, 85, 1, 5, usepressure = 0)
 
 
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)
