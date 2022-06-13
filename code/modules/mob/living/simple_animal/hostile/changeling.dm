@@ -72,7 +72,7 @@
 
 
 /mob/living/simple_animal/hostile/true_changeling/Life()
-	if(prob(5))
+	if(prob(10))
 		custom_emote(VISIBLE_MESSAGE, pick( list("shrieks!","roars!", "screeches!", "snarls!", "bellows!", "screams!") ) )
 		var/sound = pick(loud_sounds)
 		playsound(src, sound, 85, 1, 7, usepressure = 0)
