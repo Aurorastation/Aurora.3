@@ -14,8 +14,10 @@ Single Use Emergency Pouches
 	var/open_sound = 'sound/items/rip1.ogg'
 	var/injury_type = "generic"
 	var/static/image/cross_overlay
+	build_from_parts = TRUE
+	worn_overlay = "cross"
 
-	desc_info = "1) Tear open the emergency medical pack using the easy open tab at the top.\
+	desc_info = "INSTRUCTIONS: 1) Tear open the emergency medical pack using the easy open tab at the top.\
 	2) Carefully remove all items from the pouch and discard the pouch \
 	3) Apply all autoinjectors to the injured party \
 	4) Use bandages to stop bleeding if required.\
@@ -33,14 +35,6 @@ Single Use Emergency Pouches
 	for(var/obj/item/reagent_containers/hypospray/autoinjector/A in contents)
 		A.update_icon()
 
-/obj/item/storage/med_pouch/update_icon()
-	update_icon()
-	overlays.Cut()
-	if(!cross_overlay)
-		cross_overlay = image(icon, "cross")
-		cross_overlay.appearance_flags = RESET_COLOR
-	overlays += cross_overlay
-	icon_state = "pack[opened]"
 
 /obj/item/storage/med_pouch/attack_self(mob/user)
 	open(user)
@@ -65,7 +59,7 @@ Single Use Emergency Pouches
 	/obj/item/stack/medical/bruise_pack = 2
 		)
 
-	desc_info = "1) Tear open the emergency medical pack using the easy open tab at the top.\
+	desc_info = "INSTRUCTIONS: 1) Tear open the emergency medical pack using the easy open tab at the top.\
 	2) Carefully remove all items from the pouch and discard the pouch \
 	3) Apply the inaprovaline autoinjector to the injured party \
 	4) Apply the coagzolug autoinjector if the injured party is gushing blood.\
@@ -87,7 +81,7 @@ Single Use Emergency Pouches
 	/obj/item/stack/medical/ointment = 2
 		)
 
-	desc_info = "1) Tear open the emergency medical pack using the easy open tab at the top.\
+	desc_info = "INSTRUCTIONS: 1) Tear open the emergency medical pack using the easy open tab at the top.\
 	2) Carefully remove all items from the pouch and discard the pouch \
 	3) Apply the emergency deletrathol autoinjector to the injured party. \
 	4) Apply all remaining autoinjectors to the injured party \
@@ -109,7 +103,7 @@ Single Use Emergency Pouches
 	/obj/item/reagent_containers/pill/pouch_pill/dexalin = 1
 		)
 
-	desc_info = "1) Tear open the emergency medical pack using the easy open tab at the top.\
+	desc_info = "INSTRUCTIONS: 1) Tear open the emergency medical pack using the easy open tab at the top.\
 	2) Carefully remove all items from the pouch and discard the pouch \
 	3) Apply all autoinjectors to the injured party \
 	4) Force the injured party to swallow all pills.\
@@ -129,7 +123,7 @@ Single Use Emergency Pouches
 	/obj/item/reagent_containers/pill/pouch_pill/dylovene = 1
 		)
 
-	desc_info = "1) Tear open the emergency medical pack using the easy open tab at the top.\
+	desc_info = "INSTRUCTIONS: 1) Tear open the emergency medical pack using the easy open tab at the top.\
 	2) Carefully remove all items from the pouch and discard the pouch \
 	3) Apply all autoinjectors to the injured party \
 	4) Force the injured party to swallow all pills. \
@@ -146,7 +140,7 @@ Single Use Emergency Pouches
 	/obj/item/reagent_containers/pill/pouch_pill/dylovene = 1
 		)
 
-	desc_info = "1) Tear open the emergency medical pack using the easy open tab at the top.\
+	desc_info = "INSTRUCTIONS: 1) Tear open the emergency medical pack using the easy open tab at the top.\
 	2) Carefully remove all items from the pouch and discard the pouch \
 	3) Apply all autoinjectors to the injured party \
 	4) Force the injured party to swallow all pills. \
