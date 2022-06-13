@@ -302,11 +302,11 @@
 /obj/item/organ/internal/dataport/process()
 	. = ..()
 	
-	if (installed == null)
+	if (!installed)
 		return
 
-	installed.do_overloader_effects(src.owner)
-	installed.runtime--
+/obj/item/organ/internal/dataport/proc/on_empty()
+	installed = null
 
 
 // Used for an MMI or posibrain being installed into a human.

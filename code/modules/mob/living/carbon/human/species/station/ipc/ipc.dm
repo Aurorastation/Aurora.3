@@ -389,6 +389,7 @@
 					to_chat(user, SPAN_WARNING("\The [H] had nothing in their dataport."))
 					return
 				O.on_eject()
+				D.on_empty()
 				user.put_in_hands(O)
 				return
 

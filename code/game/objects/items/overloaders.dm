@@ -4,9 +4,33 @@
 	icon = 'icons/obj/overloader.dmi'
 	icon_state = "overloader"
 	item_state = "overloader"
-	var/runtime = 30
 	var/expended = FALSE
-	var/mob/living/carbon/human/affected
+	var/overloader_mod_path = /datum/modifier/overloader
+	var/runtime = 30 SECONDS
+	var/effect_check_interval = 2 SECONDS
+
+
+/datum/modifier/overloader //i don't really know what i'm doing but i am copying matt and begging wildkins
+	var/start_text = SPAN_NOTICE("Injected code from an overloader floods through your systems!")
+	var/end_text = SPAN_WARNING("You feel the injection of overloader code scrub itself from your systems.")
+
+
+/datum/modifier/overloader/activate()
+	if (source.expended)
+		return
+	
+	..()
+	to_chat(target, start_text)
+
+
+/datum/modifier/overloader/deactivate()
+	..()
+	to_chat(target, end_text)
+	
+	source.runtime = duration
+	if (source.runtime <= 0 SECONDS)
+		source.expend()
+
 
 /obj/item/overloader/attack(mob/living/carbon/human/M, mob/user, def_zone)
 	if(!istype(M))
@@ -24,19 +48,18 @@
 		install(M)
 		D.installed = src
 
-/obj/item/overloader/proc/install(mob/living/carbon/human/M)
-	affected = M
 
-/obj/item/overloader/proc/do_overloader_effects(mob/living/carbon/human/M)
-	if (runtime > 0 || expended)
-		return
-	expend(M)
+/obj/item/overloader/proc/install(mob/living/carbon/human/M)
+	M.add_modifier(overloader_mod_path, MODIFIER_TIMED, _source = src, _duration = runtime, _check_interval = effect_check_interval)
+
 	
 /obj/item/overloader/proc/expend((mob/living/carbon/human/M))
 	expended = TRUE
 
+
 /obj/item/overloader/proc/on_eject()
 	return
+
 
 /obj/item/overloader/seizure
 	name = "seizure overloader"
@@ -52,16 +75,27 @@
 	name = "Redline overloader"
 	desc = "An IPC overloader. This one is programmed with an instance of Redline."
 	desc_fluff = "Redline is a dangerous overclocking whatever blah blah blah Konyang."
-	var/initial_speed
-	var/speedup = 0.5
+	overloader_mod_path = /datum/modifier/overloader/redline
+
+/datum/modifier/overloader/redline
+	
+/datum/modifier/overloader/redline/activate()
+	. = ..()
+	if(ishuman(target))
+		var/mob/living/carbon/human/machine/M = target
+		M.move_delay_mod -= 0.5
+
+/datum/modifier/overloader/redline/deactivate()
+	. = ..()
+	if(ishuman(target))
+		var/mob/living/carbon/human/machine/M = target
+		M.move_delay_mod += 0.5
 
 /obj/item/overloader/redline/install(mob/living/carbon/human/M)
 	..()
-	affected.move_delay_mod -= speedup
-
+	
 /obj/item/overloader/redline/expend(mob/living/carbon/human/M)
 	..()
-	affected.move_delay_mod = initial_speed
 
 /obj/item/overloader/redline/on_eject()
-	affected.move_delay_mod = initial_speed
+	..()

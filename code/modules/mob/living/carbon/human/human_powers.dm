@@ -1129,6 +1129,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(O)
 		src.visible_message(SPAN_WARNING("[src] ejects \the [O.name] from their dataport."))
 		O.on_eject()
+		dport.on_empty()
 		src.put_in_hands(O)
 
 /mob/living/carbon/human/proc/check_tag()
