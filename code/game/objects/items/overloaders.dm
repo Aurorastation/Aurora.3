@@ -49,7 +49,7 @@
 	..()
 
 /obj/item/overloader/redline
-	name = "Redline overloader
+	name = "Redline overloader"
 	desc = "An IPC overloader. This one is programmed with an instance of Redline."
 	desc_fluff = "Redline is a dangerous overclocking whatever blah blah blah Konyang."
 	var/initial_heat
