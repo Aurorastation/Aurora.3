@@ -1,9 +1,0 @@
-author: Vrow
-
-delete-after: True
-
-changes:
-  - refactor: "Organizes the smokables (cigarettes, cigars, rolled cigarettes, smoking pipes) sprites into a contained sprite, now contained in the smokables.dmi"
-  - tweak: "Cleans some stray pixels from the North Facing smokables."
-  - bugfix: "Fixed Unathi and Tajara cigarettes and cigars appearing in their mouth when they're actually in their ear slot."
-  - bugfix: "Fixed the smokable sausage into a proper cigar/sausage instead of rolled/sausage, which caused the sprite to not appear correctly."
