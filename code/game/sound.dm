@@ -619,6 +619,13 @@
 		'sound/weapons/reloads/shotgun_pump5.ogg'
 	)
 
+/decl/sound_category/shotgun_reload
+	sounds = list(
+		'sound/weapons/reloads/reload_shell.ogg',
+		'sound/weapons/reloads/reload_shell2.ogg',
+		'sound/weapons/reloads/reload_shell3.ogg'
+	)
+
 /decl/sound_category/heavy_machine_gun_reload
 	sounds = list(
 		'sound/weapons/reloads/hmg_reload1.ogg',
