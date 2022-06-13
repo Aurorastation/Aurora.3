@@ -26,6 +26,7 @@
 	harm_intent_damage = 0
 	melee_damage_lower = 40
 	melee_damage_upper = 60
+	armor_penetration = 15
 	ranged = 1
 	projectiletype = /obj/item/projectile/bonedart/ling
 	projectilesound = 'sound/weapons/bloodyslice.ogg'
