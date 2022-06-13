@@ -32,7 +32,7 @@
 	resist_mod = 15
 	mob_size = 25
 	environment_smash = 2
-	attacktext = list("mangles", "eviscerates", "hacks", "mutilates", "rends", "butchers", "mauls", "hacks")
+	attacktext = list("mangles", "eviscerates", "hacks", "mutilates", "rends", "butchers", "mauls", "rips", "tears")
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 	emote_sounds = list('sound/effects/creatures/bear_loud_1.ogg', 'sound/effects/creatures/bear_loud_2.ogg', 'sound/effects/creatures/bear_loud_3.ogg', 'sound/effects/creatures/bear_loud_4.ogg')
 
