@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/true_changeling
 	name = "shambling horror"
-	desc = "An entity ripped from your nightmares. A monstrous creature, a warped parody of a living being. It is created from a twisted amalgamation of flesh and bone, covered in oozing sores, open wounds, and serrated knife-like blades of bone. Looking at it makes you feel ill."
+	desc = "An entity ripped from your nightmares. A monstrous creature, a warped parody of a living being. It is created from a twisted amalgamation of flesh and bone, covered in oozing sores, open wounds, and serrated knife-like blades of bone. A strong, sickening smell of rot, blood, and sickness emanates from it."
 	speak_emote = list("snarls")
 	emote_hear = list("gibbers")
 	icon = 'icons/mob/npc/animal.dmi'
