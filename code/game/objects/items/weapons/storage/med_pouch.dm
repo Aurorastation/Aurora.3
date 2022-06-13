@@ -7,11 +7,11 @@ Single Use Emergency Pouches
 	desc = "For use in emergency situations only."
 	icon = 'icons/obj/med_pouch.dmi'
 	storage_slots = 7
-	w_class = ITEM_SIZE_SMALL
-	max_w_class = ITEM_SIZE_SMALL
+	w_class = ITEMSIZE_SMALL
+	max_w_class = ITEMSIZE_SMALL
 	icon_state = "pack0"
-	opened = FALSE
-	open_sound = 'sound/effects/rip1.ogg'
+	var/opened = FALSE
+	open_sound = 'sound/items/rip1.ogg'
 	var/injury_type = "generic"
 	var/static/image/cross_overlay
 
@@ -42,18 +42,6 @@ Single Use Emergency Pouches
 	overlays += cross_overlay
 	icon_state = "pack[opened]"
 
-/obj/item/storage/med_pouch/examine(mob/user)
-	. = ..()
-	to_chat(user, "<A href='?src=\ref[src];show_info=1'>Please read instructions before use.</A>")
-
-/obj/item/storage/med_pouch/CanUseTopic()
-	return STATUS_INTERACTIVE
-
-/obj/item/storage/med_pouch/OnTopic(var/user, var/list/href_list)
-	if(href_list["show_info"])
-		to_chat(user, instructions)
-		return TOPIC_HANDLED
-
 /obj/item/storage/med_pouch/attack_self(mob/user)
 	open(user)
 
@@ -67,10 +55,10 @@ Single Use Emergency Pouches
 	injury_type = "trauma"
 	color = COLOR_RED
 
-	startswith = list(
+	starts_with = list(
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
 	/obj/item/reagent_containers/pill/pouch_pill/inaprovaline,
-	/obj/item/reagent_containers/pill/pouch_pill/paracetamol,
+	/obj/item/reagent_containers/pill/pouch_pill/perconol,
 	/obj/item/stack/medical/bruise_pack = 2,
 		)
 
@@ -87,11 +75,11 @@ Single Use Emergency Pouches
 	injury_type = "burn"
 	color = COLOR_SEDONA
 
-	startswith = list(
+	starts_with = list(
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/deletrathol,
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
-	/obj/item/reagent_containers/pill/pouch_pill/paracetamol,
+	/obj/item/reagent_containers/pill/pouch_pill/perconol,
 	/obj/item/stack/medical/ointment = 2,
 		)
 
@@ -99,7 +87,7 @@ Single Use Emergency Pouches
 	2) Carefully remove all items from the pouch and discard the pouch \
 	3) Apply the emergency deletrathol autoinjector to the injured party. \
 	4) Apply all remaining autoinjectors to the injured party \
-	5) Force the injured party to swallow all pills. \
+	5) Force the injured party to swallow all pills if pain returns. \
 	6) Use ointment on any burns if required.\
 	7) Contact the medical team with your location. \
 	8) Stay in place once they respond."
@@ -109,7 +97,7 @@ Single Use Emergency Pouches
 	injury_type = "low oxygen"
 	color = COLOR_BLUE
 
-	startswith = list(
+	starts_with = list(
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin,
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
@@ -132,7 +120,7 @@ Single Use Emergency Pouches
 	injury_type = "toxin"
 	color = COLOR_GREEN
 
-	startswith = list(
+	starts_with = list(
 	/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dylovene,
 	/obj/item/reagent_containers/pill/pouch_pill/dylovene,
 		)
@@ -149,8 +137,8 @@ Single Use Emergency Pouches
 	injury_type = "radiation"
 	color = COLOR_AMBER
 
-	startswith = list(
-	/obj/item/reagent_containers/hypospray/autoinjector/antirad,
+	starts_with = list(
+	/obj/item/reagent_containers/hypospray/autoinjector/hyronalin,
 	/obj/item/reagent_containers/pill/pouch_pill/dylovene,
 		)
 
@@ -165,25 +153,25 @@ Single Use Emergency Pouches
 	name = "emergency pill"
 	desc = "An emergency pill from an emergency medical pouch."
 	icon_state = "pill2"
-	var/datum/reagent/chem_type
+	var/decl/reagent/chem_type
 	var/chem_amount = 15
 
 /obj/item/reagent_containers/pill/pouch_pill/inaprovaline
-	chem_type = /datum/reagent/inaprovaline
+	chem_type = /decl/reagent/inaprovaline
 
 /obj/item/reagent_containers/pill/pouch_pill/dylovene
-	chem_type = /datum/reagent/dylovene
+	chem_type = /decl/reagent/dylovene
 
 /obj/item/reagent_containers/pill/pouch_pill/dexalin
-	chem_type = /datum/reagent/dexalin
+	chem_type = /decl/reagent/dexalin
 
-/obj/item/reagent_containers/pill/pouch_pill/paracetamol
-	chem_type = /datum/reagent/paracetamol
+/obj/item/reagent_containers/pill/pouch_pill/perconol
+	chem_type = /decl/reagent/perconol
 
 /obj/item/reagent_containers/pill/pouch_pill/New()
 	..()
 	reagents.add_reagent(chem_type, chem_amount)
-	name = "emergency [reagents.get_master_reagent_name()] pill ([reagents.total_volume]u)"
+	name = "emergency [reagents.get_primary_reagent_name()] pill ([reagents.total_volume]u)"
 	color = reagents.get_color()
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto
@@ -192,26 +180,26 @@ Single Use Emergency Pouches
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline
 	name = "emergency inaprovaline autoinjector"
-	starts_with = list(/decl/reagent/inaprovaline = 5)
+	reagents_to_add = list(/decl/reagent/inaprovaline = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/deletrathol
 	name = "emergency deletrathol autoinjector"
-	starts_with = list(/decl/reagent/deletrathol = 5)
+	reagents_to_add = list(/decl/reagent/deletrathol = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dylovene
 	name = "emergency dylovene autoinjector"
-	starts_with = list(/decl/reagent/dylovene = 5)
+	reagents_to_add = list(/decl/reagent/dylovene = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin
 	name = "emergency dexalin autoinjector"
-	starts_with = list(/decl/reagent/dexalin = 5)
+	reagents_to_add = list(/decl/reagent/dexalin = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline
 	name = "emergency adrenaline autoinjector"
 	amount_per_transfer_from_this = 8
-	starts_with = list(/decl/reagent/adrenaline = 8)
+	reagents_to_add = list(/decl/reagent/adrenaline = 8)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/coagzolug
 	name = "emergency coagzolug autoinjector"
 	amount_per_transfer_from_this = 5
-	starts_with = list(/decl/reagent/coagzolug = 5)
+	reagents_to_add = list(/decl/reagent/coagzolug = 5)
