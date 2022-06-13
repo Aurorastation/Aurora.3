@@ -72,16 +72,17 @@
 
 
 /mob/living/simple_animal/hostile/true_changeling/Life()
-	if(prob(20))
+	if(prob(5))
+		custom_emote(VISIBLE_MESSAGE, pick( list("shrieks!","roars!", "screeches!", "snarls!", "bellows!", "screams!") ) )
 		var/sound = pick(loud_sounds)
-		playsound(src, sound, 85, 1, 5, usepressure = 0)
+		playsound(src, sound, 85, 1, 7, usepressure = 0)
 
 
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)
 	..()
 	if(!gibbed)
 		visible_message("<b>[src]</b> lets out a waning scream as it falls, twitching, to the floor!")
-		playsound(loc, 'sound/effects/creatures/vannatusk_attack.ogg', 30, 1)
+		playsound(loc, 'sound/effects/creatures/vannatusk_attack.ogg', 85, 1, 7)
 		if(occupant)
 			qdel(occupant)
 		gibs(src.loc)
