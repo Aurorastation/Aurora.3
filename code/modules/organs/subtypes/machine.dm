@@ -284,7 +284,7 @@
 		..()
 
 /obj/item/organ/internal/dataport
-	name = "data port"
+	name = "dataport"
 	organ_tag = BP_DATAPORT
 	parent_organ = BP_HEAD
 	icon = 'icons/obj/robot_component.dmi'

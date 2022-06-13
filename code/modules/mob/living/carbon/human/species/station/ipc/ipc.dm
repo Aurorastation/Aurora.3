@@ -374,3 +374,23 @@
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
+
+/datum/species/machine/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
+	switch(action)
+		if("dataport")
+			if(!H.organs_by_name[BP_HEAD] || istype(H.organs_by_name[BP_HEAD], /obj/item/organ/external/stump))
+				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head!"))
+				return
+			user.visible_message(SPAN_WARNING("\The [user] is trying to remove something from \the [H]'s dataport!"))
+			if(do_after(user, HUMAN_STRIP_DELAY, act_target = H))
+				var/obj/item/organ/internal/dataport/D = locate() in H.organs_by_name[BP_HEAD]
+				var/obj/item/overloader/O = locate() in D.internal_organs_by_name[BP_DATAPORT]
+				if(!O)
+					to_chat(user, SPAN_WARNING("\The [H] had nothing in their dataport."))
+					return
+				O.on_eject()
+				user.put_in_hands(O)
+				return
+
+/datum/species/machine/get_strip_info(var/reference)
+	return "<BR><A href='?src=[reference];species=dataport'>Empty Dataport</A>"
