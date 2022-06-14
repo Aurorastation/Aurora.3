@@ -41,4 +41,4 @@ changes:
   - soundadd: "Added a lot (around 65) new gun related sounds. Including but not limited to: dry firing and reloading for all gun types, shotgun pumping, casings and shells hitting the ground, as well as some gun specific uniques."
   - sounddel: "Deleted a very sharp and old shotgun pumping sound that didn't fit in anywhere anymore."
   - backend: "Re-organized some sound categories."
-  - backend: "Re-organized the gun magazhine code while I was at it."
+  - backend: "Re-organized the gun magazine code while I was at it."
