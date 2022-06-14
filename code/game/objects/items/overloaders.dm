@@ -75,6 +75,7 @@
 	desc_fluff = "Shackle overloaders blah blah blah they were invented on Konyang to fuck up evil IPCs I don't know."
 	overloader_mod_path = /datum/modifier/overloader/shackle
 
+	self_removable = FALSE
 	runtime = 36000 SECONDS
 	effect_check_interval = 20 SECONDS
 
