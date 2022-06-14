@@ -84,6 +84,7 @@
 	var/can_ammo_display = TRUE
 	var/obj/item/ammo_display
 	var/empty_sound = /decl/sound_category/out_of_ammo
+	var/casing_drop_sound = /decl/sound_category/casing_drop_sound
 	maptext_x = 22
 	maptext_y = 2
 
