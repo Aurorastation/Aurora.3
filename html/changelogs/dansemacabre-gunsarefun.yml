@@ -53,3 +53,4 @@ changes:
   - balance: "Rezadone is now blacklisted from spawning in cargo crates."
   - refactor: "Horror form is now a permanent transformation. It also deals much more damage, has much more health, cannot survive in a vacuum anymore, is more affordable, and no longer passively regenerates damage."
   - bugfix: "Fixed a bug where the horror form would die at 2/3rds health."
+  - balance: "Gear crates are now available for all antagonists, and burglars are no longer locked out of a number of uplink categories."
