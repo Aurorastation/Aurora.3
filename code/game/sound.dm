@@ -571,6 +571,7 @@
 		'sound/items/drop/casing_shotgun4.ogg',
 		'sound/items/drop/casing_shotgun5.ogg'
 	)
+
 /decl/sound_category/out_of_ammo
 	sounds = list(
 		'sound/weapons/empty/empty2.ogg',
@@ -613,9 +614,16 @@
 		'sound/weapons/reloads/pistol_polymer_slide3.ogg'
 	)
 
+/decl/sound_category/rifle_slide_reload
+	sounds = list(
+		'sound/weapons/reloads/rifle_slide.ogg',
+		'sound/weapons/reloads/rifle_slide2.ogg',
+		'sound/weapons/reloads/rifle_slide3.ogg',
+		'sound/weapons/reloads/rifle_slide4.ogg',
+		'sound/weapons/reloads/rifle_slide5.ogg'
+	)
 /decl/sound_category/shotgun_pump
 	sounds = list(
-		'sound/weapons/reloads/shotgun_pump.ogg',
 		'sound/weapons/reloads/shotgun_pump2.ogg',
 		'sound/weapons/reloads/shotgun_pump3.ogg',
 		'sound/weapons/reloads/shotgun_pump4.ogg',

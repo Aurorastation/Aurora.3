@@ -1,3 +1,4 @@
+// Revolvos //
 /obj/item/ammo_magazine/a357
 	name = "speed loader (.357)"
 	icon_state = "T38"
@@ -34,6 +35,9 @@
 	ammo_type = /obj/item/ammo_casing/c38/emp
 	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_URANIUM = 600)
 
+// End of Revolvos //
+
+// Pistols and handguns //
 /obj/item/ammo_magazine/c45
 	name = "ammunition Box (.45)"
 	icon_state = "9mm"
@@ -53,6 +57,20 @@
 	ammo_type = /obj/item/ammo_casing/c45
 	max_ammo = 16
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a50
+	name = "magazine (.50)"
+	icon_state = "50ae"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	caliber = ".50"
+	matter = list(DEFAULT_WALL_MATERIAL = 1260)
+	ammo_type = /obj/item/ammo_casing/a50
+	max_ammo = 7
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a50/empty
+	initial_ammo = 0
 
 /obj/item/ammo_magazine/c45m
 	name = "magazine (.45)"
@@ -101,6 +119,17 @@
 	max_ammo = 16
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/super_heavy
+	name = ".599 magazine"
+	desc = "A bulky magazine for the Kumar Arms 2557."
+	icon_state = "k2557"
+	caliber = ".599 Kumar Super"
+	ammo_type = /obj/item/ammo_casing/kumar_super
+	mag_type = MAGAZINE
+	max_ammo = 5
+	multiple_sprites = 1
+	insert_sound = 'sound/weapons/k2557-insert.ogg'
+
 /obj/item/ammo_magazine/mc10mm
 	name = "magazine (10mm)"
 	icon_state = "tommy-mag"
@@ -145,6 +174,9 @@
 	name = "magazine (9mm flash)"
 	ammo_type = /obj/item/ammo_casing/c9mm/flash
 
+// End of pistols //
+
+// Submachine guns and PDWs
 /obj/item/ammo_magazine/c9mm
 	name = "ammunition box (9mm)"
 	icon_state = "9mm"
@@ -207,12 +239,54 @@
 /obj/item/ammo_magazine/a10mm/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/c45uzi
+	name = "stick magazine (.45)"
+	icon_state = "uzi45"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c45
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = ".45"
+	max_ammo = 16
+	insert_sound = /decl/sound_category/polymer_slide_reload
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c45uzi/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/submachinemag
+	name = "magazine (.45)"
+	icon_state = "tommy-mag"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c45
+	matter = list(DEFAULT_WALL_MATERIAL = 1500)
+	caliber = ".45"
+	insert_sound = /decl/sound_category/polymer_slide_reload
+	max_ammo = 20
+
+/obj/item/ammo_magazine/submachinemag/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/submachinedrum
+	name = "drum magazine (.45)"
+	icon_state = "tommy-drum"
+	w_class = ITEMSIZE_NORMAL // Bulky ammo doesn't fit in your pockets!
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c45
+	matter = list(DEFAULT_WALL_MATERIAL = 3750)
+	caliber = ".45"
+	insert_sound = /decl/sound_category/polymer_slide_reload
+	max_ammo = 50
+
+// End of SMGs and PDWs //
+
+// Rifles and bigger calibers //
 /obj/item/ammo_magazine/a556
 	name = "magazine (5.56mm)"
 	icon_state = "5.56"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "a556"
+	insert_sound = /decl/sound_category/rifle_slide_reload
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/a556
 	max_ammo = 30
@@ -261,25 +335,12 @@
 /obj/item/ammo_magazine/a556/makeshift/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/a50
-	name = "magazine (.50)"
-	icon_state = "50ae"
-	origin_tech = list(TECH_COMBAT = 2)
-	mag_type = MAGAZINE
-	caliber = ".50"
-	matter = list(DEFAULT_WALL_MATERIAL = 1260)
-	ammo_type = /obj/item/ammo_casing/a50
-	max_ammo = 7
-	multiple_sprites = 1
-
-/obj/item/ammo_magazine/a50/empty
-	initial_ammo = 0
-
 /obj/item/ammo_magazine/a75
 	name = "ammo magazine (20mm)"
 	icon_state = "75"
 	mag_type = MAGAZINE
 	caliber = "75"
+	insert_sound = /decl/sound_category/rifle_slide_reload
 	ammo_type = /obj/item/ammo_casing/a75
 	multiple_sprites = 1
 	max_ammo = 4
@@ -292,6 +353,7 @@
 	icon_state = "trodpack-2"
 	mag_type = MAGAZINE
 	caliber = "trod"
+	insert_sound = 'sound/weapons/reloads/rifle_slide3.ogg'
 	ammo_type = /obj/item/ammo_casing/trod
 	multiple_sprites = 1
 	max_ammo = 2
@@ -305,6 +367,7 @@
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "a762"
+	insert_sound = /decl/sound_category/rifle_slide_reload
 	matter = list(DEFAULT_WALL_MATERIAL = 4500)
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 50
@@ -318,6 +381,7 @@
 	icon_state = "c762"
 	mag_type = MAGAZINE
 	caliber = "a762"
+	insert_sound = /decl/sound_category/rifle_slide_reload
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 20
@@ -345,56 +409,6 @@
 	ammo_type = /obj/item/ammo_casing/vintage
 	caliber = "vintage"
 
-/obj/item/ammo_magazine/c45uzi
-	name = "stick magazine (.45)"
-	icon_state = "uzi45"
-	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c45
-	matter = list(DEFAULT_WALL_MATERIAL = 1200)
-	caliber = ".45"
-	max_ammo = 16
-	insert_sound = /decl/sound_category/polymer_slide_reload
-	multiple_sprites = 1
-
-/obj/item/ammo_magazine/c45uzi/empty
-	initial_ammo = 0
-
-/obj/item/ammo_magazine/submachinemag
-	name = "magazine (.45)"
-	icon_state = "tommy-mag"
-	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c45
-	matter = list(DEFAULT_WALL_MATERIAL = 1500)
-	caliber = ".45"
-	insert_sound = /decl/sound_category/polymer_slide_reload
-	max_ammo = 20
-
-/obj/item/ammo_magazine/submachinemag/empty
-	initial_ammo = 0
-
-/obj/item/ammo_magazine/submachinedrum
-	name = "drum magazine (.45)"
-	icon_state = "tommy-drum"
-	w_class = ITEMSIZE_NORMAL // Bulky ammo doesn't fit in your pockets!
-	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c45
-	matter = list(DEFAULT_WALL_MATERIAL = 3750)
-	caliber = ".45"
-	insert_sound = /decl/sound_category/polymer_slide_reload
-	max_ammo = 50
-
-/obj/item/ammo_magazine/caps
-	name = "speed loader (caps)"
-	icon_state = "T38"
-	caliber = "caps"
-	color = "#FF0000"
-	ammo_type = /obj/item/ammo_casing/cap
-	matter = list(DEFAULT_WALL_MATERIAL = 600)
-	max_ammo = 7
-	multiple_sprites = 1
-
-//dragunov magazine
-
 /obj/item/ammo_magazine/d762
 	name = "magazine (7.62mm)"
 	icon_state = "SVD"
@@ -408,6 +422,7 @@
 /obj/item/ammo_magazine/d762/empty
 	initial_ammo = 0
 
+// Shotguns and special //
 /obj/item/ammo_magazine/flechette
 	name = "flechette rounds"
 	icon = 'icons/obj/terminator.dmi'
@@ -518,13 +533,13 @@
 	ammo_type = /obj/item/ammo_casing/nuke
 	max_ammo = 2
 	multiple_sprites = 1
-/obj/item/ammo_magazine/super_heavy
-	name = ".599 magazine"
-	desc = "A bulky magazine for the Kumar Arms 2557."
-	icon_state = "k2557"
-	caliber = ".599 Kumar Super"
-	ammo_type = /obj/item/ammo_casing/kumar_super
-	mag_type = MAGAZINE
-	max_ammo = 5
+
+/obj/item/ammo_magazine/caps
+	name = "speed loader (caps)"
+	icon_state = "T38"
+	caliber = "caps"
+	color = "#FF0000"
+	ammo_type = /obj/item/ammo_casing/cap
+	matter = list(DEFAULT_WALL_MATERIAL = 600)
+	max_ammo = 7
 	multiple_sprites = 1
-	insert_sound = 'sound/weapons/k2557-insert.ogg'
