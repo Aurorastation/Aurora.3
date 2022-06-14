@@ -84,7 +84,6 @@
 	var/can_ammo_display = TRUE
 	var/obj/item/ammo_display
 	var/empty_sound = /decl/sound_category/out_of_ammo
-	var/casing_drop_sound = /decl/sound_category/casing_drop_sound
 	maptext_x = 22
 	maptext_y = 2
 
@@ -438,9 +437,6 @@
 	else
 		src.visible_message("*click*")
 	playsound(loc, empty_sound, 100, 1)
-
-
-
 
 //called after successfully firing
 /obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)

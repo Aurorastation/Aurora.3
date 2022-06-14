@@ -277,12 +277,3 @@
 		playsound(user.loc, "punchmiss", 50, 1)
 		return PROJECTILE_STOPPED
 	return FALSE
-
-
-/*
-/obj/item/gun/proc/handle_click_empty(mob/user)
-	if(user)
-		to_chat(user, SPAN_DANGER("*click*"))
-	else
-		src.visible_message("*click click*")
-	playsound(loc, 'sound/weapons/empty.ogg', 100, 1) */
