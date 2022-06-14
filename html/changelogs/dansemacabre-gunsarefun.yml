@@ -38,9 +38,18 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a new reagent called Sanasomnum to the uplink for 2 TCs, which induces a regenerative coma that can heal almost any type of damage, including bone breaks, brain damage, arterial bleeding, and organ damage, at the cost of roughly four minutes of unconsciousness."
+  - rscadd: "Added a new reagent called Sanasomnum to the uplink for 2 TCs, which induces a regenerative paralysis that can heal almost any type of damage, including bone breaks, brain damage, arterial bleeding, and organ damage, at the cost of roughly four minutes of being unable to move."
   - rscadd: "Added a new type of 5.56 bullet, 5.56 polymer."
-  - balance: "Added a ballistic carbine, two 9mm machine pistols, and two boxes of buckshot to the sec armory."
+  - balance: "Added a bullpup carbine, two 9mm machine pistols, and two boxes of buckshot to the sec armory."
   - balance: "Added the ballistic carbine and ammo to the uplink."
   - balance: "Changed telecrystals counts across the board - most antags with access to the uplink will have 20 TCs now. Mercs still have 15 TCs, with their own unique uplink."
   - balance: "Raiders now have uplinks, with 3 TCs each."
+  - balance: "Minigun TC cost increased to 40 TC."
+  - balance: "L6 LMG added to the uplink."
+  - rscadd: "New type of ballistic rifle added, the bullpup carbine. Mechanically identical to the ballistic carbine, more SCC-friendly flavor."
+  - balance: "Cult robes have more ballistic armor and less laser armor."
+  - balance: "Buckshot has been made from 6 x 14 pellets of damage to 3 x 25 pellets of damage. Frag grenade shrapnel does 5 more damage per shrapnel."
+  - balance: "Random gun cost increased, to make it more of a challenge option as opposed to a guaranteed win option."
+  - balance: "Rezadone is now blacklisted from spawning in cargo crates."
+  - refactor: "Horror form is now a permanent transformation. It also deals much more damage, has much more health, cannot survive in a vacuum anymore, is more affordable, and no longer passively regenerates damage."
+  - bugfix: "Fixed a bug where the horror form would die at 2/3rds health."
