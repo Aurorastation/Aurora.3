@@ -1128,6 +1128,7 @@ mob/living/carbon/human/proc/change_monitor()
 	var/obj/item/overloader/O = locate() in dport
 	if(O)
 		if (!O.self_removable)
+			to_chat(src, SPAN_WARNING("Your dataport refuses to acknowledge your ejection request!"))
 			return
 		src.visible_message(SPAN_WARNING("[src] ejects \the [O.name] from their dataport."))
 		O.on_eject()
