@@ -583,7 +583,8 @@
 
 /decl/sound_category/out_of_ammo_revolver
 	sounds = list(
-		'sound/weapons/empty/empty_revolver.ogg'
+		'sound/weapons/empty/empty_revolver.ogg',
+		'sound/weapons/empty/empty_revolver3.ogg'
 	)
 
 /decl/sound_category/out_of_ammo_rifle
@@ -621,6 +622,11 @@
 		'sound/weapons/reloads/rifle_slide3.ogg',
 		'sound/weapons/reloads/rifle_slide4.ogg',
 		'sound/weapons/reloads/rifle_slide5.ogg'
+	)
+
+/decl/sound_category/revolver_reload
+	sounds = list(
+		'sound/weapons/reloads/revolver_reload.ogg'
 	)
 /decl/sound_category/shotgun_pump
 	sounds = list(

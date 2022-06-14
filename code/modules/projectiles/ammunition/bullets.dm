@@ -338,6 +338,7 @@
 	slot_flags = null
 	max_stack = 1
 	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
+	drop_sound = /decl/sound_category/generic_drop_sound
 
 /obj/item/ammo_casing/cannon/explosive
 	name = "explosive cannonball"
@@ -358,6 +359,7 @@
 	slot_flags = null
 	desc = "A miniaturized version of a nuclear bomb."
 	projectile_type = /obj/item/projectile/bullet/nuke
+	drop_sound = /decl/sound_category/generic_drop_sound
 	max_stack = 2
 
 /obj/item/ammo_casing/musket

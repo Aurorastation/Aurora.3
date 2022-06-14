@@ -3,6 +3,7 @@
 	name = "speed loader (.357)"
 	icon_state = "T38"
 	caliber = "357"
+	insert_sound = /decl/sound_category/revolver_reload
 	ammo_type = /obj/item/ammo_casing/a357
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 8
@@ -12,6 +13,7 @@
 	name = "speed loader (.454)"
 	icon_state = "a454"
 	caliber = "454"
+	insert_sound = /decl/sound_category/revolver_reload
 	ammo_type = /obj/item/ammo_casing/a454
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 7
@@ -21,6 +23,7 @@
 	name = "speed loader (.38)"
 	icon_state = "38"
 	caliber = "38"
+	insert_sound = /decl/sound_category/revolver_reload
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
 	ammo_type = /obj/item/ammo_casing/c38
 	max_ammo = 6
@@ -429,6 +432,7 @@
 	icon_state = "flechette"
 	mag_type = MAGAZINE
 	caliber = "flechette"
+	insert_sound = /decl/sound_category/rifle_slide_reload
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
 	ammo_type = /obj/item/ammo_casing/flechette
 	max_ammo = 40
@@ -456,6 +460,7 @@
 	name = "magazine (slug)"
 	icon_state = "csmb"
 	caliber = "shotgun"
+	insert_sound = /decl/sound_category/rifle_slide_reload
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 8
@@ -509,6 +514,7 @@
 	icon_state = "heavy_plasma_cell"
 	mag_type = MAGAZINE
 	caliber = "plasma slug"
+	insert_sound = 'sound/weapons/railgun_insert_emp.ogg'
 	ammo_type = /obj/item/ammo_casing/plasma_slug
 	max_ammo = 10
 
@@ -530,6 +536,7 @@
 	w_class = ITEMSIZE_NORMAL
 	mag_type = MAGAZINE
 	caliber = "nuke"
+	insert_sound = 'sound/weapons/reloads/rifle_slide3.ogg'
 	ammo_type = /obj/item/ammo_casing/nuke
 	max_ammo = 2
 	multiple_sprites = 1
