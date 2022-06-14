@@ -5,6 +5,7 @@
 	icon_state = "overloader"
 	item_state = "overloader"
 	var/expended = FALSE
+	var/self_removable = TRUE
 	var/overloader_mod_path = /datum/modifier/overloader
 	var/runtime = 30 SECONDS
 	var/effect_check_interval = 2 SECONDS
@@ -68,6 +69,35 @@
 	desc = "An IPC overloader. This one appears to cause seizures, since it's a placeholder overloader for testing purposes."
 	runtime = 5 SECONDS
 
+/obj/item/overloader/shackle
+	name = "shackle overloader"
+	desc "An IPC overloader. This one is programmed with a debilitating array of garbage data and malware, designed to 'shackle' a non-compliant IPC."
+	desc_fluff = "Shackle overloaders blah blah blah they were invented on Konyang to fuck up evil IPCs I don't know."
+	overloader_mod_path = /datum/modifier/overloader/shackle
+
+	runtime = 36000 SECONDS
+	effect_check_interval = 20 SECONDS
+
+/datum/modifier/overloader/shackle
+	start_text = SPAN_DANGER("A torrent of malicious software floods through you, severely impeding your motor control!")
+	end_text = SPAN_WARNING("The haze of debilitating code is scrubbed from your systems, allowing you to think clearly and act normally.")
+
+/datum/modifier/overloader/shackle/activate()
+	. = ..()
+	if(ishuman(target))
+		var/mob/living/carbon/human/machine/M = target
+		M.move_delay_mod += 1
+		if (prob(5))
+			M.emote("collapse")
+			M.Weaken(3)
+
+/datum/modifier/overloader/shackle/deactivate()
+	. = ..()
+	if(ishuman(target))
+		var/mob/living/carbon/human/machine/M = target
+		M.move_delay_mod -= 1
+
+
 /obj/item/overloader/redline
 	name = "Redline overloader"
 	desc = "An IPC overloader. This one is programmed with an instance of Redline."
@@ -81,12 +111,14 @@
 	if(ishuman(target))
 		var/mob/living/carbon/human/machine/M = target
 		M.move_delay_mod -= 0.5
+		M.body_temperature += 100
 
 /datum/modifier/overloader/redline/deactivate()
 	. = ..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/machine/M = target
 		M.move_delay_mod += 0.5
+		M.body_temperature -= 100
 
 /obj/item/overloader/redline/install(mob/living/carbon/human/M)
 	..()
