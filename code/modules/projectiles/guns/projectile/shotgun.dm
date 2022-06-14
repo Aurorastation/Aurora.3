@@ -4,7 +4,6 @@
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
-	casing_drop_sound = /decl/sound_category/casing_drop_sound_shotgun
 
 /obj/item/gun/projectile/shotgun/attackby(obj/item/A, mob/user)
 	if (!can_sawoff || sawing_in_progress)
@@ -85,7 +84,7 @@
 
 	if(chambered)//We have a shell in the chamber
 		chambered.forceMove(get_turf(src)) //Eject casing
-		playsound(src.loc, casing_drop_sound, DROP_SOUND_VOLUME, FALSE, required_asfx_toggles = ASFX_DROPSOUND)
+		playsound(src.loc, chambered.drop_sound, DROP_SOUND_VOLUME, FALSE, required_asfx_toggles = ASFX_DROPSOUND)
 		chambered = null
 
 	handle_pump_loading()
