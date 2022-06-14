@@ -149,11 +149,6 @@
 	item_cost = 5
 	path = /obj/item/gun/projectile/recoilless_rifle
 
-/datum/uplink_item/item/visible_weapons/random_weapon
-	name = "Random Gun"
-	item_cost = 8
-	path = /obj/item/storage/box/syndie_kit/random_weapon
-
 /datum/uplink_item/item/visible_weapons/ionrifle
 	name = "Ion Rifle"
 	item_cost = 5
@@ -166,7 +161,7 @@
 
 /datum/uplink_item/item/visible_weapons/random_weapon
 	name = "Random Gun"
-	item_cost = 8
+	item_cost = 6
 	path = /obj/item/storage/box/syndie_kit/random_weapon
 
 /datum/uplink_item/item/visible_weapons/super_heavy_pistol
