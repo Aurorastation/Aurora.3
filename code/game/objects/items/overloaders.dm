@@ -71,7 +71,7 @@
 
 /obj/item/overloader/shackle
 	name = "shackle overloader"
-	desc "An IPC overloader. This one is programmed with a debilitating array of garbage data and malware, designed to 'shackle' a non-compliant IPC."
+	desc = "An IPC overloader. This one is programmed with a debilitating array of garbage data and malware, designed to 'shackle' a non-compliant IPC."
 	desc_fluff = "Shackle overloaders blah blah blah they were invented on Konyang to fuck up evil IPCs I don't know."
 	overloader_mod_path = /datum/modifier/overloader/shackle
 
@@ -111,14 +111,12 @@
 	if(ishuman(target))
 		var/mob/living/carbon/human/machine/M = target
 		M.move_delay_mod -= 0.5
-		M.body_temperature += 100
 
 /datum/modifier/overloader/redline/deactivate()
 	. = ..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/machine/M = target
 		M.move_delay_mod += 0.5
-		M.body_temperature -= 100
 
 /obj/item/overloader/redline/install(mob/living/carbon/human/M)
 	..()
