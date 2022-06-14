@@ -263,6 +263,7 @@
 
 	if(reels[1][2] + reels[2][2] + reels[3][2] + reels[4][2] + reels[5][2] == "[SEVEN][SEVEN][SEVEN][SEVEN][SEVEN]")
 		visible_message("<b>[src]</b> says, 'JACKPOT! You win [money] credits!'")
+		global_announcer.autosay("Congratulations to [user ? user.real_name : usrname] for winning the jackpot at the slot machine in [get_area(src)]!", "Automated Announcement System")
 		playsound(loc, 'sound/arcade/sloto_jackpot.ogg', 20, 1, required_asfx_toggles = ASFX_ARCADE) // ham it up
 		jackpots += 1
 		balance += money - give_payout(JACKPOT)

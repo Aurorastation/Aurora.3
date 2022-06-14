@@ -2,7 +2,7 @@
 	name = "IAC Doctor"
 
 	uniform = /obj/item/clothing/under/rank/iacjumpsuit
-	suit = /obj/item/clothing/suit/storage/iacvest
+	suit = /obj/item/clothing/suit/storage/hazardvest/iac
 	head = /obj/item/clothing/head/softcap/iac
 	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
