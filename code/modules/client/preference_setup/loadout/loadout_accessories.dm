@@ -501,9 +501,10 @@
 	display_name = "generic flagpatch"
 	path = /obj/item/clothing/accessory/flagpatch
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	cost = 0
 
 
-/datum/gear/accessory/flagpatch/biesel
+/datum/gear/accessory/flagpatch_national
 	display_name = "flagpatch selection"
 	path = /obj/item/clothing/accessory/flagpatch/biesel
 	cost = 0

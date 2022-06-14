@@ -292,12 +292,12 @@
 	flippable = FALSE
 
 /obj/item/clothing/accessory/flagpatch
-	name = "vest patch"
+	name = "flagpatch"
 	desc = "A simple strip of fabric attached to a vest or helmet typically used to denote the wearer's \
 	organization or nationality."
 	icon = 'icons/clothing/kit/modular_armor_accessories.dmi'
-	icon_state = "flagpatch"
-	item_state = "flagpatch"
+	icon_state = "flagpatch_colorable"
+	item_state = "flagpatch_colorable"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_GENERIC
 	flippable = FALSE
