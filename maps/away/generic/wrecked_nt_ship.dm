@@ -17,7 +17,7 @@
 	desc = "A wrecked ship once owend by NanoTrasen."
 
 /area/wrecked_nt_ship
-	name = "Wrecked NT Ship"
+	name = "wrecked NT ship"
 	icon_state = "wrecked_nt_ship"
 	requires_power = FALSE
 	base_turf = /turf/space
