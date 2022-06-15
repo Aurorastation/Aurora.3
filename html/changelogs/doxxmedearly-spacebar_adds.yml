@@ -1,0 +1,5 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - maptweak: "Added to the space bar: another light in the backroom, a long-range holopad, and a box of crayons to the bartender's locker."
+  - maptweak: "Made the space bar hangar a separate area from the bar proper."
