@@ -206,14 +206,14 @@
 	for(var/m in mobs)
 		var/mob/M = m
 		if(self_message && M==src)
-			M.show_message(self_message,2,deaf_message,1)
+			M.show_message("[get_accent_icon(null, M)] [self_message]", 2, deaf_message, 1)
 			continue
 
-		M.show_message(message,2,deaf_message,1)
+		M.show_message("[get_accent_icon(null, M)] [message]", 2, deaf_message,1)
 
 	for(var/o in objs)
 		var/obj/O = o
-		O.show_message(message,2,deaf_message,1)
+		O.show_message("[get_accent_icon(null, src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
