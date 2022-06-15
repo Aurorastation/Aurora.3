@@ -69,6 +69,15 @@
 	un_gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather/unathi
 	gear_tweaks += new /datum/gear_tweak/path(un_gloves)
 
+/datum/gear/gloves/unathi_janitor
+	display_name = "unathi cleaning gloves"
+	description = "A pair of rubber cleaning gloves, designed for use by Unathi."
+	path = /obj/item/clothing/gloves/janitor/unathi
+	whitelisted = list(SPECIES_UNATHI)
+	allowed_roles = list("Janitor")
+	sort_category = "Xenowear - Unathi"
+
+
 /datum/gear/gloves/unathi_handwraps
 	display_name = "cloth handwraps"
 	path = /obj/item/clothing/gloves/unathi

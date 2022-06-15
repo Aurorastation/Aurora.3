@@ -42,6 +42,14 @@
 	taj_gloves["machinist gloves"] =  /obj/item/clothing/gloves/black/tajara/smithgloves
 	gear_tweaks += new /datum/gear_tweak/path(taj_gloves)
 
+/datum/gear/gloves/tajaran_janitor
+	display_name = "tajara cleaning gloves"
+	description = "A pair of rubber cleaning gloves, designed for use by Tajara."
+	path = /obj/item/clothing/gloves/janitor/tajara
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Janitor")
+	sort_category = "Xenowear - Tajara"
+
 /datum/gear/suit/tajara_coat
 	display_name = "tajara coat and jacket selection"
 	description = "A selection of tajaran native coats and jackets."

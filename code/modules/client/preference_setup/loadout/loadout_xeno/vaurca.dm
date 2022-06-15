@@ -202,7 +202,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_vaurca(), lunchables_vaurca_snack(), lunchables_drinks(), lunchables_utensil())
 
-/datum/gear/ears/vaurca/rings 
+/datum/gear/ears/vaurca/rings
 	display_name = "bulwark horn rings"
 	description = "Rings worn by Bulwarks to decorate their horns."
 	cost = 1
@@ -210,3 +210,11 @@
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_BULWARK)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/gloves/vaurca_janitor
+	display_name = "vaurca cleaning gloves"
+	description = "A pair of rubber cleaning gloves, designed for use by Vaurca."
+	path = /obj/item/clothing/gloves/janitor/vaurca
+	whitelisted = list(SPECIES_UNATHI)
+	allowed_roles = list("Janitor")
+	sort_category = "Xenowear - Vaurca"
