@@ -584,9 +584,9 @@ proc/get_poor()
 	var/list/dudes = list()
 	for(var/mob/living/carbon/human/man in player_list)
 		if(man.client)
-			if(man.client.prefs.economic_status == ECONOMICALLY_POOR)
+			if(man.client.prefs.economic_status == (ECONOMICALLY_POOR || ECONOMICALLY_DESTITUTE))
 				dudes += man
-			else if(man.client.prefs.economic_status == ECONOMICALLY_POOR && prob(50))
+			else if(man.client.prefs.economic_status == (ECONOMICALLY_POOR || ECONOMICALLY_DESTITUTE) && prob(50))
 				dudes += man
 	if(dudes.len == 0) return null
 	return pick(dudes)
