@@ -57,6 +57,7 @@
 /obj/structure/closet/secure_closet/engineering_electrical/fill()
 	new /obj/item/clothing/gloves/yellow(src)
 	new /obj/item/clothing/gloves/yellow(src)
+	new /obj/item/clothing/gloves/yellow(src)
 	new /obj/item/clothing/gloves/yellow/specialu(src)
 	new /obj/item/clothing/gloves/yellow/specialt(src)
 	new /obj/item/storage/toolbox/electrical(src)
