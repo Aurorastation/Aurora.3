@@ -13,7 +13,7 @@
 	descriptor = "A wrecked ship once owned by NanoTrasen."
 
 /obj/effect/overmap/visitable/wrecked_nt_ship
-	name = "wrecked nt ship"
+	name = "wrecked NT ship"
 	desc = "A wrecked ship once owend by NanoTrasen."
 
 /area/wrecked_nt_ship
