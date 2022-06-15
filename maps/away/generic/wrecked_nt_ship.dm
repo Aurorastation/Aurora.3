@@ -14,7 +14,7 @@
 
 /obj/effect/overmap/visitable/wrecked_nt_ship
 	name = "wrecked nt ship"
-	desc = "A wrecked ship once owend by the Nanotrasen."
+	desc = "A wrecked ship once owend by NanoTrasen."
 
 /area/wrecked_nt_ship
 	name = "Wrecked NT Ship"
