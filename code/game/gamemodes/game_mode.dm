@@ -580,14 +580,15 @@ proc/display_logout_report()
 		return
 	to_chat(src,get_logout_report())
 
-/datum/game_mode/proc/get_poor()
+proc/get_poor()
 	var/list/characters = list()
 
 	for(var/mob/living/carbon/human/character in player_list)
 		if(character.client)
-			if(character.client.prefs.economic_status == (ECONOMICALLY_POOR || ECONOMICALLY_DESTITUTE))
+			if(character.client.prefs.economic_status == ECONOMICALLY_DESTITUTE) // Discrimination.
 				characters += character
-
+			else if(character.client.prefs.economic_status == ECONOMICALLY_POOR && prob(50)) // 50% discrimination.
+				characters += character
 	if(characters.len == 0)
 		return null
 
