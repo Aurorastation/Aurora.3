@@ -9,7 +9,7 @@
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /decl/submap_archetype/wrecked_nt_ship
-	map = "wwrecked_nt_ship"
+	map = "wrecked_nt_ship"
 	descriptor = "A wrecked  ship once owned by the Nanotrasen"
 
 /obj/effect/overmap/visitable/wrecked_nt_ship
