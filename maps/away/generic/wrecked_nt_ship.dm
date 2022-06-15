@@ -10,7 +10,7 @@
 
 /decl/submap_archetype/wrecked_nt_ship
 	map = "wrecked_nt_ship"
-	descriptor = "A wrecked  ship once owned by the Nanotrasen"
+	descriptor = "A wrecked ship once owned by NanoTrasen."
 
 /obj/effect/overmap/visitable/wrecked_nt_ship
 	name = "wrecked nt ship"
