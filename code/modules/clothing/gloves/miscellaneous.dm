@@ -149,6 +149,7 @@
 	icon_state = "janitor"
 	item_state = "janitor"
 	permeability_coefficient = 0.01 //Prevents chemical seepage as well as latex, but without any of the sterility or protection
+	siemens_coefficient = 0.50
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
