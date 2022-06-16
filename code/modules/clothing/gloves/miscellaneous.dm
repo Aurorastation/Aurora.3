@@ -146,7 +146,7 @@
 
 /obj/item/clothing/gloves/janitor
 	name = "rubber cleaning gloves"
-	desc = "A pair of thick, long rubber gloves, designed to prevent the wearer from the splash of industrial strength cleaners. Not electrically insulated."
+	desc = "A pair of thick, long, yellow rubber gloves, designed to protect the wearer from the splash of industrial strength cleaners. Not electrically insulated."
 	icon_state = "janitor"
 	item_state = "janitor"
 	permeability_coefficient = 0.01 //Prevents chemical seepage as well as latex, but without any of the sterility or protection
