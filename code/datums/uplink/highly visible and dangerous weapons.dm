@@ -169,3 +169,7 @@
 	item_cost = 4
 	path = /obj/item/gun/projectile/pistol/super_heavy
 
+/datum/uplink_item/item/visible_weapons/energy_pistol
+	name = "Energy Pistol"
+	item_cost = 2
+	path = /obj/item/gun/energy/pistol
