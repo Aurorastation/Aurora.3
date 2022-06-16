@@ -143,7 +143,6 @@
 	name = "vaurca leather gloves"
 	species_restricted = list(BODYTYPE_VAURCA)
 
-
 /obj/item/clothing/gloves/janitor
 	name = "rubber cleaning gloves"
 	desc = "A pair of thick, long, yellow rubber gloves, designed to protect the wearer from the splash of industrial strength cleaners. Not electrically insulated."
