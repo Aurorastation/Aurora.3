@@ -590,8 +590,8 @@ proc/get_poor()
 			else if(character.client.prefs.economic_status == ECONOMICALLY_POOR && prob(50)) // 50% discrimination.
 				characters += character
 
-	if(characters.len == 0)
-		return null
+	if(!length(characters))
+		return
 
 	return pick(characters)
 
