@@ -43,7 +43,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(taj_gloves)
 
 /datum/gear/gloves/tajaran_janitor
-	display_name = "tajara cleaning gloves"
+	display_name = "tajaran cleaning gloves"
 	description = "A pair of rubber cleaning gloves, designed for use by Tajara."
 	path = /obj/item/clothing/gloves/janitor/tajara
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
