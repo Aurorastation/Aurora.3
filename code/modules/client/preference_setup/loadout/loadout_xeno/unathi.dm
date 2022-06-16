@@ -77,7 +77,6 @@
 	allowed_roles = list("Janitor")
 	sort_category = "Xenowear - Unathi"
 
-
 /datum/gear/gloves/unathi_handwraps
 	display_name = "cloth handwraps"
 	path = /obj/item/clothing/gloves/unathi
