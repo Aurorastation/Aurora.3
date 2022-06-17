@@ -39,5 +39,6 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Added a space cleaner refiller tank to the janitor's closet."
+  - imageadd: "Added a sprite for the aforementioned space cleaner refiller."
   - maptweak: "Moved the air alarm in the janitor's closet slightly."
   - tweak: "Changed the name and description of the janitor's backpack water tank to reflect the fact that it spawns with space cleaner, not water."
