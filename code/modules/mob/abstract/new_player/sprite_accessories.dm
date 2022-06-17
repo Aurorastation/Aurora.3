@@ -814,11 +814,23 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "mullet"
 
+	mullet_short
+		name = "Mullet, Short"
+		icon_state = "hair_mullet_short"
+		length = 2
+		chatname = "short mullet"
+
 	mullet_undercut
 		name = "Mullet, Undercut"
 		icon_state = "hair_mullet_undercut"
 		length = 3
 		chatname = "mullet"
+
+	mullet_undercutshort
+		name = "Mullet, Undercut Short"
+		icon_state = "hair_mullet_undercutshort"
+		length = 2
+		chatname = "short mullet"
 
 	mullet_balding
 		name = "Mullet, Balding"
@@ -1023,19 +1035,19 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_ponytail_short"
 		length = 2
 		chatname = "short ponytail"
-			
+
 	ponytail_short2
 		name = "Ponytail, Short 2"
 		icon_state = "hair_ponytail_short2"
 		length = 2
 		chatname = "short ponytail"
-			
+
 	ponytail_short3
 		name = "Ponytail, Short 3"
 		icon_state = "hair_ponytail_short3"
 		length = 2
 		chatname = "short ponytail"
-			
+
 	ponytail_short4
 		name = "Ponytail, Short 4"
 		icon_state = "hair_ponytail_short4"
@@ -1102,10 +1114,6 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "large bun"
 
-	patchy
-		name = "Patchy"
-		icon_state = "hair_patchy"
-		chatname = "patchy hair"
 	poofy
 		name = "Poofy"
 		icon_state = "hair_poofy"
@@ -1193,6 +1201,16 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "quiff"
 
+	rattail_thin
+		name = "Rat Tail, Thin"
+		icon_state = "hair_rattail_thin"
+		chatname = "rat tail"
+
+	rattail_thick
+		name = "Rat Tail, Thick"
+		icon_state = "hair_rattail_thick"
+		chatname = "rat tail"
+
 	ronin
 		name = "Ronin"
 		icon_state = "hair_ronin"
@@ -1239,6 +1257,11 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_scully"
 		chatname = "short hair"
 
+	sellout
+		name = "Sellout"
+		icon_state = "hair_sellout"
+		chatname = "greying hair"
+
 	shaved
 		name = "Shaved"
 		icon_state = "hair_shaved"
@@ -1264,6 +1287,16 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Short Hair 4"
 		icon_state = "hair_shorthair4"
 		chatname = "short hair"
+
+	shortlocs
+		name = "Short Locs"
+		icon_state = "hair_shortlocs"
+		chatname = "short locs"
+
+	shortlocs_fade
+		name = "Short Locs, Fade"
+		icon_state = "hair_shortlocs_fade"
+		chatname = "short locs"
 
 	sideswept
 		name = "Sideswept Hair"
@@ -1921,6 +1954,10 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Britstache"
 		icon_state = "facial_britstache"
 
+	cambion
+		name = "Cambion Beard"
+		icon_state = "facial_cambion"
+
 	chaplin
 		name = "Square Mustache"
 		icon_state = "facial_chaplin"
@@ -1940,6 +1977,10 @@ Follow by example and make good judgement based on length which list to include 
 	croppedbeard
 		name = "Full Cropped Beard"
 		icon_state = "facial_croppedfullbeard"
+
+	dadbeard
+		name = "Dad Beard"
+		icon_state = "facial_dadbeard"
 
 	desperado
 		name = "Desperado"
@@ -1970,17 +2011,9 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Goatee 3"
 		icon_state = "facial_gt3"
 
-	gt_white
-		name = "Goatee, White"
-		icon_state = "facial_gt_white"
-
 	hawk
 		name = "Hawk"
 		icon_state = "facial_hawk"
-
-	hellboy
-		name = "Hellboy"
-		icon_state = "facial_hellboy"
 	hip
 		name = "Hipster Beard"
 		icon_state = "facial_hip"
@@ -2009,6 +2042,10 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Martial Artist"
 		icon_state = "facial_martialartist"
 
+	monopoly
+		name = "Monopoly Mustache"
+		icon_state = "facial_monopoly"
+
 	moonshiner
 		name = "Moonshiner"
 		icon_state = "facial_moonshiner"
@@ -2017,9 +2054,21 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Mutton Chops"
 		icon_state = "facial_mutton"
 
+	mutton_trimmed
+		name = "Mutton Chops, Trimmed"
+		icon_state = "facial_mutton_trimmed"
+
 	muttonstache
 		name = "Mutton Chops and Moustache"
 		icon_state = "facial_muttonmus"
+
+	muttonstache_trimmed
+		name = "Mutton Chops and Moustache, Trimmed"
+		icon_state = "facial_muttonmus_trimmed"
+
+	muttonstache_harry
+		name = "Mutton Chops and Moustache, Shadow"
+		icon_state = "facial_muttonmus_harry"
 
 	neckbeard
 		name = "Neckbeard"
@@ -2426,7 +2475,7 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "skrell_excited"
 			length = 6
 			chatname = "headtails"
-		
+
 		skr_tentacle_insulted
 			name = "Expressive Headtails, insulted"
 			icon_state = "skrell_insulted"
@@ -3488,6 +3537,9 @@ Follow by example and make good judgement based on length which list to include 
 			name = "breakout IPC screen"
 			icon_state = "ipc_breakout"
 
+		ipc_screen_breathe
+			name = "breathe IPC screen"
+			icon_state = "ipc_breathe"
 		ipc_screen_cancel
 			name = "cancel IPC screen"
 			icon_state = "ipc_cancel"
@@ -3528,6 +3580,10 @@ Follow by example and make good judgement based on length which list to include 
 			name = "heartrate IPC screen"
 			icon_state = "ipc_heartrate"
 
+		ipc_screen_kit
+			name = "kit scan IPC screen"
+			icon_state = "ipc_kit"
+
 		ipc_screen_lumi_eyes
 			name = "lumi eyes IPC screen"
 			icon_state = "ipc_lumi_eyes"
@@ -3547,6 +3603,10 @@ Follow by example and make good judgement based on length which list to include 
 		ipc_screen_orange
 			name = "orange IPC screen"
 			icon_state = "ipc_orange"
+
+		ipc_screen_pong
+			name = "pong IPC screen"
+			icon_state = "ipc_pong"
 
 		ipc_screen_pink
 			name = "pink IPC screen"
@@ -3754,7 +3814,7 @@ Follow by example and make good judgement based on length which list to include 
 		tuux_chops
 			name = "Tuux Chops"
 			icon_state = "Tuux_Chops"
-			
+
 		tuux_chops_big
 			name = "Tuux Chops (Big)"
 			icon_state = "Tuux_Chops_Big"
@@ -3782,19 +3842,19 @@ Follow by example and make good judgement based on length which list to include 
 		tuux_mustache
 			name = "Tuux Stache"
 			icon_state = "Tuux_Mustache"
-			
+
 		tuux_overgrown
 			name = "Tuux Overgrown"
 			icon_state = "Tuux_Overgrown"
-			
+
 		tuux_braided
 			name = "Tuux Braided"
 			icon_state = "Tuux_Braided"
-			
+
 		tuux_braided_long
 			name = "Tuux Braided (Long)"
 			icon_state = "Tuux_Braided_Long"
-			
+
 		tuux_braided_double
 			name = "Tuux Braided (Double)"
 			icon_state = "Tuux_Braided_Double"
@@ -4107,6 +4167,12 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
+	aug_earcase
+		name = "Augment (Ear Case)"
+		icon_state = "aug_earcase"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
 	aug_side_kuze_left
 		name = "Augment (Kuze, Side Left)"
 		icon_state = "aug_sidekuze_l"
@@ -4144,6 +4210,18 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "aug_sideshelly_l"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/skrell,/datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	aug_lobot
+		name = "Augment (Lobot)"
+		icon_state = "aug_lobot"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	aug_lobot_beta
+		name = "Augment (Lobot, Beta)"
+		icon_state = "aug_lobotbeta"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	aug_side_shelly_right
 		name = "Augment (Shelly, Side Right)"
@@ -4226,6 +4304,12 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Hand Panel (Left)"
 			icon_state = "hand_panel_l"
 			body_parts = list(BP_L_HAND)
+
+	autopsy
+		name = "Autopsy Scar"
+		icon_state = "autopsyscar"
+		body_parts = list(BP_CHEST)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	backstripe
 		name = "Back Stripe"
@@ -4743,6 +4827,18 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "tat_toshi_r"
 		body_parts = list(BP_HEAD)
 		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	tat_tribal
+		name = "Tattoo (Tribal, Face)"
+		icon_state = "tat_tribal"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+
+	tat_warrior
+		name = "Tattoo (Warrior, Face)"
+		icon_state = "tat_warrior"
+		body_parts = list(BP_HEAD)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	tat_wings_back
 		name = "Tattoo (Wings, Lower Back)"
