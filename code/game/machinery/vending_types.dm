@@ -448,7 +448,7 @@
 	contraband = list(
 		/obj/item/storage/box/fancy/cigarettes/blank = 5,
 		/obj/item/storage/box/fancy/cigarettes/acmeco = 5,
-		/obj/item/clothing/mask/smokable/cigarette/rolled/sausage = 3
+		/obj/item/clothing/mask/smokable/cigarette/cigar/sausage = 3
 	)
 	premium = list(
 		/obj/item/flame/lighter/zippo = 4,

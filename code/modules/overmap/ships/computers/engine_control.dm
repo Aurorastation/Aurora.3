@@ -5,6 +5,7 @@
 	icon_screen = "enginecontrol"
 	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
+	circuit = /obj/item/circuitboard/ship/engines
 	var/display_state = "status"
 
 /obj/machinery/computer/ship/engines/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)

@@ -122,6 +122,20 @@
 			qdel(src)
 			user.put_in_hands(trash)
 
+/obj/item/storage/box/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/stack/packageWrap))
+		var/total_storage_space = W.get_storage_cost()
+		for(var/obj/item/I in contents)
+			total_storage_space += I.get_storage_cost()
+		if(total_storage_space <= max_storage_space)
+			var/question = alert(user, "Will you want to wrap \the [src] or store the item inside?", "Wrap or Store", "Wrap", "Store")
+			if(question == "Wrap")
+				return
+			else if(question == "Store")
+				return ..()
+	else
+		..()
+
 /obj/item/storage/box/survival
 	name = "emergency survival box"
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
