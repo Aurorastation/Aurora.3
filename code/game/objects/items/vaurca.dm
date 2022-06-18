@@ -4,7 +4,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "zora_projector"
 	worlds_selection = list("Ocean", "Hive War Exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
-	message_frequency = 9
+	message_frequency = 10
 
 /obj/item/skrell_projector/vaurca_projector/attack_self(mob/user as mob)
 	working = !working
