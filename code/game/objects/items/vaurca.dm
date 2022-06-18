@@ -76,7 +76,7 @@
                                         "Distant chattering can be heard coming from the fortress including what sounds almost like jovial laughter.",
                                         "The turquoise water emits a jubilant smell of freshly cut lemons which lasts for only for a moment.",
                                         "You see the gas giant Sedantis dominating a starry sky.",
-										"For a moment the Golden Fortress towering above starts to glimmer majestically catching the light from the imposing gas giant in the sky")
+										"For a moment the Golden Fortress towering above starts to glimmer majestically catching the light from the imposing gas giant in the sky.")
 
 			if("City of New Sedantis")
 				hologram_message = pick("A towering cavernous city takes up the viewfinder, great buildings of stone jutting out of the ground and twisting towards the ceiling.",
