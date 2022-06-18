@@ -1,0 +1,8 @@
+author: Vrow
+
+delete-after: True
+
+changes:
+  - tweak: "Tweaked the IV drip tank indicator icon to use the percentage helper instead of the exact gauge updating, and some IV drip code clean up and oversight patching."
+  - bugfix: "Fixed the IV drip not automatically retracting the installed mask if you stripped it from someone and then wearing it yourself."
+  - bugfix: "Fixed the IV drip outputting a specific message even though the installed tank gets spilled everywhere when not secured."
