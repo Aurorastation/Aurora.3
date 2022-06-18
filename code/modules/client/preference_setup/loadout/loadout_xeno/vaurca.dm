@@ -218,3 +218,12 @@
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Janitor")
 	sort_category = "Xenowear - Vaurca"
+
+/datum/gear/skrell_projector/vaurca_projector
+	display_name = "virtual reality looking-glass"
+	description = "A holographic projector using advanced technology that immerses someone into a scene. It is developed and distributed by Hive Zo'ra and allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur."
+	cost = 2
+	path = /obj/item/skrell_projector/vaurca_projector
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
