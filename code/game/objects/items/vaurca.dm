@@ -61,7 +61,7 @@
 				hologram_message = pick("You see a golden fortress floating majestically above an ocean of sapphire.",
 										"A euphoric smell of the ocean fills your senses as the water gently ebbs and flows.",
 										"You hear the faint humming of a hymn as a gentle wave envelops the viewfinder.",
-                                        "You can hear a quiet celestial chanting the source of which feels just beyond sight",
+                                        "You can hear a quiet celestial chanting the source of which feels just beyond sight.",
                                         "The turquoise water emits a jubilant smell of freshly cut lemons which lasts for only for a moment.",
                                         "You see the gas giant Sedantis dominating a starry sky.")
 			if("Hive War exhibition")
