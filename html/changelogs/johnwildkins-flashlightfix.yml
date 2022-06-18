@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed flashlights in PDAs not creating lighting nor being installable as components once removed."
