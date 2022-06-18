@@ -4309,7 +4309,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Autopsy Scar"
 		icon_state = "autopsyscar"
 		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/machine/shell, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
+		species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona, /datum/species/diona/coeu, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 	backstripe
 		name = "Back Stripe"
