@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Fix heat exchangers not radiating properly on open space turfs (as opposed to space turfs). This should stop the supermatter delaminating on nominally \"safe\" setups."
