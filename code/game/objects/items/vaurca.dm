@@ -27,7 +27,7 @@
 	switch(choice)
 		if("Ocean")
 			light_color = "#1122c2"
-		if("Hive War Exhibition")
+		if("Hive War exhibition")
 			light_color = "#83290b"
 		if("Celestial Landing Ground")
 			light_color = "#f5e61d"
