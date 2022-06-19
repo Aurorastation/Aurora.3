@@ -66,7 +66,7 @@
 								var/safety = M:eyecheck(TRUE)
 								if(!safety)
 									if(!M.blinded)
-										flick("flash", M.flash)
+										M.flash_eyes()
 
 						return 1
 					else
