@@ -27,7 +27,7 @@
 	switch(choice)
 		if("Ocean")
 			light_color = "#1122c2"
-		if("Hive War exhibition")
+		if("Hive War Exhibition")
 			light_color = "#83290b"
 		if("Celestial Landing Ground")
 			light_color = "#f5e61d"
@@ -64,7 +64,7 @@
                                         "You can hear a quiet celestial chanting the source of which feels just beyond sight.",
                                         "The turquoise water emits a jubilant smell of freshly cut lemons which lasts for only for a moment.",
                                         "You see the gas giant Sedantis dominating a starry sky.")
-			if("Hive War exhibition")
+			if("Hive War Exhibition")
 				hologram_message = pick("You see a carefully crafted exhibition detailing the Great Hive War. It explains in brief the details of the event through paintings and dioramas.",
 										"You smell burning and rusted metal. An exhibition showcases the Battle of a Thousand Titans.",
 										"You see a  memorial to the lives lost, a sad hymn flowing in the background.")
