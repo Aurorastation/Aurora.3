@@ -91,7 +91,7 @@
 		if(istype(W, /obj/item/device/flashlight))
 			to_chat(H, "<span class='warning'>You direct \the [W] towards \the [src]'s eyes!</span>")
 			playsound(get_turf(H), 'sound/items/flashlight.ogg', 50, 1, -1)
-			flick("flash", H.flash)
+			H.flash_eyes()
 			H.eye_blurry = 5
 			return TRUE
 

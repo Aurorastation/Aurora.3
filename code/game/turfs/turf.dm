@@ -478,60 +478,6 @@ var/const/enterloopsanity = 100
 			L.Add(t)
 	return L
 
-// CRAWLING + MOVING STUFF
-/turf/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
-	var/turf/T = get_turf(user)
-	var/area/A = T.loc
-	if((istype(A) && !(A.has_gravity())) || (istype(T,/turf/space)))
-		return
-	if(istype(O, /obj/screen))
-		return
-	if(user.restrained() || user.stat || user.incapacitated(INCAPACITATION_KNOCKOUT) || !user.lying)
-		return
-	if((!(istype(O, /atom/movable)) || O.anchored || !Adjacent(user) || !Adjacent(O) || !user.Adjacent(O)))
-		return
-	if(!isturf(O.loc) || !isturf(user.loc))
-		return
-	if(isanimal(user) && O != user)
-		return
-
-	var/tally = 0
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-
-		var/obj/item/organ/external/rhand = H.organs_by_name[BP_R_HAND]
-		tally += limbCheck(rhand)
-
-		var/obj/item/organ/external/lhand = H.organs_by_name[BP_L_HAND]
-		tally += limbCheck(lhand)
-
-		var/obj/item/organ/external/rfoot = H.organs_by_name[BP_R_FOOT]
-		tally += limbCheck(rfoot)
-
-		var/obj/item/organ/external/lfoot = H.organs_by_name[BP_L_FOOT]
-		tally += limbCheck(lfoot)
-
-	if(tally >= 120)
-		to_chat(user, SPAN_NOTICE("You're too injured to do this!"))
-		return
-
-	var/finaltime = 25 + (5 * (user.weakened * 1.5))
-	if(tally >= 45) // If you have this much missing, you'll crawl slower.
-		finaltime += tally
-
-	if(do_after(user, finaltime) && !user.stat)
-		step_towards(O, src)
-
-// Checks status of limb, returns an amount to
-/turf/proc/limbCheck(var/obj/item/organ/external/limb)
-	if(!limb) // Limb is null, thus missing. Add 3 seconds.
-		return 30
-	else if(!limb.is_usable() || limb.is_broken()) // You can't use the limb, but it's still there to manoevre yourself
-		return 15
-	else
-		return 0
-
 /turf/proc/is_wall()
 	return FALSE
 

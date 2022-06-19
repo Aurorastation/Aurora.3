@@ -4205,6 +4205,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
+"hT" = (
+/obj/effect/shuttle_landmark/horizon/deckthree/port,
+/turf/template_noop,
+/area/template_noop)
 "hU" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -8147,6 +8151,10 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
+"oW" = (
+/obj/effect/shuttle_landmark/horizon/deckthree/starboard,
+/turf/template_noop,
+/area/template_noop)
 "oX" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/carpet,
@@ -25250,6 +25258,10 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/horizon/crew_quarters/fitness/hallway)
+"UE" = (
+/obj/effect/shuttle_landmark/horizon/deckthree/fore,
+/turf/template_noop,
+/area/template_noop)
 "UF" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -9;
@@ -26197,6 +26209,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
+"Wt" = (
+/obj/effect/shuttle_landmark/horizon/deckthree/aft,
+/turf/template_noop,
+/area/template_noop)
 "Wu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -34278,7 +34294,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+oW
 Wm
 Wm
 Wm
@@ -49452,7 +49468,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+UE
 Wm
 Wm
 Wm
@@ -49922,7 +49938,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+Wt
 Wm
 Wm
 Wm
@@ -63279,7 +63295,7 @@ Wm
 Wm
 Wm
 Wm
-Wm
+hT
 Wm
 Wm
 Wm

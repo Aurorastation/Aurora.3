@@ -28,7 +28,7 @@
 			M.flash_eyes()
 		else if(affected_limb && M == A)
 			M.confused = rand(2, 7)
-			flick("flash", M.flash)
+			M.flash_eyes()
 
 	//snap pop
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)

@@ -34,7 +34,7 @@
 /obj/item/storage/box/bodybags
 	name = "body bags"
 	desc = "This box contains body bags."
-	illustration =  = "bodybags"
+	illustration = "bodybags"
 
 /obj/item/storage/box/bodybags/New()
 	..()
