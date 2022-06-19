@@ -7,17 +7,10 @@
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
 	desc_cult = "This can be reforged to become a cult backpack. Any stored items will be transferred."
-	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
-		slot_l_hand_str = 'icons/mob/items/storage/lefthand_backpacks.dmi',
-		slot_r_hand_str = 'icons/mob/items/storage/righthand_backpacks.dmi'
-		)
+	icon = 'icons/obj/storage/backpack.dmi'
 	icon_state = "backpack"
-	item_state = null
-	//most backpacks use the default backpack state for inhand overlays
-	item_state_slots = list(
-		slot_l_hand_str = "backpack",
-		slot_r_hand_str = "backpack"
-		)
+	item_state = "backpack"
+	contained_sprite = TRUE
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/back.dmi'
 	)
@@ -59,13 +52,6 @@
 	return 1
 
 /*
-/obj/item/storage/backpack/dropped(mob/user as mob)
-	if (loc == user && src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..(user)
-*/
-
-/*
  * Backpack Types
  */
 
@@ -77,10 +63,6 @@
 	max_w_class = ITEMSIZE_LARGE
 	max_storage_space = 56
 	storage_cost = 29
-	item_state_slots = list(
-		slot_l_hand_str = "holdingpack",
-		slot_r_hand_str = "holdingpack"
-		)
 	empty_delay = 0.8 SECOND
 
 	attackby(obj/item/W as obj, mob/user as mob)
@@ -103,7 +85,6 @@
 	item_state = "giftbag"
 	w_class = ITEMSIZE_LARGE
 	max_storage_space = 400 // can store a ton of shit!
-	item_state_slots = null
 	empty_delay = 1 SECOND
 
 /obj/item/storage/backpack/cultpack
@@ -112,34 +93,24 @@
 	desc_cult = null
 	icon_state = "cultpack"
 
-/obj/item/storage/backpack/cultpack/adorned
-	name = "adorned backpack"
-	desc = "A backpack adorned with various decorations."
-
 /obj/item/storage/backpack/medic
 	name = "medical backpack"
 	desc = "It's a backpack especially designed for use in a sterile environment."
 	icon_state = "medicalpack"
-	item_state_slots = null
-
 /obj/item/storage/backpack/security
 	name = "security backpack"
 	desc = "It's a very robust backpack."
 	icon_state = "securitypack"
-	item_state_slots = null
-
 /obj/item/storage/backpack/captain
 	name = "captain's backpack"
 	desc = "It's a special backpack made exclusively for officers."
 	icon_state = "captainpack"
-	item_state_slots = null
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/industrial
 	name = "industrial backpack"
 	desc = "It's a tough backpack for the daily grind of station life."
 	icon_state = "engiepack"
-	item_state_slots = null
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/toxins
@@ -152,16 +123,6 @@
 	desc = "It's a green backpack with many pockets to store plants and tools in."
 	icon_state = "hydpack"
 
-/obj/item/storage/backpack/genetics
-	name = "geneticist backpack"
-	desc = "It's a backpack fitted with slots for diskettes and other workplace tools."
-	icon_state = "genpack"
-
-/obj/item/storage/backpack/virology
-	name = "sterile backpack"
-	desc = "It's a sterile backpack able to withstand different pathogens from entering its fabric."
-	icon_state = "viropack"
-
 /obj/item/storage/backpack/pharmacy
 	name = "pharmacy backpack"
 	desc = "It's an orange backpack which was designed to hold beakers, pill bottles and bottles."
@@ -173,12 +134,6 @@
 	icon_state = "syndiepack"
 	empty_delay = 0.8 SECOND
 
-/obj/item/storage/backpack/wizard
-	name = "magical sack"
-	desc = "Perfect for keeping your shining crystal balls inside of. May not contain actual magic."
-	icon_state = "wizardpack"
-	empty_delay = 0.8 SECOND
-
 /*
  * Satchel Types
  */
@@ -186,16 +141,13 @@
 /obj/item/storage/backpack/satchel
 	name = "leather satchel"
 	desc = "It's a very fancy satchel made with fine leather."
-	icon_state = "satchel"
-	item_state_slots = list(
-		slot_l_hand_str = "satchel",
-		slot_r_hand_str = "satchel"
-		)
+	icon = 'icons/obj/storage/satchel.dmi'
+	icon_state = "satchel_leather"
+	item_state = "satchel_leather"
 
-/obj/item/storage/backpack/satchel/withwallet
-	New()
-		..()
-		new /obj/item/storage/wallet/random( src )
+/obj/item/storage/backpack/satchel/withwallet/New()
+	..()
+	new /obj/item/storage/wallet/random( src )
 
 /obj/item/storage/backpack/satchel/hegemony
 	name = "hegemony satchel"
@@ -203,7 +155,6 @@
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "hegemony_satchel"
 	item_state = "hegemony_satchel"
-	contained_sprite = TRUE
 	max_storage_space = 32
 	allow_quick_empty = FALSE // Pouches 'n shit.
 
@@ -216,35 +167,17 @@
 	name = "industrial satchel"
 	desc = "A tough satchel with extra pockets."
 	icon_state = "satchel-eng"
-	item_state_slots = list(
-		slot_l_hand_str = "engiepack",
-		slot_r_hand_str = "engiepack"
-		)
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/satchel_med
 	name = "medical satchel"
 	desc = "A sterile satchel used in medical departments."
 	icon_state = "satchel-med"
-	item_state_slots = list(
-		slot_l_hand_str = "medicalpack",
-		slot_r_hand_str = "medicalpack"
-		)
-
-/obj/item/storage/backpack/satchel_vir
-	name = "virologist satchel"
-	desc = "A sterile satchel with virologist colours."
-	icon_state = "satchel-vir"
 
 /obj/item/storage/backpack/satchel_pharm
 	name = "pharmacist satchel"
 	desc = "A sterile satchel with pharmacist colours."
 	icon_state = "satchel-chem"
-
-/obj/item/storage/backpack/satchel_gen
-	name = "geneticist satchel"
-	desc = "A sterile satchel with geneticist colours."
-	icon_state = "satchel-gen"
 
 /obj/item/storage/backpack/satchel_tox
 	name = "scientist satchel"
@@ -255,24 +188,16 @@
 	name = "security satchel"
 	desc = "A robust satchel for security related needs."
 	icon_state = "satchel-sec"
-	item_state_slots = list(
-		slot_l_hand_str = "securitypack",
-		slot_r_hand_str = "securitypack"
-		)
 
 /obj/item/storage/backpack/satchel_hyd
 	name = "hydroponics satchel"
 	desc = "A green satchel for plant related work."
-	icon_state = "satchel_hyd"
+	icon_state = "satchel-hyd"
 
 /obj/item/storage/backpack/satchel_cap
 	name = "captain's satchel"
 	desc = "An exclusive satchel for officers."
 	icon_state = "satchel-cap"
-	item_state_slots = list(
-		slot_l_hand_str = "satchel-cap",
-		slot_r_hand_str = "satchel-cap"
-		)
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/satchel_syndie
@@ -281,21 +206,11 @@
 	icon_state = "satchel-syndie"
 	empty_delay = 0.8 SECOND
 
-/obj/item/storage/backpack/satchel_wizard
-	name = "magic satchel"
-	desc = "This stylish satchel will put a spell on anyone with some fashion sense to spare. Contains %0 actual magic."
-	icon_state = "satchel-wizard"
-	empty_delay = 0.8 SECOND
-
 //ERT backpacks.
 /obj/item/storage/backpack/ert
 	name = "emergency response team backpack"
 	desc = "A spacious backpack with lots of pockets, used by members of the Emergency Response Team."
 	icon_state = "ert_commander"
-	item_state_slots = list(
-		slot_l_hand_str = "securitypack",
-		slot_r_hand_str = "securitypack"
-		)
 	empty_delay = 0.8 SECOND
 
 //Commander
@@ -327,10 +242,6 @@
 	name = "duffel bag"
 	desc = "A spacious duffel bag."
 	icon_state = "duffel-norm"
-	item_state_slots = list(
-		slot_l_hand_str = "duffle",
-		slot_r_hand_str = "duffle"
-	)
 	slowdown = 1
 	max_storage_space = 38
 
@@ -338,10 +249,6 @@
 	name = "captain's duffel bag"
 	desc = "A rare and special duffel bag for only the most air-headed of SCC personnel."
 	icon_state = "duffel-captain"
-	item_state_slots = list(
-		slot_l_hand_str = "duffle_captain",
-		slot_r_hand_str = "duffle_captain"
-	)
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/duffel/hyd
@@ -349,32 +256,15 @@
 	desc = "A specially designed duffel bag for containing plant matter, regardless of how questionable it may be."
 	icon_state = "duffel-hydroponics"
 
-/obj/item/storage/backpack/duffel/vir
-	name = "virology duffel bag"
-	desc = "A sterilized duffel bag suited to those about to unleash pathogenic havoc upon the world."
-	icon_state = "duffel-virology"
-	item_state_slots = list(
-		slot_l_hand_str = "duffle_med",
-		slot_r_hand_str = "duffle_med"
-	)
-
 /obj/item/storage/backpack/duffel/med
 	name = "medical duffel bag"
 	desc = "A sterilized duffel bag for the young, upcoming lesbayan."
 	icon_state = "duffel-medical"
-	item_state_slots = list(
-		slot_l_hand_str = "duffle_med",
-		slot_r_hand_str = "duffle_med"
-	)
 
 /obj/item/storage/backpack/duffel/eng
 	name = "industrial duffel bag"
 	desc = "A rough and tumble duffel bag for the hard working wrench-monkey of tomorrow."
 	icon_state = "duffel-engineering"
-	item_state_slots = list(
-		slot_l_hand_str = "duffle_eng",
-		slot_r_hand_str = "duffle_eng"
-	)
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/duffel/tox
@@ -387,35 +277,15 @@
 	desc = "A grey and blue duffel bag for the boys in colour, with room for all the batons and flashbangs you could ever need."
 	icon_state = "duffel-security"
 
-/obj/item/storage/backpack/duffel/gen
-	name = "genetics duffel bag"
-	desc = "It sure won't hold your genes together, but it'll keep the denim ones safe."
-	icon_state = "duffel-genetics"
-
 /obj/item/storage/backpack/duffel/pharm
 	name = "pharmacy duffel bag"
 	desc = "Spice up the love life a little."
 	icon_state = "duffel-chemistry"
-	item_state_slots = list(
-		slot_l_hand_str = "duffle_med",
-		slot_r_hand_str = "duffle_med"
-	)
 
 /obj/item/storage/backpack/duffel/syndie
 	name = "syndicate duffel bag"
 	desc = "A snazzy black and red duffel bag, perfect for smuggling C4 and Parapens. It seems to be made of a lighter material."
 	icon_state = "duffel-syndie"
-	item_state_slots = list(
-		slot_l_hand_str = "duffle_syndie",
-		slot_r_hand_str = "duffle_syndie"
-	)
-	slowdown = 0
-	empty_delay = 0.8 SECOND
-
-/obj/item/storage/backpack/duffel/wizard
-	name = "magical duffel bag"
-	desc = "A fancy blue spell bag, duffel edition. Comes with zero spells because magic isn't real, nerd."
-	icon_state = "duffel-wizard"
 	slowdown = 0
 	empty_delay = 0.8 SECOND
 
@@ -426,6 +296,7 @@
 /obj/item/storage/backpack/messenger
 	name = "messenger bag"
 	desc = "A sturdy backpack worn over one shoulder."
+	icon = 'icons/obj/storage/courierbag.dmi'
 	icon_state = "courierbag"
 
 /obj/item/storage/backpack/messenger/pharm
@@ -438,21 +309,10 @@
 	desc = "A sterile backpack worn over one shoulder used in medical departments."
 	icon_state = "courierbagmed"
 
-/obj/item/storage/backpack/messenger/viro
-	name = "virology messenger bag"
-	desc = "A sterile backpack worn over one shoulder.  This one is in virology colors."
-	icon_state = "courierbagviro"
-
 /obj/item/storage/backpack/messenger/tox
 	name = "research messenger bag"
 	desc = "A backpack worn over one shoulder.  Useful for holding science materials."
 	icon_state = "courierbagtox"
-
-/obj/item/storage/backpack/messenger/gen
-	name = "geneticist messenger bag"
-	desc = "A backpack worn over one shoulder.  Useful for holding DNA injectors and data disks."
-	icon_state = "courierbaggenetics"
-
 /obj/item/storage/backpack/messenger/com
 	name = "captain's messenger bag"
 	desc = "A special backpack worn over one shoulder.  This one is made specifically for command officers."
@@ -479,11 +339,6 @@
 	name = "syndicate messenger bag"
 	desc = "A sturdy backpack worn over one shoulder. This one is in red and black menacing colors."
 	icon_state = "courierbagsyndie"
-
-/obj/item/storage/backpack/messenger/wizard
-	name = "wizardly messenger bag"
-	desc = "A wizardly backpack worn over one shoulder. This one is in blue and purple colors."
-	icon_state = "courierbagwizard"
 
 /obj/item/storage/backpack/legion
 	name = "military rucksack"
@@ -554,28 +409,29 @@
 /obj/item/storage/backpack/rucksack
 	name = "black rucksack"
 	desc = "A sturdy, military-grade backpack with low-profile straps. Designed to work well with armor."
+	icon = 'icons/obj/storage/rucksack.dmi'
 	icon_state = "rucksack"
-	item_state_slots = list(slot_l_hand_str = "rucksack", slot_r_hand_str = "rucksack")
+	item_state = "rucksack"
 
 /obj/item/storage/backpack/rucksack/blue
 	name = "blue rucksack"
 	icon_state = "rucksack_blue"
-	item_state_slots = list(slot_l_hand_str = "rucksack_blue", slot_r_hand_str = "rucksack_blue")
+	item_state = "rucksack_blue"
 
 /obj/item/storage/backpack/rucksack/green
 	name = "green rucksack"
 	icon_state = "rucksack_green"
-	item_state_slots = list(slot_l_hand_str = "rucksack_green", slot_r_hand_str = "rucksack_green")
+	item_state = "rucksack_green"
 
 /obj/item/storage/backpack/rucksack/navy
 	name = "navy rucksack"
 	icon_state = "rucksack_navy"
-	item_state_slots = list(slot_l_hand_str = "rucksack_navy", slot_r_hand_str = "rucksack_navy")
+	item_state = "rucksack_navy"
 
 /obj/item/storage/backpack/rucksack/tan
 	name = "tan rucksack"
 	icon_state = "rucksack_tan"
-	item_state_slots = list(slot_l_hand_str = "rucksack_tan", slot_r_hand_str = "rucksack_tan")
+	item_state = "rucksack_tan"
 
 /*
  * Colored satchels
@@ -584,9 +440,15 @@
 /obj/item/storage/backpack/satchel/leather //brown, master type
 	name = "brown leather satchel"
 	desc = "A very fancy satchel made of some kind of leather."
-	icon_state = "satchel_colored"
-	item_state = "satchel_colored"
+	icon_state = "satchel"
+	item_state = "satchel"
+	build_from_parts = TRUE
+	worn_overlay = "overlay"
 	color = "#3d2711"
+
+/obj/item/storage/backpack/satchel/leather/Initialize()
+	update_icon()
+	. = ..()
 
 /obj/item/storage/backpack/satchel/leather/khaki
 	name = "khaki leather satchel"
@@ -621,7 +483,13 @@
 	slot_flags = SLOT_BACK
 	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 20
+	build_from_parts = TRUE
+	worn_overlay = "overlay"
 	color = "#212121"
+
+/obj/item/storage/backpack/satchel/pocketbook/Initialize()
+	update_icon()
+	. = ..()
 
 /obj/item/storage/backpack/satchel/pocketbook/brown
 	name = "brown pocketbook"
@@ -647,8 +515,10 @@
 /obj/item/storage/backpack/cloak
 	name = "tunnel cloak"
 	desc = "A Vaurca cloak with storage pockets."
+	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "cape"
 	item_state = "cape"
+	contained_sprite = FALSE
 	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi', BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/back.dmi')
 	var/hooded = FALSE
 
