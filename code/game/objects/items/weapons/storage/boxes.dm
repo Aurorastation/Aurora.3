@@ -462,6 +462,20 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
 	desc_antag = "Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes."
 
+/obj/item/storage/box/janitorgloves
+	name = "janitorial gloves box"
+	desc = "A box full of janitorial gloves of all shapes and sizes."
+	max_storage_space = 4
+	can_hold = list(
+		/obj/item/clothing/gloves/janitor
+	)
+	starts_with = list(
+		/obj/item/clothing/gloves/janitor = 1,
+		/obj/item/clothing/gloves/janitor/tajara = 1,
+		/obj/item/clothing/gloves/janitor/unathi = 1,
+		/obj/item/clothing/gloves/janitor/vaurca = 1
+	)
+
 /obj/item/storage/box/monkeycubes
 	name = "monkey cube box"
 	desc = "Drymate brand monkey cubes. Just add water!"
