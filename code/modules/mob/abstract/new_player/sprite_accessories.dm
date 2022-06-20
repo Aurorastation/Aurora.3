@@ -1122,17 +1122,17 @@ Follow by example and make good judgement based on length which list to include 
 		chatname = "fringe"
 
 	punk_chelseafringe_bighawk
-		name = "Punk Shave, Chelsea Fringe Big Hawk"
+		name = "Punk Shave, Chelsea Big Hawk"
 		icon_state = "hair_punk_chelseafringe_bighawk"
 		chatname = "mohawk"
 
 	punk_chelseafringe_smallhawk
-		name = "Punk Shave, Chelsea Fringe Small Hawk"
+		name = "Punk Shave, Chelsea Small Hawk"
 		icon_state = "hair_punk_chelseafringe_smallhawk"
 		chatname = "mohawk"
 
 	punk_chelseafringe_ponytail
-		name = "Punk Shave, Chelsea Fringe Ponytail"
+		name = "Punk Shave, Chelsea Ponytail"
 		icon_state = "hair_punk_chelseafringe_ponytail"
 		chatname = "ponytail"
 
