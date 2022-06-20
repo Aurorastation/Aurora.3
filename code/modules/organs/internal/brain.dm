@@ -226,3 +226,6 @@
 			to_chat(user, SPAN_WARNING("The brain has already been prepared!"))
 		return
 	return ..()
+
+/obj/item/organ/internal/brain/zombie
+	relative_size = 100

@@ -289,7 +289,7 @@
 			attack.apply_effects(H, src, rand_damage, hit_zone)
 
 			// Finally, apply damage to target
-			apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags)
+			apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags, armor_pen = attack.armor_penetration)
 
 
 			if(M.resting && src.help_up_offer)

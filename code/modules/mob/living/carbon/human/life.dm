@@ -921,7 +921,8 @@
 
 				var/no_damage = 1
 				var/trauma_val = 0 // Used in calculating softcrit/hardcrit indicators.
-				trauma_val = max(shock_stage,get_shock())/(species.total_health-100)
+				if(can_feel_pain())
+					trauma_val = max(shock_stage,get_shock())/(species.total_health-100)
 				// Collect and apply the images all at once to avoid appearance churn.
 				var/list/health_images = list()
 				for(var/obj/item/organ/external/E in organs)
