@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Fixed the punk shave bun alt hairstyle not being saved by removing the parenthesis surrounding 'alt'."
+  - bugfix: "Fixed the punk shave bun alt hairstyle and the Chelsea hairstyles not saving by shorterning their names a bit. The Chelsea hairstyles lost the 'fringe' bit of their names and the punk shaved alt hairstyles lost the parentheses around 'alt'."
