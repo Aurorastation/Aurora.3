@@ -1,0 +1,6 @@
+author: Forester40
+
+delete-after: True
+
+changes:
+  - spellcheck: "Fixed some typos in the Nanotrasen, Zavodskoi, Aemaq and Medina descriptions in the character setup screen."
