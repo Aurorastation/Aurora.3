@@ -1122,17 +1122,17 @@ Follow by example and make good judgement based on length which list to include 
 		chatname = "fringe"
 
 	punk_chelseafringe_bighawk
-		name = "Punk Shave, Chelsea Fringe Big Hawk"
+		name = "Punk Shave, Chelsea Big Hawk"
 		icon_state = "hair_punk_chelseafringe_bighawk"
 		chatname = "mohawk"
 
 	punk_chelseafringe_smallhawk
-		name = "Punk Shave, Chelsea Fringe Small Hawk"
+		name = "Punk Shave, Chelsea Small Hawk"
 		icon_state = "hair_punk_chelseafringe_smallhawk"
 		chatname = "mohawk"
 
 	punk_chelseafringe_ponytail
-		name = "Punk Shave, Chelsea Fringe Ponytail"
+		name = "Punk Shave, Chelsea Ponytail"
 		icon_state = "hair_punk_chelseafringe_ponytail"
 		chatname = "ponytail"
 
@@ -1142,7 +1142,7 @@ Follow by example and make good judgement based on length which list to include 
 		chatname = "unshaved hair"		// grabbing the parts that can be grabbed
 
 	punk_halfshaved_alt
-		name = "Punk Shave, Half-Shaved (alt)"
+		name = "Punk Shave, Half-Shaved Alt"
 		icon_state = "hair_punk_halfshaved_alt"
 		chatname = "unshaved hair"
 
@@ -1153,7 +1153,7 @@ Follow by example and make good judgement based on length which list to include 
 		chatname = "hair bun"
 
 	punk_halfshaved_bun_alt
-		name = "Punk Shave, Half-Shaved Bun (alt)"
+		name = "Punk Shave, Half-Shaved Bun Alt"
 		icon_state = "hair_punk_halfshaved_bun_alt"
 		length = 2
 		chatname = "hair bun"

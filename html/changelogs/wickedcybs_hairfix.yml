@@ -1,0 +1,6 @@
+author: Wickedcybs
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the punk shave bun alt hairstyle and the Chelsea hairstyles not saving by shorterning their names a bit. The Chelsea hairstyles lost the 'fringe' bit of their names and the punk shaved alt hairstyles lost the parentheses around 'alt'."
