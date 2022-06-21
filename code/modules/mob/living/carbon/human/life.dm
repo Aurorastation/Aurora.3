@@ -1116,6 +1116,8 @@
 		Paralyse(3)
 		return
 	if(!can_feel_pain())
+		if(isSynthetic() &&(get_total_health() < maxHealth * 0.5))
+			stuttering = max(stuttering, 5)
 		return
 
 	if(is_asystole)
