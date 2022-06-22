@@ -1,7 +1,6 @@
 /obj/structure/closet/crate/secure/gear_loadout
 	desc = "A secure gear crate."
 	name = "gear crate"
-	req_access = list(access_syndicate)
 
 /obj/structure/closet/crate/gear_loadout/hephaestus
 	desc = "A sturdy crate with Hephaestus Industries branding."
