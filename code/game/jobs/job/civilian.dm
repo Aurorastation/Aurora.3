@@ -291,6 +291,13 @@
 	l_hand = /obj/item/modular_computer/laptop/preset
 	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
+/datum/outfit/job/librarian/tech_support/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(visualsOnly)
+		r_hand = null
+	else
+		r_hand = initial(r_hand)
+	return ..()
+
 /datum/job/chaplain
 	title = "Chaplain"
 	flag = CHAPLAIN

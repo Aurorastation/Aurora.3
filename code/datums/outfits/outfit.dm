@@ -357,15 +357,6 @@
 		else
 			H.equip_or_collect(I, slot_wear_id)
 
-	if(id)
-		var/obj/item/modular_computer/P = H.wear_id
-		var/obj/item/I = new id(H)
-		imprint_idcard(H,I)
-		if(istype(P) && P.card_slot)
-			addtimer(CALLBACK(src, .proc/register_pda, P, I), 2 SECOND)
-		else
-			H.equip_or_collect(I, slot_wear_id)
-
 	if(!visualsOnly) // Items in pockets or backpack don't show up on mob's icon.
 		if(l_pocket)
 			equip_item(H, l_pocket, slot_l_store)
@@ -380,6 +371,15 @@
 			var/number = belt_contents[path]
 			for(var/i in 1 to number)
 				H.equip_or_collect(new path(H), slot_in_belt)
+
+		if(id)
+			var/obj/item/modular_computer/P = H.wear_id
+			var/obj/item/I = new id(H)
+			imprint_idcard(H,I)
+			if(istype(P) && P.card_slot)
+				addtimer(CALLBACK(src, .proc/register_pda, P, I), 2 SECOND)
+			else
+				H.equip_or_collect(I, slot_wear_id)
 
 	post_equip(H, visualsOnly)
 
