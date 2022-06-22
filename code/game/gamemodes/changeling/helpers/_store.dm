@@ -215,9 +215,9 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/horror_form
 	name = "Horror Form"
-	desc = "We tear apart our human disguise, revealing our true and ultimate form."
-	helptext = "We will assume our ultimate form. This is irreversibile."
-	genomecost = 10
+	desc = "We tear apart our human disguise, revealing our true form."
+	helptext = "We will return to our current form after ten minutes."
+	genomecost = 15
 	verbpath = /mob/proc/horror_form
 
 // Modularchangling, totally stolen from the new player panel.  YAYY
