@@ -2116,7 +2116,6 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "psych"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/wall,
 /area/medical/psych)
 "dO" = (
@@ -5438,6 +5437,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "jU" = (
+/obj/structure/flora/pottedplant/random,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -5993,13 +5993,6 @@
 /obj/item/folder/yellow,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
-"kS" = (
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 10
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/white,
-/area/hallway/medical/upper)
 "kT" = (
 /obj/structure/table/standard,
 /obj/item/device/hand_labeler{
@@ -6659,10 +6652,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
-"mc" = (
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/wood,
-/area/medical/psych)
 "md" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/captain)
@@ -12088,17 +12077,10 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "we" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 5
-	},
-/obj/structure/disposalpipe/junction{
-	dir = 8;
-	icon_state = "pipe-j2"
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/open,
 /area/hallway/medical/upper)
 "wf" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -23869,7 +23851,14 @@
 /obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
 	id = "psych"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/psych)
@@ -43700,7 +43689,7 @@ HI
 dQ
 Ew
 Za
-My
+we
 VY
 My
 Ow
@@ -44107,7 +44096,7 @@ RA
 MO
 jK
 jU
-mc
+bZ
 nr
 HK
 Lh
@@ -44303,8 +44292,8 @@ or
 TZ
 uw
 wB
-we
-kS
+aY
+qc
 ok
 ku
 Se
