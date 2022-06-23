@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - maptweak: "Remapped the Pharmacy. Widens it slightly, and adds in a 'containment box' to prevent the entire pharmacy from burning up immediately in the event of a phoron fire.
+  - maptweak: "Remapped the Pharmacy. Widens it slightly, and adds in a 'containment box' to prevent the entire pharmacy from burning up immediately in the event of a phoron fire."
   - maptweak: "Moved the psychiatrist office to Deck 3, overlooking the medical bay. Similar to the Aurora map."
   - maptweak: "Added a 'medical breakroom' in the left over space from the psych office move. It's more like a coffee closet. Without the coffee."
