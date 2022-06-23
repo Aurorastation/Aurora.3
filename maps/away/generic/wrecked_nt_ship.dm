@@ -6,7 +6,6 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "wrecked_nt_ship"
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /decl/submap_archetype/wrecked_nt_ship
 	map = "wrecked_nt_ship"
