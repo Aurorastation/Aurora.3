@@ -2112,13 +2112,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
-"dN" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/polarized{
-	id = "psych"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/wall,
-/area/medical/psych)
 "dO" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -43908,11 +43901,11 @@ wH
 Pt
 Vs
 WS
-dN
-dN
-dN
-dN
-dN
+RA
+RA
+RA
+RA
+RA
 nr
 jF
 nr
