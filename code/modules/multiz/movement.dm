@@ -684,7 +684,7 @@
  *
  * @return	The /mob/living that was hit. null if no mob was hit.
  */
-/atom/movable/proc/fall_collateral(levels_fallen, stopped_early = FALSE)
+/atom/movable/proc/fall_collateral(levels_fallen, stopped_early = FALSE, armor_penetration = 0)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
 	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
@@ -727,8 +727,9 @@
 	if (ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/cranial_damage = rand(0,damage/2)
-		H.apply_damage(cranial_damage, BRUTE, BP_HEAD)
-		H.apply_damage((damage - cranial_damage), BRUTE, BP_CHEST)
+		H.apply_damage(cranial_damage, BRUTE, BP_HEAD, armor_pen = cranial_damage + armor_penetration)
+		var/new_damage = damage - cranial_damage
+		H.apply_damage(new_damage, BRUTE, BP_CHEST, armor_pen = new_damage + armor_penetration)
 
 		if (damage >= THROWNOBJ_KNOCKBACK_DIVISOR)
 			H.Weaken(rand(damage / 4, damage / 2))
@@ -753,6 +754,9 @@
 
 	if (.)
 		to_chat(src, SPAN_DANGER("You fell ontop of \the [.]!"))
+
+/obj/fall_collateral(levels_fallen, stopped_early = FALSE, armor_penetration)
+	. = ..(levels_fallen, stopped_early, src.armor_penetration)
 
 /**
  * Helper proc for customizing which attributes should be used in fall damage
