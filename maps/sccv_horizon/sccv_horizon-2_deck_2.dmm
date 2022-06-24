@@ -7999,6 +7999,9 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "eqe" = (
@@ -18340,7 +18343,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "jTQ" = (
@@ -24837,9 +24843,12 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
@@ -28352,6 +28361,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/coatrack,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "pwy" = (
@@ -30656,7 +30666,6 @@
 	pixel_y = 7
 	},
 /obj/item/pen,
-/obj/item/screwdriver,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "qFW" = (
@@ -33889,8 +33898,9 @@
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "spM" = (
-/obj/structure/disposalpipe/junction{
-	dir = 1
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
@@ -35532,6 +35542,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "tpc" = (
@@ -41349,6 +41360,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/item/wrench,
+/obj/item/screwdriver,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "wnA" = (
