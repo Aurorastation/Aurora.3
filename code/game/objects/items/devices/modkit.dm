@@ -173,13 +173,13 @@
 		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/srf,
 		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/srf,
 		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/league,
-		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/league,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/league,
 		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/fsf,
-		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/fsf,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/fsf,
 		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/ssmd,
-		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/ssmd,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/ssmd,
 		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/spg,
-		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/spg,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/spg,
 		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/mrsp,
-		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/mrsp
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/mrsp
 	)
