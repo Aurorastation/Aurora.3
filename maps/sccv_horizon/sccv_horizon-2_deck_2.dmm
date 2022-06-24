@@ -13221,6 +13221,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "hdG" = (
@@ -22850,12 +22851,7 @@
 	dir = 10
 	},
 /obj/structure/closet/wardrobe/pharmacy_white,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/vaurca,
-/obj/item/clothing/gloves/latex/nitrile/vaurca,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "mCE" = (
@@ -30244,6 +30240,14 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/horizon/crew_quarters/washroom/central)
+"qzF" = (
+/obj/structure/closet/secure_closet/scientist,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/carpet/rubber,
+/area/rnd/strongroom)
 "qzH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -30587,6 +30591,10 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"qGa" = (
+/obj/item/storage/box/gloves,
+/turf/simulated/wall,
+/area/medical/or1)
 "qGp" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -39036,8 +39044,6 @@
 "viR" = (
 /obj/structure/closet/secure_closet/RD,
 /obj/item/clothing/mask/gas/half,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/item/device/megaphone/sci,
 /obj/effect/floor_decal/corner/white{
@@ -39046,6 +39052,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "vjN" = (
@@ -39991,10 +39998,6 @@
 /obj/structure/closet/secure_closet/scientist,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/storage/box/gloves,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
@@ -60624,8 +60627,8 @@ qgf
 xhj
 wxr
 wxr
-wxr
-wxr
+qGa
+qGa
 nIi
 tHs
 uZU
@@ -71941,7 +71944,7 @@ iic
 gBT
 urh
 tvX
-vLu
+qzF
 vLu
 kGX
 vEg
