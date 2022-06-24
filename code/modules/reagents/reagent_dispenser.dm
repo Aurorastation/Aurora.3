@@ -263,8 +263,8 @@
 	reagents_to_add = list(/decl/reagent/luminol = 1000)
 
 /obj/structure/reagent_dispensers/peppertank/spacecleaner
-	name = "space cleaner dispenser"
-	desc = "A dispenser to refill space cleaner bottles and backpack cleaner tanks."
+	name = "cleaner dispenser"
+	desc = "A wall-mounted dispenser filled with cleaner. Used to refill cleaner bottles and cleaner tanks."
 	icon_state = "cleanertank"
 	amount_per_transfer_from_this = 250
 	reagents_to_add = list(/decl/reagent/spacecleaner = 1000)
