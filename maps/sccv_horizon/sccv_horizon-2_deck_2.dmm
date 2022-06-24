@@ -18096,7 +18096,7 @@
 	pixel_x = -30;
 	pixel_y = -4
 	},
-/obj/structure/bed/stool/chair/sofa/black,
+/obj/structure/bed/stool/chair/sofa/right/beige,
 /turf/simulated/floor/wood,
 /area/crew_quarters/medbreak)
 "jKV" = (
@@ -36809,7 +36809,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair/sofa/black,
+/obj/structure/bed/stool/chair/sofa/left/beige,
 /turf/simulated/floor/wood,
 /area/crew_quarters/medbreak)
 "tZz" = (
