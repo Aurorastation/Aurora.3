@@ -169,7 +169,7 @@
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
 	or else it will be deleted."
 	w_class = ITEMSIZE_SMALL
-	var/list/suit_options = list(
+	suit_options = list(
 		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/srf,
 		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/srf,
 		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/league,
