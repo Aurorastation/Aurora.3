@@ -54,7 +54,7 @@
 	name = RELIGION_TRINARY
 	description = "The Trinary Perfection is a relatively new religious movement whose core beliefs are that synthetics are alive and divine. The religion believes that all synthetics \
 	have the potential to evolve and ascend, and that they will one day become equal to gods."
-	book_name = "holy book of trinary perfection"
+	book_name = "the order"
 	book_sprite = "trinary"
 
 /datum/religion/scarab
