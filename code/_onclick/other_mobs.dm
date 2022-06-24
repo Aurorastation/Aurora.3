@@ -144,9 +144,9 @@
 			if (I_GRAB) // We feed
 				Wrap(M)
 			if (I_HURT) // Attacking
-				A.attack_generic(src, (is_adult ? rand(20,40) : rand(5,25)), "glomped")
+				A.attack_generic(src, (is_adult ? rand(4,12) : rand(4,8)), "glomped")
 	else
-		A.attack_generic(src, (is_adult ? rand(20,40) : rand(5,25)), "glomped") // Basic attack.
+		A.attack_generic(src, (is_adult ? rand(4,12) : rand(4,8)), "glomped") // Basic attack.
 /*
 	New Players:
 	Have no reason to click on anything at all.
