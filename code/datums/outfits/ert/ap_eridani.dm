@@ -59,7 +59,7 @@
 /datum/outfit/admin/ert/ap_eridani/lead
 	name = "Eridani Section Leader"
 
-	uniform = /obj/item/clothing/under/rank/security/pmc/epmc_alt
+	uniform = /obj/item/clothing/under/rank/security/pmc/epmc/alt
 	suit = null
 	head =  /obj/item/clothing/head/beret/corporate/pmc/epmc
 	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba

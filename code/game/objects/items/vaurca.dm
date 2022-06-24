@@ -4,7 +4,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "zora_projector"
 	worlds_selection = list("Ocean", "Hive War Exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
-	message_frequency = 9
+	message_frequency = 10
 
 /obj/item/skrell_projector/vaurca_projector/attack_self(mob/user as mob)
 	working = !working
@@ -61,22 +61,22 @@
 				hologram_message = pick("You see a golden fortress floating majestically above an ocean of sapphire.",
 										"A euphoric smell of the ocean fills your senses as the water gently ebbs and flows.",
 										"You hear the faint humming of a hymn as a gentle wave envelops the viewfinder.",
-                                        "You can hear a quiet celestial chanting the source of which feels just beyond sight",
+                                        "You can hear a quiet celestial chanting the source of which feels just beyond sight.",
                                         "The turquoise water emits a jubilant smell of freshly cut lemons which lasts for only for a moment.",
                                         "You see the gas giant Sedantis dominating a starry sky.")
-			if("Hive War exhibition")
+			if("Hive War Exhibition")
 				hologram_message = pick("You see a carefully crafted exhibition detailing the Great Hive War. It explains in brief the details of the event through paintings and dioramas.",
 										"You smell burning and rusted metal. An exhibition showcases the Battle of a Thousand Titans.",
 										"You see a  memorial to the lives lost, a sad hymn flowing in the background.")
 
 			if("Celestial Landing Ground")
 				hologram_message = pick("An awe inspiring fortress of gold dominates the landscape and bathes the surrounding area in yellow luminescence.",
-										"A loud hymn is chanted in an unknown language accompanied by a smell of morning Dew in the countryside.",
+										"A loud hymn is chanted in an unknown language accompanied by a smell of morning dew in the countryside.",
 										"Unbound workers moving through the realm stop to gaze up in awe at the distant structure before returning to previous activities.",
                                         "Distant chattering can be heard coming from the fortress including what sounds almost like jovial laughter.",
                                         "The turquoise water emits a jubilant smell of freshly cut lemons which lasts for only for a moment.",
                                         "You see the gas giant Sedantis dominating a starry sky.",
-										"For a moment the Golden Fortress towering above starts to glimmer majestically catching the light from the imposing gas giant in the sky")
+										"For a moment the Golden Fortress towering above starts to glimmer majestically, catching the light from the imposing gas giant in the sky.")
 
 			if("City of New Sedantis")
 				hologram_message = pick("A towering cavernous city takes up the viewfinder, great buildings of stone jutting out of the ground and twisting towards the ceiling.",

@@ -35753,8 +35753,8 @@
 /area/horizon/holodeck/source_picnicarea)
 "bJI" = (
 /turf/simulated/floor/holofloor/beach/sand{
-	icon_state = "beachcorner";
-	dir = 4
+	dir = 4;
+	icon_state = "beachcorner"
 	},
 /area/horizon/holodeck/source_desert)
 "bJJ" = (
@@ -35983,14 +35983,14 @@
 "bKD" = (
 /obj/structure/flora/ausbushes/palebush,
 /turf/simulated/floor/holofloor/beach/sand{
-	icon_state = "beachcorner";
-	dir = 1
+	dir = 1;
+	icon_state = "beachcorner"
 	},
 /area/horizon/holodeck/source_desert)
 "bKE" = (
 /turf/simulated/floor/holofloor/beach/sand{
-	icon_state = "beachcorner";
-	dir = 8
+	dir = 8;
+	icon_state = "beachcorner"
 	},
 /area/horizon/holodeck/source_desert)
 "bKG" = (
@@ -36976,9 +36976,7 @@
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_theatre)
 "fys" = (
 /obj/effect/floor_decal/corner/red/full,

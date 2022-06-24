@@ -107,7 +107,8 @@
 	caliber = "shotgun"
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
-	reload_sound = 'sound/weapons/reload_shell.ogg'
+	reload_sound = /decl/sound_category/shotgun_reload
+	drop_sound = /decl/sound_category/casing_drop_sound_shotgun
 
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
@@ -336,7 +337,8 @@
 	w_class = ITEMSIZE_NORMAL
 	slot_flags = null
 	max_stack = 1
-	reload_sound = 'sound/weapons/reload_shell.ogg'
+	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
+	drop_sound = /decl/sound_category/generic_drop_sound
 
 /obj/item/ammo_casing/cannon/explosive
 	name = "explosive cannonball"
@@ -357,6 +359,7 @@
 	slot_flags = null
 	desc = "A miniaturized version of a nuclear bomb."
 	projectile_type = /obj/item/projectile/bullet/nuke
+	drop_sound = /decl/sound_category/generic_drop_sound
 	max_stack = 2
 
 /obj/item/ammo_casing/musket
@@ -365,7 +368,7 @@
 	icon_state = "musketball"
 	caliber = "musket"
 	projectile_type = /obj/item/projectile/bullet/pistol/strong
-	reload_sound = 'sound/weapons/reload_shell.ogg'
+	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
 
 /obj/item/ammo_casing/recoilless_rifle
 	name = "anti-tank warhead"
@@ -374,7 +377,7 @@
 	w_class = ITEMSIZE_NORMAL
 	slot_flags = null
 	projectile_type = /obj/item/projectile/bullet/recoilless_rifle
-	reload_sound = 'sound/weapons/reload_shell.ogg'
+	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
 	max_stack = 1
 
 /obj/item/ammo_casing/peac
