@@ -1115,6 +1115,11 @@
 	required = /obj/item/slime_extract/green
 
 /datum/chemical_reaction/slime/bluespace_crystal/on_reaction(var/datum/reagents/holder)
+	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
+	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
+		if(M.eyecheck(TRUE) <= 0)
+			M.flash_eyes()
+
 	new /obj/item/bluespace_crystal(get_turf(holder.my_atom))
 	..()
 
