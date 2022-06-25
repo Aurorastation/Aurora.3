@@ -5,7 +5,7 @@
   * Ensure that you also credit them in the appropirate location / changelog as specified in the contributor guidelines
 
 ### Asset Licenses
-The following assets that havnt been created by myself are included in this PR:
+The following assets that **have not** been created by myself are included in this PR:
 
 | Path | Original Author | License |
 | --- | --- | --- |
