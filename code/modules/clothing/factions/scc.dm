@@ -8,6 +8,7 @@
 
 
 /obj/item/clothing/suit/storage/toggle/armor/vest/scc
+	name = "SCC vest"
 	desc = "A stylish vest worn by SCC personnel."
 	contained_sprite = TRUE
 	icon = 'icons/obj/contained_items/scc.dmi'
@@ -28,8 +29,13 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 
+/obj/item/clothing/suit/storage/toggle/armor/vest/scc/toggle_open()
+	to_chat(usr ,"Safety regulations forbid you from opening the vest while on the job.")
+	return
+
 /obj/item/clothing/accessory/tie/corporate/scc
 	name = "SCC tie"
+	des = "TODO: Add Description HERE."
 	contained_sprite = TRUE
 	icon = 'icons/obj/contained_items/scc.dmi'
 	icon_state = "scc_tie"

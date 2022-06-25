@@ -428,6 +428,7 @@
 	if(!istype(faction))
 		to_client_chat(SPAN_DANGER("Invalid faction chosen. Resetting to default."))
 		selected_faction = SSjobs.default_faction.name
+		return
 
 	if (selected_faction == pref.faction)
 		dat += "<br>\[Faction already selected\]"

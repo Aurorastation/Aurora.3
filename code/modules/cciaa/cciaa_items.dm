@@ -43,7 +43,7 @@
 	set name = "Start Recording"
 	set category = "Recorder"
 
-	if(!check_rights(R_CCIAA,FALSE) || usr.character_id) //TODO: Add a condition here to check the job of the user as an ALTERNATIVE to the char id
+	if(!check_rights(R_CCIAA,FALSE)) //TODO: Add a condition here to check the job of the user as an ALTERNATIVE to the char id
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 	if(use_check_and_message(usr))
@@ -127,7 +127,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 	if(!recording)
@@ -186,7 +186,7 @@
 	set name = "Reset Recorder"
 	set category = "Recorder"
 
-	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 
@@ -228,7 +228,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user\".</span>")
 		return
 	if(recording)
@@ -246,7 +246,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	if(!check_rights(R_CCIAA,FALSE) || usr.character_id)
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user\".</span>")
 		return
 	if(!recording)
@@ -269,7 +269,7 @@
 
 /obj/item/device/taperecorder/cciaa/attack_self(mob/user)
 	//If we are a ccia agent, then always go to the record function (to prompt for the report or start the recording)
-	if(check_rights(R_CCIAA,FALSE) && !user.character_id)
+	if(check_rights(R_CCIAA,FALSE) && !selected_report)
 		record()
 		return
 
