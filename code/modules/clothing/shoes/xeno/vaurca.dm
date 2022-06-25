@@ -42,3 +42,9 @@
 	desc = "Large shoes used by C'thur representatives."
 	item_state = "hive_rep_shoes_cthur"
 	icon_state = "hive_rep_shoes_cthur"
+
+/obj/item/clothing/shoes/vaurca/breeder/jargon
+	name = "jargon representative shoes"
+	desc = "Large shoes used by Jargon representatives."
+	item_state = "hive_rep_shoes_jargon"
+	icon_state = "hive_rep_shoes_jargon"

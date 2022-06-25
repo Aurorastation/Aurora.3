@@ -3235,19 +3235,19 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "breeder_quad"
 			length = 3
 
-		breeder_quad
+		breeder_crownedcrest
 			name = "Breeder Crowned Crest"
 			icon_state = "breeder_crownedcrest"
 			length = 1
 
-		breeder_quad
+		breeder_hammerhead
 			name = "Breeder Hammerhead"
 			icon_state = "breeder_hammerhead"
 			length = 1
 
-		breeder_quad
+		breeder_princess
 			name = "Breeder Princess Antennae"
-			icon_state = "breeder_quad"
+			icon_state = "breeder_princess"
 			length = 2
 
 /datum/sprite_accessory/facial_hair

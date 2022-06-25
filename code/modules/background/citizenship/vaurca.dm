@@ -128,7 +128,7 @@
 	uniform = /obj/item/clothing/under/gearharness
 
 	glasses = null
-	head = /obj/item/clothing/head/klax_breeder
+	head = /obj/item/clothing/head/vaurca_breeder/klax
 	shoes = /obj/item/clothing/shoes/vaurca/breeder/klax
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/klax
@@ -199,7 +199,7 @@
 	uniform = /obj/item/clothing/under/gearharness
 
 	glasses = null
-	head = /obj/item/clothing/head/cthur_breeder
+	head = /obj/item/clothing/head/vaurca_breeder/cthur
 	shoes = /obj/item/clothing/shoes/vaurca/breeder/cthur
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/cthur

@@ -1574,6 +1574,7 @@
 #include "code\modules\clothing\head\xenos\skrell.dm"
 #include "code\modules\clothing\head\xenos\tajara.dm"
 #include "code\modules\clothing\head\xenos\unathi.dm"
+#include "code\modules\clothing\head\xenos\vaurca.dm"
 #include "code\modules\clothing\masks\boxing.dm"
 #include "code\modules\clothing\masks\breath.dm"
 #include "code\modules\clothing\masks\gasmask.dm"
