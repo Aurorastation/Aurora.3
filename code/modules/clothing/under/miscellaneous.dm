@@ -198,7 +198,7 @@
 	desc = "A formal black suit and red tie, intended for the station's finest."
 	icon_state = "really_black_suit"
 	item_state = "jensensuit"
-	worn_state = "black_suit"
+	worn_state = "really_black_suit"
 
 /obj/item/clothing/under/suit_jacket/red
 	name = "red suit"
