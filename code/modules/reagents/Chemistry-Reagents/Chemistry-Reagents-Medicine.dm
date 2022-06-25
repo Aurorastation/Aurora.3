@@ -259,7 +259,7 @@
 	od_minimum_dose = 2
 	scannable = TRUE
 	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
-	ingest_met = REM * 2 // .4 units per tick
+	ingest_met = REM / 3 // Should be 0.06 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sickness"
 	metabolism_min = 0.005
@@ -288,7 +288,7 @@
 	scannable = TRUE
 	od_minimum_dose = 2
 	metabolism = REM / 3.33 // 0.06ish units per tick
-	ingest_met = REM * 2 // .4 units per tick
+	ingest_met = REM / 2.3 // Should be 0.08 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sourness"
 	metabolism_min = 0.005
@@ -354,7 +354,7 @@
 	od_minimum_dose = 2
 	scannable = TRUE
 	metabolism = REM / 3.33 // 0.06ish units per tick
-	ingest_met = REM * 2 // .4 units per tick
+	ingest_met = REM / 1.5 // Should be 0.13 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "bitterness"
 	metabolism_min = 0.005
