@@ -1089,7 +1089,7 @@
 /datum/chemical_reaction/slime/teleportation
 	name = "Slime Teleportation"
 	id = "slimeteleportation"
-	required_reagents = list(/decl/reagent/toxin/phoron = 1)
+	required_reagents = list(/decl/reagent/toxin/phoron = 5)
 	result_amount = 1
 	required = /obj/item/slime_extract/green
 
@@ -1136,7 +1136,7 @@
 	name = "Slime Crit"
 	id = "m_tele"
 	result = null
-	required_reagents = list(/decl/reagent/toxin/phoron = 5)
+	required_reagents = list(/decl/reagent/toxin/phoron = 10)
 	result_amount = 1
 	required = /obj/item/slime_extract/gold
 
@@ -1483,7 +1483,7 @@
 	result = null
 	result_amount = 1
 	required = /obj/item/slime_extract/lightpink
-	required_reagents = list(/decl/reagent/toxin/phoron = 5)
+	required_reagents = list(/decl/reagent/toxin/phoron = 15)
 
 /datum/chemical_reaction/slime/intelligence_serum/on_reaction(var/datum/reagents/holder)
 	..()
@@ -1494,7 +1494,7 @@
 	name = "Slime Golem"
 	id = "m_golem"
 	result = null
-	required_reagents = list(/decl/reagent/toxin/phoron = 1)
+	required_reagents = list(/decl/reagent/toxin/phoron = 5)
 	result_amount = 1
 	required = /obj/item/slime_extract/adamantine
 	mix_message = "A soft fizzle is heard within the slime extract, and mystic runes suddenly appear on the floor beneath it!"
@@ -1545,12 +1545,20 @@
 	result_amount = 10
 	required = /obj/item/slime_extract/pyrite
 
-/datum/chemical_reaction/slime/pyrite/var_to_rezadone
-	name = "Pyrite Transmutation: Various to Rezadone"
-	id = "var_to_rezadone"
-	result = /decl/reagent/rezadone
-	required_reagents = list(/decl/reagent/bicaridine = 20, /decl/reagent/kelotane = 20, /decl/reagent/toxin/phoron = 5)
-	result_amount = 5
+/datum/chemical_reaction/slime/pyrite/kelo_to_derm
+	name = "Pyrite Transmutation: Kelotane to Dermaline"
+	id = "kelo_to_derm"
+	result = /decl/reagent/dermaline
+	required_reagents = list(/decl/reagent/kelotane = 5)
+	result_amount = 10
+	required = /obj/item/slime_extract/pyrite
+
+/datum/chemical_reaction/slime/pyrite/bica_to_buta
+	name = "Pyrite Transmutation: Bicaridine_to_Butazoline"
+	id = "bica_to_buta"
+	result = /decl/reagent/butazoline
+	required_reagents = list(/decl/reagent/bicaridine = 5)
+	result_amount = 10
 	required = /obj/item/slime_extract/pyrite
 
 /datum/chemical_reaction/slime/pyrite/dex_to_plus
@@ -1564,8 +1572,8 @@
 /datum/chemical_reaction/slime/pyrite/merc_to_dextro
 	name = "Pyrite Transmutation: Mercury to Dextrotoxin"
 	id = "merc_to_dextro"
-	result = /decl/reagent/adrenaline
-	required_reagents = list(/decl/reagent/sugar = 5)
+	result = /decl/reagent/toxin/dextrotoxin
+	required_reagents = list(/decl/reagent/mercury = 5)
 	result_amount = 1
 	required = /obj/item/slime_extract/pyrite
 
@@ -1582,6 +1590,14 @@
 	id = "radium_to_mutagen"
 	result = /decl/reagent/mutagen
 	required_reagents = list(/decl/reagent/radium = 5)
+	result_amount = 10
+	required = /obj/item/slime_extract/pyrite
+
+/datum/chemical_reaction/slime/pyrite/sugar_to_hyperzine
+	name = "Pyrite Transmutation: Sugar to Hyperzine"
+	id = "sugar_to_hyper"
+	result = /decl/reagent/hyperzine
+	required_reagents = list(/decl/reagent/sugar = 5)
 	result_amount = 10
 	required = /obj/item/slime_extract/pyrite
 
