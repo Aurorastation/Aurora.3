@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - backend: "Adds the impoverished economic status as an option in the SQL database, so it can save properly."
