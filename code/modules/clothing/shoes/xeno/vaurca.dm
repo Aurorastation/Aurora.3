@@ -23,34 +23,22 @@
 	name = "zo'ra representative shoes"
 	desc = "Large shoes used by Zo'ra representatives."
 	icon = 'icons/mob/species/breeder/inventory.dmi'
-	item_state = "typec_shoes"
-	icon_state = "typec_shoes"
+	item_state = "hive_rep_shoes"
+	icon_state = "hive_rep_shoes"
 	contained_sprite = FALSE
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/shoes.dmi')
 	worn_overlay = null
 	build_from_parts = FALSE
 
-/obj/item/clothing/shoes/vaurca/breeder_klax
+/obj/item/clothing/shoes/vaurca/breeder/klax
 	name = "k'lax representative shoes"
 	desc = "Large shoes used by K'lax representatives."
-	icon = 'icons/mob/species/breeder/inventory.dmi'
-	item_state = "typec_shoes_klax"
-	icon_state = "typec_shoes_klax"
-	contained_sprite = FALSE
-	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/shoes.dmi')
-	worn_overlay = null
-	build_from_parts = FALSE
+	item_state = "hive_rep_shoes_klax"
+	icon_state = "hive_rep_shoes_klax"
 
-/obj/item/clothing/shoes/vaurca/breeder_cthur
+/obj/item/clothing/shoes/vaurca/breeder/cthur
 	name = "c'thur representative shoes"
 	desc = "Large shoes used by C'thur representatives."
-	icon = 'icons/mob/species/breeder/inventory.dmi'
-	item_state = "typec_shoes_cthur"
-	icon_state = "typec_shoes_cthur"
-	contained_sprite = FALSE
-	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/shoes.dmi')
-	worn_overlay = null
-	build_from_parts = FALSE
+	item_state = "hive_rep_shoes_cthur"
+	icon_state = "hive_rep_shoes_cthur"

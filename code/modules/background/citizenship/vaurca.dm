@@ -129,15 +129,15 @@
 
 	glasses = null
 	head = /obj/item/clothing/head/klax_breeder
-	shoes = /obj/item/clothing/shoes/vaurca/breeder_klax
+	shoes = /obj/item/clothing/shoes/vaurca/breeder/klax
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
-	suit = /obj/item/clothing/suit/vaurca/breeder_klax
+	suit = /obj/item/clothing/suit/vaurca/breeder/klax
 
 /datum/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
 
-			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec_klax(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
 
 		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE
@@ -200,13 +200,13 @@
 
 	glasses = null
 	head = /obj/item/clothing/head/cthur_breeder
-	shoes = /obj/item/clothing/shoes/vaurca/breeder_cthur
+	shoes = /obj/item/clothing/shoes/vaurca/breeder/cthur
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
-	suit = /obj/item/clothing/suit/vaurca/breeder_cthur
+	suit = /obj/item/clothing/suit/vaurca/breeder/cthur
 
 /datum/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
-			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec_cthur(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
 		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE
