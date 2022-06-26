@@ -41,4 +41,5 @@ changes:
   - imageadd: "Resprites the Vaurca Breeder and their clothes."
   - rscadd: "Adds new Vaurca Breeder hairstyles."
   - rscadd: "Vaurca Breeder wings can now open and close."
+  - bugfix: "Fixes Vaurca breeders having wrong origin cultures to choose from."
 
