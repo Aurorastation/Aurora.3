@@ -53,7 +53,7 @@
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	command_announcement.Announce("An emergency response team has picked up the distress signal. A specialized relief team will arrive shortly.", "[current_map.station_name] Distress Suite", 'sound/effects/distressbeacon.ogg')
+	command_announcement.Announce("An emergency response team has picked up the distress signal. A specialized relief team will arrive shortly.", "[current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg')
 
 	if(forced_choice && forced_choice != "Random")
 		for(var/datum/responseteam/R in available_teams)
@@ -66,7 +66,7 @@
 	feedback_set("responseteam[ert_count]",world.time)
 
 	can_call_ert = FALSE // Only one call per round, gentleman.
-	send_emergency_team = 1
+	send_emergency_team = TRUE
 
 	sent_teams = list() //Make sure this list is clear before we use it.
 
@@ -86,7 +86,7 @@
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[current_map.station_name] Distress Suite", 'sound/effects/distressbeacon.ogg')
+	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg')
 
 	var/datum/distress_beacon/beacon = new()
 	beacon.caller = caller
@@ -128,7 +128,7 @@
 /client/proc/response_team()
 	set name = "Dispatch Emergency Response Team"
 	set category = "Special Verbs"
-	set desc = "Send an emergency response team to the station"
+	set desc = "Send an emergency response team to the ship."
 
 	if(!holder)
 		to_chat(usr, "<span class='danger'>Only administrators may use this command.</span>")
@@ -142,7 +142,7 @@
 	if(alert("Do you want to dispatch an Emergency Response Team?",,"Yes","No") != "Yes")
 		return
 	if(get_security_level() != "red") // Allow admins to reconsider if the alert level isn't Red
-		switch(alert("The station is not in red alert. Do you still want to dispatch a response team?",,"Yes","No"))
+		switch(alert("The ship is not on red alert. Do you still want to dispatch a response team?",,"Yes","No"))
 			if("No")
 				return
 
@@ -150,7 +150,7 @@
 	for(var/datum/responseteam/A in SSdistress.all_ert_teams)
 		plaintext_teams += A.name
 
-	var/choice = input("Select the response team type","Response team selection") as null|anything in plaintext_teams
+	var/choice = input("Select the response team type.","Response Team Selection") as null|anything in plaintext_teams
 
 	if(SSdistress.send_emergency_team)
 		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")
