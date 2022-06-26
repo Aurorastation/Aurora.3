@@ -7,7 +7,7 @@
 "am" = (
 /obj/structure/filingcabinet,
 /turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpet7-3"
+	icon_state = "damaged2"
 	},
 /area/wrecked_nt_ship)
 "ar" = (
@@ -208,7 +208,7 @@
 /obj/structure/table/reinforced,
 /obj/item/shreddedp,
 /turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpetnoconnect"
+	icon_state = "damaged5"
 	},
 /area/wrecked_nt_ship)
 "dZ" = (
@@ -455,9 +455,7 @@
 "jn" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpetnoconnect"
-	},
+/turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "jw" = (
 /turf/simulated/floor/tiled/steel/airless{
@@ -612,7 +610,7 @@
 "mT" = (
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpetside"
+	icon_state = "damaged5"
 	},
 /area/wrecked_nt_ship)
 "mX" = (
@@ -653,7 +651,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "nI" = (
-/obj/machinery/door/airlock/multi_tile,
+/obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "nR" = (
@@ -763,9 +761,7 @@
 /area/wrecked_nt_ship)
 "pL" = (
 /obj/structure/filingcabinet,
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpet9-4"
-	},
+/turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "pM" = (
 /obj/structure/table/reinforced,
@@ -785,9 +781,8 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "qq" = (
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpetnoconnect"
-	},
+/obj/machinery/door/airlock/highsecurity,
+/turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "qw" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -949,10 +944,9 @@
 	},
 /area/wrecked_nt_ship)
 "tm" = (
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpetside"
-	},
-/area/wrecked_nt_ship)
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/space,
+/area/space)
 "to" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/phoron_scarce,
@@ -1008,11 +1002,6 @@
 	icon_state = "freezer"
 	},
 /area/wrecked_nt_ship)
-"uh" = (
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpet5-1"
-	},
-/area/wrecked_nt_ship)
 "uk" = (
 /obj/machinery/constructable_frame/temp_deco{
 	icon_state = "vbox_0"
@@ -1062,12 +1051,6 @@
 /area/wrecked_nt_ship)
 "vx" = (
 /turf/simulated/floor/airless,
-/area/wrecked_nt_ship)
-"vQ" = (
-/obj/structure/table/reinforced,
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpetnoconnect"
-	},
 /area/wrecked_nt_ship)
 "vT" = (
 /obj/item/target,
@@ -1162,9 +1145,7 @@
 "xL" = (
 /obj/structure/table/reinforced,
 /obj/item/vaurca/box,
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpetnoconnect"
-	},
+/turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "xQ" = (
 /obj/structure/closet/secure_closet/xenoarchaeologist,
@@ -1215,7 +1196,7 @@
 /area/wrecked_nt_ship)
 "zj" = (
 /turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpet14-10"
+	icon_state = "damaged4"
 	},
 /area/wrecked_nt_ship)
 "zl" = (
@@ -1259,9 +1240,7 @@
 	icon_state = "wooden_chair_item"
 	},
 /obj/effect/decal/cleanable/ash,
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpetnoconnect"
-	},
+/turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Ab" = (
 /obj/structure/table/reinforced,
@@ -1305,8 +1284,8 @@
 	},
 /area/wrecked_nt_ship)
 "BC" = (
-/obj/machinery/door/airlock/multi_tile,
-/turf/simulated/floor/carpet/blue/airless,
+/obj/machinery/door/airlock/centcom,
+/turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "BF" = (
 /turf/simulated/floor/tiled/steel/airless{
@@ -1436,15 +1415,11 @@
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
-"Fm" = (
-/obj/structure/filingcabinet,
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpet6-2"
-	},
-/area/wrecked_nt_ship)
 "Fw" = (
-/obj/machinery/door/airlock/multi_tile,
-/turf/simulated/floor/tiled/white/airless,
+/obj/machinery/door/airlock/centcom,
+/turf/simulated/floor/tiled/white/airless{
+	icon_state = "freezer"
+	},
 /area/wrecked_nt_ship)
 "FA" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1533,9 +1508,7 @@
 "Hc" = (
 /obj/item/shreddedp,
 /obj/effect/decal/cleanable/ash,
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpet10-8"
-	},
+/turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "He" = (
 /obj/structure/table/reinforced,
@@ -1646,9 +1619,7 @@
 /obj/effect/decal/remains/human,
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/ammo_casing/a762/spent,
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpetside"
-	},
+/turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "IY" = (
 /obj/item/material/shard/shrapnel{
@@ -1694,7 +1665,7 @@
 "Ke" = (
 /obj/structure/toilet,
 /mob/living/simple_animal/hostile/giant_spider,
-/turf/simulated/floor/tiled/steel/airless,
+/turf/simulated/floor/tiled/steel,
 /area/wrecked_nt_ship)
 "Kh" = (
 /obj/structure/lattice,
@@ -1849,9 +1820,7 @@
 /area/wrecked_nt_ship)
 "On" = (
 /obj/effect/decal/cleanable/ash,
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpet11-12"
-	},
+/turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Oo" = (
 /obj/structure/closet/firecloset/full,
@@ -1936,9 +1905,7 @@
 	dir = 4;
 	icon_state = "wooden_chair_item"
 	},
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpetnoconnect"
-	},
+/turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "PQ" = (
 /obj/item/stack/rods{
@@ -2142,9 +2109,7 @@
 "UH" = (
 /obj/structure/table/reinforced,
 /obj/item/trash/cigbutt/roll,
-/turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpetside"
-	},
+/turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "UP" = (
 /turf/simulated/floor/airless{
@@ -2219,11 +2184,6 @@
 /turf/simulated/floor/tiled/steel/airless{
 	icon_state = "damaged2"
 	},
-/area/wrecked_nt_ship)
-"WE" = (
-/mob/living/heavy_vehicle/premade/combatripley,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "WI" = (
 /obj/structure/lattice,
@@ -2347,8 +2307,9 @@
 	},
 /area/wrecked_nt_ship)
 "ZE" = (
+/obj/structure/filingcabinet,
 /turf/simulated/floor/tiled/steel/airless{
-	icon_state = "carpet11-12"
+	icon_state = "damaged5"
 	},
 /area/wrecked_nt_ship)
 "ZM" = (
@@ -29802,7 +29763,7 @@ vx
 hw
 ll
 aY
-nI
+BC
 ll
 aY
 mj
@@ -30830,7 +30791,7 @@ ll
 ll
 aY
 ll
-nI
+BC
 ll
 UP
 vx
@@ -31086,7 +31047,7 @@ iQ
 iQ
 iQ
 iQ
-nI
+BC
 iQ
 jM
 jM
@@ -32351,13 +32312,13 @@ II
 UW
 UP
 aY
-WE
+pg
 dR
 dc
 Oo
 zn
 BS
-nI
+BC
 ll
 ll
 ll
@@ -32613,7 +32574,7 @@ iQ
 iQ
 iQ
 iQ
-nI
+BC
 iQ
 iQ
 iQ
@@ -32628,7 +32589,7 @@ iQ
 iQ
 iQ
 iQ
-nI
+BC
 iQ
 iQ
 iQ
@@ -32636,7 +32597,7 @@ iQ
 iQ
 iQ
 iQ
-nI
+BC
 iQ
 ll
 Kn
@@ -33377,7 +33338,7 @@ AD
 yh
 AD
 AD
-nI
+ll
 iQ
 iQ
 iQ
@@ -33399,7 +33360,7 @@ iQ
 iQ
 iQ
 iQ
-nI
+BC
 iQ
 iQ
 iQ
@@ -33638,10 +33599,10 @@ vx
 QJ
 JZ
 iQ
-Fm
 am
+ZE
 am
-uh
+ll
 iQ
 uR
 iA
@@ -33649,7 +33610,7 @@ vx
 Vr
 Bi
 ll
-nI
+BC
 Se
 Qo
 Gq
@@ -33895,10 +33856,10 @@ UP
 zc
 uV
 iQ
+ll
+BF
+ll
 zj
-qq
-qq
-tm
 iQ
 vx
 si
@@ -34152,7 +34113,7 @@ aM
 cd
 QJ
 dP
-zj
+Bi
 PM
 zZ
 mT
@@ -34409,7 +34370,7 @@ VS
 UP
 rG
 ot
-zj
+BF
 jn
 xL
 UH
@@ -34666,9 +34627,9 @@ iQ
 iQ
 iQ
 sb
-zj
-vQ
-qq
+ll
+iA
+ll
 IW
 iQ
 dB
@@ -34684,7 +34645,7 @@ iQ
 iQ
 iQ
 iQ
-nI
+BC
 iQ
 sC
 Kn
@@ -34925,8 +34886,8 @@ xi
 iQ
 zj
 dX
-qq
-tm
+zj
+BF
 iQ
 Yb
 vx
@@ -34940,7 +34901,7 @@ uC
 WW
 iQ
 Mn
-nI
+BC
 BF
 iQ
 Ak
@@ -35182,7 +35143,7 @@ xi
 iQ
 Hc
 On
-ZE
+Bi
 pL
 iQ
 cT
@@ -35454,7 +35415,7 @@ FY
 YT
 iQ
 Ke
-nI
+BC
 Bi
 iQ
 vx
@@ -35712,7 +35673,7 @@ YT
 iQ
 iQ
 iQ
-nI
+BC
 iQ
 ab
 TN
@@ -37781,7 +37742,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+tm
 Kn
 Kn
 Kn
@@ -39811,11 +39772,11 @@ WD
 ll
 aY
 ll
-nI
+qq
 KF
 Bi
 aY
-nI
+BC
 iI
 aY
 Hi
@@ -40070,7 +40031,7 @@ iQ
 iQ
 iQ
 iQ
-nI
+BC
 iQ
 iQ
 lC
