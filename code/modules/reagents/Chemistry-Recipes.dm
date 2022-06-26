@@ -1482,17 +1482,17 @@
 	new /obj/effect/portal/spawner/plasticglass(get_turf(holder.my_atom))
 
 //Light Pink
-/datum/chemical_reaction/slime/intelligence_serum
-	name = "Intelligence Serum"
-	id = "intelligence_serum"
+/datum/chemical_reaction/slime/advanced_docility_serum
+	name = "Advanced Docility Serum"
+	id = "advanced_docility_serum"
 	result = null
 	result_amount = 1
 	required = /obj/item/slime_extract/lightpink
-	required_reagents = list(/decl/reagent/toxin/phoron = 15)
+	required_reagents = list(/decl/reagent/toxin/phoron = 5)
 
-/datum/chemical_reaction/slime/intelligence_serum/on_reaction(var/datum/reagents/holder)
+/datum/chemical_reaction/slime/advanced_docility_serum/on_reaction(var/datum/reagents/holder)
 	..()
-	new /obj/item/intelligence_serum(get_turf(holder.my_atom))
+	new /obj/item/advanced_docility_serum(get_turf(holder.my_atom))
 
 //Adamantine
 /datum/chemical_reaction/slime/golem

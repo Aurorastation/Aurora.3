@@ -464,20 +464,3 @@
 		mood = HAPPY
 	else
 		content = FALSE
-
-/mob/living/carbon/slime/proc/request_player()
-	seeking_player = TRUE
-	SSghostroles.add_spawn_atom("intelligent_slime", src)
-
-/mob/living/carbon/slime/assign_player(var/mob/user)
-	if(src.ckey)
-		SSghostroles.remove_spawn_atom("intelligent_slime", src)
-		return
-	src.ckey = user.ckey
-	seeking_player = FALSE
-	welcome_slime()
-	return src
-
-/mob/living/carbon/slime/proc/welcome_slime()
-	to_chat(src, SPAN_DANGER("You are a docile slime that has had it's intelligence enhanced through the use of a fancy serum."))
-	to_chat(src, SPAN_DANGER("Serve your master and obey their commands - after all, they have raised and fed every generation of your family."))

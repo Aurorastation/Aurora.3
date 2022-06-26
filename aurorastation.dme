@@ -1821,7 +1821,6 @@
 #include "code\modules\ghostroles\spawner\atom\cult_construct.dm"
 #include "code\modules\ghostroles\spawner\atom\diona_nymph.dm"
 #include "code\modules\ghostroles\spawner\atom\golem.dm"
-#include "code\modules\ghostroles\spawner\atom\intelligent_slime.dm"
 #include "code\modules\ghostroles\spawner\atom\living_plant.dm"
 #include "code\modules\ghostroles\spawner\atom\matriarchmaintdrone.dm"
 #include "code\modules\ghostroles\spawner\atom\mining_drone.dm"

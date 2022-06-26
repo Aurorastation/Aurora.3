@@ -259,6 +259,7 @@
 		/obj/item/slimesteroid,
 		/obj/item/extract_enhancer,
 		/obj/item/docility_serum,
+		/obj/item/advanced_docility_serum,
 		/obj/item/remote_mecha,
 		/obj/item/smallDelivery,
 		/obj/item/gift
