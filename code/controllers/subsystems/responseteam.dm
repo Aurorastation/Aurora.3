@@ -53,7 +53,7 @@
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	command_announcement.Announce("A maximum-priority distress beacon has been launched. Please remain calm, a relief team will arrive soon.", "[current_map.boss_name]", 'sound/effects/distressbeacon.ogg')
+	command_announcement.Announce("An emergency response team has picked up the distress signal. A specialized relief team will arrive shortly.", "[current_map.station_name] Distress Suite", 'sound/effects/distressbeacon.ogg')
 
 	if(forced_choice && forced_choice != "Random")
 		for(var/datum/responseteam/R in available_teams)
@@ -86,7 +86,7 @@
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[current_map.boss_name]", 'sound/effects/distressbeacon.ogg')
+	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[current_map.station_name] Distress Suite", 'sound/effects/distressbeacon.ogg')
 
 	var/datum/distress_beacon/beacon = new()
 	beacon.caller = caller
@@ -96,7 +96,7 @@
 
 	active_distress_beacons[caller.name] = beacon
 
-	caller.has_called_distress_beacon = TRUE
+	caller.toggle_distress_status()
 
 /datum/controller/subsystem/distress/proc/handle_spawner()
 	for(var/N in typesof(picked_team.spawner)) //Find all spawners that are subtypes of the team we want.
