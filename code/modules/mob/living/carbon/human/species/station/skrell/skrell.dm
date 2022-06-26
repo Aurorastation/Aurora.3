@@ -7,6 +7,7 @@
 	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
+	has_gendered_icons = FALSE // Lack of sexual dimorphism has arrived to make my life easier.
 	economic_modifier = 12
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
@@ -90,7 +91,7 @@
 		/decl/origin_item/culture/federation,
 		/decl/origin_item/culture/non_federation
 	)
-	
+
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/adjust_headtails
 	)

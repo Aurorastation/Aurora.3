@@ -24,6 +24,7 @@
 	var/deform = 'icons/mob/human_races/human/r_def_human.dmi' // Mutated icon set.
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
 	var/bandages_icon
+	var/has_gendered_icons = TRUE // Avoids copypasta. When you don't really care about having distinct genders, e.g. Vaurca Workers, Skrell.
 
 	var/talk_bubble_icon
 

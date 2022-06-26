@@ -170,7 +170,7 @@
 		if(!dna)
 			mob_icon = new /icon('icons/mob/human_races/human/r_human.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")
 		else
-			if(!gendered_icon)
+			if(!gendered_icon || !species.has_gendered_icons)
 				gender = null
 			else
 				if(dna.GetUIState(DNA_UI_GENDER))

@@ -2384,19 +2384,25 @@ Follow by example and make good judgement based on length which list to include 
 			scrunchy_style = "backwater"
 
 		skr_tentacle_reserved
-			name = "Expressive Headtails, reserved"
+			name = "Headtails, reserved"
 			icon_state = "skrell_reserved"
 			length = 6
 			chatname = "headtails"
 
 		skr_tentacle_excited
-			name = "Expressive Headtails, excited"
+			name = "Headtails, excited"
 			icon_state = "skrell_excited"
 			length = 6
 			chatname = "headtails"
 
+		skr_tentacle_excited
+			name = "Long Headtails, excited"
+			icon_state = "skrell_excited_long"
+			length = 6
+			chatname = "headtails"
+
 		skr_tentacle_insulted
-			name = "Expressive Headtails, insulted"
+			name = "Headtails, insulted"
 			icon_state = "skrell_insulted"
 			length = 6
 			chatname = "headtails"
@@ -2474,22 +2480,40 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "short headtails"
 			scrunchy_style = "reef"
 
-		skr_tentacle_emo_l_l
-			name = "Long Headtails, emo (left)"
-			icon_state = "skrell_left_emo_long"
+		skr_tentacle_b_emo_l_l
+			name = "Long Headtails, behind, emo (left)"
+			icon_state = "skrell_b_left_emo_long"
 			length = 6
 			chatname = "long headtails"
 
-		skr_tentacle_emo_r_l
-			name = "Long Headtails, emo (right)"
-			icon_state = "skrell_right_emo_long"
+		skr_tentacle_b_emo_r_l
+			name = "Long Headtails, behind, emo (right)"
+			icon_state = "skrell_b_right_emo_long"
 			length = 6
 			chatname = "long headtails"
 
-		skr_tentacle_emo_l
-			name = "Headtails, emo (left)"
-			icon_state = "skrell_left_emo"
+		skr_tentacle_b_emo_l
+			name = "Headtails, behind, emo (left)"
+			icon_state = "skrell_b_left_emo"
 			length = 4
+			chatname = "headtails"
+
+		skr_tentacle_b_emo_r
+			name = "Headtails, behind, emo (right)"
+			icon_state = "skrell_b_right_emo"
+			length = 4
+			chatname = "headtails"
+
+		skr_tentacle_emo_r_s
+			name = "Short Headtails, emo (right)"
+			icon_state = "skrell_short_left_emo"
+			length = 3
+			chatname = "headtails"
+
+		skr_tentacle_emo_l_s
+			name = "Short Headtails, emo (left)"
+			icon_state = "skrell_short_right_emo"
+			length = 3
 			chatname = "headtails"
 
 		skr_tentacle_emo_r
@@ -2497,6 +2521,25 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "skrell_right_emo"
 			length = 4
 			chatname = "headtails"
+
+		skr_tentacle_emo_l
+			name = "Headtails, emo (left)"
+			icon_state = "skrell_left_emo"
+			length = 4
+			chatname = "headtails"
+
+		skr_tentacle_emo_r_l
+			name = "Long Headtails, emo (right)"
+			icon_state = "skrell_long_right_emo"
+			length = 6
+			chatname = "long headtails"
+
+		skr_tentacle_emo_l_l
+			name = "Long Headtails, emo (left)"
+			icon_state = "skrell_long_left_emo"
+			length = 6
+			chatname = "long headtails"
+
 
 
 //tajaran hair
