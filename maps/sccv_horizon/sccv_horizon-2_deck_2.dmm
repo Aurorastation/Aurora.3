@@ -3211,7 +3211,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "bBO" = (

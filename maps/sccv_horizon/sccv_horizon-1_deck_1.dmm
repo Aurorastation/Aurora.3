@@ -15430,6 +15430,8 @@
 /obj/structure/window/reinforced,
 /obj/structure/table/reinforced/steel,
 /obj/machinery/cell_charger,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "mwO" = (
@@ -25989,9 +25991,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
 "vfc" = (
-/obj/structure/table/rack,
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "vfk" = (
@@ -29610,7 +29610,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "xYn" = (
-/obj/structure/closet/emcloset,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "xYW" = (
