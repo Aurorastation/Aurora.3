@@ -5316,7 +5316,7 @@
 /turf/simulated/open/airless,
 /area/template_noop)
 "cQd" = (
-/obj/structure/flora/pottedplant/random,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "cQu" = (
