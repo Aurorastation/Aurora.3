@@ -21,7 +21,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/base = 0		//starting sector, counts as station_levels
 	var/in_space = 1	//can be accessed via lucky EVA
 
-	var/has_distress_beacon
+	var/has_called_distress_beacon = FALSE
 
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
