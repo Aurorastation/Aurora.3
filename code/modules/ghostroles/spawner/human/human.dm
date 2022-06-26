@@ -68,23 +68,34 @@
 		else if(is_alien_whitelisted(user, S))
 			species_selection += S
 
-	var/picked_species = input(user,"Select your species") in species_selection
-	if(!picked_species)
-		picked_species = possible_species[1]
+	var/datum/preferences/P = user.client.prefs
+	var/preferences_are_valid = TRUE
+	var/picked_species
+	if(!(P.species in species_selection))
+		picked_species = input(user,"Select a valid species.") in species_selection
+		if(!picked_species)
+			picked_species = possible_species[1]
+		preferences_are_valid = FALSE
+	else
+		picked_species = P.species
 
 	var/datum/species/S = all_species[picked_species]
 	var/assigned_gender = pick(S.default_genders)
 
-	//Get the name / age from them first
-	var/mname = get_mob_name(user, picked_species, assigned_gender)
-	var/age = input(user, "Enter your characters age:","Num") as num
+	var/mname
+	var/age
+	if(!preferences_are_valid)
+		//Get the name / age from them first
+		mname = get_mob_name(user, picked_species, assigned_gender)
+		age = input(user, "Enter your characters age:","Num") as num
 
 	//Spawn in the mob
 	var/mob/living/carbon/human/M = new spawn_mob(newplayer_start)
-
-	M.change_gender(assigned_gender)
-
-	M.set_species(picked_species)
+	if(preferences_are_valid)
+		P.copy_to(M, TRUE)
+	else 
+		M.change_gender(assigned_gender)
+		M.set_species(picked_species)
 
 	//Prepare the mob
 	M.check_dna(M)
@@ -108,17 +119,17 @@
 	M.lastarea = get_area(M.loc) //So gravity doesnt fuck them.
 
 	//Setup the mob age and name
-	if(!mname)
-		mname = random_name(M.gender, M.species.name)
+	if(!preferences_are_valid)
+		if(!mname)
+			mname = random_name(M.gender, M.species.name)
+		M.fully_replace_character_name(M.real_name, mname)
 
-	M.fully_replace_character_name(M.real_name, mname)
+		M.mind.signature = mname
+		M.mind.signfont = pick("Verdana", "Times New Roman", "Courier New")
 
-	M.mind.signature = mname
-	M.mind.signfont = pick("Verdana", "Times New Roman", "Courier New")
-
-	if(!age)
-		age = rand(35, 50)
-	M.age = Clamp(age, 21, 65)
+		if(!age)
+			age = rand(35, 50)
+		M.age = Clamp(age, 21, 65)
 
 	//Setup the Outfit
 	if(picked_species in species_outfits)
@@ -132,15 +143,16 @@
 	//Setup the appearance
 	if(allow_appearance_change)
 		M.change_appearance(allow_appearance_change, M, update_id = TRUE)
-	else //otherwise randomize
+	else if(!preferences_are_valid)//otherwise randomize
 		M.client.prefs.randomize_appearance_for(M, FALSE)
 
 	for(var/language in extra_languages)
 		M.add_language(language)
 
-	M.force_update_limbs()
-	M.update_eyes()
-	M.regenerate_icons()
+	if(!preferences_are_valid)
+		M.force_update_limbs()
+		M.update_eyes()
+		M.regenerate_icons()
 
 	return M
 
