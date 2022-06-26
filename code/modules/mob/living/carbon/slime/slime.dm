@@ -59,8 +59,6 @@
 	var/co2overloadtime = null
 	var/temperature_resistance = T0C+75
 
-	var/seeking_player = FALSE // whether a ghost role has been opened through the use of an intelligence serum
-
 	///////////TIME FOR SUBSPECIES
 
 	var/colour = "grey"
