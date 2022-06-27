@@ -1103,7 +1103,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/orion_express_shuttle)
 "iGD" = (
 /obj/effect/floor_decal/corner/blue{
@@ -2093,7 +2093,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/orion_express_shuttle)
 "qqs" = (
 /obj/effect/floor_decal/corner/blue{
