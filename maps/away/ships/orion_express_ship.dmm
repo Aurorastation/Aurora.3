@@ -831,6 +831,8 @@
 	pixel_x = -9;
 	pixel_y = 5
 	},
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
 "gtw" = (
@@ -1114,6 +1116,12 @@
 	},
 /obj/item/clipboard,
 /obj/item/paper,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 34
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "iHS" = (
@@ -1718,11 +1726,12 @@
 "ntn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
-/obj/random/voidsuit,
-/obj/random/voidsuit/no_nanotrasen,
-/obj/random/voidsuit/no_nanotrasen,
 /obj/item/clothing/under/gearharness,
 /obj/item/stack/material/plasteel,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/custom_ka/frame03/prebuilt/shaft_miner,
+/obj/item/gun/custom_ka/frame03/prebuilt/shaft_miner,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "ntw" = (
@@ -2008,7 +2017,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "pHQ" = (
@@ -2470,6 +2479,10 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/clothing/head/helmet/space/void/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "sJD" = (
@@ -2764,8 +2777,17 @@
 /turf/simulated/floor/airless,
 /area/ship/orion_express_ship)
 "uyk" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/clothing/head/helmet/space/void/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "uzX" = (
@@ -2881,14 +2903,13 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(201)
 	},
-/obj/item/gun/energy/blaster/carbine,
-/obj/item/gun/energy/stunrevolver,
-/obj/item/gun/energy/blaster/carbine,
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/item/gun/energy/blaster/revolver,
-/obj/item/gun/energy/blaster/revolver,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/pistol,
+/obj/item/gun/energy/pistol,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "vFS" = (
