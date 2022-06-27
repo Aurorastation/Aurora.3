@@ -1,5 +1,5 @@
 /datum/map_template/ruin/away_site/orion_express_ship
-	name = "Orion Express Ship"
+	name = "Orion Express Mobile Station"
 	description = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation’s fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it. This one’s transponder identifies it as an Orion Express refueling station."
 	suffix = "ships/orion_express_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
@@ -9,12 +9,12 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/orion_express_shuttle)
 
 /decl/submap_archetype/orion_express_ship
-	map = "Orion Express ship"
+	map = "Orion Express Mobile Station"
 	descriptor = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation’s fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it. This one’s transponder identifies it as an Orion Express refueling station."
 
 //areas
 /area/ship/orion_express_ship
-	name = "Orion Express Ship"
+	name = "Orion Express Mobile Station"
 
 /area/shuttle/orion_express_shuttle
 	name = "Orion Express Shuttle"
@@ -23,7 +23,7 @@
 //ship stuff
 
 /obj/effect/overmap/visitable/ship/orion_express_ship
-	name = "Orion Express Ship"
+	name = "Orion Express Mobile Station"
 	desc = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation’s fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it. This one’s transponder identifies it as an Orion Express refueling station."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"	
@@ -46,13 +46,13 @@
 	..()
 
 /obj/effect/shuttle_landmark/orion_express_ship/nav1
-	name = "Orion Express Ship - Port Side"
+	name = "Orion Express Mobile Station - Port Side"
 	landmark_tag = "nav_orion_express_ship_1"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/orion_express_ship/nav2
-	name = "Orion Express Ship - Port Airlock"
+	name = "Orion Express Mobile Station - Port Airlock"
 	landmark_tag = "nav_orion_express_ship_2"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
