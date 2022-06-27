@@ -187,9 +187,9 @@
 	icon_state = "nitrile"
 	starts_with = list(/obj/item/clothing/gloves/latex = 2,
 					   /obj/item/clothing/gloves/latex/nitrile = 2,
-					   /obj/item/clothing/gloves/latex/nitrile/unathi,
-					   /obj/item/clothing/gloves/latex/nitrile/tajara,
-					   /obj/item/clothing/gloves/latex/nitrile/vaurca)
+					   /obj/item/clothing/gloves/latex/nitrile/unathi = 1,
+					   /obj/item/clothing/gloves/latex/nitrile/tajara = 1,
+					   /obj/item/clothing/gloves/latex/nitrile/vaurca = 1)
 
 /obj/item/storage/box/masks
 	name = "box of surgical masks"
