@@ -185,6 +185,7 @@
 	name = "box of sterile gloves"
 	desc = "Contains sterile gloves."
 	icon_state = "nitrile"
+	max_storage_space = 14
 	starts_with = list(/obj/item/clothing/gloves/latex = 2,
 					   /obj/item/clothing/gloves/latex/nitrile = 2,
 					   /obj/item/clothing/gloves/latex/nitrile/unathi = 1,
