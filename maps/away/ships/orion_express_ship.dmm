@@ -377,9 +377,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
-"ccm" = (
-/turf/simulated/floor/tiled/dark,
-/area/ship/orion_express_ship)
 "ccK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -684,12 +681,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
-"ffv" = (
-/obj/machinery/door/airlock/glass{
-	name = "Primary Hall"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/orion_express_ship)
 "fkm" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
@@ -753,10 +744,6 @@
 /area/ship/orion_express_ship)
 "fwA" = (
 /obj/structure/barricade/steel,
-/turf/simulated/floor,
-/area/ship/orion_express_ship)
-"fEq" = (
-/obj/structure/foamedmetal,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "fJC" = (
@@ -1040,10 +1027,6 @@
 	name = "Maintenance";
 	req_access = list(201)
 	},
-/turf/simulated/floor,
-/area/ship/orion_express_ship)
-"hOP" = (
-/obj/structure/foamedmetal,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "hPo" = (
@@ -1565,10 +1548,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
-"mbu" = (
-/obj/structure/foamedmetal,
-/turf/simulated/floor,
-/area/ship/orion_express_ship)
 "mcD" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 1
@@ -1779,11 +1758,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/orion_express_ship)
-"nFs" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor,
 /area/ship/orion_express_ship)
 "nGj" = (
 /obj/structure/table/rack,
@@ -2037,10 +2011,6 @@
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
-"pGN" = (
-/obj/structure/foamedmetal,
-/turf/simulated/floor,
-/area/ship/orion_express_ship)
 "pHQ" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
@@ -2260,10 +2230,6 @@
 /area/ship/orion_express_ship)
 "rsO" = (
 /turf/simulated/floor/tiled/dark/airless,
-/area/ship/orion_express_ship)
-"ruc" = (
-/obj/structure/foamedmetal,
-/turf/simulated/floor,
 /area/ship/orion_express_ship)
 "ruB" = (
 /obj/effect/floor_decal/spline/plain{
@@ -2567,10 +2533,6 @@
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/orion_express_shuttle)
-"tbn" = (
-/obj/structure/foamedmetal,
-/turf/simulated/floor,
-/area/ship/orion_express_ship)
 "tcC" = (
 /obj/machinery/light{
 	dir = 8;
@@ -2589,10 +2551,6 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
-/area/ship/orion_express_ship)
-"tgc" = (
-/obj/structure/foamedmetal,
-/turf/simulated/floor,
 /area/ship/orion_express_ship)
 "tgu" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2929,7 +2887,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/item/gun/energy/blaster/carbine,
+/obj/item/gun/energy/blaster/revolver,
+/obj/item/gun/energy/blaster/revolver,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "vFS" = (
