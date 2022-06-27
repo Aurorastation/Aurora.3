@@ -2688,7 +2688,6 @@
 	},
 /obj/item/tank/phoron/shuttle,
 /obj/item/tank/phoron/shuttle,
-/obj/item/tank/phoron/shuttle,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "tRj" = (
@@ -2732,6 +2731,9 @@
 	pixel_y = -33
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/cryopod{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
 "ufB" = (
@@ -2891,7 +2893,7 @@
 /area/ship/orion_express_ship)
 "vyC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "vzk" = (
