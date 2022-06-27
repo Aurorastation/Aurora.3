@@ -2,7 +2,7 @@
 /obj/structure/flora/tree
 	name = "tree"
 	anchored = 1
-	density = 1
+	density = TRUE
 	pixel_x = -16
 	layer = 9
 
@@ -44,6 +44,22 @@
 	pixel_y = 0
 	pixel_x = -32
 	icon = 'icons/obj/flora/jungletreesmall.dmi'
+
+/obj/structure/flora/tree/jungle/small/patience
+	layer = 3
+	density = FALSE
+	icon_state = "patiencebottom"
+
+/obj/structure/flora/tree/jungle/small/patience_top
+	pixel_y = -32
+	density = TRUE
+	icon_state = "patiencetop"
+
+/obj/structure/flora/tree/jungle/small/patience/Initialize()
+	. = ..()
+	var/turf/T = get_step(src, NORTH)
+	if(T)
+		new /obj/structure/flora/tree/jungle/small/patience_top(T)
 
 //Jungle grass
 /obj/structure/flora/grass/jungle
