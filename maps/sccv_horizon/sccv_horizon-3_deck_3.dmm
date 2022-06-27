@@ -841,12 +841,12 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "bC" = (
-/obj/structure/lattice,
-/obj/machinery/light{
-	dir = 8
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
 	},
-/turf/simulated/open,
-/area/horizon/hallway/deck_three/primary/starboard)
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "bD" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
@@ -1078,6 +1078,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/selfdestruct)
+"bZ" = (
+/obj/structure/flora/tree/jungle/small/patience,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "ca" = (
 /obj/machinery/requests_console{
 	department = "Consular's Office";
@@ -1484,6 +1488,16 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
+"cM" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/horizon/hallway/deck_three/primary/starboard)
 "cN" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -1558,6 +1572,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/pool)
+"cV" = (
+/obj/structure/flora/ausbushes/sunnybush,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "cW" = (
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-33"
@@ -1763,6 +1781,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"dr" = (
+/obj/structure/railing/mapped,
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/horizon/hallway/deck_three/primary/starboard)
 "ds" = (
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 8
@@ -1975,6 +1998,9 @@
 "dG" = (
 /obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -2911,8 +2937,8 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/requests_console{
 	department = "Conference Room";
-	pixel_y = -32;
-	name = "Conference Room Requests Console"
+	name = "Conference Room Requests Console";
+	pixel_y = -32
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
@@ -4092,6 +4118,12 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
+"hJ" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "hK" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable/green{
@@ -4148,6 +4180,13 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino/grey,
+/area/horizon/deck_three/cafeteria)
+"hO" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/cafeteria)
 "hP" = (
 /obj/effect/floor_decal/corner/green{
@@ -4214,6 +4253,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
+"hV" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "hW" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -5315,6 +5361,16 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
+"jK" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "jL" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -5402,6 +5458,13 @@
 /obj/machinery/meter,
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
+"jU" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "jV" = (
 /obj/structure/bed/stool/chair/sofa/brown{
 	dir = 4
@@ -5429,12 +5492,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "jY" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
-/obj/structure/bed/stool/chair{
-	dir = 4
-	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "jZ" = (
@@ -5943,6 +6002,16 @@
 /obj/item/folder/yellow,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
+"kS" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "kT" = (
 /obj/structure/table/standard,
 /obj/item/device/hand_labeler{
@@ -6599,16 +6668,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
+"mc" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "md" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/captain)
 "me" = (
-/obj/structure/lattice,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/open,
-/area/horizon/hallway/deck_three/primary/starboard)
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/flora/ausbushes/sunnybush,
+/obj/machinery/light,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "mf" = (
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/pool)
@@ -7239,6 +7314,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"nn" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/horizon/hallway/deck_three/primary/starboard)
 "no" = (
 /obj/machinery/firealarm/south,
 /obj/structure/table/standard,
@@ -7328,6 +7414,16 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
+"ny" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "nz" = (
 /obj/structure/table/reinforced/wood,
 /obj/structure/railing/mapped{
@@ -7742,6 +7838,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
+"ok" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "ol" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -8830,6 +8930,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
+"qm" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/horizon/hallway/deck_three/primary/starboard)
 "qn" = (
 /turf/simulated/floor/reinforced,
 /area/bridge/selfdestruct)
@@ -8968,16 +9081,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_three/primary/starboard)
 "qD" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
-/obj/structure/flora/pottedplant{
-	icon_state = "plant-21";
-	pixel_x = -4
-	},
+/obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "qE" = (
@@ -10054,12 +10158,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "sD" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
-/obj/structure/lattice,
-/turf/simulated/open,
-/area/horizon/hallway/deck_three/primary/starboard)
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/horizon/deck_three/cafeteria)
 "sE" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -10091,12 +10195,9 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "sI" = (
-/obj/structure/lattice,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/open,
-/area/horizon/hallway/deck_three/primary/starboard)
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "sJ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
@@ -11236,6 +11337,16 @@
 /obj/machinery/light,
 /turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/nature_showcase)
+"uJ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "uK" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -11920,6 +12031,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
+"vV" = (
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/horizon/hallway/deck_three/primary/starboard)
 "vW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -11995,6 +12113,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
+"we" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/horizon/deck_three/cafeteria)
 "wf" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
@@ -12746,13 +12870,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/vacantoffice2)
 "xz" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
-	},
-/obj/structure/bed/stool/chair{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
+/obj/structure/flora/ausbushes/pointybush,
+/turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/cafeteria)
 "xA" = (
 /turf/simulated/wall,
@@ -13276,6 +13395,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"yx" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "yy" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Crew Armoury Desk";
@@ -13406,16 +13529,8 @@
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "yJ" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
-/obj/structure/flora/pottedplant{
-	icon_state = "plant-33";
-	pixel_x = -4;
-	pixel_y = 16
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
@@ -14197,15 +14312,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Ak" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/alt,
-/area/horizon/hallway/deck_three/primary/starboard)
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "Al" = (
 /obj/structure/table/rack,
 /obj/item/towel,
@@ -14331,6 +14439,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
+"Ax" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/horizon/deck_three/cafeteria)
 "Ay" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -14972,10 +15089,10 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "BK" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
 /obj/structure/bed/stool/chair/sofa/right/red,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "BL" = (
@@ -15059,6 +15176,9 @@
 /area/bridge/controlroom)
 "BU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -15737,6 +15857,13 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
+"Dk" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/genericbush,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "Dl" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -15806,9 +15933,14 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_3)
+"Ds" = (
+/turf/simulated/floor/beach/water/alt,
+/area/horizon/deck_three/cafeteria)
 "Dt" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/table/wood,
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "Du" = (
@@ -15907,6 +16039,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/pool)
+"DD" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "DE" = (
 /obj/effect/floor_decal/spline/fancy,
 /obj/machinery/computer/ship/sensors{
@@ -16164,6 +16304,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"Eg" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "Eh" = (
 /turf/simulated/wall/r_wall,
 /area/medical/ward/isolation)
@@ -17413,6 +17560,16 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
+"Gx" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "Gy" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -17496,8 +17653,8 @@
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "GE" = (
-/obj/structure/railing/mapped,
 /obj/structure/lattice,
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/starboard)
 "GF" = (
@@ -17683,13 +17840,9 @@
 /turf/simulated/floor/tiled,
 /area/security/forensics_morgue)
 "GV" = (
-/obj/structure/lattice,
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/open,
-/area/horizon/hallway/deck_three/primary/starboard)
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "GW" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
@@ -18475,6 +18628,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
+"Io" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "Ip" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -18967,6 +19125,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/washroom)
+"Jg" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "Jh" = (
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
@@ -19314,6 +19479,7 @@
 /area/horizon/deck_three/cafeteria)
 "JO" = (
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "JP" = (
@@ -19677,6 +19843,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"Kt" = (
+/obj/structure/railing/mapped,
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "Ku" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -20523,13 +20693,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "LZ" = (
-/obj/structure/lattice,
-/obj/machinery/light,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/open,
-/area/horizon/hallway/deck_three/primary/starboard)
+/obj/structure/flora/ausbushes/palebush,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "Ma" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -20996,6 +21162,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
+"MO" = (
+/obj/structure/flora/ausbushes/genericbush,
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "MP" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -21520,12 +21691,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "NN" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 1
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
-/area/horizon/hallway/deck_three/primary/starboard)
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "NO" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -22060,10 +22230,15 @@
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
 "OI" = (
-/obj/structure/lattice,
-/obj/machinery/light,
-/turf/simulated/open,
-/area/horizon/hallway/deck_three/primary/starboard)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "OJ" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -22121,6 +22296,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"OM" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "ON" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -23747,6 +23929,15 @@
 "RE" = (
 /turf/simulated/floor/wood,
 /area/security/vacantoffice2)
+"RF" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "RG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -23811,6 +24002,13 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
+"RM" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/horizon/deck_three/cafeteria)
 "RN" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -23860,6 +24058,12 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
+"RQ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/horizon/deck_three/cafeteria)
 "RR" = (
 /obj/machinery/cryopod,
 /obj/effect/floor_decal/corner/green{
@@ -24002,6 +24206,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
+"Se" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "Sf" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -24137,6 +24351,12 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
+"Sr" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/horizon/deck_three/cafeteria)
 "Ss" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -24281,6 +24501,15 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/crew_quarters/fitness/gym)
+"SG" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/horizon/deck_three/cafeteria)
 "SH" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -24340,6 +24569,22 @@
 /obj/machinery/recharger,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
+"SO" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/horizon/deck_three/cafeteria)
+"SP" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/structure/railing/mapped,
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-33"
+	},
+/turf/simulated/floor/wood,
+/area/horizon/deck_three/cafeteria)
 "SQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/reinforced,
@@ -25423,6 +25668,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"UQ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-21"
+	},
+/turf/simulated/floor/wood,
+/area/horizon/deck_three/cafeteria)
 "UR" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -25494,9 +25751,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
 "Va" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/turf/simulated/floor/plating,
-/area/horizon/hallway/deck_three/primary/starboard)
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "Vb" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
@@ -25785,10 +26042,8 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "VA" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee,
-/obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass/alt,
-/area/horizon/hallway/deck_three/primary/starboard)
+/area/horizon/deck_three/cafeteria)
 "VB" = (
 /obj/machinery/door/airlock/glass_command{
 	icon_state = "door_locked";
@@ -27345,6 +27600,10 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
+"Ys" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "Yt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -27765,6 +28024,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
+"Ze" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "Zf" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/carpet,
@@ -48776,15 +49042,15 @@ uV
 Ko
 kb
 KM
-vY
+cM
 dG
-vY
-vY
-vY
-vY
-vY
+nn
+SO
+RQ
+Sr
+qm
 dG
-vY
+cM
 NG
 cS
 eP
@@ -48977,17 +49243,17 @@ Vm
 Ie
 JJ
 iy
-UV
-UV
-WD
-UV
-UV
-UV
-UV
-UV
-WD
-UV
-UV
+in
+Dk
+Ze
+kS
+SG
+we
+Ax
+jK
+hO
+jU
+AG
 oB
 Ou
 sB
@@ -49178,19 +49444,19 @@ cb
 JS
 gl
 ag
-AG
-UV
-WD
-YE
-WD
-kt
-kt
-kt
-WD
-YE
-WD
-UV
-in
+PM
+GE
+mc
+cV
+sI
+yx
+Ys
+sI
+yx
+sI
+Io
+vV
+dr
 TJ
 uk
 uk
@@ -49380,19 +49646,19 @@ hY
 kF
 tR
 iY
-PM
-WD
+AG
+in
 OI
 Va
 GV
-NN
-Ak
+Va
 VA
-LZ
+bZ
+Va
 Va
 me
-WD
-GE
+AG
+in
 Ou
 uk
 uk
@@ -49583,17 +49849,17 @@ JS
 gl
 iY
 AG
-UV
-WD
+in
+Gx
 bC
-WD
+xz
 sI
+LZ
+ok
 sI
-sI
-WD
-bC
-WD
-UV
+MO
+Se
+AG
 in
 Ou
 uk
@@ -49784,19 +50050,19 @@ Ei
 Vm
 GO
 Yb
-AG
-UV
-UV
-WD
-UV
-UV
-UV
-UV
-UV
-WD
-UV
-UV
-in
+PM
+GE
+Ds
+UQ
+Sr
+Jg
+uJ
+Eg
+SO
+SP
+Ds
+vV
+dr
 Ou
 YD
 op
@@ -49988,15 +50254,15 @@ UH
 JB
 AG
 UV
-UV
+oB
 sD
-TN
-UV
-UV
-UV
-TN
-sD
-UV
+qD
+ny
+hV
+DD
+yJ
+RM
+iy
 UV
 in
 Ou
@@ -50193,9 +50459,9 @@ UV
 in
 BK
 qD
-AG
-UV
-in
+hJ
+Ak
+Kt
 yJ
 jY
 AG
@@ -50395,9 +50661,9 @@ UV
 in
 sF
 JO
-AG
-UV
-in
+hJ
+Ak
+Kt
 BU
 Dt
 AG
@@ -50597,11 +50863,11 @@ TN
 KO
 cm
 Wy
-gn
-TN
-KO
+RF
+NN
+OM
 JN
-xz
+Wy
 LR
 TN
 KO
