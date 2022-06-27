@@ -1078,10 +1078,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/selfdestruct)
-"bZ" = (
-/obj/structure/flora/tree/jungle/small/patience,
-/turf/simulated/floor/grass/alt,
-/area/horizon/deck_three/cafeteria)
 "ca" = (
 /obj/machinery/requests_console{
 	department = "Consular's Office";
@@ -1702,7 +1698,10 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/medical3,
-/obj/item/storage/box/gloves,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/unathi,
+/obj/item/clothing/gloves/latex/tajara,
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
 "dk" = (
@@ -1710,12 +1709,15 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/medical3,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/unathi,
+/obj/item/clothing/gloves/latex/tajara,
 /obj/item/device/radio/intercom{
 	dir = 8;
 	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
-/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
 "dl" = (
@@ -2298,7 +2300,6 @@
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 1
 	},
-/obj/machinery/stargazer,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "ee" = (
@@ -3075,9 +3076,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_3)
 "fM" = (
-/obj/structure/bed/stool/chair{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -4118,12 +4116,6 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
-"hJ" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/open,
-/area/horizon/deck_three/cafeteria)
 "hK" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable/green{
@@ -5732,6 +5724,12 @@
 	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/starboard)
+"ku" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "kv" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/modular_computer/laptop/preset/command/captain,
@@ -5848,6 +5846,13 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"kG" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "kH" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -6431,10 +6436,13 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/medical3,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/unathi,
+/obj/item/clothing/gloves/latex/tajara,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Secondary Storage"
 	},
-/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
 "lK" = (
@@ -8438,7 +8446,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/ward/isolation)
 "pq" = (
-/obj/item/storage/box/gloves{
+/obj/item/nitrilebox{
 	pixel_x = 1;
 	pixel_y = -1
 	},
@@ -11916,6 +11924,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
+"vK" = (
+/obj/structure/railing/mapped,
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "vL" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -12621,7 +12633,6 @@
 "xa" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
 "xb" = (
@@ -14312,7 +14323,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Ak" = (
-/turf/simulated/open,
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "Al" = (
 /obj/structure/table/rack,
@@ -14972,6 +14987,8 @@
 	},
 /obj/structure/closet/secure_closet/CMO,
 /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/device/megaphone,
 /obj/item/device/eftpos{
 	eftpos_name = "Medbay EFTPOS scanner"
@@ -14979,7 +14996,6 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - CMO's Office"
 	},
-/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "Bz" = (
@@ -15269,13 +15285,11 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative)
 "Cd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
 /obj/machinery/firealarm/west,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
 "Ce" = (
@@ -16566,11 +16580,11 @@
 /turf/simulated/wall/r_wall,
 /area/bridge/aibunker)
 "ED" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
@@ -19843,10 +19857,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
-"Kt" = (
-/obj/structure/railing/mapped,
-/turf/simulated/open,
-/area/horizon/deck_three/cafeteria)
 "Ku" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -19975,6 +19985,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
+"KF" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "KG" = (
 /obj/effect/floor_decal/spline/plain/cee,
 /turf/simulated/floor/carpet/rubber,
@@ -20437,12 +20456,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "LA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
 "LB" = (
@@ -20693,8 +20710,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "LZ" = (
-/obj/structure/flora/ausbushes/palebush,
-/turf/simulated/floor/grass/alt,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/open,
 /area/horizon/deck_three/cafeteria)
 "Ma" = (
 /obj/structure/cable{
@@ -21690,12 +21709,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
-"NN" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/horizon/deck_three/cafeteria)
 "NO" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -21941,16 +21954,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/pool)
 "Oh" = (
-/obj/structure/table/standard,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "Oi" = (
 /obj/machinery/firealarm/west,
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/yellow/full,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "Oj" = (
@@ -22221,12 +22235,12 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/blue/full,
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Kitchen Stairwell";
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
 "OI" = (
@@ -22296,13 +22310,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"OM" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/horizon/deck_three/cafeteria)
 "ON" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -23930,13 +23937,8 @@
 /turf/simulated/floor/wood,
 /area/security/vacantoffice2)
 "RF" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/open,
+/obj/structure/flora/ausbushes/palebush,
+/turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/cafeteria)
 "RG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -24003,11 +24005,8 @@
 	name = "Security - Investigations Office"
 	})
 "RM" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/bed/stool/chair/wood{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
+/obj/structure/flora/tree/jungle/small/patience,
+/turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/cafeteria)
 "RN" = (
 /obj/machinery/alarm{
@@ -25976,6 +25975,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
+"Vu" = (
+/turf/simulated/open,
+/area/horizon/deck_three/cafeteria)
 "Vv" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -26545,6 +26547,7 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
+/obj/machinery/stargazer,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "WF" = (
@@ -49653,7 +49656,7 @@ Va
 GV
 Va
 VA
-bZ
+RM
 Va
 Va
 me
@@ -49854,7 +49857,7 @@ Gx
 bC
 xz
 sI
-LZ
+RF
 ok
 sI
 MO
@@ -50261,7 +50264,7 @@ ny
 hV
 DD
 yJ
-RM
+Ak
 iy
 UV
 in
@@ -50459,9 +50462,9 @@ UV
 in
 BK
 qD
-hJ
-Ak
-Kt
+LZ
+Vu
+vK
 yJ
 jY
 AG
@@ -50661,9 +50664,9 @@ UV
 in
 sF
 JO
-hJ
-Ak
-Kt
+LZ
+Vu
+vK
 BU
 Dt
 AG
@@ -50863,9 +50866,9 @@ TN
 KO
 cm
 Wy
-RF
-NN
-OM
+KF
+ku
+kG
 JN
 Wy
 LR
