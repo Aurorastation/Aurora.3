@@ -459,6 +459,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/mob/living/bot/cleanbot,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "deS" = (
@@ -1726,12 +1727,10 @@
 "ntn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
-/obj/item/clothing/under/gearharness,
-/obj/item/stack/material/plasteel,
-/obj/item/gun/energy/plasmacutter,
-/obj/item/gun/energy/plasmacutter,
-/obj/item/gun/custom_ka/frame03/prebuilt/shaft_miner,
-/obj/item/gun/custom_ka/frame03/prebuilt/shaft_miner,
+/obj/item/stack/material/glass/reinforced/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/plasteel/full,
+/obj/item/stack/material/steel/full,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "ntw" = (
@@ -2347,8 +2346,11 @@
 /area/ship/orion_express_ship)
 "slH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/mob/living/bot/cleanbot,
-/obj/item/device/paicard,
+/obj/structure/closet/crate,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/custom_ka/frame03/prebuilt/shaft_miner,
+/obj/item/gun/custom_ka/frame03/prebuilt/shaft_miner,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "slN" = (
