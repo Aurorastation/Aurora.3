@@ -21653,9 +21653,18 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "lTn" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/stargazer,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/hallway/primary/central_two)
 "lTs" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -26998,6 +27007,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"oPw" = (
+/obj/effect/floor_decal/spline/plain/cee,
+/turf/simulated/floor/carpet/rubber,
+/area/hallway/primary/central_two)
 "oPC" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -27338,6 +27351,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
+"oYx" = (
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hallway/primary/central_two)
 "oYH" = (
 /obj/structure/closet/crate/trashcart,
 /obj/item/toy/figure/secofficer{
@@ -27874,6 +27893,12 @@
 	dir = 1
 	},
 /turf/simulated/open,
+/area/hallway/primary/central_two)
+"plx" = (
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/hallway/primary/central_two)
 "plA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -30601,6 +30626,12 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/operations/break_room)
+"qKt" = (
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hallway/primary/central_two)
 "qKK" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -66954,7 +66985,7 @@ ept
 tHk
 gkM
 hjG
-nkF
+qKt
 hjG
 jgz
 gBE
@@ -67155,9 +67186,9 @@ nkF
 ept
 dPz
 gkM
-nkF
+plx
 lTn
-nkF
+oPw
 jvI
 gBE
 uXq
@@ -67358,7 +67389,7 @@ ept
 pWR
 gkM
 hjG
-nkF
+oYx
 hjG
 jgz
 gBE
