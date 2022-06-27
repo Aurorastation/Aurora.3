@@ -3,7 +3,7 @@
 	desc = "If you see this, someone fucked up. Make a issue request."
 	desc_fluff = "No, seriously. Make a issue request"
 	contained_sprite = TRUE
-	icon = 'icons/obj/versebooks.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state = "dominiabook"
 	item_state = "dominiabook"
 	var/reading = FALSE
