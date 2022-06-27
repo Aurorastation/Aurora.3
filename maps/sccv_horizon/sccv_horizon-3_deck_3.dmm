@@ -2911,8 +2911,8 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/requests_console{
 	department = "Conference Room";
-	pixel_y = -32;
-	name = "Conference Room Requests Console"
+	name = "Conference Room Requests Console";
+	pixel_y = -32
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
@@ -14862,6 +14862,7 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - CMO's Office"
 	},
+/obj/item/gun/energy/disruptorpistol/miniature,
 /obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)

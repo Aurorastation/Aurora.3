@@ -8478,6 +8478,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
+/obj/item/gun/energy/disruptorpistol/miniature,
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "eED" = (
@@ -16498,6 +16499,7 @@
 	pixel_x = 24
 	},
 /obj/item/crowbar/rescue_axe/red,
+/obj/item/gun/energy/disruptorpistol/miniature,
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/heads/chief)
 "iVp" = (
@@ -27283,11 +27285,11 @@
 	pixel_y = 13
 	},
 /obj/machinery/requests_console{
+	announcementConsole = 1;
 	department = "Operations Manager";
 	departmentType = 5;
 	name = "Operations Manager Request Console";
-	pixel_x = -32;
-	announcementConsole = 1
+	pixel_x = -32
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -39053,6 +39055,7 @@
 	dir = 8
 	},
 /obj/item/storage/box/gloves,
+/obj/item/gun/energy/disruptorpistol/miniature,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "vjN" = (
