@@ -2686,9 +2686,9 @@
 /obj/item/stack/material/phoron{
 	amount = 20
 	},
-/obj/item/stack/material/phoron{
-	amount = 20
-	},
+/obj/item/tank/phoron/shuttle,
+/obj/item/tank/phoron/shuttle,
+/obj/item/tank/phoron/shuttle,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "tRj" = (
@@ -2891,7 +2891,7 @@
 /area/ship/orion_express_ship)
 "vyC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "vzk" = (
