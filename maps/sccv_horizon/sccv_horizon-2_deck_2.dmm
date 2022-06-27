@@ -87,6 +87,7 @@
 /obj/machinery/vending/wallmed2{
 	pixel_x = 28
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "abz" = (
@@ -148,7 +149,7 @@
 	alarm_id = 1601;
 	dir = 8;
 	pixel_x = 28;
-	req_one_access = list(11, 24, 52)
+	req_one_access = list(11,24,52)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -13221,7 +13222,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "hdG" = (
@@ -14096,6 +14096,7 @@
 /obj/machinery/vending/wallmed2{
 	pixel_x = -28
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "hBz" = (
@@ -30591,10 +30592,6 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
-"qGa" = (
-/obj/item/storage/box/gloves,
-/turf/simulated/wall,
-/area/medical/or1)
 "qGp" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -60627,8 +60624,8 @@ qgf
 xhj
 wxr
 wxr
-qGa
-qGa
+wxr
+wxr
 nIi
 tHs
 uZU
