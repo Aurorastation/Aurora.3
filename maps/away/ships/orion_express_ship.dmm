@@ -7,12 +7,12 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "aiv" = (
 /obj/machinery/cryopod,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ajL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/bodybag/cryobag,
@@ -30,20 +30,20 @@
 /obj/item/storage/firstaid/o2,
 /obj/item/storage/firstaid/toxin,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "aoA" = (
 /obj/machinery/cryopod{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "awG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "axO" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -52,7 +52,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ayf" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
@@ -62,7 +62,7 @@
 	name = "igs - orion_express_captain"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ayD" = (
 /obj/structure/window/shuttle/scc,
 /turf/template_noop,
@@ -73,7 +73,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "aEq" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
@@ -82,11 +82,11 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "aHv" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "aKd" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
@@ -95,7 +95,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "aMl" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 9
@@ -106,7 +106,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "aMB" = (
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 4
@@ -114,17 +114,17 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "aOi" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "aRB" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "aSO" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 8
@@ -133,19 +133,19 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "aXC" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /turf/simulated/floor/carpet,
-/area/shuttle/orion_express_ship)
+/area/space)
 "aYo" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "aYD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -162,12 +162,12 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "bbM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "bex" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -184,7 +184,7 @@
 	pixel_x = 32
 	},
 /turf/template_noop,
-/area/shuttle/orion_express_ship)
+/area/space)
 "bgA" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
@@ -195,7 +195,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "bkP" = (
 /obj/machinery/light{
 	dir = 8;
@@ -206,7 +206,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "bld" = (
 /obj/structure/table/wood,
 /obj/item/toy/desk/fan,
@@ -217,7 +217,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "bom" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/light{
@@ -226,7 +226,7 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "boM" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -249,12 +249,12 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "bCt" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "bEt" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
@@ -262,16 +262,16 @@
 	dir = 1
 	},
 /obj/structure/sign/drop{
-	pixel_y = -32;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = -32
 	},
 /obj/structure/sign/fire{
+	name = "\improper DANGER: FLAMMABLE GAS";
 	pixel_x = -32;
-	pixel_y = 32;
-	name = "\improper DANGER: FLAMMABLE GAS"
+	pixel_y = 32
 	},
 /turf/template_noop,
-/area/shuttle/orion_express_ship)
+/area/space)
 "bIQ" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -285,7 +285,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "bIY" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -300,7 +300,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "bVs" = (
 /obj/structure/sink/kitchen{
 	name = "sink";
@@ -308,7 +308,7 @@
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "bVv" = (
 /obj/machinery/smartfridge/foodheater,
 /obj/machinery/light{
@@ -317,53 +317,53 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "bXG" = (
 /obj/structure/table/rack,
 /obj/item/stack/cable_coil{
 	amount = 1;
-	name = "PDA charging cable";
-	desc = "A cable used to replace the charging cable on a PDA."
+	desc = "A cable used to replace the charging cable on a PDA.";
+	name = "PDA charging cable"
 	},
 /obj/item/stack/cable_coil{
 	amount = 1;
-	name = "PDA charging cable";
-	desc = "A cable used to replace the charging cable on a PDA."
+	desc = "A cable used to replace the charging cable on a PDA.";
+	name = "PDA charging cable"
 	},
 /obj/item/stack/cable_coil{
 	amount = 1;
-	name = "PDA charging cable";
-	desc = "A cable used to replace the charging cable on a PDA."
+	desc = "A cable used to replace the charging cable on a PDA.";
+	name = "PDA charging cable"
 	},
 /obj/item/stack/cable_coil{
 	amount = 1;
-	name = "PDA charging cable";
-	desc = "A cable used to replace the charging cable on a PDA."
+	desc = "A cable used to replace the charging cable on a PDA.";
+	name = "PDA charging cable"
 	},
 /obj/item/stack/cable_coil{
 	amount = 1;
-	name = "PDA charging cable";
-	desc = "A cable used to replace the charging cable on a PDA."
+	desc = "A cable used to replace the charging cable on a PDA.";
+	name = "PDA charging cable"
 	},
 /obj/item/stack/cable_coil{
 	amount = 1;
-	name = "PDA charging cable";
-	desc = "A cable used to replace the charging cable on a PDA."
+	desc = "A cable used to replace the charging cable on a PDA.";
+	name = "PDA charging cable"
 	},
 /obj/item/stack/cable_coil{
 	amount = 1;
-	name = "PDA charging cable";
-	desc = "A cable used to replace the charging cable on a PDA."
+	desc = "A cable used to replace the charging cable on a PDA.";
+	name = "PDA charging cable"
 	},
 /obj/item/stack/cable_coil{
 	amount = 1;
-	name = "PDA charging cable";
-	desc = "A cable used to replace the charging cable on a PDA."
+	desc = "A cable used to replace the charging cable on a PDA.";
+	name = "PDA charging cable"
 	},
 /obj/item/stack/cable_coil{
 	amount = 1;
-	name = "PDA charging cable";
-	desc = "A cable used to replace the charging cable on a PDA."
+	desc = "A cable used to replace the charging cable on a PDA.";
+	name = "PDA charging cable"
 	},
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -372,10 +372,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ccm" = (
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ccK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -390,42 +390,42 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/grass/alt,
-/area/shuttle/orion_express_ship)
+/area/space)
 "cos" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "crK" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/sign/staff_only{
 	pixel_x = 32
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "cwI" = (
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "cxr" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "cHm" = (
 /obj/structure/window/reinforced,
 /obj/item/holomenu{
+	name = "holo-display";
 	pixel_x = -3;
 	pixel_y = 3;
-	name = "holo-display";
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "cJN" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -440,11 +440,11 @@
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "cVy" = (
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "dcS" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
@@ -452,18 +452,18 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ddB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "deS" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "dhX" = (
 /obj/structure/table/rack,
 /obj/item/reagent_containers/toothbrush,
@@ -488,14 +488,14 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "diy" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
 	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "dkq" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
@@ -507,7 +507,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "dmm" = (
 /obj/structure/bed/stool/bar/padded/beige,
 /obj/structure/sign/poster{
@@ -515,7 +515,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/carpet,
-/area/shuttle/orion_express_ship)
+/area/space)
 "drF" = (
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/corner_wide/beige{
@@ -527,21 +527,21 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "dul" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "duC" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "dGE" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -552,19 +552,19 @@
 	frequency = 1380;
 	id_tag = "orion_traveler_n_port";
 	layer = 3.3;
+	pixel_x = -32;
 	tag_airpump = "orion_traveler_n_pump";
 	tag_chamber_sensor = "orion_traveler_n_sensor";
 	tag_exterior_door = "orion_traveler_n_out";
-	tag_interior_door = "orion_traveler_n_in";
-	pixel_x = -32
+	tag_interior_door = "orion_traveler_n_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "dHA" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/shuttle/orion_express_ship)
+/area/space)
 "dLy" = (
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
@@ -573,7 +573,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "dYC" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -582,20 +582,20 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "dYD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "egO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "eiR" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -605,7 +605,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "etL" = (
 /turf/space/transit/south,
 /area/space)
@@ -616,7 +616,7 @@
 	dir = 1
 	},
 /turf/template_noop,
-/area/shuttle/orion_express_ship)
+/area/space)
 "eCy" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -628,7 +628,7 @@
 	id_tag = "orion_traveler_w_pump"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "eCG" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -638,11 +638,11 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "eCV" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "eFo" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/window/reinforced{
@@ -656,18 +656,18 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "fbf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "feE" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "feL" = (
 /obj/structure/sign/directions/dock{
 	dir = 1;
@@ -679,13 +679,13 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ffv" = (
 /obj/machinery/door/airlock/glass{
 	name = "Primary Hall"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "fkm" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
@@ -703,7 +703,7 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "fkX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -717,11 +717,11 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "fqt" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "fro" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/closet/crate/bin{
@@ -732,7 +732,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "frC" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 8
@@ -741,18 +741,16 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "fuh" = (
 /obj/item/clothing/head/beret/janitor,
 /obj/structure/table/steel,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "fEq" = (
-/obj/item/reagent_containers/food/snacks/meat/corgi,
-/obj/item/bone_dart,
-/obj/structure/table/steel,
+/obj/structure/foamedmetal,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "fJC" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -761,19 +759,19 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "fJE" = (
 /obj/structure/bed/stool/chair,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "gec" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/vending/boozeomat{
 	req_access = null
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "gep" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/light{
@@ -781,7 +779,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "gjQ" = (
 /turf/simulated/floor,
 /area/shuttle/orion_express_shuttle)
@@ -790,12 +788,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "goI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "gqU" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	req_access = list(201)
@@ -839,7 +837,7 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "gtw" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -852,7 +850,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "gyL" = (
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 8
@@ -864,7 +862,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "gDc" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -872,16 +870,15 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/effect/overmap/visitable/ship/landable/orion_express_ship,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "gHP" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/door/airlock/glass{
 	name = "Food Court"
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "gJZ" = (
 /obj/machinery/vending/tool,
 /obj/machinery/light{
@@ -889,7 +886,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "gLv" = (
 /obj/machinery/light{
 	dir = 8;
@@ -897,7 +894,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "gMK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/directions/tcom{
@@ -905,7 +902,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "gNW" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -924,21 +921,21 @@
 	name = "Restroom"
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hdZ" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hjK" = (
 /obj/machinery/atm{
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hkM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -950,7 +947,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hlr" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
@@ -967,7 +964,7 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hmX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
@@ -976,7 +973,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hqB" = (
 /obj/effect/floor_decal/industrial/hatch,
 /obj/structure/window/reinforced{
@@ -984,7 +981,7 @@
 	},
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hrj" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -993,11 +990,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "htX" = (
 /obj/effect/floor_decal/industrial/hatch,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hvo" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc,
@@ -1009,26 +1006,26 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass{
+	layer = 2.71;
 	name = "Commissary";
-	open_layer = 2.71;
-	layer = 2.71
+	open_layer = 2.71
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hAw" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hFA" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hKC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/hatch{
@@ -1036,14 +1033,11 @@
 	req_access = list(201)
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hOP" = (
-/obj/item/reagent_containers/food/snacks/meat/corgi,
-/obj/item/bone_dart,
-/obj/effect/decal/cleanable/blood,
-/obj/structure/table/steel,
+/obj/structure/foamedmetal,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hPo" = (
 /obj/structure/toilet{
 	dir = 8
@@ -1052,25 +1046,25 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hPR" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "hVK" = (
 /obj/machinery/door/airlock/glass{
-	req_access = list(201);
-	name = "Cryogenic Storage"
+	name = "Cryogenic Storage";
+	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ian" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/item/clothing/suit/chef,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ieN" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/door/airlock/hatch{
@@ -1078,25 +1072,25 @@
 	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ilT" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/grass/alt,
-/area/shuttle/orion_express_ship)
+/area/space)
 "imn" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ioB" = (
 /obj/structure/table/standard,
 /obj/item/device/radio{
 	icon_state = "radio";
-	pixel_y = 3;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "itr" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/structure/railing/mapped{
@@ -1107,7 +1101,7 @@
 	nitrogen = 0;
 	oxygen = 0
 	},
-/area/shuttle/orion_express_ship)
+/area/space)
 "iCX" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -1130,11 +1124,11 @@
 /obj/item/clipboard,
 /obj/item/paper,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "iHS" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "iIr" = (
 /obj/structure/sink{
 	pixel_y = 26
@@ -1146,7 +1140,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "iOe" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -1159,7 +1153,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "iPr" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -1175,14 +1169,14 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "iVL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jgn" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -1190,25 +1184,25 @@
 	},
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jmN" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "orion_traveler_e_port";
 	layer = 3.3;
+	pixel_x = null;
+	pixel_y = 32;
 	tag_airpump = "orion_traveler_e_pump";
 	tag_chamber_sensor = "orion_traveler_e_sensor";
 	tag_exterior_door = "orion_traveler_e_out";
-	tag_interior_door = "orion_traveler_e_in";
-	pixel_x = null;
-	pixel_y = 32
+	tag_interior_door = "orion_traveler_e_in"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1380;
 	id_tag = "orion_traveler_e_pump"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jsa" = (
 /obj/structure/sign/poster{
 	icon_state = "bsposter32";
@@ -1216,15 +1210,20 @@
 	},
 /obj/structure/table/rack,
 /obj/item/storage/pill_bottle/rmt,
-/obj/item/storage/pill_bottle/rmt,
+/obj/item/storage/pill_bottle/rmt{
+	pixel_x = 8
+	},
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
+/obj/item/storage/pill_bottle/perconol{
+	pixel_x = -8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jsq" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1233,7 +1232,7 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jub" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 8
@@ -1242,7 +1241,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "juh" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1250,7 +1249,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jvY" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -1259,10 +1258,10 @@
 	open_layer = 2.71
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jwy" = (
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jwX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suit_storage_unit/standard_unit,
@@ -1271,23 +1270,23 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jyA" = (
 /obj/structure/sign/staff_only{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jyH" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/bed/stool/bar/padded/beige,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jBp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/item/device/assembly/mousetrap/armed,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jMZ" = (
 /obj/structure/flora/ausbushes/grassybush,
 /obj/machinery/light{
@@ -1295,7 +1294,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/grass/alt,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jWz" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/chem_master/condimaster{
@@ -1303,17 +1302,17 @@
 	},
 /obj/item/storage/box/beakers,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "jYe" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "kaR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "kcS" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -32
@@ -1323,14 +1322,14 @@
 "kku" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "krv" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "krz" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -1338,7 +1337,7 @@
 	id_tag = "orion_traveler_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "kxo" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -1346,18 +1345,18 @@
 	id_tag = "orion_traveler_e_out"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "kDQ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "kFU" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/grass/alt,
-/area/shuttle/orion_express_ship)
+/area/space)
 "kJM" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -1369,7 +1368,7 @@
 	id_tag = "orion_traveler_e_pump"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "kLL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/black,
@@ -1383,7 +1382,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/shuttle/orion_express_ship)
+/area/space)
 "kYl" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -1394,7 +1393,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "lhJ" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/light{
@@ -1402,13 +1401,13 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/grass/alt,
-/area/shuttle/orion_express_ship)
+/area/space)
 "lkY" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "lpY" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -1420,43 +1419,43 @@
 	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "lsl" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "orion_traveler_w_port";
 	layer = 3.3;
+	pixel_y = 32;
 	tag_airpump = "orion_traveler_w_pump";
 	tag_chamber_sensor = "orion_traveler_w_sensor";
 	tag_exterior_door = "orion_traveler_w_out";
-	tag_interior_door = "orion_traveler_w_in";
-	pixel_y = 32
+	tag_interior_door = "orion_traveler_w_in"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1380;
 	id_tag = "orion_traveler_w_pump"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "lvN" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "lwI" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "lxT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "lym" = (
 /obj/item/storage/box/fancy/donut,
 /obj/item/storage/box/fancy/donut{
@@ -1464,16 +1463,16 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "lKs" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "lMD" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "lNh" = (
 /obj/structure/mirror{
 	pixel_y = -32
@@ -1482,7 +1481,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/space)
 "lTc" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
@@ -1494,12 +1493,12 @@
 	pixel_y = 32
 	},
 /obj/structure/sign/fire{
+	name = "\improper DANGER: FLAMMABLE GAS";
 	pixel_x = 32;
-	pixel_y = -32;
-	name = "\improper DANGER: FLAMMABLE GAS"
+	pixel_y = -32
 	},
 /turf/template_noop,
-/area/shuttle/orion_express_ship)
+/area/space)
 "lXU" = (
 /obj/item/reagent_containers/food/drinks/cans/peach_soda{
 	pixel_x = 9
@@ -1512,14 +1511,14 @@
 	pixel_y = 12
 	},
 /obj/item/reagent_containers/food/drinks/cans/peach_soda{
+	layer = 3.1;
 	pixel_x = 17;
-	pixel_y = 24;
-	layer = 3.1
+	pixel_y = 24
 	},
 /obj/item/holomenu{
+	name = "holo-display";
 	pixel_x = -3;
 	pixel_y = 3;
-	name = "holo-display";
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner/green{
@@ -1527,7 +1526,7 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "maj" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -1535,7 +1534,7 @@
 	id_tag = "orion_traveler_n_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "maw" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
@@ -1547,7 +1546,7 @@
 	poster_type = "/datum/poster/bay_68"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "maA" = (
 /obj/machinery/vending/engivend{
 	req_access = list(201)
@@ -1557,12 +1556,11 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mbu" = (
-/obj/item/material/hatchet/unathiknife,
-/obj/structure/table/steel,
+/obj/structure/foamedmetal,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mcD" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 1
@@ -1583,7 +1581,7 @@
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mhA" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner_wide/beige{
@@ -1591,25 +1589,25 @@
 	},
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mkT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mmT" = (
 /obj/machinery/door/airlock/glass{
 	name = "Commissary"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mrO" = (
 /obj/effect/shuttle_landmark/orion_express_shuttle/hangar,
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mun" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
@@ -1619,7 +1617,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mzO" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1649,14 +1647,14 @@
 	id_tag = "orion_traveler_n_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mGO" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
 	req_access = list(201)
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mLK" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor,
@@ -1670,14 +1668,14 @@
 	req_access = list(201)
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mPM" = (
 /obj/effect/floor_decal/industrial/hatch,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mQF" = (
 /obj/machinery/door/airlock/service{
 	name = "Cargo Bay";
@@ -1685,12 +1683,12 @@
 	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mSy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/vehicle/train/cargo/engine,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "mXt" = (
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
@@ -1707,7 +1705,7 @@
 /obj/item/clothing/accessory/bandanna,
 /obj/item/clothing/accessory/bandanna/black,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/space)
 "niD" = (
 /obj/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -1717,11 +1715,11 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "nkI" = (
 /obj/structure/janitorialcart/full,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "nnl" = (
 /obj/item/device/assembly/mousetrap/armed,
 /obj/effect/decal/cleanable/dirt,
@@ -1729,7 +1727,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/shuttle/orion_express_ship)
+/area/space)
 "ntn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -1739,13 +1737,13 @@
 /obj/item/clothing/under/gearharness,
 /obj/item/stack/material/plasteel,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ntw" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "nAQ" = (
 /obj/structure/fuel_port{
 	pixel_x = -32
@@ -1763,7 +1761,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "nEg" = (
 /obj/machinery/computer/ship/helm{
 	dir = 4;
@@ -1773,12 +1771,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "nFs" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "nGj" = (
 /obj/structure/table/rack,
 /obj/item/clothing/head/beret/corporate/orion{
@@ -1806,13 +1804,13 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "nIu" = (
 /obj/machinery/door/airlock/silver{
 	name = "Toilet"
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "nTM" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -1822,12 +1820,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "nVM" = (
 /obj/item/clothing/shoes/laceup/brown/all_species,
 /obj/item/clothing/under/rank/liaison/orion{
-	name = "orion express suit";
-	desc = "The plain, professional attire of a corporate employee. The collar is <i>immaculately</i> starched."
+	desc = "The plain, professional attire of a corporate employee. The collar is <i>immaculately</i> starched.";
+	name = "orion express suit"
 	},
 /obj/item/clothing/accessory/tie/corporate/orion,
 /obj/item/clothing/accessory/pin/corporate/orion,
@@ -1840,17 +1838,17 @@
 	},
 /obj/item/clothing/wrists/watch/gold,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "nYY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "odB" = (
 /obj/structure/bed/stool/bar/padded/beige,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "oey" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1873,10 +1871,10 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "oEN" = (
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "oIF" = (
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/orion_express_shuttle)
@@ -1889,23 +1887,22 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "oMV" = (
-/obj/effect/shuttle_landmark/orion_express_ship/start,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "oNK" = (
 /obj/structure/window/reinforced,
 /obj/item/toy/xmastree,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "oQn" = (
 /obj/item/storage/box/mousetraps,
 /obj/structure/table/steel,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "oTa" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/corner_wide/beige/full,
@@ -1913,7 +1910,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "oXn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -1932,7 +1929,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "phP" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -1941,7 +1938,7 @@
 /obj/item/paper_bin,
 /obj/item/pen/multi,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "pll" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/access_button{
@@ -1952,7 +1949,7 @@
 	pixel_y = 32
 	},
 /turf/template_noop,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ppM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -1963,14 +1960,14 @@
 	frequency = 1380;
 	id_tag = "orion_traveler_port";
 	layer = 3.3;
+	pixel_x = -32;
 	tag_airpump = "orion_traveler_pump";
 	tag_chamber_sensor = "orion_traveler_sensor";
 	tag_exterior_door = "orion_traveler_out";
-	tag_interior_door = "orion_traveler_in";
-	pixel_x = -32
+	tag_interior_door = "orion_traveler_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ppO" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/sign/staff_only{
@@ -1982,7 +1979,7 @@
 	pixel_y = 10
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ptP" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -1991,11 +1988,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "pDY" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "pFY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/largecrate/animal/cow,
@@ -2004,13 +2001,11 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "pGN" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
+/obj/structure/foamedmetal,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "pHQ" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
@@ -2018,7 +2013,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "pOf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/window/reinforced{
@@ -2026,7 +2021,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "pPC" = (
 /obj/effect/decal/cleanable/cobweb2,
 /obj/machinery/light/small/emergency{
@@ -2037,7 +2032,7 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/shuttle/orion_express_ship)
+/area/space)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
@@ -2046,13 +2041,12 @@
 /obj/machinery/door/airlock/glass{
 	name = "Primary Hall"
 	},
-/obj/effect/overmap/visitable/sector/orion_express_ship,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "pVf" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/space)
 "pXU" = (
 /obj/machinery/shower,
 /obj/structure/curtain/open/shower,
@@ -2061,14 +2055,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "qbp" = (
 /obj/machinery/papershredder,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "qjk" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
@@ -2095,7 +2089,7 @@
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "qsf" = (
 /obj/effect/floor_decal/corner_wide/beige/full,
 /obj/structure/closet/crate/bin{
@@ -2107,14 +2101,14 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "qtL" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/jetpack/oxygen,
 /obj/effect/floor_decal/corner_wide/beige/full,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "que" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/south,
@@ -2124,7 +2118,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "qza" = (
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 1
@@ -2141,19 +2135,19 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "qBd" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_express_ship)
+/area/space)
 "qGl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "qHO" = (
-/obj/effect/shuttle_landmark/orion_express_ship/transit,
-/turf/space/transit/south,
+/obj/structure/barricade/steel,
+/turf/simulated/floor,
 /area/space)
 "qLl" = (
 /obj/structure/closet/crate/bin{
@@ -2163,11 +2157,11 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "qRJ" = (
 /obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "qTc" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
@@ -2180,7 +2174,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "qUy" = (
 /obj/machinery/computer/shuttle_control/explore/orion_express_shuttle{
 	dir = 4
@@ -2196,7 +2190,7 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "rgL" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
@@ -2206,37 +2200,36 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "riA" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
-/area/shuttle/orion_express_ship)
+/area/space)
 "roN" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "rro" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /turf/template_noop,
-/area/shuttle/orion_express_ship)
+/area/space)
 "rrQ" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "rsO" = (
 /turf/simulated/floor/tiled/dark/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ruc" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/suit/fake_cultrobes,
+/obj/structure/foamedmetal,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ruB" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -2247,13 +2240,13 @@
 	nitrogen = 0;
 	oxygen = 0
 	},
-/area/shuttle/orion_express_ship)
+/area/space)
 "rvq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "rzM" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
@@ -2268,7 +2261,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "rBK" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -2277,7 +2270,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "rKi" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/computer/arcade/orion_trail,
@@ -2286,7 +2279,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "rLo" = (
 /obj/machinery/light{
 	dir = 1;
@@ -2295,7 +2288,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "rNJ" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -2303,7 +2296,7 @@
 	id_tag = "orion_traveler_w_out"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "rQB" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -2312,14 +2305,14 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "rVo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "sfw" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -2329,7 +2322,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "sll" = (
 /obj/structure/sign/directions/cryo{
 	dir = 8;
@@ -2341,13 +2334,13 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/carpet,
-/area/shuttle/orion_express_ship)
+/area/space)
 "slH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /mob/living/bot/cleanbot,
 /obj/item/device/paicard,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "slN" = (
 /obj/structure/sign/vacuum{
 	pixel_x = -32
@@ -2360,11 +2353,8 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "smG" = (
-/obj/machinery/computer/shuttle_control/explore/orion_express_ship{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
@@ -2374,7 +2364,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "soa" = (
 /obj/structure/table/rack,
 /obj/item/toy/comic/inspector{
@@ -2397,11 +2387,11 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "soM" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/shuttle/orion_express_ship)
+/area/space)
 "spv" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -2414,7 +2404,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "sqh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -2430,7 +2420,7 @@
 "stX" = (
 /obj/structure/bed/stool/bar/padded/beige,
 /turf/simulated/floor/carpet,
-/area/shuttle/orion_express_ship)
+/area/space)
 "szD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2441,7 +2431,7 @@
 	id_tag = "orion_traveler_w_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "sCd" = (
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 4
@@ -2451,7 +2441,11 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
+"sCL" = (
+/obj/effect/shuttle_landmark/orion_express_ship/transit,
+/turf/space/transit/south,
+/area/space)
 "sDs" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
@@ -2470,7 +2464,7 @@
 	pixel_x = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "sIh" = (
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
@@ -2484,7 +2478,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "sJD" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 4
@@ -2494,14 +2488,14 @@
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "sLq" = (
 /obj/machinery/door/airlock/mining{
 	name = "Captain's Quarters";
 	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "sMg" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/reagentgrinder{
@@ -2512,13 +2506,13 @@
 /obj/item/storage/box/drinkingglasses,
 /obj/item/storage/box/drinkingglasses,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "sMm" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "sMD" = (
 /obj/structure/closet/walllocker/medical{
 	pixel_x = -32
@@ -2530,7 +2524,7 @@
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "sOb" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
@@ -2539,7 +2533,7 @@
 "sSQ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "sTK" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
@@ -2547,11 +2541,9 @@
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/orion_express_shuttle)
 "tbn" = (
-/obj/item/stack/material/animalhide/corgi,
-/obj/effect/decal/cleanable/blood,
-/obj/structure/table/steel,
+/obj/structure/foamedmetal,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tcC" = (
 /obj/machinery/light{
 	dir = 8;
@@ -2560,7 +2552,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tei" = (
 /obj/item/clothing/wrists/watch{
 	pixel_x = -10
@@ -2570,15 +2562,15 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tgc" = (
-/obj/structure/barricade/steel,
+/obj/structure/foamedmetal,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tgu" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "thd" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -2589,7 +2581,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "thI" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical{
@@ -2597,7 +2589,7 @@
 	},
 /obj/item/storage/toolbox/electrical,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tlv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -2608,30 +2600,30 @@
 	id_tag = "orion_traveler_e_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tmL" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass{
+	layer = 2.71;
 	name = "Primary Hall";
-	open_layer = 2.71;
-	layer = 2.71
+	open_layer = 2.71
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tnO" = (
 /obj/machinery/door/airlock/mining{
 	name = "Crew Quarters";
 	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "trH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tsn" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
@@ -2640,7 +2632,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tAd" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 10
@@ -2653,7 +2645,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tDM" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -2661,29 +2653,29 @@
 	id_tag = "orion_traveler_n_out"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tEO" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tLA" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tNx" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 9
 	},
 /obj/machinery/papershredder,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tOx" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tPq" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -2694,7 +2686,7 @@
 	amount = 20
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tRj" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
@@ -2703,14 +2695,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tUl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tUu" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8
@@ -2719,7 +2711,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tUC" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/corner/blue{
@@ -2730,14 +2722,14 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "tWh" = (
 /obj/machinery/computer/cryopod{
 	pixel_y = -33
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "ufB" = (
 /obj/structure/table/rack,
 /obj/item/reagent_containers/toothpaste,
@@ -2750,13 +2742,13 @@
 /obj/item/reagent_containers/toothpaste,
 /obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "uiz" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "uon" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
@@ -2764,29 +2756,29 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/shuttle/orion_express_ship)
+/area/space)
 "uty" = (
 /obj/structure/table/standard,
 /obj/item/folder/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "uwG" = (
 /obj/structure/dispenser/oxygen,
 /obj/structure/sign/vacuum{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "uwT" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "uyk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "uzX" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance"
@@ -2797,13 +2789,13 @@
 /obj/structure/table/wood,
 /obj/item/toy/desk/newtoncradle,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "uHL" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "uNn" = (
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/orion_express_shuttle)
@@ -2812,20 +2804,20 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "uWT" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vdX" = (
 /obj/effect/shuttle_landmark/orion_express_ship/nav1,
 /turf/template_noop,
 /area/space)
 "vhp" = (
 /turf/simulated/floor/carpet,
-/area/shuttle/orion_express_ship)
+/area/space)
 "viF" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
@@ -2842,13 +2834,13 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vtO" = (
 /obj/structure/sign/nosmoking_1{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vwc" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -2859,7 +2851,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vyi" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -2876,26 +2868,26 @@
 	pixel_x = -32
 	},
 /turf/template_noop,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vyy" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vyC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vzk" = (
 /obj/machinery/door/airlock/command{
-	req_access = list(201);
-	name = "Platform Command Center"
+	name = "Platform Command Center";
+	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vzU" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(201)
@@ -2906,8 +2898,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/obj/item/gun/energy/blaster/carbine,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vFS" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -2917,7 +2910,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vKn" = (
 /obj/machinery/atm{
 	pixel_x = 32
@@ -2926,7 +2919,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vOd" = (
 /obj/machinery/computer/ship/helm{
 	req_access = list(201)
@@ -2938,21 +2931,21 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vUr" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vVk" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vVv" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
@@ -2960,13 +2953,13 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "vZZ" = (
 /obj/structure/sign/staff_only{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "waI" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -2980,7 +2973,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wjI" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner_wide/beige{
@@ -2991,7 +2984,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wkO" = (
 /obj/structure/table/wood,
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -3005,30 +2998,30 @@
 "wlw" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass/alt,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wlA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wlN" = (
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wpk" = (
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/grass/alt,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wpP" = (
 /obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wri" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wrk" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/item/stack/wrapping_paper,
@@ -3046,7 +3039,7 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wrJ" = (
 /obj/effect/shuttle_landmark/orion_express_shuttle/transit,
 /turf/space/transit/south,
@@ -3058,7 +3051,7 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wtd" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -3070,7 +3063,7 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wzK" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/door/window{
@@ -3078,19 +3071,19 @@
 	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wBq" = (
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "orion_warehouse"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wPe" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wSM" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/corner_wide/beige/full{
@@ -3100,26 +3093,26 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wUT" = (
 /obj/effect/ghostspawpoint{
 	identifier = "orion_express_courier";
 	name = "igs - orion_express_courier"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wYR" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
 	opacity = 0
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/orion_express_ship)
+/area/space)
 "wZf" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/floor_decal/corner/blue/full,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "xnk" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
@@ -3131,7 +3124,7 @@
 	dir = 1
 	},
 /turf/template_noop,
-/area/shuttle/orion_express_ship)
+/area/space)
 "xnY" = (
 /obj/item/reagent_containers/food/drinks/cans/peach_soda{
 	pixel_x = -5
@@ -3152,7 +3145,7 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "xrl" = (
 /obj/structure/table/rack,
 /obj/item/towel/random{
@@ -3171,35 +3164,35 @@
 	pixel_y = 5
 	},
 /obj/item/clothing/head/surgery{
-	name = "shower cap";
-	desc = s"A cap worn during showers. Keeps your hair save from horrible water."
+	desc = s"A cap worn during showers. Keeps your hair save from horrible water.";
+	name = "shower cap"
 	},
 /obj/item/clothing/head/surgery{
-	name = "shower cap";
-	desc = s"A cap worn during showers. Keeps your hair save from horrible water."
+	desc = s"A cap worn during showers. Keeps your hair save from horrible water.";
+	name = "shower cap"
 	},
 /obj/item/clothing/head/surgery{
-	name = "shower cap";
-	desc = s"A cap worn during showers. Keeps your hair save from horrible water."
+	desc = s"A cap worn during showers. Keeps your hair save from horrible water.";
+	name = "shower cap"
 	},
 /obj/item/clothing/head/surgery{
-	name = "shower cap";
-	desc = s"A cap worn during showers. Keeps your hair save from horrible water."
+	desc = s"A cap worn during showers. Keeps your hair save from horrible water.";
+	name = "shower cap"
 	},
 /obj/item/clothing/head/surgery{
-	name = "shower cap";
-	desc = s"A cap worn during showers. Keeps your hair save from horrible water."
+	desc = s"A cap worn during showers. Keeps your hair save from horrible water.";
+	name = "shower cap"
 	},
 /obj/item/clothing/head/surgery{
-	name = "shower cap";
-	desc = s"A cap worn during showers. Keeps your hair save from horrible water."
+	desc = s"A cap worn during showers. Keeps your hair save from horrible water.";
+	name = "shower cap"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "xsE" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "xtN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -3214,7 +3207,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "xuX" = (
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/orion_express_shuttle)
@@ -3224,20 +3217,20 @@
 	layer = 2.8
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "xzl" = (
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch,
 /turf/simulated/floor/airless,
-/area/shuttle/orion_express_ship)
+/area/space)
 "xFA" = (
 /obj/structure/table/wood,
 /obj/item/clipboard,
 /obj/item/paper/business_card,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "xPl" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
@@ -3248,7 +3241,7 @@
 	name = "igs - orion_express_courier"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "xRX" = (
 /turf/template_noop,
 /area/space)
@@ -3261,28 +3254,28 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "xWp" = (
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
 	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_express_ship)
+/area/space)
 "yau" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "yep" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suit_cycler{
 	req_access = null
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 "yfz" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -3293,7 +3286,7 @@
 /obj/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/orion_express_ship)
+/area/space)
 "yks" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -3301,7 +3294,7 @@
 	id_tag = "orion_traveler_out"
 	},
 /turf/simulated/floor,
-/area/shuttle/orion_express_ship)
+/area/space)
 
 (1,1,1) = {"
 xRX
@@ -3733,82 +3726,82 @@ xRX
 xRX
 xRX
 pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+sOb
 etL
 etL
 etL
@@ -4065,7 +4058,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -4322,7 +4315,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -4579,7 +4572,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -4836,7 +4829,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -5093,7 +5086,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -5350,7 +5343,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -5607,7 +5600,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -5864,7 +5857,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -6121,7 +6114,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -6378,7 +6371,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -6635,7 +6628,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -6892,7 +6885,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -7149,7 +7142,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -7406,7 +7399,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -7663,7 +7656,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -7920,7 +7913,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -8177,7 +8170,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -8434,7 +8427,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -8691,7 +8684,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -8948,7 +8941,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -9205,7 +9198,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -9462,7 +9455,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -9719,7 +9712,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -9976,7 +9969,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -10233,7 +10226,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -10422,51 +10415,6 @@ etL
 etL
 etL
 etL
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
 etL
 etL
 etL
@@ -10491,6 +10439,51 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+que
 etL
 etL
 etL
@@ -10679,75 +10672,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -10936,75 +10929,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -11193,75 +11186,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -11450,75 +11443,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -11707,75 +11700,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -11964,75 +11957,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -12221,75 +12214,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+sCL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -12478,75 +12471,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -12735,75 +12728,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -12992,75 +12985,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -13249,75 +13242,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -13506,75 +13499,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -13763,75 +13756,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -14020,75 +14013,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -14277,75 +14270,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -14534,75 +14527,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-qHO
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -14791,75 +14784,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -15048,75 +15041,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -15305,75 +15298,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -15562,75 +15555,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -15819,75 +15812,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -16076,75 +16069,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -16333,75 +16326,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -16590,75 +16583,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -16847,75 +16840,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -17104,75 +17097,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -17361,75 +17354,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -17618,75 +17611,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -17875,75 +17868,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -18132,75 +18125,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -18389,75 +18382,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -18646,75 +18639,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -18903,75 +18896,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -19160,75 +19153,75 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
 que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-que
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
 etL
 etL
 etL
@@ -19417,51 +19410,6 @@ etL
 etL
 etL
 etL
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
-que
 etL
 etL
 etL
@@ -19486,6 +19434,51 @@ etL
 etL
 etL
 etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+etL
+que
 etL
 etL
 etL
@@ -19742,7 +19735,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -19999,7 +19992,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -20256,7 +20249,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -20513,7 +20506,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -20770,7 +20763,7 @@ etL
 etL
 etL
 etL
-etL
+que
 etL
 etL
 etL
@@ -20952,82 +20945,82 @@ xRX
 xRX
 xRX
 pRf
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
-etL
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+que
+sOb
 etL
 etL
 etL
@@ -32699,7 +32692,7 @@ xVJ
 kaR
 rVo
 cVy
-ccm
+oMV
 mhA
 qBd
 deS
@@ -32952,7 +32945,7 @@ qBd
 qBd
 qBd
 qBd
-ccm
+oMV
 feE
 feE
 kDQ
@@ -33466,7 +33459,7 @@ wlN
 qBd
 nEg
 smG
-ccm
+oMV
 wZf
 qBd
 eCG
@@ -33723,7 +33716,7 @@ lNh
 qBd
 gDc
 sMm
-ccm
+oMV
 cxr
 qBd
 yfU
@@ -33980,7 +33973,7 @@ riA
 qBd
 qqs
 uty
-ccm
+oMV
 fmY
 qBd
 wPe
@@ -34237,7 +34230,7 @@ pVf
 qBd
 iGD
 tEO
-ccm
+oMV
 tUC
 qBd
 sMg
@@ -34494,7 +34487,7 @@ mun
 qBd
 phP
 ioB
-ccm
+oMV
 vzU
 qBd
 bVs
@@ -34751,7 +34744,7 @@ mun
 qBd
 rBK
 cos
-ccm
+oMV
 qLl
 qBd
 gqU
@@ -35008,7 +35001,7 @@ mun
 qBd
 aSO
 qTc
-ccm
+oMV
 qbp
 qBd
 oKe
@@ -35016,13 +35009,13 @@ lKs
 aYo
 qBd
 aYE
-ccm
-ccm
+oMV
+oMV
 aMl
 wri
 bAQ
-ccm
-ccm
+oMV
+oMV
 wjI
 oTa
 qBd
@@ -35273,14 +35266,14 @@ xWp
 qBd
 qBd
 fkm
-ccm
-ccm
+oMV
+oMV
 wpP
-ccm
+oMV
 wpP
-ccm
-ccm
-ccm
+oMV
+oMV
+oMV
 tAd
 rrQ
 ppM
@@ -35514,31 +35507,31 @@ bIY
 qGl
 kku
 maj
-ccm
-ffv
+oMV
+pRV
 feL
-ccm
+oMV
 vZZ
-ccm
-ccm
+oMV
+oMV
 bkP
-ccm
+oMV
 vZZ
-ccm
-ccm
+oMV
+oMV
 oMV
 vZZ
 pRV
-ccm
-ccm
-ccm
-ccm
-ccm
-ccm
-ccm
-ccm
-ccm
-ccm
+oMV
+oMV
+oMV
+oMV
+oMV
+oMV
+oMV
+oMV
+oMV
+oMV
 krz
 dYD
 rvq
@@ -36044,12 +36037,12 @@ sLq
 riA
 qBd
 qza
-ccm
-ccm
+oMV
+oMV
 dkq
 maw
 dkq
-ccm
+oMV
 trH
 drF
 wSM
@@ -36288,16 +36281,16 @@ nYY
 hKC
 kaR
 meU
-ccm
-ccm
-ccm
-ccm
+oMV
+oMV
+oMV
+oMV
 aOi
 lpY
 qBd
 gyL
 tNx
-ccm
+oMV
 qsf
 qBd
 qBd
@@ -36544,26 +36537,26 @@ gMK
 oEN
 qBd
 roN
-ccm
+oMV
 gec
 aOi
 goI
-ccm
+oMV
 goI
-ccm
+oMV
 qBd
 ble
-ccm
-ccm
+oMV
+oMV
 dYg
 qBd
 waI
-ccm
-ccm
+oMV
+oMV
 uWT
 uWT
 thd
-ccm
+oMV
 aDL
 hKC
 jBp
@@ -36800,26 +36793,26 @@ riA
 qBd
 kRQ
 qBd
-nFs
+wlA
 iHS
 ntn
-ccm
+oMV
 goI
 wUT
 goI
-ccm
+oMV
 qBd
 tRj
-ccm
+oMV
 aRB
 dYg
 qBd
 lXU
-ccm
+oMV
 lym
-ccm
+oMV
 dhX
-ccm
+oMV
 ufB
 bXG
 qBd
@@ -37058,9 +37051,9 @@ riA
 nnl
 qBd
 wlA
-ccm
+oMV
 tPq
-ccm
+oMV
 goI
 aOi
 goI
@@ -37072,16 +37065,16 @@ xFA
 dYg
 qBd
 xnY
-ccm
+oMV
 tei
-ccm
+oMV
 xrl
-ccm
+oMV
 soa
 qBd
 qBd
-tgc
-tgc
+qHO
+qHO
 riA
 riA
 xRX
@@ -37315,9 +37308,9 @@ riA
 pPC
 qBd
 hmX
-ccm
+oMV
 ajL
-ccm
+oMV
 goI
 aOi
 goI
@@ -37326,14 +37319,14 @@ qBd
 iTn
 ayf
 uGk
-ccm
+oMV
 sLq
-ccm
-ccm
-ccm
-ccm
-ccm
-ccm
+oMV
+oMV
+oMV
+oMV
+oMV
+oMV
 nGj
 qBd
 xsE
@@ -37572,13 +37565,13 @@ riA
 riA
 qBd
 wlA
-ccm
+oMV
 slH
-ccm
+oMV
 goI
-ccm
+oMV
 goI
-ccm
+oMV
 qBd
 nVM
 bgA
@@ -37589,7 +37582,7 @@ bom
 cHm
 jYe
 oNK
-ccm
+oMV
 qRJ
 jsa
 qBd
@@ -37830,11 +37823,11 @@ riA
 riA
 wlA
 aOi
-ccm
-ccm
-ccm
-ccm
-ccm
+oMV
+oMV
+oMV
+oMV
+oMV
 uiz
 qBd
 qBd
@@ -38086,16 +38079,16 @@ xRX
 riA
 riA
 pFY
-ccm
+oMV
 wtd
 rQB
-ccm
+oMV
 vyC
 bbM
 iHS
 gLv
 aOi
-ccm
+oMV
 tcC
 aOi
 mQF
@@ -38346,7 +38339,7 @@ riA
 gJZ
 tUu
 uHL
-ccm
+oMV
 yep
 mSy
 aOi
@@ -38603,10 +38596,10 @@ riA
 riA
 jub
 ntw
-ccm
+oMV
 aOi
-ccm
-ccm
+oMV
+oMV
 lxT
 jwX
 kYl
@@ -38615,7 +38608,7 @@ uwG
 qBd
 qBd
 qBd
-tgc
+xsE
 xsE
 xsE
 xsE
@@ -38870,9 +38863,9 @@ rrQ
 tlv
 qBd
 qBd
-hOP
-fEq
-tgc
+xsE
+xsE
+xsE
 xsE
 xsE
 riA
@@ -39126,10 +39119,10 @@ qBd
 jmN
 kku
 qBd
-pGN
-ruc
-oEN
-tgc
+xsE
+xsE
+xsE
+xsE
 riA
 riA
 riA
@@ -39383,8 +39376,8 @@ qBd
 kJM
 dul
 qBd
-mbu
-tbn
+xsE
+xsE
 riA
 riA
 riA
