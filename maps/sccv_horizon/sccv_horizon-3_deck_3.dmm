@@ -5733,6 +5733,7 @@
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/starboard)
 "ku" = (
+/obj/effect/floor_decal/spline/plain/full,
 /turf/simulated/floor/beach/water/alt,
 /area/horizon/deck_three/cafeteria)
 "kv" = (
