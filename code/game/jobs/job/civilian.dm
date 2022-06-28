@@ -197,7 +197,7 @@
 	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
 	title_accesses = list("Corporate Reporter" = list(access_medical, access_sec_doors, access_research, access_engine))
 	outfit = /datum/outfit/job/journalist
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/journalist
 	name = "Corporate Reporter"
