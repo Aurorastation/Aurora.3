@@ -22990,7 +22990,6 @@
 	},
 /obj/structure/closet/wardrobe/pharmacy_white,
 /obj/item/storage/box/gloves,
-/obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "mCE" = (
