@@ -2878,7 +2878,7 @@
 	pixel_y = 6
 	},
 /obj/item/storage/box/masks,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/fire{
 	layer = 2.9;
@@ -5682,7 +5682,7 @@
 	},
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/structure/table/stone/marble,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 4;
 	pixel_y = 9
 	},
@@ -8644,7 +8644,7 @@
 /area/centcom/holding)
 "auj" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 11;
 	pixel_y = 12
 	},
@@ -10889,7 +10889,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = -12;
 	pixel_y = 11
 	},
@@ -21950,7 +21950,7 @@
 /area/centcom/legion)
 "bao" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
@@ -23409,7 +23409,7 @@
 "bdc" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_y = -8
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal{
@@ -25895,7 +25895,7 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks,
 /obj/machinery/light{
 	dir = 4;
@@ -30935,8 +30935,6 @@
 /obj/item/clothing/glasses/hud/health,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/mask/surgical,
 /obj/item/storage/belt/medical,
@@ -30952,6 +30950,7 @@
 	req_access = null
 	},
 /obj/item/storage/backpack/messenger/med,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "bsS" = (
@@ -31616,7 +31615,7 @@
 	pixel_y = -8
 	},
 /obj/item/reagent_containers/syringe,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_y = 12
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline{
@@ -33830,14 +33829,12 @@
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/regular,
-/obj/item/clothing/gloves/latex,
 /obj/item/reagent_containers/glass/bottle/peridaxon,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/syringe,
 /obj/item/reagent_containers/syringe,
 /obj/item/reagent_containers/syringe,
 /obj/item/reagent_containers/syringe,
-/obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical,
 /obj/item/storage/belt/medical,
 /obj/random/medical,
@@ -33849,6 +33846,7 @@
 /obj/item/reagent_containers/glass/bottle/bicaridine,
 /obj/item/reagent_containers/glass/bottle/dermaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/skipjack)
 "bBy" = (

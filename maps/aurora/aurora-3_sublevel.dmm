@@ -1688,7 +1688,7 @@
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/emergency,
 /obj/item/storage/box/samplebags,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/lights/mixed{
 	pixel_x = 5;
 	pixel_y = -2

@@ -87,6 +87,7 @@
 /obj/machinery/vending/wallmed2{
 	pixel_x = 28
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "abz" = (
@@ -148,7 +149,7 @@
 	alarm_id = 1601;
 	dir = 8;
 	pixel_x = 28;
-	req_one_access = list(11, 24, 52)
+	req_one_access = list(11,24,52)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -9318,7 +9319,7 @@
 	pixel_x = -9;
 	pixel_y = 6
 	},
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 5;
 	pixel_y = -2
 	},
@@ -14208,6 +14209,7 @@
 /obj/machinery/vending/wallmed2{
 	pixel_x = -28
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "hBz" = (
@@ -22986,6 +22988,8 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
+/obj/structure/closet/wardrobe/pharmacy_white,
+/obj/item/storage/box/gloves,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
@@ -23427,7 +23431,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "mNN" = (
@@ -30375,6 +30379,14 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/horizon/crew_quarters/washroom/central)
+"qzF" = (
+/obj/structure/closet/secure_closet/scientist,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/carpet/rubber,
+/area/rnd/strongroom)
 "qzH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -34671,7 +34683,7 @@
 	pixel_y = 10;
 	req_access = list(66)
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks{
 	pixel_x = 4;
 	pixel_y = 4
@@ -39132,8 +39144,6 @@
 "viR" = (
 /obj/structure/closet/secure_closet/RD,
 /obj/item/clothing/mask/gas/half,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/item/device/megaphone/sci,
 /obj/effect/floor_decal/corner/white{
@@ -39142,6 +39152,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "vjN" = (
@@ -39686,7 +39697,7 @@
 	pixel_y = 10;
 	req_access = list(66)
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks{
 	pixel_x = 4;
 	pixel_y = 4
@@ -40087,11 +40098,7 @@
 /obj/structure/closet/secure_closet/scientist,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "vMl" = (
@@ -72042,7 +72049,7 @@ iic
 gBT
 urh
 tvX
-vLu
+qzF
 vLu
 kGX
 vEg

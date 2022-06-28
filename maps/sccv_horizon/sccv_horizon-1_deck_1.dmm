@@ -890,11 +890,11 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
+	},
+/obj/structure/reagent_dispensers/peppertank/spacecleaner{
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -1967,12 +1967,12 @@
 	dir = 1
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 4;
 	id = "shutters_custodialgarage";
 	name = "Custodial Garage Shutters";
 	pixel_x = -25;
-	req_access = list(26);
 	pixel_y = 7;
-	dir = 4
+	req_access = list(26)
 	},
 /obj/machinery/ringer_button{
 	id = "ringers_custodial";
@@ -2630,9 +2630,9 @@
 	dir = 1
 	},
 /obj/structure/sign/drop{
-	pixel_y = -32;
+	desc = "A danger sign which reads 'DANGER: DISPOSAL TO REFINERY'.";
 	name = "\improper DANGER: DISPOSAL TO REFINERY sign";
-	desc = "A danger sign which reads 'DANGER: DISPOSAL TO REFINERY'."
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/airless,
 /area/hangar/operations)
@@ -5294,7 +5294,6 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/bio_suit/anomaly,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/bio_hood/anomaly,
@@ -5311,6 +5310,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "epn" = (
@@ -5847,7 +5847,7 @@
 "eJu" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 5;
 	pixel_y = -1
 	},
@@ -6213,7 +6213,6 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/bio_suit/anomaly,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/bio_hood/anomaly,
@@ -6230,6 +6229,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "eWN" = (
@@ -7705,21 +7705,21 @@
 /area/engineering/storage/lower)
 "gcZ" = (
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "shutters_custodialdesk";
 	name = "Custodial Desk Shutter";
 	pixel_x = 25;
 	pixel_y = -7;
-	dir = 8;
 	req_access = list(26)
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "shutters_custodialgarage";
 	name = "Custodial Garage Shutter";
-	req_access = list(26);
-	pixel_y = 7;
 	pixel_x = 25;
-	dir = 8
+	pixel_y = 7;
+	req_access = list(26)
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
@@ -7802,8 +7802,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable,
 /obj/machinery/power/apc{
-	pixel_x = -24;
-	dir = 8
+	dir = 8;
+	pixel_x = -24
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
@@ -7915,9 +7915,9 @@
 	dir = 4
 	},
 /obj/machinery/light_switch{
-	pixel_y = -24;
+	dir = 1;
 	pixel_x = 9;
-	dir = 1
+	pixel_y = -24
 	},
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 4
@@ -10101,7 +10101,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks,
 /obj/item/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/dark,
@@ -10670,8 +10670,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/sign/fire{
 	desc = "A warning sign which reads 'DANGER: SHUTTLE THRUSTERS IN USE' and 'MIND THE DISTANCE'.";
-	name = "\improper DANGER: THRUSTERS sign";
-	layer = 2.1
+	layer = 2.1;
+	name = "\improper DANGER: THRUSTERS sign"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/hangar/operations)
@@ -10834,7 +10834,7 @@
 "iFU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/steel,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
@@ -11261,9 +11261,9 @@
 	dir = 10
 	},
 /obj/structure/sign/securearea{
-	pixel_y = -32;
+	desc = "A danger sign which reads 'DANGER: THE MINING SHUTTLE HANGAR IS A DEPRESSURIZED AREA'.";
 	name = "\improper DANGER: DEPRESSURIZED AREA sign";
-	desc = "A danger sign which reads 'DANGER: THE MINING SHUTTLE HANGAR IS A DEPRESSURIZED AREA'."
+	pixel_y = -32
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -11398,9 +11398,9 @@
 /area/engineering/atmos/propulsion/starboard)
 "jiS" = (
 /obj/machinery/light_switch{
+	dir = 8;
 	pixel_x = 24;
-	pixel_y = -9;
-	dir = 8
+	pixel_y = -9
 	},
 /obj/structure/railing/mapped,
 /obj/structure/closet/secure_closet/custodial,
@@ -13425,9 +13425,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "miningbay";
 	name = "Mining Bay Entrance";
+	pixel_x = -7;
 	pixel_y = 25;
-	req_access = list(48);
-	pixel_x = -7
+	req_access = list(48)
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -13883,6 +13883,10 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "leL" = (
@@ -14246,9 +14250,9 @@
 	dir = 1;
 	id = "miningbay";
 	name = "Mining Bay Entrance";
+	pixel_x = -7;
 	pixel_y = -25;
-	req_access = list(48);
-	pixel_x = -7
+	req_access = list(48)
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
@@ -16556,8 +16560,8 @@
 	id = "ringers_custodial";
 	name = "\improper Custodial Ringer Terminal";
 	pixel_x = -32;
-	req_access = list(26);
-	pixel_y = 5
+	pixel_y = 5;
+	req_access = list(26)
 	},
 /obj/structure/coatrack{
 	pixel_x = -9
@@ -16611,9 +16615,9 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	frequency = 1380;
 	id_tag = "escape_pod_2";
+	pixel_x = -9;
 	pixel_y = 25;
-	tag_door = "escape_pod_2_hatch";
-	pixel_x = -9
+	tag_door = "escape_pod_2_hatch"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod2)
@@ -18601,9 +18605,9 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	frequency = 1380;
 	id_tag = "escape_pod_1";
-	tag_door = "escape_pod_1_hatch";
+	pixel_x = -9;
 	pixel_y = 25;
-	pixel_x = -9
+	tag_door = "escape_pod_1_hatch"
 	},
 /obj/item/modular_computer/console/preset/civilian{
 	dir = 8;
@@ -20583,10 +20587,10 @@
 	frequency = 1380;
 	id_tag = "mining_shuttle_dock";
 	name = "mining shuttle hatch controller";
-	pixel_y = -25;
-	tag_door = "mining_shuttle_dock_doors";
 	pixel_x = 6;
-	req_one_access = list(31,48,67)
+	pixel_y = -25;
+	req_one_access = list(31,48,67);
+	tag_door = "mining_shuttle_dock_doors"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -20996,9 +21000,9 @@
 	dir = 4
 	},
 /obj/structure/sign/securearea{
-	pixel_y = -32;
+	desc = "A danger sign which reads 'DANGER: THE MINING SHUTTLE HANGAR IS A DEPRESSURIZED AREA'.";
 	name = "\improper DANGER: DEPRESSURIZED AREA sign";
-	desc = "A danger sign which reads 'DANGER: THE MINING SHUTTLE HANGAR IS A DEPRESSURIZED AREA'."
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -21412,9 +21416,9 @@
 	pixel_y = -8
 	},
 /obj/machinery/firealarm/west{
+	dir = 2;
 	pixel_x = 0;
-	pixel_y = -31;
-	dir = 2
+	pixel_y = -31
 	},
 /obj/machinery/cell_charger,
 /obj/random/powercell,
@@ -21710,8 +21714,8 @@
 "rKM" = (
 /obj/structure/sign/fire{
 	desc = "A warning sign which reads 'DANGER: SHUTTLE THRUSTERS IN USE' and 'MIND THE DISTANCE'.";
-	name = "\improper DANGER: THRUSTERS sign";
-	layer = 2.1
+	layer = 2.1;
+	name = "\improper DANGER: THRUSTERS sign"
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -22098,8 +22102,8 @@
 	},
 /obj/structure/table/rack,
 /obj/structure/closet/walllocker/firecloset{
-	pixel_y = 32;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -22439,13 +22443,13 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "mining_shuttle_controller";
+	pixel_x = 25;
 	pixel_y = 5;
+	req_one_access = list(31,48,67);
 	tag_airpump = "mining_shuttle_pump";
 	tag_chamber_sensor = "mining_shuttle_sensor";
 	tag_exterior_door = "mining_shuttle_external";
-	tag_interior_door = "mining_shuttle_internal";
-	pixel_x = 25;
-	req_one_access = list(31,48,67)
+	tag_interior_door = "mining_shuttle_internal"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -22860,9 +22864,9 @@
 	dir = 1
 	},
 /obj/structure/sign/drop{
-	pixel_y = -32;
+	desc = "A danger sign which reads 'DANGER: DISPOSAL TO REFINERY'.";
 	name = "\improper DANGER: DISPOSAL TO REFINERY sign";
-	desc = "A danger sign which reads 'DANGER: DISPOSAL TO REFINERY'."
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/airless,
 /area/hangar/operations)
@@ -22940,7 +22944,6 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/bio_suit/anomaly,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/glasses/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/bio_hood/anomaly,
@@ -22957,6 +22960,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "sJJ" = (
@@ -24368,7 +24372,7 @@
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/emergency,
 /obj/item/storage/box/samplebags,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/lights/mixed{
 	pixel_x = 5;
 	pixel_y = -2
@@ -28358,8 +28362,8 @@
 	dir = 1
 	},
 /obj/machinery/power/apc/mining_shuttle{
-	pixel_x = 24;
-	dir = 4
+	dir = 4;
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
