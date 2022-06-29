@@ -31,92 +31,70 @@ var/global/Holiday = null
 		if(1)	//Jan
 			switch(DD)
 				if(1)							Holiday = "New Year's Day"
-				if(10)							Holiday = "Houseplant Appreciation Day"
-				if(25)							Holiday = "Opposite Day"
 
 		if(2)	//Feb
 			switch(DD)
-				if(2)							Holiday = "Groundhog Day"
 				if(14)							Holiday = "Valentine's Day"
-				if(17)							Holiday = "Random Acts of Kindness Day"
 				if(29)							Holiday = "Leap Day"
 
 
 		if(3)	//Mar
 			switch(DD)
-				if(14)							Holiday = "Pi Day"
 				if(17)							Holiday = "St. Patrick's Day"
 				if(20)							Holiday = "Spring Vernal Equinox"
+				if(31)
+					if(YY == 24)  				Holiday = "Easter"
 
 		if(4)	//Apr
 			switch(DD)
-				if(1)
-					Holiday = "April Fool's Day"
-					if(YY == 18 && prob(50)) 	Holiday = "Easter"
-				if(12)
-					if(YY == 20) 				Holiday = "Easter"
-				if(20)							Holiday = "Four-Twenty"
-				if(21)
-					if(YY == 19)				Holiday = "Easter"
+				if(1)							Holiday = "April Fool's Day"
+				if(9)
+					if(YY == 23)				Holiday = "Easter"
+				if(20)
+					if(YY == 25) 				Holiday = "Easter"
 				if(22)							Holiday = "Earth Day"
 
 		if(5)	//May
 			switch(DD)
 				if(1)							Holiday = "Labour Day"
-				if(4)							Holiday = "FireFighter's Day"
-				if(12)							Holiday = "Owl and Pussycat Day"	//what a dumb day of observence...but we -do- have costumes already :3
+				if(5)							Holiday = "Tau Ceti Republic Day"
 
 		if(6)	//Jun
 			switch(DD)
-				if(1)							Holiday = "Flip a Coin Day"
-				if(8)							Holiday = "Best Friends Day"
+				if(14)							Holiday = "New Gibson Remembrance Day"
 				if(20)
-					if(YY == 20)						Holiday = "Summer Solstice"
+					if(YY == 20)				Holiday = "Summer Solstice"
 				if(21)
-					if(YY == (18 || 19)) 				Holiday = "Summer Solstice"
+					if(YY == (18 || 19)) 		Holiday = "Summer Solstice"
 
 		if(7)	//Jul
 			switch(DD)
-				if(1)							Holiday = "Doctor's Day"
-				if(2)							Holiday = "UFO Day"
-				if(5)							Holiday = "National Bikini Day"
-				if(8)							Holiday = "Writer's Day"
-				if(22)							Holiday = "Hammock Day"
-				if(30)							Holiday = "Friendship Day"
+				if(1)							Holiday = "Placeholder Day" //will be removed once something is put in here
+
 
 		if(8)	//Aug
 			switch(DD)
-				if(3)							Holiday = "Watermelon day"
-				if(5)							Holiday = "Beer Day"
-				if(10)							Holiday = "National S'mores Day'"
-				if(13)							Holiday = "Left Hander's Day"
+				if(1)							Holiday = "Placeholder Day" //will be removed once something is put in here
 
 		if(9)	//Sep
 			switch(DD)
 				if(19)							Holiday = "Talk-Like-a-Pirate Day"
-				if(28)							Holiday = "Stupid-Questions Day"
+				if(24)							Holiday = "Tau Ceti Heritage Day"
 
 		if(10)	//Oct
 			switch(DD)
-				if(4)							Holiday = "Animal's Day"
-				if(7)							Holiday = "Smiling Day"
-				if(16)							Holiday = "Boss' Day"
 				if(31)							Holiday = "Halloween"
 
 		if(11)	//Nov
 			switch(DD)
-				if(1)							Holiday = "Vegan Day"
-				if(13)							Holiday = "Kindness Day"
-				if(19)							Holiday = "Flowers Day"
-				if(21)							Holiday = "Saying-'Hello' Day"
+				if(1)							Holiday = "Placeholder Day" //will be removed once something is put in here
 
 		if(12)	//Dec
 			switch(DD)
-				if(10)							Holiday = "Human-Rights Day"
-				if(14)							Holiday = "Monkey Day"
 				if(24)							Holiday = "Christmas Eve"
 				if(25)							Holiday = "Christmas"
 				if(26)							Holiday = "Boxing Day"
+				if(27)							Holiday = "New Gibson Unity Day"
 				if(31)							Holiday = "New Year's Eve"
 
 	if(!Holiday)
