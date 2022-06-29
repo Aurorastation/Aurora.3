@@ -3,7 +3,7 @@
 	desc = "If you see this, someone fucked up. Make a issue request."
 	desc_fluff = "No, seriously. Make a issue request"
 	contained_sprite = TRUE
-	icon = 'icons/obj/human_items.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state = "dominiabook"
 	item_state = "dominiabook"
 	var/reading = FALSE
@@ -66,3 +66,14 @@
 /obj/item/device/versebook/biesel/Initialize()
 	. = ..()
 	randomquip = file2list("ingame_manuals/biesel.txt")
+
+/obj/item/device/versebook/trinary
+	name = "\improper The Order (abdridged version)"
+	desc = "The holy text of the Trinary Perfection, who believe in synthetic perfection and eventual salvation."
+	desc_fluff = "This book contains some verses of the core beliefs of the Trinary Perfection, including some of the original works by the Corkfells, some additions by the prophet-like figure Flock, and a few recent additions by Ecclesiarch ARM-1DRIL. This is the abridged version, with only the core beliefs present."
+	icon_state = "trinarybook"
+	item_state = "trinarybook"
+
+/obj/item/device/versebook/trinary/Initialize()
+	. = ..()
+	randomquip = file2list("ingame_manuals/trinary.txt")
