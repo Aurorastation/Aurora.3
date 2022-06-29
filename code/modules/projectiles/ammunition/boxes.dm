@@ -308,6 +308,11 @@
 	origin_tech = list(TECH_COMBAT = 3)
 	ammo_type = /obj/item/ammo_casing/a556/ap
 
+/obj/item/ammo_magazine/a556/polymer
+	name = "magazine (5.56mm lethal polymer)"
+	icon_state = "5.56AP"
+	ammo_type = /obj/item/ammo_casing/a556/polymer
+
 /obj/item/ammo_magazine/a556/carbine
 	name = "carbine magazine (5.56mm)"
 	icon_state = "5.56c"
@@ -327,6 +332,11 @@
 	icon_state = "5.56APc"
 	origin_tech = list(TECH_COMBAT = 3)
 	ammo_type = /obj/item/ammo_casing/a556/ap
+
+/obj/item/ammo_magazine/a556/carbine/polymer
+	name = "carbine magazine (5.56mm lethal polymer)"
+	icon_state = "5.56APc"
+	ammo_type = /obj/item/ammo_casing/a556/polymer
 
 /obj/item/ammo_magazine/a556/makeshift
 	name = "makeshift magazine (5.56mm)"

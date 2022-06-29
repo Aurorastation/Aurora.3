@@ -32,11 +32,9 @@
 
 /datum/uplink_category/grenades
 	name = "Grenades and Thrown Objects"
-	restricted_antags = list(MODE_BURGLAR)
 
 /datum/uplink_category/visible_weapons
 	name = "Highly Visible and Dangerous Weapons"
-	restricted_antags = list(MODE_BURGLAR)
 
 /datum/uplink_category/stealthy_weapons
 	name = "Stealthy and Inconspicuous Weapons"
@@ -64,15 +62,12 @@
 
 /datum/uplink_category/exosuit
 	name = "Exosuit"
-	restricted_antags = list(MODE_BURGLAR)
 
 /datum/uplink_category/exosuit_equipment
 	name = "Exosuit Equipment"
-	restricted_antags = list(MODE_BURGLAR)
 
 /datum/uplink_category/corporate_equipment
 	name = "Corporate Equipment"
-	restricted_antags = list(MODE_BURGLAR)
 
 /datum/uplink_category/telecrystals
 	name = "Telecrystals"
