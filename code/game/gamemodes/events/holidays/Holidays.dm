@@ -34,6 +34,7 @@ var/global/Holiday = null
 
 		if(2)	//Feb
 			switch(DD)
+				if(1)							Holiday = "C'thur Independence Day"
 				if(14)							Holiday = "Valentine's Day"
 				if(29)							Holiday = "Leap Day"
 
@@ -74,7 +75,7 @@ var/global/Holiday = null
 
 		if(8)	//Aug
 			switch(DD)
-				if(1)							Holiday = "Placeholder Day" //will be removed once something is put in here
+				if(27)							Holiday = "Hive War Commemoration"
 
 		if(9)	//Sep
 			switch(DD)
@@ -83,6 +84,7 @@ var/global/Holiday = null
 
 		if(10)	//Oct
 			switch(DD)
+				if(9)							Holiday = "K'lax Technology Day"
 				if(31)							Holiday = "Halloween"
 
 		if(11)	//Nov
