@@ -50,7 +50,8 @@ var/global/Holiday = null
 			switch(DD)
 				if(1)							Holiday = "April Fool's Day"
 				if(9)
-					if(YY == 23)				Holiday = "Easter"
+					Holiday = "Silversun Festival of the Silver Seas"
+					if(YY == 23 && prob(50))				Holiday = "Easter"
 				if(20)
 					if(YY == 25) 				Holiday = "Easter"
 				if(22)							Holiday = "Earth Day"
@@ -63,14 +64,16 @@ var/global/Holiday = null
 		if(6)	//Jun
 			switch(DD)
 				if(14)							Holiday = "New Gibson Remembrance Day"
+				if(18)							Holiday = "Callistean Landfall Day"
 				if(20)
 					if(YY == 20)				Holiday = "Summer Solstice"
 				if(21)
 					if(YY == (18 || 19)) 		Holiday = "Summer Solstice"
+				if(26)							Holiday = "Callistean Pigeon Day"
 
 		if(7)	//Jul
 			switch(DD)
-				if(1)							Holiday = "Placeholder Day" //will be removed once something is put in here
+				if(16)							Holiday = "Lunarian Apollo Day"
 
 
 		if(8)	//Aug
@@ -93,6 +96,7 @@ var/global/Holiday = null
 
 		if(12)	//Dec
 			switch(DD)
+				if(15)							Holiday = "Lunarian Pervoprohodets Day"
 				if(24)							Holiday = "Christmas Eve"
 				if(25)							Holiday = "Christmas"
 				if(26)							Holiday = "Boxing Day"
