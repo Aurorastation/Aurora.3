@@ -98,6 +98,7 @@
 	var/real_damage = rand_damage
 	var/hit_dam_type = attack.damage_type
 	var/damage_flags = attack.damage_flags()
+	var/armor_penetration = attack.armor_penetration
 
 	real_damage += attack.get_unarmed_damage(A)
 	real_damage *= D.damage_multiplier
@@ -132,7 +133,7 @@
 
 	attack.apply_effects(A, D, rand_damage, hit_zone)
 
-	D.apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags)
+	D.apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags, armor_pen = armor_penetration)
 
 	return 1
 

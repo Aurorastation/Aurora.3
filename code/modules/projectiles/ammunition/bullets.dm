@@ -242,6 +242,10 @@
 	desc = "A 5.56mm practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/practice
 
+/obj/item/ammo_casing/a556/polymer
+	desc = "A 5.56mm polymer bullet casing."
+	projectile_type = /obj/item/projectile/bullet/rifle/a556/polymer
+
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"
 	desc = "A high explosive designed to be fired from a launcher."

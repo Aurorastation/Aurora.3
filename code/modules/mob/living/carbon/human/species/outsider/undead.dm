@@ -156,6 +156,9 @@
 	icobase = 'icons/mob/human_races/zombie/r_zombie.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie.dmi'
 
+	brute_mod = 0.5
+	burn_mod = 0.5
+
 	hide_name = TRUE
 
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
@@ -163,7 +166,7 @@
 	language = null
 	default_language = LANGUAGE_GIBBERING
 
-	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/claws/strong)
+	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/claws/strong/zombie)
 	darksight = 8
 
 	has_fine_manipulation = FALSE
@@ -177,12 +180,11 @@
 
 	has_organ = list(
 		BP_ZOMBIE_PARASITE = /obj/item/organ/internal/parasite/zombie,
-		BP_BRAIN =           /obj/item/organ/internal/brain,
+		BP_BRAIN =           /obj/item/organ/internal/brain/zombie,
 		BP_STOMACH =         /obj/item/organ/internal/stomach
 		)
 
-	brute_mod = 0.5
-	burn_mod = 0.5
+	total_health = 100
 
 	slowdown = 3
 
@@ -219,6 +221,7 @@
 	H.mutations.Add(CLUMSY)
 	var/datum/martial_art/zombie/Z = new /datum/martial_art/zombie()
 	Z.teach(H)
+	to_chat(H, "<font size=4><span class='notice'>Use the Check Attacks verb in your IC tab for information on your attacks! They are important! Your bite infects, but is worse at getting through armour than your claws, which have great damage and are armor piercing!</font></span>")
 	return ..()
 
 /datum/species/zombie/tajara
