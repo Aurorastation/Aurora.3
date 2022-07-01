@@ -193,7 +193,7 @@
 /obj/structure/barricade/bullet_act(obj/item/projectile/P)
 	bullet_ping(P)
 
-	var/damage_to_take = P.damage *= P.anti_matesriel_potential
+	var/damage_to_take = P.damage * P.anti_materiel_potential
 
 	take_damage(damage_to_take)
 
