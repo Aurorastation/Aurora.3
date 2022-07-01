@@ -1082,7 +1082,6 @@
 #include "code\game\objects\random\produce.dm"
 #include "code\game\objects\random\random.dm"
 #include "code\game\objects\structures\banner.dm"
-#include "code\game\objects\structures\barricade.dm"
 #include "code\game\objects\structures\barsign.dm"
 #include "code\game\objects\structures\bedsheet_bin.dm"
 #include "code\game\objects\structures\coatrack.dm"
