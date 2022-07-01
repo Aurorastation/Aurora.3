@@ -306,6 +306,31 @@
 	else
 		to_chat(user, "\The [launcher] is empty.")
 
+/obj/item/gun/projectile/automatic/rifle/jingya
+	name = "assault carbine"
+	desc = "The Jingya A-1 is the first of a new line of Nanotrasen firearms, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. They are made to be sleek, easy to use and cheap to mass produce while still being reliable."
+	icon = 'icons/obj/guns/crew_rifle.dmi'
+	icon_state = "arifle"
+	item_state = "arifle"
+	w_class = ITEMSIZE_LARGE
+	force = 10
+	caliber = "a556"
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
+	ammo_type = /obj/item/ammo_casing/a556
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
+	slot_flags = SLOT_BACK
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/a556/carbine
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine)
+	auto_eject = TRUE
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+	burst_delay = 4
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=6),
+		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(2, 1))
+	)
+
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"
 	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armory- 2431' engraved on the receiver"
