@@ -87,6 +87,7 @@
 /obj/machinery/vending/wallmed2{
 	pixel_x = 28
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "abz" = (
@@ -148,7 +149,7 @@
 	alarm_id = 1601;
 	dir = 8;
 	pixel_x = 28;
-	req_one_access = list(11, 24, 52)
+	req_one_access = list(11,24,52)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -5930,7 +5931,7 @@
 /area/hallway/medical)
 "dhZ" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (shotgun less-than-lethal)"
+	name = "Ammunition (Longarms)"
 	},
 /obj/item/storage/box/stunshells,
 /obj/item/storage/box/flashshells{
@@ -5947,6 +5948,10 @@
 	},
 /obj/item/storage/box/trackingslugs,
 /obj/effect/decal/warning_stripes,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "dim" = (
@@ -6271,13 +6276,15 @@
 /area/chapel/office)
 "dqy" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (.45 Pistol)"
+	name = "Weaponry (Pistols)"
 	},
 /obj/item/gun/projectile/sec,
 /obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
 /obj/effect/decal/warning_stripes,
+/obj/item/gun/projectile/automatic/wt550,
+/obj/item/gun/projectile/automatic/wt550,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "drk" = (
@@ -13221,7 +13228,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "hdG" = (
@@ -14096,6 +14102,7 @@
 /obj/machinery/vending/wallmed2{
 	pixel_x = -28
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "hBz" = (
@@ -19317,7 +19324,7 @@
 /area/medical/exam)
 "kCr" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (.45)"
+	name = "Ammunition (Pistols)"
 	},
 /obj/effect/decal/warning_stripes,
 /obj/item/ammo_magazine/c45m/rubber,
@@ -19326,15 +19333,30 @@
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m/rubber,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "kCV" = (
@@ -27283,11 +27305,11 @@
 	pixel_y = 13
 	},
 /obj/machinery/requests_console{
+	announcementConsole = 1;
 	department = "Operations Manager";
 	departmentType = 5;
 	name = "Operations Manager Request Console";
-	pixel_x = -32;
-	announcementConsole = 1
+	pixel_x = -32
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -29363,11 +29385,11 @@
 /area/rnd/hallway)
 "pZV" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Shotgun)"
+	name = "Weaponry (Shotguns)"
 	},
-/obj/item/gun/projectile/shotgun/pump,
-/obj/item/gun/projectile/shotgun/pump,
 /obj/effect/decal/warning_stripes,
+/obj/item/gun/projectile/shotgun/pump,
+/obj/item/gun/projectile/shotgun/pump,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "pZX" = (
@@ -30124,6 +30146,12 @@
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/reagent_containers/spray/pepper,
+/obj/item/storage/box/firingpins,
+/obj/item/storage/box/teargas,
+/obj/item/storage/box/flashbangs{
+	pixel_x = 2;
+	pixel_y = -2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "qvZ" = (
@@ -30591,10 +30619,6 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
-"qGa" = (
-/obj/item/storage/box/gloves,
-/turf/simulated/wall,
-/area/medical/or1)
 "qGp" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -36511,13 +36535,13 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/structure/table/rack,
-/obj/item/storage/box/flashbangs{
-	pixel_x = 2;
-	pixel_y = -2
+/obj/effect/decal/warning_stripes,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Ballistic Carbine)"
 	},
-/obj/item/storage/box/firingpins,
-/obj/item/storage/box/teargas,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine{
+	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "tTW" = (
@@ -60627,8 +60651,8 @@ qgf
 xhj
 wxr
 wxr
-qGa
-qGa
+wxr
+wxr
 nIi
 tHs
 uZU
