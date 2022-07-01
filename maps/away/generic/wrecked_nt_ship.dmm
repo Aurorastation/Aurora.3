@@ -129,7 +129,7 @@
 	},
 /area/wrecked_nt_ship)
 "ch" = (
-/obj/structure/barricade,
+/obj/structure/blocker,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "cm" = (
@@ -1857,7 +1857,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "OW" = (
-/obj/structure/barricade,
+/obj/structure/blocker,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Pg" = (

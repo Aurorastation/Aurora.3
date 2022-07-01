@@ -20,7 +20,7 @@
 		recipes += new /datum/stack_recipe_list("generic construction",
 		list(
 			new /datum/stack_recipe("[display_name] door", /obj/structure/simple_door, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("[display_name] barricade", /obj/structure/barricade, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]"),
+			new /datum/stack_recipe("[display_name] blocker", /obj/structure/blocker, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]"),
 			new /datum/stack_recipe("[display_name] railing", /obj/structure/railing, BUILD_AMT, time = 25, one_per_turf = FALSE, on_floor = TRUE, supplied_material = "[name]"),
 			new /datum/stack_recipe("[display_name] stool", /obj/structure/bed/stool, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = "[name]"),
 			new /datum/stack_recipe("[display_name] chair", /obj/structure/bed/stool/chair, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = "[name]"),
@@ -50,6 +50,8 @@
 		list(
 			new /datum/stack_recipe("regular floor tile", /obj/item/stack/tile/floor, 1, 4, 20),
 			new /datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60),
+			new /datum/stack_recipe("steel barricade", /obj/structure/barricade/metal, BUILD_AMT, time = 2 SECONDS, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("barbed wire", /obj/item/stack/barbed_wire, 1, 2, 20),
 			new /datum/stack_recipe("table frame", /obj/structure/table, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("wall girders", /obj/structure/girder, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("window frame", /obj/structure/window_frame, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),

@@ -41,6 +41,17 @@
 #define CROWBAR "crowbar"
 #define WIRECUTTER "wirecutter"
 
+// Defines for barricade states
+#define BARRICADE_DMG_NONE 0
+#define BARRICADE_DMG_SLIGHT 1
+#define BARRICADE_DMG_MODERATE 2
+#define BARRICADE_DMG_HEAVY 3
+
+#define BARRICADE_BSTATE_FORTIFIED 	3 // Used by handrails to indicate reinforcing
+#define BARRICADE_BSTATE_SECURED 	2 // fresh barricade
+#define BARRICADE_BSTATE_UNSECURED 	1 // intermediate state before cade is movable (no apparent effect on health)
+#define BARRICADE_BSTATE_MOVABLE 	0 // ready to be deconstructed and can be moved
+
 /proc/check_tool_quality(var/obj/tool, var/quality, var/return_value, var/requires_surgery_compatibility = FALSE)
 	switch(quality)
 		if(SCREWDRIVER)

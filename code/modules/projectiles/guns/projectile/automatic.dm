@@ -321,8 +321,8 @@
 		to_chat(user, "\The [launcher] is empty.")
 
 /obj/item/gun/projectile/automatic/rifle/jingya
-	name = "assault carbine"
-	desc = "The Jingya A-1 is the first of a new line of Nanotrasen firearms, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. They are made to be sleek, easy to use and cheap to mass produce while still being reliable."
+	name = "burst rifle"
+	desc = "The Jingya A-1 is the first of a new line of Nanotrasen rifles, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. They are made to be sleek, easy to use by users with minimal training and cheap to mass produce while still being reliable."
 	icon = 'icons/obj/guns/crew_rifle.dmi'
 	icon_state = "arifle"
 	item_state = "arifle"
@@ -334,16 +334,21 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a556/carbine
-	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine)
-	auto_eject = TRUE
-	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine, /obj/item/ammo_magazine/a556/carbine/polymer)
 
 	burst_delay = 4
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=6),
 		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(2, 1))
 	)
+
+/obj/item/gun/projectile/automatic/rifle/z8/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "arifle"
+	else
+		icon_state = "arifle-empty"
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"

@@ -24534,7 +24534,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
 "bgy" = (
-/obj/structure/barricade,
+/obj/structure/blocker,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "bgF" = (
@@ -27487,7 +27487,7 @@
 /area/medical/patient_wing)
 "edk" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade,
+/obj/structure/blocker,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "cobweb1"
 	},
@@ -31471,7 +31471,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
 "mRK" = (
-/obj/structure/barricade,
+/obj/structure/blocker,
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -33645,7 +33645,7 @@
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
 "rmW" = (
-/obj/structure/barricade,
+/obj/structure/blocker,
 /obj/structure/grille,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)

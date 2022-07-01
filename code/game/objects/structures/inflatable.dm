@@ -44,7 +44,7 @@
 	var/deflating = FALSE
 	var/undeploy_path = null
 	var/torn_path = null
-	var/health = 50.0
+	var/health = 15
 
 /obj/structure/inflatable/wall
 	name = "inflatable wall"
@@ -60,6 +60,10 @@
 	return ..()
 
 /obj/structure/inflatable/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(isprojectile(mover))
+		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"))
+		deflate(TRUE)
+		return TRUE
 	return FALSE
 
 /obj/structure/inflatable/bullet_act(var/obj/item/projectile/Proj)
@@ -199,6 +203,10 @@
 		return state
 	if(istype(mover, /obj/effect/beam))
 		return !opacity
+	if(isprojectile(mover))
+		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"))
+		deflate(TRUE)
+		return TRUE
 	return !density
 
 /obj/structure/inflatable/door/proc/TryToSwitchState(mob/user)

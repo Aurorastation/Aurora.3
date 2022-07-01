@@ -95,3 +95,13 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 		return
 
 	..()
+
+/obj/item/stack/barbed_wire
+	name = "barbed wire"
+	desc = "A spiky length of wire."
+	icon = 'icons/obj/barricades.dmi'
+	icon_state = "barbed_wire"
+	singular_name = "length"
+	w_class = ITEMSIZE_SMALL
+	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	attack_verb = list("hit", "whacked", "sliced")

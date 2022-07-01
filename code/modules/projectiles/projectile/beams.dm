@@ -1,6 +1,7 @@
 /obj/item/projectile/beam
 	name = "laser"
 	icon_state = "laser"
+	ping_effect = "ping_s"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 30
 	damage_type = BURN
