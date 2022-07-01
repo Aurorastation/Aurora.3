@@ -169,6 +169,12 @@
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/storage/box/srf(src)
+	new /obj/item/storage/box/league(src)
+	new /obj/item/storage/box/fsf(src)
+	new /obj/item/storage/box/ssmd(src)
+	new /obj/item/storage/box/spg(src)
+	new /obj/item/storage/box/mrsp(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/sol_single/fill()
 	new /obj/item/clothing/under/rank/sol/marine(src)
@@ -179,6 +185,12 @@
 	new /obj/item/ammo_magazine/c762/sol(src)
 	new /obj/item/gun/projectile/pistol/sol(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/storage/box/srf(src)
+	new /obj/item/storage/box/league(src)
+	new /obj/item/storage/box/fsf(src)
+	new /obj/item/storage/box/ssmd(src)
+	new /obj/item/storage/box/spg(src)
+	new /obj/item/storage/box/mrsp(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/syndicate_softsuits
 	req_access = list()

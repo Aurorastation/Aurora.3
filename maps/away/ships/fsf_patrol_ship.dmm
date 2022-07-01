@@ -1180,14 +1180,14 @@
 "iQt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/sol,
-/obj/item/clothing/head/helmet/space/void/sol,
 /obj/item/clothing/shoes/magboots,
 /obj/machinery/light{
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/suit/space/void/sol/fsf,
+/obj/item/clothing/head/helmet/space/void/sol/fsf,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "iQy" = (
@@ -1503,10 +1503,10 @@
 "lwj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/sol,
-/obj/item/clothing/head/helmet/space/void/sol,
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/suit/space/void/sol/fsf,
+/obj/item/clothing/head/helmet/space/void/sol/fsf,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "lFg" = (
@@ -2293,14 +2293,14 @@
 "vfY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/sol,
-/obj/item/clothing/head/helmet/space/void/sol,
 /obj/item/clothing/shoes/magboots,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
 /obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/suit/space/void/sol/fsf,
+/obj/item/clothing/head/helmet/space/void/sol/fsf,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "vgc" = (
