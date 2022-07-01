@@ -520,13 +520,14 @@
 	item_state = "wings_cthur"
 
 /obj/item/storage/backpack/typec/verb/toggle_wings()
-	set name = "Toggle Wings"
-	set desc = "Toggle your wings."
+	set name = "Spread Wings"
+	set desc = "Spread your wings."
 	set category = "Object"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
 	wings = !wings
+	playsound(src.loc, 'sound/items/storage/wings.ogg', 50)
 	to_chat(usr, "You [wings ? "extend" : "collapse"] your [src].")
 	icon_state = "[initial(icon_state)][wings ? "_open" : ""]"
 	item_state = "icon_state"
