@@ -115,7 +115,6 @@
 		return !density
 	else
 		return TRUE
-	return FALSE
 
 /obj/structure/barricade/proc/check_cover(obj/item/projectile/P, turf/from)
 	var/turf/cover = get_turf(src)
@@ -136,7 +135,6 @@
 		return !density
 	else
 		return TRUE
-	return TRUE
 
 /obj/structure/barricade/attack_robot(mob/user)
 	return attack_hand(user)
@@ -216,7 +214,7 @@
 /obj/structure/barricade/ex_act(severity, direction, cause_data)
 	for(var/obj/structure/barricade/B in get_step(src,dir)) //discourage double-stacking barricades by removing health from opposing barricade
 		if(B.dir == reverse_direction(dir))
-			INVOKE_ASYNC(B, /obj/structure/barricade/ex_act, severity, direction)
+			INVOKE_ASYNC(B, /atom/.proc/ex_act, severity, direction)
 	update_health(round(severity))
 
 // This proc is called whenever the cade is moved, so I thought it was appropriate,
