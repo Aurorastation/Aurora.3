@@ -502,6 +502,8 @@
 /obj/item/storage/box/beanbags,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/shotgun/pump,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "goI" = (
@@ -581,11 +583,6 @@
 	name = "trashbin"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/ship/militia_ship)
-"hsz" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary{
-	name = "military hull"
-	},
 /area/ship/militia_ship)
 "huE" = (
 /obj/structure/table/steel,
@@ -1140,9 +1137,6 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/militia_shuttle)
-"sBA" = (
-/turf/simulated/floor/tiled/dark,
-/area/ship/militia_ship)
 "sGi" = (
 /obj/machinery/door/airlock/security{
 	name = "Cockpit";
@@ -1195,6 +1189,8 @@
 /obj/item/gun/projectile/leyon,
 /obj/item/gun/projectile/leyon,
 /obj/item/gun/projectile/tanto,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "tCH" = (
