@@ -820,7 +820,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/militia_ship)
 "lwj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
