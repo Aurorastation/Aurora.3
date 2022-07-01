@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - backend: "Optimized character setup mob previews; removed a source of server-crushing lag in the process."
