@@ -3,6 +3,7 @@
 	desc = "The new High Queen of the K'lax, the Zkaii Brood is often mocked for their eccentric Mother Dream religion. Many still remain within Tret and other Izweski territories."
 	possible_origins = list(
 		/decl/origin_item/origin/zkaii_b,
+		/decl/origin_item/origin/leto_b,
 		/decl/origin_item/origin/vedhra_b,
 		/decl/origin_item/origin/tupii_b
 	)
@@ -14,7 +15,7 @@
 	possible_citizenships = list(CITIZENSHIP_KLAX)
 	possible_religions = list(RELIGION_PILOTDREAM)
 
-/decl/origin_item/origin/leto_b 
+/decl/origin_item/origin/leto_b
 	name = "Leto Brood" //jared?
 	desc = "The brood is mostly known for their archeological work and their production of k'ois in Pid, a moon near Tret."
 	possible_accents = list(ACCENT_KLAX, ACCENT_TTS)

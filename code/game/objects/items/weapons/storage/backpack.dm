@@ -493,7 +493,7 @@
 
 /obj/item/storage/backpack/typec
 	icon = 'icons/mob/species/breeder/inventory.dmi'
-	name = "type c zo'ra wings"
+	name = "breeder zo'ra wings"
 	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
 	icon_state = "wings"
 	item_state = "wings"
@@ -503,32 +503,38 @@
 	canremove = 0
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')
+	var/wings
 
-/obj/item/storage/backpack/typec_klax
+/obj/item/storage/backpack/typec/klax
 	icon = 'icons/mob/species/breeder/inventory.dmi'
-	name = "type c k'lax wings"
+	name = "breeder k'lax wings"
 	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
 	icon_state = "wings_klax"
 	item_state = "wings_klax"
-	w_class = ITEMSIZE_HUGE
-	slot_flags = SLOT_BACK
-	max_storage_space = 12
-	canremove = 0
-	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')
 
-/obj/item/storage/backpack/typec_cthur
+/obj/item/storage/backpack/typec/cthur
 	icon = 'icons/mob/species/breeder/inventory.dmi'
-	name = "type c c'thur wings"
+	name = "breeder c'thur wings"
 	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
 	icon_state = "wings_cthur"
 	item_state = "wings_cthur"
-	w_class = ITEMSIZE_HUGE
-	slot_flags = SLOT_BACK
-	max_storage_space = 12
-	canremove = 0
-	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')
+
+/obj/item/storage/backpack/typec/verb/toggle_wings()
+	set name = "Spread Wings"
+	set desc = "Spread your wings."
+	set category = "Object"
+	set src in usr
+	if(use_check_and_message(usr))
+		return 0
+	wings = !wings
+	playsound(src.loc, 'sound/items/storage/wings.ogg', 50)
+	to_chat(usr, "You [wings ? "extend" : "collapse"] your [src].")
+	icon_state = "[initial(icon_state)][wings ? "_open" : ""]"
+	item_state = "icon_state"
+	var/mob/living/carbon/human/H = src.loc
+	H.update_icon()
+	H.update_inv_back()
+
 
 /obj/item/storage/backpack/service
 	name = "idris service backpack"
