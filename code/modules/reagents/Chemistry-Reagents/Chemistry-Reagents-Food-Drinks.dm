@@ -379,6 +379,36 @@
 	taste_description = "bitterness"
 	taste_mult = 1.3
 
+/decl/reagent/nutriment/instantjuice
+	name = "Juice Powder"
+	description = "Dehydrated, powdered juice of some kind."
+	taste_mult = 1.3
+	nutriment_factor = 1
+
+/decl/reagent/nutriment/instantjuice/grape
+	name = "Grape Juice Powder"
+	description = "Dehydrated, powdered grape juice."
+	taste_description = "dry grapes"
+	color = "#863333"
+
+/decl/reagent/nutriment/instantjuice/orange
+	name = "Orange Juice Powder"
+	description = "Dehydrated, powdered orange juice."
+	taste_description = "dry oranges"
+	color = "#e78108"
+
+/decl/reagent/nutriment/instantjuice/watermelon
+	name = "Watermelon Juice Powder"
+	description = "Dehydrated, powdered watermelon juice."
+	taste_description = "dry sweet watermelon"
+	color = "#b83333"
+
+/decl/reagent/nutriment/instantjuice/apple
+	name = "Apple Juice Powder"
+	description = "Dehydrated, powdered apple juice."
+	taste_description = "dry sweet apples"
+	color = "#c07c40"
+
 /decl/reagent/nutriment/coffeegrounds
 	name = "Coffee Grounds"
 	description = "Enjoy the great taste of coffee."
@@ -1145,12 +1175,21 @@
 /decl/reagent/drink/applejuice
 	name = "Apple Juice"
 	description = "Juice from an apple. The most basic beverage you can imagine."
-	taste_description = "apple juice"
+	taste_description = "sweet apples"
 	color = "#f2d779"
 
 	glass_icon_state = "glass_apple"
 	glass_name = "glass of apple juice"
 	glass_desc = "Juice from an apple. The most basic beverage you can imagine."
+
+/decl/reagent/drink/pearjuice
+	name = "Pear Juice"
+	description = "Delicious sweet juice made from pears."
+	taste_description = "sweet pears"
+	color = "#ffff66"
+
+	glass_name = "pear juice"
+	glass_desc = "Delicious juice made from pears."
 
 /decl/reagent/drink/dynjuice
 	name = "Dyn Juice"
