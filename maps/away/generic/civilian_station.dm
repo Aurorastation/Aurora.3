@@ -1,0 +1,28 @@
+/datum/map_template/ruin/away_site/civilian_station
+	name = "civilian station"
+	description = "A modestly-sized independently-owned civilian space station. Many of these exist all throughout inhabited space, offering a place to rest, food to eat, shopping, and refueling - part mall, part motel. This one's transponder says it's open for business."
+	suffix = "generic/civilian_station.dmm"
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	spawn_weight = 1
+	spawn_cost = 2
+	id = "civilian_station"
+
+/decl/submap_archetype/civilian_station
+	map = "civilian station"
+	descriptor = "A modestly-sized independently-owned civilian space station. Many of these exist all throughout inhabited space, offering a place to rest, food to eat, shopping, and refueling - part mall, part motel. This one's transponder says it's open for business."
+
+/obj/effect/overmap/visitable/sector/civilian_station
+	name = "civilian station"
+	desc = "A modestly-sized independently-owned civilian space station. Many of these exist all throughout inhabited space, offering a place to rest, food to eat, shopping, and refueling - part mall, part motel. This one's transponder says it's open for business."
+
+/area/civilian_station
+	name = "Civilian Station"
+	icon_state = "bar"
+	flags = RAD_SHIELDED
+	requires_power = FALSE
+	base_turf = /turf/simulated/floor/plating
+	no_light_control = TRUE
+
+/area/civilian_station/hangar
+	name = "Civilian Station Hangar"
+	icon_state = "exit"
