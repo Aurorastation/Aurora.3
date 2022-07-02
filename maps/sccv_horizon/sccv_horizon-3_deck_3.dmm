@@ -6164,9 +6164,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "lp" = (
@@ -22289,9 +22286,6 @@
 	dir = 10
 	},
 /obj/machinery/firealarm/south,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
