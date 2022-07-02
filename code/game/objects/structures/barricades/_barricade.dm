@@ -7,6 +7,8 @@
 	density = 1
 	throwpass = TRUE //You can throw objects over this, despite its density.
 	layer = BELOW_OBJ_LAYER
+	flags = ON_BORDER
+
 	var/stack_type //The type of stack the barricade dropped when disassembled if any.
 	var/stack_amount = 5 //The amount of stack dropped when disassembled at full health
 	var/destroyed_stack_amount //to specify a non-zero amount of stack to drop when destroyed
@@ -75,32 +77,6 @@
 
 	..()
 
-/*/obj/structure/barricade/BlockedExitDirs(atom/movable/mover, target_dir)
-	if(closed)
-		return NO_BLOCKED_MOVEMENT
-
-	return ..()
-
-/*
- *	Checks whether an atom can pass through the barricade into its target turf.
- *	Returns the blocking direction.
- *		If the atom's movement is not blocked, returns 0.
- *		If the object is completely solid, returns ALL
- *
- *	Would be worth checking whether it is really necessary to have this CanPass
- *	proc be specific to barricades. Instead, have flags for blocking specific
- *  mobs.
- */
-/obj/structure/barricade/BlockedPassDirs(atom/movable/mover, target_dir)
-	if(closed)
-		return NO_BLOCKED_MOVEMENT
-
-	var/obj/structure/S = locate(/obj/structure) in get_turf(mover)
-	if(S && S.climbable && !(S.flags_atom & ON_BORDER) && climbable && isliving(mover)) //Climbable objects allow you to universally climb over others
-		return NO_BLOCKED_MOVEMENT
-
-	return ..()
-*/
 /obj/structure/barricade/proc/handle_barrier_chance()
 	if(!anchored)
 		return FALSE

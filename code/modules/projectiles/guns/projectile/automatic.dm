@@ -343,7 +343,7 @@
 		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(2, 1))
 	)
 
-/obj/item/gun/projectile/automatic/rifle/z8/update_icon()
+/obj/item/gun/projectile/automatic/rifle/jingya/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "arifle"

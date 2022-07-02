@@ -127,7 +127,7 @@
 	if (!can_climb(user))
 		return
 
-	usr.visible_message("<span class='warning'>[user] starts climbing onto \the [src]!</span>")
+	user.visible_message(SPAN_WARNING("[user] starts [flags & ON_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
 
 	if(!do_after(user,50))
@@ -137,11 +137,15 @@
 	if (!can_climb(user, post_climb_check=1))
 		LAZYREMOVE(climbers, user)
 		return
+		
+	var/turf/TT = get_turf(src)
+	if(flags & ON_BORDER)
+		TT = get_step(get_turf(src), dir)
+		if(user.loc == TT)
+			TT = get_turf(src)
 
-	usr.forceMove(get_turf(src))
-
-	if (get_turf(user) == get_turf(src))
-		usr.visible_message("<span class='warning'>[user] climbs onto \the [src]!</span>")
+	user.visible_message("<span class='warning'>[user] [flags & ON_BORDER ? "leaps over" : "climbs onto"] \the [src]!</span>")
+	user.forceMove(TT)
 	LAZYREMOVE(climbers, user)
 
 /obj/structure/proc/structure_shaken()

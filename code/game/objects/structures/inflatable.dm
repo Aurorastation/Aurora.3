@@ -71,6 +71,8 @@
 	if(!proj_damage)
 		return
 
+	bullet_ping(Proj)
+
 	health -= proj_damage
 	..()
 	if(health <= 0)

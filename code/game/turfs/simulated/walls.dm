@@ -75,6 +75,8 @@
 		burn(2500)
 	else if(istype(Proj,/obj/item/projectile/ion))
 		burn(500)
+	
+	bullet_ping(Proj)
 
 	var/proj_damage = Proj.get_structure_damage()
 
