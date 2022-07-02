@@ -87,6 +87,7 @@
 /obj/machinery/vending/wallmed2{
 	pixel_x = 28
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "abz" = (
@@ -5930,7 +5931,7 @@
 /area/hallway/medical)
 "dhZ" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (shotgun less-than-lethal)"
+	name = "Ammunition (Longarms)"
 	},
 /obj/item/storage/box/stunshells,
 /obj/item/storage/box/flashshells{
@@ -5947,6 +5948,10 @@
 	},
 /obj/item/storage/box/trackingslugs,
 /obj/effect/decal/warning_stripes,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "dim" = (
@@ -6271,13 +6276,15 @@
 /area/chapel/office)
 "dqy" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (.45 Pistol)"
+	name = "Weaponry (Pistols)"
 	},
 /obj/item/gun/projectile/sec,
 /obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
-/obj/item/gun/projectile/sec,
 /obj/effect/decal/warning_stripes,
+/obj/item/gun/projectile/automatic/wt550,
+/obj/item/gun/projectile/automatic/wt550,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "drk" = (
@@ -9227,7 +9234,7 @@
 	pixel_x = -9;
 	pixel_y = 6
 	},
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 5;
 	pixel_y = -2
 	},
@@ -14095,6 +14102,7 @@
 /obj/machinery/vending/wallmed2{
 	pixel_x = -28
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "hBz" = (
@@ -19316,7 +19324,7 @@
 /area/medical/exam)
 "kCr" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (.45)"
+	name = "Ammunition (Pistols)"
 	},
 /obj/effect/decal/warning_stripes,
 /obj/item/ammo_magazine/c45m/rubber,
@@ -19325,15 +19333,30 @@
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m/rubber,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "kCV" = (
@@ -22850,12 +22873,7 @@
 	dir = 10
 	},
 /obj/structure/closet/wardrobe/pharmacy_white,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/vaurca,
-/obj/item/clothing/gloves/latex/nitrile/vaurca,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "mCE" = (
@@ -23296,7 +23314,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "mNN" = (
@@ -27280,11 +27298,11 @@
 	pixel_y = 13
 	},
 /obj/machinery/requests_console{
+	announcementConsole = 1;
 	department = "Operations Manager";
 	departmentType = 5;
 	name = "Operations Manager Request Console";
-	pixel_x = -32;
-	announcementConsole = 1
+	pixel_x = -32
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -29357,11 +29375,11 @@
 /area/rnd/hallway)
 "pZV" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Shotgun)"
+	name = "Weaponry (Shotguns)"
 	},
-/obj/item/gun/projectile/shotgun/pump,
-/obj/item/gun/projectile/shotgun/pump,
 /obj/effect/decal/warning_stripes,
+/obj/item/gun/projectile/shotgun/pump,
+/obj/item/gun/projectile/shotgun/pump,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "pZX" = (
@@ -30118,6 +30136,12 @@
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/reagent_containers/spray/pepper,
+/obj/item/storage/box/firingpins,
+/obj/item/storage/box/teargas,
+/obj/item/storage/box/flashbangs{
+	pixel_x = 2;
+	pixel_y = -2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "qvZ" = (
@@ -30234,6 +30258,14 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/horizon/crew_quarters/washroom/central)
+"qzF" = (
+/obj/structure/closet/secure_closet/scientist,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/carpet/rubber,
+/area/rnd/strongroom)
 "qzH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -34570,7 +34602,7 @@
 	pixel_y = 10;
 	req_access = list(66)
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks{
 	pixel_x = 4;
 	pixel_y = 4
@@ -36501,13 +36533,13 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/structure/table/rack,
-/obj/item/storage/box/flashbangs{
-	pixel_x = 2;
-	pixel_y = -2
+/obj/effect/decal/warning_stripes,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Ballistic Carbine)"
 	},
-/obj/item/storage/box/firingpins,
-/obj/item/storage/box/teargas,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine{
+	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "tTW" = (
@@ -39034,8 +39066,6 @@
 "viR" = (
 /obj/structure/closet/secure_closet/RD,
 /obj/item/clothing/mask/gas/half,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/item/device/megaphone/sci,
 /obj/effect/floor_decal/corner/white{
@@ -39044,6 +39074,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
 	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "vjN" = (
@@ -39588,7 +39619,7 @@
 	pixel_y = 10;
 	req_access = list(66)
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks{
 	pixel_x = 4;
 	pixel_y = 4
@@ -39989,11 +40020,7 @@
 /obj/structure/closet/secure_closet/scientist,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "vMl" = (
@@ -71942,7 +71969,7 @@ iic
 gBT
 urh
 tvX
-vLu
+qzF
 vLu
 kGX
 vEg
