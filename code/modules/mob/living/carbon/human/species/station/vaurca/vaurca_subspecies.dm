@@ -88,10 +88,9 @@
 	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
 
 	possible_cultures = list(
-		/decl/origin_item/origin/zkaii_b,
-		/decl/origin_item/origin/leto_b,
-		/decl/origin_item/origin/vedhra_b,
-		/decl/origin_item/origin/tupii_b
+		/decl/origin_item/culture/zora_breeder,
+		/decl/origin_item/culture/klax_breeder,
+		/decl/origin_item/culture/cthur_breeder
 	)
 
 	inherent_verbs = list(
