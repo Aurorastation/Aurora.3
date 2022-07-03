@@ -169,7 +169,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "arY" = (
 /obj/structure/bed/stool/bar/padded,
@@ -382,7 +382,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "bhz" = (
 /obj/machinery/light{
@@ -423,7 +423,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "bGI" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -583,7 +583,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "cLC" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -599,7 +599,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "dcL" = (
 /obj/machinery/light{
@@ -635,7 +635,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "euz" = (
 /obj/structure/table/steel,
@@ -657,7 +657,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/reedbush,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "eCV" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -711,7 +711,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "fnY" = (
 /obj/machinery/door/airlock/glass{
@@ -788,7 +788,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "gaD" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
@@ -894,9 +894,6 @@
 /area/civilian_station)
 "hdb" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/structure/closet/walllocker/emerglocker{
-	pixel_x = 30
-	},
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
@@ -1004,8 +1001,8 @@
 /area/civilian_station)
 "hON" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/structure/closet/walllocker/emerglocker{
-	pixel_x = 30
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1125,7 +1122,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/stalkybush,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "jiW" = (
 /turf/simulated/wall/r_wall,
@@ -1246,7 +1243,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/reedbush,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "kpR" = (
 /obj/structure/flora/pottedplant{
@@ -1384,7 +1381,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fernybush,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "lEO" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
@@ -1449,7 +1446,9 @@
 /area/civilian_station)
 "nkV" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/door/window,
+/obj/machinery/door/window{
+	req_access = list(206)
+	},
 /obj/structure/table/steel,
 /obj/item/folder/blue,
 /turf/simulated/floor/tiled/white,
@@ -1467,7 +1466,9 @@
 /area/civilian_station)
 "ntt" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/door/window,
+/obj/machinery/door/window{
+	req_access = list(206)
+	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "nGj" = (
@@ -1576,6 +1577,8 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/plating,
 /area/civilian_station)
 "pjp" = (
@@ -1715,7 +1718,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "pVd" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -1788,7 +1791,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "qWo" = (
 /obj/machinery/light{
@@ -1879,7 +1882,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "sqL" = (
 /obj/machinery/door/airlock/hatch{
@@ -2013,7 +2016,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "tNH" = (
 /obj/structure/window/basic,
@@ -2024,7 +2027,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "tQq" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2098,7 +2101,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "vrr" = (
 /obj/structure/window/basic{
@@ -2109,7 +2112,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "vwF" = (
 /turf/simulated/floor/wood,
@@ -2126,7 +2129,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/grassybush,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "vLp" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -2169,7 +2172,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "wNv" = (
 /obj/structure/table/steel,
@@ -2205,7 +2208,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "wXA" = (
 /obj/structure/window/basic,
@@ -2213,7 +2216,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/leafybush,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "wZf" = (
 /turf/simulated/floor/lino/grey,
@@ -2227,7 +2230,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/palebush,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "xfD" = (
 /obj/structure/sink{
@@ -2248,7 +2251,7 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "xjs" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -2265,7 +2268,7 @@
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/exoplanet/grass,
+/turf/simulated/floor/holofloor/grass/alt,
 /area/civilian_station)
 "xzv" = (
 /obj/effect/floor_decal/spline/plain{
@@ -2282,6 +2285,12 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/white,
+/area/civilian_station)
+"xLX" = (
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = 30
+	},
+/turf/simulated/floor/wood,
 /area/civilian_station)
 "xQM" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
@@ -31248,7 +31257,7 @@ aOJ
 riA
 aOJ
 ygr
-frf
+hdb
 xYB
 xYB
 xYB
@@ -33304,7 +33313,7 @@ cJe
 wji
 cJe
 ygr
-xYB
+hON
 xYB
 qRl
 xYB
@@ -39729,7 +39738,7 @@ ygr
 ygr
 ygr
 ygr
-frf
+hdb
 xYB
 xYB
 xYB
@@ -41528,7 +41537,7 @@ xRX
 xRX
 xRX
 ygr
-xYB
+hON
 xYB
 bdA
 xYB
@@ -42560,31 +42569,31 @@ hdb
 xYB
 xYB
 hME
-hON
 xYB
-xYB
-hME
-hON
 xYB
 xYB
 hME
-hON
 xYB
-xYB
-hME
-hON
 xYB
 xYB
 hME
-hON
 xYB
-xYB
-hME
-hON
 xYB
 xYB
 hME
-hON
+xYB
+xYB
+xYB
+hME
+xYB
+xYB
+xYB
+hME
+xYB
+xYB
+xYB
+hME
+xYB
 xYB
 xYB
 ygr
@@ -43842,35 +43851,35 @@ xRX
 xRX
 ygr
 hmL
-vwF
+xLX
 hFr
 ygr
 hmL
-vwF
+xLX
 kpR
 ygr
 hmL
-vwF
+xLX
 pjp
 ygr
 hmL
-vwF
+xLX
 sof
 ygr
 hmL
-vwF
+xLX
 hFr
 ygr
 hmL
-vwF
+xLX
 kpR
 ygr
 hmL
-vwF
+xLX
 pjp
 ygr
 hmL
-vwF
+xLX
 sof
 ygr
 xRX

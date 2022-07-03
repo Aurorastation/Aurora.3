@@ -35,7 +35,7 @@
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
 /datum/outfit/admin/shopkeeper/get_id_access()
-	return list(access_external_airlocks)
+	return list(access_external_airlocks, access_civilian_station)
 
 /datum/ghostspawner/human/shopkeeper/administrator
 	short_name = "station_administrator"
