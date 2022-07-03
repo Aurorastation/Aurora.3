@@ -7365,7 +7365,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
 "dXB" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "dXD" = (
