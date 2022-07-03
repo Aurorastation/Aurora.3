@@ -32196,7 +32196,7 @@
 /obj/structure/sign/radiation{
 	pixel_y = -32
 	},
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/horizon/exterior)
 "rwW" = (
 /obj/structure/cable/orange{
