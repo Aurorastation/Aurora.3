@@ -8389,6 +8389,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/item/device/debugger,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "eDK" = (
@@ -27019,6 +27020,7 @@
 	amount = 20
 	},
 /obj/item/stack/material/wood/full,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "oPE" = (
