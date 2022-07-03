@@ -1805,7 +1805,7 @@
 /area/civilian_station)
 "rmD" = (
 /obj/machinery/door/airlock/glass{
-	name = "Bar Lounge"
+	name = "Slot Room"
 	},
 /turf/simulated/floor/wood,
 /area/civilian_station)
@@ -1847,7 +1847,9 @@
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "sbE" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Cryogenics"
+	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -2275,7 +2277,11 @@
 /turf/simulated/floor/beach/water/pool,
 /area/civilian_station)
 "xFU" = (
-/turf/simulated/wall/r_wall,
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/machinery/atm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "xQM" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
@@ -31499,7 +31505,7 @@ wji
 riA
 wji
 ygr
-xYB
+xFU
 xYB
 xYB
 xYB
@@ -34069,7 +34075,7 @@ wZf
 rtf
 wZf
 ygr
-xYB
+xFU
 xYB
 xYB
 xYB
@@ -38438,7 +38444,7 @@ xFs
 xFs
 xzv
 ygr
-xYB
+xFU
 xYB
 xbR
 xYB
@@ -41008,7 +41014,7 @@ ccm
 bVS
 fat
 ygr
-xYB
+xFU
 xYB
 wKg
 xYB
