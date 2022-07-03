@@ -1,124 +1,113 @@
-//space bar
-
-/datum/ghostspawner/human/space_bar_bartender
-	short_name = "space_bar_bartender"
-	name = "Space Bar Bartender"
-	desc = "Tender the space bar."
+/datum/ghostspawner/human/shopkeeper
+	short_name = "shopkeeper"
+	name = "Station Shopkeeper"
+	desc = "Run your store aboard the civilian station. Remember to stock your empty shelves with things from the warehouse!"
 	tags = list("External")
 
-	spawnpoints = list("space_bar_bartender")
-	max_count = 1
+	spawnpoints = list("shopkeeper")
+	max_count = 2
 
-	outfit = /datum/outfit/admin/space_bar_bartender
-	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER)
+	outfit = /datum/outfit/admin/shopkeeper
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Space Bar Bartender"
-	special_role = "Space Bar Bartender"
+	assigned_role = "Station Shopkeeper"
+	special_role = "Station Shopkeeper"
 	respawn_flag = null
 
-/datum/outfit/admin/space_bar_bartender
-	name = "Space Bar Bartender"
 
-	uniform = /obj/item/clothing/under/rank/bartender/idris
-	head = /obj/item/clothing/head/flatcap/bartender/idris
-	suit = /obj/item/clothing/suit/storage/bartender/idris
-	shoes = /obj/item/clothing/shoes/brown
-	species_shoes = list(
-		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/workboots/toeless
-	)
+/datum/outfit/admin/shopkeeper
+	name = "Station Shopkeeper"
 
-	back = /obj/item/storage/backpack/satchel
+	uniform = /obj/item/clothing/under/sl_suit
+	shoes = /obj/item/clothing/shoes/laceup
+	back = /obj/item/storage/backpack/satchel_norm
 
-	id = /obj/item/card/id/away_site
+	id = /obj/item/card/id/civilian_station
 
 	l_ear = /obj/item/device/radio/headset/ship
 
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/clothing/accessory/wcoat = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/space_bar_bartender/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/shopkeeper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
-		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
-		H.internal = preserve
-		H.internals.icon_state = "internal1"
-		H.equip_or_collect(new /obj/item/reagent_containers/inhaler/phoron_special, slot_in_backpack)
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
-/datum/outfit/admin/space_bar_bartender/get_id_access()
-	return list(access_generic_away_site, access_external_airlocks)
+/datum/outfit/admin/shopkeeper/get_id_access()
+	return list(access_external_airlocks)
 
-/datum/ghostspawner/human/space_bar_chef
-	short_name = "space_bar_chef"
-	name = "Space Bar Chef"
-	desc = "Cook for the space bar."
-	tags = list("External")
+/datum/ghostspawner/human/shopkeeper/administrator
+	short_name = "station_administrator"
+	name = "Station Administrator"
+	desc = "Run the civilian station, overseeing all operations aboard. Command your security guards."
 
-	spawnpoints = list("space_bar_chef")
+	spawnpoints = list("civilian_station_administrator")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/space_bar_chef
-	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER)
+	outfit = /datum/outfit/admin/shopkeeper/administrator
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Space Bar Chef"
-	special_role = "Space Bar Chef"
-	respawn_flag = null
+	assigned_role = "Station Administrator"
+	special_role = "Station Administrator"
 
-/datum/outfit/admin/space_bar_chef
-	name = "Space Bar Chef"
 
-	uniform = /obj/item/clothing/under/rank/chef/idris
-	suit = /obj/item/clothing/suit/chef/idris
-	head = /obj/item/clothing/head/chefhat/idris
-	shoes = /obj/item/clothing/shoes/brown
-	species_shoes = list(
-		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/workboots/toeless
-	)
+/datum/outfit/admin/shopkeeper/administrator
+	name = "Station Administrator"
 
-	back = /obj/item/storage/backpack/satchel
+	uniform = /obj/item/clothing/under/suit_jacket/charcoal
 
-	id = /obj/item/card/id/away_site
+/datum/ghostspawner/human/shopkeeper/foodcourt
+	short_name = "foodcourt_worker"
+	name = "Station Foodcourt Worker"
+	desc = "Run the civilian station's foodcourt."
 
-	l_ear = /obj/item/device/radio/headset/ship
+	spawnpoints = list("civilian_station_foodcourt")
+	max_count = 1
 
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
+	outfit = /datum/outfit/admin/shopkeeper/foodcourt
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-/datum/outfit/admin/space_bar_chef/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
-		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
-		H.internal = preserve
-		H.internals.icon_state = "internal1"
-		H.equip_or_collect(new /obj/item/reagent_containers/inhaler/phoron_special, slot_in_backpack)
+	assigned_role = "Foodcourt Worker"
+	special_role = "Foodcourt Worker"
 
-	if(isoffworlder(H))
-		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
-/datum/outfit/admin/space_bar_chef/get_id_access()
-	return list(access_generic_away_site, access_external_airlocks)
+/datum/outfit/admin/shopkeeper/foodcourt
+	name = "Foodcourt Worker"
 
-/datum/ghostspawner/human/space_bar_patron
-	short_name = "space_bar_patron"
-	name = "Space Bar Patron"
-	desc = "Enjoy the space bar."
+	uniform = /obj/item/clothing/under/waiter
+
+/datum/ghostspawner/human/shopkeeper/security
+	short_name = "station_security"
+	name = "Station Security Guard"
+	desc = "Guard the civilian station. Listen to the administrator."
+
+	spawnpoints = list("civilian_station_security")
+	max_count = 1
+
+	outfit = /datum/outfit/admin/shopkeeper/security
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "Station Security Guard"
+	special_role = "Station Security Guard"
+
+/datum/outfit/admin/shopkeeper/security
+	name = "Station Security Guard"
+
+	uniform = /obj/item/clothing/under/tactical
+	shoes = /obj/item/clothing/shoes/jackboots
+
+/datum/ghostspawner/human/station_visitor
+	short_name = "station_visitor"
+	name = "Station Visitor"
+	desc = "Enjoy the civilian station."
 	tags = list("External")
 
-	spawnpoints = list("space_bar_patron")
-	max_count = 3
+	spawnpoints = list("civilian_station_visitor")
+	max_count = 5
 
 	outfit = /datum/outfit/admin/random/space_bar_patron
 	species_outfits = list(SPECIES_VAURCA_WORKER = /datum/outfit/admin/random/space_bar_patron/vaurca,
@@ -127,29 +116,26 @@
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Space Bar Patron"
-	special_role = "Space Bar Patron"
-	respawn_flag = null
+/datum/ghostspawner/human/shopkeeper/custodian
+	short_name = "station_custodian"
+	name = "Station Custodian"
+	desc = "Maintain and clean the civilian station."
+	tags = list("External")
 
-/datum/outfit/admin/random/space_bar_patron
-	l_ear = /obj/item/device/radio/headset/ship
-	l_pocket = /obj/item/storage/wallet/random
+	spawnpoints = list("civilian_station_custodian")
+	max_count = 1
 
-/datum/outfit/admin/random/space_bar_patron/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(!H.shoes) //If they didn't get shoes, it's because they can't fit in them. Find something that works.
-		var/obj/item/clothing/shoes/S = pick(/obj/item/clothing/shoes/sandal, /obj/item/clothing/shoes/footwraps, /obj/item/clothing/shoes/workboots/toeless, /obj/item/clothing/shoes/jackboots/toeless)
-		H.equip_to_slot_or_del(new S, slot_shoes)
+	outfit = /datum/outfit/admin/shopkeeper/custodian
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-/datum/outfit/admin/random/space_bar_patron/vaurca
-	mask = /obj/item/clothing/mask/breath/vaurca/filter
-	r_pocket = /obj/item/reagent_containers/inhaler/phoron_special
+/datum/outfit/admin/shopkeeper/custodian
+	name = "Station Custodian"
 
-/datum/outfit/admin/random/space_bar_patron/vaurca/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
-	H.internal = preserve
-	H.internals.icon_state = "internal1"
+	uniform = /obj/item/clothing/under/rank/janitor
+	shoes = /obj/item/clothing/shoes/galoshes
 
-/datum/outfit/admin/random/space_bar_patron/offworlder
-	r_pocket = /obj/item/storage/pill_bottle/rmt
+/obj/item/card/id/civilian_station
+	name = "civilian station id"
+	access = list(access_external_airlocks, access_civilian_station)
 
