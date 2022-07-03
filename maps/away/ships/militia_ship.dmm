@@ -447,6 +447,7 @@
 /obj/item/flag/biesel/l,
 /obj/item/flag/coalition,
 /obj/item/flag/coalition/l,
+/obj/item/gun/projectile/revolver/detective,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "fQq" = (
@@ -488,7 +489,7 @@
 /area/ship/militia_ship)
 "gcq" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(203)
+	req_access = null
 	},
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 30
@@ -710,7 +711,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
 /obj/effect/ghostspawpoint{
-	identifier = "militia_crew";
+	identifier = "militiaman";
 	name = "igs - militia_crewman"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1179,7 +1180,7 @@
 /area/ship/militia_ship)
 "tra" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(203)
+	req_access = null
 	},
 /obj/item/ammo_magazine/mc10mm/leyon,
 /obj/item/ammo_magazine/mc10mm/leyon,
