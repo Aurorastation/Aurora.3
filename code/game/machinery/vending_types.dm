@@ -373,7 +373,7 @@
 		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 10
 	)
 	contraband = list(
-		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
+		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5
 	)
 	premium = list(
 		/obj/item/reagent_containers/food/drinks/bottle/cola = 2,
