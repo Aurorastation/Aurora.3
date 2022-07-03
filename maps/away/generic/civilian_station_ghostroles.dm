@@ -85,7 +85,7 @@
 	desc = "Guard the civilian station. Listen to the administrator."
 
 	spawnpoints = list("civilian_station_security")
-	max_count = 1
+	max_count = 2
 
 	outfit = /datum/outfit/admin/shopkeeper/security
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
