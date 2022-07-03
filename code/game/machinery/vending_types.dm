@@ -1315,7 +1315,7 @@
 	icon_state = "mrevend"
 	icon_vend = "mrevend-vend"
 	product_slogans = ";FOREIGN LEGION TESTED!, FOREIGN LEGION RECOMMENDED!, FOREIGN LEGION APPROVED!;YOU ARE NOT ALLOWED A JELLY DOUGHNUT!;YOU DON'T WANT TO DIE HUNGRY, SOLDIER!"
-	product_ads = "Everything the body needs!;Now trans-fat free!;Vegan options are available.;Rated for all known species!"
+	product_ads = "Everything the body needs!;Now trans-fat free!;Vegan options are available.;Safe for all known species!"
 	products = list(
 		/obj/item/storage/box/fancy/mre = 2,
 		/obj/item/storage/box/fancy/mre/menu2 = 2,
