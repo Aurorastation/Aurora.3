@@ -274,7 +274,7 @@
 
 /datum/gear/faction/epmc_uniform_phys_med
 	display_name = "PMCG physician uniform"
-	path = /obj/item/clothing/under/rank/medical/physician/pmc/alt
+	path = /obj/item/clothing/under/rank/medical/pmc/alt
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Physician")
@@ -286,14 +286,14 @@
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Pharmacist")
 
-	/datum/gear/faction/epmc_uniform_psych_med
+/datum/gear/faction/epmc_uniform_psych_med
 	display_name = "PMCG psychiatrist uniform"
 	path = /obj/item/clothing/under/rank/medical/psych/pmc/alt
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Psychiatrist")
 
-	/datum/gear/faction/epmc_uniform_intern_med
+/datum/gear/faction/epmc_uniform_intern_med
 	display_name = "PMCG medical intern uniform"
 	path = /obj/item/clothing/under/rank/medical/intern/pmc/alt
 	slot = slot_w_uniform
