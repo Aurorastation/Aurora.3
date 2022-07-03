@@ -1609,7 +1609,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "lNz" = (
-/obj/structure/window/full,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "lOH" = (
@@ -1977,8 +1977,8 @@
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "pBY" = (
-/obj/structure/window/full,
-/obj/structure/window/full,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "pPS" = (
@@ -2107,7 +2107,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "qyG" = (
-/obj/structure/window/full,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship)
 "qBC" = (
@@ -2323,7 +2323,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "tvp" = (
-/obj/structure/window/full,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "txi" = (
