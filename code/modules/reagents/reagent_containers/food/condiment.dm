@@ -231,19 +231,27 @@
 
 /obj/item/reagent_containers/food/condiment/small/packet/crayon/red
 	reagents_to_add = list(/decl/reagent/crayon_dust/red = 10)
+
 /obj/item/reagent_containers/food/condiment/small/packet/crayon/orange
 	reagents_to_add = list(/decl/reagent/crayon_dust/orange = 10)
+
 /obj/item/reagent_containers/food/condiment/small/packet/crayon/yellow
 	reagents_to_add = list(/decl/reagent/crayon_dust/yellow = 10)
+
 /obj/item/reagent_containers/food/condiment/small/packet/crayon/green
 	reagents_to_add = list(/decl/reagent/crayon_dust/green = 10)
+
 /obj/item/reagent_containers/food/condiment/small/packet/crayon/blue
 	reagents_to_add = list(/decl/reagent/crayon_dust/blue = 10)
+
 /obj/item/reagent_containers/food/condiment/small/packet/crayon/purple
 	reagents_to_add = list(/decl/reagent/crayon_dust/purple = 10)
+
 /obj/item/reagent_containers/food/condiment/small/packet/crayon/grey
 	reagents_to_add = list(/decl/reagent/crayon_dust/grey = 10)
+
 /obj/item/reagent_containers/food/condiment/small/packet/crayon/brown
 	reagents_to_add = list(/decl/reagent/crayon_dust/brown = 10)
+
 
 //End of MRE stuff.

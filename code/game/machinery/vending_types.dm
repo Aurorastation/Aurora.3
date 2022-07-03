@@ -374,7 +374,6 @@
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
-		/obj/item/reagent_containers/food/snacks/liquidfood = 6
 	)
 	premium = list(
 		/obj/item/reagent_containers/food/drinks/bottle/cola = 2,
@@ -1311,11 +1310,11 @@
 	random_itemcount = FALSE
 
 /obj/machinery/vending/mredispenser
-	name = "mre-dispenser"
+	name = "\improper MRE dispenser"
 	desc = "A vending machine filled with MRE's."
 	icon_state = "mrevend"
 	icon_vend = "mrevend-vend"
-	product_slogans = ";FOREIGN LEGION TESTED!, FOREIGN LEGION RECOMMENDED!, FOREIGN LEGION APPROVED!;YOU ARE NOT ALLOWED A JELLY DOUGHNUT!;YOU DONT WANT TO DIE HUNGRY SOLDIER!; JOIN THE FORIEGN LEGION!"
+	product_slogans = ";FOREIGN LEGION TESTED!, FOREIGN LEGION RECOMMENDED!, FOREIGN LEGION APPROVED!;YOU ARE NOT ALLOWED A JELLY DOUGHNUT!;YOU DON'T WANT TO DIE HUNGRY, SOLDIER!"
 	product_ads = "Everything the body needs!;Now trans-fat free!;Vegan options are available.;Rated for all known species!"
 	products = list(
 		/obj/item/storage/box/fancy/mre = 2,

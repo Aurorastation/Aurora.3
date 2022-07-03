@@ -502,14 +502,14 @@
 	bitesize = 6
 
 /obj/item/reagent_containers/food/snacks/proteinbar/Initialize()
-	.=..()
+	. = ..()
 	reagents.add_reagent(/decl/reagent/nutriment, 9)
 	reagents.add_reagent(/decl/reagent/nutriment/protein, 4)
 	var/flavor = pick(proteinbar_flavors)
 	var/flavor_type = proteinbar_flavors[flavor]
 	var/count = length(flavor_type)
-	if (count)
-		for (var/type in flavor_type)
+	if(count)
+		for(var/type in flavor_type)
 			reagents.add_reagent(type, round(4 / count, 0.1))
 	else
 		reagents.add_reagent(flavor_type, 4)

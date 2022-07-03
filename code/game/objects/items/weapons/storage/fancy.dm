@@ -135,7 +135,7 @@
 
 /obj/item/storage/box/fancy/crackers
 	name = "\improper Getmore Crackers"
-	desc = "Salted crackers; awfully dry."
+	desc = "Salted crackers, not much for conversation; they're awfully dry."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "crackerbag"
 	icon_type = "cracker"

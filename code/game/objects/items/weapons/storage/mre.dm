@@ -3,7 +3,7 @@ MRE Stuff
  */
 
 /obj/item/storage/box/fancy/mre
-	name = "MRE, Menu 1"
+	name = "\improper MRE, menu 1"
 	desc = "A vacuum-sealed bag containing a day's worth of nutrients for an adult in strenuous situations. There is no visible expiration date on the package."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "mre"
@@ -40,7 +40,7 @@ MRE Stuff
 	to_chat(user, meal_desc)
 
 /obj/item/storage/box/fancy/mre/menu2
-	name = "MRE, Menu 2"
+	name = "\improper MRE, menu 2"
 	meal_desc = "This one is menu 2, margherita."
 	main_meal = /obj/item/storage/box/fancy/mrebag/menu2
 	starts_with = list(
@@ -53,7 +53,7 @@ MRE Stuff
 	)
 
 /obj/item/storage/box/fancy/mre/menu3
-	name = "MRE, Menu 3"
+	name = "\improper MRE, menu 3"
 	meal_desc = "This one is menu 3, vegetable pizza."
 	main_meal = /obj/item/storage/box/fancy/mrebag/menu3
 	starts_with = list(
@@ -66,7 +66,7 @@ MRE Stuff
 	)
 
 /obj/item/storage/box/fancy/mre/menu4
-	name = "MRE, Menu 4"
+	name = "\improper MRE, menu 4"
 	meal_desc = "This one is menu 4, hamburger."
 	main_meal = /obj/item/storage/box/fancy/mrebag/menu4
 	starts_with = list(
@@ -79,7 +79,7 @@ MRE Stuff
 	)
 
 /obj/item/storage/box/fancy/mre/menu5
-	name = "MRE, Menu 5"
+	name = "\improper MRE, menu 5"
 	meal_desc = "This one is menu 5, taco."
 	main_meal = /obj/item/storage/box/fancy/mrebag/menu5
 	starts_with = list(
@@ -92,7 +92,7 @@ MRE Stuff
 	)
 
 /obj/item/storage/box/fancy/mre/menu6
-	name = "MRE, Menu 6"
+	name = "\improper MRE, menu 6"
 	meal_desc = "This one is menu 6, meatbread."
 	main_meal = /obj/item/storage/box/fancy/mrebag/menu6
 	starts_with = list(
@@ -105,7 +105,7 @@ MRE Stuff
 	)
 
 /obj/item/storage/box/fancy/mre/menu7
-	name = "MRE, Menu 7"
+	name = "\improper MRE, menu 7"
 	meal_desc = "This one is menu 7, salad."
 	main_meal = /obj/item/storage/box/fancy/mrebag/menu7
 	starts_with = list(
@@ -118,8 +118,8 @@ MRE Stuff
 	)
 
 /obj/item/storage/box/fancy/mre/menu8
-	name = "MRE, Menu 8"
-	meal_desc = " This one is menu 8, hot chili."
+	name = "\improper MRE, menu 8"
+	meal_desc = "This one is menu 8, hot chili."
 	main_meal = /obj/item/storage/box/fancy/mrebag/menu8
 	starts_with = list(
 		/obj/item/storage/box/fancy/mrebag/dessert = 1,
@@ -168,7 +168,7 @@ MRE Stuff
 		/obj/random/mre/sauce/crayon = 1
 	)
 
-/obj/item/storage/box/fancy/mre/menu11/special
+/obj/item/storage/box/fancy/mre/menu11/special // antag item
 	meal_desc = "This one doesn't have a menu listing. How odd. It has the initials \"A.B.\" written on the back."
 
 /obj/item/storage/box/fancy/mre/random
@@ -177,7 +177,7 @@ MRE Stuff
 
 /obj/item/storage/box/fancy/mrebag
 	name = "main course"
-	desc = "A vacuum-sealed bag containing the MRE's main course. Self-heats when opened."
+	desc = "A vacuum-sealed bag containing a MRE's main course. Self-heats when opened."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "pouch_medium"
 	drop_sound = 'sound/items/drop/gloves.ogg'
@@ -189,7 +189,7 @@ MRE Stuff
 	icon_overlays = FALSE
 	w_class = ITEMSIZE_SMALL
 	open_sound = 'sound/effects/bubbles.ogg'
-	open_message = "The pouch heats up as you break the vaccum seal."
+	open_message = "The pouch heats up as you break the vacuum seal."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/meatpizzaslice/filled = 1)
 
 /obj/item/storage/box/fancy/mrebag/menu2
@@ -221,7 +221,7 @@ MRE Stuff
 
 /obj/item/storage/box/fancy/mrebag/dessert
 	name = "dessert"
-	desc = "A vacuum-sealed bag containing the MRE's dessert."
+	desc = "A vacuum-sealed bag containing a MRE's dessert."
 	icon_state = "pouch_small"
 	open_sound = 'sound/items/rip1.ogg'
 	open_message = "You tear open the bag, breaking the vacuum seal."
