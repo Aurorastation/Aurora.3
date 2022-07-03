@@ -13,23 +13,14 @@
 /obj/item/computer_hardware/flashlight/enable()
     . = ..()
     if(parent_computer)
-        parent_computer.light_range = range
-        parent_computer.light_power = power
-        tweak_light(parent_computer)
+        parent_computer.set_light(range, power, flashlight_color)
 
 /obj/item/computer_hardware/flashlight/disable()
     . = ..()
     if(parent_computer)
-        parent_computer.light_range = initial(parent_computer.light_range)
-        parent_computer.light_power = initial(parent_computer.light_power)
-        tweak_light(parent_computer)
+        parent_computer.set_light(initial(parent_computer.light_range), initial(parent_computer.light_power), flashlight_color)
 
 /obj/item/computer_hardware/flashlight/proc/tweak_brightness(var/new_power)
     . = power = Clamp(0, new_power, 1)
-    parent_computer.light_power = power
-    tweak_light(parent_computer)
-
-/obj/item/computer_hardware/flashlight/proc/tweak_light(var/obj/item/modular_computer/C)
-    if(!istype(C))
-        return
-    C.set_light(C.light_range, C.light_power, l_color = flashlight_color)
+    if(parent_computer && enabled)
+        parent_computer.set_light(range, power, flashlight_color)

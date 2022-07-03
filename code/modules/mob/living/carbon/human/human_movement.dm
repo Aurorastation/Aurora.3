@@ -4,6 +4,9 @@
 	if(species.slowdown)
 		tally = species.slowdown
 
+	if(lying) //Crawling, it's slower
+		tally += (8 + ((weakened * 3) + (confused * 2)))
+
 	tally += get_pulling_movement_delay()
 
 	if (istype(loc, /turf/space) || isopenturf(loc))
@@ -25,16 +28,6 @@
 
 	if(species)
 		tally += species.get_species_tally(src)
-
-	if (nutrition < (max_nutrition * 0.2))
-		tally++
-		if (nutrition < (max_nutrition * 0.1))
-			tally++
-
-	if (hydration < (max_hydration * 0.2))
-		tally++
-		if (hydration < (max_hydration * 0.1))
-			tally++
 
 	tally += species.handle_movement_tally(src)
 
@@ -113,9 +106,9 @@
 	return prob_slip
 
 /mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
-	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
-		return 1
-	return 0
+	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots) && !lying && !buckled_to && !length(grabbed_by))  //magboots + dense_object = no floating. Doesn't work if lying. Grabbedby and buckled_to are for mob carrying, wheelchairs, roller beds, etc.
+		return TRUE
+	return FALSE
 
 /mob/living/carbon/human/set_dir(var/new_dir, ignore_facing_dir = FALSE)
 	. = ..()

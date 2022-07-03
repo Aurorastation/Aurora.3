@@ -14,6 +14,11 @@
 	item_cost = 1
 	path = /obj/item/storage/toolbox/lunchbox/syndicate/filled
 
+/datum/uplink_item/item/medical/sanasomnum
+	name = "Sanasomnum Injector"
+	item_cost = 2
+	path = /obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
+
 /datum/uplink_item/item/medical/combathypo
 	name = "Combat Hypospray"
 	item_cost = 1

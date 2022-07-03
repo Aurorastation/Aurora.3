@@ -28,7 +28,7 @@
 			M.flash_eyes()
 		else if(affected_limb && M == A)
 			M.confused = rand(2, 7)
-			flick("flash", M.flash)
+			M.flash_eyes()
 
 	//snap pop
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
@@ -201,5 +201,6 @@
 
 /obj/item/projectile/energy/blaster/incendiary
 	icon_state = "laser"
-	damage = 15
-	incinerate = 2
+	damage = 30
+	armor_penetration = 10
+	incinerate = 4

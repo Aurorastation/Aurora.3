@@ -80,8 +80,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
-	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
+	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_intrepid)
+	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_intrepid)
 	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher")
 
 	minimal_player_age = 14

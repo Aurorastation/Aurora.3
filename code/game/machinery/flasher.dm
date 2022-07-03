@@ -100,7 +100,7 @@
 				E.damage += rand(1, 5)
 		else
 			if(!O.blinded)
-				flick("flash", O:flash)
+				O.flash_eyes()
 		O.Weaken(flash_time)
 		O.flash_eyes()
 

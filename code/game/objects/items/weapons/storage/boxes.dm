@@ -122,6 +122,20 @@
 			qdel(src)
 			user.put_in_hands(trash)
 
+/obj/item/storage/box/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/stack/packageWrap))
+		var/total_storage_space = W.get_storage_cost()
+		for(var/obj/item/I in contents)
+			total_storage_space += I.get_storage_cost()
+		if(total_storage_space <= max_storage_space)
+			var/question = alert(user, "Will you want to wrap \the [src] or store the item inside?", "Wrap or Store", "Wrap", "Store")
+			if(question == "Wrap")
+				return
+			else if(question == "Store")
+				return ..()
+	else
+		..()
+
 /obj/item/storage/box/survival
 	name = "emergency survival box"
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
@@ -171,7 +185,12 @@
 	name = "box of sterile gloves"
 	desc = "Contains sterile gloves."
 	icon_state = "nitrile"
-	starts_with = list(/obj/item/clothing/gloves/latex = 2, /obj/item/clothing/gloves/latex/nitrile = 5)
+	max_storage_space = 14
+	starts_with = list(/obj/item/clothing/gloves/latex = 2,
+					   /obj/item/clothing/gloves/latex/nitrile = 2,
+					   /obj/item/clothing/gloves/latex/nitrile/unathi = 1,
+					   /obj/item/clothing/gloves/latex/nitrile/tajara = 1,
+					   /obj/item/clothing/gloves/latex/nitrile/vaurca = 1)
 
 /obj/item/storage/box/masks
 	name = "box of surgical masks"
@@ -447,6 +466,20 @@
 	icon_state = "donk_kit"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
 	desc_antag = "Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes."
+
+/obj/item/storage/box/janitorgloves
+	name = "janitorial gloves box"
+	desc = "A box full of janitorial gloves of all shapes and sizes."
+	max_storage_space = 4
+	can_hold = list(
+		/obj/item/clothing/gloves/janitor
+	)
+	starts_with = list(
+		/obj/item/clothing/gloves/janitor = 1,
+		/obj/item/clothing/gloves/janitor/tajara = 1,
+		/obj/item/clothing/gloves/janitor/unathi = 1,
+		/obj/item/clothing/gloves/janitor/vaurca = 1
+	)
 
 /obj/item/storage/box/monkeycubes
 	name = "monkey cube box"

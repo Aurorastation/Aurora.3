@@ -34,7 +34,7 @@
 
 /decl/origin_item/origin/zavodskoi
 	name = "Zavodskoi Interstellar" //here lies necropolis, died a slow and painful death, thanks god
-	desc = "Zavodskoi Interstellar fields a multitude of IPCs oriented towards combat and security solutions. From Industrials to Shells, these units are regularly leased out to third parties as security guards, representing the company in a professional and clean manner. Standards are high for Zavodskoi synthetics, with regular mind wiping and retooling in order to enforce discipline and minimise deviancy."
+	desc = "Zavodskoi Interstellar fields a multitude of IPCs oriented towards combat and security solutions. From Industrials to Shells, these units are regularly leased out to third parties as security guards, representing the company in a professional and clean manner. Standards are high for Zavodskoi synthetics, with mind wiping and retooling as punishments in case of failure in order to enforce discipline and minimise deviancy."
 	important_information = "Units from Zavodskoi Interstellar are all given the prefix Z.I. in front of their name."
 	possible_accents = list(ACCENT_SOL, ACCENT_LUNA, ACCENT_EARTH, ACCENT_PLUTO, ACCENT_CETI, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_NONE)
