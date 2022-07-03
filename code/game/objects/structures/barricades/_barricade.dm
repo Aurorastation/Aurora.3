@@ -115,6 +115,33 @@
 /obj/structure/barricade/attack_robot(mob/user)
 	return attack_hand(user)
 
+/obj/structure/barricade/attack_hand(var/mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/shredding = H.species.can_shred(H)
+		if(shredding)
+			var/datum/unarmed_attack/UA = H.default_attack
+			if((UA.damage + UA.armor_penetration) > force_level_absorption)
+				var/attack_verb = pick("mangles", "slices", "slashes", "shreds")
+				attack_generic(user, UA.damage, attack_verb)
+
+/obj/structure/barricade/attack_generic(mob/user, damage, attack_verb, wallbreaker)
+	if(!damage)
+		return FALSE
+	if(!isliving(user))
+		return
+	var/mob/living/L = user
+	L.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	visible_message(SPAN_DANGER("[L] [attack_verb] the [src]!</span>"))
+	if(barricade_hitsound)
+		playsound(src, barricade_hitsound, 50, 1)
+	if(is_wired)
+		visible_message(SPAN_DANGER("\The [src]'s barbed wire slices into [L]!"))
+		L.apply_damage(rand(5, 10), BRUTE, pick(BP_R_HAND, BP_L_HAND), "barbed wire", DAM_SHARP|DAM_EDGE, 25)
+	L.do_attack_animation(src)
+	take_damage(damage)
+
 /obj/structure/barricade/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/stack/barbed_wire))
 		var/obj/item/stack/barbed_wire/B = W
