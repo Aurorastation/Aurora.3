@@ -7364,10 +7364,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
-"dXB" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "dXD" = (
 /obj/effect/shuttle_landmark/horizon/decktwo/port_aft,
 /turf/template_noop,
@@ -31635,14 +31631,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
-"rmG" = (
-/obj/machinery/door/window/brigdoor/eastleft{
-	dir = 1;
-	req_access = null;
-	req_one_access = list(11,24)
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_room)
 "rmR" = (
 /obj/structure/cable{
 	icon_state = "4-8"
