@@ -40,6 +40,6 @@
 	rcon.ui_interact(user, ui_key, ui, force_open)
 
 /obj/machinery/computer/rcon/update_icon()
-	..()
+	. = ..()
 	if(is_operable())
 		holographic_overlay(src, src.icon, "ai-fixer-empty")

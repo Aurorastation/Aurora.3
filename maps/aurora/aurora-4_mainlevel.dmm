@@ -4373,7 +4373,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -13368,7 +13368,7 @@
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 8
 	},
@@ -30958,7 +30958,7 @@
 	icon_state = "tube1"
 	},
 /obj/item/storage/box/masks,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "bbz" = (
@@ -33237,7 +33237,7 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "bfH" = (
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
@@ -41121,7 +41121,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
@@ -44956,7 +44956,7 @@
 	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
@@ -45152,7 +45152,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
@@ -50828,7 +50828,7 @@
 	req_access = list(28)
 	},
 /obj/structure/table/stone/marble,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 4;
 	pixel_y = 13
 	},

@@ -49,7 +49,7 @@
 /area/cursed/mineral_processing)
 "atI" = (
 /obj/structure/table/wood,
-/obj/item/device/litanybook/gadpathur{
+/obj/item/device/versebook/gadpathur{
 	pixel_y = 2
 	},
 /turf/simulated/floor/wood,
@@ -2158,7 +2158,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/cursed/eva_storage)
 "mQc" = (
-/obj/item/device/litanybook,
+/obj/item/device/versebook/tribunal,
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine{
 	pixel_x = 9;

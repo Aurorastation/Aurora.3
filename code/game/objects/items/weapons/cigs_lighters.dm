@@ -145,10 +145,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable
 	name = "smokable item"
 	desc = "You're not sure what this is. You should probably ahelp it."
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
-		)
+	icon = 'icons/obj/smokables.dmi'
+	item_icons = null
+	sprite_sheets = null
+	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
 	body_parts_covered = 0
 	var/lit = 0
 	var/icon_on
@@ -293,12 +295,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "cigarette"
 	desc = "A roll of tobacco and nicotine."
 	icon_state = "cigoff"
-	throw_speed = 0.5
 	item_state = "cigoff"
+	throw_speed = 0.5
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
-	icon_on = "cigon"  //Note - these are in masks.dmi not in cigarette.dmi
+	icon_on = "cigon" 
 	icon_off = "cigoff"
 	has_blood_overlay = FALSE
 	type_butt = /obj/item/trash/cigbutt
@@ -443,6 +445,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "premium Havanian cigar"
 	desc = "A cigar fit for only the best of the best."
 	icon_state = "cigar2off"
+	item_state = "cigar2off"
 	icon_on = "cigar2on"
 	icon_off = "cigar2off"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
@@ -457,6 +460,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "\improper Cohiba robusto cigar"
 	desc = "There's little more you could want from a cigar."
 	icon_state = "cigar2off"
+	item_state = "cigar2off"
 	icon_on = "cigar2on"
 	icon_off = "cigar2off"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
@@ -470,7 +474,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/trash/cigbutt
 	name = "cigarette butt"
 	desc = "A manky old cigarette butt."
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'icons/obj/smokables.dmi'
 	icon_state = "cigbutt"
 	randpixel = 10
 	w_class = ITEMSIZE_TINY
@@ -498,12 +502,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	user.update_inv_l_hand(0)
 	user.update_inv_r_hand(1)
 
-/obj/item/clothing/mask/smokable/cigarette/rolled/sausage
+/obj/item/clothing/mask/smokable/cigarette/cigar/sausage
 	name = "sausage"
 	desc = "A piece of mixed, long meat, with a smoky scent."
 	icon_state = "sausageoff"
 	item_state = "sausageoff"
 	icon_on = "sausageon"
+	icon_off = "sausageoff"
 	type_butt = /obj/item/trash/cigbutt/sausagebutt
 	chem_volume = 6
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 6)
@@ -521,7 +526,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A pipe, for smoking. Probably made of meerschaum or something."
 	icon_state = "pipeoff"
 	item_state = "pipeoff"
-	icon_on = "pipeon"  //Note - these are in masks.dmi
+	icon_on = "pipeon"
 	icon_off = "pipeoff"
 	burn_rate = 0.015
 	w_class = ITEMSIZE_TINY
@@ -613,7 +618,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A nicotine delivery system popularized by folksy backwoodsmen, kept popular in the modern age and beyond by space hipsters."
 	icon_state = "cobpipeoff"
 	item_state = "cobpipeoff"
-	icon_on = "cobpipeon"  //Note - these are in masks.dmi
+	icon_on = "cobpipeon"
 	icon_off = "cobpipeoff"
 	chem_volume = 30
 

@@ -1593,7 +1593,7 @@
 /area/shuttle/city)
 "ie" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 11;
 	pixel_y = 12
 	},
@@ -4861,7 +4861,7 @@
 /area/city/mendell/interior)
 "BJ" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 11;
 	pixel_y = 12
 	},
@@ -7734,7 +7734,7 @@
 /turf/simulated/floor/lino/grey,
 /area/city/mendell)
 "RD" = (
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /obj/item/gun/launcher/grenade{
 	name = "active cleaning utility dispenser"
 	},

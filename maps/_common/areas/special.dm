@@ -298,3 +298,12 @@
 	name = "Bluespace Outpost"
 	icon_state = "purple"
 	flags = RAD_SHIELDED | SPAWN_ROOF
+
+//Away ships, third party ships, etc. Mostly for the ships that are expected to move on the overmap and/or have ghost roles.
+/area/ship
+	name = "Ship"
+	icon_state = "ship"
+	requires_power = 0
+	sound_env = STANDARD_STATION
+	no_light_control = 1
+	flags = RAD_SHIELDED | SPAWN_ROOF

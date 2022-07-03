@@ -38,17 +38,16 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of Nanotrasen being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
+			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
 							"Begin the TCFL enlistment process for an individual, completing an Enlistment form to be turned in by the individual",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Assist Zo'ra Nanotrasen personnel in their avowal process",
-							"Promote [rand(3,6)] amount of Zo'rane products, be it energy drinks or merchandise",
-							"Sell [rand(3,6)] copies of the Tau Ceti Foreign Legion pamphlets, 10 credits each")
+			rep_objectives = pick("Promote [rand(3,6)] amount of Zo'rane products, be it energy drinks or merchandise",
+							"Sell [rand(3,6)] copies of the Tau Ceti Foreign Legion pamphlets 10 credits each")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the Zo'ra hive to all Nanotrasen employees")
+							"Protect and promote the public image of the Zo'ra hive to all SCC employees")
 
 	return rep_objectives
 
@@ -112,15 +111,14 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of Nanotrasen being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
+			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Assist K'lax Nanotrasen personnel in their avowal process",
-							"Promote [rand(3,6)] amount of K'laxan products, be it energy drinks or merchandise")
+			rep_objectives = pick("Promote [rand(3,6)] amount of K'laxan products, be it energy drinks or merchandise")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the K'lax hive to all Nanotrasen employees")
+							"Protect and promote the public image of the K'lax hive to all [current_map.boss_name] employees")
 
 	return rep_objectives
 
@@ -130,16 +128,16 @@
 	uniform = /obj/item/clothing/under/gearharness
 
 	glasses = null
-	head = /obj/item/clothing/head/klax_breeder
-	shoes = /obj/item/clothing/shoes/vaurca/breeder_klax
+	head = /obj/item/clothing/head/vaurca_breeder/klax
+	shoes = /obj/item/clothing/shoes/vaurca/breeder/klax
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
-	suit = /obj/item/clothing/suit/vaurca/breeder_klax
+	suit = /obj/item/clothing/suit/vaurca/breeder/klax
 
 /datum/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
 
-			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec_klax(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
 
 		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE
@@ -183,15 +181,15 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of Nanotrasen being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
+			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Assist C'thur Nanotrasen personnel in their avowal process",
-							"Promote [rand(3,6)] amount of C'thuric products, be it energy drinks or merchandise")
+			rep_objectives = pick("Promote [rand(3,6)] amount of C'thuric products, be it energy drinks or merchandise")
+
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the C'thur hive to all Nanotrasen employees")
+							"Protect and promote the public image of the C'thur hive to all [current_map.boss_name] employees")
 
 	return rep_objectives
 
@@ -201,14 +199,14 @@
 	uniform = /obj/item/clothing/under/gearharness
 
 	glasses = null
-	head = /obj/item/clothing/head/cthur_breeder
-	shoes = /obj/item/clothing/shoes/vaurca/breeder_cthur
+	head = /obj/item/clothing/head/vaurca_breeder/cthur
+	shoes = /obj/item/clothing/shoes/vaurca/breeder/cthur
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
-	suit = /obj/item/clothing/suit/vaurca/breeder_cthur
+	suit = /obj/item/clothing/suit/vaurca/breeder/cthur
 
 /datum/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H))
-			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec_cthur(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
 		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE

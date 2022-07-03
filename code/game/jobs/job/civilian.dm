@@ -291,6 +291,13 @@
 	l_hand = /obj/item/modular_computer/laptop/preset
 	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
+/datum/outfit/job/librarian/tech_support/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(visualsOnly)
+		r_hand = null
+	else
+		r_hand = initial(r_hand)
+	return ..()
+
 /datum/job/chaplain
 	title = "Chaplain"
 	flag = CHAPLAIN
@@ -360,7 +367,7 @@
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#967032"
-	economic_modifier = 5
+	economic_modifier = 10
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,

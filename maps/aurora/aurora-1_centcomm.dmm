@@ -9479,7 +9479,7 @@
 	},
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/structure/table/stone/marble,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 4;
 	pixel_y = 9
 	},
@@ -16951,7 +16951,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = -12;
 	pixel_y = 11
 	},
@@ -18396,7 +18396,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/syndicate_elite)
 "hRS" = (
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -21192,7 +21192,7 @@
 	pixel_y = 6
 	},
 /obj/item/storage/box/masks,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/fire{
 	layer = 2.9;
@@ -27851,18 +27851,18 @@
 /obj/structure/closet/gimmick{
 	name = "sol clothing"
 	},
-/obj/item/clothing/under/rank/fatigues,
-/obj/item/clothing/under/rank/fatigues,
-/obj/item/clothing/under/rank/fatigues,
-/obj/item/clothing/under/rank/fatigues,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/sol,
 /obj/item/flag/sol,
 /obj/item/flag/sol,
 /obj/item/flag/sol/l,
 /obj/item/flag/sol/l,
-/obj/item/clothing/under/rank/fatigues/marine,
-/obj/item/clothing/under/rank/fatigues/marine,
-/obj/item/clothing/under/rank/fatigues/marine,
-/obj/item/clothing/under/rank/fatigues/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/sol/marine,
 /obj/item/clothing/suit/storage/vest/sol,
 /obj/item/clothing/suit/storage/vest/sol,
 /obj/item/clothing/suit/storage/vest/sol,
@@ -27871,15 +27871,15 @@
 /obj/item/clothing/head/helmet/sol,
 /obj/item/clothing/head/helmet/sol,
 /obj/item/clothing/head/helmet/sol,
-/obj/item/clothing/head/navy,
-/obj/item/clothing/head/navy,
-/obj/item/clothing/head/navy,
-/obj/item/clothing/head/navy,
-/obj/item/clothing/head/navy/marine,
-/obj/item/clothing/head/navy/marine,
-/obj/item/clothing/head/navy/marine,
-/obj/item/clothing/head/navy/garrison,
-/obj/item/clothing/head/dress/admiral,
+/obj/item/clothing/head/sol,
+/obj/item/clothing/head/sol,
+/obj/item/clothing/head/sol,
+/obj/item/clothing/head/sol,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/garrison,
+/obj/item/clothing/head/sol/dress/admiral,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -28994,7 +28994,7 @@
 /area/shuttle/escape)
 "oGs" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
@@ -32154,7 +32154,7 @@
 	pixel_y = -8
 	},
 /obj/item/reagent_containers/syringe,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_y = 12
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline{
@@ -37262,7 +37262,7 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks,
 /obj/machinery/light{
 	dir = 4;
@@ -37995,7 +37995,7 @@
 "uTK" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_y = -8
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal{
@@ -38618,7 +38618,7 @@
 /area/centcom/legion/hangar5)
 "vrQ" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 11;
 	pixel_y = 12
 	},

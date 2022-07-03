@@ -4,6 +4,7 @@
 	desc = "Noises"
 	key = ""
 	flags = RESTRICTED|NONGLOBAL|INNATE|NO_TALK_MSG|NO_STUTTER|TCOMSSIM
+	allow_accents = TRUE 
 
 /datum/language/noise/format_message(message, verb)
 	return "<span class='message'><span class='[colour]'>[message]</span></span>"

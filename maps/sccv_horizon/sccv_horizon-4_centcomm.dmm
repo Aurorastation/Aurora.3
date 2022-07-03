@@ -2762,7 +2762,7 @@
 	pixel_y = 6
 	},
 /obj/item/storage/box/masks,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/fire{
 	layer = 2.9;
@@ -5566,7 +5566,7 @@
 	},
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/structure/table/stone/marble,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 4;
 	pixel_y = 9
 	},
@@ -8287,7 +8287,7 @@
 /area/centcom/holding)
 "auj" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 11;
 	pixel_y = 12
 	},
@@ -10524,7 +10524,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = -12;
 	pixel_y = 11
 	},
@@ -14811,7 +14811,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aKp" = (
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -21592,7 +21592,7 @@
 /area/centcom/legion)
 "bao" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
@@ -23051,7 +23051,7 @@
 "bdc" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_y = -8
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal{
@@ -25537,7 +25537,7 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks,
 /obj/machinery/light{
 	dir = 4;
@@ -30577,8 +30577,6 @@
 /obj/item/clothing/glasses/hud/health,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
-/obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/mask/surgical,
 /obj/item/storage/belt/medical,
@@ -30594,6 +30592,7 @@
 	req_access = null
 	},
 /obj/item/storage/backpack/messenger/med,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "bsS" = (
@@ -31258,7 +31257,7 @@
 	pixel_y = -8
 	},
 /obj/item/reagent_containers/syringe,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_y = 12
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline{
@@ -31457,18 +31456,18 @@
 /obj/structure/closet/gimmick{
 	name = "sol clothing"
 	},
-/obj/item/clothing/under/rank/fatigues,
-/obj/item/clothing/under/rank/fatigues,
-/obj/item/clothing/under/rank/fatigues,
-/obj/item/clothing/under/rank/fatigues,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/sol,
 /obj/item/flag/sol,
 /obj/item/flag/sol,
 /obj/item/flag/sol/l,
 /obj/item/flag/sol/l,
-/obj/item/clothing/under/rank/fatigues/marine,
-/obj/item/clothing/under/rank/fatigues/marine,
-/obj/item/clothing/under/rank/fatigues/marine,
-/obj/item/clothing/under/rank/fatigues/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/sol/marine,
 /obj/item/clothing/suit/storage/vest/sol,
 /obj/item/clothing/suit/storage/vest/sol,
 /obj/item/clothing/suit/storage/vest/sol,
@@ -31477,15 +31476,15 @@
 /obj/item/clothing/head/helmet/sol,
 /obj/item/clothing/head/helmet/sol,
 /obj/item/clothing/head/helmet/sol,
-/obj/item/clothing/head/navy,
-/obj/item/clothing/head/navy,
-/obj/item/clothing/head/navy,
-/obj/item/clothing/head/navy,
-/obj/item/clothing/head/navy/marine,
-/obj/item/clothing/head/navy/marine,
-/obj/item/clothing/head/navy/marine,
-/obj/item/clothing/head/navy/garrison,
-/obj/item/clothing/head/dress/admiral,
+/obj/item/clothing/head/sol,
+/obj/item/clothing/head/sol,
+/obj/item/clothing/head/sol,
+/obj/item/clothing/head/sol,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/garrison,
+/obj/item/clothing/head/sol/dress/admiral,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -33472,14 +33471,12 @@
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/regular,
-/obj/item/clothing/gloves/latex,
 /obj/item/reagent_containers/glass/bottle/peridaxon,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/syringe,
 /obj/item/reagent_containers/syringe,
 /obj/item/reagent_containers/syringe,
 /obj/item/reagent_containers/syringe,
-/obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical,
 /obj/item/storage/belt/medical,
 /obj/random/medical,
@@ -33491,6 +33488,7 @@
 /obj/item/reagent_containers/glass/bottle/bicaridine,
 /obj/item/reagent_containers/glass/bottle/dermaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/skipjack)
 "bBy" = (
@@ -35397,8 +35395,8 @@
 /area/horizon/holodeck/source_picnicarea)
 "bJI" = (
 /turf/simulated/floor/holofloor/beach/sand{
-	icon_state = "beachcorner";
-	dir = 4
+	dir = 4;
+	icon_state = "beachcorner"
 	},
 /area/horizon/holodeck/source_desert)
 "bJJ" = (
@@ -35627,14 +35625,14 @@
 "bKD" = (
 /obj/structure/flora/ausbushes/palebush,
 /turf/simulated/floor/holofloor/beach/sand{
-	icon_state = "beachcorner";
-	dir = 1
+	dir = 1;
+	icon_state = "beachcorner"
 	},
 /area/horizon/holodeck/source_desert)
 "bKE" = (
 /turf/simulated/floor/holofloor/beach/sand{
-	icon_state = "beachcorner";
-	dir = 8
+	dir = 8;
+	icon_state = "beachcorner"
 	},
 /area/horizon/holodeck/source_desert)
 "bKG" = (
@@ -36632,9 +36630,7 @@
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_theatre)
 "fys" = (
 /obj/effect/floor_decal/corner/red/full,

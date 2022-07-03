@@ -333,7 +333,7 @@
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
 "bh" = (
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "loadingarea";

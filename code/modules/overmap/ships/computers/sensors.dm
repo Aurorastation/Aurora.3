@@ -129,7 +129,7 @@
 
 /obj/machinery/shipsensors/attackby(obj/item/W, mob/user)
 	var/damage = max_health - health
-	if(damage && iswelder(W))
+	if(damage && W.iswelder())
 
 		var/obj/item/weldingtool/WT = W
 
@@ -139,7 +139,7 @@
 		if(WT.use(0,user))
 			to_chat(user, "<span class='notice'>You start repairing the damage to [src].</span>")
 			playsound(src, 'sound/items/welder.ogg', 100, 1)
-			if(WT.use_tool(src, user, max(5, damage / 5),, volume = 50) && WT && WT.isOn())
+			if(WT.use_tool(src, user, max(5, damage / 5), volume = 50) && WT && WT.isOn())
 				to_chat(user, "<span class='notice'>You finish repairing the damage to [src].</span>")
 				take_damage(-damage)
 		else

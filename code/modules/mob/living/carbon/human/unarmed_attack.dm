@@ -6,6 +6,7 @@ var/global/list/sparring_attack_cache = list()
 	var/attack_noun = list("fist")
 	var/desc = "A simple unarmed attack."
 	var/damage = 0						// Extra empty hand attack damage.
+	var/armor_penetration = 0
 	var/attack_sound = /decl/sound_category/punch_sound
 	var/miss_sound = /decl/sound_category/punchmiss_sound
 	var/shredding = 0 // Calls the old attack_alien() behavior on objects/mobs when on harm intent.
@@ -52,7 +53,7 @@ var/global/list/sparring_attack_cache = list()
 		return
 
 	var/stun_chance = rand(0, 100)
-	var/armor = target.get_blocked_ratio(zone, BRUTE)
+	var/armor = target.get_blocked_ratio(zone, BRUTE, damage_flags(), armor_penetration, damage)
 	var/pain_message = TRUE
 
 	if(!target.can_feel_pain())
