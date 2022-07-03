@@ -202,7 +202,8 @@
 		/obj/item/warp_core,
 		/obj/item/extraction_pack,
 		/obj/item/smallDelivery,
-		/obj/item/gift
+		/obj/item/gift,
+		/obj/item/device/mine_bot_upgrade
 	)
 
 /obj/item/gripper/paperwork

@@ -261,7 +261,7 @@
 	accuracy = 1
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster/incendiary
-	max_shots = 6
+	max_shots = 7
 	sel_mode = 1
 	burst = 1
 	burst_delay = 1

@@ -129,6 +129,10 @@
 	icon_state = "idris"
 	item_state = "idris"
 
+/obj/item/clothing/head/softcap/idris/alt
+	icon_state = "idrisalt"
+	item_state = "idrisalt"
+
 /obj/item/clothing/head/softcap/pmc
 	name = "PMCG cap"
 	desc = "A company-issue PMCG cap. For amoral mercenaries that prefer style over protection."
@@ -159,6 +163,10 @@
 	desc = "A company-issue Zeng-Hu cap. It feels synthetic to the touch."
 	icon_state = "zeng"
 	item_state = "zeng"
+
+/obj/item/clothing/head/softcap/zeng/alt
+	icon_state = "zengalt"
+	item_state = "zengalt"
 
 /obj/item/clothing/head/softcap/nt
 	desc = "A company-issue NanoTrasen cap. Smells of phoron."

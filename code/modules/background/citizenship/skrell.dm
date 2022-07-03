@@ -27,8 +27,7 @@
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
-			SPECIES_VAURCA_BULWARK,
-			SPECIES_VAURCA_BREEDER
+			SPECIES_VAURCA_BULWARK
 		)
 	)
 
@@ -55,6 +54,19 @@
 	name = "Jargon Consular Officer"
 
 	uniform = /obj/item/clothing/under/skrell
+
+/datum/outfit/job/representative/consular/jargon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(H && !visualsOnly)
+		if(isvaurca(H)) // there should be a system for this but for now this will have to do i guess
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/jargon(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder/jargon(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/jargon(H), slot_wear_suit)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
+		else
+			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+	return TRUE
 
 /datum/citizenship/epsilon
 	name = CITIZENSHIP_EUM

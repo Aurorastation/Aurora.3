@@ -197,7 +197,6 @@
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security
-	suit = /obj/item/clothing/suit/storage/hazardvest/security/officer
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_pocket = /obj/item/device/flash
 

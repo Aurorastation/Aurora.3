@@ -2,8 +2,8 @@
 	name = "\improper IV drip"
 	desc = "A professional standard intravenous stand with supplemental gas support for medical use."
 	desc_info = "IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy. \
-	<br>Click and Drag to attach/detach the IV or secure/remove the breath mask on your target. <br>Click the stand with an empty hand to toggle between \
-	various modes. Using a wrench when it has a tank installed will secure it. It can be upgraded.<br>Alt Click the stand to remove items contained in the stand."
+	It can be upgraded. <br>Click and Drag to attach/detach the IV or secure/remove the breath mask on your target. <br>Click the stand with an empty hand to \
+	toggle between various modes. Using a wrench when it has a tank installed will secure it.<br>Alt Click the stand to remove items contained in the stand."
 	icon = 'icons/obj/iv_drip.dmi'
 	icon_state = "iv_stand"
 	anchored = 0
@@ -84,7 +84,6 @@
 							shake_animation(4)
 							M.Weaken(3)
 							breath_mask_rip()
-							update_icon()
 							return
 						src.visible_message(SPAN_WARNING("[M] trips on \the [src]'s [breath_mask] cable!"), SPAN_WARNING("You trip on \the [src]'s [breath_mask] cable!"))
 						breath_mask.forceMove(src.loc)
@@ -117,15 +116,16 @@
 		if(reagents?.total_volume)
 			var/image/filling = image('icons/obj/iv_drip.dmi', src, "[tipped ? "tipped_" : ""]reagent")
 			var/percent = round((reagents.total_volume / beaker.volume) * 100)
+			var/fill_level = 0
 			switch(percent)
-				if(0 to 9)		filling.icon_state = "[tipped ? "tipped_" : ""]reagent0"
-				if(10 to 24) 	filling.icon_state = "[tipped ? "tipped_" : ""]reagent10"
-				if(25 to 49)	filling.icon_state = "[tipped ? "tipped_" : ""]reagent25"
-				if(50 to 74)	filling.icon_state = "[tipped ? "tipped_" : ""]reagent50"
-				if(75 to 79)	filling.icon_state = "[tipped ? "tipped_" : ""]reagent75"
-				if(80 to 90)	filling.icon_state = "[tipped ? "tipped_" : ""]reagent80"
-				if(91 to INFINITY)	filling.icon_state = "[tipped ? "tipped_" : ""]reagent100"
-
+				if(-INFINITY to 9)	fill_level = 0
+				if(10 to 24)	 	fill_level = 10
+				if(25 to 49)		fill_level = 25
+				if(50 to 74)		fill_level = 50
+				if(75 to 79)		fill_level = 75
+				if(80 to 90)		fill_level = 80
+				if(91 to INFINITY)	fill_level = 100
+			filling.icon_state = "[tipped ? "tipped_" : ""]reagent[fill_level]"
 			var/reagent_color = reagents.get_color()
 			filling.icon += reagent_color
 			add_overlay(filling)
@@ -149,7 +149,17 @@
 		else
 			tank_type = "other"
 		add_overlay("tank_[tank_type][tipped ? "_tipped" : ""]")
-		update_gauge()
+
+		var/tank_level = 2
+		switch(tank.percent())
+			if(-INFINITY to 4)	tank_level = 0
+			if(05 to 19)		tank_level = 1
+			if(20 to 39)		tank_level = 2
+			if(40 to 59)		tank_level = 3
+			if(60 to 79)		tank_level = 4
+			if(80 to 90)		tank_level = 5
+			if(91 to INFINITY)	tank_level = 6
+		add_overlay("[tank.gauge_icon][tank_level][tipped ? "_tipped" : ""]")
 	if(breath_mask)
 		if(breather)
 			add_overlay("mask_on[tipped ? "_tipped" : ""]")
@@ -160,20 +170,6 @@
 	if(panel_open)
 		add_overlay("panel_open[tipped ? "_tipped" : ""]")
 
-/obj/machinery/iv_drip/proc/update_gauge()
-	var/gauge_pressure = 0
-	var/last_gauge_pressure
-	if(tank.air_contents)
-		gauge_pressure = tank.air_contents.return_pressure()
-		if(gauge_pressure > TANK_IDEAL_PRESSURE)
-			gauge_pressure = -1
-		else
-			gauge_pressure = round((gauge_pressure/TANK_IDEAL_PRESSURE)*tank.gauge_cap)
-	if(gauge_pressure == last_gauge_pressure)
-		return
-	last_gauge_pressure = gauge_pressure
-	add_overlay("[tank.gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure][tipped ? "_tipped" : ""]")
-
 /obj/machinery/iv_drip/process()
 	breather_process()
 	attached_process()
@@ -183,18 +179,19 @@
 		if(!breather.Adjacent(src))
 			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps back into \the [src]!"))
 			breath_mask_rip()
-			update_icon()
 			return
 		var/mask_check = breath_mask.get_equip_slot()
 		if(mask_check != slot_wear_mask)
 			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
 			breath_mask_rip()
-			update_icon()
 			return
 		if(breath_mask.hanging)
 			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
 			breath_mask_rip()
-			update_icon()
+			return
+		if(breath_mask.loc != breather)
+			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
+			breath_mask_rip()
 			return
 		if(!tank)
 			return
@@ -207,7 +204,6 @@
 				src.visible_message(SPAN_NOTICE("\The [src] buzzes, automatically deactivating \the [tank]."))
 				playsound(src, 'sound/machines/buzz-two.ogg', 50)
 				tank_off()
-				update_icon()
 				return
 			var/safe_pressure_min = breather.species.breath_pressure + 5
 			safe_pressure_min *= 1 + rand(1,4) * L.damage/L.max_damage
@@ -221,13 +217,11 @@
 				src.visible_message(SPAN_WARNING("\The [src]'s flashes a warning light, automatically deactivating \the [tank] and retracting \the [breath_mask]."))
 				playsound(src, 'sound/machines/twobeep.ogg', 50)
 				breath_mask_rip()
-				update_icon()
 				return
-			if(tank.air_contents.return_pressure() == 0)
-				src.visible_message(SPAN_WARNING("\The [src] buzzes and automatically closes \the [tank]'s valve."))
+			if(tank.air_contents.return_pressure() <= 10)
+				src.visible_message(SPAN_WARNING("\The [src] buzzes, automatically deactivating \the [tank] and retracting \the [breath_mask]."))
 				playsound(src, 'sound/machines/buzz-two.ogg', 50)
-				tank_off()
-				update_icon()
+				breath_mask_rip()
 				return
 			if(epp) // Emergency Positive Pressure system forces respiration
 				if(breather.losebreath > 0)
@@ -292,6 +286,10 @@
 
 /obj/machinery/iv_drip/MouseDrop(over_object, src_location, over_location)
 	..()
+	if(use_check_and_message(usr))
+		return
+	if(isDrone(usr))
+		return
 	if(in_range(src, usr) && ishuman(over_object) && in_range(over_object, src))
 		var/list/options = list(
 			"IV drip" = image('icons/mob/screen/radial.dmi', "iv_drip"),
@@ -323,7 +321,7 @@
 						attached = null
 						vein = null
 						return
-				visible_message("[usr][armor_check ? "" : "swiftly "] inserts \the [src] in \the [attached]'s [vein.name].")
+				visible_message("[usr][armor_check ? "" : " swiftly"] inserts \the [src] in \the [attached]'s [vein.name].")
 				update_icon()
 				return
 			if("Breath mask")
@@ -333,7 +331,6 @@
 				if(breather)
 					visible_message("[usr] removes [breather]'s mask.[valve_open ? " \The [tank]'s valve automatically closes." : ""]")
 					breath_mask_rip()
-					update_icon()
 					return
 				breather = over_object
 				if(!breather.organs_by_name[BP_HEAD])
@@ -362,6 +359,10 @@
 
 /obj/machinery/iv_drip/AltClick(mob/user)
 	. = ..()
+	if(use_check_and_message(user))
+		return
+	if(isDrone(user))
+		return
 	var/list/options = list(
 		"Transfer Rate" = image('icons/mob/screen/radial.dmi', "radial_transrate"),
 		"Remove Container" = image('icons/mob/screen/radial.dmi', "iv_beaker"),
@@ -387,7 +388,7 @@
 				to_chat(user, SPAN_NOTICE("There is no installed tank to remove."))
 				return
 			if(breather)
-				to_chat(user, SPAN_NOTICE("You cannot remove \the [tank] if someone's wearing the mask!"))
+				to_chat(user, SPAN_NOTICE("You cannot remove \the [tank] if someone's wearing \the [breath_mask]!"))
 				return
 			if(!is_loose)
 				to_chat(user, SPAN_NOTICE("You must loosen the nuts securing \the [tank] into place to remove it!"))
@@ -476,8 +477,9 @@
 	return attack_hand(user)
 
 /obj/machinery/iv_drip/attack_hand(mob/user)
-	if(user.incapacitated())
-		to_chat(user, SPAN_WARNING("You are in no shape to do this."))
+	if(use_check_and_message(user))
+		return
+	if(isDrone(user))
 		return
 	if(tipped)
 		user.visible_message("<b>[user]</b> pulls \the [src] upright.", "You pull \the [src] upright.")
@@ -552,7 +554,8 @@
 				valve_open = FALSE
 				tank_active = FALSE
 				epp_active = FALSE
-		src.visible_message("\The [tank] rattles, but remains firmly secured to \the [src].")
+		else
+			src.visible_message("\The [tank] rattles, but remains firmly secured to \the [src].")
 
 /obj/machinery/iv_drip/proc/iv_rip()
 	attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [vein.name]."), SPAN_DANGER("The needle <B>painfully</B> rips out of your [vein.name]."))
@@ -566,10 +569,23 @@
 	if(breath_mask.hanging)
 		breath_mask.hanging = FALSE
 		breath_mask.adjust_sprites()
+	if(breath_mask.loc != breather)
+		var/loc_check = breath_mask.loc
+		if(ismob(loc_check))
+			var/mob/living/carbon/human/holder = loc_check
+			holder.remove_from_mob(breath_mask)
+			holder.update_inv_wear_mask()
+			holder.update_inv_l_hand()
+			holder.update_inv_r_hand()
+		breath_mask.forceMove(src)
+		breather = null
+		update_icon()
+		return
 	breather.remove_from_mob(breath_mask)
 	breather.update_inv_wear_mask()
 	breath_mask.forceMove(src)
 	breather = null
+	update_icon()
 
 /obj/machinery/iv_drip/proc/tank_off()
 	tank.forceMove(src)
@@ -579,25 +595,14 @@
 	tank_active = FALSE
 	valve_open = FALSE
 	epp_active = FALSE
-
-/obj/machinery/iv_drip/proc/toggle_check(mob/user)
-	if(!ishuman(user) && !issilicon(user))
-		to_chat(user, SPAN_WARNING("This mob cannot operate the controls!"))
-		return
-	if(user.stat || user.incapacitated())
-		to_chat(user, SPAN_WARNING("You are in no shape to do this."))
-		return
-	if(!user.Adjacent(src))
-		to_chat(user, SPAN_WARNING("You must get closer to \the [src] to do that!"))
-		return
-	return TRUE
+	update_icon()
 
 /obj/machinery/iv_drip/verb/toggle_mode()
 	set category = "Object"
 	set name = "Toggle Mode"
 	set src in view(1)
 
-	if(!toggle_check(usr))
+	if(use_check_and_message(usr))
 		return
 	mode = !mode
 	usr.visible_message("<b>[usr]</b> toggles \the [src] to [mode ? "inject" : "take blood"].", SPAN_NOTICE("You set \the [src] to [mode ? "injecting" : "taking blood"]."))
@@ -609,7 +614,7 @@
 	set name = "Toggle Stop"
 	set src in view(1)
 
-	if(!toggle_check(usr))
+	if(use_check_and_message(usr))
 		return
 	toggle_stop = !toggle_stop
 	usr.visible_message("<b>[usr]</b> toggles \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"].", SPAN_NOTICE("You toggle \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"]."))
@@ -620,7 +625,7 @@
 	set name = "Toggle Valve"
 	set src in view(1)
 
-	if(!toggle_check(usr))
+	if(use_check_and_message(usr))
 		return
 	if(!tank)
 		to_chat(usr, SPAN_NOTICE("There is no tank for you to open the valve of!"))
@@ -647,14 +652,13 @@
 	usr.visible_message("<b>[usr]</b> closes \the [tank]'s valve.", SPAN_NOTICE("You close \the [tank]'s valve."))
 	playsound(src, 'sound/effects/internals.ogg', 100)
 	tank_off()
-	update_icon()
 
 /obj/machinery/iv_drip/verb/toggle_epp()
 	set category = "Object"
 	set name = "Toggle EPP"
 	set src in view(1)
 
-	if(!toggle_check(usr))
+	if(use_check_and_message(usr))
 		return
 	if(epp_active)
 		var/response = alert(usr, "Are you sure you want to turn off the Emergency Positive Pressure system? It is currently active!", "Toggle EPP", "Yes", "No")
@@ -671,7 +675,7 @@
 	set name = "Set Transfer Rate"
 	set src in view(1)
 
-	if(!toggle_check(usr))
+	if(use_check_and_message(usr))
 		return
 	set_rate:
 		var/amount = input("Set transfer rate as u/sec (between [transfer_limit] and 0.001)") as num
@@ -686,10 +690,12 @@
 
 /obj/machinery/iv_drip/examine(mob/user)
 	..(user)
-	if (!(user in viewers(2, src)))
+	if(!(user in viewers(2, src)))
 		return
-	to_chat(user, SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, and the automatic injection stop mode is [toggle_stop ? "on" : "off"]."))
-	to_chat(user, SPAN_NOTICE("\The [src] [attached ? "is attached to [attached]'s [vein.name]" : "has no one attached"]."))
+	to_chat(user, SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]. The Emergency Positive Pressure \
+	system is [epp ? "on" : "off"]."))
+	if(attached)
+		to_chat(user, SPAN_NOTICE("\The [src] is attached to [attached]'s [vein.name]."))
 	if(beaker)
 		if(LAZYLEN(beaker.reagents.reagent_volumes))
 			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"]."))

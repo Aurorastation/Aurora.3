@@ -378,3 +378,6 @@
 	if(!isnull(species.floating_chat_x_offset))
 		return species.floating_chat_x_offset
 	return species.icon_x_offset
+
+/mob/living/carbon/human/get_stutter_verbs()
+	return species.stutter_verbs
