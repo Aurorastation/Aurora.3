@@ -7805,6 +7805,7 @@
 	dir = 8;
 	pixel_x = -24
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "ggE" = (
@@ -10826,7 +10827,7 @@
 "iFL" = (
 /obj/machinery/door/airlock/freezer_maint{
 	name = "Morgue Maintenance";
-	req_access = list(6)
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -11787,7 +11788,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Passthrough";
-	req_access = list(12)
+	req_one_access = list(12,26,31,48,67)
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
@@ -13924,7 +13925,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/freezer_maint{
 	name = "Morgue Maintenance";
-	req_access = list(6)
+	req_access = list(5)
 	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)

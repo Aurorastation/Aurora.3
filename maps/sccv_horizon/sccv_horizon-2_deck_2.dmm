@@ -13069,11 +13069,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/garden)
-"gXh" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "gXu" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/plating,
@@ -32202,7 +32197,7 @@
 	pixel_y = -32
 	},
 /turf/template_noop,
-/area/template_noop)
+/area/horizon/exterior)
 "rwW" = (
 /obj/structure/cable/orange{
 	icon_state = "1-2"
@@ -34129,9 +34124,11 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "sAT" = (
-/obj/structure/closet/firecloset,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "sBr" = (
@@ -35899,10 +35896,10 @@
 "tCG" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "tCP" = (
@@ -37722,7 +37719,7 @@
 	pixel_x = -32
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "uvM" = (
@@ -41815,17 +41812,13 @@
 "wAT" = (
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
-"wBf" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/sign/radiation{
-	pixel_x = 32
-	},
-/turf/template_noop,
-/area/template_noop)
 "wBh" = (
-/obj/structure/reagent_dispensers/extinguisher,
+/obj/machinery/light/small,
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Starboard Emergency Supplies Closet";
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "wBq" = (
@@ -55454,10 +55447,10 @@ wRu
 lWB
 ydh
 bQd
-rCR
-rCR
-rCR
-tSl
+fzh
+fzh
+fzh
+oeF
 scx
 qgN
 qgN
@@ -55860,9 +55853,9 @@ eau
 kJw
 hFg
 ibE
-ibE
-gXh
-oeF
+wBh
+fzh
+vfi
 scx
 qgN
 qgN
@@ -56063,8 +56056,8 @@ aTa
 fzh
 tCG
 ibE
-wBh
-dGz
+fzh
+rSP
 whe
 qgN
 qgN

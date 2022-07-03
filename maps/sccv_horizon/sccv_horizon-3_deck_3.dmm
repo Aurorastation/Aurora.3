@@ -3432,7 +3432,7 @@
 "gv" = (
 /obj/machinery/door/airlock/medical{
 	name = "Staff Facilities";
-	req_access = list(66)
+	req_access = list(5)
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
@@ -5280,7 +5280,7 @@
 /obj/machinery/door/airlock/medical{
 	id_tag = "deck2_medicaltoilet";
 	name = "Staff Hygiene Facilities";
-	req_access = list(66)
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
@@ -5592,7 +5592,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/medical{
-	name = "Recovery"
+	name = "Recovery";
+	req_access = list(5)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
@@ -9529,7 +9530,7 @@
 /area/horizon/crew_quarters/fitness/showers)
 "rF" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(66)
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -9708,7 +9709,7 @@
 	},
 /obj/machinery/door/airlock/medical{
 	name = "Staff Facilities";
-	req_access = list(66)
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -12392,7 +12393,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "wS" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_one_access = list(5, 12)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -15689,7 +15690,7 @@
 "De" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cryogenics Maintenance";
-	req_access = list(12)
+	req_one_access = list(5, 12)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -16305,7 +16306,7 @@
 	},
 /obj/machinery/door/airlock/medical{
 	name = "Staff Showers";
-	req_access = list(66)
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
@@ -19629,7 +19630,7 @@
 /area/journalistoffice)
 "Kn" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_one_access = list(5, 12)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -25882,7 +25883,7 @@
 	},
 /obj/machinery/door/airlock/medical{
 	name = "Staff Facilities";
-	req_access = list(66)
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
