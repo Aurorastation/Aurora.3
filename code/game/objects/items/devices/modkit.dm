@@ -171,7 +171,7 @@
 	w_class = ITEMSIZE_SMALL
 	suit_options = list(
 		/obj/item/clothing/head/helmet/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/srf,
-		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol/srf
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/suit/space/void/sol/srf
 	)
 
 /obj/item/voidsuit_modkit/league
