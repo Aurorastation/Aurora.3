@@ -11507,7 +11507,7 @@
 	name = "Security Checkpoint Internal Shutter"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
 "gkM" = (
 /obj/effect/floor_decal/corner/white{
@@ -25933,7 +25933,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
 "ojY" = (
 /obj/machinery/door/firedoor,
@@ -33193,7 +33193,7 @@
 	id = "seconddeckdockext";
 	name = "Security Checkpoint External Shutter"
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
 "sbu" = (
 /obj/structure/cable/yellow{
@@ -33910,7 +33910,7 @@
 	id = "seconddeckdockdesk";
 	name = "Security Checkpoint Desk Shutter"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
 "sww" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -37743,7 +37743,7 @@
 	name = "Security Checkpoint Internal Shutter"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
 "uAt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
