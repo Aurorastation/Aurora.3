@@ -1,10 +1,8 @@
-// Snow, wood, sandbags, metal, plasteel
-
 /obj/structure/barricade
 	icon = 'icons/obj/barricades.dmi'
 	climbable = TRUE
 	anchored = TRUE
-	density = 1
+	density = TRUE
 	throwpass = TRUE //You can throw objects over this, despite its density.
 	layer = BELOW_OBJ_LAYER
 	flags = ON_BORDER
@@ -44,7 +42,7 @@
 		if(BARRICADE_DMG_MODERATE)
 			to_chat(user, SPAN_WARNING("It's quite beat up, but it's holding together."))
 		if(BARRICADE_DMG_HEAVY)
-			to_chat(user, SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart."))
+			to_chat(user, SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart!"))
 
 /obj/structure/barricade/update_icon()
 	overlays.Cut()
@@ -85,7 +83,7 @@
 /obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
 		return TRUE
-	if(istype(mover,/obj/item/projectile))
+	if(istype(mover, /obj/item/projectile))
 		return (check_cover(mover,target))
 	if (get_dir(loc, target) == dir)
 		return !density
@@ -185,19 +183,16 @@
 				new /obj/item/stack/barbed_wire(loc)
 		return
 
-	if(W.force > force_level_absorption)
+	if((W.force + W.armor_penetration) > force_level_absorption)
 		..()
 		if(barricade_hitsound)
 			playsound(src, barricade_hitsound, 25, 1)
-		hit_barricade(W)
+		hit_barricade(W, user)
 
 /obj/structure/barricade/bullet_act(obj/item/projectile/P)
 	bullet_ping(P)
-
 	var/damage_to_take = P.damage * P.anti_materiel_potential
-
 	take_damage(damage_to_take)
-
 	return TRUE
 
 /obj/structure/barricade/proc/barricade_deconstruct(deconstruct)
@@ -231,14 +226,20 @@
 		set_dir(WEST)
 	update_icon()
 
-/obj/structure/barricade/proc/hit_barricade(obj/item/I)
-	take_damage(I.force * 0.5)
+/obj/structure/barricade/proc/hit_barricade(var/obj/item/I, var/mob/user)
+	if(!isliving(user))
+		return
+	var/mob/living/L = user
+	L.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	var/message = pick(I.attack_verb)
+	visible_message(SPAN_DANGER("[L] has [message] the [src]!</span>"))
+	L.do_attack_animation(src)
+	take_damage(I.force)
 
 /obj/structure/barricade/proc/take_damage(var/damage)
 	for(var/obj/structure/barricade/B in get_step(src,dir)) //discourage double-stacking barricades by removing health from opposing barricade
 		if(B.dir == reverse_direction(dir))
 			B.update_health(damage)
-
 	update_health(damage)
 
 /obj/structure/barricade/proc/update_health(damage, nomessage)
@@ -284,17 +285,17 @@
 	set category = "Object"
 	set src in oview(1)
 
-	rotate(usr,1)
+	rotate(usr, 1)
 
 /obj/structure/barricade/verb/clock_rotate()
 	set name = "Rotate Barricade Clockwise"
 	set category = "Object"
 	set src in oview(1)
 
-	rotate(usr,-1)
+	rotate(usr, -1)
 
 /obj/structure/barricade/rotate(var/mob/user, var/rotation_dir = -1)//-1 for clockwise, 1 for counter clockwise
-	if(world.time <= user.next_move || !ishuman(user) || !Adjacent(user) || use_check_and_message(user))
+	if(world.time <= user.next_move || !ishuman(user) || use_check_and_message(user))
 		return
 
 	if(anchored)
