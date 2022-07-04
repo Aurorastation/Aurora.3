@@ -51,6 +51,19 @@
 	damage = 35
 	armor_penetration = 10
 
+/obj/item/projectile/beam/noctiluca
+	damage = 25
+	armor_penetration = 25
+
+/obj/item/projectile/beam/noctiluca/armor_piercing
+	name = "concentrated laser"
+	damage = 15
+	armor_penetration = 50
+
+	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
+	tracer_type = /obj/effect/projectile/tracer/laser/scc
+	impact_type = /obj/effect/projectile/impact/laser/scc
+
 /obj/item/projectile/beam/midlaser/ice
 	damage = 25
 	armor_penetration = 10

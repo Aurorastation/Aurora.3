@@ -11816,6 +11816,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
+"vK" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Laser Rifle)"
+	},
+/obj/item/gun/energy/rifle/laser/noctiluca,
+/turf/simulated/floor/tiled/dark,
+/area/crew_armory)
 "vL" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -22000,6 +22007,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Laser Rifle)"
+	},
+/obj/item/gun/energy/rifle/laser/noctiluca,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "Ot" = (
@@ -52911,7 +52922,7 @@ Fq
 DQ
 Ca
 DJ
-yt
+vK
 Os
 Zx
 DQ
