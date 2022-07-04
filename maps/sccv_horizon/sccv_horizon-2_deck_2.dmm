@@ -1324,11 +1324,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
 "aEt" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/command{
+	name = "Chief Engineer's Office";
+	req_access = list(56)
 	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/heads/chief)
+/turf/simulated/floor/tiled,
+/area/engineering/lobby)
 "aEN" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -5129,6 +5131,10 @@
 /obj/structure/table/standard,
 /obj/machinery/cell_charger{
 	pixel_y = 4
+	},
+/obj/machinery/alarm{
+	pixel_x = -28;
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
@@ -10054,7 +10060,7 @@
 /obj/machinery/keycard_auth{
 	pixel_x = 24
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "fCd" = (
 /obj/structure/cable/green{
@@ -10766,6 +10772,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/structure/table/standard,
+/obj/machinery/photocopier/faxmachine{
+	department = "Chief Engineer's Office"
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "fSA" = (
@@ -11305,6 +11315,9 @@
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Chief Engineer's Office"
 	},
+/obj/machinery/door/window/brigdoor/southleft{
+	req_access = list(56)
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
 "ggd" = (
@@ -11385,14 +11398,14 @@
 	dir = 4
 	},
 /obj/machinery/door/window/brigdoor/southright{
-	req_access = list(56)
+	req_access = list(56);
+	name = "Ginny's Cage Access"
 	},
-/obj/effect/decal/warning_stripes,
 /mob/living/simple_animal/carp/fluff/ginny,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "ghX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -16441,12 +16454,19 @@
 /obj/item/pipewrench,
 /obj/item/grenade/chem_grenade/large/phoroncleaner,
 /obj/item/device/radio/intercom{
-	dir = 8;
+	dir = 1;
 	name = "Station Intercom (General)";
-	pixel_x = 24
+	pixel_y = -24
 	},
 /obj/item/crowbar/rescue_axe/red,
-/turf/simulated/floor/carpet/rubber,
+/obj/machinery/requests_console{
+	announcementConsole = 1;
+	department = "Chief Engineer's Desk";
+	departmentType = 6;
+	name = "Chief Engineer RC";
+	pixel_x = 32
+	},
+/turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "iVp" = (
 /turf/simulated/open,
@@ -16678,20 +16698,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
 "jbB" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
@@ -17560,11 +17575,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
 "jzV" = (
@@ -19225,7 +19245,7 @@
 	req_access = list(56)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
 "kzO" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -19806,6 +19826,9 @@
 	dir = 8;
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -22711,7 +22734,7 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "mxO" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
@@ -23578,7 +23601,7 @@
 /obj/item/storage/slide_projector{
 	pixel_y = 12
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "mVF" = (
 /obj/structure/cable/green{
@@ -27943,10 +27966,8 @@
 /area/engineering/engine_room)
 "pmQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "pmU" = (
@@ -29234,18 +29255,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "pXI" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/obj/machinery/disposal/small/west,
-/obj/machinery/requests_console{
-	announcementConsole = 1;
-	department = "Chief Engineer's Desk";
-	departmentType = 6;
-	name = "Chief Engineer RC";
-	pixel_x = 32
-	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "pXP" = (
 /obj/structure/disposalpipe/segment{
@@ -30339,11 +30349,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
 "qEe" = (
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/command{
+	id_tag = "CEdoor";
+	name = "Chief Engineer's Office";
+	req_access = list(56)
 	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/heads/chief)
+/turf/simulated/floor/tiled,
+/area/hallway/engineering/tesla)
 "qEL" = (
 /obj/machinery/camera/network/service{
 	c_tag = "Service - Deck 2 - Lounge Fore"
@@ -30555,7 +30568,7 @@
 /obj/item/paper_scanner{
 	pixel_x = 8
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "qHq" = (
 /obj/structure/table/standard,
@@ -31811,7 +31824,7 @@
 	pixel_y = -20;
 	req_access = list(56)
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "rpu" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -35735,6 +35748,12 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/office)
+"tCk" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "ce"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/hallway/engineering/tesla)
 "tCG" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -41958,9 +41977,11 @@
 /obj/machinery/light_switch{
 	pixel_x = -24
 	},
-/obj/structure/table/standard,
-/obj/machinery/photocopier/faxmachine{
-	department = "Chief Engineer's Office"
+/obj/machinery/newscaster{
+	pixel_y = -30
+	},
+/obj/structure/coatrack{
+	pixel_x = -10
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -42983,9 +43004,6 @@
 "xgH" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
-	},
-/obj/machinery/newscaster{
-	pixel_y = -30
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -44081,7 +44099,9 @@
 /turf/simulated/floor/tiled,
 /area/teleporter)
 "xNO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "ce"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/chief)
 "xOo" = (
@@ -44638,10 +44658,7 @@
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "ybR" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
@@ -44908,10 +44925,7 @@
 /area/engineering/engine_room)
 "ygK" = (
 /obj/item/modular_computer/console/preset/engineering,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "ygL" = (
 /obj/structure/table/standard,
@@ -63727,10 +63741,10 @@ hSr
 voz
 jDb
 wAT
-aEt
+wAT
 fwA
 xgH
-nge
+aEt
 jbB
 fQz
 fQz
@@ -64332,7 +64346,7 @@ ivN
 pJB
 kKk
 kRH
-qEe
+wAT
 pXI
 fAK
 iVg
@@ -64534,8 +64548,8 @@ pnF
 sMn
 sMn
 sMn
-sMn
-sMn
+qEe
+tCk
 sMn
 sMn
 nge
@@ -64735,8 +64749,8 @@ dFC
 qtY
 nlT
 rEk
-rEk
 qEd
+rEk
 rEk
 wqe
 nMv
