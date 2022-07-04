@@ -131,7 +131,7 @@
 		return
 	var/mob/living/L = user
 	L.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	visible_message(SPAN_DANGER("[L] [attack_verb] the [src]!</span>"))
+	visible_message(SPAN_DANGER("[L] [attack_verb] the [src]!"))
 	if(barricade_hitsound)
 		playsound(src, barricade_hitsound, 50, 1)
 	if(is_wired)
@@ -232,7 +232,7 @@
 	var/mob/living/L = user
 	L.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	var/message = pick(I.attack_verb)
-	visible_message(SPAN_DANGER("[L] has [message] the [src]!</span>"))
+	visible_message(SPAN_DANGER("[L] has [message] the [src]!"))
 	L.do_attack_animation(src)
 	take_damage(I.force)
 
