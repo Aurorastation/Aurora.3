@@ -36781,8 +36781,8 @@
 /area/security/brig)
 "udR" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
 "uej" = (
@@ -57325,7 +57325,7 @@ ipr
 fzh
 kAJ
 eYD
-udR
+wFj
 udR
 udR
 qgN
@@ -59951,7 +59951,7 @@ jWV
 jWV
 jWV
 jWV
-udR
+wFj
 udR
 udR
 qgN
