@@ -1040,7 +1040,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "pAh" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor/plating,
 /area/ship/militia_ship)
 "pDZ" = (
