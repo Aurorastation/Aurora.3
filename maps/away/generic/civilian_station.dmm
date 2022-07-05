@@ -265,10 +265,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
-"aGn" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/plating,
-/area/civilian_station)
 "aHq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/bed,
@@ -732,7 +728,7 @@
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "frn" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor/plating,
 /area/civilian_station)
 "fGz" = (
@@ -1516,7 +1512,7 @@
 /area/civilian_station)
 "oeF" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor/plating,
 /area/civilian_station)
 "ofl" = (
