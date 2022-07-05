@@ -31815,7 +31815,8 @@
 /obj/machinery/button/switch/windowtint{
 	pixel_x = -26;
 	pixel_y = -20;
-	range = 9
+	range = 9;
+	id = "ce"
 	},
 /obj/machinery/button/remote/airlock{
 	id = "CEdoor";
