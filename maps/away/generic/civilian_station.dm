@@ -1,19 +1,19 @@
 /datum/map_template/ruin/away_site/civilian_station
 	name = "civilian station"
-	description = "A modestly-sized independently-owned civilian space station. Many of these exist all throughout inhabited space, offering a place to rest, food to eat, shopping, and refueling - part mall, part motel. This one's transponder says it's open for business."
+	description = "A modestly-sized independently-owned civilian space station. Many of these exist all throughout inhabited space, offering a place to rest, food to eat, shopping, and refueling - part mall, part motel. This one appears to have been active in the region long before Biesel took control, and an information lookup indicates that it is operated by a small company that is Solarian in origin. This one's transponder says it's open for business!"
 	suffix = "generic/civilian_station.dmm"
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	sectors = list(SECTOR_CORP_ZONE)
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "civilian_station"
 
 /decl/submap_archetype/civilian_station
 	map = "civilian station"
-	descriptor = "A modestly-sized independently-owned civilian space station. Many of these exist all throughout inhabited space, offering a place to rest, food to eat, shopping, and refueling - part mall, part motel. This one's transponder says it's open for business."
+	descriptor = "A modestly-sized independently-owned civilian space station. Many of these exist all throughout inhabited space, offering a place to rest, food to eat, shopping, and refueling - part mall, part motel. This one appears to have been active in the region long before Biesel took control, and an information lookup indicates that it is operated by a small company that is Solarian in origin. This one's transponder says it's open for business!"
 
 /obj/effect/overmap/visitable/sector/civilian_station
 	name = "civilian station"
-	desc = "A modestly-sized independently-owned civilian space station. Many of these exist all throughout inhabited space, offering a place to rest, food to eat, shopping, and refueling - part mall, part motel. This one's transponder says it's open for business."
+	desc = "A modestly-sized independently-owned civilian space station. Many of these exist all throughout inhabited space, offering a place to rest, food to eat, shopping, and refueling - part mall, part motel. This one appears to have been active in the region long before Biesel took control, and an information lookup indicates that it is operated by a small company that is Solarian in origin. This one's transponder says it's open for business!"
 
 /area/civilian_station
 	name = "Civilian Station"

@@ -588,6 +588,7 @@
 "cLC" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/steel,
+/obj/machinery/recharger,
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "cPk" = (
@@ -793,6 +794,7 @@
 "gaD" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/machinery/vending/coffee{
+	density = 0;
 	pixel_y = 25
 	},
 /turf/simulated/floor/tiled/white,
@@ -862,6 +864,7 @@
 "gAI" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/machinery/vending/cola{
+	density = 0;
 	pixel_y = 25
 	},
 /turf/simulated/floor/tiled/white,
@@ -869,6 +872,7 @@
 "gHC" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/machinery/vending/snack{
+	density = 0;
 	pixel_y = 25
 	},
 /turf/simulated/floor/tiled/white,
@@ -881,6 +885,7 @@
 "gTv" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/structure/reagent_dispensers/water_cooler{
+	density = 0;
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/white,
@@ -888,6 +893,7 @@
 "gYl" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/machinery/vending/cigarette{
+	density = 0;
 	pixel_y = 25
 	},
 /turf/simulated/floor/tiled/white,
@@ -919,6 +925,9 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32
+	},
 /turf/simulated/floor/wood,
 /area/civilian_station)
 "hus" = (
@@ -928,12 +937,12 @@
 /turf/simulated/floor/wood,
 /area/civilian_station)
 "huE" = (
-/obj/structure/table/steel,
-/obj/item/paper_bin,
-/obj/item/pen,
 /obj/machinery/light{
 	dir = 2;
 	icon_state = "tube1"
+	},
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/civilian_station)
@@ -1557,6 +1566,7 @@
 /area/civilian_station)
 "oYQ" = (
 /obj/structure/table/steel,
+/obj/machinery/recharger,
 /turf/simulated/floor/lino/grey,
 /area/civilian_station)
 "oZv" = (
@@ -2042,7 +2052,7 @@
 "uph" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/machinery/chemical_dispenser/coffeemaster/full,
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "upu" = (
@@ -2090,6 +2100,12 @@
 	dir = 8;
 	icon_state = "tube1";
 	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/civilian_station)
+"vlP" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -2295,6 +2311,7 @@
 "xQM" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/machinery/vending/dinnerware/plastic{
+	density = 0;
 	pixel_y = 25
 	},
 /turf/simulated/floor/tiled/white,
@@ -33064,7 +33081,7 @@ xYB
 ygr
 ooM
 tcT
-ndF
+vlP
 ndF
 bKc
 ygr
