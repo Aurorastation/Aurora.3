@@ -132,7 +132,6 @@
 		return
 
 	..()
-	bullet_ping(Proj)
 	take_damage(proj_damage)
 	return
 

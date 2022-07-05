@@ -187,7 +187,6 @@
 	health -= Proj.damage
 	bullet_ping(Proj)
 	CheckHealth()
-	return
 
 /obj/structure/simple_door/proc/CheckHealth()
 	if(health <= 0)

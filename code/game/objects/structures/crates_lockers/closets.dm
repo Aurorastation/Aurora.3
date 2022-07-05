@@ -299,7 +299,6 @@
 			Proj.attack_mob(L, distance)
 
 	..()
-	bullet_ping(Proj)
 	damage(proj_damage)
 
 /obj/structure/closet/attackby(obj/item/W, mob/user)

@@ -48,8 +48,6 @@
 	if(!damage)
 		return
 
-	bullet_ping(Proj)
-
 	if(!istype(Proj, /obj/item/projectile/beam))
 		damage *= 0.4 //non beams do reduced damage
 
