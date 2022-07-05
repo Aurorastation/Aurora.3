@@ -1482,6 +1482,15 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
+"cM" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Laser Rifle)";
+	req_access = null;
+	req_one_access = list(3, 19)
+	},
+/obj/item/gun/energy/rifle/laser/noctiluca,
+/turf/simulated/floor/tiled/dark,
+/area/crew_armory)
 "cN" = (
 /obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -5825,7 +5834,9 @@
 /area/hallway/secondary/entry/emergency)
 "kJ" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Ammo)"
+	name = "Weaponry (Ammo)";
+	req_access = null;
+	req_one_access = list(3, 19)
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -8053,7 +8064,9 @@
 /area/bridge/controlroom)
 "oM" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Rifle)"
+	name = "Weaponry (Rifle)";
+	req_access = null;
+	req_one_access = list(3, 19)
 	},
 /obj/item/gun/projectile/gauss/carbine,
 /obj/item/gun/projectile/gauss/carbine,
@@ -11816,13 +11829,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
-"vK" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Laser Rifle)"
-	},
-/obj/item/gun/energy/rifle/laser/noctiluca,
-/turf/simulated/floor/tiled/dark,
-/area/crew_armory)
 "vL" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -15136,7 +15142,9 @@
 /obj/item/gun/projectile/automatic/rifle/jingya,
 /obj/item/gun/projectile/automatic/rifle/jingya,
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Rifle)"
+	name = "Weaponry (Rifle)";
+	req_access = null;
+	req_one_access = list(3, 19)
 	},
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
@@ -16007,7 +16015,9 @@
 /area/bridge/meeting_room)
 "DJ" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Rifle)"
+	name = "Weaponry (Rifle)";
+	req_access = null;
+	req_one_access = list(3, 19)
 	},
 /obj/machinery/light{
 	dir = 4
@@ -16226,6 +16236,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"Eg" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 5;
+	pixel_y = 32
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 5;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_armory)
 "Eh" = (
 /turf/simulated/wall/r_wall,
 /area/medical/ward/isolation)
@@ -19648,6 +19669,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 5;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "Kj" = (
@@ -21043,7 +21068,9 @@
 /area/bridge/controlroom)
 "MK" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Rifle)"
+	name = "Weaponry (Rifle)";
+	req_access = null;
+	req_one_access = list(3, 19)
 	},
 /obj/item/gun/projectile/gauss/carbine,
 /obj/item/gun/projectile/gauss/carbine,
@@ -21251,31 +21278,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
-"Nf" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/accessory/armband/sec,
-/obj/item/clothing/accessory/armband/sec,
-/obj/item/clothing/accessory/armband/sec,
-/obj/item/clothing/head/helmet,
-/obj/item/clothing/head/helmet,
-/obj/item/clothing/head/helmet,
-/obj/item/clothing/suit/armor/carrier/officer,
-/obj/item/clothing/suit/armor/carrier/officer,
-/obj/item/clothing/suit/armor/carrier/officer,
-/obj/item/clothing/accessory/arm_guard,
-/obj/item/clothing/accessory/arm_guard,
-/obj/item/clothing/accessory/arm_guard,
-/obj/item/clothing/accessory/leg_guard,
-/obj/item/clothing/accessory/leg_guard,
-/obj/item/clothing/accessory/leg_guard,
-/turf/simulated/floor/tiled/dark,
-/area/crew_armory)
 "Ng" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -22008,7 +22010,9 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Laser Rifle)"
+	name = "Weaponry (Laser Rifle)";
+	req_access = null;
+	req_one_access = list(3, 19)
 	},
 /obj/item/gun/energy/rifle/laser/noctiluca,
 /turf/simulated/floor/tiled/dark,
@@ -26618,18 +26622,18 @@
 /obj/item/clothing/accessory/armband/sec,
 /obj/item/clothing/accessory/armband/sec,
 /obj/item/clothing/accessory/armband/sec,
-/obj/item/clothing/head/helmet,
-/obj/item/clothing/head/helmet,
-/obj/item/clothing/suit/armor/carrier/officer,
-/obj/item/clothing/head/helmet,
-/obj/item/clothing/suit/armor/carrier/officer,
-/obj/item/clothing/suit/armor/carrier/officer,
-/obj/item/clothing/accessory/arm_guard,
-/obj/item/clothing/accessory/arm_guard,
-/obj/item/clothing/accessory/arm_guard,
-/obj/item/clothing/accessory/leg_guard,
-/obj/item/clothing/accessory/leg_guard,
-/obj/item/clothing/accessory/leg_guard,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/suit/armor/carrier/generic,
+/obj/item/clothing/head/helmet/security/generic,
+/obj/item/clothing/head/helmet/security/generic,
+/obj/item/clothing/head/helmet/security/generic,
+/obj/item/clothing/accessory/arm_guard/generic,
+/obj/item/clothing/accessory/arm_guard/generic,
+/obj/item/clothing/accessory/arm_guard/generic,
+/obj/item/clothing/accessory/leg_guard/generic,
+/obj/item/clothing/accessory/leg_guard/generic,
+/obj/item/clothing/accessory/leg_guard/generic,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "Xb" = (
@@ -51304,7 +51308,7 @@ cq
 em
 EG
 DQ
-Nf
+Xa
 Bs
 Xa
 Dn
@@ -52718,7 +52722,7 @@ EC
 EC
 Fq
 DQ
-yt
+Eg
 yt
 yt
 yt
@@ -52922,7 +52926,7 @@ Fq
 DQ
 Ca
 DJ
-vK
+cM
 Os
 Zx
 DQ

@@ -170,7 +170,7 @@
 /obj/structure/barricade/plasteel/attack_hand(mob/user as mob)
 	if(closed)
 		if(recentlyflipped)
-			to_chat(user, SPAN_NOTICE("The [src] has been flipped too recently!"))
+			to_chat(user, SPAN_NOTICE("\The [src] has been flipped too recently!"))
 			return
 		user.visible_message(SPAN_NOTICE("[user] flips [src] open."),
 		SPAN_NOTICE("You flip [src] open."))
@@ -180,7 +180,7 @@
 
 	else
 		if(recentlyflipped)
-			to_chat(user, SPAN_NOTICE("The [src] has been flipped too recently!"))
+			to_chat(user, SPAN_NOTICE("\The [src] has been flipped too recently!"))
 			return
 		user.visible_message(SPAN_NOTICE("[user] flips [src] closed."),
 		SPAN_NOTICE("You flip [src] closed."))

@@ -116,6 +116,15 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
+"aEJ" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/button/distress{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "aLZ" = (
 /obj/structure/table/steel,
 /obj/structure/window/reinforced{
@@ -29949,7 +29958,7 @@ tkU
 uwT
 tuA
 yjk
-tUb
+aEJ
 vgp
 dze
 dze

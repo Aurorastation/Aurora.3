@@ -38,9 +38,15 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Barricades have been ported from CM-SS13! You can build steel, wood and plasteel barricades. Plasteel barricades can be flipped to allow entry. Additionally, you can link one or more plasteel barricades togeter with a crowbar to make them flip open at the same time."
-  - rscadd: "Added barbed wire as a stack item. You can use it to wire barricades, preventing climbing."
+  - rscadd: "Barricades have been ported from CM-SS13! You can build steel, wood and plasteel barricades through the respective material build menus. Plasteel barricades can be flipped to allow entry. Additionally, you can link one or more plasteel barricades togeter with a crowbar to make them flip open at the same time."
+  - rscadd: "Added barbed wire as a stack item. You can use it to wire barricades, preventing climbing. Barbed barricades also deal damage to simple mobs or human mobs that try to slice barricades open with their hands, such as zombies."
+  - rscadd: "Note that the PEAC works *extremely well* on barricades! If you want a barricade buster, use the PEAC!"
   - rscdel: "Removed the Call ERT option from the keycard authenticators."
   - rscadd: "Calling a distress beacon now prompts the first person to swipe for a message. This message will then pop up as a distress beacon to all other Overmap ships."
+  - rscadd: "Added a distress beacon button to the cockpit of every offmap ship. It only requires one person to press it, but otherwise works just like the keycard authentication option."
   - maptweak: "The PEAC has been moved to the standard Security armoury."
-  - rscadd: "The crew armoury has received a massive buff and now has weapons mostly on par with Security's armaments. It also contains more useful items in general."
+  - rscadd: "Bullets now ping off of walls, structures and machinery! Try it out. It's a cool effect. Ported from CM-SS13."
+  - rscadd: "Added the Jingya A-1, a Nanotrasen burst rifle. It is also available in the uplinks for 8 telecrystals."
+  - rscadd: "Added the Noctiluca XM28, a Zavodskoi combat laser rifle that can switch between a normal firing mode (slightly less damage than the laser rifle, better armor piercing) and an armor piercing mode (much less damage, but extremely high armor piercing). It is available in the uplink for 8 telecrystals."
+  - rscadd: "The crew armory has received a massive buff and now has the aforementioned new firearms, which are on par with Security's armaments (if not situationally better). It also contains more useful items in general."
+  - rscadd: "The crew armory's weapon lockers now require either Bridge access or Armory access to open, instead of requiring only armory access."
