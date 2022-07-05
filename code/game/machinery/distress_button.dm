@@ -44,7 +44,7 @@
 		return
 	if(use_check_and_message(user)) //Lots of inputs, user may have moved.
 		return
-		SSdistress.trigger_overmap_distress_beacon(linked, distress_message, user)
-		to_chat(user, SPAN_NOTICE("Distress beacon launched."))
+	SSdistress.trigger_overmap_distress_beacon(linked, distress_message, user)
+	to_chat(user, SPAN_NOTICE("Distress beacon launched."))
 	playsound(src, 'sound/effects/alert.ogg', 50)
 	active = FALSE
