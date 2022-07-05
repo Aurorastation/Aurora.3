@@ -27,7 +27,7 @@
 #################################
 
 # Your name.
-author: MattAtlas
+author: MattAtlas, Kyres1
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -46,7 +46,7 @@ changes:
   - rscadd: "Added a distress beacon button to the cockpit of every offmap ship. It only requires one person to press it, but otherwise works just like the keycard authentication option."
   - maptweak: "The PEAC has been moved to the standard Security armoury."
   - rscadd: "Bullets now ping off of walls, structures and machinery! Try it out. It's a cool effect. Ported from CM-SS13."
-  - rscadd: "Added the Jingya A-1, a Nanotrasen burst rifle. It is also available in the uplinks for 8 telecrystals."
-  - rscadd: "Added the Noctiluca XM28, a Zavodskoi combat laser rifle that can switch between a normal firing mode (slightly less damage than the laser rifle, better armor piercing) and an armor piercing mode (much less damage, but extremely high armor piercing). It is available in the uplink for 8 telecrystals."
+  - rscadd: "Added the Jingya A-1, a Nanotrasen burst rifle with a single shot mode and two-shot burst mode. It fires 5.56 rounds in carbine magazines. It is also available in the uplinks for 8 telecrystals. Sprites by Kyres1!"
+  - rscadd: "Added the Noctiluca XM28, a Zavodskoi combat laser rifle that can switch between a normal firing mode (slightly less damage than the laser rifle, better armor piercing) and an armor piercing mode (much less damage, but extremely high armor piercing). It is available in the uplink for 8 telecrystals. Sprites by Kyres1!"
   - rscadd: "The crew armory has received a massive buff and now has the aforementioned new firearms, which are on par with Security's armaments (if not situationally better). It also contains more useful items in general."
   - rscadd: "The crew armory's weapon lockers now require either Bridge access or Armory access to open, instead of requiring only armory access."
