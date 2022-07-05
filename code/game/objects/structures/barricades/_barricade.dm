@@ -31,7 +31,7 @@
 
 /obj/structure/barricade/examine(mob/user)
 	..()
-	to_chat(user, SPAN_INFO("It is recommended to stand flush to a barricade or more than four tiles away for maximum efficiency."))
+	to_chat(user, SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum efficiency."))
 	if(is_wired)
 		to_chat(user, SPAN_INFO("There is a length of wire strewn across the top of this barricade."))
 	switch(damage_state)
