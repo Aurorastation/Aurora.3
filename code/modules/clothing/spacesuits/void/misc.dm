@@ -840,8 +840,7 @@
 
 /obj/item/clothing/head/helmet/space/void/sol/ssmd
 	name = "military district voidsuit helmet"
-	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the forces of the Southern Solarian Military District to make it more easily identifiable \
-	from other forces using the Type-4, warlord or not."
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Southern Solarian Military District to make it more easily identifiable from other forces using the Type-4, warlord or not."
 	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
 	icon_state = "ssmd_helmet"
 	item_state = "ssmd_helmet"
@@ -858,8 +857,7 @@
 
 /obj/item/clothing/head/helmet/space/void/sol/spg
 	name = "provisional government voidsuit helmet"
-	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the forces of the Solarian Provisional Government to make it more easily identifiable \
-	from other forces using the Type-4, warlord or not."
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Solarian Provisional Government to make it more easily identifiable from other forces using the Type-4, warlord or not."
 	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
 	icon_state = "spg_helmet"
 	item_state = "spg_helmet"
@@ -876,8 +874,7 @@
 
 /obj/item/clothing/head/helmet/space/void/sol/mrsp
 	name = "shield pact voidsuit helmet"
-	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the scant forces of the Middle Ring Shield Pact to make it more easily identifiable \
-	from other forces using the Type-4, warlord or not."
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Middle Ring Shield Pact to make it more easily identifiable from other forces using the Type-4, warlord or not."
 	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
 	icon_state = "mrsp_helmet"
 	item_state = "mrsp_helmet"
