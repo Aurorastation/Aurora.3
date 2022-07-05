@@ -1794,7 +1794,7 @@ Follow by example and make good judgement based on length which list to include 
 		/datum/species/bug/type_b)
 
 	none_48
-		name = "None (Vaurca Breeder)"
+		name = "None (Vaurca Type C/E)"
 		icon = "icons/mob/base_48.dmi"
 		icon_state = "none"
 		species_allowed = list(/datum/species/bug/type_e, /datum/species/bug/type_c)
