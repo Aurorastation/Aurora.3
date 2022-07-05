@@ -509,6 +509,16 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "long fringe"
 
+	fade_clean
+		name = "Fade, Clean"
+		icon_state = "hair_fade_clean"
+		chatname = "short hair"
+
+	fade_cleanlow
+		name = "Fade, Clean Low"
+		icon_state = "hair_fade_cleanlow"
+		chatname = "short hair"
+
 	fade_high
 		name = "Fade, High"
 		icon_state = "hair_fade_high"
@@ -517,6 +527,11 @@ Follow by example and make good judgement based on length which list to include 
 	fade_low
 		name = "Fade, Low"
 		icon_state = "hair_fade_low"
+		chatname = "short hair"
+
+	fade_manbun
+		name = "Fade, Manbun"
+		icon_state = "hair_fade_manbun"
 		chatname = "short hair"
 
 	fade_medium
@@ -1121,6 +1136,11 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_punk_chelseafringe"
 		chatname = "fringe"
 
+	punk_chelseafringealt
+		name = "Punk Shave, Chelsea Fringe Alt"
+		icon_state = "hair_punk_chelseafringe_alt"
+		chatname = "fringe"
+
 	punk_chelseafringe_bighawk
 		name = "Punk Shave, Chelsea Big Hawk"
 		icon_state = "hair_punk_chelseafringe_bighawk"
@@ -1304,6 +1324,12 @@ Follow by example and make good judgement based on length which list to include 
 	tresshoulder
 		name = "Tress Shoulder"
 		icon_state = "hair_tressshoulder"
+		length = 2
+		chatname = "curls"
+
+	tresshoulderdouble
+		name = "Tress Shoulder Double"
+		icon_state = "hair_tressshoulder_double"
 		length = 2
 		chatname = "curls"
 
