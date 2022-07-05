@@ -266,8 +266,8 @@
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "aGn" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/turf/space,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
 /area/civilian_station)
 "aHq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -732,7 +732,7 @@
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "frn" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/civilian_station)
 "fGz" = (
@@ -1513,6 +1513,11 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
+/area/civilian_station)
+"oeF" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
 /area/civilian_station)
 "ofl" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -31007,20 +31012,20 @@ xRX
 xRX
 xRX
 xRX
-aGn
-aGn
-aGn
-aGn
-aGn
-aGn
-aGn
-aGn
-aGn
+oeF
+frn
+frn
+frn
+frn
+frn
+frn
+frn
+frn
 ygr
 ygr
-aGn
-aGn
-aGn
+frn
+frn
+frn
 ygr
 ygr
 frn
@@ -31264,7 +31269,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 aaO
 wji
 aOJ
@@ -31521,7 +31526,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 aaP
 wji
 wji
@@ -31778,7 +31783,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 ajL
 wji
 wji
@@ -32035,7 +32040,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 alZ
 wji
 wji
@@ -32292,7 +32297,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 aou
 wji
 wji
@@ -33834,7 +33839,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 vWJ
 wZf
 bhz
@@ -34091,7 +34096,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 ari
 wZf
 wZf
@@ -34348,7 +34353,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 sBD
 wZf
 wZf
@@ -34605,7 +34610,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 arm
 wZf
 wZf
@@ -34862,7 +34867,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 atj
 wZf
 wZf
@@ -36148,8 +36153,8 @@ ygr
 ygr
 ygr
 ygr
-aGn
-aGn
+frn
+frn
 ygr
 ygr
 ygr
@@ -36168,7 +36173,7 @@ xto
 anK
 xjs
 nVi
-aGn
+frn
 xRX
 xRX
 xRX
@@ -36425,7 +36430,7 @@ xto
 anK
 xjs
 anK
-aGn
+frn
 xRX
 xRX
 xRX
@@ -37200,7 +37205,7 @@ sbE
 wji
 wji
 wji
-aGn
+frn
 xRX
 xRX
 xRX
@@ -37457,7 +37462,7 @@ wji
 wji
 wji
 wji
-aGn
+frn
 xRX
 xRX
 xRX
@@ -37944,7 +37949,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 amt
 xFs
 xFs
@@ -38201,7 +38206,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 xFs
 xFs
 xFs
@@ -38224,7 +38229,7 @@ xto
 anK
 xjs
 anK
-aGn
+frn
 xRX
 xRX
 xRX
@@ -38458,7 +38463,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 xFs
 xFs
 xFs
@@ -38481,7 +38486,7 @@ xto
 anK
 muk
 ofl
-aGn
+frn
 xRX
 xRX
 xRX
@@ -38715,7 +38720,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 xFs
 xFs
 xFs
@@ -38972,7 +38977,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 ani
 mEc
 ani
@@ -39229,7 +39234,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 xQS
 xQS
 xQS
@@ -39486,7 +39491,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 arY
 asg
 aHs
@@ -40261,7 +40266,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 bVS
 cuQ
 vwF
@@ -40518,7 +40523,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 ccm
 vwF
 vwF
@@ -40775,7 +40780,7 @@ xRX
 xRX
 xRX
 xRX
-aGn
+frn
 bVS
 cuQ
 vwF
@@ -41291,10 +41296,10 @@ xRX
 xRX
 ygr
 ygr
-aGn
-aGn
-aGn
-aGn
+frn
+frn
+frn
+frn
 ygr
 ygr
 frf
