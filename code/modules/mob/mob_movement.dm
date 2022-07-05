@@ -433,7 +433,7 @@
 			move_delay = 1 + world.time
 			var/turf/T = get_step(use_mob, direct)
 			for(var/obj/structure/window/W in T)
-				if(istype(W, /obj/structure/window/phoronbasic) || istype(W, /obj/structure/window/phoronreinforced))
+				if(istype(W, /obj/structure/window/borosilicate) || istype(W, /obj/structure/window/borosilicate/reinforced))
 					if(W.is_full_window())
 						to_chat(src, SPAN_WARNING("\The [W] obstructs your movement!"))
 						return
