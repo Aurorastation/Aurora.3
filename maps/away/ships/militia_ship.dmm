@@ -1040,7 +1040,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "pAh" = (
-/obj/structure/window/full,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/militia_ship)
 "pDZ" = (
@@ -1293,6 +1293,7 @@
 /area/ship/militia_ship)
 "vJj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1380;
@@ -1301,7 +1302,6 @@
 	pixel_x = 24;
 	pixel_y = -8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "vLp" = (
@@ -1404,7 +1404,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "wZf" = (
-/obj/structure/window/full,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/militia_shuttle)
 "xbK" = (
