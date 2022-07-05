@@ -124,7 +124,8 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
-		/turf/simulated/wall/shuttle/scc_space_ship
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/obj/structure/window/shuttle/scc_space_ship
 	)
 
 /obj/structure/shuttle_part/scc_space_ship
