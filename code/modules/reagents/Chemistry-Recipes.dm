@@ -1565,7 +1565,6 @@
 	result_amount = 3
 	mix_message = "The solution settles into a clear brown beverage."
 
-
 /datum/chemical_reaction/soysauce
 	name = "Soy Sauce"
 	id = "soysauce"
