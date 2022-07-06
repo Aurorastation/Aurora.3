@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - bugfix: "Shuttle walls can now properly be interacted with, just like normal walls. This means you can break them with weapons, put APC frames on them, etc."
   - bugfix: "Material cut delays now work properly. Since the shuttle walls can now be cut open through welding, there is an extra 20 second delay to it for them."
+  - bugfix: "Fixes girder attack animation."
