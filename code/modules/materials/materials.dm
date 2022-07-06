@@ -986,7 +986,7 @@
 
 /material/shuttle
 	name = MATERIAL_SHUTTLE
-	display_name = "spaceship alloy"
+	display_name = "plastitanium alloy"
 	stack_type = null
 	icon_base = "shuttle"
 	integrity = 1200
@@ -995,6 +995,7 @@
 	hardness = 500
 	weight = 500
 	protectiveness = 80 // 80%
+	cut_delay = 20 SECONDS
 
 /material/shuttle/skrell
 	name = MATERIAL_SHUTTLE_SKRELL
