@@ -3027,9 +3027,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_3)
 "fM" = (
-/obj/structure/bed/stool/chair{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -15123,13 +15120,11 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative)
 "Cd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
 /obj/machinery/firealarm/west,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
 "Ce" = (
@@ -16389,11 +16384,11 @@
 /turf/simulated/wall/r_wall,
 /area/bridge/aibunker)
 "ED" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
@@ -20234,12 +20229,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "LA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
 "LB" = (
@@ -21731,16 +21724,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/pool)
 "Oh" = (
-/obj/structure/table/standard,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "Oi" = (
 /obj/machinery/firealarm/west,
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/yellow/full,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "Oj" = (
@@ -22011,12 +22005,12 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/blue/full,
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Kitchen Stairwell";
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
 "OI" = (
