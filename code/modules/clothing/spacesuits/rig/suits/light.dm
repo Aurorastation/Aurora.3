@@ -240,14 +240,3 @@
 	heat_protection = UPPER_TORSO
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
-
-/obj/item/rig/light/offworlder/techno/ninja
-	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
-		/obj/item/rig_module/chem_dispenser/offworlder,
-		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/fabricator/energy_net,
-		/obj/item/rig_module/chem_dispenser/combat,
-		/obj/item/rig_module/device/door_hack,
-		/obj/item/rig_module/mounted/xray
-		)
