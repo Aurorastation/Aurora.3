@@ -424,7 +424,6 @@
 	passcard["passcard, vysoka"] = /obj/item/clothing/accessory/badge/passcard/vysoka
 	passcard["passcard, gadpathur"] = /obj/item/clothing/accessory/badge/passcard/gad
 	passcard["passcard, assunzione"] = /obj/item/clothing/accessory/badge/passcard/assu
-	passcard["passcard, techno-conglomerate"] = /obj/item/clothing/accessory/badge/passcard/techno
 	passcard["passcard, konyang"] = /obj/item/clothing/accessory/badge/passcard/konyang
 	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	gear_tweaks += new /datum/gear_tweak/path(passcard)

@@ -241,61 +241,6 @@
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
 
-/obj/item/rig/light/offworlder/techno
-	name = "techno-conglomerate mobility hardsuit control module"
-	desc = "A sleek hardsuit used by the Coalition forces of the Techno-Conglomerate."
-	icon = 'icons/clothing/rig/techno.dmi'
-	icon_state = "techno_rig"
-	suit_type = "techno-conglomerate mobility hardsuit"
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
-	)
-	slowdown = -1
-	offline_slowdown = 0
-	airtight = 1
-	offline_vision_restriction = TINT_HEAVY
-	siemens_coefficient = 0.2
-	icon_supported_species_tags = null
-
-	allowed = list(
-		/obj/item/device/flashlight,
-		/obj/item/tank,
-		/obj/item/gun,
-		/obj/item/ammo_magazine,
-		/obj/item/ammo_casing,
-		/obj/item/melee/baton,
-		/obj/item/melee/energy/sword
-	)
-
-	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
-		/obj/item/rig_module/chem_dispenser/offworlder,
-		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/chem_dispenser/combat
-		)
-
-	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
-
-	chest_type = /obj/item/clothing/suit/space/rig/light
-	helm_type =  /obj/item/clothing/head/helmet/space/rig/light
-	boot_type =  /obj/item/clothing/shoes/magboots/rig/light
-	glove_type = /obj/item/clothing/gloves/rig/light
-
-/obj/item/rig/light/offworlder/techno/equipped
-	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
-		/obj/item/rig_module/chem_dispenser/offworlder,
-		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/fabricator/energy_net,
-		/obj/item/rig_module/chem_dispenser/combat,
-		/obj/item/rig_module/mounted/xray
-		)
 /obj/item/rig/light/offworlder/techno/ninja
 	initial_modules = list(
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
