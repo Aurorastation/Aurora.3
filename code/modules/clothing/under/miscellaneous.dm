@@ -507,7 +507,6 @@
 	desc = "A blue field uniform worn by Tau Ceti Foreign Legion forces."
 	icon = 'icons/clothing/under/uniforms/tcfl_uniform.dmi'
 	icon_state = "tauceti_volunteer"
-	item_state = "bl_suit"
 	worn_state = "tauceti_volunteer"
 	contained_sprite = TRUE
 	siemens_coefficient = 0.7
