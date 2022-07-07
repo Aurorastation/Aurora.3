@@ -18,7 +18,6 @@
 		"Jinxiang Pattern Combat Suit" = /obj/structure/closet/crate/secure/gear_loadout/ninja/jinxiang,
 		"Elyran Battlesuit" = /obj/structure/closet/crate/secure/gear_loadout/ninja/elyra,
 		"Cyberwarfare Suit" = /obj/structure/closet/crate/secure/gear_loadout/ninja/hacker,
-		"Technoconglomerate Mobility Suit" = /obj/structure/closet/crate/secure/gear_loadout/ninja/techno,
 		"Crimson Hardsuit" = /obj/structure/closet/crate/secure/gear_loadout/ninja/crimson,
 		"Rhino Suit" = /obj/structure/closet/crate/secure/gear_loadout/ninja/rhino
 	)
