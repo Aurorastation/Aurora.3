@@ -2577,6 +2577,7 @@
 #include "code\modules\organs\subtypes\unbreakable.dm"
 #include "code\modules\organs\subtypes\vaurca.dm"
 #include "code\modules\organs\subtypes\xenos.dm"
+#include "code\modules\organs\subtypes\zombie.dm"
 #include "code\modules\overmap\_defines.dm"
 #include "code\modules\overmap\overmap_object.dm"
 #include "code\modules\overmap\overmap_shuttle.dm"
