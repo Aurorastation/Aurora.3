@@ -509,6 +509,7 @@
 	icon_state = "tauceti_volunteer"
 	item_state = "bl_suit"
 	worn_state = "tauceti_volunteer"
+	contained_sprite = TRUE
 	siemens_coefficient = 0.7
 	armor = list(
 		melee = ARMOR_MELEE_MINOR)
