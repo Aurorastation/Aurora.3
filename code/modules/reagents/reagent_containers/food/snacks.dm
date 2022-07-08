@@ -4688,8 +4688,8 @@
 	name = "moss dumplings"
 	desc = "A relatively common Konyanger dish, this appears to be steamed moss set in steamed dough."
 	icon_state = "moss_dumplings"
-	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/protein = 3)
-	reagent_data = list(/decl/reagent/nutriment = list("flatbread" = 3))
+	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/moss = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("steamed dough" = 3, "moss" = 3))
 	filling_color = "#589755"
 
 /obj/item/reagent_containers/food/snacks/fish_taco

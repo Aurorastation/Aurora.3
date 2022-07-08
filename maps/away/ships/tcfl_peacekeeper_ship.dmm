@@ -2421,7 +2421,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "pNl" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "pPl" = (

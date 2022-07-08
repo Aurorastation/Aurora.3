@@ -821,7 +821,7 @@
 	},
 /area/tcommsat/chamber)
 "GJ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278

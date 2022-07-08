@@ -4,7 +4,7 @@
 #define MATERIAL_PLASTEEL                   "plasteel"
 #define MATERIAL_STEEL                      "steel"
 #define MATERIAL_GLASS                      "glass"
-#define MATERIAL_GLASS_REINFORCED           "rglass"
+#define MATERIAL_GLASS_REINFORCED           "reinforced glass"
 #define MATERIAL_GLASS_WIRED                "wired glass"
 #define MATERIAL_GLASS_PHORON               "borosilicate glass"
 #define MATERIAL_GLASS_REINFORCED_PHORON    "reinforced borosilicate glass"
