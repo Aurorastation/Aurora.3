@@ -50,7 +50,9 @@
 /area/hangar/control)
 "acw" = (
 /obj/structure/flora/ausbushes/brflowers,
-/obj/structure/largecrate/animal/cow,
+/mob/living/simple_animal/cow{
+	name = "Penelope"
+	},
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "acY" = (
@@ -17629,6 +17631,9 @@
 /area/maintenance/operations)
 "olu" = (
 /obj/structure/flora/ausbushes/reedbush,
+/obj/item/holder/chicken{
+	name = "Big Clucker"
+	},
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "oma" = (
