@@ -41,7 +41,7 @@ obj/item/gun/energy/retro
 	icon_state = "retro"
 	item_state = "retro"
 	has_item_ratio = FALSE
-	desc = "An early-model laser pistol, small enough to be concealed but underpowered, inefficient, and deceptively heavy, especially compared \
+	desc = "An older model laser pistol, small enough to be concealed but underpowered, inefficient, and deceptively heavy, especially compared \
 	to modern laser weaponry. However, their overbuilt construction means that many examples have stood the test of time, and advances in rechargeable \
 	power cell technology have now turned them into viable backup weapons for outlaws or anyone unable to acquire newer laser weapons."
 	fire_sound = 'sound/weapons/laser1.ogg'
