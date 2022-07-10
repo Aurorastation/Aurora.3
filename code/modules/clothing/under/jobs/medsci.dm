@@ -191,9 +191,13 @@
 	icon_state = "pmc_emt"
 	item_state = "pmc_emt"
 
-/obj/item/clothing/under/rank/medical/first_responder/pmc/epmc // Note: Item Icon placeholder
+/obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
 	icon_state = "epmc_emt"
 	item_state = "epmc_emt"
+
+/obj/item/clothing/under/rank/medical/first_responder/pmc/sekh
+	icon_state = "sekh_emt"
+	item_state = "sekh_emt"
 
 // Surgeon
 /obj/item/clothing/under/rank/medical/surgeon
