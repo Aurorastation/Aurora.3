@@ -17629,7 +17629,7 @@
 /area/maintenance/operations)
 "olu" = (
 /obj/structure/flora/ausbushes/reedbush,
-/obj/item/holder/chicken,
+/mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "oma" = (
@@ -25107,7 +25107,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/item/holder/chicken/white,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "uuV" = (
