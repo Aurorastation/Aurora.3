@@ -40,4 +40,5 @@ delete-after: True
 changes:
   - maptweak: "Removes some mismapped lights in the kitchen."
   - tweak: "Replaces the cow crate for the kitchen with a cow."
-  - rscadd: "Adds two chickens, so the cow has friends. And so you got some chicken meat to cook."
+  - rscadd: "Adds a chicken, so the cow has a friend."
+  - rscadd: "Adds some chicken meat to the fish fridge. No cross-contamination, promise."
