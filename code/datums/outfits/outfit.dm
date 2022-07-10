@@ -75,7 +75,7 @@
 	// Must be paths, used to allow player-pref backpack choice
 	var/allow_backbag_choice = FALSE
 	var/backpack = /obj/item/storage/backpack
-	var/satchel = /obj/item/storage/backpack/satchel_norm
+	var/satchel = /obj/item/storage/backpack/satchel/norm
 	var/satchel_alt = /obj/item/storage/backpack/satchel/leather
 	var/dufflebag = /obj/item/storage/backpack/duffel
 	var/messengerbag = /obj/item/storage/backpack/messenger
@@ -124,7 +124,7 @@
 			if (OUTFIT_BACKPACK)
 				back = use_job_specific ? backpack : /obj/item/storage/backpack
 			if (OUTFIT_SATCHEL)
-				back = use_job_specific ? satchel : /obj/item/storage/backpack/satchel_norm
+				back = use_job_specific ? satchel : /obj/item/storage/backpack/satchel/norm
 			if (OUTFIT_SATCHEL_ALT)
 				back = use_job_specific ? satchel_alt : /obj/item/storage/backpack/satchel/leather
 			if (OUTFIT_DUFFELBAG)
