@@ -57,7 +57,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/research/rd
 
 	backpack = /obj/item/storage/backpack/toxins
-	satchel = /obj/item/storage/backpack/satchel_tox
+	satchel = /obj/item/storage/backpack/satchel/tox
 	dufflebag = /obj/item/storage/backpack/duffel/tox
 	messengerbag = /obj/item/storage/backpack/messenger/tox
 
@@ -108,7 +108,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/research
 
 	backpack = /obj/item/storage/backpack/toxins
-	satchel = /obj/item/storage/backpack/satchel_tox
+	satchel = /obj/item/storage/backpack/satchel/tox
 	dufflebag = /obj/item/storage/backpack/duffel/tox
 	messengerbag = /obj/item/storage/backpack/messenger/tox
 
@@ -205,7 +205,7 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/sci
 
 	backpack = /obj/item/storage/backpack/toxins
-	satchel = /obj/item/storage/backpack/satchel_tox
+	satchel = /obj/item/storage/backpack/satchel/tox
 	dufflebag = /obj/item/storage/backpack/duffel/tox
 	messengerbag = /obj/item/storage/backpack/messenger/tox
 

@@ -86,7 +86,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/captain(src)
 	else
-		new /obj/item/storage/backpack/satchel_cap(src)
+		new /obj/item/storage/backpack/satchel/cap(src)
 	new /obj/item/clothing/under/rank/sol/dress/officer(src)
 	new /obj/item/clothing/head/sol/dress/officer(src)
 	new /obj/item/clothing/suit/storage/vest(src)

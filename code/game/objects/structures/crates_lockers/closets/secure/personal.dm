@@ -8,7 +8,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack(src)
 	else
-		new /obj/item/storage/backpack/satchel_norm(src)
+		new /obj/item/storage/backpack/satchel/norm(src)
 	new /obj/item/device/radio/headset(src)
 	new /obj/item/device/radio/headset/alt(src)
 
