@@ -947,7 +947,7 @@
 	},
 /area/derelict)
 "cu" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/airless,
 /area/derelict)
 "cv" = (

@@ -556,7 +556,7 @@
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "vB" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/overgrown_mining_station)
 "vU" = (
@@ -1009,7 +1009,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "KS" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "KW" = (
@@ -1074,7 +1074,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "MO" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/curtain/black,
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)

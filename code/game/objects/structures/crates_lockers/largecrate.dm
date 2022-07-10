@@ -1,7 +1,6 @@
 /obj/structure/largecrate
 	name = "large crate"
 	desc = "A hefty wooden crate."
-	icon = 'icons/obj/storage.dmi'
 	icon_state = "densecrate"
 	density = TRUE
 
@@ -27,6 +26,7 @@
 
 /obj/structure/largecrate/mule
 	name = "MULE crate"
+	icon_state = "mulecrate"
 
 /obj/structure/largecrate/hoverpod
 	name = "\improper Hoverpod assembly crate"
