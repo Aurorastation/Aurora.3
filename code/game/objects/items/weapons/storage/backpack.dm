@@ -266,6 +266,7 @@
 /obj/item/storage/backpack/duffel
 	name = "duffel bag"
 	desc = "A spacious duffel bag."
+	icon = 'icons/obj/storage/duffelbag.dmi'
 	icon_state = "duffel-norm"
 	item_state = "duffel-norm"
 	slowdown = 1
