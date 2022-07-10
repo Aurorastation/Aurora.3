@@ -344,6 +344,7 @@
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "standard_down"
 	item_state = "rollerbed"
+	contained_sprite = TRUE
 	anchored = FALSE
 	makes_rolling_sound = TRUE
 	var/base_state = "standard"
