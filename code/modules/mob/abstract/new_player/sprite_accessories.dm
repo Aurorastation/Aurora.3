@@ -1784,7 +1784,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon = 'icons/mob/hair_gradients.dmi'
 	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,
-		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b, /datum/species/unathi,/datum/species/zombie/unathi)
+		/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell, /datum/species/bug, /datum/species/bug/type_b, /datum/species/unathi, /datum/species/zombie/unathi)
 
 	none
 		name = "None"
@@ -1792,6 +1792,12 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie,/datum/species/unathi,/datum/species/zombie/unathi,
 		/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara,/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell, /datum/species/bug,
 		/datum/species/bug/type_b)
+
+	none_48
+		name = "None (Vaurca Type C/E)"
+		icon = "icons/mob/base_48.dmi"
+		icon_state = "none"
+		species_allowed = list(/datum/species/bug/type_e, /datum/species/bug/type_c)
 
 	fade_up
 		name = "Fade (Up)"
@@ -1846,11 +1852,6 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "skr_headtail_mid"
 		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
 
-	bulwark_default
-		name = "Bulwark Horn"
-		icon = "icons/mob/base_48.dmi"
-		icon_state = "blank"
-		species_allowed = list(/datum/species/bug/type_e)
 
 /*
 ///////////////////////////////////
@@ -3219,6 +3220,36 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "bully_ladybug"
 			chatname = "antennae"
 			length = 6
+
+//Breeder antennae
+	breeder_standard
+		icon = 'icons/mob/human_face/breeder_hair.dmi'
+		name = "Breeder Standard Antennae"
+		icon_state = "breeder_standard"
+		species_allowed = list(/datum/species/bug/type_c)
+		gender = NEUTER
+		chatname = "antennae"
+		length = 3
+
+		breeder_quad
+			name = "Breeder Quad Antennae"
+			icon_state = "breeder_quad"
+			length = 3
+
+		breeder_crownedcrest
+			name = "Breeder Crowned Crest"
+			icon_state = "breeder_crownedcrest"
+			length = 1
+
+		breeder_hammerhead
+			name = "Breeder Hammerhead"
+			icon_state = "breeder_hammerhead"
+			length = 1
+
+		breeder_princess
+			name = "Breeder Princess Antennae"
+			icon_state = "breeder_princess"
+			length = 2
 
 /datum/sprite_accessory/facial_hair
 	taj_goatee

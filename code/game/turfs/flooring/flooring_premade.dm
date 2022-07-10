@@ -59,10 +59,15 @@
 	initial_flooring = /decl/flooring/grass/alt
 
 /turf/simulated/floor/tiled
-	name = "floor"
+	name = "steel tiles"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "steel"
 	initial_flooring = /decl/flooring/tiling
+
+/turf/simulated/floor/tiled/full
+	name = "full steel tile"
+	icon_state = "steel_full"
+	initial_flooring = /decl/flooring/tiling/full
 
 /turf/simulated/floor/reinforced
 	name = "reinforced floor"
@@ -128,13 +133,18 @@
 	return
 
 /turf/simulated/floor/tiled/dark
-	name = "dark floor"
+	name = "plasteel tiles"
 	icon_state = "dark"
 	initial_flooring = /decl/flooring/tiling/dark
 
 /turf/simulated/floor/tiled/dark/airless
 	oxygen = 0
 	nitrogen = 0
+
+/turf/simulated/floor/tiled/dark/full
+	name = "full plasteel tile"
+	icon_state = "dark_full"
+	initial_flooring = /decl/flooring/tiling/dark/full
 
 /turf/simulated/floor/tiled/red
 	name = "red floor"

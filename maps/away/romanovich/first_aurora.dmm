@@ -4811,10 +4811,10 @@
 /turf/template_noop,
 /area/template_noop)
 "pR" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronwindow0"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1;
 	icon_state = "phoronrwindow"
 	},
@@ -4900,11 +4900,11 @@
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "qb" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1;
 	icon_state = "phoronrwindow"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronwindow0"
 	},
 /turf/simulated/floor/airless,
@@ -4952,11 +4952,11 @@
 /obj/item/material/shard/phoron{
 	icon_state = "phoronsmall"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4;
 	icon_state = "phoronrwindow"
 	},
@@ -5004,15 +5004,15 @@
 /area/derelict/hallway/southeast)
 "qs" = (
 /obj/structure/grille,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4;
 	icon_state = "phoronrwindow"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "qt" = (

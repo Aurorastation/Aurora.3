@@ -36,28 +36,25 @@
 	name = "zo'ra representative clothes"
 	desc = "A large piece of clothing used by Zo'ra representatives."
 	icon = 'icons/mob/species/breeder/inventory.dmi'
-	item_state = "representative_clothes"
-	icon_state = "representative_clothes"
+	item_state = "hive_rep_clothes"
+	icon_state = "hive_rep_clothes"
 	contained_sprite = FALSE
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi')
 
-/obj/item/clothing/suit/vaurca/breeder_klax
+/obj/item/clothing/suit/vaurca/breeder/klax
 	name = "k'lax representative clothes"
 	desc = "A large piece of clothing used by K'lax representatives."
-	icon = 'icons/mob/species/breeder/inventory.dmi'
-	item_state = "representative_clothes_klax"
-	icon_state = "representative_clothes_klax"
-	contained_sprite = FALSE
-	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi')
-
-/obj/item/clothing/suit/vaurca/breeder_cthur
+	item_state = "hive_rep_clothes_klax"
+	icon_state = "hive_rep_clothes_klax"
+/obj/item/clothing/suit/vaurca/breeder/cthur
 	name = "c'thur representative clothes"
 	desc = "A large piece of clothing used by C'thur representatives."
-	icon = 'icons/mob/species/breeder/inventory.dmi'
-	item_state = "representative_clothes_cthur"
-	icon_state = "representative_clothes_cthur"
-	contained_sprite = FALSE
-	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi')
+	item_state = "hive_rep_clothes_cthur"
+	icon_state = "hive_rep_clothes_cthur"
+
+/obj/item/clothing/suit/vaurca/breeder/jargon
+	name = "jargon representative clothes"
+	desc = "A large piece of clothing used by Jargon representatives."
+	item_state = "hive_rep_clothes_jargon"
+	icon_state = "hive_rep_clothes_jargon"

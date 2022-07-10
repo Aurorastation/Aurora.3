@@ -354,7 +354,6 @@
 	var/iv_attached = 0
 	var/iv_stand = TRUE
 	var/patient_shift = 9 //How much are mobs moved up when they are buckled_to.
-	var/bag_strap = "standard_straps"
 	slowdown = 0
 
 /obj/structure/bed/roller/Initialize()
@@ -387,8 +386,6 @@
 	if(vitals)
 		vitals.update_monitor()
 		vis_contents += vitals
-	if(bag_strap && istype(buckled, /obj/structure/closet/body_bag))
-		LAZYADD(buckled.overlays, image(icon, bag_strap))
 
 /obj/structure/bed/roller/attackby(obj/item/I, mob/user)
 	if(iswrench(I) || istype(I, /obj/item/stack) || iswirecutter(I))
@@ -514,8 +511,6 @@
 			M.old_y = 0
 			if(iv_attached)
 				detach_iv(M, usr)
-		else
-			LAZYREMOVE(MA.overlays, image(icon, bag_strap)) //Remove straps
 		density = FALSE
 		MA.pixel_y = 0
 		update_icon()
@@ -528,7 +523,6 @@
 	makes_rolling_sound = FALSE
 	held_item = /obj/item/roller/hover
 	patient_shift = 6
-	bag_strap = null
 
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
@@ -538,12 +532,9 @@
 	name = "roller bed"
 	desc = "A collapsed roller bed that can be carried around."
 	icon = 'icons/obj/rollerbed.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi'
-		)
 	icon_state = "standard_folded"
-	item_state = "rollerbed"
+	item_state = "rbed"
+	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	center_of_mass = list("x" = 17,"y" = 7)
@@ -554,6 +545,7 @@
 	name = "medical hoverbed"
 	desc = "A collapsed hoverbed that can be carried around."
 	icon_state = "hover_folded"
+	item_state = "rbed_hover"
 	origin_type = /obj/structure/bed/roller/hover
 
 /obj/item/roller/attack_self(mob/user)

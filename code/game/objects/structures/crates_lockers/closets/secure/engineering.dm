@@ -31,6 +31,7 @@
 	new /obj/item/clothing/accessory/storage/overalls/chief(src)
 	new /obj/item/rfd/piping(src)
 	new /obj/item/storage/box/fancy/keypouch/eng(src)
+	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 
 /obj/structure/closet/secure_closet/engineering_chief2
 	name = "chief engineer's attire"

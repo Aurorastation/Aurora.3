@@ -136,6 +136,7 @@
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
 	new /obj/item/storage/box/fancy/keypouch/med(src)
 	new /obj/item/device/advanced_healthanalyzer(src)
+	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"
