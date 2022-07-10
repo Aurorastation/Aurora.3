@@ -396,6 +396,7 @@
 	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
 	icon_state = "wings"
 	item_state = "wings"
+	contained_sprite = FALSE
 	w_class = ITEMSIZE_HUGE
 	slot_flags = SLOT_BACK
 	max_storage_space = 12
