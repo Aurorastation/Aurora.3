@@ -430,25 +430,19 @@
 		/obj/item/storage/backpack/industrial = 3,
 		/obj/item/storage/backpack/toxins = 3,
 		/obj/item/storage/backpack/hydroponics = 3,
-		/obj/item/storage/backpack/genetics = 3,
-		/obj/item/storage/backpack/virology = 3,
 		/obj/item/storage/backpack/pharmacy = 3,
 		/obj/item/storage/backpack/cloak = 2,
 		/obj/item/storage/backpack/syndie = 1,
-		/obj/item/storage/backpack/wizard = 1,
 		/obj/item/storage/backpack/satchel = 3,
 		/obj/item/storage/backpack/satchel_norm = 3,
 		/obj/item/storage/backpack/satchel_eng = 3,
 		/obj/item/storage/backpack/satchel_med = 3,
-		/obj/item/storage/backpack/satchel_vir = 3,
 		/obj/item/storage/backpack/satchel_pharm = 3,
-		/obj/item/storage/backpack/satchel_gen = 3,
 		/obj/item/storage/backpack/satchel_tox = 3,
 		/obj/item/storage/backpack/satchel_sec = 3,
 		/obj/item/storage/backpack/satchel_hyd = 3,
 		/obj/item/storage/backpack/satchel_cap = 1,
 		/obj/item/storage/backpack/satchel_syndie = 1,
-		/obj/item/storage/backpack/satchel_wizard = 1,
 		/obj/item/storage/backpack/ert = 1,
 		/obj/item/storage/backpack/ert/security = 1,
 		/obj/item/storage/backpack/ert/engineer = 1,
@@ -456,27 +450,21 @@
 		/obj/item/storage/backpack/duffel = 3,
 		/obj/item/storage/backpack/duffel/cap = 1,
 		/obj/item/storage/backpack/duffel/hyd = 3,
-		/obj/item/storage/backpack/duffel/vir = 3,
 		/obj/item/storage/backpack/duffel/med = 3,
 		/obj/item/storage/backpack/duffel/eng = 3,
 		/obj/item/storage/backpack/duffel/tox = 3,
 		/obj/item/storage/backpack/duffel/sec = 3,
-		/obj/item/storage/backpack/duffel/gen = 3,
 		/obj/item/storage/backpack/duffel/pharm = 3,
 		/obj/item/storage/backpack/duffel/syndie = 1,
-		/obj/item/storage/backpack/duffel/wizard = 1,
 		/obj/item/storage/backpack/messenger = 2,
 		/obj/item/storage/backpack/messenger/pharm = 2,
 		/obj/item/storage/backpack/messenger/med = 2,
-		/obj/item/storage/backpack/messenger/viro = 2,
 		/obj/item/storage/backpack/messenger/tox = 2,
-		/obj/item/storage/backpack/messenger/gen = 2,
 		/obj/item/storage/backpack/messenger/com = 1,
 		/obj/item/storage/backpack/messenger/engi = 2,
 		/obj/item/storage/backpack/messenger/hyd = 2,
 		/obj/item/storage/backpack/messenger/sec = 2,
 		/obj/item/storage/backpack/messenger/syndie = 1,
-		/obj/item/storage/backpack/messenger/wizard = 1
 	)
 
 /obj/random/voidsuit
@@ -1495,7 +1483,7 @@
 /obj/random/animal_crate
 	name = "random animal"
 	desc = "Contains a random crate with some animal."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "densecrate"
 	spawnlist = list(
 		/obj/structure/largecrate/animal/corgi = 3,

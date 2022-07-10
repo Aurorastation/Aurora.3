@@ -1,12 +1,10 @@
 /obj/item/storage/briefcase
 	name = "briefcase"
 	desc = "It's made of AUTHENTIC faux-leather and has a price-tag still attached. Its owner must be a real professional."
+	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "briefcase"
 	item_state = "briefcase"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/storage/lefthand_briefcase.dmi',
-		slot_r_hand_str = 'icons/mob/items/storage/righthand_briefcase.dmi'
-		)
+	contained_sprite = TRUE
 	flags = CONDUCT
 	force = 8.0
 	throw_speed = 1

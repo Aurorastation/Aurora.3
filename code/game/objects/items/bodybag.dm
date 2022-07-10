@@ -34,7 +34,7 @@
 /obj/item/storage/box/bodybags
 	name = "body bags"
 	desc = "This box contains body bags."
-	icon_state = "bodybags"
+	illustration = "bodybags"
 
 /obj/item/storage/box/bodybags/New()
 	..()
