@@ -397,6 +397,11 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/civilian_station)
+"bms" = (
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/effect/overmap/visitable/sector/civilian_station,
+/turf/simulated/floor/tiled/white,
+/area/civilian_station)
 "bnS" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/appliance/cooker/fryer,
@@ -1402,6 +1407,11 @@
 /obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/steel,
 /area/civilian_station/hangar)
+"mao" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/white,
+/area/civilian_station)
 "mhC" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/structure/bed/stool/chair/office/dark,
@@ -1793,6 +1803,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/civilian_station/hangar)
+"qHN" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/lino/grey,
+/area/civilian_station)
 "qRl" = (
 /obj/structure/window/basic,
 /obj/structure/window/basic{
@@ -31534,7 +31548,7 @@ wji
 ygr
 xFU
 xYB
-xYB
+bms
 xYB
 xYB
 xYB
@@ -32299,7 +32313,7 @@ wji
 wji
 cqJ
 wji
-wji
+mao
 wji
 dkB
 ygr
@@ -34869,7 +34883,7 @@ wZf
 wZf
 ctQ
 wZf
-wZf
+qHN
 wZf
 dqB
 ygr
