@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Fixed a few oversights on the civilian station. First being that it had no overmap site, second being it had no holopads, and the last being no price scanners."
+  - bugfix: "Fixed a few oversights on the civilian station. First being that it had no overmap site, second being it had no holopads, third being food court money, and the last being no price scanners."
