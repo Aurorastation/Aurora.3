@@ -103,7 +103,7 @@
 
 	uniform = /obj/item/clothing/under/tactical
 	shoes = /obj/item/clothing/shoes/workboots/dark
-	back = /obj/item/storage/backpack/satchel_norm
+	back = /obj/item/storage/backpack/satchel/norm
 
 	id = /obj/item/card/id/militia_ship
 

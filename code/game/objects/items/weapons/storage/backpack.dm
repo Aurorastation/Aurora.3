@@ -301,8 +301,8 @@
 /obj/item/storage/backpack/duffel/tox
 	name = "scientist's duffel bag"
 	desc = "Handy when it comes to storing volatile materials of the anomalous persuasion."
-	icon_state = "duffel-toxins"
-	item_state = "duffel-toxins"
+	icon_state = "duffel-tox"
+	item_state = "duffel-tox"
 
 /obj/item/storage/backpack/duffel/sec
 	name = "security duffel bag"
