@@ -125,7 +125,7 @@
 
 /obj/item/docility_serum
 	name = "docility serum"
-	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for baby slimes"
+	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for baby slimes."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle-1"
 
