@@ -403,13 +403,13 @@
 
 /obj/item/clothing/accessory/poncho/roles/science
 	name = "science poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard NanoTrasen Science colors."
+	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard Science colors."
 	icon_state = "sciponcho"
 	item_state = "sciponcho"
 
 /obj/item/clothing/accessory/poncho/roles/cargo
-	name = "cargo poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of Cargo."
+	name = "operations poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of operations."
 	icon_state = "cargoponcho"
 	item_state = "cargoponcho"
 
@@ -943,7 +943,7 @@
 	desc_fluff = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
 	icon = 'icons/clothing/accessories/BZ_Gorget.dmi'
 	icon_state = "Burz_gorget"
-	item_state = "Burz_gorget"	
+	item_state = "Burz_gorget"
 	contained_sprite = TRUE
 	icon_override = null
 	body_parts_covered = UPPER_TORSO

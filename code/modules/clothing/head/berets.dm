@@ -67,8 +67,8 @@
 	item_state = "beret_hydro"
 
 /obj/item/clothing/head/beret/cargo
-	name = "cargo beret"
-	desc = "A beret with the cargo insignia emblazoned on it. Get attacked by a manhack hiding in a crate - in style!"
+	name = "operations beret"
+	desc = "A beret with the operations insignia emblazoned on it. Get attacked by a manhack hiding in a crate - in style!"
 	icon_state = "beret_cargo"
 	item_state = "beret_cargo"
 
