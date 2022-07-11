@@ -21,7 +21,7 @@
 
 	uniform = /obj/item/clothing/under/sl_suit
 	shoes = /obj/item/clothing/shoes/laceup
-	back = /obj/item/storage/backpack/satchel_norm
+	back = /obj/item/storage/backpack/satchel/norm
 
 	id = /obj/item/card/id/civilian_station
 
