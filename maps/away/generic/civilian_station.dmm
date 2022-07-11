@@ -397,11 +397,6 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/civilian_station)
-"bms" = (
-/obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/effect/overmap/visitable/sector/civilian_station,
-/turf/simulated/floor/tiled/white,
-/area/civilian_station)
 "bnS" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/appliance/cooker/fryer,
@@ -495,6 +490,10 @@
 /obj/structure/table/steel,
 /obj/random/lavalamp,
 /turf/simulated/floor/wood,
+/area/civilian_station)
+"ceJ" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/lino/grey,
 /area/civilian_station)
 "cqJ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -821,6 +820,11 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/lino/grey,
+/area/civilian_station)
+"glu" = (
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/effect/overmap/visitable/sector/civilian_station,
+/turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "gmi" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1407,11 +1411,6 @@
 /obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/steel,
 /area/civilian_station/hangar)
-"mao" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/tiled/white,
-/area/civilian_station)
 "mhC" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/structure/bed/stool/chair/office/dark,
@@ -1521,9 +1520,9 @@
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "oeF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "ofl" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -1803,10 +1802,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/civilian_station/hangar)
-"qHN" = (
-/obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/lino/grey,
-/area/civilian_station)
 "qRl" = (
 /obj/structure/window/basic,
 /obj/structure/window/basic{
@@ -31022,7 +31017,7 @@ xRX
 xRX
 xRX
 xRX
-oeF
+frn
 frn
 frn
 frn
@@ -31548,7 +31543,7 @@ wji
 ygr
 xFU
 xYB
-bms
+glu
 xYB
 xYB
 xYB
@@ -32313,7 +32308,7 @@ wji
 wji
 cqJ
 wji
-mao
+oeF
 wji
 dkB
 ygr
@@ -34883,7 +34878,7 @@ wZf
 wZf
 ctQ
 wZf
-qHN
+ceJ
 wZf
 dqB
 ygr
