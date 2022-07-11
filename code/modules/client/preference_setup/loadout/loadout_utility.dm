@@ -108,11 +108,8 @@
 	. = ..()
 	var/obj/item/storage/business_card_holder/spawned_holder = .
 	spawned_holder.update_icon()
-	if(length(spawned_holder.contents))
-		for(var/i = 1 to spawned_holder.storage_slots)
-			var/obj/item/paper/O_new
-			new O_new(src) // make copies of the OG business card
-			O_new.info = spawned_holder.contents[1].info // transfer the info
+	//should put in some code to make them fill up the holder with the business cards so you dont need to photocopy them
+	//but that's for a smarter man
 
 /datum/gear/utility/business_card_holder/New()
 	..()
