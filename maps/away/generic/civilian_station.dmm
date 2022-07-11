@@ -495,6 +495,62 @@
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/lino/grey,
 /area/civilian_station)
+"chG" = (
+/obj/structure/closet/cabinet,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c100,
+/obj/item/spacecash/c100,
+/obj/item/spacecash/c100,
+/obj/item/spacecash/c100,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c20,
+/obj/item/spacecash/c20,
+/obj/item/spacecash/c20,
+/obj/item/spacecash/c20,
+/obj/item/spacecash/c20,
+/obj/item/spacecash/c20,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c50,
+/obj/item/spacecash/c50,
+/obj/item/spacecash/c50,
+/obj/item/spacecash/c50,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/device/price_scanner,
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/civilian_station)
 "cqJ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/rack,
@@ -1362,6 +1418,7 @@
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1,
+/obj/item/device/price_scanner,
 /turf/simulated/floor/marble/dark,
 /area/civilian_station)
 "lev" = (
@@ -1696,6 +1753,7 @@
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1,
 /obj/item/gun/projectile/leyon,
+/obj/item/device/price_scanner,
 /turf/simulated/floor/marble/dark,
 /area/civilian_station)
 "pJZ" = (
@@ -36929,7 +36987,7 @@ xRX
 xRX
 xRX
 ygr
-xto
+chG
 xto
 ygr
 bwR
