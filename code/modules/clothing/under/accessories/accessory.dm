@@ -403,7 +403,7 @@
 
 /obj/item/clothing/accessory/poncho/roles/science
 	name = "science poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard Science colors."
+	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard science colors."
 	icon_state = "sciponcho"
 	item_state = "sciponcho"
 
