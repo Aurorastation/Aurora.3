@@ -320,6 +320,16 @@
 /obj/item/lipstick/random,
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
+"aJb" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/structure/closet/wardrobe/mixed,
+/turf/simulated/floor/tiled/white,
+/area/civilian_station)
 "aJd" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/rack,
@@ -369,6 +379,15 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/civilian_station/hangar)
+"bbT" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/structure/closet/wardrobe/suit,
+/turf/simulated/floor/lino/grey,
+/area/civilian_station)
 "bdA" = (
 /obj/structure/window/basic,
 /obj/structure/window/basic{
@@ -454,6 +473,8 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
 "bKn" = (
@@ -490,6 +511,66 @@
 /obj/structure/table/steel,
 /obj/random/lavalamp,
 /turf/simulated/floor/wood,
+/area/civilian_station)
+"ceJ" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/lino/grey,
+/area/civilian_station)
+"chG" = (
+/obj/structure/closet/cabinet,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c100,
+/obj/item/spacecash/c100,
+/obj/item/spacecash/c100,
+/obj/item/spacecash/c100,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c20,
+/obj/item/spacecash/c20,
+/obj/item/spacecash/c20,
+/obj/item/spacecash/c20,
+/obj/item/spacecash/c20,
+/obj/item/spacecash/c20,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c200,
+/obj/item/spacecash/c50,
+/obj/item/spacecash/c50,
+/obj/item/spacecash/c50,
+/obj/item/spacecash/c50,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c10,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/spacecash/c1,
+/obj/item/device/price_scanner,
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "cqJ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -760,6 +841,18 @@
 /obj/random/hoodie{
 	pixel_x = 5
 	},
+/obj/item/clothing/suit/storage/toggle/bomber{
+	pixel_y = 5
+	},
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/green,
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "fWG" = (
@@ -816,6 +909,11 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/lino/grey,
+/area/civilian_station)
+"glu" = (
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/effect/overmap/visitable/sector/civilian_station,
+/turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "gmi" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1076,6 +1174,7 @@
 /obj/structure/closet/walllocker/medical{
 	pixel_y = 30
 	},
+/obj/item/storage/firstaid/regular,
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
 "iVQ" = (
@@ -1353,6 +1452,8 @@
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1,
+/obj/item/device/price_scanner,
+/obj/item/ammo_magazine/mc10mm/leyon,
 /turf/simulated/floor/marble/dark,
 /area/civilian_station)
 "lev" = (
@@ -1511,9 +1612,9 @@
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "oeF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "ofl" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -1687,6 +1788,8 @@
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1,
 /obj/item/gun/projectile/leyon,
+/obj/item/device/price_scanner,
+/obj/item/ammo_magazine/mc10mm/leyon,
 /turf/simulated/floor/marble/dark,
 /area/civilian_station)
 "pJZ" = (
@@ -31008,7 +31111,7 @@ xRX
 xRX
 xRX
 xRX
-oeF
+frn
 frn
 frn
 frn
@@ -31534,7 +31637,7 @@ wji
 ygr
 xFU
 xYB
-xYB
+glu
 xYB
 xYB
 xYB
@@ -32299,7 +32402,7 @@ wji
 wji
 cqJ
 wji
-wji
+oeF
 wji
 dkB
 ygr
@@ -33329,7 +33432,7 @@ riA
 wji
 cJe
 wji
-cJe
+aJb
 ygr
 hON
 xYB
@@ -34869,7 +34972,7 @@ wZf
 wZf
 ctQ
 wZf
-wZf
+ceJ
 wZf
 dqB
 ygr
@@ -35899,7 +36002,7 @@ rtf
 wZf
 dcL
 wZf
-dcL
+bbT
 ygr
 gHC
 xYB
@@ -36920,7 +37023,7 @@ xRX
 xRX
 xRX
 ygr
-xto
+chG
 xto
 ygr
 bwR
