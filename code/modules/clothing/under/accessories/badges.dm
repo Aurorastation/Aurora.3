@@ -448,15 +448,6 @@
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 
-/obj/item/clothing/accessory/badge/passcard/techno
-	name = "techno-conglomerate passcard"
-	desc = "A clump of machinery scraps repurposed into a functional passcard, used by the Techno-Conglomerate."
-	desc_fluff = "In a society that values progress towards perfection, the Techno-Conglomerate has also applied this to their 'governance'. Prospective wayfarers and explorers will often be required to assemble \
-	their own cards from scraps left over from the early days of the technology, often leading to outdated or buggy versions. Urban legend claims that some have even found a way to exploit this technology to 'sequence' \
-	their way into more secure locales."
-	icon_state = "passcard_techno"
-	item_state = "passcard_techno"
-
 /obj/item/clothing/accessory/badge/passcard/burzsia
 	name = "burzsian passcard"
 	desc = "A passcard issued to Burzsian Hephaestus employees and- owned IPCs- working abroad."

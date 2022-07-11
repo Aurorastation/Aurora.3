@@ -243,3 +243,69 @@
 			plastic_film = image('icons/mob/lanyard_overlays.dmi', icon_state = "[plastic_film_overlay_state]")
 		I.add_overlay(plastic_film)
 	return I
+
+// Loadout Wallet Items (copied from lunchbox code)
+var/list/wallet_passcards_ = list(
+	/obj/item/clothing/accessory/badge/passcard,
+	/obj/item/clothing/accessory/badge/passcard/sol,
+	/obj/item/clothing/accessory/badge/passcard/sol/pluto,
+	/obj/item/clothing/accessory/badge/passcard/sol/jupiter,
+	/obj/item/clothing/accessory/badge/passcard/sol/luna,
+	/obj/item/clothing/accessory/badge/passcard/sol/europa,
+	/obj/item/clothing/accessory/badge/passcard/sol/cytherean,
+	/obj/item/clothing/accessory/badge/passcard/sol/jintarian,
+	/obj/item/clothing/accessory/badge/passcard/eridani,
+	/obj/item/clothing/accessory/badge/passcard/elyra,
+	/obj/item/clothing/accessory/badge/passcard/dominia,
+	/obj/item/clothing/accessory/badge/passcard/coalition,
+	/obj/item/clothing/accessory/badge/passcard/himeo,
+	/obj/item/clothing/accessory/badge/passcard/vysoka,
+	/obj/item/clothing/accessory/badge/passcard/gad,
+	/obj/item/clothing/accessory/badge/passcard/assu,
+	/obj/item/clothing/accessory/badge/passcard/konyang,
+	/obj/item/clothing/accessory/badge/passcard/sol/visegrad
+	)
+
+var/list/wallet_passports_ = list(
+	/obj/item/clothing/accessory/badge/passport,
+	/obj/item/clothing/accessory/badge/passport/sol,
+	/obj/item/clothing/accessory/badge/passport/elyra,
+	/obj/item/clothing/accessory/badge/passport/dominia,
+	/obj/item/clothing/accessory/badge/passport/coc
+	)
+
+var/list/wallet_cash_ = list(
+	/obj/item/spacecash/c10,
+	/obj/item/spacecash/c20,
+	/obj/item/spacecash/c50,
+	/obj/item/spacecash/c100,
+	/obj/item/spacecash/c200,
+	/obj/item/spacecash/c500,
+	/obj/item/spacecash/c1000,
+	/obj/item/coin/silver,
+	/obj/item/coin/gold,
+	/obj/item/coin/iron
+	)
+
+/proc/wallet_passcards()
+	if(!(wallet_passcards_[wallet_passcards_[1]]))
+		wallet_passcards_ = init_walletable_list(wallet_passcards_)
+	return wallet_passcards_
+
+/proc/wallet_passports()
+	if(!(wallet_passports_[wallet_passports_[1]]))
+		wallet_passports_ = init_walletable_list(wallet_passports_)
+	return wallet_passports_
+
+/proc/wallet_cash()
+	if(!(wallet_cash_[wallet_cash_[1]]))
+		wallet_cash_ = init_walletable_list(wallet_cash_)
+	return wallet_cash_
+
+/proc/init_walletable_list(var/list/walletables)
+	. = list()
+	for(var/wallet in walletables)
+		var/obj/O = wallet
+		.[initial(O.name)] = wallet
+
+	sortTim(., /proc/cmp_text_asc)

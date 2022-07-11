@@ -61,13 +61,9 @@
 	display_name = "personal AI device"
 	path = /obj/item/device/paicard
 
-/datum/gear/utility/classicwallet
-	display_name = "wallet"
-	path = /obj/item/storage/wallet
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
-
 /datum/gear/utility/wallet
 	display_name = "wallet selection"
+	description = "A selection of wallets and purses, featuring optional passcards, passports and other trinkets within."
 	path = /obj/item/storage/wallet
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -77,6 +73,7 @@
 	wallet["wallet, colourable"] = /obj/item/storage/wallet/colourable
 	wallet["wallet, purse"] = /obj/item/storage/wallet/purse
 	gear_tweaks += new /datum/gear_tweak/path(wallet)
+	gear_tweaks += new /datum/gear_tweak/contents(wallet_passcards(), wallet_passports(), wallet_cash())
 
 /datum/gear/utility/lanyard
 	display_name = "lanyard"
@@ -102,10 +99,20 @@
 	cost = 4
 
 /datum/gear/utility/business_card_holder
-	display_name = "business card holder"
-	description = "Comes in different materials."
+	display_name = "business cards and holders"
+	description = "Comes in different selections for both!"
 	path = /obj/item/storage/business_card_holder
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/utility/business_card_holder/spawn_item(var/location, var/metadata)
+	. = ..()
+	var/obj/item/storage/business_card_holder/spawned_holder = .
+	spawned_holder.update_icon()
+	if(length(spawned_holder.contents))
+		for(var/i = 1 to spawned_holder.storage_slots)
+			var/obj/item/paper/O_new
+			new O_new(src) // make copies of the OG business card
+			O_new.info = spawned_holder.contents[1].info // transfer the info
 
 /datum/gear/utility/business_card_holder/New()
 	..()
@@ -115,25 +122,7 @@
 	holders["business card holder, leather"] = /obj/item/storage/business_card_holder/leather
 	holders["business card holder, plastic"] = /obj/item/storage/business_card_holder/plastic
 	gear_tweaks += new /datum/gear_tweak/path(holders)
-
-/datum/gear/utility/business_card
-	display_name = "business card"
-	description = "A selection of business cards." // I'm not smart enough to make it spawn inside the holders and carry over the text so we'll have to live with this
-	path = /obj/item/paper/business_card
-	flags = GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/utility/business_card/New()
-	..()
-	var/list/cards = list()
-	cards["paper business card, divided"] = /obj/item/paper/business_card
-	cards["paper business card, plain"] = /obj/item/paper/business_card/alt
-	cards["paper business card, rounded"] = /obj/item/paper/business_card/rounded
-	cards["glass business card"] = /obj/item/paper/business_card/glass
-	cards["glass business card, black flair"] = /obj/item/paper/business_card/glass/b
-	cards["glass business card, grey flair"] = /obj/item/paper/business_card/glass/g
-	cards["glass business card, silver flair"] = /obj/item/paper/business_card/glass/s
-	cards["glass business card, white flair"] = /obj/item/paper/business_card/glass/w
-	gear_tweaks += new /datum/gear_tweak/path(cards)
+	gear_tweaks += new /datum/gear_tweak/contents(business_cards())
 	gear_tweaks += new /datum/gear_tweak/paper_data()
 
 /datum/gear/utility/pills
