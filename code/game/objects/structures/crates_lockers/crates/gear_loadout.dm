@@ -446,6 +446,16 @@
 	new /obj/item/gun/energy/crossbow/largecrossbow(src)
 	new /obj/item/melee/energy/sword/red(src)
 
+/obj/structure/closet/crate/secure/gear_loadout/ninja/frontier
+	associated_hardsuit = /obj/item/rig/light/offworlder/frontier/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/frontier/fill()
+	..()
+	new /obj/item/clothing/accessory/holster/armpit/brown(src)
+	new /obj/item/gun/projectile/pistol(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+
 /obj/structure/closet/crate/secure/gear_loadout/ninja/crimson
 	associated_hardsuit = /obj/item/rig/merc/ninja
 
