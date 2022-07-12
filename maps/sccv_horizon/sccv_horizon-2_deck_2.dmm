@@ -98,6 +98,10 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/security/main)
 "abA" = (
@@ -5133,8 +5137,8 @@
 	pixel_y = 4
 	},
 /obj/machinery/alarm{
-	pixel_x = -28;
-	dir = 4
+	dir = 4;
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
@@ -11398,8 +11402,8 @@
 	dir = 4
 	},
 /obj/machinery/door/window/brigdoor/southright{
-	req_access = list(56);
-	name = "Ginny's Cage Access"
+	name = "Ginny's Cage Access";
+	req_access = list(56)
 	},
 /mob/living/simple_animal/carp/fluff/ginny,
 /obj/machinery/light{
@@ -14812,8 +14816,8 @@
 "hUB" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/smartfridge/secure/medbay{
-	pixel_y = 16;
-	density = 0
+	density = 0;
+	pixel_y = 16
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
@@ -31813,10 +31817,10 @@
 	dir = 8
 	},
 /obj/machinery/button/switch/windowtint{
+	id = "ce";
 	pixel_x = -26;
 	pixel_y = -20;
-	range = 9;
-	id = "ce"
+	range = 9
 	},
 /obj/machinery/button/remote/airlock{
 	id = "CEdoor";
@@ -34287,18 +34291,6 @@
 "sKo" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hydroponics)
-"sKz" = (
-/obj/structure/closet/secure_closet/security,
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/status_display{
-	layer = 4;
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/security/main)
 "sKE" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
@@ -38863,8 +38855,8 @@
 	dir = 8
 	},
 /obj/machinery/smartfridge/chemistry{
-	pixel_y = 16;
-	density = 0
+	density = 0;
+	pixel_y = 16
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
@@ -73066,7 +73058,7 @@ kaT
 oVe
 uXV
 ifU
-sKz
+rkZ
 oTr
 gem
 nCg
