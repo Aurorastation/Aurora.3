@@ -2891,6 +2891,9 @@
 	name = "Bar - Preparations";
 	req_access = list(25)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/bar)
 "bto" = (
@@ -4390,6 +4393,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "cjD" = (
@@ -5706,6 +5712,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "dcT" = (
@@ -6100,6 +6109,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "dlR" = (
@@ -8316,6 +8328,7 @@
 	name = "Mech Bay and Recharging Station";
 	req_one_access = list(29,47)
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "eBj" = (
@@ -10342,6 +10355,9 @@
 	req_one_access = list(10)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
 "fKe" = (
@@ -12342,6 +12358,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/bar)
 "gDR" = (
@@ -12424,6 +12443,9 @@
 	name = "Operations Bay";
 	req_access = null;
 	req_one_access = list(26,31,48,67)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
@@ -13475,6 +13497,9 @@
 	name = "Engineering Hallway";
 	req_access = list(10)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
 "hjT" = (
@@ -13528,6 +13553,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "hmK" = (
@@ -15195,6 +15223,9 @@
 	name = "Engineering Monitoring Room";
 	req_one_access = list(10)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
 "ijp" = (
@@ -15471,6 +15502,9 @@
 	name = "Operations Bay";
 	req_access = null;
 	req_one_access = list(26,31,48,67)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
@@ -15961,6 +15995,9 @@
 	req_one_access = list(10)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
 "iIx" = (
@@ -16021,6 +16058,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "iJx" = (
@@ -16117,6 +16157,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
 "iLD" = (
@@ -17907,6 +17950,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "jHX" = (
@@ -18478,6 +18522,7 @@
 	req_access = list(63)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "jZB" = (
@@ -18962,6 +19007,9 @@
 /obj/machinery/door/airlock/mining{
 	name = "Washroom and Showers";
 	req_one_access = list(26,31,48,67)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
@@ -19790,6 +19838,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -21439,6 +21490,9 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
 	req_access = list(10)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
@@ -25238,6 +25292,9 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
 	req_access = list(10)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
@@ -29359,6 +29416,9 @@
 	name = "Engineering Monitoring Room";
 	req_one_access = list(10)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "qao" = (
@@ -29747,6 +29807,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "qlX" = (
@@ -30748,6 +30811,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "qPo" = (
@@ -31229,6 +31295,9 @@
 	req_access = list(28)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/kitchen)
 "raA" = (
@@ -35941,6 +36010,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "tHd" = (
@@ -36079,6 +36149,9 @@
 /obj/machinery/door/airlock/glass_research{
 	name = "Research and Development";
 	req_access = list(7)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
@@ -36642,6 +36715,17 @@
 	req_access = list(35)
 	},
 /obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/horizon/hydroponics)
+"uas" = (
+/obj/machinery/door/airlock/glass_service{
+	name = "Hydroponics";
+	req_access = list(35)
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "uaM" = (
@@ -38138,6 +38222,9 @@
 	name = "Exploratory Chemistry";
 	req_access = list(7)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "uKJ" = (
@@ -39373,6 +39460,9 @@
 	req_access = list(50)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "vxK" = (
@@ -42101,6 +42191,9 @@
 	name = "Mail Sorting";
 	req_access = list(50)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "wLg" = (
@@ -42120,6 +42213,9 @@
 /obj/machinery/door/airlock/glass_research{
 	name = "Research and Development";
 	req_access = list(7)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
@@ -42976,6 +43072,9 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
 	req_access = list(10)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
@@ -65602,7 +65701,7 @@ vCa
 dvw
 dvw
 tje
-tZR
+uas
 fdZ
 fdZ
 dvw
