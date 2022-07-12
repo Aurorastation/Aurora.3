@@ -8600,6 +8600,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
+/obj/item/reagent_containers/extinguisher_refill/filled,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "gKG" = (
