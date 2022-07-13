@@ -15938,7 +15938,6 @@
 /obj/item/pipewrench,
 /obj/item/crowbar/rescue_axe/red,
 /obj/item/device/pipe_painter,
-/obj/item/reagent_containers/extinguisher_refill/filled,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "iIf" = (
@@ -17204,7 +17203,6 @@
 /obj/item/pipewrench,
 /obj/item/crowbar/rescue_axe/red,
 /obj/item/device/pipe_painter,
-/obj/item/reagent_containers/extinguisher_refill/filled,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "jnV" = (
@@ -30895,7 +30893,6 @@
 /obj/item/pipewrench,
 /obj/item/crowbar/rescue_axe/red,
 /obj/item/device/pipe_painter,
-/obj/item/reagent_containers/extinguisher_refill/filled,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "qSn" = (
