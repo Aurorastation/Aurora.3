@@ -842,7 +842,7 @@
 /area/crew_quarters/heads/hop/xo)
 "bC" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/effect/floor_decal/spline/fancy/wood/corner{
+/obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
 /turf/simulated/floor/grass/alt,
@@ -1271,13 +1271,13 @@
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "ct" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
 /turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/cafeteria)
 "cu" = (
@@ -4242,10 +4242,10 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "hV" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
 /obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/floor_decal/spline/plain{
+	dir = 9
+	},
 /turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/cafeteria)
 "hW" = (
@@ -5836,6 +5836,11 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"kG" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "kH" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -8910,6 +8915,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
+"qm" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "qn" = (
 /turf/simulated/floor/reinforced,
 /area/bridge/selfdestruct)
@@ -8938,10 +8950,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "qq" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
 /obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/floor_decal/spline/plain{
+	dir = 10
+	},
 /turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/cafeteria)
 "qr" = (
@@ -11310,11 +11322,11 @@
 /turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/nature_showcase)
 "uJ" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
 /turf/simulated/floor/grass/alt,
@@ -15816,11 +15828,11 @@
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "Dk" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
 /turf/simulated/floor/grass/alt,
@@ -16257,6 +16269,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"Eg" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/grass/alt,
+/area/horizon/deck_three/cafeteria)
 "Eh" = (
 /turf/simulated/wall/r_wall,
 /area/medical/ward/isolation)
@@ -18157,7 +18174,7 @@
 /area/bridge/controlroom)
 "HD" = (
 /obj/structure/flora/ausbushes/genericbush,
-/obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/cafeteria)
 "HE" = (
@@ -25563,10 +25580,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "UQ" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/structure/flora/ausbushes/brflowers,
+/obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/cafeteria)
 "UR" = (
@@ -25867,6 +25884,9 @@
 /area/medical/ward)
 "Vu" = (
 /obj/structure/flora/ausbushes/sunnybush,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
 /turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/cafeteria)
 "Vv" = (
@@ -27494,10 +27514,10 @@
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "Ys" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/cafeteria)
 "Yt" = (
@@ -49342,7 +49362,7 @@ Jg
 RM
 sI
 Jg
-sI
+Eg
 me
 WD
 OI
@@ -49538,13 +49558,13 @@ iY
 AG
 UV
 OI
-Va
+qm
 GV
 Va
 Ak
 VA
 Va
-Va
+kG
 me
 UV
 in
