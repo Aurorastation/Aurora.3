@@ -82,7 +82,7 @@
 /datum/poster/bay_31
 	icon_state="bsposter31"
 	name = "GetMore Donuts"
-	desc = "This is an advertisement GetMore's brand of donuts!"
+	desc = "This is an advertisement for GetMore's brand of donuts!"
 
 /datum/poster/bay_32
 	icon_state="bsposter32"
