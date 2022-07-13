@@ -1,5 +1,7 @@
 /obj/item/device/floor_painter
 	name = "paint gun"
+	desc = "A Hephaestus-made paint gun that uses microbes to replenish its paint storage. Very high-tech and fancy too!"
+	desc_info = "Use control-click on a coloured decal on a turf to copy its colour. You can also use shift-click on a turf with the paint gun in hand to clear all decals on it."
 	icon = 'icons/obj/contained_items/tools/floor_painter.dmi'
 	icon_state = "floor_painter"
 	item_state = "floor_painter"
@@ -11,6 +13,10 @@
 	var/list/decals = list(
 		"quarter-turf" =      list("path" = /obj/effect/floor_decal/corner, "precise" = 1, "coloured" = 1),
 		"full quarter-turf" = list("path" = /obj/effect/floor_decal/corner_full, "precise" = 1, "coloured" = 1),
+		"light corner" = list("path" = /obj/effect/floor_decal/corner/light, "precise" = 1, "coloured" = 1),
+		"full light corner" = list("path" = /obj/effect/floor_decal/corner/light/full, "precise" = 1, "coloured" = 1),
+		"light, wide corner" = list("path" = /obj/effect/floor_decal/corner_wide/light, "precise" = 1, "coloured" = 1),
+		"full, light, wide corner" = list("path" = /obj/effect/floor_decal/corner_wide/light/full, "precise" = 1, "coloured" = 1),
 		"hazard stripes" =    list("path" = /obj/effect/floor_decal/industrial/warning),
 		"corner, hazard" =    list("path" = /obj/effect/floor_decal/industrial/warning/corner),
 		"hatched marking" =   list("path" = /obj/effect/floor_decal/industrial/hatch, "coloured" = 1),
@@ -172,7 +178,6 @@
 	return FALSE
 
 /turf/simulated/floor/Click(location, control, params)
-	. = ..()
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		var/list/modifiers = params2list(params)
@@ -184,6 +189,7 @@
 				return
 			if(modifiers["shift"] && paint_sprayer.remove_paint(src, H))
 				return
+	. = ..()
 
 /obj/item/device/floor_painter/proc/pick_color(atom/A, mob/user)
 	if (!user.Adjacent(A) || user.incapacitated())
