@@ -242,7 +242,7 @@
 						post_display_status(href_list["target"])
 
 		if("setalert")
-			if(is_authenticated(user) && !issilicon(usr) && ntn_cont && ntn_comm)
+			if((is_authenticated(user) && !issilicon(usr) && ntn_cont && ntn_comm) || (is_authenticated(user) && isAI(usr) && ntn_cont && ntn_comm))
 				var/current_level = text2num(href_list["target"])
 				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", name, "No", "Yes")
 				if(confirm == "Yes" && can_still_topic())
