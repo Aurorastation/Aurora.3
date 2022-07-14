@@ -105,6 +105,9 @@
 	new /obj/item/pickaxe/drill(H.loc)
 	new /obj/item/device/gps(H.loc)
 	new /obj/item/device/flashlight/flare/mech(H.loc) // spawns an active flare
+	new /obj/item/clothing/suit/space/emergency(H.loc)        // weak softsuit, so if for whatever reason 
+	new /obj/item/clothing/head/helmet/space/emergency(H.loc) // the survivor spawns with no EVA gear,
+	new /obj/item/tank/emergency_oxygen/double(H.loc)         // they can use this, and not just die in space
 
 /datum/outfit/admin/pod/star
 	name = "RescuePod - Star"
