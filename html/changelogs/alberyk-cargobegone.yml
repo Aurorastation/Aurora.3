@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes:
-  - bugfix: "Replaced a couple of references to the cargo and supply department with operations."
-  - tweak: "Department jackets are no longer NanoTrasen branded on their sprites."
