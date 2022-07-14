@@ -111,7 +111,6 @@
 	new /obj/item/clothing/suit/storage/security/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
 	new /obj/item/clothing/gloves/black_leather(src)
-	new /obj/item/clothing/suit/storage/toggle/armor/hos(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
