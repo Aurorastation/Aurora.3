@@ -228,8 +228,7 @@
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] costumes",
 		list(
-			new /datum/stack_recipe("alien helmet", /obj/item/clothing/head/xenos),
-			new /datum/stack_recipe("alien suit", /obj/item/clothing/suit/xenos, 3)
+			new /datum/stack_recipe("leather briefcase", /obj/item/storage/briefcase/real, 4, 1, time = 20)
 		))
 
 /material/hide/corgi/generate_recipes()

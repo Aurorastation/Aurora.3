@@ -52,12 +52,12 @@
 /datum/poster/bay_24
 	icon_state="bsposter24"
 	name = "Responsible medbay habits, No #259"
-	desc = "A poster with a nervous looking geneticist on it states; \"Friends Don't Tell Friends They're Clones. It can cause severe and irreparable emotional trauma. Always do the right thing and never tell them that they were dead.\""
+	desc = "A poster instructing all crew to respect doctor-patient confidentiality."
 
 /datum/poster/bay_25
 	icon_state="bsposter25"
 	name = "Irresponsible medbay habits, No #2"
-	desc = "This is a safety poster starring a perverted looking naked doctor. \"Sexual harassment is never okay. REPORT any acts of sexual deviance or harassment that disrupt a healthy working environment.\""
+	desc = "This is a safety poster starring a doctor. It instructs the viewer to report all medical misconduct."
 
 /datum/poster/bay_26
 	icon_state="bsposter26"

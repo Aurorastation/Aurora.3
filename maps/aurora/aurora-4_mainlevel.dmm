@@ -59124,7 +59124,6 @@
 /area/security/brig)
 "cJo" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/costume/imperium_monk,
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
