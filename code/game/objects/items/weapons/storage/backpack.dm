@@ -615,8 +615,8 @@
 	item_state = "atmoscape"
 
 /obj/item/storage/backpack/cloak/cargo
-	name = "cargo tunnel cloak"
-	desc = "A Vaurca cloak with storage pockets. This one has the supply department design."
+	name = "operations tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the operations department design."
 	icon_state = "cargocape"
 	item_state = "cargocape"
 

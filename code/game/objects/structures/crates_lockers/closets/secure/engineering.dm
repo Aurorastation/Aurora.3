@@ -131,4 +131,5 @@
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/engineer(src)
+	new /obj/item/reagent_containers/extinguisher_refill(src)
 	new /obj/item/rfd/piping(src)
