@@ -14821,7 +14821,8 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/smartfridge/secure/medbay{
 	density = 0;
-	pixel_y = 16
+	pixel_y = 16;
+	req_one_access = list(5,33,47)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
