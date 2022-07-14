@@ -16621,11 +16621,6 @@
 	c_tag = "AI Core - Upload";
 	dir = 1
 	},
-/obj/machinery/power/apc{
-	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24
-	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
@@ -16635,6 +16630,9 @@
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
+	},
+/obj/machinery/power/apc/critical{
+	pixel_y = -24
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
@@ -34201,12 +34199,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "sHR" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/cable/green{
@@ -34216,6 +34208,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
+	},
+/obj/machinery/power/apc/critical{
+	pixel_y = 24;
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
@@ -43575,16 +43571,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /obj/structure/window/borosilicate/reinforced/skrell,
+/obj/machinery/power/apc/critical{
+	pixel_y = 24;
+	dir = 1
+	},
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "xxy" = (
