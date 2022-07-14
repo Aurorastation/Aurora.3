@@ -516,8 +516,8 @@
 	item_state = "engi_dep_jacket"
 
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
-	name = "supply department jacket"
-	desc = "A cozy jacket in supply's colors, perfect for folding up and forgetting bounty lists."
+	name = "operations department jacket"
+	desc = "A cozy jacket in operations' colors, perfect for folding up and forgetting bounty lists."
 	icon_state = "supply_dep_jacket"
 	item_state = "supply_dep_jacket"
 
