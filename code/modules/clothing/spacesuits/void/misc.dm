@@ -410,14 +410,14 @@
 
 //Freelancer voidsuit
 /obj/item/clothing/head/helmet/space/void/freelancer
-	name = "freelancer voidsuit helmet"
-	desc = "An older design of special operations voidsuit helmet utilized by private military corporations."
+	name = "armored voidsuit helmet"
+	desc = "A helmet from a commercial combat voidsuit design. Acceptably well-armored and prolific thoughout the Orion Spur, it can be seen in use by everyone from mercenaries to militia groups to police forces."
 	icon_state = "rig0-freelancer"
 
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
@@ -431,8 +431,8 @@
 
 /obj/item/clothing/suit/space/void/freelancer
 	icon_state = "freelancer"
-	name = "freelancer voidsuit"
-	desc = "An advanced protective voidsuit used for special operations."
+	name = "armored voidsuit"
+	desc = "A suit from a commercial combat voidsuit design. Acceptably well-armored and prolific thoughout the Orion Spur, it can be seen in use by everyone from mercenaries to militia groups to police forces."
 	item_state = "freelancer"
 
 	slowdown = 1
@@ -440,7 +440,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
