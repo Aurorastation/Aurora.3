@@ -1314,6 +1314,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "blood"
+	specific_heat = 1
 
 /decl/reagent/sanasomnum/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
