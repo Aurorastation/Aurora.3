@@ -35,30 +35,30 @@
 	switch(construct_op)
 		if(0)
 			if(I.isscrewdriver())
-				to_chat(user, "You unfasten the bolts.")
+				to_chat(user, SPAN_NOTICE("You unfasten the bolts."))
 				playsound(src.loc, I.usesound, 50, 1)
 				construct_op ++
 				. = TRUE
 		if(1)
 			if(I.isscrewdriver())
-				to_chat(user, "You fasten the bolts.")
+				to_chat(user, SPAN_NOTICE("You fasten the bolts."))
 				playsound(src.loc, I.usesound, 50, 1)
 				construct_op --
 				. = TRUE
 			if(I.iswrench())
-				to_chat(user, "You dislodge the external plating.")
+				to_chat(user, SPAN_NOTICE("You dislodge the external plating."))
 				playsound(src.loc, I.usesound, 75, 1)
 				construct_op ++
 				. = TRUE
 		if(2)
 			if(I.iswrench())
-				to_chat(user, "You secure the external plating.")
+				to_chat(user, SPAN_NOTICE("You secure the external plating."))
 				playsound(src.loc, I.usesound, 75, 1)
 				construct_op --
 				. = TRUE
 			if(I.iswirecutter())
 				playsound(src.loc, I.usesound, 50, 1)
-				to_chat(user, "You remove the cables.")
+				to_chat(user, SPAN_NOTICE("You remove the cables."))
 				construct_op ++
 				var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( user.loc )
 				A.amount = 5
@@ -75,9 +75,9 @@
 					to_chat(user, "<span class='warning'>You need five coils of wire for this.</span>")
 				. = TRUE
 			if(I.iscrowbar())
-				to_chat(user, "You begin prying out the circuit board other components...")
+				to_chat(user, SPAN_NOTICE("You begin prying out the circuit board's components..."))
 				if(I.use_tool(src, user, 60, volume = 50))
-					to_chat(user, "You finish prying out the components.")
+					to_chat(user, SPAN_NOTICE("You finish prying out the components."))
 
 					// Drop all the component stuff
 					if(contents.len > 0)
@@ -95,7 +95,7 @@
 								var/obj/item/s = new newpath
 								s.forceMove(user.loc)
 								if(s.iscoil())
-									var/obj/item/stack/cable_coil/A = I
+									var/obj/item/stack/cable_coil/A = s
 									A.amount = 1
 
 						// Drop a circuit board too

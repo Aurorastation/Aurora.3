@@ -1657,6 +1657,9 @@
 "kiO" = (
 /obj/structure/table/wood,
 /obj/item/clothing/suit/storage/legion,
+/obj/item/device/versebook/biesel{
+	pixel_y = -6
+	},
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
 "kkV" = (
@@ -2047,6 +2050,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "mPM" = (
 /obj/structure/table/steel,
+/obj/item/device/versebook/biesel,
 /obj/item/device/flashlight/maglight,
 /obj/machinery/light{
 	dir = 1;

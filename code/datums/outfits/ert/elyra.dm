@@ -66,7 +66,7 @@
 	name = "Elyran Navy Corpsman"
 
 	belt = /obj/item/storage/belt/medical/first_responder/combat
-	back = /obj/item/storage/backpack/satchel_med
+	back = /obj/item/storage/backpack/satchel/med
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex
 

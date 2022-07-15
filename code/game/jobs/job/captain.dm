@@ -60,7 +60,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	)
 
 	backpack = /obj/item/storage/backpack/captain
-	satchel = /obj/item/storage/backpack/satchel_cap
+	satchel = /obj/item/storage/backpack/satchel/cap
 	dufflebag = /obj/item/storage/backpack/duffel/cap
 	messengerbag = /obj/item/storage/backpack/messenger/com
 

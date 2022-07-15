@@ -50,7 +50,7 @@
 /area/hangar/control)
 "acw" = (
 /obj/structure/flora/ausbushes/brflowers,
-/obj/structure/largecrate/animal/cow,
+/mob/living/simple_animal/cow,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "acY" = (
@@ -8600,6 +8600,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
+/obj/item/reagent_containers/extinguisher_refill/filled,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "gKG" = (
@@ -15387,6 +15388,8 @@
 /obj/structure/window/reinforced,
 /obj/structure/table/reinforced/steel,
 /obj/machinery/cell_charger,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "mwO" = (
@@ -17627,6 +17630,7 @@
 /area/maintenance/operations)
 "olu" = (
 /obj/structure/flora/ausbushes/reedbush,
+/mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "oma" = (
@@ -25926,9 +25930,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
 "vfc" = (
-/obj/structure/table/rack,
-/obj/item/storage/bag/inflatable,
-/obj/item/storage/bag/inflatable,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "vfk" = (
@@ -29542,7 +29544,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "xYn" = (
-/obj/structure/closet/emcloset,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "xYW" = (
