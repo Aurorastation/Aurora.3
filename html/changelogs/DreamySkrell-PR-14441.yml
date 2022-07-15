@@ -1,5 +1,0 @@
-author: DreamySkrell
-delete-after: True
-changes:
-  - rscadd: "Emergency softsuit and air for emergency pod survivors."
-  - bugfix: "Some emergency pod survivors no longer spawn with no EVA gear."
