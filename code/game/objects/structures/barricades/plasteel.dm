@@ -59,7 +59,7 @@
 	busy = FALSE
 
 /obj/structure/barricade/plasteel/attackby(obj/item/W, mob/user)
-	if(iswelder(W))
+	if(W.iswelder())
 		if(busy || tool_cooldown > world.time)
 			return
 		tool_cooldown = world.time + 10
