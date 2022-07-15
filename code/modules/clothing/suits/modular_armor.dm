@@ -265,7 +265,7 @@
 
 /obj/item/clothing/head/helmet/military
 	name = "sol army helmet"
-	desc = "A helmet in drab olive. Standard-issue to the oft-forgotten Solarian Army."
+	desc = "A helmet in drab olive. Standard-issue to the oft-forgotten Solarian Army. Comes with a fancy military HUDglass."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_military"
