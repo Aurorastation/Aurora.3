@@ -172,7 +172,10 @@
 				if(!input || !can_still_topic())
 					SSnanoui.update_uis(src)
 					return
-				crew_announcement.Announce(input)
+				program.computer.listening = TRUE
+				usr.say(input)
+				program.computer.listening = FALSE
+				crew_announcement.Announce(program.computer.registered_message)
 				set_announcement_cooldown(TRUE)
 				addtimer(CALLBACK(src, .proc/set_announcement_cooldown, FALSE), 600) //One minute cooldown
 		if("message")
