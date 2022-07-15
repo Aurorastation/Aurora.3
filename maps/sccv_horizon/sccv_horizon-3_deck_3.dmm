@@ -20188,6 +20188,8 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/graphite/full,
+/obj/item/stack/barbed_wire/half_full,
+/obj/item/stack/liquidbags/half_full,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "Lj" = (

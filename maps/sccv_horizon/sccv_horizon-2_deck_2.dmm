@@ -12197,6 +12197,8 @@
 /obj/item/clothing/accessory/holster/modular,
 /obj/item/clothing/accessory/holster/modular,
 /obj/item/clothing/accessory/holster/modular,
+/obj/item/stack/liquidbags/half_full,
+/obj/item/stack/barbed_wire/half_full,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "gBK" = (

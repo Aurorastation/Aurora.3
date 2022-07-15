@@ -38,8 +38,9 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Barricades have been ported from CM-SS13! You can build steel, wood and plasteel barricades through the respective material build menus. Plasteel barricades can be flipped to allow entry. Additionally, you can link one or more plasteel barricades togeter with a crowbar to make them flip open at the same time."
-  - rscadd: "Added barbed wire as a stack item. You can use it to wire barricades, preventing climbing. Barbed barricades also deal damage to simple mobs or human mobs that try to slice barricades open with their hands, such as zombies."
+  - rscadd: "Barricades have been ported from CM-SS13! You can build steel, wood and plasteel barricades through the respective material build menus. Plasteel barricades can be flipped to allow entry. Additionally, you can link one or more plasteel barricades together with a crowbar to make them flip open at the same time."
+  - rscadd: "Added barbed wire as a stack item, made from steel. You can use it to wire barricades, preventing climbing. Barbed barricades also deal damage to simple mobs or human mobs that try to slice barricades open with their hands, such as zombies."
+  - rscadd: "Added liquidbag barricades. They're bags filled with non-Newtonian liquid! You can find them in the crew armoury and the normal armoury, along with barbed wire to set on them. These can be set down by everyone. Use crowbars to disassemble these."
   - rscadd: "Note that the PEAC works *extremely well* on barricades! If you want a barricade buster, use the PEAC!"
   - rscdel: "Removed the Call ERT option from the keycard authenticators."
   - rscadd: "Calling a distress beacon now prompts the first person to swipe for a message. This message will then pop up as a distress beacon to all other Overmap ships."
