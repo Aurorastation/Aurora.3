@@ -128,7 +128,7 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
 	backpack = /obj/item/storage/backpack/hydroponics
-	satchel = /obj/item/storage/backpack/satchel_hyd
+	satchel = /obj/item/storage/backpack/satchel/hyd
 	dufflebag = /obj/item/storage/backpack/duffel/hyd
 	messengerbag = /obj/item/storage/backpack/messenger/hyd
 
@@ -197,7 +197,7 @@
 	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
 	title_accesses = list("Corporate Reporter" = list(access_medical, access_sec_doors, access_research, access_engine))
 	outfit = /datum/outfit/job/journalist
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/journalist
 	name = "Corporate Reporter"
@@ -497,7 +497,7 @@
 	)
 
 	backpack = /obj/item/storage/backpack/industrial
-	satchel = /obj/item/storage/backpack/satchel_eng
+	satchel = /obj/item/storage/backpack/satchel/eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 

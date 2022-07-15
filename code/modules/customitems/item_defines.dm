@@ -2301,54 +2301,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		if(lit_message)
 			visible_message(SPAN_NOTICE(lit_message), range = 3)
 
-/obj/item/clothing/under/fluff/yanna_dress //Techno-Conglomerate CR dress - Yanna Trevidic - simplemaroon
-	name = "techno-conglomerate CR dress"
-	desc = "A sky blue-colored comfort-and-relaxation dress designed for off-worlders. This one is made to Techno-Conglomerate specifications, \
-	with sensors outlined across the ribcage that grow brighter or duller based on the wearer's emotional intensity."
-	icon = 'icons/obj/custom_items/yanna_dress.dmi'
-	icon_override = 'icons/obj/custom_items/yanna_dress.dmi'
-	icon_state = "yanna_dress"
-	item_state = "yanna_dress"
-	contained_sprite = TRUE
-	var/list/emotional_settings = list("0", "1", "2", "3")
-	var/emotional_choice
-	action_button_name = "Adjust Emotional Setting"
-
-/obj/item/clothing/under/fluff/yanna_dress/Initialize()
-	for(var/setting in emotional_settings)
-		emotional_settings[setting] = image('icons/obj/custom_items/yanna_dress.dmi', "level_[emotional_settings.Find(setting) - 1]")
-	.=..()
-
-/obj/item/clothing/under/fluff/yanna_dress/attack_self(mob/user)
-	choose_setting(user)
-
-/obj/item/clothing/under/fluff/yanna_dress/verb/adjust_setting()
-	set category = "Object"
-	set name = "Adjust Emotional Setting"
-	set src in usr
-
-	choose_setting(usr)
-
-/obj/item/clothing/under/fluff/yanna_dress/proc/choose_setting(mob/user)
-	var/emotional_setting = RADIAL_INPUT(user, emotional_settings)
-	if(!emotional_setting)
-		return
-	set_light(text2num(emotional_setting) * 0.4, text2num(emotional_setting) * 0.4, COLOR_BRIGHT_GREEN)
-	emotional_choice = "level_" + emotional_setting
-	update_icon()
-	update_clothing_icon()
-	get_mob_overlay(TRUE)
-
-/obj/item/clothing/under/fluff/yanna_dress/update_icon()
-	cut_overlays()
-	add_overlay(emotional_choice)
-
-/obj/item/clothing/under/fluff/yanna_dress/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
-	var/image/I = ..()
-	I.add_overlay(emotional_choice + "_un")
-	return I
-
-
 /obj/item/clothing/suit/vaurca/fluff/bells_zora_cloak //Tailored Hive Cloak - Ka'Akaix'Bells Zo'ra - shestrying
 	name = "tailored hive cloak"
 	desc = "A typical-looking Vaurca hive cloak design, tailored from what looks to be labcoat material."

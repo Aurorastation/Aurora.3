@@ -8,7 +8,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/captain(src)
 	else
-		new /obj/item/storage/backpack/satchel_cap(src)
+		new /obj/item/storage/backpack/satchel/cap(src)
 	new /obj/item/storage/backpack/duffel/cap(src)
 	// Armor
 	new /obj/item/clothing/head/helmet(src)
@@ -33,7 +33,7 @@
 
 /obj/structure/closet/secure_closet/captains2/fill()
 	new /obj/item/storage/backpack/captain(src)
-	new /obj/item/storage/backpack/satchel_cap(src)
+	new /obj/item/storage/backpack/satchel/cap(src)
 	new /obj/item/clothing/suit/captunic(src)
 	new /obj/item/clothing/suit/captunic/capjacket(src)
 	new /obj/item/clothing/head/caphat(src)
@@ -103,7 +103,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
 	else
-		new /obj/item/storage/backpack/satchel_sec(src)
+		new /obj/item/storage/backpack/satchel/sec(src)
 	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/suit/armor/carrier/hos(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
@@ -143,7 +143,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
 	else
-		new /obj/item/storage/backpack/satchel_sec(src)
+		new /obj/item/storage/backpack/satchel/sec(src)
 	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/suit/armor/carrier/hos(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
@@ -174,7 +174,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
 	else
-		new /obj/item/storage/backpack/satchel_sec(src)
+		new /obj/item/storage/backpack/satchel/sec(src)
 	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
@@ -209,7 +209,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
 	else
-		new /obj/item/storage/backpack/satchel_sec(src)
+		new /obj/item/storage/backpack/satchel/sec(src)
 	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/head/beret/security(src)
 	new /obj/item/clothing/head/softcap/security(src)
@@ -238,7 +238,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
 	else
-		new /obj/item/storage/backpack/satchel_sec(src)
+		new /obj/item/storage/backpack/satchel/sec(src)
 	new /obj/item/storage/backpack/duffel/sec(src)
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
