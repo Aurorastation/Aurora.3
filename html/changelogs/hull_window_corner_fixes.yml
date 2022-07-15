@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Fixes some hull windows using the wrong grilles."
