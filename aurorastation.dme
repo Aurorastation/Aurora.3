@@ -1125,6 +1125,7 @@
 #include "code\game\objects\structures\windoor_assembly.dm"
 #include "code\game\objects\structures\window.dm"
 #include "code\game\objects\structures\barricades\_barricade.dm"
+#include "code\game\objects\structures\barricades\liquid.dm"
 #include "code\game\objects\structures\barricades\metal.dm"
 #include "code\game\objects\structures\barricades\plasteel.dm"
 #include "code\game\objects\structures\barricades\wood.dm"
