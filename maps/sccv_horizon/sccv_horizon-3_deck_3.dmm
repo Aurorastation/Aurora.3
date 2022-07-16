@@ -2282,15 +2282,15 @@
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "ee" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
-	id = "cap"
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "cap"
 	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
@@ -8186,10 +8186,10 @@
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "pa" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/tcommsat/entrance)
 "pb" = (
@@ -9188,11 +9188,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "qZ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
 /obj/structure/cable/green,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/tcommsat/entrance)
 "ra" = (
@@ -10685,10 +10685,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "tI" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/bridge/controlroom)
 "tJ" = (
@@ -14829,11 +14829,11 @@
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "Bu" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
 /obj/structure/cable/green,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/tcommsat/entrance)
 "Bv" = (
@@ -18271,14 +18271,14 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "HP" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
-	id = "cap"
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
 /obj/structure/cable/green,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "cap"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "HQ" = (
@@ -19753,11 +19753,11 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "Kr" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
-	id = "cap"
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "cap"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "Ks" = (
@@ -22942,13 +22942,13 @@
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
 "PY" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/tcommsat/entrance)
 "PZ" = (
@@ -24839,10 +24839,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/captain)
 "TB" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/tcommsat/entrance)
 "TC" = (
@@ -25556,7 +25556,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "UU" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -25564,6 +25563,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/cable/green,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/bridge/controlroom)
 "UV" = (
@@ -26423,10 +26423,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
 "WH" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
 /area/bridge/controlroom)
 "WI" = (
@@ -27385,12 +27385,12 @@
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "Yk" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized{
-	id = "cap"
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-8"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "cap"
 	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
