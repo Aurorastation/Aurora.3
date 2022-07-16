@@ -218,9 +218,9 @@
 /area/rnd/xenobiology)
 "afA" = (
 /obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/structure/grille/diagonal,
+/turf/simulated/floor/reinforced,
 /area/horizon/kitchen/hallway)
 "agG" = (
 /obj/structure/shuttle_part/scc_space_ship{
@@ -15308,6 +15308,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
+"ilm" = (
+/obj/structure/grille/diagonal{
+	dir = 1
+	},
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/reinforced,
+/area/horizon/kitchen/freezer)
 "ily" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
@@ -17480,6 +17488,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai)
+"jvu" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/structure/grille/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/horizon/crew_quarters/lounge/bar)
 "jvI" = (
 /obj/effect/landmark{
 	name = "Observer-Start"
@@ -18672,6 +18688,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig/processing_secondary)
+"keG" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/structure/grille/diagonal{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/horizon/crew_quarters/lounge/bar)
 "kfE" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -61768,14 +61792,14 @@ lNQ
 ekX
 mLU
 tqC
-dLP
+keG
 dLP
 dLP
 eeQ
 dLP
 dLP
 dLP
-dLP
+jvu
 tMp
 mLU
 mLU
@@ -63802,7 +63826,7 @@ owr
 sKJ
 sKJ
 eeQ
-dLP
+jvu
 xer
 qgN
 qgN
@@ -68643,7 +68667,7 @@ kgp
 kgp
 kgp
 kgp
-ccn
+ilm
 vTk
 vTk
 vTk
