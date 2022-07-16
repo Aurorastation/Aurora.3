@@ -352,7 +352,7 @@
 
 /obj/item/clothing/accessory/flagpatch/eridani
 	name = "eridani corporate federation flagpatch"
-	desc = "A flagpatch representing the Eridani Corporate Federation. These patches are often incredibly and usually overly resistant to corrosion as a consequence of the toxic atmosphere, \
+	desc = "A flagpatch representing the Eridani Corporate Federation. These patches are often resistant to corrosion as a consequence of the toxic atmosphere, \
 	not that this has stopped resourceful dregs from desecrating those they can get their hands on."
 	icon_state = "flagpatch_eridani"
 	item_state = "flagpatch_eridani"
@@ -462,7 +462,7 @@
 
 /obj/item/clothing/accessory/flagpatch/jargon
 	name = "jargon flagpatch"
-	desc = "A flagpatch represeting the Jargon Federation. The free use of these patches is a contentuous issue back home as \
+	desc = "A flagpatch representing the Jargon Federation. The free use of these patches is a contentious issue back home as \
 	there is a fear that their wearers may misrepresent the nation."
 	icon_state = "flagpatch_jargon"
 	item_state = "flagpatch_jargon"
