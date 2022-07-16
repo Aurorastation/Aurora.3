@@ -94,11 +94,11 @@
 
 	. = ..()
 
-/obj/structure/barricade/metal/wired/New()
+/obj/structure/barricade/metal/wired/Initialize(mapload, mob/user)
+	. = ..()
 	maxhealth += 50
 	update_health(-50)
 	can_wire = FALSE
 	is_wired = TRUE
 	climbable = FALSE
 	update_icon()
-	. = ..()

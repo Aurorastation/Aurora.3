@@ -226,6 +226,10 @@
 		set_dir(WEST)
 	update_icon()
 
+/obj/structure/barricade/set_dir(ndir)
+	. = ..()
+	update_icon()
+
 /obj/structure/barricade/proc/hit_barricade(var/obj/item/I, var/mob/user)
 	if(!isliving(user))
 		return
