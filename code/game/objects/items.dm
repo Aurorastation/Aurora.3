@@ -65,6 +65,7 @@
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
 	var/item_state_slots //overrides the default item_state for particular slots.
 
+	var/base_icon // used in furniture for previews. used in material weapons too.
 	var/build_from_parts = FALSE // when it uses coloration and a part of it wants to remain uncolored. e.g., handle of the screwdriver is colored while the head is not.
 	var/worn_overlay = null // used similarly as above, except for inhands.
 	var/worn_overlay_color = null // When you want your worn overlay to have colors. So you can have more than one modular coloring.

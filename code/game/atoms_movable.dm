@@ -374,6 +374,10 @@
 		return
 	var/image/pickup_animation = image(icon, loc, icon_state, layer + 0.1, dir, pixel_x, pixel_y)
 	pickup_animation.color = color
+	if(isitem(src))
+		var/obj/item/I = src
+		I.update_icon()
+		pickup_animation.overlays = I.overlays
 	pickup_animation.transform.Scale(0.75)
 	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 
