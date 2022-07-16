@@ -344,7 +344,7 @@
 	item_state = "flagpatch_mars"
 
 /obj/item/clothing/accessory/flagpatch/gus
-	name = "/improper GUS! flagpatch"
+	name = "\improper GUS! flagpatch"
 	desc = "A flagpatch with the face of Gus Maldarth, a famous Martian whistleblower who exposed the Solarian government abuses in the \
 	phoron crisis. After his assassination, 'Justice for Gus!' became a rallying cry for anti-Sol protests on the red planet."
 	icon_state = "flagpatch_gus"
