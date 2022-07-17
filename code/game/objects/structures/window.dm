@@ -762,10 +762,10 @@
 	base_frame = /obj/structure/window_frame
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
-		/turf/simulated/wall,
-		/turf/simulated/wall/r_wall,
 		/obj/structure/window/full/reinforced,
+		/obj/structure/window/full/reinforced/indestructible,
 		/obj/structure/window/full/reinforced/polarized,
+		/obj/structure/window/full/reinforced/polarized/indestructible,
 		/obj/structure/window/full/phoron/reinforced
 	)
 

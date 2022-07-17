@@ -7,7 +7,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/industrial(src)
 	else
-		new /obj/item/storage/backpack/satchel_eng(src)
+		new /obj/item/storage/backpack/satchel/eng(src)
 	new /obj/item/storage/backpack/duffel/eng(src)
 	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/blueprints(src)
@@ -40,7 +40,7 @@
 
 /obj/structure/closet/secure_closet/engineering_chief2/fill()
 	new /obj/item/storage/backpack/industrial(src)
-	new /obj/item/storage/backpack/satchel_eng(src)
+	new /obj/item/storage/backpack/satchel/eng(src)
 	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/clothing/accessory/storage/webbing(src)
 	new /obj/item/clothing/under/rank/chief_engineer(src)
@@ -96,7 +96,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/industrial(src)
 	else
-		new /obj/item/storage/backpack/satchel_eng(src)
+		new /obj/item/storage/backpack/satchel/eng(src)
 	new /obj/item/storage/backpack/duffel/eng(src)
 	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/storage/toolbox/mechanical(src)
@@ -117,7 +117,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/industrial(src)
 	else
-		new /obj/item/storage/backpack/satchel_eng(src)
+		new /obj/item/storage/backpack/satchel/eng(src)
 	new /obj/item/storage/backpack/duffel/eng(src)
 	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/clothing/suit/fire/atmos(src)
@@ -131,4 +131,5 @@
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/engineer(src)
+	new /obj/item/reagent_containers/extinguisher_refill(src)
 	new /obj/item/rfd/piping(src)

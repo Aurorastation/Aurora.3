@@ -162,9 +162,9 @@
 		icon_state = "secgunauto-e"
 
 /obj/item/gun/projectile/tanto
-	desc = "A crude-looking open-bolt machine pistol manufactured by a multitude of arms companies, or in some cases, particularly handy individuals. \
-    Owing to their low cost and relative effectiveness, weapons like these are very common all across the Spur, from the tunnels of Oran to fringe colonies along the frontier. \
-    This pistol is made almost entirely from sheet metal and has cloth wrappings around the grip for shooter comfort."
+	desc = "An automatic variant of the NanoTrasen Mk1 Everyman handgun that has been built to accept detachable magazines, negating one of the original \
+	weapon's biggest shortcomings. It is marketed towards lower-echelon security companies as a machine pistol named the Tanto, and features a burst-fire selector \
+	and sturdier barrel with heatshield to better take advantage of the higher capacity."
 	name = "10mm auto-pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"

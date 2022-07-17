@@ -99,7 +99,7 @@
 	item_state = "softcap_hydro"
 
 /obj/item/clothing/head/softcap/cargo
-	name = "cargo softcap"
+	name = "operations softcap"
 	desc = "It's a peaked cap in a dusty yellow and black."
 	icon_state = "softcap_cargo"
 	item_state = "softcap_cargo"
