@@ -372,7 +372,7 @@
 /atom/movable/proc/do_pickup_animation(atom/target)
 	if(!isturf(loc))
 		return
-	var/image/pickup_animation = image(icon, loc, icon_state, layer + 0.1, dir, pixel_x, pixel_y)
+	var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y)
 	pickup_animation.color = color
 	if(isitem(src))
 		var/obj/item/I = src
