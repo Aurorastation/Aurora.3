@@ -300,7 +300,7 @@
 /area/exoplanet/barren/asteroid)
 "HN" = (
 /obj/machinery/door/airlock/external,
-/turf/simulated/wall/shuttle/raider,
+/turf/simulated/floor/plating/asteroid,
 /area/exoplanet/barren/asteroid)
 "Ik" = (
 /obj/item/pipe{

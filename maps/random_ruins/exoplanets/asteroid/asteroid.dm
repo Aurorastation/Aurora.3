@@ -44,4 +44,4 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	suffix = "asteroid/crashed_shuttle_01.dmm"
 
-	ruin_tags = RUIN_HUMAN
+	ruin_tags = RUIN_WRECK
