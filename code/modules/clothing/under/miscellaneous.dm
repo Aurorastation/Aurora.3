@@ -51,7 +51,7 @@
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Captain.\""
 	name = "officer's dress uniform"
 	icon_state = "officer"
-	item_state = "lawyer_black"
+	item_state = "bl_suit"
 	worn_state = "officer"
 	displays_id = 0
 
@@ -59,7 +59,7 @@
 	name = "officer's dress uniform"
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral.\""
 	icon_state = "officer"
-	item_state = "lawyer_black"
+	item_state = "bl_suit"
 	worn_state = "officer"
 	displays_id = 0
 
@@ -67,7 +67,7 @@
 	name = "officer's dress uniform"
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral-Executive.\""
 	icon_state = "centcom"
-	item_state = "lawyer_black"
+	item_state = "bl_suit"
 	worn_state = "centcom"
 	displays_id = 0
 
@@ -112,7 +112,7 @@
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Commander.\ It has a patch denoting a Pheonix on the sleeves."
 	name = "\improper ERT commander's dress uniform"
 	icon_state = "centcom"
-	item_state = "lawyer_black"
+	item_state = "bl_suit"
 	worn_state = "centcom"
 
 /obj/item/clothing/under/space
