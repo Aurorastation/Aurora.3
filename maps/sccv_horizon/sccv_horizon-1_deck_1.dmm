@@ -50,7 +50,7 @@
 /area/hangar/control)
 "acw" = (
 /obj/structure/flora/ausbushes/brflowers,
-/obj/structure/largecrate/animal/cow,
+/mob/living/simple_animal/cow,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "acY" = (
@@ -8600,6 +8600,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
+/obj/item/reagent_containers/extinguisher_refill/filled,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "gKG" = (
@@ -17629,6 +17630,7 @@
 /area/maintenance/operations)
 "olu" = (
 /obj/structure/flora/ausbushes/reedbush,
+/mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
 "oma" = (

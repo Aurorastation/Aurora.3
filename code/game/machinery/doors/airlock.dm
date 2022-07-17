@@ -1193,7 +1193,7 @@ About the new airlock wires panel:
 			else
 				electrify(30 * activate, 1)
 		if("electrify_permanently")
-			if(!isAdmin && issilicon(usr) && !antag)
+			if(!isAdmin && issilicon(usr) && !antag && (electrified_until == 0))
 				to_chat(usr, SPAN_WARNING("Your programming prevents you from electrifying the door."))
 			else
 				electrify(-1 * activate, 1)

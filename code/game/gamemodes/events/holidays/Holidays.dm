@@ -92,6 +92,7 @@ var/global/Holiday = null
 
 		if(8)	//Aug
 			switch(DD)
+				if(1)							Holiday = "Himean Independence Day"
 				if(27)							Holiday = "Vaurca Hive War Commemoration"
 
 		if(9)	//Sep

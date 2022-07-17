@@ -218,9 +218,9 @@
 /area/rnd/xenobiology)
 "afA" = (
 /obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/structure/grille/diagonal,
+/turf/simulated/floor/reinforced,
 /area/horizon/kitchen/hallway)
 "agG" = (
 /obj/structure/shuttle_part/scc_space_ship{
@@ -2375,6 +2375,12 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -4156,6 +4162,8 @@
 "caB" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/heavy,
+/obj/item/reagent_containers/extinguisher_refill/filled,
+/obj/item/reagent_containers/extinguisher_refill/filled,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "ccl" = (
@@ -5133,8 +5141,8 @@
 	pixel_y = 4
 	},
 /obj/machinery/alarm{
-	pixel_x = -28;
-	dir = 4
+	dir = 4;
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
@@ -11398,8 +11406,8 @@
 	dir = 4
 	},
 /obj/machinery/door/window/brigdoor/southright{
-	req_access = list(56);
-	name = "Ginny's Cage Access"
+	name = "Ginny's Cage Access";
+	req_access = list(56)
 	},
 /mob/living/simple_animal/carp/fluff/ginny,
 /obj/machinery/light{
@@ -14812,8 +14820,9 @@
 "hUB" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/smartfridge/secure/medbay{
+	density = 0;
 	pixel_y = 16;
-	density = 0
+	req_one_access = list(5,33,47)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
@@ -15299,6 +15308,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
+"ilm" = (
+/obj/structure/grille/diagonal{
+	dir = 1
+	},
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/reinforced,
+/area/horizon/kitchen/freezer)
 "ily" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
@@ -16613,11 +16630,6 @@
 	c_tag = "AI Core - Upload";
 	dir = 1
 	},
-/obj/machinery/power/apc{
-	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24
-	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
@@ -16627,6 +16639,9 @@
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
+	},
+/obj/machinery/power/apc/critical{
+	pixel_y = -24
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
@@ -17473,6 +17488,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai)
+"jvu" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/structure/grille/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/horizon/crew_quarters/lounge/bar)
 "jvI" = (
 /obj/effect/landmark{
 	name = "Observer-Start"
@@ -18665,6 +18688,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig/processing_secondary)
+"keG" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/structure/grille/diagonal{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/horizon/crew_quarters/lounge/bar)
 "kfE" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -20553,9 +20584,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/hologram/holopad,
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "lng" = (
@@ -31813,10 +31841,10 @@
 	dir = 8
 	},
 /obj/machinery/button/switch/windowtint{
+	id = "ce";
 	pixel_x = -26;
 	pixel_y = -20;
-	range = 9;
-	id = "ce"
+	range = 9
 	},
 /obj/machinery/button/remote/airlock{
 	id = "CEdoor";
@@ -34196,12 +34224,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "sHR" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/cable/green{
@@ -34211,6 +34233,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
+	},
+/obj/machinery/power/apc/critical{
+	pixel_y = 24;
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
@@ -34982,9 +35008,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
@@ -38863,8 +38886,8 @@
 	dir = 8
 	},
 /obj/machinery/smartfridge/chemistry{
-	pixel_y = 16;
-	density = 0
+	density = 0;
+	pixel_y = 16
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
@@ -40051,9 +40074,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
@@ -43576,16 +43596,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /obj/structure/window/borosilicate/reinforced/skrell,
+/obj/machinery/power/apc/critical{
+	pixel_y = 24;
+	dir = 1
+	},
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "xxy" = (
@@ -61774,14 +61792,14 @@ lNQ
 ekX
 mLU
 tqC
-dLP
+keG
 dLP
 dLP
 eeQ
 dLP
 dLP
 dLP
-dLP
+jvu
 tMp
 mLU
 mLU
@@ -63808,7 +63826,7 @@ owr
 sKJ
 sKJ
 eeQ
-dLP
+jvu
 xer
 qgN
 qgN
@@ -68649,7 +68667,7 @@ kgp
 kgp
 kgp
 kgp
-ccn
+ilm
 vTk
 vTk
 vTk

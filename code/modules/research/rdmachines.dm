@@ -29,4 +29,6 @@
 			return /obj/item/stack/material/uranium
 		if("diamond")
 			return /obj/item/stack/material/diamond
+		if("plasteel")
+			return /obj/item/stack/material/plasteel
 	return null

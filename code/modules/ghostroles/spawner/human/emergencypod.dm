@@ -68,7 +68,7 @@
 		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_UNATHI)
 
 /datum/ghostspawner/human/rescuepodsurv/select_spawnlocation(var/use=TRUE)
-	var/list/possible_areas = list(/area/exoplanet/barren/asteroid) 
+	var/list/possible_areas = list(/area/exoplanet/barren/asteroid)
 	var/turf/T = pick_area_turf(pick(possible_areas))
 	if(!use) //If we are just checking if we can get one, return the turf we found
 		return T
@@ -105,6 +105,9 @@
 	new /obj/item/pickaxe/drill(H.loc)
 	new /obj/item/device/gps(H.loc)
 	new /obj/item/device/flashlight/flare/mech(H.loc) // spawns an active flare
+	new /obj/item/clothing/suit/space/emergency(H.loc)        // weak softsuit, so if for whatever reason 
+	new /obj/item/clothing/head/helmet/space/emergency(H.loc) // the survivor spawns with no EVA gear,
+	new /obj/item/tank/emergency_oxygen/double(H.loc)         // they can use this, and not just die in space
 
 /datum/outfit/admin/pod/star
 	name = "RescuePod - Star"
@@ -288,7 +291,7 @@
 	uniform = /obj/item/clothing/under/rank/sol/
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/storage/belt/military
-	back = /obj/item/storage/backpack/satchel_norm
+	back = /obj/item/storage/backpack/satchel/norm
 	head = /obj/item/clothing/head/helmet/space/void/sol
 	suit = /obj/item/clothing/suit/space/void/sol
 	suit_store = /obj/item/tank/oxygen

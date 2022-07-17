@@ -59,7 +59,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/engineering/ce
 
 	backpack = /obj/item/storage/backpack/industrial
-	satchel = /obj/item/storage/backpack/satchel_eng
+	satchel = /obj/item/storage/backpack/satchel/eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
@@ -118,7 +118,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/engineering
 
 	backpack = /obj/item/storage/backpack/industrial
-	satchel = /obj/item/storage/backpack/satchel_eng
+	satchel = /obj/item/storage/backpack/satchel/eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
@@ -170,7 +170,7 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/eng
 
 	backpack = /obj/item/storage/backpack/industrial
-	satchel = /obj/item/storage/backpack/satchel_eng
+	satchel = /obj/item/storage/backpack/satchel/eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
@@ -234,7 +234,7 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/eng
 
 	backpack = /obj/item/storage/backpack/industrial
-	satchel = /obj/item/storage/backpack/satchel_eng
+	satchel = /obj/item/storage/backpack/satchel/eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
