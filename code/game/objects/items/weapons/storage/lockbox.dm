@@ -5,7 +5,8 @@
 	desc = "A locked box."
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "lockbox+l"
-	item_state = "lockbox"
+	item_state = "lockbox+l"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE
 	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 14 //The sum of the w_classes of all the items in this storage item.
@@ -26,10 +27,12 @@
 			src.locked = !( src.locked )
 			if(src.locked)
 				src.icon_state = src.icon_locked
+				item_state = icon_state
 				to_chat(user, "<span class='notice'>You lock \the [src]!</span>")
 				return
 			else
 				src.icon_state = src.icon_closed
+				item_state = icon_state
 				to_chat(user, "<span class='notice'>You unlock \the [src]!</span>")
 				return
 		else
@@ -68,6 +71,7 @@
 		locked = 0
 		desc = "It appears to be broken."
 		icon_state = src.icon_broken
+		item_state = icon_state
 		visible_message(visual_feedback, audible_feedback)
 		return 1
 
