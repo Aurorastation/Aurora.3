@@ -41,4 +41,4 @@ changes:
   - tweak: "Pocketbook and Satchel onmob sprites have been tweaked. Pocketbook has unique onmobs now."
   - bugfix: "Pocketbook and satchel onmob worn overlays should display properly when worn on the back slot."
   - imageadd: "Syndicate satchels have inhands now."
-  - bugfix: "Fixes lockbox inhands.
+  - bugfix: "Fixes lockbox inhands."
