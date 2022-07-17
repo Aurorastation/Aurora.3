@@ -209,3 +209,9 @@
 	desc = "This set of earmuffs has a secret compartment housing radio gear, allowing it to function as a standard headset."
 	item_cost = 1
 	path = /obj/item/device/radio/headset/earmuff
+
+/datum/uplink_item/item/tools/liquidbags
+	name = "25 Liquid-Bags"
+	desc = "Use these bags to set up some barricades. Does not come with barbed wire included."
+	item_cost = 2
+	path = /obj/item/stack/liquidbags

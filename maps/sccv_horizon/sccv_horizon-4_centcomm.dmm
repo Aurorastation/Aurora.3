@@ -7718,9 +7718,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "merchant_airlock";
 	name = "external airlock shutter";
+	pixel_x = -7;
 	pixel_y = 35;
-	req_access = null;
-	pixel_x = -7
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
@@ -7828,16 +7828,16 @@
 /obj/machinery/button/remote/blast_door{
 	id = "merchant_windows";
 	name = "viewing shutters";
+	pixel_x = -7;
 	pixel_y = 25;
-	req_access = null;
-	pixel_x = -7
+	req_access = null
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "merchant_airlock";
 	name = "external airlock shutter";
+	pixel_x = -7;
 	pixel_y = 35;
-	req_access = null;
-	pixel_x = -7
+	req_access = null
 	},
 /turf/simulated/floor/wood,
 /area/shuttle/merchant)
@@ -8592,10 +8592,10 @@
 /obj/structure/table/reinforced,
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
-	pixel_y = -1;
-	pixel_x = -6;
+	id = "merchant_bridge";
 	name = "bridge window shutters";
-	id = "merchant_bridge"
+	pixel_x = -6;
+	pixel_y = -1
 	},
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant)
@@ -9093,9 +9093,9 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
+	dir = 8;
 	id = "merchant_bridge";
-	name = "viewing shutter";
-	dir = 8
+	name = "viewing shutter"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
@@ -11000,9 +11000,9 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
+	dir = 2;
 	id = "merchant_bridge";
-	name = "viewing shutter";
-	dir = 2
+	name = "viewing shutter"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
@@ -26208,6 +26208,7 @@
 	pixel_y = 2
 	},
 /obj/item/device/megaphone/red,
+/obj/item/stack/material/steel/full,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjH" = (
@@ -26252,6 +26253,7 @@
 	},
 /obj/item/crowbar,
 /obj/item/crowbar,
+/obj/item/stack/liquidbags/half_full,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjL" = (
@@ -32474,6 +32476,7 @@
 	pixel_x = -15;
 	pixel_y = 1
 	},
+/obj/item/stack/liquidbags/half_full,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "byw" = (
@@ -33752,6 +33755,7 @@
 /obj/structure/table/rack,
 /obj/random/melee,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/stack/material/steel/full,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "bCv" = (
@@ -36640,9 +36644,9 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
+	dir = 2;
 	id = "merchant_bridge";
-	name = "viewing shutter";
-	dir = 2
+	name = "viewing shutter"
 	},
 /obj/structure/grille/diagonal{
 	dir = 1
@@ -37010,9 +37014,9 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
+	dir = 2;
 	id = "merchant_bridge";
-	name = "viewing shutter";
-	dir = 2
+	name = "viewing shutter"
 	},
 /obj/structure/grille/diagonal{
 	dir = 4

@@ -2282,7 +2282,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "ee" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
@@ -18271,7 +18270,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "HP" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -19753,7 +19751,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "Kr" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green,
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
 	id = "cap"
@@ -27385,7 +27382,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "Yk" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
