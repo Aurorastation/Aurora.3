@@ -53,8 +53,8 @@
 	magazine_type = /obj/item/ammo_magazine/a454
 
 /obj/item/gun/projectile/revolver/detective
-	name = "revolver"
-	desc = "A cheap Martian knock-off of a Smith & Wesson Model 10. Uses .38-Special rounds."
+	name = "antique revolver"
+	desc = "An old, obsolete revolver. It has no identifying marks. Chambered in the antiquated .38 caliber. Maybe the Tajara made it?"
 	icon = 'icons/obj/guns/detective.dmi'
 	icon_state = "detective"
 	item_state = "detective"
