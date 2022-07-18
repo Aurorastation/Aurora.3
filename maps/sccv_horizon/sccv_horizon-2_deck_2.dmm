@@ -98,10 +98,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/status_display{
-	layer = 4;
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled,
 /area/security/main)
 "abA" = (
@@ -222,9 +218,9 @@
 /area/rnd/xenobiology)
 "afA" = (
 /obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/structure/grille/diagonal,
+/turf/simulated/floor/reinforced,
 /area/horizon/kitchen/hallway)
 "agG" = (
 /obj/structure/shuttle_part/scc_space_ship{
@@ -2379,6 +2375,12 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -2890,9 +2892,6 @@
 /obj/machinery/door/airlock/glass_service{
 	name = "Bar - Preparations";
 	req_access = list(25)
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/bar)
@@ -4163,6 +4162,8 @@
 "caB" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/heavy,
+/obj/item/reagent_containers/extinguisher_refill/filled,
+/obj/item/reagent_containers/extinguisher_refill/filled,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "ccl" = (
@@ -4393,9 +4394,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "cjD" = (
@@ -5712,9 +5710,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "dcT" = (
@@ -6109,9 +6104,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "dlR" = (
@@ -8328,7 +8320,6 @@
 	name = "Mech Bay and Recharging Station";
 	req_one_access = list(29,47)
 	},
-/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "eBj" = (
@@ -10355,9 +10346,6 @@
 	req_one_access = list(10)
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
 "fKe" = (
@@ -12358,9 +12346,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/bar)
 "gDR" = (
@@ -12443,9 +12428,6 @@
 	name = "Operations Bay";
 	req_access = null;
 	req_one_access = list(26,31,48,67)
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
@@ -13497,9 +13479,6 @@
 	name = "Engineering Hallway";
 	req_access = list(10)
 	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
 "hjT" = (
@@ -13553,9 +13532,6 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "hmK" = (
@@ -14845,7 +14821,8 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/smartfridge/secure/medbay{
 	density = 0;
-	pixel_y = 16
+	pixel_y = 16;
+	req_one_access = list(5,33,47)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
@@ -15223,9 +15200,6 @@
 	name = "Engineering Monitoring Room";
 	req_one_access = list(10)
 	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
 "ijp" = (
@@ -15334,6 +15308,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
+"ilm" = (
+/obj/structure/grille/diagonal{
+	dir = 1
+	},
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/reinforced,
+/area/horizon/kitchen/freezer)
 "ily" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
@@ -15502,9 +15484,6 @@
 	name = "Operations Bay";
 	req_access = null;
 	req_one_access = list(26,31,48,67)
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
@@ -15995,9 +15974,6 @@
 	req_one_access = list(10)
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
 "iIx" = (
@@ -16058,9 +16034,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "iJx" = (
@@ -16157,9 +16130,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
-	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
 "iLD" = (
@@ -16660,11 +16630,6 @@
 	c_tag = "AI Core - Upload";
 	dir = 1
 	},
-/obj/machinery/power/apc{
-	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24
-	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
@@ -16674,6 +16639,9 @@
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
+	},
+/obj/machinery/power/apc/critical{
+	pixel_y = -24
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
@@ -17520,6 +17488,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai)
+"jvu" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/structure/grille/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/horizon/crew_quarters/lounge/bar)
 "jvI" = (
 /obj/effect/landmark{
 	name = "Observer-Start"
@@ -17950,7 +17926,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "jHX" = (
@@ -18522,7 +18497,6 @@
 	req_access = list(63)
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "jZB" = (
@@ -18714,6 +18688,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig/processing_secondary)
+"keG" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/structure/grille/diagonal{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/horizon/crew_quarters/lounge/bar)
 "kfE" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -19007,9 +18989,6 @@
 /obj/machinery/door/airlock/mining{
 	name = "Washroom and Showers";
 	req_one_access = list(26,31,48,67)
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
@@ -19840,9 +19819,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "kRA" = (
@@ -20608,9 +20584,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/hologram/holopad,
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "lng" = (
@@ -21490,9 +21463,6 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
 	req_access = list(10)
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
@@ -25292,9 +25262,6 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
 	req_access = list(10)
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
@@ -29416,9 +29383,6 @@
 	name = "Engineering Monitoring Room";
 	req_one_access = list(10)
 	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "qao" = (
@@ -29807,9 +29771,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "qlX" = (
@@ -30811,9 +30772,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "qPo" = (
@@ -31295,9 +31253,6 @@
 	req_access = list(28)
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/door_helper/unres{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/kitchen)
 "raA" = (
@@ -34269,12 +34224,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "sHR" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/cable/green{
@@ -34284,6 +34233,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
+	},
+/obj/machinery/power/apc/critical{
+	pixel_y = 24;
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
@@ -34360,6 +34313,18 @@
 "sKo" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hydroponics)
+"sKz" = (
+/obj/structure/closet/secure_closet/security,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/security/main)
 "sKE" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
@@ -35043,9 +35008,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
@@ -36010,7 +35972,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "tHd" = (
@@ -36149,9 +36110,6 @@
 /obj/machinery/door/airlock/glass_research{
 	name = "Research and Development";
 	req_access = list(7)
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
@@ -36715,17 +36673,6 @@
 	req_access = list(35)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/horizon/hydroponics)
-"uas" = (
-/obj/machinery/door/airlock/glass_service{
-	name = "Hydroponics";
-	req_access = list(35)
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/map_effect/door_helper/unres{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "uaM" = (
@@ -38222,9 +38169,6 @@
 	name = "Exploratory Chemistry";
 	req_access = list(7)
 	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "uKJ" = (
@@ -39460,9 +39404,6 @@
 	req_access = list(50)
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "vxK" = (
@@ -40133,9 +40074,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
@@ -42191,9 +42129,6 @@
 	name = "Mail Sorting";
 	req_access = list(50)
 	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "wLg" = (
@@ -42213,9 +42148,6 @@
 /obj/machinery/door/airlock/glass_research{
 	name = "Research and Development";
 	req_access = list(7)
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
@@ -43073,9 +43005,6 @@
 	name = "Engineering Hallway";
 	req_access = list(10)
 	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
 "xfq" = (
@@ -43667,16 +43596,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /obj/structure/window/borosilicate/reinforced/skrell,
+/obj/machinery/power/apc/critical{
+	pixel_y = 24;
+	dir = 1
+	},
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
 "xxy" = (
@@ -61865,14 +61792,14 @@ lNQ
 ekX
 mLU
 tqC
-dLP
+keG
 dLP
 dLP
 eeQ
 dLP
 dLP
 dLP
-dLP
+jvu
 tMp
 mLU
 mLU
@@ -63899,7 +63826,7 @@ owr
 sKJ
 sKJ
 eeQ
-dLP
+jvu
 xer
 qgN
 qgN
@@ -65701,7 +65628,7 @@ vCa
 dvw
 dvw
 tje
-uas
+tZR
 fdZ
 fdZ
 dvw
@@ -68740,7 +68667,7 @@ kgp
 kgp
 kgp
 kgp
-ccn
+ilm
 vTk
 vTk
 vTk
@@ -73157,7 +73084,7 @@ kaT
 oVe
 uXV
 ifU
-rkZ
+sKz
 oTr
 gem
 nCg
