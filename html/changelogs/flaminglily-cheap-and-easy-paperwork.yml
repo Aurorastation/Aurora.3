@@ -38,4 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a crate contents scanner, used to quickly and easily generate a paper showing the contents of any scanned (unlocked) crate.
+  - rscadd: "Added a crate contents scanner, used to quickly and easily generate a paper showing the contents of any scanned (unlocked) crate."
+  - maptweak: "Shifted the table in the warehouse over slightly, and made it bigger."
