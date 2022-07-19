@@ -771,7 +771,11 @@
 	name = "crate contents scanner"
 	desc = "A  handheld device used to scan and print a manifest of a container's contents. Does not work on locked crates, for privacy reasons."
 	icon_state = "cratescanner"
-	item_state = "cratescanner"
+	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
+	w_class = ITEMSIZE_SMALL
+	item_state = "electronic"
+	flags = CONDUCT
+	slot_flags = SLOT_BELT
 
 /obj/item/device/cratescanner/proc/print_contents(targetname, targetcontents, targetloc)
 	var/output = list()
