@@ -22,7 +22,12 @@
 	pixel_y = 2
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "co" = (
 /obj/item/pipe{
@@ -31,7 +36,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/plushie,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "dF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -63,7 +68,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "gj" = (
 /obj/item/spacecash/c10,
@@ -93,7 +103,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "kU" = (
 /obj/machinery/atmospherics/unary/engine{
@@ -108,7 +118,12 @@
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "lv" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
@@ -139,7 +154,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/gift,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "qI" = (
 /obj/effect/decal/cleanable/dirt,
@@ -149,7 +169,12 @@
 	dir = 1
 	},
 /obj/random/powercell,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "rE" = (
 /turf/unsimulated/mineral/asteroid,
@@ -170,7 +195,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/coin,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "vo" = (
 /obj/effect/decal/cleanable/dirt,
@@ -184,7 +209,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/spacecash/c100,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "vS" = (
 /mob/living/simple_animal/hostile/gnat,
@@ -203,7 +228,12 @@
 	pixel_y = 6
 	},
 /obj/item/ammo_magazine/c45m,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "xS" = (
 /obj/effect/decal/cleanable/dirt,
@@ -219,7 +249,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "AN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -229,7 +264,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/random/gift,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "Bu" = (
 /obj/effect/decal/cleanable/dirt,
@@ -237,7 +277,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "Du" = (
 /obj/effect/decal/cleanable/dirt,
@@ -247,7 +292,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "Dx" = (
 /obj/effect/decal/cleanable/dirt,
@@ -259,7 +309,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/spacecash/c10,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "Dz" = (
 /obj/item/material/shard,
@@ -271,7 +326,12 @@
 /obj/item/modular_computer/console,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "FF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -284,7 +344,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/spacecash/c100,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "Hr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -296,11 +356,16 @@
 	dir = 8
 	},
 /obj/item/storage/field_ration,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "HN" = (
 /obj/machinery/door/airlock/external,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "Ik" = (
 /obj/item/pipe{
@@ -310,7 +375,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/gun/energy/plasmacutter,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "Io" = (
 /obj/effect/decal/cleanable/dirt,
@@ -319,7 +389,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/shovel/gadpathur,
 /obj/item/spacecash/c10,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "Is" = (
 /obj/effect/decal/cleanable/dirt,
@@ -351,7 +426,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "KH" = (
 /obj/effect/decal/cleanable/dirt,
@@ -360,7 +435,12 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "Lr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -368,7 +448,12 @@
 	dir = 1
 	},
 /obj/random/junk,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "LE" = (
 /obj/effect/decal/cleanable/dirt,
@@ -383,7 +468,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/field_ration,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "OW" = (
 /obj/item/spacecash/c1,
@@ -396,7 +486,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "QR" = (
 /obj/item/pipe{
@@ -409,27 +499,47 @@
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/gnat,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "RS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 2965.70
 	},
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "So" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/coin,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "SG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/tan,
+/turf/simulated/floor/airless/ceiling{
+	icon = 'icons/turf/shuttle.dmi';
+	initial_flooring = /decl/flooring/shuttle/tan;
+	icon_state = "floor8";
+	base_desc = "Wow, floor."
+	},
 /area/exoplanet/barren/asteroid)
 "SP" = (
 /obj/item/clothing/head/helmet/space/santahat,
@@ -444,7 +554,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_magazine/c45,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "TG" = (
 /obj/effect/decal/cleanable/dirt,
@@ -460,7 +570,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "VE" = (
 /obj/effect/decal/cleanable/dirt,
@@ -470,7 +580,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/random/coin,
 /obj/item/spacecash/c10,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "YL" = (
 /obj/effect/decal/cleanable/dirt,
