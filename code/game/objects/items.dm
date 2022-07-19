@@ -1040,3 +1040,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/can_swap_hands(var/mob/user)
 	return TRUE
+
+/obj/item/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
+	if(!isturf(loc))
+		return
+	pickup_animation.overlays = overlays
+	. = ..()
