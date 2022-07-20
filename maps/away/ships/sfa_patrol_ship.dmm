@@ -1230,8 +1230,6 @@
 "iQt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/sol,
-/obj/item/clothing/head/helmet/space/void/sol,
 /obj/item/clothing/shoes/magboots,
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -1577,8 +1575,6 @@
 "lwj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/sol,
-/obj/item/clothing/head/helmet/space/void/sol,
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/jetpack/carbondioxide,
 /turf/simulated/floor/tiled/dark,
@@ -2429,8 +2425,6 @@
 "vfY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/sol,
-/obj/item/clothing/head/helmet/space/void/sol,
 /obj/item/clothing/shoes/magboots,
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/light{
@@ -2506,10 +2500,10 @@
 	req_access = list(203)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/gun/projectile/automatic/c20r/sol,
-/obj/item/gun/projectile/automatic/c20r/sol,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/beanbags,
+/obj/item/storage/box/flashshells,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "vCD" = (
