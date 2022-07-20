@@ -5,7 +5,7 @@
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless/ceiling,
 /area/exoplanet/barren/asteroid)
 "aL" = (
 /obj/effect/decal/cleanable/dirt,
@@ -31,12 +31,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/plushie,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "dh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "dF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -98,7 +98,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "kU" = (
 /obj/machinery/atmospherics/unary/engine{
@@ -119,7 +119,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "lA" = (
 /obj/item/material/shard{
@@ -175,7 +175,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/coin,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "vo" = (
 /obj/effect/decal/cleanable/dirt,
@@ -189,7 +189,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/spacecash/c100,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "vS" = (
 /mob/living/simple_animal/hostile/gnat,
@@ -289,7 +289,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/spacecash/c100,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "Hr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -305,7 +305,7 @@
 /area/exoplanet/barren/asteroid)
 "HN" = (
 /obj/machinery/door/airlock/external,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "Ik" = (
 /obj/item/pipe{
@@ -356,7 +356,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "KH" = (
 /obj/effect/decal/cleanable/dirt,
@@ -401,7 +401,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless/ceiling,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "QR" = (
 /obj/item/pipe{
@@ -449,7 +449,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_magazine/c45,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "TG" = (
 /obj/effect/decal/cleanable/dirt,
@@ -465,7 +465,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "VE" = (
 /obj/effect/decal/cleanable/dirt,
@@ -475,7 +475,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/random/coin,
 /obj/item/spacecash/c10,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "YL" = (
 /obj/effect/decal/cleanable/dirt,
@@ -486,7 +486,7 @@
 "Zf" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating/asteroid,
+/turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 
 (1,1,1) = {"
