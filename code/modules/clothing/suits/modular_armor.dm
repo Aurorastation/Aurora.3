@@ -161,14 +161,14 @@
 	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/armor_plate/military
-	name = "military armor plate"
-	desc = "A heavy military armor plate. Worn by Solarian fanatics everywhere since the 2100s."
+	name = "sol army armor plate"
+	desc = "A heavy military armor plate. Standard-issue to the oft-forgotten Solarian Army."
 	icon_state = "plate_military"
 	item_state = "plate_military"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_RIFLE,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
@@ -264,8 +264,8 @@
 	)
 
 /obj/item/clothing/head/helmet/military
-	name = "military helmet"
-	desc = "A helmet in drab olive. Used by Solarian fanatics since the 2100s. You really had to pick the least original kit, didn't you?"
+	name = "sol army helmet"
+	desc = "A helmet in drab olive. Standard-issue to the oft-forgotten Solarian Army. Comes with a fancy military HUDglass."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_military"
@@ -273,7 +273,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_REVOLVER,
-		laser = ARMOR_LASER_RIFLE,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
