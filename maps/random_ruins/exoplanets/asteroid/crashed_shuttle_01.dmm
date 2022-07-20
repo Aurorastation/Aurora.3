@@ -242,11 +242,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle/tan{
-	nitrogen = 0;
-	oxygen = 0;
-	initial_flooring = /decl/flooring/shuttle/tan/airless
-	},
+/turf/simulated/floor/tiled/white/airless,
 /area/exoplanet/barren/asteroid)
 "Du" = (
 /obj/effect/decal/cleanable/dirt,
