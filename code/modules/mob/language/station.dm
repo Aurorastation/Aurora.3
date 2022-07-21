@@ -303,6 +303,10 @@
 	"xiao", "xing", "xiong", "xiu", "xu", "xuan", "xue", "ya", "yan", "yang", "yeong", "yi", "yige", "yin", "ying", "yiqi", "yong", "you", "yu", "yuli", "yuyi", "zai", "zao", "zhan", "zhang", "zhe", "zhen", "zheng", "zhuo", "zi", "zo",
 	"zu", "zun", "zuo")
 	allow_accents = TRUE
+	possible_dialects = list(
+		/decl/dialect/sol_earth,
+		/decl/dialect/sol_morozi
+	)
 
 /datum/language/human/get_random_name(var/gender)
 	if (prob(80))

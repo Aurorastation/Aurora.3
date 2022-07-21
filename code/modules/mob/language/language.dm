@@ -8,6 +8,7 @@
 	var/name = "an unknown language"  // Fluff name of language if any.
 	var/short                         // a shortened name, for use when languages need to be identified
 	var/desc = "A language."          // Short description for 'Check Languages'.
+	var/list/possible_dialects = list()        // Dialects.
 	var/list/speech_verb = list("says")          // 'says', 'hisses', 'farts'.)
 	var/list/ask_verb = list("asks")  // Used when sentence ends in a ?
 	var/list/exclaim_verb = list("exclaims") // Used when sentence ends in a !
