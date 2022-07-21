@@ -82,7 +82,7 @@
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_intrepid)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_intrepid)
-	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher")
+	alt_titles = list("Xenoarcheologist", "Anomalist")
 
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/scientist
