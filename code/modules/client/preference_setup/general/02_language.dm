@@ -59,6 +59,11 @@
 		// Nothing to validate. Leave.
 		return
 
+	if(!islist(pref.dialects))
+		pref.dialects = list()
+		// Nothing to validate. Leave.
+		return
+
 	var/datum/species/S = all_species[pref.species] || all_species[SPECIES_HUMAN]
 
 	if (pref.alternate_languages.len > S.num_alternate_languages)
@@ -72,16 +77,6 @@
 		var/datum/language/lang = all_languages[L]
 		if (pref.client && !(lang.flags & RESTRICTED) && (!config.usealienwhitelist || is_alien_whitelisted(pref.client.mob, L) || !(lang.flags & WHITELISTED)))
 			langs |= L
-		var/decl/dialect/our_dialect
-		for(var/dialect in pref.dialects)
-			var/decl/dialect/D = decls_repository.get_decl(dialect)
-			if(D.parent_language == lang.name)
-				our_dialect = D
-				break
-		if(!our_dialect && length(lang.possible_dialects))
-			to_chat(pref.client, SPAN_WARNING("No accent selected for language [L]! A default one has been set."))
-			our_dialect = decls_repository.get_decl(pick(lang.possible_dialects))
-			pref.dialects += our_dialect.type
 
 	var/list/bad_langs = pref.alternate_languages - langs
 	if (bad_langs.len)
@@ -96,6 +91,19 @@
 		var/datum/category_group/player_setup_category/cat = category
 		cat.modified = TRUE
 
+	for(var/L in pref.alternate_languages)
+		var/datum/language/lang = all_languages[L]
+		var/decl/dialect/our_dialect
+		for(var/dialect in pref.dialects)
+			var/decl/dialect/D = decls_repository.get_decl(dialect)
+			if(D.parent_language == lang.name)
+				our_dialect = D
+				break
+		if(!our_dialect && length(lang.possible_dialects))
+			to_chat(pref.client, SPAN_WARNING("No dialect selected for language [L]! A default one has been set."))
+			our_dialect = decls_repository.get_decl(pick(lang.possible_dialects))
+			pref.dialects += our_dialect.type
+
 /datum/category_item/player_setup_item/general/language/content(var/mob/user)
 	var/list/dat = list("<b>Languages and Dialects</b><br>")
 	var/datum/species/S = all_species[pref.species]
@@ -108,7 +116,7 @@
 		dat += "- [S.language]"
 	if(S.language in langs_to_dialects)
 		var/decl/dialect/D = langs_to_dialects[S.language]
-		dat += "(<a href='?src=\ref[src];change_dialect=[S.language]'>[D.name]<a>)"
+		dat += " (<a href='?src=\ref[src];change_dialect=[S.language]'>[D.name]</a>)"
 	dat += "<br>"
 	if(S.default_language && S.default_language != S.language)
 		dat += "- [S.default_language]<br>"
@@ -119,7 +127,7 @@
 				dat += "- [lang]"
 				if(lang in langs_to_dialects)
 					var/decl/dialect/D = langs_to_dialects[lang]
-					dat += "(<a href='?src=\ref[src];change_dialect=[lang]'>[D.name]<a>)"
+					dat += "(<a href='?src=\ref[src];change_dialect=[lang]'>[D.name]</a>)"
 				dat += " - <a href='?src=\ref[src];remove_language=[i]'>remove</a><br>"
 
 		if(pref.alternate_languages.len < S.num_alternate_languages)
@@ -160,7 +168,7 @@
 			if(!available_languages.len)
 				alert(user, "There are no additional languages available to select.")
 			else
-				var/new_lang = input(user, "Select an additional language", "Character Generation", null) as null|anything in available_languages
+				var/new_lang = input(user, "Select an additional language.", "Character Generation", null) as null|anything in available_languages
 				if(new_lang)
 					if (pref.alternate_languages.len >= S.num_alternate_languages)
 						alert(user, "You have already selected the maximum number of alternate languages for this species!")
@@ -168,7 +176,7 @@
 						pref.alternate_languages |= new_lang
 					return TOPIC_REFRESH
 	else if(href_list["change_dialect"])
-		var/language_name = text2num(href_list["change_dialect"])
+		var/language_name = href_list["change_dialect"]
 		var/datum/language/L = all_languages[language_name]
 		var/new_dialect = input(user, "Select a dialect for [language_name].", "Dialect", null) as null|anything in L.possible_dialects
 		var/decl/dialect/ND = decls_repository.get_decl(new_dialect)
