@@ -131,6 +131,7 @@
 
 /obj/effect/overmap/visitable/ship/ee_spy_ship
 	name = "Einstein Engines Research Ship"
+	class = "EERV"
 	desc = "A research ship belonging to Einstein Engines, the Stellar Corporate Conglomerate's main competitor."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"	
@@ -149,7 +150,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/ee_spy_ship/New()
-	name = "EERV [pick("Brilliance", "Oppenheimer", "Fermi", "Slingshot", "Shanghai", "Bern", "Hadron", "Positron", "Invention", "Nikola Tesla", "Quark")]"
+	designation = "[pick("Brilliance", "Oppenheimer", "Fermi", "Slingshot", "Shanghai", "Bern", "Hadron", "Positron", "Invention", "Nikola Tesla", "Quark")]"
 	..()
 
 /obj/effect/shuttle_landmark/ee_spy_ship/nav1

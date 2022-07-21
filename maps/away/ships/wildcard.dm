@@ -131,6 +131,7 @@
 
 /obj/effect/overmap/visitable/ship/militia_ship
 	name = "Militia Ship"
+	class = "IPV"
 	desc = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus. This one’s transponder identifies it as a local militia vessel."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
@@ -149,7 +150,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/militia_ship/New()
-    name = "IPV [pick("Volunteer", "Part-Timer", "Last Line", "Fearless", "Protector", "Minuteman", "Watchdog", "Family Man", "Guardian", "Hoplite", "Home Guard", "Defender")]"
+    designation = "[pick("Volunteer", "Part-Timer", "Last Line", "Fearless", "Protector", "Minuteman", "Watchdog", "Family Man", "Guardian", "Hoplite", "Home Guard", "Defender")]"
     ..()
 
 /obj/effect/shuttle_landmark/militia_ship/nav1
