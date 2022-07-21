@@ -3,9 +3,11 @@
 	desc = "A piece of headgear used in dangerous working conditions to protect the head. Comes with a built-in flashlight."
 	icon = 'icons/obj/clothing/hats/hardhats.dmi'
 	icon_state = "hardhat_yellow"
+	item_state = "hardhat_yellow"
+	light_overlay = "hardhat_light"
+	contained_sprite = TRUE
 	action_button_name = "Toggle Headlamp"
 	brightness_on = 4 //luminosity when on
-	light_overlay = "hardhat_light"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -25,19 +27,24 @@
 
 /obj/item/clothing/head/hardhat/orange
 	icon_state = "hardhat_orange"
+	item_state = "hardhat_orange"
 
 /obj/item/clothing/head/hardhat/red
 	icon_state = "hardhat_red"
+	item_state = "hardhat_red"
 
 /obj/item/clothing/head/hardhat/green
 	icon_state = "hardhat_green"
+	item_state = "hardhat_green"
 
 /obj/item/clothing/head/hardhat/dblue
 	icon_state = "hardhat_dblue"
+	item_state = "hardhat_dblue"
 
 /obj/item/clothing/head/hardhat/white
 	desc = "A piece of headgear used in dangerous working conditions to protect the head. Comes with a built-in flashlight. This one looks heat-resistant."
 	icon_state = "hardhat_white"
+	item_state = "hardhat_white"
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 
@@ -75,7 +82,6 @@
 	)
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("una", "taj")
-	contained_sprite = TRUE
 	item_flags = THICKMATERIAL | AIRTIGHT
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	min_pressure_protection = FIRESUIT_MIN_PRESSURE
