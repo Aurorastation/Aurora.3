@@ -105,7 +105,7 @@ proc/get_radio_key_from_channel(var/channel)
 		speech_problem_flag = 1
 	if(stuttering)
 		message = get_stuttered_message(message)
-		verb = pick("stammers","stutters")
+		verb = pick(get_stutter_verbs())
 		speech_problem_flag = 1
 	if(tarded)
 		message = slur(message,100)
@@ -125,6 +125,9 @@ proc/get_radio_key_from_channel(var/channel)
 	returns[3] = speech_problem_flag
 	returns[4] = world.view
 	return returns
+
+/mob/living/proc/get_stutter_verbs()
+	return list("stammers", "stutters")
 
 /mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
 	if(message_mode == "intercom")

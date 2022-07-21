@@ -309,34 +309,6 @@
 		M.take_organ_damage(6 * removed, 0)
 	M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
 
-/decl/reagent/toxin/lean
-	name = "Lean"
-	description = "A mixture of cough syrup, space-up, and sugar."
-	taste_description = "sickly-sweet soda"
-	taste_mult = 1.5
-	color = "#600060"
-	metabolism = REM // twice as fast as space drugs
-	overdose = 10
-	strength = 1.5 // makes up for it with slight suffocation damage
-
-	glass_icon_state = "lean"
-	glass_name = "glass of purple drank"
-	glass_desc = "Bottoms up."
-
-/decl/reagent/toxin/lean/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.hallucination = max(M.hallucination, 40)
-	M.add_chemical_effect(CE_PAINKILLER, 20) // basically like Perconol, but a bit worse
-	// doesn't make you vomit, though
-	if(prob(7))
-		to_chat(M, SPAN_WARNING(pick("You feel great!", "You don't have a care in the world.", "You couldn't care less about anything.", "You feel so relaxed...")))
-		if(ishuman(M))
-			M.emote(pick("twitch", "drool", "moan", "giggle"))
-	M.adjustOxyLoss(0.01 * removed)
-	if(M.losebreath < 5)
-		M.losebreath++
-	if(prob(50))
-		M.drowsiness = max(M.drowsiness, 3)
-
 /decl/reagent/toxin/krok
 	name = "Krok Juice"
 	description = "An advanced Eridanian variant of ancient krokodil, known for causing prosthetic malfunctions."

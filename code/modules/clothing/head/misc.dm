@@ -140,14 +140,6 @@
 	siemens_coefficient = 2.0
 	body_parts_covered = HEAD|FACE|EYES
 
-/obj/item/clothing/head/cueball
-	name = "cueball helmet"
-	desc = "A large, featureless white orb mean to be worn on your head. How do you even see out of this thing?"
-	icon_state = "cueball"
-	item_state = "cueball"
-	flags_inv = BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES
-
 /obj/item/clothing/head/cardborg
 	name = "cardborg helmet"
 	desc = "A helmet made out of a box."
@@ -179,7 +171,7 @@
 
 /obj/item/clothing/head/rabbitears
 	name = "rabbit ears"
-	desc = "Wearing these makes you looks useless, and only good for your sex appeal."
+	desc = "Wearing these makes you look useless."
 	icon_state = "bunny"
 	body_parts_covered = 0
 
@@ -262,18 +254,6 @@
 	icon_state = "bearpelt"
 	flags_inv = BLOCKHEADHAIR
 	siemens_coefficient = 0.7
-
-/obj/item/clothing/head/xenos
-	name = "xenos helmet"
-	icon_state = "xenos"
-	item_state_slots = list(
-		slot_l_hand_str = "xenos_helm",
-		slot_r_hand_str = "xenos_helm"
-		)
-	desc = "A helmet made out of chitinous alien hide."
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	siemens_coefficient = 2.0
-	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/philosopher_wig
 	name = "natural philosopher's wig"
@@ -537,98 +517,56 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 
-/obj/item/clothing/head/vaurca_breeder
-	name = "zo'ra representative shroud"
-	desc = "Large shroud used by Zo'ra representatives."
-	icon = 'icons/mob/species/breeder/inventory.dmi'
-	item_state = "shroud"
-	icon_state = "shroud"
-	contained_sprite = FALSE
-	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
-
-/obj/item/clothing/head/klax_breeder
-	name = "k'lax represenatitve shroud"
-	desc = "Large shroud used by K'lax representatives."
-	icon = 'icons/mob/species/breeder/inventory.dmi'
-	item_state = "shroud_klax"
-	icon_state = "shroud_klax"
-	contained_sprite = FALSE
-	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
-
-/obj/item/clothing/head/cthur_breeder
-	name = "c'thur representative shroud"
-	desc = "Large shroud used by C'thur representatives."
-	icon = 'icons/mob/species/breeder/inventory.dmi'
-	item_state = "shroud_cthur"
-	icon_state = "shroud_cthur"
-	contained_sprite = FALSE
-	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
-
-/obj/item/clothing/head/navy
+/obj/item/clothing/head/sol
 	name = "sol navy utility cover"
 	desc = "A military cover issued to Sol Alliance navy members as part of their field uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
 	icon_state = "greyutility"
 	item_state = "greyutility"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_MINOR
 		)
-/obj/item/clothing/head/navy/marine
+
+/obj/item/clothing/head/sol/marine
 	name = "sol marine utility cover"
 	desc = "An eight pointed cover issued to Sol Alliance marines as part of their field uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "greenutility"
 	item_state = "greenutility"
-	contained_sprite = 1
 
-/obj/item/clothing/head/navy/garrison
+/obj/item/clothing/head/sol/garrison
 	name = "sol marine garrison cap"
 	desc = "A green garrison cap issued to Sol Alliance marines."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "greengarrisoncap"
 	item_state = "greengarrisoncap"
-	contained_sprite = 1
 
-/obj/item/clothing/head/dress
+/obj/item/clothing/head/sol/dress
 	name = "sol navy black peaked cap"
 	desc = "A black cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by junior officers."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "whitepeakcap"
 	item_state = "whitepeakcap"
-	contained_sprite = 1
-
-/obj/item/clothing/head/dress/marine
+/obj/item/clothing/head/sol/dress/marine
 	name = "sol marine peaked cap"
 	desc = "A green cap issued as part of the Sol Alliance marine service and dress uniforms."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "whitepeakcap"
 	item_state = "whitepeakcap"
-	contained_sprite = 1
 
-/obj/item/clothing/head/dress/officer
+/obj/item/clothing/head/sol/dress/officer
 	name = "sol navy officer peaked cap"
 	desc = "A white cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by senior officers."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "whitewheelcap"
 	item_state = "whitewheelcap"
-	contained_sprite = 1
 
-/obj/item/clothing/head/dress/admiral
+/obj/item/clothing/head/sol/dress/admiral
 	name = "sol navy admiral peaked cap"
 	desc = "A white cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by admirals."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "admiral_cap"
 	item_state = "admiral_cap"
-	contained_sprite = 1
 
 /obj/item/clothing/head/helmet/sol
 	name = "sol combat helmet"
 	desc = "A woodland colored helmet made from advanced ceramic."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
 	icon_state = "helmet_tac_sol"
 	item_state = "helmet_tac_sol"
 	armor = list(
@@ -638,7 +576,7 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/head/nonla
 	name = "non la"

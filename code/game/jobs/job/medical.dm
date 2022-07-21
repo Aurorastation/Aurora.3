@@ -57,7 +57,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/medical/cmo
 
 	backpack = /obj/item/storage/backpack/medic
-	satchel = /obj/item/storage/backpack/satchel_med
+	satchel = /obj/item/storage/backpack/satchel/med
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
@@ -129,7 +129,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 
 	backpack = /obj/item/storage/backpack/medic
-	satchel = /obj/item/storage/backpack/satchel_med
+	satchel = /obj/item/storage/backpack/satchel/med
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
@@ -187,7 +187,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 
 	backpack = /obj/item/storage/backpack/pharmacy
-	satchel = /obj/item/storage/backpack/satchel_pharm
+	satchel = /obj/item/storage/backpack/satchel/pharm
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
 	messengerbag = /obj/item/storage/backpack/messenger/pharm
 
@@ -234,6 +234,11 @@
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/psych
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
 	tablet = /obj/item/modular_computer/handheld/preset/medical/psych
+
+	backpack = /obj/item/storage/backpack/medic
+	satchel = /obj/item/storage/backpack/satchel/med
+	dufflebag = /obj/item/storage/backpack/duffel/med
+	messengerbag = /obj/item/storage/backpack/messenger/med
 
 /datum/outfit/job/psychiatrist/psycho
 	name = "Psychologist"
@@ -284,7 +289,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 
 	backpack = /obj/item/storage/backpack/medic
-	satchel = /obj/item/storage/backpack/satchel_med
+	satchel = /obj/item/storage/backpack/satchel/med
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
@@ -324,7 +329,7 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/med
 
 	backpack = /obj/item/storage/backpack/medic
-	satchel = /obj/item/storage/backpack/satchel_med
+	satchel = /obj/item/storage/backpack/satchel/med
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
 

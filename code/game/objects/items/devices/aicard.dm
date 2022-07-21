@@ -135,6 +135,10 @@
 	admin_attack_log(user, ai, "Carded with [src.name]", "Was carded with [src.name]", "used the [src.name] to card")
 	src.name = "[initial(name)] - [ai.name]"
 
+	if(ai.vr_mob) //Kick the AI out of its shell before we stuff it in a card.
+		var/mob/living/silicon/shell = ai.vr_mob
+		if(istype(shell))
+			shell.body_return()
 	ai.forceMove(src)
 	ai.destroy_eyeobj(src)
 	ai.cancel_camera()

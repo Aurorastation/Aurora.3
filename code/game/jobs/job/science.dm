@@ -35,7 +35,7 @@
 	)
 	outfit = /datum/outfit/job/rd
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 
 /datum/outfit/job/rd
 	name = "Research Director"
@@ -57,7 +57,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/research/rd
 
 	backpack = /obj/item/storage/backpack/toxins
-	satchel = /obj/item/storage/backpack/satchel_tox
+	satchel = /obj/item/storage/backpack/satchel/tox
 	dufflebag = /obj/item/storage/backpack/duffel/tox
 	messengerbag = /obj/item/storage/backpack/messenger/tox
 
@@ -80,14 +80,14 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
-	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
+	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_intrepid)
+	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_intrepid)
 	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher")
 
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/scientist
 	alt_outfits = list("Xenoarcheologist"=/datum/outfit/job/scientist/xenoarcheologist)
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/scientist
 	name = "Scientist"
@@ -108,13 +108,13 @@
 	tablet = /obj/item/modular_computer/handheld/preset/research
 
 	backpack = /obj/item/storage/backpack/toxins
-	satchel = /obj/item/storage/backpack/satchel_tox
+	satchel = /obj/item/storage/backpack/satchel/tox
 	dufflebag = /obj/item/storage/backpack/duffel/tox
 	messengerbag = /obj/item/storage/backpack/messenger/tox
 
 /datum/outfit/job/scientist/xenoarcheologist
     name = "Xenoarcheologist"
-    uniform = /obj/item/clothing/under/rank/xenoarcheologist
+    uniform = /obj/item/clothing/under/rank/scientist/xenoarcheologist
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
@@ -140,6 +140,7 @@
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
@@ -171,6 +172,8 @@
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobotanist
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+
 
 /datum/outfit/job/scientist/xenobotanist
 	name = "Xenobotanist"
@@ -191,7 +194,7 @@
 	access = list(access_research, access_tox)
 	minimal_access = list(access_research, access_tox)
 	outfit = /datum/outfit/job/intern_sci
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/outfit/job/intern_sci
 	name = "Lab Assistant"
@@ -205,7 +208,7 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/sci
 
 	backpack = /obj/item/storage/backpack/toxins
-	satchel = /obj/item/storage/backpack/satchel_tox
+	satchel = /obj/item/storage/backpack/satchel/tox
 	dufflebag = /obj/item/storage/backpack/duffel/tox
 	messengerbag = /obj/item/storage/backpack/messenger/tox
 

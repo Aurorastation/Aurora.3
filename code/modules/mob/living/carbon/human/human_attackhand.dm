@@ -66,7 +66,7 @@
 								var/safety = M:eyecheck(TRUE)
 								if(!safety)
 									if(!M.blinded)
-										flick("flash", M.flash)
+										M.flash_eyes()
 
 						return 1
 					else
@@ -84,7 +84,7 @@
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
 
-			if(HULK in H.mutations)
+			if(HULK in H.mutations || H.is_berserk())
 				damage += 5
 
 			playsound(loc, /decl/sound_category/punch_sound, 25, 1, -1)
@@ -267,6 +267,9 @@
 			if(HULK in H.mutations)
 				real_damage *= 2 // Hulks do twice the damage
 				rand_damage *= 2
+			if(H.is_berserk())
+				real_damage *= 1.5 // Nightshade increases damage by 50%
+				rand_damage *= 1.5
 
 			real_damage = max(1, real_damage)
 
@@ -286,7 +289,7 @@
 			attack.apply_effects(H, src, rand_damage, hit_zone)
 
 			// Finally, apply damage to target
-			apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags)
+			apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags, armor_pen = attack.armor_penetration)
 
 
 			if(M.resting && src.help_up_offer)
@@ -440,12 +443,15 @@
 					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 					return
 
-				//Actually disarm them
+				//Actually disarm them, if possible
 				for(var/obj/item/I in holding)
-					drop_from_inventory(I)
-					visible_message("<span class='danger'>[M] has disarmed [src]!</span>")
-					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-					return
+					if(unEquip(I))
+						visible_message(SPAN_DANGER("\The [M] has disarmed \the [src]!"))
+						playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+						return
+					else
+						to_chat(M, SPAN_WARNING("You cannot disarm \the [I] from \the [src], as it's attached to them!"))
+						//No return here is intentional, as it will then try to disarm other items, and/or play a failed disarm message
 
 			playsound(loc, /decl/sound_category/punchmiss_sound, 25, 1, -1)
 			visible_message("<span class='danger'>[M] attempted to disarm [src]!</span>")

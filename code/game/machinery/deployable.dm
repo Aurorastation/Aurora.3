@@ -300,9 +300,12 @@ for reference:
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"
 	desc = "A do-it-yourself kit for constructing the finest of emergency floodlights."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
-	item_state = "box"
+	item_state = "inf_box"
+	drop_sound = 'sound/items/drop/backpack.ogg'
+	pickup_sound = 'sound/items/pickup/backpack.ogg'
+
 	var/kit_product = /obj/machinery/floodlight
 	var/assembly_time = 8 SECONDS
 
@@ -363,9 +366,9 @@ for reference:
 /obj/item/deployable_kit/iv_drip
 	name = "IV drip assembly kit"
 	desc = "A quick assembly kit to put together an IV drip."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
-	item_state = "syringe_kit"
+	item_state = "inf_box"
 	w_class = ITEMSIZE_NORMAL
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS

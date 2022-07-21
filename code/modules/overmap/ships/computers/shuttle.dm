@@ -50,11 +50,10 @@
 	if(href_list["pick"])
 		var/list/possible_d = shuttle.get_possible_destinations()
 		var/D
-		if(possible_d.len)
+		if(length(possible_d))
 			D = input("Choose shuttle destination", "Shuttle Destination") as null|anything in possible_d
 		else
 			to_chat(usr,"<span class='warning'>No valid landing sites in range.</span>")
-		possible_d = shuttle.get_possible_destinations()
 		if(CanInteract(usr, physical_state) && (D in possible_d))
 			shuttle.set_destination(possible_d[D])
 		return TOPIC_REFRESH

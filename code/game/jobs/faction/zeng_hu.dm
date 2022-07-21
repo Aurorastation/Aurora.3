@@ -9,14 +9,9 @@
 	years, they were also the first mega-corporation to partner with the newly-discovered
 	Skrell, working closely with this alien species to pioneer cloning, a once
 	controversial field that is now more accepted today.
-	</p>
-	<p>Zeng-Hu Pharmaceuticals employees can be in the following departments:
-	<ul>
-	<li><b>Science</b>
-	<li><b>Medical</b>
-	</ul></p>"}
+	</p>"}
 
-
+	departments = {"Medical<br>Science"}
 	title_suffix = "Zeng"
 
 	allowed_role_types = ZENG_ROLES
@@ -130,7 +125,7 @@
 /datum/outfit/job/scientist/xenoarcheologist/zeng_hu
 	name = "Xenoarcheologist - Zeng-Hu"
 
-	uniform = /obj/item/clothing/under/rank/xenoarcheologist/zeng
+	uniform = /obj/item/clothing/under/rank/scientist/xenoarcheologist/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
 

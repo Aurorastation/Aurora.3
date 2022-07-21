@@ -9,13 +9,8 @@
 	from SolGov and securing several crucial production contracts, they have slowly
 	worked their way to become the dominant manufacturing mega-corporation in the
 	Sol Alliance, pioneering interstellar logistics and construction on an awe-inspiring scale.
-	</p>
-	<p>Hephaestus Industries employees can be in the following departments:
-	<ul>
-	<li><b>Engineering</b>
-	<li><b>Operations</b>
-	</ul></p>"}
-
+	</p>"}
+	departments = {"Engineering<br>Operations"}
 	title_suffix = "Hepht"
 
 	allowed_role_types = HEPH_ROLES

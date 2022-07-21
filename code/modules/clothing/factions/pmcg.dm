@@ -15,8 +15,7 @@
 		"\improper PMCG modsuit",
 		"\improper PMCG shortsleeved modsuit",
 		"\improper PMCG modsuit pants",
-		"\improper PMCG shorts modsuit",
-		"\improper PMCG modsuit shorts")
+		"\improper PMCG shorts modsuit")
 
 /obj/item/clothing/under/pmc_modsuit/Initialize()
 	for(var/option in names)

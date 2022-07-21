@@ -25,6 +25,11 @@
 	display_name = "trinary perfection brooch"
 	path = /obj/item/clothing/accessory/badge/trinary
 
+/datum/gear/religion/trinary/book
+	display_name = "The Order"
+	description = "The holy text of the Trinary Perfection."
+	path = /obj/item/device/versebook/trinary
+
 /datum/gear/religion/rosary
 	display_name = "rosary"
 	path = /obj/item/clothing/accessory/rosary
@@ -152,5 +157,5 @@
 
 /datum/gear/religion/dominia/codex
 	display_name = "tribunal codex"
-	path = /obj/item/device/litanybook
+	path = /obj/item/device/versebook/tribunal
 	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)

@@ -186,7 +186,7 @@
 			L.stuttering = 20
 			L.confused = 10
 			to_chat(L, SPAN_DANGER("You are blinded by [src]'s glare!"))
-			flick("flash", L.flash)
+			L.flash_eyes(FLASH_PROTECTION_MAJOR)
 			victims += L
 		else if(isrobot(L))
 			L.Weaken(rand(3, 6))
@@ -998,7 +998,7 @@
 
 	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"))
 
-	var/obj/item/grab/G = new(src, T)
+	var/obj/item/grab/G = new(src, src, T)
 	if(use_hand == "left")
 		l_hand = G
 	else

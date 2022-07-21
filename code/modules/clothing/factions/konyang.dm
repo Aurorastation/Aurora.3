@@ -74,6 +74,22 @@
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 	contained_sprite = TRUE
 
+/obj/item/clothing/under/konyang/male/sleeveless
+	name = "sleeveless hanbok"
+	icon = 'icons/clothing/under/uniforms/konyang_malehanbok_colorable.dmi'
+	icon_state = "hanbok_male_sleeveless_colorable"
+	worn_state = "hanbok_male_sleeveless_colorable"
+	item_state = "hanbok_male_sleeveless_colorable"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/konyang/male/shortsleeve
+	name = "short sleeve hanbok"
+	icon = 'icons/clothing/under/uniforms/konyang_malehanbok_colorable.dmi'
+	icon_state = "hanbok_male_shortsleeve_colorable"
+	worn_state = "hanbok_male_shortsleeve_colorable"
+	item_state = "hanbok_male_shortsleeve_colorable"
+	contained_sprite = TRUE
+
 /obj/item/clothing/under/konyangdresstraditional
 	name = "konyanger traditional dress"
 	desc = "A traditional hakama and kosode pairing worn on Konyang, usually at formal functions or by shrine maidens. This one features a pink hakama and white kosode."

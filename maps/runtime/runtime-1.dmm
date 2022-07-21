@@ -143,7 +143,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "as" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
 	icon_state = "radiation";
@@ -278,7 +278,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "aH" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/gravity_gen)
 "aI" = (
@@ -567,7 +567,7 @@
 /turf/simulated/wall/r_wall,
 /area/bridge)
 "bs" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/bridge)
 "bt" = (
@@ -613,7 +613,7 @@
 	locked = 0;
 	pixel_y = 23
 	},
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bz" = (
@@ -779,11 +779,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "bU" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "bV" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
 "bW" = (
@@ -822,7 +822,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bZ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -866,7 +866,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "cd" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -1180,7 +1180,7 @@
 /turf/simulated/floor/tiled,
 /area/construction)
 "cO" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/construction)
 "cP" = (
@@ -1477,7 +1477,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "ie" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -1860,7 +1860,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "UP" = (
-/obj/effect/map_effect/wingrille_spawn/full,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "Vm" = (
