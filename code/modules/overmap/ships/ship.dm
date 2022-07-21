@@ -14,6 +14,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	name = "generic ship"
 	desc = "Space faring vessel."
 	icon_state = "ship"
+	obfuscated_name = "unidentified vessel"
 	var/moving_state = "ship_moving"
 
 	var/vessel_mass = 10000             //tonnes, arbitrary number, affects acceleration provided by engines

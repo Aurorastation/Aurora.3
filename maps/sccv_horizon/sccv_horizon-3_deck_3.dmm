@@ -2307,11 +2307,11 @@
 	pixel_x = -32
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "blastdoors_tcomms";
 	name = "Blast Door";
 	pixel_x = -25;
 	pixel_y = -25;
-	dir = 1;
 	req_access = list(61)
 	},
 /turf/simulated/floor,
@@ -2889,8 +2889,8 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/requests_console{
 	department = "Conference Room";
-	pixel_y = -32;
-	name = "Conference Room Requests Console"
+	name = "Conference Room Requests Console";
+	pixel_y = -32
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
@@ -14803,9 +14803,9 @@
 	secured_wires = 1
 	},
 /obj/machinery/door/blast/shutters{
-	name = "Decrepit Maintenance Shutter";
 	id = "shutters_runcaprun";
-	is_critical = 1
+	is_critical = 1;
+	name = "Decrepit Maintenance Shutter"
 	},
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled,
@@ -19572,10 +19572,10 @@
 	pixel_y = -11
 	},
 /obj/machinery/button/remote/blast_door{
-	pixel_y = 25;
-	pixel_x = 25;
-	name = "Escape Route Shutter";
 	id = "shutters_runcaprun";
+	name = "Escape Route Shutter";
+	pixel_x = 25;
+	pixel_y = 25;
 	req_access = list(20)
 	},
 /turf/simulated/open,
@@ -22518,6 +22518,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
 "PB" = (
+/obj/machinery/iff_beacon,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "PC" = (
@@ -24525,8 +24526,8 @@
 	},
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	is_critical = 1;
-	id = "blastdoors_tcomms"
+	id = "blastdoors_tcomms";
+	is_critical = 1
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/chamber)
