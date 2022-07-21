@@ -398,8 +398,8 @@
 	reagents_to_add = list(/decl/reagent/drink/grenadine = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/cola
-	name = "space cola"
-	desc = "Cola. In space."
+	name = "comet cola"
+	desc = "Getmore's most popular line of soda. A generic cola, otherwise."
 	icon_state = "colabottle"
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = NO_EMPTY_ICON
@@ -410,7 +410,7 @@
 	fragile = 0
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up
-	name = "\improper Space-Up"
+	name = "\improper Vacuum Fizz"
 	desc = "Tastes like a hull breach in your mouth."
 	icon_state = "space-up_bottle"
 	center_of_mass = list("x"=16, "y"=6)
@@ -422,8 +422,8 @@
 	fragile = 0
 
 /obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind
-	name = "\improper Space Mountain Wind"
-	desc = "Blows right through you like a space wind."
+	name = "\improper Stellar Jolt"
+	desc = "For those who have a need for caffeine stronger than would be sensible."
 	icon_state = "space_mountain_wind_bottle"
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = NO_EMPTY_ICON

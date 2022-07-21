@@ -61,16 +61,16 @@
 	)
 
 /obj/item/clothing/accessory/leg_guard/military
-	name = "military leg guards"
+	name = "sol army leg guards"
 	desc = "These will protect your legs and feet from most things."
 	icon_state = "legguards_military"
 	item_state = "legguards_military"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
 	)
 
 /obj/item/clothing/accessory/leg_guard/heavy
@@ -165,14 +165,14 @@
 	)
 
 /obj/item/clothing/accessory/arm_guard/military
-	name = "military arm guards"
+	name = "sol army arm guards"
 	desc = "These arm guards will protect your hands and arms from most things."
 	icon_state = "armguards_military"
 	item_state = "armguards_military"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_REVOLVER,
-		laser = ARMOR_LASER_RIFLE,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
