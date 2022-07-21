@@ -279,7 +279,7 @@
 		/obj/item/xmasgift/large,
 		/obj/item/reagent_containers/food/snacks/pudding,
 		/obj/item/contraband/poster,
-		/obj/item/clothing/head/hardhat/red/atmos,
+		/obj/item/clothing/head/hardhat/atmos,
 		/mob/living/bot/cleanbot,
 		/obj/item/device/binoculars,
 		/obj/item/device/camera,

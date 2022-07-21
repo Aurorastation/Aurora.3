@@ -120,7 +120,7 @@
 	new /obj/item/storage/backpack/duffel/eng(src)
 	new /obj/item/clothing/accessory/storage/brown_vest(src)
 	new /obj/item/clothing/suit/fire/atmos(src)
-	new /obj/item/clothing/head/hardhat/red/atmos(src)
+	new /obj/item/clothing/head/hardhat/atmos(src)
 	new /obj/item/device/flashlight(src)
 	new /obj/item/extinguisher(src)
 	new /obj/item/device/radio/headset/headset_eng(src)
