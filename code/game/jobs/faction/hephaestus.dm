@@ -69,14 +69,14 @@
 	name = "Engineer - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/engineer/heph
-	head = /obj/item/clothing/head/hardhat/red
+	head = /obj/item/clothing/head/hardhat/green
 	id = /obj/item/card/id/hephaestus
 
 /datum/outfit/job/atmos/hephaestus
 	name = "Atmospheric Technician - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician/heph
-	head = /obj/item/clothing/head/hardhat/red
+	head = /obj/item/clothing/head/hardhat/green
 	id = /obj/item/card/id/hephaestus
 
 /datum/outfit/job/intern_eng/hephaestus
