@@ -178,10 +178,14 @@
 	else if(href_list["change_dialect"])
 		var/language_name = href_list["change_dialect"]
 		var/datum/language/L = all_languages[language_name]
-		var/new_dialect = input(user, "Select a dialect for [language_name].", "Dialect", null) as null|anything in L.possible_dialects
-		var/decl/dialect/ND = decls_repository.get_decl(new_dialect)
+		var/list/possible_dialects = list()
+		for(var/D in L.possible_dialects)
+			var/decl/dialect/DL = decls_repository.get_decl(D)
+			possible_dialects[DL.name] = DL
+		var/new_dialect = input(user, "Select a dialect for [language_name].", "Dialect", null) as null|anything in possible_dialects
 		if(!new_dialect)
 			return TOPIC_REFRESH
+		var/decl/dialect/ND = possible_dialects[new_dialect]
 		var/decl/dialect/dialect_to_remove
 		for(var/dialect in pref.dialects)
 			var/decl/dialect/D = dialect
