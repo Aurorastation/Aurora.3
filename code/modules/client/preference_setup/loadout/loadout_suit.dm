@@ -436,7 +436,7 @@ datum/gear/suit/colorvest
 	description = "A selection of Vysokan chokhas."
 	path = /obj/item/clothing/suit/storage/vysoka
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-	origin_restriction = list(/decl/origin_item/origin/vysoka)
+	origin_restriction = list(/decl/origin_item/origin/vysoka, /decl/origin_item/origin/ipc_vysoka)
 
 /datum/gear/suit/vysoka/New()
 	..()
