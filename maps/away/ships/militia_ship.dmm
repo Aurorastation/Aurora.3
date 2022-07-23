@@ -403,6 +403,9 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/machinery/button/distress{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "fnE" = (

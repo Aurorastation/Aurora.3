@@ -86,7 +86,7 @@
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg')
+	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg', zlevels = caller.map_z)
 
 	log_and_message_admins("has launched a distress beacon from the [caller.name] with message: [distress_message].", user)
 	var/datum/distress_beacon/beacon = new()
