@@ -41,13 +41,15 @@ obj/item/gun/energy/retro
 	icon_state = "retro"
 	item_state = "retro"
 	has_item_ratio = FALSE
-	desc = "An older model of the basic lasergun. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws."
+	desc = "An older model laser pistol, small enough to be concealed but underpowered, inefficient, and deceptively heavy, especially compared \
+	to modern laser weaponry. However, their overbuilt construction means that many examples have stood the test of time, and advances in rechargeable \
+	power cell technology have now turned them into viable backup weapons for outlaws or anyone unable to acquire newer laser weapons."
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 	offhand_accuracy = 1
 	projectile_type = /obj/item/projectile/beam
-	fire_delay = 10 //old technology
+	fire_delay = 5
 	can_turret = 1
 	turret_is_lethal = 1
 	turret_sprite_set = "retro"

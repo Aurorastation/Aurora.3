@@ -79,7 +79,6 @@
 	var/list/suits = list()
 	suits["amish suit"] = /obj/item/clothing/under/sl_suit
 	suits["black suit"] = /obj/item/clothing/under/suit_jacket
-	suits["blue suit"] = /obj/item/clothing/under/lawyer/blue
 	suits["burgundy suit"] = /obj/item/clothing/under/suit_jacket/burgundy
 	suits["charcoal suit"] = /obj/item/clothing/under/suit_jacket/charcoal
 	suits["checkered suit"] = /obj/item/clothing/under/suit_jacket/checkered
@@ -88,7 +87,6 @@
 	suits["purple suit"] = /obj/item/clothing/under/lawyer/purple
 	suits["red suit"] = /obj/item/clothing/under/suit_jacket/red
 	suits["red lawyer suit"] = /obj/item/clothing/under/lawyer/red
-	suits["shiny black suit"] = /obj/item/clothing/under/lawyer/black
 	suits["tan suit"] = /obj/item/clothing/under/suit_jacket/tan
 	suits["white suit"] = /obj/item/clothing/under/suit_jacket/white
 	suits["nt skirtsuit"] = /obj/item/clothing/under/suit_jacket/nt_skirtsuit

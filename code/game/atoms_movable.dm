@@ -369,10 +369,10 @@
 /atom/movable/proc/get_bullet_impact_effect_type()
 	return BULLET_IMPACT_NONE
 
-/atom/movable/proc/do_pickup_animation(atom/target)
+/atom/movable/proc/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
 	if(!isturf(loc))
 		return
-	var/image/pickup_animation = image(icon, loc, icon_state, layer + 0.1, dir, pixel_x, pixel_y)
+	pickup_animation.color = color
 	pickup_animation.transform.Scale(0.75)
 	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 

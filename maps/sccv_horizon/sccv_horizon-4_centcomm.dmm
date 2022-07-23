@@ -25707,11 +25707,6 @@
 	name = "dead plant"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/poster{
-	icon_state = "grillposter";
-	pixel_x = -32;
-	poster_type = "/datum/poster/bay_69"
-	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -27393,15 +27388,6 @@
 	},
 /obj/structure/table/wood{
 	table_reinf = "wood"
-	},
-/obj/effect/decal/fake_object{
-	desc = "A dusty, stuffed parrot. It's firmly nailed to the table.";
-	icon = 'icons/mob/npc/pets.dmi';
-	icon_state = "parrot_sit";
-	layer = 3.4;
-	name = "Hootie";
-	pixel_x = 9;
-	pixel_y = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
@@ -31830,9 +31816,6 @@
 /area/antag/ninja)
 "bvP" = (
 /obj/structure/table/steel,
-/obj/item/clothing/head/pirate,
-/obj/item/clothing/suit/pirate,
-/obj/item/clothing/glasses/thermal/plain/monocle,
 /turf/simulated/floor/carpet/art,
 /area/shuttle/skipjack)
 "bvQ" = (
@@ -32306,8 +32289,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/clothing/under/pants/striped,
-/obj/item/melee/whip,
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
 /area/shuttle/skipjack)
@@ -33050,10 +33031,6 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/blood/oil,
-/obj/item/clothing/suit/space/void/atmos,
-/obj/item/clothing/head/helmet/space/void/atmos,
-/obj/item/clothing/head/helmet/space/void/mining,
-/obj/item/clothing/suit/space/void/mining,
 /obj/item/tank/oxygen,
 /obj/item/tank/oxygen,
 /obj/item/clothing/shoes/magboots,
@@ -33062,6 +33039,8 @@
 /obj/item/clothing/mask/breath,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
+/obj/random/voidsuit,
+/obj/random/voidsuit,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "bAf" = (
@@ -33130,12 +33109,8 @@
 	dir = 8
 	},
 /obj/structure/closet/cabinet,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/color/black,
-/obj/item/clothing/under/color/pink,
-/obj/item/clothing/under/unathi,
-/obj/item/clothing/accessory/poncho/unathimantle,
-/obj/item/clothing/accessory/poncho,
+/obj/random/colored_jumpsuit,
+/obj/random/colored_jumpsuit,
 /turf/simulated/floor/wood,
 /area/shuttle/skipjack)
 "bAs" = (
@@ -33306,9 +33281,6 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/blood,
-/obj/item/reagent_containers/glass/bucket/wood{
-	pixel_y = 6
-	},
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "bAX" = (
@@ -33653,7 +33625,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/skipjack)
 "bCd" = (
-/obj/item/material/harpoon,
 /obj/item/tank/oxygen,
 /obj/item/clothing/shoes/magboots,
 /obj/effect/floor_decal/corner/red{
@@ -33664,9 +33635,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
-/obj/item/clothing/suit/space/void/merc,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/merc,
+/obj/random/voidsuit,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "bCe" = (
@@ -33681,9 +33651,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
-/obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/mask/gas/half,
-/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/random/voidsuit,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "bCf" = (
