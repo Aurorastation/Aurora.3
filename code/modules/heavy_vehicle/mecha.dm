@@ -188,6 +188,8 @@
 		if(source_frame.legs)
 			source_frame.legs.forceMove(src)
 			legs = source_frame.legs
+			if(legs.hover) //Checks here if hoverthrusters
+				pass_flags |= PASSRAILING
 		if(source_frame.head)
 			source_frame.head.forceMove(src)
 			head = source_frame.head
@@ -207,7 +209,7 @@
 		radio = new(src)
 
 	if(!camera)
-		camera = new /obj/machinery/camera(src)
+		camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
 		camera.c_tag = name
 		camera.replace_networks(list(NETWORK_MECHS))
 

@@ -20,7 +20,7 @@
 		list(mode_name="semiauto",       can_autofire=0, burst=1),
 		list(mode_name="3-round bursts", can_autofire=0, burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10, 15)),
 		list(mode_name="short bursts",   can_autofire=0, burst=5, burst_accuracy=list(1,0,,-1,-1), dispersion=list(5, 10, 15, 20)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
 
 //Submachine guns and personal defence weapons, go.
@@ -70,6 +70,17 @@
 		icon_state = "c20r"
 	return
 
+/obj/item/gun/projectile/automatic/c20r/sol
+	name = "solarian submachine gun"
+	desc = "Designed by Zavodskoi as a scaled-down version of their M469, the M470-L is a personal defense weapon intended for use by second-line personnel from all branches of the Solarian military, such as support troops and Navy crewmen. Chambered in 10mm."
+	icon = 'icons/obj/guns/sol_smg.dmi'
+	icon_state = "vityaz"
+	item_state = "vityaz"
+
+/obj/item/gun/projectile/automatic/c20r/sol/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "vityaz" : "vityaz-empty"
+
 /obj/item/gun/projectile/automatic/wt550
 	name = "machine pistol"
 	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use. Uses 9mm rounds."
@@ -112,6 +123,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
+	empty_sound = /decl/sound_category/out_of_ammo_rifle
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 
@@ -121,7 +133,7 @@
 		list(mode_name="semiauto",       burst=1, fire_delay=10),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
 		list(mode_name="short bursts",   burst=5, burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
 		)
 
 	//slower to regain aim, more inaccurate if not wielding
@@ -157,7 +169,7 @@
 	to improve handling. The fire control group has been altered as well, sacrificing the burst-fire function in favor of a smoother trigger pull. Born from \
 	extensive experience fighting in claustrophobic environments aboard ships and stations, weapons like these are common among Coalition Rangers conducting high-risk boarding operations \
 	along the Frontier, who rely on its ability to rapidly gain fire superiority in the event of an ambush. While no formal name exists for it, \
-	and two no examples are quite alike, weapons of this type are commonly just referred to as the \"Shorty\"."
+	and no two examples are quite alike, weapons of this type are commonly just referred to as the \"Shorty\"."
 	icon = 'icons/obj/guns/shorty.dmi'
 	icon_state = "shorty"
 	item_state = "shorty"
@@ -166,7 +178,7 @@
 	knife_y_offset = 13
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=8),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_fa_penalty=22, burst_accuracy = list(0,-1,-1,-1,-2,-2,-2,-3), dispersion = list(5, 5, 10, 15, 20)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, fire_delay_wielded=1, one_hand_fa_penalty=22, burst_accuracy = list(0,-1,-1,-1,-2,-2,-2,-3), dispersion = list(5, 5, 10, 15, 20)),
 		)
 
 	fire_delay = 8
@@ -194,16 +206,30 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 
-	firemodes = list(mode_name="semiauto", burst=1, fire_delay=12)
+	firemodes = list(mode_name="semiauto", burst=1, fire_delay=12, fire_delay_wielded=12)
 
 /obj/item/gun/projectile/automatic/rifle/carbine/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "bcarbine" : "bcarbine-empty"
 
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine
+	name = "bullpup carbine"
+	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, chambered in the same 5.56 caliber but only capable of accepting smaller magazines. It lacks the integral grenade launcher and the burst fire of the Bulldog."
+	desc_fluff = "It makes you feel like a corporate goon when you hold it."
+	icon = 'icons/obj/guns/civcarbine.dmi'
+	icon_state = "civcarbine"
+	item_state = "civcarbine"
+	can_bayonet = FALSE
+
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "civcarbine" : "civcarbine-empty"
+
 /obj/item/gun/projectile/automatic/rifle/sol
-	name = "battle rifle"
-	desc = "A powerful battle rifle, the M469 is a highly accurate skirmishing firearm of Zavodskoi Instellar make which is chambered in 7.62."
-	icon = 'icons/obj/guns/battlerifle.dmi'
+	name = "solarian assault rifle"
+	desc = "A reliable assault rifle manufactured by Zavodskoi Interstellar, the M469 is the standard service rifle of the Solarian Armed Forces, most commonly associated with its ground forces. \
+	Though the design is old, it continues to see widespread use in the Alliance and its breakaway states and likely will for years to come. Chambered in 7.62mm."
+	icon = 'icons/obj/guns/sol_rifle.dmi'
 	icon_state = "battlerifle"
 	item_state = "battlerifle"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
@@ -224,7 +250,8 @@
 
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
-	desc = "The Z8 Bulldog bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 5.56mm rounds. Makes you feel like a space marine when you hold it."
+	desc = "The ZI Bulldog bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle. Uses 5.56mm rounds."
+	desc_fluff = "It makes you feel like a corporate commando when you hold it."
 	icon = 'icons/obj/guns/carbine.dmi'
 	icon_state = "carbine"
 	item_state = "carbine"
@@ -315,7 +342,7 @@
 	firemodes = list(
 		list(mode_name="short bursts",	burst=5, burst_accuracy = list(1,0,0,-1,-1), dispersion = list(3, 6, 9)),
 		list(mode_name="long bursts",	burst=8, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
-		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=1, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
 
 	var/cover_open = 0
@@ -510,7 +537,7 @@
 	accuracy_wielded = 0
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay= 10),
+		list(mode_name="semiauto", burst=1, fire_delay= 10, fire_delay_wielded=10),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(0,-1,-1), dispersion=list(0, 10, 15))
 		)
 

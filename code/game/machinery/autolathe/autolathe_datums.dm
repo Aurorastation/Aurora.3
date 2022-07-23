@@ -288,6 +288,10 @@
 	path = /obj/item/reagent_containers/syringe
 	category = "Medical"
 
+/datum/autolathe/recipe/syringe/large
+	name = "large syringe"
+	path = /obj/item/reagent_containers/syringe/large
+
 /datum/autolathe/recipe/syringegun_ammo
 	name = "syringe gun cartridge"
 	path = /obj/item/syringe_cartridge
@@ -489,9 +493,21 @@
 	hidden = 1
 	category = "Arms and Ammunition"
 
+/datum/autolathe/recipe/magazine_carbinepolymer
+	name = "ammunition (5.56mm, polymer)"
+	path = /obj/item/ammo_magazine/a556/polymer
+	hidden = 1
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/magazine_smallcarbine
 	name = "ammunition (5.56mm, small)"
 	path = /obj/item/ammo_magazine/a556/carbine
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_smallcarbinepolymer
+	name = "ammunition (5.56mm, small polymer)"
+	path = /obj/item/ammo_magazine/a556/carbine/polymer
 	hidden = 1
 	category = "Arms and Ammunition"
 

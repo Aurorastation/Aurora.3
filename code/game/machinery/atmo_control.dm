@@ -32,7 +32,7 @@
 /obj/machinery/air_sensor/update_icon()
 	icon_state = "gsensor[on]"
 
-/obj/machinery/air_sensor/machinery_process()
+/obj/machinery/air_sensor/process()
 	if(on)
 		var/datum/signal/signal = new
 		signal.transmission_method = TRANSMISSION_RADIO
@@ -87,6 +87,7 @@ obj/machinery/air_sensor/Destroy()
 	name = "atmosphere monitoring console"
 	desc = "A console that gives an atmospheric condition readout of various sensors connected to it."
 	icon_screen = "tank"
+	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
 
 	var/frequency = 1439
@@ -155,6 +156,12 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/max_input_flow_setting = ATMOS_DEFAULT_VOLUME_PUMP + 500
 	var/max_pressure_setting = 50 * ONE_ATMOSPHERE
 	circuit = /obj/item/circuitboard/air_management/tank_control
+
+/obj/machinery/computer/general_air_control/large_tank_control/wall
+	icon = 'icons/obj/modular_telescreen.dmi'
+	icon_state = "telescreen"
+	icon_screen = "engi"
+	density = FALSE
 
 /obj/machinery/computer/general_air_control/large_tank_control/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
@@ -228,7 +235,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 5) //Just in case we get no new data
 
 /obj/machinery/computer/general_air_control/supermatter_core
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/modular_console.dmi'
 
 	frequency = 1438
 	var/input_tag
@@ -315,6 +322,8 @@ obj/machinery/computer/general_air_control/Destroy()
 
 /obj/machinery/computer/general_air_control/fuel_injection
 	icon_screen = "alert:0"
+	icon_keyboard = "cyan_key"
+	light_color = LIGHT_COLOR_CYAN
 
 	var/device_tag
 	var/list/device_info
@@ -325,7 +334,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/on_temperature = 1200
 	circuit = /obj/item/circuitboard/air_management/injector_control
 
-/obj/machinery/computer/general_air_control/fuel_injection/machinery_process()
+/obj/machinery/computer/general_air_control/fuel_injection/process()
 	if(automation)
 		if(!radio_connection)
 			return 0

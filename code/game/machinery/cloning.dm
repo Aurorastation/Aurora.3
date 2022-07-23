@@ -165,7 +165,7 @@
 	return between(0, 100 * (occupant.health - occupant.maxHealth * 75 / 100) / (occupant.maxHealth * (heal_level - 75) / 100), 100)
 
 //Grow clones to maturity then kick them out.  FREELOADERS
-/obj/machinery/clonepod/machinery_process()
+/obj/machinery/clonepod/process()
 
 	if(stat & NOPOWER) //Autoeject if power is lost
 		if(occupant)
@@ -200,7 +200,7 @@
 		//Also heal some oxyloss ourselves because inaprovaline is so bad at preventing it!!
 		occupant.adjustOxyLoss(-4)
 
-		use_power(7500) //This might need tweaking.
+		use_power_oneoff(7500) //This might need tweaking.
 		return
 
 	else if((!occupant) || (occupant.loc != src))
@@ -215,20 +215,20 @@
 /obj/machinery/clonepod/attackby(obj/item/W as obj, mob/user as mob)
 	if(isnull(occupant))
 		if(default_deconstruction_screwdriver(user, W))
-			return
+			return TRUE
 		if(default_deconstruction_crowbar(user, W))
-			return
+			return TRUE
 		if(default_part_replacement(user, W))
-			return
+			return TRUE
 	if(W.GetID())
 		if(!check_access(W.GetID()))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
-			return
+			return TRUE
 		if((!locked) || (isnull(occupant)))
-			return
+			return TRUE
 		if((occupant.health < -20) && (occupant.stat != 2))
 			to_chat(user, "<span class='warning'>Access Refused.</span>")
-			return
+			return TRUE
 		else
 			locked = 0
 			to_chat(user, "System unlocked.")
@@ -237,7 +237,7 @@
 		biomass += 50
 		user.drop_from_inventory(W,src)
 		qdel(W)
-		return
+		return TRUE
 	else if(W.iswrench())
 		if(locked && (anchored || occupant))
 			to_chat(user, "<span class='warning'>Can not do that while [src] is in use.</span>")
@@ -253,8 +253,9 @@
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
 			else
 				user.visible_message("[user] unsecures [src] from the floor.", "You unsecure [src] from the floor.")
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/machinery/clonepod/emag_act(var/remaining_charges, var/mob/user)
 	if(isnull(occupant))
@@ -459,7 +460,7 @@
 
 /obj/item/storage/box/disks
 	name = "Diskette Box"
-	icon_state = "disk_kit"
+	illustration = "disk_kit"
 
 /obj/item/storage/box/disks/fill()
 	new /obj/item/disk/data(src)

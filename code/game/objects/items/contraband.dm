@@ -11,10 +11,15 @@
 	desc = "Highly illegal drug. Trade brain for speed."
 	starts_with = list(/obj/item/reagent_containers/pill/zoom = 7)
 
-/obj/item/storage/pill_bottle/tranquility
-	name = "bottle of Tranquility pills"
+/obj/item/storage/pill_bottle/joy
+	name = "bottle of Joy pills"
 	desc = "Highly illegal drug. Bang - and your stress is gone."
-	starts_with = list(/obj/item/reagent_containers/pill/tranquility = 7)
+	starts_with = list(/obj/item/reagent_containers/pill/joy = 3)
+
+/obj/item/storage/pill_bottle/smart
+	name = "bottle of Smart pills"
+	desc = "Highly illegal drug. For exam season."
+	starts_with = list(/obj/item/reagent_containers/pill/skrell_nootropic = 7)
 
 /obj/item/reagent_containers/glass/beaker/vial/random
 	flags = 0
@@ -27,8 +32,10 @@
 		list(/decl/reagent/toxin/carpotoxin = 15)								= 2,
 		list(/decl/reagent/impedrezene = 15)									= 2,
 		list(/decl/reagent/toxin/dextrotoxin = 10)								= 1,
-		list(/decl/reagent/mental/neurapan = 15)								= 2,
-		list(/decl/reagent/toxin/spectrocybin = 15)							= 1)
+		list(/decl/reagent/toxin/spectrocybin = 15)								= 1,
+		list(/decl/reagent/joy = 10, /decl/reagent/water = 20)					= 1,
+		list(/decl/reagent/toxin/berserk = 10)                                  = 1,
+		list(/decl/reagent/ammonia = 15)										= 3)
 
 /obj/item/reagent_containers/glass/beaker/vial/random/Initialize()
 	. = ..()

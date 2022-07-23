@@ -91,6 +91,9 @@ datum/preferences
 	var/religion = "None"               //Religious association.
 	var/accent = "None"               //Character accent.
 
+	var/culture
+	var/origin
+
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/static/list/preview_screen_locs = list(
 		"1" = "character_preview_map:1,5:-12",
@@ -286,7 +289,7 @@ datum/preferences
 	dat += player_setup.content(user)
 	send_theme_resources(user)
 	winshow(user, "preferences_window", TRUE)
-	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 1000, 1000)
+	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 1400, 1000)
 	popup.set_content(dat)
 	popup.open(FALSE) // Skip registering onclose on the browser pane
 	onclose(user, "preferences_window", src) // We want to register on the window itself
@@ -461,6 +464,8 @@ datum/preferences
 	character.employer_faction = faction
 	character.religion = religion
 	character.accent = accent
+	character.origin = decls_repository.get_decl(text2path(origin))
+	character.culture = decls_repository.get_decl(text2path(culture))
 
 	character.skills = skills
 	character.used_skillpoints = used_skillpoints

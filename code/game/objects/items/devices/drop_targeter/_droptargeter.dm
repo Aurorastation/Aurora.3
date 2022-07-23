@@ -20,7 +20,7 @@
 	var/drop_message = "Orbital package inbound, clear the targetted area immediately!"
 	var/drop_message_emagged = "O*b$ital p&ck@ge in#)und, c-c-c-!"
 	var/announcer_name = "Mining Requests Console"
-	var/announcer_channel = "Supply" // If not emagged, will announce to this channel. If emagged, will always announce on the common channel.
+	var/announcer_channel = "Operations" // If not emagged, will announce to this channel. If emagged, will always announce on the common channel.
 
 	var/datum/map_template/map
 
@@ -43,8 +43,8 @@
 	var/turf/targloc = get_turf(target)
 	if(!emagged)
 		for(var/turf/t in block(locate(targloc.x+3,targloc.y+3,targloc.z), locate(targloc.x-3,targloc.y-3,targloc.z)))
-			if (!istype(t.loc, /area/mine))
-				to_chat(user, SPAN_WARNING("You can't do this so close to the station, point the laser further into the mine!"))
+			if (isStationLevel(targloc.z))
+				to_chat(user, SPAN_WARNING("You can't request this orbital drop on the ship!"))
 				return
 			if (!isfloor(targloc))
 				to_chat(user, SPAN_WARNING("You cannot request this on unstable flooring!"))
@@ -70,7 +70,7 @@
 	to_chat(user, SPAN_NOTICE("You paint the target at [target]."))
 
 	var/obj/item/device/radio/intercom/announcer = new /obj/item/device/radio/intercom(null)
-	announcer.config(list("Common" = FALSE, "Entertainment" = FALSE, "Response Team" = FALSE, "Science" = FALSE, "Command" = FALSE, "Medical" = FALSE, "Engineering" = FALSE, "Security" = FALSE, "Penal" = FALSE, "Supply" = FALSE, "Service" = FALSE, "Mercenary" = FALSE, "Raider" = FALSE, "Ninja" = FALSE, "AI Private" = FALSE))
+	announcer.config(list("Common" = FALSE, "Entertainment" = FALSE, "Response Team" = FALSE, "Science" = FALSE, "Command" = FALSE, "Medical" = FALSE, "Engineering" = FALSE, "Security" = FALSE, "Penal" = FALSE, "Operations" = FALSE, "Service" = FALSE, "Mercenary" = FALSE, "Raider" = FALSE, "Ninja" = FALSE, "AI Private" = FALSE))
 	if(announcer)
 		if(!emagged)
 			announcer.autosay(drop_message, announcer_name, announcer_channel)
@@ -90,7 +90,7 @@
 		return
 	log_and_message_admins("[key_name_admin(user)] has used a [src] at <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>.")
 	map.load(target, TRUE) //Target must be the center!
-	
+
 
 /obj/item/device/orbital_dropper/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)

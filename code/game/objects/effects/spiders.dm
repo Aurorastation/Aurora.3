@@ -25,9 +25,10 @@
 	var/damage = W.force / 4.0
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			damage = 15
 			playsound(loc, 'sound/items/welder.ogg', 100, 1)
+		return TRUE
 	else
 		user.do_attack_animation(src)
 		playsound(loc, W.hitsound, 50, 1, -1)
@@ -277,11 +278,12 @@
 	die()
 
 /obj/effect/spider/spiderling/attackby(var/obj/item/W, var/mob/user)
-	..()
+	. = ..()
 	if(istype(W, /obj/item/newspaper))
 		var/obj/item/newspaper/N = W
 		if(N.rolled)
 			die()
+			return TRUE
 
 /**
  * Makes the organ spew out all of the spiderlings it has. It's triggered at the point

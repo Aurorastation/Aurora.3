@@ -36,7 +36,7 @@
 				state = 1
 				update_icon()
 				auto_turn()
-				return
+				return TRUE
 
 		if(1)
 			// State 1
@@ -45,7 +45,7 @@
 					to_chat(user, "You weld the assembly securely into place.")
 					anchored = 1
 					state = 2
-				return
+				return TRUE
 
 			else if(W.iswrench())
 				playsound(src.loc, W.usesound, 50, 1)
@@ -53,7 +53,7 @@
 				anchored = 0
 				update_icon()
 				state = 0
-				return
+				return TRUE
 
 		if(2)
 			// State 2
@@ -64,7 +64,7 @@
 					state = 3
 				else
 					to_chat(user, "<span class='warning'>You need 2 coils of wire to wire the assembly.</span>")
-				return
+				return TRUE
 
 			else if(W.iswelder())
 
@@ -72,7 +72,7 @@
 					to_chat(user, "You unweld the assembly from its place.")
 					state = 1
 					anchored = 1
-				return
+				return TRUE
 
 
 		if(3)
@@ -83,12 +83,12 @@
 				var/input = sanitize(input(usr, "Which networks would you like to connect this camera to? Separate networks with a comma. No Spaces!\nFor example: Station,Security,Secret", "Set Network", camera_network ? camera_network : NETWORK_STATION))
 				if(!input)
 					to_chat(usr, "No input found please hang up and try your call again.")
-					return
+					return TRUE
 
 				var/list/tempnetwork = text2list(input, ",")
 				if(tempnetwork.len < 1)
 					to_chat(usr, "No network found please hang up and try your call again.")
-					return
+					return TRUE
 
 				var/area/camera_area = get_area(src)
 				var/temptag = "[sanitize(camera_area.name)] ([rand(1, 999)])"
@@ -113,7 +113,7 @@
 						var/confirm = alert(user, "Is this what you want? Chances Remaining: [i]", "Confirmation", "Yes", "No")
 						if(confirm == "Yes")
 							break
-				return
+				return TRUE
 
 			else if(W.iswirecutter())
 
@@ -121,7 +121,7 @@
 				playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 				to_chat(user, "You cut the wires from the circuits.")
 				state = 2
-				return
+				return TRUE
 
 	// Upgrades!
 	if(is_type_in_list(W, possible_upgrades) && !is_type_in_list(W, upgrades)) // Is a possible upgrade and isn't in the camera already.
@@ -169,7 +169,7 @@
 	playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
 	WT.eyecheck(user)
 	busy = 1
-	if(do_after(user, 20/WT.toolspeed))
+	if(WT.use_tool(src, user, 20, volume = 50))
 		busy = 0
 		if(!WT.isOn())
 			return 0

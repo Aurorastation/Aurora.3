@@ -234,7 +234,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	var/turf/T = counterpart.get_focused_turf()
 	var/list/mobs_to_relay = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, world.view, mobs_to_relay, objs)
+	get_mobs_or_objs_in_view(T, world.view, mobs_to_relay, objs)
 
 	for(var/thing in mobs_to_relay)
 		var/mob/mob = thing
@@ -251,7 +251,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	var/turf/T = counterpart.get_focused_turf()
 	var/list/mobs_to_relay = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, world.view, mobs_to_relay, objs)
+	get_mobs_or_objs_in_view(T, world.view, mobs_to_relay, objs)
 
 	for(var/thing in mobs_to_relay)
 		var/mob/mob = thing
@@ -266,7 +266,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	var/turf/T = counterpart.get_focused_turf()
 	var/list/mobs_to_relay = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, world.view, mobs_to_relay, objs)
+	get_mobs_or_objs_in_view(T, world.view, mobs_to_relay, objs)
 
 	for(var/thing in mobs_to_relay)
 		var/mob/mob = thing

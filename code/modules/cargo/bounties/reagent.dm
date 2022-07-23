@@ -167,8 +167,8 @@
 		/decl/reagent/impedrezene,
 		/decl/reagent/night_juice,
 		/decl/reagent/toxin/cardox,
-		/decl/reagent/toxin/lean,
-		/decl/reagent/toxin/stimm)
+		/decl/reagent/toxin/stimm,
+		/decl/reagent/ambrosia_extract)
 
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type

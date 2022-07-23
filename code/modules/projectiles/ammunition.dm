@@ -24,6 +24,8 @@
 	. = ..()
 	if(ispath(projectile_type))
 		BB = new projectile_type(src)
+	else
+		expend() // allows spawning spent casings by nulling projectile_type
 	randpixel_xy()
 	transform = turn(transform,rand(0,360))
 
@@ -110,7 +112,7 @@
 	var/list/icon_keys = list()		//keys
 	var/list/ammo_states = list()	//values
 
-	var/insert_sound = 'sound/weapons/magazine_insert.ogg' //sound it plays when it gets inserted into a gun.
+	var/insert_sound = /decl/sound_category/metal_slide_reload //sound it plays when it gets inserted into a gun.
 	var/eject_sound = 'sound/weapons/magazine_eject.ogg'
 
 /obj/item/ammo_magazine/Initialize()

@@ -217,7 +217,7 @@
 	icon_state = "victorygin"
 	center_of_mass = list("x"=16, "y"=4)
 	desc_fluff = "Considered the official drink of the People's Republic of Adhomai, Victory Gin was created to celebrate the end of the revolution. It is commonly found in NanoTrasen's \
-	stations, due to a contract that allows the government to supply the corporation, and in the Tajaran communities of Tau Ceti. The destruction of Victory Gin's bottles and reserves \
+	facilities, due to a contract that allows the government to supply the corporation, and in the Tajaran communities of Tau Ceti. The destruction of Victory Gin's bottles and reserves \
 	was widespread when Republican positions and cities were taken by the opposition as the drink is deemed by many as a symbol of the Hadiist regime."
 	reagents_to_add = list(/decl/reagent/alcohol/victorygin = 100)
 
@@ -398,8 +398,8 @@
 	reagents_to_add = list(/decl/reagent/drink/grenadine = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/cola
-	name = "space cola"
-	desc = "Cola. In space."
+	name = "comet cola"
+	desc = "Getmore's most popular line of soda. A generic cola, otherwise."
 	icon_state = "colabottle"
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = NO_EMPTY_ICON
@@ -410,7 +410,7 @@
 	fragile = 0
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up
-	name = "\improper Space-Up"
+	name = "\improper Vacuum Fizz"
 	desc = "Tastes like a hull breach in your mouth."
 	icon_state = "space-up_bottle"
 	center_of_mass = list("x"=16, "y"=6)
@@ -422,8 +422,8 @@
 	fragile = 0
 
 /obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind
-	name = "\improper Space Mountain Wind"
-	desc = "Blows right through you like a space wind."
+	name = "\improper Stellar Jolt"
+	desc = "For those who have a need for caffeine stronger than would be sensible."
 	icon_state = "space_mountain_wind_bottle"
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = NO_EMPTY_ICON
@@ -623,7 +623,7 @@
 	desc = "A soft drink made from honey and tree syrup. The label claims it is good as the tap version."
 	icon_state = "midynhrwater"
 	center_of_mass = list("x" = 16,"y" = 5)
-	desc_fluff = "A soft drink based on Yve’kha's honey and tree syrups. The drink has a creamy consistency and is served cold from the tap of traditional soda fountains. Native to \
+	desc_fluff = "A soft drink based on Yve'kha's honey and tree syrups. The drink has a creamy consistency and is served cold from the tap of traditional soda fountains. Native to \
 	Das'nrra, the beverage is now widespread in the Al'mariist territories. Bottled versions exist, but they are considered to be inferior to what is served in bars and restaurants."
 	reagents_to_add = list(/decl/reagent/drink/midynhr_water = 30)
 
@@ -666,6 +666,21 @@
 	icon_state = "pulquebottle"
 	center_of_mass = list("x" = 16, "y" = 5)
 	reagents_to_add = list(/decl/reagent/alcohol/pulque = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine //can't make it a child of wine, or else reagents double-fill 
+	name = "Vintage Wine"
+	desc = "A fine bottle of high-quality wine, produced in a small batch and aged for decades, if not centuries. It's likely that few bottles like it remain."
+	icon_state = "vwinebottle"
+	desc_fluff = "Small-batch wines produced by local, independent wineries are highly sought-after by those who can afford them. They are considered highly-collectable items \
+	due to how relatively few exist compared to more mass-produced wines. The attention to detail can be seen in the bottle, and felt in the taste. While megacorporations and their \
+	subsidiaries don't produce bad products, wine afficianados across the spur agree that nothing comes close to these locally-produced treasures. They can easily be worth thousands of credits."
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/decl/reagent/alcohol/wine/vintage = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine/Initialize()
+	. = ..()
+	name = pick("Triesto Pre-Dimming Sangiovese", "New Beirut 2340", "Vysokan Artisans Merlot", "Silver Seas Original Merlot", "Domelkos Morozian Treasure", "Belle Cote Serene Moth 2395",
+			"Malta Sol Nebbiolo", "Ashkhaimi Gardens Shiraz", "Old Cairo 2375", "Artisan Empire 2354")
 
 // Butanol-based alcoholic drinks
 //=====================================

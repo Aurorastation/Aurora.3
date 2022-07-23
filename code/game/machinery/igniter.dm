@@ -6,7 +6,6 @@
 	var/id = null
 	var/on = 0
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 4
 	var/_wifi_id
@@ -39,7 +38,7 @@
 	ignite()
 	return
 
-/obj/machinery/igniter/machinery_process()	//ugh why is this even in process()?
+/obj/machinery/igniter/process()	//ugh why is this even in process()?
 	if (on && powered() )
 		var/turf/location = src.loc
 		if (isturf(location))
@@ -51,8 +50,12 @@
 	update_icon()
 
 /obj/machinery/igniter/proc/ignite()
-	use_power(50)
+	use_power_oneoff(50)
 	on = !on
+	if(on)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+	else
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	update_icon()
 
 
@@ -69,7 +72,6 @@
 	var/base_state = "migniter"
 	layer = 3.3
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 4
 	var/_wifi_id
@@ -109,6 +111,7 @@
 		else if(!disable)
 			user.visible_message("<span class='warning'>[user] has reconnected the [src]!</span>", "<span class='warning'>You fix the connection to the [src].</span>")
 		update_icon()
+		return TRUE
 
 /obj/machinery/sparker/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -127,7 +130,7 @@
 	flick("migniter-spark", src)
 	spark(src, 2, alldirs)
 	src.last_spark = world.time
-	use_power(1000)
+	use_power_oneoff(1000)
 	var/turf/location = src.loc
 	if (isturf(location))
 		location.hotspot_expose(1000,500,1)
@@ -149,16 +152,16 @@
 	if(..())
 		return
 
-	use_power(5)
+	use_power_oneoff(5)
 
 	active = 1
 	icon_state = "launcheract"
 
-	for(var/obj/machinery/sparker/M in SSmachinery.all_machines)
+	for(var/obj/machinery/sparker/M in SSmachinery.machinery)
 		if (M.id == id)
 			INVOKE_ASYNC(M, /obj/machinery/sparker/proc/ignite)
 
-	for(var/obj/machinery/igniter/M in SSmachinery.all_machines)
+	for(var/obj/machinery/igniter/M in SSmachinery.machinery)
 		if(M.id == id)
 			M.ignite()
 

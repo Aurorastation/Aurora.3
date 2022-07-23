@@ -12,6 +12,7 @@
 	maxHealth = 50
 	melee_damage_lower = 5
 	melee_damage_upper = 8
+	armor_penetration = 5
 	attacktext = "sliced"
 	faction = "silicon"
 	min_oxy = 0

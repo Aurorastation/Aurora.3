@@ -413,7 +413,7 @@
 		/obj/item/storage/belt/medical/first_responder/combat = 0.1,
 		/obj/item/storage/belt/security/tactical = 0.1,
 		/obj/item/storage/belt/military = 0.1,
-		/obj/item/storage/belt/janitor = 0.4
+		/obj/item/storage/belt/custodial = 0.4
 	)
 
 // Spawns a random backpack.
@@ -430,25 +430,19 @@
 		/obj/item/storage/backpack/industrial = 3,
 		/obj/item/storage/backpack/toxins = 3,
 		/obj/item/storage/backpack/hydroponics = 3,
-		/obj/item/storage/backpack/genetics = 3,
-		/obj/item/storage/backpack/virology = 3,
 		/obj/item/storage/backpack/pharmacy = 3,
 		/obj/item/storage/backpack/cloak = 2,
 		/obj/item/storage/backpack/syndie = 1,
-		/obj/item/storage/backpack/wizard = 1,
 		/obj/item/storage/backpack/satchel = 3,
-		/obj/item/storage/backpack/satchel_norm = 3,
-		/obj/item/storage/backpack/satchel_eng = 3,
-		/obj/item/storage/backpack/satchel_med = 3,
-		/obj/item/storage/backpack/satchel_vir = 3,
-		/obj/item/storage/backpack/satchel_pharm = 3,
-		/obj/item/storage/backpack/satchel_gen = 3,
-		/obj/item/storage/backpack/satchel_tox = 3,
-		/obj/item/storage/backpack/satchel_sec = 3,
-		/obj/item/storage/backpack/satchel_hyd = 3,
-		/obj/item/storage/backpack/satchel_cap = 1,
-		/obj/item/storage/backpack/satchel_syndie = 1,
-		/obj/item/storage/backpack/satchel_wizard = 1,
+		/obj/item/storage/backpack/satchel/norm = 3,
+		/obj/item/storage/backpack/satchel/eng = 3,
+		/obj/item/storage/backpack/satchel/med = 3,
+		/obj/item/storage/backpack/satchel/pharm = 3,
+		/obj/item/storage/backpack/satchel/tox = 3,
+		/obj/item/storage/backpack/satchel/sec = 3,
+		/obj/item/storage/backpack/satchel/hyd = 3,
+		/obj/item/storage/backpack/satchel/cap = 1,
+		/obj/item/storage/backpack/satchel/syndie = 1,
 		/obj/item/storage/backpack/ert = 1,
 		/obj/item/storage/backpack/ert/security = 1,
 		/obj/item/storage/backpack/ert/engineer = 1,
@@ -456,27 +450,21 @@
 		/obj/item/storage/backpack/duffel = 3,
 		/obj/item/storage/backpack/duffel/cap = 1,
 		/obj/item/storage/backpack/duffel/hyd = 3,
-		/obj/item/storage/backpack/duffel/vir = 3,
 		/obj/item/storage/backpack/duffel/med = 3,
 		/obj/item/storage/backpack/duffel/eng = 3,
 		/obj/item/storage/backpack/duffel/tox = 3,
 		/obj/item/storage/backpack/duffel/sec = 3,
-		/obj/item/storage/backpack/duffel/gen = 3,
 		/obj/item/storage/backpack/duffel/pharm = 3,
 		/obj/item/storage/backpack/duffel/syndie = 1,
-		/obj/item/storage/backpack/duffel/wizard = 1,
 		/obj/item/storage/backpack/messenger = 2,
 		/obj/item/storage/backpack/messenger/pharm = 2,
 		/obj/item/storage/backpack/messenger/med = 2,
-		/obj/item/storage/backpack/messenger/viro = 2,
 		/obj/item/storage/backpack/messenger/tox = 2,
-		/obj/item/storage/backpack/messenger/gen = 2,
 		/obj/item/storage/backpack/messenger/com = 1,
 		/obj/item/storage/backpack/messenger/engi = 2,
 		/obj/item/storage/backpack/messenger/hyd = 2,
 		/obj/item/storage/backpack/messenger/sec = 2,
 		/obj/item/storage/backpack/messenger/syndie = 1,
-		/obj/item/storage/backpack/messenger/wizard = 1
 	)
 
 /obj/random/voidsuit
@@ -762,17 +750,17 @@
 		/obj/item/clothing/under/color/red,
 		/obj/item/clothing/under/color/white,
 		/obj/item/clothing/under/color/yellow,
-		/obj/item/clothing/under/lightblue,
-		/obj/item/clothing/under/aqua,
-		/obj/item/clothing/under/purple,
-		/obj/item/clothing/under/lightpurple,
-		/obj/item/clothing/under/lightgreen,
-		/obj/item/clothing/under/lightbrown,
-		/obj/item/clothing/under/brown,
-		/obj/item/clothing/under/yellowgreen,
-		/obj/item/clothing/under/darkblue,
-		/obj/item/clothing/under/lightred,
-		/obj/item/clothing/under/darkred
+		/obj/item/clothing/under/color/lightblue,
+		/obj/item/clothing/under/color/aqua,
+		/obj/item/clothing/under/color/purple,
+		/obj/item/clothing/under/color/lightpurple,
+		/obj/item/clothing/under/color/lightgreen,
+		/obj/item/clothing/under/color/lightbrown,
+		/obj/item/clothing/under/color/brown,
+		/obj/item/clothing/under/color/yellowgreen,
+		/obj/item/clothing/under/color/darkblue,
+		/obj/item/clothing/under/color/lightred,
+		/obj/item/clothing/under/color/darkred
 	)
 
 /obj/random/loot
@@ -789,7 +777,6 @@
 		/obj/item/clothing/glasses/welding = 0.75,
 		/obj/item/clothing/head/bearpelt = 0.4,
 		/obj/item/clothing/head/collectable/petehat = 0.1,
-		/obj/item/clothing/head/cueball = 0.25,
 		/obj/item/clothing/head/hardhat = 1.2,
 		/obj/item/clothing/head/helmet/augment = 0.1,
 		/obj/item/clothing/head/pirate = 0.2,
@@ -827,14 +814,11 @@
 		/obj/item/clothing/shoes/winter = 0.3,
 		/obj/item/clothing/shoes/workboots = 0.75,
 		/obj/item/clothing/suit/ianshirt = 0.5,
-		/obj/item/clothing/suit/imperium_monk = 0.4,
 		/obj/item/clothing/suit/storage/hazardvest = 0.75,
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen = 0.7,
 		/obj/item/clothing/suit/storage/vest = 0.2,
 		/obj/item/clothing/suit/syndicatefake = 0.6,
-		/obj/item/clothing/under/mime = 0.1,
 		/obj/item/clothing/under/overalls = 1,
-		/obj/item/clothing/under/rainbow = 0.9,
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
 		/obj/item/device/firing_pin = 0.3,
@@ -1103,7 +1087,8 @@
 		/obj/item/rig/military = 0.5,
 		/obj/item/rig/unathi/fancy = 0.5,
 		/obj/item/rig/vaurca/minimal = 0.5,
-		/obj/item/anomaly_core = 0.5
+		/obj/item/anomaly_core = 0.5,
+		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = 0.1
 	)
 
 /obj/random/highvalue/no_crystal
@@ -1118,8 +1103,28 @@
 		/obj/item/rig/military = 0.5,
 		/obj/item/rig/unathi/fancy = 0.5,
 		/obj/item/rig/vaurca/minimal = 0.5,
-		/obj/item/anomaly_core = 0.5
+		/obj/item/anomaly_core = 0.5,
+		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = 0.1
 	)
+
+//Can be good loot for away sites as well as a guaranteed valuable for a merchant.
+/obj/random/highvalue/no_weapon
+	problist = list(
+		/obj/item/bluespace_crystal = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = 0.1,
+		/obj/item/clothing/glasses/thermal = 0.5,
+		/obj/item/anomaly_core = 0.5,
+		/obj/item/rig/military = 0.2,
+		/obj/item/rig/unathi/fancy = 0.2,
+		/obj/item/stack/material/phoron/full = 0.1,
+		/obj/item/stack/material/plasteel/full = 0.8,
+		/obj/random/voidsuit = 1,
+		/obj/item/rfd/construction = 0.4,
+		/obj/item/vaurca/box = 0.1,
+		/obj/item/melee/vaurca/rock = 0.1,
+		/obj/item/device/personal_shield = 0.1,
+		/obj/item/storage/secure/briefcase/money = 0.1
+		)
 
 /obj/random/junk
 	name = "random trash"
@@ -1476,7 +1481,7 @@
 /obj/random/animal_crate
 	name = "random animal"
 	desc = "Contains a random crate with some animal."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "densecrate"
 	spawnlist = list(
 		/obj/structure/largecrate/animal/corgi = 3,

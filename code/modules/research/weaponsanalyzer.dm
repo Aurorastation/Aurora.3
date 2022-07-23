@@ -5,7 +5,6 @@
 	icon_state = "weapon_analyzer"
 	density = TRUE
 	anchored = TRUE
-	use_power = 1
 	idle_power_usage = 60
 	active_power_usage = 2000
 

@@ -1,8 +1,3 @@
-#define RFD_FLOORS_AND_WALL 1
-#define RFD_WINDOWS_AND_GRILLE 2
-#define RFD_AIRLOCK 3
-#define RFD_DECONSTRUCT 4
-
 //Contains the rapid construction device.
 /obj/item/rfd
 	name = "\improper Rapid-Fabrication-Device"
@@ -76,7 +71,7 @@
 		playsound(src.loc, 'sound/weapons/laser_reload1.ogg', 50, FALSE)
 		to_chat(user, SPAN_NOTICE("The RFD now holds [stored_matter]/30 matter-units."))
 		update_icon()
-		return
+		return TRUE
 
 	if(W.isscrewdriver())  // Turning it into a crossbow
 		crafting = !crafting
@@ -85,7 +80,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("The RFD can now be modified."))
 		src.add_fingerprint(user)
-		return
+		return TRUE
 
 	if(crafting)
 		var/obj/item/crossbow // the thing we're gonna add, check what it is below
@@ -93,16 +88,16 @@
 			var/obj/item/crossbowframe/F = W
 			if(F.buildstate != 5)
 				to_chat(user, SPAN_WARNING("You need to fully assemble the crossbow frame first!"))
-				return
+				return TRUE
 			crossbow = F
 		else if(istype(W, /obj/item/gun/launcher/crossbow) && !istype(W, /obj/item/gun/launcher/crossbow/RFD))
 			var/obj/item/gun/launcher/crossbow/C = W
 			if(C.bolt)
 				to_chat(user, SPAN_WARNING("You need to remove \the [C.bolt] from \the [C] before you can attach it to \the [src]."))
-				return
+				return TRUE
 			if(C.cell)
 				to_chat(user, SPAN_WARNING("You need to remove \the [C.cell] from \the [C] before you can attach it to \the [src]."))
-				return
+				return TRUE
 			crossbow = C
 
 		if(crossbow)
@@ -113,8 +108,8 @@
 			user.drop_from_inventory(src)
 			qdel(src)
 			user.put_in_hands(CB)
-			return
-	..()
+			return TRUE
+	return ..()
 
 
 /obj/item/rfd/proc/useResource(var/amount, var/mob/user)
@@ -224,8 +219,8 @@ RFD Construction-Class
 		if(istype(T, /turf/simulated/floor))
 			build_cost =  3
 			build_delay = 20
-			build_type = "window and grille section"
-			build_atom = /obj/effect/map_effect/wingrille_spawn/reinforced
+			build_type = "window"
+			build_atom = /obj/effect/map_effect/window_spawner/full/reinforced
 	else if(mode == RFD_AIRLOCK)
 		if(istype(T, /turf/simulated/floor))
 			build_cost =  3
@@ -709,7 +704,3 @@ RFD Piping-Class
 #undef SUPPLY_PIPE
 #undef SCRUBBER_PIPE
 #undef DEVICES
-
-#undef RFD_FLOORS_AND_WALL
-#undef RFD_AIRLOCK
-#undef RFD_DECONSTRUCT

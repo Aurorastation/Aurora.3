@@ -160,8 +160,6 @@
 					if(!silent)
 						to_chat(src, SPAN_WARNING("You need a tighter hold on \the [M]!"))
 					return FALSE
-		else
-			return FALSE
 
 	. = stomach.get_devour_time(victim) || ..()
 
@@ -230,7 +228,7 @@
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
-		flick("flash", flash)
+		flash_eyes()
 
 	var/b_loss = null
 	var/f_loss = null
@@ -251,7 +249,7 @@
 
 			if (!istype(l_ear, /obj/item/clothing/ears/earmuffs) && !istype(r_ear, /obj/item/clothing/ears/earmuffs))
 				adjustEarDamage(30, 120)
-				
+
 			if (prob(70))
 				Paralyse(10)
 
@@ -898,10 +896,12 @@
 
 /mob/living/carbon/human/proc/check_has_mouth()
 	// Todo, check stomach organ when implemented.
-	var/obj/item/organ/external/head/H = get_organ(BP_HEAD)
-	if(!H || !H.can_intake_reagents)
-		return 0
-	return 1
+	var/obj/item/organ/external/E = get_organ(BP_HEAD)
+	if(E && !E.is_stump())
+		var/obj/item/organ/external/head/H = E
+		if(!H.can_intake_reagents)
+			return FALSE
+	return TRUE
 
 /mob/living/proc/empty_stomach()
 	return
@@ -1259,6 +1259,11 @@
 		custom_pain("You feel a stabbing pain in your chest!", 50)
 		L.bruise()
 
+/mob/living/carbon/human/proc/is_lung_rescued()
+	var/species_organ = species.breathing_organ
+	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
+	return L && L.rescued
+
 //returns 1 if made bloody, returns 0 otherwise
 /mob/living/carbon/human/add_blood(mob/living/carbon/C as mob)
 	if (!..())
@@ -1462,16 +1467,23 @@
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
+	fill_out_culture_data()
+
 	if(change_hair)
 		species.set_default_hair(src)
-
-	if(species.default_accent)
-		accent = species.default_accent
 
 	if(species)
 		return 1
 	else
 		return 0
+
+
+/mob/living/carbon/human/proc/fill_out_culture_data()
+	culture = decls_repository.get_decl(species.possible_cultures[1])
+	origin = decls_repository.get_decl(culture.possible_origins[1])
+	accent = pick(origin.possible_accents)
+	citizenship = origin.possible_citizenships[1]
+	religion = origin.possible_religions[1]
 
 /mob/living/carbon/human/proc/bloody_doodle()
 	set category = "IC"
@@ -1768,6 +1780,11 @@
 	if (doClickAction)
 		..()
 
+/mob/living/carbon/human/AltClick(mob/user)
+	. = ..()
+	if(hasHUD(user, MED_HUDTYPE))
+		Topic(src, list("triagetag"=1))
+
 /mob/living/carbon/human/verb/toggle_underwear()
 	set name = "Toggle Underwear"
 	set desc = "Shows/hides selected parts of your underwear."
@@ -2018,7 +2035,7 @@
 	var/obj/item/organ/internal/augment/synthetic_cords/voice/aug = internal_organs_by_name[BP_AUG_ACC_CORDS] //checks for augments, thanks grey
 	if(aug)
 		used_accent = aug.accent
-	
+
 	for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
 		if(gear)
 			var/obj/item/voice_changer/changer = locate() in gear
@@ -2037,8 +2054,8 @@
 
 /mob/living/carbon/human/proc/set_accent(var/new_accent)
 	accent = new_accent
-	if(!(accent in species.allowed_accents))
-		accent = species.default_accent
+	if(!(accent in origin.possible_accents))
+		accent = origin.possible_accents[1]
 	return TRUE
 
 /mob/living/carbon/human/proc/add_or_remove_language(var/language)
@@ -2110,7 +2127,7 @@
 // Intensity 1: mild, 2: hurts, 3: very painful, 4: extremely painful, 5: that's going to leave some damage
 // Sensitive_only: If yes, only those with sensitive hearing are affected
 // Listening_pain: Increases the intensity by the listed amount if the person is listening in
-/mob/living/carbon/human/proc/earpain(var/intensity, var/sensitive_only = FALSE, var/listening_pain = 0) 
+/mob/living/carbon/human/proc/earpain(var/intensity, var/sensitive_only = FALSE, var/listening_pain = 0)
 	if (ear_deaf)
 		return
 	if (sensitive_only && !get_hearing_sensitivity())
@@ -2119,7 +2136,7 @@
 		intensity += listening_pain
 	else if (sensitive_only)
 		return
-	
+
 	var/obj/item/organ/external/E = organs_by_name[BP_HEAD]
 	switch (intensity)
 		if (1)
@@ -2136,3 +2153,51 @@
 			custom_pain("YOUR EARS ARE DEAFENED BY THE PAIN!", 110, TRUE, E, FALSE)
 			adjustEarDamage(5, 5, FALSE)
 			stop_listening()
+
+/mob/living/carbon/human/verb/lookup()
+	set name = "Look Up"
+	set desc = "If you want to know what's above."
+	set category = "IC"
+
+
+	if(client && !is_physically_disabled())
+		if(z_eye)
+			reset_view(null)
+			QDEL_NULL(z_eye)
+			return
+		var/turf/above = GetAbove(src)
+		if(TURF_IS_MIMICING(above))
+			z_eye = new /atom/movable/z_observer/z_up(src, src)
+			visible_message(SPAN_NOTICE("[src] looks up."), SPAN_NOTICE("You look up."))
+			reset_view(z_eye)
+			return
+		to_chat(src, "<span class='notice'>You can see \the [above ? above : "ceiling"].</span>")
+	else
+		to_chat(src, "<span class='notice'>You can't look up right now.</span>")
+
+/mob/living/verb/lookdown()
+	set name = "Look Down"
+	set desc = "If you want to know what's below."
+	set category = "IC"
+
+	if(client && !is_physically_disabled())
+		if(z_eye)
+			reset_view(null)
+			QDEL_NULL(z_eye)
+			return
+		var/turf/T = get_turf(src)
+		if(TURF_IS_MIMICING(T) && HasBelow(T.z))
+			z_eye = new /atom/movable/z_observer/z_down(src, src)
+			visible_message(SPAN_NOTICE("[src] looks below."), SPAN_NOTICE("You look below."))
+			reset_view(z_eye)
+			return
+		else
+			T = get_step(T, dir)
+			if(TURF_IS_MIMICING(T) && HasBelow(T.z))
+				z_eye = new /atom/movable/z_observer/z_down(src, src, TRUE)
+				visible_message(SPAN_NOTICE("[src] leans over to look below."), SPAN_NOTICE("You lean over to look below."))
+				reset_view(z_eye)
+				return
+		to_chat(src, "<span class='notice'>You can see \the [T ? T : "floor"].</span>")
+	else
+		to_chat(src, "<span class='notice'>You can't look below right now.</span>")

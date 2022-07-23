@@ -16,7 +16,7 @@
 		icon_state = pick(rand_icons)
 
 /obj/item/sticker/attack_hand(mob/user)
-	if(!attached)
+	if(!isliving(user) || !attached)
 		return ..()
 
 	if(user.a_intent == I_HELP)
@@ -42,6 +42,7 @@
 	var/atom/movable/attached_atom = attached.resolve()
 	if(attached_atom)
 		attached_atom.attackby(I, user) // don't allow people to make sticker armor
+		return TRUE
 
 /obj/item/sticker/afterattack(atom/movable/target, mob/user, proximity_flag, click_parameters)
 	if(!proximity_flag)
@@ -62,7 +63,6 @@
 	user.drop_from_inventory(src, A)
 	attached = WEAKREF(A)
 	A.vis_contents += src
-	A.verbs += /atom/movable/proc/take_off_sticker
 
 /obj/item/sticker/proc/remove_sticker(var/mob/user)
 	user.put_in_hands(src)
@@ -70,7 +70,6 @@
 	if(attached_atom)
 		to_chat(user, SPAN_NOTICE("You remove \the [src] from \the [attached_atom]."))
 		attached_atom.vis_contents -= src
-		attached_atom.verbs -= /atom/movable/proc/take_off_sticker
 		attached = null
 
 /obj/item/sticker/googly_eye
@@ -82,11 +81,3 @@
 	name = "gold star"
 	desc = "A sticker of a gold star, for those overachievers."
 	icon_state = "goldstar"
-
-/atom/movable/proc/take_off_sticker()
-	set name = "Remove Sticker"
-	set src in view(1)
-
-	var/obj/item/sticker/S = locate() in src
-	if(S)
-		S.remove_sticker(usr)

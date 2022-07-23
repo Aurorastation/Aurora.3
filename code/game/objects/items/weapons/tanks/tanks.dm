@@ -1,7 +1,3 @@
-#define TANK_MAX_RELEASE_PRESSURE (3*ONE_ATMOSPHERE)
-#define TANK_DEFAULT_RELEASE_PRESSURE 24
-#define TANK_IDEAL_PRESSURE 1015 //Arbitrary.
-
 /obj/item/tank
 	name = "tank"
 	icon = 'icons/obj/tank.dmi'
@@ -245,6 +241,12 @@
 	cut_overlays()
 	// SSoverlay will handle icon caching.
 	add_overlay("[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]")
+
+/obj/item/tank/proc/percent()
+	var/gauge_pressure = 0
+	if(air_contents)
+		gauge_pressure = air_contents.return_pressure()
+	return 100.0*gauge_pressure/TANK_IDEAL_PRESSURE
 
 /obj/item/tank/proc/check_status()
 	//Handle exploding, leaking, and rupturing of the tank

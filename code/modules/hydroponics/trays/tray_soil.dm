@@ -3,7 +3,7 @@
 	desc = "A mound of earth. You could plant some seeds here."
 	icon_state = "soil"
 	density = 0
-	use_power = 0
+	use_power = POWER_USE_OFF
 	mechanical = 0
 	tray_light = 0
 	waterlevel = 0
@@ -27,7 +27,7 @@
 	if(istype(O,/obj/item/tank))
 		return
 	if(istype(O,/obj/item/shovel))
-		if(do_after(user, 50/O.toolspeed))
+		if(O.use_tool(src, user, 50, volume = 50))
 			new /obj/item/stack/material/sandstone{amount = 3}(loc)
 			to_chat(user, "<span class='notice'>You remove the soil from the bed and dismantle the sandstone base.</span>")
 			playsound(src, 'sound/effects/stonedoor_openclose.ogg', 40, 1)
@@ -74,7 +74,7 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil/invisible/die()
 	qdel(src)
 
-/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/machinery_process()
+/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/process()
 	if(!seed)
 		qdel(src)
 		return

@@ -191,9 +191,9 @@
  */
 
 /obj/item/stack/tile/floor
-	name = "floor tile"
-	singular_name = "floor tile"
-	desc = "Used to cover up your horrible art."
+	name = "steel tiles"
+	singular_name = "steel tile"
+	desc = "A set of steel floor tiles."
 	icon_state = "tile"
 	force = 6
 	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT)
@@ -206,6 +206,12 @@
 	. = ..()
 	amount = max_amount
 	update_icon()
+
+/obj/item/stack/tile/floor/full
+	name = "full steel tiles"
+	desc = "A set of full steel floor tiles."
+	singular_name = "full steel tile"
+	icon_state = "tile_full"
 
 /obj/item/stack/tile/floor_red
 	name = "red floor tile"
@@ -232,9 +238,17 @@
 	icon_state = "tile_white"
 
 /obj/item/stack/tile/floor_dark
-	name = "dark floor tile"
-	singular_name = "dark floor tile"
+	name = "plasteel tiles"
+	desc = "A set of plasteel floor tiles."
+	singular_name = "plasteel tile"
 	icon_state = "fr_tile"
+	matter = list(MATERIAL_PLASTEEL = TILE_MATERIAL_AMOUNT)
+
+/obj/item/stack/tile/floor_dark/full
+	name = "full plasteel tiles"
+	desc = "A set of full plasteel floor tiles."
+	singular_name = "full plasteel tile"
+	icon_state = "fr_tile_full"
 	matter = list(MATERIAL_PLASTEEL = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/floor_freezer

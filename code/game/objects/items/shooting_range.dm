@@ -21,15 +21,15 @@
 	if(W.iswelder())
 		if(hp == initial(hp))
 			to_chat(user, SPAN_NOTICE("\The [src] is fully repaired."))
-			return
+			return TRUE
 		var/obj/item/weldingtool/WT = W
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			cut_overlays()
 			LAZYCLEARLIST(bullet_holes)
 			icon = initial(icon)
 			hp = initial(hp)
 			to_chat(user, SPAN_NOTICE("You slice off \the [src]'s uneven chunks of steel and scorch marks."))
-			return
+		return TRUE
 
 /obj/item/target/attack_hand(var/mob/user)
 	// taking pinned targets off!

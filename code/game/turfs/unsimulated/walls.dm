@@ -2,14 +2,15 @@
 	name = "wall"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "riveted"
-	opacity = 1
-	density = 1
+	opacity = TRUE
+	density = TRUE
+	blocks_air = TRUE
 
 /turf/unsimulated/wall/fakeglass
 	name = "window"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "fakewindows"
-	opacity = 0
+	opacity = FALSE
 
 /turf/unsimulated/wall/other
 	icon = 'icons/turf/walls.dmi'
@@ -24,7 +25,10 @@
 	canSmoothWith = list(
 		/turf/unsimulated/wall/riveted,
 		/obj/machinery/door/airlock/centcom,
-		/turf/unsimulated/wall/fakepdoor
+		/turf/unsimulated/wall/fakepdoor,
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty
 	)
 
 /turf/unsimulated/wall/fakepdoor
@@ -50,7 +54,10 @@
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
 		/turf/unsimulated/wall/darkshuttlewall,
-		/turf/unsimulated/wall/riveted
+		/turf/unsimulated/wall/riveted,
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty
 	)
 
 /turf/unsimulated/wall/fakeairlock

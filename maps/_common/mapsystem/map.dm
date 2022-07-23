@@ -36,6 +36,7 @@
 	var/boss_short    = "Cap'"
 	var/company_name  = "BadMan"
 	var/company_short = "BM"
+	var/station_type  = "station"
 
 	var/command_spawn_enabled = FALSE
 	var/command_spawn_message = "Someone didn't fill this in."
@@ -87,8 +88,8 @@
 	var/meteor_contact_message = "Contact with meteor wave imminent, all hands brace for impact."
 	var/meteor_end_message = "The station has cleared the meteor shower, please return to your stations."
 
-	var/ship_detected_end_message = "The NDV Icarus reports that it has downed an unknown vessel that was approaching your station. Prepare for debris impact - please evacuate the surface level if needed."
-	var/ship_meteor_contact_message = "Ship debris colliding now, all hands brace for impact."
+	var/ship_meteor_contact_message = "The NDV Icarus reports that it has downed an unknown vessel that was approaching your station. Prepare for debris impact - please evacuate the surface level if needed."
+	var/ship_detected_end_message = "Ship debris colliding now, all hands brace for impact."
 	var/ship_meteor_end_message = "The last of the ship debris has hit or passed by the station, it is now safe to commence repairs."
 
 	var/dust_detected_message = "A belt of space dust is approaching the station."
@@ -104,11 +105,14 @@
 													"Unidentified hackers have targetted a combat drone wing deployed from the NDV Icarus. If any are sighted in the area, approach with caution.")
 	var/rogue_drone_end_message = "Icarus drone control reports the malfunctioning wing has been recovered safely."
 	var/rogue_drone_destroyed_message = "Icarus drone control registers disappointment at the loss of the drones, but the survivors have been recovered."
-	
+
 	var/num_exoplanets = 0
 	var/list/planet_size  //dimensions of planet zlevel, defaults to world size. Due to how maps are generated, must be (2^n+1) e.g. 17,33,65,129 etc. Map will just round up to those if set to anything other.
 	var/min_offmap_players = 0
 	var/away_site_budget = 0
+
+	var/allow_borgs_to_leave = FALSE //this controls if borgs can leave the station or ship without exploding
+	var/area/warehouse_basearea //this controls where the cargospawner tries to populate warehouse items
 
 /datum/map/New()
 	if(!map_levels)
@@ -215,13 +219,13 @@
 	var/list/unavailable = list()
 	var/list/by_type = list()
 
-	for (var/site_name in SSmapping.away_sites_templates)
-		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_name]
+	for (var/site_id in SSmapping.away_sites_templates)
+		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
 		if (site.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED)
 			guaranteed += site
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight
-		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
+		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (SSatlas.current_sector.name in site.sectors))
 			available[site] = site.spawn_weight
 		by_type[site.type] = site
 

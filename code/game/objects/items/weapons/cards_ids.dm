@@ -95,7 +95,7 @@ var/const/NO_EMAG_ACT = -50
 
 	var/list/access = list()
 	var/registered_name = "Unknown" // The name registered_name on the card
-	var/mob/living/carbon/human/mob
+	var/datum/weakref/mob_id
 	slot_flags = SLOT_ID
 
 	var/age = "\[UNSET\]"
@@ -125,7 +125,6 @@ var/const/NO_EMAG_ACT = -50
 	var/iff_faction = IFF_DEFAULT
 
 /obj/item/card/id/Destroy()
-	mob = null
 	return ..()
 
 /obj/item/card/id/examine(mob/user)
@@ -173,7 +172,7 @@ var/const/NO_EMAG_ACT = -50
 	id_card.age 				= age
 	id_card.citizenship			= citizenship
 	id_card.religion 			= SSrecords.get_religion_record_name(religion)
-	id_card.mob					= src
+	id_card.mob_id				= WEAKREF(src)
 	id_card.employer_faction    = employer_faction
 
 /obj/item/card/id/proc/dat()
@@ -203,7 +202,7 @@ var/const/NO_EMAG_ACT = -50
 				to_chat(user, "<span class='warning'>You cannot imprint [src] while wearing \the [H.gloves].</span>")
 				return
 			else
-				mob = H
+				mob_id = WEAKREF(H)
 				blood_type = H.dna.b_type
 				dna_hash = H.dna.unique_enzymes
 				fingerprint_hash = md5(H.dna.uni_identity)
@@ -266,7 +265,7 @@ var/const/NO_EMAG_ACT = -50
 					to_chat(user, "<span class='warning'>They don't have any hands.</span>")
 					return 1
 				user.visible_message("[user] imprints [src] with \the [H]'s biometrics.")
-				mob = H
+				mob_id = WEAKREF(H)
 				blood_type = H.dna.b_type
 				dna_hash = H.dna.unique_enzymes
 				fingerprint_hash = md5(H.dna.uni_identity)
@@ -522,11 +521,11 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/distress/ap_eridani
-	name = "\improper Eridani identification card"
+	name = "\improper Eridani Private Military Contractor ID"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
 	assignment = "EPMC Asset Protection"
-	icon_state = "erisec_card"
-	overlay_state = "erisec_card"
+	icon_state = "pmc_card"
+	overlay_state = "pmc_card"
 
 /obj/item/card/id/distress/ap_eridani/New()
 	access = get_distress_access()
@@ -572,11 +571,11 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "iru_card"
 	overlay_state = "iru_card"
 
-/obj/item/card/id/eridani
-	name = "\improper Eridani identification card"
-	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
-	icon_state = "erisec_card"
-	overlay_state = "erisec_card"
+/obj/item/card/id/pmc
+	name = "\improper PMCG identification card"
+	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Private Military Contracting Group."
+	icon_state = "pmc_card"
+	overlay_state = "pmc_card"
 
 /obj/item/card/id/zeng_hu
 	name = "\improper Zeng-Hu Pharmaceuticals identification card"
@@ -608,6 +607,12 @@ var/const/NO_EMAG_ACT = -50
 	overlay_state = "einstein_card"
 	iff_faction = IFF_EE
 
+/obj/item/card/id/orion
+	name = "\improper Orion Express identification card"
+	desc = "A well-worn identification pass, retrofitted with wireless transmission technology."
+	icon_state = "orion_card"
+	overlay_state = "orion_card"
+
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"
 	desc = "A bizarre imitation of Nanotrasen identification cards. It seems to function normally as well."
@@ -629,3 +634,6 @@ var/const/NO_EMAG_ACT = -50
 				..()
 	else
 		..()
+
+/obj/item/card/id/away_site
+	access = list(access_generic_away_site, access_external_airlocks)

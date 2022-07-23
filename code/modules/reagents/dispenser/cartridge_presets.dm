@@ -25,6 +25,7 @@
 	phosphorus	spawn_reagent = /decl/reagent/phosphorus
 	potassium	spawn_reagent = /decl/reagent/potassium
 	radium		spawn_reagent = /decl/reagent/radium
+	radium/small	volume = CARTRIDGE_VOLUME_SMALL //For bar drinks
 	sacid		spawn_reagent = /decl/reagent/acid
 	silicon		spawn_reagent = /decl/reagent/silicon
 	sodium		spawn_reagent = /decl/reagent/sodium
@@ -49,6 +50,7 @@
 	// Bar, soft
 	apple   	spawn_reagent = /decl/reagent/drink/applejuice
 	banana  	spawn_reagent = /decl/reagent/drink/banana
+	berryjuice	spawn_reagent = /decl/reagent/drink/berryjuice
 	brownstar	spawn_reagent = /decl/reagent/drink/brownstar
 	clean_kois	spawn_reagent = /decl/reagent/kois/clean
 	cola		spawn_reagent = /decl/reagent/drink/space_cola
@@ -78,6 +80,11 @@
 	hot_coco	spawn_reagent = /decl/reagent/drink/hot_coco
 	milk		spawn_reagent = /decl/reagent/drink/milk
 	soymilk		spawn_reagent = /decl/reagent/drink/milk/soymilk
+
+	// Bar, misc. mixed drink ingredients
+	uranium		spawn_reagent = /decl/reagent/uranium
+	uranium/small	volume = CARTRIDGE_VOLUME_SMALL
+	toothpaste	spawn_reagent = /decl/reagent/drink/toothpaste
 
 	// ERT
 	alkysine	spawn_reagent = /decl/reagent/alkysine
@@ -114,3 +121,4 @@
 	thetamycin	spawn_reagent = /decl/reagent/thetamycin
 	mortaphenyl	spawn_reagent = /decl/reagent/mortaphenyl
 	tricord		spawn_reagent = /decl/reagent/tricordrazine
+	sanasomnum	spawn_reagent = /decl/reagent/sanasomnum

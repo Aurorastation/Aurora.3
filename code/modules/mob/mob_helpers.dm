@@ -45,6 +45,13 @@
 		return 1
 	return 0
 
+/proc/isoffworlder(A)
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
+		if(H.get_species() == SPECIES_HUMAN_OFFWORLD)
+			return TRUE
+	return FALSE
+
 /proc/isgolem(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
@@ -1180,12 +1187,16 @@ proc/is_blind(A)
 /mob/proc/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	SHOULD_CALL_PARENT(TRUE)
 	var/used_accent = force_accent ? force_accent : accent
-	if(used_accent && speaking?.allow_accents)
+	if(used_accent && (speaking?.allow_accents || !speaking))
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		if(istype(a))
-			var/final_icon = a.tag_icon
-			var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
-			return S.icon_tag(final_icon)
+			if(hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
+				return "([a.text_tag])"
+			else
+				var/final_icon = a.tag_icon
+				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+				return S.icon_tag(final_icon)
+				
 
 /mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
 	for(var/mob/M in contents)

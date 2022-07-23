@@ -2,12 +2,7 @@
 
 /obj/structure/closet/secure_closet/miner
 	name = "shaft miner locker"
-	icon_state = "miningsec1"
-	icon_closed = "miningsec"
-	icon_locked = "miningsec1"
-	icon_opened = "miningsecopen"
-	icon_broken = "miningsecbroken"
-	icon_off = "miningsecoff"
+	icon_state = "mining"
 	req_access = list(access_mining)
 
 /obj/structure/closet/secure_closet/miner/fill()
@@ -15,7 +10,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/industrial(src)
 	else
-		new /obj/item/storage/backpack/satchel_eng(src)
+		new /obj/item/storage/backpack/satchel/eng(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/clothing/under/rank/miner(src)
 	new /obj/item/clothing/gloves/black(src)
@@ -32,6 +27,7 @@
 	new /obj/item/clothing/accessory/storage/overalls/mining(src)
 	new /obj/item/clothing/head/bandana/miner(src)
 	new /obj/item/clothing/head/hardhat/orange(src)
+	new /obj/item/device/radio(src)
 
 /******************************Lantern*******************************/
 
@@ -384,6 +380,9 @@
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
 	sharp = FALSE
 	edge = TRUE
+	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
+	usesound = /decl/sound_category/shovel_sound
 
 /obj/item/shovel/spade
 	name = "spade"
@@ -561,7 +560,7 @@
 		return
 	if(C.iswelder())
 		var/obj/item/weldingtool/WT = C
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			to_chat(user, SPAN_NOTICE("You slice apart the track."))
 			new /obj/item/stack/rods(get_turf(src))
 			qdel(src)
@@ -602,7 +601,7 @@
 /obj/vehicle/train/cargo/engine/mining/Initialize()
 	. = ..()
 	cell = new /obj/item/cell/high(src)
-	key = null
+	key = new /obj/item/key/minecarts(src)
 	var/image/I = new(icon = 'icons/obj/cart.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
 	add_overlay(I)
 	turn_off()
@@ -616,7 +615,19 @@
 	..()
 
 /obj/vehicle/train/cargo/engine/mining/Move(var/turf/destination)
-	return ((locate(/obj/structure/track) in destination)) ? ..() : FALSE
+	if((locate(/obj/structure/track) in destination))
+		move_delay = initial(move_delay)
+	else if(!(locate(/obj/structure/track) in loc) && on) // Allow minecarts to off-track move, albeit slowly and only if not on a track already
+		if(move_delay == initial(move_delay))
+			move_delay = 10
+			visible_message(SPAN_WARNING("\The [src]'s rollers struggle to move without a track to follow!"), SPAN_WARNING("You hear a horrible grinding noise!"))
+			playsound(loc, 'sound/mecha/tanktread.ogg', 50, 1)
+		else if(prob(50))
+			playsound(loc, 'sound/mecha/tanktread.ogg', 50, 1)
+	else
+		return FALSE
+
+	. = ..()
 
 /obj/vehicle/train/cargo/engine/mining/update_car(var/train_length, var/active_engines)
 	return
@@ -639,9 +650,6 @@
 	light_range = 3
 	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_FIRE
-
-/obj/vehicle/train/cargo/trolley/mining/Move(var/turf/destination)
-	return ((locate(/obj/structure/track) in destination)) ? ..() : FALSE
 
 /obj/item/key/minecarts
 	name = "key"
@@ -805,19 +813,44 @@
 
 /obj/item/lazarus_injector
 	name = "lazarus injector"
-	desc = "An injector with a cocktail of nanomachines and chemicals, this device can seemingly raise animals from the dead. If no effect in 3 days please call customer support."
+	desc = "An injector with a secret patented cocktail of nanomachines and chemicals, this device can seemingly raise animals from the dead. If no effect in 3 days please call customer support."
 	icon = 'icons/obj/syringe.dmi'
-	icon_state = "borghypo"
-	item_state = "hypo"
+	icon_state = "lazarus_loaded"
+	item_state = "lazarus_loaded"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi'
+		)
 	throwforce = 0
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 5
 	var/loaded = TRUE
+	var/mask_color = null
 	var/emagged = FALSE
 	var/malfunctioning = FALSE
 	var/revive_type = TYPE_ORGANIC //So you can't revive boss monsters or robots with it
 	origin_tech = list(TECH_BIO = 7, TECH_MATERIAL = 4)
+
+/obj/item/lazarus_injector/Initialize()
+	. = ..()
+	if(!mask_color)
+		mask_color = pick(COLOR_RED, COLOR_ORANGE, COLOR_YELLOW, COLOR_LIME, COLOR_CYAN, COLOR_PINK)
+		update_icon()
+
+/obj/item/lazarus_injector/update_icon()
+	cut_overlays()
+	if(loaded)
+		var/mutable_appearance/filling = mutable_appearance(icon, "lazarus_filling")
+		filling.color = mask_color
+		add_overlay(filling)
+		if(malfunctioning || emagged)
+			var/mutable_appearance/static_fill = mutable_appearance(icon, "lazarus_static")
+			static_fill.color = mask_color
+			add_overlay(static_fill)
+	icon_state = "lazarus_[loaded ? "loaded" : "spent"]"
+	item_state = icon_state
+	update_held_icon()
 
 /obj/item/lazarus_injector/afterattack(atom/target, mob/user, proximity_flag)
 	if(!loaded)
@@ -840,6 +873,7 @@
 				user.visible_message(SPAN_NOTICE("\The [user] revives \the [M] by injecting it with \the [src]."))
 				feedback_add_details("lazarus_injector", "[M.type]")
 				playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
+				update_icon()
 				return
 			else
 				to_chat(user, SPAN_INFO("\The [src] is only effective on the dead."))
@@ -851,11 +885,13 @@
 /obj/item/lazarus_injector/emp_act()
 	if(!malfunctioning)
 		malfunctioning = TRUE
+		update_icon()
 
 /obj/item/lazarus_injector/emag_act(mob/user)
 	if(!emagged)
 		to_chat(user, SPAN_WARNING("You overload \the [src]'s injection matrix."))
 		emagged = TRUE
+		update_icon()
 
 /obj/item/lazarus_injector/examine(mob/user)
 	..()
@@ -945,7 +981,7 @@ var/list/total_extraction_beacons = list()
 			var/obj/machinery/anti_bluespace/AB = found_inhibitor
 			if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
-			AB.use_power(AB.active_power_usage)
+			AB.use_power_oneoff(AB.active_power_usage)
 			to_chat(user, SPAN_WARNING("A nearby bluespace inhibitor interferes with \the [src]!"))
 			return
 		to_chat(user, SPAN_NOTICE("You start attaching the pack to \the [A]..."))
@@ -1194,8 +1230,7 @@ var/list/total_extraction_beacons = list()
 /obj/structure/sculpting_block/attackby(obj/item/C, mob/user)
 	if(C.iswrench())
 		visible_message("<b>[user]</b> starts to [anchored ? "un" : ""]anchor \the [src].", SPAN_NOTICE("You start to [anchored ? "un" : ""]anchor \the [src]."))
-		if(do_after(user, 5 SECONDS, TRUE))
-			playsound(src.loc, C.usesound, 100, 1)
+		if(C.use_tool(src, user, 50, volume = 50))
 			anchored = !anchored
 
 	else if(istype(C, /obj/item/autochisel))
@@ -1348,7 +1383,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/structure/punching_bag
 	name = "punching bag"
-	desc = "A punching bag. Better this than the Quartermaster."
+	desc = "A punching bag. Better this than the Operations Manager."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "punchingbag"
 	anchored = TRUE
@@ -1454,4 +1489,3 @@ var/list/total_extraction_beacons = list()
 	for(var/turf/simulated/mineral/M in range(7,drill_loc))
 		if(prob(75))
 			M.GetDrilled(1)
-

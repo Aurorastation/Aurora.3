@@ -27,7 +27,7 @@
 		entered_event.unregister(loc, reflection)
 		exited_event.unregister(loc, reflection)
 		qdel(reflection)
-	ref = null
+		ref = null
 	return ..()
 
 /obj/structure/mirror/attack_hand(mob/user as mob)

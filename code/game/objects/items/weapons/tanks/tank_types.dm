@@ -85,6 +85,9 @@
 /obj/item/tank/phoron/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_PHORON, (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
 
+/obj/item/tank/phoron/shuttle/adjust_initial_gas()
+	air_contents.adjust_gas(GAS_PHORON, 4*(3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
+
 /obj/item/tank/phoron/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 
@@ -116,7 +119,7 @@
 /obj/item/tank/emergency_oxygen
 	name = "emergency oxygen tank"
 	desc = "Used for emergencies. Contains very little oxygen, so try to conserve it until you actually need it."
-	description_cult = "This can be reforged to become a large brown oxygen tank."
+	desc_cult = "This can be reforged to become a large brown oxygen tank."
 	icon_state = "emergency"
 	item_state = "emergency"
 	gauge_icon = "indicator_emergency"

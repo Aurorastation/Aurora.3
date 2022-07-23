@@ -48,7 +48,7 @@
 	if(I.iscrowbar())
 		to_chat(user, SPAN_NOTICE("You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]."))
 		playsound(loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
-		if(do_after(user, 30/I.toolspeed))
+		if(I.use_tool(src, user, 30, volume = 0))
 			user.visible_message(SPAN_NOTICE("[user] [cistern ? "replaces the lid on the cistern" : "lifts the lid off the cistern"]!"), SPAN_NOTICE("You [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]!"), "You hear grinding porcelain.")
 			cistern = !cistern
 			update_icon()
@@ -133,7 +133,7 @@
 	icon_state = "shower"
 	density = 0
 	anchored = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	var/spray_amount = 20
 	var/on = 0
 	var/obj/effect/mist/mymist = null
@@ -176,8 +176,7 @@
 	if(I.iswrench())
 		var/newtemp = input(user, "What setting would you like to set the temperature valve to?", "Water Temperature Valve") in temperature_settings
 		to_chat(user, SPAN_NOTICE("You begin to adjust the temperature valve with \the [I]."))
-		playsound(src.loc, I.usesound, 50, 1)
-		if(do_after(user, 50/I.toolspeed))
+		if(I.use_tool(src, user, 50, volume = 50))
 			watertemp = newtemp
 			user.visible_message(SPAN_NOTICE("[user] adjusts the shower with \the [I]."), SPAN_NOTICE("You adjust the shower with \the [I]."))
 			add_fingerprint(user)
@@ -349,7 +348,7 @@
 			if(istype(E,/obj/effect/rune) || istype(E,/obj/effect/decal/cleanable) || istype(E,/obj/effect/overlay))
 				qdel(E)
 
-/obj/machinery/shower/machinery_process()
+/obj/machinery/shower/process()
 	if(!on)
 		return
 	wash_floor()
@@ -482,7 +481,7 @@
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
 				var/max_reagents = RG.reagents.maximum_volume
 				user.visible_message("<b>[user]</b> empties [empty_amount == max_reagents ? "all of \the [RG]" : "some of \the [RG]"] into \a [src].")
-				playsound(src.loc, 'sound/effects/pour.ogg', 10, 1)
+				playsound(src.loc, /decl/sound_category/generic_pour_sound, 10, 1)
 		return
 
 	// Filling/empying Syringes

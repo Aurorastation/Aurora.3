@@ -111,6 +111,7 @@
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
 /mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
+	set waitfor = FALSE
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
@@ -152,7 +153,7 @@
 		O.see_emote(src, message)
 
 	if(intent_message)
-		intent_message(intent_message, intent_range)
+		intent_message(intent_message, intent_range, messagemobs)
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
@@ -199,20 +200,20 @@
 
 	var/list/mobs = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, range, mobs, objs, ghost_hearing)
+	get_mobs_or_objs_in_view(T, range, mobs, objs, ghost_hearing)
 
 
 	for(var/m in mobs)
 		var/mob/M = m
 		if(self_message && M==src)
-			M.show_message(self_message,2,deaf_message,1)
+			M.show_message("[get_accent_icon(null, M)] [self_message]", 2, deaf_message, 1)
 			continue
 
-		M.show_message(message,2,deaf_message,1)
+		M.show_message("[get_accent_icon(null, M)] [message]", 2, deaf_message,1)
 
 	for(var/o in objs)
 		var/obj/O = o
-		O.show_message(message,2,deaf_message,1)
+		O.show_message("[get_accent_icon(null, src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -221,6 +222,8 @@
 	return 0
 
 /mob/proc/movement_delay()
+	if(lying) //Crawling, it's slower
+		. += (8 + ((weakened * 3) + (confused * 2)))
 	. = get_pulling_movement_delay()
 
 /mob/proc/get_pulling_movement_delay()
@@ -326,6 +329,23 @@
 
 	face_atom(A)
 	A.examine(src)
+
+/mob/proc/can_examine()
+	if(client?.eye == src)
+		return TRUE
+	return FALSE
+
+/mob/living/silicon/pai/can_examine()
+	. = ..()
+	if(!.)
+		var/atom/our_holder = recursive_loc_turf_check(src, 5)
+		if(isturf(our_holder.loc)) // Are we folded on the ground?
+			return TRUE
+
+/mob/living/simple_animal/borer/can_examine()
+	. = ..()
+	if(!. && iscarbon(loc) && isturf(loc.loc)) // We're inside someone, let us examine still.
+		return TRUE
 
 /mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
 
@@ -818,6 +838,9 @@
 			stat("Game ID", game_id)
 			stat("Map", current_map.full_name)
 			stat("Current Space Sector", SSatlas.current_sector.name)
+			var/current_month = text2num(time2text(world.realtime, "MM"))
+			var/current_day = text2num(time2text(world.realtime, "DD"))
+			stat("Current Date", "[current_day]/[current_month]/[game_year]")
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", get_round_duration_formatted())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
@@ -922,7 +945,7 @@
 			lying = 0
 		else
 			lying = incapacitated(INCAPACITATION_KNOCKDOWN)
-			canmove = !incapacitated(INCAPACITATION_DISABLED)
+			canmove = !incapacitated(INCAPACITATION_KNOCKOUT)
 
 	if(lying)
 		density = 0
@@ -952,14 +975,16 @@
 	return canmove
 
 
-/mob/proc/facedir(var/ndir)
-	if(!canface() || (client && client.moving) || (client && world.time < client.move_delay))
+/mob/proc/facedir(var/ndir, var/force_change = FALSE)
+	if(!canface() || (client && client.moving))
 		return 0
+	if((facing_dir != ndir) && force_change)
+		facing_dir = null
 	set_dir(ndir)
 	if(buckled_to && buckled_to.buckle_movable)
 		buckled_to.set_dir(ndir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
-		client.move_delay += movement_delay()
+		setMoveCooldown(movement_delay())
 	return 1
 
 
@@ -1288,6 +1313,8 @@
 	if (dest != loc && istype(dest, /atom/movable))
 		AM = dest
 		LAZYADD(AM.contained_mobs, src)
+		if(pulledby)
+			pulledby.stop_pulling()
 
 	if (istype(loc, /atom/movable))
 		AM = loc

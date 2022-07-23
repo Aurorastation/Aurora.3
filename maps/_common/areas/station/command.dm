@@ -18,6 +18,7 @@
 /area/bridge/aibunker
 	name = "Command - Bunker"
 	icon_state = "ai_foyer"
+	flags = RAD_SHIELDED
 
 /area/bridge/centcom_meetingroom
 	name = "Level A Meeting Room"
@@ -44,6 +45,10 @@
 /area/bridge/selfdestruct
 	name = "Command - Station Authentication Terminal Safe"
 	icon_state = "bridge"
+
+/area/bridge/controlroom // Horizon.
+	name = "Command - Control Room"
+	flags = RAD_SHIELDED
 
 /area/crew_quarters/captain
 	name = "Command - Captain's Office"

@@ -96,27 +96,6 @@
 	turret_is_lethal = 0
 	turret_sprite_set = "net"
 
-/obj/item/gun/energy/beegun
-	name = "\improper NanoTrasen Portable Apiary"
-	desc = "An experimental firearm that converts energy into bees, for purely botanical purposes."
-	icon = 'icons/obj/guns/gyrorifle.dmi'
-	icon_state = "gyrorifle"
-	item_state = "gyrorifle"
-	has_item_ratio = FALSE
-	charge_meter = 0
-	w_class = ITEMSIZE_LARGE
-	fire_sound = 'sound/effects/Buzz2.ogg'
-	force = 5
-	projectile_type = /obj/item/projectile/energy/bee
-	slot_flags = SLOT_BACK
-	max_shots = 9
-	sel_mode = 1
-	burst = 3
-	burst_delay = 1
-	move_delay = 3
-	fire_delay = 0
-	dispersion = list(0, 8)
-
 /obj/item/gun/energy/mousegun
 	name = "pest gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
@@ -282,7 +261,7 @@
 	accuracy = 1
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster/incendiary
-	max_shots = 6
+	max_shots = 7
 	sel_mode = 1
 	burst = 1
 	burst_delay = 1
@@ -413,10 +392,10 @@
 	is_wieldable = TRUE
 
 	firemodes = list(
-		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),
-		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40),
-		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60),
-		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 1, fire_delay = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
+		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20, fire_delay_wielded = 20),
+		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40, fire_delay_wielded = 40),
+		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60, fire_delay_wielded = 60),
+		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 1, fire_delay = 1, fire_delay_wielded = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 		)
 
 	needspin = FALSE

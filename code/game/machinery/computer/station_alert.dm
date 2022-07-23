@@ -4,6 +4,7 @@
 	desc = "Used to access the station's automated alert system."
 
 	icon_screen = "alert:0"
+	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
 	circuit = /obj/item/circuitboard/stationalert
 	var/datum/nano_module/alarm_monitor/alarm_monitor
@@ -64,4 +65,4 @@
 			var/list/alarms = alarm_monitor.major_alarms()
 			if(alarms.len)
 				icon_screen = "alert:2"
-	..()
+	. = ..()

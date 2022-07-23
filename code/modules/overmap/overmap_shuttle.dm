@@ -20,8 +20,8 @@
 			fuel_port_in_area.parent_shuttle = src
 			fuel_ports += fuel_port_in_area
 
-/datum/shuttle/autodock/overmap/fuel_check()
-	if(!src.try_consume_fuel()) //insufficient fuel
+/datum/shuttle/autodock/overmap/fuel_check(var/check_only = FALSE) // "check_only" lets you check the fuel levels without using any.
+	if(!src.try_consume_fuel(check_only)) //insufficient fuel
 		for(var/area/A in shuttle_area)
 			for(var/mob/living/M in A)
 				M.show_message(SPAN_WARNING("You hear the shuttle engines sputter... perhaps it doesn't have enough fuel?"), 2,
@@ -69,7 +69,7 @@
 		return "None"
 	return "[waypoint_sector(next_location)] - [next_location]"
 
-/datum/shuttle/autodock/overmap/proc/try_consume_fuel() //returns 1 if sucessful, returns 0 if error (like insufficient fuel)
+/datum/shuttle/autodock/overmap/proc/try_consume_fuel(var/check_only = FALSE) //returns 1 if sucessful, returns 0 if error (like insufficient fuel)
 	if(!fuel_consumption)
 		return 1 //shuttles with zero fuel consumption are magic and can always launch
 	if(!fuel_ports.len)
@@ -92,12 +92,22 @@
 		var/fuel_available = FT.air_contents.get_by_flag(XGM_GAS_FUEL)
 		if(!fuel_available) // Didn't even have fuel.
 			continue
+		if(check_only)
+			return 1
 		if(fuel_available >= fuel_to_consume)
 			FT.remove_air_by_flag(XGM_GAS_FUEL, fuel_to_consume)
 			return 1 //ALL REQUIRED FUEL HAS BEEN CONSUMED, GO FOR LAUNCH!
 		else //this tank doesn't have enough to launch shuttle by itself, so remove all its fuel, then continue loop
 			fuel_to_consume -= fuel_available
 			FT.remove_air_by_flag(XGM_GAS_FUEL, fuel_available)
+
+/datum/shuttle/autodock/overmap/on_move_interim()
+	..()
+	for(var/obj/machinery/computer/shuttle_control/explore/E in shuttle_computers)
+		var/obj/effect/overmap/visitable/ship/S = E.connected
+		if(S)
+			S.halt()
+			S.unhalt()
 
 /obj/structure/fuel_port
 	name = "fuel port"
@@ -114,7 +124,7 @@
 
 /obj/structure/fuel_port/Initialize()
 	. = ..()
-	new /obj/item/tank/phoron(src)
+	new /obj/item/tank/phoron/shuttle(src) // Enough for four launches (one round trip)
 
 /obj/structure/fuel_port/attack_hand(mob/user)
 	if(!opened)
@@ -135,7 +145,7 @@
 		icon_state = icon_closed
 
 /obj/structure/fuel_port/attackby(obj/item/W, mob/user)
-	if(iscrowbar(W))
+	if(W.iscrowbar())
 		if(opened)
 			to_chat(user, SPAN_NOTICE("You close \the [src]."))
 			playsound(src.loc, 'sound/effects/closet_close.ogg', 25, 0, -3)
@@ -149,7 +159,7 @@
 			to_chat(user, SPAN_NOTICE("\The [src] isn't open!"))
 			return
 		if(contents.len == 0)
-			user.unEquip(W, src)
+			user.unEquip(W, TRUE, src)
 	update_icon()
 
 // Walls hide stuff inside them, but we want to be visible.

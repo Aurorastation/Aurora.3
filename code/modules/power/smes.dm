@@ -25,7 +25,7 @@
 	icon_state = "smes"
 	density = 1
 	anchored = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	clicksound = /decl/sound_category/switch_sound
 
 	var/health = 500
@@ -88,13 +88,13 @@
 /obj/machinery/power/smes/Destroy()
 	QDEL_NULL(big_spark)
 	QDEL_NULL(small_spark)
-	SSpower.smes_units -= src
+	SSmachinery.smes_units -= src
 	QDEL_NULL(terminal)
 	return ..()	// TODO: Properly clean up terminal.
 
 /obj/machinery/power/smes/Initialize()
 	. = ..()
-	SSpower.smes_units += src
+	SSmachinery.smes_units += src
 	big_spark = bind_spark(src, 5, alldirs)
 	small_spark = bind_spark(src, 3)
 	if(!powernet)
@@ -211,7 +211,7 @@
 		charge_mode = 2
 	last_time = world.time
 
-/obj/machinery/power/smes/machinery_process()
+/obj/machinery/power/smes/process()
 	if(!can_function())
 		return
 	if(failure_timer)	// Disabled by gridcheck.
@@ -378,8 +378,7 @@
 				to_chat(user, "<span class='warning'>You must remove the floor plating first.</span>")
 			else
 				to_chat(user, "<span class='notice'>You begin to cut the cables...</span>")
-				playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
-				if(do_after(user, 50/W.toolspeed))
+				if(W.use_tool(src, user, 50, volume = 50))
 					if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 						big_spark.queue()
 						building_terminal = 0
@@ -523,7 +522,7 @@
 	output_level = 250000
 	should_be_mapped = 1
 
-/obj/machinery/power/smes/magical/machinery_process()
+/obj/machinery/power/smes/magical/process()
 	charge = 5000000
 	..()
 

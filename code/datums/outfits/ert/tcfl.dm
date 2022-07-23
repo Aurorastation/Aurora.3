@@ -18,7 +18,7 @@
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
-		var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
+		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 
@@ -67,7 +67,7 @@
 		/obj/item/handcuffs/ziptie = 3,
 		/obj/item/clothing/mask/gas/tactical = 1,
 		/obj/item/storage/firstaid/regular = 1,
-		/obj/item/clothing/gloves/swat/ert = 1, 
+		/obj/item/clothing/gloves/swat/ert = 1,
 		/obj/item/material/knife/bayonet = 1
 	)
 

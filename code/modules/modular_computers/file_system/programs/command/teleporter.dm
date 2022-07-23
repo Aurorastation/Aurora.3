@@ -2,14 +2,15 @@
 	filename = "teleporter"
 	filedesc = "Teleporter Control"
 	extended_desc = "A NanoTrasen command remote teleportation hub controller."
-	program_icon_state = "comm"
+	program_icon_state = "teleport"
+	program_key_icon_state = "lightblue_key"
 	color = LIGHT_COLOR_BLUE
 	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE
 	required_access_run = access_heads
-	usage_flags = PROGRAM_LAPTOP
-	var/datum/weakref/station_ref
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
+	var/datum/weakref/pad_ref
 
 /datum/computer_file/program/teleporter/ui_interact(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -41,43 +42,46 @@
 		. = data
 
 	var/turf/T = get_turf(computer.loc)
-	var/obj/machinery/teleport/station/linked_station
-	if(station_ref)
-		linked_station = station_ref.resolve()
-	if(QDELETED(linked_station))
-		station_ref = null
+	var/obj/machinery/teleport/pad/linked_pad
+	if(pad_ref)
+		linked_pad = pad_ref.resolve()
+	if(QDELETED(linked_pad))
+		pad_ref = null
 
 	// block of root level data
-	data["has_linked_station"] = !!linked_station
-	LAZYINITLIST(data["nearby_stations"])
+	data["has_linked_pad"] = !!linked_pad
+	LAZYINITLIST(data["nearby_pads"])
 	LAZYINITLIST(data["teleport_beacons"])
 	LAZYINITLIST(data["teleport_implants"])
-	data["station_locked_in"] = FALSE
-	data["locked_in_name"] = "None"
 	data["calibration"] = 0
+	data["selected_target"] = null
+	data["selected_target_name"] = "None"
 
-	if(!linked_station)
-		var/list/near_stations_info = list()
-		for(var/obj/machinery/teleport/station/S in range(3, T))
-			var/list/station_info = list(
-				"station_name" = "[S.name] ([S.x]-[S.y][S.z])",
+	if(!linked_pad)
+		var/list/near_pads_info = list()
+		for(var/obj/machinery/teleport/pad/S in range(3, T))
+			var/list/pad_info = list(
+				"pad_name" = "[S.name] ([S.x]-[S.y][S.z])",
 				"ref" = "\ref[S]"
 				)
-			near_stations_info[++near_stations_info.len] = station_info
-		data["nearby_stations"] = near_stations_info
+			near_pads_info[++near_pads_info.len] = pad_info
+		data["nearby_pads"] = near_pads_info
 	else
-		data["station_locked_in"] = !!linked_station.locked_obj
-		if(data["station_locked_in"])
-			data["locked_in_name"] = linked_station.locked_obj_name
-		data["calibration"] = 100 - linked_station.calibration
+		var/atom/selected_atom = linked_pad.locked_obj ? linked_pad.locked_obj.resolve() : null
+		if(selected_atom)
+			data["selected_target"] = "\ref[selected_atom]"
+			data["selected_target_name"] = linked_pad.locked_obj_name
+		data["calibration"] = 100 - linked_pad.calibration
 		var/list/area_index = list()
 
 		var/list/teleport_beacon_info = list()
-		for(var/obj/item/device/radio/beacon/R in teleportbeacons)
+		for(var/obj/item/device/radio/beacon/R as anything in teleportbeacons)
 			var/turf/BT = get_turf(R)
 			if(!BT)
 				continue
-			if(isNotStationLevel(BT.z))
+			if(!isAdminLevel(linked_pad.z) && isAdminLevel(BT.z))
+				continue
+			if(!linked_pad.within_range(BT))
 				continue
 			var/tmpname = BT.loc.name
 			if(area_index[tmpname])
@@ -103,7 +107,9 @@
 				var/turf/IT = get_turf(M)
 				if(!IT)
 					continue
-				if(isNotStationLevel(IT.z))
+				if(!isAdminLevel(linked_pad.z) && isAdminLevel(IT.z))
+					continue
+				if(!linked_pad.within_range(IT))
 					continue
 				var/tmpname = M.real_name
 				if(area_index[tmpname])
@@ -123,37 +129,42 @@
 	if(..())
 		return TRUE
 
-	if(href_list["station"])
-		var/obj/machinery/teleport/station/linked_station = locate(href_list["station"]) in range(3, get_turf(computer.loc))
-		station_ref = WEAKREF(linked_station)
+	if(href_list["pad"])
+		var/obj/machinery/teleport/pad/linked_pad = locate(href_list["pad"]) in range(3, get_turf(computer.loc))
+		pad_ref = WEAKREF(linked_pad)
 	else if(href_list["recalibrate"])
-		var/obj/machinery/teleport/station/linked_station = station_ref.resolve()
-		linked_station.start_recalibration()
+		var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
+		linked_pad.start_recalibration()
 	else if(href_list["beacon"])
-		var/obj/machinery/teleport/station/linked_station = station_ref.resolve()
+		var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
 		var/obj/O = locate(href_list["beacon"]) in teleportbeacons
-		if(linked_station.locked_obj)
-			var/obj/LO = linked_station.locked_obj.resolve()
+		if(linked_pad.locked_obj)
+			var/obj/LO = linked_pad.locked_obj.resolve()
 			if(LO == O)
-				linked_station.disengage()
+				linked_pad.disengage()
 				return
-		linked_station.locked_obj = WEAKREF(O)
-		linked_station.locked_obj_name = href_list["name"]
-		if(!linked_station.engaged)
-			linked_station.engage()
-		linked_station.visible_message(SPAN_NOTICE("Locked in."), range = 2)
+		linked_pad.locked_obj = WEAKREF(O)
+		linked_pad.locked_obj_name = href_list["name"]
+		if(!linked_pad.engaged)
+			linked_pad.engage()
+			linked_pad.visible_message(SPAN_NOTICE("Locked in."), range = 2)
 	else if(href_list["implant"])
-		var/obj/machinery/teleport/station/linked_station = station_ref.resolve()
-		var/obj/O = locate(href_list["implant"]) in teleportbeacons
-		if(linked_station.locked_obj)
-			var/obj/LO = linked_station.locked_obj.resolve()
+		var/obj/machinery/teleport/pad/linked_pad = pad_ref.resolve()
+		var/obj/O = locate(href_list["implant"]) in implants
+		if(linked_pad.locked_obj)
+			var/obj/LO = linked_pad.locked_obj.resolve()
 			if(LO == O)
-				linked_station.disengage()
+				linked_pad.disengage()
 				return
-		linked_station.locked_obj = WEAKREF(O)
-		linked_station.locked_obj_name = href_list["name"]
-		if(!linked_station.engaged)
-			linked_station.engage()
-		linked_station.visible_message(SPAN_NOTICE("Locked in."), range = 2)
+		linked_pad.locked_obj = WEAKREF(O)
+		linked_pad.locked_obj_name = href_list["name"]
+		if(!linked_pad.engaged)
+			linked_pad.engage()
+			linked_pad.visible_message(SPAN_NOTICE("Locked in."), range = 2)
 
 	SSvueui.check_uis_for_change(src)
+
+/datum/computer_file/program/teleporter/ninja
+	required_access_run = list()
+	requires_ntnet = FALSE
+	requires_access_to_run = FALSE

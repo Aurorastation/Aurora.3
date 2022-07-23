@@ -5,7 +5,6 @@
 	icon = 'icons/obj/holosign.dmi'
 	icon_state = "sign_off"
 	layer = 4
-	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 4
 	anchored = 1
@@ -29,7 +28,7 @@
 	if (stat & (BROKEN|NOPOWER))
 		return
 	lit = !lit
-	use_power = lit ? 2 : 1
+	update_use_power(lit ? POWER_USE_ACTIVE : POWER_USE_IDLE)
 	update_icon()
 
 /obj/machinery/holosign/update_icon()
@@ -42,7 +41,7 @@
 	..()
 	if (stat & NOPOWER)
 		lit = 0
-		use_power = 0
+		update_use_power(POWER_USE_OFF)
 	update_icon()
 
 /obj/machinery/holosign/surgery
@@ -62,11 +61,11 @@
 		return
 	add_fingerprint(user)
 
-	use_power(5)
+	use_power_oneoff(5)
 
 	active = !active
 	update_icon()
-	for(var/obj/machinery/holosign/M in SSmachinery.all_machines)
+	for(var/obj/machinery/holosign/M in SSmachinery.machinery)
 		if (M.id == src.id)
 			INVOKE_ASYNC(M, /obj/machinery/holosign/proc/toggle)
 

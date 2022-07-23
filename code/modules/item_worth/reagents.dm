@@ -207,6 +207,9 @@
 /decl/reagent/alcohol/wine
 	value = 0.1
 
+/decl/reagent/alcohol/wine/vintage
+	value = 15
+
 /decl/reagent/alcohol/acid_spit
 	value = 0.15
 
@@ -651,6 +654,9 @@
 /decl/reagent/rezadone
 	value = 5
 
+/decl/reagent/sanasomnum
+	value = 5
+
 /decl/reagent/verunol
 	value = 2
 
@@ -806,3 +812,6 @@
 
 /decl/reagent/toxin/undead
 	value = 300
+
+/decl/reagent/ambrosia_extract
+	value = 2.8

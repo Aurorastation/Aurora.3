@@ -31,11 +31,11 @@
 
 	return copy //for inheritance
 
-/proc/generate_chameleon_choices(var/basetype, var/blacklist=list())
+/proc/generate_chameleon_choices(var/basetype, var/blacklist=list(), var/list/whitelist=list())
 	. = list()
 
 	var/i = 1 //in case there is a collision with both name AND icon_state
-	for(var/typepath in typesof(basetype) - blacklist)
+	for(var/typepath in (whitelist + typesof(basetype) - blacklist))
 		var/obj/O = typepath
 		if(initial(O.icon) && initial(O.icon_state))
 			var/name = initial(O.name)

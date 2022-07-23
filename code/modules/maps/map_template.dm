@@ -103,15 +103,17 @@
 			machines += A
 		if(istype(A,/obj/effect/landmark/map_load_mark))
 			LAZYADD(subtemplates_to_spawn, A)
+		if(A.initialized)
+			atoms -= A
 
 	var/notsuspended
 	if(!SSmachinery.suspended)
 		SSmachinery.suspend()
 		notsuspended = TRUE
 
-	SSatoms.InitializeAtoms() // The atoms should have been getting queued there. This flushes the queue.
+	SSatoms.InitializeAtoms(atoms) // The atoms should have been getting queued there. This flushes the queue.
 
-	SSmachinery.setup_template_powernets(cables)
+	SSmachinery.setup_powernets_for_cables(cables)
 	SSmachinery.setup_atmos_machinery(atmos_machines)
 	if(notsuspended)
 		SSmachinery.wake()
@@ -122,7 +124,7 @@
 
 	for (var/i in turfs)
 		var/turf/T = i
-		T.post_change()
+		T.post_change(FALSE)
 		if(template_flags & TEMPLATE_FLAG_NO_RUINS)
 			T.flags |= TURF_NORUINS
 		if(istype(T,/turf/simulated))

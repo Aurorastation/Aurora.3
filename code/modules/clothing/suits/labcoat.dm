@@ -17,7 +17,6 @@
 	name = "chief medical officer's labcoat"
 	desc = "Bluer than the standard model."
 	icon_state = "labcoat_cmo"
-	item_state = "labcoat_cmo"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt
 	name = "chief medical officer labcoat"
@@ -29,93 +28,90 @@
 	desc = "A labcoat with command gold highlights."
 	icon_state = "labcoat_cmoalt2"
 
-/obj/item/clothing/suit/storage/toggle/labcoat/medical
-	name = "medical labcoat"
-	desc = "A suit that protects against minor chemical spills. Has a green stripe on the shoulder."
-	icon_state = "labcoat_med"
-
-/obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
-	name = "pharmacist labcoat"
-	desc = "A suit that protects against minor chemical spills. Has an orange stripe on the shoulder."
-	icon_state = "labcoat_chem"
-
-/obj/item/clothing/suit/storage/toggle/labcoat/psych
-	name = "psychiatrist labcoat"
-	desc = "A suit that protects against minor chemical spills. Has a teal stripe on the shoulder."
-	icon_state = "labcoat_psych"
-
-/obj/item/clothing/suit/storage/toggle/labcoat/surgeon
-	name = "surgeon labcoat"
-	desc = "A suit that protects against minor chemical spills. Has a light blue stripe on the shoulder."
-	icon_state = "labcoat_surgeon"
-
-/obj/item/clothing/suit/storage/toggle/labcoat/trauma
-	name = "trauma physician labcoat"
-	desc = "A suit that protects against minor chemical spills. Has a black stripe on the shoulder."
-	icon_state = "labcoat_trauma"
-
 /obj/item/clothing/suit/storage/toggle/labcoat/science
 	name = "scientist labcoat"
 	desc = "A suit that protects against minor chemical spills. Has a purple stripe on the shoulder."
 	icon_state = "labcoat_sci"
 
-/obj/item/clothing/suit/storage/iacvest
-	desc = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps as a high-visibility vest, over any other clothing. The I.A.C. logo is prominently  displayed on the back of the vest, between the shoulders."
-	name = "IAC vest"
-	icon_state = "iac_vest"
-	item_state = "iac_vest"
-	permeability_coefficient = 0.50
-	armor = list(
-		bio = ARMOR_BIO_MINOR
-	)
 
+//Nanotrasen
+/obj/item/clothing/suit/storage/toggle/labcoat/nt
+	name = "nanotrasen labcoat"
+	icon_state = "labcoat_nt"
+
+//Zeng-Hu
 /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	name = "zeng-hu labcoat"
-	desc = "A suit that protects against minor chemical spills. Comes in Zeng-Hu colours."
 	icon_state = "labcoat_zeng"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	icon_state = "labcoat_zeng_alt"
 
+/obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt2
+	icon_state = "labcoat_zeng_alt2"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman
+	icon_state = "labcoat_letterman_zeng"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt
+	icon_state = "labcoat_letterman_zeng_alt"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt2
+	icon_state = "labcoat_letterman_zeng_alt2"
+
+//Zavodskoi
+
 /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
-	name = "Zavodskoi Interstellar labcoat"
-	desc = "A suit that protects against minor chemical spills. Comes in Zavodskoi Interstellar colours."
-	icon_state = "labcoat_necro"
+	name = "zavodskoi interstellar labcoat"
+	icon_state = "labcoat_zav"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/alt
+	icon_state = "labcoat_zav_alt"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman
+	icon_state = "labcoat_letterman_zav"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman/alt
+	icon_state = "labcoat_letterman_zav_alt"
+
+//Hephaestus
 
 /obj/item/clothing/suit/storage/toggle/labcoat/heph
 	name = "hephaestus labcoat"
-	desc = "A suit that protects against minor chemical spills. Comes in Hephaestus colours."
 	icon_state = "labcoat_heph"
 
+/obj/item/clothing/suit/storage/toggle/labcoat/heph/letterman
+	icon_state = "labcoat_letterman_heph"
+
+// PMGC / EPMC
+/obj/item/clothing/suit/storage/toggle/labcoat/pmc
+	name = "PMCG labcoat"
+	icon_state = "labcoat_pmc"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
+	icon_state = "labcoat_pmc_alt"
+
 /obj/item/clothing/suit/storage/toggle/labcoat/epmc
-	name = "epmc security labcoat"
-	desc = "A suit that protects against minor chemical spills. Comes in EPMC colours."
-	icon_state = "labcoat_erisec"
+	name = "EPMC labcoat"
+	icon_state = "labcoat_epmc"
 
-/obj/item/clothing/suit/storage/toggle/labcoat/epmc/alt
-	desc = "A suit that protects against minor chemical spills. Darker than the standard issue."
-	icon_state = "labcoat_erisec_alt"
-
-/obj/item/clothing/suit/storage/toggle/labcoat/epmc/med
-	name = "epmc medical labcoat"
-	desc = "A suit that protects against minor chemical spills. Comes in EPMC colours."
-	icon_state = "labcoat_erimed"
-
-/obj/item/clothing/suit/storage/toggle/labcoat/iac
-	name = "iac labcoat"
-	desc = "A suit that protects against minor chemical spills. Comes in IAC colors."
-	icon_state = "labcoat_iac"
-	item_state = "labcoat_iac"
-
-/obj/item/clothing/suit/storage/toggle/labcoat/security
-	name = "security labcoat"
-	desc = "A suit that protects against minor chemical spills. Has a dark blue stripe on the shoulder."
-	icon_state = "labcoat_sec"
-
+//Idris
 /obj/item/clothing/suit/storage/toggle/labcoat/idris
 	name = "idris labcoat"
-	desc = "A suit that protects against minor chemical spills. Comes in Idris colours."
 	icon_state = "labcoat_idris"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/idris/alt
 	icon_state = "labcoat_idris_alt"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/idris/letterman
+	name = "idris labcoat"
+	icon_state = "labcoat_letterman_idris"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/idris/letterman/alt
+	icon_state = "labcoat_letterman_idris_alt"
+
+//IAC
+
+/obj/item/clothing/suit/storage/toggle/labcoat/iac
+	name = "iac labcoat"
+	icon_state = "labcoat_iac"

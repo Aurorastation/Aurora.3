@@ -48,6 +48,7 @@ Pen exclusive commands
 	var/colour = "black"	//what colour the ink is!
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	var/cursive = FALSE //done here so other pen variants can access cursive variable
 
 /obj/item/pen/ispen()
 	return TRUE
@@ -139,7 +140,6 @@ Pen exclusive commands
 	icon_state = "pen_fountain"
 	throwforce = 1 //pointy
 	colour = "#1c1713" //dark ashy brownish
-	var/cursive = FALSE
 
 /obj/item/pen/fountain/attack_self(var/mob/user)
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
@@ -211,8 +211,16 @@ Pen exclusive commands
  */
 /obj/item/pen/reagent/paralysis
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/decl/reagent/toxin/dextrotoxin = 10)
+	reagents_to_add = list(/decl/reagent/toxin/dextrotoxin = 10) //~~5 minutes worth of Dextrotoxin
+	icon_state = "pen_red"
+	colour = "red"
 
+/obj/item/pen/reagent/purge
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	reagents_to_add = list(/decl/reagent/fluvectionem = 5)
+	icon_state = "pen_green"
+	colour = "green"
+ 
 /obj/item/pen/reagent/healing
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
 	reagents_to_add = list(/decl/reagent/tricordrazine = 10, /decl/reagent/dermaline = 5, /decl/reagent/bicaridine = 5)
@@ -310,3 +318,40 @@ Pen exclusive commands
 /obj/item/pen/crayon/Initialize()
 	. = ..()
 	name = "[colourName] crayon"
+
+/*
+ * Augment Pens
+ */
+
+/obj/item/pen/augment
+	name = "integrated pen"
+	desc = "An pen implanted directly into the hand, popping through the finger."
+	icon_state = "combipen"
+	item_state = "combipen"
+	colour = "#1c1713" //dark ashy brownish
+	cursive = FALSE
+	w_class = ITEMSIZE_TINY
+
+/obj/item/pen/augment/attack_self(mob/user)
+	var/choice = input(user, "Would you like to change colour or writing style?", "Pen Selector") as null|anything in list("Colour", "Style")
+	if(!choice)
+		return
+
+	switch(choice)
+		if("Colour")
+			var/newcolour = input(user, "Which colour would you like to use?", "Colour Selector") as null|anything in list("black", "blue", "red", "green", "yellow")
+			if(newcolour)
+				colour = newcolour	
+				to_chat(user, SPAN_NOTICE("Your pen synthesizes [newcolour] ink."))
+				playsound(get_turf(src), 'sound/effects/pop.ogg', 50, 0)
+		if("Style")
+			playsound(loc, 'sound/items/penclick.ogg', 50, 1)
+			to_chat(user, SPAN_NOTICE("You snap the nib into position to write [cursive ? "normally" : "in cursive"]."))
+			cursive = !cursive
+
+/obj/item/pen/augment/throw_at(atom/target, range, speed, mob/user)
+	user.drop_from_inventory(src)
+
+/obj/item/pen/augment/dropped()
+	loc = null
+	qdel(src)

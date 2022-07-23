@@ -187,7 +187,7 @@
 		var/obj/item/material/kitchen/utensil/U = W
 		if(istype(W,/obj/item/material/kitchen/utensil/fork)&&(is_liquid))
 			to_chat(user, SPAN_NOTICE("You uselessly pass \the [U] through \the [src]."))
-			playsound(user.loc, 'sound/effects/pour.ogg', 10, 1)
+			playsound(user.loc, /decl/sound_category/generic_pour_sound, 10, 1)
 			return
 		else
 			if(U.scoop_food)
@@ -198,10 +198,7 @@
 					to_chat(user, SPAN_WARNING("You already have \the [src] on \the [U]."))
 					return
 
-				user.visible_message( \
-					"\The [user] scoops up some of \the [src] with \the [U]!", \
-					SPAN_NOTICE("You scoop up some of \the [src] with \the [U]!") \
-				)
+				to_chat(user, SPAN_NOTICE("You scoop up some of \the [src] with \the [U]."))
 
 				bitecount++
 				U.cut_overlays()
@@ -749,12 +746,12 @@
 
 		if(!(clr in list("blue","green","mime","orange","purple","rainbow","red","yellow")))
 			to_chat(usr, SPAN_NOTICE("The egg refuses to take on this color!"))
-			return
+			return TRUE
 
 		to_chat(usr, SPAN_NOTICE("You color \the [src] [clr]"))
 		icon_state = "egg-[clr]"
-	else
-		..()
+		return TRUE
+	return ..()
 
 /obj/item/reagent_containers/food/snacks/egg
 	var/amount_grown = 0
@@ -1393,7 +1390,7 @@
 /obj/item/reagent_containers/food/snacks/sosjerky
 	name = "Scaredy's Private Reserve beef jerky"
 	icon_state = "sosjerky"
-	desc = "Beef jerky made from the finest space cows."
+	desc = "Beef jerky. A little oversalted, actually."
 	trash = /obj/item/trash/sosjerky
 	filling_color = "#631212"
 	center_of_mass = list("x"=15, "y"=9)
@@ -1402,9 +1399,9 @@
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 4, /decl/reagent/sodiumchloride = 3)
 
 /obj/item/reagent_containers/food/snacks/no_raisin
-	name = "4no Raisins"
+	name = "Getmore Raisins"
 	icon_state = "4no_raisins"
-	desc = "Best raisins in the universe. Not sure why."
+	desc = "Getmore Raisins. Dry, flavorless, and oversweetened. Sounds about right."
 	trash = /obj/item/trash/raisins
 	filling_color = "#343834"
 	center_of_mass = list("x"=15, "y"=4)
@@ -1413,9 +1410,9 @@
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/spacetwinkie
-	name = "space twinkie"
+	name = "creamy spongecake"
 	icon_state = "space_twinkie"
-	desc = "Guaranteed to survive longer then you will."
+	desc = "Contrary to popular belief, Getmore's sponge cakes don't last forever. They do, however, leave a plastic-esque film coating the inside of your mouth."
 	trash = /obj/item/trash/space_twinkie
 	filling_color = "#FFE591"
 	center_of_mass = list("x"=15, "y"=11)
@@ -1426,7 +1423,7 @@
 /obj/item/reagent_containers/food/snacks/cheesiehonkers
 	name = "Cheesie Honkers"
 	icon_state = "cheesie_honkers"
-	desc = "Bite sized cheesie snacks that will honk all over your mouth"
+	desc = "Bite sized cheesie snacks, made with real cheese! A little bit of it, anyway."
 	trash = /obj/item/trash/cheesie
 	filling_color = "#FFA305"
 	center_of_mass = list("x"=15, "y"=9)
@@ -1435,9 +1432,9 @@
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/syndicake
-	name = "Syndi-Cakes"
+	name = "Nutri-Cakes"
 	icon_state = "syndi_cakes"
-	desc = "An extremely moist snack cake that tastes just as good after being nuked."
+	desc = "An extremely moist snack cake."
 	filling_color = "#FF5D05"
 	center_of_mass = list("x"=16, "y"=10)
 	trash = /obj/item/trash/syndi_cakes
@@ -1737,11 +1734,26 @@
 	reagent_data = list(/decl/reagent/nutriment = list("peppermint" = 2, "salad" = 4, "hot stew" = 2))
 	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5, /decl/reagent/drink/dynjuice =2)
 
-/obj/item/reagent_containers/food/snacks/soup/brudet 
+/obj/item/reagent_containers/food/snacks/soup/brudet
 	name = "morozian brudet"
 	desc = "The most popular dish from the Dominian Empire, this stew is a staple of Imperial cuisine."
 	icon_state = "brudet"
 	reagent_data = list(/decl/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2))
+	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5)
+
+/obj/item/reagent_containers/food/snacks/soup/maeuntang
+	name = "maeuntang"
+	desc = "A popular fish soup originating from Korea, this spicy dish has been given a distinctly Konyanger twist by the addition of \
+	moss to the ingredients, and has since proven to be a staple on the planet."
+	icon_state = "maeuntang"
+	reagent_data = list(/decl/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2, "moss" = 2))
+	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5)
+
+/obj/item/reagent_containers/food/snacks/soup/miyeokguk
+	name = "miyeokguk"
+	desc = "A simple soup made from fish broth, beef, seaweed, and moss. It is known for its health properties and commonly eaten on celebrations."
+	icon_state = "miyeokguk"
+	reagent_data = list(/decl/reagent/nutriment = list("hot stew" = 3, "beef" = 1, "seaweed" = 2, "moss" = 2))
 	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/water = 5)
 
 /obj/item/reagent_containers/food/snacks/hotchili
@@ -1920,6 +1932,16 @@
 	reagent_data = list(/decl/reagent/nutriment = list("bread" = 3, "cheese" = 3))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/reubensandwich
+	name = "reuben sandwich"
+	desc = "A toasted sandwich packed with savory, meat and sour goodness!"
+	icon_state = "reubensandwich"
+	filling_color = "#BF8E60"
+	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/nutriment/protein = 4, /decl/reagent/nutriment/ketchup = 2, /decl/reagent/nutriment/mayonnaise = 2)
+	reagent_data = list(/decl/reagent/nutriment = list("a savory blend of sweet and salty ingredients" = 6, "toasted bread" = 2))
+	bitesize = 3
+	trash = /obj/item/trash/plate
+
 /obj/item/reagent_containers/food/snacks/toastedsandwich
 	name = "toasted sandwich"
 	desc = "Now if you only had a pepper bar."
@@ -1930,6 +1952,39 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/protein = 3, /decl/reagent/carbon = 2)
 	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 3, "cheese" = 3))
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/toast
+	name = "toasted bread"
+	desc = "Plain, but consistent and reliable toast."
+	icon_state = "toast"
+	item_state = "toast"
+	slot_flags = SLOT_MASK
+	contained_sprite = TRUE
+	trash = /obj/item/trash/plate
+	filling_color = "#D9BE29"
+	reagents_to_add = list(/decl/reagent/nutriment = 2)
+	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2))
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/egginthebasket
+	name = "egg in the basket"
+	desc = "Egg in the basket, also known as <i>egg in a hole</i>, or <i>bullseye egg</i>, or <i>egg in a nest</i>, or <i>framed egg</i>, or..."
+	icon_state = "egginthebasket"
+	trash = /obj/item/trash/plate
+	filling_color = "#D9BE29"
+	reagents_to_add = list(/decl/reagent/nutriment = 2)
+	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/garlicbread
+	name = "garlic bread"
+	desc = "Delicious garlic bread, but you probably shouldn't eat it for every meal."
+	icon_state = "garlicbread"
+	trash = /obj/item/trash/plate
+	filling_color = "#D9BE29"
+	reagents_to_add = list(/decl/reagent/nutriment = 5, /decl/reagent/nutriment/garlicsauce = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2, "flavorful butter" = 3))
+	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/grilledcheese
 	name = "grilled cheese sandwich"
@@ -1998,6 +2053,17 @@
 /obj/item/reagent_containers/food/snacks/jelliedtoast/cherry/reagents_to_add = list(/decl/reagent/nutriment/cherryjelly = 5)
 
 /obj/item/reagent_containers/food/snacks/jelliedtoast/slime/reagents_to_add = list(/decl/reagent/slimejelly = 5)
+
+/obj/item/reagent_containers/food/snacks/pbtoast
+	name = "peanut butter toast"
+	desc = "A slice of bread covered with appetizing peanut butter."
+	icon_state = "pbtoast"
+	trash = /obj/item/trash/plate
+	filling_color = "#B572AB"
+	center_of_mass = list("x"=16, "y"=8)
+	reagents_to_add = list(/decl/reagent/nutriment = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("toasted bread" = 2))
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/burger/jelly
 	name = "jelly burger"
@@ -2180,6 +2246,16 @@
 /obj/item/reagent_containers/food/snacks/jellysandwich/slime/reagents_to_add = list(/decl/reagent/slimejelly = 5)
 
 /obj/item/reagent_containers/food/snacks/jellysandwich/cherry/reagents_to_add = list(/decl/reagent/nutriment/cherryjelly = 5)
+
+/obj/item/reagent_containers/food/snacks/pbjsandwich
+	name = "pbj sandwich"
+	desc = "A staple classic lunch of gooey jelly and peanut butter."
+	icon_state = "pbjsandwich"
+	trash = /obj/item/trash/plate
+	filling_color = "#BB6A54"
+	reagents_to_add = list(/decl/reagent/nutriment = 2)
+	reagent_data = list(/decl/reagent/nutriment = list("bread" = 2))
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/mint
 	name = "mint"
@@ -3111,7 +3187,7 @@
 	trash = /obj/item/trash/brownies
 	filling_color = "#301301"
 	center_of_mass = list("x"=15, "y"=9)
-	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/browniemix = 4, /decl/reagent/space_drugs = 4, /decl/reagent/bicaridine = 2, /decl/reagent/kelotane = 2, /decl/reagent/toxin = 2)
+	reagents_to_add = list(/decl/reagent/nutriment = 8, /decl/reagent/browniemix = 4, /decl/reagent/ambrosia_extract = 4, /decl/reagent/bicaridine = 2, /decl/reagent/kelotane = 2, /decl/reagent/toxin = 2)
 	reagent_data = list(/decl/reagent/nutriment = list("brownies" = 5))
 	bitesize = 3
 
@@ -3125,7 +3201,7 @@
 	center_of_mass = list("x"=16, "y"=12)
 
 /obj/item/reagent_containers/food/snacks/cosmicbrowniesslice/filled
-	reagents_to_add = list(/decl/reagent/nutriment = 1, /decl/reagent/browniemix = 1, /decl/reagent/space_drugs = 1, /decl/reagent/bicaridine = 1, /decl/reagent/kelotane = 1, /decl/reagent/toxin = 1)
+	reagents_to_add = list(/decl/reagent/nutriment = 1, /decl/reagent/browniemix = 1, /decl/reagent/ambrosia_extract = 1, /decl/reagent/bicaridine = 1, /decl/reagent/kelotane = 1, /decl/reagent/toxin = 1)
 	reagent_data = list(/decl/reagent/nutriment = list("brownies" = 2))
 
 /////////////////////////////////////////////////PIZZA////////////////////////////////////////
@@ -4291,6 +4367,25 @@
 	reagent_data = list(/decl/reagent/nutriment = list("guacmole" = 20))
 	filling_color = "#35961D"
 
+// Roasted Peanuts (under chips/nachos because finger food)
+/obj/item/reagent_containers/food/snacks/roasted_peanut
+	name = "roasted peanut"
+	desc = "A singular roasted peanut. How peanut-ful."
+	icon_state = "roast_peanut"
+	bitesize = 2
+	filling_color = "#D89E37"
+
+/obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl
+	name = "bowl of roasted peanuts"
+	desc = "Peanuts roasted to flavourful and rich perfection."
+	icon_state = "roast_peanuts_bowl"
+	trash = /obj/item/trash/dipbowl
+	vendingobject = /obj/item/reagent_containers/food/snacks/roasted_peanut
+	bitesize = 4
+	reagents_to_add = list(/decl/reagent/nutriment/groundpeanuts = 15, /decl/reagent/nutriment/triglyceride/oil/peanut = 5)
+	unitname = "roasted peanut"
+	filling_color = "#D89E37"
+
 //burritos
 /obj/item/reagent_containers/food/snacks/burrito
 	name = "meat burrito"
@@ -4589,6 +4684,14 @@
 	reagent_data = list(/decl/reagent/nutriment = list("flatbread" = 3))
 	filling_color = "#BD8939"
 
+/obj/item/reagent_containers/food/snacks/moss_dumplings
+	name = "moss dumplings"
+	desc = "A relatively common Konyanger dish, this appears to be steamed moss set in steamed dough."
+	icon_state = "moss_dumplings"
+	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/moss = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("steamed dough" = 3, "moss" = 3))
+	filling_color = "#589755"
+
 /obj/item/reagent_containers/food/snacks/fish_taco
 	name = "fish taco"
 	desc = "A questionably cooked fish taco decorated with herbs, spices, and special sauce."
@@ -4835,7 +4938,7 @@
 	slices_num = 5
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 10, /decl/reagent/nutriment = 10, /decl/reagent/alcohol/messa_mead = 5)
 	reagent_data = list(/decl/reagent/nutriment/protein = list("juicy meat" = 10), /decl/reagent/nutriment = list("flaky dough" = 5, "savoury vegetables" = 5))
-	desc_fluff = "for a time was considered the benchmark by which to rate the abilities of a chef. The production of this exquisite dish is no easy task, the preparation process begins with the aging of a high-grade tenderloin steak acquired from a Fatshouter fed exclusively on dirtberries. The high starch content of the dirtberries ensures that the creature has a high fat percentage and imparts a unique flavour to the meat and traditionally Noble families would keep a raise small herds of Fatshouters specifically for the production of this dish. After 28 days of dry aging, the tenderloin is ready for use. One day prior to serving the dish, a pâté is made by sauteéing thinly sliced pieces of earthenroot soaked in a generous amount of Messa’s Mead and then thickened with lard before being ground into a fine paste and left to - chill. On the day that the dish is to be served a flaky pastry dough is made. Next the aged 7 tenderloin is trimmed of accumulated mold and rind and coated in a dryrub after which the chilled pâté is spread across the surface of the meat and it is wrapped in the thinly rolled pastry dough. Next the pastry is washed with a small amount of clarified lard to give the crust a nice shine, after which it is placed into a large oven and cooked at a high heat for around 40 minutes. Though the dish was regarded as a symbol of the blatant excess and overindulgence of the ruling elite, it has since been reintroduced to the public by enterprising chefs seeking to recapture the high-class culinary culture of the past."
+	desc_fluff = "for a time was considered the benchmark by which to rate the abilities of a chef. The production of this exquisite dish is no easy task, the preparation process begins with the aging of a high-grade tenderloin steak acquired from a Fatshouter fed exclusively on dirtberries. The high starch content of the dirtberries ensures that the creature has a high fat percentage and imparts a unique flavour to the meat and traditionally Noble families would keep a raise small herds of Fatshouters specifically for the production of this dish. After 28 days of dry aging, the tenderloin is ready for use. One day prior to serving the dish, a pâté is made by sauteéing thinly sliced pieces of earthenroot soaked in a generous amount of Messa's Mead and then thickened with lard before being ground into a fine paste and left to - chill. On the day that the dish is to be served a flaky pastry dough is made. Next the aged 7 tenderloin is trimmed of accumulated mold and rind and coated in a dryrub after which the chilled pâté is spread across the surface of the meat and it is wrapped in the thinly rolled pastry dough. Next the pastry is washed with a small amount of clarified lard to give the crust a nice shine, after which it is placed into a large oven and cooked at a high heat for around 40 minutes. Though the dish was regarded as a symbol of the blatant excess and overindulgence of the ruling elite, it has since been reintroduced to the public by enterprising chefs seeking to recapture the high-class culinary culture of the past."
 	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/fatshouterslice
@@ -4843,7 +4946,7 @@
 	desc = "A medium rare fillet of Fatshouter meat covered in an earthenroot pate and wrapped in a flaky crust."
 	icon_state = "fatshouterfillet_slice"
 	filling_color = "#FF7575"
-	desc_fluff = "for a time was considered the benchmark by which to rate the abilities of a chef. The production of this exquisite dish is no easy task, the preparation process begins with the aging of a high-grade tenderloin steak acquired from a Fatshouter fed exclusively on dirtberries. The high starch content of the dirtberries ensures that the creature has a high fat percentage and imparts a unique flavour to the meat and traditionally Noble families would keep a raise small herds of Fatshouters specifically for the production of this dish. After 28 days of dry aging, the tenderloin is ready for use. One day prior to serving the dish, a pâté is made by sauteéing thinly sliced pieces of earthenroot soaked in a generous amount of Messa’s Mead and then thickened with lard before being ground into a fine paste and left to - chill. On the day that the dish is to be served a flaky pastry dough is made. Next the aged 7 tenderloin is trimmed of accumulated mold and rind and coated in a dryrub after which the chilled pâté is spread across the surface of the meat and it is wrapped in the thinly rolled pastry dough. Next the pastry is washed with a small amount of clarified lard to give the crust a nice shine, after which it is placed into a large oven and cooked at a high heat for around 40 minutes. Though the dish was regarded as a symbol of the blatant excess and overindulgence of the ruling elite, it has since been reintroduced to the public by enterprising chefs seeking to recapture the high-class culinary culture of the past."
+	desc_fluff = "for a time was considered the benchmark by which to rate the abilities of a chef. The production of this exquisite dish is no easy task, the preparation process begins with the aging of a high-grade tenderloin steak acquired from a Fatshouter fed exclusively on dirtberries. The high starch content of the dirtberries ensures that the creature has a high fat percentage and imparts a unique flavour to the meat and traditionally Noble families would keep a raise small herds of Fatshouters specifically for the production of this dish. After 28 days of dry aging, the tenderloin is ready for use. One day prior to serving the dish, a pâté is made by sauteéing thinly sliced pieces of earthenroot soaked in a generous amount of Messa's Mead and then thickened with lard before being ground into a fine paste and left to - chill. On the day that the dish is to be served a flaky pastry dough is made. Next the aged 7 tenderloin is trimmed of accumulated mold and rind and coated in a dryrub after which the chilled pâté is spread across the surface of the meat and it is wrapped in the thinly rolled pastry dough. Next the pastry is washed with a small amount of clarified lard to give the crust a nice shine, after which it is placed into a large oven and cooked at a high heat for around 40 minutes. Though the dish was regarded as a symbol of the blatant excess and overindulgence of the ruling elite, it has since been reintroduced to the public by enterprising chefs seeking to recapture the high-class culinary culture of the past."
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/fatshouterslice/filled
@@ -4881,7 +4984,7 @@
 	bitesize = 2
 	reagents_to_add = list(/decl/reagent/nutriment = 8)
 	reagent_data = list(/decl/reagent/nutriment = list("creamy" = 3, "sweet" = 3, "cold" = 2))
-	desc_fluff = "The traditional dessert of Northern Harr'masir is considered by many as being the mixture of ice, Fatshouters’s milk, sugar, and Nif-Berries’ oil, named Creamice. The popular tales claim it was invented after a famine desolated the land, resulting in the population resorting to eating snow, however, such tale has been classified by most historians as nothing but fiction. Creamice is commonly consumed by the nobility since they are the ones that can afford the luxury of refrigeration."
+	desc_fluff = "The traditional dessert of Northern Harr'masir is considered by many as being the mixture of ice, Fatshouters's milk, sugar, and Nif-Berries' oil, named Creamice. The popular tales claim it was invented after a famine desolated the land, resulting in the population resorting to eating snow, however, such tale has been classified by most historians as nothing but fiction. Creamice is commonly consumed by the nobility since they are the ones that can afford the luxury of refrigeration."
 	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/onionrings
@@ -4925,6 +5028,16 @@
 	bitesize = 2
 
 	reagents_to_add = list(/decl/reagent/nutriment/rice = 6, /decl/reagent/nutriment/protein = 4)
+
+/obj/item/reagent_containers/food/snacks/mossbowl
+	name = "moss bowl"
+	desc = "A bowl of fried rice with moss on top."
+	icon_state = "mossbowl"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#FFFBDB"
+	bitesize = 2
+
+	reagents_to_add = list(/decl/reagent/nutriment/moss = 6, /decl/reagent/nutriment/protein/egg = 3)
 
 /obj/item/reagent_containers/food/snacks/mashedpotato
 	name = "mashed potato"
@@ -5327,7 +5440,7 @@
 	reagents_to_add = list(/decl/reagent/nutriment = 1, /decl/reagent/nutriment/protein = 1, /decl/reagent/blood = 6, /decl/reagent/nutriment/coco = 3)
 	reagent_data = list(/decl/reagent/nutriment = list("iron" = 3))
 	bitesize = 6
-  
+
 /obj/item/reagent_containers/food/snacks/phoroncandy
 	name = "phoron rock candy"
 	desc = "Rock candy popular in Flagsdale. Actually contains phoron."
@@ -5336,3 +5449,13 @@
 	reagents_to_add = list(/decl/reagent/toxin/phoron = 25)
 	bitesize = 5
 	trash = /obj/item/trash/phoroncandy
+
+/obj/item/reagent_containers/food/snacks/sauerkraut
+	name = "sauerkraut"
+	desc = "Finely cut and fermented cabbage. A light pickled delight!"
+	icon_state = "sauerkraut"
+	filling_color = "#EBE699"
+	reagents_to_add = list(/decl/reagent/nutriment = 4)
+	reagent_data = list(/decl/reagent/nutriment = list("pickled lettuce" = 4))
+	bitesize = 2
+	trash = /obj/item/trash/plate

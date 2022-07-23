@@ -107,24 +107,24 @@
 		to_chat(usr, SPAN_NOTICE("You put \the [I] back into \the [src]."))
 		user.remove_from_mob(I) //Catches robot gripper duplication
 		qdel(I)
-		return
+		return TRUE
 	else if(I.iswrench())
-		playsound(get_turf(user), I.usesound, 50, 1)
 		if(anchored)
 			to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src] from the floor..."))
-			if(do_after(user, 40 / I.toolspeed))
-				user.visible_message("<b>[user]</b> unfastens \the [src].", SPAN_NOTICE("You have unfastened \the [src]. Now it can be pulled somewhere else."), SPAN_NOTICE("You hear ratcheting noise."))
+			if(I.use_tool(src, user, 40, volume = 50))
+				user.visible_message("<b>[user]</b> unfastens \the [src].", SPAN_NOTICE("You have unfastened \the [src]. Now it can be pulled somewhere else."), SPAN_NOTICE("You hear a ratcheting noise."))
 				anchored = FALSE
 				stat |= MAINT
 				if(usr.machine == src)
 					usr << browse(null, "window=[window_id]")
 		else
 			to_chat(user, SPAN_NOTICE("You begin to fasten \the [src] to the floor..."))
-			if(do_after(user, 20 / I.toolspeed))
-				user.visible_message("<b>[user]</b> fastens \the [src].", SPAN_NOTICE("You have fastened \the [src]. Now it can dispense pipes."), SPAN_NOTICE("You hear ratcheting noise."))
+			if(I.use_tool(src, user, 20, volume = 50))
+				user.visible_message("<b>[user]</b> fastens \the [src].", SPAN_NOTICE("You have fastened \the [src]. Now it can dispense pipes."), SPAN_NOTICE("You hear a ratcheting noise."))
 				anchored = TRUE
 				stat &= ~MAINT
 				power_change()
+		return TRUE
 	else
 		return ..()
 

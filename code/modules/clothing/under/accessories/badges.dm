@@ -21,7 +21,7 @@
 
 /obj/item/clothing/accessory/badge/press
 	name = "corporate press pass"
-	desc = "A corporate reporter's pass, emblazoned with the NanoTrasen logo."
+	desc = "A corporate reporter's pass, emblazoned with the SCC logo."
 	icon_state = "pressbadge"
 	item_state = "pbadge"
 	overlay_state = "pbadge"
@@ -211,6 +211,12 @@
 	desc = "A small card identifying one as a former member of the Tau Ceti Foreign Legion. Often used to secure discounts in \
 	Republic shops. Go Biesel!"
 	badge_string = "Tau Ceti Foreign Legion Veteran"
+
+/obj/item/clothing/accessory/badge/tcfl_papers/service/reservist
+	name = "\improper TCFL reservist's service card"
+	desc = "A small card identifying one as a current reservist of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+	Republic shops. Go Biesel!"
+	badge_string = "Tau Ceti Foreign Legion Reservist"
 
 /obj/item/clothing/accessory/badge/sheriff
 	name = "sheriff badge"
@@ -442,15 +448,6 @@
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 
-/obj/item/clothing/accessory/badge/passcard/techno
-	name = "techno-conglomerate passcard"
-	desc = "A clump of machinery scraps repurposed into a functional passcard, used by the Techno-Conglomerate."
-	desc_fluff = "In a society that values progress towards perfection, the Techno-Conglomerate has also applied this to their 'governance'. Prospective wayfarers and explorers will often be required to assemble \
-	their own cards from scraps left over from the early days of the technology, often leading to outdated or buggy versions. Urban legend claims that some have even found a way to exploit this technology to 'sequence' \
-	their way into more secure locales."
-	icon_state = "passcard_techno"
-	item_state = "passcard_techno"
-
 /obj/item/clothing/accessory/badge/passcard/burzsia
 	name = "burzsian passcard"
 	desc = "A passcard issued to Burzsian Hephaestus employees and- owned IPCs- working abroad."
@@ -462,10 +459,19 @@
 /obj/item/clothing/accessory/badge/passcard/konyang
 	name = "konyanger passcard"
 	desc = "A passcard issued to residents of the planet Konyang."
-	desc_fluff = "The 'homeworld' of the human positronic intelligence, life on Konyang is a tightly-knit tapestry of organic-synthetic relations. This is even reflected in their passcards, featuring dried moss \
-	from the planet's farms in the same plastic casing as a small sigil of the Perfection said to grant safe passage abroad for adherents."
+	desc_fluff = "The 'homeworld' of the human positronic intelligence, life on Konyang is a tightly-knit tapestry of organic-synthetic relations. The planet's unique conditions are reflected by a small piece of preserved moss stored in the card's plastic casing."
 	icon_state = "passcard_konyang"
 	item_state = "passcard_konyang"
+
+// Work Visa
+/obj/item/clothing/accessory/badge/passcard/workvisa
+	name = "republic of biesel work visa"
+	desc = "A work visa issued to those who work in the Republic of Biesel, but who do not have a Biesellite citizenship."
+	desc_fluff = "A work visa is required in the Republic of Biesel for those who do not have a Biesellite citizenship and who intend to hold legal employment. Those who most commonly lack a Biesellite citizenship \
+	are those from the Alliance of Sovereign Solarian Nations, as the ASSN does not permit dual citizenships in combination with a Biesellite citizenship. Other individuals that may have a Republic of Biesel work \
+	visa are those who intend to become citizens but have not yet resided for two years in order to apply for citizenship, or those who have not yet applied for a citizenship."
+	icon_state = "workvisa"
+	item_state = "workvisa"
 
 //passports
 

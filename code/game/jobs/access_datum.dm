@@ -258,7 +258,7 @@
 /var/const/access_qm = 41
 /datum/access/qm
 	id = access_qm
-	desc = "Quartermaster"
+	desc = "Operations Manager"
 	region = ACCESS_REGION_SUPPLY
 
 /var/const/access_network = 42
@@ -303,7 +303,11 @@
 	region = ACCESS_REGION_SUPPLY
 
 // /var/const/free_access_id = 51
-// /var/const/free_access_id = 52
+/var/const/access_xenobotany = 52
+/datum/access/xenobotany
+	id = access_xenobotany
+	desc = "Xenobotany"
+	region = ACCESS_REGION_RESEARCH
 
 /var/const/access_heads_vault = 53
 /datum/access/heads_vault
@@ -332,7 +336,7 @@
 /var/const/access_hop = 57
 /datum/access/hop
 	id = access_hop
-	desc = "Head of Personnel"
+	desc = "Executive Officer"
 	region = ACCESS_REGION_COMMAND
 
 /var/const/access_hos = 58
@@ -422,6 +426,18 @@ var/const/access_consular = 72
 /datum/access/consular
 	id = access_consular
 	desc = "Consular"
+
+var/const/access_intrepid = 73
+/datum/access/intrepid
+	id = access_intrepid
+	desc = "Intrepid Shuttle"
+	region = ACCESS_REGION_COMMAND
+
+var/const/access_bridge_crew = 74
+/datum/access/bridge_crew
+	id = access_bridge_crew
+	desc = "Bridge Crew"
+	region = ACCESS_REGION_COMMAND
 
 /******************
 * Central Command *
@@ -555,8 +571,37 @@ var/const/access_kataphract_trader = 116
 	id = access_crate_cash
 	access_type = ACCESS_TYPE_NONE
 
+/var/const/access_orion_express_ship = 201
+/datum/access/exress_ship
+	id = access_orion_express_ship
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_generic_away_site = 202
+/datum/access/generic_away_site
+	id = access_generic_away_site
+	access_type = ACCESS_TYPE_CENTCOM
+
 /var/const/access_none = -1
 /datum/access/none
 	id = access_none
 	access_type = ACCESS_TYPE_NONE
 
+/var/const/access_sol_ships = 203
+/datum/access/sol_ships
+	id = access_sol_ships
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_tcfl_peacekeeper_ship = 204
+/datum/access/tcfl_peacekeeper_ship
+	id = access_tcfl_peacekeeper_ship
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_ee_spy_ship = 205
+/datum/access/ee_spy_ship
+	id = access_ee_spy_ship
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_civilian_station = 206
+/datum/access/access_civilian_station
+	id = access_civilian_station
+	access_type = ACCESS_TYPE_CENTCOM

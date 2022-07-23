@@ -48,6 +48,10 @@
 	origin_tech = list(TECH_BLUESPACE = 3)
 	syndie = TRUE
 
+/obj/item/device/encryptionkey/ship
+	icon_state = "cypherkey"
+	additional_channels = list(CHANNEL_SHIP = TRUE)
+
 /obj/item/device/encryptionkey/binary
 	icon_state = "cypherkey"
 	translate_binary = TRUE
@@ -136,15 +140,20 @@
 	icon_state = "cmo_cypherkey"
 	channels = list(CHANNEL_MEDICAL = TRUE, CHANNEL_COMMAND = TRUE)
 
-/obj/item/device/encryptionkey/heads/hop
-	name = "head of personnel's encryption key"
+/obj/item/device/encryptionkey/heads/xo
+	name = "executive officer's encryption key"
 	icon_state = "hop_cypherkey"
-	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE)
+	channels = list(CHANNEL_SERVICE = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE)
 
 /obj/item/device/encryptionkey/headset_cargo
-	name = "supply radio encryption key"
+	name = "operations radio encryption key"
 	icon_state = "cargo_cypherkey"
 	channels = list(CHANNEL_SUPPLY = TRUE)
+
+/obj/item/device/encryptionkey/headset_operations_manager
+	name = "operations managaer radio encryption key"
+	icon_state = "cargo_cypherkey"
+	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SUPPLY = TRUE)
 
 /obj/item/device/encryptionkey/headset_service
 	name = "service radio encryption key"
@@ -183,7 +192,7 @@
 	additional_channels = list(CHANNEL_SCIENCE = TRUE)
 
 /obj/item/device/encryptionkey/cargo_spare
-	name = "spare supply radio encryption key"
+	name = "spare operations radio encryption key"
 	additional_channels = list(CHANNEL_SUPPLY = TRUE)
 
 /obj/item/device/encryptionkey/service_spare

@@ -48,6 +48,12 @@
 		var/datum/unit_test/test = curr[curr.len]
 		curr.len--
 
+		if (test.map_path && current_map && current_map.path != test.map_path)
+			test.pass("[ascii_red]Check Disabled: This test is not allowed to run on this map.")
+			if (MC_TICK_CHECK)
+				return
+			continue
+
 		if (test.disabled)
 			test.pass("[ascii_red]Check Disabled: [test.why_disabled]")
 			if (MC_TICK_CHECK)

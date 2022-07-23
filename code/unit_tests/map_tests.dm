@@ -9,13 +9,20 @@
 #define FAILURE 0
 #define SUCCESS 1
 
+/datum/unit_test/map_test
+	name = "MAP TEST template"
 
-datum/unit_test/apc_area_test
-	name = "MAP: Area Test APC / Scrubbers / Vents (Station)"
+/datum/unit_test/map_test/apc_area_test
+	name = "MAP: Area Test APC / Scrubbers / Vents / Alarms (Station)"
 
-datum/unit_test/apc_area_test/start_test()
-	var/list/bad_areas = list()
+/datum/unit_test/map_test/apc_area_test/start_test()
 	var/area_test_count = 0
+	var/bad_apc = 0
+	var/bad_airs = 0
+	var/bad_airv = 0
+	var/bad_fire = 0
+
+	var/fail_message = ""
 
 	if (!current_map)
 		return
@@ -25,42 +32,51 @@ datum/unit_test/apc_area_test/start_test()
 	var/list/exempt_areas = typecacheof(current_map.ut_environ_exempt_areas)
 	var/list/exempt_from_atmos = typecacheof(current_map.ut_atmos_exempt_areas)
 	var/list/exempt_from_apc = typecacheof(current_map.ut_apc_exempt_areas)
+	var/list/exempt_from_fire = typecacheof(current_map.ut_fire_exempt_areas)
 
 	for(var/area/A in typecache_filter_list_reverse(all_areas, exempt_areas))
 		if(isStationLevel(A.z))
 			area_test_count++
-			var/area_good = 1
-			var/bad_msg = "[ascii_red]--------------- [A.name]([A.type])"
-
+			var/bad_msg = "[ascii_red]--------------- [A.name] ([A.type])"
 
 			if(!A.apc && !is_type_in_typecache(A, exempt_from_apc))
 				log_unit_test("[bad_msg] lacks an APC.[ascii_reset]")
-				area_good = 0
+				bad_apc++
 
 			if(!A.air_scrub_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				log_unit_test("[bad_msg] lacks an Air scrubber.[ascii_reset]")
-				area_good = 0
+				log_unit_test("[bad_msg] lacks an air scrubber.[ascii_reset]")
+				bad_airs++
 
 			if(!A.air_vent_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				log_unit_test("[bad_msg] lacks an Air vent.[ascii_reset]")
-				area_good = 0
+				log_unit_test("[bad_msg] lacks an air vent.[ascii_reset]")
+				bad_airv++
 
-			if(!area_good)
-				bad_areas += A
+			if(!(locate(/obj/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
+				log_unit_test("[bad_msg] lacks a fire alarm.[ascii_reset]")
+				bad_fire++
 
-	if(bad_areas.len)
-		fail("\[[bad_areas.len]/[area_test_count]\]Some areas lacked APCs, Air Scrubbers, or Air vents.")
+	if(bad_apc)
+		fail_message += "\[[bad_apc]/[area_test_count]\] areas lacked an APC.\n"
+	if(bad_airs)
+		fail_message += "\[[bad_airs]/[area_test_count]\] areas lacked an air scrubber.\n"
+	if(bad_airv)
+		fail_message += "\[[bad_airv]/[area_test_count]\] areas lacked an air vent.\n"
+	if(bad_fire)
+		fail_message += "\[[bad_fire]/[area_test_count]\] areas lacked a fire alarm.\n"
+
+	if(length(fail_message))
+		fail(fail_message)
 	else
-		pass("All \[[area_test_count]\] areas contained APCs, Air scrubbers, and Air vents.")
+		pass("All \[[area_test_count]\] areas contained APCs, air scrubbers, air vents, and fire alarms.")
 
-	return 1
+	return TRUE
 
 //=======================================================================================
 
-datum/unit_test/wire_test
+/datum/unit_test/map_test/wire_test
 	name = "MAP: Cable Test (Station)"
 
-datum/unit_test/wire_test/start_test()
+/datum/unit_test/map_test/wire_test/start_test()
 	var/wire_test_count = 0
 	var/bad_tests = 0
 	var/turf/T = null
@@ -92,10 +108,10 @@ datum/unit_test/wire_test/start_test()
 	return 1
 
 
-/datum/unit_test/roof_test
+/datum/unit_test/map_test/roof_test
 	name = "MAP: Roof Test (Station)"
 
-/datum/unit_test/roof_test/start_test()
+/datum/unit_test/map_test/roof_test/start_test()
 	var/bad_tiles = 0
 	var/tiles_total = 0
 	var/turf/above
@@ -123,10 +139,10 @@ datum/unit_test/wire_test/start_test()
 #define BLOCKED_UP   1
 #define BLOCKED_DOWN 2
 
-/datum/unit_test/ladder_test
+/datum/unit_test/map_test/ladder_test
 	name = "MAP: Ladder Test (Station)"
 
-/datum/unit_test/ladder_test/start_test()
+/datum/unit_test/map_test/ladder_test/start_test()
 	var/ladders_total = 0
 	var/ladders_incomplete = 0
 	var/ladders_blocked = 0
@@ -163,10 +179,10 @@ datum/unit_test/wire_test/start_test()
 #undef BLOCKED_UP
 #undef BLOCKED_DOWN
 
-/datum/unit_test/bad_doors
+/datum/unit_test/map_test/bad_doors
 	name = "MAP: Check for bad doors"
 
-/datum/unit_test/bad_doors/start_test()
+/datum/unit_test/map_test/bad_doors/start_test()
 	var/checks = 0
 	var/failed_checks = 0
 	for(var/obj/machinery/door/airlock/A in world)
@@ -175,18 +191,18 @@ datum/unit_test/wire_test/start_test()
 		if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			log_unit_test("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
-	
+
 	if(failed_checks)
 		fail("\[[failed_checks] / [checks]\] Some doors had improper turfs below them.")
 	else
 		pass("All \[[checks]\] doors have proper turfs below them.")
-	
+
 	return 1
 
-/datum/unit_test/bad_firedoors
+/datum/unit_test/map_test/bad_firedoors
 	name = "MAP: Check for bad firedoors"
 
-/datum/unit_test/bad_firedoors/start_test()
+/datum/unit_test/map_test/bad_firedoors/start_test()
 	var/checks = 0
 	var/failed_checks = 0
 	for(var/obj/machinery/door/firedoor/F in world)
@@ -201,7 +217,7 @@ datum/unit_test/wire_test/start_test()
 		else if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			log_unit_test("Firedoor with bad turf at ([F.x],[F.y],[F.z]) in [T.loc].")
-	
+
 	if(failed_checks)
 		fail("\[[failed_checks] / [checks]\] Some firedoors were doubled up or had bad turfs below them.")
 	else
@@ -209,10 +225,10 @@ datum/unit_test/wire_test/start_test()
 
 	return 1
 
-/datum/unit_test/bad_piping
+/datum/unit_test/map_test/bad_piping
 	name = "MAP: Check for bad piping"
 
-/datum/unit_test/bad_piping/start_test()
+/datum/unit_test/map_test/bad_piping/start_test()
 	set background = 1
 	var/checks = 0
 	var/failed_checks = 0
@@ -243,7 +259,7 @@ datum/unit_test/wire_test/start_test()
 		if (!pipe.node1 || !pipe.node2)
 			failed_checks++
 			log_unit_test("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
-	
+
 	next_turf:
 		for(var/turf/T in turfs)
 			for(var/dir in cardinal)
@@ -263,10 +279,10 @@ datum/unit_test/wire_test/start_test()
 
 	return 1
 
-/datum/unit_test/mapped_products
+/datum/unit_test/map_test/mapped_products
 	name = "MAP: Check for mapped vending products"
 
-/datum/unit_test/mapped_products/start_test()
+/datum/unit_test/map_test/mapped_products/start_test()
 	var/checks = 0
 	var/failed_checks = 0
 	var/list/obj/machinery/vending/V_to_test = list()
@@ -285,6 +301,41 @@ datum/unit_test/wire_test/start_test()
 		fail("\[[failed_checks] / [checks]\] Some vending machines have mapped-in product lists.")
 	else
 		pass("All \[[checks]\] vending machines have valid product lists.")
+
+	return 1
+
+/datum/unit_test/map_test/all_station_areas_shall_be_on_station_zlevels
+	name = "MAP: Station areas shall be on station z-levels"
+	var/list/exclude = list(
+		/area/holodeck, // These are necessarily mapped on a non-station z-level so they can be copied over to the holodeck on the station z-levels
+		/area/horizon/holodeck
+		)
+
+/datum/unit_test/map_test/all_station_areas_shall_be_on_station_zlevels/start_test()
+	var/checks = 0
+	var/failed_checks = 0
+	var/list/exclude_types = list()
+
+	for(var/excluded in exclude)
+		exclude_types += typesof(excluded)
+
+	for(var/area/A as anything in list_keys(the_station_areas))
+		if(A.type in exclude_types)
+			continue
+		checks++
+
+		var/list/turf/invalid_turfs = get_area_turfs(A, list(/proc/is_station_turf)) ^ get_area_turfs(A)
+		if(invalid_turfs.len)
+			failed_checks++
+			var/list/failed_area_zlevels = list()
+			for(var/turf/T as anything in invalid_turfs)
+				failed_area_zlevels |= T.z
+			log_unit_test("Station area [A]: [invalid_turfs.len] turfs are not entirely mapped on station z-levels. Found turfs on non-station levels: [english_list(failed_area_zlevels)]")
+
+	if(failed_checks)
+		fail("\[[failed_checks] / [checks]\] Some station areas had turfs mapped outside station z-levels.")
+	else
+		pass("All \[[checks]\] station areas are correctly mapped only on station z-levels.")
 
 	return 1
 

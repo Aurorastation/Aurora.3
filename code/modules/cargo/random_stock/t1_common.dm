@@ -294,6 +294,7 @@ STOCK_ITEM_COMMON(charger, 2)
 	var/newtype = pick(/obj/machinery/cell_charger, /obj/machinery/recharger)
 	var/obj/machinery/ma = new newtype(L)
 	ma.anchored = FALSE
+	ma.update_use_power(POWER_USE_OFF)
 
 STOCK_ITEM_COMMON(spacesuit, 2)
 	new /obj/item/clothing/suit/space(L)

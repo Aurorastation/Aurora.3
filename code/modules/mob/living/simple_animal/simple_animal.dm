@@ -27,9 +27,9 @@
 	var/image/blood_overlay
 
 	var/bleeding = FALSE
-	var/blood_amount = 50			// set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
+	var/blood_amount = 20			// set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
 	var/previous_bleed_timer = 0	// they only bleed for as many seconds as force damage was applied to them
-	var/blood_timer_mod = 1			// tweak to change the amount of seconds a mob will bleed
+	var/blood_timer_mod = 0.25		// tweak to change the amount of seconds a mob will bleed
 
 	var/list/speak = list()
 	var/speak_chance = 0
@@ -82,6 +82,8 @@
 	//LETTING SIMPLE ANIMALS ATTACK? WHAT COULD GO WRONG. Defaults to zero so Ian can still be cuddly
 	var/melee_damage_lower = 0
 	var/melee_damage_upper = 0
+	var/armor_penetration = 0
+	var/attack_flags = 0
 	var/attacktext = "attacked"
 	var/attack_sound = null
 	var/friendly = "nuzzles"
@@ -685,7 +687,7 @@
 
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
-		flick("flash", flash)
+		flash_eyes()
 
 	var/damage
 	switch (severity)

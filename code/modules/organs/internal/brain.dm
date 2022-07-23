@@ -105,7 +105,7 @@
 			if(!oxygen_reserve) //(hardcrit)
 				owner.Paralyse(10)
 
-			var/can_heal = damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))
+			var/can_heal = (damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))) && (!(owner.chem_effects[CE_NEUROTOXIC]) || owner.chem_effects[CE_ANTITOXIN])
 			var/damprob
 			var/brain_regen_amount = owner.chem_effects[CE_BRAIN_REGEN]	/ 10
 			//Effects of bloodloss
@@ -145,21 +145,6 @@
 					if(prob(damprob))
 						take_internal_damage(1)
 	..()
-
-/obj/item/organ/internal/brain/take_internal_damage(var/damage, var/silent)
-	set waitfor = 0
-	..()
-	if(damage >= (max_damage / 5)) //This probably won't be triggered by oxyloss or mercury. Probably.
-		var/damage_secondary = damage * 0.20
-		owner.eye_blurry += damage_secondary
-		owner.confused += damage_secondary * 2
-		owner.Weaken(round(damage_secondary * 3, 1))
-		if(prob(30))
-			addtimer(CALLBACK(src, .proc/brain_damage_callback, damage), rand(6, 20) SECONDS, TIMER_UNIQUE)
-
-/obj/item/organ/internal/brain/proc/brain_damage_callback(var/damage) //Confuse them as a somewhat uncommon aftershock. Side note: Only here so a spawn isn't used. Also, for the sake of a unique timer.
-	to_chat(owner, "<span class = 'notice'><font size=3><B>I can't remember which way is forward...</B></font></span>")
-	owner?.confused += damage
 
 /obj/item/organ/internal/brain/proc/handle_severe_brain_damage()
 	set waitfor = FALSE
@@ -241,3 +226,6 @@
 			to_chat(user, SPAN_WARNING("The brain has already been prepared!"))
 		return
 	return ..()
+
+/obj/item/organ/internal/brain/zombie
+	relative_size = 100

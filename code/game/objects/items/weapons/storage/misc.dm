@@ -40,24 +40,21 @@
 	return
 
 /obj/item/storage/box/pineapple
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "pineapple_rings"
 	name = "can of pineapple rings"
 	desc = "An aluminium can with fresh pineapple slices."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "pineapple_rings"
 	use_sound = 'sound/items/pickup/soda.ogg'
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
 	starts_with = list(/obj/item/reagent_containers/food/snacks/pineapple_ring = 6)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/pineapple_ring)
 
-/obj/item/storage/box/pineapple/fill()
-	. = ..()
-	update_icon()
-
 //cigarette papers
 /obj/item/storage/box/fancy/cigpaper
-	name = "\improper Gen. Eric cigarette paper"
-	desc = "A ubiquitous brand of cigarette paper, allegedly endorsed by 24th century war hero General Eric Osmundsun for rolling your own cigarettes. Osmundsun died in a freak kayak accident. As it ate him alive during his last campaign. It was pretty freaky."
+	name = "\improper callistean classic cigarette paper"
+	desc = "A now-ubiquitous brand of cigarette paper, originated on Callisto and produced by Cigaco, a Getmore subsidiary. It was first available only on Callisto, but \
+			is now found in every corner of the galaxy due to its low cost and relatively good value."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpaperbook_generic"
 	item_state = "cigpacket"
@@ -93,7 +90,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	w_class = ITEMSIZE_SMALL
-	starts_with = list(/obj/item/paper/cig/filter = 10)
+	starts_with = list(/obj/item/cigarette_filter = 10)
 	make_exact_fit()
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
@@ -171,7 +168,10 @@
 	use_sound = 'sound/items/storage/box.ogg'
 
 /obj/item/storage/box/fancy/chewables/tobacco/update_icon()
-	icon_state = "[initial(icon_state)][contents.len]"
+	if(opened) //use the open icon.
+		icon_state = "[initial(icon_state)][contents.len]"
+	else
+		icon_state = "[initial(icon_state)]" // closed
 
 //loose leaf
 
@@ -210,4 +210,3 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/pure = 8)
 	icon_state = "roll_nico"
 	item_state = "Epacket"
-

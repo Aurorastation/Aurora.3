@@ -69,7 +69,7 @@
 
 	// machine process
 	// move items to the target location
-/obj/machinery/conveyor/machinery_process()
+/obj/machinery/conveyor/process()
 	if(stat & (BROKEN | NOPOWER))
 		return
 	if(!operating || conveying)
@@ -79,7 +79,7 @@
 		stat |= BROKEN
 		return
 
-	use_power(100)
+	use_power_oneoff(100)
 
 	var/turf/locturf = loc
 	var/list/items = locturf.contents - src
@@ -301,11 +301,12 @@
 	var/id = "" //inherited by the belt
 
 /obj/item/conveyor_construct/attackby(obj/item/I, mob/user, params)
-	..()
+	. = ..()
 	if(istype(I, /obj/item/conveyor_switch_construct))
 		to_chat(user, "<span class='notice'>You link the switch to the conveyor belt assembly.</span>")
 		var/obj/item/conveyor_switch_construct/C = I
 		id = C.id
+		return TRUE
 
 /obj/item/conveyor_construct/afterattack(atom/A, mob/user, proximity)
 	if(!proximity || !istype(A, /turf/simulated/floor) || istype(A, /area/shuttle) || user.incapacitated())

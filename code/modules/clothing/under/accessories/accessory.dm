@@ -203,17 +203,21 @@
 	name = "bowtie"
 	desc = "Snazzy!"
 	icon_state = "bowtie"
+
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
+	desc_info = "Click on the UI action button toggle between the examination modes. Automatic will use the stethoscope on the person you're \
+	examining when adjacent to them, automatically using it on the selected body part. Manual will make it so you don't automatically use it via examine."
 	icon_state = "stethoscope"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
 		)
 	flippable = 1
+	var/auto_examine = FALSE
 
-/obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/human/M, mob/living/user)
+/obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/human/M, mob/user)
 	if(ishuman(M) && isliving(user))
 		if(user.a_intent == I_HELP)
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
@@ -222,6 +226,38 @@
 									 "You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
 				return
 	return ..(M,user)
+
+/obj/item/clothing/accessory/stethoscope/attack_self(mob/user)
+	toggle_examine()
+
+/obj/item/clothing/accessory/stethoscope/on_attached(obj/item/clothing/S, mob/user)
+	..()
+	has_suit.verbs += /obj/item/clothing/accessory/stethoscope/verb/toggle_examine
+
+/obj/item/clothing/accessory/stethoscope/on_removed(mob/user)
+	if(has_suit)
+		has_suit.verbs -= /obj/item/clothing/accessory/stethoscope/verb/toggle_examine
+	..()
+
+/obj/item/clothing/accessory/stethoscope/proc/mode_switch(mob/user)
+	auto_examine = !auto_examine
+	to_chat(user, SPAN_NOTICE("\The [src]'s Examination Mode is now [auto_examine ? "Automatic" : "Manual"]."))
+
+/obj/item/clothing/accessory/stethoscope/verb/toggle_examine()
+	set name = "Toggle Examination Mode"
+	set category = "Object"
+	set src in usr
+
+	if(!ishuman(usr))
+		return
+	if(usr.incapacitated())
+		return
+
+	var/obj/item/clothing/accessory/stethoscope/stet = get_accessory(/obj/item/clothing/accessory/stethoscope)
+	if(!stet)
+		return
+
+	stet.mode_switch(usr)
 
 //Religious items
 /obj/item/clothing/accessory/rosary
@@ -367,13 +403,13 @@
 
 /obj/item/clothing/accessory/poncho/roles/science
 	name = "science poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard NanoTrasen Science colors."
+	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard science colors."
 	icon_state = "sciponcho"
 	item_state = "sciponcho"
 
 /obj/item/clothing/accessory/poncho/roles/cargo
-	name = "cargo poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of Cargo."
+	name = "operations poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of operations."
 	icon_state = "cargoponcho"
 	item_state = "cargoponcho"
 
@@ -425,6 +461,13 @@
 	desc = "A sash, designed to be worn over one shoulder and come down to the opposing hip."
 	item_state = "sash_colourable"
 	icon_state = "sash_colourable"
+
+/obj/item/clothing/accessory/sash/horizontal
+	name = "horizontal sash"
+	desc = "A sash, designed to be worn around the waist."
+	item_state = "sash_horizontal"
+	icon_state = "sash_horizontal"
+	icon = 'icons/clothing/accessories/sash_horizontal.dmi'
 
 /*
  * Cloak
@@ -571,6 +614,15 @@
 	representing the the wearer becoming an adult."
 	icon_state = "qeblak_cape"
 	item_state = "qeblak_cape"
+	flippable = FALSE
+
+/obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
+	name = "weishii robe"
+	desc = "A robe denoting the wearer as a member fo the Weishii faith."
+	desc_fluff = "This mantle denotes the wearer as a member of the Weishii faith. \
+	It is given to followers after they have spent time on a Weishiin Sanctuary."
+	icon_state = "weishii_robe"
+	item_state = "weishii_robe"
 	flippable = FALSE
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
@@ -810,3 +862,89 @@
 	name = "AB- blood patch"
 	desc = "An embroidered patch indicating the wearer's blood type as AB NEGATIVE."
 	icon_state = "abnegtag"
+
+
+// Corporate Liaison stuff.
+
+/obj/item/clothing/accessory/tie/corporate
+	name = "corporate tie"
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon_state = "nt_tie"
+	item_state = "nt_tie"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/tie/corporate/zeng
+	icon_state = "zeng_tie"
+	item_state = "zeng_tie"
+
+/obj/item/clothing/accessory/tie/corporate/zavod
+	icon_state = "zav_tie"
+	item_state = "zav_tie"
+
+/obj/item/clothing/accessory/tie/corporate/heph
+	icon_state = "heph_tie"
+	item_state = "heph_tie"
+
+/obj/item/clothing/accessory/tie/corporate/pmc
+	icon_state = "pmc_tie"
+	item_state = "pmc_tie"
+
+/obj/item/clothing/accessory/tie/corporate/idris
+	icon_state = "idris_tie"
+	item_state = "idris_tie"
+
+/obj/item/clothing/accessory/tie/corporate/orion
+	icon_state = "orion_tie"
+	item_state = "orion_tie"
+
+/obj/item/clothing/accessory/pin/corporate
+	name = "corporate badge"
+	desc = "A shiny button which reads, <i>'Nanotrasen - The leader in all things Phoron!'</i>"
+	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon_state = "nt_liaison_badge"
+	item_state = "nt_liaison_badge"
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/pin/corporate/zeng
+	desc = "A shiny button which reads, <i>'Zeng-Hu - Building a brighter future.'</i>"
+	icon_state = "zeng_liaison_badge"
+	item_state = "zeng_liaison_badge"
+
+/obj/item/clothing/accessory/pin/corporate/zavod
+	desc = "A shiny button which reads, <i>'Zavodskoi Interstellar - Even one matters in the battlefield.'</i>"
+	icon_state = "zav_liaison_badge"
+	item_state = "zav_liaison_badge"
+
+/obj/item/clothing/accessory/pin/corporate/heph
+	desc = "A shiny button which reads, <i>'Hephaestus Industries - The anvil upon which the world is shaped.'</i>"
+	icon_state = "heph_liaison_badge"
+	item_state = "heph_liaison_badge"
+
+/obj/item/clothing/accessory/pin/corporate/pmc
+	desc = "A shiny button which reads, <i>'PMCG - Always on guard, always on watch.'</i>"
+	icon_state = "pmc_liaison_badge"
+	item_state = "pmc_liaison_badge"
+
+/obj/item/clothing/accessory/pin/corporate/idris
+	desc = "A shiny button which reads, <i>'Idris, Inc. - Astronomical Figures. Unlimited Power.'</i>"
+	icon_state = "idris_liaison_badge"
+	item_state = "idris_liaison_badge"
+
+/obj/item/clothing/accessory/pin/corporate/orion
+	desc = "A shiny button which reads, <i>'Orion Express - For all your logistical needs!'</i>"
+	icon_state = "orion_liaison_badge"
+	item_state = "orion_liaison_badge"
+
+/obj/item/clothing/accessory/poncho/ipc_mantle
+	name = "\improper Burzsian shoulder mantle"
+	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
+	desc_fluff = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
+	icon = 'icons/clothing/accessories/BZ_Gorget.dmi'
+	icon_state = "Burz_gorget"
+	item_state = "Burz_gorget"
+	contained_sprite = TRUE
+	icon_override = null
+	body_parts_covered = UPPER_TORSO
+

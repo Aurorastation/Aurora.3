@@ -4,6 +4,9 @@
 	if(species.slowdown)
 		tally = species.slowdown
 
+	if(lying) //Crawling, it's slower
+		tally += (8 + ((weakened * 3) + (confused * 2)))
+
 	tally += get_pulling_movement_delay()
 
 	if (istype(loc, /turf/space) || isopenturf(loc))
@@ -17,24 +20,14 @@
 	if(health_deficiency >= 40)
 		tally += (health_deficiency / 25)
 
-	if(can_feel_pain())
-		if(get_shock() >= 10)
-			tally += (get_shock() / 30) //pain shouldn't slow you down if you can't even feel it
+	var/shock = get_shock()
+	if(shock >= 10)
+		tally += (shock / 30) //get_shock checks if we can feel pain
 
 	tally += ClothesSlowdown()
 
 	if(species)
 		tally += species.get_species_tally(src)
-
-	if (nutrition < (max_nutrition * 0.2))
-		tally++
-		if (nutrition < (max_nutrition * 0.1))
-			tally++
-
-	if (hydration < (max_hydration * 0.2))
-		tally++
-		if (hydration < (max_hydration * 0.1))
-			tally++
 
 	tally += species.handle_movement_tally(src)
 
@@ -113,9 +106,9 @@
 	return prob_slip
 
 /mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
-	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
-		return 1
-	return 0
+	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots) && !lying && !buckled_to && !length(grabbed_by))  //magboots + dense_object = no floating. Doesn't work if lying. Grabbedby and buckled_to are for mob carrying, wheelchairs, roller beds, etc.
+		return TRUE
+	return FALSE
 
 /mob/living/carbon/human/set_dir(var/new_dir, ignore_facing_dir = FALSE)
 	. = ..()
@@ -141,17 +134,21 @@
 		if(up_hint)
 			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 
-	if (is_noisy && !stat && !lying)
+	if (!stat && !lying)
 		if ((x == last_x && y == last_y) || !footsound)
 			return
 		last_x = x
 		last_y = y
+		if(shoes)
+			var/obj/item/clothing/shoes/S = shoes
+			if(S.do_special_footsteps(m_intent))
+				return
 		if (m_intent == M_RUN)
-			playsound(src, footsound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+			playsound(src, is_noisy ? footsound : species.footsound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
 			footstep++
 			if (footstep % 2)
-				playsound(src, footsound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+				playsound(src, is_noisy ? footsound : species.footsound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()

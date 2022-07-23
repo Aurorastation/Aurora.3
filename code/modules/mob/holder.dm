@@ -239,8 +239,6 @@ var/list/holder_mob_icon_cache = list()
 
 		post_scoop()
 
-		return success
-
 // Override to add stuff that should happen when scooping
 /mob/living/proc/post_scoop()
 	return
@@ -430,6 +428,14 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "penny"
 	icon_state_dead = "penny_dead"
 	item_state = "penny"
+
+/obj/item/holder/cat/crusher
+	name = "Crusher"
+	desc = "The Medbay's newest mascot. Lovely."
+	icon_state = "crusher"
+	icon_state_dead = "crusher_dead"
+	item_state = "crusher"
+	slot_flags = SLOT_HEAD
 
 /obj/item/holder/carp/baby
 	name = "baby space carp"
@@ -663,8 +669,8 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/schlorrgo
 	name = "schlorrgo"
 	icon = 'icons/mob/npc/schlorrgo.dmi'
-	icon_state = "schlorgo"
-	item_state = "schlorgo"
+	icon_state = "schlorrgo"
+	item_state = "schlorrgo"
 	w_class = ITEMSIZE_NORMAL
 
 /obj/item/holder/schlorrgo/baby

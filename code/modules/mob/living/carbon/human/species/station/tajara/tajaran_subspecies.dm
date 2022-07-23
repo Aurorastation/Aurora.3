@@ -18,7 +18,7 @@
 	ethanol_resistance = 1 // Default value
 	climb_coeff = 1.1
 
-	resist_mod = 2 // ZHAN POWERRRRRR
+	resist_mod = 1.5 // ZHAN POWERRRRRR
 
 	cold_level_1 = 160 //RaceDefault 200 Default 260
 	cold_level_2 = 100 //RaceDefault 140 Default 200
@@ -28,8 +28,6 @@
 	heat_level_2 = 360 //RaceDefault 380 Default 400
 	heat_level_3 = 700 //RaceDefault 800 Default 1000
 
-	allowed_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_CREVAN, ACCENT_DASNRRASIIK, ACCENT_HIGHHARRSIIK, ACCENT_LOWHARRSIIK, ACCENT_AMOHDASIIK, ACCENT_NORTHRASNRR, ACCENT_RURALDELVAHHI, ACCENT_NOMADDELVAHHI, ACCENT_DINAKK, ACCENT_HARRNRRI)
-
 	stomach_capacity = 7
 
 	max_nutrition_factor = 1.3
@@ -37,6 +35,11 @@
 
 	nutrition_loss_factor = 0.7
 	hydration_loss_factor = 0.7
+
+	possible_cultures = list(
+		/decl/origin_item/culture/adhomian/zhan,
+		/decl/origin_item/culture/offworld_tajara/zhan
+	)
 
 /datum/species/tajaran/m_sai
 	name = SPECIES_TAJARA_MSAI
@@ -66,10 +69,14 @@
 	default_h_style = "M'sai Ears"
 
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_SIGN_TAJARA)
-	allowed_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_CREVAN, ACCENT_DASNRRASIIK, ACCENT_HIGHHARRSIIK, ACCENT_LOWHARRSIIK, ACCENT_AMOHDASIIK, ACCENT_NORTHRASNRR, ACCENT_DINAKK, ACCENT_HARRNRRI, ACCENT_ZARRJIRI)
 
 	max_nutrition_factor = 1.2
 	max_hydration_factor = 1.2
 
 	nutrition_loss_factor = 0.9
 	hydration_loss_factor = 0.9
+
+	possible_cultures = list(
+		/decl/origin_item/culture/adhomian/msai,
+		/decl/origin_item/culture/offworld_tajara/msai
+	)

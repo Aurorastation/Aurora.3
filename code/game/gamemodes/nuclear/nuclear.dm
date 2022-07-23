@@ -6,18 +6,20 @@ var/list/nuke_disks = list()
 
 /datum/game_mode/nuclear
 	name = "Mercenary"
-	round_description = "A mercenary strike force is approaching the station!"
-	extended_round_description = "NanoTrasen's wealth and success created several enemies over the years \
-		and many seek to undermine them using illegal ways. Their crown jewel research stations are not safe from those \
-		malicious activities."
 	config_tag = "mercenary"
 	required_players = 15
 	required_enemies = 4
-	end_on_antag_death = 1
 	var/nuke_off_station = 0 //Used for tracking if the syndies actually haul the nuke to the station
 	var/syndies_didnt_escape = 0 //Used for tracking if the syndies got the shuttle off of the z-level
 	antag_tags = list(MODE_MERCENARY)
 	antag_scaling_coeff = 6
+
+/datum/game_mode/nuclear/pre_setup()
+	round_description = "A mercenary strike force is approaching the [current_map.station_type]!"
+	extended_round_description = "[current_map.company_short]'s wealth and success caught the attention of several enemies old and new, \
+		and many seek to undermine them using illegal ways. Their crown jewel research [current_map.station_type] are not safe from those \
+		malicious activities."
+	. = ..()
 
 //delete all nuke disks not on a station zlevel
 /datum/game_mode/nuclear/proc/check_nuke_disks()

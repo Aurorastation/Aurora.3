@@ -145,10 +145,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable
 	name = "smokable item"
 	desc = "You're not sure what this is. You should probably ahelp it."
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
-		)
+	icon = 'icons/obj/smokables.dmi'
+	item_icons = null
+	sprite_sheets = null
+	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
 	body_parts_covered = 0
 	var/lit = 0
 	var/icon_on
@@ -293,12 +295,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "cigarette"
 	desc = "A roll of tobacco and nicotine."
 	icon_state = "cigoff"
-	throw_speed = 0.5
 	item_state = "cigoff"
+	throw_speed = 0.5
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
-	icon_on = "cigon"  //Note - these are in masks.dmi not in cigarette.dmi
+	icon_on = "cigon" 
 	icon_off = "cigoff"
 	has_blood_overlay = FALSE
 	type_butt = /obj/item/trash/cigbutt
@@ -320,7 +322,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/obj/item/melee/energy/sword/S = W
 		if(S.active)
 			light(SPAN_WARNING("[user] swings their [W], barely missing themselves. They light their [name] in the process."))
-	return
+		return TRUE
 
 /obj/item/clothing/mask/smokable/cigarette/catch_fire()
 	if(!lit)
@@ -443,6 +445,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "premium Havanian cigar"
 	desc = "A cigar fit for only the best of the best."
 	icon_state = "cigar2off"
+	item_state = "cigar2off"
 	icon_on = "cigar2on"
 	icon_off = "cigar2off"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
@@ -457,6 +460,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "\improper Cohiba robusto cigar"
 	desc = "There's little more you could want from a cigar."
 	icon_state = "cigar2off"
+	item_state = "cigar2off"
 	icon_on = "cigar2on"
 	icon_off = "cigar2off"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
@@ -470,7 +474,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/trash/cigbutt
 	name = "cigarette butt"
 	desc = "A manky old cigarette butt."
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'icons/obj/smokables.dmi'
 	icon_state = "cigbutt"
 	randpixel = 10
 	w_class = ITEMSIZE_TINY
@@ -498,12 +502,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	user.update_inv_l_hand(0)
 	user.update_inv_r_hand(1)
 
-/obj/item/clothing/mask/smokable/cigarette/rolled/sausage
+/obj/item/clothing/mask/smokable/cigarette/cigar/sausage
 	name = "sausage"
 	desc = "A piece of mixed, long meat, with a smoky scent."
 	icon_state = "sausageoff"
 	item_state = "sausageoff"
 	icon_on = "sausageon"
+	icon_off = "sausageoff"
 	type_butt = /obj/item/trash/cigbutt/sausagebutt
 	chem_volume = 6
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 6)
@@ -521,7 +526,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A pipe, for smoking. Probably made of meerschaum or something."
 	icon_state = "pipeoff"
 	item_state = "pipeoff"
-	icon_on = "pipeon"  //Note - these are in masks.dmi
+	icon_on = "pipeon"
 	icon_off = "pipeoff"
 	burn_rate = 0.015
 	w_class = ITEMSIZE_TINY
@@ -613,7 +618,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A nicotine delivery system popularized by folksy backwoodsmen, kept popular in the modern age and beyond by space hipsters."
 	icon_state = "cobpipeoff"
 	item_state = "cobpipeoff"
-	icon_on = "cobpipeon"  //Note - these are in masks.dmi
+	icon_on = "cobpipeon"
 	icon_off = "cobpipeoff"
 	chem_volume = 30
 
@@ -804,7 +809,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame/lighter/zippo/luceian
 	name = "\improper Luceian Zippo lighter"
 	desc = "A bright zippo lighter with the all-seeing eye of Ennoia on its front. Clearly Luceian."
-	desc_fluff = "Luceian lighters, sometimes referred to as “Ennoic Fires,” are commonly carried by Assunzionii as an emergency light \
+	desc_fluff = "Luceian lighters, sometimes referred to as \"Ennoic Fires,\" are commonly carried by Assunzionii as an emergency light \
 	source. A genuine lighter in the Luceian tradition will have a proving mark stamped upon its base that shows when and where it was \
 	blessed following its construction."
 	icon_state = "luceianzippo"
@@ -961,6 +966,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpaper_generic"
 	w_class = ITEMSIZE_TINY
+	can_fold = FALSE
 
 /obj/item/paper/cig/attackby(obj/item/P as obj, mob/user as mob)
 	if(istype(P, /obj/item/flame) || P.iswelder())
@@ -975,25 +981,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A thin piece of trident branded paper used to make fine smokables."
 	icon_state = "cigpaper_fine"
 
-/obj/item/paper/cig/filter
+/obj/item/cigarette_filter
 	name = "cigarette filter"
 	desc = "A small nub like filter for cigarettes."
+	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigfilter"
 	w_class = ITEMSIZE_TINY
 
-/obj/item/paper/cig/filter/attackby(obj/item/P as obj, mob/user as mob)
-	if(istype(P, /obj/item/flame) || P.iswelder())
-		..()
-	else
-		return //no writing on filters now
+/obj/item/cigarette_filter/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/clothing/mask/smokable/cigarette/rolled))
+		var/obj/item/clothing/mask/smokable/cigarette/rolled/CR = I
+		return CR.attackby(src, user)
+	. = ..()
 
-/obj/item/paper/cig/attack_self(mob/living/user as mob)
-	if(user.a_intent == I_HURT)
-		..()
-		return
-	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
-		user.show_message(SPAN_ALERT("The cigarette paper is too small to fold into a plane."))
-		return
 
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco
@@ -1016,17 +1016,17 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	plantname = "puretobacco"
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/paper/cig/filter))
+	if(istype(I, /obj/item/cigarette_filter))
 		if(filter)
-			to_chat(user, SPAN_WARNING("[src] already has a filter!"))
+			to_chat(user, SPAN_WARNING("\The [src] already has a filter!"))
 			return
 		if(lit)
-			to_chat(user, SPAN_WARNING("[src] is lit already!"))
+			to_chat(user, SPAN_WARNING("\The [src] is lit already!"))
 			return
 		if(user.unEquip(I))
-			to_chat(user, SPAN_NOTICE("You stick [I] into \the [src]"))
+			user.visible_message(SPAN_NOTICE("[user] sticks a cigarette filter into \the [src]."), SPAN_NOTICE("You stick a cigarette filter into \the [src]."))
 			playsound(src, 'sound/items/drop/gloves.ogg', 25, 1)
-			filter = 1
+			filter = TRUE
 			name = "filtered [name]"
 			update_icon()
 			qdel(I)
@@ -1034,15 +1034,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	..()
 
 /obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/I, mob/user)
-	if(is_type_in_list(I, list(/obj/item/paper/cig/, /obj/item/paper/)))
+	if(istype(I, /obj/item/paper))
 		if(!dry)
-			to_chat(user, SPAN_WARNING("You need to dry [src] first!"))
+			to_chat(user, SPAN_WARNING("You need to dry \the [src] first!"))
 			return
 		if(user.unEquip(I))
 			var/obj/item/clothing/mask/smokable/cigarette/rolled/R = new(get_turf(src))
 			R.chem_volume = reagents.total_volume
 			reagents.trans_to_holder(R.reagents, R.chem_volume)
-			to_chat(user, SPAN_NOTICE("You roll \the [src] into \the [I]"))
+			user.visible_message(SPAN_NOTICE("[user] rolls a cigarette in their hands with \the [I] and [src]."), SPAN_NOTICE("You roll a cigarette in your hands with \the [I] and [src]."))
 			playsound(src, 'sound/bureaucracy/paperfold.ogg', 25, 1)
 			user.put_in_active_hand(R)
 			qdel(I)

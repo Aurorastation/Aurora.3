@@ -19,7 +19,7 @@ var/bomb_set
 	var/obj/item/disk/nuclear/auth = null
 	var/removal_stage = 0 // 0 is no removal, 1 is covers removed, 2 is covers open, 3 is sealant open, 4 is unwrenched, 5 is removed from bolts.
 	var/lastentered
-	use_power = 0
+	use_power = POWER_USE_OFF
 	unacidable = 1
 	var/previous_level = ""
 	var/datum/wires/nuclearbomb/wires = null
@@ -34,7 +34,7 @@ var/bomb_set
 	wires = null
 	return ..()
 
-/obj/machinery/nuclearbomb/machinery_process()
+/obj/machinery/nuclearbomb/process()
 	if (src.timing)
 		src.timeleft = max(timeleft - 2, 0) // 2 seconds per process()
 		if (timeleft <= 0)
@@ -66,7 +66,7 @@ var/bomb_set
 				to_chat(user, "You screw the control panel of \the [src] back on.")
 				playsound(src, O.usesound, 50, 1)
 			flick("lock", src)
-		return
+		return TRUE
 
 	if (panel_open && (O.ismultitool() || O.iswirecutter()))
 		return attack_hand(user)
@@ -83,69 +83,65 @@ var/bomb_set
 			if(0)
 				if(O.iswelder())
 					var/obj/item/weldingtool/WT = O
-					if(!WT.isOn()) return
+					if(!WT.isOn()) return TRUE
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
 						to_chat(user, "<span class='warning'>You need more fuel to complete this task.</span>")
-						return
+						return TRUE
 
 					user.visible_message("[user] starts cutting loose the anchoring bolt covers on [src].", "You start cutting loose the anchoring bolt covers with [O]...")
 
-					if(do_after(user,40/O.toolspeed))
-						if(!src || !user || !WT.remove_fuel(5, user)) return
+					if(O.use_tool(src, user, 40, volume = 50))
+						if(!src || !user || !WT.use(5, user)) return TRUE
 						user.visible_message("[user] cuts through the bolt covers on [src].", "You cut through the bolt cover.")
 						removal_stage = 1
-				return
+					return TRUE
 
 			if(1)
 				if(O.iscrowbar())
 					user.visible_message("[user] starts forcing open the bolt covers on [src].", "You start forcing open the anchoring bolt covers with [O]...")
 
-					if(do_after(user,15/O.toolspeed))
-						if(!src || !user) return
+					if(O.use_tool(src, user, 15, volume = 50))
+						if(!src || !user) return TRUE
 						user.visible_message("[user] forces open the bolt covers on [src].", "You force open the bolt covers.")
 						removal_stage = 2
-				return
+					return TRUE
 
 			if(2)
 				if(O.iswelder())
-
 					var/obj/item/weldingtool/WT = O
-					if(!WT.isOn()) return
+					if(!WT.isOn()) return TRUE
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
 						to_chat(user, "<span class='warning'>You need more fuel to complete this task.</span>")
-						return
+						return TRUE
 
 					user.visible_message("[user] starts cutting apart the anchoring system sealant on [src].", "You start cutting apart the anchoring system's sealant with [O]...")
 
-					if(do_after(user,40/O.toolspeed))
-						if(!src || !user || !WT.remove_fuel(5, user)) return
+					if(O.use_tool(src, user, 150, amount = 5, volume = 50))
 						user.visible_message("[user] cuts apart the anchoring system sealant on [src].", "You cut apart the anchoring system's sealant.")
 						removal_stage = 3
-				return
+					return TRUE
 
 			if(3)
 				if(O.iswrench())
-
 					user.visible_message("[user] begins unwrenching the anchoring bolts on [src].", "You begin unwrenching the anchoring bolts...")
 
-					if(do_after(user,50/O.toolspeed))
-						if(!src || !user) return
+					if(O.use_tool(src, user, 50, volume = 50))
+						if(!src || !user) return TRUE
 						user.visible_message("[user] unwrenches the anchoring bolts on [src].", "You unwrench the anchoring bolts.")
 						removal_stage = 4
-				return
+					return TRUE
 
 			if(4)
 				if(O.iscrowbar())
-
 					user.visible_message("[user] begins lifting [src] off of the anchors.", "You begin lifting the device off the anchors...")
 
-					if(do_after(user,80/O.toolspeed))
-						if(!src || !user) return
+					if(O.use_tool(src, user, 80, volume = 50))
+						if(!src || !user) return TRUE
 						user.visible_message("[user] crowbars [src] off of the anchors. It can now be moved.", "You jam the crowbar under the nuclear device and lift it off its anchors. You can now move it!")
 						anchored = 0
 						removal_stage = 5
-				return
-	..()
+				return TRUE
+	return ..()
 
 /obj/machinery/nuclearbomb/attack_ghost(mob/user as mob)
 	attack_hand(user)
@@ -417,8 +413,8 @@ var/bomb_set
 	qdel(src)
 
 /obj/machinery/nuclearbomb/station
-	name = "station authentication terminal"
-	desc = "An ominous looking terminal, designed for purposes unknown to the mere crewmember."
+	name = "scuttling device terminal"
+	desc = "An ominous looking terminal, designed to scuttle a spaceship."
 	icon = 'icons/obj/nuke_station.dmi'
 	anchored = 1
 	deployable = 1

@@ -10,6 +10,7 @@
 	response_harm = "viciously beaten"
 	melee_damage_lower = 10
 	melee_damage_upper = 10
+	armor_penetration = 20
 	attacktext = "rammed"
 	organ_names = list("core", "production array", "sensor array")
 	speed = 0

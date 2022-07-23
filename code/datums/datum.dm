@@ -70,4 +70,5 @@
 	return QDEL_HINT_QUEUE
 
 /datum/proc/process()
+	set waitfor = FALSE
 	return PROCESS_KILL

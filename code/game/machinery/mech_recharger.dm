@@ -46,9 +46,9 @@
 		else if(ismanipulator(P))
 			repair += P.rating * 2
 
-/obj/machinery/mech_recharger/machinery_process()
+/obj/machinery/mech_recharger/process()
 	if(!charging)
-		update_use_power(1)
+		update_use_power(POWER_USE_IDLE)
 		return
 	if(charging.loc != loc)
 		stop_charging()
@@ -100,7 +100,7 @@
 		no_power = TRUE
 	if(!no_power && C)
 		charging = M
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 	for(var/pilot in M.pilots)
 		if(no_power)
 			to_chat(pilot, SPAN_WARNING("Power port not responding. Terminating."))
@@ -109,7 +109,7 @@
 			to_chat(pilot, SPAN_NOTICE("Now charging..."))
 
 /obj/machinery/mech_recharger/proc/stop_charging()
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	charging = null
 
 

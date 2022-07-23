@@ -4,6 +4,8 @@
 	desc = "A matte-black, eyeless cerebro-energetic enhancement helmet. It uses highly sophisticated, and illegal, techniques to drill into your brain and install psi-infected AIs into the fluid cavities between your lobes."
 	desc_info = "Due to the nature of this headgear, it will also protect you from the pressure of space. When installing the boosters, your chosen faculties will be boosted to the headgear's maximum potential, but the unchosen faculties will also be boosted somewhat."
 	action_button_name = "Install Boosters"
+	icon = 'icons/obj/clothing/hats.dmi'
+	contained_sprite = FALSE
 	icon_state = "amp"
 
 	item_state_slots = list(
@@ -20,7 +22,7 @@
 
 /obj/item/clothing/head/helmet/space/psi_amp/lesser
 	name = "psionic amplifier"
-	desc = "A crown-of-thorns cerebro-energetic enhancer that interfaces directly with the brain, isolating and strengthening psionic signals. It kind of looks like a tiara having sex with an industrial robot."
+	desc = "A crown-of-thorns cerebro-energetic enhancer that interfaces directly with the brain, isolating and strengthening psionic signals. It kind of looks like a tiara."
 	flags_inv = 0
 	body_parts_covered = 0
 

@@ -48,7 +48,7 @@
 	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_all_drink_reagents())
 
 /datum/gear/vacflask_cold
-	display_name = "cold vacuum-flask"
+	display_name = "cold vacuum flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/vacuumflask
 
 /datum/gear/vacflask_cold/New()
@@ -62,7 +62,7 @@
 		spawned_flask.reagents.set_temperature(T0C + 5)
 
 /datum/gear/vacflask_hot
-	display_name = "hot vacuum-flask"
+	display_name = "hot vacuum flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/vacuumflask
 
 /datum/gear/vacflask_hot/New()
@@ -157,6 +157,7 @@
 	banners["banner, Elyra"] = /obj/item/flag/elyra
 	banners["banner, Hegemony"] = /obj/item/flag/hegemony
 	banners["banner, Jargon"] = /obj/item/flag/jargon
+	banners["banner, Traverse"] = /obj/item/flag/traverse
 	banners["banner, NanoTrasen"] = /obj/item/flag/nanotrasen
 	banners["banner, Eridani Fed"] = /obj/item/flag/eridani
 	banners["banner, Sedantis"] = /obj/item/flag/vaurca
@@ -206,6 +207,7 @@
 	flags["flag, Elyra"] = /obj/item/flag/elyra/l
 	flags["flag, Hegemony"] = /obj/item/flag/hegemony/l
 	flags["flag, Jargon"] = /obj/item/flag/jargon/l
+	flags["flag, Traverse"] = /obj/item/flag/traverse/l
 	flags["flag, NanoTrasen"] = /obj/item/flag/nanotrasen/l
 	flags["flag, Eridani Fed"] = /obj/item/flag/eridani/l
 	flags["flag, Sedantis"] = /obj/item/flag/vaurca/l
@@ -285,8 +287,8 @@
 	..()
 	var/list/comics = list()
 	comics["comic book"] = /obj/item/toy/comic
-	comics["comic book"] = /obj/item/toy/comic/inspector
-	comics["comic book"] = /obj/item/toy/comic/stormman
+	comics["inspector 404 manga"] = /obj/item/toy/comic/inspector
+	comics["stormman manga"] = /obj/item/toy/comic/stormman
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste
@@ -325,4 +327,10 @@
 
 /datum/gear/gadbook
 	display_name = "gadpathurian morale manual"
-	path = /obj/item/device/litanybook/gadpathur
+	path = /obj/item/device/versebook/gadpathur
+	origin_restriction = list(/decl/origin_item/origin/gadpathur)
+
+/datum/gear/aurora_miniature
+	display_name = "aurora miniature"
+	description = "A commemorative miniature of the NSS Aurora."
+	path = /obj/item/toy/aurora

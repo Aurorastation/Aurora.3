@@ -186,7 +186,7 @@
 			L.stuttering = 20
 			L.confused = 10
 			to_chat(L, SPAN_DANGER("You are blinded by [src]'s glare!"))
-			flick("flash", L.flash)
+			L.flash_eyes(FLASH_PROTECTION_MAJOR)
 			victims += L
 		else if(isrobot(L))
 			L.Weaken(rand(3, 6))
@@ -366,6 +366,12 @@
 
 	for(var/obj/structure/window/W in view(7))
 		W.shatter()
+
+	for(var/obj/machinery/door/window/WD in view(7))
+		if(get_dist(src, WD) > 5) //Windoors are strong, may only take damage instead of break if far away.
+			WD.take_damage(rand(12, 16) * 10)
+		else
+			WD.shatter()
 
 	for(var/obj/machinery/light/L in view(7))
 		L.broken()
@@ -992,7 +998,7 @@
 
 	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"))
 
-	var/obj/item/grab/G = new(src, T)
+	var/obj/item/grab/G = new(src, src, T)
 	if(use_hand == "left")
 		l_hand = G
 	else

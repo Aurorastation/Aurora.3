@@ -6,7 +6,6 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mass_driver"
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 50
 	obj_flags = OBJ_FLAG_ROTATABLE
@@ -31,7 +30,7 @@
 /obj/machinery/mass_driver/proc/drive(amount)
 	if(stat & (BROKEN|NOPOWER))
 		return
-	use_power(500)
+	use_power_oneoff(500)
 	var/O_limit
 	var/atom/target = get_edge_target_turf(src, dir)
 	for(var/atom/movable/O in loc)
@@ -41,7 +40,7 @@
 				for(var/mob/M in hearers(src, null))
 					to_chat(M, "<span class='notice'>The mass driver lets out a screech, it mustn't be able to handle any more items.</span>")
 				break
-			use_power(500)
+			use_power_oneoff(500)
 			spawn( 0 )
 				O.throw_at(target, drive_range * power, power)
 	flick("mass_driver1", src)
@@ -68,13 +67,14 @@
 				"You unsecure the external reinforcing bolts from the floor.", \
 				"You hear a ratchet")
 			src.anchored = 0
+		return TRUE
 
 /obj/item/mass_driver_diy
 	name = "Mass Driver Kit"
 	desc = "A do-it-yourself kit for constructing the finest of mass drivers."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
-	item_state = "box"
+	item_state = "inf_box"
 
 /obj/item/mass_driver_diy/attack_self(mob/user)
 	to_chat(user, "<span class='notice'>You start piecing together the kit...</span>")
@@ -146,7 +146,7 @@
 			B.pixel_y = 0
 
 	B.id = id
-	B.use_power = 0
+	B.update_use_power(POWER_USE_OFF)
 	B.add_fingerprint(user)
 	qdel(src)
 
@@ -156,4 +156,3 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mass_driver"
 	anchored = 0
-	use_power = 0

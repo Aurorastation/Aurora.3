@@ -156,31 +156,6 @@
 
 // Returns a list of mobs and/or objects in range of R from source. Used in radio and say code.
 
-/proc/get_mobs_or_objects_in_view(var/R, var/atom/source, var/include_mobs = 1, var/include_objects = 1)
-
-	var/turf/T = get_turf(source)
-	var/list/hear = list()
-
-	if(!T)
-		return hear
-
-	var/list/range = hear(R, T)
-
-	for(var/I in range)
-		if(ismob(I))
-			recursive_content_check(I, hear, 3, 1, 0, include_mobs, include_objects)
-			if(include_mobs)
-				var/mob/M = I
-				if(M.client)
-					hear += M
-		else if(istype(I, /obj/))
-			recursive_content_check(I, hear, 3, 1, 0, include_mobs, include_objects)
-			if(include_objects)
-				hear += I
-
-	return hear
-
-
 /proc/get_mobs_in_radio_ranges(var/list/obj/item/device/radio/radios)
 
 	set background = 1
@@ -215,46 +190,36 @@
 		if(M.can_hear_radio(speaker_coverage))
 			. += M
 
-/proc/get_mobs_and_objs_in_view_fast(turf/T, range, list/mobs, list/objs, checkghosts = GHOSTS_ALL_HEAR)
+/proc/get_mobs_or_objs_in_view(turf/T, range, list/mobs, list/objs, checkghosts = GHOSTS_ALL_HEAR)
 	var/list/hear = list()
 	DVIEW(hear, range, T, INVISIBILITY_MAXIMUM)
 	var/list/hearturfs = list()
 
-	for(var/am in hear)
-		var/atom/movable/AM = am
-		if (!AM.loc)
-			continue
+	if(islist(mobs))
+		for(var/mob/M in hear)
+			mobs[M] = TRUE
+			hearturfs[get_turf(M)] = TRUE
 
-		var/turf/AM_turf = get_turf(AM)
-
-		if(ismob(AM))
-			mobs[AM] = TRUE
-			hearturfs[AM_turf] = TRUE
-		else if(isobj(AM))
-			objs[AM] = TRUE
-			hearturfs[AM_turf] = TRUE
-
-	for(var/m in player_list)
-		var/mob/M = m
-		if(istype(M, /mob/living/test))
-			if (!mobs[M])
+		for(var/mob/M in player_list)
+#ifdef UNIT_TEST
+			if(istype(M, /mob/living/test))
 				mobs[M] = TRUE
-			continue
-		if(checkghosts == GHOSTS_ALL_HEAR && M.stat == DEAD && !isnewplayer(M) && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
-			if (!mobs[M])
+				continue
+#endif
+			if(checkghosts == GHOSTS_ALL_HEAR && M.stat == DEAD && !isnewplayer(M) && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
 				mobs[M] = TRUE
-			continue
+				continue
 
-		var/turf/M_turf = get_turf(M)
-		if(M.loc && hearturfs[M_turf])
-			if (!mobs[M])
+			if(M.loc && hearturfs[get_turf(M)])
 				mobs[M] = TRUE
 
-	for(var/o in listening_objects)
-		var/obj/O = o
-		var/turf/O_turf = get_turf(O)
-		if(O && O.loc && hearturfs[O_turf])
-			if (!objs[O])
+	if(islist(objs))
+		for(var/obj/O in hear)
+			objs[O] = TRUE
+			hearturfs[get_turf(O)] = TRUE
+
+		for(var/obj/O in listening_objects)
+			if(O.loc && hearturfs[get_turf(O)])
 				objs[O] = TRUE
 
 proc

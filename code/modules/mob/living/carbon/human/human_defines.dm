@@ -112,6 +112,7 @@
 
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
 	var/bodyfall_sound = /decl/sound_category/bodyfall_sound
+	var/footsound = /decl/sound_category/blank_footsteps
 
 	var/last_x = 0
 	var/last_y = 0

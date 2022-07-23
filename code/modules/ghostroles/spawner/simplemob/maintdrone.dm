@@ -1,7 +1,7 @@
 /datum/ghostspawner/simplemob/maintdrone
 	short_name = "maintdrone"
 	name = "Maintenance Drone"
-	desc = "Maintain and Improve the Systems on the Aurora."
+	desc = "Maintain and improve systems"
 	show_on_job_select = FALSE
 	tags = list("Simple Mobs")
 
@@ -10,6 +10,13 @@
 
 	//Vars regarding the mob to use
 	spawn_mob = /mob/living/silicon/robot/drone //The mob that should be spawned
+
+/datum/ghostspawner/simplemob/maintdrone/New()
+	. = ..()
+	if(current_map.station_name)
+		desc = "[desc] on the [current_map.station_name]."
+	else
+		desc = "[desc]."
 
 // we fake it here to ensure it pops up and gets added to SSghostroles.spawners, handling of the fabricators is done below
 /datum/ghostspawner/simplemob/maintdrone/select_spawnlocation()
@@ -21,7 +28,7 @@
 	if(count_drones() >= config.max_maint_drones)
 		return "The maximum number of active drones has been reached"
 	var/has_active_fabricator = FALSE
-	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.all_machines)
+	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.machinery)
 		if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
 			continue
 		has_active_fabricator = TRUE
@@ -33,7 +40,7 @@
 /datum/ghostspawner/simplemob/maintdrone/spawn_mob(mob/user)
 	var/obj/machinery/drone_fabricator/fabricator
 	var/list/all_fabricators = list()
-	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.all_machines)
+	for(var/obj/machinery/drone_fabricator/DF in SSmachinery.machinery)
 		if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
 			continue
 		all_fabricators[DF.fabricator_tag] = DF

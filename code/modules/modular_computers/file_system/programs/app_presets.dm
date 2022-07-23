@@ -245,6 +245,26 @@
 	)
 	return _prg_list
 
+/datum/modular_computer_app_presets/command/teleporter/ninja
+	name = "ninja_teleporter"
+	display_name = "Offsite - Teleporter"
+	description = "Contains the most common command programs and has a special teleporter control program loaded."
+	available = FALSE
+
+/datum/modular_computer_app_presets/command/teleporter/ninja/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/civilian/cargoorder(comp),
+		new /datum/computer_file/program/comm(comp, FALSE),
+		new /datum/computer_file/program/records/employment(comp),
+		new /datum/computer_file/program/teleporter/ninja(comp)
+	)
+	return _prg_list
+
 /datum/modular_computer_app_presets/command/hop
 	name = "command_hop"
 	display_name = "Command - HoP"
@@ -419,9 +439,9 @@
 	return _prg_list
 
 /datum/modular_computer_app_presets/civilian
-	name = "civilian"
-	display_name = "Civilian"
-	description = "Contains the most common civilian programs."
+	name = "service"
+	display_name = "Service"
+	description = "Contains the most common service programs."
 	available = TRUE
 
 /datum/modular_computer_app_presets/civilian/return_install_programs(obj/item/modular_computer/comp)
@@ -456,18 +476,6 @@
 		new /datum/computer_file/program/game/sudoku(comp)
 	)
 	return _prg_list
-
-/datum/modular_computer_app_presets/civilian/clown
-	name = "clown"
-	display_name = "Clown"
-	description = "Contains programs for HONK!!!"
-	available = TRUE
-
-/datum/modular_computer_app_presets/civilian/mime
-	name = "mime"
-	display_name = "Mime"
-	description = "Contains programs for janitorial service."
-	available = TRUE
 
 /datum/modular_computer_app_presets/supply
 	name = "supply"

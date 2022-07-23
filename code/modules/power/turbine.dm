@@ -28,9 +28,10 @@
 /obj/machinery/computer/turbine_computer
 	name = "Gas turbine control computer"
 	desc = "A computer to remotely control a gas turbine"
-	icon = 'icons/obj/computer.dmi'
+	icon_screen = "enginecontrol"
+	icon_keyboard = "cyan_key"
+	light_color = LIGHT_COLOR_CYAN
 
-	icon_screen = "turbinecomp"
 	circuit = /obj/item/circuitboard/turbine_control
 	anchored = 1
 	density = 1
@@ -59,7 +60,7 @@
 #define COMPFRICTION 5e5
 #define COMPSTARTERLOAD 2800
 
-/obj/machinery/compressor/machinery_process()
+/obj/machinery/compressor/process()
 	if(!starter)
 		return
 	cut_overlays()
@@ -79,7 +80,7 @@
 
 
 	if(starter && !(stat & NOPOWER))
-		use_power(2800)
+		use_power_oneoff(2800)
 		if(rpm<1000)
 			rpmtarget = 1000
 	else
@@ -117,7 +118,7 @@
 #define TURBGENQ 20000
 #define TURBGENG 0.8
 
-/obj/machinery/power/turbine/machinery_process()
+/obj/machinery/power/turbine/process()
 	if(!compressor.starter)
 		return
 	cut_overlays()
@@ -218,11 +219,11 @@
 /obj/machinery/computer/turbine_computer/New()
 	..()
 	spawn(5)
-		for(var/obj/machinery/compressor/C in SSmachinery.all_machines)
+		for(var/obj/machinery/compressor/C in SSmachinery.machinery)
 			if(id == C.comp_id)
 				compressor = C
 		doors = new /list()
-		for(var/obj/machinery/door/blast/P in SSmachinery.all_machines)
+		for(var/obj/machinery/door/blast/P in SSmachinery.machinery)
 			if(P.id == id)
 				doors += P
 
@@ -253,32 +254,30 @@
 /obj/machinery/computer/turbine_computer/Topic(href, href_list)
 	if(..())
 		return
-	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
-		usr.machine = src
 
-		if( href_list["view"] )
-			usr.client.eye = src.compressor
-		else if( href_list["str"] )
-			src.compressor.starter = !src.compressor.starter
-		else if (href_list["doors"])
-			for(var/obj/machinery/door/blast/D in src.doors)
-				if (door_status == 0)
-					spawn( 0 )
-						D.open()
-						door_status = 1
-				else
-					spawn( 0 )
-						D.close()
-						door_status = 0
-		else if( href_list["close"] )
-			usr << browse(null, "window=computer")
-			usr.machine = null
-			return
+	if( href_list["view"] )
+		usr.client.eye = src.compressor
+	else if( href_list["str"] )
+		src.compressor.starter = !src.compressor.starter
+	else if (href_list["doors"])
+		for(var/obj/machinery/door/blast/D in src.doors)
+			if (door_status == 0)
+				spawn( 0 )
+					D.open()
+					door_status = 1
+			else
+				spawn( 0 )
+					D.close()
+					door_status = 0
+	else if( href_list["close"] )
+		usr << browse(null, "window=computer")
+		usr.machine = null
+		return
 
-		src.add_fingerprint(usr)
+	src.add_fingerprint(usr)
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/turbine_computer/machinery_process()
+/obj/machinery/computer/turbine_computer/process()
 	src.updateDialog()
 	return

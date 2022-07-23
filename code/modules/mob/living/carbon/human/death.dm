@@ -22,7 +22,7 @@
 	vr_disconnect()
 
 	if(species)
-		..(species.dusted_anim, species.remains_type)
+		..(species.dust_remains_type)
 	else
 		..()
 

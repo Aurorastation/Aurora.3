@@ -6,6 +6,7 @@ var/global/list/sparring_attack_cache = list()
 	var/attack_noun = list("fist")
 	var/desc = "A simple unarmed attack."
 	var/damage = 0						// Extra empty hand attack damage.
+	var/armor_penetration = 0
 	var/attack_sound = /decl/sound_category/punch_sound
 	var/miss_sound = /decl/sound_category/punchmiss_sound
 	var/shredding = 0 // Calls the old attack_alien() behavior on objects/mobs when on harm intent.
@@ -52,7 +53,7 @@ var/global/list/sparring_attack_cache = list()
 		return
 
 	var/stun_chance = rand(0, 100)
-	var/armor = target.get_blocked_ratio(zone, BRUTE)
+	var/armor = target.get_blocked_ratio(zone, BRUTE, damage_flags(), armor_penetration, damage)
 	var/pain_message = TRUE
 
 	if(!target.can_feel_pain())
@@ -89,7 +90,7 @@ var/global/list/sparring_attack_cache = list()
 					target.apply_effect(attack_damage * 0.4, WEAKEN, armor)
 			if(BP_GROIN)
 				if(pain_message)
-					target.visible_message("<span class='warning'>[target] looks like [target.get_pronoun("he")] [target.get_pronoun("is")] in pain!</span>", "<span class='warning'>[(target.gender=="female") ? "Oh god that hurt!" : "Oh no, not your [pick("testicles", "crown jewels", "clockweights", "family jewels", "marbles", "bean bags", "teabags", "sweetmeats", "goolies")]!"]</span>")
+					target.visible_message("<span class='warning'>[target] looks like [target.get_pronoun("he")] [target.get_pronoun("is")] in pain!</span>", "<span class='warning'>[(target.gender=="female") ? "Oh god that hurt!" : "Oh no, that REALLY hurt!"]</span>")
 				target.apply_effects(stutter = attack_damage * 2, agony = attack_damage* 3, blocked = armor)
 			if(BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT)
 				if(!target.lying)

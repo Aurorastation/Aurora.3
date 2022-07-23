@@ -3,6 +3,7 @@
 	filedesc = "Warrant Assistant"
 	extended_desc = "Official NTsec program for creation and handling of warrants."
 	program_icon_state = "security"
+	program_key_icon_state = "yellow_key"
 	color = LIGHT_COLOR_ORANGE
 	size = 8
 	requires_ntnet = TRUE
@@ -51,11 +52,16 @@
 		active_warrant = null
 
 	if(href_list["editwarrant"])
-		. = TRUE
 		for(var/datum/record/warrant/W in SSrecords.warrants)
 			if(W.id == text2num(href_list["editwarrant"]))
 				active_warrant = W
 				break
+		return TRUE
+
+	if(href_list["back"])
+		. = TRUE
+		active_warrant = null
+		return TRUE
 
 	// The following actions will only be possible if the user has an ID with security access equipped. This is in line with modular computer framework's authentication methods,
 	// which also use RFID scanning to allow or disallow access to some functions. Anyone can view warrants, editing requires ID.
@@ -64,8 +70,13 @@
 	if(!istype(user))
 		return
 	var/obj/item/card/id/I = user.GetIdCard()
-	if(!istype(I) || !I.registered_name || !(access_armory in I.access) || issilicon(user))
+	if(!istype(I) || !I.registered_name || !(access_security in I.access) || issilicon(user))
 		to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
+		return
+
+	// Require higher access to edit warrants that have already been authorized
+	if(active_warrant && active_warrant.authorization != "Unauthorized" && !(access_armory in I.access))
+		to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to adjust an authorized warrant."))
 		return
 
 	if(href_list["addwarrant"])
@@ -83,6 +94,8 @@
 				W.notes = "No reason given"
 				W.authorization = "Unauthorized"
 				W.wtype = "search"
+			if(isnull(temp))
+				return
 			active_warrant = W
 
 	if(href_list["savewarrant"])
@@ -123,10 +136,9 @@
 			active_warrant.notes = new_charges
 
 	if(href_list["editwarrantauth"])
+		if(!(access_armory in I.access))
+			to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
+			return
 		. = TRUE
 
 		active_warrant.authorization = "[I.registered_name] - [I.assignment ? I.assignment : "(Unknown)"]"
-
-	if(href_list["back"])
-		. = TRUE
-		active_warrant = null

@@ -33,6 +33,7 @@
 	health = 200
 	melee_damage_lower = 15
 	melee_damage_upper = 20
+	armor_penetration = 10
 	resist_mod = 1.5
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
@@ -61,6 +62,7 @@
 	health = 40
 	melee_damage_lower = 5
 	melee_damage_upper = 10
+	armor_penetration = 20
 	poison_per_bite = 10
 	var/atom/cocoon_target
 	poison_type = /decl/reagent/soporific
@@ -78,6 +80,7 @@
 	health = 120
 	melee_damage_lower = 10
 	melee_damage_upper = 20
+	armor_penetration = 15
 	poison_per_bite = 5
 	move_to_delay = 4
 
@@ -91,6 +94,7 @@
 	health = 100
 	melee_damage_lower = 5
 	melee_damage_upper = 10
+	armor_penetration = 15
 	poison_type = /decl/reagent/perconol // mildly beneficial for organics
 	poison_per_bite = 2
 	move_to_delay = 5

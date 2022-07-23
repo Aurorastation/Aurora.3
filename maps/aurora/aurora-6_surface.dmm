@@ -1912,7 +1912,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "byl" = (
-/obj/structure/closet/secure_closet/cargotech,
+/obj/structure/closet/secure_closet/hangartech,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
@@ -2376,7 +2376,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "bPl" = (
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = -32
 	},
 /obj/item/stack/medical/ointment,
@@ -2842,6 +2842,7 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 12
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "ckT" = (
@@ -5321,7 +5322,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/shields)
 "eGQ" = (
-/obj/structure/closet/secure_closet/quartermaster,
+/obj/structure/closet/secure_closet/operation_manager,
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "eHi" = (
@@ -5645,6 +5646,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/stairs)
+"eTa" = (
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled/freezer,
+/area/crew_quarters/toilet)
 "eTH" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
@@ -8590,7 +8595,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 8
 	},
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_y = 31
 	},
 /obj/item/bodybag/cryobag,
@@ -9337,7 +9342,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
 "ibJ" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = 28;
 	pixel_y = -4
 	},
@@ -9805,7 +9810,7 @@
 	},
 /area/mine/explored)
 "iwL" = (
-/obj/structure/closet/secure_closet/cargotech,
+/obj/structure/closet/secure_closet/hangartech,
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -10204,6 +10209,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
+"iQw" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/tcommsat/lounge)
 "iQS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -13163,10 +13175,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
-"lxc" = (
-/obj/structure/bed/stool/padded/red,
-/turf/simulated/wall/r_wall,
-/area/tcommsat/lounge)
 "lxI" = (
 /obj/structure/cable/yellow{
 	d1 = 2;
@@ -15084,7 +15092,7 @@
 /area/hallway/secondary/entry/departure_lounge)
 "neq" = (
 /obj/structure/bed/roller,
-/obj/structure/closet/secure_closet/medical_wall{
+/obj/structure/closet/walllocker/medical/secure{
 	name = "blood closet";
 	pixel_x = 30;
 	pixel_y = -30;
@@ -16671,7 +16679,7 @@
 /turf/simulated/wall,
 /area/security/vacantoffice)
 "oBr" = (
-/obj/structure/closet/secure_closet/cargotech,
+/obj/structure/closet/secure_closet/hangartech,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -19240,7 +19248,7 @@
 /turf/simulated/open,
 /area/maintenance/substation/civilian_east)
 "qCa" = (
-/obj/structure/closet/hydrant{
+/obj/structure/closet/walllocker/firecloset{
 	pixel_x = -32
 	},
 /turf/simulated/floor/plating,
@@ -20156,7 +20164,7 @@
 	pixel_x = -6;
 	pixel_y = 12
 	},
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 5;
 	pixel_y = -1
 	},
@@ -20170,6 +20178,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
+"rpG" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/turret_protected/tcomfoyer)
 "rqf" = (
 /obj/machinery/smartfridge/drying_rack,
 /obj/machinery/light{
@@ -21111,7 +21123,8 @@
 	pixel_x = 27
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/megavendor/vendor,
+/obj/structure/closet/emcloset,
+/obj/item/storage/toolbox/emergency,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "seu" = (
@@ -23469,6 +23482,11 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
+"tZL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/plating,
+/area/store)
 "uaq" = (
 /obj/machinery/status_display{
 	pixel_y = 32
@@ -25951,6 +25969,15 @@
 	},
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
+"wiv" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/bluegrid{
+	name = "Mainframe Base";
+	nitrogen = 100;
+	oxygen = 0;
+	temperature = 80
+	},
+/area/tcommsat/chamber)
 "wkD" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -26225,13 +26252,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/closet/secure_closet/freezer{
-	icon_broken = "fridgebroken";
-	icon_closed = "fridge";
-	icon_locked = "fridge1";
-	icon_off = "fridge1";
-	icon_opened = "fridgeopen";
-	icon_state = "fridge1";
-	name = "cafe fridge"
+	icon_state = "freezer"name = "cafe fridge"
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "poolcafe";
@@ -26466,7 +26487,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/closet/medical_wall{
+/obj/structure/closet/walllocker/medical{
 	pixel_x = -32
 	},
 /obj/item/stack/medical/bruise_pack,
@@ -26502,7 +26523,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/structure/closet/secure_closet/cargotech,
+/obj/structure/closet/secure_closet/hangartech,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "wHS" = (
@@ -26973,7 +26994,7 @@
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "wXr" = (
-/obj/machinery/power/port_gen/pacman,
+/obj/machinery/power/portgen/basic,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
@@ -39059,7 +39080,7 @@ hlb
 qRF
 rjc
 qys
-xBr
+wiv
 mRI
 uso
 mRI
@@ -40354,7 +40375,7 @@ mRI
 mRI
 xBr
 qys
-czc
+rpG
 fEH
 scq
 exe
@@ -41103,7 +41124,7 @@ gfY
 bPW
 moB
 odh
-odh
+iQw
 fSf
 pcH
 kii
@@ -41354,7 +41375,7 @@ ifb
 wKH
 nGc
 kyf
-lxc
+fwV
 cBe
 bPl
 bPW
@@ -52412,7 +52433,7 @@ nZj
 wHS
 mox
 aEx
-tSy
+tZL
 ePX
 tSy
 nvR
@@ -58578,7 +58599,7 @@ pTq
 gqB
 meV
 lOa
-kjO
+eTa
 kjO
 vnh
 alj

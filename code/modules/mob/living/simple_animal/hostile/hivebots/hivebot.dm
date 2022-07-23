@@ -9,6 +9,8 @@
 	maxHealth = 15
 	melee_damage_lower = 10
 	melee_damage_upper = 10
+	armor_penetration = 40
+	attack_flags = DAM_SHARP|DAM_EDGE
 	break_stuff_probability = 25
 	attacktext = "slashed"
 	projectilesound = 'sound/weapons/bladeslice.ogg'
@@ -29,7 +31,7 @@
 	flying = TRUE
 	smart_melee = FALSE
 	see_in_dark = 8
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE|PASSRAILING
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 	psi_pingable = FALSE

@@ -2,6 +2,7 @@
 	filename = "sudoku"					// File name, as shown in the file browser program.
 	filedesc = "Sudoku"				// User-Friendly name. In this case, we will generate a random name in constructor.
 	program_icon_state = "sudoku"				// Icon state of this program's screen.
+	program_key_icon_state = "black_key"
 	extended_desc = "A game of numbers, logic, and deduction. Popular for centuries to keep the mind sharp."		// A nice description.
 	size = 2								// Size in GQ. Integers only. Smaller sizes should be used for utility/low use programs (like this one), while large sizes are for important programs.
 	requires_ntnet = FALSE					// This particular program does not require NTNet network conectivity...

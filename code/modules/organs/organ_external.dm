@@ -186,27 +186,23 @@
 				return
 	..()
 
-/obj/item/organ/external/proc/is_dislocated()
-	if(dislocated > 0)
-		return 1
-	if(parent)
-		return parent.is_dislocated()
-	return 0
-
 /obj/item/organ/external/proc/dislocate(var/primary)
-	if(dislocated != -1)
-		if(primary)
-			dislocated = 2
-		else
-			dislocated = 1
+	if(dislocated == -1)
+		return
+	if(primary)
+		dislocated = 2
+	else
+		dislocated = 1
 	owner.verbs |= /mob/living/carbon/human/proc/undislocate
 	if(children && children.len)
 		for(var/obj/item/organ/external/child in children)
 			child.dislocate()
 
 /obj/item/organ/external/proc/undislocate()
-	if(dislocated != -1)
-		dislocated = 0
+	if(dislocated == -1)
+		return
+
+	dislocated = 0
 	if(children && children.len)
 		for(var/obj/item/organ/external/child in children)
 			if(child.dislocated == 1)
@@ -397,7 +393,7 @@
 		victim.take_internal_damage(damage_amt)
 		return TRUE
 
-/obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon,var/brute,var/burn)
+/obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon, var/brute, var/burn)
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
 		if((limb_flags & ORGAN_CAN_AMPUTATE) && config.limbs_can_break)
@@ -419,7 +415,7 @@
 					if(W.w_class >= w_class && (dam_flags & DAM_EDGE))
 						edge_eligible = TRUE
 
-				if(!blunt_eligible && edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus))
+				if(!blunt_eligible && edge_eligible && (brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus)))
 					droplimb(0, DROPLIMB_EDGE)
 				else if(burn >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
 					droplimb(0, DROPLIMB_BURN)
@@ -573,9 +569,13 @@ This function completely restores a damaged organ to perfect condition.
 
 //Determines if we even need to process this organ.
 /obj/item/organ/external/proc/need_process()
-	if(status & (ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED))
+	if((status & ORGAN_ASSISTED) && surge_damage)
 		return TRUE
-	if(surge_damage)
+	if(BP_IS_ROBOTIC(src))
+		return FALSE
+	if(get_pain())
+		return TRUE
+	if(status & (ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED))
 		return TRUE
 	if(brute_dam || burn_dam)
 		return TRUE
@@ -846,7 +846,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		number_wounds += W.amount
 
 	//things tend to bleed if they are CUT OPEN
-	if (open && !clamped && (H && !(H.species.flags & NO_BLOOD)))
+	if (open && !clamped && (H && !(H.species.flags & NO_BLOOD) && !(status & ORGAN_ROBOT)))
 		status |= ORGAN_BLEEDING
 
 	if (istype(tendon))
@@ -1184,13 +1184,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/is_usable()
 	if(is_stump())
 		return FALSE
-	if(is_dislocated())
+	if(ORGAN_IS_DISLOCATED(src))
 		return FALSE
 	if(tendon_status() & TENDON_CUT)
 		return FALSE
 	if(parent && (parent.tendon_status() & TENDON_CUT))
 		return FALSE
-	if(can_feel_pain() && get_pain() > pain_disability_threshold)
+	if(get_pain() > pain_disability_threshold)
 		return FALSE
 	if(brute_ratio > 1)
 		return FALSE
@@ -1210,6 +1210,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/proc/embed(var/obj/item/W, var/silent = 0, var/supplied_message)
 	if(!owner || loc != owner)
+		return
+	if(!W.canremove || is_robot_module(W)) //Modules and augments cannot embed
 		return
 	if(species.flags & NO_EMBED)
 		return
@@ -1440,20 +1442,18 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 // Pain/halloss
 /obj/item/organ/external/proc/get_pain()
-	if(!can_feel_pain() || BP_IS_ROBOTIC(src))
+	if(!ORGAN_CAN_FEEL_PAIN(src) || BP_IS_ROBOTIC(src))
 		return 0
-	var/lasting_pain = 0
+	. = pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.5 * get_genetic_damage()
 	if(is_broken())
-		lasting_pain += 10
-	else if(is_dislocated())
-		lasting_pain += 5
-	var/tox_dam = 0
-	for(var/obj/item/organ/internal/I in internal_organs)
-		tox_dam += I.getToxLoss()
-	return pain + lasting_pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.3 * tox_dam + 0.5 * get_genetic_damage()
+		. += 10
+	else if(ORGAN_IS_DISLOCATED(src))
+		. += 5
+	for(var/obj/item/organ/internal/I as anything in internal_organs)
+		. += 0.3 * I.getToxLoss()
 
 /obj/item/organ/external/proc/remove_pain(var/amount)
-	if(!can_feel_pain())
+	if(!ORGAN_CAN_FEEL_PAIN(src))
 		pain = 0
 		return
 	var/last_pain = pain
@@ -1461,7 +1461,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return -(pain-last_pain)
 
 /obj/item/organ/external/proc/add_pain(var/amount)
-	if(!can_feel_pain())
+	if(!ORGAN_CAN_FEEL_PAIN(src))
 		pain = 0
 		return
 	var/last_pain = pain
@@ -1473,4 +1473,19 @@ Note that amputating the affected organ does in fact remove the infection from t
 	pain = max(0, min(pain + amount, species.total_health * 2))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
+	if(amount > 5 && owner)
+		owner.undo_srom_pull()
 	return pain-last_pain
+
+/mob/living/carbon/human/proc/undo_srom_pull()
+	if(srom_pulled_by)
+		to_chat(src, SPAN_DANGER("You are ripped out of the Srom by a sudden shock!"))
+		var/mob/living/carbon/human/srom_puller = srom_pulling.resolve()
+		srom_puller.srom_pulling = null
+		to_chat(srom_puller, SPAN_WARNING("A vibration like a jackhammer resonates in your consciousness, and the person you pulled into the Srom disappears in the next instant."))
+		srom_pulled_by = null
+	if(srom_pulling)
+		to_chat(src, SPAN_DANGER("Your Srom pull is disturbed by a sudden shock!"))
+		var/mob/living/carbon/human/victim = srom_pulling.resolve()
+		victim.srom_pulled_by = null
+		srom_pulling = null

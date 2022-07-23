@@ -117,8 +117,7 @@
 		return
 	else if(I.isscrewdriver())
 		to_chat(user, SPAN_NOTICE("You start dismantling \the [src]. This will take a while..."))
-		playsound(get_turf(src), I.usesound, 50, TRUE)
-		if(do_after(user, 150 / I.toolspeed))
+		if(I.use_tool(src, user, 150, volume = 50))
 			user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
 			if(bee_count)
 				visible_message(SPAN_WARNING("The bees are furious over the destruction of their home!"))
@@ -145,13 +144,13 @@
 			to_chat(user, SPAN_NOTICE("You take all filled honeycombs out."))
 		return
 
-/obj/machinery/beehive/machinery_process()
+/obj/machinery/beehive/process()
 	if(closed && !smoked && bee_count)
 		pollinate_flowers()
 		update_icon()
 	else if (!closed && bee_count && prob(bee_count * 0.1))
 	//If the hive is opened, periodically release docile bees
-		visible_message(SPAN_WARNING("A few curious bees float out of the open beehive to buzz around."))
+		visible_message(SPAN_NOTICE("A few curious bees float out of the open beehive to buzz around."))
 		release_bees(0.1, 0, 3)
 
 	smoked = max(0, smoked - 1)
@@ -172,9 +171,6 @@
 /obj/machinery/beehive/proc/release_bees(var/severity, var/angry, var/swarmsize = 6)
 	if(bee_count < 1)
 		return
-
-	visible_message(SPAN_NOTICE("[pick("Buzzzz.","Hmmmmm.","Bzzz.")]"))
-	playsound(get_turf(src), pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 45, TRUE)
 
 	severity = Clamp(severity, 0, 1)
 	var/bees_to_release = bee_count * severity

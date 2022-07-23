@@ -13,7 +13,7 @@
 	desc = "A lighting fixture."
 	anchored = TRUE
 	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
@@ -85,17 +85,21 @@
 	brightness_range = 6
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
+	randomize_color = FALSE
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_RED
+	randomize_color = FALSE
 
 /obj/machinery/light/colored/blue
 	brightness_color = LIGHT_COLOR_BLUE
+	randomize_color = FALSE
 
 /obj/machinery/light/colored/red
 	brightness_color = LIGHT_COLOR_RED
+	randomize_color = FALSE
 
 /obj/machinery/light/spot
 	name = "spotlight"
@@ -215,24 +219,24 @@
 				stat |= BROKEN
 				set_light(0)
 		else
-			use_power = 2
-			active_power_usage = light_range * LIGHTING_POWER_FACTOR
+			update_use_power(POWER_USE_ACTIVE)
+			change_power_consumption(light_range * LIGHTING_POWER_FACTOR, POWER_USE_ACTIVE)
 			if (supports_nightmode && nightmode)
 				set_light(night_brightness_range, night_brightness_power, brightness_color)
 			else
 				set_light(brightness_range, brightness_power, brightness_color)
 	else if (has_emergency_power(LIGHT_EMERGENCY_POWER_USE) && !(stat & POWEROFF))
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 		emergency_mode = TRUE
 		var/new_power = round(max(0.5, 0.75 * (cell.charge / cell.maxcharge)), 0.1)
 		set_light(brightness_range * 0.25, new_power, LIGHT_COLOR_EMERGENCY)
 	else
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 		set_light(0)
 
 	update_icon()
 
-	active_power_usage = ((light_range * light_power) * 10)
+	change_power_consumption((light_range * light_power) * 10, POWER_USE_ACTIVE)
 
 /obj/machinery/light/proc/broken_sparks()
 	if(world.time > next_spark && !(stat & POWEROFF) && has_power())
@@ -240,7 +244,7 @@
 		next_spark = world.time + 1 MINUTE + (rand(-15, 15) SECONDS)
 
 // ehh
-/obj/machinery/light/machinery_process()
+/obj/machinery/light/process()
 	if (cell && cell.charge != cell.maxcharge && has_power())
 		cell.charge = min(cell.maxcharge, cell.charge + 0.2)
 	if (emergency_mode && !use_emergency_power(LIGHT_EMERGENCY_POWER_USE))
@@ -454,7 +458,6 @@
 // attack with hand - remove tube/bulb
 // if hands aren't protected and the light is on, burn the player
 /obj/machinery/light/attack_hand(mob/user)
-
 	add_fingerprint(user)
 
 	if(status == LIGHT_EMPTY)
@@ -473,29 +476,6 @@
 				shatter()
 				return
 
-	// make it burn hands if not wearing fire-insulated gloves
-	if(!stat)
-		var/prot = 0
-		var/mob/living/carbon/human/H = user
-
-		if(istype(H))
-			if(H.species.heat_level_1 > LIGHT_BULB_TEMPERATURE)
-				prot = 1
-			else if(H.gloves)
-				var/obj/item/clothing/gloves/G = H.gloves
-				if(G.max_heat_protection_temperature && G.max_heat_protection_temperature > LIGHT_BULB_TEMPERATURE)
-					prot = 1
-		else
-			prot = 1
-
-		if(prot || (COLD_RESISTANCE in user.mutations))
-			to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
-		else
-			to_chat(user, SPAN_WARNING("You try to remove the light [fitting], but it's too hot and you don't want to burn your hand."))
-			return				// if burned, don't remove the light
-	else
-		to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
-
 	// create a light tube/bulb item and put it in the user's hand
 	if(inserted_light)
 		var/obj/item/light/L = new inserted_light()
@@ -513,6 +493,8 @@
 		L.add_fingerprint(user)
 
 		user.put_in_active_hand(L)	//puts it in our active hand
+
+		to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
 
 		inserted_light = null
 

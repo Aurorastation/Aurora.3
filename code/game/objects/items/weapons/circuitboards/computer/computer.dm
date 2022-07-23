@@ -132,3 +132,18 @@
 	name = T_BOARD("Slot Machine")
 	build_path = /obj/machinery/computer/slot_machine
 	origin_tech = list(TECH_DATA = 2)
+
+/obj/item/circuitboard/ship/helm
+	name = T_BOARD("Helm Control Console")
+	origin_tech = list(TECH_ENGINEERING = 3)
+	build_path = /obj/machinery/computer/ship/helm
+
+/obj/item/circuitboard/ship/sensors
+	name = T_BOARD("Ship Sensors Console")
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 2)
+	build_path = /obj/machinery/computer/ship/sensors
+
+/obj/item/circuitboard/ship/engines
+	name = T_BOARD("Ship Engines Control Console")
+	origin_tech = list(TECH_ENGINEERING = 3)
+	build_path = /obj/machinery/computer/ship/engines

@@ -290,10 +290,10 @@
 	var/new_type = landmark_type
 
 	//sanity-check map size
-	var/lm_min_x = TRANSITIONEDGE+10
-	var/lm_max_x = maxx-TRANSITIONEDGE-10
-	var/lm_min_y = TRANSITIONEDGE+10
-	var/lm_max_y = maxy-TRANSITIONEDGE-10
+	var/lm_min_x = TRANSITIONEDGE+LANDING_ZONE_RADIUS
+	var/lm_max_x = maxx-TRANSITIONEDGE-LANDING_ZONE_RADIUS
+	var/lm_min_y = TRANSITIONEDGE+LANDING_ZONE_RADIUS
+	var/lm_max_y = maxy-TRANSITIONEDGE-LANDING_ZONE_RADIUS
 	if (lm_max_x < lm_min_x || lm_max_y < lm_min_y)
 		log_and_message_admins("Map Size is too small to Support Away Mission Shuttle Landmark. [lm_min_x] [lm_max_x] [lm_min_y] [lm_max_y]")
 		return

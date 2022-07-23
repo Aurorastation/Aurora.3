@@ -62,7 +62,7 @@
 	initialized = TRUE
 
 	for(var/atom/movable/AM as mob|obj in src)
-		Entered(AM)
+		Entered(AM, src)
 
 	turfs += src
 
@@ -138,21 +138,36 @@
 	return 0
 
 /turf/attack_hand(mob/user)
-	if(!(user.canmove) || user.restrained() || !(user.pulling))
-		return 0
-	if(user.pulling.anchored || !isturf(user.pulling.loc))
-		return 0
-	if(user.pulling.loc != user.loc && get_dist(user, user.pulling) > 1)
-		return 0
-	if(ismob(user.pulling))
-		var/mob/M = user.pulling
-		var/atom/movable/t = M.pulling
-		M.stop_pulling()
-		step(user.pulling, get_dir(user.pulling.loc, src))
-		M.start_pulling(t)
-	else
-		step(user.pulling, get_dir(user.pulling.loc, src))
-	return 1
+	if(!(user.canmove) || user.restrained())
+		return FALSE
+	if(user.pulling)
+		if(user.pulling.anchored || !isturf(user.pulling.loc))
+			return FALSE
+		if(user.pulling.loc != user.loc && get_dist(user, user.pulling) > 1)
+			return FALSE
+		if(ismob(user.pulling))
+			var/mob/M = user.pulling
+			var/atom/movable/t = M.pulling
+			M.stop_pulling()
+			step(user.pulling, get_dir(user.pulling.loc, src))
+			M.start_pulling(t)
+		else
+			step(user.pulling, get_dir(user.pulling.loc, src))
+
+	. = handle_hand_interception(user)
+	if (!.)
+		return TRUE
+	return TRUE
+
+/turf/proc/handle_hand_interception(var/mob/user)
+	var/datum/component/turf_hand/THE
+	for (var/atom/A in src)
+		var/datum/component/turf_hand/TH = A.GetComponent(/datum/component/turf_hand)
+		if (istype(TH) && TH.priority > THE?.priority) //Only overwrite if the new one is higher. For matching values, its first come first served
+			THE = TH
+
+	if (THE)
+		return THE.OnHandInterception(user)
 
 /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
@@ -161,7 +176,7 @@
 
 	..()
 
-	if (!mover || !isturf(mover.loc))
+	if (!mover || !isturf(mover.loc) || isobserver(mover))
 		return 1
 
 	//First, check objects to block exit that are not on the border
@@ -200,7 +215,7 @@
 
 var/const/enterloopsanity = 100
 
-/turf/Entered(atom/movable/AM)
+/turf/Entered(atom/movable/AM, atom/old_loc)
 	if(movement_disabled)
 		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
@@ -251,7 +266,7 @@ var/const/enterloopsanity = 100
 		var/mob/living/carbon/human/H = AM
 		H.species.deploy_trail(H, src)
 
-	..()
+	..(AM, old_loc)
 
 	var/objects = 0
 	if(AM && (AM.flags & PROXMOVE) && AM.simulated)
@@ -462,60 +477,6 @@ var/const/enterloopsanity = 100
 		if(add)
 			L.Add(t)
 	return L
-
-// CRAWLING + MOVING STUFF
-/turf/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
-	var/turf/T = get_turf(user)
-	var/area/A = T.loc
-	if((istype(A) && !(A.has_gravity())) || (istype(T,/turf/space)))
-		return
-	if(istype(O, /obj/screen))
-		return
-	if(user.restrained() || user.stat || user.incapacitated(INCAPACITATION_KNOCKOUT) || !user.lying)
-		return
-	if((!(istype(O, /atom/movable)) || O.anchored || !Adjacent(user) || !Adjacent(O) || !user.Adjacent(O)))
-		return
-	if(!isturf(O.loc) || !isturf(user.loc))
-		return
-	if(isanimal(user) && O != user)
-		return
-
-	var/tally = 0
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-
-		var/obj/item/organ/external/rhand = H.organs_by_name[BP_R_HAND]
-		tally += limbCheck(rhand)
-
-		var/obj/item/organ/external/lhand = H.organs_by_name[BP_L_HAND]
-		tally += limbCheck(lhand)
-
-		var/obj/item/organ/external/rfoot = H.organs_by_name[BP_R_FOOT]
-		tally += limbCheck(rfoot)
-
-		var/obj/item/organ/external/lfoot = H.organs_by_name[BP_L_FOOT]
-		tally += limbCheck(lfoot)
-
-	if(tally >= 120)
-		to_chat(user, SPAN_NOTICE("You're too injured to do this!"))
-		return
-
-	var/finaltime = 25 + (5 * (user.weakened * 1.5))
-	if(tally >= 45) // If you have this much missing, you'll crawl slower.
-		finaltime += tally
-
-	if(do_after(user, finaltime) && !user.stat)
-		step_towards(O, src)
-
-// Checks status of limb, returns an amount to
-/turf/proc/limbCheck(var/obj/item/organ/external/limb)
-	if(!limb) // Limb is null, thus missing. Add 3 seconds.
-		return 30
-	else if(!limb.is_usable() || limb.is_broken()) // You can't use the limb, but it's still there to manoevre yourself
-		return 15
-	else
-		return 0
 
 /turf/proc/is_wall()
 	return FALSE

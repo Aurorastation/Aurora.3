@@ -26,8 +26,26 @@
         </div>
       </div>
     </div>
-    <div v-if="change_accent && valid_accents.length">
+    <div v-if="change_culture">
       <div class="item">
+        <div class="itemLabelNarrow">
+          Cultures:
+        </div>
+        <div class="itemContentWide">
+          <vui-button v-for="culture in valid_cultures" :class="{'button' : 1, 'selected' : owner_culture == culture}" :params="{ culture: culture }" :key="culture">{{ culture }}</vui-button>
+        </div>
+        <div class="itemLabelNarrow">
+          Origins:
+        </div>
+        <div class="itemContentWide">
+          <vui-button v-for="origin in valid_origins" :class="{'button' : 1, 'selected' : owner_origin == origin}" :params="{ origin: origin }" :key="origin">{{ origin }}</vui-button>
+        </div>
+        <div class="itemLabelNarrow">
+          Citizenships:
+        </div>
+        <div class="itemContentWide">
+          <vui-button v-for="citizenship in valid_citizenships" :class="{'button' : 1, 'selected' : owner_citizenship == citizenship}" :params="{ citizenship: citizenship }" :key="citizenship">{{ citizenship }}</vui-button>
+        </div>
         <div class="itemLabelNarrow">
           Accents:
         </div>

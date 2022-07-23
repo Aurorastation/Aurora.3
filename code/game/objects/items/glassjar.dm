@@ -116,7 +116,7 @@
 		if(contains == JAR_NOTHING)
 			contains = JAR_MONEY
 		if(contains != JAR_MONEY)
-			return
+			return TRUE
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> puts [S.worth] credit\s into \the [src]."))
 		user.drop_from_inventory(S,src)
 		update_icon()
@@ -132,7 +132,7 @@
 			update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [name] is full!"))
-			return
+		return TRUE
 	if(istype(A, /obj/item/holder))
 		var/obj/item/holder/H = A
 		if(H.w_class <= ITEMSIZE_SMALL)
@@ -141,6 +141,7 @@
 			scoop(H, user)
 		else
 			scoop_fail(H, user)
+		return TRUE
 
 /obj/item/glass_jar/update_icon() // Also updates name and desc
 	underlays.Cut()

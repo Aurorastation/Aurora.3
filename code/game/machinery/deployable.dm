@@ -110,13 +110,13 @@ for reference:
 			if(health < maxhealth)
 				if(D.get_amount() < 1)
 					to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
-					return
+					return TRUE
 				user.visible_message("<b>[user]</b> begins to repair \the [src].", SPAN_NOTICE("You begin to repair \the [src]."))
-				if(do_after(user, 2 SECONDS) && health < maxhealth)
+				if(I.use_tool(src, user, 20, volume = 50) && health < maxhealth)
 					if(D.use(1))
 						health = maxhealth
 						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
-			return
+			return TRUE
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		switch(W.damtype)
@@ -127,8 +127,8 @@ for reference:
 		shake_animation()
 		playsound(src.loc, material.hitsound, W.get_clamped_volume(), 1)
 		if(check_dismantle())
-			return
-		..()
+			return TRUE
+		return ..()
 
 /obj/structure/barricade/proc/check_dismantle()
 	if(src.health <= 0)
@@ -141,13 +141,11 @@ for reference:
 /obj/structure/barricade/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			visible_message(SPAN_DANGER("\The [src] is blown apart!"))
 			qdel(src)
 			return
 		if(2.0)
 			src.health -= 25
 			if (src.health <= 0)
-				visible_message(SPAN_DANGER("\The [src] is blown apart!"))
 				dismantle()
 			return
 
@@ -296,14 +294,18 @@ for reference:
 	name = "legion barrier"
 	desc = "A deployable barrier, bearing the marks of the Tau Ceti Foreign Legion. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
-	req_access = list(access_legion)
+	req_access = null
+	req_one_access = list(access_tcfl_peacekeeper_ship, access_legion)
 
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"
 	desc = "A do-it-yourself kit for constructing the finest of emergency floodlights."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
-	item_state = "box"
+	item_state = "inf_box"
+	drop_sound = 'sound/items/drop/backpack.ogg'
+	pickup_sound = 'sound/items/pickup/backpack.ogg'
+
 	var/kit_product = /obj/machinery/floodlight
 	var/assembly_time = 8 SECONDS
 
@@ -364,9 +366,9 @@ for reference:
 /obj/item/deployable_kit/iv_drip
 	name = "IV drip assembly kit"
 	desc = "A quick assembly kit to put together an IV drip."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
-	item_state = "syringe_kit"
+	item_state = "inf_box"
 	w_class = ITEMSIZE_NORMAL
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS

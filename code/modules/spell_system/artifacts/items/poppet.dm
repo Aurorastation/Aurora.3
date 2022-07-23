@@ -76,20 +76,24 @@
 /obj/item/poppet/attackby(obj/item/W as obj, mob/user as mob)
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H && cooldown < world.time)
+		cooldown = world.time + cooldown_time
 		var/target_zone = user.zone_sel.selecting
 
 		if(W.isFlameSource())
 			fire_act()
+			return TRUE
 
 		if(istype(W, /obj/item/melee/baton))
 			H.electrocute_act(W.force * 2, W, def_zone = target_zone)
 			playsound(get_turf(H), 'sound/weapons/Egloves.ogg', 50, 1, -1)
+			return TRUE
 
 		if(istype(W, /obj/item/device/flashlight))
 			to_chat(H, "<span class='warning'>You direct \the [W] towards \the [src]'s eyes!</span>")
 			playsound(get_turf(H), 'sound/items/flashlight.ogg', 50, 1, -1)
-			flick("flash", H.flash)
+			H.flash_eyes()
 			H.eye_blurry = 5
+			return TRUE
 
 		if(W.iscoil())
 			to_chat(H, "<span class='warning'>You strangle \the [src] with \the [W]!</span>")
@@ -98,9 +102,11 @@
 			if(!(H.species.flags & NO_BREATHE))
 				H.visible_message("<b>[H]</b> gasps for air!")
 				H.losebreath += 5
+			return TRUE
 
 		if(istype(W, /obj/item/bikehorn))
 			playsound(get_turf(H), 'sound/items/bikehorn.ogg', 50, 1, -1)
+			return TRUE
 
 		if(W.edge)
 			to_chat(H, "<span class='warning'>You stab \the [src] with \the [W]!</span>")
@@ -109,9 +115,7 @@
 			if(H.can_feel_pain())
 				var/obj/item/organ/external/organ = H.get_organ(target_zone)
 				to_chat(H, "<span class='danger'>You feel a stabbing pain in your [organ.name]!</span>")
-
-
-		cooldown = world.time + cooldown_time
+			return TRUE
 
 /obj/item/poppet/throw_impact(atom/hit_atom)
 	..()

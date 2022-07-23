@@ -10,7 +10,6 @@
 	var/set_temperature = T0C + 50	//K
 	var/heating_power = 42000
 	emagged = FALSE
-	has_special_power_checks = TRUE
 	clicksound = /decl/sound_category/switch_sound
 
 /obj/machinery/space_heater/Initialize()
@@ -64,7 +63,6 @@
 		if(panel_open)
 			if(cell)
 				to_chat(user, "There is already a power cell inside.")
-				return
 			else
 				// insert cell
 				user.drop_from_inventory(I,src)
@@ -76,7 +74,7 @@
 				power_change()
 		else
 			to_chat(user, SPAN_NOTICE("The hatch must be open to insert a power cell."))
-			return
+		return TRUE
 	else if(I.isscrewdriver())
 		panel_open = !panel_open
 		user.visible_message(SPAN_NOTICE("[user] [panel_open ? "opens" : "closes"] the hatch on the [src]."),
@@ -87,10 +85,8 @@
 			user << browse(null, "window=spaceheater")
 			user.unset_machine()
 
-		return
-	else
-		..()
-	return
+		return TRUE
+	return ..()
 
 /obj/machinery/space_heater/attack_hand(mob/user)
 	src.add_fingerprint(user)
@@ -172,7 +168,7 @@
 
 
 
-/obj/machinery/space_heater/machinery_process()
+/obj/machinery/space_heater/process()
 	if(on)
 		if(cell && cell.charge)
 			var/datum/gas_mixture/env = loc.return_air()

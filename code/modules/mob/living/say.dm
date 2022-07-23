@@ -16,8 +16,9 @@ var/list/department_radio_keys = list(
 	  ":x" = "Raider",		".x" = "Raider",
 	  ":b" = "Burglar",		".b" = "Burglar",
 	  ":j" = "Bluespace",	".j" = "Bluespace",
+	  ":y" = "Ship",		".y" = "Ship",
 	  ":q" = "Ninja",		".q" = "Ninja",
-	  ":u" = "Supply",		".u" = "Supply",
+	  ":u" = "Operations",	".u" = "Operations",
 	  ":v" = "Service",		".v" = "Service",
 	  ":p" = "AI Private",	".p" = "AI Private",
 	  ":z" = "Entertainment",".z" = "Entertainment",
@@ -38,8 +39,9 @@ var/list/department_radio_keys = list(
 	  ":X" = "Raider",		".X" = "Raider",
 	  ":B" = "Burglar",		".B" = "Burglar",
 	  ":J" = "Bluespace",	".J" = "Bluespace",
+	  ":Y" = "Ship",		".Y" = "Ship",
 	  ":Q" = "Ninja",		".Q" = "Ninja",
-	  ":U" = "Supply",		".U" = "Supply",
+	  ":U" = "Operations",	".U" = "Operations",
 	  ":V" = "Service",		".V" = "Service",
 	  ":P" = "AI Private",	".P" = "AI Private",
 	  ":Z" = "Entertainment",".Z" = "Entertainment",
@@ -57,7 +59,7 @@ var/list/department_radio_keys = list(
 	  ":û" = "Security",	".û" = "Security",
 	  ":ö" = "whisper",		".ö" = "whisper",
 	  ":å" = "Mercenary",	".å" = "Mercenary",
-	  ":é" = "Supply",		".é" = "Supply"
+	  ":é" = "Operations",	".é" = "Operations"
 )
 
 
@@ -103,7 +105,7 @@ proc/get_radio_key_from_channel(var/channel)
 		speech_problem_flag = 1
 	if(stuttering)
 		message = get_stuttered_message(message)
-		verb = pick("stammers","stutters")
+		verb = pick(get_stutter_verbs())
 		speech_problem_flag = 1
 	if(tarded)
 		message = slur(message,100)
@@ -123,6 +125,9 @@ proc/get_radio_key_from_channel(var/channel)
 	returns[3] = speech_problem_flag
 	returns[4] = world.view
 	return returns
+
+/mob/living/proc/get_stutter_verbs()
+	return list("stammers", "stutters")
 
 /mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, successful_radio, whisper)
 	if(message_mode == "intercom")
@@ -209,7 +214,7 @@ proc/get_radio_key_from_channel(var/channel)
 			return
 		speaking.broadcast(src,trim(message))
 		return 1
-	
+
 	if(!verb)
 		verb = say_quote(message, speaking, is_singing, whisper)
 
@@ -291,7 +296,7 @@ proc/get_radio_key_from_channel(var/channel)
 				italics = 1
 				sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj, ghost_hearing)
+		get_mobs_or_objs_in_view(T, message_range, listening, listening_obj, ghost_hearing)
 
 	var/list/hear_clients = list()
 	for(var/m in listening)
