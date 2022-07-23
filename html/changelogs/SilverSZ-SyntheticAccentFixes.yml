@@ -1,0 +1,7 @@
+
+author: SilverSZ
+
+delete-after: True
+
+changes:
+  - rscdel: "Removes the Gadpathur, Fisanduh and Scarab accents from the ACCENTS_ALL_IPC define"
