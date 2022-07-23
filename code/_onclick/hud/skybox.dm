@@ -3,9 +3,9 @@
 	mouse_opacity = 0
 	anchored = TRUE
 	simulated = FALSE
-	screen_loc = "LEFT+50%:-224,BOTTOM+50%:-224"
+	screen_loc = "CENTER:-224,CENTER:-224"
 	plane = PLANE_SKYBOX
-	//	blend_mode = BLEND_MULTIPLY
+	blend_mode = BLEND_MULTIPLY
 
 /client
 	var/obj/skybox/skybox
@@ -23,9 +23,21 @@
 			skybox.overlays += SSskybox.get_skybox()
 			screen |= skybox
 		if(skybox)
-			skybox.screen_loc = "LEFT+50%:[-224 - T.x],BOTTOM+50%:[-224 - T.y]"
+			skybox.screen_loc = "CENTER:[-224 - T.x],CENTER:[-224 - T.y]"
 
 /mob/LateLogin()
 	..()
 	if(client)
 		client.update_skybox(TRUE)
+
+/mob/Move()
+	var/old_z = GET_Z(src)
+	. = ..()
+	if(. && client)
+		client.update_skybox(old_z != GET_Z(src))
+
+/mob/forceMove()
+	var/old_z = GET_Z(src)
+	. = ..()
+	if(. && client)
+		client.update_skybox(old_z != GET_Z(src))

@@ -24,7 +24,7 @@
 // Copypaste of parent for performance.
 /turf/space/Initialize()
 	if(use_space_appearance)
-		appearance = SSicon_cache.space_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
+		appearance = SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
 	if(config.starlight && use_starlight)
 		update_starlight()
 
