@@ -10,6 +10,9 @@
 
 	ic_name = "a meteor storm"
 
+/datum/event/meteor_wave/get_skybox_image()
+	return overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
+
 /datum/event/meteor_wave/setup()
 	waves = 0
 	for(var/n in 1 to severity)

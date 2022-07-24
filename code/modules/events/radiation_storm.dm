@@ -10,6 +10,12 @@
 	two_part = 1
 	ic_name = "radiation"
 
+/datum/event/radiation_storm/get_skybox_image()
+	if(prob(75)) // Sometimes, give no skybox image, to avoid metagaming it
+		var/image/res = overlay_image('icons/skybox/radbox.dmi', "beam", null, RESET_COLOR)
+		res.alpha = rand(40,80)
+		return res
+
 /datum/event/radiation_storm/announce()
 	command_announcement.Announce(current_map.radiation_detected_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_detected_message.ogg')
 
@@ -36,7 +42,6 @@
 /datum/event/radiation_storm/proc/radiate()
 	for(var/mob/living/C in living_mob_list)
 		C.apply_radiation_effects()
-
 
 /datum/event/radiation_storm/end(var/faked)
 	if(faked)

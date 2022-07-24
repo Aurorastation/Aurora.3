@@ -66,9 +66,9 @@
 	if(!config.starlight)
 		return
 	if(!validate) // basically a hack for places where the check was already done for us
-		set_light(1, config.starlight)
+		set_light(1, config.starlight, l_color = SSskybox.background_color)
 	else if(locate(/turf/simulated) in RANGE_TURFS(1, src))
-		set_light(1, config.starlight)
+		set_light(1, config.starlight, l_color = SSskybox.background_color)
 	else
 		set_light(0)
 
