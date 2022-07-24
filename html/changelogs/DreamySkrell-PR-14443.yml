@@ -1,6 +1,0 @@
-author: DreamySkrell
-
-delete-after: True
-
-changes:
-  - tweak: "Allow AI to change alert level (again)."
