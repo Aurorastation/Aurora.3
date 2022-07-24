@@ -329,7 +329,7 @@
 	exploring the urban legends and mysteries of Mendell City."
 	desc_fluff = "Influenced by recent events and the growing interest in urban legends, Little Adhomai became the birthplace of Tajaran Otherworldly Literature. This literary genre combines \
 	aspects of fantasy, horror, and speculative fiction alongside Adhomian paranormal elements, frequently reimagining mythological creatures and events. Tajaran Otherworldly texts are usually \
-	published in magazines or extranet sites."
+	published in magazines or on extranet sites."
 	icon_state = "comicoutlandish"
 	item_state = "comicoutlandish"
 
