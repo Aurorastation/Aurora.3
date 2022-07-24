@@ -162,9 +162,9 @@
 		icon_state = "secgunauto-e"
 
 /obj/item/gun/projectile/tanto
-	desc = "A crude-looking open-bolt machine pistol manufactured by a multitude of arms companies, or in some cases, particularly handy individuals. \
-    Owing to their low cost and relative effectiveness, weapons like these are very common all across the Spur, from the tunnels of Oran to fringe colonies along the frontier. \
-    This pistol is made almost entirely from sheet metal and has cloth wrappings around the grip for shooter comfort."
+	desc = "An automatic variant of the NanoTrasen Mk1 Everyman handgun that has been built to accept detachable magazines, negating one of the original \
+	weapon's biggest shortcomings. It is marketed towards lower-echelon security companies as a machine pistol named the Tanto, and features a burst-fire selector \
+	and sturdier barrel with heatshield to better take advantage of the higher capacity."
 	name = "10mm auto-pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
@@ -411,7 +411,7 @@
 
 /obj/item/gun/projectile/leyon
 	name = "10mm pistol"
-	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses 10mm rounds."
+	desc = "NanoTrasen's first marketed firearm design, the Mk1, better known as the Everyman, was an instant hit - though it is a crude, stripper clip-fed design with a very small capacity, the Everyman is absurdly inexpensive and famously reliable, and is now one of the most common weapons found in the Orion Spur. Chambered in 10mm."
 	icon = 'icons/obj/guns/leyon.dmi'
 	icon_state = "leyon"
 	item_state = "leyon"

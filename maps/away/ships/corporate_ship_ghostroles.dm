@@ -111,7 +111,7 @@
 
 	uniform = /obj/item/clothing/under/rank/engineer/heph
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = /obj/item/storage/backpack/satchel_norm
+	back = /obj/item/storage/backpack/satchel/norm
 	belt = /obj/item/storage/belt/utility/full
 	accessory = /obj/item/clothing/accessory/storage/pouches/black
 

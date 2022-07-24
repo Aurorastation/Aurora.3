@@ -72,13 +72,6 @@
 	body_parts_covered = FALSE
 	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
-/obj/item/clothing/shoes/sandal/marisa
-	desc = "A pair of magic, black shoes."
-	name = "magic shoes"
-	icon_state = "black"
-	item_state = "black"
-	body_parts_covered = FEET
-
 /obj/item/clothing/shoes/sandal/flipflop
 	name = "flip flops"
 	desc = "A pair of foam flip flops. For those not afraid to show a little ankle."
