@@ -90,7 +90,7 @@
 //Only called once.
 /datum/event/proc/start()
 	if(has_skybox_image)
-		SSskybox.rebuild_skyboxes()
+		SSskybox.rebuild_skyboxes(affecting_z)
 	return
 
 //Called when the tick is equal to the announceWhen variable.
@@ -113,9 +113,9 @@
 //For example: if(activeFor == myOwnVariable + 30) doStuff()
 //Only called once.
 //faked indicates this is a false alarm. Used to prevent announcements and other things from happening during false alarms.
-/datum/event/proc/end(var/faked)
+/datum/event/proc/end()
 	if(has_skybox_image)
-		SSskybox.rebuild_skyboxes()
+		SSskybox.rebuild_skyboxes(affecting_z)
 	return
 
 //Returns the latest point of event processing.
@@ -193,8 +193,6 @@
 
 	var/obj/effect/overmap/O = map_sectors["[pick(affecting_z)]"]
 	return O ? O.name : "Unknown Location"
-	return O ? O.name : "Unknown Location"
 
 /datum/event/proc/get_skybox_image()
-	return
 	return

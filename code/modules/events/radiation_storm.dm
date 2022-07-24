@@ -3,6 +3,7 @@
 	var/const/radIntervall 	= 5	// 20 ticks
 	var/const/leaveBelt		= 145
 	var/const/revokeAccess	= 200
+	has_skybox_image = TRUE
 	startWhen				= 2
 	announceWhen			= 1
 	endWhen					= revokeAccess
@@ -20,6 +21,7 @@
 	command_announcement.Announce(current_map.radiation_detected_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_detected_message.ogg')
 
 /datum/event/radiation_storm/start()
+	..()
 	make_maint_all_access()
 	lights(TRUE)
 
@@ -44,6 +46,7 @@
 		C.apply_radiation_effects()
 
 /datum/event/radiation_storm/end(var/faked)
+	..()
 	if(faked)
 		return
 	lights()

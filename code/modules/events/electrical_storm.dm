@@ -3,6 +3,7 @@
 	startWhen = 30
 	endWhen = 60			// Set in start()
 	ic_name = "an electrical storm"
+	has_skybox_image = TRUE
 	var/list/valid_apcs
 	var/global/lightning_color
 
@@ -25,14 +26,6 @@
 				if(EVENT_LEVEL_MAJOR)
 					command_announcement.Announce("Alert. A strong electrical storm has been detected in proximity of the [location_name()]. It is recommended to immediately secure sensitive electrical equipment until the storm passes.", "[location_name()] Sensor Array", new_sound = 'sound/AI/electrical_storm.ogg')
 			break
-
-/datum/event/electrical_storm/start()
-	..()
-	valid_apcs = list()
-	for(var/obj/machinery/power/apc/A in SSmachinery.machinery)
-		if(A.z in affecting_z)
-			valid_apcs.Add(A)
-	endWhen = (severity * 60) + startWhen
 
 /datum/event/electrical_storm/start()
 	..()
