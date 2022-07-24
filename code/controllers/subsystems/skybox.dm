@@ -4,9 +4,9 @@ var/datum/controller/subsystem/skybox/SSskybox
 	name = "Space skybox"
 	init_order = SS_INIT_PARALLAX
 	flags = SS_NO_FIRE
-	var/background_color
+	var/background_color = COLOR_BLUE_LIGHT
 	var/skybox_icon = 'icons/skybox/skybox.dmi' //Path to our background. Lets us use anything we damn well please. Skyboxes need to be 736x736
-	var/background_icon = "valley_hale"
+	var/background_icon = "ceti"
 	var/use_stars = FALSE
 	var/use_overmap_details = TRUE
 	var/star_path = 'icons/skybox/skybox.dmi'
@@ -23,7 +23,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 		dust.blend_mode = BLEND_ADD
 
 		var/mutable_appearance/space = new /mutable_appearance(/turf/space)
-		space.name = "space"
+		space.name = "\proper space"
 		space.plane = PLANE_SPACE_BACKGROUND
 		space.icon_state = "white2"
 		space.overlays += dust
