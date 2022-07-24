@@ -12375,7 +12375,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "wS" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5, 12)
+	req_one_access = list(5,12)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -15652,7 +15652,7 @@
 "De" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cryogenics Maintenance";
-	req_one_access = list(5, 12)
+	req_one_access = list(5,12)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -19560,10 +19560,6 @@
 /turf/simulated/floor/grass/alt,
 /area/horizon/deck_three/nature_showcase)
 "Kl" = (
-/obj/structure/sign/emerg_exit{
-	dir = 1;
-	pixel_x = 32
-	},
 /obj/structure/lattice,
 /obj/structure/sign/emergency/exit/ladder{
 	pixel_x = -32
@@ -19579,6 +19575,10 @@
 	id = "shutters_runcaprun";
 	req_access = list(20)
 	},
+/obj/structure/sign/emergency/exit{
+	dir = 1;
+	pixel_x = 32
+	},
 /turf/simulated/open,
 /area/crew_quarters/captain)
 "Km" = (
@@ -19590,7 +19590,7 @@
 /area/journalistoffice)
 "Kn" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5, 12)
+	req_one_access = list(5,12)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
