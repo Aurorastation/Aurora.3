@@ -82,7 +82,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 	for(var/z in zlevels)
 		skybox_cache["[z]"] = generate_skybox(z)
 
-	for(var/client/C)
+	for(var/client/C in clients)
 		C.update_skybox(1)
 
 //Update skyboxes. Called by universes, for now.

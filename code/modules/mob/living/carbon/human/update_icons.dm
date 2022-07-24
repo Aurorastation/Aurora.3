@@ -126,7 +126,7 @@ There are several things that need to be remembered:
 /proc/overlay_image(icon,icon_state,color,flags)
 	var/image/ret = image(icon,icon_state)
 	ret.color = color
-	ret.appearance_flags = flags
+	ret.appearance_flags = PIXEL_SCALE | flags
 	return ret
 
 /mob/living/carbon/human
