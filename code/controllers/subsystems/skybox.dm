@@ -23,7 +23,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 		dust.blend_mode = BLEND_ADD
 
 		var/mutable_appearance/space = new /mutable_appearance(/turf/space)
-		space.name = "\proper space"
+		space.name = "space"
 		space.plane = PLANE_SPACE_BACKGROUND
 		space.icon_state = "white2"
 		space.overlays += dust
