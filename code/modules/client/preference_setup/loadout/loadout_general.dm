@@ -280,7 +280,7 @@
 
 /datum/gear/comic
 	display_name = "comic selection"
-	description = "A selection of comics, manga and magazines from across the Spur."
+	description = "A selection of comics, manga, and magazines from across the Spur."
 	path = /obj/item/toy/comic
 
 /datum/gear/comic/New()
