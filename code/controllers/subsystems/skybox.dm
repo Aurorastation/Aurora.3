@@ -7,7 +7,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 	var/background_color
 	var/skybox_icon = 'icons/skybox/skybox.dmi' //Path to our background. Lets us use anything we damn well please. Skyboxes need to be 736x736
 	var/background_icon = "ceti"
-	var/use_stars = FALSE
+	var/use_stars = TRUE
 	var/use_overmap_details = TRUE
 	var/star_path = 'icons/skybox/skybox.dmi'
 	var/star_state = "stars"
@@ -52,7 +52,8 @@ var/datum/controller/subsystem/skybox/SSskybox
 /datum/controller/subsystem/skybox/proc/generate_skybox(z)
 	var/image/res = image(skybox_icon)
 
-	var/image/base = overlay_image(skybox_icon, background_icon, background_color)
+	var/sector_icon = SSatlas.current_sector.skybox_icon
+	var/image/base = overlay_image(skybox_icon, sector_icon, background_color)
 
 	if(use_stars)
 		var/image/stars = overlay_image(skybox_icon, star_state, flags = RESET_COLOR)

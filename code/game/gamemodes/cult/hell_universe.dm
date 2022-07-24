@@ -46,6 +46,7 @@ In short:
 	APCSet()
 	KillMobs()
 	OverlayAndAmbientSet()
+	SSskybox.change_skybox("narsie", new_use_stars = FALSE, new_use_overmap_details = FALSE)
 
 	SScult.rune_boost += 9001	//basically removing the rune cap
 
