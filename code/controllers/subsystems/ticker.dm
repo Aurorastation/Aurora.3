@@ -40,8 +40,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/delay_end = 0	//if set to nonzero, the round will not restart on it's own
 
 	var/triai = 0	//Global holder for Triumvirate
-	var/tipped = FALSE						//Did we broadcast the tip of the day yet?
-	var/selected_tip						// What will be the tip of the day?
 	var/testmerges_printed = FALSE
 
 	var/round_end_announced = 0 // Spam Prevention. Announce round end only once.
@@ -112,8 +110,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	delay_end = SSticker.delay_end
 
 	triai = SSticker.triai
-	tipped = SSticker.tipped
-	selected_tip = SSticker.selected_tip
 
 	round_end_announced = SSticker.round_end_announced
 
@@ -145,10 +141,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	if (pregame_timeleft <= 20 && !testmerges_printed)
 		print_testmerges()
 		testmerges_printed = TRUE
-
-	if (pregame_timeleft <= 10 && !tipped)
-		send_tip_of_the_round()
-		tipped = TRUE
 
 	if (pregame_timeleft <= 0 || current_state == GAME_STATE_SETTING_UP)
 		current_state = GAME_STATE_SETTING_UP
@@ -391,19 +383,6 @@ var/datum/controller/subsystem/ticker/SSticker
 		// initial setup to catch people who readied 0.1 seconds into init
 		if(NP.ready)
 			update_ready_list(NP)
-
-/datum/controller/subsystem/ticker/proc/send_tip_of_the_round()
-	var/m
-	if(selected_tip)
-		m = selected_tip
-	else
-		var/list/randomtips = file2list("config/tips.txt")
-		if(randomtips.len)
-			m = pick(randomtips)
-
-	if(m)
-		to_world("<span class='vote'><b>Tip of the round: \
-			</b>[html_encode(m)]</span>")
 
 /datum/controller/subsystem/ticker/proc/print_testmerges()
 	var/data = revdata.testmerge_overview()

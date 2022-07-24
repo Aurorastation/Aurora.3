@@ -133,8 +133,6 @@ var/list/admin_verbs_fun = list(
 	/datum/admins/proc/create_admin_fax,
 	/datum/admins/proc/call_supply_drop,
 	/datum/admins/proc/call_drop_pod,
-	/client/proc/show_tip,
-	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
 	/datum/admins/proc/ccannoucment
 	)
@@ -286,8 +284,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_admin_world_narrate,
 	/client/proc/cmd_admin_grab_observers,
 	/client/proc/cmd_admin_create_centcom_report,
-	/client/proc/show_tip,
-	/client/proc/fab_tip,
 	/client/proc/jumptokey,
 	/client/proc/jumptomob,
 	/client/proc/jumptoturf,
