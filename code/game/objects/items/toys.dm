@@ -324,7 +324,7 @@
 
 /obj/item/toy/comic/outlandish_tales
 	name = "outlandish tales magazine"
-	desc = "A magazine specialized in publishing Tajaran Otherworldly Literature stories. The periodical features texts submitted by amateur and established writers alike. \
+	desc = "A magazine specialized in publishing Tajaran Otherworldly Literature stories. The periodical magazine features texts submitted by amateur and established writers alike. \
 	Since it is printed using cheap, recycled paper, Outlandish Tales is sold for a couple of credits on the streets of Little Adhomai. The magazine also has a section dedicated to \
 	exploring the urban legends and mysteries of Mendell City."
 	desc_fluff = "Influenced by recent events and the growing interest in urban legends, Little Adhomai became the birthplace of Tajaran Otherworldly Literature. This literary genre combines \
