@@ -363,7 +363,6 @@
 	SearchVar(SSnightlight)
 	SearchVar(SSorbit)
 	SearchVar(SSoverlays)
-	SearchVar(SSparallax)
 	SearchVar(SSradio)
 	SearchVar(SSrecords)
 	SearchVar(sun)

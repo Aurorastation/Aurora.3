@@ -4,7 +4,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 	name = "Space skybox"
 	init_order = SS_INIT_PARALLAX
 	flags = SS_NO_FIRE
-	var/background_color = COLOR_BLUE_LIGHT
+	var/background_color
 	var/skybox_icon = 'icons/skybox/skybox.dmi' //Path to our background. Lets us use anything we damn well please. Skyboxes need to be 736x736
 	var/background_icon = "ceti"
 	var/use_stars = FALSE
