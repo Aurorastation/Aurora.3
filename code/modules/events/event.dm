@@ -114,8 +114,6 @@
 //Only called once.
 //faked indicates this is a false alarm. Used to prevent announcements and other things from happening during false alarms.
 /datum/event/proc/end()
-	if(has_skybox_image)
-		SSskybox.rebuild_skyboxes(affecting_z)
 	return
 
 //Returns the latest point of event processing.
@@ -159,10 +157,12 @@
 	isRunning = 0
 	endedAt = world.time
 
+	if(has_skybox_image)
+		SSskybox.rebuild_skyboxes(affecting_z)
+
 	if(!dummy)
 		SSevents.active_events -= src
 		SSevents.event_complete(src)
-
 
 
 /datum/event/New(var/datum/event_meta/EM = null, var/is_dummy = 0)
