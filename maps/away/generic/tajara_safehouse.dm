@@ -6,7 +6,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "tajara_safehouse"
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_safehouse_shuttle)
 
 /decl/submap_archetype/tajara_safehouse
 	map = "abandoned outpost"

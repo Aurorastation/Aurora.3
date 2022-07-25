@@ -26,8 +26,3 @@
 /area/civilian_station/hangar
 	name = "Civilian Station Hangar"
 	icon_state = "exit"
-
-//shuttle stuff
-/area/shuttle/orion_express_shuttle
-	name = "Orion Express Shuttle"
-	icon_state = "shuttle2"
