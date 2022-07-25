@@ -35,14 +35,14 @@
 /datum/announcement/proc/Announce(var/message, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0, var/do_print = 0, var/zlevels = current_map.contact_levels)
 	if(!message)
 		return
-	var/message_title = new_title ? new_title : title
+	var/message_title = length(new_title) ? new_title : title
 	var/message_sound = new_sound ? new_sound : sound
 
 	if(!msg_sanitized)
 		message = sanitize(message, extra = 0)
 	message_title = sanitizeSafe(message_title)
 
-	var/msg = FormMessage(message, new_title)
+	var/msg = FormMessage(message, message_title)
 	for(var/mob/M in player_list)
 		if(!istype(M, /mob/abstract/new_player) && !isdeaf(M) && (GET_Z(M) in (zlevels | current_map.admin_levels)))
 			var/turf/T = get_turf(M)
