@@ -9,15 +9,15 @@
 
 	var/open = FALSE
 	var/screwed = TRUE
-	var/field_type = "chlorine"
+	var/field_type = "carbon"
 
 	var/obj/item/cell/cell
 	var/obj/effect/suspension_field/suspension_field
 
 	var/static/list/field_types = list(
 		"carbon" = "Diffracted Carbon Dioxide Laser",
-		"nitrogen" = "Nitrogen Tracer Field",
 		"potassium" = "Potassium Refrigerant Cloud",
+		"nitrogen" = "Nitrogen Tracer Field",
 		"mercury" = "Mercury Dispersion Wave",
 		"iron" = "Iron Wafer Conduction Field"
 	)
