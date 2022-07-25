@@ -1,0 +1,10 @@
+author: listerla
+
+delete-after: True
+
+changes:
+  - rscadd: "Excavation pick sets are now available in the protolathe."
+  - rscdel: "Removed suspension field ID lock."
+  - rscdel: "Removed suspension field options with no functions."
+  - soundadd: "Added sounds to some xenoarcheology equipment."
+  - imageadd: "Ported new sprites for xenoarcheology equipment and finds, from Polaris and Baystation."
