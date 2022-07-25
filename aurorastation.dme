@@ -3127,6 +3127,8 @@
 #include "maps\away\generic\racers.dm"
 #include "maps\away\generic\space_bar.dm"
 #include "maps\away\generic\space_bar_ghostroles.dm"
+#include "maps\away\generic\tajara_safehouse.dm"
+#include "maps\away\generic\tajara_safehouse_ghostroles.dm"
 #include "maps\away\generic\wrecked_nt_ship.dm"
 #include "maps\away\romanovich\first_aurora.dm"
 #include "maps\away\romanovich\grand_romanovich.dm"
