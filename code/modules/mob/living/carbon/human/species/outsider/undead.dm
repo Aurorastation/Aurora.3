@@ -166,6 +166,8 @@
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/claws/strong/zombie)
 	darksight = 8
 
+	slowdown 0.5
+
 	has_fine_manipulation = FALSE
 
 	speech_sounds = list('sound/hallucinations/growl1.ogg','sound/hallucinations/growl2.ogg','sound/hallucinations/growl3.ogg')
