@@ -39,6 +39,7 @@
 	icon = 'icons/obj/contained_items/weapons/telebaton.dmi'
 	icon_state = "telebaton_0"
 	item_state = "telebaton_0"
+	var/state_extended = "telebaton_1"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_SMALL
@@ -47,19 +48,22 @@
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	var/on = FALSE
 
+/obj/item/melee/telebaton/proc/do_special_effects(var/mob/living/carbon/human/H)
+	return
+
 /obj/item/melee/telebaton/attack_self(mob/user)
 	on = !on
 	if(on)
 		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic baton."), SPAN_WARNING("You extend the baton."), SPAN_WARNING("You hear an ominous click."))
-		icon_state = "telebaton_1"
-		item_state = "telebaton_1"
+		icon_state = state_extended
+		item_state = state_extended
 		w_class = ITEMSIZE_NORMAL
 		force = 15 //quite robust
 		attack_verb = list("smacked", "struck", "slapped")
 	else
 		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic baton."), SPAN_NOTICE("You collapse the baton."), SPAN_NOTICE("You hear a click."))
-		icon_state = "telebaton_0"
-		item_state = "telebaton_0"
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
 		w_class = ITEMSIZE_SMALL
 		force = 3 //not so robust now
 		attack_verb = list("hit", "punched")
@@ -99,5 +103,19 @@
 			if(ishuman(target))
 				var/mob/living/carbon/human/T = target
 				T.apply_damage(40, PAIN, target_zone)
+				do_special_effects(T)
 		return
 	return ..()
+
+/obj/item/melee/telebaton/nlom
+	name = "nlomkala baton"
+	icon = 'icons/obj/contained_items/skrell/skrell_weaponry.dmi'
+	icon_state = "nlom_telebaton_0"
+	item_state = "nlom_telebaton_0"
+	state_extended = "nlom_telebaton_1"
+	force = 5
+	contained_sprite = TRUE
+
+/obj/item/melee/telebaton/nlom/do_special_effects(var/mob/living/carbon/human/H)
+	var/turf/T = get_turf(H)
+	spark(T, 5)

@@ -577,6 +577,21 @@
 	)
 	contained_sprite = TRUE
 
+/obj/item/clothing/suit/storage/vest/kala
+	name = "kala armor vest"
+	desc = "A simple armor vest issued to all of the Kala. It's made of an advanced lightweight alloy."
+	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon_state = "kala_armor"
+	item_state = "kala_armor"
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_MAJOR,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+	)
+	contained_sprite = TRUE
+
 //All of the armor below is mostly unused
 
 /obj/item/clothing/suit/armor/centcomm

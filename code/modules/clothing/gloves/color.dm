@@ -207,3 +207,11 @@
 	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
 	icon_state = "zeng_gloves"
 	item_state = "zeng_gloves"
+
+/obj/item/clothing/gloves/kala
+	name = "skrell gloves"
+	desc = "A sleek pair of gloves! They seem to be retaining moisture."
+	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon_state = "kala_gloves"
+	item_state = "kala_gloves"
+	contained_sprite = TRUE
