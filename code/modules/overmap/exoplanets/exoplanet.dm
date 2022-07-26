@@ -165,10 +165,11 @@
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
-	var/list/grasscolors = plant_colors.Copy()
-	grasscolors -= "RANDOM"
-	if(length(grasscolors))
-		grass_color = pick(grasscolors)
+	if(plant_colors)
+		var/list/grasscolors = plant_colors.Copy()
+		grasscolors -= "RANDOM"
+		if(length(grasscolors))
+			grass_color = pick(grasscolors)
 
 	for(var/datum/exoplanet_theme/T as anything in themes)
 		T.before_map_generation(src)
