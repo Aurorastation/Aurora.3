@@ -9,7 +9,7 @@
 	var/datum/vampire/vampire = vampire_power(0, 0)
 	vampire.stealth = !vampire.stealth
 	if(vampire.stealth)
-		to_chat(src, SPAN_NOTICE("Your victims will now forget your interactions, and get paralyzed when you do them. After feeding on them, you can also tell them what to believe what happened to them."))
+		to_chat(src, SPAN_NOTICE("Your victims will now forget your interactions and become paralyzed. After feeding on them, you can tell them what they should believe happened to them."))
 	else
 		to_chat(src, SPAN_NOTICE("Your victims will now remember your interactions."))
 
