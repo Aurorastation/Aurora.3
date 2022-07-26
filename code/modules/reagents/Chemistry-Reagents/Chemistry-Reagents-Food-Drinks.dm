@@ -337,7 +337,7 @@
 	color = "#410083"
 	taste_description = "grapes"
 	condiment_name = "Grape Jelly"
-	condiment_desc = "A jar of jelly derived from grapes. Superior to Cherry Jelly."
+	condiment_desc = "A jar of jelly derived from grapes. Superior to cherry jelly."
 	condiment_icon_state = "grapejelly"
 
 /decl/reagent/nutriment/triglyceride/oil/corn
