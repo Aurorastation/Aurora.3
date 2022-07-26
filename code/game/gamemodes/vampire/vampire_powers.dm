@@ -143,7 +143,7 @@
 
 	var/endsuckmsg = "You extract your fangs from \the [T]'s neck and stop draining them of blood."
 	if(vampire.stealth)
-		endsuckmsg += " They will only remember about this encounter what you tell them now. If you don't tell them now, then they will forget the previous few minutes entirely, all provided they survived."
+		endsuckmsg += " They will only remember about this encounter by what you tell them now. If you don't tell them anything, then they will forget the previous few minutes entirely, provided they survived."
 	visible_message(SPAN_DANGER("[src] stops biting \the [T]'s neck!"), SPAN_NOTICE(endsuckmsg))
 	if(target_aware)
 		T.paralysis = 0
