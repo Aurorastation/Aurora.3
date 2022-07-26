@@ -25,7 +25,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 		var/mutable_appearance/space = new /mutable_appearance(/turf/space)
 		space.name = "space"
 		space.plane = PLANE_SPACE_BACKGROUND
-		space.icon_state = "white2"
+		space.icon_state = "white"
 		space.overlays += dust
 		space_appearance_cache[i + 1] = space.appearance
 
