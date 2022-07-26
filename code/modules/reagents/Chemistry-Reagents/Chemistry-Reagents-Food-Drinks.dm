@@ -4935,7 +4935,7 @@
 	color = "#f9ab28"
 	taste_description = "gooey pumpkin"
 	condiment_name = "Pumpkin Pulp Jar"
-	condiment_desc = "An orange jar with a picture of a Pumpkin on its label. Spooky."
+	condiment_desc = "An orange jar with a picture of a pumpkin on its label. Spooky."
 	condiment_icon_state = "pumpkinpulp"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
