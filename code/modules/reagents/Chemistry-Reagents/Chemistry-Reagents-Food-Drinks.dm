@@ -4946,7 +4946,7 @@
 	taste_description = "autumn bliss"
 	condiment_name = "bottle of pumpkin spice"
 	condiment_name = "Pumpkin Spice"
-	condiment_desc = "Every teenage girl's favorite seasonal ingredient."
+	condiment_desc = "Every teenager's favorite seasonal ingredient."
 	condiment_icon_state = "pumpkinspice"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
