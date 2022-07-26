@@ -15520,10 +15520,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
-"mBc" = (
-/obj/machinery/atmospherics/pipe/zpipe/up/black,
-/turf/space/dynamic,
-/area/horizon/exterior)
 "mBx" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
@@ -26966,7 +26962,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6
 	},
-/obj/machinery/atmospherics/mains_pipe/split/supply/hidden,
 /turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
 "vZK" = (
@@ -51060,7 +51055,7 @@ wEY
 wEY
 pYB
 wEY
-mBc
+wEY
 wEY
 pYB
 wUo
