@@ -265,10 +265,8 @@
 	modifystate = "energystun"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="energystun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/midlaser/skrell, modifystate="energykill", fire_sound='sound/weapons/laser1.ogg')
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/midlaser/skrell, fire_sound='sound/weapons/laser1.ogg')
 		)
 
 	has_item_ratio = FALSE
-
-/obj/item/gun/energy/gun/qukala/update_icon()
