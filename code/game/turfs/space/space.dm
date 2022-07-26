@@ -15,6 +15,7 @@
 	is_hole = TRUE
 
 	permit_ao = FALSE
+	z_eventually_space = TRUE
 	var/use_space_appearance = TRUE
 	var/use_starlight = TRUE
 
@@ -44,6 +45,14 @@
 		luminosity = 1
 
 	return INITIALIZE_HINT_NORMAL
+
+/turf/space/Destroy()
+	// Cleanup cached z_eventually_space values above us.
+	if (above)
+		var/turf/T = src
+		while ((T = GetAbove(T)))
+			T.z_eventually_space = FALSE
+	return ..()
 
 /turf/space/is_space()
 	return 1

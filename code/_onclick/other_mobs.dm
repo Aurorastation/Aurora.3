@@ -45,10 +45,6 @@
 /mob/living/carbon/human/RangedAttack(var/atom/A)
 	var/obj/item/clothing/gloves/GV = gloves
 	var/obj/item/clothing/glasses/GS = glasses
-
-	//Climbing up open spaces
-	if((istype(A, /turf/simulated/floor) || istype(A, /turf/unsimulated/floor) || istype(A, /obj/structure/lattice) && isturf(loc) && bound_overlay && !is_physically_disabled())) //Climbing through openspace
-		return climb(A)
 	
 	if(istype(GS) && GS.Look(A,src,0)) // for goggles
 		return
