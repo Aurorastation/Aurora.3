@@ -13436,7 +13436,6 @@
 "kKz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "kLb" = (
