@@ -90,6 +90,7 @@
 
 /obj/item/melee/telebaton/attack(mob/target, mob/living/user, var/target_zone)
 	if(on)
+		do_special_effects(target)
 		if(user.is_clumsy() && prob(50))
 			to_chat(user, SPAN_WARNING("You club yourself over the head."))
 			user.Weaken(3 * force)
@@ -103,7 +104,6 @@
 			if(ishuman(target))
 				var/mob/living/carbon/human/T = target
 				T.apply_damage(40, PAIN, target_zone)
-				do_special_effects(T)
 		return
 	return ..()
 
@@ -117,5 +117,4 @@
 	contained_sprite = TRUE
 
 /obj/item/melee/telebaton/nlom/do_special_effects(var/mob/living/carbon/human/H)
-	var/turf/T = get_turf(H)
-	spark(T, 5)
+	spark(H, 5)

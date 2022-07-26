@@ -69,8 +69,10 @@
 /obj/item/clothing/head/helmet/space/void/kala
 	name = "qukala voidsuit helmet"
 	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Jargon Federation emblem on it."
+	icon = 'icons/clothing/kit/skrell_armor.dmi'
 	icon_state = "kala_helm"
 	item_state = "kala_helm"
+	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_RIFLE,
@@ -80,18 +82,19 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
 	)
+	species_restricted = list(BODYTYPE_SKRELL)
 
 /obj/item/clothing/suit/space/void/kala/med
 	name = "qukala medical voidsuit"
 	desc = "A sleek skrell voidsuit that slightly shimmers as it moves. This one has a Jargon Federation emblem on it. This one belongs to a Qukala medic."
 	icon_state = "kala_med"
-	icon_state = "kala_med"
+	item_state = "kala_med"
 
-/obj/item/clothing/head/helmet/space/void/med
+/obj/item/clothing/head/helmet/space/void/kala/med
 	name = "qukala medical voidsuit helmet"
 	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Jargon Federation emblem on it. This one belongs to a Qukala medic."
-	icon_state = "kala_med_helm"
-	item_state = "kala_med_helm"
+	icon_state = "kala_helm_med"
+	item_state = "kala_helm_med"
 
 /obj/item/clothing/suit/space/void/kala/leader
 	name = "qukala leader voidsuit"
@@ -99,7 +102,7 @@
 	icon_state = "kala_leader"
 	item_state = "kala_leader"
 
-/obj/item/clothing/head/helmet/space/void/leader
+/obj/item/clothing/head/helmet/space/void/kala/leader
 	name = "qukala leader voidsuit helmet"
 	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Jargon Federation emblem on it. This one belongs to a Qukala leader."
 	icon_state = "kala_leader_helm"
@@ -111,11 +114,11 @@
 	icon_state = "kala_eng"
 	item_state = "kala_eng"
 
-/obj/item/clothing/head/helmet/space/void/engineering
+/obj/item/clothing/head/helmet/space/void/kala/engineering
 	name = "qukala engineer voidsuit helmet"
 	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Jargon Federation emblem on it. This one belongs to a Qukala engineer."
-	icon_state = "kala_eng"
-	item_state = "kala_eng"
+	icon_state = "kala_helm_eng"
+	item_state = "kala_helm_eng"
 
 /obj/item/clothing/suit/space/void/pra
 	name = "kosmostrelki voidsuit"
