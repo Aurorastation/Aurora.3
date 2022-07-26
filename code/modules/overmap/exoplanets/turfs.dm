@@ -165,6 +165,12 @@
 	. = ..()
 	icon_state = "desert[rand(0,4)]"
 
+/turf/simulated/floor/exoplanet/mineral
+	name = "sand"
+	desc = "It's coarse and gets everywhere."
+	dirt_color = "#544c31"
+	footstep_sound = /decl/sound_category/sand_footstep
+
 //Concrete
 /turf/simulated/floor/exoplanet/concrete
 	name = "concrete"

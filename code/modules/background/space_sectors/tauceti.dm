@@ -5,7 +5,7 @@
 	the Sol Alliance over the loss of such a wealthy system, while Nanotrasen continues to have a heavy hand in all levels of Tau Ceti."
 	cargo_price_coef = list("nt" = 0.8, "hpi" = 0.8, "zhu" = 0.8, "een" = 1, "get" = 0.8, "arz" = 1, "blm" = 1,
 								"iac" = 1, "zsc" = 1, "vfc" = 1, "bis" = 0,8, "xmg" = 0.8, "npi" = 0.8)
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid)
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid)
 
 /datum/space_sector/romanovich
 	name = SECTOR_ROMANOVICH

@@ -3,7 +3,7 @@
 	description = "The Badlands are home to some of the Orion Spur's most savage flora and fauna, a phenomenon that attracts only the wildest and wisest of the system's inhabitants - xenobiologists, \
 	weapon scientists, there's even a market for mercenaries, in the hunting of the particularly large and lethal creatures. Of course, there are also those looking to make a life for themselves, \
 	but natives aren't known to treat settlements kindly."
-	list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/gove)
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/gove)
 
 /datum/space_sector/valley_hale
 	name = SECTOR_VALLEY_HALE

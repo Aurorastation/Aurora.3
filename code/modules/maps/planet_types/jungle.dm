@@ -6,6 +6,7 @@
 	grass_color = null
 	plant_colors = null
 	map_generators = list(/datum/random_map/noise/exoplanet/grass/grove)
+	possible_themes = list(/datum/exoplanet_theme/mountains/breathable)
 
 /area/exoplanet/grass/grove
 	base_turf = /turf/simulated/floor/exoplanet/grass/grove
@@ -22,6 +23,8 @@
 /datum/random_map/noise/exoplanet/grass/grove/get_additional_spawns(var/value, var/turf/T)
 	..()
 	if(istype(T, water_type))
+		return
+	if(T.density)
 		return
 	var/val = min(10,max(0,round((value/cell_range)*10)))
 	if(isnull(val)) val = 0
