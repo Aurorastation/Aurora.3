@@ -35,7 +35,7 @@
 /datum/outfit/job/representative/consular/ceti
 	name = "Tau Ceti Consular Officer"
 
-	uniform = /obj/item/clothing/under/lawyer/blue
+	uniform = /obj/item/clothing/under/suit_jacket/navy
 	accessory = /obj/item/clothing/accessory/tc_pin
 	backpack_contents = list(
 		/obj/item/storage/box/ceti_visa = 1,

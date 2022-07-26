@@ -2054,7 +2054,7 @@
 	glass_center_of_mass = list("x"=17, "y"=6)
 
 /decl/reagent/drink/space_cola
-	name = "Space Cola"
+	name = "Comet Cola"
 	description = "A refreshing beverage."
 	reagent_state = LIQUID
 	color = "#100800"
@@ -2063,13 +2063,13 @@
 	carbonated = TRUE
 
 	glass_icon_state  = "spacecola"
-	glass_name = "glass of Space Cola"
-	glass_desc = "A glass of refreshing Space Cola"
+	glass_name = "glass of Comet Cola"
+	glass_desc = "A glass of refreshing Comet Cola"
 	glass_center_of_mass = list("x"=17, "y"=6)
 
 /decl/reagent/drink/spacemountainwind
-	name = "Mountain Wind"
-	description = "Blows right through you like a space wind."
+	name = "Stellar Jolt"
+	description = "For those who have a stronger need for caffeine than they have sense."
 	color = "#a2ff8d"
 	adj_drowsy = -7
 	adj_sleepy = -1
@@ -2077,8 +2077,8 @@
 	carbonated = TRUE
 
 	glass_icon_state = "Space_mountain_wind_glass"
-	glass_name = "glass of Space Mountain Wind"
-	glass_desc = "Space Mountain Wind. As you know, there are no mountains in space, only wind."
+	glass_name = "glass of Stellar Jolt"
+	glass_desc = "Stellar Jolt. Lemony and full of sugar."
 
 /decl/reagent/drink/dr_gibb
 	name = "Dr. Gibb"
@@ -2093,27 +2093,27 @@
 	glass_desc = "Dr. Gibb. Not as dangerous as the name might imply."
 
 /decl/reagent/drink/root_beer
-	name = "RnD Root Beer"
-	description = "A classic Earth drink from the United Americas province."
+	name = "Getmore Root Beer"
+	description = "A classic Earth drink, made from various roots."
 	color = "#211100"
 	adj_drowsy = -6
 	taste_description = "sassafras and anise soda"
 	carbonated = TRUE
 
 	glass_icon_state = "root_beer_glass"
-	glass_name = "glass of RnD Root Beer"
-	glass_desc = "A glass of bubbly RnD Root Beer."
+	glass_name = "glass of Getmore Root Beer"
+	glass_desc = "A glass of bubbly Getmore Root Beer."
 
 /decl/reagent/drink/spaceup
-	name = "Space-Up"
+	name = "Vacuum Fizz"
 	description = "Tastes like a hull breach in your mouth."
 	color = "#aee5e4"
 	taste_description = "a hull breach"
 	carbonated = TRUE
 
 	glass_icon_state = "space-up_glass"
-	glass_name = "glass of Space-up"
-	glass_desc = "Space-up. It helps keep your cool."
+	glass_name = "glass of Vacuum Fizz"
+	glass_desc = "Vacuum Fizz. It helps keep your cool."
 
 /decl/reagent/drink/lemon_lime
 	name = "Lemon Lime"
@@ -5186,14 +5186,14 @@
 
 /decl/reagent/drink/diet_cola
 	name = "Diet Cola"
-	description = "Space Cola! Now in diet!"
+	description = "Comet cola! Now in diet!"
 	color = "#100800"
 	taste_description = "cola and less calories"
 	carbonated = TRUE
 
 	glass_icon_state = "spacecola"
 	glass_name = "glass of diet cola"
-	glass_desc = "Space Cola! Now in diet!"
+	glass_desc = "Comet cola! Now in diet!"
 
 /decl/reagent/drink/milk/chocolate
 	name = "Chocolate milk"

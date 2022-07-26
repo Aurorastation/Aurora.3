@@ -175,6 +175,7 @@
 	new /obj/item/storage/box/ssmd(src)
 	new /obj/item/storage/box/spg(src)
 	new /obj/item/storage/box/mrsp(src)
+	new /obj/item/storage/box/sfa(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/sol_single/fill()
 	new /obj/item/clothing/under/rank/sol/marine(src)
@@ -191,6 +192,7 @@
 	new /obj/item/storage/box/ssmd(src)
 	new /obj/item/storage/box/spg(src)
 	new /obj/item/storage/box/mrsp(src)
+	new /obj/item/storage/box/sfa(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/syndicate_softsuits
 	req_access = list()

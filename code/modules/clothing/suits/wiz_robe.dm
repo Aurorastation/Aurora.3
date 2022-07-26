@@ -19,11 +19,6 @@
 	icon_state = "wizard-fake"
 	body_parts_covered = HEAD|FACE
 
-/obj/item/clothing/head/wizard/marisa
-	name = "witch Hat"
-	desc = "Strange-looking hat-wear, makes you want to cast fireballs."
-	icon_state = "marisa"
-
 /obj/item/clothing/head/wizard/magus
 	name = "magus Helm"
 	desc = "A mysterious helmet that hums with an unearthly power"
@@ -67,12 +62,6 @@
 	icon_state = "redwizard"
 	item_state = "redwizrobe"
 
-/obj/item/clothing/suit/wizrobe/marisa
-	name = "witch robe"
-	desc = "Magic is all about the spell power, ZE!"
-	icon_state = "marisa"
-	item_state = "marisarobe"
-
 /obj/item/clothing/suit/wizrobe/magusblue
 	name = "magus robe"
 	desc = "A set of armored robes that seem to radiate a dark power"
@@ -109,18 +98,6 @@
 	desc = "A rather dull, blue robe meant to mimick real wizard robes."
 	icon_state = "wizard-fake"
 	item_state = "wizrobe"
-
-/obj/item/clothing/head/wizard/marisa/fake
-	name = "witch hat"
-	desc = "Strange-looking hat-wear, makes you want to cast fireballs."
-	icon_state = "marisa"
-
-/obj/item/clothing/suit/wizrobe/marisa/fake
-	name = "witch robe"
-	desc = "Magic is all about the spell power, ZE!"
-	icon_state = "marisa"
-	item_state = "marisarobe"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 
 //black robes
 
