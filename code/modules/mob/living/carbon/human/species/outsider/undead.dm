@@ -166,7 +166,7 @@
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/claws/strong/zombie)
 	darksight = 8
 
-	slowdown 0.5
+	slowdown = 0.5
 
 	has_fine_manipulation = FALSE
 
