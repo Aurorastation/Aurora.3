@@ -12,7 +12,9 @@
 	ic_name = "a meteor storm"
 
 /datum/event/meteor_wave/get_skybox_image()
-	return overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
+	var/image/res = overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
+	res.blend_mode = BLEND_OVERLAY
+	return res
 
 /datum/event/meteor_wave/setup()
 	waves = 0

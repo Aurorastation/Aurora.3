@@ -25,7 +25,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 		var/mutable_appearance/space = new /mutable_appearance(/turf/space)
 		space.name = "space"
 		space.plane = PLANE_SPACE_BACKGROUND
-		space.icon_state = "white2"
+		space.icon_state = "white"
 		space.overlays += dust
 		space_appearance_cache[i + 1] = space.appearance
 
@@ -51,6 +51,7 @@ var/datum/controller/subsystem/skybox/SSskybox
 
 /datum/controller/subsystem/skybox/proc/generate_skybox(z)
 	var/image/res = image(skybox_icon)
+	res.appearance_flags = KEEP_TOGETHER
 
 	var/sector_icon = SSatlas.current_sector.skybox_icon
 	var/image/base = overlay_image(skybox_icon, sector_icon, background_color)
@@ -74,7 +75,8 @@ var/datum/controller/subsystem/skybox/SSskybox
 
 	for(var/datum/event/E in SSevents.active_events)
 		if(E.has_skybox_image && E.isRunning && (z in E.affecting_z))
-			res.overlays += E.get_skybox_image()
+			var/image/skybox_effect = E.get_skybox_image()
+			res.overlays += skybox_effect
 
 	return res
 

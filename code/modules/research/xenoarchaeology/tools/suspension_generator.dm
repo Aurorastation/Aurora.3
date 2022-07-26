@@ -218,7 +218,7 @@
 	underlays.Cut()
 	var/turf/T = get_turf(src)
 	if(T.density)
-		icon_state = "shieldsparkles"
+		icon_state = "shield_normal"
 	else
 		icon_state = "shield2"
 	if(length(contents))
