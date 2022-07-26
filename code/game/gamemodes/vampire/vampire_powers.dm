@@ -150,7 +150,7 @@
 		T.stunned = 0
 		if(T.stat != DEAD)
 			if(vampire.stealth)
-				to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember nothing about being fed upon. Instead, you simply remember whatever [src] told you after it was over. If you heard nothing, then you forgot the entire ordeal and the few minutes leading up to it."))
+				to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember nothing about being fed upon. Instead, you remember whatever \the [src] told you after it was over. If \the [src] said nothing, then you have forgotten the entire interaction and the few minutes leading up to it."))
 			else
 				to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember everything about being fed upon. How you react to [src]'s actions is up to you."))
 
