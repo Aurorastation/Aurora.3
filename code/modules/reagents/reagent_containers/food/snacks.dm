@@ -505,15 +505,15 @@
 	. = ..()
 	reagents.add_reagent(/decl/reagent/nutriment, 9)
 	reagents.add_reagent(/decl/reagent/nutriment/protein, 4)
-	var/flavor = pick(proteinbar_flavors)
-	var/flavor_type = proteinbar_flavors[flavor]
-	var/count = length(flavor_type)
+	var/list/decl_flavors = decls_repository.get_decls_of_subtype(/decl/proteinbar_flavor)
+	var/decl/proteinbar_flavor/PB = decls_repository.get_decl(pick(decl_flavors))
+	name = "[PB.name] [name]"
+	var/count = length(PB.reagents)
 	if(count)
-		for(var/type in flavor_type)
+		for(var/type in PB.reagents)
 			reagents.add_reagent(type, round(4 / count, 0.1))
 	else
-		reagents.add_reagent(flavor_type, 4)
-	name = "[flavor] [name]"
+		reagents.add_reagent(PB.reagents, 4)
 
 /obj/item/reagent_containers/food/snacks/candy_corn
 	name = "candy corn"

@@ -89,45 +89,6 @@ var/global/list/cloaking_devices = list()
 //Hearing sensitive listening in closely
 var/global/list/intent_listener = list()
 
-// Food
-var/global/list/proteinbar_flavors = list( // we should probably update
-	"apple 'n pear" = list(
-		/decl/reagent/drink/applejuice,
-		/decl/reagent/drink/pearjuice
-	),
-	"banana nut" = /decl/reagent/drink/banana,
-	"cappuccino" = list(
-		/decl/reagent/drink/coffee,
-		/decl/reagent/drink/milk
-	),
-	"casual cupcake" = list(
-		/decl/reagent/nutriment/sprinkles,
-		/decl/reagent/nutriment/coating/batter
-	),
-	"chipper cherry" = /decl/reagent/nutriment/cherryjelly,
-	"choco-lite" = /decl/reagent/nutriment/coco,
-	"citrus blast" = list(
-		/decl/reagent/drink/lemonjuice,
-		/decl/reagent/drink/limejuice,
-		/decl/reagent/drink/orangejuice
-	),
-	"classic caramel" = /decl/reagent/sugar,
-	"delicate denton" = /decl/reagent/drink/milk/soymilk,
-	"hearty herbal" = list(
-		/decl/reagent/drink/garlicjuice,
-		/decl/reagent/drink/onionjuice
-	),
-	"honey buns" = list(
-		/decl/reagent/nutriment/honey,
-		/decl/reagent/drink/grapejuice
-	),
-	"powerful peppermint" = /decl/reagent/nutriment/mint,
-	"magical melons" = list(
-		/decl/reagent/drink/watermelonjuice
-	),
-	"mixed berry" = /decl/reagent/drink/berryjuice
-	)
-
 //////////////////////////
 /////Initial Building/////
 //////////////////////////

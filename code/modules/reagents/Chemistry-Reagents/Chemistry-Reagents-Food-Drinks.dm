@@ -219,7 +219,7 @@
 	name = "Animal Protein"
 	color = "#440000"
 	blood_factor = 3
-	taste_description = "meat"
+	taste_description = "some sort of protein"
 
 /decl/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
