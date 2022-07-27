@@ -144,7 +144,7 @@
 	name = "The Hive"
 	icon_state = "The Hive"
 	desc = "A wildly known, high class eridanian cocktail bar chain."
-	desc_fluff = "The Hive, known for its expensive and extravagant drinks, this bar chain is known as the place to be with your suit friends, when visiting Epsilon Eridani."
+	desc_fluff = "The Hive, known for its expensive and extravagant drinks, this bar chain is known as the place to be with your suit friends, when visiting Eridani I."
 /decl/sign/double/bar/mead_bay
 	name = "Mead Bay"
 	icon_state = "Mead Bay"
@@ -178,8 +178,13 @@
 /decl/sign/double/kitchen/paradise_sands
 	name = "Paradise Sands"
 	icon_state = "Paradise Sands"
-	desc = "A take on the sign of one of Silversun's most popular cafe & bistro."
-	desc_fluff = "Paradise Sands is the name of one of the most popular Cafe & Bistro place on all of Silversun. Located in a seculuded cove, you can brunch, drink and swim at a beach with white sand and a deep, azure ocean. Simply a paradise."
+	desc = "A take on the sign of one of Silversun's most popular cafe & bistro, owned by Idris Incorporated."
+	desc_fluff = "Paradise Sands is the name of one of the most popular Cafe & Bistro places on all of Silversun. Located in a seculuded cove, you can brunch, drink and swim at a beach with white sand and a deep, azure ocean. Simply a paradise."
+/decl/sign/double/kitchen/paradise_sands
+	name = "City Alive"
+	icon_state = "City Alive"
+	desc = "City Alive is another popular discotheque chain, originating from Eridani I. It is famous for it's light shows."
+	desc_fluff = "City Alive is a nightclub chain, dotted all over Eridani I and III. Especially on Eridani I they are famous for their light shows. These lights look like pulsating veins, making the city seem alive, when spectated from orbit."
 
 /obj/structure/sign/double/barsign/proc/get_sign_choices()
 	var/list/sign_choices = decls_repository.get_decls_of_subtype(choice_types)
