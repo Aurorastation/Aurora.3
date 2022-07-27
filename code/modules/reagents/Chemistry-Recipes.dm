@@ -3599,10 +3599,10 @@
 	required_reagents = list(/decl/reagent/drink/tea/securitea = 1, /decl/reagent/alcohol/whiskey = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/drink/cloudyoran
+/datum/chemical_reaction/drink/cloudyeridani
 	name = "Cloudy Eridani"
-	id = "cloudyoran"
-	result = /decl/reagent/alcohol/cloudyoran
+	id = "cloudyeridani"
+	result = /decl/reagent/alcohol/cloudyeridani
 	required_reagents = list(/decl/reagent/alcohol/sake = 1, /decl/reagent/drink/tea/greentea = 1, /decl/reagent/drink/milk/soymilk = 1)
 	result_amount = 3
 

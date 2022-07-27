@@ -233,7 +233,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/fireball
 	name = "Delta Cephei Cinnamon Fireball"
 	desc = "An okayish single-malt whiskey, infused with cinnamon and hot pepper that used to be mainly produced on Mars, but the production line was since moved to Earth for geopolitical reasons. \
-			It is sometimes claimed that particularly desperate Eridanian dregs came up with the current recipe for this drink."
+	It is sometimes claimed that particularly desperate Eridanian dregs came up with the current recipe for this drink."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "whiskeybottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -259,7 +259,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/tequila
 	name = "Nathan's Guaranteed Quality tequila"
 	desc = "Made from premium petroleum distillates, pure thalidomide and other fine quality ingredients! This particular line of tequila has Nathan Trasen's signature on the label and his approval, \
-	as can be commonly seen and heard in Getmore's many TV advertisements for this line. Astute observers may however note the absolute lack of emotion on Trasen's face while reciting his love for Getmore tequila on television."
+	as can be commonly seen and heard in Getmore's many advertisements for this line. Astute observers may however note the absolute lack of emotion on Trasen's face while reciting his love for Getmore tequila on television."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "tequilabottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -284,7 +284,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/champagne
 	name = "Silverport's Bubbliest champagne"
 	desc = "A rather fancy bottle of champagne, fit for collecting and storing in a cellar for decades. This champagne is an absolute mainstay on Venus, used everywhere from appetizers to celebrations to \
-	cocktail creation, where it shines the most. If you haven't got a bottle of Silverport's Bubbliest in your fridge, are you <i>really</i> a Cytherean? Television advertisements say no!"
+	cocktail creation, where it shines the most. If you haven't got a bottle of Silverport's Bubbliest in your fridge, are you <i>really</i> a Cytherean? The advertisements for this line say no!"
 	desc_fluff = DRINK_FLUFF_SILVERPORT
 	icon_state = "champagnebottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -301,7 +301,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/patron
 	name = "Cytherea Artiste patron"
 	desc = "Silver laced tequila, served in space night clubs across the galaxy. It's among some of the most expensive Silverport Quality Brand products, \
-			perhaps due to demand rather than the actual cost of production."
+	perhaps due to demand rather than the actual cost of production."
 	desc_fluff = DRINK_FLUFF_SILVERPORT
 	icon_state = "patronbottle"
 	center_of_mass = list("x"=16, "y"=7)
@@ -310,8 +310,8 @@
 /obj/item/reagent_containers/food/drinks/bottle/rum
 	name = "Undirstader Broeckhouser rum"
 	desc = "If Getmore gets any alcohol right, it's certainly rum, according to (most) New Gibsoners (only Ovanstaders were polled)! This is <b>real</b>, <i><b>GENUINE</b></i> Undirstader rum, made using <b>OLD WORLD</b> recipes! The most authentic \
-	Undirstader drink in Getmore's wide arsenal! Or so the television ads say. Undirstader critics often point to this rum as a corporate mockery of their culture, yet it remains the most \
-	popular Getmore product in New Gibson's Ovarstads by far, and most people simply know it as a famous Undirstader drink produced by Getmore."
+	Undirstader drink in Getmore's wide arsenal! Or so the advertisements say. Undirstader critics often point to this rum as a corporate mockery of their culture, yet it remains the most \
+	popular Getmore product in New Gibson's Ovanstads by far, and most people simply know it as a famous Undirstader drink produced by Getmore."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "rumbottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -328,7 +328,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/vermouth
 	name = "Xinghua vermouth"
 	desc = "Sweet, sweet dryness. Some alcohol critics say that the addition of dyn to the recipe ruins the drink, \
-			but the average consumer doesn't really notice the difference, and it's cheaper to manufacture."
+	but the average consumer doesn't really notice the difference, and it's cheaper to manufacture."
 	desc_fluff = DRINK_FLUFF_ZENGHU
 	icon_state = "vermouthbottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -471,7 +471,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/small/beer
 	name = "Virklunder beer"
-	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in the Ovarstad of \
+	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in the Ovanstad of \
 	Virklund in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel and has since been in stock in practically every bar across the nation."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "beer"
