@@ -81,6 +81,7 @@
 #include "code\__defines\dcs\flags.dm"
 #include "code\__defines\dcs\helpers.dm"
 #include "code\__defines\dcs\signals.dm"
+#include "code\_global_vars\edible.dm"
 #include "code\_helpers\_global_objects.dm"
 #include "code\_helpers\_string_lists.dm"
 #include "code\_helpers\area_movement.dm"
