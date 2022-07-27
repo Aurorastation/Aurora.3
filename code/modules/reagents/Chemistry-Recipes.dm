@@ -3600,7 +3600,7 @@
 	result_amount = 2
 
 /datum/chemical_reaction/drink/cloudyoran
-	name = "Cloudy Oran"
+	name = "Cloudy Eridani"
 	id = "cloudyoran"
 	result = /decl/reagent/alcohol/cloudyoran
 	required_reagents = list(/decl/reagent/alcohol/sake = 1, /decl/reagent/drink/tea/greentea = 1, /decl/reagent/drink/milk/soymilk = 1)

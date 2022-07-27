@@ -2522,14 +2522,14 @@
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 /decl/reagent/alcohol/cloudyoran
-	name = "Cloudy Oran"
+	name = "Cloudy Eridani"
 	description = "Reminds Suits of home. Dregs, not so much."
 	color = "#F6F6F6"
 	strength = 15
 	taste_description = "soy milk putting on airs"
 
 	glass_icon_state = "cloudyoranglass"
-	glass_name = "glass of Cloudy Oran"
+	glass_name = "glass of Cloudy Eridani"
 	glass_desc = "A frothy white beverage. Reminds Suits of home. Dregs, not so much."
 	glass_center_of_mass = list("x"=16, "y"=5)
 
