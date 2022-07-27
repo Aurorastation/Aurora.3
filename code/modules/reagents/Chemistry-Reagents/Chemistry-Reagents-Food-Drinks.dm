@@ -158,7 +158,6 @@
 
 /decl/reagent/nutriment/coating/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
 	. = ..()
-	to_chat(M, "Ugh, this raw [name] tastes disgusting.")
 
 /decl/reagent/nutriment/coating/digest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	var/nut_fact = holder.reagent_data[type]["cooked"] ? nutriment_factor : nutriment_factor / 2 // it's the nut fact
