@@ -308,9 +308,10 @@
 	reagents_to_add = list(/decl/reagent/alcohol/patron = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/rum
-	name = "Captain Melinda's Cuban Spiced rum"
-	desc = "If Getmore gets any alcohol right, it's certainly rum. This is as Biesellite as it gets for a drink: the recipe was actually developed in New Gibson and has since exploded in popularity \
-	across the Republic. Often held in high regard by Biesellite nationalists as well."
+	name = "Undirstader Broeckhouser rum"
+	desc = "If Getmore gets any alcohol right, it's certainly rum, according to (most) New Gibsoners (only Ovanstaders were polled)! This is <b>real</b>, <i><b>GENUINE</b></i> Undirstader rum, made using <b>OLD WORLD</b> recipes! The most authentic \
+	Undirstader drink in Getmore's wide arsenal! Or so the television ads say. Undirstader critics often point to this rum as a corporate mockery of their culture, yet it remains the most \
+	popular Getmore product in New Gibson's Ovarstads by far, and most people simply know it as a famous Undirstader drink produced by Getmore."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "rumbottle"
 	center_of_mass = list("x"=16, "y"=4)
