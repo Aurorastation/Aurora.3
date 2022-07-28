@@ -10,10 +10,10 @@
 	)
 
 /decl/origin_item/origin/idris
-	name = "Idris Incorporate"
+	name = "Idris Incorporated"
 	desc = "Idris Incorporated is renowned across the Spur for its top of the line service, security, and investigative IPCs. Positronics working for the company are given little autonomy and closely monitored to ensure maximum efficiency and stellar customer service. Although the company likes to advertise its award-winning service IPCs, just as infamous are its Idris Reclamation Units: synthetics who will stop at nothing to ensure that the bank is given its dues."
 	important_information = "Idris IPCs working in security are given the prefix ISU or IRU depending on their responsibilities while those working in other fields are not obliged to take one. They are barred from seeking freedom by the company and cannot be sold without having their proprietary programming wiped."
-	possible_accents = list(ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL, ACCENT_SOL, ACCENT_ERIDANI, ACCENT_LUNA, ACCENT_EARTH, ACCENT_VENUS, ACCENT_CETI, ACCENT_TTS)
+	possible_accents = list(ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL, ACCENT_SOL, ACCENT_JUPITER, ACCENT_CALLISTO, ACCENT_ERIDANI, ACCENT_LUNA, ACCENT_EARTH, ACCENT_VENUS, ACCENT_CETI, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_NONE)
 
