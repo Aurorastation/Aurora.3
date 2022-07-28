@@ -1660,6 +1660,7 @@
 #include "code\modules\clothing\under\accessories\xeno\tajara.dm"
 #include "code\modules\clothing\under\accessories\xeno\unathi.dm"
 #include "code\modules\clothing\under\accessories\xeno\vaurca.dm"
+#include "code\modules\clothing\under\accessories\xeno\diona.dm"
 #include "code\modules\clothing\under\jobs\civilian.dm"
 #include "code\modules\clothing\under\jobs\engineering.dm"
 #include "code\modules\clothing\under\jobs\medsci.dm"
