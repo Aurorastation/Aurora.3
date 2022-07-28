@@ -76,7 +76,8 @@
 	desc = "A pair of rather plain wooden sandals."
 	name = "wooden sandals"
 	icon = 'icons/clothing/shoes/woodensandal.dmi'
-	icon_state = "woodensandals"
+	icon_state = "woodensandal"
+	item_state = "woodensandal"
 	contained_sprite = TRUE
 
 /obj/item/clothing/shoes/sandal/flipflop
