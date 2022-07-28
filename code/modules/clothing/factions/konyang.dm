@@ -108,6 +108,14 @@
 	item_state = "konyang_belt"
 	contained_sprite = TRUE
 
+/obj/item/clothing/shoes/konyang
+	name = "gomusin"
+	desc = "A traditional pair of shoes typically worn by men."
+	icon = 'icons/clothing/shoes/konyang_gomusin.dmi'
+	icon_state = "gomusin"
+	item_state = "gomusin"
+	contained_sprite = TRUE
+
 /obj/item/clothing/under/konyangdresstraditional
 	name = "konyanger traditional dress"
 	desc = "A traditional hakama and kosode pairing worn on Konyang, usually at formal functions or by shrine maidens. This one features a pink hakama and white kosode."
