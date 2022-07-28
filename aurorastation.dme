@@ -1527,6 +1527,7 @@
 #include "code\modules\client\preference_setup\loadout\loadout_xeno\tajara.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_xeno\unathi.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_xeno\vaurca.dm"
+#include "code\modules\client\preference_setup\loadout\loadout_xeno\diona.dm"
 #include "code\modules\client\preference_setup\occupation\occupation.dm"
 #include "code\modules\client\preference_setup\origin\origin.dm"
 #include "code\modules\client\preference_setup\other\01_incidents.dm"
