@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Adds 2 Peridaxon autoinhalers to the Intrepid's, the mining shuttle's and the Medbay's stabilization locker."
+  - rscadd: "Adds 2 Pneumalin autoinhalers to the Intrepid's, the mining shuttle's and the Medbay's stabilization locker."
 
