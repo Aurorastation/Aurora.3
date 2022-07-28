@@ -84,6 +84,7 @@
 #define ACCENT_DOMINIA_HIGH "High Morozi"
 #define ACCENT_DOMINIA_VULGAR "Vulgar Morozi"
 #define ACCENT_JUPITER "Jovian"
+#define ACCENT_CALLISTO "Callistean"
 #define ACCENT_EUROPA "Europan"
 #define ACCENT_EARTH "Earther"
 #define ACCENT_NCF "Non-Coalition Frontier"
