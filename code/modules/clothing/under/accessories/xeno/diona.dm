@@ -6,3 +6,12 @@
 	and price of consumer plastics and self-powered microholograms."
 	icon_state = "passcard_sol_dionae"
 	item_state = "passcard_sol_dionae"
+	contained_sprite = TRUE
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+	badge_string = null
+
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
