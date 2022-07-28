@@ -168,7 +168,7 @@
 /datum/accent/jupiter
 	name = ACCENT_JUPITER
 	description = "The Jovian accent is an odd mish-mash of accents from Jupiter's various moons, and has heavy variation on each of the moons. On Europa, the Jovian accent often takes on traces of \
-	Tradeband due to the amount of high-income tourism, while the Castillean Jovian accent is known for the rapid, breathless pace at which it is typically spoken. Ganymede is often seen as the 'standard' \
+	Tradeband due to the amount of high-income tourism, while the Castillean Jovian accent is known for the rapid, breathless pace at which it is typically spoken. Ganymede is often seen as the standard \
 	Jovian accent, though some on Castillo vehemently believe that the Castillian accent should be considered the standard."
 	tag_icon = "jupiter"
 	text_tag = "JUP"
