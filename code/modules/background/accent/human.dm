@@ -175,7 +175,7 @@
 
 /datum/accent/callisto
 	name = ACCENT_CALLISTO
-	description = "Considered to be one of the most recognizable accents in the Sol System due to its uniquely breathless pace, the stereotypical Callistean accent has its roots in the moon’s \
+	description = "Considered to be one of the most recognizable accents in the Sol System due to its uniquely breathless pace, the stereotypical Callistean accent has its roots in the moon's \
 	port district of New Valletta. While not all Callisteans speak with the breathless pace of those from New Valletta, the district’s status as a port has led to its accent becoming the moon’s most \
 	recognized one. As a whole the Callistean accent can be easily recognized by its fast pace of speaking and seeking disregard for pauses."
 	tag_icon = "callisto"
