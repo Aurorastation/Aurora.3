@@ -151,7 +151,7 @@
 		/obj/item/device/healthanalyzer = 1
 	)
 
-/obj/item/storage/firstaid/surgery/fill()
+/obj/item/storage/firstaid/brute/fill()
 	..()
 	icon_state = pick("brute","brute2","brute3")
 
