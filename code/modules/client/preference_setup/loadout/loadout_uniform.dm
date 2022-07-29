@@ -247,7 +247,7 @@
 	description = "A selection of Dominian clothing belonging to the Diplomatic Service."
 	path = /obj/item/clothing/under/dominia/consular
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
 
 /datum/gear/uniform/dominia_consular/New()
 	..()
