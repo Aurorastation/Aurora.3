@@ -8,6 +8,7 @@
 	plant_colors = null
 	map_generators = list(/datum/random_map/noise/exoplanet/grass/grove)
 	possible_themes = list(/datum/exoplanet_theme/mountains/breathable)
+	ruin_tags_blacklist = RUIN_VOID
 
 /area/exoplanet/grass/grove
 	base_turf = /turf/simulated/floor/exoplanet/grass/grove
