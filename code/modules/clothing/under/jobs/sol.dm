@@ -18,6 +18,12 @@
 	icon_state = "marine_fatigue"
 	item_state = "marine_fatigue"
 
+/obj/item/clothing/under/rank/sol/army //regular sol army fatigues
+	name = "sol army fatigues"
+	desc = "A military uniform issued to the oft-forgotten soldiers of the Sol Alliance's Army, to be used while in the field."
+	icon_state = "army_fatigue"
+	item_state = "army_fatigue"
+
 /obj/item/clothing/under/rank/sol/service //navy personnel service uniform
 	name = "sol navy service uniform"
 	desc = "A military service uniform issued to Sol Alliance naval personnel, to be worn in environments where a utility uniform is unfitting."

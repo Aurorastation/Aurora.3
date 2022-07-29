@@ -346,7 +346,7 @@
 	item_state = "rollerbed"
 	anchored = FALSE
 	makes_rolling_sound = TRUE
-	var/base_state = "standard"
+	base_icon = "standard"
 	held_item = /obj/item/roller
 	var/obj/item/reagent_containers/beaker
 	var/obj/item/vitals_monitor/vitals
@@ -368,9 +368,9 @@
 	cut_overlays()
 	vis_contents = list()
 	if(density)
-		icon_state = "[base_state]_up"
+		icon_state = "[base_icon]_up"
 	else
-		icon_state = "[base_state]_down"
+		icon_state = "[base_icon]_down"
 	if(beaker)
 		var/image/iv = image(icon, "iv[iv_attached]")
 		var/percentage = round((beaker.reagents.total_volume / beaker.volume) * 100, 25)
@@ -518,7 +518,7 @@
 /obj/structure/bed/roller/hover
 	name = "medical hoverbed"
 	icon_state = "hover_down"
-	base_state = "hover"
+	base_icon = "hover"
 	makes_rolling_sound = FALSE
 	held_item = /obj/item/roller/hover
 	patient_shift = 6
