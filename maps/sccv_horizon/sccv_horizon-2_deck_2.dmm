@@ -1076,6 +1076,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
+/obj/item/device/paicard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "ayS" = (
@@ -1371,6 +1372,9 @@
 	dir = 8;
 	name = "Library Desk";
 	req_access = list(37)
+	},
+/obj/item/device/paicard{
+	pixel_y = 14
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
@@ -27707,6 +27711,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
+/obj/item/device/paicard,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "pgi" = (
