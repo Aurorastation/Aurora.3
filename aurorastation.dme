@@ -3137,6 +3137,8 @@
 #include "maps\away\ships\corporate_ship_ghostroles.dm"
 #include "maps\away\ships\sol.dm"
 #include "maps\away\ships\sol_ship_ghostroles.dm"
+#include "maps\away\ships\tirakqi_freighter.dm"
+#include "maps\away\ships\tirakqi_freighter_ghostroles.dm"
 #include "maps\away\ships\wildcard.dm"
 #include "maps\away\ships\wildcard_ship_ghostroles.dm"
 #include "maps\away_sites_testing\away_sites_testing.dm"
