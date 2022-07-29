@@ -1,6 +1,0 @@
-author: DreamySkrell
-
-delete-after: True
-
-changes:
-  - tweak: "Lower the max mob size that can be crushed by airlocks. Now crusher, ian, chauncey, or columbo, no longer get crushed."
