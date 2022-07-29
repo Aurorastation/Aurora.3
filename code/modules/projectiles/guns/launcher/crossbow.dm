@@ -45,7 +45,7 @@
 	icon_state = "metal-rod"
 
 /obj/item/arrow/rod/removed(mob/user)
-	if(throwforce == 10) // The rod has been superheated - we don't want it to be useable when removed from the bow.
+	if(throwforce == 20) // The rod has been superheated - we don't want it to be useable when removed from the bow.
 		to_chat(user, SPAN_WARNING("\The [src] shatters into a scattering of unusable overstressed metal shards as it leaves the crossbow."))
 		qdel(src)
 
@@ -189,13 +189,13 @@
 		return
 	if(cell.charge < 500)
 		return
-	if(bolt.throwforce >= 10)
+	if(bolt.throwforce >= 20)
 		return
 	if(!istype(bolt,/obj/item/arrow/rod))
 		return
 
 	to_chat(user, SPAN_WARNING("\The [bolt] plinks and crackles as it begins to glow red-hot."))
-	bolt.throwforce = 10
+	bolt.throwforce = 20
 	bolt.icon_state = "metal-rod-superheated"
 	cell.use(500)
 
