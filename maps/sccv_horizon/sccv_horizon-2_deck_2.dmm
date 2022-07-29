@@ -196,14 +196,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/horizon/library)
-"aeT" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
-/area/hallway/primary/central_two)
 "afe" = (
 /obj/machinery/light/small/red{
 	dir = 4
@@ -1084,6 +1076,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
+/obj/item/device/paicard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "ayS" = (
@@ -1379,6 +1372,9 @@
 	dir = 8;
 	name = "Library Desk";
 	req_access = list(37)
+	},
+/obj/item/device/paicard{
+	pixel_y = 14
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
@@ -1862,11 +1858,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aST" = (
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/spline/plain/cee{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/carpet/rubber,
 /area/hallway/primary/central_two)
 "aSV" = (
 /obj/effect/floor_decal/corner/blue{
@@ -2973,14 +2968,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/chapel/main)
-"bve" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
-/area/hallway/primary/central_two)
 "bvV" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/window/westleft{
@@ -9728,16 +9715,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
-"fsb" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
-/area/hallway/primary/central_two)
 "fsf" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -11525,6 +11502,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced,
 /area/hallway/primary/central_two)
 "glt" = (
@@ -12292,6 +12270,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/hallway/primary/central_two)
@@ -13464,14 +13445,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "hjG" = (
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_two)
 "hjI" = (
 /obj/machinery/door/firedoor,
@@ -13617,6 +13595,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/hallway/primary/central_two)
@@ -14946,6 +14927,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/hallway/primary/central_two)
@@ -16878,6 +16862,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
 /turf/simulated/floor/reinforced,
 /area/hallway/primary/central_two)
 "jgZ" = (
@@ -17507,6 +17494,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
 /turf/simulated/floor/reinforced,
 /area/hallway/primary/central_two)
 "jvL" = (
@@ -21698,7 +21688,18 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "lTn" = (
-/turf/simulated/floor/grass/alt,
+/obj/machinery/stargazer,
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/corner,
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/hallway/primary/central_two)
 "lTs" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -22089,11 +22090,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "meM" = (
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/spline/plain/cee{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/carpet/rubber,
 /area/hallway/primary/central_two)
 "mfq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -26737,11 +26737,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
 "oFp" = (
-/obj/structure/window/reinforced{
+/obj/effect/floor_decal/spline/plain/cee{
 	dir = 1
 	},
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/carpet/rubber,
 /area/hallway/primary/central_two)
 "oGm" = (
 /obj/structure/cable/green{
@@ -27712,6 +27711,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
+/obj/item/device/paicard,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "pgi" = (
@@ -34133,6 +34133,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/hallway/primary/central_two)
@@ -44916,13 +44919,8 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "ygu" = (
-/obj/structure/window/reinforced,
-/obj/structure/flora/tree/jungle/small{
-	desc = "A lush and healthy tree. A small golden plaque at its base reads its name, in plain text, Patience.";
-	name = "Patience";
-	pixel_y = 5
-	},
-/turf/simulated/floor/grass/alt,
+/obj/effect/floor_decal/spline/plain/cee,
+/turf/simulated/floor/carpet/rubber,
 /area/hallway/primary/central_two)
 "ygw" = (
 /obj/effect/floor_decal/corner/green{
@@ -67011,7 +67009,7 @@ tHk
 gkM
 hjG
 meM
-aeT
+hjG
 jgz
 gBE
 uXq
@@ -67413,9 +67411,9 @@ bVf
 ept
 pWR
 gkM
-fsb
+hjG
 aST
-bve
+hjG
 jgz
 gBE
 uXq

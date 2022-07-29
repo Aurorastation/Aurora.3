@@ -79,6 +79,13 @@
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
 
+/obj/item/melee/hammer/iscrowbar()
+	if(ismob(loc))
+		var/mob/M = loc
+		if(M.a_intent && M.a_intent == I_HURT)
+			return FALSE
+	return TRUE
+
 /obj/item/melee/hammer/ishammer()
 	return TRUE
 
