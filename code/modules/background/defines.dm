@@ -133,6 +133,7 @@
 #define ACCENT_SKRELLCOC "Coalition Skrell Standard"
 #define ACCENT_SKRELLCETI "Biesellite Skrell Standard"
 #define ACCENT_SROM "Inner Voice"
+#define ACCENT_TATTUQIG "Tattuqig"
 
 #define ACCENT_ROOTSONG "Rootsong"
 #define ACCENT_VOIDSONG "Voidsong"
