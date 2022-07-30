@@ -3539,11 +3539,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"gF" = (
-/obj/machinery/light,
-/obj/machinery/power/portgen/basic,
-/turf/simulated/floor/tiled/dark,
-/area/crew_armory)
 "gG" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -4111,6 +4106,11 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
+"hJ" = (
+/obj/machinery/light,
+/obj/machinery/power/portgen/basic,
+/turf/simulated/floor/tiled/dark,
+/area/crew_armory)
 "hK" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable/green{
@@ -4168,6 +4168,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
+"hO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "hP" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -5442,11 +5450,16 @@
 /area/tcommsat/entrance)
 "jU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "jV" = (
@@ -6001,17 +6014,6 @@
 /obj/item/folder/yellow,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
-"kS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "kT" = (
 /obj/structure/table/standard,
 /obj/item/device/hand_labeler{
@@ -12031,6 +12033,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
+"vV" = (
+/obj/structure/closet/toolcloset,
+/obj/item/wrench,
+/obj/item/screwdriver,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/crowbar/rescue_axe/red,
+/obj/item/weldingtool,
+/obj/item/clothing/head/welding,
+/turf/simulated/floor/tiled/dark,
+/area/crew_armory)
 "vW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -13398,6 +13411,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"yx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "yy" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Crew Armoury Desk";
@@ -15931,17 +15953,6 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_3)
-"Ds" = (
-/obj/structure/closet/toolcloset,
-/obj/item/wrench,
-/obj/item/screwdriver,
-/obj/item/crowbar/red,
-/obj/item/crowbar/red,
-/obj/item/crowbar/rescue_axe/red,
-/obj/item/weldingtool,
-/obj/item/clothing/head/welding,
-/turf/simulated/floor/tiled/dark,
-/area/crew_armory)
 "Dt" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/bed/stool/chair/wood{
@@ -16045,17 +16056,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/pool)
-"DD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "DE" = (
 /obj/effect/floor_decal/spline/fancy,
 /obj/machinery/computer/ship/sensors{
@@ -17396,6 +17396,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
+"Ge" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "Gf" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -20740,15 +20748,18 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "LZ" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/engineering_ladder)
 "Ma" = (
 /obj/structure/cable{
@@ -21232,6 +21243,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
+"MO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "MP" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -23975,9 +23997,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
@@ -24384,20 +24403,6 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
-"Sr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "Ss" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -52706,7 +52711,7 @@ DJ
 yt
 yt
 yt
-gF
+hJ
 DQ
 Ft
 BX
@@ -53110,7 +53115,7 @@ FN
 Ml
 Pb
 Zx
-Ds
+vV
 DQ
 OF
 ze
@@ -53513,13 +53518,13 @@ CJ
 Iy
 Os
 QM
+Ge
 LZ
 RF
-RF
-DD
+hO
+yx
 jU
-kS
-Sr
+MO
 em
 at
 at
