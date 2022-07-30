@@ -52,5 +52,5 @@ changes:
   - rscadd: "Bullets now ping off of walls, structures and machinery! Try it out. It's a cool effect. Ported from CM-SS13."
   - rscadd: "Added the Jingya A-1, a Nanotrasen burst rifle with a single shot mode and two-shot burst mode. It fires 5.56 rounds in carbine magazines. It is also available in the uplinks for 8 telecrystals. Sprites by Kyres1!"
   - rscadd: "Added the Noctiluca XM28, a Zavodskoi combat laser rifle that can switch between a normal firing mode (slightly less damage than the laser rifle, better armor piercing) and an armor piercing mode (much less damage, but extremely high armor piercing). It is available in the uplink for 8 telecrystals. Sprites by Kyres1!"
-  - rscadd: "The crew armory has received a massive buff and now contains two Noctilucas, four ballistic carbines and the old gauss carbines. It also contains more useful items in general."
+  - rscadd: "The crew armory has received a massive buff and now contains two Noctilucas, four ballistic carbines and three .45 pistols. It also contains more useful items in general."
   - rscadd: "The crew armory's weapon lockers now require either Bridge access or Armory access to open, instead of requiring only armory access."

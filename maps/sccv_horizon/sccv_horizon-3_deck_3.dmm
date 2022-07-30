@@ -1484,12 +1484,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "cM" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/engineering_ladder)
 "cN" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -1784,10 +1787,14 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "dr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "1-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -3556,6 +3563,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"gF" = (
+/obj/machinery/light,
+/obj/machinery/power/portgen/basic,
+/turf/simulated/floor/tiled/dark,
+/area/crew_armory)
 "gG" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -4123,6 +4135,14 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
+"hJ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "hK" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable/green{
@@ -4181,14 +4201,13 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "hO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/green{
-	icon_state = "0-8"
+	icon_state = "1-2"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
-	id = "cap"
-	},
-/turf/simulated/floor/tiled,
-/area/crew_quarters/captain)
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "hP" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -5891,12 +5910,9 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/storage/box/tungstenslugs,
-/obj/item/storage/box/tungstenslugs,
-/obj/item/storage/box/tungstenslugs,
-/obj/item/storage/box/tungstenslugs,
-/obj/item/storage/box/tungstenslugs,
-/obj/item/storage/box/tungstenslugs,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "kK" = (
@@ -8139,14 +8155,6 @@
 	},
 /area/bridge/controlroom)
 "oM" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Rifle)";
-	req_access = null;
-	req_one_access = list(3, 19)
-	},
-/obj/item/gun/projectile/gauss/carbine,
-/obj/item/gun/projectile/gauss/carbine,
-/obj/item/gun/projectile/gauss/carbine,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -10773,7 +10781,7 @@
 	icon_state = "0-4"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/bridge/controlroom)
 "tJ" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -12032,17 +12040,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
-"vV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/engineering_ladder)
 "vW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -12061,14 +12058,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
-"vX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "vY" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -14454,11 +14443,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
-"Ax" = (
-/obj/machinery/light,
-/obj/machinery/power/portgen/basic,
-/turf/simulated/floor/tiled/dark,
-/area/crew_armory)
 "Ay" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -16059,17 +16043,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/pool)
-"DD" = (
-/obj/structure/closet/toolcloset,
-/obj/item/wrench,
-/obj/item/screwdriver,
-/obj/item/crowbar/red,
-/obj/item/crowbar/red,
-/obj/item/crowbar/rescue_axe/red,
-/obj/item/weldingtool,
-/obj/item/clothing/head/welding,
-/turf/simulated/floor/tiled/dark,
-/area/crew_armory)
 "DE" = (
 /obj/effect/floor_decal/spline/fancy,
 /obj/machinery/computer/ship/sensors{
@@ -17422,7 +17395,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/engineering_ladder)
 "Gf" = (
 /obj/structure/railing/mapped{
@@ -21205,18 +21178,21 @@
 /area/bridge/controlroom)
 "MK" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Rifle)";
+	name = "Weaponry (Sidearm)";
 	req_access = null;
 	req_one_access = list(3, 19)
 	},
-/obj/item/gun/projectile/gauss/carbine,
-/obj/item/gun/projectile/gauss/carbine,
-/obj/item/gun/projectile/gauss/carbine,
 /obj/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "ML" = (
@@ -21249,20 +21225,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
-"MO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/engineering_ladder)
 "MP" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -21770,6 +21732,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"NN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "NO" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -24001,6 +23972,17 @@
 "RE" = (
 /turf/simulated/floor/wood,
 /area/security/vacantoffice2)
+"RF" = (
+/obj/structure/closet/toolcloset,
+/obj/item/wrench,
+/obj/item/screwdriver,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/crowbar/rescue_axe/red,
+/obj/item/weldingtool,
+/obj/item/clothing/head/welding,
+/turf/simulated/floor/tiled/dark,
+/area/crew_armory)
 "RG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -24266,19 +24248,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
-"Se" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "Sf" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -25756,7 +25725,7 @@
 	},
 /obj/structure/cable/green,
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/bridge/controlroom)
 "UV" = (
 /turf/simulated/open,
@@ -26625,7 +26594,7 @@
 	icon_state = "0-8"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/bridge/controlroom)
 "WI" = (
 /turf/simulated/wall/r_wall,
@@ -28089,6 +28058,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
+"Ze" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "Zf" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/carpet,
@@ -47527,9 +47510,9 @@ XJ
 JQ
 Vz
 JQ
-hO
+Yk
 Ta
-hO
+Yk
 JQ
 uq
 Lu
@@ -52722,7 +52705,7 @@ DJ
 yt
 yt
 yt
-Ax
+gF
 DQ
 Ft
 BX
@@ -53126,7 +53109,7 @@ FN
 Ml
 Pb
 Zx
-DD
+RF
 DQ
 OF
 ze
@@ -53529,13 +53512,13 @@ CJ
 Iy
 Os
 QM
-cM
-MO
-vV
-vX
-dr
+hJ
 Ge
-Se
+cM
+hO
+NN
+Ze
+dr
 em
 at
 at
