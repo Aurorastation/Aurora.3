@@ -12,10 +12,10 @@ var/datum/antagonist/raider/raiders
 	antaghud_indicator = "hudmutineer"
 	required_age = 10
 
-	hard_cap = 6
+	hard_cap = 5
 	hard_cap_round = 10
 	initial_spawn_req = 4
-	initial_spawn_target = 6
+	initial_spawn_target = 5
 
 	faction = "syndicate"
 

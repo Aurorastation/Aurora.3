@@ -4915,6 +4915,7 @@
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
+	condiment_name = "bottle of pumpkin spice"
 
 /decl/reagent/drink/syrup_chocolate
 	name = "Chocolate Syrup"
