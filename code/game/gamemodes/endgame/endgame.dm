@@ -78,5 +78,3 @@
 		universe = new newstate
 	if(on_enter)
 		universe.OnEnter()
-
-/datum/universal_state/proc/convert_parallax(parallax_spacemaster)
