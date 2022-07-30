@@ -408,6 +408,11 @@
 	path = /obj/item/device/destTagger
 	category = "General"
 
+/datum/autolathe/recipe/cratescanner
+	name = "crate contents scanner"
+	path = /obj/item/device/cratescanner
+	category = "General"
+
 /datum/autolathe/recipe/debugger
 	name = "debugger"
 	path = /obj/item/device/debugger

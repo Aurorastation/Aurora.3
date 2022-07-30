@@ -8520,6 +8520,12 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
+/obj/structure/table/standard{
+	no_cargo = 1
+	},
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/item/device/cratescanner,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "gGE" = (
@@ -16447,7 +16453,9 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/intrepid/cargo_bay)
 "njB" = (
-/obj/structure/bed/stool/chair/office/dark,
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "njH" = (
@@ -26031,14 +26039,20 @@
 	},
 /area/maintenance/wing/port/deck1)
 "vjx" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
 /obj/structure/table/standard{
 	no_cargo = 1
 	},
-/obj/item/paper_bin,
-/obj/item/pen,
-/obj/item/stack/packageWrap,
-/obj/item/device/destTagger,
 /obj/item/device/hand_labeler,
+/obj/item/device/destTagger,
+/obj/item/stack/packageWrap,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "vjI" = (
@@ -41153,7 +41167,7 @@ pme
 qAY
 sWr
 njB
-vjx
+nCV
 nCV
 duN
 jDs
@@ -41355,7 +41369,7 @@ jKF
 iXq
 cOy
 gGg
-gGg
+vjx
 fiO
 qYc
 pfb

@@ -31,6 +31,11 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
 	build_path = /obj/item/device/kinetic_analyzer
 
+/datum/design/item/mining/pick_set
+	req_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 1700, MATERIAL_GLASS = 200)
+	build_path = /obj/item/storage/box/excavation
+
 //Frames
 /datum/design/item/mining/ka_frame01
 	req_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)

@@ -566,7 +566,7 @@
 /obj/item/flag/jargon/l
 	name = "Large Jargon Federation flag"
 	flag_size = 1
-	
+
 /obj/structure/sign/flag/traverse
 	name = "Free Traverser flag"
 	desc = "The insignia of the Free Traversers."
@@ -880,12 +880,12 @@
 
 /obj/item/flag/diona
 	name = "Imperial Diona standard"
-	desc = "A green Dominian standard which represents the dionae within the Empire."
+	desc = "A green Dominian standard which represents the Dionae within the Empire."
 	flag_path = "diona"
 
 /obj/structure/sign/flag/diona
 	name = "Imperial Diona standard"
-	desc = "A green Dominian standard which represents the dionae within the Empire."
+	desc = "A green Dominian standard which represents the Dionae within the Empire."
 	icon_state = "diona"
 
 /obj/item/flag/strelitz
@@ -909,7 +909,7 @@
 /obj/structure/sign/flag/volvalaad
 	name = "House Volvalaad standard"
 	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
-	They are known for their Habsburgian inbreeding, reformist ideals, and scientific prowess."
+	They are known for their reformist ideals and scientific prowess."
 	icon_state = "volvalaad"
 
 /obj/item/flag/kazkhz
@@ -926,25 +926,25 @@
 
 /obj/item/flag/caladius
 	name = "House Caladius standard"
-	desc = "A purple standard which represensts House Caladius, one of the great houses of the Empire of Dominia. They are \
+	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
 	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
 	flag_path = "caladius"
 
 /obj/structure/sign/flag/caladius
 	name = "House Caladius standard"
-	desc = "A purple standard which represensts House Caladius, one of the great houses of the Empire of Dominia. They are \
+	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
 	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
 	icon_state = "caladius"
 
 /obj/item/flag/zhao
 	name = "House Zhao standard"
-	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of \
+	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of the Empire of Dominia,\
 	known for its naval officers and patronage of the Dominian shipbuilding industry."
 	flag_path = "zhao"
 
 /obj/structure/sign/flag/zhao
 	name = "House Zhao standard"
-	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of \
+	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of  the Empire of Dominia,\
 	known for its naval officers and patronage of the Dominian shipbuilding and naval industries."
 	icon_state = "zhao"
 
