@@ -13112,13 +13112,6 @@
 "gZt" = (
 /turf/simulated/floor/wood,
 /area/horizon/hydroponics/garden)
-"gZY" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
-	},
-/turf/simulated/wall,
-/area/maintenance/wing/port/far)
 "hal" = (
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /obj/machinery/button/remote/blast_door{
@@ -77735,7 +77728,7 @@ lBd
 pbM
 fuu
 fuu
-gZY
+fuu
 fuu
 agG
 kmx
