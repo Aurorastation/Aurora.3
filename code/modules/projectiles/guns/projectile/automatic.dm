@@ -340,8 +340,8 @@
 
 	burst_delay = 4
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=6),
-		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(2, 1))
+		list(mode_name="semiauto", burst=1, fire_delay=12),
+		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(1, 1))
 	)
 
 /obj/item/gun/projectile/automatic/rifle/jingya/update_icon()

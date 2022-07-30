@@ -34233,8 +34233,8 @@
 	dir = 8
 	},
 /obj/machinery/power/apc/critical{
-	pixel_y = 24;
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
@@ -36447,11 +36447,9 @@
 	},
 /obj/effect/decal/warning_stripes,
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Ballistic Carbine)"
+	name = "Weaponry (Burst Rifle)"
 	},
-/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine{
-	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
-	},
+/obj/item/gun/projectile/automatic/rifle/jingya,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "tTW" = (
@@ -43602,8 +43600,8 @@
 	},
 /obj/structure/window/borosilicate/reinforced/skrell,
 /obj/machinery/power/apc/critical{
-	pixel_y = 24;
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai)
