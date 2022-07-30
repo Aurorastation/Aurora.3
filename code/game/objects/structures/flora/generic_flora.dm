@@ -31,6 +31,22 @@
 	..()
 	icon_state = "tree_[rand(1, 6)]"
 
+/obj/structure/flora/tree/jungle/small/patience
+	layer = 3
+	density = FALSE
+	icon_state = "patiencebottom"
+
+/obj/structure/flora/tree/jungle/small/patience_top
+	pixel_y = -32
+	density = TRUE
+	icon_state = "patiencetop"
+
+/obj/structure/flora/tree/jungle/small/patience/Initialize()
+	. = ..()
+	var/turf/T = get_step(src, NORTH)
+	if(T)
+		new /obj/structure/flora/tree/jungle/small/patience_top(T)
+
 //rocks
 /obj/structure/flora/rock
 	icon_state = "basalt"
