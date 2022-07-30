@@ -159,6 +159,12 @@
 /obj/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
+"egE" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -27
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_freighter)
 "ehg" = (
 /obj/structure/table/skrell,
 /obj/random/coin,
@@ -398,6 +404,12 @@
 /area/ship/tirakqi_freighter)
 "gec" = (
 /obj/structure/closet/radiation,
+/turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"ggZ" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32
+	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "gkc" = (
@@ -953,13 +965,10 @@
 /area/shuttle/tirakqi_shuttle)
 "oge" = (
 /obj/item/clothing/head/collectable/slime,
-/obj/machinery/telecomms/allinone/ship{
-	channel_color = "#256E96";
-	channel_name = "TiRakqi"
-	},
 /obj/machinery/light/skrell{
 	dir = 1
 	},
+/obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -1173,6 +1182,12 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/south,
 /area/space)
+"tdV" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -27
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
 "tnP" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/skrell/black,
@@ -31988,8 +32003,8 @@ sBA
 qds
 hUJ
 bYX
-bYX
-bYX
+tdV
+tdV
 bYX
 vxE
 dQZ
@@ -35839,8 +35854,8 @@ dQZ
 dQZ
 bYX
 bYX
-bYX
-bYX
+ggZ
+ggZ
 eGO
 lwj
 dQZ
@@ -36602,8 +36617,8 @@ xRX
 fpQ
 fBo
 fZq
-bzd
-bzd
+egE
+egE
 bzd
 fZq
 bzd
