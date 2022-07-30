@@ -45,6 +45,7 @@ changes:
   - rscadd: "Added liquidbags and steel to merc and raider shuttles respectively."
   - rscadd: "Added a 25 liquidbag option to the Devices and Tools section of the uplink for 3 TC."
   - rscadd: "Note that the PEAC works *extremely well* on barricades! If you want a barricade buster, use the PEAC!"
+  - tweak: "The PEAC no longer destroys floors."
   - rscdel: "Removed the Call ERT option from the keycard authenticators."
   - rscadd: "Calling a distress beacon now prompts the first person to swipe for a message. This message will then pop up as a distress beacon to all other Overmap ships."
   - rscadd: "Added a distress beacon button to the cockpit of every offmap ship. It only requires one person to press it, but otherwise works just like the keycard authentication option."
