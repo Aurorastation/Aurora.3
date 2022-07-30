@@ -1039,6 +1039,12 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "short ponytail"
 
+	ponytail_short5
+		name = "Ponytail, Short 5"
+		icon_state = "hair_ponytail_short5"
+		length = 2
+		chatname = "short ponytail"
+
 	ponytail_fringetail
 		name = "Ponytail, Fringetail"
 		icon_state = "hair_ponytail_fringetail"
