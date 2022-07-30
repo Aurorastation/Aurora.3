@@ -25336,7 +25336,6 @@
 /turf/simulated/wall,
 /area/maintenance/substation/medical)
 "nRx" = (
-/obj/structure/table/standard,
 /obj/machinery/door/window{
 	base_state = "right";
 	dir = 1;
@@ -25358,7 +25357,8 @@
 	name = "Research and Development";
 	opacity = 0
 	},
-/turf/simulated/floor/tiled/white,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/research)
 "nSO" = (
 /obj/effect/floor_decal/corner/lime{
