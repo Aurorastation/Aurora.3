@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/tcfl_peacekeeper_ship
 	name = "TCFL Peacekeeper Ship"
-	description = "Serving as the very foundation of the SCC’s (And more specifically, NanoTrasen’s) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design’s interdiction counterpart - the Hydrus-class shuttle. This one’s transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
+	description = "Serving as the very foundation of the SCC's (And more specifically, NanoTrasen's) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design's interdiction counterpart - the Hydrus-class shuttle. This one's transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
 	suffix = "ships/tcfl_peacekeeper_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	spawn_weight = 1
@@ -10,7 +10,7 @@
 
 /decl/submap_archetype/tcfl_peacekeeper_ship
 	map = "TCFL Peacekeeper Ship"
-	descriptor = "Serving as the very foundation of the SCC’s (And more specifically, NanoTrasen’s) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design’s interdiction counterpart - the Hydrus-class shuttle. This one’s transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
+	descriptor = "Serving as the very foundation of the SCC's (And more specifically, NanoTrasen's) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design's interdiction counterpart - the Hydrus-class shuttle. This one's transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
 
 //areas
 /area/ship/tcfl_peacekeeper_ship
@@ -24,9 +24,9 @@
 
 /obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship
 	name = "TCFL Peacekeeper Ship"
-	desc = "Serving as the very foundation of the SCC’s (And more specifically, NanoTrasen’s) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design’s interdiction counterpart - the Hydrus-class shuttle. This one’s transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
+	desc = "Serving as the very foundation of the SCC's (And more specifically, NanoTrasen's) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design's interdiction counterpart - the Hydrus-class shuttle. This one's transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
 	icon_state = "shuttle"
-	moving_state = "shuttle_moving"	
+	moving_state = "shuttle_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -65,7 +65,7 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tcfl_shuttle
 	name = "TCFL Shuttle"
-	desc = "A large and unusually-shaped shuttle, the Hydrus-class is deceptively fast and is designed to operate out of a Cetus-class corvette’s rear hangar bay, interdicting targets that its mothership intercepts. This one’s transponder identifies it as a Tau Ceti Foreign Legion shuttle, and as a Velite-class Interceptor - the TCFL designation for this design."
+	desc = "A large and unusually-shaped shuttle, the Hydrus-class is deceptively fast and is designed to operate out of a Cetus-class corvette's rear hangar bay, interdicting targets that its mothership intercepts. This one's transponder identifies it as a Tau Ceti Foreign Legion shuttle, and as a Velite-class Interceptor - the TCFL designation for this design."
 	shuttle = "TCFL Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS

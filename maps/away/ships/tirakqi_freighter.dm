@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/tirakqi_freighter
 	name = "Ti'Rakqi Freighter"
-	description = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one’s transponder identifies it as belonging to an independent freighter."
+	description = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one's transponder identifies it as belonging to an independent freighter."
 	suffix = "ships/tirakqi_freighter.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
@@ -10,7 +10,7 @@
 
 /decl/submap_archetype/tirakqi_freighter
 	map = "Ti'Rakqi Freighter"
-	descriptor = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one’s transponder identifies it as belonging to an independent freighter."
+	descriptor = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one's transponder identifies it as belonging to an independent freighter."
 
 //areas
 /area/ship/tirakqi_freighter
@@ -24,7 +24,7 @@
 
 /obj/effect/overmap/visitable/ship/tirakqi_freighter
 	name = "Ti'Rakqi Freighter"
-	desc = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one’s transponder identifies it as belonging to an independent freighter."
+	desc = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one's transponder identifies it as belonging to an independent freighter."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	max_speed = 1/(2 SECONDS)
