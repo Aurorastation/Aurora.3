@@ -24,7 +24,7 @@
 // Copypaste of parent for performance.
 /turf/space/Initialize()
 	if(use_space_appearance)
-		appearance = SSicon_cache.space_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
+		appearance = SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
 	if(config.starlight && use_starlight)
 		update_starlight()
 
@@ -66,9 +66,9 @@
 	if(!config.starlight)
 		return
 	if(!validate) // basically a hack for places where the check was already done for us
-		set_light(1, config.starlight)
+		set_light(1, config.starlight, l_color = SSskybox.background_color)
 	else if(locate(/turf/simulated) in RANGE_TURFS(1, src))
-		set_light(1, config.starlight)
+		set_light(1, config.starlight, l_color = SSskybox.background_color)
 	else
 		set_light(0)
 
