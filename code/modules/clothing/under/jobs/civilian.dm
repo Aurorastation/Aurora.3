@@ -189,6 +189,16 @@
 	item_state = "bridge_crew"
 	contained_sprite = TRUE
 
+/obj/item/clothing/under/rank/bridge_crew/alt
+	name = "bridge crew's dress"
+	desc = "A dress that can be worn by the SCC's bridge crew."
+	desc_fluff = "Inspired by the latest Colettish fashions, the SCC finds itself making uniforms that accomodate for its Solarian personnel as it \
+	expands its influence across the CRZ and even the Sol Wildlands."
+	icon = 'icons/clothing/under/uniforms/bridge_crew_alt.dmi'
+	icon_state = "bridge_crew_alt"
+	item_state = "bridge_crew_alt"
+	contained_sprite = TRUE
+
 /obj/item/clothing/under/rank/xo
 	name = "executive officer's jumpsuit"
 	desc = "The uniform worn by the SCC's executive officers."
