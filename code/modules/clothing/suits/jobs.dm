@@ -227,81 +227,8 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "idris_warden_coat"
 	item_state = "idris_warden_coat"
 
-//Engineering
-/obj/item/clothing/suit/storage/hazardvest
-	name = "hazard vest"
-	desc = "A high-visibility vest used in work zones."
-	icon_state = "hazard"
-	item_state = "hazard"
-	blood_overlay_type = "armor"
-	allowed = list (/obj/item/device/analyzer, /obj/item/device/flashlight, /obj/item/device/multitool, /obj/item/device/pipe_painter, /obj/item/device/radio, /obj/item/device/t_scanner, \
-	/obj/item/crowbar, /obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/tank/emergency_oxygen, \
-	/obj/item/clothing/mask/gas, /obj/item/taperoll/engineering, /obj/item/storage/bag/inflatable)
-	body_parts_covered = UPPER_TORSO
-	var/opened
-
-/obj/item/clothing/suit/storage/hazardvest/verb/Toggle() //copied from storage toggle
-	set name = "Toggle Hazard Vest"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return 0
-
-	opened = !opened
-	to_chat(usr, SPAN_NOTICE("You [opened ? "unzip" : "zip"] \the [src]."))
-	playsound(src, 'sound/items/zip.ogg', EQUIP_SOUND_VOLUME, TRUE)
-	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
-	item_state = icon_state
-	update_clothing_icon()
-
-/obj/item/clothing/suit/storage/hazardvest/blue
-	name = "blue hazard vest"
-	desc = "A high-visibility vest used in work zones. This one is blue."
-	icon_state = "hazard_b"
-	item_state = "hazard_b"
-
-/obj/item/clothing/suit/storage/hazardvest/blue/atmos
-	name = "atmospheric hazard vest"
-	desc = "A high-visibility vest used in work zones. This one is used by atmospheric technicians."
-
-/obj/item/clothing/suit/storage/hazardvest/white
-	name = "white hazard vest"
-	desc = "A high-visibility vest used in work zones. This one is white."
-	icon_state = "hazard_w"
-	item_state = "hazard_w"
-
-/obj/item/clothing/suit/storage/hazardvest/green
-	name = "green hazard vest"
-	desc = "A high-visibility vest used in work zones. This one is green."
-	icon_state = "hazard_g"
-	item_state = "hazard_g"
-
-/obj/item/clothing/suit/storage/hazardvest/ce
-	name = "chief engineer's hazard vest"
-	desc = "A high-visibility vest used in work zones. This one is a green-blue color with a gold stripe."
-	icon_state = "hazard_ce"
-	item_state = "hazard_ce"
-
-/obj/item/clothing/suit/storage/iacvest // todo : make this hazard vest subtype
-	desc = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps as a high-visibility vest, over any other clothing. The I.A.C. logo is prominently  displayed on the back of the vest, between the shoulders."
-	name = "IAC vest"
-	icon_state = "iac_vest"
-	item_state = "iac_vest"
-	permeability_coefficient = 0.50
-	armor = list(
-		bio = ARMOR_BIO_MINOR
-	)
 
 //Lawyer
-/obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
-	name = "blue suit jacket"
-	desc = "A snappy dress jacket."
-	icon_state = "suitjacket_blue"
-	item_state = "suitjacket_blue"
-	blood_overlay_type = "coat"
-	body_parts_covered = UPPER_TORSO|ARMS
-	opened = TRUE
 
 /obj/item/clothing/suit/storage/lawyer/purpjacket
 	name = "purple suit jacket"

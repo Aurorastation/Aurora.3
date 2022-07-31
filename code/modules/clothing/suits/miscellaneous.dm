@@ -68,18 +68,9 @@
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
-/obj/item/clothing/suit/imperium_monk
-	name = "imperium monk"
-	desc = "Have YOU killed a xenos today?"
-	icon_state = "imperium_monk"
-	item_state = "imperium_monk"
-	body_parts_covered = HEAD|UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
-	flags_inv = HIDESHOES|HIDEJUMPSUIT
-
-
 /obj/item/clothing/suit/chickensuit
 	name = "chicken suit"
-	desc = "A suit made long ago by the ancient empire KFC."
+	desc = "A cheap rubber chicken costume."
 	icon_state = "chickensuit"
 	item_state = "chickensuit"
 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS|FEET
@@ -158,15 +149,6 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 	min_cold_protection_temperature = T0C - 20
 	siemens_coefficient = 0.75
-
-/obj/item/clothing/suit/xenos
-	name = "xenos suit"
-	desc = "A suit made out of chitinous alien hide."
-	icon_state = "xenos"
-	item_state = "xenos_helm"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-	siemens_coefficient = 1.5
 
 /obj/item/clothing/suit/golden_tailcoat
 	name = "golden tailcoat"
@@ -492,6 +474,20 @@
 	item_state = "asymmetriccoat"
 	body_parts_covered = UPPER_TORSO
 
+/obj/item/clothing/suit/storage/toggle/highloft
+	name = "high loft jacket"
+	desc = "A high loft insulated jacket intended for long hours in cold station conditions."
+	icon = 'icons/clothing/suits/highloft.dmi'
+	icon_state = "highloft"
+	item_state = "highloft"
+	worn_overlay = "over"
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	body_parts_covered = UPPER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = T0C - 20
+	siemens_coefficient = 0.75
+
 /*
  * Department Jackets
  */
@@ -502,8 +498,8 @@
 	item_state = "engi_dep_jacket"
 
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
-	name = "supply department jacket"
-	desc = "A cozy jacket in supply's colors, perfect for folding up and forgetting bounty lists."
+	name = "operations department jacket"
+	desc = "A cozy jacket in operations' colors, perfect for folding up and forgetting bounty lists."
 	icon_state = "supply_dep_jacket"
 	item_state = "supply_dep_jacket"
 

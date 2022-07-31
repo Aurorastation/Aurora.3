@@ -60,8 +60,7 @@
 #define CHAT_NOICONS    0x8000
 #define CHAT_GHOSTLOOC	0x10000
 
-#define PARALLAX_SPACE 0x1
-#define PARALLAX_DUST  0x2
+//Note that 0x1 and 0x2 are free. Use those!
 #define PROGRESS_BARS  0x4
 #define PARALLAX_IS_STATIC 0x8
 #define FLOATING_MESSAGES 0x10

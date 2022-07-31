@@ -588,7 +588,7 @@
 /area/derelict/ship)
 "bR" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/backpack/satchel_med,
+/obj/item/storage/backpack/satchel/med,
 /obj/machinery/light{
 	dir = 1
 	},

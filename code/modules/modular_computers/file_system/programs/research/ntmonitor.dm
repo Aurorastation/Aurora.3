@@ -1,7 +1,8 @@
 /datum/computer_file/program/ntnetmonitor
 	filename = "ntmonitor"
 	filedesc = "NTNet Diagnostics and Monitoring"
-	program_icon_state = "sci"
+	program_icon_state = "comm_monitor"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program monitors stationwide NTNet network, provides access to logging systems, and allows for configuration changes"
 	size = 12
 	requires_ntnet = TRUE

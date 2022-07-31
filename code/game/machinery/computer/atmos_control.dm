@@ -5,8 +5,9 @@
 /obj/machinery/computer/atmoscontrol
 	name = "\improper Central Atmospherics Computer"
 
-	icon_screen = "engi"
-	light_color = "#ffcc33"
+	icon_screen = "comm_logs"
+	icon_keyboard = "green_key"
+	light_color = LIGHT_COLOR_GREEN
 	density = 1
 	anchored = 1.0
 	circuit = /obj/item/circuitboard/atmoscontrol
@@ -17,10 +18,11 @@
 /obj/machinery/computer/atmoscontrol/laptop
 	name = "Atmospherics Laptop"
 	desc = "A cheap laptop."
-	icon_state = "medlaptop0"
-	light_color = "#00b000"
+	icon = 'icons/obj/modular_laptop.dmi'
+	icon_state = "laptop-open"
+	light_color = LIGHT_COLOR_BLUE
 
-	icon_screen = "atmoslaptop"
+	icon_screen = "atmos_control"
 	density = 0
 
 /obj/machinery/computer/atmoscontrol/attack_ai(var/mob/user as mob)

@@ -25,6 +25,11 @@
 	display_name = "trinary perfection brooch"
 	path = /obj/item/clothing/accessory/badge/trinary
 
+/datum/gear/religion/trinary/book
+	display_name = "The Order"
+	description = "The holy text of the Trinary Perfection."
+	path = /obj/item/device/versebook/trinary
+
 /datum/gear/religion/rosary
 	display_name = "rosary"
 	path = /obj/item/clothing/accessory/rosary
@@ -48,7 +53,7 @@
 	display_name = "dominian robe selection"
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
 
 /datum/gear/religion/dominia/robe/New()
 	..()
@@ -61,7 +66,7 @@
 	display_name = "dominian beret selection"
 	description = "A selection of modified berets belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
 
 /datum/gear/religion/dominia/beret/New()
 	..()
@@ -74,7 +79,7 @@
 	display_name = "dominian outerwear selection"
 	description = "A selection of capes and outerwear worn by the Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
 
 /datum/gear/religion/dominia/cape/New()
 	..()
@@ -106,7 +111,7 @@
 	display_name = "tribunalist medical beret"
 	path = /obj/item/clothing/head/beret/dominia/medical
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
 
 /datum/gear/religion/shaman_staff
 	display_name = "shaman staff"
@@ -117,21 +122,21 @@
 	description = "The traditional red-black-gold uniform of a priestly member of His Majesty's Diplomatic Service."
 	path = /obj/item/clothing/under/dominia/priest/consular
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
 
 /datum/gear/religion/dominia/beret_consular
 	display_name = "tribunalist consular beret"
 	description = "A n elegant and well-tailored gold-and-red beret worn by priestly members of His Majesty's Diplomatic Service."
 	path = /obj/item/clothing/head/beret/dominia/consular
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
 
 /datum/gear/religion/dominia/cape_consular
 	display_name = "tribunalist cousular cape"
 	description = "A truly majestic gold and red cape worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
 	path = /obj/item/clothing/accessory/poncho/dominia/consular
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
 
 /datum/gear/religion/assunzione/accessory
 	display_name = "luceian amulet"
@@ -152,5 +157,5 @@
 
 /datum/gear/religion/dominia/codex
 	display_name = "tribunal codex"
-	path = /obj/item/device/litanybook
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
+	path = /obj/item/device/versebook/tribunal
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)

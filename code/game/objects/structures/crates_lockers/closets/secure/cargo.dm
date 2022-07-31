@@ -40,6 +40,7 @@
 	new /obj/item/device/megaphone/cargo(src)
 	new /obj/item/storage/box/goldstar(src)
 	new /obj/item/device/flashlight/marshallingwand(src)
+	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 
 /obj/structure/closet/secure_closet/merchant
 	name = "merchant locker"

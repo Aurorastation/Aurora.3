@@ -35,11 +35,12 @@
 /datum/outfit/job/representative/consular/ceti
 	name = "Tau Ceti Consular Officer"
 
-	uniform = /obj/item/clothing/under/lawyer/blue
+	uniform = /obj/item/clothing/under/suit_jacket/navy
 	accessory = /obj/item/clothing/accessory/tc_pin
 	backpack_contents = list(
 		/obj/item/storage/box/ceti_visa = 1,
 		/obj/item/storage/box/tcfl_pamphlet = 1,
+		/obj/item/device/versebook/biesel = 1, //constitution
 		/obj/item/stamp/biesel = 1,
 		/obj/item/gun/energy/pistol = 1
 	)
@@ -85,15 +86,15 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Collect evidence of NanoTrasen being unfair or oppressive against Solarian employees, to be used as leverage in future diplomatic talks.",
+			rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or oppressive against Solarian employees, to be used as leverage in future diplomatic talks.",
 							"Convince [rand(1,3)] solarian employees to apply for the Solarian armed forces.")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Have [rand(2,5)] amount of Sol citizens write down their grievances with the company, and present the report to station command.",
+			rep_objectives = pick("Have [rand(2,5)] amount of Sol citizens write down their grievances with the company, and present the report to [current_map.station_short] command.",
 							"Convince [rand(3,6)] qualified specialists among crew to enter Sol Alliance space, and issue them a visa recommendation.")
 		else
-			rep_objectives = pick("Collect [rand(3,7)] pictures of secure station areas.",
-							"Convince station command to turn a Solarian crewmember's sentence into a fine.")
+			rep_objectives = pick("Collect [rand(3,7)] pictures of secure [current_map.station_short] areas.",
+							"Convince Horizon command to turn a Solarian crewmember's sentence into a fine.")
 
 	return rep_objectives
 
@@ -199,14 +200,14 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Have [rand(2,5)] employees write their grievances with the stationbounds and IPC workers, and present the report to station command.",
+			rep_objectives = pick("Have [rand(2,5)] employees write their grievances with the stationbounds and IPC workers, and present the report to Horizon command.",
 							"Convince [rand(2,5)] crewmembers of Moroz Holy Tribunal being the superior religion.")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Promote and distribute the copies of Dominian Code of Honor to [rand(3,6)] crewmembers.",
-							"Convince a Dominian citizen to return to the Empire with valuable information on NanoTrasen to present.")
+							"Convince a Dominian citizen to return to the Empire with valuable information on the [current_map.boss_name] to present.")
 		else
-			rep_objectives = pick("Collect [rand(3,7)] pictures of secure station areas.",
+			rep_objectives = pick("Collect [rand(3,7)] pictures of secure vessel areas.",
 							"Convince [rand(3,6)] crewmembers to apply for a Dominian tourist visa.")
 
 	return rep_objectives

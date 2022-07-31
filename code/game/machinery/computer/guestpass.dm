@@ -52,8 +52,8 @@
 /obj/machinery/computer/guestpass
 	name = "guest pass terminal"
 	desc = "Allows issuing temporary access to an area."
+	icon = 'icons/obj/computer.dmi'
 	icon_state = "guestw"
-
 	light_color = LIGHT_COLOR_BLUE
 	icon_state = "altcomputerw"
 	icon_screen = "guest"

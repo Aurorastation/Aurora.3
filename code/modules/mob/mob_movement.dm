@@ -245,9 +245,6 @@
 	if(!mob.canmove || mob.paralysis)
 		return
 
-	//if(istype(mob.loc, /turf/space) || (mob.flags & NOGRAV))
-	//	if(!mob.Process_Spacemove(0))	return 0
-
 	if(!mob.lastarea)
 		mob.lastarea = get_area(mob.loc)
 
@@ -323,6 +320,12 @@
 
 		move_delay += tally
 
+		if(mob_is_human && mob.lying)
+			var/mob/living/carbon/human/H = mob
+			var/crawl_tally = H.get_crawl_tally()
+			if(crawl_tally >= 120)
+				return FALSE
+
 		var/tickcomp = 0 //moved this out here so we can use it for vehicles
 		if(config.Tickcomp)
 			// move_delay -= 1.3 //~added to the tickcomp calculation below
@@ -375,6 +378,29 @@
 		var/atom/O = mob.loc
 		return O.relaymove(mob, direct)
 
+/mob/living/carbon/human/proc/get_crawl_tally()
+	var/obj/item/organ/external/rhand = organs_by_name[BP_R_HAND]
+	. += limb_check(rhand)
+
+	var/obj/item/organ/external/lhand = organs_by_name[BP_L_HAND]
+	. += limb_check(lhand)
+
+	var/obj/item/organ/external/rfoot = organs_by_name[BP_R_FOOT]
+	. += limb_check(rfoot)
+
+	var/obj/item/organ/external/lfoot = organs_by_name[BP_L_FOOT]
+	. += limb_check(lfoot)
+
+// Checks status of limb, returns an amount to
+/mob/living/carbon/human/proc/limb_check(var/obj/item/organ/external/limb)
+	if(!limb) // Limb is null, thus missing.
+		return 30
+	else if(!limb.is_usable() || limb.is_broken()) // You can't use the limb, but it's still there to maneuvre yourself
+		return 15
+	else
+		return 0
+
+
 /mob/proc/SelfMove(turf/n, direct)
 	return Move(n, direct)
 
@@ -407,7 +433,7 @@
 			move_delay = 1 + world.time
 			var/turf/T = get_step(use_mob, direct)
 			for(var/obj/structure/window/W in T)
-				if(istype(W, /obj/structure/window/phoronbasic) || istype(W, /obj/structure/window/phoronreinforced))
+				if(istype(W, /obj/structure/window/borosilicate) || istype(W, /obj/structure/window/borosilicate/reinforced))
 					if(W.is_full_window())
 						to_chat(src, SPAN_WARNING("\The [W] obstructs your movement!"))
 						return
@@ -472,7 +498,7 @@
 	return -1
 
 //Checks if a mob has solid ground to stand on
-//If there's no gravity then there's no up or down so naturally you can't stand on anything.
+//If there's no gravity then there's no up or down so naturally you can't stand on anything, unless you have grip.
 //For the same reason lattices in space don't count - those are things you grip, presumably.
 /mob/proc/check_solid_ground()
 	var/turf/T = get_turf(src)
@@ -484,7 +510,7 @@
 
 	var/area/A = T.loc
 
-	if (!A.has_gravity())
+	if (!A.has_gravity() && !Check_Shoegrip())
 		return 0
 
 	return 1

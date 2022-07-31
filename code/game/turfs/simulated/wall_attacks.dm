@@ -106,7 +106,6 @@
 /turf/simulated/wall/attackby(obj/item/W, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(!user)
-		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	//get the user's location
@@ -188,7 +187,7 @@
 	// Basic dismantling.
 	if(isnull(construction_stage) || !reinf_material)
 
-		var/cut_delay = 60 - material.cut_delay
+		var/cut_delay = 60 + material.cut_delay
 		var/dismantle_verb
 		var/dismantle_sound
 
@@ -341,7 +340,7 @@
 					cut_cover = 1
 				if(cut_cover)
 					to_chat(user, SPAN_NOTICE("You begin slicing through the support rods."))
-					if(!!W.use_tool(src, user , 70, volume = 50) || !istype(src, /turf/simulated/wall) || construction_stage != 1)
+					if(!W.use_tool(src, user , 70, volume = 50) || !istype(src, /turf/simulated/wall) || construction_stage != 1)
 						return
 					construction_stage = 0
 					update_icon()

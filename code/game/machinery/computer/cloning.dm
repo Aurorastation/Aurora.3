@@ -1,8 +1,8 @@
 /obj/machinery/computer/cloning
 	name = "cloning control console"
-
-	icon_screen = "med"
-	light_color = LIGHT_COLOR_GREEN
+	icon_screen = "dna"
+	icon_keyboard = "teal_key"
+	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/cloning
 	req_access = list(access_genetics)
 	var/obj/machinery/dna_scannernew/scanner = null //Linked scanner. For scanning.

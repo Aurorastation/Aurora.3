@@ -25,7 +25,6 @@
 		/obj/item/gun/projectile/shotgun/doublebarrel = TRADER_ALL,
 		/obj/item/gun/projectile/tanto                = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/revolver/detective   = TRADER_THIS_TYPE,
-		/obj/item/gun/projectile/revolver/deckard     = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/leyon                = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic/x9         = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic/rifle/carbine = TRADER_THIS_TYPE,

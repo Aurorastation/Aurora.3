@@ -2,10 +2,10 @@
 //---------- actual energy field
 
 /obj/effect/energy_field
-	name = "energy field"
-	desc = "A strong field of energy, capable of blocking movement as long as it's active."
+	name = "energy shield"
+	desc = "A strong field of energy, capable of blocking anything as long as it's active."
 	icon = 'icons/obj/machines/shielding.dmi'
-	icon_state = "shieldsparkles"
+	icon_state = "shield_normal"
 	alpha = 0
 	mouse_opacity = 0
 	anchored = 1

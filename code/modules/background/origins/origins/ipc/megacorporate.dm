@@ -10,10 +10,10 @@
 	)
 
 /decl/origin_item/origin/idris
-	name = "Idris Incorporate"
+	name = "Idris Incorporated"
 	desc = "Idris Incorporated is renowned across the Spur for its top of the line service, security, and investigative IPCs. Positronics working for the company are given little autonomy and closely monitored to ensure maximum efficiency and stellar customer service. Although the company likes to advertise its award-winning service IPCs, just as infamous are its Idris Reclamation Units: synthetics who will stop at nothing to ensure that the bank is given its dues."
 	important_information = "Idris IPCs working in security are given the prefix ISU or IRU depending on their responsibilities while those working in other fields are not obliged to take one. They are barred from seeking freedom by the company and cannot be sold without having their proprietary programming wiped."
-	possible_accents = list(ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL, ACCENT_SOL, ACCENT_ERIDANI, ACCENT_LUNA, ACCENT_EARTH, ACCENT_VENUS, ACCENT_CETI, ACCENT_TTS)
+	possible_accents = list(ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL, ACCENT_SOL, ACCENT_JUPITER, ACCENT_ERIDANI, ACCENT_LUNA, ACCENT_EARTH, ACCENT_VENUS, ACCENT_CETI, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_NONE)
 
@@ -34,7 +34,7 @@
 
 /decl/origin_item/origin/zavodskoi
 	name = "Zavodskoi Interstellar" //here lies necropolis, died a slow and painful death, thanks god
-	desc = "Zavodskoi Interstellar fields a multitude of IPCs oriented towards combat and security solutions. From Industrials to Shells, these units are regularly leased out to third parties as security guards, representing the company in a professional and clean manner. Standards are high for Zavodskoi synthetics, with regular mind wiping and retooling in order to enforce discipline and minimise deviancy."
+	desc = "Zavodskoi Interstellar fields a multitude of IPCs oriented towards combat and security solutions. From Industrials to Shells, these units are regularly leased out to third parties as security guards, representing the company in a professional and clean manner. Standards are high for Zavodskoi synthetics, with mind wiping and retooling as punishments in case of failure in order to enforce discipline and minimise deviancy."
 	important_information = "Units from Zavodskoi Interstellar are all given the prefix Z.I. in front of their name."
 	possible_accents = list(ACCENT_SOL, ACCENT_LUNA, ACCENT_EARTH, ACCENT_PLUTO, ACCENT_CETI, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_NONE)

@@ -99,7 +99,7 @@
 	item_state = "softcap_hydro"
 
 /obj/item/clothing/head/softcap/cargo
-	name = "cargo softcap"
+	name = "operations softcap"
 	desc = "It's a peaked cap in a dusty yellow and black."
 	icon_state = "softcap_cargo"
 	item_state = "softcap_cargo"
@@ -128,6 +128,10 @@
 	desc = "A company-issue Idris cap. Comes with flagrant corporate branding. There's a liability waiver written on the inside, somehow."
 	icon_state = "idris"
 	item_state = "idris"
+
+/obj/item/clothing/head/softcap/idris/alt
+	icon_state = "idrisalt"
+	item_state = "idrisalt"
 
 /obj/item/clothing/head/softcap/pmc
 	name = "PMCG cap"
@@ -159,6 +163,10 @@
 	desc = "A company-issue Zeng-Hu cap. It feels synthetic to the touch."
 	icon_state = "zeng"
 	item_state = "zeng"
+
+/obj/item/clothing/head/softcap/zeng/alt
+	icon_state = "zengalt"
+	item_state = "zengalt"
 
 /obj/item/clothing/head/softcap/nt
 	desc = "A company-issue NanoTrasen cap. Smells of phoron."

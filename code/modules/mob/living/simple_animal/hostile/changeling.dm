@@ -19,6 +19,7 @@
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
+	blood_amount = 600
 	maxHealth = 750
 	health = 750
 	harm_intent_damage = 0

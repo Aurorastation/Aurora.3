@@ -1,8 +1,3 @@
-#define RFD_FLOORS_AND_WALL 1
-#define RFD_WINDOWS_AND_GRILLE 2
-#define RFD_AIRLOCK 3
-#define RFD_DECONSTRUCT 4
-
 //Contains the rapid construction device.
 /obj/item/rfd
 	name = "\improper Rapid-Fabrication-Device"
@@ -224,8 +219,8 @@ RFD Construction-Class
 		if(istype(T, /turf/simulated/floor))
 			build_cost =  3
 			build_delay = 20
-			build_type = "window and grille section"
-			build_atom = /obj/effect/map_effect/wingrille_spawn/reinforced
+			build_type = "window"
+			build_atom = /obj/effect/map_effect/window_spawner/full/reinforced
 	else if(mode == RFD_AIRLOCK)
 		if(istype(T, /turf/simulated/floor))
 			build_cost =  3
@@ -709,7 +704,3 @@ RFD Piping-Class
 #undef SUPPLY_PIPE
 #undef SCRUBBER_PIPE
 #undef DEVICES
-
-#undef RFD_FLOORS_AND_WALL
-#undef RFD_AIRLOCK
-#undef RFD_DECONSTRUCT

@@ -60,7 +60,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	)
 
 	backpack = /obj/item/storage/backpack/captain
-	satchel = /obj/item/storage/backpack/satchel_cap
+	satchel = /obj/item/storage/backpack/satchel/cap
 	dufflebag = /obj/item/storage/backpack/duffel/cap
 	messengerbag = /obj/item/storage/backpack/messenger/com
 
@@ -155,7 +155,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	supervisors = "the executive officer and the captain"
 	selection_color = "#2b5bb5"
 	minimal_player_age = 20
-	economic_modifier = 10
+	economic_modifier = 5
 	ideal_character_age = list(
 		SPECIES_HUMAN = 30,
 		SPECIES_SKRELL = 75,

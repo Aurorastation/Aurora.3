@@ -2,6 +2,7 @@
 	filename = "signaler"
 	filedesc = "Remote Signaller"
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program can be used to send wide-range signals of various frequencies."
 	size = 2
 	available_on_ntnet = TRUE

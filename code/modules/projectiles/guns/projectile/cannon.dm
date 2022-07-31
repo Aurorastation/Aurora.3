@@ -122,6 +122,7 @@
 	fire_sound = 'sound/weapons/gunshot/cannon.ogg'
 	slot_flags = null
 	ammo_type = /obj/item/ammo_casing/peac
+	accuracy_wielded = 4
 
 	fire_delay = 20
 
