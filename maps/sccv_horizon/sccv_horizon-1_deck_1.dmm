@@ -9104,6 +9104,10 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
+"hhI" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_atrium)
 "hhO" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -57716,7 +57720,7 @@ erL
 erL
 clb
 erL
-jrJ
+hhI
 vbD
 gWC
 lrC
@@ -57918,7 +57922,7 @@ erL
 erL
 erL
 erL
-jrJ
+hhI
 vbD
 sgI
 cWk
