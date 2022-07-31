@@ -5424,9 +5424,12 @@
 "jW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
-/obj/random/junk,
-/obj/random/junk,
 /obj/effect/decal/cleanable/cobweb,
+/obj/random/junk,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
 /obj/random/loot,
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -13402,6 +13405,7 @@
 "yK" = (
 /obj/structure/table,
 /obj/random/junk,
+/obj/random/loot,
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "yL" = (
@@ -15494,8 +15498,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
-/obj/random/junk,
-/obj/random/junk,
+/obj/random/loot,
+/obj/random/loot,
 /obj/random/loot,
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -18263,7 +18267,8 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/structure/table/rack,
-/obj/random/junk,
+/obj/random/loot,
+/obj/random/loot,
 /obj/random/loot,
 /obj/random/loot,
 /turf/simulated/floor,
