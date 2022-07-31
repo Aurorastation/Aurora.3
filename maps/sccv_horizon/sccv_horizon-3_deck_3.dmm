@@ -25006,6 +25006,7 @@
 /obj/item/storage/secure/briefcase,
 /obj/item/clipboard,
 /obj/item/folder/red,
+/obj/item/device/tvcamera,
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "TP" = (

@@ -56,7 +56,8 @@
 		NETWORK_FIRST_DECK,
 		NETWORK_SECOND_DECK,
 		NETWORK_THIRD_DECK,
-		NETWORK_INTREPID
+		NETWORK_INTREPID,
+		NETWORK_NEWS
 	)
 
 	shuttle_docked_message = "Attention all hands: Bluespace jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETA%."
