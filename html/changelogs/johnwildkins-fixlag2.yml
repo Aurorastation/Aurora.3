@@ -1,0 +1,9 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - bugfix: "Ruins should no longer generate on top of each other."
+  - backend: "Starlight generation is now handled in SSlighting, so temporary space tiles are not calculated."
+  - backend: "Fixed an issue where exoplanets were creating 2x as many necessary space tiles during generation."
+  - backend: "Moved SSxenoarch init above SSlobby."
