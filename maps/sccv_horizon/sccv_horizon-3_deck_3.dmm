@@ -882,6 +882,7 @@
 /obj/effect/landmark{
 	name = "JoinLateCryo"
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo)
 "bI" = (
