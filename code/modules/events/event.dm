@@ -73,6 +73,8 @@
 	var/two_part		=	0
 	//used for events that run secondary announcements, like releasing maint access.
 
+	var/has_skybox_image = FALSE
+
 /datum/event/nothing
 	no_fake = 1
 
@@ -87,6 +89,8 @@
 //Allows you to start before announcing or vice versa.
 //Only called once.
 /datum/event/proc/start()
+	if(has_skybox_image)
+		SSskybox.rebuild_skyboxes(affecting_z)
 	return
 
 //Called when the tick is equal to the announceWhen variable.
@@ -109,7 +113,7 @@
 //For example: if(activeFor == myOwnVariable + 30) doStuff()
 //Only called once.
 //faked indicates this is a false alarm. Used to prevent announcements and other things from happening during false alarms.
-/datum/event/proc/end(var/faked)
+/datum/event/proc/end()
 	return
 
 //Returns the latest point of event processing.
@@ -153,10 +157,12 @@
 	isRunning = 0
 	endedAt = world.time
 
+	if(has_skybox_image)
+		SSskybox.rebuild_skyboxes(affecting_z)
+
 	if(!dummy)
 		SSevents.active_events -= src
 		SSevents.event_complete(src)
-
 
 
 /datum/event/New(var/datum/event_meta/EM = null, var/is_dummy = 0)
@@ -187,3 +193,6 @@
 
 	var/obj/effect/overmap/O = map_sectors["[pick(affecting_z)]"]
 	return O ? O.name : "Unknown Location"
+
+/datum/event/proc/get_skybox_image()
+	return

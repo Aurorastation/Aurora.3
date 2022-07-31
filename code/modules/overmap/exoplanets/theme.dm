@@ -9,6 +9,11 @@
 	name = "Mountains"
 	var/rock_color
 
+/datum/exoplanet_theme/mountains/get_planet_image_extra()
+	var/image/res = image('icons/skybox/planet.dmi', "mountains")
+	res.color = rock_color
+	return res
+
 /datum/exoplanet_theme/mountains/before_map_generation(obj/effect/overmap/visitable/sector/exoplanet/E)
 	if(E.rock_colors)
 		rock_color = pick(E.rock_colors)
