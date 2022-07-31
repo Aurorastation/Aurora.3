@@ -126,7 +126,7 @@
 		/obj/item/cell/device = 4,
 		/obj/item/reagent_containers/food/snacks/liquidfood = 4,
 		/obj/item/spacecash/c1 = 4,
-		/obj/item/storage/backpack/satchel = 4,
+		/obj/item/storage/backpack/satchel/leather = 4,
 		/obj/item/storage/briefcase = 4,
 		/obj/item/clothing/accessory/storage/webbing = 3,
 		/obj/item/clothing/gloves/botanic_leather = 3,

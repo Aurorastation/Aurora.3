@@ -33,7 +33,7 @@
 		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/workboots/toeless
 	)
 
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 
 	id = /obj/item/card/id/away_site
 
@@ -88,7 +88,7 @@
 		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/workboots/toeless
 	)
 
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 
 	id = /obj/item/card/id/away_site
 
@@ -152,4 +152,3 @@
 
 /datum/outfit/admin/random/space_bar_patron/offworlder
 	r_pocket = /obj/item/storage/pill_bottle/rmt
-

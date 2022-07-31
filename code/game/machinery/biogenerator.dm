@@ -148,7 +148,7 @@
 
 /decl/biorecipe/item/satchel
 	name = "Leather Satchel"
-	object = /obj/item/storage/backpack/satchel
+	object = /obj/item/storage/backpack/satchel/leather
 	cost = 400
 
 /decl/biorecipe/item/cash

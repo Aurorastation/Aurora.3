@@ -88,7 +88,7 @@
 	belt = /obj/item/melee/energy/sword/hegemony
 	shoes = /obj/item/clothing/shoes/caligae/grey
 	id = /obj/item/card/id/distress/kataphract
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 
 	backpack_contents = list(
 		/obj/item/storage/box/donkpockets = 1
@@ -108,7 +108,7 @@
 	belt = /obj/item/melee/energy/sword/hegemony
 	shoes = /obj/item/clothing/shoes/vaurca
 	id = /obj/item/card/id/distress/kataphract
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 
 	l_hand = /obj/item/martial_manual/vaurca
 

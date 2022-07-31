@@ -84,7 +84,7 @@
 /area/antag/wizard)
 "aag" = (
 /obj/structure/table/wood,
-/obj/item/storage/backpack/satchel/withwallet,
+/obj/item/storage/backpack/satchel/leather/withwallet,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -465,9 +465,9 @@
 /obj/structure/table/rack,
 /obj/item/storage/backpack,
 /obj/item/storage/backpack/messenger,
-/obj/item/storage/backpack/satchel/withwallet,
+/obj/item/storage/backpack/satchel/leather/withwallet,
 /obj/item/storage/backpack/duffel,
-/obj/item/storage/backpack/satchel/norm,
+/obj/item/storage/backpack/satchel,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/circuit.dmi';
 	icon_state = "bcircuit"
@@ -2803,7 +2803,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,
 /obj/item/storage/box/drinkingglasses,
-/obj/item/storage/backpack/satchel,
+/obj/item/storage/backpack/satchel/leather,
 /obj/item/clothing/shoes/jackboots/toeless,
 /obj/item/clothing/glasses/sunglasses/aviator,
 /obj/item/flag/biesel/l{
@@ -3570,10 +3570,10 @@
 /obj/item/storage/backpack/satchel/syndie,
 /obj/item/storage/backpack/syndie,
 /obj/item/storage/backpack/syndie,
-/obj/item/storage/backpack/satchel/norm,
-/obj/item/storage/backpack/satchel/norm,
-/obj/item/storage/backpack/satchel/norm,
-/obj/item/storage/backpack/satchel/norm,
+/obj/item/storage/backpack/satchel/leather,
+/obj/item/storage/backpack/satchel/leather,
+/obj/item/storage/backpack/satchel/leather,
+/obj/item/storage/backpack/satchel/leather,
 /obj/item/storage/backpack/satchel,
 /obj/item/storage/backpack/satchel,
 /obj/item/storage/backpack/satchel,

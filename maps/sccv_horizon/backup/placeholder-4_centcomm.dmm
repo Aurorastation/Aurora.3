@@ -8341,7 +8341,7 @@
 /obj/item/storage/fancy/cigarettes,
 /obj/item/flame/lighter/zippo,
 /obj/item/storage/belt/utility,
-/obj/item/storage/backpack/satchel,
+/obj/item/storage/backpack/satchel/leather,
 /turf/unsimulated/floor{
 	icon_state = "grimy"
 	},
@@ -17843,7 +17843,7 @@
 /area/wizard_station)
 "aQD" = (
 /obj/structure/table/wood,
-/obj/item/storage/backpack/satchel/withwallet,
+/obj/item/storage/backpack/satchel/leather/withwallet,
 /turf/unsimulated/floor{
 	dir = 9;
 	icon_state = "carpetside"
@@ -24856,7 +24856,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,
 /obj/item/storage/box/drinkingglasses,
-/obj/item/storage/backpack/satchel,
+/obj/item/storage/backpack/satchel/leather,
 /obj/item/clothing/shoes/jackboots/toeless,
 /obj/item/clothing/glasses/sunglasses/aviator,
 /obj/item/flag/biesel/l{
