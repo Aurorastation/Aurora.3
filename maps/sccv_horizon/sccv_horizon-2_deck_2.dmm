@@ -430,12 +430,8 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/obj/structure/bed/stool/chair{
+/obj/structure/bed/stool/chair/padded/beige{
 	dir = 8
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
@@ -1186,10 +1182,6 @@
 "aAx" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/rnd/xenobiology/xenoflora)
-"aAC" = (
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/wood,
-/area/medical/psych)
 "aBa" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -2688,17 +2680,10 @@
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "bmT" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 10
-	},
-/obj/structure/bed/stool/chair/padded/beige{
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/wood,
 /area/medical/psych)
 "bnQ" = (
 /obj/effect/floor_decal/corner/green{
@@ -2911,9 +2896,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "bue" = (
-/obj/machinery/requests_console{
-	department = "Psychiatric Wing";
-	pixel_x = -31
+/obj/structure/bed/stool/chair/sofa/right/brown{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
@@ -3824,10 +3808,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "bSi" = (
-/obj/structure/table/wood,
-/obj/item/modular_computer/laptop/preset/medical{
-	pixel_y = 4
-	},
 /obj/machinery/power/apc/low{
 	dir = 4;
 	name = "east bump";
@@ -3836,7 +3816,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/carpet,
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/medical/psych)
 "bSD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -4277,10 +4260,13 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "cfz" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/effect/floor_decal/corner/green{
+	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "cfI" = (
 /obj/machinery/atmospherics/omni/filter{
@@ -5151,15 +5137,11 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "cLV" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/ramp{
-	dir = 1
-	},
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/wood,
 /area/medical/psych)
 "cMc" = (
 /obj/structure/disposalpipe/segment,
@@ -5429,6 +5411,7 @@
 	dir = 8
 	},
 /obj/machinery/vending/coffee,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "cUR" = (
@@ -5513,9 +5496,25 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "cWG" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/wood,
+/obj/structure/table/wood,
+/obj/machinery/button/switch/windowtint{
+	id = "psych";
+	pixel_x = 24;
+	pixel_y = -9;
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/device/flashlight/lamp/lava/pink{
+	pixel_x = 5;
+	pixel_y = 14
+	},
+/obj/random/desktoy{
+	pixel_x = -7;
+	pixel_y = 6
+	},
+/turf/simulated/floor/carpet,
 /area/medical/psych)
 "cWP" = (
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -5582,11 +5581,6 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Hallway 1";
 	dir = 1
-	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	name = "Station Intercom (General)";
-	pixel_y = -20
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -5878,16 +5872,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/warden)
-"dgy" = (
-/obj/machinery/disposal/small/east,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
 "dgZ" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
@@ -7632,7 +7616,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "eii" = (
-/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -7642,6 +7625,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "eim" = (
@@ -7895,12 +7879,16 @@
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "epZ" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
+/obj/structure/table/wood,
+/obj/machinery/requests_console{
+	department = "Psychiatric Wing";
+	pixel_x = 32
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/obj/item/modular_computer/laptop/preset/medical{
+	pixel_y = 4
+	},
+/turf/simulated/floor/carpet,
+/area/medical/psych)
 "eqa" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/vials{
@@ -8259,12 +8247,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/turret_protected/ai)
-"ezt" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/ramp,
-/area/medical/psych)
 "eAw" = (
 /obj/machinery/holosign/surgery{
 	id = 2
@@ -9024,11 +9006,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
 "eZc" = (
-/obj/machinery/firealarm/south,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/machinery/disposal,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "eZh" = (
@@ -10768,10 +10746,15 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "fSK" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_two)
 "fTc" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -13834,12 +13817,12 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
 "htp" = (
-/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "huw" = (
@@ -14012,8 +13995,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hor)
 "hzY" = (
-/obj/effect/floor_decal/sign/p,
-/turf/simulated/floor/carpet,
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/medical/psych)
 "hAh" = (
 /obj/structure/cable/green{
@@ -14785,6 +14771,10 @@
 	pixel_x = 2;
 	pixel_y = 4
 	},
+/obj/machinery/requests_console{
+	department = "Medical Bay";
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "hUs" = (
@@ -15041,11 +15031,18 @@
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
 "iec" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
-/obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/teapot,
-/turf/simulated/floor/carpet,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "psych"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/medical/psych)
 "ief" = (
 /obj/effect/floor_decal/corner/green{
@@ -16553,13 +16550,16 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "iWt" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
-/obj/structure/bed/stool/chair/padded/beige{
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/carpet,
-/area/medical/psych)
+/obj/machinery/vending/snack,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/central_two)
 "iWz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16940,7 +16940,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/obj/structure/bed/stool/chair{
+/obj/structure/bed/stool/chair/padded/beige{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -17991,11 +17991,12 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "jKd" = (
-/obj/machinery/newscaster{
-	pixel_x = -30;
-	pixel_y = -4
+/obj/structure/bed/stool/chair/sofa/corner/brown{
+	dir = 1
 	},
-/obj/structure/bed/stool/chair/padded/beige,
+/obj/machinery/newscaster{
+	pixel_x = -32
+	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "jKV" = (
@@ -19306,8 +19307,16 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "kBY" = (
-/obj/effect/floor_decal/spline/plain/corner,
-/turf/simulated/floor/wood,
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_y = 2;
+	pixel_x = -4
+	},
+/obj/item/pen{
+	pixel_y = 2;
+	pixel_x = -4
+	},
+/turf/simulated/floor/carpet,
 /area/medical/psych)
 "kCb" = (
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -19457,8 +19466,9 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
@@ -19659,19 +19669,13 @@
 /turf/simulated/wall,
 /area/engineering/storage/tech)
 "kLN" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 4
-	},
-/obj/effect/landmark/start{
-	name = "Psychiatrist"
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/wood,
 /area/medical/psych)
 "kNe" = (
 /obj/structure/railing/mapped{
@@ -20839,10 +20843,6 @@
 "lwD" = (
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
-"lxI" = (
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/wood,
-/area/medical/psych)
 "lyI" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
@@ -21734,15 +21734,6 @@
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
-"lUE" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
 "lVd" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 6
@@ -22102,14 +22093,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
 "mfA" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 5
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/railing/mapped{
+	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_two)
 "mfE" = (
 /turf/simulated/floor/tiled,
@@ -24711,16 +24703,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
-"nwe" = (
-/obj/structure/table/wood,
-/obj/item/paper_bin{
-	pixel_y = 4
-	},
-/obj/item/pen{
-	pixel_y = 4
-	},
-/turf/simulated/floor/carpet,
-/area/medical/psych)
 "nxk" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -25385,15 +25367,15 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/port/far)
 "nTp" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
+	name = "Medical Lockdown Shutters";
 	opacity = 0
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/medical)
 "nTq" = (
@@ -25451,13 +25433,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
 "nUT" = (
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "psych"
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled/dark/full,
 /area/medical/psych)
 "nVX" = (
 /obj/structure/bed/stool/chair/office/dark,
@@ -25882,16 +25869,11 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "oil" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/bed/stool/chair/padded/beige{
+	dir = 8
 	},
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain{
-	dir = 6
-	},
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/wood,
-/area/medical/psych)
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_two)
 "oiD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -27767,9 +27749,6 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -27825,12 +27804,14 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "pjL" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 8
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
 	},
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
-/area/hallway/primary/central_two)
+/obj/effect/landmark/start{
+	name = "Psychiatrist"
+	},
+/turf/simulated/floor/carpet,
+/area/medical/psych)
 "pjQ" = (
 /obj/structure/sink{
 	dir = 4;
@@ -29041,22 +29022,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
-"pQL" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/obj/machinery/door/airlock/medical{
-	name = "Psychiatric Wing";
-	req_access = list(5)
-	},
-/turf/simulated/floor/wood,
-/area/medical/psych)
 "pRd" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating,
@@ -32516,8 +32481,18 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "rIP" = (
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/firealarm/south,
+/obj/structure/closet/secure_closet{
+	name = "Psychiatrist's Locker";
+	req_access = list(64)
+	},
+/obj/item/clothing/suit/straight_jacket,
+/obj/item/clothing/suit/straight_jacket,
+/obj/item/reagent_containers/syringe,
+/obj/item/mesmetron,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
@@ -33369,22 +33344,15 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
 "seV" = (
-/obj/structure/closet/secure_closet{
-	name = "Psychiatrist's Locker";
-	req_access = list(64)
-	},
-/obj/item/reagent_containers/syringe,
-/obj/item/clothing/mask/muzzle,
-/obj/item/clothing/suit/straight_jacket,
-/obj/item/mesmetron,
-/obj/item/clothing/suit/straight_jacket,
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/alarm{
-	pixel_y = 28
+	dir = 8;
+	pixel_x = 28
 	},
-/turf/simulated/floor/carpet,
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/wood,
 /area/medical/psych)
 "seZ" = (
 /turf/simulated/wall/r_wall,
@@ -33612,18 +33580,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "snt" = (
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
-	id = "psych"
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/wood,
 /area/medical/psych)
 "snB" = (
 /obj/machinery/door/airlock/security{
@@ -33711,16 +33668,13 @@
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "spM" = (
-/obj/machinery/button/switch/windowtint{
-	id = "psych";
-	pixel_x = -6;
-	pixel_y = 27
-	},
+/obj/structure/bed/psych,
 /obj/machinery/light_switch{
-	pixel_x = 7;
-	pixel_y = 27
+	pixel_x = -13;
+	pixel_y = 20
 	},
-/turf/simulated/floor/carpet,
+/obj/random/plushie,
+/turf/simulated/floor/wood,
 /area/medical/psych)
 "spR" = (
 /obj/machinery/door/window/brigdoor/southleft{
@@ -35998,12 +35952,10 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "tHs" = (
-/obj/machinery/newscaster{
-	pixel_y = 30
-	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "tHv" = (
@@ -36648,8 +36600,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "tZs" = (
-/obj/structure/bed/psych,
-/obj/random/plushie,
+/obj/structure/bed/stool/chair/sofa/left/brown,
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "tZz" = (
@@ -36659,14 +36610,21 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "tZL" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
+/obj/machinery/door/airlock/medical{
+	name = "Psychiatric Wing";
+	req_access = list(5)
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0
 	},
-/turf/simulated/floor/tiled/dark,
-/area/hallway/primary/central_two)
+/turf/simulated/floor/tiled/full,
+/area/medical/psych)
 "tZR" = (
 /obj/machinery/door/airlock/glass_service{
 	name = "Hydroponics";
@@ -38840,6 +38798,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "veu" = (
@@ -38969,15 +38928,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
-"vhU" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/ausbushes/sunnybush,
-/turf/simulated/floor/grass/alt,
-/area/hallway/primary/central_two)
 "viR" = (
 /obj/structure/closet/secure_closet/RD,
 /obj/item/clothing/mask/gas/half,
@@ -40108,7 +40058,12 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/vending/cigarette,
+/obj/machinery/vending/cola,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "vPf" = (
@@ -43284,11 +43239,10 @@
 /turf/template_noop,
 /area/template_noop)
 "xoj" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee{
+/obj/structure/bed/stool/chair/padded/beige{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "xom" = (
 /obj/structure/lattice/catwalk,
@@ -43667,7 +43621,7 @@
 	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
+	name = "Medical Lockdown Shutters";
 	opacity = 0
 	},
 /turf/simulated/floor/tiled/white,
@@ -43884,9 +43838,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "xGW" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "xHc" = (
@@ -44213,7 +44165,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/full,
 /area/medical/psych)
 "xQn" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -44717,11 +44669,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/requests_console{
-	department = "Medical Bay";
-	pixel_x = 32
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 24
 	},
-/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "ycD" = (
@@ -44923,13 +44875,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hallway/primary/central_two)
 "ygw" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/sunnybush,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_two)
 "ygx" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -59743,9 +59696,9 @@ tcQ
 nTp
 cUA
 vOZ
-cOn
+iWt
 kFZ
-dgy
+cOn
 eQs
 gOH
 gOH
@@ -59945,9 +59898,9 @@ mIO
 xzM
 rEK
 exx
-xIo
 exx
 nkd
+xIo
 exx
 exx
 exx
@@ -60147,11 +60100,11 @@ ovY
 nTp
 jjr
 amf
-epZ
-tZL
+vyg
+vyg
 veq
-lUE
-fSK
+hEF
+gOH
 gOH
 fdV
 fqr
@@ -60347,14 +60300,14 @@ nXD
 sCq
 hOU
 hOU
-hOU
-hOU
-hOU
 nUT
-bmT
-mfA
-pjL
+nUT
+tZL
+nUT
+hOU
 cfz
+gOH
+gOH
 fdV
 fqr
 gJj
@@ -60551,12 +60504,12 @@ nvq
 jKd
 bue
 cLV
-pQL
+snt
 hzY
 iec
-mfA
-vhU
-cfz
+dKH
+gOH
+gOH
 fdV
 fqr
 gJj
@@ -60752,13 +60705,13 @@ ffe
 nvq
 tZs
 kaR
-lxI
 snt
-fuA
-iWt
+snt
+bmT
+iec
 mfA
 xoj
-cfz
+gOH
 fdV
 fqr
 gJj
@@ -60955,9 +60908,9 @@ xQm
 htp
 eii
 eZc
-hOU
+eZc
 rIP
-cWG
+hOU
 ygw
 xGW
 dRk
@@ -61153,15 +61106,15 @@ jWj
 xur
 ijN
 cZj
-hOU
+nvq
 spM
 kLN
-nwe
-snt
+fuA
+pjL
 kBY
+iec
+fSK
 oil
-ygw
-gOH
 lIH
 mHa
 fqr
@@ -61355,13 +61308,13 @@ jeY
 pKh
 iFD
 yct
-hOU
+nvq
 seV
 bSi
+cWG
+epZ
 kAM
-snt
-aAC
-ezt
+iec
 phF
 kcy
 hEF
