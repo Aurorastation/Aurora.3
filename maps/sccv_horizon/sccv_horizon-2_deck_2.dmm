@@ -23875,6 +23875,8 @@
 /obj/item/clothing/mask/breath/medical,
 /obj/item/clothing/mask/breath/medical,
 /obj/item/clothing/mask/breath/medical,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "nbJ" = (

@@ -903,6 +903,8 @@
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining - Shuttle"
 	},
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "aNR" = (
@@ -19030,6 +19032,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/medical_compartment)
 "pEb" = (
