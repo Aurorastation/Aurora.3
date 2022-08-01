@@ -353,3 +353,18 @@
 	cost = 0
 	faction = "NanoTrasen"
 	allowed_roles = list("Janitor")
+
+//SCC
+/datum/gear/faction/bridge_crew_alt
+	display_name = "bridge crew dress"
+	path = /obj/item/clothing/under/rank/bridge_crew/alt
+	slot = slot_w_uniform
+	cost = 0
+	allowed_roles = list("Bridge Crew")
+
+/datum/gear/faction/bridge_crew_cap_alt
+	display_name = "bridge crew dress cap"
+	path = /obj/item/clothing/head/caphat/bridge_crew/bridge_crew_alt
+	slot = slot_head
+	cost = 0
+	allowed_roles = list("Bridge Crew")

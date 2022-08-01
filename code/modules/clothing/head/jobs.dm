@@ -54,6 +54,11 @@
 	icon_state = "bridge_crew_cap"
 	item_state = "bridge_crew_cap"
 
+/obj/item/clothing/head/caphat/bridge_crew/bridge_crew_alt
+	icon = 'icons/clothing/head/bridge_crew_hat_alt.dmi'
+	icon_state = "bridge_crew_cap_alt"
+	item_state = "bridge_crew_cap_alt"
+
 //Chaplain
 /obj/item/clothing/head/chaplain_hood
 	name = "chaplain's hood"
