@@ -78,10 +78,10 @@
 	icon_state = "zav_assistant"
 	item_state = "zav_assistant"
 
-// Xenoarcheologist
-/obj/item/clothing/under/rank/scientist/xenoarcheologist
-	name = "xenoarcheologist's jumpsuit"
-	desc = "It's made of a special fiber that provides minor protection against explosions. It has markings that denote the wearer as a xenoarcheologist."
+// Xenoarchaeologist
+/obj/item/clothing/under/rank/scientist/xenoarchaeologist
+	name = "xenoarchaeologist's jumpsuit"
+	desc = "It's made of a special fiber that provides minor protection against explosions. It has markings that denote the wearer as a xenoarchaeologist."
 	icon_state = "nt_xenoarch"
 	item_state = "nt_xenoarch"
 	permeability_coefficient = 0.50
@@ -89,11 +89,11 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 
-/obj/item/clothing/under/rank/scientist/xenoarcheologist/zeng
+/obj/item/clothing/under/rank/scientist/xenoarchaeologist/zeng
 	icon_state = "zeng_xenoarch"
 	item_state = "zeng_xenoarch"
 
-/obj/item/clothing/under/rank/scientist/xenoarcheologist/zavod
+/obj/item/clothing/under/rank/scientist/xenoarchaeologist/zavod
 	icon_state = "zav_xenoarch"
 	item_state = "zav_xenoarch"
 

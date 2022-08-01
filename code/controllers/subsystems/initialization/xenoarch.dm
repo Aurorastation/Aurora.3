@@ -7,7 +7,7 @@ var/datum/controller/subsystem/xenoarch/SSxenoarch
 #define ARTIFACTSPAWNNUM_UPPER 12
 
 /datum/controller/subsystem/xenoarch
-	name = "Xenoarcheology"
+	name = "Xenoarchaeology"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_XENOARCH
 

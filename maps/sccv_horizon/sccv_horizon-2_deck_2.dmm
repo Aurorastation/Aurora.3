@@ -5909,7 +5909,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Xenoarcheologist"
+	name = "Xenoarchaeologist"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -30531,7 +30531,7 @@
 "qFD" = (
 /obj/structure/bed/stool/chair/office/light,
 /obj/effect/landmark/start{
-	name = "Xenoarcheologist"
+	name = "Xenoarchaeologist"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,

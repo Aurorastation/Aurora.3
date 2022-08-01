@@ -99,8 +99,8 @@
 /area/rnd/conference
 	name = "Research - Conference Room"
 
-/area/maintenance/substation/xenoarcheology
-	name = "Xenoarcheology Substation"
+/area/maintenance/substation/xenoarchaeology
+	name = "Xenoarchaeology Substation"
 
 //Hangar
 

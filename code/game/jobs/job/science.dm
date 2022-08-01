@@ -112,8 +112,8 @@
 	dufflebag = /obj/item/storage/backpack/duffel/tox
 	messengerbag = /obj/item/storage/backpack/messenger/tox
 
-/datum/job/xenoarcheologist
-	title = "Xenoarcheologist"
+/datum/job/xenoarchaeologist
+	title = "Xenoarchaeologist"
 	flag = XENOARCHEOLOGIST
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
@@ -134,14 +134,14 @@
 	minimal_access = list(access_research, access_xenoarch, access_tox, access_tox_storage, access_intrepid)
 
 	minimal_player_age = 14
-	outfit = /datum/outfit/job/scientist/xenoarcheologist
+	outfit = /datum/outfit/job/scientist/xenoarchaeologist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/scientist/xenoarcheologist
-	name = "Xenoarcheologist"
-	jobtype = /datum/job/xenoarcheologist
+/datum/outfit/job/scientist/xenoarchaeologist
+	name = "Xenoarchaeologist"
+	jobtype = /datum/job/xenoarchaeologist
 
-	uniform = /obj/item/clothing/under/rank/scientist/xenoarcheologist
+	uniform = /obj/item/clothing/under/rank/scientist/xenoarchaeologist
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"

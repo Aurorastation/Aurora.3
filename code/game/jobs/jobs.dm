@@ -88,7 +88,7 @@ var/list/medical_positions = list(
 var/list/science_positions = list(
 	"Research Director",
 	"Scientist",
-	"Xenoarcheologist",
+	"Xenoarchaeologist",
 	"Xenobiologist",
 	"Xenobotanist",
 	"Lab Assistant"

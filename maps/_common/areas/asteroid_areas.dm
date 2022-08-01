@@ -94,7 +94,7 @@
 	name = "Research Shuttle Dock"
 
 /area/outpost/research/eva
-	name = "Research - Xenoarcheology"
+	name = "Research - Xenoarchaeology"
 
 /area/outpost/research/analysis
 	name = "Research - Sample Analysis"
