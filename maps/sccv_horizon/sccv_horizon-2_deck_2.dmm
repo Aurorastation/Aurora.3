@@ -2067,6 +2067,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "aXZ" = (
@@ -7299,6 +7300,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "dWA" = (
@@ -14948,6 +14950,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "idy" = (
