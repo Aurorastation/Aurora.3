@@ -100,13 +100,13 @@
 /obj/item/clothing/head/ushanka/gadpathur/attack_self(mob/user as mob)
 	src.earsup = !src.earsup
 	if(src.earsup)
-		icon_state = "[icon_state]_up"
+		icon_state = "[initial(icon_state)]_up"
+		item_state = "[initial(icon_state)]_up"
 		to_chat(user, "You raise the sun shade on the cap.")
 	else
 		src.icon_state = initial(icon_state)
 		to_chat(user, "You lower the sun shade on the cap.")
 	update_clothing_icon()
-
 
 /obj/item/clothing/accessory/armband/gadpathur
 	name = "cadre brassard"
