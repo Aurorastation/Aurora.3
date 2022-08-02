@@ -3792,12 +3792,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/ringer{
-	department = "Auxiliary Custodial";
-	id = "ringers_custodialaux";
-	name = "\improper Auxiliary Custodial Ringer Terminal";
-	pixel_x = 32;
-	req_access = list(26)
+/obj/structure/reagent_dispensers/peppertank/spacecleaner{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
@@ -9421,7 +9417,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled,
 /area/janitor/stairs)
 "fht" = (
 /obj/structure/cable{
@@ -13116,13 +13112,6 @@
 "gZt" = (
 /turf/simulated/floor/wood,
 /area/horizon/hydroponics/garden)
-"gZY" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
-	},
-/turf/simulated/wall,
-/area/maintenance/wing/port/far)
 "hal" = (
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /obj/machinery/button/remote/blast_door{
@@ -20619,7 +20608,7 @@
 	req_access = list(26)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled,
 /area/janitor/stairs)
 "lpu" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -23886,6 +23875,8 @@
 /obj/item/clothing/mask/breath/medical,
 /obj/item/clothing/mask/breath/medical,
 /obj/item/clothing/mask/breath/medical,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "nbJ" = (
@@ -24108,6 +24099,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
 "ngA" = (
@@ -24403,6 +24395,13 @@
 	pixel_y = -25;
 	req_access = list(26)
 	},
+/obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/pen,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
 "nlT" = (
@@ -25332,7 +25331,6 @@
 /turf/simulated/wall,
 /area/maintenance/substation/medical)
 "nRx" = (
-/obj/structure/table/standard,
 /obj/machinery/door/window{
 	base_state = "right";
 	dir = 1;
@@ -25354,7 +25352,8 @@
 	name = "Research and Development";
 	opacity = 0
 	},
-/turf/simulated/floor/tiled/white,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/research)
 "nSO" = (
 /obj/effect/floor_decal/corner/lime{
@@ -37866,6 +37865,14 @@
 	pixel_x = 24;
 	pixel_y = -9
 	},
+/obj/machinery/ringer{
+	department = "Auxiliary Custodial";
+	id = "ringers_custodialaux";
+	name = "\improper Auxiliary Custodial Ringer Terminal";
+	pixel_x = 27;
+	req_access = list(26);
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
 "uEl" = (
@@ -38391,17 +38398,12 @@
 	dir = 9
 	},
 /obj/structure/table/steel,
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/pen,
-/obj/item/device/hand_labeler,
 /obj/machinery/requests_console{
 	department = "Custodial";
 	departmentType = 1;
 	pixel_x = -32
 	},
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
 "uRu" = (
@@ -77728,7 +77730,7 @@ lBd
 pbM
 fuu
 fuu
-gZY
+fuu
 fuu
 agG
 kmx

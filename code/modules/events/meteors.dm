@@ -1,6 +1,7 @@
 /datum/event/meteor_wave
 	startWhen		= 86
 	endWhen			= 9999//safety value, will be set during ticks
+	has_skybox_image = TRUE
 
 	var/next_meteor = 40
 	var/waves = 1
@@ -9,6 +10,11 @@
 	var/next_meteor_upper = 20
 
 	ic_name = "a meteor storm"
+
+/datum/event/meteor_wave/get_skybox_image()
+	var/image/res = overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
+	res.blend_mode = BLEND_OVERLAY
+	return res
 
 /datum/event/meteor_wave/setup()
 	waves = 0
@@ -25,12 +31,14 @@
 			break
 
 /datum/event/meteor_wave/start()
+	..()
 	for (var/zlevel in affecting_z)
 		if(zlevel in current_map.station_levels)
 			command_announcement.Announce(current_map.meteor_contact_message, "Meteor Alert")
 			break
 
 /datum/event/meteor_wave/end(var/faked)
+	..()
 	if(faked)
 		return
 	spawn(100)//We give 10 seconds before announcing, for the last wave of meteors to hit the station

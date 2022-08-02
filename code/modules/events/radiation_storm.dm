@@ -3,6 +3,7 @@
 	var/const/radIntervall 	= 5	// 20 ticks
 	var/const/leaveBelt		= 145
 	var/const/revokeAccess	= 200
+	has_skybox_image = TRUE
 	startWhen				= 2
 	announceWhen			= 1
 	endWhen					= revokeAccess
@@ -10,10 +11,17 @@
 	two_part = 1
 	ic_name = "radiation"
 
+/datum/event/radiation_storm/get_skybox_image()
+	if(prob(75)) // Sometimes, give no skybox image, to avoid metagaming it
+		var/image/res = overlay_image('icons/skybox/radbox.dmi', "beam", null, RESET_COLOR)
+		res.alpha = rand(40,80)
+		return res
+
 /datum/event/radiation_storm/announce()
 	command_announcement.Announce(current_map.radiation_detected_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_detected_message.ogg')
 
 /datum/event/radiation_storm/start()
+	..()
 	make_maint_all_access()
 	lights(TRUE)
 
@@ -37,8 +45,8 @@
 	for(var/mob/living/C in living_mob_list)
 		C.apply_radiation_effects()
 
-
 /datum/event/radiation_storm/end(var/faked)
+	..()
 	if(faked)
 		return
 	lights()
