@@ -48,6 +48,8 @@
 #define BLOB_NODE_LAYER             4.12
 #define BLOB_CORE_LAYER	            4.13
 
+#define MIMICED_LIGHTING_LAYER      4.21	// Z-Mimic-managed lighting
+
 #define CLICKCATCHER_PLANE -100
 
 #define DEFAULT_APPEARANCE_FLAGS (PIXEL_SCALE)
