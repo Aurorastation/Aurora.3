@@ -1,7 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - backend: "Cleans up the signs, flags, and decals code- and sprites. Seperates them into their own DMI's. Removes unused sprites. Moves some sprites to a more fitting directory."
-  - rscadd: "Adds a new vacuum danger sign."
