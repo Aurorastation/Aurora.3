@@ -311,3 +311,21 @@
 	desc = "A very fashionable jacket that signifies the wearer as a high-scoring Primary Numerical in the healthcare industry."
 	item_state = "iqi_med_jacket"
 	icon_state = "iqi_med_jacket"
+
+/obj/item/clothing/under/skrell/wetsuit
+	name = "casual wetsuit"
+	desc = "A wetsuit intended as casualwear for Skrell. Can be worn on its own or under additional clothes."
+	icon = 'icons/obj/contained_items/skrell/wetsuit.dmi'
+	icon_state = "wetsuit"
+	item_state = "wetsuit"
+	var/additional_color = COLOR_GRAY
+
+/obj/item/clothing/under/skrell/wetsuit/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_w_uniform_str)
+		var/image/accent = image(mob_icon, null, "wetsuit_un_accent")
+		accent.appearance_flags = RESET_COLOR
+		accent.color = additional_color
+		I.add_overlay(accent)
+	return I
+
