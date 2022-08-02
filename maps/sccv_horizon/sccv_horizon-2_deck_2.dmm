@@ -407,7 +407,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/structure/sign/emerg_exitZ_stairs/evac{
+/obj/structure/sign/emergency/evacuation/stairs{
 	layer = 2.1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1483,6 +1483,13 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/machinery/embedded_controller/radio/airlock/access_controller{
+	id_tag = "engine_airlock_control";
+	name = "Engine Access Console";
+	pixel_y = -36;
+	tag_exterior_door = "engine_airlock_exterior";
+	tag_interior_door = "engine_airlock_interior"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aJp" = (
@@ -1848,13 +1855,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/embedded_controller/radio/airlock/access_controller{
-	id_tag = "engine_airlock_control";
-	name = "Engine Access Console";
-	pixel_y = -36;
-	tag_exterior_door = "engine_airlock_exterior";
-	tag_interior_door = "engine_airlock_interior"
-	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aST" = (
@@ -2662,7 +2662,7 @@
 /area/rnd/hallway)
 "bmH" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/sign/emerg_exitZ,
+/obj/structure/sign/emergency/exit/ladder,
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "bmM" = (
@@ -2822,6 +2822,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/sign/radiation{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
@@ -6604,6 +6607,13 @@
 /turf/template_noop,
 /area/template_noop)
 "dAN" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/engineering/engine_room)
 "dAX" = (
@@ -12959,10 +12969,17 @@
 /area/operations/office)
 "gWf" = (
 /obj/machinery/door/blast/regular{
-	dir = 2;
+	dir = 4;
 	id = "EngineVent";
 	is_critical = 1;
 	name = "Reactor Vent"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/engineering/engine_room)
@@ -12993,11 +13010,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/garden)
-"gXh" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "gXu" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/plating,
@@ -13529,7 +13541,7 @@
 	c_tag = "Second Deck - Dinner Entrance 1";
 	dir = 4
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	pixel_x = -32
 	},
@@ -17420,7 +17432,7 @@
 	frequency = 1379;
 	master_tag = "engine_airlock_control";
 	name = "Engine Access Button";
-	pixel_x = -24;
+	pixel_x = 24;
 	pixel_y = 5;
 	req_one_access = list(11,24)
 	},
@@ -19667,6 +19679,9 @@
 	c_tag = "Engineering - SMES Room";
 	dir = 4
 	},
+/obj/structure/sign/radiation{
+	pixel_y = 32
+	},
 /turf/simulated/floor/plating,
 /area/engineering/smes)
 "kOE" = (
@@ -20200,7 +20215,7 @@
 	dir = 10
 	},
 /obj/machinery/light,
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -20953,6 +20968,9 @@
 /area/horizon/hydroponics/garden)
 "lBV" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
+/obj/structure/sign/radiation{
+	pixel_x = -32
+	},
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "lBW" = (
@@ -22038,11 +22056,13 @@
 /area/hallway/primary/central_two)
 "mdU" = (
 /obj/machinery/door/blast/regular{
-	dir = 2;
+	dir = 4;
 	id = "EngineVent";
 	is_critical = 1;
 	name = "Reactor Vent"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "mep" = (
@@ -26350,12 +26370,12 @@
 	dir = 9
 	},
 /obj/structure/closet/radiation,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
 /obj/machinery/camera/network/engine{
 	c_tag = "Engineering - Engine Access";
 	dir = 4
+	},
+/obj/structure/sign/radiation{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_airlock)
@@ -32105,11 +32125,15 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_room)
 "rwn" = (
-/obj/structure/sign/securearea{
-	icon_state = "radiation"
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 4
 	},
-/turf/simulated/wall/r_wall,
-/area/engineering/engine_airlock)
+/obj/structure/lattice,
+/obj/structure/sign/radiation{
+	pixel_y = -32
+	},
+/turf/simulated/open/airless,
+/area/horizon/exterior)
 "rwW" = (
 /obj/structure/cable/orange{
 	icon_state = "1-2"
@@ -32630,11 +32654,11 @@
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "rMf" = (
-/obj/structure/sign/securearea{
-	icon_state = "radiation"
+/obj/structure/sign/radiation{
+	pixel_y = 32
 	},
-/turf/simulated/wall/r_wall,
-/area/engineering/engine_monitoring)
+/turf/simulated/floor/tiled,
+/area/hallway/engineering)
 "rMw" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 10
@@ -34000,12 +34024,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
-"syf" = (
-/obj/structure/sign/securearea{
-	icon_state = "radiation"
-	},
-/turf/simulated/wall/r_wall,
-/area/engineering/smes)
 "sAT" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/closet/walllocker/firecloset{
@@ -35778,10 +35796,10 @@
 "tCG" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "tCP" = (
@@ -38798,6 +38816,10 @@
 /turf/simulated/wall,
 /area/maintenance/substation/wing_starboard)
 "vcM" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/horizon/exterior)
 "vdy" = (
@@ -41720,16 +41742,13 @@
 "wAT" = (
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
-"wBf" = (
-/obj/structure/sign/securearea{
-	icon_state = "radiation"
-	},
-/turf/simulated/wall/r_wall,
-/area/engineering/engine_waste)
 "wBh" = (
-/obj/structure/reagent_dispensers/extinguisher,
+/obj/machinery/light/small,
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Starboard Emergency Supplies Closet";
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "wBq" = (
@@ -44486,6 +44505,10 @@
 	},
 /obj/machinery/shower{
 	dir = 4
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_airlock)
@@ -55335,10 +55358,10 @@ wRu
 lWB
 ydh
 bQd
-rCR
-rCR
-rCR
-tSl
+fzh
+fzh
+fzh
+oeF
 scx
 qgN
 qgN
@@ -55741,9 +55764,9 @@ eau
 kJw
 hFg
 ibE
-ibE
-gXh
-oeF
+wBh
+fzh
+vfi
 scx
 qgN
 qgN
@@ -55944,8 +55967,8 @@ aTa
 fzh
 tCG
 ibE
-wBh
-dGz
+fzh
+rSP
 whe
 qgN
 qgN
@@ -59737,7 +59760,7 @@ uYK
 owY
 xWV
 xnG
-rwn
+uYK
 bqW
 opt
 hal
@@ -60137,7 +60160,7 @@ rTZ
 pfb
 ngC
 aIP
-rwn
+uYK
 lkO
 vPf
 ruz
@@ -60545,7 +60568,7 @@ ggd
 ioF
 tjk
 bFN
-rMf
+tYj
 jVn
 iGY
 aDI
@@ -61130,7 +61153,7 @@ qgN
 avu
 bxp
 oSQ
-oSQ
+rwn
 wcr
 wcr
 qjm
@@ -61353,7 +61376,7 @@ ggd
 vSJ
 dcF
 ewD
-rMf
+tYj
 jVn
 iGY
 mKJ
@@ -61753,7 +61776,7 @@ avy
 dPM
 tZz
 pgF
-syf
+gsT
 kOt
 kWz
 rgk
@@ -62763,8 +62786,8 @@ cfI
 wYS
 ioS
 tPW
-wBf
-hdG
+gsz
+rMf
 tXt
 pSI
 sgQ
@@ -63167,7 +63190,7 @@ dvN
 roP
 nkb
 eGx
-wBf
+gsz
 hdG
 hpG
 nTS

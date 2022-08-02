@@ -144,7 +144,7 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "aPh" = (
-/obj/structure/sign/meeting_point{
+/obj/structure/sign/emergency/meetingpoint{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
