@@ -953,7 +953,7 @@
 
 /obj/item/toy/plushie/pennyplush
 	name = "Penny plush"
-	desc = "It's a plush of the beloved company mascot cat, Penny! For the price Nanotrasen sells these things at, you probably could have bought an actual cat."
+	desc = "It's a plush of the beloved company mascot cat, Penny! For the price NanoTrasen sells these things at, you probably could have bought an actual cat."
 	icon_state = "pennyplushie"
 	slot_flags = SLOT_HEAD
 
