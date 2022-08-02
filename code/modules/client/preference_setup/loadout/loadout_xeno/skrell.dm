@@ -66,6 +66,7 @@
 	capes["nebula cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nebula
 	capes["nova cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nova
 	capes["galaxy cape"] = /obj/item/clothing/accessory/poncho/shouldercape/galaxy
+	capes["cosmic cape"] = /obj/item/clothing/accessory/poncho/shouldercape/cosmic
 	gear_tweaks += new /datum/gear_tweak/path(capes)
 
 /datum/gear/accessory/qeblak

@@ -605,6 +605,13 @@
 	item_state = "galaxycape"
 	overlay_state = "galaxycape"
 
+/obj/item/clothing/accessory/poncho/shouldercape/cosmic
+	name = "cosmic cape"
+	desc = "...Cosmic cape..."
+	icon_state = "cosmiccape"
+	item_state = "cosmiccape"
+	overlay_state = "cosmiccape"
+
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	name = "qeblak mantle"
 	desc = "A mantle denoting the wearer as a member fo the Qeblak faith."
