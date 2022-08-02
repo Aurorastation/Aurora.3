@@ -1,221 +1,98 @@
-/obj/item/clothing/ears/skrell
-	name = "skrell tentacle wear"
-	desc = "Some stuff worn by skrell to adorn their head tentacles."
-	icon = 'icons/obj/contained_items/skrell/chains.dmi'
+// Cloaks
+/obj/item/clothing/accessory/poncho/shouldercape/cloak
+	name = "Ox cloak"
+	desc = "A plain cloak that denotes the wearer as being an Ox-class worker."
+	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Jargon Society."
+	icon = 'icons/obj/contained_items/skrell/jargon_cloaks.dmi'
+	icon_override = 'icons/obj/contained_items/skrell/jargon_cloaks.dmi'
+	item_state = "ox_cloak"
+	icon_state = "cloak_item"
+	flippable = FALSE
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_TINY
-	slot_flags = SLOT_HEAD | SLOT_EARS
-	species_restricted = list(BODYTYPE_SKRELL)
 
-/obj/item/clothing/ears/skrell/get_ear_examine_text(var/mob/user, var/ear_text = "left")
-	return "on [user.get_pronoun("his")] headtails"
+/obj/item/clothing/accessory/poncho/shouldercape/cloak/ix
+	name = "Ix cloak"
+	desc = "An average cloak that denotes the wearer as being an Ix-class worker."
+	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ix are those who are low-scoring Secondary Numericals with their clothes typically being plain, yet still considered pleasant to wear and be seen in. Secondary Numericals are the majority population in the Jargon Federation, with Ix being those who are in the lower end of the band. "
+	item_state = "ix_cloak"
 
-/obj/item/clothing/ears/skrell/get_head_examine_text(var/mob/user)
-	return "on [user.get_pronoun("his")] headtails"
+/obj/item/clothing/accessory/poncho/shouldercape/cloak/oqi
+	name = "Oqi cloak"
+	desc = "A fashionable cloak that denotes the wearer as being an Oqi-class worker."
+	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Oqi are high-scoring Secondary Numericals or low-scoring Primary Numericals, with their workwear generally having more accessories that help them work in their specific industry. Skrell who are Oqi are typically more fashion-conscious, making it not uncommon to see these uniforms altered slightly to account for the latest fashion trends in the Jargon Federation."
+	item_state = "oqi_cloak"
 
-/obj/item/clothing/ears/skrell/chain
-	name = "gold headtail chains"
-	desc = "A delicate golden chain worn by skrell to decorate their head tails."
-	icon = 'icons/obj/contained_items/skrell/chains.dmi'
-	icon_state = "skrell_chain"
-	item_state = "skrell_chain"
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
+/obj/item/clothing/accessory/poncho/shouldercape/cloak/iqi
+	name = "Iqi cloak"
+	desc = "A very fashionable cloak that denotes the wearer as being an Iqi-class worker."
+	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Iqi are high-scoring Primary Numericals, and as such their workwear is of the highest quality afforded by the Federation. These clothes are typically made of sturdier materials and are more comfortable to wear. Primary Numericals are typically seen as the trend-setters in Federation society, and Skrell who are ranked at Iqi are known to influence fashion through how they accessorise."
+	item_state = "iqi_cloak"
 
-/obj/item/clothing/ears/skrell/chain/silver
-	name = "silver headtail chains"
-	desc = "A delicate silver chain worn by skrell to decorate their head tails."
-	icon_state = "skrell_chain_sil"
-	item_state = "skrell_chain_sil"
+// Ponchos
+/obj/item/clothing/accessory/poncho/skrell
+	name = "white skrell poncho"
+	desc = "This cover is a design of the Jargon Federation. It is meant to keep moisture in and stop a Skrell's skin from baking in the hot sun. C'thur and Diona may also wear it as a fashion statement."
+	icon = 'icons/obj/contained_items/skrell/skrell_ponchos.dmi'
+	icon_state = "skr_poncho"
+	item_state = "skr_poncho"
+	overlay_state = "skr_poncho"
+	contained_sprite = TRUE
+	icon_override = null
 
-/obj/item/clothing/ears/skrell/chain/bluejewels
-	name = "blue jeweled golden headtail chains"
-	desc = "A delicate golden chain adorned with blue jewels worn by skrell to decorate their head tails."
-	icon_state = "skrell_chain_bjewel"
-	item_state = "skrell_chain_bjewel"
+/obj/item/clothing/accessory/poncho/skrell/gray
+	name = "gray skrell poncho"
+	icon_state = "skr_poncho_gry"
+	item_state = "skr_poncho_gry"
+	overlay_state = "skr_poncho_gry"
 
-/obj/item/clothing/ears/skrell/chain/redjewels
-	name = "red jeweled golden headtail chains"
-	desc = "A delicate golden chain adorned with red jewels worn by skrell to decorate their head tails."
-	icon_state = "skrell_chain_rjewel"
-	item_state = "skrell_chain_rjewel"
+/obj/item/clothing/accessory/poncho/skrell/tan
+	name = "tan skrell poncho"
+	icon_state = "skr_poncho_tan"
+	item_state = "skr_poncho_tan"
+	overlay_state = "skr_poncho_tan"
 
-/obj/item/clothing/ears/skrell/chain/ebony
-	name = "ebony headtail chains"
-	desc = "A delicate ebony chain worn by skrell to decorate their head tails."
-	icon_state = "skrell_chain_ebony"
-	item_state = "skrell_chain_ebony"
+/obj/item/clothing/accessory/poncho/skrell/brown
+	name = "brown skrell poncho"
+	icon_state = "skr_poncho_brn"
+	item_state = "skr_poncho_brn"
+	overlay_state = "skr_poncho_brn"
 
-/obj/item/clothing/ears/skrell/chain/short
-	name = "skrell short gold headdress"
-	desc = "An elaborate golden headdress worn by skrell around their head tails."
-	item_state = "male_golddia"
+//Capes
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes
+	name = "jargon cape"
+	desc = "A cape that has the Jargon flag on the back."
+	desc_fluff = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Jargon Federation - specifically, the inner systems."
+	icon = 'icons/obj/contained_items/skrell/nationcapes.dmi'
+	icon_override = 'icons/obj/contained_items/skrell/nationcapes.dmi'
+	item_state = "jargcape"
+	icon_state = "jargcape"
+	flippable = TRUE
+	contained_sprite = TRUE
 
-/obj/item/clothing/ears/skrell/chain/average
-	name = "skrell average gold headdress"
-	desc = "An elaborate golden headdress worn by skrell around their head tails."
-	item_state = "female_golddia"
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/traverse
+	name = "traverse cape"
+	desc = "A cape that has the Free Traverse flag on the back."
+	desc_fluff = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Jargon Federation - specifically, the Traverse. As the Free Traverse Flag is linked to the lyukal and general Traverse independence movements, it is not recommended to wear this flag openly in Federation space."
+	item_state = "travcape"
+	icon_state = "travcape"
 
-/obj/item/clothing/ears/skrell/chain/long
-	name = "skrell very long gold headdress"
-	desc = "An elaborate golden headdress worn by skrell around their head tails."
-	item_state = "verylong_golddia"
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/sol
+	name = "sol cape"
+	desc = "A cape that has the Solarian Alliance flag on the back."
+	desc_fluff = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Sol Alliance. Unlike similar capes, it is generally acceptable to Fed-aligned Skrell to wear this due to the Sol Alliance's relationship with the Federation."
+	item_state = "solcape"
+	icon_state = "solcape"
 
-/obj/item/clothing/ears/skrell/chain/short
-	name = "skrell very short gold headdress"
-	desc = "An elaborate golden headdress worn by skrell around their head tails."
-	item_state = "veryshort_golddia"
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/coc
+	name = "coc cape"
+	desc = "A cape that has the Coalition of Colonies flag on the back."
+	desc_fluff = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Coalition of Colonies. Due to the poor relationship between the Coalition of Colonies and the Jargon Federation, Fed-aligned Skrell do not approve of this cape."
+	item_state = "coccape"
+	icon_state = "coccape"
 
-/obj/item/clothing/ears/skrell/chain/silver/short
-	name = "skrell short silver headdress"
-	desc = "A jeweled silver headdress worn by skrell around their head tails."
-	item_state = "male_silvdia"
-
-/obj/item/clothing/ears/skrell/chain/silver/average
-	name = "skrell average silver headdress"
-	desc = "A jeweled silver headdress worn by skrell around their head tails."
-	item_state = "female_silvdia"
-
-/obj/item/clothing/ears/skrell/chain/silver/long
-	name = "skrell very long silver headdress"
-	desc = "A jeweled silver headdress worn by skrell around their head tails."
-	item_state = "verylong_silvdia"
-
-/obj/item/clothing/ears/skrell/chain/festive
-	name = "skrell average festive headdress"
-	desc = "An elaborate golden headdress worn by skrell around their head tails."
-	item_state = "female_fest"
-
-/obj/item/clothing/ears/skrell/chain/festive/long
-	name = "skrell very long festive headdress"
-	desc = "An elaborate golden headdress worn by skrell around their head tails."
-	item_state = "verylong_fest"
-
-/obj/item/clothing/ears/skrell/chain/festive/short
-	name = "skrell short festive headdress"
-	desc = "An elaborate golden headdress worn by skrell around their head tails."
-	item_state = "male_fest"
-
-/obj/item/clothing/ears/skrell/chain/festive/veryshort
-	name = "skrell very short festive headdress"
-	desc = "An elaborate golden headdress worn by skrell around their head tails."
-	item_state = "veryshort_fest"
-
-/obj/item/clothing/ears/skrell/chain/black/short
-	name = "skrell short ebony headdress"
-	desc = "An elaborate ebony jeweled headdress worn by skrell around their head tails."
-	item_state = "male_blackdia"
-
-/obj/item/clothing/ears/skrell/chain/black/average
-	name = "skrell average ebony headdress"
-	desc = "An elaborate ebony jeweled headdress worn by skrell around their head tails."
-	item_state = "skrell_chain_ebony"
-
-/obj/item/clothing/ears/skrell/chain/black/long
-	name = "skrell long ebony headdress"
-	desc = "An elaborate ebony jeweled headdress worn by skrell around their head tails."
-	item_state = "verylong_blackdia"
-
-/obj/item/clothing/ears/skrell/band
-	name = "gold headtail bands"
-	desc = "Golden metallic bands worn by skrell to adorn their head tails."
-	icon = 'icons/obj/contained_items/skrell/bands.dmi'
-	icon_state = "skrell_band"
-	item_state = "skrell_band"
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/clothing/ears/skrell/band/silver
-	name = "silver headtail bands"
-	desc = "Silver metallic bands worn by skrell to adorn their head tails."
-	icon_state = "skrell_band_sil"
-	item_state = "skrell_band_sil"
-
-/obj/item/clothing/ears/skrell/band/bluejewels
-	name = "blue jeweled golden headtail bands"
-	desc = "Golden metallic bands adorned with blue jewels worn by skrell to adorn their head tails."
-	icon_state = "skrell_band_bjewel"
-	item_state = "skrell_band_bjewel"
-
-/obj/item/clothing/ears/skrell/band/redjewels
-	name = "red jeweled golden headtail bands"
-	desc = "Golden metallic bands adorned with red jewels worn by skrell to adorn their head tails."
-	icon_state = "skrell_band_rjewel"
-	item_state = "skrell_band_rjewel"
-
-/obj/item/clothing/ears/skrell/band/ebony
-	name = "ebony headtail bands"
-	desc = "Ebony bands worn by skrell to adorn their head tails."
-	icon_state = "skrell_band_ebony"
-	item_state = "skrell_band_ebony"
-
-/obj/item/clothing/ears/skrell/cloth
-	name = "headtail cloth"
-	desc = "A cloth shawl worn by skrell draped around their head tails."
-	icon = 'icons/obj/contained_items/skrell/headtail_cloth.dmi'
-	icon_state = "skrell_cloth"
-	item_state = "skrell_cloth"
-
-/obj/item/clothing/ears/skrell/cloth/short
-	name = "short headtail cloth"
-	item_state = "skrell_cloth_short"
-
-/obj/item/clothing/ears/skrell/goop
-	name = "glowing algae"
-	desc = "A mixture of glowing algae applied by skrell on their head tails."
-	icon = 'icons/obj/contained_items/skrell/algae.dmi'
-	icon_state = "skrell_dots"
-	item_state = "skrell_dots"
-
-/obj/item/clothing/ears/skrell/goop/update_icon()
-	..()
-	if(color)
-		set_light(1.5,1.5,color)
-		filters = filter(type="drop_shadow", color = color + "F0", size = 2, offset = 1, x = 0, y = 0)
-
-/obj/item/clothing/ears/skrell/goop/Initialize()
-	. = ..()
-	update_icon()
-
-/obj/item/clothing/ears/skrell/goop/long
-	item_state = "skrell_dots_long"
-
-/obj/item/clothing/ears/skrell/goop/stripes
-	item_state = "skrell_stripes"
-
-/obj/item/clothing/ears/skrell/goop/stripes/long
-	item_state = "skrell_stripes_long"
-
-/obj/item/clothing/ears/skrell/goop/circles
-	item_state = "skrell_circles"
-
-/obj/item/clothing/ears/skrell/goop/circles/long
-	item_state = "skrell_circles_long"
-
-/obj/item/clothing/ears/skrell/scrunchy
-	name = "skrell tentacle tie"
-	desc = "A self-powered hard-light 'scrunchy' used to comfortably tie back the tentacles."
-	icon = 'icons/obj/contained_items/skrell/scrunchies.dmi'
-	icon_state = "skrellhairtie"
-	item_state = "scrunchy_seaweed"
-
-/obj/item/clothing/ears/skrell/scrunchy/equipped(mob/user, slot, assisted_equip)
-	if((slot in list(slot_head, slot_l_ear, slot_r_ear)) && ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(istype(hair_styles_list[H.h_style], /datum/sprite_accessory/hair/skr_tentacle_m))
-			var/datum/sprite_accessory/hair/skr_tentacle_m/hair_datum = hair_styles_list[H.h_style]
-			if(hair_datum.scrunchy_style)
-				item_state = "scrunchy_[hair_datum.scrunchy_style]"
-	return ..()
-
-/obj/item/clothing/ears/skrell/workcap
-	name = "Worker's Cap"
-	desc = "A simple clothing item used by Skrell to cover their headtails. It comes with a main sleeve for the middle headtail, with smaller sleeves for the outer headtails to help keep it in place."
-	icon = 'icons/obj/contained_items/skrell/jargon_caps.dmi'
-	item_state = "skrell_cap"
-	icon_state = "skrell_cap_item"
-
-/obj/item/clothing/ears/skrell/workcap/long
-	name = "Long Worker's Cap"
-	desc = "A simple clothing item used by Skrell to cover their headtails. It comes with a main sleeve for the middle headtail, with smaller sleeves for the outer headtails to help keep it in place. This one is longer to account for Skrell with longer headtails."
-	item_state = "skrell_cap_long"
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel
+	name = "biesel cape"
+	desc = "A cape that has the Republic of Biesel flag on the back."
+	desc_fluff = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Republic of Biesel. Due to the mix of both pro-Fed and anti-Fed Skrell in the Republic, this cape usually does not warrant strong emotions until the wearer's political leanings are known."
+	item_state = "biescape"
+	icon_state = "biescape"
