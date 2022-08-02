@@ -13,7 +13,7 @@
 	possible_spiders = typesof(/mob/living/simple_animal/hostile/giant_spider)
 
 /datum/event/spider_infestation/announce()
-	command_announcement.Announce("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert", new_sound = 'sound/AI/aliens.ogg')
+	command_announcement.Announce("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert", new_sound = 'sound/AI/aliens.ogg', zlevels = affecting_z)
 
 /datum/event/spider_infestation/start()
 	var/list/vents = list()

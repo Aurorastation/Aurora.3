@@ -19485,7 +19485,7 @@
 /area/shuttle/merchant)
 "ipA" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/unsimulated/floor{
 	icon_state = "tiles"
 	},
