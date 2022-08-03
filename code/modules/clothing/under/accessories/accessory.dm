@@ -593,7 +593,7 @@
 
 /obj/item/clothing/accessory/poncho/shouldercape/nova
 	name = "nova cape"
-	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it"
+	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it."
 	icon_state = "novacape"
 	item_state = "novacape"
 	overlay_state = "novacape"
@@ -607,7 +607,7 @@
 
 /obj/item/clothing/accessory/poncho/shouldercape/cosmic
 	name = "cosmic cape"
-	desc = "...Cosmic cape..."
+	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it, of constellations and stars visible from Qerrbalak."
 	icon_state = "cosmiccape"
 	item_state = "cosmiccape"
 	overlay_state = "cosmiccape"
