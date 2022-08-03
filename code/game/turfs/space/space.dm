@@ -15,6 +15,7 @@
 	is_hole = TRUE
 
 	permit_ao = FALSE
+	z_eventually_space = TRUE
 	var/use_space_appearance = TRUE
 	var/use_starlight = TRUE
 
@@ -25,7 +26,7 @@
 /turf/space/Initialize()
 	if(use_space_appearance)
 		appearance = SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
-	if(config.starlight && use_starlight)
+	if(config.starlight && use_starlight && lighting_overlays_initialized)
 		update_starlight()
 
 	if (initialized)
@@ -45,6 +46,14 @@
 
 	return INITIALIZE_HINT_NORMAL
 
+/turf/space/Destroy()
+	// Cleanup cached z_eventually_space values above us.
+	if (above)
+		var/turf/T = src
+		while ((T = GetAbove(T)))
+			T.z_eventually_space = FALSE
+	return ..()
+
 /turf/space/is_space()
 	return 1
 
@@ -62,12 +71,10 @@
 
 	return 0
 
-/turf/space/proc/update_starlight(var/validate = TRUE)
+/turf/space/proc/update_starlight()
 	if(!config.starlight)
 		return
-	if(!validate) // basically a hack for places where the check was already done for us
-		set_light(1, config.starlight, l_color = SSskybox.background_color)
-	else if(locate(/turf/simulated) in RANGE_TURFS(1, src))
+	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
 		set_light(1, config.starlight, l_color = SSskybox.background_color)
 	else
 		set_light(0)
