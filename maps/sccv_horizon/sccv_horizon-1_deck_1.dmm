@@ -903,6 +903,8 @@
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining - Shuttle"
 	},
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "aNR" = (
@@ -1450,7 +1452,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 4;
 	pixel_x = 32
 	},
@@ -1920,7 +1922,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3585,7 +3587,7 @@
 /obj/machinery/light/spot/weak{
 	dir = 4
 	},
-/obj/structure/sign/emerg_pods{
+/obj/structure/sign/emergency/evacuation/pods{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
@@ -6472,7 +6474,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
@@ -7344,7 +7346,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 4;
 	pixel_x = 32
 	},
@@ -7958,7 +7960,7 @@
 /area/shuttle/escape_pod/pod1)
 "glb" = (
 /obj/structure/railing/mapped,
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	layer = 2.1
 	},
@@ -10797,13 +10799,9 @@
 	},
 /area/engineering/atmos/propulsion)
 "iFL" = (
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+/obj/machinery/door/airlock/freezer_maint{
+	name = "Morgue Maintenance";
+	req_access = list(5)
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Deck 1 Medical Maintenance";
@@ -11243,13 +11241,14 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/structure/sign/securearea{
-	desc = "A danger sign which reads 'DANGER: THE MINING SHUTTLE HANGAR IS A DEPRESSURIZED AREA'.";
-	name = "\improper DANGER: DEPRESSURIZED AREA sign";
-	pixel_y = -32
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -11770,7 +11769,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Passthrough";
-	req_access = list(12)
+	req_one_access = list(12,26,31,48,67)
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
@@ -12439,7 +12438,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	pixel_x = -32
 	},
@@ -13115,7 +13114,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 4;
 	pixel_y = -32
 	},
@@ -13903,8 +13902,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	name = "Deck 1 Medical Maintenance";
+/obj/machinery/door/airlock/freezer_maint{
+	name = "Morgue Maintenance";
 	req_access = list(5)
 	},
 /obj/machinery/door/blast/shutters{
@@ -15607,7 +15606,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "mFO" = (
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	layer = 2.1
 	},
@@ -15912,7 +15911,7 @@
 	c_tag = "First Deck - Hangar 13";
 	dir = 8
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 4;
 	pixel_x = 32
 	},
@@ -15980,7 +15979,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 4;
 	pixel_x = 32
 	},
@@ -17647,7 +17646,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	layer = 2.1
 	},
@@ -17793,6 +17792,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "ovh" = (
@@ -18235,6 +18235,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "oYp" = (
@@ -18386,7 +18387,7 @@
 /area/horizon/hydroponics/lower)
 "pep" = (
 /obj/effect/floor_decal/corner/green/full,
-/obj/structure/sign/emerg_exit{
+/obj/structure/sign/emergency/exit{
 	pixel_y = -32
 	},
 /obj/machinery/firealarm/west,
@@ -19056,6 +19057,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/medical_compartment)
 "pEb" = (
@@ -20201,7 +20204,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	pixel_x = -32
 	},
@@ -20991,11 +20994,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/sign/securearea{
-	desc = "A danger sign which reads 'DANGER: THE MINING SHUTTLE HANGAR IS A DEPRESSURIZED AREA'.";
-	name = "\improper DANGER: DEPRESSURIZED AREA sign";
+/obj/structure/sign/vacuum{
 	pixel_y = -32
 	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "rcA" = (
@@ -24569,7 +24571,7 @@
 	c_tag = "Operations - Hangar Starboard Fore";
 	dir = 4
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	pixel_x = -32
 	},
@@ -24980,7 +24982,7 @@
 /obj/machinery/light/spot/weak{
 	dir = 8
 	},
-/obj/structure/sign/emerg_pods{
+/obj/structure/sign/emergency/evacuation/pods{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
@@ -25010,7 +25012,7 @@
 	c_tag = "Operations - Hangar Starboard Aft";
 	dir = 4
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	pixel_x = -32
 	},
@@ -28594,6 +28596,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "xol" = (
