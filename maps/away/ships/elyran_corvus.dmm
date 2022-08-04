@@ -133,10 +133,10 @@
 	dir = 6
 	},
 /obj/effect/decal/fake_object{
+	desc = "A panel controlling an SUPB Pod. This one states the pod is currently offline.";
 	icon = 'icons/obj/computer.dmi';
 	icon_state = "lift";
-	name = "SUPB lauching panel";
-	desc = "A panel controlling an SUPB Pod. This one states the pod is currently offline."
+	name = "SUPB lauching panel"
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
@@ -220,6 +220,15 @@
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"aFn" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "aFo" = (
 /obj/machinery/access_button{
@@ -311,9 +320,9 @@
 	dir = 5
 	},
 /obj/structure/closet/crate{
-	name = "footlocker";
+	anchored = 1;
 	desc = "A rectangular steel footlocker.";
-	anchored = 1
+	name = "footlocker"
 	},
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/storage/box/fancy/cigarettes,
@@ -323,6 +332,7 @@
 /obj/item/roller,
 /obj/item/clothing/accessory/storage/pouches/white,
 /obj/item/clothing/glasses/hud/health,
+/obj/item/melee/telebaton,
 /turf/simulated/floor/tiled,
 /area/space)
 "aXh" = (
@@ -609,9 +619,9 @@
 /area/space)
 "dnH" = (
 /obj/structure/closet/crate{
-	name = "footlocker";
+	anchored = 1;
 	desc = "A rectangular steel footlocker.";
-	anchored = 1
+	name = "footlocker"
 	},
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/gun/projectile/plasma/bolter/pistol,
@@ -621,6 +631,7 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/suit/space/void/valkyrie,
 /obj/item/clothing/head/helmet/space/void/valkyrie,
+/obj/item/melee/telebaton,
 /turf/simulated/floor/carpet,
 /area/space)
 "dBa" = (
@@ -681,6 +692,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"ekC" = (
+/obj/machinery/door/blast/regular,
+/turf/simulated/floor,
+/area/space)
 "emN" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -688,10 +703,10 @@
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "eqe" = (
-/obj/machinery/sleeper{
+/obj/effect/floor_decal/corner_wide/lime/full,
+/obj/machinery/bodyscanner{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner_wide/lime/full,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "esk" = (
@@ -866,6 +881,7 @@
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 8
 	},
+/obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "fLL" = (
@@ -1010,6 +1026,9 @@
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/gun/energy/retro,
+/obj/item/ammo_magazine/plasma/light,
+/obj/item/gun/projectile/plasma/bolter,
 /turf/simulated/floor/tiled,
 /area/space)
 "hiD" = (
@@ -1349,10 +1368,10 @@
 	dir = 6
 	},
 /obj/effect/decal/fake_object{
+	desc = "A panel controlling an SUPB Pod. This one states the pod is currently offline.";
 	icon = 'icons/obj/computer.dmi';
 	icon_state = "lift";
-	name = "SUPB lauching panel";
-	desc = "A panel controlling an SUPB Pod. This one states the pod is currently offline."
+	name = "SUPB lauching panel"
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
@@ -1501,12 +1520,14 @@
 	dir = 8
 	},
 /obj/structure/closet/crate{
-	name = "footlocker";
+	anchored = 1;
 	desc = "A rectangular steel footlocker.";
-	anchored = 1
+	name = "footlocker"
 	},
 /obj/item/clothing/accessory/badge/passcard/elyra,
-/obj/item/storage/photo_album,
+/obj/item/storage/belt/security,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/melee/telebaton,
 /turf/simulated/floor/tiled,
 /area/space)
 "lpY" = (
@@ -1559,7 +1580,21 @@
 	},
 /area/space)
 "lNt" = (
-/obj/structure/closet/crate/loot,
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/simulated/floor,
 /area/space)
 "lPv" = (
@@ -1995,6 +2030,14 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/space)
+"pGn" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/gun/energy/retro,
+/turf/simulated/floor/tiled,
+/area/space)
 "pGp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/brace{
@@ -2061,17 +2104,17 @@
 /area/space)
 "quk" = (
 /obj/structure/closet/crate{
-	name = "footlocker";
+	anchored = 1;
 	desc = "A rectangular steel footlocker.";
-	anchored = 1
-	},
-/obj/effect/floor_decal/corner/beige{
-	dir = 10
+	name = "footlocker"
 	},
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/storage/belt/security,
 /obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/glasses/sunglasses,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/item/melee/telebaton,
 /turf/simulated/floor/tiled,
 /area/space)
 "qvs" = (
@@ -2110,10 +2153,10 @@
 	},
 /obj/structure/table/steel,
 /obj/effect/decal/fake_object{
+	desc = "A small scale commercial holo-movie system. This one is on the fritz.";
 	icon = 'icons/obj/holopad.dmi';
 	icon_state = "holopad0_lr";
-	name = "HoloViewer Entertainment System";
-	desc = "A small scale commercial holo-movie system. This one is on the fritz."
+	name = "HoloViewer Entertainment System"
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -2200,6 +2243,17 @@
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
+/area/space)
+"rtl" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/machinery/computer/cryopod{
+	pixel_y = -33
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "rBF" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -2410,7 +2464,6 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/item/clothing/head/helmet/pilot,
-/obj/item/clothing/head/helmet/pilot,
 /turf/simulated/floor/tiled,
 /area/space)
 "tms" = (
@@ -2515,9 +2568,9 @@
 /area/space)
 "urK" = (
 /obj/effect/decal/fake_object{
+	desc = "An SUPB Pod, also know as a Single Use Personal Boarding Pod. These pods are utilized across the Spur for interdictions and hostile boarding actions across the Spur.";
 	icon = 'icons/obj/vehicles.dmi';
 	icon_state = "droppod";
-	desc = "An SUPB Pod, also know as a Single Use Personal Boarding Pod. These pods are utilized across the Spur for interdictions and hostile boarding actions across the Spur.";
 	name = "SUPB Pod"
 	},
 /obj/effect/floor_decal/spline/plain{
@@ -2612,6 +2665,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"vFm" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor,
+/area/space)
 "vFY" = (
 /obj/structure/bed/roller,
 /obj/item/vitals_monitor{
@@ -2639,9 +2696,9 @@
 /area/space)
 "vXr" = (
 /obj/structure/closet/crate{
-	name = "footlocker";
+	anchored = 1;
 	desc = "A rectangular steel footlocker.";
-	anchored = 1
+	name = "footlocker"
 	},
 /obj/effect/floor_decal/corner/beige/full,
 /obj/item/clothing/accessory/badge/passcard/elyra,
@@ -2653,6 +2710,7 @@
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/melee/telebaton,
 /turf/simulated/floor/tiled,
 /area/space)
 "wcX" = (
@@ -2790,6 +2848,11 @@
 /obj/item/reagent_containers/food/drinks/cans/thirteenloko{
 	pixel_x = 4
 	},
+/obj/item/reagent_containers/food/snacks/donerkebab,
+/obj/item/reagent_containers/food/snacks/donerkebab,
+/obj/item/reagent_containers/food/snacks/greencurry,
+/obj/item/reagent_containers/food/snacks/redcurry,
+/obj/item/reagent_containers/food/snacks/yellowcurry,
 /turf/simulated/floor/tiled,
 /area/space)
 "xla" = (
@@ -2843,6 +2906,13 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor,
+/area/space)
+"xyj" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/machinery/body_scanconsole{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "xyT" = (
 /obj/structure/plasticflaps,
@@ -32112,7 +32182,7 @@ uRK
 uRK
 fKm
 sTj
-sTj
+xyj
 bSo
 bSo
 sbC
@@ -34931,7 +35001,7 @@ yme
 yme
 uRK
 lkE
-phR
+aFn
 vXr
 bSo
 jCz
@@ -35211,7 +35281,7 @@ kAt
 iOh
 eCG
 uYP
-uYP
+ekC
 xRX
 xRX
 xRX
@@ -35468,7 +35538,7 @@ uRK
 uRK
 cWy
 uYP
-uYP
+ekC
 xRX
 xRX
 xRX
@@ -35703,7 +35773,7 @@ yme
 uRK
 wdF
 atj
-nEc
+rtl
 bSo
 atj
 atj
@@ -35725,7 +35795,7 @@ hOg
 oFn
 cWy
 wxY
-uYP
+ekC
 xRX
 xRX
 xRX
@@ -35982,7 +36052,7 @@ hOg
 oFn
 cWy
 uYP
-uYP
+ekC
 xRX
 xRX
 xRX
@@ -36239,7 +36309,7 @@ hOg
 oFn
 cWy
 wxY
-uYP
+ekC
 xRX
 xRX
 xRX
@@ -36496,7 +36566,7 @@ uRK
 uRK
 cWy
 uYP
-uYP
+ekC
 xRX
 xRX
 xRX
@@ -36753,7 +36823,7 @@ wUJ
 dVy
 bQB
 wxY
-uYP
+ekC
 xRX
 xRX
 xRX
@@ -37004,9 +37074,9 @@ cGq
 uYP
 wxY
 uYP
-uYP
-uYP
-uYP
+vFm
+vFm
+vFm
 wxY
 uYP
 kbf
@@ -40089,9 +40159,9 @@ hif
 cQX
 hif
 cQX
-hif
+pGn
 cQX
-hif
+pGn
 cQX
 uRK
 xRX
@@ -40341,7 +40411,7 @@ uRK
 aFo
 rLq
 xAg
-uRK
+bSo
 uRK
 uRK
 uRK
