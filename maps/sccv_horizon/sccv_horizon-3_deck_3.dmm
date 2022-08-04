@@ -3441,12 +3441,12 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_three/primary/starboard)
 "gv" = (
-/obj/machinery/door/airlock/medical{
-	name = "Staff Facilities";
-	req_access = list(5)
-	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/medical{
+	name = "Deck 3 Medical";
+	req_access = list(5)
+	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	icon_state = "shutter0";
@@ -3455,7 +3455,7 @@
 	opacity = 0;
 	dir = 2
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/hallway/medical/upper)
 "gw" = (
 /obj/structure/bed/stool/chair{
@@ -5890,7 +5890,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Ammo)";
 	req_access = null;
-	req_one_access = list(3, 19)
+	req_one_access = list(3,19)
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -9605,7 +9605,8 @@
 /area/horizon/crew_quarters/fitness/showers)
 "rF" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(5)
+	req_access = list(5);
+	name = "Deck 3 Medical Maintenance"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -9616,7 +9617,7 @@
 	opacity = 0;
 	dir = 2
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/full,
 /area/hallway/medical/upper)
 "rG" = (
 /obj/machinery/status_display{
@@ -9791,13 +9792,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/medical{
-	name = "Staff Facilities";
-	req_access = list(5)
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
-	name = "Medical Staff Facilities";
+	name = "Deck 3 Medical";
 	req_access = list(5)
 	},
 /obj/machinery/door/blast/shutters{
@@ -9808,7 +9805,7 @@
 	opacity = 0;
 	dir = 2
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/hallway/medical/upper)
 "sa" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -17152,7 +17149,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Rifle)";
 	req_access = null;
-	req_one_access = list(3, 19)
+	req_one_access = list(3,19)
 	},
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
@@ -20760,7 +20757,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Rifle)";
 	req_access = null;
-	req_one_access = list(3, 19)
+	req_one_access = list(3,19)
 	},
 /obj/machinery/light{
 	dir = 4
@@ -21051,7 +21048,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Sidearm)";
 	req_access = null;
-	req_one_access = list(3, 19)
+	req_one_access = list(3,19)
 	},
 /obj/machinery/light{
 	dir = 8
@@ -22350,7 +22347,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Laser Rifle)";
 	req_access = null;
-	req_one_access = list(3, 19)
+	req_one_access = list(3,19)
 	},
 /obj/item/gun/energy/rifle/laser/noctiluca,
 /turf/simulated/floor/tiled/dark,
@@ -28083,7 +28080,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Laser Rifle)";
 	req_access = null;
-	req_one_access = list(3, 19)
+	req_one_access = list(3,19)
 	},
 /obj/item/gun/energy/rifle/laser/noctiluca,
 /turf/simulated/floor/tiled/dark,

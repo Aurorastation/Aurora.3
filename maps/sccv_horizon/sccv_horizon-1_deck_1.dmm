@@ -10799,10 +10799,7 @@
 	},
 /area/engineering/atmos/propulsion)
 "iFL" = (
-/obj/machinery/door/airlock/freezer_maint{
-	name = "Morgue Maintenance";
-	req_access = list(5)
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Deck 1 Medical Maintenance";
 	req_access = list(5)
@@ -13902,8 +13899,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/freezer_maint{
-	name = "Morgue Maintenance";
+/obj/machinery/door/airlock/maintenance{
+	name = "Deck 1 Medical Maintenance";
 	req_access = list(5)
 	},
 /obj/machinery/door/blast/shutters{
