@@ -20194,6 +20194,9 @@
 	req_access = list(64)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/medical/psych)
 "lbP" = (
@@ -36669,6 +36672,9 @@
 	name = "Psychiatrist's Office";
 	req_access = list(64)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/medical/psych)
 "tZR" = (
@@ -44227,6 +44233,7 @@
 	name = "Psychiatrist's Office";
 	req_access = list(64)
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/full,
 /area/medical/psych)
 "xQn" = (
