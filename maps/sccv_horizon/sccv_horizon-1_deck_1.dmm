@@ -3099,6 +3099,11 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
+/obj/machinery/computer/shuttle_control/lift/wall{
+	shuttle_tag = "Morgue Lift";
+	dir = 1;
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "cuY" = (
@@ -8053,17 +8058,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
-"gqn" = (
-/obj/machinery/computer/shuttle_control/lift{
-	pixel_y = -1;
-	shuttle_tag = "Morgue Lift"
-	},
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/medical/morgue/lower)
 "gqR" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -43206,7 +43200,7 @@ ege
 pPU
 lIg
 gRa
-gqn
+qBC
 fDD
 fDD
 lIg
