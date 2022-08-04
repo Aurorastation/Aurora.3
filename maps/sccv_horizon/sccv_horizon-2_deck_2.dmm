@@ -3500,6 +3500,17 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
+"bJM" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/brown{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/operations/lobby)
 "bKd" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/atmospherics/pipe/tank/air{
@@ -5227,6 +5238,7 @@
 	dir = 9
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "cOs" = (
@@ -7027,11 +7039,11 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/emcloset,
 /obj/structure/sign/staff_only{
 	pixel_x = -32
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "dMf" = (
@@ -14255,6 +14267,9 @@
 "hEP" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
@@ -22445,10 +22460,10 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "mpX" = (
@@ -30981,6 +30996,10 @@
 /area/rnd/research)
 "qTC" = (
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/brown,
+/obj/effect/floor_decal/corner/green{
+	dir = 8
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
@@ -38860,6 +38879,7 @@
 	dir = 6
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "veu" = (
@@ -39905,8 +39925,8 @@
 /obj/machinery/ai_status_display{
 	pixel_x = -32
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "vJX" = (
@@ -43955,6 +43975,7 @@
 "xIo" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "xIH" = (
@@ -56134,7 +56155,7 @@ ens
 tFX
 qxK
 kmc
-qTC
+bJM
 mpV
 qTC
 fzh
