@@ -4742,6 +4742,14 @@
 	req_access = list(66)
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/medical/icu)
 "cxO" = (
@@ -12065,6 +12073,14 @@
 	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/medical/exam)
 "gzr" = (
@@ -20196,14 +20212,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "lbN" = (
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "Medical Lockdown Shutters";
-	opacity = 0
-	},
 /obj/machinery/door/airlock/medical{
 	name = "Psychiatrist's Office";
 	req_access = list(64)
@@ -20211,6 +20219,14 @@
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/psych)
@@ -22931,6 +22947,14 @@
 	req_access = list(45)
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/medical/or1)
 "mEc" = (
@@ -26762,6 +26786,14 @@
 	req_access = list(45)
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/medical/or2)
 "oGp" = (
@@ -36679,20 +36711,20 @@
 /area/engineering/engine_room)
 "tZL" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "Medical Lockdown Shutters";
-	opacity = 0
-	},
 /obj/machinery/door/airlock/medical{
 	name = "Psychiatrist's Office";
 	req_access = list(64)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/psych)
@@ -39971,6 +40003,14 @@
 	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/hallway/medical)
 "vLu" = (
@@ -43697,7 +43737,7 @@
 "xzM" = (
 /obj/machinery/door/airlock/glass_medical{
 	id_tag = "medaltdoor";
-	name = "Medbay";
+	name = "Medical";
 	req_access = list(5)
 	},
 /obj/structure/disposalpipe/segment,

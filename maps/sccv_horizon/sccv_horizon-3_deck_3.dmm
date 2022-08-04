@@ -22,17 +22,17 @@
 /area/horizon/crew_quarters/fitness/pool)
 "ae" = (
 /obj/structure/cable/green{
-	icon_state = "4-8"
+	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/drop{
+	pixel_x = -32;
+	name = "\improper DANGER: DROP ON OTHER SIDE OF DOOR sign"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled/white,
-/area/hallway/medical/upper)
+/turf/simulated/floor,
+/area/maintenance/bridge)
 "af" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -3458,11 +3458,19 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "gv" = (
 /obj/machinery/door/airlock/medical{
-	name = "Staff Facilities";
-	req_access = list(66)
+	name = "Medical Staff Facilities";
+	req_access = list(5)
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/medical/upper)
 "gw" = (
@@ -3653,6 +3661,9 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 5
+	},
+/obj/structure/sign/staff_only{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -9614,11 +9625,19 @@
 /area/horizon/crew_quarters/fitness/showers)
 "rF" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(66)
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
+	},
 /turf/simulated/floor,
-/area/medical/ward)
+/area/hallway/medical/upper)
 "rG" = (
 /obj/machinery/status_display{
 	layer = 4;
@@ -9794,18 +9813,18 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/medical{
-	name = "Staff Facilities";
-	req_access = list(66)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/medical{
+	name = "Medical Staff Facilities";
+	req_access = list(5)
+	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
-	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/medical/upper)
@@ -10608,9 +10627,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/crew_quarters/fitness/gym)
 "tu" = (
-/obj/structure/sign/staff_only{
-	pixel_y = 32
-	},
 /obj/structure/closet/emcloset,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -10618,7 +10634,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "tv" = (
@@ -10735,12 +10751,19 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_3)
 "tG" = (
-/obj/structure/sign/staff_only{
-	pixel_x = 1;
-	pixel_y = -4
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "Recovery1"
 	},
-/turf/simulated/wall,
-/area/medical/ward/isolation)
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/medical/ward)
 "tH" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
@@ -12503,7 +12526,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "wS" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_one_access = list(5, 12)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -15779,7 +15802,7 @@
 "De" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cryogenics Maintenance";
-	req_access = list(12)
+	req_one_access = list(5, 12)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -16725,6 +16748,7 @@
 /obj/effect/landmark/start{
 	name = "First Responder"
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "EW" = (
@@ -16918,6 +16942,14 @@
 /area/maintenance/engineering_ladder)
 "Fm" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/medical/upper)
 "Fn" = (
@@ -19755,7 +19787,7 @@
 /area/journalistoffice)
 "Kn" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_one_access = list(5, 12)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -21185,6 +21217,9 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 9
+	},
+/obj/structure/sign/staff_only{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -42297,7 +42332,7 @@ fr
 mq
 ua
 dK
-ae
+do
 AC
 gP
 pr
@@ -44116,7 +44151,7 @@ Lh
 Db
 sn
 dv
-RA
+tG
 UR
 Nc
 kM
@@ -44318,7 +44353,7 @@ XN
 LJ
 Pl
 MP
-RA
+tG
 UR
 Nc
 kM
@@ -44520,7 +44555,7 @@ Nm
 Vt
 Vt
 Mr
-RA
+tG
 UR
 Nc
 kM
@@ -44722,7 +44757,7 @@ DS
 Tj
 yb
 Xy
-RA
+tG
 UR
 Nc
 kM
@@ -44910,18 +44945,18 @@ eX
 eX
 eX
 eX
-tG
+eX
 rZ
 AC
 AC
 AC
-AC
-AC
-AC
-nr
-nr
-nr
 rF
+AC
+AC
+nr
+nr
+nr
+nr
 nr
 nr
 nr
@@ -45118,7 +45153,7 @@ wS
 RH
 RH
 RH
-RH
+ae
 iE
 HL
 Jt

@@ -1225,9 +1225,12 @@
 /area/maintenance/wing/port/deck1)
 "aYY" = (
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/medical/emergency_storage)
+/area/medical/morgue/lower)
 "aZd" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/industrial/warning{
@@ -10794,13 +10797,28 @@
 	},
 /area/engineering/atmos/propulsion)
 "iFL" = (
-/obj/machinery/door/airlock/freezer_maint{
-	name = "Morgue Maintenance";
-	req_access = list(6)
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/maintenance/operations)
+/obj/machinery/door/airlock/maintenance{
+	name = "Deck 1 Medical Maintenance";
+	req_access = list(5)
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
+	},
+/turf/simulated/floor/tiled/full,
+/area/medical/morgue/lower)
 "iFU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/steel,
@@ -13735,7 +13753,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/maintenance/operations)
+/area/medical/morgue/lower)
 "kWB" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -13885,11 +13903,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/freezer_maint{
-	name = "Morgue Maintenance";
-	req_access = list(6)
+/obj/machinery/door/airlock/maintenance{
+	name = "Deck 1 Medical Maintenance";
+	req_access = list(5)
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
+	},
+/turf/simulated/floor/tiled/full,
 /area/medical/emergency_storage)
 "lgf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -28272,7 +28298,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/maintenance/operations)
+/area/medical/morgue/lower)
 "xgP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -28934,9 +28960,12 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/medical/emergency_storage)
+/area/medical/morgue/lower)
 "xDI" = (
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
@@ -42370,7 +42399,7 @@ nlH
 nlH
 nlH
 nlH
-nlH
+qkh
 eKJ
 qkh
 qkh
@@ -42572,7 +42601,7 @@ mRu
 cwK
 rzQ
 djv
-nlH
+qkh
 oxP
 lRO
 tRQ
@@ -42774,7 +42803,7 @@ rWM
 jwL
 gex
 oLG
-nlH
+qkh
 bGl
 iJR
 pqh
@@ -42976,7 +43005,7 @@ lIg
 lIg
 xCD
 aYY
-nlH
+qkh
 qkh
 qkh
 qkh
@@ -43986,7 +44015,7 @@ xll
 iDM
 xgE
 kWx
-nnw
+lIg
 aMh
 wqj
 vul
@@ -44187,8 +44216,8 @@ rpa
 haN
 lIg
 iFL
-nnw
-nnw
+lIg
+lIg
 mZr
 uVX
 vul
