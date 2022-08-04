@@ -20190,8 +20190,8 @@
 	opacity = 0
 	},
 /obj/machinery/door/airlock/medical{
-	name = "Psychiatric Wing";
-	req_access = list(5)
+	name = "Psychiatrist's Office";
+	req_access = list(64)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -36656,10 +36656,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "tZL" = (
-/obj/machinery/door/airlock/medical{
-	name = "Psychiatric Wing";
-	req_access = list(5)
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -36668,6 +36664,10 @@
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
 	opacity = 0
+	},
+/obj/machinery/door/airlock/medical{
+	name = "Psychiatrist's Office";
+	req_access = list(64)
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/psych)
@@ -44217,15 +44217,15 @@
 /area/hallway/primary/central_two)
 "xQm" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/medical{
-	name = "Psychiatric Wing";
-	req_access = list(5)
-	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/medical{
+	name = "Psychiatrist's Office";
+	req_access = list(64)
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/psych)
