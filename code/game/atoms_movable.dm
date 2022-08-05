@@ -45,6 +45,9 @@
 			pulledby.pulling = null
 		pulledby = null
 
+	if (bound_overlay)
+		QDEL_NULL(bound_overlay)
+
 // This is called when this atom is prevented from moving by atom/A.
 /atom/movable/proc/Collide(atom/A)
 	if(airflow_speed > 0 && airflow_dest)
