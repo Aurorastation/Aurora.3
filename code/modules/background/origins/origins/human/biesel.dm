@@ -21,15 +21,16 @@
 
 /decl/origin_item/origin/new_gibson
     name = "New Gibson"
-    desc = "A desperate attempt by those from South-East Asia and Scandinavia to relocate their population away from the decaying biosphere of Earth, New Gibson has suffered many tragedies throughout its history, leading to a hardened, communal society. While the multiculturalism that exists within the Republic of Biesel has also affected New Gibsonites, they are still far more reliant on their colonial roots compared to their Biesellite counterparts."
-    possible_accents = list(ACCENT_GIBSON)
+    desc ="The second planet in Tau Ceti to be colonised after Biesel, New Gibson has suffered many tragedies throughout its history, leading to a hardened, communal society. While the multiculturalism that exists within the Republic of Biesel has also affected New Gibsonites, they are still far more reliant on their colonial roots compared to their Biesellite counterparts; the Undirstads in particular are quite isolated compared to the more cosmopolitan Ovanstads."
+    important_information = "Due to the insular nature of the Undirstads, those from underground settlements across New Gibson will have appearances and names consistent with those from the Nordic region of Earth. Characters with the Undirstad accent must have names and physical characteristics typical of people from the modern-day Nordic regions. This is enforceable by server moderators and admins."
+    possible_accents = list(ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR)
     possible_citizenships = list(CITIZENSHIP_BIESEL)
     possible_religions = RELIGIONS_BIESEL
 
 /decl/origin_item/origin/reade
     name = "Reade"
     desc = "Outposts dot the dozens of moons found in orbit of Reade, many dedicated to mineral extraction and refinement. However, within the upper atmosphere of the gas giant the engineering feat that is the Anemostrovilos exists. The gigantic floating metropolis has its industry focused on the extraction of important gases such as Hydrogen and Helium-3 required to fuel the Orion Spur's warpdrives and thrusters. Nearly anyone can be found in the outposts either in the upper atmosphere of Reade or across its many moons."
-    possible_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_VALKYRIE)
+    possible_accents = list(ACCENT_CETI, ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR, ACCENT_VALKYRIE)
     possible_citizenships = list(CITIZENSHIP_BIESEL)
     possible_religions = RELIGIONS_BIESEL
 
