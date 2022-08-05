@@ -32,11 +32,15 @@
 	icon_state = "tree_[rand(1, 6)]"
 
 /obj/structure/flora/tree/jungle/small/patience
+	name = "Patience"
+	desc = "A lush and healthy tree. A small golden plaque at its base reads its name, in plain text, Patience."
 	layer = 3
 	density = FALSE
 	icon_state = "patiencebottom"
 
 /obj/structure/flora/tree/jungle/small/patience_top
+	name = "Patience"
+	desc = "A lush and healthy tree. A small golden plaque at its base reads its name, in plain text, Patience."
 	pixel_y = -32
 	density = TRUE
 	icon_state = "patiencetop"
