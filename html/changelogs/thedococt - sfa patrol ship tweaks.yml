@@ -1,0 +1,6 @@
+author: Doc
+
+delete-after: True
+
+changes:
+  - maptweak: "Fixes an errant table in the SFA patrol ship, and gives their engineers webbings like its other roles."
