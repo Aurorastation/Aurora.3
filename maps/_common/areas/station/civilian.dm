@@ -139,10 +139,12 @@
 /area/lawoffice/consular
 	name = "Consular Office"
 	icon_state = "law_con"
+	flags = RAD_SHIELDED
 
 /area/lawoffice/representative
 	name = "Representative Office"
 	icon_state = "law_rep"
+	flags = RAD_SHIELDED
 
 /area/quartermaster
 	name = "Operations Manager"
