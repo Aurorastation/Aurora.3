@@ -315,7 +315,7 @@
 /obj/item/clothing/suit/storage/toggle/skrell/starcoat
 	name = "star coat"
 	desc = "A very fashionable coat, that traps moisture and provides good insulation. Starry patterns have been woven into its fabric."
-	desc_fluff = "The patterns typically represent the constellations visible from the home system of the wearer. Coats like this one, are usually very personal, and custom made."
+	desc_fluff = "The patterns typically represent the constellations visible from the home system of the wearer. Coats like this one are usually very personal and custom made."
 	icon = 'icons/obj/contained_items/skrell/jargon_jackets.dmi'
 	item_state = "starcoat"
 	icon_state = "starcoat"
