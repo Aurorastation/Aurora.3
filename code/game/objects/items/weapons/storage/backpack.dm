@@ -771,7 +771,6 @@
 	item_state = "courierbagom"
 	empty_delay = 0.8 SECOND
 
-
 /obj/item/storage/backpack/messenger/zavod
 	name = "zavodskoi messenger bag"
 	icon_state = "courierbagzavod"
