@@ -209,7 +209,7 @@
 	return ..()
 
 /obj/item/clothing/ears/skrell/workcap
-	name = "Worker's Cap"
+	name = "worker's cap"
 	desc = "A simple clothing item used by Skrell to cover their headtails. It comes with a main sleeve for the middle headtail, with smaller sleeves for the outer headtails to help keep it in place."
 	icon = 'icons/obj/contained_items/skrell/jargon_caps.dmi'
 	item_state = "skrell_cap"
