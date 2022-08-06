@@ -44443,6 +44443,9 @@
 /obj/item/rig/medical/equipped{
 	pixel_y = -2
 	},
+/obj/item/rig/medical/equipped{
+	pixel_y = -2
+	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
