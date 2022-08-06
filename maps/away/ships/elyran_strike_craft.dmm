@@ -1798,8 +1798,7 @@
 /turf/space/transit/south,
 /area/space)
 "wui" = (
-/obj/machinery/door/blast/odin,
-/turf/simulated/floor,
+/turf/unsimulated/wall/fakepdoor,
 /area/ship/elyran_strike_craft)
 "wvR" = (
 /obj/machinery/door/airlock{
