@@ -394,7 +394,7 @@
 		// Note: above is defined on ALL turfs, but below is only defined on OPEN TURFS.
 
 		// Upwards lights are handled at the corner level, so only search down.
-		if (T && (T.flags & MIMIC_BELOW) && T.below)
+		if (T && (T.z_flags & ZM_MIMIC_BELOW) && T.below)
 			T = T.below
 			goto check_t
 
