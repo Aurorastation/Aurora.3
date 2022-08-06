@@ -133,6 +133,12 @@
 	category = "General"
 	is_stack = 1
 
+/datum/autolathe/recipe/barbed_wire
+	name = "barbed wire"
+	path = /obj/item/stack/barbed_wire
+	category = "General"
+	is_stack = 1
+
 /datum/autolathe/recipe/knife
 	name = "kitchen knife"
 	path = /obj/item/material/knife

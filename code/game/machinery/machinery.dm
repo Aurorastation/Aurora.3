@@ -463,6 +463,11 @@ Class Procs:
 	paper.forceMove(loc)
 	printing = FALSE
 
+/obj/machinery/bullet_act(obj/item/projectile/P, def_zone)
+	. = ..()
+	if(P.get_structure_damage() > 5)
+		bullet_ping(P)
+
 /obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
 	if(stat & (NOPOWER|BROKEN))
 		return
