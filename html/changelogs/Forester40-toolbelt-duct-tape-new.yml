@@ -1,0 +1,9 @@
+author: Forester40
+
+
+delete-after: True
+
+
+changes:
+  - rscadd: "Utility belts can now hold rolls of duct tape."
+  - tweak: "Uility belts ordered from Operations no longer spawn with hand drills in them and therefore no longer spawn with one more item than they actually have storage slots for."
