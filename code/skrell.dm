@@ -216,7 +216,7 @@
 	icon_state = "skrell_cap_item"
 
 /obj/item/clothing/ears/skrell/workcap/long
-	name = "Long Worker's Cap"
+	name = "long worker's cap"
 	desc = "A simple clothing item used by Skrell to cover their headtails. It comes with a main sleeve for the middle headtail, with smaller sleeves for the outer headtails to help keep it in place. This one is longer to account for Skrell with longer headtails."
 	item_state = "skrell_cap_long"
 
