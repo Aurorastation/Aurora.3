@@ -1,8 +1,8 @@
 /datum/map_template/ruin/away_site/elyran_strike_craft
 	name = "Elyran Naval Strike Craft"
-	description = "Serving as the very foundation of the SCC's (And more specifically, NanoTrasen's) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design's interdiction counterpart - the Hydrus-class shuttle. This one's transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
+	description = "The Aslan-class Strike Craft is among the oldest designs in the Elyran naval arsenal, and is one of the ship classes slated to be retired in the ongoing Elyran military modernization plan. Not an independent vessel in of itself, it is instead an oversized attack craft designed to be launched from the General Abd Al-Hamid-class Carrier, a type of Elyran capital ship, named after the Republic’s foremost national hero. As such, it has limited crew facilities and life support capabilities, and is instead reliant on its mothership for long-term operation. This ship is an interdiction variant, with its torpedo bay and railgun hardpoint replaced by a hangar and a boarding pod launch room, respectively. This one’s transponder identifies it as an Elyran Naval Infantry interdiction vessel."
 	suffix = "ships/elyran_strike_craft.dmm"
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "elyran_strike_craft"
@@ -10,7 +10,7 @@
 
 /decl/submap_archetype/elyran_strike_craft
 	map = "Elyran Naval Strike Craft"
-	descriptor = "Serving as the very foundation of the SCC's (And more specifically, NanoTrasen's) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design's interdiction counterpart - the Hydrus-class shuttle. This one's transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
+	descriptor = "The Aslan-class Strike Craft is among the oldest designs in the Elyran naval arsenal, and is one of the ship classes slated to be retired in the ongoing Elyran military modernization plan. Not an independent vessel in of itself, it is instead an oversized attack craft designed to be launched from the General Abd Al-Hamid-class Carrier, a type of Elyran capital ship, named after the Republic’s foremost national hero. As such, it has limited crew facilities and life support capabilities, and is instead reliant on its mothership for long-term operation. This ship is an interdiction variant, with its torpedo bay and railgun hardpoint replaced by a hangar and a boarding pod launch room, respectively. This one’s transponder identifies it as an Elyran Naval Infantry interdiction vessel."
 
 //areas
 /area/ship/elyran_strike_craft
@@ -24,7 +24,7 @@
 
 /obj/effect/overmap/visitable/ship/elyran_strike_craft
 	name = "Elyran Naval Strike Craft"
-	desc = "Serving as the very foundation of the SCC's (And more specifically, NanoTrasen's) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design's interdiction counterpart - the Hydrus-class shuttle. This one's transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
+	desc = "The Aslan-class Strike Craft is among the oldest designs in the Elyran naval arsenal, and is one of the ship classes slated to be retired in the ongoing Elyran military modernization plan. Not an independent vessel in of itself, it is instead an oversized attack craft designed to be launched from the General Abd Al-Hamid-class Carrier, a type of Elyran capital ship, named after the Republic’s foremost national hero. As such, it has limited crew facilities and life support capabilities, and is instead reliant on its mothership for long-term operation. This ship is an interdiction variant, with its torpedo bay and railgun hardpoint replaced by a hangar and a boarding pod launch room, respectively. This one’s transponder identifies it as an Elyran Naval Infantry interdiction vessel."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	max_speed = 1/(2 SECONDS)
@@ -65,7 +65,7 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/elyran_shuttle
 	name = "Elyran Naval Shuttle"
-	desc = "A large and unusually-shaped shuttle, the Hydrus-class is deceptively fast and is designed to operate out of a Cetus-class corvette's rear hangar bay, interdicting targets that its mothership intercepts. This one's transponder identifies it as a Tau Ceti Foreign Legion shuttle, and as a Velite-class Interceptor - the TCFL designation for this design."
+	desc = "Easily mistaken for a Wisp-class (Which it is almost identical to), this shuttle is in fact an Elyran Dromedary-class, which is an unlicensed copy of the Hephaestus Wisp-class, and one of the designs slated for retirement in the ongoing military modernization program. Hephaestus Industries has attempted to sue the Elyran government many times for the navy’s unlicensed production of its intellectual property, and Elyran courts have, unsurprisingly, always ruled in favor of the government - much to the frustration of the megacorporation, which has no other method of recourse. An inefficient design of ultra-light shuttle. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. This one’s transponder identifies it as an Elyran Naval Infantry recovery shuttle."
 	shuttle = "Elyran Naval Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
