@@ -278,7 +278,7 @@
 "aTL" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/ship/elyran_strike_craft)
 "aTV" = (
 /obj/effect/floor_decal/industrial/warning{
