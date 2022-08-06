@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a 'Tactical' submenu to the loadout selections. It will contain the usual holsters and flash proof sunglasses you know and love, everything security related essentially. Command will want to look inside too though, since they're privileged enough to recieve things like flash proof sunglasses or holsters."
+  - rscadd: "Moved a lot of security gear in various loadout selections into the tactical selection."
