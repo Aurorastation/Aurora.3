@@ -34,10 +34,6 @@
 /obj/structure/table,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
-"ak" = (
-/mob/living/simple_animal/hostile/carp,
-/turf/simulated/wall,
-/area/derelict)
 "al" = (
 /obj/random/handgun,
 /turf/simulated/floor/airless,
@@ -35128,7 +35124,7 @@ cg
 cm
 ct
 cE
-ak
+dO
 fN
 dO
 ju
@@ -48490,9 +48486,9 @@ fI
 fI
 fI
 fI
+fI
 ab
-ab
-ab
+fI
 fI
 fI
 fI
