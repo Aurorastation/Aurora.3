@@ -3142,6 +3142,8 @@
 #include "maps\away\ships\biesel_ship_ghostroles.dm"
 #include "maps\away\ships\corporate.dm"
 #include "maps\away\ships\corporate_ship_ghostroles.dm"
+#include "maps\away\ships\elyra.dm"
+#include "maps\away\ships\elyra_ship_ghostroles.dm"
 #include "maps\away\ships\sol.dm"
 #include "maps\away\ships\sol_ship_ghostroles.dm"
 #include "maps\away\ships\wildcard.dm"
