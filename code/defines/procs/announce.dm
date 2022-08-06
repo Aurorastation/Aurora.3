@@ -32,54 +32,50 @@
 	title = "Security Announcement"
 	announcement_type = "Security Announcement"
 
-/datum/announcement/proc/Announce(var/message as text, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0, var/do_print = 0)
+/datum/announcement/proc/Announce(var/message, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0, var/do_print = 0, var/zlevels = current_map.contact_levels)
 	if(!message)
 		return
-	var/message_title = new_title ? new_title : title
+	var/message_title = length(new_title) ? new_title : title
 	var/message_sound = new_sound ? new_sound : sound
 
 	if(!msg_sanitized)
 		message = sanitize(message, extra = 0)
 	message_title = sanitizeSafe(message_title)
 
-	MessageAndSound(message, message_title, message_sound)
+	var/msg = FormMessage(message, message_title)
+	for(var/mob/M in player_list)
+		if(!istype(M, /mob/abstract/new_player) && !isdeaf(M) && (GET_Z(M) in (zlevels | current_map.admin_levels)))
+			var/turf/T = get_turf(M)
+			if(T)
+				to_chat(M, msg)
+				if(message_sound && !isdeaf(M) && (M.client.prefs.asfx_togs & ASFX_VOX))
+					sound_to(M, message_sound)
 	if(do_newscast)
 		NewsCast(message, message_title)
 	if(do_print)
 		post_comm_message(message_title, message)
 	Log(message, message_title)
 
-/datum/announcement/proc/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
-	for(var/mob/M in player_list)
-		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M))
-			var/turf/T = get_turf(M)
-			if(T && isContactLevel(T.z))
-				to_chat(M, "<h2 class='alert'>[message_title]</h2>")
-				to_chat(M, "<span class='alert'>[message]</span>")
-				if (announcer)
-					to_chat(M, "<span class='alert'> -[html_encode(announcer)]</span>")
-				if(message_sound && !isdeaf(M) && (M.client.prefs.asfx_togs & ASFX_VOX))
-					sound_to(M, message_sound)
+/datum/announcement/proc/FormMessage(var/message, var/message_title)
+	. = "<h2 class='alert'>[message_title]</h2>"
+	. += "<br><span class='alert'>[message]</span>"
+	if (announcer)
+		. += "<br><span class='alert'> -[html_encode(announcer)]</span>"
 
-/datum/announcement/minor/MessageAndSound(var/message as text, var/message_title as text)
-	to_world("<b>[message]</b>")
+/datum/announcement/minor/FormMessage(var/message, var/message_title)
+	. = "<b>[message]</b>"
 
-/datum/announcement/priority/command/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
-	var/command_title
-	command_title += "<h2 class='alert'>[current_map.boss_name] Update</h2>"
+/datum/announcement/priority/command/FormMessage(var/message, var/message_title)
+	. = "<h2 class='alert'>[current_map.boss_name] Update</h2>"
 	if (message_title)
-		command_title += "<h3 class='alert'>[message_title]</h3>"
+		. += "<h3 class='alert'>[message_title]</h3>"
 
-	var/command_body
-	command_body += "<br><span class='alert'>[message]</span><br>"
-	command_body += "<br>"
-	. = ..(command_body, command_title, message_sound)
+	. += "<br><span class='alert'>[message]</span><br>"
+	. += "<br>"
 
-/datum/announcement/priority/security/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
-	to_world("<font size=4 color='red'>[message_title]</font>")
-	to_world("<span class='warning'>[message]</span>")
-	if(message_sound)
-		sound_to(world, message_sound)
+/datum/announcement/priority/security/FormMessage(var/message, var/message_title)
+	. = "<font size=4 color='red'>[message_title]</font>"
+	. += "<br><span class='warning'>[message]</span>"
 
 /datum/announcement/proc/NewsCast(message as text, message_title as text)
 	if(!newscast)

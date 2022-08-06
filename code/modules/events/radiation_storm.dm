@@ -18,7 +18,7 @@
 		return res
 
 /datum/event/radiation_storm/announce()
-	command_announcement.Announce(current_map.radiation_detected_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_detected_message.ogg')
+	command_announcement.Announce(current_map.radiation_detected_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_detected_message.ogg', zlevels = affecting_z)
 
 /datum/event/radiation_storm/start()
 	..()
@@ -27,7 +27,7 @@
 
 /datum/event/radiation_storm/tick()
 	if(activeFor == enterBelt)
-		command_announcement.Announce(current_map.radiation_contact_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_contact_message.ogg')
+		command_announcement.Announce(current_map.radiation_contact_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_contact_message.ogg', zlevels = affecting_z)
 		radiate()
 
 	if(activeFor >= enterBelt && activeFor <= leaveBelt)
@@ -38,7 +38,7 @@
 		radiate()
 
 	else if(activeFor == leaveBelt)
-		command_announcement.Announce(current_map.radiation_end_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_end_message.ogg')
+		command_announcement.Announce(current_map.radiation_end_message, "Radiation Sensor Array Automated Alert", new_sound = 'sound/AI/radiation_end_message.ogg', zlevels = affecting_z)
 		lights()
 
 /datum/event/radiation_storm/proc/radiate()
