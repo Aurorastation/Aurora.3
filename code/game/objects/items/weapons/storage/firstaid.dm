@@ -10,17 +10,17 @@
 /obj/item/storage/firstaid
 	name = "first-aid kit"
 	desc = "It's an emergency medical kit for those serious boo-boos."
+	icon = 'icons/obj/storage/firstaid.dmi'
 	icon_state = "firstaid"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
+	item_state = "firstaid"
+	contained_sprite = TRUE
 	center_of_mass = list("x" = 13,"y" = 10)
 	throw_speed = 2
 	throw_range = 8
 	var/empty = 0
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+	use_sound = 'sound/items/storage/briefcase.ogg'
 
 /obj/item/storage/firstaid/fill()
 	if (empty) return
@@ -29,8 +29,8 @@
 /obj/item/storage/firstaid/fire
 	name = "fire first-aid kit"
 	desc = "It's an emergency medical kit for when the toxins lab <i>-spontaneously-</i> burns down."
-	icon_state = "ointment"
-	item_state = "ointment"
+	icon_state = "firefirstaid"
+	item_state = "firefirstaid"
 	starts_with = list(
 		/obj/item/reagent_containers/pill/kelotane = 3,
 		/obj/item/stack/medical/ointment = 2,
@@ -40,7 +40,7 @@
 
 /obj/item/storage/firstaid/fire/fill()
 	. = ..()
-	icon_state = pick("ointment","firefirstaid")
+	icon_state = pick("firefirstaid","firefirstaid2","firefirstaid3")
 
 /obj/item/storage/firstaid/regular
 	icon_state = "firstaid"
@@ -55,8 +55,8 @@
 /obj/item/storage/firstaid/toxin
 	name = "toxin first aid"
 	desc = "Used to treat when you have a high amount of toxins in your body."
-	icon_state = "antitoxin"
-	item_state = "antitoxin"
+	icon_state = "antitoxinfirstaid"
+	item_state = "antitoxinfirstaid"
 	starts_with = list(
 		/obj/item/reagent_containers/syringe/dylovene = 3,
 		/obj/item/reagent_containers/pill/antitox = 3,
@@ -65,18 +65,22 @@
 
 /obj/item/storage/firstaid/toxin/fill()
 	. = ..()
-	icon_state = pick("antitoxin","antitoxfirstaid","antitoxfirstaid2","antitoxfirstaid3")
+	icon_state = pick("antitoxfirstaid","antitoxfirstaid2","antitoxfirstaid3")
 
 /obj/item/storage/firstaid/o2
 	name = "oxygen deprivation kit"
 	desc = "A box full of oxygen related goodies."
-	icon_state = "o2"
-	item_state = "o2"
+	icon_state = "o2firstaid"
+	item_state = "o2firstaid"
 	starts_with = list(
 		/obj/item/reagent_containers/inhaler/dexalin = 4,
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
 		/obj/item/device/breath_analyzer = 1
 	)
+
+/obj/item/storage/firstaid/o2/fill()
+	. = ..()
+	icon_state = pick("o2firstaid","o2firstaid2","o2firstaid3")
 
 /obj/item/storage/firstaid/adv
 	name = "advanced first-aid kit"
@@ -89,6 +93,10 @@
 		/obj/item/stack/medical/advanced/ointment = 2,
 		/obj/item/stack/medical/splint = 1
 	)
+
+/obj/item/storage/firstaid/adv/fill()
+	. = ..()
+	icon_state = pick("advfirstaid","advfirstaid2","advfirstaid3")
 
 /obj/item/storage/firstaid/combat
 	name = "combat medical kit"
@@ -110,7 +118,6 @@
 	desc = "Contains tools for surgery. Has precise foam fitting for safe transport."
 	icon_state = "purplefirstaid"
 	item_state = "purplefirstaid"
-	use_sound = 'sound/items/storage/briefcase.ogg'
 	starts_with = list(
 		/obj/item/surgery/bonesetter = 1,
 		/obj/item/surgery/cautery = 1,
@@ -127,8 +134,9 @@
 
 /obj/item/storage/firstaid/surgery/fill()
 	..()
-	if (!empty)
+	if(!empty)
 		make_exact_fit()
+	icon_state = pick("purplefirstaid","purplefirstaid2","purplefirstaid3")
 
 /obj/item/storage/firstaid/brute
 	name = "brute aid kit"
@@ -142,6 +150,10 @@
 		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1,
 		/obj/item/device/healthanalyzer = 1
 	)
+
+/obj/item/storage/firstaid/brute/fill()
+	..()
+	icon_state = pick("brute","brute2","brute3")
 
 /*
  * Pill Bottles

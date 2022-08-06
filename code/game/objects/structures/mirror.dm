@@ -8,26 +8,26 @@
 	var/shattered = 0
 
 	/// Visual object for handling the viscontents
-	// var/datum/weakref/ref
-	// vis_flags = VIS_HIDE
-	// var/timerid = null
+	var/datum/weakref/ref
+	vis_flags = VIS_HIDE
+	var/timerid = null
 
 /obj/structure/mirror/Initialize()
 	. = ..()
-	// var/obj/effect/reflection/reflection = new(src.loc)
-	// reflection.setup_visuals(src)
-	// ref = WEAKREF(reflection)
+	var/obj/effect/reflection/reflection = new(src.loc)
+	reflection.setup_visuals(src)
+	ref = WEAKREF(reflection)
 
-	// entered_event.register(loc, reflection, /obj/effect/reflection/proc/check_vampire_enter)
-	// exited_event.register(loc, reflection, /obj/effect/reflection/proc/check_vampire_exit)
+	entered_event.register(loc, reflection, /obj/effect/reflection/proc/check_vampire_enter)
+	exited_event.register(loc, reflection, /obj/effect/reflection/proc/check_vampire_exit)
 
 /obj/structure/mirror/Destroy()
-	// var/obj/effect/reflection/reflection = ref.resolve()
-	// if(istype(reflection))
-	// 	entered_event.unregister(loc, reflection)
-	// 	exited_event.unregister(loc, reflection)
-	// 	qdel(reflection)
-	// ref = null
+	var/obj/effect/reflection/reflection = ref.resolve()
+	if(istype(reflection))
+		entered_event.unregister(loc, reflection)
+		exited_event.unregister(loc, reflection)
+		qdel(reflection)
+		ref = null
 	return ..()
 
 /obj/structure/mirror/attack_hand(mob/user as mob)
@@ -50,10 +50,10 @@
 	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	desc = "Oh no, seven years of bad luck!"
 
-	// var/obj/effect/reflection/reflection = ref.resolve()
-	// if(istype(reflection))
-	// 	reflection.alpha_icon_state = "mirror_mask_broken"
-	// 	reflection.update_mirror_filters()
+	var/obj/effect/reflection/reflection = ref.resolve()
+	if(istype(reflection))
+		reflection.alpha_icon_state = "mirror_mask_broken"
+		reflection.update_mirror_filters()
 
 
 /obj/structure/mirror/bullet_act(var/obj/item/projectile/Proj)
@@ -90,83 +90,83 @@
 		user.visible_message("<span class='danger'>[user] hits [src] and bounces off!</span>")
 	return 1
 
-// /obj/effect/reflection
-// 	name = "reflection"
-// 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
-// 	mouse_opacity = 0
-// 	vis_flags = VIS_HIDE
-// 	layer = ABOVE_OBJ_LAYER
-// 	var/alpha_icon = 'icons/obj/watercloset.dmi'
-// 	var/alpha_icon_state = "mirror_mask"
-// 	var/obj/mirror
-// 	desc = "Why are you locked in the bathroom?"
-// 	anchored = TRUE
-// 	unacidable = TRUE
+/obj/effect/reflection
+	name = "reflection"
+	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
+	mouse_opacity = 0
+	vis_flags = VIS_HIDE
+	layer = ABOVE_OBJ_LAYER
+	var/alpha_icon = 'icons/obj/watercloset.dmi'
+	var/alpha_icon_state = "mirror_mask"
+	var/obj/mirror
+	desc = "Why are you locked in the bathroom?"
+	anchored = TRUE
+	unacidable = TRUE
 
-// 	var/blur_filter
+	var/blur_filter
 
-// /obj/effect/reflection/proc/setup_visuals(target)
-// 	mirror = target
+/obj/effect/reflection/proc/setup_visuals(target)
+	mirror = target
 
-// 	if(mirror.pixel_x > 0)
-// 		dir = WEST
-// 	else if (mirror.pixel_x < 0)
-// 		dir = EAST
+	if(mirror.pixel_x > 0)
+		dir = WEST
+	else if (mirror.pixel_x < 0)
+		dir = EAST
 
-// 	if(mirror.pixel_y > 0)
-// 		dir = SOUTH
-// 	else if (mirror.pixel_y < 0) 
-// 		dir = NORTH
+	if(mirror.pixel_y > 0)
+		dir = SOUTH
+	else if (mirror.pixel_y < 0) 
+		dir = NORTH
 
-// 	pixel_x = mirror.pixel_x
-// 	pixel_y = mirror.pixel_y
+	pixel_x = mirror.pixel_x
+	pixel_y = mirror.pixel_y
 
-// 	blur_filter = filter(type="blur", size = 1)
+	blur_filter = filter(type="blur", size = 1)
 
-// 	update_mirror_filters()
+	update_mirror_filters()
 
-// /obj/effect/reflection/proc/update_mirror_filters()
-// 	filters = null
+/obj/effect/reflection/proc/update_mirror_filters()
+	filters = null
 
-// 	vis_contents = null
+	vis_contents = null
 
-// 	if(!mirror)
-// 		return
+	if(!mirror)
+		return
 
-// 	var/matrix/M = matrix()
-// 	if(dir == WEST || dir == EAST)
-// 		M.Scale(-1, 1)
-// 	else if(dir == SOUTH|| dir == NORTH)
-// 		M.Scale(1, -1)
-// 		pixel_y = mirror.pixel_y + 5
+	var/matrix/M = matrix()
+	if(dir == WEST || dir == EAST)
+		M.Scale(-1, 1)
+	else if(dir == SOUTH|| dir == NORTH)
+		M.Scale(1, -1)
+		pixel_y = mirror.pixel_y + 5
 
-// 	transform = M
+	transform = M
 
-// 	filters += filter("type" = "alpha", "icon" = icon(alpha_icon, alpha_icon_state), "x" = 0, "y" = 0)
-// 	for(var/mob/living/carbon/human/H in loc)
-// 		check_vampire_enter(H.loc, H)
+	filters += filter("type" = "alpha", "icon" = icon(alpha_icon, alpha_icon_state), "x" = 0, "y" = 0)
+	for(var/mob/living/carbon/human/H in loc)
+		check_vampire_enter(H.loc, H)
 
-// 	vis_contents += get_turf(mirror)
+	vis_contents += get_turf(mirror)
 
-// /obj/effect/reflection/proc/check_vampire_enter(var/turf/T, var/mob/living/carbon/human/H)
-// 	if(!istype(H))
-// 		return
-// 	var/datum/vampire/V = H.get_antag_datum(MODE_VAMPIRE)
-// 	if(V)
-// 		if(V.status & VAMP_ISTHRALL)
-// 			filters += blur_filter
-// 		else
-// 			H.vis_flags |= VIS_HIDE
+/obj/effect/reflection/proc/check_vampire_enter(var/turf/T, var/mob/living/carbon/human/H)
+	if(!istype(H))
+		return
+	var/datum/vampire/V = H.get_antag_datum(MODE_VAMPIRE)
+	if(V)
+		if(V.status & VAMP_ISTHRALL)
+			filters += blur_filter
+		else
+			H.vis_flags |= VIS_HIDE
 
-// /obj/effect/reflection/proc/check_vampire_exit(var/turf/T, var/mob/living/carbon/human/H)
-// 	if(!istype(H))
-// 		return
-// 	var/datum/vampire/V = H.get_antag_datum(MODE_VAMPIRE)
-// 	if(V)
-// 		if(V.status & VAMP_ISTHRALL)
-// 			filters -= blur_filter
-// 		else
-// 			H.vis_flags &= ~VIS_HIDE
+/obj/effect/reflection/proc/check_vampire_exit(var/turf/T, var/mob/living/carbon/human/H)
+	if(!istype(H))
+		return
+	var/datum/vampire/V = H.get_antag_datum(MODE_VAMPIRE)
+	if(V)
+		if(V.status & VAMP_ISTHRALL)
+			filters -= blur_filter
+		else
+			H.vis_flags &= ~VIS_HIDE
 
 /obj/item/mirror
 	name = "mirror"

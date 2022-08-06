@@ -29,14 +29,14 @@
 
 /decl/origin_item/origin/medina
 	name = "Medina"
-	desc = "A planet rich in phorn, Medina is known for two things: its prolific art scene, and the Phoron Bulletin. The environment outside of Medina's floating cities is extremely hazardous due to unpredictable tectonic activity, which has led to bounties being placed for phoron extraction and presented to non-Elyran citizens in order to ensure that Elyran citizens do not end up dead. The Phoron Bulletin is an immensely hazardous, yet potentially immensely profitable, line of work in which a Non-Citizen Person in Elyra can become rich. Assuming they survive."
+	desc = "A planet rich in phoron, Medina is known for two things: its prolific art scene, and the Phoron Bulletin. The environment outside of Medina's floating cities is extremely hazardous due to unpredictable tectonic activity, which has led to bounties being placed for phoron extraction and presented to non-Elyran citizens in order to ensure that Elyran citizens do not end up dead. The Phoron Bulletin is an immensely hazardous, yet potentially immensely profitable, line of work in which a Non-Citizen Person in Elyra can become rich. Assuming they survive."
 	possible_accents = list(ACCENT_MEDINA)
 	possible_citizenships = list(CITIZENSHIP_ELYRA)
 	possible_religions = RELIGIONS_ELYRA
 
 /decl/origin_item/origin/aemaq
 	name = "Aemaq"
-	desc = "An Elyran frontier world that is home to the majority of the Republic's chemical industry, Aemaq is most well-known for its chemical seas and the unusual creatures that reside in them known as leviathans. The cities of Aemaq float above its chemical oceans on complicated magpulse-based platforms designed by the Republic, and are centered around harvesting chemicals from the Aemaqii Ocean. Many of the Non-Citizen Person on Aemaq are refugees from the Empire of Dominia's frontier conquests who have nowhere else to go, and must work in Aemaq's chemical industry to make ends meet."
+	desc = "An Elyran frontier world that is home to the majority of the Republic's chemical industry, Aemaq is most well-known for its chemical seas and the unusual creatures that reside in them known as leviathans. The cities of Aemaq float above its chemical oceans on complicated magpulse-based platforms designed by the Republic, and are centered around harvesting chemicals from the Aemaqii Ocean. Many of the Non-Citizen Persons on Aemaq are refugees from the Empire of Dominia's frontier conquests who have nowhere else to go, and must work in Aemaq's chemical industry to make ends meet."
 	possible_accents = list(ACCENT_AEMAQ)
 	possible_citizenships = list(CITIZENSHIP_ELYRA)
 	possible_religions = RELIGIONS_ELYRA

@@ -66,7 +66,7 @@
 								var/safety = M:eyecheck(TRUE)
 								if(!safety)
 									if(!M.blinded)
-										flick("flash", M.flash)
+										M.flash_eyes()
 
 						return 1
 					else
@@ -289,7 +289,7 @@
 			attack.apply_effects(H, src, rand_damage, hit_zone)
 
 			// Finally, apply damage to target
-			apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags)
+			apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags, armor_pen = attack.armor_penetration)
 
 
 			if(M.resting && src.help_up_offer)

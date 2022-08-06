@@ -231,6 +231,7 @@
 	organ_tag = BP_ZOMBIE_PARASITE
 	parent_organ = BP_HEAD
 	stage_interval = 150
+	relative_size = 0
 
 	var/last_heal = 0
 	var/heal_rate = 5 SECONDS

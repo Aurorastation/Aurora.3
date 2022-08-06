@@ -52,7 +52,7 @@
 
 /datum/universal_state/bluespace_jump/proc/clear_bluespaced(var/mob/living/M)
 	if(M.client)
-		to_chat(M,"<span class='notice'>You feel rooted in material world again.</span>")
+		to_chat(M,"<span class='notice'>You feel rooted in the material world again.</span>")
 		M.clear_fullscreen("bluespace")
 	M.confused = 0
 

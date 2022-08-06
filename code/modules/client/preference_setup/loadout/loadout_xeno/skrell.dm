@@ -73,7 +73,7 @@
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Skrell"
-	
+
 /datum/gear/accessory/weishii
 	display_name = "weishii robe"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
@@ -110,7 +110,7 @@
 /datum/gear/skrell_projector
 	display_name = "nralakk projector"
 	path = /obj/item/skrell_projector
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/homeworld_deck

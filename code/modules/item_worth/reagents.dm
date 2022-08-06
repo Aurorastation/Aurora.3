@@ -657,6 +657,9 @@
 /decl/reagent/rezadone
 	value = 5
 
+/decl/reagent/sanasomnum
+	value = 5
+
 /decl/reagent/verunol
 	value = 2
 

@@ -142,6 +142,7 @@
 			var/required_energy = field.len * target_renwick_increase / energy_conversion_rate
 			var/assumed_charge = min(owned_capacitor.stored_charge, required_energy)
 			total_renwick_increase = assumed_charge * energy_conversion_rate
+			assumed_charge = max(assumed_charge, 0)
 			owned_capacitor.stored_charge -= assumed_charge
 		else
 			renwick_upkeep_per_field = max(renwick_upkeep_per_field, 0.5)

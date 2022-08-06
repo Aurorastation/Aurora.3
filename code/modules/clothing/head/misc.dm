@@ -140,14 +140,6 @@
 	siemens_coefficient = 2.0
 	body_parts_covered = HEAD|FACE|EYES
 
-/obj/item/clothing/head/cueball
-	name = "cueball helmet"
-	desc = "A large, featureless white orb mean to be worn on your head. How do you even see out of this thing?"
-	icon_state = "cueball"
-	item_state = "cueball"
-	flags_inv = BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES
-
 /obj/item/clothing/head/cardborg
 	name = "cardborg helmet"
 	desc = "A helmet made out of a box."
@@ -179,7 +171,7 @@
 
 /obj/item/clothing/head/rabbitears
 	name = "rabbit ears"
-	desc = "Wearing these makes you looks useless, and only good for your sex appeal."
+	desc = "Wearing these makes you look useless."
 	icon_state = "bunny"
 	body_parts_covered = 0
 
@@ -262,18 +254,6 @@
 	icon_state = "bearpelt"
 	flags_inv = BLOCKHEADHAIR
 	siemens_coefficient = 0.7
-
-/obj/item/clothing/head/xenos
-	name = "xenos helmet"
-	icon_state = "xenos"
-	item_state_slots = list(
-		slot_l_hand_str = "xenos_helm",
-		slot_r_hand_str = "xenos_helm"
-		)
-	desc = "A helmet made out of chitinous alien hide."
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	siemens_coefficient = 2.0
-	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/philosopher_wig
 	name = "natural philosopher's wig"
@@ -536,36 +516,6 @@
 	body_parts_covered = HEAD|EYES
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
-
-/obj/item/clothing/head/vaurca_breeder
-	name = "zo'ra representative shroud"
-	desc = "Large shroud used by Zo'ra representatives."
-	icon = 'icons/mob/species/breeder/inventory.dmi'
-	item_state = "shroud"
-	icon_state = "shroud"
-	contained_sprite = FALSE
-	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
-
-/obj/item/clothing/head/klax_breeder
-	name = "k'lax represenatitve shroud"
-	desc = "Large shroud used by K'lax representatives."
-	icon = 'icons/mob/species/breeder/inventory.dmi'
-	item_state = "shroud_klax"
-	icon_state = "shroud_klax"
-	contained_sprite = FALSE
-	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
-
-/obj/item/clothing/head/cthur_breeder
-	name = "c'thur representative shroud"
-	desc = "Large shroud used by C'thur representatives."
-	icon = 'icons/mob/species/breeder/inventory.dmi'
-	item_state = "shroud_cthur"
-	icon_state = "shroud_cthur"
-	contained_sprite = FALSE
-	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
-	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
 
 /obj/item/clothing/head/sol
 	name = "sol navy utility cover"

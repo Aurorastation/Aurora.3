@@ -153,8 +153,7 @@ datum/preferences
 	var/metadata = ""
 
 	// SPAAAACE
-	var/parallax_speed = 2
-	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
+	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 0
 	var/floating_chat_color
 
@@ -289,7 +288,7 @@ datum/preferences
 	dat += player_setup.content(user)
 	send_theme_resources(user)
 	winshow(user, "preferences_window", TRUE)
-	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 1000, 1000)
+	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 1400, 1000)
 	popup.set_content(dat)
 	popup.open(FALSE) // Skip registering onclose on the browser pane
 	onclose(user, "preferences_window", src) // We want to register on the window itself

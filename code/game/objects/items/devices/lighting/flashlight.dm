@@ -127,7 +127,7 @@
 					to_chat(user, SPAN_NOTICE("\The [M]'s pupils narrow."))
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //can be used offensively
-			flick("flash", M.flash)
+			M.flash_eyes()
 	else
 		return ..()
 

@@ -8,13 +8,8 @@
 	payment enforced by the infamous Idris Reclamation Units, shell IPCs sent to
 	claim payment from negligent loan takers. In recent years, they have begun
 	diversifying into more service-based industries.
-	</p>
-	<p>Idris Incorporated employees can be in the following departments:
-	<ul>
-	<li><b>Service</b>
-	<li><b>Security</b>
-	</ul></p>"}
-
+	</p>"}
+	departments = {"Security<br>Service"}
 	title_suffix = "Idris"
 
 	allowed_role_types = IDRIS_ROLES

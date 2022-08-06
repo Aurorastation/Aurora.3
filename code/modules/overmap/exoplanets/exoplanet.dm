@@ -93,6 +93,7 @@
 	generate_landing(2)
 	update_biome()
 	generate_daycycle()
+	generate_planet_image()
 	START_PROCESSING(SSprocessing, src)
 
 //attempt at more consistent history generation for xenoarch finds.

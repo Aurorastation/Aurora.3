@@ -10,7 +10,6 @@
 	sharp = TRUE
 	edge = TRUE
 	anchored = TRUE
-	item_flags = NOMOVE //It deploys from your arm and stays there
 	throwforce = 0 //Just to be on the safe side
 	throw_range = 0
 	throw_speed = 0
@@ -69,7 +68,6 @@
 	contained_sprite = TRUE
 	force = 15 //Bash the crap out of people
 	slot_flags = null
-	item_flags = NOMOVE //It deploys from your arm and stays there
 	anchored = TRUE
 	throwforce = 0 //Just to be on the safe side
 	throw_range = 0

@@ -39,7 +39,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/medic(src)
 	else
-		new /obj/item/storage/backpack/satchel_med(src)
+		new /obj/item/storage/backpack/satchel/med(src)
 	new /obj/item/storage/backpack/duffel/med(src)
 	new /obj/item/clothing/head/nursehat (src)
 	switch(pick("blue", "green", "purple"))
@@ -81,7 +81,7 @@
 
 /obj/structure/closet/secure_closet/medical_fr/fill()
 	..()
-	new /obj/item/storage/backpack/satchel_med(src)
+	new /obj/item/storage/backpack/satchel/med(src)
 	new /obj/item/storage/backpack/duffel/med(src)
 	new /obj/item/clothing/head/hardhat/first_responder(src)
 	new /obj/item/device/radio/headset/headset_med(src)
@@ -118,7 +118,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/medic(src)
 	else
-		new /obj/item/storage/backpack/satchel_med(src)
+		new /obj/item/storage/backpack/satchel/med(src)
 	new /obj/item/storage/backpack/duffel/med(src)
 	new /obj/item/clothing/suit/bio_suit/cmo(src)
 	new /obj/item/clothing/head/bio_hood/cmo(src)
@@ -136,6 +136,7 @@
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
 	new /obj/item/storage/box/fancy/keypouch/med(src)
 	new /obj/item/device/advanced_healthanalyzer(src)
+	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"
@@ -144,7 +145,7 @@
 
 /obj/structure/closet/secure_closet/CMO2/fill()
 	new /obj/item/storage/backpack/medic(src)
-	new /obj/item/storage/backpack/satchel_med(src)
+	new /obj/item/storage/backpack/satchel/med(src)
 	new /obj/item/clothing/under/rank/medical/surgeon/pmc(src)
 	new /obj/item/clothing/head/surgery/pmc(src)
 	new /obj/item/clothing/under/rank/medical/surgeon/idris(src)

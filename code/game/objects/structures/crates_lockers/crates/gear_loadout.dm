@@ -1,7 +1,6 @@
 /obj/structure/closet/crate/secure/gear_loadout
 	desc = "A secure gear crate."
 	name = "gear crate"
-	req_access = list(access_syndicate)
 
 /obj/structure/closet/crate/gear_loadout/hephaestus
 	desc = "A sturdy crate with Hephaestus Industries branding."
@@ -170,6 +169,13 @@
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/storage/box/srf(src)
+	new /obj/item/storage/box/league(src)
+	new /obj/item/storage/box/fsf(src)
+	new /obj/item/storage/box/ssmd(src)
+	new /obj/item/storage/box/spg(src)
+	new /obj/item/storage/box/mrsp(src)
+	new /obj/item/storage/box/sfa(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/sol_single/fill()
 	new /obj/item/clothing/under/rank/sol/marine(src)
@@ -180,6 +186,13 @@
 	new /obj/item/ammo_magazine/c762/sol(src)
 	new /obj/item/gun/projectile/pistol/sol(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+	new /obj/item/storage/box/srf(src)
+	new /obj/item/storage/box/league(src)
+	new /obj/item/storage/box/fsf(src)
+	new /obj/item/storage/box/ssmd(src)
+	new /obj/item/storage/box/spg(src)
+	new /obj/item/storage/box/mrsp(src)
+	new /obj/item/storage/box/sfa(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/syndicate_softsuits
 	req_access = list()
@@ -435,10 +448,10 @@
 	new /obj/item/gun/energy/crossbow/largecrossbow(src)
 	new /obj/item/melee/energy/sword/red(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/ninja/techno
-	associated_hardsuit = /obj/item/rig/light/offworlder/techno/ninja
+/obj/structure/closet/crate/secure/gear_loadout/ninja/frontier
+	associated_hardsuit = /obj/item/rig/light/offworlder/frontier/ninja
 
-/obj/structure/closet/crate/secure/gear_loadout/ninja/techno/fill()
+/obj/structure/closet/crate/secure/gear_loadout/ninja/frontier/fill()
 	..()
 	new /obj/item/clothing/accessory/holster/armpit/brown(src)
 	new /obj/item/gun/projectile/pistol(src)

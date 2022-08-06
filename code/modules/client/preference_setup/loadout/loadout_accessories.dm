@@ -42,7 +42,7 @@
 	armbands["Stellar Corporate Conglomerate armband"] = /obj/item/clothing/accessory/armband/scc
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
-	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/operations
+	armbands["operations armband"] = /obj/item/clothing/accessory/armband/operations
 	armbands["first responder armband"] = /obj/item/clothing/accessory/armband/medgreen
 	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
 	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
@@ -400,6 +400,11 @@
 	path = /obj/item/clothing/accessory/sash/horizontal
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/konyang_belt
+	display_name = "hanbok belt (colourable)"
+	path = /obj/item/clothing/accessory/konyang
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/passcard
 	display_name = "human passcard selection"
 	path = /obj/item/clothing/accessory/badge/passcard
@@ -424,7 +429,6 @@
 	passcard["passcard, vysoka"] = /obj/item/clothing/accessory/badge/passcard/vysoka
 	passcard["passcard, gadpathur"] = /obj/item/clothing/accessory/badge/passcard/gad
 	passcard["passcard, assunzione"] = /obj/item/clothing/accessory/badge/passcard/assu
-	passcard["passcard, techno-conglomerate"] = /obj/item/clothing/accessory/badge/passcard/techno
 	passcard["passcard, konyang"] = /obj/item/clothing/accessory/badge/passcard/konyang
 	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	gear_tweaks += new /datum/gear_tweak/path(passcard)
@@ -496,3 +500,49 @@
 	display_name = "neck bandanna (colorable)"
 	path = /obj/item/clothing/accessory/bandanna/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/flagpatch_colorable
+	display_name = "generic flagpatch"
+	path = /obj/item/clothing/accessory/flagpatch
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	cost = 0
+
+
+/datum/gear/accessory/flagpatch_national
+	display_name = "flagpatch selection"
+	path = /obj/item/clothing/accessory/flagpatch/biesel
+	cost = 0
+
+/datum/gear/accessory/flagpatch_national/New()
+	..()
+	var/list/flagpatch_national = list()
+	flagpatch_national["flagpatch, biesel"] = /obj/item/clothing/accessory/flagpatch/biesel
+	flagpatch_national["flagpatch, mictlan"] = /obj/item/clothing/accessory/flagpatch/mictlan
+	flagpatch_national["flagpatch, new gibson"] = /obj/item/clothing/accessory/flagpatch/newgibson
+	flagpatch_national["flagpatch, valkyrie"] = /obj/item/clothing/accessory/flagpatch/valkyrie
+	flagpatch_national["flagpatch, sol"] = /obj/item/clothing/accessory/flagpatch/sol
+	flagpatch_national["flagpatch, mars"] = /obj/item/clothing/accessory/flagpatch/mars
+	flagpatch_national["flagpatch, gus"] = /obj/item/clothing/accessory/flagpatch/gus
+	flagpatch_national["flagpatch, eridani"] = /obj/item/clothing/accessory/flagpatch/eridani
+	flagpatch_national["flagpatch, europa"] = /obj/item/clothing/accessory/flagpatch/europa
+	flagpatch_national["flagpatch, new hai phong"] = /obj/item/clothing/accessory/flagpatch/newhaiphong
+	flagpatch_national["flagpatch, pluto"] = /obj/item/clothing/accessory/flagpatch/pluto
+	flagpatch_national["flagpatch, visegrad"] = /obj/item/clothing/accessory/flagpatch/visegrad
+	flagpatch_national["flagpatch, silversun"] = /obj/item/clothing/accessory/flagpatch/silversun
+	flagpatch_national["flagpatch, callisto"] = /obj/item/clothing/accessory/flagpatch/callisto
+	flagpatch_national["flagpatch, konyang"] = /obj/item/clothing/accessory/flagpatch/konyang
+	flagpatch_national["flagpatch, elyra"] = /obj/item/clothing/accessory/flagpatch/elyra
+	flagpatch_national["flagpatch, coalition"] = /obj/item/clothing/accessory/flagpatch/coalition
+	flagpatch_national["flagpatch, himeo"] = /obj/item/clothing/accessory/flagpatch/himeo
+	flagpatch_national["flagpatch, vysoka"] = /obj/item/clothing/accessory/flagpatch/vysoka
+	flagpatch_national["flagpatch, gadpathur"] = /obj/item/clothing/accessory/flagpatch/gadpathur
+	flagpatch_national["flagpatch, assunzione"] = /obj/item/clothing/accessory/flagpatch/assunzione
+	flagpatch_national["flagpatch, dominia"] = /obj/item/clothing/accessory/flagpatch/dominia
+	flagpatch_national["flagpatch, fisanduh"] = /obj/item/clothing/accessory/flagpatch/fisanduh
+	flagpatch_national["flagpatch, pra"] = /obj/item/clothing/accessory/flagpatch/pra
+	flagpatch_national["flagpatch, dpra"] = /obj/item/clothing/accessory/flagpatch/dpra
+	flagpatch_national["flagpatch, nka"] = /obj/item/clothing/accessory/flagpatch/nka
+	flagpatch_national["flagpatch, free council"] = /obj/item/clothing/accessory/flagpatch/freecouncil
+	flagpatch_national["flagpatch, jargon"] = /obj/item/clothing/accessory/flagpatch/jargon
+	flagpatch_national["flagpatch, hegemony"] = /obj/item/clothing/accessory/flagpatch/hegemony
+	gear_tweaks += new /datum/gear_tweak/path(flagpatch_national)

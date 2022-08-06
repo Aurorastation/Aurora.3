@@ -7,12 +7,8 @@
 	to cargo services and transport, but also features a fledgling robotics division, mainly focused
 	on industrial synthetics to aid in its logistics missions. The Orion Express is expected to become an
 	integral part of the Stellar Corporate Conglomerate's future through delivering supplies and merchandise throughout the Orion Spur.
-	</p>
-	<p>Orion Express employees can be in the following departments:
-	<ul>
-	<li><b>Operations</b>
-	</ul></p>"}
-
+	</p>"}
+	departments = {"Operations"}
 	title_suffix = "Orion"
 
 	allowed_role_types = ORION_ROLES

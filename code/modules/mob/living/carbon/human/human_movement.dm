@@ -4,6 +4,9 @@
 	if(species.slowdown)
 		tally = species.slowdown
 
+	if(lying) //Crawling, it's slower
+		tally += (8 + ((weakened * 3) + (confused * 2)))
+
 	tally += get_pulling_movement_delay()
 
 	if (istype(loc, /turf/space) || isopenturf(loc))
