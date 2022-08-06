@@ -54,15 +54,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
-"abY" = (
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 6
-	},
-/turf/simulated/floor/carpet/art,
-/area/space)
 "acx" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
@@ -90,13 +81,6 @@
 /obj/structure/sign/greencross,
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/ship/elyran_strike_craft)
-"ahU" = (
-/obj/machinery/door/airlock{
-	name = "Crew Quarters";
-	req_access = list(207)
-	},
-/turf/simulated/floor/tiled,
-/area/ship/elyran_strike_craft)
 "ajL" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain,
@@ -110,10 +94,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"amg" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "anK" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
@@ -132,11 +112,6 @@
 "aoJ" = (
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
-"apd" = (
-/obj/structure/table/standard,
-/obj/item/device/binoculars,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "atj" = (
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -162,15 +137,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"auJ" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
-	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/space)
 "auY" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -184,13 +150,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"axH" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 5
-	},
-/obj/machinery/recharge_station,
-/turf/simulated/floor/tiled/yellow,
-/area/space)
 "aAY" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled,
@@ -212,16 +171,6 @@
 /obj/item/storage/slide_projector,
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/ship/elyran_strike_craft)
-"aCm" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/space)
 "aCu" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid,
@@ -291,16 +240,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"aIb" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/machinery/mineral/processing_unit_console{
-	pixel_x = 32
-	},
-/turf/simulated/floor,
-/area/space)
 "aJr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -310,24 +249,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"aKy" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor,
-/area/space)
 "aLo" = (
 /obj/machinery/computer/shuttle_control/explore/elyran_shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/elyran_shuttle)
-"aLp" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped,
-/turf/simulated/floor,
-/area/space)
 "aNf" = (
 /obj/machinery/door/airlock{
 	name = "Crew Quarters";
@@ -342,18 +269,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"aQh" = (
-/obj/structure/lattice/catwalk/indoor/grate/damaged,
-/turf/simulated/floor,
-/area/space)
-"aRM" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/space)
 "aTr" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -397,10 +312,6 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/elyran_shuttle)
-"bap" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
-/area/space)
 "baV" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -421,34 +332,6 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/elyran_shuttle)
-"bep" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 10
-	},
-/turf/simulated/floor/carpet/art,
-/area/space)
-"bfR" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_out"
-	},
-/turf/simulated/floor,
-/area/space)
-"bfS" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	layer = 2.31;
-	name = "lattice"
-	},
-/turf/simulated/floor,
-/area/space)
 "bgD" = (
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/elyran_shuttle)
@@ -470,13 +353,6 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
-"buR" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/door/airlock/hatch{
-	name = "Cargo Compartment"
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "bwv" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/spline/plain{
@@ -484,15 +360,6 @@
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/ship/elyran_strike_craft)
-"bzf" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/loot,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor,
-/area/space)
 "bFk" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/shuttle/black,
@@ -503,11 +370,6 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/elyran_shuttle)
-"bNQ" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/yellow,
-/area/space)
 "bQB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -522,41 +384,6 @@
 /obj/item/folder/yellow,
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/ship/elyran_strike_craft)
-"bSo" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
-/area/space)
-"bTz" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/space)
-"bUl" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
-"ciw" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"cjw" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "freight_ship_pump"
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "freight_ship_sensor";
-	pixel_y = 26
-	},
-/turf/simulated/floor,
-/area/space)
 "clm" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
@@ -572,16 +399,6 @@
 /obj/item/storage/bag/inflatable,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/elyran_shuttle)
-"cqd" = (
-/obj/structure/table/standard,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/obj/item/toy/desk/fan,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "cqW" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 1
@@ -606,11 +423,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"cAJ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor,
-/area/space)
 "cFy" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
@@ -641,51 +453,10 @@
 /obj/item/clothing/head/helmet/space/void/valkyrie,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"cSA" = (
-/obj/machinery/door/airlock/mining{
-	name = "Captain's Office"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"cSD" = (
-/obj/structure/table/steel,
-/obj/item/paper_bin,
-/obj/item/pen/multi,
-/obj/effect/floor_decal/spline/plain{
-	dir = 5
-	},
-/turf/simulated/floor/carpet/art,
-/area/space)
-"cWg" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/yellow,
-/area/space)
 "cWy" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"cXt" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = -7
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = 2;
-	pixel_y = -3
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"dbX" = (
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen/multi,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "dex" = (
 /obj/machinery/door/airlock{
 	name = "Hangar Bay";
@@ -731,12 +502,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"dIR" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Cargo Compartment"
-	},
-/turf/simulated/floor,
-/area/space)
 "dJo" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -748,22 +513,10 @@
 	},
 /turf/template_noop,
 /area/ship/elyran_strike_craft)
-"dQr" = (
-/obj/machinery/door/airlock{
-	name = "Head"
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "dQs" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"dQU" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/drill,
-/turf/simulated/floor,
-/area/space)
 "dVy" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -771,26 +524,10 @@
 /obj/item/clothing/head/cone,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"dYK" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/table/steel,
-/obj/item/reagent_containers/food/snacks/liquidfood,
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/turf/simulated/floor,
-/area/space)
 "efi" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"egu" = (
-/obj/structure/curtain/black{
-	name = "DO NOT ENTER"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "emN" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -809,10 +546,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
-"esk" = (
-/obj/machinery/shipsensors/weak,
-/turf/simulated/floor/airless,
-/area/space)
 "ess" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 1
@@ -834,14 +567,6 @@
 "etL" = (
 /turf/space/transit/south,
 /area/space)
-"evx" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
 "evN" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/hatch{
@@ -852,12 +577,6 @@
 	temperature = 278
 	},
 /area/ship/elyran_strike_craft)
-"ewr" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Anti-Piracy Armory"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "ewN" = (
 /obj/structure/sign/flag/elyra{
 	pixel_x = -32
@@ -887,13 +606,6 @@
 /obj/machinery/meter,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"eJF" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/space)
 "eLi" = (
 /obj/structure/bed/stool/padded/black,
 /turf/simulated/floor/tiled,
@@ -915,10 +627,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"eUi" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor,
-/area/space)
 "eWN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -947,27 +655,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"fbQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "freight_ship_pump"
-	},
-/turf/simulated/floor,
-/area/space)
-"feZ" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "freighter_mining"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
 "fkv" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
@@ -981,25 +668,10 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/elyran_shuttle)
-"fnc" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "fAD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"fIj" = (
-/obj/structure/lattice,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/space)
 "fKm" = (
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32
@@ -1028,47 +700,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"fPc" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "freighter_mining"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
 "fRM" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/ship/elyran_strike_craft)
-"fTd" = (
-/obj/structure/bed/stool/chair{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"fTj" = (
-/obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor,
-/area/space)
-"fTt" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/gun/projectile/tanto,
-/obj/item/ammo_magazine/mc10mm,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "fUE" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -1126,26 +763,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"gtg" = (
-/obj/item/gun/energy/plasmacutter,
-/obj/item/gun/energy/plasmacutter{
-	pixel_y = 5
-	},
-/obj/item/gun/custom_ka/frame01/prebuilt,
-/obj/item/gun/custom_ka/frame01/prebuilt{
-	pixel_y = 5
-	},
-/obj/structure/table/steel,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/space)
-"gwu" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/zora,
-/turf/simulated/floor,
-/area/space)
 "gxW" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
@@ -1158,23 +775,6 @@
 "gzu" = (
 /obj/effect/shuttle_landmark/elyran_strike_craft/nav1,
 /turf/template_noop,
-/area/space)
-"gAj" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/grill,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"gEI" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/space)
-"gKj" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/battlemonsters,
-/turf/simulated/floor,
 /area/space)
 "gLp" = (
 /obj/effect/floor_decal/corner/beige{
@@ -1207,76 +807,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"hiD" = (
-/obj/structure/filingcabinet/chestdrawer,
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/space)
-"hkE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor,
-/area/space)
-"hlv" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor,
-/area/space)
 "hmO" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"hnH" = (
-/obj/structure/bed/stool/chair/sofa/right/brown{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/space)
-"htx" = (
-/obj/machinery/vending/tool,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
 "hvT" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/shuttle/elyran_shuttle)
-"hyF" = (
-/turf/simulated/floor/carpet,
-/area/space)
-"hHS" = (
-/obj/machinery/computer/ship/engines{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "hOg" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/elyran_shuttle)
-"hQP" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor,
-/area/space)
-"hVI" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/item/clothing/head/bearpelt{
-	anchored = 1;
-	name = "bear pelt wall rug";
-	pixel_x = 1;
-	pixel_y = -25
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/art,
-/area/space)
 "hWc" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
@@ -1295,28 +838,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"inr" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_out"
-	},
-/obj/effect/shuttle_landmark/tramp_freighter/nav2,
-/turf/simulated/floor,
-/area/space)
 "ipy" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"ipO" = (
-/obj/machinery/computer/ship/helm{
-	dir = 1;
-	req_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "iuw" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -1326,22 +853,6 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/elyran_shuttle)
-"iyc" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "freight_ship_port";
-	name = "exterior access button";
-	pixel_x = -24;
-	pixel_y = -10
-	},
-/turf/template_noop,
-/area/space)
-"iEO" = (
-/obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "iIw" = (
 /obj/structure/table/steel,
 /obj/item/modular_computer/laptop/preset/civilian,
@@ -1369,22 +880,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/ship/elyran_strike_craft)
-"iNz" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/head/helmet/space/void/mining/fluff,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/head/helmet/space/void/mining/fluff,
-/obj/item/device/suit_cooling_unit,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "iOh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1392,11 +887,6 @@
 /obj/item/clothing/head/cone,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"iQL" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor,
-/area/space)
 "iWb" = (
 /obj/machinery/papershredder{
 	pixel_x = -6
@@ -1410,11 +900,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"iXd" = (
-/obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/grate/damaged,
-/turf/simulated/floor,
-/area/space)
 "jab" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/effect/floor_decal/spline/plain/corner{
@@ -1439,61 +924,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
-"jpX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/turf/simulated/floor,
-/area/space)
-"jsa" = (
-/obj/structure/closet/firecloset/full,
-/turf/simulated/floor,
-/area/space)
-"jtc" = (
-/obj/machinery/vending/dinnerware,
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"jzc" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/reagent_containers/inhaler/soporific,
-/obj/item/reagent_containers/inhaler/soporific,
-/obj/item/reagent_containers/inhaler/space_drugs,
-/obj/item/reagent_containers/inhaler/space_drugs,
-/obj/item/reagent_containers/inhaler/space_drugs,
-/obj/item/reagent_containers/inhaler/space_drugs,
-/obj/structure/closet/crate/medical,
-/turf/simulated/floor,
-/area/space)
-"jBE" = (
-/obj/structure/closet,
-/obj/item/clothing/suit/storage/toggle/bomber,
-/obj/item/clothing/suit/storage/toggle/flannel/red,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/youngfolksjeans,
-/obj/item/clothing/head/cowboy,
-/obj/item/clothing/shoes/cowboy/classic,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/softcap/himeo,
-/obj/item/clothing/accessory/storage/overalls,
-/obj/item/clothing/under/pants/black,
-/obj/item/clothing/accessory/bandanna,
-/obj/item/clothing/accessory/bandanna/black,
-/obj/item/clothing/accessory/bandanna/blue,
-/obj/effect/floor_decal/corner/black{
-	dir = 5
-	},
-/obj/item/clothing/suit/storage/toggle/trench/green,
-/obj/item/clothing/glasses/fakesunglasses/aviator,
-/obj/item/clothing/glasses/regular/circle,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/gloves/fingerless,
-/obj/item/clothing/gloves/fingerless,
-/obj/item/clothing/gloves/fingerless,
-/obj/item/clothing/gloves/fingerless,
-/turf/simulated/floor/tiled/yellow,
-/area/space)
 "jCz" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -1508,38 +938,10 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"jDz" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_in"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor,
-/area/space)
-"jEV" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
 "jFf" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/carpet,
 /area/ship/elyran_strike_craft)
-"jIR" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/fryer,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "jJJ" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
@@ -1554,10 +956,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"jMQ" = (
-/obj/structure/ore_box,
-/turf/simulated/floor,
-/area/space)
 "jOg" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
@@ -1567,11 +965,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"jPr" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/reagent_containers/glass/bucket,
-/turf/simulated/floor,
-/area/space)
 "jPG" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -1599,38 +992,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"jZZ" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/flashshells,
-/obj/item/gun/projectile/shotgun/doublebarrel,
-/obj/item/storage/box/flashshells,
-/obj/item/storage/box/shotgunshells,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "kbf" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"kmb" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/chemical_dispenser/coffee/full{
-	density = 0;
-	pixel_y = 35
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"knH" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "kxZ" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
@@ -1639,41 +1006,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
-"kyz" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/walllocker/medical{
-	pixel_x = -32
-	},
-/obj/item/storage/firstaid/regular{
-	pixel_y = -1
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"kzQ" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/space)
 "kAt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"kBX" = (
-/obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/miner,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/obj/item/cell/mecha,
-/obj/item/cell/mecha,
-/obj/item/cell/mecha,
-/turf/simulated/floor,
-/area/space)
 "kNK" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/effect/decal/cleanable/cobweb,
@@ -1682,12 +1020,6 @@
 	temperature = 278
 	},
 /area/ship/elyran_strike_craft)
-"kRk" = (
-/obj/machinery/suit_cycler/mining{
-	req_access = null
-	},
-/turf/simulated/floor,
-/area/space)
 "kVo" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/spline/plain{
@@ -1700,42 +1032,6 @@
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/ship/elyran_strike_craft)
-"kXe" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/machinery/conveyor_switch{
-	id = "freighter_mining"
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor,
-/area/space)
-"kXt" = (
-/obj/structure/bed,
-/obj/item/bedsheet/blue,
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/curtain/black{
-	icon_state = "open";
-	layer = 4;
-	opacity = 0
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "freighter_crew_captain";
-	name = "igs - freight captain"
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/space)
-"ldk" = (
-/obj/structure/sink{
-	dir = 8;
-	pixel_x = -12
-	},
-/obj/structure/mirror{
-	pixel_x = -24
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "lgq" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 1
@@ -1789,44 +1085,9 @@
 /obj/structure/punching_bag,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"lsg" = (
-/obj/structure/table/steel,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/obj/machinery/recharger,
-/turf/simulated/floor,
-/area/space)
-"ltR" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/boozeomat,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor,
-/area/space)
-"ltT" = (
-/obj/structure/sign/poster{
-	pixel_x = 32
-	},
-/turf/simulated/floor/carpet,
-/area/space)
 "lxP" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/elyran_strike_craft)
-"lDH" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/largecrate/animal/adhomai/schlorrgo,
-/obj/item/device/radio{
-	icon_state = "radio";
-	pixel_x = -1;
-	pixel_y = 16
-	},
-/turf/simulated/floor,
-/area/space)
 "lJq" = (
 /obj/structure/bed,
 /obj/item/bedsheet/black,
@@ -1842,13 +1103,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"lLL" = (
-/obj/machinery/telecomms/allinone/ship,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/space)
 "lLN" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -1878,36 +1132,6 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"lPv" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "freighter_mining"
-	},
-/obj/machinery/mineral/stacking_machine,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
-"lTB" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor,
-/area/space)
-"lUz" = (
-/obj/structure/table/wood,
-/obj/item/device/electronic_assembly/simple{
-	desc = "The remote for a PanaVision 2400. This one feels a bit hollow.";
-	name = "television remote";
-	pixel_x = 6;
-	pixel_y = 4
-	},
-/obj/item/flame/lighter/zippo/royal,
-/obj/item/storage/box/fancy/cigarettes/nka,
-/turf/simulated/floor/carpet,
-/area/space)
 "lWW" = (
 /obj/structure/toilet{
 	dir = 8
@@ -1929,32 +1153,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"mgh" = (
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c200,
-/obj/item/spacecash/c200,
-/obj/item/spacecash/c200,
-/obj/item/spacecash/c200,
-/obj/item/spacecash/c200,
-/obj/item/spacecash/c50,
-/obj/item/spacecash/c50,
-/obj/item/spacecash/c50,
-/obj/item/spacecash/c50,
-/obj/item/spacecash/c50,
-/obj/structure/closet,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/yellow,
-/area/space)
 "mgE" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
@@ -1966,63 +1164,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"mio" = (
-/obj/structure/bed/stool/chair/sofa/left/brown{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/space)
-"mle" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/window{
-	dir = 8
-	},
-/obj/machinery/shower{
-	dir = 1
-	},
-/obj/structure/curtain/open/shower,
-/obj/item/soap,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "moG" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
-"mvJ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "mAv" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"mCM" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 9
-	},
-/turf/simulated/floor/carpet/art,
-/area/space)
-"mEH" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/closet/crate,
-/obj/item/clothing/accessory/badge/passport/sol,
-/obj/item/clothing/accessory/badge/passport/elyra,
-/obj/item/clothing/accessory/badge/passport/dominia,
-/obj/item/clothing/accessory/badge/passport/coc,
-/obj/item/clothing/accessory/badge/passport,
-/obj/item/stamp/sol,
-/obj/item/stamp/biesel,
-/obj/item/stamp/denied,
-/obj/item/stamp,
-/turf/simulated/floor,
-/area/space)
 "mJF" = (
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
@@ -2037,12 +1187,6 @@
 /obj/structure/bed/stool/chair/sofa/black,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"mLl" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "EVA Prep"
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/space)
 "mOy" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -2055,20 +1199,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"mVL" = (
-/obj/structure/bed,
-/obj/item/bedsheet/brown,
-/obj/effect/ghostspawpoint{
-	identifier = "freighter_crew";
-	name = "igs - freight crew"
-	},
-/obj/structure/curtain/black{
-	icon_state = "open";
-	layer = 4;
-	opacity = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "mXc" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
@@ -2083,24 +1213,6 @@
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"nfy" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"niY" = (
-/obj/structure/toilet{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "nrx" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1;
@@ -2109,13 +1221,6 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"nxa" = (
-/obj/structure/sign/vacuum{
-	pixel_y = 31
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
 "nyH" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -2129,15 +1234,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"nzn" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "nDF" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/structure/sign/flag/elyra/right{
@@ -2159,20 +1255,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"nEK" = (
-/obj/machinery/mineral/processing_unit,
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "freighter_mining"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
 "nHo" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
@@ -2201,20 +1283,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"oeu" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "The PanaVision 2400 television was made to inspire nostalgia with that classic look with all the modern features. This one happens to have been broken for awhile though.";
-	icon = 'icons/obj/computer.dmi';
-	icon_state = "television";
-	name = "PanaVision 2400"
-	},
-/obj/item/reagent_containers/food/drinks/cans/diet_cola{
-	pixel_x = 7;
-	pixel_y = 16
-	},
-/turf/simulated/floor/carpet,
-/area/space)
 "ofY" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light/small/emergency{
@@ -2229,11 +1297,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"ojX" = (
-/obj/structure/bed/stool/chair,
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "oom" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -2241,35 +1304,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"oAj" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1380;
-	id_tag = "freight_ship_port";
-	layer = 3.3;
-	pixel_y = 28;
-	tag_airpump = "freight_ship_pump";
-	tag_chamber_sensor = "freight_ship_sensor";
-	tag_exterior_door = "freight_ship_out";
-	tag_interior_door = "freight_ship_in"
-	},
-/turf/simulated/floor,
-/area/space)
-"oDI" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"oEQ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/trash/plate,
-/obj/item/trash/plate{
-	pixel_x = 3;
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "oFn" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -2281,21 +1315,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"oNV" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor,
-/area/space)
-"oUZ" = (
-/obj/structure/sign/vacuum{
-	pixel_y = 31
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor,
-/area/space)
 "pcX" = (
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -2315,20 +1334,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"pep" = (
-/obj/structure/bed,
-/obj/item/bedsheet/brown,
-/obj/structure/curtain/black{
-	icon_state = "open";
-	layer = 4;
-	opacity = 0
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "freighter_crew";
-	name = "igs - freight crew"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "pes" = (
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32
@@ -2374,13 +1379,6 @@
 /obj/effect/floor_decal/corner/beige,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"pzw" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/bookcase{
-	anchored = 0
-	},
-/turf/simulated/floor,
-/area/space)
 "pDb" = (
 /obj/machinery/sleeper{
 	dir = 4
@@ -2390,25 +1388,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
-"pDs" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/space)
-"pGp" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/space)
-"pNt" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/snack,
-/turf/simulated/floor,
-/area/space)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
@@ -2422,33 +1401,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"pWM" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/space)
-"pWV" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"pZx" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/hydronutrients/xenobotany,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor,
-/area/space)
 "pZC" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -2456,16 +1408,6 @@
 /obj/structure/bed/stool/chair/sofa/left/black,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"pZK" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "qfs" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -2510,27 +1452,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
-"qwd" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/reagent_containers/food/condiment/shaker/salt,
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = -4
-	},
-/obj/item/reagent_containers/food/condiment/barbecue{
-	pixel_x = 7;
-	pixel_y = 6
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"qwQ" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
-/area/space)
 "qJg" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/dirt,
@@ -2564,25 +1485,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"qWi" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 5
-	},
-/obj/structure/table/steel,
-/obj/item/storage/box/fancy/gum,
-/turf/simulated/floor/tiled/yellow,
-/area/space)
-"qWO" = (
-/obj/structure/bed/stool/chair/padded/brown{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/carpet,
-/area/space)
 "rbA" = (
 /obj/machinery/computer/ship/helm{
 	req_access = null
@@ -2596,43 +1498,12 @@
 /obj/effect/shuttle_landmark/elyran_shuttle/hangar,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"reg" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/cola,
-/turf/simulated/floor,
-/area/space)
-"rgg" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/mining{
-	name = "Bridge"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"rhL" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	layer = 2.31;
-	name = "lattice"
-	},
-/turf/simulated/floor,
-/area/space)
 "rmm" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"roI" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/yellow,
-/area/space)
 "rtf" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
@@ -2645,11 +1516,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"rDj" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/closet/crate,
-/turf/simulated/floor,
-/area/space)
 "rEs" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -2663,58 +1529,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"rGt" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/space)
-"rHT" = (
-/obj/structure/closet/crate,
-/obj/item/stack/material/phoron{
-	amount = 20
-	},
-/obj/item/stack/material/phoron{
-	amount = 20
-	},
-/obj/item/stack/material/plasteel,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/turf/simulated/floor,
-/area/space)
 "rLq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"rUc" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/vehicle/bike/monowheel,
-/turf/simulated/floor,
-/area/space)
 "rWk" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"rWs" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/dispenser/oxygen,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"rYB" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "sbA" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/elyran_shuttle,
@@ -2739,13 +1565,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_strike_craft)
-"sie" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
 "spD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2753,73 +1572,10 @@
 /obj/machinery/floodlight,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"sty" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/overmap/visitable/ship/tramp_freighter,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"suz" = (
-/obj/structure/bed/stool/chair{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"svU" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	layer = 2.31;
-	name = "lattice"
-	},
-/turf/simulated/floor,
-/area/space)
-"swf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_in"
-	},
-/turf/simulated/floor,
-/area/space)
-"sBr" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/bed,
-/obj/item/device/flashlight,
-/turf/simulated/floor,
-/area/space)
-"sDm" = (
-/obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/green,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/turf/simulated/floor/carpet/art,
-/area/space)
-"sFp" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/coffee/free,
-/turf/simulated/floor,
-/area/space)
-"sFr" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/space)
 "sFZ" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/elyran_shuttle)
-"sKo" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
 "sOb" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
@@ -2829,30 +1585,6 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
-"sXi" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 5
-	},
-/obj/machinery/cryopod{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/space)
-"sZm" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"tbe" = (
-/obj/machinery/mineral/unloading_machine,
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/space)
 "tcC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -2874,20 +1606,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"tms" = (
-/obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"tyV" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/machinery/mineral/stacking_unit_console{
-	pixel_x = 32
-	},
-/turf/simulated/floor,
-/area/space)
 "tAW" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -2904,30 +1622,6 @@
 /obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"tHC" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = list(203)
-	},
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
-	layer = 2.99;
-	pixel_x = 3;
-	pixel_y = -11
-	},
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "tLt" = (
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/white,
@@ -2941,14 +1635,6 @@
 	dir = 4
 	},
 /area/ship/elyran_strike_craft)
-"tSQ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/sink{
-	dir = 8;
-	pixel_x = -12
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "tUL" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/elyra{
@@ -2964,27 +1650,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"uny" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/space)
-"upH" = (
-/obj/structure/sign/fire{
-	pixel_x = 33
-	},
-/obj/item/storage/toolbox/electrical,
-/obj/structure/table/steel,
-/obj/item/storage/toolbox/mechanical,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/obj/machinery/cell_charger,
-/turf/simulated/floor,
-/area/space)
 "urK" = (
 /obj/effect/decal/fake_object{
 	desc = "An SUPB Pod, also know as a Single Use Personal Boarding Pod. These pods are utilized across the Spur for interdictions and hostile boarding actions across the Spur.";
@@ -3006,66 +1671,9 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"utb" = (
-/obj/structure/table/steel,
-/obj/item/pickaxe/drill/weak{
-	pixel_y = 5
-	},
-/obj/item/pickaxe/drill/weak{
-	pixel_y = 10
-	},
-/obj/item/pickaxe/drill,
-/obj/item/pickaxe/drill/weak,
-/obj/item/mecha_equipment/mounted_system/plasmacutter,
-/turf/simulated/floor,
-/area/space)
 "uDF" = (
 /obj/effect/shuttle_landmark/elyran_strike_craft/transit,
 /turf/space/transit/south,
-/area/space)
-"uRK" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"uSU" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "freight_ship_port";
-	name = "interior access button";
-	pixel_x = 24;
-	pixel_y = -8
-	},
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/space)
-"uYP" = (
-/turf/simulated/floor,
-/area/space)
-"uZw" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"vfT" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window{
-	dir = 1
-	},
-/turf/simulated/floor,
 /area/space)
 "vlC" = (
 /obj/effect/floor_decal/corner/beige/full{
@@ -3090,13 +1698,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
-"vud" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/door/airlock/glass{
-	name = "Kitchen"
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "vFL" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -3180,12 +1781,6 @@
 /obj/item/gun/energy/plasmacutter,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"wcX" = (
-/obj/machinery/computer/cryopod{
-	pixel_y = -33
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/space)
 "wdF" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -3198,31 +1793,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"wgd" = (
-/obj/structure/closet/crate/medical{
-	name = "IAC crate"
-	},
-/obj/item/clothing/shoes/iac,
-/obj/item/clothing/under/rank/iacjumpsuit,
-/obj/item/clothing/suit/storage/hazardvest/iac,
-/obj/item/clothing/mask/balaclava/iac,
-/obj/item/clothing/accessory/armband/iac,
-/obj/item/clothing/head/softcap/iac,
-/obj/item/gun/launcher/syringe,
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/clothing/gloves/latex/nitrile,
-/turf/simulated/floor,
-/area/space)
-"whC" = (
-/obj/structure/bed/stool/chair,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/yellow,
-/area/space)
-"wiw" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/structure/closet/crate,
-/turf/simulated/floor,
-/area/space)
 "wrJ" = (
 /obj/effect/shuttle_landmark/elyran_shuttle/transit,
 /turf/space/transit/south,
@@ -3231,16 +1801,6 @@
 /obj/machinery/door/blast/odin,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"wuO" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/material/ashtray/bronze{
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "wvR" = (
 /obj/machinery/door/airlock{
 	name = "Bridge";
@@ -3248,18 +1808,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"wxY" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
-/area/space)
-"wAw" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped,
-/turf/simulated/floor,
-/area/space)
 "wGT" = (
 /obj/machinery/door/airlock/command{
 	name = "Ensign's Quarters";
@@ -3273,14 +1821,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"wWN" = (
-/obj/effect/floor_decal/industrial/loading/yellow,
-/turf/simulated/floor,
-/area/space)
-"wXg" = (
-/obj/structure/janitorialcart/full,
-/turf/simulated/floor,
-/area/space)
 "wZf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -3293,10 +1833,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"xbq" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "xdP" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -3308,12 +1844,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"xfW" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/space)
 "xhB" = (
 /obj/machinery/computer/ship/engines{
 	dir = 1
@@ -3360,23 +1890,6 @@
 /obj/item/reagent_containers/food/snacks/yellowcurry,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"xla" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"xoN" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/obj/machinery/vending/cigarette/hacked,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "xpv" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -3393,34 +1906,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
-"xsL" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/stove,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"xtd" = (
-/obj/machinery/door/airlock/mining{
-	name = "Crew Bunks"
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/space)
-"xtB" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor,
-/area/space)
-"xyT" = (
-/obj/structure/plasticflaps,
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "freighter_mining"
-	},
-/obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor,
-/area/space)
 "xzf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -3459,9 +1944,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
-"xAC" = (
-/turf/simulated/floor/tiled/yellow,
-/area/space)
 "xGj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -3493,72 +1975,12 @@
 "xRX" = (
 /turf/template_noop,
 /area/space)
-"xWS" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor,
-/area/space)
-"xYO" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/space)
-"yal" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"ycp" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor,
-/area/space)
-"ycq" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/cooking_container/plate,
-/turf/simulated/floor/tiled/white,
-/area/space)
-"ycX" = (
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "yhP" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/ship/elyran_strike_craft)
-"yko" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/head/helmet/space/void/mining/fluff,
-/obj/item/clothing/head/helmet/space/void/mining/fluff,
-/obj/item/device/suit_cooling_unit,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"yme" = (
-/turf/space,
-/area/space)
 
 (1,1,1) = {"
 xRX
@@ -22929,23 +21351,23 @@ xRX
 xRX
 xRX
 xRX
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -23182,31 +21604,31 @@ xRX
 xRX
 xRX
 xRX
-uRK
-uRK
-uRK
-uRK
-uRK
-xla
-bzf
-aLp
-bzf
-fTj
-ltR
-aLp
-xWS
-aLp
-pZx
-iXd
-bzf
-aLp
-bzf
-aLp
-uRK
-uRK
-uRK
-uRK
-uRK
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -23439,33 +21861,33 @@ xRX
 xRX
 xRX
 xRX
-uRK
-jPr
-sFr
-aQh
-sBr
-uRK
-iQL
-iXd
-bap
-aLp
-iQL
-fTj
-iQL
-iXd
-bap
-aLp
-pNt
-aLp
-cAJ
-iXd
-svU
-uRK
-jZZ
-fTt
-uRK
-uRK
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -23691,39 +22113,39 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-wiw
-mEH
-sFr
-dYK
-uRK
-sFp
-aLp
-iQL
-aLp
-bap
-aLp
-iQL
-iXd
-iQL
-aLp
-bap
-aLp
-cAJ
-aQh
-jEV
-ewr
-fnc
-nzn
-uRK
-kXt
-bSo
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -23948,39 +22370,39 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-rDj
-wgd
-sFr
-sFr
-xla
-gKj
-sFr
-aCm
-sFr
-aCm
-sFr
-rGt
-sFr
-aIb
-sFr
-tyV
-sFr
-rGt
-aLp
-svU
-xla
-uRK
-uRK
-bSo
-bNQ
-mgh
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -24205,39 +22627,39 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-lDH
-jzc
-sFr
-hQP
-egu
-pzw
-fTj
-sie
-aLp
-gwu
-sFr
-kXe
-sKo
-oDI
-bTz
-oDI
-bTz
-bTz
-aLp
-bfS
-xla
-pWM
-bNQ
-mCM
-bep
-hiD
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -24462,39 +22884,39 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-uRK
-uRK
-uRK
-uRK
-uRK
-bap
-fTj
-dQU
-aLp
-reg
-wWN
-tbe
-fPc
-nEK
-feZ
-lPv
-feZ
-xyT
-sFr
-fIj
-cSA
-bNQ
-cWg
-sDm
-hVI
-bSo
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -24719,38 +23141,38 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-sKo
-hlv
-hlv
-hlv
-bUl
-aCm
-aLp
-pGp
-wAw
-rUc
-ycp
-rGt
-rGt
-eJF
-eJF
-eJF
-eJF
-eJF
-aLp
-svU
-uRK
-bNQ
-whC
-cSD
-abY
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -24978,35 +23400,35 @@ xRX
 xRX
 xRX
 xRX
-uRK
-uRK
-uRK
-uRK
-svU
-svU
-rhL
-svU
-svU
-svU
-xYO
-uny
-sKo
-aCm
-hlv
-sKo
-sFr
-evx
-sKo
-sFr
-sKo
-sKo
-oNV
-svU
-uRK
-bSo
-bSo
-bSo
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -25233,34 +23655,34 @@ xRX
 xRX
 xRX
 xRX
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-svU
-rhL
-svU
-xtB
-svU
-rhL
-svU
-rhL
-xtB
-rhL
-svU
-xtB
-svU
-rhL
-svU
-bSo
-bSo
-esk
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -25490,34 +23912,34 @@ xRX
 xRX
 xRX
 xRX
-uRK
-oUZ
-kzQ
-jMQ
-jMQ
-kBX
-utb
-lsg
-gtg
-uRK
-uRK
-uRK
-uRK
-dIR
-uRK
-uRK
-uRK
-uRK
-buR
-uRK
-uRK
-dIR
-uRK
-uRK
-uRK
-bSo
-bSo
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -25747,34 +24169,34 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-uRK
-jIR
-amg
-tSQ
-uRK
-kmb
-sZm
-xbq
-dQr
-kyz
-ldk
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -26004,35 +24426,35 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-uRK
-xsL
-amg
-amg
-ycq
-yal
-xbq
-fTd
-qwQ
-niY
-mle
-bSo
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -26261,35 +24683,35 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-uRK
-gAj
-amg
-amg
-oEQ
-xbq
-ojX
-cXt
-bSo
-bSo
-bSo
-xla
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -26518,35 +24940,35 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-xla
-knH
-amg
-amg
-jtc
-xbq
-ojX
-qwd
-bSo
-jBE
-gEI
-pep
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -26775,35 +25197,35 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-xla
-tHC
-rYB
-amg
-vud
-yal
-ojX
-wuO
-bSo
-qWi
-roI
-qwQ
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -27032,35 +25454,35 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-xla
-uRK
-xla
-uRK
-uRK
-yal
-xbq
-suz
-qwQ
-axH
-xAC
-pep
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -27289,35 +25711,35 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-uRK
-yko
-iNz
-uRK
-xoN
-mvJ
-uZw
-uZw
-xtd
-roI
-wcX
-bSo
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -27546,35 +25968,35 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-mLl
-roI
-xAC
-mLl
-roI
-roI
-xAC
-pDs
-uRK
-sXi
-aRM
-mVL
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -27803,38 +26225,38 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-yme
-xAC
-xAC
-roI
-xAC
-xAC
-xAC
-xAC
-roI
-uRK
-uRK
-uRK
-uRK
-bSo
-lTB
-lTB
-lTB
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -28060,38 +26482,38 @@ xRX
 xRX
 xRX
 xRX
-xla
-nxa
-xla
-uRK
-wxY
-uYP
-wxY
-uYP
-uYP
-uYP
-jsa
-uSU
-uYP
-jpX
-hkE
-vfT
-uRK
-pZK
-rWs
-uRK
-mio
-hnH
-lUz
-xAC
-xAC
-xla
-ciw
-hHS
-iEO
-cqd
-nfy
-lTB
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -28320,35 +26742,35 @@ xRX
 xRX
 xRX
 xRX
-uRK
-uYP
-upH
-jMQ
-kRk
-htx
-rHT
-xla
-lTB
-swf
-jDz
-lTB
-uRK
-uRK
-uRK
-uRK
-uRK
-hyF
-hyF
-hyF
-xAC
-roI
-rgg
-fnc
-ycX
-tms
-sty
-ipO
-lTB
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -28574,38 +26996,38 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-uRK
-uRK
-uRK
-uRK
-uRK
-lTB
-cjw
-fbQ
-lTB
 xRX
 xRX
 xRX
-uRK
-uRK
-oeu
-ltT
-qWO
-roI
-xfW
-uRK
-ciw
-pWV
-ycX
-dbX
-apd
-lTB
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -28831,38 +27253,38 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-wXg
-auJ
-lLL
-uRK
-uRK
-lTB
-oAj
-uYP
-lTB
 xRX
 xRX
 xRX
 xRX
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-uRK
-lTB
-lTB
-lTB
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -29088,21 +27510,21 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-eUi
-uRK
-uRK
-uRK
 xRX
-lTB
-uYP
-uYP
-lTB
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -29345,21 +27767,21 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-aKy
-uRK
-uRK
 xRX
 xRX
-lTB
-inr
-bfR
-lTB
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -29602,18 +28024,18 @@ xRX
 xRX
 xRX
 xRX
-yme
-yme
-yme
-yme
-yme
-yme
-uRK
-uRK
 xRX
 xRX
 xRX
-iyc
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
