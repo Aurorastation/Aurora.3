@@ -102,7 +102,7 @@
 	if(src.earsup)
 		icon_state = "[initial(icon_state)]_up"
 		item_state = "[initial(icon_state)]_up"
-		to_chat(user, "You raise the sun shade on the cap.")
+		to_chat(user, SPAN_NOTICE("You raise the sun shade on the cap."))
 	else
 		src.icon_state = initial(icon_state)
 		to_chat(user, "You lower the sun shade on the cap.")
