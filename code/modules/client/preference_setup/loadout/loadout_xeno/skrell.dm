@@ -389,7 +389,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
 
 /datum/gear/ears/skrell/tailband
-	display_name = "SCS Tailband"
+	display_name = "SCS tailband"
 	path = /obj/item/clothing/ears/skrell/tailband
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
