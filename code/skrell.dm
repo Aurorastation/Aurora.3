@@ -240,7 +240,7 @@
 	icon_state = "tailband"
 
 /obj/item/clothing/ears/skrell/tailband/iqi
-	name = "Iqi Tailband"
+	name = "\improper Iqi tailband"
 	desc = "A band meant to be worn on a Skrell's main headtail. This one has the iqi symbol on it."
 	item_state = "iqi"
 	icon_state = "tailband"
