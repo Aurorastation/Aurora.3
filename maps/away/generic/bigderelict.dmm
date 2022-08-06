@@ -258,13 +258,11 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "be" = (
-/mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
 /area/derelict)
 "bf" = (
-/mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
 "bg" = (
@@ -580,7 +578,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "bU" = (
-/mob/living/simple_animal/hostile/carp,
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict)
@@ -884,7 +881,6 @@
 /area/derelict)
 "cD" = (
 /obj/structure/lattice,
-/mob/living/simple_animal/hostile/carp,
 /turf/space,
 /area/derelict)
 "cE" = (
@@ -939,7 +935,6 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "cQ" = (
-/mob/living/simple_animal/hostile/carp/shark,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
 "cR" = (
@@ -948,7 +943,6 @@
 /area/derelict)
 "cS" = (
 /obj/random/junk,
-/mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
 "cT" = (
@@ -1190,7 +1184,6 @@
 /area/derelict)
 "dU" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/airless,
 /area/derelict)
 "dV" = (
@@ -1325,7 +1318,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/airless,
 /area/derelict)
 "ep" = (
@@ -1395,7 +1387,6 @@
 /turf/space,
 /area/derelict)
 "ew" = (
-/mob/living/simple_animal/hostile/carp/shark,
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
@@ -1577,7 +1568,6 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "fb" = (
-/mob/living/simple_animal/hostile/carp,
 /turf/template_noop,
 /area/derelict)
 "fc" = (
@@ -1682,7 +1672,6 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
 "fu" = (
-/mob/living/simple_animal/hostile/carp/shark,
 /turf/simulated/floor/airless,
 /area/derelict)
 "fv" = (
@@ -1914,7 +1903,6 @@
 	},
 /area/derelict)
 "ju" = (
-/mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/airless,
 /area/derelict)
 "jw" = (
