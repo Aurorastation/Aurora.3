@@ -22,8 +22,8 @@
 
 /datum/event/supply_drop/announce()
 	if (prob(65))//Announce the location
-		command_announcement.Announce("A transport signature of unknown origin detected in [location_name], an object appears to have been beamed aboard [station_name()].", "Unknown Object", new_sound = 'sound/AI/strangeobject.ogg')
+		command_announcement.Announce("A transport signature of unknown origin detected in [location_name], an object appears to have been beamed aboard [station_name()].", "Unknown Object", new_sound = 'sound/AI/strangeobject.ogg', zlevels = affecting_z)
 	else if (prob(25))//Announce the transport, but not the location
-		command_announcement.Announce("External transport signature of unknown origin detected aboard [station_name()], precise destination point cannot be determined, please investigate.", "Unknown Object", new_sound = 'sound/AI/strangeobject.ogg')
+		command_announcement.Announce("External transport signature of unknown origin detected aboard [station_name()], precise destination point cannot be determined, please investigate.", "Unknown Object", new_sound = 'sound/AI/strangeobject.ogg', zlevels = affecting_z)
 	//Otherwise, no announcement at all.
 	//Someone will randomly stumble across it, and probably quietly loot it without telling anyone

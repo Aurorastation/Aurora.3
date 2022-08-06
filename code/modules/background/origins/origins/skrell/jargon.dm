@@ -21,7 +21,7 @@
 /decl/origin_item/origin/traverse
 	name = "Traverse"
 	desc = "The Traverse consists of the outer systems that make up the majority of Federation space, where the quality of life and planet development varies greatly. Views on the Federation are mixed depending on personal interactions with the Government, with many being influenced by the resistance cells that operate here."
-	possible_accents = list(ACCENT_TRAVERSE, ACCENT_SKRELL)
+	possible_accents = list(ACCENT_TRAVERSE, ACCENT_TATTUQIG, ACCENT_SKRELL)
 	possible_citizenships = CITIZENSHIPS_JARGON
 	possible_religions = RELIGIONS_JARGON
 

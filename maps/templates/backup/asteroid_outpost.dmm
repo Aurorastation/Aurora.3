@@ -279,7 +279,7 @@
 	},
 /area/derelict/ship)
 "bb" = (
-/obj/structure/barricade,
+/obj/structure/blocker,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
