@@ -98,6 +98,10 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/security/main)
 "abA" = (
@@ -34377,18 +34381,6 @@
 "sKo" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hydroponics)
-"sKz" = (
-/obj/structure/closet/secure_closet/security,
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/status_display{
-	layer = 4;
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/security/main)
 "sKE" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
@@ -73201,7 +73193,7 @@ kaT
 oVe
 uXV
 ifU
-sKz
+rkZ
 oTr
 gem
 nCg
