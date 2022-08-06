@@ -6,10 +6,6 @@
 
 // Turf-only flags.
 #define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
-#define MIMIC_BELOW 2      // If this turf should mimic the turf on the Z below.
-#define MIMIC_OVERWRITE 4  // If this turf is Z-mimicing, overwrite the turf's appearance instead of using a movable. This is faster, but means the turf cannot have an icon.
-#define MIMIC_QUEUED 8     // If the turf is currently queued for Z-mimic update.
-#define MIMIC_NO_AO 16     // If the turf shouldn't apply regular turf AO and only do Z-mimic AO.
 
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 #define RUIN_MAP_EDGE_PAD 15
@@ -60,8 +56,7 @@
 #define CHAT_NOICONS    0x8000
 #define CHAT_GHOSTLOOC	0x10000
 
-#define PARALLAX_SPACE 0x1
-#define PARALLAX_DUST  0x2
+//Note that 0x1 and 0x2 are free. Use those!
 #define PROGRESS_BARS  0x4
 #define PARALLAX_IS_STATIC 0x8
 #define FLOATING_MESSAGES 0x10

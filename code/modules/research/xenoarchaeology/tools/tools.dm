@@ -24,7 +24,7 @@
 //todo: dig site tape
 
 /obj/item/storage/bag/fossils
-	name = "Fossil Satchel"
+	name = "fossil satchel"
 	desc = "Transports delicate fossils in suspension so they don't break during transit."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "satchel"

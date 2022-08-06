@@ -25,6 +25,7 @@
 
 	var/can_hold_mob = FALSE
 	var/list/contained_mobs
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND
 
 // We don't really need this, and apparently defining it slows down GC.
 /*/atom/movable/Del()
@@ -43,6 +44,9 @@
 		if (pulledby.pulling == src)
 			pulledby.pulling = null
 		pulledby = null
+
+	if (bound_overlay)
+		QDEL_NULL(bound_overlay)
 
 // This is called when this atom is prevented from moving by atom/A.
 /atom/movable/proc/Collide(atom/A)
@@ -303,24 +307,6 @@
 	icon_rotation = new_rotation
 	update_transform()
 
-// Parallax stuff.
-
-/atom/movable/proc/update_client_hook(atom/destination)
-	. = isturf(destination)
-	if (.)
-		for (var/thing in contained_mobs)
-			var/mob/M = thing
-			if (!M.client || !M.hud_used)
-				continue
-
-			if (get_turf(M.client.eye) == destination)
-				M.hud_used.update_parallax_values()
-
-/mob/update_client_hook(atom/destination)
-	. = ..()
-	if (. && hud_used && client && get_turf(client.eye) == destination)
-		hud_used.update_parallax_values()
-
 // Core movement hooks & procs.
 /atom/movable/proc/forceMove(atom/destination)
 	if(destination)
@@ -329,11 +315,7 @@
 		var/old_loc = loc
 		loc = destination
 		loc.Entered(src, old_loc)
-		if (contained_mobs)
-			update_client_hook(loc)
 		return 1
-	if (contained_mobs)
-		update_client_hook(loc)
 	return 0
 
 /atom/movable/Move()
@@ -343,10 +325,6 @@
 		// Events.
 		if (moved_event.listeners_assoc[src])
 			moved_event.raise_event(src, old_loc, loc)
-
-		// Parallax.
-		if (contained_mobs)
-			update_client_hook(loc)
 
 		// Lighting.
 		if (light_sources)
@@ -369,10 +347,10 @@
 /atom/movable/proc/get_bullet_impact_effect_type()
 	return BULLET_IMPACT_NONE
 
-/atom/movable/proc/do_pickup_animation(atom/target)
+/atom/movable/proc/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
 	if(!isturf(loc))
 		return
-	var/image/pickup_animation = image(icon, loc, icon_state, layer + 0.1, dir, pixel_x, pixel_y)
+	pickup_animation.color = color
 	pickup_animation.transform.Scale(0.75)
 	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 

@@ -120,7 +120,7 @@
 /turf/simulated/floor,
 /area/shuttle/freighter_shuttle)
 "aAY" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "aBb" = (
@@ -1400,7 +1400,7 @@
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "lXE" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "mbR" = (
@@ -1805,6 +1805,13 @@
 	dir = 4
 	},
 /turf/simulated/floor,
+/area/ship/tramp_freighter)
+"unX" = (
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
 "uCl" = (
 /obj/structure/closet,
@@ -36287,7 +36294,7 @@ hdb
 ylV
 fFU
 hsz
-wTJ
+unX
 hOr
 nZo
 lXE

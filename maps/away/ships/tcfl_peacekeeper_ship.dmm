@@ -116,6 +116,15 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
+"aEJ" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/button/distress{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "aLZ" = (
 /obj/structure/table/steel,
 /obj/structure/window/reinforced{
@@ -1648,6 +1657,9 @@
 "kiO" = (
 /obj/structure/table/wood,
 /obj/item/clothing/suit/storage/legion,
+/obj/item/device/versebook/biesel{
+	pixel_y = -6
+	},
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
 "kkV" = (
@@ -2038,6 +2050,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "mPM" = (
 /obj/structure/table/steel,
+/obj/item/device/versebook/biesel,
 /obj/item/device/flashlight/maglight,
 /obj/machinery/light{
 	dir = 1;
@@ -2421,7 +2434,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "pNl" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "pPl" = (
@@ -29949,7 +29962,7 @@ tkU
 uwT
 tuA
 yjk
-tUb
+aEJ
 vgp
 dze
 dze

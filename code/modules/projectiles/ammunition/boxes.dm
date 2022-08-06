@@ -135,7 +135,8 @@
 
 /obj/item/ammo_magazine/mc10mm
 	name = "magazine (10mm)"
-	icon_state = "tommy-mag"
+	desc = "A detachable magazine for a modified NanoTrasen Mk1, made from stamped sheet metal."
+	icon_state = "12mm"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c10mm
 	matter = list(DEFAULT_WALL_MATERIAL = 475) //metal costs are very roughly based around 1 .45 casing = 75 metal

@@ -811,10 +811,6 @@
 	name = "over-easy fried egg"
 	desc = "A fried egg, with a touch of salt and pepper. The yolk looks a bit runny."
 
-/obj/item/reagent_containers/food/snacks/friedegg/overeasy/Initialize()
-	reagent_data = list(/decl/reagent/nutriment/protein = list(pick("disgustingly runny egg yolk", "slimy egg yolk", "gooey eggs", "near-raw runny eggs") = 3))
-	. = ..()
-
 /obj/item/reagent_containers/food/snacks/boiledegg
 	name = "boiled egg"
 	desc = "Hard to beat, aren't they?"
@@ -1390,7 +1386,7 @@
 /obj/item/reagent_containers/food/snacks/sosjerky
 	name = "Scaredy's Private Reserve beef jerky"
 	icon_state = "sosjerky"
-	desc = "Beef jerky made from the finest space cows."
+	desc = "Beef jerky. A little oversalted, actually."
 	trash = /obj/item/trash/sosjerky
 	filling_color = "#631212"
 	center_of_mass = list("x"=15, "y"=9)
@@ -1399,9 +1395,9 @@
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 4, /decl/reagent/sodiumchloride = 3)
 
 /obj/item/reagent_containers/food/snacks/no_raisin
-	name = "4no Raisins"
+	name = "Getmore Raisins"
 	icon_state = "4no_raisins"
-	desc = "Best raisins in the universe. Not sure why."
+	desc = "Getmore Raisins. Dry, flavorless, and oversweetened. Sounds about right."
 	trash = /obj/item/trash/raisins
 	filling_color = "#343834"
 	center_of_mass = list("x"=15, "y"=4)
@@ -1410,9 +1406,9 @@
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/spacetwinkie
-	name = "space twinkie"
+	name = "creamy spongecake"
 	icon_state = "space_twinkie"
-	desc = "Guaranteed to survive longer then you will."
+	desc = "Contrary to popular belief, Getmore's sponge cakes don't last forever. They do, however, leave a plastic-esque film coating the inside of your mouth."
 	trash = /obj/item/trash/space_twinkie
 	filling_color = "#FFE591"
 	center_of_mass = list("x"=15, "y"=11)
@@ -1423,7 +1419,7 @@
 /obj/item/reagent_containers/food/snacks/cheesiehonkers
 	name = "Cheesie Honkers"
 	icon_state = "cheesie_honkers"
-	desc = "Bite sized cheesie snacks that will honk all over your mouth"
+	desc = "Bite sized cheesie snacks, made with real cheese! A little bit of it, anyway."
 	trash = /obj/item/trash/cheesie
 	filling_color = "#FFA305"
 	center_of_mass = list("x"=15, "y"=9)
@@ -1432,9 +1428,9 @@
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/syndicake
-	name = "Syndi-Cakes"
+	name = "Nutri-Cakes"
 	icon_state = "syndi_cakes"
-	desc = "An extremely moist snack cake that tastes just as good after being nuked."
+	desc = "An extremely moist snack cake."
 	filling_color = "#FF5D05"
 	center_of_mass = list("x"=16, "y"=10)
 	trash = /obj/item/trash/syndi_cakes
@@ -4688,8 +4684,8 @@
 	name = "moss dumplings"
 	desc = "A relatively common Konyanger dish, this appears to be steamed moss set in steamed dough."
 	icon_state = "moss_dumplings"
-	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/protein = 3)
-	reagent_data = list(/decl/reagent/nutriment = list("flatbread" = 3))
+	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/nutriment/moss = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("steamed dough" = 3, "moss" = 3))
 	filling_color = "#589755"
 
 /obj/item/reagent_containers/food/snacks/fish_taco

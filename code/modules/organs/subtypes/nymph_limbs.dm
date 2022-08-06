@@ -95,7 +95,7 @@
 	N.setup_limb(src)
 
 /datum/component/nymph_limb
-	var/list/valid_species = list(SPECIES_UNATHI, SPECIES_SKRELL)
+	var/list/valid_species = list(SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	var/list/valid_organs_to_replace = list(BP_L_ARM, BP_L_HAND, BP_R_ARM, BP_R_HAND, BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT)
 	// Main limb where the Nymph mob lives
 	var/list/nymph_limb_types = list(

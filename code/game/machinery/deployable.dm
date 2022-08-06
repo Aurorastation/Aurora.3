@@ -55,7 +55,7 @@ for reference:
 */
 
 //Barricades!
-/obj/structure/barricade
+/obj/structure/blocker
 	name = "barricade"
 	desc = "This space is blocked off by a barricade."
 	icon = 'icons/obj/structures.dmi'
@@ -69,13 +69,13 @@ for reference:
 	var/health = 100
 	var/maxhealth = 100
 
-/obj/structure/barricade/Initialize(mapload, var/material_name)
+/obj/structure/blocker/Initialize(mapload, var/material_name)
 	. = ..()
 	if(!material_name)
 		material_name = MATERIAL_WOOD
 	set_material(material_name)
 
-/obj/structure/barricade/proc/set_material(var/material_name)
+/obj/structure/blocker/proc/set_material(var/material_name)
 	if(force_material)
 		material_name = force_material
 	material = SSmaterials.get_material_by_name(material_name)
@@ -88,7 +88,7 @@ for reference:
 	maxhealth = material.integrity
 	health = maxhealth
 
-/obj/structure/barricade/bullet_act(obj/item/projectile/P, def_zone)
+/obj/structure/blocker/bullet_act(obj/item/projectile/P, def_zone)
 	var/damage_modifier = 0.4
 	switch(P.damage_type)
 		if(BURN)
@@ -99,7 +99,7 @@ for reference:
 	if(!check_dismantle())
 		visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
 
-/obj/structure/barricade/attackby(obj/item/W, mob/user)
+/obj/structure/blocker/attackby(obj/item/W, mob/user)
 	if(W.ishammer() && user.a_intent != I_HURT)
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
@@ -130,7 +130,7 @@ for reference:
 			return TRUE
 		return ..()
 
-/obj/structure/barricade/proc/check_dismantle()
+/obj/structure/blocker/proc/check_dismantle()
 	if(src.health <= 0)
 		visible_message(SPAN_DANGER("The barricade is smashed apart!"))
 		dismantle()
@@ -138,7 +138,7 @@ for reference:
 		return TRUE
 	return FALSE
 
-/obj/structure/barricade/ex_act(severity)
+/obj/structure/blocker/ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -149,7 +149,7 @@ for reference:
 				dismantle()
 			return
 
-/obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
+/obj/structure/blocker/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
 		return TRUE
 	if(istype(mover, /obj/item/projectile))
@@ -165,7 +165,7 @@ for reference:
 		return TRUE
 	return FALSE
 
-/obj/structure/barricade/steel
+/obj/structure/blocker/steel
 	force_material = MATERIAL_STEEL
 
 //Actual Deployable machinery stuff
@@ -300,9 +300,12 @@ for reference:
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"
 	desc = "A do-it-yourself kit for constructing the finest of emergency floodlights."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
-	item_state = "box"
+	item_state = "inf_box"
+	drop_sound = 'sound/items/drop/backpack.ogg'
+	pickup_sound = 'sound/items/pickup/backpack.ogg'
+
 	var/kit_product = /obj/machinery/floodlight
 	var/assembly_time = 8 SECONDS
 
@@ -363,9 +366,9 @@ for reference:
 /obj/item/deployable_kit/iv_drip
 	name = "IV drip assembly kit"
 	desc = "A quick assembly kit to put together an IV drip."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
-	item_state = "syringe_kit"
+	item_state = "inf_box"
 	w_class = ITEMSIZE_NORMAL
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS

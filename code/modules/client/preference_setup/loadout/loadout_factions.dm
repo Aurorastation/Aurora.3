@@ -394,7 +394,7 @@
 	slot = slot_tie
 	faction = "Hephaestus Industries"
 
-//Nanotrasen
+//NanoTrasen
 /datum/gear/faction/nt_custodialjumpsuit
 	display_name = "nanotrasen custodial jumpsuit, alternative"
 	path = /obj/item/clothing/under/rank/janitor/alt

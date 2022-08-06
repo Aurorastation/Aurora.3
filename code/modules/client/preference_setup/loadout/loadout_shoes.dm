@@ -66,6 +66,11 @@
 	path = /obj/item/clothing/shoes/sandal/flipflop
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/shoes/woodensandals
+	display_name = "wooden sandals"
+	path = /obj/item/clothing/shoes/sandal/wooden
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/shoes/hitops
 	display_name = "high-top selection"
 	description = "High-top sneakers, in a selection of colors."
@@ -106,6 +111,11 @@
 /datum/gear/shoes/lyodsuit_boots
 	display_name = "lyodsuit boots"
 	path = /obj/item/clothing/shoes/lyodsuit
+
+/datum/gear/shoes/konyang_gomusin
+	display_name = "gomusin"
+	path = /obj/item/clothing/shoes/konyang
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/circuitry
 	display_name = "boots, circuitry (empty)"

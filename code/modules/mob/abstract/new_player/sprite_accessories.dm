@@ -509,6 +509,16 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "long fringe"
 
+	fade_clean
+		name = "Fade, Clean"
+		icon_state = "hair_fade_clean"
+		chatname = "short hair"
+
+	fade_cleanlow
+		name = "Fade, Clean Low"
+		icon_state = "hair_fade_cleanlow"
+		chatname = "short hair"
+
 	fade_high
 		name = "Fade, High"
 		icon_state = "hair_fade_high"
@@ -517,6 +527,11 @@ Follow by example and make good judgement based on length which list to include 
 	fade_low
 		name = "Fade, Low"
 		icon_state = "hair_fade_low"
+		chatname = "short hair"
+
+	fade_manbun
+		name = "Fade, Manbun"
+		icon_state = "hair_fade_manbun"
 		chatname = "short hair"
 
 	fade_medium
@@ -1024,6 +1039,12 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "short ponytail"
 
+	ponytail_short5
+		name = "Ponytail, Short 5"
+		icon_state = "hair_ponytail_short5"
+		length = 2
+		chatname = "short ponytail"
+
 	ponytail_fringetail
 		name = "Ponytail, Fringetail"
 		icon_state = "hair_ponytail_fringetail"
@@ -1119,6 +1140,11 @@ Follow by example and make good judgement based on length which list to include 
 	punk_chelseafringe
 		name = "Punk Shave, Chelsea Fringe"
 		icon_state = "hair_punk_chelseafringe"
+		chatname = "fringe"
+
+	punk_chelseafringealt
+		name = "Punk Shave, Chelsea Fringe Alt"
+		icon_state = "hair_punk_chelseafringe_alt"
 		chatname = "fringe"
 
 	punk_chelseafringe_bighawk
@@ -1304,6 +1330,12 @@ Follow by example and make good judgement based on length which list to include 
 	tresshoulder
 		name = "Tress Shoulder"
 		icon_state = "hair_tressshoulder"
+		length = 2
+		chatname = "curls"
+
+	tresshoulderdouble
+		name = "Tress Shoulder Double"
+		icon_state = "hair_tressshoulder_double"
 		length = 2
 		chatname = "curls"
 
@@ -1794,7 +1826,7 @@ Follow by example and make good judgement based on length which list to include 
 		/datum/species/bug/type_b)
 
 	none_48
-		name = "None"
+		name = "None (Vaurca Type C/E)"
 		icon = "icons/mob/base_48.dmi"
 		icon_state = "none"
 		species_allowed = list(/datum/species/bug/type_e, /datum/species/bug/type_c)
@@ -1850,6 +1882,11 @@ Follow by example and make good judgement based on length which list to include 
 	skrell_headtail_middle
 		name = "Skrell Headtail Middle"
 		icon_state = "skr_headtail_mid"
+		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
+
+	skrell_headtail_hfade
+		name = "Skrell Headtail Hard Fade"
+		icon_state = "skr_headtail_hfade"
 		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
 
 

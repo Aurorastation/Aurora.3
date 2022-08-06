@@ -229,14 +229,6 @@ obj/item/clothing/suit/apron/overalls/blue
 
 
 //Lawyer
-/obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
-	name = "blue suit jacket"
-	desc = "A snappy dress jacket."
-	icon_state = "suitjacket_blue"
-	item_state = "suitjacket_blue"
-	blood_overlay_type = "coat"
-	body_parts_covered = UPPER_TORSO|ARMS
-	opened = TRUE
 
 /obj/item/clothing/suit/storage/lawyer/purpjacket
 	name = "purple suit jacket"

@@ -803,7 +803,7 @@
 	forceMove(get_step(owner, UP))
 	if(isturf(src.loc))
 		var/turf/T = src.loc
-		if(T.flags & MIMIC_BELOW)
+		if(T.z_flags & ZM_MIMIC_BELOW)
 			return
 	owner.reset_view(null)
 	owner.z_eye = null
@@ -812,7 +812,7 @@
 /atom/movable/z_observer/z_down/follow()
 	forceMove(get_step(tile_shifted ? src : owner, DOWN))
 	var/turf/T = get_turf(tile_shifted ? get_step(owner, owner.dir) : owner)
-	if(T && (T.flags & MIMIC_BELOW))
+	if(T && (T.z_flags & ZM_MIMIC_BELOW))
 		return
 	owner.reset_view(null)
 	owner.z_eye = null

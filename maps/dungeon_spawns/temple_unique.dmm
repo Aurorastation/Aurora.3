@@ -30,7 +30,7 @@
 /turf/simulated/floor/cult,
 /area/mine/unexplored)
 "m" = (
-/obj/structure/barricade,
+/obj/structure/blocker,
 /turf/simulated/floor/cult,
 /area/mine/unexplored)
 "n" = (

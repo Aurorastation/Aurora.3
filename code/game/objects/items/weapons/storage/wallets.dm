@@ -2,7 +2,8 @@
 	name = "wallet"
 	desc = "It can hold a few small and personal things."
 	storage_slots = 10
-	icon_state = "wallet"
+	icon = 'icons/obj/storage/wallet.dmi'
+	icon_state = "wallet_leather"
 	w_class = ITEMSIZE_SMALL
 	max_w_class = ITEMSIZE_SMALL
 	can_hold = list(
@@ -36,6 +37,7 @@
 		/obj/item/key
 	)
 	slot_flags = SLOT_ID
+	build_from_parts = TRUE
 
 	var/obj/item/card/id/front_id = null
 	var/flipped = null
@@ -45,6 +47,7 @@
 /obj/item/storage/wallet/Initialize()
 	. = ..()
 	AddComponent(/datum/component/base_name, name)
+	update_icon()
 
 /obj/item/storage/wallet/proc/update_name(var/base_name = initial(name))
 	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
@@ -70,14 +73,23 @@
 			update_icon()
 
 /obj/item/storage/wallet/update_icon()
-	overlays.Cut()
+	cut_overlays()
+	worn_overlay = "fasteners"
 	if(front_id)
-		var/tiny_state = "id-generic"
-		if(("id-" + front_id.icon_state) in icon_states(icon))
-			tiny_state = "id-"+front_id.icon_state
-		var/image/tiny_image = new/image(icon, icon_state = tiny_state)
-		tiny_image.appearance_flags = RESET_COLOR
-		overlays += tiny_image
+		if(("[icon_state]-open") in icon_states(icon))
+			icon_state = "[icon_state]-open"
+			. = ..()
+		var/tiny_state = "[initial(icon_state)]-generic"
+		if(("[initial(icon_state)]-[front_id.icon_state]") in icon_states(icon))
+			tiny_state = "[initial(icon_state)]-[front_id.icon_state]"
+		var/image/tiny_image = overlay_image(icon, icon_state = tiny_state, flags = RESET_COLOR)
+		add_overlay(tiny_image)
+		if(("[initial(icon_state)]-film") in icon_states(icon))
+			var/image/film_image = overlay_image(icon, "[initial(icon_state)]-film", flags = RESET_COLOR)
+			add_overlay(film_image)
+	else
+		icon_state = "[initial(icon_state)]"
+		. = ..()
 	mob_icon_update()
 
 /obj/item/storage/wallet/GetID()
@@ -179,12 +191,12 @@
 	mob_icon_update()
 
 /obj/item/storage/wallet/colourable
-	icon_state = "wallet-white"
+	icon_state = "wallet"
 
 /obj/item/storage/wallet/purse
 	name = "wallet purse"
 	desc = "A stylish long wallet purse with several slots."
-	icon_state = "wallet-purse"
+	icon_state = "wallet_purse"
 
 /obj/item/storage/wallet/lanyard
 	name = "lanyard"
@@ -214,20 +226,13 @@
 
 	var/image/plastic_film
 
-/obj/item/storage/wallet/lanyard/Initialize()
-	. = ..()
-	var/image/film_image = new/image(icon, icon_state = "lanyard_film")
-	film_image.appearance_flags = RESET_COLOR
-	overlays += film_image
-
 /obj/item/storage/wallet/lanyard/update_icon()
-	..()
 	if(front_id)
 		front_id_overlay_state = front_id.icon_state
-	var/image/film_image = new/image(icon, icon_state = "lanyard_film")
-	film_image.appearance_flags = RESET_COLOR
-	overlays += film_image
-	mob_icon_update()
+	. = ..()
+	if(("[initial(icon_state)]-film") in icon_states(icon))
+		var/image/film_image = overlay_image(icon, "[initial(icon_state)]-film", flags = RESET_COLOR)
+		add_overlay(film_image)
 
 /obj/item/storage/wallet/lanyard/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
@@ -235,6 +240,6 @@
 		I.add_overlay(image('icons/mob/lanyard_overlays.dmi', icon_state = "lanyard-[front_id_overlay_state]"))
 	else
 		if(!plastic_film)
-			plastic_film = image('icons/mob/lanyard_overlays.dmi', icon_state = "plasticfilm")
+			plastic_film = image('icons/mob/lanyard_overlays.dmi', icon_state = "[plastic_film_overlay_state]")
 		I.add_overlay(plastic_film)
 	return I

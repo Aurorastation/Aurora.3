@@ -620,6 +620,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
+"fnS" = (
+/obj/machinery/button/distress{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
 "fnY" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
@@ -947,7 +953,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "hjW" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/fsf_shuttle)
 "hsz" = (
@@ -1999,7 +2005,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "qyG" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "qBC" = (
@@ -2191,7 +2197,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "tvp" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "txi" = (
@@ -31617,7 +31623,7 @@ ttG
 sSs
 tKM
 yjk
-sSs
+fnS
 sSs
 sSs
 bfg

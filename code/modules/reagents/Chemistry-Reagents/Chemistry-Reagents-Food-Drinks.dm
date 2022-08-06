@@ -156,10 +156,6 @@
 	var/cooked_name = "coating"
 	taste_description = "some sort of frying coating"
 
-/decl/reagent/nutriment/coating/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
-	. = ..()
-	to_chat(M, "Ugh, this raw [name] tastes disgusting.")
-
 /decl/reagent/nutriment/coating/digest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	var/nut_fact = holder.reagent_data[type]["cooked"] ? nutriment_factor : nutriment_factor / 2 // it's the nut fact
 	M.heal_organ_damage(regen_factor * removed, 0)
@@ -199,6 +195,10 @@
 	icon_cooked = "batter_cooked"
 	coated_adj = "battered"
 	taste_description = "batter"
+	condiment_name = "Batter Jar"
+	condiment_desc = "A vat of the most artery clogging frying ingredient around. Pour into beaker before attempting to coat ingredients."
+	condiment_icon_state = "batter"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/nutriment/coating/beerbatter
 	name = "Beer Batter Mix"
@@ -254,6 +254,10 @@
 	name = "Egg Yolk"
 	color = "#FFFFAA"
 	taste_description = "egg"
+	condiment_name = "Egg Yolk Carton"
+	condiment_desc = "A carton full of Egg Yolk."
+	condiment_icon_state = "eggyolkcarton"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/nutriment/egg/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
@@ -276,6 +280,10 @@
 	nutriment_factor = 12
 	color = "#ffdfb0"
 	taste_description = "fat"
+	condiment_name = "Triglyceride"
+	condiment_desc = "A bottle full of Triglyceride. Feel the burn."
+	condiment_icon_state = "triglyceridebottle"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //Unathi can digest fats too
 /decl/reagent/nutriment/triglyceride/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -318,6 +326,15 @@
 		step = (S.heat_level_2 - S.heat_level_1)*1.5
 
 	return min((holder.get_temperature() - threshold)/step, 2.5)
+
+/decl/reagent/nutriment/grapejelly
+	name = "Grape Jelly"
+	description = "A jelly produced from blending grapes."
+	color = "#410083"
+	taste_description = "grapes"
+	condiment_name = "Grape Jelly"
+	condiment_desc = "A jar of jelly derived from grapes. Superior to cherry jelly."
+	condiment_icon_state = "grapejelly"
 
 /decl/reagent/nutriment/triglyceride/oil/corn
 	name = "Corn Oil"
@@ -378,6 +395,10 @@
 	color = "#302000"
 	taste_description = "bitterness"
 	taste_mult = 1.3
+	condiment_name = "Cocoa Powder Can"
+	condiment_icon_state = "cocoapowder"
+	condiment_desc = "A can full of chocolately powder. Try not to think of the calories."
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/nutriment/coffeegrounds
 	name = "Coffee Grounds"
@@ -2015,7 +2036,7 @@
 	glass_center_of_mass = list("x"=17, "y"=6)
 
 /decl/reagent/drink/space_cola
-	name = "Space Cola"
+	name = "Comet Cola"
 	description = "A refreshing beverage."
 	reagent_state = LIQUID
 	color = "#100800"
@@ -2024,13 +2045,13 @@
 	carbonated = TRUE
 
 	glass_icon_state  = "spacecola"
-	glass_name = "glass of Space Cola"
-	glass_desc = "A glass of refreshing Space Cola"
+	glass_name = "glass of Comet Cola"
+	glass_desc = "A glass of refreshing Comet Cola"
 	glass_center_of_mass = list("x"=17, "y"=6)
 
 /decl/reagent/drink/spacemountainwind
-	name = "Mountain Wind"
-	description = "Blows right through you like a space wind."
+	name = "Stellar Jolt"
+	description = "For those who have a stronger need for caffeine than they have sense."
 	color = "#a2ff8d"
 	adj_drowsy = -7
 	adj_sleepy = -1
@@ -2038,8 +2059,8 @@
 	carbonated = TRUE
 
 	glass_icon_state = "Space_mountain_wind_glass"
-	glass_name = "glass of Space Mountain Wind"
-	glass_desc = "Space Mountain Wind. As you know, there are no mountains in space, only wind."
+	glass_name = "glass of Stellar Jolt"
+	glass_desc = "Stellar Jolt. Lemony and full of sugar."
 
 /decl/reagent/drink/dr_gibb
 	name = "Dr. Gibb"
@@ -2054,27 +2075,27 @@
 	glass_desc = "Dr. Gibb. Not as dangerous as the name might imply."
 
 /decl/reagent/drink/root_beer
-	name = "RnD Root Beer"
-	description = "A classic Earth drink from the United Americas province."
+	name = "Getmore Root Beer"
+	description = "A classic Earth drink, made from various roots."
 	color = "#211100"
 	adj_drowsy = -6
 	taste_description = "sassafras and anise soda"
 	carbonated = TRUE
 
 	glass_icon_state = "root_beer_glass"
-	glass_name = "glass of RnD Root Beer"
-	glass_desc = "A glass of bubbly RnD Root Beer."
+	glass_name = "glass of Getmore Root Beer"
+	glass_desc = "A glass of bubbly Getmore Root Beer."
 
 /decl/reagent/drink/spaceup
-	name = "Space-Up"
+	name = "Vacuum Fizz"
 	description = "Tastes like a hull breach in your mouth."
 	color = "#aee5e4"
 	taste_description = "a hull breach"
 	carbonated = TRUE
 
 	glass_icon_state = "space-up_glass"
-	glass_name = "glass of Space-up"
-	glass_desc = "Space-up. It helps keep your cool."
+	glass_name = "glass of Vacuum Fizz"
+	glass_desc = "Vacuum Fizz. It helps keep your cool."
 
 /decl/reagent/drink/lemon_lime
 	name = "Lemon Lime"
@@ -4909,12 +4930,21 @@
 	description = "The gooey insides of a slain pumpkin. This day is the greatest..."
 	color = "#f9ab28"
 	taste_description = "gooey pumpkin"
+	condiment_name = "Pumpkin Pulp Jar"
+	condiment_desc = "An orange jar with a picture of a pumpkin on its label. Spooky."
+	condiment_icon_state = "pumpkinpulp"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/spacespice/pumpkinspice
 	name = "Pumpkin Spice"
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
+	condiment_name = "bottle of pumpkin spice"
+	condiment_name = "Pumpkin Spice"
+	condiment_desc = "Every teenager's favorite seasonal ingredient."
+	condiment_icon_state = "pumpkinspice"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/drink/syrup_chocolate
 	name = "Chocolate Syrup"
@@ -5147,14 +5177,14 @@
 
 /decl/reagent/drink/diet_cola
 	name = "Diet Cola"
-	description = "Space Cola! Now in diet!"
+	description = "Comet cola! Now in diet!"
 	color = "#100800"
 	taste_description = "cola and less calories"
 	carbonated = TRUE
 
 	glass_icon_state = "spacecola"
 	glass_name = "glass of diet cola"
-	glass_desc = "Space Cola! Now in diet!"
+	glass_desc = "Comet cola! Now in diet!"
 
 /decl/reagent/drink/milk/chocolate
 	name = "Chocolate milk"
