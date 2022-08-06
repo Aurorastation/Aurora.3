@@ -99,6 +99,14 @@
 /obj/effect/floor_decal/corner/green/full
 	icon_state = "corner_white_full"
 
+/obj/effect/floor_decal/corner/light
+	name = "light corner"
+	icon_state = "corner_light"
+
+/obj/effect/floor_decal/corner/light/full
+	name = "full light corner"
+	icon_state = "corner_light_full"
+
 /obj/effect/floor_decal/corner/lime
 	name = "lime corner"
 	color = COLOR_PALE_GREEN_GRAY
@@ -265,6 +273,14 @@
 
 /obj/effect/floor_decal/corner_wide/lime/full
 	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/light
+	name = "light wide corner"
+	icon_state = "wide_corner_light"
+
+/obj/effect/floor_decal/corner_wide/light/full
+	name = "full light wide corner"
+	icon_state = "wide_corner_full_light"
 
 /obj/effect/floor_decal/corner_wide/yellow
 	name = "yellow corner"
