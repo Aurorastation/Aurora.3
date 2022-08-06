@@ -721,7 +721,7 @@
 		if(!H.can_feel_pain())
 			return
 
-	if(M.chem_doses[type] => agony_dose && prob(5))
+	if(M.chem_doses[type] >= agony_dose && prob(5))
 		to_chat(M, discomfort_message)
 		M.visible_message("<b>[M]</b> [pick("dry heaves!", "coughs!", "splutters!")]")
 		M.apply_effect(agony_amount, PAIN, 0)
