@@ -1,7 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Thruster Bay"
+	name = "Thruster Bay";
+	req_access = list(207)
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -91,7 +92,8 @@
 /area/ship/elyran_strike_craft)
 "ahU" = (
 /obj/machinery/door/airlock{
-	name = "Crew Berth"
+	name = "Crew Quarters";
+	req_access = list(207)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -177,7 +179,8 @@
 /area/ship/elyran_strike_craft)
 "axB" = (
 /obj/machinery/door/airlock/command{
-	name = "Briefing"
+	name = "Briefing";
+	req_access = list(207)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -327,7 +330,8 @@
 /area/space)
 "aNf" = (
 /obj/machinery/door/airlock{
-	name = "Crew Quarters"
+	name = "Crew Quarters";
+	req_access = list(207)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -623,7 +627,8 @@
 /area/ship/elyran_strike_craft)
 "cQc" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Thruster Bay"
+	name = "Thruster Bay";
+	req_access = list(207)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -683,7 +688,8 @@
 /area/space)
 "dex" = (
 /obj/machinery/door/airlock{
-	name = "Hangar Bay"
+	name = "Hangar Bay";
+	req_access = list(207)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -712,9 +718,8 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/item/clothing/accessory/holster/thigh,
-/obj/item/ammo_magazine/plasma/light/pistol,
-/obj/item/ammo_magazine/plasma/light/pistol,
-/obj/item/gun/projectile/plasma/bolter/pistol,
+/obj/item/gun/projectile/colt/super,
+/obj/item/ammo_magazine/c45m,
 /turf/simulated/floor/carpet,
 /area/ship/elyran_strike_craft)
 "dBa" = (
@@ -1196,7 +1201,6 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/gun/energy/retro,
-/obj/item/ammo_magazine/plasma/light,
 /obj/item/gun/projectile/plasma/bolter,
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -1630,7 +1634,8 @@
 "kxZ" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
-	name = "Infirmary"
+	name = "Infirmary";
+	req_access = list(207)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
@@ -2690,6 +2695,12 @@
 /obj/vehicle/bike/monowheel,
 /turf/simulated/floor,
 /area/space)
+"rWk" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
 "rWs" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/dispenser/oxygen,
@@ -2717,7 +2728,8 @@
 /area/ship/elyran_strike_craft)
 "seV" = (
 /obj/machinery/door/airlock/security{
-	name = "Ready Room"
+	name = "Ready Room";
+	req_access = list(207)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -3216,7 +3228,7 @@
 /turf/space/transit/south,
 /area/space)
 "wui" = (
-/obj/machinery/door/blast/regular,
+/obj/machinery/door/blast/odin,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "wuO" = (
@@ -3231,7 +3243,8 @@
 /area/space)
 "wvR" = (
 /obj/machinery/door/airlock{
-	name = "Bridge"
+	name = "Bridge";
+	req_access = list(207)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -3249,7 +3262,8 @@
 /area/space)
 "wGT" = (
 /obj/machinery/door/airlock/command{
-	name = "Ensign's Quarters"
+	name = "Ensign's Quarters";
+	req_access = list(207)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -32188,7 +32202,7 @@ lxP
 lxP
 lxP
 lxP
-lxP
+vOv
 fAD
 fAD
 fAD
@@ -33467,7 +33481,7 @@ xQx
 vOv
 oKu
 pzi
-tAW
+auY
 auY
 auY
 auY
@@ -34237,7 +34251,7 @@ kxZ
 vOv
 vOv
 oKu
-acx
+rWk
 lxP
 lxP
 xRX
@@ -35533,7 +35547,7 @@ ohQ
 pcX
 pcX
 pcX
-kbf
+ipy
 lxP
 xRX
 xRX
@@ -36541,7 +36555,7 @@ lxP
 fVl
 atj
 pvZ
-ahU
+aNf
 hmO
 atj
 xkT
@@ -40917,7 +40931,7 @@ xRX
 lxP
 lxP
 lxP
-lxP
+vOv
 aFo
 rLq
 xAg
