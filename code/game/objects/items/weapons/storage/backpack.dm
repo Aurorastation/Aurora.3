@@ -23,6 +23,25 @@
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 	allow_quick_empty = TRUE
 	empty_delay = 0.5 SECOND
+	var/straps = FALSE
+
+/obj/item/storage/backpack/Initialize()
+	if(straps)
+		verbs += /obj/item/storage/backpack/proc/toggle_backpack_straps
+
+/obj/item/storage/backpack/proc/toggle_backpack_straps()
+	set name = "Toggle Bag Straps"
+	set desc = "Toggle your bag straps."
+	set category = "Object"
+	set src in usr
+	if(use_check_and_message(usr))
+		return 0
+	straps = !straps
+	to_chat(usr, "You [straps ? "stop hiding" : "hide"] [src]'s straps under your clothing.")
+	alpha_mask = "[straps ? "" : "alpha_mask"]"
+	var/mob/living/carbon/human/H = src.loc
+	H.update_icon()
+	H.update_inv_back()
 
 /obj/item/storage/backpack/mob_can_equip(M as mob, slot, disable_warning = FALSE)
 
@@ -223,6 +242,11 @@
 	icon_state = "orionpack"
 	item_state = "orionpack"
 
+/obj/item/storage/backpack/pmcg
+	name = "PMCG backpack"
+	icon_state = "pmcgpack"
+	item_state = "pmcgpack"
+
 /obj/item/storage/backpack/legion
 	name = "military rucksack"
 	desc = "A sturdy backpack with the emblems and markings of the Tau Ceti Foreign Legion."
@@ -292,6 +316,7 @@
 	icon = 'icons/obj/storage/satchel.dmi'
 	icon_state = "satchel"
 	item_state = "satchel"
+	straps = TRUE
 
 /obj/item/storage/backpack/satchel/leather/withwallet/New()
 	..()
@@ -434,16 +459,74 @@
 	icon_state = "satchel-orion"
 	item_state = "satchel-orion"
 
+/obj/item/storage/backpack/satchel/pmcg
+	name = "PMCG backpack"
+	icon_state = "satchel-pmcg"
+	item_state = "satchel-pmcg"
+
+/*
+ * Colored satchels
+ */
+
+/obj/item/storage/backpack/satchel/leather
+	name = "leather satchel"
+	desc = "It's a very fancy satchel made with fine leather."
+	icon_state = "satchel_leather"
+	item_state = "satchel_leather"
+
+/obj/item/storage/backpack/satchel/leather/recolorable
+	icon_state = "satchel_leather_recolorable"
+	item_state = "satchel_leather_recolorable"
+	build_from_parts = TRUE
+	worn_overlay = "overlay"
+
+/obj/item/storage/backpack/satchel/leather/recolorable/Initialize()
+	update_icon()
+	. = ..()
+
+/*
+ * Colored pocketbooks
+ */
+
+/obj/item/storage/backpack/satchel/pocketbook
+	name = "leather pocketbook"
+	desc = "A neat little folding clasp pocketbook with a shoulder sling."
+	icon_state = "pocketbook_leather"
+	item_state = "pocketbook_leather"
+	w_class = ITEMSIZE_HUGE // to avoid recursive backpacks
+	slot_flags = SLOT_BACK
+	max_w_class = ITEMSIZE_NORMAL
+	max_storage_space = 20
+	build_from_parts = TRUE
+	worn_overlay = "overlay"
+
+/obj/item/storage/backpack/satchel/pocketbook/Initialize()
+	update_icon()
+	. = ..()
+
+/obj/item/storage/backpack/satchel/pocketbook/recolorable
+	icon_state = "pocketbook"
+	item_state = "pocketbook"
+
+/obj/item/storage/backpack/satchel/pocketbook/purse
+	name = "purse"
+	desc = "A small, fashionable bag typically worn over the shoulder."
+	icon_state = "purse"
+	item_state = "purse"
+	max_storage_space = 16
+	straps = FALSE
+
 // Duffel Bags
 
 /obj/item/storage/backpack/duffel
 	name = "duffel bag"
 	desc = "A spacious duffel bag."
 	icon = 'icons/obj/storage/duffelbag.dmi'
-	icon_state = "duffel-norm"
-	item_state = "duffel-norm"
+	icon_state = "duffel"
+	item_state = "duffel"
 	slowdown = 1
 	max_storage_space = 38
+	straps = TRUE
 
 /obj/item/storage/backpack/duffel/cap
 	name = "captain's duffel bag"
@@ -574,6 +657,11 @@
 	icon_state = "duffel-orion"
 	item_state = "duffel-orion"
 
+/obj/item/storage/backpack/duffel/pmcg
+	name = "PMCG duffel"
+	icon_state = "duffel-pmcg"
+	item_state = "duffel-pmcg"
+
 /*
  * Messenger Bags
  */
@@ -584,6 +672,7 @@
 	icon = 'icons/obj/storage/courierbag.dmi'
 	icon_state = "courierbag"
 	item_state = "courierbag"
+	straps = TRUE
 
 /obj/item/storage/backpack/messenger/pharm
 	name = "pharmacy messenger bag"
@@ -713,6 +802,11 @@
 	icon_state = "courierbagorion"
 	item_state = "courierbagorion"
 
+/obj/item/storage/backpack/messenger/pmcg
+	name = "PMCG messenger bag"
+	icon_state = "courierbagpmcg"
+	item_state = "courierbagpmcg"
+
 /*
  * Rucksacks
  */
@@ -754,57 +848,6 @@
 	name = "tan rucksack"
 	icon_state = "rucksack_tan"
 	item_state = "rucksack_tan"
-
-/*
- * Colored satchels
- */
-
-/obj/item/storage/backpack/satchel/leather
-	name = "leather satchel"
-	desc = "It's a very fancy satchel made with fine leather."
-	icon_state = "satchel_leather"
-	item_state = "satchel_leather"
-
-/obj/item/storage/backpack/satchel/leather/recolorable
-	icon_state = "satchel_leather_recolorable"
-	item_state = "satchel_leather_recolorable"
-	build_from_parts = TRUE
-	worn_overlay = "overlay"
-
-/obj/item/storage/backpack/satchel/leather/recolorable/Initialize()
-	update_icon()
-	. = ..()
-
-/*
- * Colored pocketbooks
- */
-
-/obj/item/storage/backpack/satchel/pocketbook
-	name = "leather pocketbook"
-	desc = "A neat little folding clasp pocketbook with a shoulder sling."
-	icon_state = "pocketbook_leather"
-	item_state = "pocketbook_leather"
-	w_class = ITEMSIZE_HUGE // to avoid recursive backpacks
-	slot_flags = SLOT_BACK
-	max_w_class = ITEMSIZE_NORMAL
-	max_storage_space = 20
-	build_from_parts = TRUE
-	worn_overlay = "overlay"
-
-/obj/item/storage/backpack/satchel/pocketbook/Initialize()
-	update_icon()
-	. = ..()
-
-/obj/item/storage/backpack/satchel/pocketbook/recolorable
-	icon_state = "pocketbook"
-	item_state = "pocketbook"
-
-/obj/item/storage/backpack/satchel/pocketbook/purse
-	name = "purse"
-	desc = "A small, fashionable bag typically worn over the shoulder."
-	icon_state = "purse"
-	item_state = "purse"
-	max_storage_space = 16
 
 // Vaurca stuff.
 
