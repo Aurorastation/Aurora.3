@@ -37,7 +37,7 @@
 	if(use_check_and_message(usr))
 		return 0
 	straps = !straps
-	to_chat(usr, "You [straps ? "stop hiding" : "hide"] [src]'s straps under your clothing.")
+	to_chat(usr, SPAN_NOTICE("You [straps ? "stop hiding" : "hide"] [src]'s straps under your clothing."))
 	alpha_mask = "[straps ? "" : "alpha_mask"]"
 	var/mob/living/carbon/human/H = src.loc
 	H.update_icon()
