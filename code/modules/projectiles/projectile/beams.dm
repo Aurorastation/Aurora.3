@@ -1,6 +1,7 @@
 /obj/item/projectile/beam
 	name = "laser"
 	icon_state = "laser"
+	ping_effect = "ping_s"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 30
 	damage_type = BURN
@@ -56,6 +57,19 @@
 /obj/item/projectile/beam/midlaser/skrell/heavy
 	damage = 40
 	armor_penetration = 20
+
+/obj/item/projectile/beam/noctiluca
+	damage = 25
+	armor_penetration = 25
+
+/obj/item/projectile/beam/noctiluca/armor_piercing
+	name = "concentrated laser"
+	damage = 15
+	armor_penetration = 50
+
+	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
+	tracer_type = /obj/effect/projectile/tracer/laser/scc
+	impact_type = /obj/effect/projectile/impact/laser/scc
 
 /obj/item/projectile/beam/midlaser/ice
 	damage = 25

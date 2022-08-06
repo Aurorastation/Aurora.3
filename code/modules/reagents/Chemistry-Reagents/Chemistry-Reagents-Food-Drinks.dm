@@ -156,10 +156,6 @@
 	var/cooked_name = "coating"
 	taste_description = "some sort of frying coating"
 
-/decl/reagent/nutriment/coating/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
-	. = ..()
-	to_chat(M, "Ugh, this raw [name] tastes disgusting.")
-
 /decl/reagent/nutriment/coating/digest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	var/nut_fact = holder.reagent_data[type]["cooked"] ? nutriment_factor : nutriment_factor / 2 // it's the nut fact
 	M.heal_organ_damage(regen_factor * removed, 0)
@@ -4915,6 +4911,7 @@
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
+	condiment_name = "bottle of pumpkin spice"
 
 /decl/reagent/drink/syrup_chocolate
 	name = "Chocolate Syrup"

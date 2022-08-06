@@ -21,6 +21,11 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
+/obj/item/clothing/accessory/leg_guard/generic
+	name = "standard leg guards"
+	icon_state = "legguards_generic"
+	item_state = "legguards_generic"
+
 /obj/item/clothing/accessory/leg_guard/ablative
 	name = "ablative leg guards"
 	desc = "These will protect your legs and feet from energy weapons."
@@ -124,6 +129,11 @@
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
+
+/obj/item/clothing/accessory/arm_guard/generic
+	name = "standard arm guards"
+	icon_state = "armguards_generic"
+	item_state = "armguards_generic"
 
 /obj/item/clothing/accessory/arm_guard/ablative
 	name = "ablative arm guards"

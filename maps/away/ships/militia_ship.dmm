@@ -144,7 +144,7 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "aPh" = (
-/obj/structure/sign/meeting_point{
+/obj/structure/sign/emergency/meetingpoint{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -402,6 +402,9 @@
 	dir = 1;
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/obj/machinery/button/distress{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
