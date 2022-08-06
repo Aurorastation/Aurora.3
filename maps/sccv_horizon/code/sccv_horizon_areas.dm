@@ -554,12 +554,6 @@
 /area/horizon/deck_three/cafeteria
 	name = "Horizon - Deck 3 - Cafeteria"
 	icon_state = "cafeteria"
-
-// Nature Showcase
-/area/horizon/deck_three/nature_showcase
-	name = "Horizon - Deck 3 - Nature Showcase"
-	icon_state = "nature_showcase"
-	sound_env = SMALL_ENCLOSED
 /********** Decks End **********/
 
 /********** Unique Start **********/
