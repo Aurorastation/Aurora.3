@@ -56,6 +56,9 @@
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in a scientific field."
 	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Jargon Society."
 	icon = 'icons/obj/contained_items/skrell/jargon_uniforms.dmi'
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/obj/contained_items/vaurca/bulwark/jargon_uniforms.dmi'
+	)
 	item_state = "ox_sci"
 	icon_state = "ox_sci"
 

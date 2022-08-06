@@ -355,7 +355,7 @@ emp_act
 		if (O.throw_source)
 			var/distance = get_dist(O.throw_source, loc)
 			miss_chance = 15 * (distance - 2)
-		zone = get_zone_with_miss_chance(zone, src, miss_chance, ranged_attack=1)
+		zone = get_zone_with_miss_chance(zone, src, miss_chance, 1)
 
 		if(zone && O.thrower != src)
 			var/shield_check = check_shields(throw_damage, O, thrower, zone, "[O]")

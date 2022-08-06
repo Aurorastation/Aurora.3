@@ -584,8 +584,6 @@
 
 	if(!success)
 		return FALSE
-	else if(success == ALREADY_WEARING_HAT)
-		to_chat(user, SPAN_WARNING("You are already wearing a hat."))
 	else if(success == WEAR_HAT)
 		to_chat(user, SPAN_NOTICE("You crawl under \the [src]."))
 	return TRUE

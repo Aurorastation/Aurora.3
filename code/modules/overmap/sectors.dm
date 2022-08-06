@@ -21,7 +21,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/base = 0		//starting sector, counts as station_levels
 	var/in_space = 1	//can be accessed via lucky EVA
 
-	var/has_distress_beacon
+	var/has_called_distress_beacon = FALSE
+	var/image/applied_distress_overlay
 
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
@@ -110,6 +111,17 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 /obj/effect/overmap/visitable/proc/generate_skybox()
 	return
+
+/obj/effect/overmap/visitable/proc/toggle_distress_status()
+	has_called_distress_beacon = !has_called_distress_beacon
+	if(has_called_distress_beacon)
+		var/image/distress_overlay = image('icons/obj/overmap.dmi', "distress")
+		applied_distress_overlay = distress_overlay
+		add_overlay(applied_distress_overlay)
+		filters = filter(type = "outline", size = 2, color = COLOR_RED)
+	else
+		cut_overlay(applied_distress_overlay)
+		filters = null
 
 /obj/effect/overmap/visitable/sector
 	name = "generic sector"

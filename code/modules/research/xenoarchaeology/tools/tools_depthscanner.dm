@@ -6,8 +6,10 @@
 /obj/item/device/depth_scanner
 	name = "depth analysis scanner"
 	desc = "Used to check spatial depth and density of rock outcroppings."
-	icon_state = "depthscanner"
-	item_state = "analyzer"
+	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon_state = "depth_scanner"
+	item_state = "depth_scanner"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	var/list/positive_locations = list()
@@ -46,6 +48,7 @@
 
 			for(var/mob/L in range(src, 1))
 				to_chat(L, "<span class='notice'>[icon2html(src, L)] [src] pings.</span>")
+				playsound(loc, 'sound/machines/twobeep.ogg', 40)
 
 	else if(istype(A,/obj/structure/boulder))
 		var/obj/structure/boulder/B = A
@@ -65,6 +68,7 @@
 
 			for(var/mob/L in range(src, 1))
 				to_chat(L, "<span class='notice'>[icon2html(src, L)] [src] pings [pick("madly","wildly","excitedly","crazily")]!</span>")
+				playsound(loc, 'sound/machines/triplebeep.ogg', 40)
 
 /obj/item/device/depth_scanner/attack_self(var/mob/user as mob)
 	return src.interact(user)
