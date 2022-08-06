@@ -400,6 +400,11 @@
 	path = /obj/item/clothing/accessory/sash/horizontal
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/konyang_belt
+	display_name = "hanbok belt (colourable)"
+	path = /obj/item/clothing/accessory/konyang
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/passcard
 	display_name = "human passcard selection"
 	path = /obj/item/clothing/accessory/badge/passcard

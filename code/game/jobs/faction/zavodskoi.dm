@@ -166,6 +166,7 @@
 	name = "Engineer - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/engineer/zavod
+	head = /obj/item/clothing/head/hardhat/red
 	id = /obj/item/card/id/zavodskoi
 
 	backpack_faction = /obj/item/storage/backpack/zavod
@@ -177,6 +178,7 @@
 	name = "Atmospheric Technician - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician/zavod
+	head = /obj/item/clothing/head/hardhat/red
 	id = /obj/item/card/id/zavodskoi
 
 	backpack_faction = /obj/item/storage/backpack/zavod
@@ -188,6 +190,7 @@
 	name = "Engineering Apprentice - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice/zavod
+	head = /obj/item/clothing/head/beret/corporate/zavod
 	id = /obj/item/card/id/zavodskoi
 
 	backpack_faction = /obj/item/storage/backpack/zavod

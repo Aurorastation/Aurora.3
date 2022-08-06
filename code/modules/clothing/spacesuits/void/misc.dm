@@ -888,3 +888,20 @@
 	icon_state = "mrsp_suit"
 	item_state = "mrsp_suit"
 	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/void/sol/sfa
+	name = "southern fleet administration voidsuit helmet"
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Southern Fleet Administration to make it more easily identifiable from other forces using the Type-4, warlord or not."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "sfa_helmet"
+	item_state = "sfa_helmet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/space/void/sol/sfa
+	name = "southern fleet administration voidsuit"
+	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the scant forces of the Southern Fleet Administration to make it more easily identifiable \
+	from other forces using the Type-4, warlord or not. Due to poor maintenance, the highlights appear to have gone out."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "sfa_suit"
+	item_state = "sfa_suit"
+	contained_sprite = TRUE

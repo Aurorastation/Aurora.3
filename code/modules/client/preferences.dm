@@ -154,8 +154,7 @@ datum/preferences
 	var/metadata = ""
 
 	// SPAAAACE
-	var/parallax_speed = 2
-	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
+	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 0
 	var/floating_chat_color
 
