@@ -42,7 +42,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/tramp_freighter/New()
-    name = "ICV [pick("Tuckerbag", "Do No Harm", "Volatile Cargo", "Stay Clear", "Entrepreneurial", "Good Things Only", "Worthless", "Skip This One", "Pay No Mind", "Customs-Cleared", "Friendly", "Reactor Leak")]"
+    name = "ICV [pick("Tuckerbag", "Do No Harm", "Volatile Cargo", "Stay Clear", "Entrepreneurial", "Good Things Only", "Worthless", "Skip This One", "Pay No Mind", "Customs-Cleared", "Friendly", "Reactor Leak", "Fool's Gold", "Cursed Cargo", "Guards Aboard")]"
     ..()
 
 /obj/effect/shuttle_landmark/tramp_freighter/nav1
@@ -148,7 +148,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/militia_ship/New()
-    name = "IPV [pick("Volunteer", "Part-Timer", "Last Line", "Fearless", "Protector", "Minuteman", "Watchdog", "Family Man", "Guardian", "Hoplite", "Home Guard", "Defender")]"
+    name = "IPV [pick("Volunteer", "Part-Timer", "Last Line", "Fearless", "Protector", "Minuteman", "Watchdog", "Family Man", "Guardian", "Hoplite", "Home Guard", "Defender", "Watchman")]"
     ..()
 
 /obj/effect/shuttle_landmark/militia_ship/nav1

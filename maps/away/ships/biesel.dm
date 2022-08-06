@@ -42,7 +42,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship/New()
-	name = "BLV [pick("Castle", "Rook", "Gin Rummy", "Pawn", "Bishop", "Knight", "Blackjack", "Torch", "Liberty", "President Dorn")]"
+	name = "BLV [pick("Castle", "Rook", "Gin Rummy", "Pawn", "Bishop", "Knight", "Blackjack", "Torch", "Liberty", "President Dorn", "Independence", "Civic Duty", "Democracy", "Progress", "Prosperity", "New Gibson", "Biesel", "Justice", "Equality")]"
 	..()
 
 /obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/nav1
