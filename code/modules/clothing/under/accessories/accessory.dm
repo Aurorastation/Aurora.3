@@ -899,7 +899,7 @@
 
 /obj/item/clothing/accessory/pin/corporate
 	name = "corporate badge"
-	desc = "A shiny button which reads, <i>'Nanotrasen - The leader in all things Phoron!'</i>"
+	desc = "A shiny button which reads, <i>'NanoTrasen - The leader in all things Phoron!'</i>"
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	icon_state = "nt_liaison_badge"
 	item_state = "nt_liaison_badge"
