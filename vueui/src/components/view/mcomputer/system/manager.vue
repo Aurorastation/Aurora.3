@@ -1,7 +1,7 @@
 <template>
   <div>
     <i>Welcome to NT IT client manager</i><hr>
-    <div>This is the Client Management Application of the Nanotrasen IT Department. It is used ensure that the clients comply with the corporate IT policy, enroll new clients and manage clients remotely</div>
+    <div>This is the Client Management Application of the NanoTrasen IT Department. It is used ensure that the clients comply with the corporate IT policy, enroll new clients and manage clients remotely</div>
     <br>
     <h2>Status</h2>
     <vui-item label="Enrollment Status:">

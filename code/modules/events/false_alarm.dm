@@ -13,7 +13,7 @@
 
 
 /datum/event/false_alarm/end(var/faked)
-	command_announcement.Announce("Error, It appears our previous announcement about [eventname] was a sensor glitch. There is no cause for alarm, please return to your stations.", "False Alarm", new_sound = 'sound/AI/falsealarm.ogg')
+	command_announcement.Announce("Error, It appears our previous announcement about [eventname] was a sensor glitch. There is no cause for alarm, please return to your stations.", "False Alarm", new_sound = 'sound/AI/falsealarm.ogg', zlevels = affecting_z)
 	if(two_part)
 		E.end()	//This does not return TRUE for var/faked because two-part events like radiation storms need to do things such as revoking maint access
 	if (EM)

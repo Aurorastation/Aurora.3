@@ -214,6 +214,6 @@
 
 /obj/item/clothing/head/beret/centcom/commander
 	name = "commander's beret"
-	desc = "A black beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
+	desc = "A black beret adorned with the crest of an ERT detachment. Worn by commanders of NanoTrasen response teams."
 	icon_state = "centcomcaptain"
 	item_state = "centcomcaptain"
