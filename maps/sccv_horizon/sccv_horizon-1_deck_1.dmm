@@ -1746,7 +1746,6 @@
 "buI" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sci,
 /obj/item/clothing/head/helmet/space/void/sci,
 /obj/structure/window/reinforced{
@@ -6060,7 +6059,6 @@
 /area/shuttle/mining)
 "eQH" = (
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sci,
 /obj/item/clothing/head/helmet/space/void/sci,
@@ -16209,7 +16207,6 @@
 "mYX" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sci,
 /obj/item/clothing/head/helmet/space/void/sci,
 /obj/structure/window/reinforced{
@@ -20027,7 +20024,6 @@
 /area/outpost/mining_main/refinery)
 "qpA" = (
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sci,
 /obj/item/clothing/head/helmet/space/void/sci,
