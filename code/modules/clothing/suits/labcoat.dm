@@ -34,7 +34,7 @@
 	icon_state = "labcoat_sci"
 
 
-//Nanotrasen
+//NanoTrasen
 /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	name = "nanotrasen labcoat"
 	icon_state = "labcoat_nt"

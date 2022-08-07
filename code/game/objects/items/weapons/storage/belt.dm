@@ -115,7 +115,8 @@
 		/obj/item/powerdrill,
 		/obj/item/device/radio,
 		/obj/item/device/debugger,
-		/obj/item/device/eftpos
+		/obj/item/device/eftpos,
+		/obj/item/tape_roll
 	)
 	content_overlays = TRUE
 
@@ -139,7 +140,6 @@
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters/toolbelt = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1,
 		/obj/item/hammer = 1
 	)
 

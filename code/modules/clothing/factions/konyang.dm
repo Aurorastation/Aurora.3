@@ -1,11 +1,11 @@
 /obj/item/clothing/under/konyang
-	name = "hanbok"
+	name = "magenta hanbok"
 	desc = "A traditional Konyanger hanbok."
 	desc_fluff = "An ancient form of dress carried over from Earth by the initial Konyang colonists; the hanbok has since become a symbol of Konyang and its most iconic formalwear."
 	icon = 'icons/clothing/under/uniforms/konyang_femalehanbok.dmi'
-	icon_state = "hanbok"
-	worn_state = "hanbok"
-	item_state = "hanbok"
+	icon_state = "hanbok_magenta"
+	worn_state = "hanbok_magenta"
+	item_state = "hanbok_magenta"
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 	contained_sprite = TRUE
 
@@ -26,6 +26,7 @@
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 
 /obj/item/clothing/under/konyang/male
+	name = "hanbok"
 	desc = "A traditional Konyanger hanbok tailored for men."
 	icon_state = "hanbok_male"
 	worn_state = "hanbok_male"

@@ -26,7 +26,7 @@
 	name = "Orion Express Mobile Station"
 	desc = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation’s fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it. This one’s transponder identifies it as an Orion Express refueling station."
 	icon_state = "shuttle"
-	moving_state = "shuttle_moving"	
+	moving_state = "shuttle_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -132,7 +132,7 @@
 	name = "Einstein Engines Research Ship"
 	desc = "A research ship belonging to Einstein Engines, the Stellar Corporate Conglomerate's main competitor."
 	icon_state = "shuttle"
-	moving_state = "shuttle_moving"	
+	moving_state = "shuttle_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
