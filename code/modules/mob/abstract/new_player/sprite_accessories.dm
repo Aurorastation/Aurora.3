@@ -1039,6 +1039,12 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "short ponytail"
 
+	ponytail_short5
+		name = "Ponytail, Short 5"
+		icon_state = "hair_ponytail_short5"
+		length = 2
+		chatname = "short ponytail"
+
 	ponytail_fringetail
 		name = "Ponytail, Fringetail"
 		icon_state = "hair_ponytail_fringetail"
@@ -1878,7 +1884,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "skr_headtail_mid"
 		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
 
-	skrell_headtail_middle
+	skrell_headtail_hfade
 		name = "Skrell Headtail Hard Fade"
 		icon_state = "skr_headtail_hfade"
 		species_allowed = list(/datum/species/skrell, /datum/species/skrell/axiori, /datum/species/zombie/skrell)
