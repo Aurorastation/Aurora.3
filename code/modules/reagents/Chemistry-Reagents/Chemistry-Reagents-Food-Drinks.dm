@@ -726,14 +726,13 @@
 	taste_mult = 1.5
 	fallback_specific_heat = 2
 	condiment_name = "hotsauce"
-	condiment_desc = "You can almost TASTE the stomach ulcers now!"
+	condiment_desc = "Hot sauce. It's in the name."
 	condiment_icon_state = "hotsauce"
 
-	var/agony_dose = 5
+	var/agony_dose = 15 // Capsaicin required to proc agony. (3 to 5 chilis.)
 	var/agony_amount = 1
-	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
+	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot.</span>"
 	var/slime_temp_adj = 10
-
 
 /decl/reagent/capsaicin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustToxLoss(0.5 * removed)
@@ -746,15 +745,15 @@
 		var/mob/living/carbon/human/H = M
 		if(!H.can_feel_pain())
 			return
-	if(M.chem_doses[type] < agony_dose && prob(5))
+
+	if(M.chem_doses[type] >= agony_dose && prob(5))
 		to_chat(M, discomfort_message)
-	else
+		M.visible_message("<b>[M]</b> [pick("dry heaves!", "coughs!", "splutters!")]")
 		M.apply_effect(agony_amount, PAIN, 0)
-		if(prob(5))
-			M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
-			to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
+
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
+
 	holder.remove_reagent(/decl/reagent/frostoil, 5)
 
 #define EYES_PROTECTED 1
@@ -765,7 +764,7 @@
 	description = "A chemical agent used for self-defense and in police work."
 	taste_mult = 10
 	reagent_state = LIQUID
-	touch_met = 50 // Get rid of it quickly
+	touch_met = 50 // Get rid of it quickly.
 	color = "#B31008"
 	agony_dose = 0.5
 	agony_amount = 4
