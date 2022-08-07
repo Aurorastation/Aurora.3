@@ -55,10 +55,20 @@
 /obj/machinery/bodyscanner/update_icon()
 	flick("[initial(icon_state)]-anim", src)
 	if(occupant)
-		icon_state = "[initial(icon_state)]-closed"
+		name = "[name] ([occupant])"
+		if(stat & BROKEN)
+			icon_state = "[initial(icon_state)]-broken-closed"
+		if(stat & NOPOWER)
+			icon_state = "[initial(icon_state)]-closed"
+		else
+			icon_state = "[initial(icon_state)]-working"
 		return
 	else
-		icon_state = initial(icon_state)
+		name = initial(name)
+		if(stat & BROKEN)
+			icon_state = "[initial(icon_state)]-broken"
+		else
+			icon_state = initial(icon_state)
 
 /obj/machinery/bodyscanner/relaymove(mob/user as mob)
 	if (user.stat)
