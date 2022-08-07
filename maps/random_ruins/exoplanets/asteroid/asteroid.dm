@@ -8,7 +8,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	suffix = "asteroid/mining_base.dmm"
 
-	ruin_tags = RUIN_HUMAN
+	ruin_tags = RUIN_HUMAN|RUIN_VOID
 
 /datum/map_template/ruin/exoplanet/carp_nest
 	name = "Carp Nest"
@@ -20,7 +20,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	suffix = "asteroid/carp_nest.dmm"
 
-	ruin_tags = RUIN_ALIEN
+	ruin_tags = RUIN_ALIEN|RUIN_VOID
 
 /datum/map_template/ruin/exoplanet/hideout
 	name = "Abandoned Hideout"
@@ -32,7 +32,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	suffix = "asteroid/hideout.dmm"
 
-	ruin_tags = RUIN_HUMAN|RUIN_WRECK
+	ruin_tags = RUIN_HUMAN|RUIN_WRECK|RUIN_VOID
 
 /datum/map_template/ruin/exoplanet/crashed_shuttle_01
 	name = "Crashed Shuttle"
@@ -44,4 +44,5 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	suffix = "asteroid/crashed_shuttle_01.dmm"
 
-	ruin_tags = RUIN_WRECK
+	ruin_tags = RUIN_WRECK|RUIN_VOID
+
