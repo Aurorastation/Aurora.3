@@ -2626,6 +2626,12 @@
 	name = "\improper DANGER: DISPOSAL TO REFINERY sign";
 	pixel_y = -32
 	},
+/obj/machinery/door/window/northleft{
+	name = "Disposal to Mining Access"
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/airless,
 /area/hangar/operations)
 "bZU" = (
@@ -22834,6 +22840,12 @@
 	desc = "A danger sign which reads 'DANGER: DISPOSAL TO REFINERY'.";
 	name = "\improper DANGER: DISPOSAL TO REFINERY sign";
 	pixel_y = -32
+	},
+/obj/machinery/door/window/northright{
+	name = "Disposal to Mining Access"
+	},
+/obj/structure/railing/mapped{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/airless,
 /area/hangar/operations)

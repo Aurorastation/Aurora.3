@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Adds windoors to the mining shuttle disposals to prevent accidents."
