@@ -219,3 +219,28 @@
 	name = "Long Worker's Cap"
 	desc = "A simple clothing item used by Skrell to cover their headtails. It comes with a main sleeve for the middle headtail, with smaller sleeves for the outer headtails to help keep it in place. This one is longer to account for Skrell with longer headtails."
 	item_state = "skrell_cap_long"
+
+/obj/item/clothing/ears/skrell/tailband
+	name = "ox tailband"
+	desc = "A band meant to be worn on a Skrell's main headtail. This one has the ox symbol on it."
+	icon = 'icons/obj/contained_items/skrell/tailband.dmi'
+	item_state = "ox"
+	icon_state = "tailband"
+
+/obj/item/clothing/ears/skrell/tailband/ix
+	name = "ix tailband"
+	desc = "A band meant to be worn on a Skrell's main headtail. This one has the ix symbol on it."
+	item_state = "ix"
+	icon_state = "tailband"
+
+/obj/item/clothing/ears/skrell/tailband/oqi
+	name = "oqi tailband"
+	desc = "A band meant to be worn on a Skrell's main headtail. This one has the oqi symbol on it."
+	item_state = "oqi"
+	icon_state = "tailband"
+
+/obj/item/clothing/ears/skrell/tailband/iqi
+	name = "iqi tailband"
+	desc = "A band meant to be worn on a Skrell's main headtail. This one has the iqi symbol on it."
+	item_state = "iqi"
+	icon_state = "tailband"
