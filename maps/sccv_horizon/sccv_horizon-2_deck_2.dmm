@@ -10750,15 +10750,15 @@
 	name = "north bump";
 	pixel_y = 24
 	},
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
 	department = "Chief Engineer's Office"
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Chief Engineer's Office"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -12700,7 +12700,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "gOi" = (
-/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
 "gOq" = (
@@ -15551,9 +15550,6 @@
 "ivN" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
@@ -19592,12 +19588,9 @@
 /area/rnd/strongroom)
 "kKk" = (
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "1-4"
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(56)
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "kKo" = (
 /obj/structure/cable{
@@ -19847,9 +19840,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "kRH" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28;
@@ -19857,6 +19847,13 @@
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 10;
+	pixel_y = 1
+	},
+/obj/machinery/papershredder{
+	pixel_x = -6
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -28829,10 +28826,10 @@
 /area/rnd/conference)
 "pJB" = (
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/engineering)
+/turf/simulated/floor/wood,
+/area/crew_quarters/heads/chief)
 "pJE" = (
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -29344,6 +29341,11 @@
 	icon_state = "2-4"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
 "pWR" = (
@@ -30457,6 +30459,9 @@
 	id_tag = "CEdoor";
 	name = "Chief Engineer's Office";
 	req_access = list(56)
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
@@ -35644,6 +35649,18 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
+"two" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/engineering/tesla)
 "twC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -43436,9 +43453,6 @@
 	dir = 8;
 	spread_point = 2
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -43448,7 +43462,8 @@
 /obj/structure/sign/drop{
 	pixel_y = 31
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/maintenance/disposal)
 "xqo" = (
 /obj/structure/railing/mapped{
@@ -64289,7 +64304,7 @@ gOi
 tna
 voz
 fSx
-wAT
+kKk
 ygK
 rpl
 mxs
@@ -64488,10 +64503,10 @@ kQS
 lOf
 vhI
 ivN
-pJB
-kKk
+gOi
+voz
 kRH
-wAT
+pJB
 pXI
 fAK
 iVg
@@ -64686,11 +64701,11 @@ hBN
 bSK
 xVu
 vbc
-lMD
-sMn
-sMn
+dSU
+sen
+sen
 pnF
-sMn
+sen
 sMn
 sMn
 qEe
@@ -64895,7 +64910,7 @@ qtY
 nlT
 rEk
 qEd
-rEk
+two
 rEk
 wqe
 nMv
