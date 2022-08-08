@@ -381,7 +381,6 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 	gear_tweaks += new /datum/gear_tweak/path(dress)
 
 /datum/gear/uniform/skrell/wetsuit
-
 	display_name = "casual wetsuit"
 	path = /obj/item/clothing/under/skrell/wetsuit
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
