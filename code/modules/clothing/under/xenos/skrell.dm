@@ -312,6 +312,22 @@
 	item_state = "iqi_med_jacket"
 	icon_state = "iqi_med_jacket"
 
+/obj/item/clothing/under/skrell/wetsuit
+	name = "casual wetsuit"
+	desc = "A wetsuit intended as casualwear for Skrell. Can be worn on its own or under additional clothes."
+	icon = 'icons/obj/contained_items/skrell/wetsuit.dmi'
+	icon_state = "wetsuit"
+	item_state = "wetsuit"
+	var/additional_color = COLOR_GRAY
+	
+/obj/item/clothing/suit/storage/toggle/skrell/starcoat
+	name = "star coat"
+	desc = "A very fashionable coat, that traps moisture and provides good insulation. Starry patterns have been woven into its fabric."
+	desc_fluff = "The patterns typically represent the constellations visible from the home system of the wearer. Coats like this one are usually very personal and custom made."
+	icon = 'icons/obj/contained_items/skrell/jargon_jackets.dmi'
+	item_state = "starcoat"
+	icon_state = "starcoat"
+
 /obj/item/clothing/under/skrell/cthur
 	name = "cthur uniform"
 	desc = "This white vaurca wetsuit is often worn by C’thur working with the Kala, most often the Qukala. It has ablative materials woven in."
