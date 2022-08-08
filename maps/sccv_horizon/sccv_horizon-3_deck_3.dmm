@@ -28,8 +28,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/sign/drop{
-	pixel_x = -32;
-	name = "\improper DANGER: DROP ON OTHER SIDE OF DOOR sign"
+	name = "\improper DANGER: DROP ON OTHER SIDE OF DOOR sign";
+	pixel_x = -32
 	},
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -3449,11 +3449,11 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/medical/upper)
@@ -5895,9 +5895,18 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "kK" = (
@@ -7724,6 +7733,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/machinery/computer/ship/navigation{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge)
 "od" = (
@@ -8131,6 +8143,17 @@
 "oM" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Ammo)";
+	req_access = null;
+	req_one_access = list(3,19)
+	},
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "oN" = (
@@ -9605,17 +9628,17 @@
 /area/horizon/crew_quarters/fitness/showers)
 "rF" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(5);
-	name = "Deck 3 Medical Maintenance"
+	name = "Deck 3 Medical Maintenance";
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/medical/upper)
@@ -9799,11 +9822,11 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/medical/upper)
@@ -10712,11 +10735,11 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/medical/ward)
@@ -14877,6 +14900,10 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcommsat/entrance)
+"Bv" = (
+/obj/machinery/computer/ship/navigation,
+/turf/simulated/floor/carpet/art,
+/area/horizon/crew_quarters/fitness/lounge)
 "Bw" = (
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/decal/cleanable/cobweb,
@@ -16856,11 +16883,11 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/medical/upper)
@@ -21055,12 +21082,12 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/gun/projectile/sec/lethal,
-/obj/item/gun/projectile/sec/lethal,
-/obj/item/gun/projectile/sec/lethal,
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/clothing/accessory/holster/thigh,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "ML" = (
@@ -45004,7 +45031,7 @@ at
 at
 at
 gr
-QA
+Bv
 QA
 QA
 yj

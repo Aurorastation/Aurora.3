@@ -4341,17 +4341,17 @@
 /area/engineering/engine_room)
 "chP" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(5);
-	name = "Intensive Care Unit Maintenance"
+	name = "Intensive Care Unit Maintenance";
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/icu)
@@ -4814,6 +4814,9 @@
 /area/security/brig)
 "czP" = (
 /obj/machinery/light/small,
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
 "czU" = (
@@ -5400,9 +5403,9 @@
 	dir = 1
 	},
 /obj/machinery/computer/shuttle_control/lift/wall{
-	shuttle_tag = "Morgue Lift";
 	dir = 4;
-	pixel_x = -32
+	pixel_x = -32;
+	shuttle_tag = "Morgue Lift"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -5530,10 +5533,10 @@
 "cWG" = (
 /obj/structure/table/wood,
 /obj/machinery/button/switch/windowtint{
+	dir = 8;
 	id = "psych";
 	pixel_x = 24;
-	pixel_y = -9;
-	dir = 8
+	pixel_y = -9
 	},
 /obj/machinery/light{
 	dir = 4
@@ -7123,7 +7126,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "dPz" = (
-/obj/structure/bed/stool/chair/padded/black,
+/obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "dPE" = (
@@ -12053,17 +12056,17 @@
 /area/maintenance/wing/port)
 "gzg" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(5);
-	name = "Examination Room Maintenance"
+	name = "Examination Room Maintenance";
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/exam)
@@ -19307,12 +19310,12 @@
 "kBY" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
-	pixel_y = 2;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 2
 	},
 /obj/item/pen{
-	pixel_y = 2;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 2
 	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
@@ -20200,11 +20203,11 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/psych)
@@ -22937,11 +22940,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/or1)
@@ -26121,10 +26124,12 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_two)
 "opp" = (
-/obj/structure/table/standard,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "opt" = (
@@ -26806,11 +26811,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/or2)
@@ -36719,11 +36724,11 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/psych)
@@ -37931,8 +37936,8 @@
 	id = "ringers_custodialaux";
 	name = "\improper Auxiliary Custodial Ringer Terminal";
 	pixel_x = 27;
-	req_access = list(26);
-	pixel_y = 5
+	pixel_y = 5;
+	req_access = list(26)
 	},
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
@@ -42324,11 +42329,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/medical)
