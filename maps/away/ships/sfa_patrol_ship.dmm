@@ -1198,6 +1198,8 @@
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/taperoll/engineering,
 /obj/item/clothing/head/hardhat,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "iGK" = (
@@ -1931,12 +1933,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/sfa_shuttle)
-"oOF" = (
-/obj/structure/bed/stool,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/table/steel,
-/turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship)
 "oPL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -32258,7 +32254,7 @@ aSm
 yjk
 eTH
 krH
-oOF
+krH
 heP
 jGx
 jGx
