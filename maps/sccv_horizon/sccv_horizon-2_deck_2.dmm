@@ -29098,8 +29098,6 @@
 /area/horizon/maintenance/deck_two/fore/starboard)
 "pQm" = (
 /obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
