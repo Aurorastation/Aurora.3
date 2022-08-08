@@ -228,7 +228,7 @@
 	icon_state = "tailband"
 
 /obj/item/clothing/ears/skrell/tailband/ix
-	name = "Ix Tailband"
+	name = "ix tailband"
 	desc = "A band meant to be worn on a Skrell's main headtail. This one has the ix symbol on it."
 	item_state = "ix"
 	icon_state = "tailband"
