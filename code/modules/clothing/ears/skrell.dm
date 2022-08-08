@@ -221,7 +221,7 @@
 	item_state = "skrell_cap_long"
 
 /obj/item/clothing/ears/skrell/tailband
-	name = "Ox Tailband"
+	name = "ox tailband"
 	desc = "A band meant to be worn on a Skrell's main headtail. This one has the ox symbol on it."
 	icon = 'icons/obj/contained_items/skrell/tailband.dmi'
 	item_state = "ox"
