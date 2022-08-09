@@ -791,6 +791,25 @@
 /obj/effect/floor_decal/carpet{
 	dir = 1
 	},
+/obj/item/clothing/ears/skrell/chain/festive,
+/obj/item/clothing/ears/skrell/chain/silver/average,
+/obj/item/clothing/ears/skrell/chain/silver/average,
+/obj/item/clothing/ears/skrell/chain/ebony,
+/obj/item/clothing/ears/skrell/chain/ebony,
+/obj/item/clothing/ears/skrell/chain/redjewels,
+/obj/item/clothing/ears/skrell/chain/bluejewels,
+/obj/item/clothing/ears/skrell/chain/bluejewels,
+/obj/item/clothing/ears/skrell/chain,
+/obj/item/clothing/ears/skrell/chain,
+/obj/item/clothing/ears/skrell/chain,
+/obj/item/clothing/ears/skrell/band/silver,
+/obj/item/clothing/ears/skrell/band/ebony,
+/obj/item/clothing/ears/skrell/band/ebony,
+/obj/item/clothing/ears/skrell/band/bluejewels,
+/obj/item/clothing/ears/skrell/band/bluejewels,
+/obj/item/clothing/ears/skrell/band/bluejewels,
+/obj/item/clothing/ears/skrell/band,
+/obj/item/clothing/ears/skrell/band,
 /turf/simulated/floor/carpet,
 /area/ship/sfa_patrol_ship)
 "fFu" = (
@@ -910,7 +929,7 @@
 /area/ship/sfa_patrol_ship)
 "gqw" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	dir = 8
 	},
 /obj/effect/shuttle_landmark/sfa_shuttle/hangar,
 /turf/simulated/floor,
@@ -1203,6 +1222,8 @@
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/taperoll/engineering,
 /obj/item/clothing/head/hardhat,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "iGK" = (
@@ -1254,14 +1275,14 @@
 "iQt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/sol,
-/obj/item/clothing/head/helmet/space/void/sol,
 /obj/item/clothing/shoes/magboots,
 /obj/machinery/light{
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/suit/space/void/sol/sfa,
+/obj/item/clothing/head/helmet/space/void/sol/sfa,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "iQy" = (
@@ -1601,10 +1622,10 @@
 "lwj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/sol,
-/obj/item/clothing/head/helmet/space/void/sol,
 /obj/item/clothing/shoes/magboots,
 /obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/suit/space/void/sol/sfa,
+/obj/item/clothing/head/helmet/space/void/sol/sfa,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "lFg" = (
@@ -1936,12 +1957,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/sfa_shuttle)
-"oOF" = (
-/obj/structure/bed/stool,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/table/steel,
-/turf/simulated/floor/tiled/white,
-/area/ship/sfa_patrol_ship)
 "oPL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2453,8 +2468,6 @@
 "vfY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/sol,
-/obj/item/clothing/head/helmet/space/void/sol,
 /obj/item/clothing/shoes/magboots,
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/light{
@@ -2462,6 +2475,8 @@
 	icon_state = "tube1"
 	},
 /obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/suit/space/void/sol/sfa,
+/obj/item/clothing/head/helmet/space/void/sol/sfa,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "vgc" = (
@@ -2530,10 +2545,10 @@
 	req_access = list(203)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/gun/projectile/automatic/c20r/sol,
-/obj/item/gun/projectile/automatic/c20r/sol,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/beanbags,
+/obj/item/storage/box/flashshells,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "vCD" = (
@@ -32263,7 +32278,7 @@ aSm
 yjk
 eTH
 krH
-oOF
+krH
 heP
 jGx
 jGx
@@ -34067,7 +34082,7 @@ qil
 qil
 qil
 mWk
-qil
+gqw
 qil
 mWk
 qil
@@ -34833,7 +34848,7 @@ yjk
 yjk
 fnY
 sBA
-gqw
+eYX
 hjW
 hZq
 jIP

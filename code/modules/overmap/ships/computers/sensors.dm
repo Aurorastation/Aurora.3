@@ -49,6 +49,18 @@
 			data["status"] = "VACUUM SEAL BROKEN"
 		else
 			data["status"] = "OK"
+		var/list/distress_beacons = list()
+		for(var/caller in SSdistress.active_distress_beacons)
+			var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[caller]
+			var/obj/effect/overmap/vessel = beacon.caller
+			var/mob/living/carbon/human/H = beacon.user
+			var/job_string = H.job ? "[H.job] " : ""
+			var/bearing = round(90 - Atan2(vessel.x - linked.x, vessel.y - linked.y),5)
+			if(bearing < 0)
+				bearing += 360
+			distress_beacons.Add(list(list("caller" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
+		if(length(distress_beacons))
+			data["distress_beacons"] = distress_beacons
 		var/list/contacts = list()
 		for(var/obj/effect/overmap/O in view(7,linked))
 			if(linked == O)
@@ -59,7 +71,7 @@
 			if(bearing < 0)
 				bearing += 360
 			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing)))
-		if(contacts.len)
+		if(length(contacts))
 			data["contacts"] = contacts
 	else
 		data["status"] = "MISSING"
@@ -83,7 +95,7 @@
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "shipsensors.tmpl", "[linked.get_real_name()] Sensors Control", 420, 530, src)
+		ui = new(user, src, ui_key, "shipsensors.tmpl", "[linked.get_real_name()] Sensors Control", 600, 530, src)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
@@ -154,6 +166,17 @@
 		if(istype(O) && !QDELETED(O) && (O in view(7,linked)))
 			playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
 			new/obj/item/paper/(get_turf(src), O.get_scan_data(usr), "paper (Sensor Scan - [O])")
+		return TOPIC_HANDLED
+
+	if (href_list["play_message"])
+		var/caller = href_list["play_message"]
+		var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[caller]
+		var/mob/living/carbon/human/sender = beacon.user
+		var/user_name = beacon.user_name
+		var/accent_icon = sender.get_accent_icon()
+		visible_message(SPAN_NOTICE("\The [src] beeps a few times as it replays the distress message."))
+		playsound(src, 'sound/machines/compbeep5.ogg')
+		visible_message(SPAN_ITALIC("[accent_icon] <b>[user_name]</b> explains, \"[beacon.distress_message]\""))
 		return TOPIC_HANDLED
 
 /obj/machinery/computer/ship/sensors/process()

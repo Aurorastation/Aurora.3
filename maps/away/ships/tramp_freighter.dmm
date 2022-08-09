@@ -1828,6 +1828,13 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"unX" = (
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
 "uCl" = (
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/toggle/bomber,
@@ -36309,7 +36316,7 @@ hdb
 ylV
 fFU
 hsz
-wTJ
+unX
 hOr
 nZo
 lXE

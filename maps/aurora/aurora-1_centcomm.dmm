@@ -15963,7 +15963,7 @@
 	name = "mechanical supply crate";
 	pixel_x = 1
 	},
-/obj/structure/sign/emerg_exitZ{
+/obj/structure/sign/emergency/exit/ladder{
 	dir = 1;
 	pixel_x = -9;
 	pixel_y = 30
@@ -18729,7 +18729,7 @@
 /turf/simulated/floor/wood,
 /area/centcom/shared_dream)
 "idk" = (
-/obj/structure/sign/emerg_exit{
+/obj/structure/sign/emergency/exit{
 	dir = 8;
 	pixel_y = 32
 	},
@@ -19110,7 +19110,7 @@
 /area/shuttle/merchant)
 "ipA" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/unsimulated/floor{
 	icon_state = "tiles"
 	},
