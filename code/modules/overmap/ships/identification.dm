@@ -1,5 +1,5 @@
 /obj/machinery/iff_beacon
-	name = "IFF beacon" //This object handles ship identification on sensors.
+	name = "IFF transponder" //This object handles ship identification on sensors.
 	desc = "A complex set of various bluespace and subspace arrays that transmit a ship's identification tags."
 	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "ntnet"
@@ -26,7 +26,6 @@
 		return TRUE
 
 	if(panel_open)
-		//Don't eat multitools or wirecutters used on an open lathe.
 		if(O.ismultitool() || O.iswirecutter())
 			if(panel_open)
 				wires.Interact(user)
