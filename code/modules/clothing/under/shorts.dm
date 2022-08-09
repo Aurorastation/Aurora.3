@@ -274,6 +274,6 @@
 
 /obj/item/clothing/under/pants/flared
 	name = "flared pants"
-	desc = "The peak of Bieselite fashion, these pants are flared at the ankle."
+	desc = "The peak of Biesellite fashion, these pants are flared at the ankle."
 	icon_state = "flaredpants"
 	item_state = "flaredpants"
