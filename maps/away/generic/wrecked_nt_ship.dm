@@ -2,7 +2,7 @@
 	name = "wrecked NT ship"
 	description = "A wrecked ship once owned by NanoTrasen."
 	suffix = "generic/wrecked_nt_ship.dmm"
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "wrecked_nt_ship"

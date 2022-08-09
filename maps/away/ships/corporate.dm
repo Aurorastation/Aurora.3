@@ -42,7 +42,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/orion_express_ship/New()
-	name = "OEV [pick("Messenger", "Traveler", "Highspeed", "Punctual", "Unstoppable", "Pony Express", "Courier", "Telegram", "Carrier Pigeon")]"
+	name = "OEV [pick("Messenger", "Traveler", "Highspeed", "Punctual", "Unstoppable", "Pony Express", "Courier", "Telegram", "Carrier Pigeon", "Fuel Stop", "Convenience")]"
 	..()
 
 /obj/effect/shuttle_landmark/orion_express_ship/nav1
