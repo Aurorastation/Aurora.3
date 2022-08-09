@@ -28,7 +28,7 @@
 	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
 
 	var/message_start = "<span style='font-size: [speaker.get_binary_font_size()];'><i><span class='game say'>[name], <span class='name'>[get_speaker_name(speaker)]</span>"
-	var/message_body = "<span class='message'>[speaker.say_quote(message)], \"[message]\"</span></span></i></span>"
+	var/message_body = span(message, "[speaker.say_quote(message)], \"[message]\"</span></span></i>")
 
 	for (var/mob/M as anything in dead_mob_list)
 		if(!istype(M,/mob/abstract/new_player) && !istype(M,/mob/living/carbon/brain)) //No meta-evesdropping

@@ -165,13 +165,13 @@
 
 /obj/item/aicard/see_emote(mob/living/M, text)
 	if(carded_ai && carded_ai.client)
-		var/rendered = "<span class='message'>[text]</span>"
+		var/rendered = span("message", "[text]")
 		carded_ai.show_message(rendered, 2)
 	..()
 
 /obj/item/aicard/show_message(msg, type, alt, alt_type)
 	if(carded_ai && carded_ai.client)
-		var/rendered = "<span class='message'>[msg]</span>"
+		var/rendered = span("message", "[msg]")
 		carded_ai.show_message(rendered, type)
 	..()
 
