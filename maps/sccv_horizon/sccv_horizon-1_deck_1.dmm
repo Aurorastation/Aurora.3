@@ -549,6 +549,9 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "aBl" = (
@@ -3587,6 +3590,9 @@
 	name = "Atmospheric Tanks";
 	req_access = list(24)
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "cPT" = (
@@ -4538,6 +4544,13 @@
 /obj/effect/floor_decal/corner/black,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
+"dIp" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "dIS" = (
 /obj/machinery/light{
 	dir = 4
@@ -4976,6 +4989,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "ebK" = (
@@ -7702,6 +7718,19 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"gds" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "gdJ" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -8072,6 +8101,9 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -10764,9 +10796,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/morgue/lower)
 "iEz" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -15513,10 +15544,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
-"mBc" = (
-/obj/machinery/atmospherics/pipe/zpipe/up/black,
-/turf/space/dynamic,
-/area/horizon/exterior)
 "mBx" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
@@ -16444,6 +16471,19 @@
 /obj/effect/shuttle_landmark/horizon/deckone/fore,
 /turf/template_noop,
 /area/template_noop)
+"nig" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "niw" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -21863,6 +21903,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -28439,9 +28482,8 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/eva)
 "xkx" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 8;
-	name = "Air to Connector"
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -51056,7 +51098,7 @@ wEY
 wEY
 pYB
 wEY
-mBc
+wEY
 wEY
 pYB
 wUo
@@ -51674,7 +51716,7 @@ err
 sll
 kDF
 hVE
-hVE
+dIp
 xHX
 vgD
 nVb
@@ -52079,7 +52121,7 @@ lcz
 qaK
 jvF
 kXr
-rXn
+nig
 wsS
 tIz
 eIE
@@ -52281,7 +52323,7 @@ pZm
 vZr
 sKK
 cUJ
-rXn
+nig
 vpu
 ixm
 lBp
@@ -52483,7 +52525,7 @@ bYq
 unm
 xjT
 dAI
-rXn
+nig
 oCl
 xUM
 hyD
@@ -52685,7 +52727,7 @@ qZj
 qQk
 riL
 urr
-rXn
+nig
 oWT
 riL
 krm
@@ -53493,7 +53535,7 @@ rZu
 eqs
 riL
 iEz
-rXn
+gds
 xpP
 riL
 lnG

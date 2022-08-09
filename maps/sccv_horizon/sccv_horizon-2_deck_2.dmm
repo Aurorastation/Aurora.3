@@ -128,6 +128,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
+"abR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos/storage)
 "acw" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -589,6 +595,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "apd" = (
@@ -921,6 +928,9 @@
 /obj/machinery/door/airlock/glass_atmos{
 	name = "Atmospherics Locker Room";
 	req_access = list(24)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
@@ -2988,6 +2998,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "bwU" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "bxp" = (
@@ -3667,6 +3680,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
+"bPf" = (
+/obj/machinery/atmospherics/binary/pump/high_power,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos/storage)
 "bPh" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -9170,6 +9187,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
+"fbT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/storage)
 "fco" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/kitchen/hallway)
@@ -10805,6 +10828,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
 "fUc" = (
@@ -12086,6 +12112,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
+"gzX" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark,
+/area/hallway/engineering/tesla)
 "gAp" = (
 /obj/machinery/light{
 	dir = 8
@@ -16074,6 +16107,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
 "iKv" = (
@@ -16974,6 +17010,10 @@
 "jkb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "jkc" = (
@@ -19214,6 +19254,7 @@
 /area/horizon/stairwell/central)
 "kyV" = (
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "kyX" = (
@@ -21142,6 +21183,7 @@
 	c_tag = "Engineering - Hallway 5";
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
 "lFE" = (
@@ -23023,6 +23065,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
 "mGc" = (
@@ -23324,6 +23369,18 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
+"mMn" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/engineering/tesla)
 "mMz" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 8
@@ -24756,6 +24813,10 @@
 /obj/machinery/firealarm/south,
 /obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -27690,6 +27751,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"pdF" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/binary/pump/high_power/on{
+	dir = 1;
+	name = "air tank to refiller"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos/storage)
 "pea" = (
 /turf/simulated/floor/wood,
 /area/horizon/library)
@@ -28319,6 +28388,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"pwB" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/engineering/tesla)
 "pwO" = (
 /obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -29149,10 +29227,11 @@
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "pSl" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/open,
 /area/engineering/atmos/storage)
 "pSv" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -32129,6 +32208,8 @@
 	req_access = list(24)
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
 "rvJ" = (
@@ -37160,6 +37241,9 @@
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
@@ -42870,6 +42954,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering/tesla)
 "wZP" = (
@@ -44563,6 +44650,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/storage)
@@ -65280,9 +65370,9 @@ lnv
 gci
 mFX
 lFn
-oGy
-oGy
-oGy
+gzX
+gzX
+pwB
 oGy
 xgG
 hjI
@@ -65480,12 +65570,12 @@ ydI
 lMD
 hwH
 gci
-xPv
+mMn
 fnn
 npL
 aFm
 bwU
-bwU
+bPf
 nvW
 fnn
 aql
@@ -65686,8 +65776,8 @@ iKg
 fnn
 tUR
 aFm
-bwU
-bwU
+abR
+bPf
 jkb
 fnn
 fqL
@@ -66288,7 +66378,7 @@ uph
 inD
 lnv
 gci
-xPv
+mMn
 fnn
 aor
 sDz
@@ -66494,7 +66584,7 @@ fTZ
 rvC
 aoQ
 kyV
-kyV
+pdF
 xWL
 gAt
 fnn
@@ -66697,7 +66787,7 @@ fnn
 ayY
 bYT
 mqn
-sDz
+fbT
 bZu
 fnn
 lKI
