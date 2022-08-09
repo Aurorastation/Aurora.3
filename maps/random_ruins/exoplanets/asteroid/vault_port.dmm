@@ -1,0 +1,69 @@
+"a" = (/turf/simulated/mineral/random,/area/exoplanet/barren/asteroid)
+"b" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 8; frequency = 1380; id_tag = "hidden_vault_airpump"},/obj/machinery/embedded_controller/radio/airlock/docking_port{id_tag = "hidden_vault_airlock"; pixel_x = 30; req_one_access = list(13); tag_airpump = "hidden_vault_airpump"; tag_chamber_sensor = "hidden_vault_airlock_sensor"; tag_exterior_door = "hidden_vault_outer"; tag_interior_door = "hidden_vault_inner"},/obj/machinery/light/small/emergency,/turf/simulated/floor,/area/exoplanet/barren/asteroid)
+"c" = (/obj/machinery/atmospherics/pipe/manifold/hidden,/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"d" = (/turf/simulated/floor/airless{icon_state = "asteroidplating"},/area/exoplanet/barren/asteroid)
+"e" = (/obj/machinery/power/portgen/basic,/obj/structure/cable/yellow{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"f" = (/obj/machinery/light/small/emergency,/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"g" = (/obj/machinery/turretid/lethal{ailock = 1; check_synth = 1; control_area = "\improper *CLASSIFIED*"; desc = "A firewall prevents AIs from interacting with this device."; name = "lethal turret control"; pixel_y = 29; req_access = list(61)},/turf/simulated/floor/airless{icon_state = "asteroidplating"},/area/exoplanet/barren/asteroid)
+"h" = (/obj/structure/cable/blue{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"i" = (/obj/structure/table/reinforced,/obj/machinery/light/small/emergency{dir = 4},/obj/item/stack/material/phoron{amount = 10},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"j" = (/turf/simulated/wall/r_wall,/area/exoplanet/barren/asteroid)
+"k" = (/obj/effect/decal/warning_stripes,/obj/machinery/porta_turret/ballistic,/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"l" = (/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "hidden_vault_outer"; locked = 1; name = "Vault Outer Access"; req_access = list(13)},/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1379; master_tag = "hidden_vault_airlock"; name = "exterior access button"; pixel_x = -28; req_access = list(53); req_one_access = null},/turf/simulated/floor,/area/exoplanet/barren/asteroid)
+"o" = (/obj/structure/table/reinforced,/obj/item/wrench,/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"s" = (/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"t" = (/obj/structure/cable/blue{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"u" = (/obj/item/archaeological_find,/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"x" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/obj/machinery/light/small/emergency,/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"y" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/turf/simulated/floor,/area/exoplanet/barren/asteroid)
+"z" = (/obj/structure/table/reinforced,/obj/machinery/light/small/emergency{dir = 1},/obj/item/stack/material/phoron{amount = 5},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"A" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 4; frequency = 1380; id_tag = "hidden_vault_airpump"},/obj/machinery/airlock_sensor{id_tag = "hidden_vault_airlock_sensor"; layer = 3.3; pixel_x = -24},/obj/machinery/light/small/emergency,/turf/simulated/floor,/area/exoplanet/barren/asteroid)
+"C" = (/obj/structure/table/reinforced,/obj/item/stack/material/phoron{amount = 15},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"E" = (/obj/structure/table/reinforced,/obj/machinery/light/small/emergency{dir = 1},/obj/item/stack/material/phoron{amount = 10},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"F" = (/obj/machinery/atmospherics/pipe/simple/hidden,/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "hidden_vault_inner"; locked = 1; name = "Vault Inner Access"; req_access = list(13)},/obj/machinery/access_button{command = "cycle_interior"; frequency = 1379; master_tag = "hidden_vault_airlock"; name = "interior access button"; pixel_x = -28; req_access = list(53); req_one_access = null},/turf/simulated/floor,/area/exoplanet/barren/asteroid)
+"G" = (/obj/structure/table/reinforced,/obj/item/stack/material/phoron{amount = 10},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"H" = (/mob/living/simple_animal/hostile/carp/asteroid,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"I" = (/obj/machinery/door/airlock/vault/bolted,/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"L" = (/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"N" = (/obj/structure/table/reinforced,/obj/structure/cable/blue{d2 = 8; icon_state = "0-8"},/obj/item/gun/energy/toxgun,/obj/item/frame/apc,/obj/item/trash/broken_electronics,/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"O" = (/obj/machinery/atmospherics/portables_connector{dir = 4},/obj/machinery/portable_atmospherics/canister/air/airlock,/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"P" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 10},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"Q" = (/obj/machinery/light/small/emergency{dir = 1},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"S" = (/obj/structure/table/reinforced,/obj/item/stack/material/phoron{amount = 5},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"U" = (/obj/machinery/power/smes/buildable{RCon = 0; charge = 5e+006; input_level = 200000; output_attempt = 1; output_level = 200000},/obj/structure/cable/yellow{d2 = 8; icon_state = "0-8"},/obj/structure/cable/blue{icon_state = "0-4"},/obj/machinery/light/small/emergency{dir = 1},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"V" = (/obj/structure/sign/securearea,/turf/simulated/wall/r_wall,/area/exoplanet/barren/asteroid)
+"W" = (/obj/machinery/light/small/emergency{dir = 1},/turf/simulated/floor/airless{icon_state = "asteroidplating"},/area/exoplanet/barren/asteroid)
+"X" = (/obj/machinery/atmospherics/pipe/manifold/hidden,/turf/simulated/floor,/area/exoplanet/barren/asteroid)
+"Y" = (/obj/structure/table/reinforced,/obj/machinery/light/small/emergency{dir = 8},/obj/item/stack/material/phoron{amount = 15},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+"Z" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4},/turf/simulated/floor/holofloor/tiled/dark,/area/exoplanet/barren/asteroid)
+
+(1,1,1) = {"
+sssssssssssssHssssssasssssss
+sssssssssssssssssssaaassssss
+sssaaaaasaaaassssaaaaaaassss
+saaaaaaaaaaaaaaaaaaaaaaaasss
+saaajjaaaaajjjjjaaaaajjaaass
+saaajjjjjjjjjjjjjjjjjjjaaass
+saaaajjjjjjjeUtjjjjjjjaaasHs
+ssaaajjGSESoLLhNCzGGjjaaasss
+HsaaajjSLLLLLLLLLLLSjjaaasss
+saaajjjYLkLLLuLLLkLijjjaaass
+saaajjjCLLLfLLLfLLLSjjjaaass
+saaajjjLLjjjLLLjjjLLjjjaasss
+ssaajjjjjjkjVIVjkjjjjjjaasss
+ssaajjjOPLLQLLLQLLLLjjjaasss
+saaaajjOcxZZZPLLLfLLjjaaaass
+saaaajjjjjjjyFyjjjjjjjaaaass
+saaajjjjjjjjAXbjjjjjjjjaaass
+saaajjasjjsVjljVsjjsajjaasss
+ssaaaasssssWddgWssssaaaassss
+sssaassHsssdddddsssssaasssHs
+sssaaasssssdddddsssssaasssss
+sssaaaaaasssssssssssaaaassss
+sssaaaaaaaassssssssaaaaassss
+ssssaaasaaasssssssaaaaasssss
+ssssaasssaaasssssssssaasssss
+ssHssasssssasssssssssaasssss
+ssssssssssssssssssssssasssss
+ssssssssssssssssssssssssssss
+"}

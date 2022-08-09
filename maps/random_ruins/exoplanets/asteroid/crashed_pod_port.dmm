@@ -1,0 +1,55 @@
+"a" = (/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"b" = (/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"c" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"d" = (/obj/structure/closet/crate/secure/loot,/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"f" = (/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"k" = (/obj/effect/decal/cleanable/blood/drip,/obj/machinery/door/airlock/external{icon_state = "door_locked"; locked = 1},/obj/effect/decal/cleanable/blood/drip,/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"m" = (/turf/simulated/mineral,/area/exoplanet/barren/asteroid)
+"n" = (/obj/structure/bed/stool/chair/shuttle,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"o" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"q" = (/obj/random/voidsuit,/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"s" = (/mob/living/simple_animal/hostile/carp/asteroid,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"t" = (/obj/structure/bed/stool/chair/shuttle{dir = 1},/obj/effect/decal/cleanable/blood,/obj/effect/decal/remains/human,/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"u" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"w" = (/obj/effect/decal/cleanable/blood/drip,/mob/living/simple_animal/hostile/carp/asteroid,/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"x" = (/obj/random/loot,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"A" = (/obj/item/arrow/rod,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"B" = (/obj/item/arrow/rod,/mob/living/simple_animal/hostile/carp/shark{wander = 0},/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"C" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced,/obj/item/material/shard,/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"E" = (/obj/item/device/gps,/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"F" = (/obj/structure/bed/stool/chair/shuttle,/obj/effect/decal/cleanable/blood,/obj/effect/decal/remains/human,/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"G" = (/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"I" = (/obj/random/melee,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"J" = (/turf/simulated/wall/shuttle/cardinal,/area/exoplanet/barren/asteroid)
+"L" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"M" = (/obj/item/material/shard{icon_state = "small"},/obj/effect/decal/cleanable/blood/drip,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"O" = (/obj/effect/decal/remains/human,/obj/effect/decal/cleanable/blood,/obj/random/voidsuit,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"P" = (/obj/machinery/door/airlock/external{icon_state = "door_locked"; locked = 1},/obj/effect/decal/cleanable/blood/drip,/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"S" = (/obj/structure/grille,/obj/item/material/shard,/obj/structure/window/reinforced{dir = 8},/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"T" = (/obj/random/loot,/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"U" = (/obj/structure/grille/broken,/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"Y" = (/obj/item/arrow/rod,/turf/simulated/floor/shuttle/dark_blue{baseturf = null; nitrogen = 0; oxygen = 0},/area/exoplanet/barren/asteroid)
+"Z" = (/obj/effect/decal/cleanable/blood/drip,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaamaaaaaaaaaaaaaaa
+aaammmsaaaAZZaaZOaaa
+aammmmaaxaaMaZZIaaaa
+aammmmaaJUkCJaaaaaaa
+aammmmaaJcGYJaaaaaaa
+aaammmmJJSPUJJJaaaaa
+aammmmmFFGfbnFuaaaaa
+aaammmmmBqGwEbLaaaaa
+aammmmmmmmdTttoaaaaa
+aammmmmmmmmmJJJaaaaa
+aammmmmmmmmmmmaaaaaa
+aaammmmmmmmmmmmaaaaa
+aaammmmmmmmmmmmmaaaa
+aaaammmmmmmmmmmmaaaa
+aaaammmaammmmmammaaa
+aaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaa
+"}

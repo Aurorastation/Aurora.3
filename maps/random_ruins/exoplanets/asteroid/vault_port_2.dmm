@@ -1,0 +1,46 @@
+"a" = (/turf/simulated/wall/shuttle/dark,/area/exoplanet/barren/asteroid)
+"g" = (/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"h" = (/obj/effect/decal/cleanable/dirt,/turf/unsimulated/floor,/area/exoplanet/barren/asteroid)
+"l" = (/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"m" = (/obj/effect/decal/cleanable/generic,/turf/unsimulated/floor,/area/exoplanet/barren/asteroid)
+"n" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"o" = (/obj/structure/sign/securearea,/turf/simulated/wall/r_wall,/area/exoplanet/barren/asteroid)
+"x" = (/obj/effect/decal/cleanable/dirt,/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"A" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/unsimulated/floor,/area/exoplanet/barren/asteroid)
+"B" = (/obj/machinery/door/airlock/vault/bolted,/turf/simulated/floor/shuttle,/area/exoplanet/barren/asteroid)
+"F" = (/obj/effect/decal/cleanable/dirt,/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/unsimulated/floor,/area/exoplanet/barren/asteroid)
+"G" = (/mob/living/simple_animal/hostile/carp/asteroid,/turf/unsimulated/floor,/area/exoplanet/barren/asteroid)
+"H" = (/mob/living/simple_animal/hostile/gnat,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"I" = (/obj/effect/floor_decal/industrial/warning/corner{dir = 4},/turf/unsimulated/floor,/area/exoplanet/barren/asteroid)
+"J" = (/obj/effect/floor_decal/industrial/warning/corner{dir = 1},/turf/unsimulated/floor,/area/exoplanet/barren/asteroid)
+"K" = (/obj/effect/decal/cleanable/generic,/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"O" = (/obj/structure/closet/crate/secure/loot,/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"Q" = (/turf/simulated/mineral/random,/area/exoplanet/barren/asteroid)
+"R" = (/obj/random/energy_antag,/turf/unsimulated/floor,/area/exoplanet/barren/asteroid)
+"S" = (/obj/effect/decal/cleanable/generic,/turf/unsimulated/floor/asteroid/ash,/area/exoplanet/barren/asteroid)
+"U" = (/turf/unsimulated/floor,/area/exoplanet/barren/asteroid)
+"V" = (/obj/item/archaeological_find,/turf/simulated/floor,/area/exoplanet/barren/asteroid)
+"W" = (/obj/effect/floor_decal/industrial/warning{dir = 4},/mob/living/simple_animal/hostile/carp/asteroid,/turf/unsimulated/floor/plating,/area/exoplanet/barren/asteroid)
+"X" = (/obj/effect/decal/cleanable/generic,/obj/effect/floor_decal/industrial/warning{dir = 4},/turf/unsimulated/floor,/area/exoplanet/barren/asteroid)
+"Z" = (/turf/simulated/wall/r_wall,/area/exoplanet/barren/asteroid)
+
+(1,1,1) = {"
+llllllHlllllllllll
+lllllllllllllQllll
+llllllllllllQQQlll
+llllllllllllQQQQll
+llllQQQQllQllQQQll
+llllQQQQQQQQllQlll
+lllQQQQQQQQQQlllll
+llaQggQQQQQQQlHlll
+llaOWZZZQQQgQQllll
+llaxnZVZgQggQQllll
+laaUXoBoUggQQQQQll
+lSgmIAFFJggQQQQQll
+lSUgGUgURUgQQQQlll
+llgUUUUUUUKaQQQlll
+llKggUgUUhUallQlll
+laaUUUUUmUaallllll
+lllaUgUUUaalllllll
+lllaagggaallllllll
+"}
