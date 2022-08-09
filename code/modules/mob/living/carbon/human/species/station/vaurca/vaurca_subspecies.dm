@@ -33,10 +33,15 @@
 	sprint_cost_factor = 0.40
 	stamina_recovery = 3
 
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/palm,
+		/datum/unarmed_attack/bite/warrior
+	)
 
-	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite //weaker version of gut.
-		)
+
 
 /datum/species/bug/type_c
 	name = SPECIES_VAURCA_BREEDER
