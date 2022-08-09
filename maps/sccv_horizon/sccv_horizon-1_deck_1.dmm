@@ -19215,6 +19215,7 @@
 	pixel_y = 8
 	},
 /obj/item/device/robotanalyzer,
+/obj/item/ipc_tag_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "pIf" = (
