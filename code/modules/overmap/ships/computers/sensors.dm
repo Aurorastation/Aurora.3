@@ -138,6 +138,8 @@
 				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
 				return
 			var/new_class = input("Insert a new ship class. 4 letters maximum.", "IFF Management") as text|null
+			if(!length(new_class))
+				return
 			new_class = sanitizeSafe(new_class, 5)
 			new_class = uppertext(new_class)
 			if(use_check_and_message(usr))
@@ -152,6 +154,8 @@
 				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
 				return
 			var/new_name = input("Insert a new ship name. 24 letters maximum.", "IFF Management") as text|null
+			if(!length(new_name))
+				return
 			new_name = sanitizeSafe(new_name, 24)
 			new_name = capitalize(new_name)
 			if(use_check_and_message(usr))
