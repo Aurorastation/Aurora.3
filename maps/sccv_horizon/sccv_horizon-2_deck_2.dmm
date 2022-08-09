@@ -24666,13 +24666,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
-"nqP" = (
-/obj/structure/bed/stool/padded/red,
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
-/turf/simulated/floor/lino/grey,
-/area/horizon/kitchen/hallway)
 "nrr" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -28716,19 +28709,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "pFU" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
 /obj/machinery/camera/network/service{
-	c_tag = "Dinner - Kitchen Service"
+	c_tag = "Dinner - Kitchen Service";
+	pixel_x = -6
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
+	},
+/obj/machinery/vending/mredispenser{
+	pixel_y = 24;
+  density = 0
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/kitchen/hallway)
@@ -30488,10 +30478,18 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	pixel_y = 28
+	pixel_y = 40
 	},
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/kitchen/hallway)
@@ -33412,11 +33410,11 @@
 /area/hallway/primary/central_two)
 "sbK" = (
 /obj/structure/bed/stool/padded/red,
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/kitchen/hallway)
@@ -42039,6 +42037,9 @@
 /obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/kitchen/hallway)
@@ -66440,7 +66441,7 @@ asG
 tiF
 pED
 esy
-nqP
+sbK
 oKf
 gfj
 gfj

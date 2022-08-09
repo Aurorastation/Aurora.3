@@ -17,9 +17,9 @@
 	var/next_shake
 	var/fixed_state = FALSE
 
-/obj/item/reagent_containers/food/condiment/Initialize()
+/obj/item/reagent_containers/food/condiment/Initialize(var/force = TRUE)
 	. = ..()
-	on_reagent_change(force = TRUE)
+	on_reagent_change(force)
 
 /obj/item/reagent_containers/food/condiment/proc/shake(var/mob/user)
 	if(world.time >= next_shake)
@@ -115,3 +115,143 @@
 /obj/item/reagent_containers/food/condiment/pacid
 	name = "culinary acid"
 	reagents_to_add = list(/decl/reagent/acid/polyacid = 50)
+
+//MRE condiments and drinks.
+
+/obj/item/reagent_containers/food/condiment/small/packet
+	icon_state = "packet_small"
+	fixed_state = TRUE
+	w_class = ITEMSIZE_TINY
+	possible_transfer_amounts = list(1,5,10)
+	amount_per_transfer_from_this = 1
+	volume = 10
+
+/obj/item/reagent_containers/food/condiment/small/packet/Initialize()
+	. = ..(FALSE)
+
+/obj/item/reagent_containers/food/condiment/small/packet/salt
+	name = "salt packet"
+	desc = "Contains 5u of table salt."
+	icon_state = "packet_small_white"
+	reagents_to_add = list(/decl/reagent/sodiumchloride = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/pepper
+	name = "pepper packet"
+	desc = "Contains 5u of black pepper."
+	icon_state = "packet_small_black"
+	reagents_to_add = list(/decl/reagent/blackpepper = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/sugar
+	name = "sugar packet"
+	desc = "Contains 5u of refined sugar."
+	icon_state = "packet_small_white"
+	reagents_to_add = list(/decl/reagent/sugar = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/jelly
+	name = "jelly packet"
+	desc = "Contains 10u of cherry jelly. Best used for spreading on crackers."
+	reagents_to_add = list(/decl/reagent/nutriment/cherryjelly = 10)
+	icon_state = "packet_medium"
+
+/obj/item/reagent_containers/food/condiment/small/packet/honey
+	name = "honey packet"
+	desc = "Contains 10u of honey."
+	reagents_to_add = list(/decl/reagent/sugar = 10)
+	icon_state = "packet_medium"
+
+/obj/item/reagent_containers/food/condiment/small/packet/capsaicin
+	name = "hot sauce packet"
+	desc = "Contains 5u of hot sauce. Enjoy in moderation."
+	icon_state = "packet_small_red"
+	reagents_to_add = list(/decl/reagent/capsaicin = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/ketchup
+	name = "ketchup packet"
+	desc = "Contains 5u of ketchup."
+	icon_state = "packet_small_red"
+	reagents_to_add = list(/decl/reagent/nutriment/ketchup = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/mayo
+	name = "mayonnaise packet"
+	desc = "Contains 5u of mayonnaise."
+	icon_state = "packet_small_white"
+	reagents_to_add = list(/decl/reagent/nutriment/mayonnaise = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/soy
+	name = "soy sauce packet"
+	desc = "Contains 5u of soy sauce."
+	icon_state = "packet_small_black"
+	reagents_to_add = list(/decl/reagent/nutriment/soysauce = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/coffee
+	name = "instant coffee powder packet"
+	desc = "Contains 5u of instant coffee powder. Mix with 25u of water."
+	reagents_to_add = list(/decl/reagent/nutriment/coffeegrounds = 3)
+
+/obj/item/reagent_containers/food/condiment/small/packet/tea
+	name = "instant tea powder packet"
+	desc = "Contains 5u of instant black tea powder. Mix with 25u of water."
+	reagents_to_add = list(/decl/reagent/nutriment/teagrounds = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/cocoa
+	name = "cocoa powder packet"
+	desc = "Contains 5u of cocoa powder. Mix with 25u of water and heat."
+	reagents_to_add = list(/decl/reagent/nutriment/coco = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/grape
+	name = "grape juice powder packet"
+	desc = "Contains 5u of powdered grape juice. Mix with 15u of water."
+	reagents_to_add = list(/decl/reagent/nutriment/instantjuice/grape = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/orange
+	name = "orange juice powder packet"
+	desc = "Contains 5u of powdered orange juice. Mix with 15u of water."
+	reagents_to_add = list(/decl/reagent/nutriment/instantjuice/orange = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/watermelon
+	name = "watermelon juice powder packet"
+	desc = "Contains 5u of powdered watermelon juice. Mix with 15u of water."
+	reagents_to_add = list(/decl/reagent/nutriment/instantjuice/watermelon = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/apple
+	name = "apple juice powder packet"
+	desc = "Contains 5u of powdered apple juice. Mix with 15u of water."
+	reagents_to_add = list(/decl/reagent/nutriment/instantjuice/apple = 5)
+
+/obj/item/reagent_containers/food/condiment/small/packet/protein
+	name = "protein powder packet"
+	desc = "Contains 10u of powdered protein. Mix with 20u of water."
+	icon_state = "packet_medium"
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 10)
+
+/obj/item/reagent_containers/food/condiment/small/packet/crayon
+	name = "crayon powder packet"
+	desc = "Contains 10u of powdered crayon. Mix with 30u of water."
+	reagents_to_add = list(/decl/reagent/crayon_dust = 10)
+
+/obj/item/reagent_containers/food/condiment/small/packet/crayon/red
+	reagents_to_add = list(/decl/reagent/crayon_dust/red = 10)
+
+/obj/item/reagent_containers/food/condiment/small/packet/crayon/orange
+	reagents_to_add = list(/decl/reagent/crayon_dust/orange = 10)
+
+/obj/item/reagent_containers/food/condiment/small/packet/crayon/yellow
+	reagents_to_add = list(/decl/reagent/crayon_dust/yellow = 10)
+
+/obj/item/reagent_containers/food/condiment/small/packet/crayon/green
+	reagents_to_add = list(/decl/reagent/crayon_dust/green = 10)
+
+/obj/item/reagent_containers/food/condiment/small/packet/crayon/blue
+	reagents_to_add = list(/decl/reagent/crayon_dust/blue = 10)
+
+/obj/item/reagent_containers/food/condiment/small/packet/crayon/purple
+	reagents_to_add = list(/decl/reagent/crayon_dust/purple = 10)
+
+/obj/item/reagent_containers/food/condiment/small/packet/crayon/grey
+	reagents_to_add = list(/decl/reagent/crayon_dust/grey = 10)
+
+/obj/item/reagent_containers/food/condiment/small/packet/crayon/brown
+	reagents_to_add = list(/decl/reagent/crayon_dust/brown = 10)
+
+
+//End of MRE stuff.
