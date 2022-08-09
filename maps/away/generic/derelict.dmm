@@ -299,7 +299,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "hiw" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "huE" = (

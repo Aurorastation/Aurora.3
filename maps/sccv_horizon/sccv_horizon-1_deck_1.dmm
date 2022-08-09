@@ -549,6 +549,9 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "aBl" = (
@@ -903,6 +906,8 @@
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining - Shuttle"
 	},
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "aNR" = (
@@ -1225,9 +1230,12 @@
 /area/maintenance/wing/port/deck1)
 "aYY" = (
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/medical/emergency_storage)
+/area/medical/morgue/lower)
 "aZd" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/industrial/warning{
@@ -1447,7 +1455,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 4;
 	pixel_x = 32
 	},
@@ -1741,7 +1749,6 @@
 "buI" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sci,
 /obj/item/clothing/head/helmet/space/void/sci,
 /obj/structure/window/reinforced{
@@ -1917,7 +1924,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2622,6 +2629,12 @@
 	name = "\improper DANGER: DISPOSAL TO REFINERY sign";
 	pixel_y = -32
 	},
+/obj/machinery/door/window/northleft{
+	name = "Disposal to Mining Access"
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/airless,
 /area/hangar/operations)
 "bZU" = (
@@ -3093,6 +3106,11 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 10
+	},
+/obj/machinery/computer/shuttle_control/lift/wall{
+	shuttle_tag = "Morgue Lift";
+	dir = 1;
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
@@ -3572,6 +3590,9 @@
 	name = "Atmospheric Tanks";
 	req_access = list(24)
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "cPT" = (
@@ -3582,7 +3603,7 @@
 /obj/machinery/light/spot/weak{
 	dir = 4
 	},
-/obj/structure/sign/emerg_pods{
+/obj/structure/sign/emergency/evacuation/pods{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
@@ -4523,6 +4544,13 @@
 /obj/effect/floor_decal/corner/black,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
+"dIp" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "dIS" = (
 /obj/machinery/light{
 	dir = 4
@@ -4961,6 +4989,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "ebK" = (
@@ -6051,7 +6082,6 @@
 "eQH" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sci,
 /obj/item/clothing/head/helmet/space/void/sci,
 /obj/structure/window/reinforced{
@@ -6469,7 +6499,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
@@ -7341,7 +7371,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 4;
 	pixel_x = 32
 	},
@@ -7688,6 +7718,19 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
+"gds" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "gdJ" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -7955,7 +7998,7 @@
 /area/shuttle/escape_pod/pod1)
 "glb" = (
 /obj/structure/railing/mapped,
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	layer = 2.1
 	},
@@ -8048,17 +8091,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
-"gqn" = (
-/obj/machinery/computer/shuttle_control/lift{
-	pixel_y = -1;
-	shuttle_tag = "Morgue Lift"
-	},
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/medical/morgue/lower)
 "gqR" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -8069,6 +8101,9 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -10765,9 +10800,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/morgue/lower)
 "iEz" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -10798,13 +10832,21 @@
 	},
 /area/engineering/atmos/propulsion)
 "iFL" = (
-/obj/machinery/door/airlock/freezer_maint{
-	name = "Morgue Maintenance";
-	req_access = list(6)
-	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/maintenance/operations)
+/obj/machinery/door/airlock/maintenance{
+	name = "Deck 1 Medical Maintenance";
+	req_access = list(5)
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
+	},
+/turf/simulated/floor/tiled/full,
+/area/medical/morgue/lower)
 "iFU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/steel,
@@ -11229,13 +11271,14 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/structure/sign/securearea{
-	desc = "A danger sign which reads 'DANGER: THE MINING SHUTTLE HANGAR IS A DEPRESSURIZED AREA'.";
-	name = "\improper DANGER: DEPRESSURIZED AREA sign";
-	pixel_y = -32
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -11756,7 +11799,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Passthrough";
-	req_access = list(12)
+	req_one_access = list(12,26,31,48,67)
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
@@ -12425,7 +12468,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	pixel_x = -32
 	},
@@ -13101,7 +13144,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 4;
 	pixel_y = -32
 	},
@@ -13739,7 +13782,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/maintenance/operations)
+/area/medical/morgue/lower)
 "kWB" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -13889,11 +13932,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/freezer_maint{
-	name = "Morgue Maintenance";
-	req_access = list(6)
+/obj/machinery/door/airlock/maintenance{
+	name = "Deck 1 Medical Maintenance";
+	req_access = list(5)
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0;
+	dir = 2
+	},
+/turf/simulated/floor/tiled/full,
 /area/medical/emergency_storage)
 "lgf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -15497,10 +15548,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
-"mBc" = (
-/obj/machinery/atmospherics/pipe/zpipe/up/black,
-/turf/space/dynamic,
-/area/horizon/exterior)
 "mBx" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
@@ -15585,7 +15632,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "mFO" = (
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	layer = 2.1
 	},
@@ -15890,7 +15937,7 @@
 	c_tag = "First Deck - Hangar 13";
 	dir = 8
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 4;
 	pixel_x = 32
 	},
@@ -15958,7 +16005,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 4;
 	pixel_x = 32
 	},
@@ -16197,7 +16244,6 @@
 "mYX" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sci,
 /obj/item/clothing/head/helmet/space/void/sci,
 /obj/structure/window/reinforced{
@@ -16429,6 +16475,19 @@
 /obj/effect/shuttle_landmark/horizon/deckone/fore,
 /turf/template_noop,
 /area/template_noop)
+"nig" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "niw" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -17625,7 +17684,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	layer = 2.1
 	},
@@ -17771,6 +17830,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "ovh" = (
@@ -18213,6 +18273,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "oYp" = (
@@ -18364,7 +18425,7 @@
 /area/horizon/hydroponics/lower)
 "pep" = (
 /obj/effect/floor_decal/corner/green/full,
-/obj/structure/sign/emerg_exit{
+/obj/structure/sign/emergency/exit{
 	pixel_y = -32
 	},
 /obj/machinery/firealarm/west,
@@ -19034,6 +19095,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/medical_compartment)
 "pEb" = (
@@ -20012,7 +20075,6 @@
 "qpA" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sci,
 /obj/item/clothing/head/helmet/space/void/sci,
 /obj/structure/window/reinforced{
@@ -20179,7 +20241,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	pixel_x = -32
 	},
@@ -20969,11 +21031,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/sign/securearea{
-	desc = "A danger sign which reads 'DANGER: THE MINING SHUTTLE HANGAR IS A DEPRESSURIZED AREA'.";
-	name = "\improper DANGER: DEPRESSURIZED AREA sign";
+/obj/structure/sign/vacuum{
 	pixel_y = -32
 	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "rcA" = (
@@ -21846,6 +21907,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -22823,6 +22887,12 @@
 	desc = "A danger sign which reads 'DANGER: DISPOSAL TO REFINERY'.";
 	name = "\improper DANGER: DISPOSAL TO REFINERY sign";
 	pixel_y = -32
+	},
+/obj/machinery/door/window/northright{
+	name = "Disposal to Mining Access"
+	},
+/obj/structure/railing/mapped{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/airless,
 /area/hangar/operations)
@@ -24547,7 +24617,7 @@
 	c_tag = "Operations - Hangar Starboard Fore";
 	dir = 4
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	pixel_x = -32
 	},
@@ -24958,7 +25028,7 @@
 /obj/machinery/light/spot/weak{
 	dir = 8
 	},
-/obj/structure/sign/emerg_pods{
+/obj/structure/sign/emergency/evacuation/pods{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
@@ -24988,7 +25058,7 @@
 	c_tag = "Operations - Hangar Starboard Aft";
 	dir = 4
 	},
-/obj/structure/sign/emerg_exit/evac{
+/obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	pixel_x = -32
 	},
@@ -28276,7 +28346,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/maintenance/operations)
+/area/medical/morgue/lower)
 "xgP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -28416,9 +28486,8 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/eva)
 "xkx" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 8;
-	name = "Air to Connector"
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -28572,6 +28641,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "xol" = (
@@ -28938,9 +29008,12 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/medical/emergency_storage)
+/area/medical/morgue/lower)
 "xDI" = (
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
@@ -42374,7 +42447,7 @@ nlH
 nlH
 nlH
 nlH
-nlH
+qkh
 eKJ
 qkh
 qkh
@@ -42576,7 +42649,7 @@ mRu
 cwK
 rzQ
 djv
-nlH
+qkh
 oxP
 lRO
 tRQ
@@ -42778,7 +42851,7 @@ rWM
 jwL
 gex
 oLG
-nlH
+qkh
 bGl
 iJR
 pqh
@@ -42980,7 +43053,7 @@ lIg
 lIg
 xCD
 aYY
-nlH
+qkh
 qkh
 qkh
 qkh
@@ -43181,7 +43254,7 @@ ege
 pPU
 lIg
 gRa
-gqn
+qBC
 fDD
 fDD
 lIg
@@ -43990,7 +44063,7 @@ xll
 iDM
 xgE
 kWx
-nnw
+lIg
 aMh
 wqj
 vul
@@ -44191,8 +44264,8 @@ rpa
 haN
 lIg
 iFL
-nnw
-nnw
+lIg
+lIg
 mZr
 uVX
 vul
@@ -51029,7 +51102,7 @@ wEY
 wEY
 pYB
 wEY
-mBc
+wEY
 wEY
 pYB
 wUo
@@ -51647,7 +51720,7 @@ err
 sll
 kDF
 hVE
-hVE
+dIp
 xHX
 vgD
 nVb
@@ -52052,7 +52125,7 @@ lcz
 qaK
 jvF
 kXr
-rXn
+nig
 wsS
 tIz
 eIE
@@ -52254,7 +52327,7 @@ pZm
 vZr
 sKK
 cUJ
-rXn
+nig
 vpu
 ixm
 lBp
@@ -52456,7 +52529,7 @@ bYq
 unm
 xjT
 dAI
-rXn
+nig
 oCl
 xUM
 hyD
@@ -52658,7 +52731,7 @@ qZj
 qQk
 riL
 urr
-rXn
+nig
 oWT
 riL
 krm
@@ -53466,7 +53539,7 @@ rZu
 eqs
 riL
 iEz
-rXn
+gds
 xpP
 riL
 lnG
