@@ -34828,6 +34828,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
+"sPY" = (
+)
 "sQj" = (
 /turf/simulated/wall,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
@@ -40328,21 +40330,9 @@
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "vKH" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(5)
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/hallway/medical)
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark/full,
+/area/turbolift/scc_ship/morgue_lift)
 "vLu" = (
 /obj/structure/closet/secure_closet/scientist,
 /obj/item/clothing/mask/gas/half,
@@ -68092,7 +68082,7 @@ fnn
 fnn
 nAz
 lOH
-abI
+sPY
 rbf
 hDr
 hDr
@@ -68494,7 +68484,7 @@ pCf
 gKT
 gKT
 bmM
-gzZ
+sPY
 rNQ
 gNn
 pDW
