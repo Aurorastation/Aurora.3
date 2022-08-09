@@ -11,7 +11,7 @@
 	brute_mod = 0.7
 	oxy_mod = 1
 	radiation_mod = 0.5
-	bleed_mod = 1.1
+	bleed_mod = 1.2
 	grab_mod = 1.25
 	resist_mod = 2.5 //Most are weaker then a Unathi, but have a evolutionary disposition towards close-combat.
 
