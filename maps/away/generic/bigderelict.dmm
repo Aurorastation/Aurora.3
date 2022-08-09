@@ -142,6 +142,7 @@
 /area/overgrown_mining_station)
 "aG" = (
 /obj/structure/table/rack,
+/obj/item/flag/nanotrasen,
 /turf/simulated/floor/wood,
 /area/overgrown_mining_station)
 "aH" = (
@@ -302,6 +303,7 @@
 "bn" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/purple/diagonal,
+/obj/random/highvalue,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "bp" = (
@@ -1078,6 +1080,7 @@
 /area/overgrown_mining_station)
 "dx" = (
 /obj/structure/table/standard,
+/obj/random/coin,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "dy" = (
@@ -1817,6 +1820,22 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
+"fY" = (
+/obj/structure/table/standard,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500{
+	pixel_y = 9
+	},
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"fZ" = (
+/mob/living/simple_animal/hostile/gnat,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"gd" = (
+/obj/item/gun/projectile/sec/lethal,
+/turf/simulated/floor/tiled/dark/airless,
+/area/overgrown_mining_station)
 "gk" = (
 /mob/living/simple_animal/hostile/carp/asteroid,
 /turf/simulated/floor/airless{
@@ -1852,6 +1871,10 @@
 /area/overgrown_mining_station)
 "hs" = (
 /obj/structure/bed,
+/turf/simulated/floor/tiled/dark/airless,
+/area/overgrown_mining_station)
+"hy" = (
+/obj/item/melee/baton/loaded,
 /turf/simulated/floor/tiled/dark/airless,
 /area/overgrown_mining_station)
 "hP" = (
@@ -1902,10 +1925,104 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
+"jH" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"kS" = (
+/obj/structure/table/standard,
+/obj/item/spacecash/c1000,
+/obj/random/highvalue/no_weapon,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"nN" = (
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"pJ" = (
+/obj/item/spacecash/c20{
+	pixel_y = 4
+	},
+/obj/item/spacecash/c1{
+	pixel_y = 12;
+	pixel_x = 15
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/overgrown_mining_station)
+"qn" = (
+/obj/structure/lattice,
+/mob/living/simple_animal/hostile/gnat,
+/turf/space,
+/area/overgrown_mining_station)
 "sf" = (
 /obj/machinery/light/small/emergency,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"sk" = (
+/obj/structure/lattice,
+/obj/item/spacecash/c1{
+	pixel_y = -11
+	},
+/turf/space,
+/area/overgrown_mining_station)
+"st" = (
+/obj/structure/table,
+/obj/item/bikehorn/rubberducky,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"uz" = (
+/obj/item/melee/hammer,
+/turf/simulated/floor/tiled/dark/airless,
+/area/overgrown_mining_station)
+"uO" = (
+/mob/living/simple_animal/hostile/gnat,
+/turf/simulated/floor/tiled/dark/airless,
+/area/overgrown_mining_station)
+"xh" = (
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"En" = (
+/obj/item/banhammer,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"Gf" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/artifact,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"OE" = (
+/obj/item/cane/concealed,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"Pw" = (
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"RN" = (
+/obj/structure/table/standard,
+/obj/random/highvalue,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"RU" = (
+/obj/vehicle/bike,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"SL" = (
+/obj/structure/grille/broken,
+/obj/item/gun/launcher/crossbow/RFD,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"Vg" = (
+/obj/item/spacecash/c100{
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/overgrown_mining_station)
+"Wz" = (
+/obj/random_produce/box,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 
 (1,1,1) = {"
@@ -22554,8 +22671,8 @@ aW
 bh
 aR
 dO
-aR
-gr
+sk
+pJ
 dO
 aR
 bh
@@ -22812,7 +22929,7 @@ bh
 aR
 dO
 aR
-gr
+Vg
 aR
 aR
 bh
@@ -28459,7 +28576,7 @@ gV
 im
 gV
 gV
-gV
+SL
 im
 dO
 hr
@@ -29996,8 +30113,8 @@ hr
 dO
 dO
 bF
-bq
-bq
+Gf
+Gf
 bq
 bH
 bq
@@ -30589,7 +30706,7 @@ eO
 dO
 dO
 hV
-ie
+st
 hV
 jp
 aW
@@ -31073,7 +31190,7 @@ im
 hr
 gr
 dO
-ax
+OE
 dA
 hr
 dF
@@ -31536,7 +31653,7 @@ fN
 dO
 hr
 dO
-bq
+Gf
 bq
 bP
 bq
@@ -32289,7 +32406,7 @@ bh
 aR
 ac
 ae
-af
+fY
 hr
 hr
 hr
@@ -32545,7 +32662,7 @@ aR
 bh
 aR
 hr
-af
+kS
 gr
 hr
 ak
@@ -33365,8 +33482,8 @@ dO
 dP
 gr
 gr
-gr
-gr
+uz
+gd
 gr
 dm
 dO
@@ -34601,7 +34718,7 @@ aR
 bh
 aR
 ad
-af
+RN
 gr
 gr
 hr
@@ -34866,7 +34983,7 @@ hr
 dO
 dO
 az
-ax
+Wz
 hr
 hr
 gr
@@ -35204,8 +35321,8 @@ hr
 el
 en
 en
-hr
-hr
+nN
+nN
 dO
 aR
 hr
@@ -35378,11 +35495,11 @@ aR
 dO
 hr
 dO
-hr
+xh
 hr
 hr
 gr
-ax
+Pw
 hr
 aZ
 gr
@@ -35519,7 +35636,7 @@ gr
 hr
 hr
 dO
-hr
+RU
 hr
 hr
 hr
@@ -36223,7 +36340,7 @@ dN
 dO
 dO
 dO
-hr
+jH
 hr
 hr
 gr
@@ -38238,7 +38355,7 @@ gr
 hr
 gr
 gr
-gr
+uO
 hr
 gr
 be
@@ -38493,7 +38610,7 @@ hr
 gr
 be
 hr
-gr
+hy
 hr
 gr
 hr
@@ -38556,7 +38673,7 @@ bh
 bh
 hr
 dO
-hr
+En
 bh
 aR
 bh
@@ -40347,7 +40464,7 @@ aW
 aW
 aW
 aW
-aR
+qn
 bh
 aW
 aW
@@ -42091,7 +42208,7 @@ aW
 aR
 aR
 hr
-hr
+fZ
 hr
 aW
 aW
@@ -44161,7 +44278,7 @@ aR
 bh
 hr
 bh
-aR
+qn
 aW
 aW
 aW
