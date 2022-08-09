@@ -33,9 +33,18 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tirakqi_shuttle)
+"auB" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/skrell{
+	req_access = "208";
+	name = "Engineering"
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
 "azW" = (
 /obj/machinery/door/airlock/skrell/grey{
-	req_access = "207"
+	req_access = "208";
+	name = "Maintenance"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -90,12 +99,28 @@
 "bzd" = (
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
+"bQs" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/skrell{
+	req_access = "208";
+	name = "Living Quarters"
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
 "bYX" = (
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "cnD" = (
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"cqy" = (
+/obj/machinery/door/airlock/skrell/grey{
+	req_access = "208";
+	name = "Hangar"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "cIZ" = (
 /obj/machinery/computer/ship/navigation{
@@ -224,7 +249,8 @@
 "exg" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell{
-	req_access = "207"
+	req_access = "208";
+	name = "Medbay"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
@@ -400,6 +426,10 @@
 /area/ship/tirakqi_freighter)
 "gcq" = (
 /obj/structure/plasticflaps/airtight,
+/obj/machinery/door/airlock/skrell/grey{
+	req_access = "208";
+	name = "Maintenance"
+	},
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "gec" = (
@@ -533,6 +563,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
+"hAg" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/skrell/grey{
+	req_access = "208";
+	name = "Bridge"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_freighter)
 "hEj" = (
 /obj/structure/closet/crate,
 /obj/item/stack/material/plasteel,
@@ -605,6 +643,14 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/skrell,
 /area/shuttle/tirakqi_shuttle)
+"ifl" = (
+/obj/machinery/door/airlock/skrell/grey{
+	req_access = "208";
+	name = "Bridge"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_freighter)
 "ijB" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 8
@@ -920,7 +966,8 @@
 "mwP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell{
-	req_access = "207"
+	req_access = "208";
+	name = "Mess Hall"
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
@@ -1045,8 +1092,11 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "pPl" = (
-/obj/machinery/door/airlock/skrell,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/skrell{
+	req_access = "208";
+	name = "Living Quarters"
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/ship/tirakqi_freighter)
 "pRf" = (
@@ -1279,10 +1329,11 @@
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "vUm" = (
-/obj/machinery/door/airlock/skrell/grey{
-	req_access = "207"
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/skrell/grey{
+	req_access = "208";
+	name = "Hangar"
+	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "whf" = (
@@ -32521,7 +32572,7 @@ fnS
 fnS
 bYX
 bYX
-mwP
+auB
 bYX
 bYX
 bYX
@@ -35076,7 +35127,7 @@ bYX
 bYX
 bYX
 bYX
-mwP
+bQs
 bYX
 bYX
 bYX
@@ -35333,7 +35384,7 @@ ett
 bYX
 bYX
 bYX
-mwP
+bQs
 bYX
 bYX
 bYX
@@ -35344,7 +35395,7 @@ bYX
 bYX
 bYX
 bYX
-vUm
+cqy
 bzd
 rtf
 hLR
@@ -36109,8 +36160,8 @@ fHl
 fHl
 fHl
 dQZ
-vUm
-vUm
+ifl
+hAg
 dQZ
 dQZ
 fpQ

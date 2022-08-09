@@ -610,3 +610,8 @@ var/const/access_kataphract_trader = 116
 /datum/access/access_elyran_naval_infantry_ship
 	id = access_elyran_naval_infantry_ship
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_skrell = 208
+/datum/access/access_skrell
+	id = access_skrell
+	access_type = ACCESS_TYPE_CENTCOM
