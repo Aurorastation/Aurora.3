@@ -142,7 +142,7 @@
 
 		ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 		if (!ui)
-			ui = new(user, src, ui_key, "helm.tmpl", "[connected.name] Helm Control", 565, 545)
+			ui = new(user, src, ui_key, "helm.tmpl", "[connected.get_real_name()] Helm Control", 565, 545)
 			ui.set_initial_data(data)
 			ui.open()
 			ui.set_auto_update(1)
@@ -284,7 +284,7 @@
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "nav.tmpl", "[connected.name] Navigation Screen", 380, 530)
+		ui = new(user, src, ui_key, "nav.tmpl", "[connected.get_real_name()] Navigation Screen", 380, 530)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)

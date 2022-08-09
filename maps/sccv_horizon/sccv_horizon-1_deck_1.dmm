@@ -6606,6 +6606,7 @@
 	dir = 10
 	},
 /obj/structure/railing/mapped,
+/obj/machinery/iff_beacon/horizon,
 /turf/simulated/floor/tiled/dark/airless,
 /area/shuttle/mining)
 "fjS" = (
@@ -16851,6 +16852,7 @@
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
 	icon_state = "mwr4"
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "nyp" = (
@@ -18272,6 +18274,14 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
+"oYc" = (
+/obj/machinery/iff_beacon/horizon,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/intrepid/cockpit)
 "oYp" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -50956,7 +50966,7 @@ kDY
 jWI
 wjM
 dwt
-iRC
+oYc
 iRC
 iRC
 iRC

@@ -526,6 +526,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
+"dZr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/iff_beacon/name_change,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/shuttle/sfa_shuttle)
 "edg" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -610,6 +626,14 @@
 	dir = 1
 	},
 /turf/simulated/floor,
+/area/ship/sfa_patrol_ship)
+"eOQ" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "eTq" = (
 /obj/machinery/appliance/cooker/stove,
@@ -34310,7 +34334,7 @@ sLj
 yjk
 hBs
 sBA
-eYX
+dZr
 mLa
 mLa
 mLa
@@ -35866,7 +35890,7 @@ sBA
 rgA
 buK
 yjk
-xRX
+eOQ
 xRX
 xRX
 xRX

@@ -22576,6 +22576,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
 "PB" = (
+/obj/machinery/iff_beacon,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "PC" = (

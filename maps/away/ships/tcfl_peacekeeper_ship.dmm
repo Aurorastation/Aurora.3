@@ -823,6 +823,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
+"fMU" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor,
+/area/shuttle/tcfl_shuttle)
 "fNN" = (
 /obj/machinery/light{
 	dir = 4;
@@ -3374,6 +3384,14 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/shuttle/tan,
+/area/ship/tcfl_peacekeeper_ship)
+"ymi" = (
+/obj/machinery/iff_beacon/name_change,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
 /area/ship/tcfl_peacekeeper_ship)
 
 (1,1,1) = {"
@@ -27652,7 +27670,7 @@ xji
 uaE
 vdz
 yjk
-xRX
+ymi
 xRX
 xRX
 xRX
@@ -31465,7 +31483,7 @@ xoc
 sWY
 ive
 pPl
-pPl
+fMU
 wJV
 dyN
 dyN
