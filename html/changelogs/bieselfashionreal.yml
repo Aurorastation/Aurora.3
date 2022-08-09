@@ -1,0 +1,6 @@
+author: listerla
+
+delete-after: True
+
+changes:
+  - imageadd: "Added flared pants and halter tops to loadout, ported from Polaris."

@@ -243,6 +243,12 @@
 	icon_state = "tshirt_crop"
 	item_state = "tshirt_crop"
 
+/obj/item/clothing/accessory/haltertop
+	name = "halter top"
+	desc = "A sleeveless tank with straps tied behind the neck, commonly seen worn in Biesel."
+	icon_state = "haltertop"
+	item_state = "haltertop"
+
 /obj/item/clothing/accessory/silversun
 	name = "silversun floral shirt"
 	desc = "A stylish Solarian shirt of Silversun design. It bears a floral design. This one is cyan."
