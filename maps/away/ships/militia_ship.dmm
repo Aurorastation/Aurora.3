@@ -144,7 +144,7 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "aPh" = (
-/obj/structure/sign/meeting_point{
+/obj/structure/sign/emergency/meetingpoint{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -307,6 +307,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
+"dnJ" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/machinery/iff_beacon,
+/turf/simulated/floor/airless,
+/area/ship/militia_ship)
 "dqJ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor,
@@ -402,6 +410,9 @@
 	dir = 1;
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/obj/machinery/button/distress{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
@@ -911,12 +922,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor,
-/area/ship/militia_ship)
-"ntt" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1";
@@ -924,6 +929,22 @@
 	},
 /turf/simulated/floor,
 /area/ship/militia_ship)
+"ntt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor,
+/area/shuttle/militia_shuttle)
 "nty" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/plate/bowl,
@@ -32712,7 +32733,7 @@ fNZ
 bey
 xbK
 pAh
-xRX
+dnJ
 xRX
 xRX
 xRX

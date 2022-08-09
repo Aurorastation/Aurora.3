@@ -242,3 +242,7 @@
 /obj/item/trash/phoroncandy
 	name = "\improper phoron rock candy stick"
 	icon_state = "rock_candy"
+
+/obj/item/trash/proteinbar
+	name = "protein bar wrapper"
+	icon_state = "proteinbar"

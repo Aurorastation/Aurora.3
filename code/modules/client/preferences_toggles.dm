@@ -160,50 +160,6 @@
 		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 2)
 	feedback_add_details("admin_verb","TAmbi") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/verb/toggle_space_parallax()
-	set name = "Show/Hide Space Parallax"
-	set category = "Preferences"
-	set desc = "Toggles space parallax effects."
-	prefs.toggles_secondary ^= PARALLAX_SPACE
-	prefs.save_preferences()
-	if (prefs.toggles_secondary & PARALLAX_SPACE)
-		to_chat(src, "You will now see space parallax effects.")
-	else
-		to_chat(src, "You will no longer see space parallax effects.")
-
-	if (mob.hud_used)
-		mob.hud_used.update_parallax()
-
-
-/client/verb/toggle_space_dust()
-	set name = "Show/Hide Space Dust"
-	set category = "Preferences"
-	set desc = "Toggles space parallax dust."
-	prefs.toggles_secondary ^= PARALLAX_DUST
-	prefs.save_preferences()
-	if (prefs.toggles_secondary & PARALLAX_DUST)
-		to_chat(src, "You will now see space parallax dust effects.")
-	else
-		to_chat(src, "You will no longer see space parallax dust effects.")
-
-	if (mob.hud_used)
-		mob.hud_used.update_parallax()
-
-/client/verb/set_parallax_speed()
-	set name = "Set Parallax Speed"
-	set category = "Preferences"
-	set desc = "Sets the movement speed of the space parallax effect."
-	var/choice = input("What speed do you want to use for space parallax? (default 2)", "SPAAACE") as num|null
-	if (!choice || choice < 0)
-		to_chat(src, "Invalid input.")
-		return
-
-	prefs.parallax_speed = choice
-	prefs.save_preferences()
-
-	if (mob.hud_used)
-		mob.hud_used.update_parallax()
-
 /client/verb/toggle_progress()
 	set name = "Show/Hide Progress Bars"
 	set category = "Preferences"
@@ -224,16 +180,3 @@
 	prefs.toggles_secondary ^= FLOATING_MESSAGES
 	prefs.save_preferences()
 	to_chat(src, SPAN_NOTICE("Floating messages are now [prefs.toggles_secondary & FLOATING_MESSAGES ? "enabled" : "disabled"]."))
-
-/client/verb/toggle_static_spess()
-	set name = "Toggle Parallax Movement"
-	set category = "Preferences"
-	set desc = "Toggles movement of parallax space."
-
-	prefs.toggles_secondary ^= PARALLAX_IS_STATIC
-	prefs.save_preferences()
-
-	if (prefs.toggles_secondary & PARALLAX_IS_STATIC)
-		to_chat(src, "Space will no longer move.")
-	else
-		to_chat(src, "Space will now move.")

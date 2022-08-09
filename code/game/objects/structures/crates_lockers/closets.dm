@@ -369,6 +369,15 @@
 			user.drop_from_inventory(W,loc)
 		else
 			user.drop_item()
+	else if(istype(W, /obj/item/device/cratescanner))
+		var/obj/item/device/cratescanner/Cscanner = W
+		if(locked)
+			to_chat(user, SPAN_WARNING("[W] refuses to scan [src]. Unlock it first!"))
+			return
+		if(welded)
+			to_chat(user, SPAN_WARNING("[W] detects that [src] is welded shut, and refuses to scan."))
+			return
+		Cscanner.print_contents(name, contents, src.loc)
 	else if(istype(W, /obj/item/stack/packageWrap))
 		return
 	else if(istype(W, /obj/item/ducttape))
@@ -752,3 +761,32 @@
 	if(linked_teleporter)
 		QDEL_NULL(linked_teleporter)
 	return ..()
+
+/*
+==========================
+	Contents Scanner
+==========================
+*/
+/obj/item/device/cratescanner
+	name = "crate contents scanner"
+	desc = "A  handheld device used to scan and print a manifest of a container's contents. Does not work on locked crates, for privacy reasons."
+	icon_state = "cratescanner"
+	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
+	w_class = ITEMSIZE_SMALL
+	item_state = "electronic"
+	flags = CONDUCT
+	slot_flags = SLOT_BELT
+
+/obj/item/device/cratescanner/proc/print_contents(targetname, targetcontents, targetloc)
+	var/output = list()
+	var/list/outputstring
+	for(var/atom/item in targetcontents)
+		if(item.name in output)
+			output[item.name] = output[item.name] + 1
+		else
+			output[item.name] = 1
+	for(var/entry in output)
+		outputstring += "- [entry]: [output[entry]]x<br>"
+	var/obj/item/paper/printout = new /obj/item/paper(targetloc)
+	printout.info = "contents of [targetname]<br>"
+	printout.info += "[outputstring]"

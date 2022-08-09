@@ -3,7 +3,17 @@
 /datum/event/ionstorm
 	var/botEmagChance = 0.5
 	var/list/players = list()
+	var/cloud_hueshift
 	no_fake = 1
+	has_skybox_image = TRUE
+
+/datum/event/ionstorm/get_skybox_image()
+	if(!cloud_hueshift)
+		cloud_hueshift = color_rotation(rand(-3,3)*15)
+	var/image/res = overlay_image('icons/skybox/ionbox.dmi', "ions", cloud_hueshift, RESET_COLOR)
+	res.blend_mode = BLEND_ADD
+	return res
+
 /datum/event/ionstorm/announce()
 	endWhen = rand(500, 1500)
 //		command_alert("The station has entered an ion storm.  Monitor all electronic equipment for malfunctions", "Anomaly Alert")
@@ -93,6 +103,7 @@
 				bot.emag_act(1)
 
 /datum/event/ionstorm/end(var/faked)
+	..()
 	spawn(rand(5000,8000))
 		if(prob(50))
 			ion_storm_announcement()

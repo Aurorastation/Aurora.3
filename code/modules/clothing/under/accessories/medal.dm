@@ -104,6 +104,6 @@
 
 /obj/item/clothing/accessory/medal/gold/miranda
 	name = "miranda cross"
-	desc = "The highest honour Nanotrasen can bestow upon an employee, the Miranda Cross is a golden, cross shaped medal encrusted with a small blue sapphire in the middle. On the back, the name of the recipient and the date are engraved."
+	desc = "The highest honour NanoTrasen can bestow upon an employee, the Miranda Cross is a golden, cross shaped medal encrusted with a small blue sapphire in the middle. On the back, the name of the recipient and the date are engraved."
 	icon_state = "miranda_cross"
 	overlay_state = "miranda_cross"
