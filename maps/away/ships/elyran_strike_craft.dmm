@@ -1675,6 +1675,19 @@
 /obj/effect/shuttle_landmark/elyran_strike_craft/transit,
 /turf/space/transit/south,
 /area/space)
+"uYO" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor,
+/area/shuttle/elyran_shuttle)
 "vlC" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
@@ -1942,6 +1955,11 @@
 	dir = 8
 	},
 /turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"xEG" = (
+/obj/structure/railing/mapped,
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/airless,
 /area/ship/elyran_strike_craft)
 "xGj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -34469,7 +34487,7 @@ rEs
 vOv
 pcX
 aTV
-pcX
+uYO
 mXz
 mXz
 mXz
@@ -36527,7 +36545,7 @@ vlC
 atj
 pfd
 lxP
-xRX
+xEG
 xRX
 xRX
 xRX
