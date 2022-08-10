@@ -1,6 +1,0 @@
-author: SleepyGemmy, PowerfulBacon
-
-delete-after: True
-
-changes:
-  - backend: "Fixes Fail2Topic IP banning."
