@@ -97,8 +97,8 @@
  * Fire Closet
  */
 /obj/structure/closet/firecloset
-	name = "fire-safety closet"
-	desc = "It's a storage unit for fire-fighting supplies."
+	name = "firefighting closet"
+	desc = "It's a storage unit for firefighting supplies."
 	icon_state = "fire"
 
 /obj/structure/closet/firecloset/fill()

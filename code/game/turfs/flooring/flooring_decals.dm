@@ -514,6 +514,10 @@
 	name = "blue emergency closet outline"
 	color = "#618FBA"
 
+/obj/effect/floor_decal/industrial/outline/firefighting_closet
+	name = "red firefighting closet outline"
+	color = "#C82D2D"
+
 /obj/effect/floor_decal/industrial/loading
 	name = "loading area"
 	icon_state = "loadingarea"

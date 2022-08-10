@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - maptweak: "Replaces old outlines around emergency lockers with their dedicated variant."
