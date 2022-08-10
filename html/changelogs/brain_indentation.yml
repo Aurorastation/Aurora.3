@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes faulty indentation in the brain code, causing paralysis to proc every time instead of 5% of the time."
