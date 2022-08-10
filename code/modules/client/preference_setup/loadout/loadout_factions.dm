@@ -204,7 +204,7 @@
 	var/list/pmc_labcoats = list()
 	pmc_labcoats["labcoat, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	pmc_labcoats["labcoat alt, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
-	pmc_labcoats["labcoat, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/epmc
+	pmc_labcoats["labcoat, EPMC"] = /obj/item/clothing/suit/storage/toggle/labcoat/epmc
 	gear_tweaks += new /datum/gear_tweak/path(pmc_labcoats)
 
 /datum/gear/faction/pmcg_headwear

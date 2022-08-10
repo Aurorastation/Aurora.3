@@ -1,0 +1,7 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - bugfix: "All three PMCG/EPMC labcoats are now in the loadout."
+  - bugfix: "The EPMC labcoat now has an on mob sprite again."
