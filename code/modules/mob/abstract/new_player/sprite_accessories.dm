@@ -2370,6 +2370,18 @@ Follow by example and make good judgement based on length which list to include 
 			length = 6
 			chatname = "massive frills"
 
+		una_hornsbusted
+			name = "Unathi Horns-Busted"
+			icon_state = "unathi_simplehornbusted"
+			length = 5
+			chatname = "horns"
+
+		una_ramhornshortbusted
+			name = "Unathi Short Ram Horns-Busted"
+			icon_state = "unathi_ramhornbusted"
+			length = 5
+			chatname = "horns"
+
 
 //skrell tentacles
 
@@ -3518,6 +3530,14 @@ Follow by example and make good judgement based on length which list to include 
 		una_regal
 			name = "Unathi Regal Frills"
 			icon_state = "unathi_regalfrills"
+
+		una_hornsbusted
+			name = "Unathi Horns-Busted"
+			icon_state = "unathi_simplehornbusted"
+
+		una_ramhornshortbusted
+			name = "Unathi Short Ram Horns-Busted"
+			icon_state = "unathi_ramhornbusted"
 
 //ipc screens
 
