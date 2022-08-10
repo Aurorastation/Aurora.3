@@ -1,0 +1,338 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"b" = (
+/obj/item/ore/glass,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"e" = (
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"f" = (
+/obj/effect/decal/cleanable/ash,
+/obj/item/ore,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"h" = (
+/obj/item/ore,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"i" = (
+/obj/item/ore/gold,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"m" = (
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"n" = (
+/turf/simulated/mineral/random/higher_chance/phoron,
+/area/space)
+"t" = (
+/obj/item/ore/silver,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"A" = (
+/obj/item/ore/strangerock,
+/turf/simulated/mineral/random/higher_chance/phoron,
+/area/space)
+"F" = (
+/obj/item/ore/glass,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"G" = (
+/obj/structure/flora/tree/dead,
+/obj/effect/decal/cleanable/ash,
+/obj/item/ore/silver,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"H" = (
+/obj/item/ore/iron,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"K" = (
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"N" = (
+/obj/item/ore/glass,
+/turf/simulated/mineral/random/higher_chance/phoron,
+/area/space)
+"U" = (
+/obj/structure/flora/tree/dead,
+/obj/item/ore/silver,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"V" = (
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"W" = (
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"X" = (
+/obj/item/ore/uranium,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"Y" = (
+/obj/effect/decal/cleanable/ash,
+/obj/item/ore/gold,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+
+(1,1,1) = {"
+K
+K
+K
+K
+b
+b
+a
+a
+a
+a
+a
+a
+n
+a
+a
+"}
+(2,1,1) = {"
+K
+m
+V
+V
+V
+V
+F
+a
+t
+a
+e
+a
+a
+K
+a
+"}
+(3,1,1) = {"
+K
+V
+n
+n
+n
+n
+V
+V
+K
+K
+W
+e
+a
+a
+K
+"}
+(4,1,1) = {"
+b
+F
+n
+n
+n
+n
+n
+e
+K
+a
+V
+i
+a
+K
+a
+"}
+(5,1,1) = {"
+K
+V
+n
+n
+n
+n
+n
+H
+X
+K
+a
+a
+K
+a
+a
+"}
+(6,1,1) = {"
+K
+H
+N
+n
+n
+n
+n
+V
+V
+b
+a
+K
+h
+V
+a
+"}
+(7,1,1) = {"
+a
+V
+V
+n
+n
+n
+n
+n
+n
+V
+K
+a
+K
+e
+a
+"}
+(8,1,1) = {"
+K
+V
+V
+V
+n
+n
+n
+X
+V
+V
+N
+n
+a
+K
+a
+"}
+(9,1,1) = {"
+U
+e
+b
+V
+H
+n
+V
+X
+n
+V
+V
+V
+a
+a
+a
+"}
+(10,1,1) = {"
+K
+a
+a
+K
+H
+F
+n
+V
+V
+V
+m
+n
+K
+a
+e
+"}
+(11,1,1) = {"
+a
+K
+a
+a
+V
+V
+V
+V
+n
+V
+H
+V
+K
+K
+G
+"}
+(12,1,1) = {"
+K
+U
+i
+A
+a
+V
+V
+V
+V
+V
+V
+V
+V
+a
+K
+"}
+(13,1,1) = {"
+a
+K
+a
+V
+Y
+a
+a
+e
+H
+H
+n
+V
+F
+a
+e
+"}
+(14,1,1) = {"
+a
+a
+a
+a
+f
+V
+a
+a
+V
+K
+V
+K
+V
+n
+a
+"}
+(15,1,1) = {"
+a
+a
+a
+K
+W
+K
+e
+a
+a
+a
+H
+a
+a
+V
+K
+"}
