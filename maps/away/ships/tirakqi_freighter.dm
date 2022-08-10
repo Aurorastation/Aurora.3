@@ -27,6 +27,7 @@
 	desc = "A large skrellian freighter often seen skulking around space near the borders of the Traverse. This model has a large cargo hold, swift engines, and a deceptively large fuel reserve. Perfect for any smuggler on the go. This one's transponder identifies it as belonging to an independent freighter."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	class = "ISV"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -41,7 +42,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/tirakqi_freighter/New()
-    name = "ISV [pick("Bigger Squib", "Frightful Whaler", "Star Spanner", "Lu'Kaax", "Star Scamp", "Ocean Ink", "Yippi")]"
+    designation = "[pick("Bigger Squib", "Frightful Whaler", "Star Spanner", "Lu'Kaax", "Star Scamp", "Ocean Ink", "Yippi")]"
     ..()
 
 /obj/effect/shuttle_landmark/tirakqi_freighter/nav1
