@@ -912,6 +912,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"avz" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_two)
 "avM" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_atmos{
@@ -5194,6 +5203,12 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/hallway/primary/central_two)
+"cMs" = (
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/fernybush,
+/turf/simulated/floor/grass/alt,
+/area/hallway/primary/central_two)
 "cMF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -6216,6 +6231,15 @@
 	},
 /turf/simulated/open/airless,
 /area/template_noop)
+"dpv" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_two)
 "dpE" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -16608,6 +16632,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
+"iWV" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_two)
 "iXI" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -29078,6 +29111,8 @@
 /area/horizon/maintenance/deck_two/fore/starboard)
 "pQm" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/ausbushes/palebush,
 /turf/simulated/floor/grass/alt,
 /area/hallway/primary/central_two)
 "pQq" = (
@@ -66647,7 +66682,7 @@ nkF
 hEF
 nkF
 ept
-pQm
+cMs
 fwK
 qVu
 qVu
@@ -68260,7 +68295,7 @@ pib
 nvv
 fEa
 ulB
-gzF
+dpv
 mvZ
 ukp
 ukp
@@ -68462,7 +68497,7 @@ roX
 rlp
 qTB
 rUh
-gzF
+avz
 aKr
 doI
 ejU
@@ -68664,7 +68699,7 @@ aBr
 gPM
 lFE
 ulB
-gzF
+iWV
 aNp
 qav
 qav
