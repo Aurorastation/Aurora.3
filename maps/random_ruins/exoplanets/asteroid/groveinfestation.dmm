@@ -1,0 +1,1859 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aK" = (
+/obj/structure/flora/ausbushes/grassybush,
+/turf/simulated/wall/rusty,
+/area/exoplanet/grass/grove)
+"aV" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/grass/grove)
+"aW" = (
+/turf/simulated/wall/rusty,
+/area/exoplanet/grass/grove)
+"bi" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/flora/bush/grove,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"bD" = (
+/obj/structure/reagent_crystal/dense,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"bZ" = (
+/obj/structure/simple_door/wood,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"cv" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"du" = (
+/obj/machinery/appliance/cooker/grill,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"dA" = (
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/grass/grove)
+"dK" = (
+/obj/structure/sign/directions/medical,
+/turf/simulated/wall/wood,
+/area/exoplanet/grass/grove)
+"dT" = (
+/obj/structure/flora/grass/jungle/b,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"ef" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"fh" = (
+/obj/structure/diona/vines,
+/obj/structure/flora/bush/grove{
+	icon_state = "grove_bush3"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"fk" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"fW" = (
+/obj/structure/flora/bush/grove{
+	icon_state = "grove_bush4"
+	},
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/grass/grove)
+"gc" = (
+/obj/item/pickaxe,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"ge" = (
+/obj/machinery/door/airlock/sac,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"go" = (
+/obj/effect/spider/stickyweb,
+/obj/structure/flora/rock/pile,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"gq" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/flora/grass/jungle/b,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"gO" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"hm" = (
+/mob/living/simple_animal/hostile/spider_queen,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"hz" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"hC" = (
+/obj/structure/girder,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"hO" = (
+/obj/structure/bed,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"hU" = (
+/obj/machinery/floodlight,
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"iD" = (
+/obj/structure/railing/mapped,
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"iK" = (
+/obj/machinery/power/crystal_agitator,
+/obj/item/stack/material/phoron,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"iX" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"js" = (
+/obj/structure/flora/tree/grove{
+	icon_state = "grove_tree3"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"jG" = (
+/obj/structure/bed/stool/chair/wood,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"jI" = (
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"jJ" = (
+/obj/machinery/door/airlock/sac,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"jN" = (
+/obj/random/medical,
+/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"jP" = (
+/obj/structure/table/wood,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/item/flamethrower/full,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"jQ" = (
+/obj/item/clothing/head/surgery,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"kh" = (
+/obj/item/stack/material/phoron,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"kt" = (
+/obj/structure/flora/tree/grove{
+	icon_state = "grove_tree5"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"ku" = (
+/obj/structure/table/steel,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"ky" = (
+/obj/structure/flora/bush/grove,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/grass/grove)
+"kA" = (
+/obj/item/stack/material/wood/full,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"ln" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lantern{
+	on = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"lz" = (
+/obj/structure/closet/l3closet/virology,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"lR" = (
+/mob/living/simple_animal/hostile/giant_spider/hunter,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"mi" = (
+/obj/machinery/optable,
+/obj/effect/decal/cleanable/blood/writing,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"mo" = (
+/obj/structure/flora/rock/pile,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"mp" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"mN" = (
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/railing/mapped,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"nt" = (
+/obj/structure/flora/tree/grove,
+/turf/simulated/wall,
+/area/exoplanet/grass/grove)
+"nB" = (
+/obj/structure/flora/tree/grove{
+	icon_state = "grove_tree4"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"nE" = (
+/obj/item/material/twohanded/spear/steel,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"nW" = (
+/obj/effect/decal/cleanable/blood/writing,
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"nZ" = (
+/obj/item/stack/material/wood/full,
+/obj/structure/flora/grass/jungle/b,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"oe" = (
+/obj/structure/flora/ausbushes/genericbush,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"oN" = (
+/obj/effect/decal/cleanable/blood/xeno,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"pv" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/bush/grove{
+	icon_state = "grove_bush4"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"pw" = (
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/wall/wood,
+/area/exoplanet/grass/grove)
+"pH" = (
+/obj/structure/boulder,
+/obj/item/broken_bottle,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"pI" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"pY" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"qt" = (
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"qR" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"sz" = (
+/obj/structure/bed/stool/chair/sofa{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"tb" = (
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"tp" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/grassybush,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"tA" = (
+/mob/living/simple_animal/hostile/giant_spider/hunter,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"tH" = (
+/obj/item/device/flashlight/lantern{
+	on = 1
+	},
+/turf/simulated/wall/wood,
+/area/exoplanet/grass/grove)
+"um" = (
+/obj/structure/flora/tree/grove{
+	icon_state = "grove_tree6"
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"uq" = (
+/obj/structure/flora/ausbushes/genericbush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"uO" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/grass/grove)
+"vK" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"vV" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/wall/rusty,
+/area/exoplanet/grass/grove)
+"wl" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"xi" = (
+/obj/structure/flora/bush/grove{
+	icon_state = "grove_bush2"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"xm" = (
+/obj/structure/flora/tree/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"xD" = (
+/obj/structure/flora/bush/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"xE" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"xG" = (
+/obj/structure/boulder,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"xT" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"xW" = (
+/obj/structure/closet/crate/gear_loadout/hephaestus,
+/obj/item/gun/projectile/plasma/bolter/pistol,
+/obj/item/gun/projectile/plasma/bolter/pistol,
+/obj/item/ammo_magazine/plasma/light/pistol,
+/obj/item/ammo_magazine/plasma/light/pistol,
+/obj/item/ammo_magazine/plasma/light/pistol,
+/obj/item/ammo_magazine/plasma/light/pistol,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"yg" = (
+/obj/structure/flora/rock/pile,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"yh" = (
+/obj/structure/crystal,
+/obj/item/stack/material/phoron,
+/turf/simulated/wall,
+/area/exoplanet/grass/grove)
+"yi" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"yP" = (
+/obj/structure/diona/vines,
+/turf/simulated/wall,
+/area/exoplanet/grass/grove)
+"zf" = (
+/obj/structure/boulder,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"zo" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/wall,
+/area/exoplanet/grass/grove)
+"Ab" = (
+/obj/structure/flora/grass/jungle/b,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"Af" = (
+/obj/effect/spider/stickyweb,
+/mob/living/simple_animal/hostile/giant_spider/hunter,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"Aq" = (
+/obj/structure/flora/rock/pile,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"AD" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"AG" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/inhaler/hyperzine,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"AQ" = (
+/obj/structure/closet/excavation,
+/obj/item/reagent_containers/inhaler/peridaxon,
+/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
+/obj/item/clothing/head/beret/medical,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"Bt" = (
+/obj/structure/barricade/metal/wired,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"By" = (
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"BI" = (
+/obj/random/medical,
+/obj/effect/decal/cleanable/blood/writing,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"BK" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"BY" = (
+/mob/living/simple_animal/hostile/giant_spider/hunter,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"Cq" = (
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"Cv" = (
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"CB" = (
+/obj/structure/diona/vines,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"Dk" = (
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"Dm" = (
+/obj/structure/reagent_crystal,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"DM" = (
+/obj/structure/pit/closed/grave,
+/obj/structure/gravemarker/random,
+/obj/structure/diona/vines,
+/obj/item/clothing/accessory/flagpatch/elyra,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"DN" = (
+/obj/item/device/flashlight/lantern{
+	on = 1
+	},
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"DT" = (
+/obj/structure/flora/tree/grove,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"DW" = (
+/obj/structure/diona/vines,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"Ec" = (
+/turf/simulated/wall,
+/area/exoplanet/grass/grove)
+"Eo" = (
+/obj/structure/flora/grass/jungle/b,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"Fi" = (
+/obj/structure/flora/bush/grove{
+	icon_state = "grove_bush3"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"Fv" = (
+/obj/structure/flora/bush/grove,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"Fx" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"GC" = (
+/turf/simulated/wall/wood,
+/area/exoplanet/grass/grove)
+"GE" = (
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"GN" = (
+/obj/structure/bed,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"HT" = (
+/obj/structure/barricade/metal/wired{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"HW" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"Id" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"If" = (
+/obj/machinery/floodlight{
+	dir = 4
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"Iz" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"IP" = (
+/obj/structure/crystal,
+/obj/item/stack/material/phoron,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"Jj" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"Kx" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"KE" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"Lg" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"LD" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"Mw" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"MP" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/wall/wood,
+/area/exoplanet/grass/grove)
+"MX" = (
+/mob/living/simple_animal/hostile/giant_spider/emp,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"Nd" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"Nm" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/dispenser/phoron,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"Oe" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"Oz" = (
+/mob/living/simple_animal/hostile/giant_spider/nurse,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"OD" = (
+/obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"OE" = (
+/obj/structure/barricade/metal/wired,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"OK" = (
+/obj/structure/pit/closed/grave,
+/obj/structure/gravemarker/random,
+/obj/structure/diona/vines,
+/obj/item/clothing/head/helmet/space/void/mining,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"OO" = (
+/obj/machinery/floodlight{
+	on = 1
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"OV" = (
+/obj/machinery/power/smes/batteryrack/makeshift,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"PR" = (
+/obj/structure/railing/mapped,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"Qa" = (
+/obj/item/broken_bottle,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"QK" = (
+/obj/machinery/computer/security/wooden_tv,
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"QU" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"Rl" = (
+/obj/structure/barricade/metal/wired{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"Rm" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"Rs" = (
+/obj/structure/railing/mapped,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"RO" = (
+/obj/structure/table/steel,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"RX" = (
+/obj/item/surgery/circular_saw,
+/obj/item/reagent_containers/spray/sterilizine,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"Sy" = (
+/obj/structure/flora/bush/grove{
+	icon_state = "grove_bush4"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"Tj" = (
+/obj/structure/table/steel,
+/obj/item/tank/phoron/shuttle,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"Tn" = (
+/obj/structure/curtain/medical,
+/obj/effect/decal/cleanable/blood/writing,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"Uh" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"Um" = (
+/obj/item/shovel/spade,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"UD" = (
+/obj/structure/table/wood,
+/obj/item/computer_hardware/battery_module/micro,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"VG" = (
+/obj/item/shovel,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"VS" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"Wc" = (
+/obj/structure/flora/ausbushes/grassybush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/exoplanet/grass/grove)
+"Wg" = (
+/obj/structure/closet/crate/medical,
+/turf/simulated/floor/wood,
+/area/exoplanet/grass/grove)
+"Xa" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/grass/grove)
+"Xu" = (
+/obj/structure/trash_pile,
+/obj/item/stack/material/steel/full,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"YM" = (
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"ZE" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+"ZO" = (
+/obj/structure/flora/bush/grove{
+	icon_state = "grove_bush4"
+	},
+/turf/simulated/floor,
+/area/exoplanet/grass/grove)
+
+(1,1,1) = {"
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Sy
+Id
+Id
+Id
+Id
+Id
+Id
+xD
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+"}
+(2,1,1) = {"
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Oe
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Iz
+Id
+Id
+Id
+Id
+Id
+Iz
+Id
+Id
+Ec
+Ec
+Id
+"}
+(3,1,1) = {"
+Id
+Id
+Ec
+Ec
+Id
+Id
+Id
+js
+Id
+Id
+Iz
+Id
+Fi
+Id
+Sy
+Iz
+Id
+Id
+GC
+GC
+GC
+GC
+GC
+GC
+GC
+GC
+GC
+GC
+GC
+Ec
+Ec
+Id
+"}
+(4,1,1) = {"
+Id
+Id
+Ec
+Ec
+Id
+Id
+Id
+Id
+pv
+Id
+Id
+Id
+Id
+Id
+Oe
+Id
+Id
+Id
+GC
+GE
+GE
+GE
+GE
+GC
+GE
+HW
+HW
+HW
+HW
+GC
+Id
+Id
+"}
+(5,1,1) = {"
+Id
+Id
+Oe
+Id
+Id
+Id
+xD
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+GC
+GE
+GN
+hO
+GE
+Mw
+LD
+Wc
+BY
+GE
+du
+GC
+kt
+Id
+"}
+(6,1,1) = {"
+Id
+Id
+Id
+Id
+If
+jI
+Id
+Id
+Id
+Id
+Id
+Fx
+tb
+jI
+By
+iD
+Id
+AD
+GC
+GC
+GC
+GC
+GC
+GC
+nZ
+GE
+dT
+GE
+GE
+GC
+nB
+Id
+"}
+(7,1,1) = {"
+Id
+Id
+Fv
+jI
+ku
+RO
+ku
+Id
+KE
+hC
+Id
+Rm
+jI
+jI
+Id
+ZE
+AD
+Id
+xD
+Id
+Iz
+xD
+Iz
+kA
+iX
+HW
+Ab
+sz
+GE
+GC
+Id
+Id
+"}
+(8,1,1) = {"
+Oe
+Id
+AD
+Id
+ku
+jI
+AD
+yg
+Id
+AD
+KE
+aW
+aW
+jJ
+Ec
+Ec
+Fv
+Id
+Id
+Id
+Id
+Sy
+iX
+hU
+GC
+QK
+GE
+sz
+GE
+GC
+Id
+Id
+"}
+(9,1,1) = {"
+Id
+Id
+Id
+um
+mp
+Id
+Id
+aW
+aW
+go
+Ec
+Ec
+Lg
+jI
+jI
+aW
+Ec
+yP
+yP
+Ec
+Id
+Id
+Id
+Id
+GC
+UD
+GE
+sz
+GE
+GC
+js
+Id
+"}
+(10,1,1) = {"
+Id
+Iz
+Id
+Id
+Id
+jI
+Id
+Ec
+jI
+Id
+xD
+Ec
+jI
+jI
+Lg
+aW
+xW
+Id
+gc
+yP
+zf
+Fi
+Iz
+Id
+Mw
+GE
+cv
+ef
+GE
+GC
+Id
+Id
+"}
+(11,1,1) = {"
+Id
+Fi
+jI
+Id
+jI
+Id
+Id
+Ec
+DT
+lR
+mo
+aW
+AD
+Lg
+jI
+vV
+jI
+jI
+gc
+aW
+Id
+Id
+Id
+xi
+GC
+Qa
+GE
+GE
+GE
+GC
+kt
+Id
+"}
+(12,1,1) = {"
+Id
+Id
+Id
+Id
+xD
+Id
+Id
+Ec
+Lg
+Lg
+DW
+Id
+DW
+uq
+Lg
+jI
+ZO
+jI
+Xu
+vV
+mo
+Id
+Id
+Id
+GC
+GC
+bZ
+GC
+tH
+GC
+Id
+Id
+"}
+(13,1,1) = {"
+Id
+gO
+jI
+Id
+VS
+VS
+aW
+aW
+aW
+aW
+yi
+jI
+jI
+DW
+tA
+DW
+jI
+yh
+Ec
+Ec
+Ec
+VS
+VS
+Id
+AD
+GE
+jI
+GE
+xT
+GE
+xD
+Id
+"}
+(14,1,1) = {"
+Id
+Id
+jI
+Id
+HT
+xG
+Ec
+jI
+jI
+jI
+Sy
+IP
+Oz
+jI
+DW
+jI
+jI
+jI
+DW
+jI
+Ec
+jI
+Bt
+Id
+Id
+AD
+BK
+Fi
+Id
+AD
+Id
+Id
+"}
+(15,1,1) = {"
+Id
+Id
+jI
+jI
+jI
+jI
+jJ
+jI
+Lg
+jI
+jI
+Dm
+Dk
+iK
+jI
+jI
+hm
+Lg
+jI
+Lg
+ge
+jI
+jI
+jI
+jI
+AD
+jI
+jI
+jI
+AD
+Id
+Id
+"}
+(16,1,1) = {"
+Id
+Id
+Id
+Id
+Rl
+jI
+zo
+jI
+Lg
+Lg
+jI
+jI
+Aq
+wl
+bD
+jI
+DW
+Eo
+jI
+Lg
+Ec
+jI
+OE
+Id
+Id
+Id
+AD
+Id
+jI
+AD
+Id
+Id
+"}
+(17,1,1) = {"
+Id
+kt
+Id
+Id
+bi
+Nd
+Ec
+Ec
+Ec
+yP
+yi
+nE
+IP
+DN
+Lg
+DW
+jI
+yP
+Ec
+aW
+Ec
+Nd
+Uh
+Id
+Id
+Id
+xT
+GE
+Lg
+GE
+Id
+Id
+"}
+(18,1,1) = {"
+Id
+Id
+Iz
+Id
+Id
+Id
+hz
+Ec
+Lg
+jI
+Lg
+kh
+jI
+qR
+jI
+jI
+jI
+jI
+DW
+aW
+Id
+zf
+Id
+Id
+Id
+Id
+GC
+GC
+Mw
+GC
+xD
+Id
+"}
+(19,1,1) = {"
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Ec
+Lg
+Af
+DW
+aW
+mp
+jI
+Nm
+aW
+jI
+DW
+jI
+aW
+Id
+Id
+Id
+GC
+GC
+GC
+GC
+GE
+GE
+GC
+Id
+Id
+"}
+(20,1,1) = {"
+Id
+Id
+xD
+Id
+Id
+Id
+Id
+nt
+Lg
+Lg
+Lg
+aW
+Tj
+wl
+pI
+fk
+DW
+Lg
+gc
+Ec
+pH
+xD
+Id
+GC
+ef
+GE
+Mw
+GE
+OV
+GC
+Id
+kt
+"}
+(21,1,1) = {"
+Id
+Id
+Id
+Id
+xD
+Id
+Id
+Ec
+Ec
+yP
+aW
+aW
+yi
+xD
+dT
+aK
+mo
+Ec
+zo
+Ec
+Id
+Id
+Id
+GC
+hO
+ef
+GC
+MX
+jP
+GC
+Id
+Id
+"}
+(22,1,1) = {"
+Id
+xD
+Id
+Id
+Id
+Id
+Id
+Oe
+VG
+hz
+hz
+aW
+Ec
+jJ
+aW
+Ec
+iX
+Cv
+pI
+Id
+Id
+Id
+Id
+GC
+GC
+GC
+GC
+Kx
+ln
+GC
+Id
+Id
+"}
+(23,1,1) = {"
+Id
+Id
+Id
+OO
+Id
+Iz
+Id
+Oe
+Id
+Id
+Um
+gq
+jI
+wl
+jI
+mN
+Eo
+KE
+Id
+Id
+Id
+xm
+Id
+Id
+hU
+OD
+GC
+GC
+GC
+GC
+js
+Id
+"}
+(24,1,1) = {"
+Id
+Id
+Oe
+Id
+Id
+Id
+Id
+Id
+Id
+Iz
+Id
+tp
+Cq
+wl
+YM
+QU
+AD
+Id
+Id
+pI
+Id
+AD
+dA
+dA
+hz
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+"}
+(25,1,1) = {"
+Id
+Ec
+Ec
+Id
+Id
+fh
+DM
+Jj
+OK
+CB
+Id
+Id
+jI
+jI
+Id
+Id
+oe
+dA
+dA
+dA
+dA
+dA
+aV
+dA
+dA
+dA
+dA
+fW
+dA
+dA
+Id
+Id
+"}
+(26,1,1) = {"
+Id
+Ec
+Ec
+Oe
+Id
+iX
+Id
+Oe
+CB
+Id
+xD
+Rs
+GE
+PR
+Id
+dA
+aV
+GC
+GC
+GC
+GC
+GC
+MP
+Id
+Id
+Id
+uO
+dA
+dA
+dA
+ky
+Id
+"}
+(27,1,1) = {"
+Id
+Id
+xm
+Id
+Id
+Id
+Id
+Id
+Id
+Sy
+Id
+QU
+GE
+vK
+dA
+dA
+Id
+dK
+lz
+AQ
+jG
+AG
+GC
+GC
+GC
+GC
+Id
+dA
+dA
+dA
+dA
+Id
+"}
+(28,1,1) = {"
+Id
+Id
+AD
+Id
+AD
+oe
+dA
+dA
+Fi
+dA
+dA
+Xa
+GE
+PR
+dA
+Id
+wl
+Mw
+xE
+ef
+xE
+Wg
+GC
+RX
+qt
+GC
+Id
+Id
+dA
+Ec
+Ec
+Id
+"}
+(29,1,1) = {"
+Id
+Id
+dA
+aV
+dA
+dA
+aV
+dA
+dA
+aV
+Id
+QU
+GE
+vK
+Id
+oN
+jI
+tH
+jN
+GE
+jQ
+BI
+Tn
+nW
+mi
+GC
+Id
+xD
+Id
+Ec
+Ec
+Id
+"}
+(30,1,1) = {"
+dA
+dA
+dA
+AD
+Id
+Id
+AD
+AD
+AD
+js
+Id
+Id
+jI
+wl
+Iz
+Id
+jI
+MP
+GC
+GC
+GC
+GC
+GC
+GC
+pw
+GC
+Id
+Id
+Id
+js
+Id
+Id
+"}
+(31,1,1) = {"
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+ZO
+pY
+wl
+jI
+Id
+Id
+xD
+Id
+Id
+Id
+xD
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+"}
+(32,1,1) = {"
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+Id
+"}

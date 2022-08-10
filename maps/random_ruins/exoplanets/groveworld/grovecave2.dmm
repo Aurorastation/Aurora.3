@@ -1,0 +1,145 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"e" = (
+/turf/simulated/mineral/planet,
+/area/space)
+"m" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/mineral/random/higher_chance/phoron,
+/area/space)
+"o" = (
+/turf/simulated/mineral/random/higher_chance,
+/area/space)
+"D" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/lava,
+/area/space)
+"H" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/lava,
+/area/space)
+"M" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/mineral/random/higher_chance,
+/area/space)
+
+(1,1,1) = {"
+o
+o
+o
+o
+o
+o
+M
+M
+M
+o
+"}
+(2,1,1) = {"
+o
+M
+D
+D
+D
+m
+D
+D
+D
+M
+"}
+(3,1,1) = {"
+o
+M
+D
+D
+D
+D
+D
+D
+M
+o
+"}
+(4,1,1) = {"
+o
+D
+D
+D
+D
+D
+D
+m
+o
+o
+"}
+(5,1,1) = {"
+o
+D
+D
+D
+m
+D
+D
+D
+o
+o
+"}
+(6,1,1) = {"
+o
+M
+D
+D
+D
+D
+D
+D
+M
+o
+"}
+(7,1,1) = {"
+o
+o
+m
+D
+D
+D
+D
+D
+D
+o
+"}
+(8,1,1) = {"
+o
+M
+D
+H
+D
+D
+D
+D
+M
+o
+"}
+(9,1,1) = {"
+o
+D
+D
+D
+M
+M
+M
+M
+o
+e
+"}
+(10,1,1) = {"
+o
+o
+o
+o
+o
+o
+o
+o
+o
+e
+"}
