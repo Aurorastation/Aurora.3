@@ -27,7 +27,7 @@
 		/obj/item/gun/projectile/revolver/detective   = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/leyon                = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic/x9         = TRADER_THIS_TYPE,
-		/obj/item/gun/projectile/automatic/rifle/carbine = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/automatic/rifle/carbine = TRADER_ALL,
 		/obj/item/ammo_magazine/a556/carbine 			 = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/c45m                         = TRADER_ALL,
 		/obj/item/ammo_magazine/c45m/empty                   = TRADER_BLACKLIST,
@@ -71,6 +71,7 @@
 		/obj/item/gun/energy/xray                  = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/rifle                 = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/rifle/laser           = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/rifle/laser/noctiluca = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/gun                   = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/pistol                = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/gun/nuclear           = TRADER_THIS_TYPE,
@@ -85,6 +86,7 @@
 	origin = "Comrade Sergei's Humble Shop"
 	speech = list(
 		"hail_generic"      = "Grrreetings, comrrrade! Sergei hopes they can enjoy his selection of goods, nothing herrre was smuggled!",
+		"hail_Tajara"       = "Welcome, comrrrade. He has the best prrrices forr them!",
 		"hail_deny"         = "The shop is closed, comrrrade!",
 		"trade_complete"    = "Many thanks, comrrrade, enjoy it!",
 		"trade_blacklist"   = "No, no, nothing of this in his shop!",
@@ -121,6 +123,7 @@
 		/obj/item/gun/projectile/deagle/adhomai               = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/revolver/adhomian            = TRADER_THIS_TYPE,
 		/obj/item/gun/launcher/harpoon                        = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/recoilless_rifle             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/shotgun/foldable             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic/rifle/adhomian     = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/revolver/knife               = TRADER_THIS_TYPE
@@ -131,7 +134,7 @@
 	name = "Tactical Gear Shop Employee"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Tactical Gear Shop"
-	possible_origins = list("Mall Ninja. Co.", "Hephaestus Defense Supplies", "Tacticool Emporium", "The Redshirt", "The Harmbaton")
+	possible_origins = list("Hephaestus Defense Supplies", "Tacticool Emporium", "The Redshirt", "The Harmbaton", "Zavodskoi Interstellar Defense Supplies")
 	speech = list(
 		"hail_generic"      = "Welcome to ORIGIN, you will find everything you need to stay safe.",
 		"hail_deny"         = "We refuse to make business with you.",

@@ -107,7 +107,7 @@
 	name = "Replica Store Owner"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Replica Store"
-	possible_origins = list("Ye-Old Armory", "Knights and Knaves", "The Blacksmith", "Historical Human Apparel and Items", "The Pointy End")
+	possible_origins = list("Ye-Old Armory", "Knights and Knaves", "The Blacksmith", "Historical Apparel and Items", "The Pointy End")
 	speech = list(
 		"hail_generic"      = "Welcome, welcome! You look like a man who appreciates human history. Come in, and learn! Maybe even.... buy?",
 		"hail_Unathi"       = "Ah, you look like a lizard who knows his way around martial combat. Come in! Our stuff may not be as high quality as you are used to, but feel free to look around.",
