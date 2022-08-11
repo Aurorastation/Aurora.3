@@ -10040,25 +10040,25 @@
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "fAK" = (
-/obj/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for engine core.";
-	id = "EngineVent";
-	name = "Engine Ventillatory Control";
-	pixel_x = 24;
-	pixel_y = 10;
-	req_access = list(10)
-	},
 /obj/machinery/button/remote/airlock{
-	desc = "A remote control-switch for the engine core airlock hatch bolts.";
-	id = "engine_access_hatch";
-	name = "Engine Hatch Bolt Control";
-	pixel_x = 24;
-	pixel_y = -10;
-	req_access = list(10);
-	specialfunctions = 4
+	id = "CEdoor";
+	name = "Office Door Control";
+	pixel_x = 25;
+	req_access = list(56);
+	dir = 8;
+	pixel_y = -7
 	},
-/obj/machinery/keycard_auth{
-	pixel_x = 24
+/obj/machinery/button/switch/windowtint{
+	id = "ce";
+	pixel_x = 24;
+	pixel_y = 2;
+	range = 9;
+	dir = 8
+	},
+/obj/machinery/light_switch{
+	pixel_x = 24;
+	dir = 8;
+	pixel_y = 9
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
@@ -10773,12 +10773,15 @@
 	name = "north bump";
 	pixel_y = 24
 	},
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
 	department = "Chief Engineer's Office"
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Chief Engineer's Office"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -11287,25 +11290,22 @@
 /area/turret_protected/ai_upload)
 "gfX" = (
 /obj/structure/table/rack,
-/obj/item/clothing/mask/breath,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/clothing/suit/fire/atmos,
-/obj/item/clothing/head/hardhat/firefighter/chief,
-/obj/item/rig/ce/equipped{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/firealarm/west,
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Chief Engineer's Office"
-	},
 /obj/machinery/door/window/brigdoor/southleft{
 	req_access = list(56)
 	},
-/turf/simulated/floor/tiled,
+/obj/item/clothing/suit/fire/atmos,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/glasses/welding/superior,
+/obj/item/clothing/head/hardhat/firefighter/chief,
+/obj/item/rig/ce/equipped,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/chief)
 "ggd" = (
 /obj/machinery/door/blast/regular{
@@ -12733,7 +12733,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage_hard)
 "gOi" = (
-/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
 "gOq" = (
@@ -15585,9 +15584,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
 "iwd" = (
@@ -17775,10 +17771,6 @@
 /obj/item/rfd_ammo,
 /obj/item/rfd_ammo,
 /obj/item/rfd_ammo,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/window/brigdoor/southright{
 	req_access = list(56)
 	},
@@ -17786,7 +17778,13 @@
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/chief)
 "jDt" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -19631,12 +19629,9 @@
 /area/rnd/strongroom)
 "kKk" = (
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "1-4"
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(56)
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "kKo" = (
 /obj/structure/cable{
@@ -19886,9 +19881,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "kRH" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28;
@@ -19896,6 +19888,13 @@
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 10;
+	pixel_y = 1
+	},
+/obj/machinery/papershredder{
+	pixel_x = -6
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -22826,12 +22825,37 @@
 /obj/machinery/button/remote/driver{
 	id = "enginecore";
 	name = "Emergency Core Eject";
-	pixel_y = -20
+	pixel_y = -34;
+	dir = 1;
+	pixel_x = -8
 	},
 /obj/item/modular_computer/console/preset/engineering/ce{
 	dir = 1
 	},
 /obj/machinery/light,
+/obj/machinery/keycard_auth{
+	pixel_y = -25;
+	pixel_x = -5
+	},
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for engine core.";
+	id = "EngineVent";
+	name = "Engine Ventillatory Control";
+	pixel_x = 7;
+	pixel_y = -25;
+	req_access = list(10);
+	dir = 1
+	},
+/obj/machinery/button/remote/airlock{
+	desc = "A remote control-switch for the engine core airlock hatch bolts.";
+	id = "engine_access_hatch";
+	name = "Engine Hatch Bolt Control";
+	pixel_x = 7;
+	pixel_y = -35;
+	req_access = list(10);
+	specialfunctions = 4;
+	dir = 1
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "mxO" = (
@@ -23715,12 +23739,8 @@
 /area/security/main)
 "mVw" = (
 /obj/structure/table/standard,
-/obj/item/modular_computer/laptop/preset/engineering/ce,
-/obj/item/folder/yellow,
 /obj/item/stamp/ce,
-/obj/item/storage/slide_projector{
-	pixel_y = 12
-	},
+/obj/item/paper/monitorkey,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "mVF" = (
@@ -28874,10 +28894,10 @@
 /area/rnd/conference)
 "pJB" = (
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/engineering)
+/turf/simulated/floor/wood,
+/area/crew_quarters/heads/chief)
 "pJE" = (
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -29390,6 +29410,11 @@
 	icon_state = "2-4"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
 "pWR" = (
@@ -30512,6 +30537,9 @@
 	name = "Chief Engineer's Office";
 	req_access = list(56)
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
 "qEL" = (
@@ -30720,10 +30748,19 @@
 /area/assembly/chargebay)
 "qGH" = (
 /obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
+/obj/item/paper_bin{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/obj/item/pen{
+	pixel_x = -6
+	},
 /obj/item/paper_scanner{
-	pixel_x = 8
+	pixel_x = 9;
+	pixel_y = 3
+	},
+/obj/item/folder/yellow{
+	pixel_x = -5
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
@@ -31972,19 +32009,6 @@
 "rpl" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
-	},
-/obj/machinery/button/switch/windowtint{
-	id = "ce";
-	pixel_x = -26;
-	pixel_y = -20;
-	range = 9
-	},
-/obj/machinery/button/remote/airlock{
-	id = "CEdoor";
-	name = "Office Door Control";
-	pixel_x = -36;
-	pixel_y = -20;
-	req_access = list(56)
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
@@ -35704,6 +35728,18 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
+"two" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/engineering/tesla)
 "twC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -42155,7 +42191,9 @@
 /area/operations/break_room)
 "wGh" = (
 /obj/machinery/light_switch{
-	pixel_x = -24
+	pixel_x = -24;
+	dir = 4;
+	pixel_y = 9
 	},
 /obj/machinery/newscaster{
 	pixel_y = -30
@@ -43503,9 +43541,6 @@
 	dir = 8;
 	spread_point = 2
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -43515,7 +43550,8 @@
 /obj/structure/sign/drop{
 	pixel_y = 31
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/maintenance/disposal)
 "xqo" = (
 /obj/structure/railing/mapped{
@@ -44875,15 +44911,11 @@
 /area/rnd/hallway)
 "ybH" = (
 /obj/structure/table/standard,
-/obj/item/reagent_containers/food/drinks/flask/barflask{
-	pixel_x = -5;
-	pixel_y = 5
+/obj/item/modular_computer/laptop/preset/engineering/ce{
+	pixel_y = 3
 	},
-/obj/item/device/radio/off,
-/obj/item/flame/lighter/zippo,
-/obj/item/clothing/glasses/welding/superior{
-	pixel_x = 2;
-	pixel_y = 2
+/obj/item/storage/slide_projector{
+	pixel_y = 12
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
@@ -64363,7 +64395,7 @@ gOi
 tna
 voz
 fSx
-wAT
+kKk
 ygK
 rpl
 mxs
@@ -64562,10 +64594,10 @@ kQS
 lOf
 vhI
 ivN
-pJB
-kKk
+gOi
+voz
 kRH
-wAT
+pJB
 pXI
 fAK
 iVg
@@ -64760,11 +64792,11 @@ hBN
 bSK
 xVu
 vbc
-lMD
-sMn
-sMn
+dSU
+sen
+sen
 pnF
-sMn
+sen
 sMn
 sMn
 qEe
@@ -64969,7 +65001,7 @@ qtY
 nlT
 rEk
 qEd
-rEk
+two
 rEk
 wqe
 nMv
