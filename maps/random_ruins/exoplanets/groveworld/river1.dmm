@@ -1,0 +1,529 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"b" = (
+/obj/structure/flora/bush/grove{
+	icon_state = "grove_bush3"
+	},
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"e" = (
+/obj/structure/flora/bush/grove{
+	icon_state = "grove_bush4"
+	},
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"f" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"h" = (
+/obj/structure/flora/bush/grove{
+	icon_state = "grove_bush3"
+	},
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"i" = (
+/obj/item/ore/gold,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"n" = (
+/obj/item/material/stool/chair/wood,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"o" = (
+/obj/structure/flora/bush/grove,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"p" = (
+/obj/structure/sink/puddle,
+/obj/item/ore/gold,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"q" = (
+/obj/structure/trash_pile,
+/obj/structure/flora/clutter,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"r" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"s" = (
+/obj/item/holder/chicken/black,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"t" = (
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"u" = (
+/obj/item/ore/strangerock,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"v" = (
+/obj/item/holder/chicken/brown,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"w" = (
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"x" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"A" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/obj/item/ore/iron,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"B" = (
+/obj/structure/flora/tree/grove{
+	icon_state = "grove_tree4"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"E" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"F" = (
+/obj/structure/flora/bush/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"G" = (
+/obj/item/ore/iron,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"J" = (
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"K" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"L" = (
+/obj/structure/flora/clutter,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"M" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/obj/item/ore/iron,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"N" = (
+/obj/item/ore/glass,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"O" = (
+/obj/structure/flora/tree/grove{
+	icon_state = "grove_tree5"
+	},
+/obj/item/ore/strangerock,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"P" = (
+/obj/structure/flora/bush/grove,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"R" = (
+/obj/structure/sink/puddle,
+/obj/structure/flora/ausbushes/stalkybush,
+/obj/item/holder/chicken,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"S" = (
+/obj/structure/flora/tree/grove,
+/obj/item/stack/material/wood,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"V" = (
+/obj/structure/flora/tree/grove{
+	icon_state = "grove_tree6"
+	},
+/obj/item/stack/material/wood,
+/obj/structure/flora/clutter,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"W" = (
+/obj/item/stack/material/wood,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"X" = (
+/obj/structure/flora/bush/grove{
+	icon_state = "grove_bush2"
+	},
+/obj/item/ore/gold,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"Y" = (
+/obj/structure/flora/bush/grove{
+	icon_state = "grove_bush4"
+	},
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"Z" = (
+/obj/item/stack/material/wood,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+
+(1,1,1) = {"
+x
+x
+x
+x
+t
+x
+a
+x
+w
+x
+"}
+(2,1,1) = {"
+x
+f
+x
+t
+t
+a
+r
+a
+w
+x
+"}
+(3,1,1) = {"
+x
+x
+t
+s
+t
+a
+X
+a
+w
+x
+"}
+(4,1,1) = {"
+x
+F
+t
+t
+a
+a
+a
+w
+w
+x
+"}
+(5,1,1) = {"
+x
+x
+t
+a
+r
+h
+a
+w
+x
+x
+"}
+(6,1,1) = {"
+x
+t
+t
+a
+a
+a
+w
+w
+x
+x
+"}
+(7,1,1) = {"
+x
+t
+O
+a
+a
+t
+w
+x
+x
+x
+"}
+(8,1,1) = {"
+x
+N
+Z
+a
+a
+t
+R
+x
+x
+x
+"}
+(9,1,1) = {"
+t
+v
+a
+a
+t
+G
+w
+x
+F
+x
+"}
+(10,1,1) = {"
+t
+a
+a
+a
+t
+w
+w
+x
+x
+x
+"}
+(11,1,1) = {"
+t
+L
+r
+t
+b
+J
+w
+x
+x
+x
+"}
+(12,1,1) = {"
+t
+a
+i
+a
+t
+w
+x
+x
+x
+x
+"}
+(13,1,1) = {"
+t
+Y
+a
+r
+N
+w
+w
+x
+x
+x
+"}
+(14,1,1) = {"
+x
+t
+n
+a
+t
+s
+w
+x
+x
+x
+"}
+(15,1,1) = {"
+x
+u
+S
+e
+a
+t
+p
+w
+x
+x
+"}
+(16,1,1) = {"
+x
+t
+K
+a
+a
+t
+t
+w
+w
+x
+"}
+(17,1,1) = {"
+x
+t
+t
+a
+r
+a
+a
+t
+w
+w
+"}
+(18,1,1) = {"
+x
+x
+t
+t
+V
+K
+h
+a
+h
+x
+"}
+(19,1,1) = {"
+x
+x
+x
+t
+L
+i
+r
+e
+a
+t
+"}
+(20,1,1) = {"
+x
+x
+w
+t
+t
+t
+L
+h
+a
+t
+"}
+(21,1,1) = {"
+E
+x
+w
+P
+w
+t
+t
+a
+a
+t
+"}
+(22,1,1) = {"
+x
+x
+w
+x
+w
+t
+t
+a
+e
+t
+"}
+(23,1,1) = {"
+B
+x
+x
+x
+w
+b
+t
+a
+a
+x
+"}
+(24,1,1) = {"
+W
+x
+E
+Y
+x
+o
+t
+a
+a
+x
+"}
+(25,1,1) = {"
+x
+x
+w
+t
+w
+t
+t
+a
+a
+x
+"}
+(26,1,1) = {"
+x
+x
+x
+x
+x
+t
+a
+a
+a
+x
+"}
+(27,1,1) = {"
+x
+x
+x
+e
+a
+a
+w
+a
+x
+x
+"}
+(28,1,1) = {"
+x
+w
+a
+w
+a
+A
+a
+a
+t
+x
+"}
+(29,1,1) = {"
+x
+t
+M
+q
+x
+t
+x
+x
+x
+x
+"}
+(30,1,1) = {"
+x
+x
+e
+w
+x
+x
+x
+x
+x
+x
+"}

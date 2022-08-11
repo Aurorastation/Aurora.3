@@ -1,0 +1,918 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aW" = (
+/obj/item/device/flashlight/flare/torch,
+/turf/simulated/wall/wood,
+/area/space)
+"dw" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"dM" = (
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"em" = (
+/obj/structure/flora/tree/jungle,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"eW" = (
+/obj/structure/barricade/wooden,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"fr" = (
+/obj/structure/table/stone,
+/obj/item/material/knife/trench,
+/obj/item/storage/box/fancy/mre/menu10,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"fy" = (
+/turf/simulated/wall/wood,
+/area/space)
+"gj" = (
+/mob/living/simple_animal/hostile/giant_spider/emp,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"gn" = (
+/obj/structure/flora/tree/grove{
+	icon_state = "grove_tree6"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"hi" = (
+/mob/living/simple_animal/hostile/giant_spider/hunter,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"jL" = (
+/obj/structure/flora/rock/pile,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"kn" = (
+/obj/item/trash/mollusc_shell/clam,
+/obj/item/cell/device/emergency_light/empty,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"kA" = (
+/obj/structure/boulder,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"lg" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"oB" = (
+/obj/structure/boulder,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"qh" = (
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"qk" = (
+/obj/item/device/electronic_assembly/medium/radio,
+/turf/simulated/mineral/random/exoplanet,
+/area/space)
+"qW" = (
+/mob/living/simple_animal/hostile/giant_spider/emp,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"rb" = (
+/obj/item/device/flashlight/flare/torch,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"rm" = (
+/obj/structure/boulder,
+/turf/simulated/mineral/random/exoplanet,
+/area/space)
+"rt" = (
+/obj/structure/flora/tree/grove{
+	icon_state = "grove_tree3"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"sq" = (
+/obj/item/trash/mollusc_shell,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"tx" = (
+/obj/structure/trash_pile,
+/obj/item/gun/launcher/crossbow/RFD,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"tO" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"us" = (
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"uH" = (
+/obj/item/device/assembly/mousetrap/armed,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"yh" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"yx" = (
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"yD" = (
+/obj/item/stack/material/wood/full,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Bp" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"CH" = (
+/obj/item/broken_device,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Dk" = (
+/obj/structure/boulder,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"DZ" = (
+/obj/effect/spider/cocoon,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Eu" = (
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/obj/item/material/knife/bayonet,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Ey" = (
+/obj/item/device/ano_scanner,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Fe" = (
+/obj/item/trash/mollusc_shell,
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"FN" = (
+/obj/item/trash/mollusc_shell/barnacle,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"Gy" = (
+/turf/simulated/mineral/random/exoplanet,
+/area/space)
+"Hf" = (
+/obj/structure/pit,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Hi" = (
+/obj/structure/flora/rock,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"IN" = (
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Jx" = (
+/obj/item/torch,
+/turf/simulated/wall/wood,
+/area/space)
+"Kq" = (
+/obj/structure/sink/puddle,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"LP" = (
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"Nw" = (
+/obj/item/trash/mollusc_shell/clam,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"NQ" = (
+/obj/item/clothing/shoes/cowboy/classic,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"OR" = (
+/obj/structure/flora/tree/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Ph" = (
+/obj/structure/flora/tree/jungle/small,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Rg" = (
+/obj/structure/table/stone,
+/obj/item/stack/material/animalhide,
+/obj/item/reagent_containers/food/snacks/bearmeat,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"RD" = (
+/obj/item/device/flashlight/flare/torch,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"RN" = (
+/obj/structure/trash_pile,
+/mob/living/simple_animal/hostile/giant_spider/nurse,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"St" = (
+/obj/structure/boulder,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"SO" = (
+/obj/item/trap/animal/large,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Tl" = (
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/obj/item/gun/launcher/crossbow,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Tm" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/wall/wood,
+/area/space)
+"To" = (
+/obj/structure/flora/tree/grove{
+	icon_state = "grove_tree4"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"TE" = (
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"Uc" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"Uq" = (
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"WK" = (
+/obj/structure/simple_door/wood,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"XD" = (
+/obj/structure/flora/rock/pile,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Yr" = (
+/obj/structure/bed,
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/spider/cocoon,
+/obj/effect/decal/remains/human,
+/obj/item/clothing/under/rank/elyran_fatigues,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Yx" = (
+/obj/effect/spider/cocoon,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+
+(1,1,1) = {"
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+em
+Bp
+LP
+Bp
+gn
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+"}
+(2,1,1) = {"
+Bp
+Bp
+Bp
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+LP
+LP
+LP
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Bp
+rb
+Bp
+Bp
+Bp
+"}
+(3,1,1) = {"
+rt
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+LP
+Gy
+Gy
+Gy
+Gy
+Gy
+yx
+yx
+Gy
+Gy
+yx
+Gy
+Bp
+Bp
+Bp
+"}
+(4,1,1) = {"
+Bp
+Gy
+Gy
+Gy
+LP
+Fe
+TE
+Rg
+fr
+TE
+Dk
+LP
+LP
+Gy
+Gy
+LP
+Gy
+Gy
+Gy
+Gy
+yx
+yx
+dw
+yx
+yx
+dw
+Gy
+Gy
+Bp
+Bp
+"}
+(5,1,1) = {"
+Ph
+Gy
+Dk
+LP
+Dk
+FN
+TE
+TE
+yx
+RD
+Uc
+LP
+Nw
+LP
+Gy
+LP
+Gy
+Gy
+IN
+yx
+XD
+yx
+Gy
+yx
+yx
+Gy
+Gy
+Gy
+Bp
+Bp
+"}
+(6,1,1) = {"
+LP
+LP
+LP
+rm
+tO
+yh
+kn
+XD
+SO
+yx
+TE
+sq
+LP
+LP
+St
+LP
+Gy
+Gy
+yx
+hi
+kA
+yx
+Gy
+Gy
+yx
+Gy
+Gy
+Gy
+Gy
+em
+"}
+(7,1,1) = {"
+em
+Gy
+Gy
+Gy
+Gy
+qk
+CH
+Ey
+CH
+yx
+yx
+TE
+yh
+LP
+Gy
+Gy
+Gy
+Gy
+Gy
+yx
+Gy
+Gy
+Gy
+Gy
+XD
+Gy
+Gy
+Gy
+Gy
+Bp
+"}
+(8,1,1) = {"
+OR
+Gy
+Gy
+Yx
+Gy
+Gy
+yD
+fy
+fy
+WK
+fy
+yx
+TE
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+yx
+Gy
+Gy
+Gy
+Gy
+Bp
+"}
+(9,1,1) = {"
+Bp
+Gy
+Yx
+TE
+yx
+yx
+yx
+Tm
+Yr
+dM
+eW
+yx
+dw
+Gy
+Gy
+dw
+yx
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+IN
+yx
+yx
+dw
+yx
+Bp
+Bp
+"}
+(10,1,1) = {"
+Bp
+Gy
+Yx
+yx
+Yx
+Gy
+yx
+aW
+Tl
+Eu
+Jx
+dw
+yx
+yx
+yx
+yx
+dw
+rb
+Gy
+Gy
+Gy
+dw
+yx
+uH
+yx
+Gy
+Gy
+Gy
+Bp
+yx
+"}
+(11,1,1) = {"
+Bp
+Gy
+Gy
+yx
+Gy
+Gy
+Gy
+Gy
+yx
+yx
+yx
+yx
+dw
+Gy
+yx
+yx
+dw
+yx
+Gy
+Gy
+Gy
+dw
+SO
+Gy
+Gy
+Gy
+Gy
+Uq
+Bp
+Bp
+"}
+(12,1,1) = {"
+Bp
+Bp
+Gy
+yx
+Gy
+Gy
+Gy
+Gy
+dw
+yx
+kA
+Gy
+Gy
+Gy
+Gy
+dw
+yx
+yx
+yx
+XD
+yx
+yx
+yx
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Bp
+"}
+(13,1,1) = {"
+Bp
+Gy
+Gy
+DZ
+Gy
+Gy
+IN
+yx
+yx
+dw
+Gy
+Gy
+Gy
+Gy
+Gy
+yx
+yx
+Hi
+yx
+yx
+yx
+yx
+dw
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Bp
+"}
+(14,1,1) = {"
+Bp
+Gy
+Hf
+yx
+lg
+Gy
+SO
+dw
+SO
+us
+Gy
+Gy
+Gy
+Gy
+yx
+yx
+Gy
+Gy
+yx
+kA
+Gy
+yx
+yx
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Bp
+"}
+(15,1,1) = {"
+Bp
+Gy
+tx
+RN
+lg
+Gy
+yx
+uH
+Gy
+yx
+yx
+yx
+yx
+dw
+yx
+Gy
+yx
+yx
+yx
+Gy
+yx
+yx
+Gy
+Gy
+yx
+yx
+TE
+Gy
+Gy
+Bp
+"}
+(16,1,1) = {"
+Bp
+Gy
+Gy
+Gy
+Gy
+Gy
+dw
+rb
+Gy
+XD
+yx
+yx
+yx
+dw
+Gy
+NQ
+yx
+yx
+yx
+Gy
+yx
+Gy
+yx
+dw
+yx
+jL
+Yx
+Gy
+Gy
+Bp
+"}
+(17,1,1) = {"
+Bp
+yx
+dw
+yx
+yx
+XD
+yx
+yx
+Gy
+qh
+yx
+yx
+Gy
+Gy
+Gy
+Gy
+RD
+TE
+yx
+Gy
+yx
+Gy
+yx
+Gy
+yx
+TE
+Yx
+Gy
+Gy
+Bp
+"}
+(18,1,1) = {"
+Bp
+rb
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+qW
+yx
+Gy
+Gy
+Gy
+Gy
+Kq
+gj
+yx
+Gy
+yx
+yx
+yx
+Gy
+oB
+Yx
+Yx
+Gy
+Gy
+Bp
+"}
+(19,1,1) = {"
+Bp
+Bp
+Bp
+Bp
+Bp
+To
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+qh
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Bp
+"}
+(20,1,1) = {"
+Bp
+Bp
+Bp
+yx
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Gy
+Bp
+Bp
+Bp
+Gy
+Gy
+Gy
+Gy
+Bp
+Bp
+Bp
+Gy
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+"}

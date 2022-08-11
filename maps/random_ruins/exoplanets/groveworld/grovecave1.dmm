@@ -1,0 +1,165 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/mineral/planet,
+/area/space)
+"b" = (
+/obj/item/ore/gold,
+/obj/item/bone_dart,
+/obj/effect/spider/cocoon,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"d" = (
+/obj/item/bone_dart,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"u" = (
+/obj/item/bone_dart,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"y" = (
+/obj/item/bone_dart/vannatusk,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"z" = (
+/obj/item/ore/gold,
+/obj/item/bone_dart/vannatusk,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"A" = (
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"B" = (
+/obj/item/ore/gold,
+/obj/effect/spider/cocoon,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"G" = (
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"L" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"R" = (
+/mob/living/simple_animal/hostile/retaliate/halebeetle{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"U" = (
+/obj/structure/diona/vines,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"X" = (
+/obj/structure/diona/vines,
+/turf/simulated/mineral/planet,
+/area/space)
+"Z" = (
+/obj/structure/diona/vines,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+L
+A
+L
+L
+"}
+(3,1,1) = {"
+a
+A
+a
+a
+L
+"}
+(4,1,1) = {"
+a
+A
+A
+L
+L
+"}
+(5,1,1) = {"
+a
+a
+A
+U
+a
+"}
+(6,1,1) = {"
+a
+G
+U
+a
+a
+"}
+(7,1,1) = {"
+a
+y
+a
+L
+a
+"}
+(8,1,1) = {"
+a
+G
+A
+U
+a
+"}
+(9,1,1) = {"
+a
+a
+a
+G
+a
+"}
+(10,1,1) = {"
+a
+G
+G
+G
+a
+"}
+(11,1,1) = {"
+a
+d
+X
+a
+a
+"}
+(12,1,1) = {"
+a
+G
+A
+B
+a
+"}
+(13,1,1) = {"
+a
+d
+Z
+u
+a
+"}
+(14,1,1) = {"
+a
+R
+b
+z
+a
+"}
+(15,1,1) = {"
+a
+a
+a
+a
+a
+"}

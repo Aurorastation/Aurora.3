@@ -1,0 +1,614 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"c" = (
+/obj/item/farmbot_arm_assembly,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"d" = (
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"f" = (
+/mob/living/simple_animal/cow,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"g" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"h" = (
+/mob/living/simple_animal/cow,
+/mob/living/bot/farmbot,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"l" = (
+/obj/effect/decal/remains/robot/burned,
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"n" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"o" = (
+/obj/item/robot_parts/chest/synthskin,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"p" = (
+/mob/living/simple_animal/cow,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"q" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil/invisible,
+/obj/item/clothing/accessory/flagpatch/elyra,
+/turf/simulated/wall/r_wall,
+/area/space)
+"r" = (
+/obj/item/holder/chicken/white,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"s" = (
+/obj/item/robot_parts/robot_component/armor/mech/em,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"t" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil/invisible,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"u" = (
+/mob/living/simple_animal/cow,
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"v" = (
+/obj/item/robot_parts/robot_component/radio,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"w" = (
+/mob/living/simple_animal/cow,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"A" = (
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"B" = (
+/mob/living/simple_animal/cow,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"C" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"E" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"F" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"G" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/structure/closet/crate/hydroponics/prespawned,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"I" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/item/clothing/under/elyra_holo/masc,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"J" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"K" = (
+/obj/item/holder/chicken/white,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"L" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"M" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"N" = (
+/obj/item/robot_parts/l_leg,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"O" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"P" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Q" = (
+/mob/living/carbon/human/shell{
+	name = "inactive shell";
+	accent = "Elyran"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"S" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/item/robot_parts/robot_component/camera,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"T" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"U" = (
+/obj/effect/decal/fake_object{
+	desc = "An SUPB Pod, also know as a Single Use Personal Boarding Pod. These pods are utilized across the Spur for interdictions and hostile boarding actions across the Spur.";
+	icon = 'icons/obj/vehicles.dmi';
+	icon_state = "droppod";
+	name = "SUPB Pod"
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"V" = (
+/obj/item/robot_parts/robot_component/diagnosis_unit,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"W" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Y" = (
+/obj/structure/flora/ausbushes/grassybush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Z" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+C
+a
+a
+T
+g
+a
+a
+Z
+T
+n
+a
+a
+a
+a
+C
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+A
+a
+Z
+a
+K
+a
+a
+a
+a
+a
+Y
+a
+a
+a
+T
+a
+a
+"}
+(4,1,1) = {"
+Y
+a
+A
+A
+a
+a
+t
+a
+T
+C
+L
+q
+A
+a
+a
+Z
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+A
+B
+a
+O
+a
+a
+n
+a
+d
+A
+d
+a
+a
+a
+a
+a
+a
+a
+"}
+(6,1,1) = {"
+T
+a
+A
+n
+C
+a
+Y
+c
+s
+a
+n
+A
+g
+a
+a
+a
+a
+a
+Z
+a
+"}
+(7,1,1) = {"
+a
+a
+A
+a
+Q
+Z
+A
+U
+p
+Z
+J
+d
+B
+a
+A
+a
+a
+a
+a
+a
+"}
+(8,1,1) = {"
+a
+A
+A
+n
+K
+a
+d
+M
+d
+a
+J
+d
+Z
+n
+A
+a
+T
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+A
+a
+T
+V
+g
+B
+E
+B
+J
+J
+W
+a
+a
+A
+a
+Z
+a
+a
+a
+"}
+(10,1,1) = {"
+a
+A
+n
+a
+I
+G
+a
+E
+a
+B
+J
+J
+f
+a
+A
+r
+a
+a
+a
+Y
+"}
+(11,1,1) = {"
+a
+A
+Z
+a
+o
+n
+a
+w
+n
+N
+t
+Z
+J
+a
+C
+A
+a
+a
+a
+a
+"}
+(12,1,1) = {"
+a
+A
+a
+B
+v
+l
+S
+a
+g
+a
+h
+a
+n
+a
+a
+A
+a
+a
+a
+a
+"}
+(13,1,1) = {"
+a
+A
+A
+a
+A
+U
+A
+a
+B
+A
+U
+A
+T
+a
+a
+A
+a
+Y
+a
+a
+"}
+(14,1,1) = {"
+a
+a
+A
+t
+d
+M
+d
+a
+a
+d
+M
+d
+a
+a
+A
+A
+a
+a
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+A
+a
+J
+P
+a
+J
+a
+J
+d
+a
+a
+a
+A
+a
+C
+a
+Z
+a
+"}
+(16,1,1) = {"
+Z
+a
+A
+K
+J
+F
+t
+Z
+a
+T
+E
+a
+u
+A
+A
+a
+a
+a
+a
+a
+"}
+(17,1,1) = {"
+a
+a
+A
+A
+a
+d
+g
+n
+C
+a
+E
+g
+a
+A
+a
+a
+a
+T
+a
+a
+"}
+(18,1,1) = {"
+a
+T
+a
+A
+a
+a
+a
+T
+a
+a
+d
+Y
+a
+A
+a
+C
+a
+a
+a
+a
+"}
+(19,1,1) = {"
+a
+a
+a
+A
+A
+A
+a
+Z
+a
+a
+d
+a
+a
+r
+a
+Z
+a
+a
+a
+Z
+"}
+(20,1,1) = {"
+a
+a
+Z
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

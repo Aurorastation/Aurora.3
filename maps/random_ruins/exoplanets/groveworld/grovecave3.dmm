@@ -1,0 +1,128 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/diona/vines,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"c" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"g" = (
+/obj/structure/diona/vines,
+/turf/simulated/mineral/planet,
+/area/space)
+"v" = (
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/space)
+"Y" = (
+/turf/simulated/mineral/planet,
+/area/space)
+"Z" = (
+/mob/living/simple_animal/hostile/bear,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+
+(1,1,1) = {"
+c
+c
+Y
+Y
+c
+"}
+(2,1,1) = {"
+c
+Y
+Y
+c
+c
+"}
+(3,1,1) = {"
+Y
+Y
+c
+c
+c
+"}
+(4,1,1) = {"
+Y
+c
+c
+Y
+Y
+"}
+(5,1,1) = {"
+Y
+c
+Y
+c
+Y
+"}
+(6,1,1) = {"
+Y
+c
+c
+c
+Y
+"}
+(7,1,1) = {"
+Y
+Y
+g
+a
+Y
+"}
+(8,1,1) = {"
+Y
+c
+c
+a
+Y
+"}
+(9,1,1) = {"
+Y
+c
+g
+Y
+Y
+"}
+(10,1,1) = {"
+Y
+c
+c
+Y
+Y
+"}
+(11,1,1) = {"
+Y
+c
+c
+v
+Y
+"}
+(12,1,1) = {"
+g
+c
+a
+v
+Y
+"}
+(13,1,1) = {"
+Y
+c
+c
+v
+Y
+"}
+(14,1,1) = {"
+Y
+Z
+c
+g
+Y
+"}
+(15,1,1) = {"
+Y
+Y
+Y
+Y
+Y
+"}

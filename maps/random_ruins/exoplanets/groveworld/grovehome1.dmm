@@ -1,0 +1,1810 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ak" = (
+/obj/structure/window_frame,
+/obj/structure/curtain/open/bed{
+	icon_state = "closed"
+	},
+/obj/structure/window/basic,
+/obj/structure/barricade/wooden,
+/turf/simulated/floor/wood,
+/area/space)
+"ao" = (
+/obj/item/woodcirclet,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"aC" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/rat,
+/obj/item/bedsheet/brown,
+/obj/structure/bed,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"aH" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/wood,
+/area/space)
+"bg" = (
+/obj/structure/railing{
+	material = wood;
+	name = "wooden railing";
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"bk" = (
+/obj/structure/railing{
+	material = wood;
+	name = "wooden railing";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"bl" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"bv" = (
+/obj/item/gun/projectile/shotgun/doublebarrel/pellet,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"bx" = (
+/obj/item/clothing/head/tajaran/raskara,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"bB" = (
+/obj/structure/window_frame,
+/obj/structure/window/basic{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/curtain/open/bed{
+	icon_state = "closed"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"bU" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"cq" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/space)
+"cV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/bone_dart,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"dg" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"dm" = (
+/obj/structure/simple_door/wood,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"et" = (
+/obj/structure/flora/ausbushes/grassybush,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"ev" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/space)
+"ew" = (
+/obj/item/stack/material/wood/full,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"fJ" = (
+/obj/effect/map_effect/interval/effect_emitter/smoke{
+	interval_upper_bound = 50
+	},
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"fL" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/space)
+"gw" = (
+/obj/item/stack/material/wood,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"hh" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/chair/wood,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"hs" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/rat,
+/turf/simulated/floor/wood,
+/area/space)
+"iA" = (
+/obj/structure/flora/tree/jungle,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"iU" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"iX" = (
+/obj/structure/railing{
+	material = wood;
+	name = "wooden railing"
+	},
+/turf/simulated/wall/wood,
+/area/space)
+"jw" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/window_frame,
+/obj/structure/curtain/open/bed,
+/obj/machinery/media/jukebox/phonograph,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"kf" = (
+/mob/living/simple_animal/rat,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"kG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood,
+/obj/item/stack/dice/tajara/alt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"kK" = (
+/obj/item/reagent_containers/cooking_container/pot,
+/obj/structure/table/wood,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/item/clothing/mask/smokable/cigarette/adhomai,
+/turf/simulated/floor/wood,
+/area/space)
+"lm" = (
+/obj/item/towel_flat,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"mm" = (
+/obj/structure/flora/tree/jungle/small,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"mC" = (
+/obj/effect/decal/remains/human/burned{
+	desc = "They look like burned tajaran remains. They have a strange aura about them."
+	},
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"mH" = (
+/obj/item/material/twohanded/pike/pitchfork,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"nc" = (
+/mob/living/simple_animal/schlorrgo/baby,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"nh" = (
+/mob/living/simple_animal/schlorrgo,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"nr" = (
+/obj/item/shield/buckler,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/wrench,
+/turf/simulated/wall/wood,
+/area/space)
+"ny" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"nX" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/item/storage/toolbox/bike_storage/monowheel,
+/obj/item/shovel,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"oo" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/rat/brown,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"oX" = (
+/obj/item/material/hatchet,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"pl" = (
+/obj/machinery/appliance/cooker/stove,
+/obj/item/reagent_containers/cooking_container/saucepan,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"qc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/under/tajaran,
+/obj/item/clothing/under/tajaran,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/mask/smokable/cigarette/adhomai,
+/turf/simulated/floor/wood,
+/area/space)
+"qd" = (
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"qe" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"qx" = (
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"rk" = (
+/mob/living/simple_animal/rat,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"rT" = (
+/obj/structure/railing{
+	material = wood;
+	name = "wooden railing";
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"rV" = (
+/obj/item/target,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"ss" = (
+/turf/simulated/floor/wood,
+/area/space)
+"sJ" = (
+/obj/structure/target_stake,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"sQ" = (
+/obj/item/stack/dice/tajara,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"tn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/bone_dart,
+/obj/item/storage/toolbox/bike_storage/monowheel,
+/obj/structure/table/wood,
+/obj/effect/decal/cleanable/liquid_fuel/napalm,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"tw" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"tB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/under/tajaran,
+/obj/item/clothing/accessory/tajaran_wrap,
+/obj/item/clothing/head/tajaran/matake,
+/obj/structure/closet/cabinet,
+/obj/item/pocketwatch/adhomai,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/turf/simulated/floor/wood,
+/area/space)
+"tX" = (
+/obj/item/stack/dice/tajara/alt,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"uQ" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/rat/brown,
+/obj/structure/reagent_dispensers/keg/mead,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"uX" = (
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"vC" = (
+/obj/item/shield/buckler,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/cane/shillelagh,
+/turf/simulated/wall/wood,
+/area/space)
+"wg" = (
+/obj/item/reagent_containers/glass/bucket/wood,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/knife/ritual,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/wood,
+/area/space)
+"wo" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/rat/brown,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"wP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel/napalm,
+/turf/simulated/floor/wood,
+/area/space)
+"wZ" = (
+/obj/item/material/shard/wood,
+/turf/simulated/floor/wood,
+/area/space)
+"xx" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"xW" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"yx" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"yz" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"Ap" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Aw" = (
+/obj/structure/railing{
+	material = wood;
+	name = "wooden railing";
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"AA" = (
+/obj/effect/map_effect/interval/effect_emitter/smoke{
+	interval_upper_bound = 50
+	},
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"Bt" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/space)
+"BH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/stool/wood,
+/turf/simulated/floor/wood,
+/area/space)
+"Ca" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/can/adhomian_can,
+/turf/simulated/floor/wood,
+/area/space)
+"Cm" = (
+/obj/structure/railing{
+	material = wood;
+	name = "wooden railing";
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Dp" = (
+/mob/living/simple_animal/schlorrgo,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"DS" = (
+/turf/simulated/floor/grass/alt,
+/area/space)
+"Eb" = (
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"Eg" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/wall/wood,
+/area/space)
+"Eh" = (
+/obj/vehicle/bike/monowheel,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Ek" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"EG" = (
+/mob/living/simple_animal/schlorrgo,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"EN" = (
+/obj/structure/window_frame,
+/obj/structure/window/basic{
+	dir = 1
+	},
+/obj/structure/curtain/open/bed{
+	icon_state = "closed"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Fo" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Fq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"FW" = (
+/obj/structure/flora/tree/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Gf" = (
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Gi" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"GA" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/ash,
+/obj/effect/map_effect/interval/effect_emitter/smoke{
+	interval_upper_bound = 50
+	},
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"GS" = (
+/obj/structure/window_frame,
+/obj/structure/window/basic,
+/obj/structure/curtain/open/bed{
+	icon_state = "closed"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Hh" = (
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"Hn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/structure/closet/crate,
+/turf/simulated/floor/wood,
+/area/space)
+"HH" = (
+/obj/structure/flora/bush/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Iy" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/map_effect/interval/effect_emitter/smoke{
+	interval_upper_bound = 50
+	},
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"IE" = (
+/obj/item/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"IX" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"Jw" = (
+/obj/item/material/stool/chair/wood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/space)
+"JF" = (
+/obj/item/trash/can/adhomian_can,
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"JS" = (
+/obj/structure/window_frame,
+/obj/structure/window/basic{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/curtain/open/bed{
+	icon_state = "closed"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Ki" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/distillery,
+/turf/simulated/floor/wood,
+/area/space)
+"Ks" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"KE" = (
+/obj/structure/railing{
+	material = wood;
+	name = "wooden railing"
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"KI" = (
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"KZ" = (
+/obj/item/stack/material/wood,
+/obj/effect/map_effect/interval/effect_emitter/smoke{
+	interval_upper_bound = 50
+	},
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"Lm" = (
+/obj/effect/decal/cleanable/blood/tracks/paw,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Ln" = (
+/turf/simulated/wall/wood,
+/area/space)
+"Lq" = (
+/obj/item/material/shard/wood,
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"Lr" = (
+/obj/structure/window_frame,
+/obj/structure/window/basic{
+	dir = 1
+	},
+/obj/item/gun/projectile/musket,
+/obj/structure/curtain/open/bed{
+	icon_state = "closed"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Mg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/rat,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel/napalm,
+/turf/simulated/floor/wood,
+/area/space)
+"MD" = (
+/obj/structure/window_frame,
+/obj/structure/window/basic,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/curtain/open/bed{
+	icon_state = "closed"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"MN" = (
+/obj/structure/curtain/open/bed{
+	icon_state = "closed"
+	},
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Nk" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Ny" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/keg/mead,
+/turf/simulated/floor/wood,
+/area/space)
+"Or" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"OI" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"Qm" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Qq" = (
+/obj/structure/closet/cabinet,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/food/snacks/adhomian_can,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/material/knife,
+/obj/item/material/kitchen/utensil/fork,
+/obj/item/material/kitchen/utensil/fork,
+/obj/item/reagent_containers/food/drinks/bottle/veterans_choice,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"QK" = (
+/obj/structure/curtain/open/bed{
+	icon_state = "closed"
+	},
+/obj/effect/decal/cleanable/blood/tracks/paw,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Ro" = (
+/obj/item/material/twohanded/pike/pitchfork,
+/obj/item/shovel/spade,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"RD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/bedsheet/brown,
+/obj/structure/bed,
+/turf/simulated/floor/wood,
+/area/space)
+"RI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/stone,
+/obj/item/stack/dice/tajara,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"RY" = (
+/obj/structure/railing{
+	material = wood;
+	name = "wooden railing";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/tracks/paw,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Sb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/broken_electronics,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"Sd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/under/dress/tajaran/summer,
+/obj/item/clothing/under/dress/tajaran,
+/obj/item/clothing/suit/storage/hooded/tajaran/winter,
+/obj/item/clothing/accessory/tajaran_wrap/female,
+/obj/structure/closet/cabinet,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/item/clothing/head/sunflower_crown,
+/obj/item/clothing/head/pin/flower/yellow,
+/turf/simulated/floor/wood,
+/area/space)
+"SD" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"SH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel/napalm,
+/turf/simulated/floor/wood,
+/area/space)
+"SQ" = (
+/obj/item/stack/dice/tajara,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"SZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/wood,
+/obj/item/cell/device,
+/obj/item/device/electronic_assembly/medium/radio{
+	name = "broken radio"
+	},
+/obj/item/broken_device,
+/turf/simulated/floor/wood,
+/area/space)
+"Tm" = (
+/obj/structure/table/wood,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/paper/crumpled/bloody,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/item/clothing/mask/smokable/cigarette/adhomai,
+/turf/simulated/floor/wood,
+/area/space)
+"TP" = (
+/obj/structure/flora/tree/dead,
+/obj/effect/map_effect/interval/effect_emitter/smoke{
+	interval_upper_bound = 50
+	},
+/turf/simulated/floor/exoplanet/grass/grovegravel,
+/area/space)
+"TS" = (
+/obj/structure/railing{
+	material = wood;
+	name = "wooden railing";
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"UK" = (
+/obj/structure/railing{
+	material = wood;
+	name = "wooden railing";
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"UQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/stool/chair/wood,
+/mob/living/simple_animal/rat,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"Vp" = (
+/mob/living/simple_animal/rat,
+/obj/structure/railing{
+	material = wood;
+	name = "wooden railing";
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"VJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/stool/chair/wood,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/wood,
+/area/space)
+"YH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/space)
+"YV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/wood,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/item/flame/lighter/adhomai,
+/turf/simulated/floor/wood,
+/area/space)
+"Zi" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/grass/grovedirt,
+/area/space)
+"Zs" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/wood,
+/obj/item/device/multitool,
+/obj/item/stack/cable_coil,
+/turf/simulated/floor/wood,
+/area/space)
+"ZY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/structure/curtain/open/bed{
+	icon_state = "closed"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+
+(1,1,1) = {"
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+"}
+(2,1,1) = {"
+dg
+HH
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+mm
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+tw
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+"}
+(3,1,1) = {"
+dg
+dg
+dg
+dg
+tw
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+qd
+DS
+UK
+dg
+dg
+UK
+dg
+UK
+UK
+qx
+Hh
+dg
+qx
+dg
+dg
+dg
+"}
+(4,1,1) = {"
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+qx
+dg
+dg
+dg
+qx
+dg
+dg
+tw
+dg
+dg
+bU
+dg
+bU
+Fo
+Ap
+dg
+TS
+qx
+qx
+dg
+dg
+KI
+dg
+"}
+(5,1,1) = {"
+dg
+dg
+Or
+dg
+Or
+dg
+qx
+JF
+Gf
+Qm
+qx
+qd
+rT
+UK
+dg
+dg
+dg
+Ap
+dg
+bU
+Fo
+Ap
+dg
+dg
+qx
+KZ
+Hh
+Ln
+dg
+dg
+"}
+(6,1,1) = {"
+dg
+dg
+dg
+dg
+DS
+dg
+Ln
+Ln
+Ln
+Ln
+Ln
+Ln
+ss
+ss
+TS
+DS
+rk
+bU
+Fo
+xW
+dg
+bU
+dg
+TS
+dg
+Hh
+KI
+KI
+qx
+dg
+"}
+(7,1,1) = {"
+FW
+dg
+dg
+dg
+dg
+dg
+Ln
+Ki
+oo
+bl
+Zs
+ak
+fL
+cq
+Cm
+dg
+dg
+xW
+fJ
+Hh
+qx
+bU
+dg
+TS
+sQ
+Ln
+KI
+Hh
+qx
+dg
+"}
+(8,1,1) = {"
+dg
+dg
+DS
+dg
+dg
+SD
+Ln
+tn
+qe
+uQ
+Ny
+Ln
+Bt
+ss
+Cm
+dg
+qx
+Hh
+qx
+xW
+Fo
+Ap
+dg
+TS
+KI
+qx
+dg
+qx
+dg
+dg
+"}
+(9,1,1) = {"
+dg
+dg
+SD
+dg
+dg
+dg
+Ln
+Ln
+dm
+Eg
+Eg
+Eg
+Jw
+ss
+TS
+dg
+dg
+Zi
+dg
+bU
+Fo
+Fo
+Fo
+TS
+dg
+dg
+dg
+KI
+dg
+dg
+"}
+(10,1,1) = {"
+dg
+dg
+dg
+dg
+yx
+Or
+EN
+SZ
+Sb
+hh
+RI
+GS
+cq
+cq
+Cm
+dg
+Aw
+dg
+nh
+dg
+mH
+Aw
+dg
+dg
+qx
+dg
+dg
+dg
+dg
+dg
+"}
+(11,1,1) = {"
+dg
+dg
+dg
+dg
+dg
+SD
+Ln
+pl
+yz
+Mg
+bl
+Ln
+wo
+bl
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+DS
+dg
+dg
+dg
+"}
+(12,1,1) = {"
+dg
+Or
+dg
+Or
+dg
+dg
+Ln
+Qq
+wP
+SH
+lm
+dm
+Fq
+ss
+qx
+qx
+qx
+qx
+dg
+dg
+dg
+qx
+dg
+dg
+dg
+dg
+qx
+qx
+qx
+dg
+"}
+(13,1,1) = {"
+Or
+Ks
+dg
+rk
+dg
+yx
+EN
+YV
+VJ
+qe
+Ca
+GS
+bl
+wZ
+TS
+dg
+dg
+qx
+qx
+dg
+qx
+Eb
+qx
+dg
+dg
+qx
+qx
+dg
+dg
+dg
+"}
+(14,1,1) = {"
+Nk
+mC
+qx
+dg
+nh
+dg
+Ln
+jw
+Ln
+aH
+Eg
+Ln
+Ln
+JS
+Ln
+gw
+dg
+dg
+qx
+qx
+dg
+uX
+dg
+dg
+dg
+qx
+dg
+dg
+dg
+dg
+"}
+(15,1,1) = {"
+qx
+mC
+AA
+qx
+dg
+dg
+vC
+bl
+ev
+bl
+hs
+Ln
+qc
+BH
+Hn
+Ln
+gw
+DS
+dg
+qx
+qx
+qx
+dg
+dg
+dg
+qx
+dg
+dg
+dg
+FW
+"}
+(16,1,1) = {"
+iA
+sJ
+ny
+qx
+yx
+yx
+Lr
+IX
+kK
+Tm
+kG
+dm
+Fq
+YH
+YH
+MD
+oX
+ao
+dg
+qx
+Hh
+KI
+qx
+dg
+qx
+qx
+dg
+dg
+dg
+dg
+"}
+(17,1,1) = {"
+dg
+rV
+dg
+dg
+dg
+dg
+nr
+Fq
+UQ
+Gi
+cV
+Ln
+Fq
+aC
+RD
+Ln
+IE
+dg
+qx
+KI
+AA
+Hh
+qx
+dg
+qx
+qx
+dg
+dg
+dg
+dg
+"}
+(18,1,1) = {"
+dg
+dg
+dg
+Or
+dg
+qx
+Ln
+ZY
+Ln
+Ln
+Ln
+Ln
+dm
+Ln
+Ln
+Ln
+ew
+dg
+dg
+qx
+KI
+qx
+dg
+qx
+qx
+dg
+dg
+HH
+dg
+dg
+"}
+(19,1,1) = {"
+dg
+dg
+dg
+dg
+dg
+qx
+Ln
+wg
+Ln
+tB
+bl
+oo
+OI
+cq
+Sd
+Ln
+qx
+kf
+qx
+qx
+qx
+qx
+qx
+qx
+dg
+dg
+dg
+dg
+dg
+dg
+"}
+(20,1,1) = {"
+dg
+dg
+dg
+dg
+Or
+dg
+Ln
+Ln
+Ln
+Ln
+bB
+Ln
+dm
+Ln
+Ln
+Ln
+qx
+qx
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+tw
+dg
+dg
+"}
+(21,1,1) = {"
+dg
+dg
+DS
+dg
+dg
+KE
+ss
+ss
+xx
+xx
+xx
+xx
+xx
+xx
+ss
+qx
+dg
+qx
+dg
+bU
+dg
+bU
+Fo
+bv
+dg
+iU
+dg
+TS
+dg
+dg
+"}
+(22,1,1) = {"
+dg
+dg
+dg
+dg
+dg
+UK
+Aw
+Aw
+bg
+Aw
+Aw
+bk
+bk
+Aw
+Aw
+dg
+dg
+dg
+dg
+bU
+dg
+bU
+dg
+bU
+iU
+Zi
+iU
+TS
+dg
+dg
+"}
+(23,1,1) = {"
+dg
+dg
+Or
+dg
+UK
+qx
+Vp
+UK
+UK
+UK
+UK
+rT
+UK
+qx
+dg
+tw
+dg
+qx
+dg
+Zi
+Fo
+Ap
+dg
+bU
+iU
+Ek
+iU
+TS
+dg
+dg
+"}
+(24,1,1) = {"
+dg
+dg
+HH
+KE
+qx
+KE
+dg
+qx
+dg
+nc
+dg
+dg
+qx
+TS
+dg
+qx
+dg
+dg
+qx
+et
+iU
+Ap
+dg
+bU
+Iy
+Zi
+iU
+TS
+Fo
+dg
+"}
+(25,1,1) = {"
+dg
+Ln
+Ln
+Ln
+MN
+iX
+qx
+qx
+qx
+qx
+dg
+dg
+dg
+TS
+dg
+KI
+dg
+dg
+dg
+xW
+dg
+xW
+dg
+bU
+qx
+Hh
+qx
+TS
+dg
+dg
+"}
+(26,1,1) = {"
+dg
+Ln
+Eh
+Lm
+qx
+QK
+RY
+bg
+qx
+qx
+dg
+qx
+Lq
+qx
+qx
+dg
+dg
+DS
+dg
+EG
+iU
+GA
+qx
+bU
+dg
+Zi
+dg
+dg
+dg
+dg
+"}
+(27,1,1) = {"
+dg
+Ln
+bx
+tX
+SQ
+iX
+Dp
+qx
+Cm
+qx
+qx
+dg
+dg
+TS
+dg
+dg
+dg
+DS
+dg
+bU
+Fo
+Zi
+dg
+bU
+dg
+bU
+Fo
+dg
+dg
+dg
+"}
+(28,1,1) = {"
+dg
+Ln
+Ro
+nX
+tX
+Ln
+Aw
+Aw
+Aw
+Aw
+Aw
+Aw
+Aw
+dg
+TP
+qx
+dg
+dg
+tw
+bU
+dg
+bU
+dg
+bU
+dg
+bU
+dg
+TS
+dg
+dg
+"}
+(29,1,1) = {"
+dg
+Ln
+Ln
+Ln
+Ln
+Ln
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+qx
+dg
+dg
+dg
+Aw
+dg
+Aw
+dg
+Aw
+Aw
+Aw
+Aw
+dg
+dg
+dg
+dg
+"}
+(30,1,1) = {"
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+DS
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+HH
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+dg
+"}

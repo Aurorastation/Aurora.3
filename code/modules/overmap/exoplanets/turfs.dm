@@ -150,6 +150,17 @@
 	color = null
 	has_edge_icon = FALSE
 
+/turf/simulated/floor/exoplanet/grass/grovedirt
+	icon_state = "grove_dirt"
+	color = null
+	has_edge_icon = FALSE
+
+/turf/simulated/floor/exoplanet/grass/grovegravel
+	icon_state = "grove_gravel"
+	color = null
+	has_edge_icon = FALSE
+	footstep_sound = /decl/sound_category/asteroid_footstep
+
 /turf/simulated/floor/exoplanet/grass/grove/Initialize()
 	. = ..()
 	icon_state = "grove_grass[rand(1,2)]"

@@ -2412,6 +2412,7 @@
 #include "code\modules\mob\living\simple_animal\hostile\retaliate\cavern.dm"
 #include "code\modules\mob\living\simple_animal\hostile\retaliate\clown.dm"
 #include "code\modules\mob\living\simple_animal\hostile\retaliate\exoplanet.dm"
+#include "code\modules\mob\living\simple_animal\hostile\retaliate\halebeetle.dm"
 #include "code\modules\mob\living\simple_animal\hostile\retaliate\retaliate.dm"
 #include "code\modules\mob\living\simple_animal\mechanical\mechanical.dm"
 #include "code\modules\modular_computers\laptop_vendor.dm"
