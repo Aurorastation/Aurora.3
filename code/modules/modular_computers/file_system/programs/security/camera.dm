@@ -8,7 +8,7 @@
 		return
 
 	switch(network)
-		if(NETWORK_THUNDER)
+		if(NETWORK_THUNDER, NETWORK_NEWS)
 			return FALSE
 		if(NETWORK_ENGINE,NETWORK_ENGINEERING,NETWORK_ENGINEERING_OUTPOST,NETWORK_ALARM_ATMOS,NETWORK_ALARM_FIRE,NETWORK_ALARM_POWER)
 			return access_engine
@@ -37,7 +37,6 @@
 	size = 12
 	available_on_ntnet = TRUE
 	requires_ntnet = TRUE
-	required_access_download = access_heads
 	color = LIGHT_COLOR_ORANGE
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 
