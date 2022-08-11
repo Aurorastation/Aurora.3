@@ -312,6 +312,14 @@
 	item_state = "iqi_med_jacket"
 	icon_state = "iqi_med_jacket"
 
+/obj/item/clothing/under/skrell/wetsuit
+	name = "casual wetsuit"
+	desc = "A wetsuit intended as casualwear for Skrell. Can be worn on its own or under additional clothes."
+	icon = 'icons/obj/contained_items/skrell/wetsuit.dmi'
+	icon_state = "wetsuit"
+	item_state = "wetsuit"
+	var/additional_color = COLOR_GRAY
+	
 /obj/item/clothing/suit/storage/toggle/skrell/starcoat
 	name = "star coat"
 	desc = "A very fashionable coat, that traps moisture and provides good insulation. Starry patterns have been woven into its fabric."

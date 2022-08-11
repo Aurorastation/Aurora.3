@@ -1,72 +1,99 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/door/airlock/hatch{
+	name = "Thruster Bay";
+	req_access = list(207)
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"aab" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
 	},
-/obj/structure/trash_pile,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"aab" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/obj/structure/trash_pile,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
 "aac" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+/obj/structure/bed/roller,
+/obj/item/vitals_monitor{
+	pixel_x = 2;
+	pixel_y = 4
 	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"aap" = (
-/obj/machinery/shipsensors/weak,
-/obj/structure/railing/mapped,
-/turf/simulated/floor/airless,
-/area/ship/tramp_freighter)
-"aaI" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"acx" = (
-/obj/machinery/light/small{
+/obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 8
 	},
-/obj/structure/trash_pile,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"aap" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"aaI" = (
+/obj/structure/closet/walllocker/medical/secure{
+	name = "O- Blood Locker";
+	pixel_y = 32
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/effect/floor_decal/corner_wide/lime/full{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"acx" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
 "aej" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"afz" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"ahU" = (
-/obj/structure/sign/vacuum{
-	pixel_y = 31
+/area/ship/elyran_strike_craft)
+"aeM" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/shuttle/space_ship,
-/area/ship/tramp_freighter)
+/area/shuttle/elyran_shuttle)
+"afz" = (
+/obj/structure/sign/greencross,
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/ship/elyran_strike_craft)
 "ajL" = (
-/obj/structure/fuel_port{
-	pixel_x = -32
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
 "akP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
+/area/ship/elyran_strike_craft)
 "anK" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
@@ -74,405 +101,276 @@
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
+/area/ship/elyran_strike_craft)
 "aou" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/machinery/light/small/emergency{
-	dir = 8
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1;
+	layer = 2.8
 	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
+/area/ship/elyran_strike_craft)
 "aoJ" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/table/steel,
-/obj/item/reagent_containers/food/snacks/liquidfood,
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
 "atj" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/floodlight,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"auY" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/shuttle_landmark/freighter_shuttle/hangar,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"axB" = (
-/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"atP" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/shuttle/freighter_shuttle)
-"aAY" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/plating,
-/area/shuttle/freighter_shuttle)
-"aBb" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
-/area/shuttle/freighter_shuttle)
-"aCd" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"aCu" = (
 /obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"aFo" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/zora,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"aGW" = (
-/obj/machinery/computer/ship/helm{
-	req_access = null
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"aHt" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/tramp_freighter)
-"aHv" = (
-/obj/structure/bed/stool/chair/padded/brown{
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/effect/decal/fake_object{
+	desc = "A panel controlling an SUPB Pod. This one states the pod is currently offline.";
+	icon = 'icons/obj/computer.dmi';
+	icon_state = "lift";
+	name = "SUPB lauching panel"
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"auY" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"axB" = (
+/obj/machinery/door/airlock/command{
+	name = "Briefing";
+	req_access = list(207)
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"aAY" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"aBb" = (
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/tiled/ramp{
+	dir = 4
+	},
+/area/ship/elyran_strike_craft)
+"aCd" = (
+/obj/structure/table/steel,
+/obj/item/storage/slide_projector,
+/turf/simulated/floor/holofloor/carpet/rubber,
+/area/ship/elyran_strike_craft)
+"aCu" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/effect/floor_decal/corner_wide/lime/full{
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/carpet,
-/area/ship/tramp_freighter)
-"aHw" = (
-/obj/machinery/computer/shuttle_control/explore/freighter_shuttle{
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"aEE" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"aFo" = (
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "elyran_ship_port";
+	name = "interior access button";
+	pixel_y = 25
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"aGn" = (
+/obj/machinery/door/airlock{
+	name = "Head"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"aHa" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/structure/table/steel,
+/obj/item/trash/liquidfood,
+/obj/machinery/light{
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"aHt" = (
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"aJr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"aLo" = (
+/obj/machinery/computer/shuttle_control/explore/elyran_shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"aJd" = (
-/obj/structure/bed/stool/chair/shuttle{
+/area/shuttle/elyran_shuttle)
+"aNf" = (
+/obj/machinery/door/airlock{
+	name = "Crew Quarters";
+	req_access = list(207)
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"aOo" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"aTr" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"aTL" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/ship/elyran_strike_craft)
+"aTV" = (
+/obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"aVx" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/structure/closet/crate{
+	anchored = 1;
+	desc = "A rectangular steel footlocker.";
+	name = "footlocker"
+	},
+/obj/item/clothing/accessory/badge/passcard/elyra,
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical,
+/obj/item/roller,
+/obj/item/clothing/accessory/storage/pouches/white,
+/obj/item/clothing/glasses/hud/health,
+/obj/item/melee/telebaton,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"aXh" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "freight_shuttle_out"
+	},
+/turf/simulated/floor,
+/area/shuttle/elyran_shuttle)
+"baV" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"aLo" = (
+/area/shuttle/elyran_shuttle)
+"bdk" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	id_tag = "freight_shuttle";
+	id_tag = "elyran_shuttle";
 	name = "Port docking controller";
 	pixel_x = 6;
 	pixel_y = 28;
-	tag_door = "freight_shuttle_out"
+	tag_door = "elyran_shuttle_out"
 	},
 /obj/machinery/computer/ship/sensors{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"aMB" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/reagent_containers/inhaler/soporific,
-/obj/item/reagent_containers/inhaler/soporific,
-/obj/item/reagent_containers/inhaler/space_drugs,
-/obj/item/reagent_containers/inhaler/space_drugs,
-/obj/item/reagent_containers/inhaler/space_drugs,
-/obj/item/reagent_containers/inhaler/space_drugs,
-/obj/structure/closet/crate/medical,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"aSi" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/loot,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"aSJ" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	layer = 2.31;
-	name = "lattice"
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"aUn" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
-/obj/machinery/computer/ship/engines{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"aVu" = (
-/obj/machinery/telecomms/allinone/ship,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/ship/tramp_freighter)
-"aWL" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/machinery/mineral/stacking_unit_console{
-	pixel_x = 32
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"aXh" = (
-/obj/machinery/hologram/holopad/long_range,
-/obj/effect/overmap/visitable/ship/landable/freighter_shuttle,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"aZQ" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/machinery/meter,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"bcf" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"bci" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"bfg" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	layer = 2.31;
-	name = "lattice"
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"bfG" = (
-/obj/item/gun/energy/plasmacutter,
-/obj/item/gun/energy/plasmacutter{
-	pixel_y = 5
-	},
-/obj/item/gun/custom_ka/frame01/prebuilt,
-/obj/item/gun/custom_ka/frame01/prebuilt{
-	pixel_y = 5
-	},
-/obj/structure/table/steel,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
+/area/shuttle/elyran_shuttle)
 "bgD" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 24
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/freighter_shuttle)
-"biS" = (
-/obj/structure/ore_box,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"bFk" = (
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"bGz" = (
+/area/shuttle/elyran_shuttle)
+"bud" = (
 /obj/structure/table/steel,
-/obj/item/pickaxe/drill/weak{
-	pixel_y = 5
-	},
-/obj/item/pickaxe/drill/weak{
-	pixel_y = 10
-	},
-/obj/item/pickaxe/drill,
-/obj/item/pickaxe/drill/weak,
-/obj/item/mecha_equipment/mounted_system/plasmacutter,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"bNj" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"bQB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"bSo" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/item/clothing/head/cone,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"bTf" = (
-/turf/simulated/floor/carpet,
-/area/ship/tramp_freighter)
-"bWO" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"bXv" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/item/clothing/head/bearpelt{
-	anchored = 1;
-	name = "bear pelt wall rug";
-	pixel_x = 1;
-	pixel_y = -25
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/art,
-/area/ship/tramp_freighter)
-"ckN" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/storage/firstaid/brute{
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/brute{
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 4
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 4
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"bwv" = (
+/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/art,
-/area/ship/tramp_freighter)
-"clm" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
-	},
-/obj/machinery/meter,
-/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/holofloor/carpet/rubber,
+/area/ship/elyran_strike_craft)
+"bFk" = (
+/obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"cpA" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "freight_ship_port";
-	name = "exterior access button";
-	pixel_x = -24;
-	pixel_y = -10
+/area/shuttle/elyran_shuttle)
+"bNj" = (
+/obj/structure/fuel_port{
+	pixel_x = -32
 	},
-/turf/template_noop,
-/area/space)
-"ctQ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/sink{
-	dir = 8;
-	pixel_x = -12
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"ctX" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/freighter_shuttle)
-"cvD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_in"
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"cwD" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1380;
-	id_tag = "freight_ship_port";
-	layer = 3.3;
-	pixel_y = 28;
-	tag_airpump = "freight_ship_pump";
-	tag_chamber_sensor = "freight_ship_sensor";
-	tag_exterior_door = "freight_ship_out";
-	tag_interior_door = "freight_ship_in"
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"cBb" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"cJv" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_in"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"cMo" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "freight_ship_pump"
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"cTq" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"cVA" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"cWy" = (
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/elyran_shuttle)
+"bQB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -480,861 +378,13 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"dbx" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"ddV" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/structure/closet/crate,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"dex" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/head/helmet/space/void/mining/fluff,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/head/helmet/space/void/mining/fluff,
-/obj/item/device/suit_cooling_unit,
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"dmm" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"dqq" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = list(203)
-	},
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
-	layer = 2.99;
-	pixel_x = 3;
-	pixel_y = -11
-	},
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"dqJ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/floodlight,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"dsq" = (
-/obj/structure/bed/stool/chair/sofa/right/brown{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/ship/tramp_freighter)
-"dxh" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/door/airlock/hatch{
-	name = "Cargo Compartment"
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"dzR" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/device/suit_cooling_unit,
-/obj/item/clothing/head/helmet/space/void/mining/fluff,
-/obj/item/clothing/head/helmet/space/void/mining/fluff,
-/obj/item/device/suit_cooling_unit,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"dGM" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"dHA" = (
-/obj/structure/closet/crate,
-/obj/item/stack/material/phoron{
-	amount = 20
-	},
-/obj/item/stack/material/phoron{
-	amount = 20
-	},
-/obj/item/stack/material/plasteel,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"dSf" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/vehicle/bike/monowheel,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"dTw" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
-	},
-/turf/unsimulated/floor/plating,
-/area/shuttle/freighter_shuttle)
-"dVy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"ebN" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"ecW" = (
-/obj/structure/lattice,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"efg" = (
-/obj/structure/closet/firecloset/full,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"ehI" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/flashshells,
-/obj/item/gun/projectile/shotgun/doublebarrel,
-/obj/item/storage/box/flashshells,
-/obj/item/storage/box/shotgunshells,
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"eiL" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"elQ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/cooking_container/plate,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"emn" = (
-/obj/machinery/vending/dinnerware,
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/tramp_freighter)
-"enr" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/door/airlock/glass{
-	name = "Kitchen"
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"eoK" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
-/area/ship/tramp_freighter)
-"etL" = (
-/turf/space/transit/south,
-/area/space)
-"euz" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"ewW" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "freight_ship_pump"
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "freight_ship_sensor";
-	pixel_y = 26
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"exg" = (
-/obj/structure/bed/stool/chair{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"eyx" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"eBV" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"eCb" = (
-/obj/structure/bed/stool/chair,
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"eCV" = (
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"eEk" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"eIb" = (
+/area/ship/elyran_strike_craft)
+"bRq" = (
 /obj/structure/table/steel,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/material/ashtray/bronze{
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"eIk" = (
-/obj/structure/sign/vacuum{
-	pixel_y = 31
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"eMT" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "EVA Prep"
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"eTq" = (
-/obj/structure/lattice/catwalk/indoor/grate/damaged,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"eVk" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/dispenser/oxygen,
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"fgT" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/grill,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"fhJ" = (
-/obj/structure/bed,
-/obj/item/bedsheet/brown,
-/obj/structure/curtain/black{
-	icon_state = "open";
-	layer = 4;
-	opacity = 0
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "freighter_crew";
-	name = "igs - freight crew"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"fji" = (
-/obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/grate/damaged,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"fjY" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/drill,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"fkv" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"fkL" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/coffee/free,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"ftq" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	layer = 2.31;
-	name = "lattice"
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"fty" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/bed,
-/obj/item/device/flashlight,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"fva" = (
-/obj/structure/janitorialcart/full,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"fCq" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"fFU" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"fMy" = (
-/obj/structure/toilet{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"fQf" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/item/clothing/head/cone,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"fQG" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 5
-	},
-/obj/machinery/recharge_station,
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"fRD" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 5
-	},
-/obj/machinery/cryopod{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"fTv" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "freighter_mining"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"fUw" = (
-/obj/structure/sign/poster{
-	pixel_x = 32
-	},
-/turf/simulated/floor/carpet,
-/area/ship/tramp_freighter)
-"fUQ" = (
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c200,
-/obj/item/spacecash/c200,
-/obj/item/spacecash/c200,
-/obj/item/spacecash/c200,
-/obj/item/spacecash/c200,
-/obj/item/spacecash/c50,
-/obj/item/spacecash/c50,
-/obj/item/spacecash/c50,
-/obj/item/spacecash/c50,
-/obj/item/spacecash/c50,
-/obj/structure/closet,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"fXG" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Anti-Piracy Armory"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"fZq" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/battlemonsters,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"gab" = (
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"gcq" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"gdg" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"gdk" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"gjD" = (
-/obj/machinery/computer/ship/engines{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"gqO" = (
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"gxW" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"gzu" = (
-/obj/effect/shuttle_landmark/tramp_freighter/nav1,
-/turf/template_noop,
-/area/space)
-"gzH" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/largecrate/animal/adhomai/schlorrgo,
-/obj/item/device/radio{
-	icon_state = "radio";
-	pixel_x = -1;
-	pixel_y = 16
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"gAS" = (
-/obj/structure/bed/stool/chair/sofa/left/brown{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/ship/tramp_freighter)
-"gHC" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"gIU" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"gMq" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"gMG" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/boozeomat,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"gQH" = (
-/obj/machinery/iff_beacon,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/shuttle/freighter_shuttle)
-"hdb" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"hei" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/mining{
-	name = "Bridge"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"hlD" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/hydronutrients/xenobotany,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"hqX" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = -7
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = 2;
-	pixel_y = -3
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"hsz" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"hvh" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"hxl" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"hCv" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/snack,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"hDn" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/window{
-	dir = 8
-	},
-/obj/machinery/shower{
-	dir = 1
-	},
-/obj/structure/curtain/open/shower,
-/obj/item/soap,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"hEw" = (
-/obj/structure/table/wood,
-/obj/item/device/electronic_assembly/simple{
-	desc = "The remote for a PanaVision 2400. This one feels a bit hollow.";
-	name = "television remote";
-	pixel_x = 6;
-	pixel_y = 4
-	},
-/obj/item/flame/lighter/zippo/royal,
-/obj/item/storage/box/fancy/cigarettes/nka,
-/turf/simulated/floor/carpet,
-/area/ship/tramp_freighter)
-"hGK" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"hLk" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/chemical_dispenser/coffee/full{
-	density = 0;
-	pixel_y = 35
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"hNm" = (
-/obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"hOr" = (
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen/multi,
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"hQi" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 5
-	},
-/obj/structure/table/steel,
-/obj/item/storage/box/fancy/gum,
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"hQA" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "The PanaVision 2400 television was made to inspire nostalgia with that classic look with all the modern features. This one happens to have been broken for awhile though.";
-	icon = 'icons/obj/computer.dmi';
-	icon_state = "television";
-	name = "PanaVision 2400"
-	},
-/obj/item/reagent_containers/food/drinks/cans/diet_cola{
-	pixel_x = 7;
-	pixel_y = 16
-	},
-/turf/simulated/floor/carpet,
-/area/ship/tramp_freighter)
-"hQL" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"hWh" = (
-/obj/structure/table/standard,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/obj/item/toy/desk/fan,
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"hZq" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "freight_shuttle_out"
-	},
-/turf/simulated/floor,
-/area/shuttle/freighter_shuttle)
-"iaK" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/closet/crate,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"iaS" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"ibU" = (
-/obj/machinery/computer/ship/helm{
-	dir = 1;
-	req_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"idS" = (
-/obj/machinery/suit_cycler/mining{
-	req_access = null
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"ifO" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/vehicle/train/cargo/trolley,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"iiZ" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/overmap/visitable/ship/tramp_freighter,
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"ivo" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/trash/plate,
-/obj/item/trash/plate{
-	pixel_x = 3;
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"iHx" = (
-/obj/machinery/door/airlock/mining{
-	name = "Crew Bunks"
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"iOh" = (
-/obj/structure/closet/walllocker/emerglocker/west,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"jfa" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/gun/projectile/tanto,
-/obj/item/ammo_magazine/mc10mm,
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"jgW" = (
-/obj/structure/bed/stool/chair,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"jqx" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"jCz" = (
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"jIP" = (
-/obj/structure/fuel_port{
-	pixel_x = -32
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"jMF" = (
-/obj/machinery/iff_beacon,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
-/area/ship/tramp_freighter)
-"kon" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/reagent_containers/food/condiment/shaker/salt,
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = -4
-	},
-/obj/item/reagent_containers/food/condiment/barbecue{
-	pixel_x = 7;
-	pixel_y = 6
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"ktI" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"ktN" = (
-/obj/machinery/computer/ship/engines{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"kAt" = (
+/obj/item/folder/yellow,
+/turf/simulated/floor/holofloor/carpet/rubber,
+/area/ship/elyran_strike_craft)
+"clm" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = -26;
@@ -1348,59 +398,201 @@
 /obj/structure/table/steel,
 /obj/item/storage/bag/inflatable,
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/freighter_shuttle)
-"kMq" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/vehicle/train/cargo/engine,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"kSj" = (
-/obj/effect/floor_decal/industrial/loading/yellow,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"lfq" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"lgd" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/closet/crate,
-/obj/item/clothing/accessory/badge/passport/sol,
-/obj/item/clothing/accessory/badge/passport/elyra,
-/obj/item/clothing/accessory/badge/passport/dominia,
-/obj/item/clothing/accessory/badge/passport/coc,
-/obj/item/clothing/accessory/badge/passport,
-/obj/item/stamp/sol,
-/obj/item/stamp/biesel,
-/obj/item/stamp/denied,
-/obj/item/stamp,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"lgo" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/area/shuttle/elyran_shuttle)
+"cqW" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 1
 	},
-/obj/machinery/conveyor_switch{
-	id = "freighter_mining"
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"llg" = (
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"crW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/floodlight,
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"loX" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_out"
+/area/ship/elyran_strike_craft)
+"czo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"lGR" = (
+/area/ship/elyran_strike_craft)
+"cFy" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"cGq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/vehicle/train/cargo/engine,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"cQc" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Thruster Bay";
+	req_access = list(207)
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"cQX" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/shoes/magboots/rig,
+/obj/item/tank/oxygen,
+/obj/item/clothing/suit/space/void/valkyrie,
+/obj/item/clothing/head/helmet/space/void/valkyrie,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"cWy" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"dex" = (
+/obj/machinery/door/airlock{
+	name = "Hangar Bay";
+	req_access = list(207)
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"dib" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"dnH" = (
+/obj/structure/closet/crate{
+	anchored = 1;
+	desc = "A rectangular steel footlocker.";
+	name = "footlocker"
+	},
+/obj/item/clothing/accessory/badge/passcard/elyra,
+/obj/item/clothing/shoes/magboots/rig,
+/obj/item/tank/oxygen,
+/obj/item/clothing/suit/space/void/valkyrie,
+/obj/item/clothing/head/helmet/space/void/valkyrie,
+/obj/item/melee/telebaton,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/gun/projectile/colt/super,
+/obj/item/ammo_magazine/c45m,
+/turf/simulated/floor/carpet,
+/area/ship/elyran_strike_craft)
+"dBa" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"dJo" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "elyran_ship_port";
+	name = "exterior access button";
+	pixel_x = -24;
+	pixel_y = -10
+	},
+/turf/template_noop,
+/area/ship/elyran_strike_craft)
+"dQs" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"dVy" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/item/clothing/head/cone,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"efi" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"emN" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/elyran_shuttle)
+"eqe" = (
+/obj/effect/floor_decal/corner_wide/lime/full,
+/obj/machinery/bodyscanner{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"ess" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 1
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"ete" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"etL" = (
+/turf/space/transit/south,
+/area/space)
+"evN" = (
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/door/airlock/hatch{
+	name = "Telecomms"
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/ship/elyran_strike_craft)
+"ewN" = (
+/obj/structure/sign/flag/elyra{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"eys" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'SERVER ROOM'.";
+	name = "SERVER ROOM";
+	pixel_y = -32
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"eCG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -1408,619 +600,1404 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"lRa" = (
-/obj/effect/floor_decal/industrial/warning,
+/area/ship/elyran_strike_craft)
+"eIk" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/machinery/meter,
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"lTL" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 4
+/area/ship/elyran_strike_craft)
+"eLi" = (
+/obj/structure/bed/stool/padded/black,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"eNl" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
 	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"lXE" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"mbR" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/tramp_freighter)
-"mpg" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_y = -32
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"mut" = (
-/obj/structure/bed,
-/obj/item/bedsheet/brown,
-/obj/effect/ghostspawpoint{
-	identifier = "freighter_crew";
-	name = "igs - freight crew"
-	},
-/obj/structure/curtain/black{
-	icon_state = "open";
-	layer = 4;
-	opacity = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"mDg" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"mUE" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/bookcase{
-	anchored = 0
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"nty" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"nyj" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Cargo Compartment"
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"nHD" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "freighter_mining"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"nQT" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
-	},
-/obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
-/area/ship/tramp_freighter)
-"nZo" = (
-/obj/structure/table/standard,
-/obj/item/device/binoculars,
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"onP" = (
-/obj/machinery/door/airlock{
-	name = "Head"
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"ouc" = (
+/obj/structure/bed/stool/chair/sofa/right/black,
 /obj/machinery/light{
+	dir = 1;
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"ouS" = (
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"ePZ" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"eWN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/structure/table/steel,
+/obj/item/tank/phoron/shuttle,
+/obj/item/tank/phoron/shuttle{
+	pixel_y = 5
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"eYX" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"fkv" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/shuttle/elyran_shuttle)
+"fAD" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"fKm" = (
+/obj/structure/sign/nosmoking_2{
+	pixel_x = -32
+	},
+/obj/structure/table/steel,
+/obj/item/storage/box/bodybags{
+	pixel_x = -4
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = 4
+	},
+/obj/item/storage/box/masks{
+	pixel_x = 4;
+	pixel_y = 10
+	},
+/obj/effect/floor_decal/corner_wide/lime/full{
+	dir = 8
+	},
+/obj/item/storage/firstaid/surgery,
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"fLL" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"fRM" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/carpet/rubber,
+/area/ship/elyran_strike_craft)
+"fUE" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_out"
+	id_tag = "elyran_ship_in"
 	},
-/obj/effect/shuttle_landmark/tramp_freighter/nav2,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"oyE" = (
-/obj/structure/table/steel,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/obj/machinery/recharger,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"ozs" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/walllocker/medical{
-	pixel_x = -32
+/area/ship/elyran_strike_craft)
+"fVl" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 1
 	},
-/obj/item/storage/firstaid/regular{
-	pixel_y = -1
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"oGo" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/obj/machinery/vending/cigarette/hacked,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"peu" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"pfE" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"phz" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/freighter_shuttle)
-"pmv" = (
-/obj/structure/plasticflaps,
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "freighter_mining"
-	},
-/obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"pzo" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"pDO" = (
-/obj/structure/bed/stool/chair/office/bridge/generic{
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"fYZ" = (
+/obj/effect/floor_decal/corner/beige/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 6
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
 	},
-/turf/simulated/floor/carpet/art,
-/area/ship/tramp_freighter)
-"pRf" = (
-/obj/effect/step_trigger/teleporter,
-/turf/template_noop,
-/area/space)
-"pUv" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"pUZ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/fryer,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	dir = 4;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"que" = (
-/obj/effect/step_trigger/teleporter,
-/turf/space/transit/south,
-/area/space)
-"qFX" = (
-/obj/structure/sink{
-	dir = 8;
-	pixel_x = -12
-	},
-/obj/structure/mirror{
-	pixel_x = -24
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"qGN" = (
-/obj/machinery/mineral/unloading_machine,
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 1
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"geX" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
 	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"qHm" = (
+/area/ship/elyran_strike_craft)
+"gia" = (
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 30
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"gjP" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"qKJ" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "freighter_mining"
+/area/ship/elyran_strike_craft)
+"gxW" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -25
 	},
-/obj/machinery/mineral/stacking_machine,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/computer/ship/engines{
 	dir = 4
 	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"qXU" = (
-/obj/structure/bed,
-/obj/item/bedsheet/blue,
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/curtain/black{
-	icon_state = "open";
-	layer = 4;
-	opacity = 0
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "freighter_crew_captain";
-	name = "igs - freight captain"
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"rgA" = (
-/obj/structure/bed/stool/chair{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"rtf" = (
-/turf/unsimulated/wall/fakepdoor,
-/area/ship/tramp_freighter)
-"rBU" = (
-/obj/effect/floor_decal/spline/plain{
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/elyran_shuttle)
+"gzu" = (
+/obj/effect/shuttle_landmark/elyran_strike_craft/nav1,
+/turf/template_noop,
+/area/space)
+"gLp" = (
+/obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/turf/simulated/floor/carpet/art,
-/area/ship/tramp_freighter)
-"rMI" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+/obj/structure/table/steel,
+/obj/item/trash/grease,
+/obj/item/trash/can{
+	pixel_x = 5
 	},
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"rNp" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+/obj/item/trash/spitgum{
+	pixel_x = -6
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"rNF" = (
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"hcd" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"hif" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/gun/energy/retro,
+/obj/item/gun/projectile/plasma/bolter,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"hmO" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"hvT" = (
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/shuttle/elyran_shuttle)
+"hOg" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/elyran_shuttle)
+"hWc" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/carpet/rubber,
+/area/ship/elyran_strike_craft)
+"ieZ" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"rVB" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 9
-	},
-/turf/simulated/floor/carpet/art,
-/area/ship/tramp_freighter)
-"rWz" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"shf" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_x = -32
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"snZ" = (
-/obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/miner,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"ipy" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/item/cell/mecha,
-/obj/item/cell/mecha,
-/obj/item/cell/mecha,
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"sDf" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"sDF" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Propulsion Maintenance"
+/area/ship/elyran_strike_craft)
+"iuw" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
 	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"sLj" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/elyran_shuttle)
+"iIw" = (
+/obj/structure/table/steel,
+/obj/item/modular_computer/laptop/preset/civilian,
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"iMy" = (
+/obj/machinery/door/airlock/glass_medical,
+/obj/structure/sign/nosmoking_2{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"iNi" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "elyran_naval_infantry_officer";
+	name = "igs - elyra officer"
+	},
+/turf/simulated/floor/carpet,
+/area/ship/elyran_strike_craft)
+"iOh" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/item/clothing/head/cone,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"iWb" = (
+/obj/machinery/papershredder{
+	pixel_x = -6
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 10;
+	pixel_y = 1
+	},
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"jab" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"jdi" = (
+/obj/machinery/photocopier,
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"jmC" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/machinery/body_scanconsole{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"jCz" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/structure/bed/stool/padded/black,
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"jCO" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"jFf" = (
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/carpet,
+/area/ship/elyran_strike_craft)
+"jJJ" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/carpet/rubber,
+/area/ship/elyran_strike_craft)
+"jLe" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "elyran_ship_pump"
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"jOg" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 8
+	},
+/obj/structure/sign/securearea{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"jPG" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/effect/decal/fake_object{
+	desc = "A panel controlling an SUPB Pod. This one states the pod is currently offline.";
+	icon = 'icons/obj/computer.dmi';
+	icon_state = "lift";
+	name = "SUPB lauching panel"
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"jZJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/nosmoking_2{
+	pixel_x = 32
+	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"sLk" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
+/area/ship/elyran_strike_craft)
+"kbf" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"kxZ" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 1;
+	name = "Infirmary";
+	req_access = list(207)
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"kAt" = (
+/obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
+/area/ship/elyran_strike_craft)
+"kNK" = (
+/obj/machinery/telecomms/allinone/ship,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/ship/elyran_strike_craft)
+"kVo" = (
+/obj/structure/bed/stool/chair,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/holofloor/carpet/rubber,
+/area/ship/elyran_strike_craft)
+"lgq" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 1
+	},
+/obj/structure/sign/securearea{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"lkE" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 8
+	},
+/obj/structure/closet/crate{
+	anchored = 1;
+	desc = "A rectangular steel footlocker.";
+	name = "footlocker"
+	},
+/obj/item/clothing/accessory/badge/passcard/elyra,
+/obj/item/storage/belt/security,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/melee/telebaton,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/obj/item/storage/box/zipties,
+/obj/item/gun/energy/taser,
+/obj/item/clothing/accessory/holster/thigh,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"loD" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"lpY" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/structure/punching_bag,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"lxP" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/elyran_strike_craft)
+"lJq" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/machinery/computer/cryopod{
+	pixel_y = -33
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "elyran_naval_infantry";
+	name = "igs - elyra infantry"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"lLN" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/holofloor/carpet/rubber,
+/area/ship/elyran_strike_craft)
+"lNt" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"lWW" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"mbK" = (
+/obj/structure/janitorialcart/full,
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"mgE" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/gun/energy/retro,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"moG" = (
+/obj/machinery/door/airlock,
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"mAv" = (
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"mJF" = (
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/elyran_shuttle)
+"mKd" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/structure/bed/stool/chair/sofa/black,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"mOy" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"mRb" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"mXc" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/plating,
+/area/shuttle/elyran_shuttle)
+"mXz" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/elyran_shuttle)
+"mXO" = (
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 30
+	},
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"nrx" = (
+/obj/machinery/computer/ship/helm{
+	dir = 1;
+	req_access = null
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"nyH" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1380;
+	id_tag = "elyran_ship_port";
+	layer = 3.3;
+	pixel_y = 28;
+	tag_airpump = "elyran_ship_pump";
+	tag_chamber_sensor = "elyran_ship_sensor";
+	tag_exterior_door = "elyran_ship_out";
+	tag_interior_door = "elyran_ship_in"
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"nDF" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/structure/sign/flag/elyra/right{
+	dir = 4;
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"nEc" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "elyran_naval_infantry";
+	name = "igs - elyra infantry"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"nHo" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"nOb" = (
+/obj/machinery/washing_machine,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"nRU" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "elyran_ship_out"
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"ofY" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"ohQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"oom" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"oFn" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/elyran_shuttle)
+"oKu" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"pcX" = (
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"pea" = (
+/obj/structure/table/standard,
+/obj/structure/sign/flag/elyra/left{
+	dir = 4;
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/item/paper_bin,
+/obj/item/pen/multi,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"pes" = (
+/obj/structure/sign/nosmoking_2{
+	pixel_x = -32
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"pfd" = (
+/obj/effect/floor_decal/corner/beige/full,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"phR" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"pue" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"pvZ" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"pxF" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"pzi" = (
+/obj/effect/floor_decal/corner/beige,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"pDb" = (
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/lime/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"pRf" = (
+/obj/effect/step_trigger/teleporter,
+/turf/template_noop,
+/area/space)
+"pTr" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"pZC" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/structure/bed/stool/chair/sofa/left/black,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"qfs" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"qkJ" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/ship/elyran_strike_craft)
+"que" = (
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/south,
+/area/space)
+"quk" = (
+/obj/structure/closet/crate{
+	anchored = 1;
+	desc = "A rectangular steel footlocker.";
+	name = "footlocker"
+	},
+/obj/item/clothing/accessory/badge/passcard/elyra,
+/obj/item/storage/belt/security,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/item/melee/telebaton,
+/obj/item/storage/box/zipties,
+/obj/item/gun/energy/taser,
+/obj/item/clothing/accessory/holster/thigh,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"qvs" = (
+/obj/structure/sink{
+	pixel_y = 21
+	},
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"qJg" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"qNi" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/structure/table/steel,
+/obj/effect/decal/fake_object{
+	desc = "A small scale commercial holo-movie system. This one is on the fritz.";
+	icon = 'icons/obj/holopad.dmi';
+	icon_state = "holopad0_lr";
+	name = "HoloViewer Entertainment System"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"qVg" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
+	icon_state = "space";
+	layer = 4;
+	name = "EXTERNAL AIRLOCK"
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"rbA" = (
+/obj/machinery/computer/ship/helm{
+	req_access = null
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/elyran_shuttle)
+"rch" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/shuttle_landmark/elyran_shuttle/hangar,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"rmm" = (
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"rtf" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"rBF" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"rEs" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/structure/sign/poster{
+	pixel_y = -32
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"rLq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"rWk" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"sbA" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/elyran_shuttle,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/elyran_shuttle)
+"sbC" = (
+/obj/machinery/door/airlock/service{
+	name = "Broom Closet"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"seV" = (
+/obj/machinery/door/airlock/security{
+	name = "Ready Room";
+	req_access = list(207)
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"sgW" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark,
+/area/ship/elyran_strike_craft)
+"spD" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/floodlight,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"sFZ" = (
+/obj/machinery/atmospherics/binary/pump/high_power,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/elyran_shuttle)
 "sOb" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/south,
 /area/space)
-"tvU" = (
+"sTj" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"tcC" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"tjN" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/item/clothing/head/helmet/pilot,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"tkI" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"tAW" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"tCo" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
 "tGD" = (
-/obj/structure/sign/fire{
-	pixel_x = 33
-	},
-/obj/item/storage/toolbox/electrical,
-/obj/structure/table/steel,
-/obj/item/storage/toolbox/mechanical,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/obj/machinery/cell_charger,
+/obj/effect/decal/cleanable/dirt,
+/obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"tSi" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/stove,
+/area/ship/elyran_strike_craft)
+"tLt" = (
+/obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/white,
-/area/ship/tramp_freighter)
-"udB" = (
-/obj/structure/table/steel,
-/obj/item/paper_bin,
-/obj/item/pen/multi,
+/area/ship/elyran_strike_craft)
+"tQU" = (
 /obj/effect/floor_decal/spline/plain{
-	dir = 5
+	dir = 1
 	},
-/turf/simulated/floor/carpet/art,
-/area/ship/tramp_freighter)
-"uep" = (
-/obj/machinery/vending/tool,
-/obj/machinery/light/small/emergency{
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/tiled/ramp{
 	dir = 4
 	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"unX" = (
-/obj/machinery/button/distress{
-	dir = 4;
-	pixel_x = 32
+/area/ship/elyran_strike_craft)
+"tUL" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/elyra{
+	pixel_y = -4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"uCl" = (
-/obj/structure/closet,
-/obj/item/clothing/suit/storage/toggle/bomber,
-/obj/item/clothing/suit/storage/toggle/flannel/red,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/youngfolksjeans,
-/obj/item/clothing/head/cowboy,
-/obj/item/clothing/shoes/cowboy/classic,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/softcap/himeo,
-/obj/item/clothing/accessory/storage/overalls,
-/obj/item/clothing/under/pants/black,
-/obj/item/clothing/accessory/bandanna,
-/obj/item/clothing/accessory/bandanna/black,
-/obj/item/clothing/accessory/bandanna/blue,
-/obj/effect/floor_decal/corner/black{
-	dir = 5
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/elyra{
+	pixel_x = -5;
+	pixel_y = 6
 	},
-/obj/item/clothing/suit/storage/toggle/trench/green,
-/obj/item/clothing/glasses/fakesunglasses/aviator,
-/obj/item/clothing/glasses/regular/circle,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/gloves/fingerless,
-/obj/item/clothing/gloves/fingerless,
-/obj/item/clothing/gloves/fingerless,
-/obj/item/clothing/gloves/fingerless,
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"uDF" = (
-/obj/effect/shuttle_landmark/tramp_freighter/transit,
-/turf/space/transit/south,
-/area/space)
-"uRK" = (
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/elyra{
+	pixel_x = 11;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"urK" = (
+/obj/effect/decal/fake_object{
+	desc = "An SUPB Pod, also know as a Single Use Personal Boarding Pod. These pods are utilized across the Spur for interdictions and hostile boarding actions across the Spur.";
+	icon = 'icons/obj/vehicles.dmi';
+	icon_state = "droppod";
+	name = "SUPB Pod"
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"uWk" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/reagent_containers/glass/bucket,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"uYP" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+/area/ship/elyran_strike_craft)
+"usR" = (
+/obj/structure/table/standard,
+/obj/item/device/binoculars,
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"uDF" = (
+/obj/effect/shuttle_landmark/elyran_strike_craft/transit,
+/turf/space/transit/south,
+/area/space)
+"uYO" = (
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"vwF" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1;
-	layer = 2.8
-	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"vCZ" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"vFx" = (
-/obj/machinery/computer/cryopod{
-	pixel_y = -33
-	},
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"wci" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/vending/cola,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"wjC" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/mineral/processing_unit_console{
-	pixel_x = 32
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor,
+/area/shuttle/elyran_shuttle)
+"vlC" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"voW" = (
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/item/soap/brown_soap,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"vFL" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "elyran_ship_pump"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "elyran_ship_sensor";
+	pixel_y = 26
 	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"wrJ" = (
-/obj/effect/shuttle_landmark/freighter_shuttle/transit,
-/turf/space/transit/south,
-/area/space)
-"wxY" = (
+/area/ship/elyran_strike_craft)
+"vFY" = (
+/obj/structure/bed/roller,
+/obj/item/vitals_monitor{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"vNs" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small/emergency,
+/obj/structure/sign/nosmoking_2{
+	pixel_x = -27
+	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"wCo" = (
-/obj/structure/filingcabinet/chestdrawer,
-/obj/effect/floor_decal/corner/black/diagonal,
+/area/ship/elyran_strike_craft)
+"vOv" = (
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/ship/elyran_strike_craft)
+"vPN" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"vUC" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "elyran_ship_out"
+	},
+/obj/effect/shuttle_landmark/elyran_strike_craft/nav2,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"vXr" = (
+/obj/structure/closet/crate{
+	anchored = 1;
+	desc = "A rectangular steel footlocker.";
+	name = "footlocker"
+	},
+/obj/effect/floor_decal/corner/beige/full,
+/obj/item/clothing/accessory/badge/passcard/elyra,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/storage/bag/inflatable,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/melee/telebaton,
 /obj/machinery/light{
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/tiled/yellow,
-/area/ship/tramp_freighter)
-"wTJ" = (
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"wUJ" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "freight_ship_port";
-	name = "interior access button";
-	pixel_x = 24;
-	pixel_y = -8
+/obj/item/clothing/gloves/yellow,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/stack/rods/full,
+/obj/item/stack/material/glass/reinforced/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/liquidbags/half_full,
+/obj/item/clothing/shoes/workboots,
+/obj/item/gun/energy/plasmacutter,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"wdF" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
 	},
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	identifier = "elyran_naval_infantry";
+	name = "igs - elyra infantry"
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"wrJ" = (
+/obj/effect/shuttle_landmark/elyran_shuttle/transit,
+/turf/space/transit/south,
+/area/space)
+"wui" = (
+/turf/unsimulated/wall/fakepdoor,
+/area/ship/elyran_strike_craft)
+"wvR" = (
+/obj/machinery/door/airlock{
+	name = "Bridge";
+	req_access = list(207)
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"wGT" = (
+/obj/machinery/door/airlock/command{
+	name = "Ensign's Quarters";
+	req_access = list(207)
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"wUJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"wZf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"wZF" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"xdP" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"xhB" = (
+/obj/machinery/computer/ship/engines{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"xkT" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/drinks/cans/space_up{
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/drinks/cans/space_up{
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/drinks/cans/space_up{
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
+/obj/item/reagent_containers/food/drinks/cans/thirteenloko{
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/food/drinks/cans/thirteenloko{
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/food/snacks/donerkebab,
+/obj/item/reagent_containers/food/snacks/donerkebab,
+/obj/item/reagent_containers/food/snacks/greencurry,
+/obj/item/reagent_containers/food/snacks/redcurry,
+/obj/item/reagent_containers/food/snacks/yellowcurry,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"xpv" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/elyran_shuttle)
+"xrq" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/structure/noticeboard{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"xzf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "elyran_ship_in"
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"xzq" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/ship/tramp_freighter)
-"wYA" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
-/area/ship/tramp_freighter)
-"wZf" = (
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"wZp" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"xok" = (
-/obj/structure/curtain/black{
-	name = "DO NOT ENTER"
+/area/ship/elyran_strike_craft)
+"xAg" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
-"xto" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"xAC" = (
-/obj/machinery/mineral/processing_unit,
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "freighter_mining"
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window{
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"xAw" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning{
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"xEG" = (
+/obj/structure/railing/mapped,
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/airless,
+/area/ship/elyran_strike_craft)
+"xGj" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
+/obj/machinery/meter,
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/elyran_shuttle)
+"xPN" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/effect/overmap/visitable/ship/elyran_strike_craft,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"xQx" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/adv{
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = 4
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = 4
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
 "xRX" = (
 /turf/template_noop,
 /area/space)
-"yjk" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"ylI" = (
-/obj/structure/closet/crate/medical{
-	name = "IAC crate"
+"yhP" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
 	},
-/obj/item/clothing/shoes/iac,
-/obj/item/clothing/under/rank/iacjumpsuit,
-/obj/item/clothing/suit/storage/hazardvest/iac,
-/obj/item/clothing/mask/balaclava/iac,
-/obj/item/clothing/accessory/armband/iac,
-/obj/item/clothing/head/softcap/iac,
-/obj/item/gun/launcher/syringe,
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/clothing/gloves/latex/nitrile,
-/turf/simulated/floor,
-/area/ship/tramp_freighter)
-"ylV" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/tramp_freighter)
-"yme" = (
-/obj/machinery/door/airlock/mining{
-	name = "Captain's Office"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/tramp_freighter)
+/turf/simulated/floor/holofloor/carpet/rubber,
+/area/ship/elyran_strike_craft)
 
 (1,1,1) = {"
 xRX
@@ -30643,23 +30620,6 @@ xRX
 xRX
 xRX
 xRX
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
 xRX
 xRX
 xRX
@@ -30669,6 +30629,23 @@ xRX
 xRX
 xRX
 xRX
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+vOv
+fAD
+fAD
+fAD
+fAD
 xRX
 xRX
 xRX
@@ -30896,36 +30873,36 @@ xRX
 xRX
 xRX
 xRX
-ylV
-ylV
-ylV
-ylV
-ylV
-aHt
-aSi
-bci
-aSi
-aCu
-gMG
-bci
-dmm
-bci
-hlD
-fji
-aSi
-bci
-aSi
-bci
-ylV
-ylV
-ylV
-ylV
-ylV
 xRX
 xRX
 xRX
 xRX
 xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+lxP
+pDb
+eqe
+vOv
+mbK
+pxF
+vOv
+dnH
+jFf
+ewN
+aAY
+ieZ
+vOv
+xhB
+hcd
+nHo
+fAD
 xRX
 xRX
 xRX
@@ -31153,36 +31130,36 @@ xRX
 xRX
 xRX
 xRX
-ylV
-uWk
-pzo
-eTq
-fty
-ylV
-ktI
-fji
-sDf
-bci
-ktI
-aCu
-ktI
-fji
-sDf
-bci
-hCv
-bci
-wZp
-fji
-aSJ
-ylV
-ehI
-jfa
-ylV
-ylV
-wYA
 xRX
 xRX
 xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+lxP
+fKm
+sTj
+jmC
+vOv
+vOv
+sbC
+vOv
+iNi
+jFf
+mAv
+iIw
+aAY
+vOv
+usR
+xPN
+usR
+fAD
 xRX
 xRX
 xRX
@@ -31405,41 +31382,41 @@ xRX
 xRX
 xRX
 xRX
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ddV
-lgd
-pzo
-aoJ
-ylV
-fkL
-bci
-ktI
-bci
-sDf
-bci
-ktI
-fji
-ktI
-bci
-sDf
-bci
-wZp
-eTq
-sLj
-fXG
-lfq
-tvU
-ylV
-qXU
-wYA
-wYA
 xRX
 xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+aac
+sTj
+sTj
+sTj
+iMy
+qJg
+qfs
+vOv
+vOv
+vOv
+vOv
+vOv
+wGT
+vOv
+aHt
+hcd
+nrx
+fAD
 xRX
 xRX
 xRX
@@ -31662,41 +31639,41 @@ xRX
 xRX
 xRX
 xRX
-yjk
-aaa
-ktN
-qHm
-xto
-ylV
-iaK
-ylI
-pzo
-pzo
-aHt
-fZq
-pzo
-dbx
-pzo
-dbx
-pzo
-hQL
-pzo
-wjC
-pzo
-aWL
-pzo
-hQL
-bci
-aSJ
-aHt
-ylV
-ylV
-wYA
-gdk
-fUQ
-wYA
 xRX
 xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+aab
+sTj
+sTj
+aEE
+afz
+mRb
+aap
+tkI
+aap
+aap
+aap
+aap
+aap
+wvR
+aAY
+aAY
+aAY
+fAD
 xRX
 xRX
 xRX
@@ -31919,41 +31896,41 @@ xRX
 xRX
 xRX
 xRX
-yjk
-aZQ
-vwF
-aac
-vCZ
-ylV
-gzH
-aMB
-pzo
-gab
-xok
-mUE
-aCu
-eBV
-bci
-aFo
-pzo
-lgo
-cVA
-mbR
-peu
-mbR
-peu
-peu
-bci
-ftq
-aHt
-gdg
-gdk
-rVB
-rBU
-wCo
-wYA
 xRX
 xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+rtf
+czo
+rmm
+gjP
+ofY
+vOv
+vFY
+sTj
+sTj
+xQx
+vOv
+oKu
+pzi
+auY
+auY
+auY
+auY
+auY
+eYX
+vOv
+pea
+nDF
+tjN
+fAD
 xRX
 xRX
 xRX
@@ -32176,41 +32153,41 @@ xRX
 xRX
 xRX
 xRX
-yjk
-aab
-aaI
-afz
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+rtf
+eIk
+aou
 wZf
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-sDf
-aCu
-fjY
-bci
-wci
-kSj
-qGN
-nHD
-xAC
-fTv
-qKJ
-fTv
-pmv
-pzo
-ecW
-yme
-gdk
-rWz
-ckN
-bXv
-wYA
-wYA
-xRX
-xRX
+pue
+vOv
+aab
+sTj
+sTj
+bud
+vOv
+oKu
+aTr
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+fAD
+fAD
 xRX
 xRX
 xRX
@@ -32433,38 +32410,38 @@ xRX
 xRX
 xRX
 xRX
-ylV
-ylV
-ylV
-xto
-wZf
-sDF
-cVA
-nty
-nty
-nty
-gIU
-dbx
-bci
-pUv
-cTq
-dSf
-mDg
-hQL
-hQL
-gMq
-gMq
-gMq
-gMq
-gMq
-bci
-aSJ
-ylV
-gdk
-jgW
-udB
-pDO
-wYA
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+rtf
+efi
+pcX
+tcC
+dQs
+vOv
+aaI
+sTj
+sTj
+aCu
+vOv
+oKu
+aTr
+lxP
+lxP
+lxP
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -32692,35 +32669,35 @@ xRX
 xRX
 xRX
 xRX
-ylV
-ylV
-ylV
-ylV
-aSJ
-aSJ
-bfg
-aSJ
-aSJ
-aSJ
-jqx
-sLk
-cVA
-dbx
-nty
-cVA
-pzo
-lTL
-cVA
-pzo
-cVA
-cVA
-cBb
-aSJ
-ylV
-wYA
-wYA
-wYA
-wYA
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+rtf
+eWN
+dQs
+pcX
+dQs
+vOv
+afz
+aoJ
+kxZ
+vOv
+vOv
+oKu
+rWk
+lxP
+lxP
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -32947,34 +32924,34 @@ xRX
 xRX
 xRX
 xRX
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-aSJ
-bfg
-aSJ
-eiL
-aSJ
-bfg
-aSJ
-bfg
-eiL
-bfg
-aSJ
-eiL
-aSJ
-bfg
-aSJ
-wYA
-wYA
-aap
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+lxP
+lNt
+pcX
+vOv
+vOv
+qJg
+oKu
+oKu
+vNs
+qJg
+mRb
+lxP
+lxP
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -33204,34 +33181,34 @@ xRX
 xRX
 xRX
 xRX
-ylV
-eIk
-aou
-biS
-biS
-snZ
-bGz
-oyE
-bfG
-ylV
-ylV
-ylV
-ylV
-nyj
-ylV
-ylV
-ylV
-ylV
-dxh
-ylV
-ylV
-nyj
-ylV
-ylV
-ylV
-wYA
-wYA
-wYA
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+mXO
+pcX
+aaa
+mRb
+oKu
+atj
+atj
+atj
+aTr
+lxP
+lxP
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -33461,35 +33438,35 @@ xRX
 xRX
 xRX
 xRX
-rtf
-wZf
-wZf
-wZf
-vCZ
-wZf
-wZf
-wZf
-wZf
-wZf
-wZf
-hvh
-wZf
-wZf
-shf
-uRK
-ylV
-pUZ
-dGM
-ctQ
-ylV
-hLk
-aCd
-eEk
-onP
-ozs
-qFX
-wYA
-jMF
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+lxP
+dib
+pcX
+vOv
+lgq
+atj
+auY
+auY
+atj
+acx
+lxP
+aTL
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -33718,35 +33695,6 @@ xRX
 xRX
 xRX
 xRX
-rtf
-llg
-atj
-fQf
-llg
-llg
-fQf
-auY
-llg
-fQf
-llg
-llg
-llg
-fQf
-lGR
-wZf
-ylV
-tSi
-dGM
-dGM
-elQ
-euz
-eEk
-rgA
-eoK
-fMy
-hDn
-wYA
-wYA
 xRX
 xRX
 xRX
@@ -33754,6 +33702,35 @@ xRX
 xRX
 xRX
 xRX
+xRX
+xRX
+xRX
+lxP
+lxP
+lxP
+vOv
+vOv
+vOv
+vOv
+aNf
+vOv
+vOv
+dex
+vOv
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
 xRX
 xRX
 xRX
@@ -33975,42 +33952,42 @@ xRX
 xRX
 xRX
 xRX
-rtf
-wZf
-gQH
-phz
-phz
-phz
-phz
-hZq
-hZq
-phz
-phz
-phz
-phz
-phz
-lRa
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+lkE
+pTr
+vXr
+vOv
 jCz
-ylV
-fgT
-dGM
-dGM
-ivo
-eEk
-eCb
-hqX
-wYA
-wYA
-wYA
-aHt
-wYA
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+xdP
+atj
+vOv
+pcX
+pcX
+pes
+ipy
+pue
+pcX
+pcX
+pcX
+pcX
+pcX
+pcX
+ohQ
+pcX
+pcX
+pcX
+ipy
+lxP
 xRX
 xRX
 xRX
@@ -34232,42 +34209,42 @@ xRX
 xRX
 xRX
 xRX
-rtf
-wZf
-wZf
-aBb
-aBb
-aHw
-aUn
-gqO
-gqO
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+wdF
+atj
+nEc
+vOv
+tUL
+eLi
+atj
+vOv
+pcX
+vPN
+crW
 iOh
-jIP
 kAt
-ctX
-dTw
-lRa
-vCZ
-aHt
-tCo
-dGM
-dGM
-emn
-eEk
-eCb
-kon
-wYA
-uCl
-rNF
-fhJ
-wYA
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+kAt
+iOh
+rch
+kAt
+iOh
+kAt
+kAt
+kAt
+iOh
+eCG
+pcX
+wui
 xRX
 xRX
 xRX
@@ -34489,42 +34466,42 @@ xRX
 xRX
 xRX
 xRX
-rtf
-wZf
-wZf
-aAY
-aGW
-aJd
-gqO
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+aVx
+atj
+quk
+vOv
+eLi
+atj
+rEs
+vOv
+pcX
+aTV
+uYO
+mXz
+mXz
+mXz
+mXz
 aXh
-gqO
-gqO
-gqO
-bWO
-ctX
-dTw
-lRa
-wZf
-aHt
-dqq
-ebN
-dGM
-enr
-euz
-eCb
-eIb
-wYA
-hQi
-eyx
-eoK
-wYA
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+aXh
+mXz
+mXz
+mXz
+mXz
+mXz
+cWy
+pcX
+wui
 xRX
 xRX
 xRX
@@ -34746,42 +34723,42 @@ xRX
 xRX
 xRX
 xRX
-rtf
-wZf
-wZf
-aBb
-aBb
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+wdF
+atj
+lJq
+vOv
+atj
+atj
+lpY
+vOv
+pcX
+aTV
+pcX
+hvT
+hvT
 aLo
 gxW
-bcf
-gxW
+bgD
+bgD
 bFk
 bNj
 clm
-ctX
-dTw
-lRa
-wxY
-aHt
-ylV
-aHt
-ylV
-ylV
-euz
-eEk
-exg
-eoK
-fQG
-eCV
-fhJ
-wYA
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+hOg
+oFn
+cWy
+pue
+wui
 xRX
 xRX
 xRX
@@ -35003,42 +34980,42 @@ xRX
 xRX
 xRX
 xRX
-rtf
-wZf
-axB
-aBb
-phz
-phz
-phz
-phz
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+fVl
+atj
+pvZ
+aNf
+hmO
+atj
+xkT
+vOv
+pcX
+aTV
+pcX
+mXc
+rbA
+emN
+bgD
+sbA
 bgD
 bgD
-phz
-phz
-phz
-phz
-lRa
-mpg
-ylV
-dzR
-dex
-ylV
-oGo
-hGK
-gcq
-gcq
-iHx
-eyx
-vFx
-wYA
-wYA
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+bgD
+xpv
+hOg
+oFn
+cWy
+pcX
+wui
 xRX
 xRX
 xRX
@@ -35260,42 +35237,42 @@ xRX
 xRX
 xRX
 xRX
-rtf
-pfE
-dqJ
-bSo
-pfE
-pfE
-pfE
-pfE
-pfE
-pfE
-pfE
-pfE
-pfE
-bSo
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+vOv
+aGn
+vOv
+vOv
+eNl
+atj
+gLp
+vOv
+pcX
+aTV
+pcX
+hvT
+hvT
+bdk
+baV
+iuw
+baV
+mJF
+sFZ
+xGj
+hOg
+oFn
 cWy
-vCZ
-eMT
-eyx
-eCV
-eMT
-eyx
-eyx
-eCV
-ouc
-ylV
-fRD
-rMI
-mut
-wYA
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+pue
+wui
 xRX
 xRX
 xRX
@@ -35517,42 +35494,42 @@ xRX
 xRX
 xRX
 xRX
-rtf
-wZf
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+qvs
+aoJ
+nOb
+vOv
+mKd
+atj
+qNi
+vOv
+pcX
+aTV
 fkv
-wZf
-wZf
-ifO
-kMq
-wZf
-vCZ
-wZf
-wZf
-wZf
-wZf
-vCZ
-wZf
-wZf
-eCV
-eCV
-eyx
-eCV
-eCV
-eCV
-eCV
-eyx
-ylV
-ylV
-ylV
-ylV
-wYA
-lXE
-lXE
-lXE
-xRX
-xRX
-xRX
-xRX
+hvT
+mXz
+mXz
+mXz
+mXz
+aeM
+aeM
+mXz
+mXz
+mXz
+mXz
+cWy
+pcX
+wui
 xRX
 xRX
 xRX
@@ -35774,42 +35751,42 @@ xRX
 xRX
 xRX
 xRX
-aHt
-ahU
-aHt
-ylV
-vCZ
-wZf
-vCZ
-wZf
-wZf
-wZf
-efg
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+aoJ
+aoJ
+aoJ
+vOv
+pZC
+atj
+aHa
+vOv
+pcX
+geX
+spD
+dVy
 wUJ
-wZf
+wUJ
+wUJ
+wUJ
+wUJ
+wUJ
+wUJ
+wUJ
+wUJ
 dVy
 bQB
-hxl
-ylV
-rNp
-eVk
-ylV
-gAS
-dsq
-hEw
-eCV
-eCV
-aHt
-fFU
-gjD
-hNm
-hWh
-iaS
-lXE
-xRX
-xRX
-xRX
-xRX
+pue
+wui
 xRX
 xRX
 xRX
@@ -36034,39 +36011,39 @@ xRX
 xRX
 xRX
 xRX
-ylV
-wZf
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+tLt
+vOv
+moG
+vOv
+xrq
+atj
+atj
+vOv
+pcX
+pcX
+jZJ
+kbf
+pcX
 tGD
-biS
-idS
-uep
-dHA
-aHt
-lXE
-cvD
-cJv
-lXE
-ylV
-ylV
-ylV
-ylV
-ylV
-bTf
-bTf
-bTf
-eCV
-eyx
-hei
-lfq
-wTJ
-gHC
-iiZ
-ibU
-lXE
-xRX
-xRX
-xRX
-xRX
+cGq
+pcX
+pue
+pcX
+jCO
+jCO
+jCO
+pue
+pcX
+kbf
+lxP
 xRX
 xRX
 xRX
@@ -36288,42 +36265,42 @@ xRX
 xRX
 xRX
 xRX
-ylV
-ylV
-ylV
-ylV
-sDF
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-lXE
-ewW
-cMo
-lXE
-xRX
-xRX
-xRX
-ylV
-ylV
-hQA
-fUw
-aHv
-eyx
-hdb
-ylV
-fFU
-hsz
-unX
-hOr
-nZo
-lXE
 xRX
 xRX
 xRX
 xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+voW
+vOv
+lWW
+vOv
+ess
+tAW
+atj
+vOv
+lxP
+dex
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
 xRX
 xRX
 xRX
@@ -36545,38 +36522,38 @@ xRX
 xRX
 xRX
 xRX
-yjk
-aaa
-acx
-ajL
-wZf
-wZf
-fva
-nQT
-aVu
-ylV
-ylV
-lXE
-cwD
-wZf
-lXE
 xRX
 xRX
 xRX
 xRX
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-lXE
-lXE
-lXE
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+lxP
+lxP
+lxP
+vOv
+vOv
+vOv
+vOv
+aNf
+vOv
+vlC
+atj
+pfd
+lxP
+xEG
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -36802,21 +36779,6 @@ xRX
 xRX
 xRX
 xRX
-yjk
-aZQ
-vwF
-akP
-wZf
-vCZ
-fCq
-ylV
-ylV
-ylV
-xRX
-lXE
-wZf
-wZf
-lXE
 xRX
 xRX
 xRX
@@ -36826,6 +36788,21 @@ xRX
 xRX
 xRX
 xRX
+xRX
+xRX
+lxP
+lxP
+oom
+dQs
+lxP
+jOg
+atj
+phR
+cqW
+atj
+aTr
+lxP
+lxP
 xRX
 xRX
 xRX
@@ -37059,21 +37036,6 @@ xRX
 xRX
 xRX
 xRX
-yjk
-aac
-aej
-anK
-xto
-xto
-uYP
-ylV
-ylV
-xRX
-xRX
-lXE
-ouS
-loX
-lXE
 xRX
 xRX
 xRX
@@ -37084,6 +37046,21 @@ xRX
 xRX
 xRX
 xRX
+xRX
+xRX
+lxP
+gia
+pcX
+cQc
+loD
+qfs
+qfs
+qfs
+qfs
+loD
+qfs
+lxP
+lxP
 xRX
 xRX
 xRX
@@ -37316,18 +37293,6 @@ xRX
 xRX
 xRX
 xRX
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-ylV
-xRX
-xRX
-xRX
-cpA
 xRX
 xRX
 xRX
@@ -37339,9 +37304,21 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
+lxP
+lxP
+pcX
+vOv
+vOv
+vOv
+axB
+vOv
+vOv
+vOv
+vOv
+qfs
+aTr
+lxP
+lxP
 xRX
 xRX
 xRX
@@ -37584,22 +37561,22 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+rtf
+aJr
+pcX
+vOv
+kNK
+vOv
+atj
+kVo
+aCd
+lLN
+vOv
+cFy
+aTr
+vOv
+lxP
+lxP
 xRX
 xRX
 xRX
@@ -37841,30 +37818,30 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+rtf
+efi
+eys
+vOv
+evN
+vOv
+wZF
+bwv
+bRq
+yhP
+vOv
+qfs
+aTr
+vOv
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
 xRX
 xRX
 xRX
@@ -38098,30 +38075,30 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+rtf
+eIk
+aou
+akP
+pcX
+qkJ
+xrq
+jJJ
+hWc
+fRM
+vOv
+qfs
+aTr
+vOv
+vOv
+urK
+dBa
+urK
+dBa
+urK
+dBa
+xAw
+dBa
+lxP
 xRX
 xRX
 xRX
@@ -38355,30 +38332,30 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+rtf
+ete
+aej
+anK
+xzq
+vOv
+fYZ
+hmO
+atj
+aTr
+vOv
+qfs
+aTr
+vOv
+vOv
+fLL
+sgW
+fLL
+mOy
+fLL
+mOy
+fLL
+ajL
+lxP
 xRX
 xRX
 xRX
@@ -38612,30 +38589,30 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+wZF
+atj
+atj
+vOv
+qfs
+aTr
+vOv
+vOv
+tQU
+jPG
+aBb
+jPG
+aBb
+jPG
+aBb
+atP
+lxP
 xRX
 xRX
 xRX
@@ -38875,24 +38852,24 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+lxP
+jdi
+iWb
+pvZ
+axB
+qfs
+atj
+seV
+aAY
+rBF
+aOo
+jab
+aOo
+jab
+aOo
+jab
+aOo
+lxP
 xRX
 xRX
 xRX
@@ -39132,24 +39109,24 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+lxP
+lxP
+lxP
+lxP
+lxP
+cFy
+aTr
+lxP
+ePZ
+hif
+cQX
+hif
+cQX
+mgE
+cQX
+mgE
+cQX
+lxP
 xRX
 xRX
 xRX
@@ -39390,23 +39367,23 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+lxP
+lxP
+lxP
+vOv
+aFo
+rLq
+xAg
+vOv
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
+lxP
 xRX
 xRX
 xRX
@@ -39648,13 +39625,13 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+lxP
+lxP
+fAD
+xzf
+fUE
+qVg
+lxP
 xRX
 xRX
 xRX
@@ -39907,10 +39884,10 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
+fAD
+vFL
+jLe
+fAD
 xRX
 xRX
 xRX
@@ -40164,10 +40141,10 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
+fAD
+nyH
+pcX
+fAD
 xRX
 xRX
 xRX
@@ -40421,10 +40398,10 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
+fAD
+pcX
+pcX
+fAD
 xRX
 xRX
 xRX
@@ -40678,10 +40655,10 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
+fAD
+vUC
+nRU
+fAD
 xRX
 xRX
 xRX
@@ -40935,7 +40912,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+dJo
 xRX
 xRX
 xRX

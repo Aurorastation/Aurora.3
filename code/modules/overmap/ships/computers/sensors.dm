@@ -5,20 +5,25 @@
 	light_color = LIGHT_COLOR_CYAN
 	extra_view = 4
 	var/obj/machinery/shipsensors/sensors
+	var/obj/machinery/iff_beacon/identification
 	circuit = /obj/item/circuitboard/ship/sensors
 
 /obj/machinery/computer/ship/sensors/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
 	if(!.)
 		return
-	find_sensors()
+	find_sensors_and_iff()
 
-/obj/machinery/computer/ship/sensors/proc/find_sensors()
+/obj/machinery/computer/ship/sensors/proc/find_sensors_and_iff()
 	if(!linked)
 		return
 	for(var/obj/machinery/shipsensors/S in SSmachinery.machinery)
 		if(linked.check_ownership(S))
 			sensors = S
+			break
+	for(var/obj/machinery/iff_beacon/IB in SSmachinery.machinery)
+		if(linked.check_ownership(IB))
+			identification = IB
 			break
 
 /obj/machinery/computer/ship/sensors/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
@@ -72,10 +77,25 @@
 		data["status"] = "MISSING"
 		data["range"] = "N/A"
 		data["on"] = 0
+	
+	if(identification)
+		data["id_on"] = identification.use_power
+		if(identification.disabled)
+			data["id_status"] = "ERROR"
+		else if(!identification.use_power)
+			data["id_status"] = "NOT TRANSMITTING"
+		else
+			data["id_status"] = "TRANSMITTING"
+		data["id_class"] = linked.class
+		data["id_name"] = linked.designation
+		data["can_change_class"] = identification.can_change_class
+		data["can_change_name"] = identification.can_change_name
+	else
+		data["id_status"] = "NOBEACON" //Should not really happen.
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "shipsensors.tmpl", "[linked.name] Sensors Control", 600, 530, src)
+		ui = new(user, src, ui_key, "shipsensors.tmpl", "[linked.get_real_name()] Sensors Control", 600, 530, src)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
@@ -93,7 +113,7 @@
 		return TOPIC_REFRESH
 
 	if (href_list["link"])
-		find_sensors()
+		find_sensors_and_iff()
 		return TOPIC_REFRESH
 
 	if(sensors)
@@ -106,6 +126,43 @@
 			return TOPIC_REFRESH
 		if (href_list["toggle"])
 			sensors.toggle()
+			return TOPIC_REFRESH
+
+	if(identification)
+		if(href_list["toggle_id"])
+			identification.toggle()
+			return TOPIC_REFRESH
+
+		if(href_list["change_ship_class"])
+			if(!identification.use_power)
+				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
+				return
+			var/new_class = input("Insert a new ship class. 4 letters maximum.", "IFF Management") as text|null
+			if(!length(new_class))
+				return
+			new_class = sanitizeSafe(new_class, 5)
+			new_class = uppertext(new_class)
+			if(use_check_and_message(usr))
+				return
+			linked.set_new_class(new_class)
+			playsound(src, 'sound/machines/twobeep.ogg', 50)
+			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship class registered.\"</i>"))
+			return TOPIC_REFRESH
+
+		if(href_list["change_ship_name"])
+			if(!identification.use_power)
+				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
+				return
+			var/new_name = input("Insert a new ship name. 24 letters maximum.", "IFF Management") as text|null
+			if(!length(new_name))
+				return
+			new_name = sanitizeSafe(new_name, 24)
+			new_name = capitalize(new_name)
+			if(use_check_and_message(usr))
+				return
+			linked.set_new_designation(new_name)
+			playsound(src, 'sound/machines/twobeep.ogg', 50)
+			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship designation registered.\"</i>"))
 			return TOPIC_REFRESH
 
 	if (href_list["scan"])

@@ -494,6 +494,27 @@
 
 	reagents_to_add = list(/decl/reagent/nutriment = 10, /decl/reagent/sugar = 3)
 
+/obj/item/reagent_containers/food/snacks/proteinbar
+	name = "protein bar"
+	desc = "SwoleMAX brand protein bars, guaranteed to get you feeling perfectly overconfident."
+	icon_state = "proteinbar"
+	trash = /obj/item/trash/proteinbar
+	bitesize = 6
+
+/obj/item/reagent_containers/food/snacks/proteinbar/Initialize()
+	. = ..()
+	reagents.add_reagent(/decl/reagent/nutriment, 9)
+	reagents.add_reagent(/decl/reagent/nutriment/protein, 4)
+	var/list/decl_flavors = decls_repository.get_decls_of_subtype(/decl/proteinbar_flavor)
+	var/decl/proteinbar_flavor/PB = decls_repository.get_decl(pick(decl_flavors))
+	name = "[PB.name] [name]"
+	var/count = length(PB.reagents)
+	if(count)
+		for(var/type in PB.reagents)
+			reagents.add_reagent(type, round(4 / count, 0.1))
+	else
+		reagents.add_reagent(PB.reagents, 4)
+
 /obj/item/reagent_containers/food/snacks/candy_corn
 	name = "candy corn"
 	desc = "It's a handful of candy corn. Cannot be stored in a detective's hat, alas."
@@ -3806,6 +3827,15 @@
 	center_of_mass = list("x"=17, "y"=16)
 	reagent_data = list(/decl/reagent/nutriment/synthetic = list("stale bread" = 4))
 	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 6, /decl/reagent/sodiumchloride = 3)
+
+/obj/item/reagent_containers/food/snacks/meatcube
+	name = "cubed meat"
+	desc = "Fried, salted lean meat compressed into a cube. Not very appetizing."
+	icon_state = "meatcube"
+	filling_color = "#7a3d11"
+	center_of_mass = list("x"=16, "y"=16)
+	bitesize = 3
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 15)
 
 /obj/item/reagent_containers/food/snacks/ricetub
 	name = "packed rice bowl"

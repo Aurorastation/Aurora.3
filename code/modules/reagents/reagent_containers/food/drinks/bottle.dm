@@ -223,7 +223,8 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/whiskey
 	name = "Mu Cephei Special Reserve"
-	desc = "An okayish single-malt whiskey, gently matured inside the maintenance tunnels of NSS Cepheus. TUNNEL WHISKEY RULES."
+	desc = "An okayish single-malt whiskey. This one is produced mainly in New Valletta on Callisto and is fairly famous among Cythereans, too. It's great to get you \
+	in the right mindset for your tenth night out clubbing in a row!"
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "whiskeybottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -231,8 +232,8 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/fireball
 	name = "Delta Cephei Cinnamon Fireball"
-	desc = "An okayish single-malt whiskey, infused with cinnamon and hot pepper inside the maintenance tunnels of NSS Cepheus. \
-			It is sometimes claimed that Tunnel Runners came up with the current recipe for this drink."
+	desc = "An okayish single-malt whiskey, infused with cinnamon and hot pepper that used to be mainly produced on Mars, but the production line was since moved to Earth for geopolitical reasons. \
+	It is sometimes claimed that particularly desperate Eridanian dregs came up with the current recipe for this drink."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "whiskeybottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -240,24 +241,25 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/vodka
 	name = "Martian 50% Premium"
-	desc = "Only potatoes grown in real imported Martian soil may be used for this premium vodka. Made by Silverport, drunk by Zavodskoi."
+	desc = "Only potatoes grown in real imported Martian soil may be used for this premium vodka (imports of Martian soil may have stopped). Made by Silverport, drunk by Zavodskoi."
 	desc_fluff = DRINK_FLUFF_SILVERPORT
 	icon_state = "vodkabottle"
 	center_of_mass = list("x"=17, "y"=4)
 	reagents_to_add = list(/decl/reagent/alcohol/vodka = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom
-	name = "Magnitogorsk Import mushroom vodka"
-	desc = "A mushroom-based vodka imported from the breweries of Himeo. Drinking too much of this will result in a personal permanent revolution."
+	name = "Inverkeithing Import mushroom vodka"
+	desc = "A mushroom-based vodka imported from the breweries of Inverkeithing on Himeo. Drinking too much of this will result in a personal permanent revolution."
 	desc_fluff = "Vodka made from mushrooms is a local favourite on Himeo, due to the ease with which mushrooms can be grown under the planet's surface. This bottle is \
-	from the Vodnik Breweries Syndicate in Magnitogorsk, arguably the most famous brewery on Himeo (though fans of the Coal Canary Syndicated Brewery in Highland City \
-	would disagree). Drinkers of the world, unite!"
+	from the Schwarzer Drache Breweries Syndicate in Inverkeithing, arguably the most famous brewery on Himeo due to its historical reputation. It is also the most famous brand \
+	of mushroom vodka among non-Himeans because of Inverkeithing's developing tourism industry. Drinkers of the world (and beyond), unite!"
 	icon_state = "mushroomvodkabottle"
 	reagents_to_add = list(/decl/reagent/alcohol/vodka/mushroom = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/tequila
-	name = "Chip's Guaranteed Quality tequila"
-	desc = "Made from premium petroleum distillates, pure thalidomide and other fine quality ingredients!"
+	name = "Nathan's Guaranteed Quality tequila"
+	desc = "Made from premium petroleum distillates, pure thalidomide and other fine quality ingredients! This particular line of tequila has Nathan Trasen's signature on the label and his approval, \
+	as can be commonly seen and heard in Getmore's many advertisements for this line. Astute observers may however note the absolute lack of emotion on Trasen's face while reciting his love for Getmore tequila on television."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "tequilabottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -265,7 +267,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/bottleofnothing
 	name = "bottle of nothing"
-	desc = "A bottle filled with nothing"
+	desc = "A bottle filled with nothing."
 	icon_state = "bottleofnothing"
 	center_of_mass = list("x"=16, "y"=5)
 	reagents_to_add = list(/decl/reagent/drink/nothing = 100)
@@ -281,7 +283,8 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/champagne
 	name = "Silverport's Bubbliest champagne"
-	desc = "A rather fancy bottle of champagne, fit for collecting and storing in a cellar for decades."
+	desc = "A rather fancy bottle of champagne, fit for collecting and storing in a cellar for decades. This champagne is an absolute mainstay on Venus, used everywhere from appetizers to celebrations to \
+	cocktail creation, where it shines the most. If you haven't got a bottle of Silverport's Bubbliest in your fridge, are you <i>really</i> a Cytherean? The advertisements for this line say no!"
 	desc_fluff = DRINK_FLUFF_SILVERPORT
 	icon_state = "champagnebottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -298,15 +301,17 @@
 /obj/item/reagent_containers/food/drinks/bottle/patron
 	name = "Cytherea Artiste patron"
 	desc = "Silver laced tequila, served in space night clubs across the galaxy. It's among some of the most expensive Silverport Quality Brand products, \
-			perhaps due to demand rather than the actual cost of production."
+	perhaps due to demand rather than the actual cost of production."
 	desc_fluff = DRINK_FLUFF_SILVERPORT
 	icon_state = "patronbottle"
 	center_of_mass = list("x"=16, "y"=7)
 	reagents_to_add = list(/decl/reagent/alcohol/patron = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/rum
-	name = "Captain Melinda's Cuban Spiced rum"
-	desc = "If Getmore gets any alcohol right, it's certainly rum. It's practically GRIFF in a bottle."
+	name = "Undirstader Broeckhouser rum"
+	desc = "If Getmore gets any alcohol right, it's certainly rum, according to (most) New Gibsoners (only Ovanstaders were polled)! This is <b>real</b>, <i><b>GENUINE</b></i> Undirstader rum, made using <b>OLD WORLD</b> recipes! The most authentic \
+	Undirstader drink in Getmore's wide arsenal! Or so the advertisements say. Undirstader critics often point to this rum as a corporate mockery of their culture, yet it remains the most \
+	popular Getmore product in New Gibson's Ovanstads by far, and most people simply know it as a famous Undirstader drink produced by Getmore."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "rumbottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -323,7 +328,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/vermouth
 	name = "Xinghua vermouth"
 	desc = "Sweet, sweet dryness. Some alcohol critics say that the addition of dyn to the recipe ruins the drink, \
-			but the average consumer doesn't really notice the difference, and it's cheaper to manufacture."
+	but the average consumer doesn't really notice the difference, and it's cheaper to manufacture."
 	desc_fluff = DRINK_FLUFF_ZENGHU
 	icon_state = "vermouthbottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -412,6 +417,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/space_up
 	name = "\improper Vacuum Fizz"
 	desc = "Tastes like a hull breach in your mouth."
+	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "space-up_bottle"
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = NO_EMPTY_ICON
@@ -424,6 +430,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind
 	name = "\improper Stellar Jolt"
 	desc = "For those who have a need for caffeine stronger than would be sensible."
+	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "space_mountain_wind_bottle"
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = NO_EMPTY_ICON
@@ -463,8 +470,9 @@
 	rag_underlay = "rag_small"
 
 /obj/item/reagent_containers/food/drinks/bottle/small/beer
-	name = "Ultimate Quality beer"
-	desc = "Contains only water, malt and hops. Not really as high-quality as the name says, but it's still popular."
+	name = "Virklunder beer"
+	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in the Ovanstad of \
+	Virklund in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel and has since been in stock in practically every bar across the nation."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "beer"
 	center_of_mass = list("x"=16, "y"=8)
@@ -472,8 +480,9 @@
 	reagents_to_add = list(/decl/reagent/alcohol/beer = 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/small/ale
-	name = "\improper Magm-ale"
-	desc = "A true dorf's drink of choice."
+	name = "\improper Burszi-ale"
+	desc = "Manufactured in Virklund on New Gibson by Getmore, this is a true Burszian's drink of choice. That is, if you're not an IPC. You wouldn't be able to buy this ale then. Or think of buying it. Or afford it."
+	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "alebottle"
 	item_state = "beer"
 	center_of_mass = list("x"=16, "y"=8)
@@ -526,7 +535,8 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/guinness
 	name = "Guinness"
-	desc = "A bottle of good old Guinness."
+	desc = "A bottle of good old Guinness. Manufactured by Getmore in a District 3 brewery in Mendell City. It is one of Getmore's most basic and least flashy lines of alcohol."
+	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "guinness_bottle"
 	center_of_mass = list("x" = 15,"y" = 4)
 	reagents_to_add = list(/decl/reagent/alcohol/guinness = 100)
