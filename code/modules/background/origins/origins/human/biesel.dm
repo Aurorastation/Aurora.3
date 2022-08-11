@@ -29,7 +29,7 @@
 
 /decl/origin_item/origin/reade
     name = "Reade"
-	desc = "Outposts dot the dozens of moons found in orbit of Reade, many dedicated to mineral extraction and refinement. However, within the upper atmosphere of the gas giant the engineering feat that is the Anemostrovilos exists. The gigantic floating metropolis has its industry focused on the extraction of important gases such as Hydrogen and Helium-3 required to fuel the Orion Spur's warpdrives and thrusters. Nearly anyone can be found in the outposts either in the upper atmosphere of Reade or across its many moons."
+    desc = "Outposts dot the dozens of moons found in orbit of Reade, many dedicated to mineral extraction and refinement. However, within the upper atmosphere of the gas giant the engineering feat that is the Anemostrovilos exists. The gigantic floating metropolis has its industry focused on the extraction of important gases such as Hydrogen and Helium-3 required to fuel the Orion Spur's warpdrives and thrusters. Nearly anyone can be found in the outposts either in the upper atmosphere of Reade or across its many moons."
     possible_accents = list(ACCENT_CETI, ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR, ACCENT_VALKYRIE)
     possible_citizenships = list(CITIZENSHIP_BIESEL)
     possible_religions = RELIGIONS_BIESEL
