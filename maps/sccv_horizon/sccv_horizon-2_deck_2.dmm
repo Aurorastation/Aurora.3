@@ -34829,7 +34829,18 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "sPY" = (
-)
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/maintenance/aft)
 "sQj" = (
 /turf/simulated/wall,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
@@ -68082,7 +68093,7 @@ fnn
 fnn
 nAz
 lOH
-sPY
+aUB
 rbf
 hDr
 hDr
