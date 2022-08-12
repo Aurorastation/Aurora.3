@@ -81,6 +81,7 @@
 	icon_state = "pdoor0";
 	id = "casino_bridge";
 	name = "Casino Bridge Blast Doors";
+	is_critical = 1;
 	opacity = 0
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
@@ -109,6 +110,7 @@
 	icon_state = "pdoor0";
 	id = "casino_bridge";
 	name = "Casino Bridge Blast Doors";
+	is_critical = 1;
 	opacity = 0
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
@@ -373,7 +375,8 @@
 /area/casino/casino_maintenance)
 "bk" = (
 /obj/machinery/door/blast/regular{
-	id = "casino_weaponry"
+	id = "casino_weaponry";
+	is_critical = 1
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
@@ -904,7 +907,8 @@
 "cD" = (
 /obj/machinery/door/blast/regular/open{
 	icon_state = "pdoor0";
-	id = "casino_shuttle_control"
+	id = "casino_shuttle_control";
+	is_critical = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -1730,6 +1734,7 @@
 	icon_state = "pdoor0";
 	id = "casino_checkpoint";
 	name = "Casino Checkpoint Blast Doors";
+	is_critical = 1;
 	opacity = 0
 	},
 /turf/simulated/floor/tiled,
@@ -1746,6 +1751,8 @@
 	dir = 6
 	},
 /obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
@@ -1824,6 +1831,7 @@
 	icon_state = "pdoor0";
 	id = "casino_checkpoint";
 	name = "Casino Checkpoint Blast Doors";
+	is_critical = 1;
 	opacity = 0
 	},
 /turf/simulated/floor/tiled,
@@ -1865,6 +1873,7 @@
 	density = 0;
 	dir = 8;
 	icon_state = "pdoor0";
+	is_critical = 1;
 	id = "casino_main"
 	},
 /obj/machinery/door/firedoor,
@@ -1874,14 +1883,6 @@
 "fB" = (
 /obj/machinery/light/small{
 	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/casino/casino_maintenance)
-"fC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
@@ -2073,6 +2074,7 @@
 	icon_state = "pdoor0";
 	id = "casino_checkpoint";
 	name = "Casino Checkpoint Blast Doors";
+	is_critical = 1;
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
@@ -2226,7 +2228,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
-	id_tag = "solar_casino_outer";
+	id_tag = "casino_solar_outer";
 	locked = 1;
 	name = "External Access"
 	},
@@ -2318,7 +2320,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1439;
 	icon_state = "door_locked";
-	id_tag = "solar_casino_inner";
+	id_tag = "casino_solar_inner";
 	locked = 1;
 	name = "External Access"
 	},
@@ -4547,7 +4549,8 @@
 "mZ" = (
 /obj/machinery/door/blast/regular/open{
 	icon_state = "pdoor0";
-	id = "Starboard wide window BD"
+	id = "Starboard wide window BD";
+	is_critical = 1
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor,
@@ -9983,7 +9986,7 @@ cp
 eM
 bW
 fj
-fC
+Qb
 cq
 cq
 cq
