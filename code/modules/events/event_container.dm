@@ -123,11 +123,11 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	next_event = EM
 	return EM
 
-
+// Severity Level, Event Name, Event Type, Base Weight, Role Weight(s), One Shot (TRUE/FALSE), Min Weight, Max Weight. Last two only used if set and non-zero.
+// Role weight(s) is per active role, so (1 role = role weight * 1), (4 roles active = role weight * 4).
 /datum/event_container/mundane
 	severity = EVENT_LEVEL_MUNDANE
 	available_events = list(
-		// Severity level, event name, even type, base weight, role weights, one shot, min weight, max weight. Last two only used if set and non-zero
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing",					/datum/event/nothing,				120),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "APC Damage",				/datum/event/apc_damage,			20, 	list(ASSIGNMENT_ENGINEER = 15)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Brand Intelligence",		/datum/event/brand_intelligence,	0, 	list(ASSIGNMENT_ENGINEER = 5),	1),
@@ -148,6 +148,8 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Visitor", 					/datum/event/visitor,				50, is_one_shot = TRUE)
 	)
 
+// Severity Level, Event Name, Event Type, Base Weight, Role Weight(s), One Shot (TRUE/FALSE), Min Weight, Max Weight. Last two only used if set and non-zero.
+// Role weight(s) is per active role, so (1 role = role weight * 1), (4 roles active = role weight * 4).
 /datum/event_container/moderate
 	severity = EVENT_LEVEL_MODERATE
 	available_events = list(
@@ -171,6 +173,8 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Burglar Pod",						/datum/event/rescue_pod/burglar, 			50,		list(ASSIGNMENT_SECURITY = 5), is_one_shot = TRUE, excluded_roundtypes = list("Extended"))
 	)
 
+// Severity Level, Event Name, Event Type, Base Weight, Role Weight(s), One Shot (TRUE/FALSE), Min Weight, Max Weight. Last two only used if set and non-zero.
+// Role weight(s) is per active role, so (1 role = role weight * 1), (4 roles active = role weight * 4).
 /datum/event_container/major
 	severity = EVENT_LEVEL_MAJOR
 	available_events = list(
