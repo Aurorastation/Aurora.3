@@ -62,3 +62,9 @@
 
 /obj/item/device/augment_implanter/advanced_suspension
 	new_augment =	/obj/item/organ/internal/augment/suspension/advanced
+
+/obj/item/device/augment_implanter/combitool
+	new_augment =	/obj/item/organ/internal/augment/tool/combitool
+
+/obj/item/device/augment_implanter/health_scanner
+	new_augment =	/obj/item/organ/internal/augment/health_scanner
