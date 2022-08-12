@@ -4,74 +4,74 @@
 	icon_state = "grove_bush4"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "c" = (
 /obj/structure/flora/bush/grove{
 	icon_state = "grove_bush4"
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "g" = (
 /obj/structure/flora/tree/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "h" = (
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "l" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /obj/structure/flora/clutter,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "m" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "o" = (
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "q" = (
 /obj/structure/flora/tree/grove{
 	icon_state = "grove_tree6"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "x" = (
 /obj/structure/flora/bush/grove{
 	icon_state = "grove_bush4"
 	},
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "D" = (
 /obj/structure/flora/tree/grove{
 	icon_state = "grove_tree4"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "F" = (
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "G" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "M" = (
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "O" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "T" = (
 /obj/structure/flora/bush/grove{
 	icon_state = "grove_bush3"
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "W" = (
 /obj/structure/flora/clutter,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 
 (1,1,1) = {"
 G

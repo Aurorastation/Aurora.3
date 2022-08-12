@@ -1,22 +1,21 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "c" = (
 /obj/structure/droppod_door{
-	dir = 8
+	dir = 4
 	},
-/obj/item/archaeological_find,
-/turf/simulated/floor/vaurca,
-/area/space)
+/turf/simulated/floor/beach/sand/desert,
+/area/exoplanet/grass/grove)
 "d" = (
 /obj/structure/flora/rock/pile,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "f" = (
 /obj/structure/quicksand,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "g" = (
 /obj/structure/pit/closed{
 	color = "#C2B280"
@@ -24,48 +23,45 @@
 /obj/item/fossil/bone,
 /obj/item/arrow/quill,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "i" = (
 /obj/item/ore,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "j" = (
 /obj/structure/pit/closed{
 	color = "#C2B280"
 	},
 /obj/item/fossil/plant,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "k" = (
 /obj/structure/pit/closed{
 	color = "#C2B280"
 	},
 /obj/item/fossil/bone,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "l" = (
 /obj/structure/greatworm,
 /obj/structure/quicksand,
 /turf/simulated/floor/beach/sand/desert,
-/area/space)
+/area/exoplanet/grass/grove)
 "n" = (
-/obj/structure/droppod_door{
-	dir = 4
-	},
 /obj/item/archaeological_find,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "o" = (
 /obj/item/ore,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "p" = (
 /turf/simulated/floor/beach/sand/desert,
-/area/space)
+/area/exoplanet/grass/grove)
 "r" = (
 /obj/item/fossil/bone,
 /turf/simulated/floor/beach/sand/desert,
-/area/space)
+/area/exoplanet/grass/grove)
 "w" = (
 /obj/structure/pit/closed{
 	color = "#C2B280"
@@ -76,16 +72,16 @@
 	name = "bone shard"
 	},
 /turf/simulated/floor/beach/sand/desert,
-/area/space)
+/area/exoplanet/grass/grove)
 "x" = (
 /mob/living/simple_animal/hostile/greatworm,
 /turf/simulated/floor/beach/sand/desert,
-/area/space)
+/area/exoplanet/grass/grove)
 "A" = (
 /obj/structure/quicksand,
 /obj/structure/greatworm,
 /turf/simulated/floor/beach/sand/desert,
-/area/space)
+/area/exoplanet/grass/grove)
 "B" = (
 /obj/structure/pit/closed{
 	color = "#C2B280"
@@ -93,7 +89,7 @@
 /obj/item/fossil/bone,
 /obj/item/material/urn,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "C" = (
 /obj/structure/pit/closed{
 	color = "#C2B280"
@@ -101,10 +97,10 @@
 /obj/item/fossil/plant,
 /obj/item/arrow/quill,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "D" = (
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "H" = (
 /obj/structure/pit/closed{
 	color = "#C2B280"
@@ -113,49 +109,59 @@
 /obj/item/material/twohanded/spear/bone,
 /obj/item/clothing/shoes/magboots/vaurca,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "I" = (
 /obj/structure/greatworm,
 /turf/simulated/floor/beach/sand/desert,
-/area/space)
+/area/exoplanet/grass/grove)
 "J" = (
 /obj/structure/quicksand,
 /turf/simulated/floor/beach/sand/desert,
-/area/space)
+/area/exoplanet/grass/grove)
 "M" = (
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Q" = (
 /obj/item/bone_dart{
 	desc = "A bone shard of an alien animal";
 	name = "bone shard"
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "R" = (
 /obj/item/ore,
 /obj/item/seeds/blackkois,
-/mob/living/simple_animal/hostile/greatwormking,
+/mob/living/simple_animal/hostile/greatwormking{
+	color = "#301934"
+	},
 /obj/item/archaeological_find,
 /obj/item/clothing/head/helmet/space/void/vaurca,
 /obj/item/grenade/spawnergrenade/vaurca/liidra{
 	name = "alien artifact";
 	desc = "It pulses with some sort of dark life. Closer inspection would show a faint darkness emenating from it, as if it's surrounded in shadow."
 	},
+/obj/effect/decal/fake_object/light_source{
+	light_range = 1;
+	light_color = "#FF0000"
+	},
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "U" = (
 /obj/structure/droppod_door,
-/obj/item/archaeological_find,
-/turf/simulated/floor/vaurca,
-/area/space)
+/turf/simulated/floor/beach/sand/desert,
+/area/exoplanet/grass/grove)
 "W" = (
+/obj/structure/droppod_door{
+	dir = 8
+	},
+/turf/simulated/floor/beach/sand/desert,
+/area/exoplanet/grass/grove)
+"X" = (
 /obj/structure/droppod_door{
 	dir = 1
 	},
-/obj/item/archaeological_find,
-/turf/simulated/floor/vaurca,
-/area/space)
+/turf/simulated/floor/beach/sand/desert,
+/area/exoplanet/grass/grove)
 
 (1,1,1) = {"
 a
@@ -322,7 +328,7 @@ p
 M
 p
 p
-p
+W
 J
 J
 A
@@ -364,11 +370,11 @@ I
 p
 p
 l
-J
-U
+X
+n
 R
-W
-J
+n
+U
 A
 p
 p
@@ -388,7 +394,7 @@ J
 J
 J
 D
-c
+n
 D
 J
 p
@@ -410,7 +416,7 @@ J
 p
 p
 p
-p
+c
 p
 p
 x

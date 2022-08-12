@@ -7,11 +7,11 @@
 /obj/structure/window/basic,
 /obj/structure/barricade/wooden,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "ao" = (
 /obj/item/woodcirclet,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "aC" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/rat,
@@ -19,11 +19,11 @@
 /obj/structure/bed,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "aH" = (
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "bg" = (
 /obj/structure/railing{
 	material = wood;
@@ -31,7 +31,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "bk" = (
 /obj/structure/railing{
 	material = wood;
@@ -40,22 +40,22 @@
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "bl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "bv" = (
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "bx" = (
 /obj/item/clothing/head/tajaran/raskara,
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "bB" = (
 /obj/structure/window_frame,
 /obj/structure/window/basic{
@@ -67,60 +67,60 @@
 	icon_state = "closed"
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "bU" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "cq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "cV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/bone_dart,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "dg" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "dm" = (
 /obj/structure/simple_door/wood,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "et" = (
 /obj/structure/flora/ausbushes/grassybush,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "ev" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "ew" = (
 /obj/item/stack/material/wood/full,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "fJ" = (
 /obj/effect/map_effect/interval/effect_emitter/smoke{
 	interval_upper_bound = 50
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "fL" = (
 /obj/structure/bed/stool/chair/wood,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "gw" = (
 /obj/item/stack/material/wood,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "hh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -128,28 +128,28 @@
 /obj/structure/bed/stool/chair/wood,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "hs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/rat,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "iA" = (
 /obj/structure/flora/tree/jungle,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "iU" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "iX" = (
 /obj/structure/railing{
 	material = wood;
 	name = "wooden railing"
 	},
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "jw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window_frame,
@@ -157,11 +157,11 @@
 /obj/machinery/media/jukebox/phonograph,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "kf" = (
 /mob/living/simple_animal/rat,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "kG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
@@ -169,7 +169,7 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "kK" = (
 /obj/item/reagent_containers/cooking_container/pot,
 /obj/structure/table/wood,
@@ -181,61 +181,61 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/clothing/mask/smokable/cigarette/adhomai,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "lm" = (
 /obj/item/towel_flat,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "mm" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "mC" = (
 /obj/effect/decal/remains/human/burned{
 	desc = "They look like burned tajaran remains. They have a strange aura about them."
 	},
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "mH" = (
 /obj/item/material/twohanded/pike/pitchfork,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "nc" = (
 /mob/living/simple_animal/schlorrgo/baby,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "nh" = (
 /mob/living/simple_animal/schlorrgo,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "nr" = (
 /obj/item/shield/buckler,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/wrench,
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "ny" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "nX" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/storage/toolbox/bike_storage/monowheel,
 /obj/item/shovel,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "oo" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/rat/brown,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "oX" = (
 /obj/item/material/hatchet,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "pl" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/item/reagent_containers/cooking_container/saucepan,
@@ -243,7 +243,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "qc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/under/tajaran,
@@ -251,24 +251,24 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/mask/smokable/cigarette/adhomai,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "qd" = (
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "qe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "qx" = (
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "rk" = (
 /mob/living/simple_animal/rat,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "rT" = (
 /obj/structure/railing{
 	material = wood;
@@ -276,22 +276,22 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "rV" = (
 /obj/item/target,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "ss" = (
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "sJ" = (
 /obj/structure/target_stake,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "sQ" = (
 /obj/item/stack/dice/tajara,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "tn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/bone_dart,
@@ -306,11 +306,11 @@
 /obj/item/device/flashlight/flare/torch,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "tw" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "tB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/under/tajaran,
@@ -321,28 +321,28 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/storage/box/fancy/cigarettes/dpra,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "tX" = (
 /obj/item/stack/dice/tajara/alt,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "uQ" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/rat/brown,
 /obj/structure/reagent_dispensers/keg/mead,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "uX" = (
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "vC" = (
 /obj/item/shield/buckler,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/cane/shillelagh,
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "wg" = (
 /obj/item/reagent_containers/glass/bucket/wood,
 /obj/effect/decal/cleanable/dirt,
@@ -352,14 +352,14 @@
 /obj/item/material/knife/ritual,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "wo" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/rat/brown,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "wP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -369,35 +369,35 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel/napalm,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "wZ" = (
 /obj/item/material/shard/wood,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "xx" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "xW" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "yx" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "yz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ap" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Aw" = (
 /obj/structure/railing{
 	material = wood;
@@ -405,29 +405,29 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "AA" = (
 /obj/effect/map_effect/interval/effect_emitter/smoke{
 	interval_upper_bound = 50
 	},
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "Bt" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "BH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/wood,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ca" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/can/adhomian_can,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Cm" = (
 /obj/structure/railing{
 	material = wood;
@@ -435,35 +435,35 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Dp" = (
 /mob/living/simple_animal/schlorrgo,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "DS" = (
 /turf/simulated/floor/grass/alt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Eb" = (
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "Eg" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Eh" = (
 /obj/vehicle/bike/monowheel,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ek" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "EG" = (
 /mob/living/simple_animal/schlorrgo,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "EN" = (
 /obj/structure/window_frame,
 /obj/structure/window/basic{
@@ -473,31 +473,31 @@
 	icon_state = "closed"
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Fo" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Fq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "FW" = (
 /obj/structure/flora/tree/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Gf" = (
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Gi" = (
 /obj/structure/bed/stool/chair/wood,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "GA" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/ash,
@@ -505,7 +505,7 @@
 	interval_upper_bound = 50
 	},
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "GS" = (
 /obj/structure/window_frame,
 /obj/structure/window/basic,
@@ -513,11 +513,11 @@
 	icon_state = "closed"
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Hh" = (
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "Hn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_casing/musket,
@@ -528,38 +528,38 @@
 /obj/item/ammo_casing/musket,
 /obj/structure/closet/crate,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "HH" = (
 /obj/structure/flora/bush/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Iy" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/map_effect/interval/effect_emitter/smoke{
 	interval_upper_bound = 50
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "IE" = (
 /obj/item/reagent_containers/glass/bucket/wood,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "IX" = (
 /obj/structure/bed/stool/chair/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Jw" = (
 /obj/item/material/stool/chair/wood,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "JF" = (
 /obj/item/trash/can/adhomian_can,
 /obj/structure/trash_pile,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "JS" = (
 /obj/structure/window_frame,
 /obj/structure/window/basic{
@@ -570,44 +570,44 @@
 	icon_state = "closed"
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ki" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/distillery,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ks" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "KE" = (
 /obj/structure/railing{
 	material = wood;
 	name = "wooden railing"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "KI" = (
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "KZ" = (
 /obj/item/stack/material/wood,
 /obj/effect/map_effect/interval/effect_emitter/smoke{
 	interval_upper_bound = 50
 	},
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "Lm" = (
 /obj/effect/decal/cleanable/blood/tracks/paw,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ln" = (
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Lq" = (
 /obj/item/material/shard/wood,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "Lr" = (
 /obj/structure/window_frame,
 /obj/structure/window/basic{
@@ -618,7 +618,7 @@
 	icon_state = "closed"
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Mg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -626,7 +626,7 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel/napalm,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "MD" = (
 /obj/structure/window_frame,
 /obj/structure/window/basic,
@@ -635,35 +635,35 @@
 	icon_state = "closed"
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "MN" = (
 /obj/structure/curtain/open/bed{
 	icon_state = "closed"
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Nk" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ny" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/keg/mead,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Or" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "OI" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Qm" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Qq" = (
 /obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
@@ -677,25 +677,25 @@
 /obj/item/reagent_containers/food/drinks/bottle/veterans_choice,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "QK" = (
 /obj/structure/curtain/open/bed{
 	icon_state = "closed"
 	},
 /obj/effect/decal/cleanable/blood/tracks/paw,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ro" = (
 /obj/item/material/twohanded/pike/pitchfork,
 /obj/item/shovel/spade,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "RD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/bedsheet/brown,
 /obj/structure/bed,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "RI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/stone,
@@ -703,7 +703,7 @@
 /obj/item/reagent_containers/food/snacks/hardbread,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "RY" = (
 /obj/structure/railing{
 	material = wood;
@@ -712,7 +712,7 @@
 	},
 /obj/effect/decal/cleanable/blood/tracks/paw,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Sb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -720,7 +720,7 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Sd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/under/dress/tajaran/summer,
@@ -732,22 +732,22 @@
 /obj/item/clothing/head/sunflower_crown,
 /obj/item/clothing/head/pin/flower/yellow,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "SD" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "SH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel/napalm,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "SQ" = (
 /obj/item/stack/dice/tajara,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "SZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -758,7 +758,7 @@
 	},
 /obj/item/broken_device,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Tm" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
@@ -767,14 +767,14 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/clothing/mask/smokable/cigarette/adhomai,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "TP" = (
 /obj/structure/flora/tree/dead,
 /obj/effect/map_effect/interval/effect_emitter/smoke{
 	interval_upper_bound = 50
 	},
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "TS" = (
 /obj/structure/railing{
 	material = wood;
@@ -782,7 +782,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "UK" = (
 /obj/structure/railing{
 	material = wood;
@@ -790,7 +790,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "UQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -799,7 +799,7 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Vp" = (
 /mob/living/simple_animal/rat,
 /obj/structure/railing{
@@ -808,37 +808,37 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "VJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/material/stool/chair/wood,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "YH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "YV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/flame/lighter/adhomai,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Zi" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Zs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
 /obj/item/device/multitool,
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "ZY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/drip,
@@ -846,7 +846,7 @@
 	icon_state = "closed"
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 
 (1,1,1) = {"
 dg

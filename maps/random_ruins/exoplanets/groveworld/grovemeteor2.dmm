@@ -2,116 +2,116 @@
 "a" = (
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "d" = (
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "e" = (
 /obj/item/ore/glass,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "f" = (
 /obj/item/ore/glass,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "g" = (
 /obj/item/projectile/magic/fireball,
 /turf/simulated/lava,
-/area/space)
+/area/exoplanet/grass/grove)
 "h" = (
 /obj/fire,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "i" = (
 /obj/fire,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "m" = (
 /obj/fire,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "o" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "p" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "q" = (
 /obj/item/ore/phoron,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "t" = (
 /obj/item/ore,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "u" = (
 /obj/item/ore/gold,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "v" = (
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "w" = (
 /obj/item/ore/phoron,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "C" = (
 /mob/living/simple_animal/hostile/carp/bloater,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "F" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "G" = (
 /turf/simulated/lava,
-/area/space)
+/area/exoplanet/grass/grove)
 "K" = (
 /obj/item/ore,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "M" = (
 /obj/item/projectile/magic/fireball,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "O" = (
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Q" = (
 /obj/item/ore/gold,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "R" = (
 /obj/item/ore/glass,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "S" = (
 /obj/item/ore/gold,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "U" = (
 /obj/effect/decal/cleanable/ash,
 /obj/item/ore/glass,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "W" = (
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "X" = (
 /turf/simulated/mineral/random/higher_chance/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "Y" = (
 /obj/item/projectile/magic/fireball,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "Z" = (
 /obj/item/ore,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 
 (1,1,1) = {"
 p

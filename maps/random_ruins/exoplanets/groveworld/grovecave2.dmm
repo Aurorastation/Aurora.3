@@ -1,27 +1,27 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "e" = (
 /turf/simulated/mineral/planet,
-/area/space)
+/area/exoplanet/grass/grove)
 "m" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/mineral/random/higher_chance/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "o" = (
 /turf/simulated/mineral/random/higher_chance,
-/area/space)
+/area/exoplanet/grass/grove)
 "D" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/lava,
-/area/space)
+/area/exoplanet/grass/grove)
 "H" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/lava,
-/area/space)
+/area/exoplanet/grass/grove)
 "M" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/mineral/random/higher_chance,
-/area/space)
+/area/exoplanet/grass/grove)
 
 (1,1,1) = {"
 o

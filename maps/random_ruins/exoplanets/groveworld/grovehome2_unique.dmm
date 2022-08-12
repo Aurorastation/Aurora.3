@@ -7,20 +7,20 @@
 /obj/structure/window/basic,
 /obj/structure/barricade/wooden,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "ao" = (
 /obj/item/woodcirclet,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "aC" = (
 /obj/item/bedsheet/brown,
 /obj/structure/bed,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "aH" = (
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "bg" = (
 /obj/structure/railing{
 	material = wood;
@@ -28,7 +28,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "bk" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/pit/closed,
@@ -38,11 +38,11 @@
 /obj/item/ammo_magazine/c9mm,
 /obj/random/custom_ka,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "bx" = (
 /obj/machinery/power/portgen/basic,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "bB" = (
 /obj/structure/window_frame,
 /obj/structure/window/basic{
@@ -52,11 +52,11 @@
 	icon_state = "closed"
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "bU" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "cq" = (
 /obj/structure/closet/crate/hydroponics/prespawned,
 /obj/item/seeds/mtearseed,
@@ -84,22 +84,22 @@
 /obj/item/seeds/tobaccoseed,
 /obj/item/seeds/tobaccoseed,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "cV" = (
 /obj/item/clothing/head/cone,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "dg" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "et" = (
 /obj/item/clothing/head/cone,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "ew" = (
 /obj/item/stack/material/wood/full,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "fJ" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/pit/closed,
@@ -110,40 +110,40 @@
 /obj/item/ammo_magazine/submachinedrum,
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "fL" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "gw" = (
 /obj/item/stack/material/wood,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "hh" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "hs" = (
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "iA" = (
 /obj/structure/flora/tree/jungle,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "iX" = (
 /obj/structure/railing{
 	material = wood;
 	name = "wooden railing"
 	},
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "jw" = (
 /obj/structure/window_frame,
 /obj/structure/curtain/open/bed,
 /obj/machinery/media/jukebox/phonograph,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "kf" = (
 /obj/structure/pit/closed,
 /obj/item/clothing/accessory/badge/passport,
@@ -153,74 +153,74 @@
 /obj/item/clothing/accessory/badge/passport,
 /obj/random/melee,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "kK" = (
 /obj/structure/table/wood,
 /obj/item/clothing/mask/smokable/cigarette/adhomai,
 /obj/random/mre/drink,
 /obj/random/mre,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "lm" = (
 /obj/item/towel_flat,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "mm" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "mC" = (
 /obj/item/device/radio/beacon,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "mH" = (
 /obj/item/material/twohanded/pike/pitchfork,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "nc" = (
 /mob/living/simple_animal/schlorrgo/baby,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "nh" = (
 /mob/living/simple_animal/schlorrgo,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "nr" = (
 /obj/item/shield/buckler,
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "nX" = (
 /obj/item/storage/toolbox/bike_storage/monowheel,
 /obj/item/shovel,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "oo" = (
 /mob/living/simple_animal/rat/brown,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "oX" = (
 /obj/item/material/hatchet,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "pl" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/item/reagent_containers/cooking_container/saucepan,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "qc" = (
 /obj/item/clothing/under/tajaran,
 /obj/item/clothing/under/tajaran,
 /obj/structure/closet/cabinet,
 /obj/item/clothing/mask/smokable/cigarette/adhomai,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "qd" = (
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "qx" = (
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "rT" = (
 /obj/structure/railing{
 	material = wood;
@@ -228,18 +228,18 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "rV" = (
 /obj/item/target,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "ss" = (
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "sJ" = (
 /obj/structure/target_stake,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "tn" = (
 /obj/item/bone_dart,
 /obj/item/storage/toolbox/bike_storage/monowheel,
@@ -251,11 +251,11 @@
 /obj/item/device/flashlight/flare/torch,
 /obj/item/device/flashlight/flare/torch,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "tw" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "tB" = (
 /obj/item/clothing/under/tajaran,
 /obj/item/clothing/accessory/tajaran_wrap,
@@ -264,29 +264,29 @@
 /obj/item/pocketwatch/adhomai,
 /obj/item/storage/box/fancy/cigarettes/dpra,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "tX" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/item/material/twohanded/pike/pitchfork,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "uQ" = (
 /mob/living/simple_animal/rat/brown,
 /obj/random/keg,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "wg" = (
 /obj/item/reagent_containers/glass/bucket/wood,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "wZ" = (
 /obj/item/material/shard/wood,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "yx" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Aw" = (
 /obj/structure/railing{
 	material = wood;
@@ -294,16 +294,16 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Bt" = (
 /obj/structure/table/wood,
 /obj/item/broken_bottle,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "BH" = (
 /obj/structure/bed/stool/wood,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Cm" = (
 /obj/structure/railing{
 	material = wood;
@@ -311,18 +311,18 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Dp" = (
 /mob/living/simple_animal/schlorrgo,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "DS" = (
 /turf/simulated/floor/grass/alt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Eh" = (
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "EN" = (
 /obj/structure/window_frame,
 /obj/structure/window/basic{
@@ -332,15 +332,15 @@
 	icon_state = "closed"
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "FW" = (
 /obj/structure/flora/tree/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Gf" = (
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "GS" = (
 /obj/structure/window_frame,
 /obj/structure/window/basic,
@@ -348,10 +348,10 @@
 	icon_state = "closed"
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Hh" = (
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "Hn" = (
 /obj/item/ammo_casing/musket,
 /obj/item/ammo_casing/musket,
@@ -361,23 +361,23 @@
 /obj/item/ammo_casing/musket,
 /obj/structure/closet/crate,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "HH" = (
 /obj/structure/flora/bush/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "IE" = (
 /obj/item/reagent_containers/glass/bucket/wood,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "IX" = (
 /turf/simulated/mineral/random/exoplanet,
-/area/space)
+/area/exoplanet/grass/grove)
 "JF" = (
 /obj/item/trash/can/adhomian_can,
 /obj/structure/trash_pile,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "JS" = (
 /obj/structure/window_frame,
 /obj/structure/window/basic{
@@ -387,34 +387,34 @@
 	icon_state = "closed"
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ki" = (
 /obj/structure/distillery,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "KE" = (
 /obj/structure/railing{
 	material = wood;
 	name = "wooden railing"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "KI" = (
 /obj/structure/barricade/wooden,
 /obj/item/stack/material/wood,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Lm" = (
 /obj/effect/decal/cleanable/blood/tracks/paw,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ln" = (
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Lq" = (
 /obj/item/material/shard/wood,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Lr" = (
 /obj/structure/window_frame,
 /obj/structure/window/basic{
@@ -425,33 +425,33 @@
 	icon_state = "closed"
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "MN" = (
 /obj/structure/curtain/open/bed{
 	icon_state = "closed"
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Nk" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ny" = (
 /obj/random/keg,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Or" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "OI" = (
-/obj/effect/shuttle_landmark,
+/obj/effect/shuttle_landmark/groveworld/homestead_clearing,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Qm" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Qq" = (
 /obj/structure/closet/cabinet,
 /obj/item/reagent_containers/food/snacks/adhomian_can,
@@ -463,19 +463,19 @@
 /obj/item/reagent_containers/food/drinks/bottle/veterans_choice,
 /obj/random_produce/box,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "QK" = (
 /obj/structure/curtain/open/bed{
 	icon_state = "closed"
 	},
 /obj/effect/decal/cleanable/blood/tracks/paw,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ro" = (
 /obj/item/material/twohanded/pike/pitchfork,
 /obj/item/shovel/spade,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "RD" = (
 /obj/structure/closet/crate,
 /obj/item/gun/projectile/pistol/adhomai,
@@ -483,13 +483,13 @@
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/random/custom_ka,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "RI" = (
 /obj/structure/table/stone,
 /obj/item/stack/dice/tajara,
 /obj/item/reagent_containers/food/snacks/hardbread,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "RY" = (
 /obj/structure/railing{
 	material = wood;
@@ -498,11 +498,11 @@
 	},
 /obj/effect/decal/cleanable/blood/tracks/paw,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Sb" = (
 /obj/item/trash/broken_electronics,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Sd" = (
 /obj/structure/closet/cabinet,
 /obj/item/reagent_containers/food/drinks/bottle/veterans_choice,
@@ -510,15 +510,15 @@
 /obj/item/reagent_containers/food/drinks/bottle/veterans_choice,
 /obj/item/reagent_containers/food/drinks/bottle/veterans_choice,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "SD" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "SH" = (
 /obj/structure/flora/bush/grove,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "SZ" = (
 /obj/structure/table/wood,
 /obj/item/cell/device,
@@ -527,13 +527,13 @@
 	},
 /obj/item/broken_device,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Tm" = (
 /obj/structure/table/wood,
 /obj/item/clothing/mask/smokable/cigarette/adhomai,
 /obj/item/device/flashlight/lantern,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "TS" = (
 /obj/structure/railing{
 	material = wood;
@@ -541,7 +541,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "UK" = (
 /obj/structure/railing{
 	material = wood;
@@ -549,36 +549,36 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Vp" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "YV" = (
 /obj/structure/table/wood,
 /obj/item/flame/lighter/adhomai,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Zi" = (
 /obj/structure/simple_door/iron{
 	lock = 1
 	},
 /obj/item/stack/material/wood,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Zs" = (
 /obj/structure/table/wood,
 /obj/item/device/multitool,
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "ZY" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/curtain/open/bed{
 	icon_state = "closed"
 	},
 /turf/simulated/floor/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 
 (1,1,1) = {"
 dg
@@ -1372,7 +1372,7 @@ qx
 qx
 qx
 qx
-OI
+qx
 qx
 qx
 qx
@@ -1402,7 +1402,7 @@ DS
 dg
 qx
 qx
-qx
+OI
 qx
 qx
 qx

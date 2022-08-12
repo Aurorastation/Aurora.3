@@ -1,62 +1,62 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/simulated/mineral/planet,
-/area/space)
+/area/exoplanet/grass/grove)
 "b" = (
 /obj/item/ore/gold,
 /obj/item/bone_dart,
 /obj/effect/spider/cocoon,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "d" = (
 /obj/item/bone_dart,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "u" = (
 /obj/item/bone_dart,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "y" = (
 /obj/item/bone_dart/vannatusk,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "z" = (
 /obj/item/ore/gold,
 /obj/item/bone_dart/vannatusk,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "A" = (
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "B" = (
 /obj/item/ore/gold,
 /obj/effect/spider/cocoon,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "G" = (
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "L" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "R" = (
 /mob/living/simple_animal/hostile/retaliate/halebeetle{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "U" = (
 /obj/structure/diona/vines,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "X" = (
 /obj/structure/diona/vines,
 /turf/simulated/mineral/planet,
-/area/space)
+/area/exoplanet/grass/grove)
 "Z" = (
 /obj/structure/diona/vines,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 
 (1,1,1) = {"
 a

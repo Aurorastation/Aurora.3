@@ -2,89 +2,89 @@
 "bf" = (
 /obj/item/clothing/accessory/poncho/vaurca,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "bx" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "cC" = (
 /obj/item/organ/internal/liver/vaurca,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "db" = (
 /obj/item/reagent_containers/food/snacks/meat/human,
 /obj/item/clothing/accessory/badge/passport/elyra,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "fd" = (
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "fe" = (
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/effect/spider/cocoon{
 	color = "#8B8000"
 	},
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "gq" = (
 /obj/item/clothing/head/vaurca_breeder/cthur,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "iE" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "iJ" = (
 /obj/effect/decal/remains/xeno/burned,
 /obj/item/neuralbroke,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "je" = (
 /obj/item/vaurca/box,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "jg" = (
 /obj/item/organ/internal/heart/vaurca,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "jJ" = (
 /obj/item/organ/internal/brain/xeno,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "kE" = (
 /obj/item/clothing/suit/space/void/vaurca,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "kQ" = (
 /obj/item/archaeological_find,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "kZ" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#FF0000"
 	},
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "lg" = (
 /obj/item/clothing/head/vaurca_breeder,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "lj" = (
 /obj/item/grenade/spawnergrenade/vaurca/liidra{
 	name = "alien artifact";
 	desc = "It pulses with some sort of dark life. Closer inspection would show a faint darkness emenating from it, as if it's surrounded in shadow."
 	},
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "mc" = (
 /obj/item/melee/energy/vaurca_zweihander,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "mE" = (
 /obj/effect/decal/remains/xeno/burned,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "nW" = (
 /obj/item/organ/internal/appendix/vaurca,
 /obj/item/grenade/spawnergrenade/vaurca{
@@ -92,57 +92,57 @@
 	name = "alien artifact"
 	},
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "pB" = (
 /obj/item/melee/energy/vaurca,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "pV" = (
 /turf/simulated/wall/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "qg" = (
 /obj/item/ore/phoron,
 /obj/item/ore/phoron,
 /obj/item/ore/phoron,
 /obj/item/ore/phoron,
 /turf/simulated/floor/reinforced/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "qL" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#FF0000"
 	},
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "rQ" = (
 /obj/effect/decal/remains/xeno/burned,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "sk" = (
 /obj/item/organ/internal/appendix/vaurca,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "sW" = (
 /obj/item/storage/box/vaurca,
 /turf/simulated/wall/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "tG" = (
 /obj/machinery/door/airlock/vaurca,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "tN" = (
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "tZ" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/item/neuralbroke,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "uI" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/item/neuralbroke,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "vN" = (
 /obj/item/ore/phoron,
 /obj/item/ore/phoron,
@@ -151,56 +151,56 @@
 /obj/item/ore/phoron,
 /obj/item/ore/phoron,
 /turf/simulated/floor/reinforced/hydrogen,
-/area/space)
+/area/exoplanet/grass/grove)
 "wi" = (
 /obj/item/organ/internal/eyes/night/vaurca,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "xi" = (
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "xH" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "yu" = (
 /obj/item/organ/internal/brain/vaurca,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "yW" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/exoplanet/grass/grove)
 "zN" = (
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "AH" = (
 /obj/item/gun/energy/vaurca/typec,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "AM" = (
 /obj/item/organ/internal/vaurca/filtrationbit,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "Cf" = (
 /obj/effect/decal/remains/human/burned,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "Dh" = (
 /obj/item/organ/internal/vaurca/reservoir,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "EF" = (
 /obj/item/clothing/head/vaurca_breeder/klax,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "EU" = (
 /obj/item/grenade/spawnergrenade/vaurca{
 	desc = "A strange pod with a slight, yellowish glow coming from its interior.";
 	name = "alien artifact"
 	},
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "Fg" = (
 /obj/item/ore/phoron,
 /obj/item/ore/phoron,
@@ -208,104 +208,104 @@
 /obj/item/ore/phoron,
 /obj/item/ore/phoron,
 /turf/simulated/floor/reinforced/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "HR" = (
 /obj/item/organ/pariah_brain,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ij" = (
 /obj/effect/decal/cleanable/ash,
 /obj/item/neuralbroke,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "IH" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ja" = (
 /obj/item/organ/internal/kidneys/vaurca,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "Jn" = (
 /obj/item/stack/material/animalhide/human,
 /obj/item/archaeological_find,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "JO" = (
 /obj/item/organ/internal/liver/vaurca/robo,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "LI" = (
 /obj/item/reagent_containers/food/snacks/egg,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ma" = (
 /obj/item/melee/energy/vaurca,
 /turf/simulated/wall/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "Nf" = (
 /obj/item/ore/phoron,
 /turf/simulated/floor/reinforced/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "NK" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/effect/decal/cleanable/ash,
 /obj/item/neuralbroke,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "NR" = (
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "On" = (
 /obj/item/ore/strangerock,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "OR" = (
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "OS" = (
 /obj/item/clothing/accessory/flagpatch/elyra,
 /obj/effect/decal/remains/human,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Pc" = (
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "Pk" = (
 /obj/item/clothing/shoes/magboots/vaurca,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "Pv" = (
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "PJ" = (
 /obj/item/clothing/head/helmet/space/void/vaurca,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "QT" = (
 /obj/effect/decal/cleanable/ash,
 /obj/item/neuralbroke,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Si" = (
 /obj/item/neuralbroke,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ss" = (
 /obj/item/melee/vaurca/rock,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#FF0000"
 	},
 /turf/simulated/floor/reinforced/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "Th" = (
 /turf/simulated/floor/reinforced/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "Tq" = (
 /obj/item/organ/internal/vaurca/neuralsocket,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "UV" = (
 /obj/item/ore/phoron,
 /obj/item/ore/phoron,
@@ -317,24 +317,24 @@
 /obj/item/ore/phoron,
 /obj/item/ore/phoron,
 /turf/simulated/floor/reinforced/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "VO" = (
 /obj/effect/decal/remains/human/burned,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Wp" = (
 /obj/item/ore/phoron,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "Wu" = (
 /obj/item/organ/internal/vaurca/neuralsocket,
 /obj/effect/decal/remains/xeno,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "XR" = (
 /obj/item/melee/vaurca/rock,
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ye" = (
 /obj/item/melee/vaurca/rock,
 /obj/item/ore/phoron,
@@ -347,15 +347,15 @@
 /obj/item/ore/phoron,
 /obj/item/ore/phoron,
 /turf/simulated/floor/reinforced/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "Yl" = (
 /obj/item/organ/internal/vaurca/preserve,
 /turf/simulated/floor/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 "Zi" = (
 /obj/item/vaurca/box,
 /turf/simulated/wall/vaurca,
-/area/space)
+/area/exoplanet/grass/grove)
 
 (1,1,1) = {"
 IH

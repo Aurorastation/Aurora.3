@@ -2,267 +2,267 @@
 "aW" = (
 /obj/item/device/flashlight/flare/torch,
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "dw" = (
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "dM" = (
 /mob/living/simple_animal/hostile/giant_spider,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "em" = (
 /obj/structure/flora/tree/jungle,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "eW" = (
 /obj/structure/barricade/wooden,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "fr" = (
 /obj/structure/table/stone,
 /obj/item/material/knife/trench,
 /obj/item/storage/box/fancy/mre/menu10,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "fy" = (
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "gj" = (
 /mob/living/simple_animal/hostile/giant_spider/emp,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "gn" = (
 /obj/structure/flora/tree/grove{
 	icon_state = "grove_tree6"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "hi" = (
 /mob/living/simple_animal/hostile/giant_spider/hunter,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "jL" = (
 /obj/structure/flora/rock/pile,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "kn" = (
 /obj/item/trash/mollusc_shell/clam,
 /obj/item/cell/device/emergency_light/empty,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "kA" = (
 /obj/structure/boulder,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "lg" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "oB" = (
 /obj/structure/boulder,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "qh" = (
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "qk" = (
 /obj/item/device/electronic_assembly/medium/radio,
 /turf/simulated/mineral/random/exoplanet,
-/area/space)
+/area/exoplanet/grass/grove)
 "qW" = (
 /mob/living/simple_animal/hostile/giant_spider/emp,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "rb" = (
 /obj/item/device/flashlight/flare/torch,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "rm" = (
 /obj/structure/boulder,
 /turf/simulated/mineral/random/exoplanet,
-/area/space)
+/area/exoplanet/grass/grove)
 "rt" = (
 /obj/structure/flora/tree/grove{
 	icon_state = "grove_tree3"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "sq" = (
 /obj/item/trash/mollusc_shell,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "tx" = (
 /obj/structure/trash_pile,
 /obj/item/gun/launcher/crossbow/RFD,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "tO" = (
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "us" = (
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "uH" = (
 /obj/item/device/assembly/mousetrap/armed,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "yh" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "yx" = (
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "yD" = (
 /obj/item/stack/material/wood/full,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Bp" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "CH" = (
 /obj/item/broken_device,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Dk" = (
 /obj/structure/boulder,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "DZ" = (
 /obj/effect/spider/cocoon,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Eu" = (
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
 /obj/item/material/knife/bayonet,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ey" = (
 /obj/item/device/ano_scanner,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Fe" = (
 /obj/item/trash/mollusc_shell,
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "FN" = (
 /obj/item/trash/mollusc_shell/barnacle,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "Gy" = (
 /turf/simulated/mineral/random/exoplanet,
-/area/space)
+/area/exoplanet/grass/grove)
 "Hf" = (
 /obj/structure/pit,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Hi" = (
 /obj/structure/flora/rock,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "IN" = (
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Jx" = (
 /obj/item/torch,
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "Kq" = (
 /obj/structure/sink/puddle,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "LP" = (
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "Nw" = (
 /obj/item/trash/mollusc_shell/clam,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "NQ" = (
 /obj/item/clothing/shoes/cowboy/classic,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "OR" = (
 /obj/structure/flora/tree/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Ph" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Rg" = (
 /obj/structure/table/stone,
 /obj/item/stack/material/animalhide,
 /obj/item/reagent_containers/food/snacks/bearmeat,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "RD" = (
 /obj/item/device/flashlight/flare/torch,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "RN" = (
 /obj/structure/trash_pile,
 /mob/living/simple_animal/hostile/giant_spider/nurse,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "St" = (
 /obj/structure/boulder,
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "SO" = (
 /obj/item/trap/animal/large,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Tl" = (
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
 /obj/item/gun/launcher/crossbow,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Tm" = (
 /obj/effect/spider/stickyweb,
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "To" = (
 /obj/structure/flora/tree/grove{
 	icon_state = "grove_tree4"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "TE" = (
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "Uc" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "Uq" = (
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "WK" = (
 /obj/structure/simple_door/wood,
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "XD" = (
 /obj/structure/flora/rock/pile,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Yr" = (
 /obj/structure/bed,
 /obj/effect/decal/cleanable/cobweb,
@@ -270,11 +270,11 @@
 /obj/effect/decal/remains/human,
 /obj/item/clothing/under/rank/elyran_fatigues,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Yx" = (
 /obj/effect/spider/cocoon,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 
 (1,1,1) = {"
 Bp

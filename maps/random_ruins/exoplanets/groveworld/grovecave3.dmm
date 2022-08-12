@@ -2,24 +2,24 @@
 "a" = (
 /obj/structure/diona/vines,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "c" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "g" = (
 /obj/structure/diona/vines,
 /turf/simulated/mineral/planet,
-/area/space)
+/area/exoplanet/grass/grove)
 "v" = (
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "Y" = (
 /turf/simulated/mineral/planet,
-/area/space)
+/area/exoplanet/grass/grove)
 "Z" = (
 /mob/living/simple_animal/hostile/bear,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 
 (1,1,1) = {"
 c

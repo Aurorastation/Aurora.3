@@ -1,85 +1,85 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "b" = (
 /obj/item/ore/glass,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "e" = (
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "f" = (
 /obj/effect/decal/cleanable/ash,
 /obj/item/ore,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "h" = (
 /obj/item/ore,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "i" = (
 /obj/item/ore/gold,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "m" = (
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "n" = (
 /turf/simulated/mineral/random/higher_chance/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "t" = (
 /obj/item/ore/silver,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "A" = (
 /obj/item/ore/strangerock,
 /turf/simulated/mineral/random/higher_chance/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "F" = (
 /obj/item/ore/glass,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "G" = (
 /obj/structure/flora/tree/dead,
 /obj/effect/decal/cleanable/ash,
 /obj/item/ore/silver,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "H" = (
 /obj/item/ore/iron,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "K" = (
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "N" = (
 /obj/item/ore/glass,
 /turf/simulated/mineral/random/higher_chance/phoron,
-/area/space)
+/area/exoplanet/grass/grove)
 "U" = (
 /obj/structure/flora/tree/dead,
 /obj/item/ore/silver,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "V" = (
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "W" = (
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "X" = (
 /obj/item/ore/uranium,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "Y" = (
 /obj/effect/decal/cleanable/ash,
 /obj/item/ore/gold,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 
 (1,1,1) = {"
 K

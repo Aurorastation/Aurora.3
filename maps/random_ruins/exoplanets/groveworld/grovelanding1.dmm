@@ -5,52 +5,52 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "b" = (
 /obj/machinery/floodlight{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "c" = (
 /obj/structure/barricade/wooden{
 	dir = 1
 	},
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "e" = (
 /obj/structure/flora/tree/grove{
 	icon_state = "grove_tree3"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "f" = (
 /obj/structure/flora/tree/grove,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "g" = (
 /obj/structure/barricade/metal/wired{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "h" = (
 /obj/structure/flora/clutter,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "i" = (
 /obj/structure/barricade/metal/wired,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "j" = (
 /obj/item/material/twohanded/chainsaw/fueled,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "k" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "l" = (
 /obj/random/mre,
 /obj/random/mre,
@@ -65,193 +65,192 @@
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
 /obj/structure/diona/vines,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "m" = (
 /obj/item/stack/material/wood/full,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "n" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "o" = (
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "p" = (
 /obj/item/material/twohanded/pike/pitchfork,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "q" = (
-/obj/item/landmine/frag,
 /obj/structure/flora/ausbushes/sparsegrass,
+/obj/item/landmine{
+	deployed = 1
+	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "r" = (
 /obj/structure/barricade/wooden,
 /turf/simulated/wall/wood,
-/area/space)
-"t" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/item/landmine,
-/turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "u" = (
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "v" = (
-/obj/item/landmine,
 /obj/structure/flora/ausbushes/sparsegrass,
+/obj/item/landmine{
+	deployed = 1
+	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "w" = (
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "x" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "y" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "z" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "A" = (
-/obj/item/landmine,
+/obj/item/landmine{
+	deployed = 1
+	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "B" = (
 /obj/structure/barricade/metal/wired{
 	dir = 8
 	},
 /obj/structure/diona/vines,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "C" = (
 /obj/structure/diona/vines,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "D" = (
 /obj/structure/diona/vines,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "E" = (
 /obj/structure/diona/vines,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "F" = (
 /obj/structure/barricade/metal/wired,
 /obj/structure/diona/vines,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "G" = (
 /obj/structure/flora/tree/grove{
 	icon_state = "grove_tree5"
 	},
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "H" = (
 /obj/structure/barricade/wooden{
 	dir = 4
 	},
 /obj/item/stack/material/wood/full,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "I" = (
 /obj/structure/diona/vines,
 /turf/simulated/wall/wood,
-/area/space)
+/area/exoplanet/grass/grove)
 "J" = (
 /obj/structure/diona/vines,
 /obj/structure/pit,
 /obj/item/trash/spitwad,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "K" = (
 /obj/structure/bed/stool/chair/folding,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "L" = (
 /obj/structure/barricade/wooden{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "M" = (
-/obj/effect/shuttle_landmark{
-	name = "Used Landing Site"
-	},
+/obj/effect/shuttle_landmark/groveworld/clearing,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "N" = (
 /obj/structure/trash_pile,
 /obj/structure/diona/vines,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "O" = (
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/space)
+/area/exoplanet/grass/grove)
 "P" = (
 /obj/structure/flora/clutter,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "Q" = (
 /obj/structure/trash_pile,
 /obj/item/stack/material/wood/full,
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "R" = (
 /obj/structure/barricade/metal/wired,
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "S" = (
 /obj/machinery/floodlight{
 	on = 1
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "T" = (
 /obj/item/trash/can/adhomian_can,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "U" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "V" = (
 /obj/structure/barricade/wooden{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "W" = (
 /obj/structure/flora/tree/grove{
 	icon_state = "grove_tree6"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 "X" = (
 /turf/simulated/floor/exoplanet/grass/grovegravel,
-/area/space)
+/area/exoplanet/grass/grove)
 "Y" = (
 /obj/structure/barricade/metal/wired{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/grovedirt,
-/area/space)
+/area/exoplanet/grass/grove)
 "Z" = (
 /obj/structure/barricade/metal/wired{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/exoplanet/grass/grove)
 
 (1,1,1) = {"
 n
@@ -262,7 +261,7 @@ w
 n
 n
 n
-t
+v
 n
 n
 n
@@ -461,7 +460,7 @@ X
 X
 X
 X
-M
+X
 X
 X
 X
@@ -524,7 +523,7 @@ Y
 w
 w
 X
-X
+M
 X
 X
 X
