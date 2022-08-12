@@ -204,6 +204,9 @@
 	dir = 8;
 	pixel_x = 22
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	id_tag = "casino_solar_pump"
+	},
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
 "aJ" = (
@@ -219,6 +222,11 @@
 "aN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1379;
+	id_tag = "brig_solar_pump"
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
@@ -324,6 +332,13 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 25;
+	pixel_y = 25;
+	master_tag = "casino_dock_airlock";
+	name = "interior access button";
+	frequency = 1380
 	},
 /turf/simulated/floor/tiled/dark,
 /area/casino/casino_maintenance)
@@ -1248,10 +1263,16 @@
 /area/casino/casino_storage)
 "dN" = (
 /obj/structure/casino/bj_table,
+/obj/structure/sign/flag/dpra/left{
+	pixel_y = 30
+	},
 /turf/simulated/floor/plating,
 /area/casino/casino_storage)
 "dO" = (
 /obj/structure/casino/bj_table/bj_right,
+/obj/structure/sign/flag/dpra/right{
+	pixel_y = 30
+	},
 /turf/simulated/floor/plating,
 /area/casino/casino_storage)
 "dP" = (
@@ -2217,31 +2238,32 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/access_button/airlock_exterior{
-	pixel_x = 23;
+/obj/machinery/access_button{
+	pixel_x = 24;
 	pixel_y = 24;
-	master_tag = "casino_solar_airlock"
+	master_tag = "casino_solar_airlock";
+	name = "exterior access button";
+	frequency = 1438
 	},
 /turf/simulated/floor/airless,
 /area/space)
 "gy" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "casino_solar_outer";
-	locked = 1;
-	name = "External Access"
-	},
 /obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1;
+	id_tag = "casino_solar_outer";
+	frequency = 1438
+	},
 /turf/simulated/floor/plating,
 /area/casino/casino_solar_control)
 "gz" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1439;
+	frequency = 1438;
 	id_tag = "casino_solar_airlock";
 	pixel_x = 24;
 	req_access = newlist();
@@ -2251,7 +2273,7 @@
 	tag_interior_door = "casino_solar_inner"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1439;
+	frequency = 1438;
 	id_tag = "casino_solar_sensor";
 	pixel_x = 24;
 	pixel_y = 12
@@ -2318,7 +2340,7 @@
 /area/space)
 "gL" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1439;
+	frequency = 1438;
 	icon_state = "door_locked";
 	id_tag = "casino_solar_inner";
 	locked = 1;
@@ -2376,10 +2398,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/access_button/airlock_interior{
-	pixel_x = 24;
-	pixel_y = 24;
-	master_tag = "casino_solar_airlock"
+/obj/machinery/access_button{
+	pixel_x = 25;
+	pixel_y = 25;
+	master_tag = "casino_solar_airlock";
+	name = "interior access button";
+	frequency = 1438
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_solar_control)
@@ -5126,10 +5150,6 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/carpet/fancybrown,
 /area/casino/casino_mainfloor)
-"Cx" = (
-/obj/structure/sign/flag/dpra/right,
-/turf/simulated/wall,
-/area/casino/casino_storage)
 "Db" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -5528,9 +5548,14 @@
 /turf/simulated/floor/tiled/steel,
 /area/casino/casino_crew_cantina)
 "PV" = (
-/obj/structure/sign/flag/dpra/left,
-/turf/simulated/wall,
-/area/casino/casino_storage)
+/obj/machinery/access_button/airlock_exterior{
+	pixel_x = 25;
+	pixel_y = -24;
+	master_tag = "casino_dock_airlock";
+	frequency = 1380
+	},
+/turf/template_noop,
+/area/space)
 "Qb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -10489,7 +10514,7 @@ ca
 cs
 cM
 dd
-PV
+dx
 dN
 ei
 ex
@@ -10591,7 +10616,7 @@ ca
 ct
 cN
 de
-Cx
+dx
 dO
 ej
 Fl
@@ -10986,7 +11011,7 @@ uc
 uc
 uc
 uc
-uc
+PV
 aD
 aI
 aO

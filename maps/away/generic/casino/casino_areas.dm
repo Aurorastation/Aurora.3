@@ -1,6 +1,5 @@
 /area/casino
 	icon = 'maps/away/generic/casino/casino_sprites.dmi'
-	requires_power = TRUE
 	no_light_control = 1
 
 /area/casino/casino_mainfloor

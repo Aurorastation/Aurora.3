@@ -17,7 +17,7 @@
 /obj/effect/overmap/visitable/ship/casino
 	name = "passenger liner"
 	class = "ICV"
-	desc = "A spaceborne casino and passenger liner all in one. Hardly nimble  Sensors detect an undamaged vessel without any signs of activity."
+	desc = "A spaceborne casino slash passenger liner of an uncertain design. It's hardly nimble, quite defenceless and is likely far from any safe pre-planned route. Sensors detect that it is undamaged and without any signs of activity within."
 	color = "#bd6100"
 	icon_state = "ship_grey"
 	moving_state = "ship_grey_moving"
