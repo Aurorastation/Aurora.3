@@ -17,11 +17,11 @@
 /obj/effect/overmap/visitable/ship/casino
 	name = "passenger liner"
 	class = "ICV"
-	desc = "Sensors detect an undamaged vessel without any signs of activity."
+	desc = "A spaceborne casino and passenger liner all in one. Hardly nimble  Sensors detect an undamaged vessel without any signs of activity."
 	color = "#bd6100"
-	icon_state = "shuttle"
-	moving_state = "shuttle_moving"
-	vessel_mass = 5000
+	icon_state = "ship_grey"
+	moving_state = "ship_grey_moving"
+	vessel_mass = 50000
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECOND
 	fore_dir = NORTH
@@ -68,11 +68,13 @@
 	name = "Casino Ship Navpoint #5"
 	landmark_tag = "nav_casino_antag"
 
-//A very small shuttle
+//A very small shuttle, it can't move independently on the overmap and can only land near where its mothership goes to. If we ever want that to change though, gave it the settings for it.
 /obj/effect/overmap/visitable/ship/landable/casino_cutter
 	name = "Casino Cutter"
 	desc = "A generic small boxy transport shuttle. It looks like a brick and it handles like one too."
 	shuttle = "Casino Cutter"
+	icon_state = "shuttle_grey"
+	moving_state = "shuttle_grey_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 3000 //Hard to move

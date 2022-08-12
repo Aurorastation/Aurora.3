@@ -130,6 +130,42 @@
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
+/obj/item/stack/tile/carpet_fancybrown
+	name = "brown carpet"
+	icon_state = "tile_carpetbrown"
+
+/obj/item/stack/tile/carpet_purple
+	name = "purple carpet"
+	icon_state = "tile_carpetpurple"
+
+/obj/item/stack/tile/carpet_green
+	name = "green carpet"
+	icon_state = "tile_carpetgreen"
+
+/obj/item/stack/tile/carpet_darkblue
+	name = "dark blue carpet"
+	icon_state = "tile_carpetblue"
+
+/obj/item/stack/tile/carpet_lightblue
+	name = "light blue carpet"
+	icon_state = "tile_carpetblue2"
+
+/obj/item/stack/tile/carpet_aquablue
+	name = "aqua blue carpet"
+	icon_state = "tile_carpetblue3"
+
+/obj/item/stack/tile/carpet_red
+	name = "red carpet"
+	icon_state = "tile_carpetred"
+
+/obj/item/stack/tile/carpet_orange
+	name = "orange carpet"
+	icon_state = "tile_carpetorange"
+
+/obj/item/stack/tile/carpet_magenta
+	name = "magenta carpet"
+	icon_state = "tile_carpetmagenta"
+
 /obj/item/stack/tile/lino
 	name = "old linoleum"
 	singular_name = "linoleum"
