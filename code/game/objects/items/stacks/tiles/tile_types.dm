@@ -75,6 +75,44 @@
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	pickup_sound = 'sound/items/pickup/wooden.ogg'
 
+/obj/item/stack/tile/wood/coloured
+	icon_state = "tile_woodcoloured"
+
+/obj/item/stack/tile/wood/coloured/birch
+	name = "birch floor tile"
+	color = WOOD_COLOR_BIRCH 
+	build_type = /obj/item/stack/tile/wood/coloured/birch
+
+/obj/item/stack/tile/wood/coloured/rich
+	name = "rich wood floor tile"
+	color = WOOD_COLOR_RICH
+	build_type = /obj/item/stack/tile/wood/coloured/rich
+
+/obj/item/stack/tile/wood/coloured/pale
+	name = "pale wood floor tile"
+	color = WOOD_COLOR_PALE
+	build_type = /obj/item/stack/tile/wood/coloured/pale
+
+/obj/item/stack/tile/wood/coloured/pale2
+	name = "pale wood floor tile"
+	color = WOOD_COLOR_PALE2
+	build_type = /obj/item/stack/tile/wood/coloured/pale2
+
+/obj/item/stack/tile/wood/coloured/black
+	name = "black wood floor tile"
+	color = WOOD_COLOR_BLACK
+	build_type = /obj/item/stack/tile/wood/coloured/black
+
+/obj/item/stack/tile/wood/coloured/chocolate
+	name = "chocolate wood floor tile"
+	color = WOOD_COLOR_CHOCOLATE
+	build_type = /obj/item/stack/tile/wood/coloured/chocolate
+
+/obj/item/stack/tile/wood/coloured/yellow
+	name = "yellow wood floor tile"
+	color = WOOD_COLOR_YELLOW
+	build_type = /obj/item/stack/tile/wood/coloured/yellow
+
 /*
  * Carpets
  */

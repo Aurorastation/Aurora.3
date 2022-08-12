@@ -260,28 +260,36 @@
 /decl/flooring/wood/coloured
 	icon_base = "woodcolour"
 	desc = "Polished wooden planks."
+	build_type = /obj/item/stack/tile/wood/coloured
 	var/color
 
 /decl/flooring/wood/coloured/birch
 	color = WOOD_COLOR_BIRCH 
+	build_type = /obj/item/stack/tile/wood/coloured/birch
 
 /decl/flooring/wood/coloured/rich
 	color = WOOD_COLOR_RICH
+	build_type = /obj/item/stack/tile/wood/coloured/rich
 
 /decl/flooring/wood/coloured/pale
 	color = WOOD_COLOR_PALE
+	build_type = /obj/item/stack/tile/wood/coloured/pale
 
 /decl/flooring/wood/coloured/pale2
 	color = WOOD_COLOR_PALE2
+	build_type = /obj/item/stack/tile/wood/coloured/pale2
 
 /decl/flooring/wood/coloured/black
 	color = WOOD_COLOR_BLACK
+	build_type = /obj/item/stack/tile/wood/coloured/black
 
 /decl/flooring/wood/coloured/chocolate
 	color = WOOD_COLOR_CHOCOLATE
+	build_type = /obj/item/stack/tile/wood/coloured/chocolate
 
 /decl/flooring/wood/coloured/yellow
 	color = WOOD_COLOR_YELLOW
+	build_type = /obj/item/stack/tile/wood/coloured/yellow
 
 /decl/flooring/reinforced
 	name = "reinforced floor"
