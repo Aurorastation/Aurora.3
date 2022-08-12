@@ -1,10 +1,31 @@
+/datum/map_template/ruin/away_site/casino
+	name = "Casino"
+	description = "A casino ship!"
+	suffix = "generic/casino/casino.dmm"
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
+	spawn_weight = 1
+	spawn_cost = 1
+	id = "awaysite_casino"
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/casino_cutter)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
+/decl/submap_archetype/casino
+	map = "Casino"
+	descriptor = "A casino ship!"
+
+//Ship
 /obj/effect/overmap/visitable/ship/casino
 	name = "passenger liner"
+	class = "ICV"
 	desc = "Sensors detect an undamaged vessel without any signs of activity."
 	color = "#bd6100"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
 	vessel_mass = 5000
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECOND
+	fore_dir = NORTH
+	vessel_size = SHIP_SIZE_SMALL
 	initial_generic_waypoints = list(
 		"nav_casino_1",
 		"nav_casino_2",
@@ -18,17 +39,14 @@
 	)
 
 /obj/effect/overmap/visitable/ship/casino/New()
-	designation = "IPV [pick("Fortuna","Gold Rush","Ebisu","Lucky Paw","Four Leaves")], \a [name]"
+	designation = "[pick("Grand Rafama","Gold Rush","Rredouane's Favoured","Four Leaves", "Over Easy")]"
 	..()
 
-/datum/map_template/ruin/away_site/casino
-	name = "Casino"
-	id = "awaysite_casino"
-	description = "A casino ship!"
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
-	spawn_weight = 1
-	spawn_cost = 1
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/casino_cutter)
+//Landmarks
+
+/obj/effect/shuttle_landmark/nav_casino
+	base_turf = /turf/space
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/nav_casino/nav1
 	name = "Casino Ship Navpoint #1"
@@ -50,14 +68,26 @@
 	name = "Casino Ship Navpoint #5"
 	landmark_tag = "nav_casino_antag"
 
+//A very small shuttle
+/obj/effect/overmap/visitable/ship/landable/casino_cutter
+	name = "Casino Cutter"
+	desc = "A generic small boxy transport shuttle. It looks like a brick and it handles like one too."
+	shuttle = "Casino Cutter"
+	max_speed = 1/(3 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 3000 //Hard to move
+	fore_dir = WEST
+	vessel_size = SHIP_SIZE_TINY
+
 /datum/shuttle/autodock/overmap/casino_cutter
 	name = "Casino Cutter"
 	warmup_time = 13
-	move_time = 40
+	move_time = 30
 	shuttle_area = /area/shuttle/casino_cutter
 	current_location = "nav_casino_hangar"
 	landmark_transition = "nav_casino_transit"
 	fuel_consumption = 0.5//it's small
+	logging_home_tag = "nav_casino_hangar"
 	range = 1
 	defer_initialisation = TRUE
 
