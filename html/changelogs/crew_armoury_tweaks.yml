@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - maptweak: "Tweaks the layout of the crew armoury. Gives it some polish."
+  - tweak: "Puts some of the contents in the crew armoury into dedicated boxes."
