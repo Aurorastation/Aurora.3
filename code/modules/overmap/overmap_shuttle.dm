@@ -166,4 +166,10 @@
 /obj/structure/fuel_port/hide()
 	return
 
+/obj/structure/fuel_port/hydrogen // Not only does this work, It's more sensible for most factions without reasonable access to phoron, to use.
+
+/obj/structure/fuel_port/hydrogen/Initialize()
+	. = ..()
+	new /obj/item/tank/hydrogen/shuttle(src) 
+
 #undef waypoint_sector
