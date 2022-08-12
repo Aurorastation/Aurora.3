@@ -21,6 +21,7 @@
 	var/apply_thermal_conductivity
 	var/apply_heat_capacity
 
+
 	var/build_type      // Unbuildable if not set. Must be /obj/item/stack.
 	var/build_cost = 1  // Stack units.
 	var/build_time = 0  // BYOND ticks.
@@ -243,6 +244,7 @@
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_freezer
 
+//Wood
 /decl/flooring/wood
 	name = "wooden floor"
 	desc = "Polished redwood planks."
@@ -254,6 +256,32 @@
 	build_type = /obj/item/stack/tile/wood
 	flags = TURF_CAN_BREAK | TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER | TURF_CAN_BURN
 	footstep_sound = /decl/sound_category/wood_footstep
+
+/decl/flooring/wood/coloured
+	icon_base = "woodcolour"
+	desc = "Polished wooden planks."
+	var/color
+
+/decl/flooring/wood/coloured/birch
+	color = WOOD_COLOR_BIRCH 
+
+/decl/flooring/wood/coloured/rich
+	color = WOOD_COLOR_RICH
+
+/decl/flooring/wood/coloured/pale
+	color = WOOD_COLOR_PALE
+
+/decl/flooring/wood/coloured/pale2
+	color = WOOD_COLOR_PALE2
+
+/decl/flooring/wood/coloured/black
+	color = WOOD_COLOR_BLACK
+
+/decl/flooring/wood/coloured/chocolate
+	color = WOOD_COLOR_CHOCOLATE
+
+/decl/flooring/wood/coloured/yellow
+	color = WOOD_COLOR_YELLOW
 
 /decl/flooring/reinforced
 	name = "reinforced floor"

@@ -85,25 +85,29 @@
 	oxygen = 0
 	nitrogen = 0
 
-/turf/simulated/floor/wood/birch
+/turf/simulated/floor/wood/coloured
+	icon_state = "woodcolour"
+	initial_flooring = /decl/flooring/wood/coloured
+
+/turf/simulated/floor/wood/coloured/birch
 	color = WOOD_COLOR_BIRCH
 
-/turf/simulated/floor/wood/rich
+/turf/simulated/floor/wood/coloured/rich
 	color = WOOD_COLOR_RICH
 
-/turf/simulated/floor/wood/pale
+/turf/simulated/floor/wood/coloured/pale
 	color = WOOD_COLOR_PALE
 
-/turf/simulated/floor/wood/pale/alt
+/turf/simulated/floor/wood/coloured/pale/alt
 	color = WOOD_COLOR_PALE2
 
-/turf/simulated/floor/wood/black
+/turf/simulated/floor/wood/coloured/black
 	color = WOOD_COLOR_BLACK
 
-/turf/simulated/floor/wood/chocolate
+/turf/simulated/floor/wood/coloured/chocolate
 	color = WOOD_COLOR_CHOCOLATE
 
-/turf/simulated/floor/wood/yellow
+/turf/simulated/floor/wood/coloured/yellow
 	color = WOOD_COLOR_YELLOW
 
 //Grass
