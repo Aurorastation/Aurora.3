@@ -312,9 +312,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
-"aE" = (
-/turf/simulated/wall,
-/area/engineering/break_room)
 "aF" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -3881,12 +3878,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "hk" = (
-/obj/machinery/door/blast/shutters{
-	id = "shutters_deck3_engibreak";
-	name = "Viewing Shutter"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/wall/r_wall,
 /area/engineering/break_room)
 "hl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6206,12 +6198,6 @@
 	},
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 4
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "shutters_deck3_engibreak";
-	name = "Viewing Shutters";
-	pixel_y = -32
 	},
 /obj/machinery/disposal/small/north,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -48349,14 +48335,14 @@ ea
 ea
 Wu
 qb
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+hk
+hk
+hk
+hk
+hk
+hk
+hk
+hk
 vm
 vm
 ky
@@ -48760,7 +48746,7 @@ WJ
 pM
 fC
 ff
-aE
+hk
 pe
 Bq
 vm
@@ -48962,7 +48948,7 @@ Ik
 hn
 Om
 by
-aE
+hk
 BA
 hv
 BA
@@ -49770,7 +49756,7 @@ Wq
 Wq
 Wq
 ln
-aE
+hk
 BA
 iR
 BA
@@ -49972,7 +49958,7 @@ fb
 fz
 wU
 pB
-aE
+hk
 sK
 yd
 vm
@@ -50167,14 +50153,14 @@ at
 at
 xo
 qb
-aE
-aE
-aE
-aE
-aE
-aE
+hk
+hk
+hk
+hk
+hk
+hk
 gf
-aE
+hk
 df
 aT
 HV

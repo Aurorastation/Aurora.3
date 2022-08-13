@@ -202,7 +202,7 @@
 	throw_range = 10
 	flags = CONDUCT
 
-/obj/item/stack/tile/floor/full/Initialize(mapload)
+/obj/item/stack/tile/floor/full_stack/Initialize(mapload)
 	. = ..()
 	amount = max_amount
 	update_icon()

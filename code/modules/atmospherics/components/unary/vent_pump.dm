@@ -126,7 +126,7 @@
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 800
 
 /obj/machinery/atmospherics/unary/vent_pump/engine
-	name = "Engine Core Vent"
+	name = "Reactor Core Vent"
 	power_channel = ENVIRON
 	power_rating = 30000	//15 kW ~ 20 HP
 

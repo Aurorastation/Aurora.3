@@ -1,6 +1,6 @@
 // PRESETS
 var/global/list/engineering_networks = list(
-	NETWORK_ENGINE,
+	NETWORK_REACTOR,
 	NETWORK_ENGINEERING,
 	NETWORK_ENGINEERING_OUTPOST,
 	"Atmosphere Alarms",
@@ -32,8 +32,8 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/command
 	network = list(NETWORK_COMMAND)
 
-/obj/machinery/camera/network/engine
-	network = list(NETWORK_ENGINE)
+/obj/machinery/camera/network/reactor
+	network = list(NETWORK_REACTOR)
 
 /obj/machinery/camera/network/engineering
 	network = list(NETWORK_ENGINEERING)

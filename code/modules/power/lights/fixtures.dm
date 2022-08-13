@@ -111,7 +111,7 @@
 	supports_nightmode = FALSE
 
 /obj/machinery/light/spot/weak
-	name = "exterior spotlight"
+	name = "low-intensity spotlight"
 	brightness_range = 12
 	brightness_power = 1.2
 
