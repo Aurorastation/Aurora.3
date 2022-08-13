@@ -969,7 +969,6 @@
 	icon_state = "pennyplushie"
 	slot_flags = SLOT_HEAD
 
-
 /obj/item/toy/plushie/lizard
 	name = "lizard plush"
 	desc = "A plushie of a scaly lizard! Very controversial, after being accused as \"racist\" by some Unathi."
@@ -1012,11 +1011,19 @@
 	name = "slime plush"
 	desc = "A beanbag-filled slime plushie. Relaxing!"
 	icon_state = "slimeplushie"
+	phrase = "Rawr!"
 
 /obj/item/toy/plushie/bee
 	name = "bee plush"
 	desc = "A chunky plushie bee. Your new buzz-t friend!"
 	icon_state = "beeplushie"
+	phrase = "Buzz!"
+
+/obj/item/toy/plushie/shark
+	name = "shark plush"
+	desc = "A beloved jumbo sized shark that is sure to impress your friends."
+	icon_state = "sharkplushie"
+	phrase = "Gashunk!"
 
 /obj/item/toy/plushie/greimorian
 	name = "greimorian plushie"
@@ -1028,19 +1035,19 @@
 	name = "Axic plushie"
 	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Axic. "
 	icon_state = "axicplushie"
-	phrase = "warble!"
+	phrase = "Warble!"
 
 /obj/item/toy/plushie/qill
 	name = "Qill plushie"
 	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Qill. "
 	icon_state = "qillplushie"
-	phrase = "warble!"
+	phrase = "Warble!"
 
 /obj/item/toy/plushie/xana
 	name = "Xana plushie"
 	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Xana. "
 	icon_state = "xanaplushie"
-	phrase = "warble!"
+	phrase = "Warble!"
 
 /obj/item/toy/plushie/ipc
 	name = "Aphy plushie"
