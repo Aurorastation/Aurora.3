@@ -26,7 +26,7 @@
 	var/straps = FALSE
 
 /obj/item/storage/backpack/Initialize()
-	if(straps)
+	if(initial(straps) == TRUE)
 		verbs += /obj/item/storage/backpack/proc/toggle_backpack_straps
 
 /obj/item/storage/backpack/proc/toggle_backpack_straps()
@@ -38,10 +38,14 @@
 		return 0
 	straps = !straps
 	to_chat(usr, SPAN_NOTICE("You [straps ? "stop hiding" : "hide"] [src]'s straps under your clothing."))
-	alpha_mask = "[straps ? "" : "alpha_mask"]"
+	update_icon()
 	var/mob/living/carbon/human/H = src.loc
 	H.update_icon()
 	H.update_inv_back()
+
+/obj/item/storage/backpack/update_icon()
+	. = ..()
+	alpha_mask = "[straps ? "" : "alpha_mask"]"
 
 /obj/item/storage/backpack/mob_can_equip(M as mob, slot, disable_warning = FALSE)
 

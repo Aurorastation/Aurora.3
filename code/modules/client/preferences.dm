@@ -44,6 +44,7 @@ datum/preferences
 	var/backbag = OUTFIT_BACKPACK		//backpack type (defines in outfit.dm)
 	var/backbag_style = OUTFIT_JOBSPECIFIC
 	var/backbag_color = OUTFIT_NOTHING
+	var/backbag_strap = TRUE
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 	var/primary_radio_slot = "Left Ear"
@@ -492,6 +493,7 @@ datum/preferences
 	character.backbag = backbag
 	character.backbag_style = backbag_style
 	character.backbag_color = backbag_color
+	character.backbag_strap = backbag_strap
 
 	if(pda_choice > OUTFIT_WRISTBOUND || pda_choice < OUTFIT_NOTHING)
 		pda_choice = OUTFIT_TAB_PDA

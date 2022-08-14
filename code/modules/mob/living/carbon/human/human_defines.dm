@@ -44,6 +44,7 @@
 	var/backbag = OUTFIT_BACKPACK		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
 	var/backbag_style = OUTFIT_JOBSPECIFIC
 	var/backbag_color = OUTFIT_NOTHING
+	var/backbag_strap = TRUE
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 

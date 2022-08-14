@@ -113,7 +113,6 @@
 
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
-	var/item_color = FALSE // temporarily used to enable coloring, and then to store the color. pretty slick huh?
 	if(allow_backbag_choice)
 		switch(H.backbag)
 			if (OUTFIT_NOTHING)
@@ -142,7 +141,6 @@
 						back = /obj/item/storage/backpack/satchel/leather
 					if (OUTFIT_FACTIONSPECIFIC)
 						back = satchel_alt_faction ? satchel_alt_faction : satchel_alt
-				item_color = TRUE
 			if (OUTFIT_DUFFELBAG)
 				switch(H.backbag_style)
 					if (OUTFIT_JOBSPECIFIC)
@@ -167,7 +165,6 @@
 						back = /obj/item/storage/backpack/rucksack
 					if (OUTFIT_FACTIONSPECIFIC)
 						back = rucksack_faction ? rucksack_faction : rucksack
-				item_color = TRUE
 			if (OUTFIT_POCKETBOOK)
 				switch(H.backbag_style)
 					if (OUTFIT_JOBSPECIFIC)
@@ -176,7 +173,6 @@
 						back = /obj/item/storage/backpack/satchel/pocketbook
 					if (OUTFIT_FACTIONSPECIFIC)
 						back = pocketbook_faction ? pocketbook_faction : pocketbook
-				item_color = TRUE
 			else
 				back = backpack //Department backpack
 
@@ -189,34 +185,37 @@
 				if (OUTFIT_SATCHEL_ALT)
 					back = /obj/item/storage/backpack/satchel/leather/recolorable
 
-		if (item_color)
+	if(back)
+		var/obj/item/storage/backpack/B = new back(H) //i'll be honest with you - i'm kinda retarded
+		if (H.backbag == OUTFIT_SATCHEL_ALT | OUTFIT_RUCKSACK | OUTFIT_POCKETBOOK)
 			switch (H.backbag_color)
 				if (OUTFIT_NOTHING)
-					item_color = null
+					B.color = null
 				if (OUTFIT_BLUE)
-					item_color = "#2f4f81"
+					B.color  = "#2f4f81"
 				if (OUTFIT_GREEN)
-					item_color = "#353727"
+					B.color  = "#353727"
 				if (OUTFIT_NAVY)
-					item_color = "#2a303b"
+					B.color  = "#2a303b"
 				if (OUTFIT_TAN)
-					item_color = "#524a3e"
+					B.color  = "#524a3e"
 				if (OUTFIT_KHAKI)
-					item_color = "#baa481"
+					B.color  = "#baa481"
 				if (OUTFIT_BLACK)
-					item_color = "#212121"
+					B.color  = "#212121"
 				if (OUTFIT_OLIVE)
-					item_color = "#544f3d"
+					B.color  = "#544f3d"
 				if (OUTFIT_AUBURN)
-					item_color = "#512828"
+					B.color = "#512828"
 				if (OUTFIT_BROWN)
-					item_color = "#3d2711"
-
-	if(back)
+					B.color = "#3d2711"
+		if (!H.backbag_strap && !(B.straps == 2))
+			B.straps = FALSE
+			B.update_icon()
 		if(isvaurca(H, TRUE))
-			equip_item(H, back, slot_r_hand, item_color = item_color)
+			H.equip_or_collect(B, slot_r_hand)
 		else
-			equip_item(H, back, slot_back, item_color = item_color)
+			H.equip_or_collect(B, slot_back)
 
 	if(allow_headset_choice)
 		switch(H.headset_choice)
@@ -254,9 +253,6 @@
 		I = G.spawn_random()
 	else
 		I = new path(H) //As fallback treat it as a path
-
-	if(item_color)
-		I.color = item_color
 
 	if(collect_not_del || override_collect)
 		H.equip_or_collect(I, slot)
