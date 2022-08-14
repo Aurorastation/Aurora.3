@@ -28,6 +28,7 @@
 	new /obj/item/clothing/head/bandana/miner(src)
 	new /obj/item/clothing/head/hardhat/orange(src)
 	new /obj/item/device/radio(src)
+	new /obj/item/device/flashlight/lantern(src)
 
 /******************************Lantern*******************************/
 
