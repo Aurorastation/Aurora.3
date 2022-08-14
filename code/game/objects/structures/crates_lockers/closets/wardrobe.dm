@@ -34,7 +34,6 @@
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots/cavalry(src)
-	new /obj/item/clothing/shoes/jackboots/knee(src)
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
 
 	return
