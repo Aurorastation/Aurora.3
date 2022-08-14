@@ -510,7 +510,7 @@
 /decl/reagent/alcohol/solarian_marine
 	value = 0.2
 
-/decl/reagent/alcohol/cloudyoran
+/decl/reagent/alcohol/cloudyeridani
 	value = 0.12
 
 /decl/reagent/alcohol/djinntea

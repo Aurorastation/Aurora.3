@@ -6,6 +6,7 @@
 	footstep_sound = /decl/sound_category/asteroid_footstep
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
+	var/has_edge_icon = TRUE
 
 /turf/simulated/floor/exoplanet/New()
 	if(current_map.use_overmap)
@@ -51,25 +52,26 @@
 	update_icon(1)
 
 /turf/simulated/floor/exoplanet/update_icon(var/update_neighbors)
-	cut_overlays()
-	if(LAZYLEN(decals))
-		add_overlay(decals)
-	for(var/direction in cardinal)
-		var/turf/turf_to_check = get_step(src,direction)
-		if(!istype(turf_to_check, type))
-			var/image/rock_side = image(icon, "edge[pick(0,1,2)]", dir = turn(direction, 180))
-			switch(direction)
-				if(NORTH)
-					rock_side.pixel_y += world.icon_size
-				if(SOUTH)
-					rock_side.pixel_y -= world.icon_size
-				if(EAST)
-					rock_side.pixel_x += world.icon_size
-				if(WEST)
-					rock_side.pixel_x -= world.icon_size
-			overlays += rock_side
-		else if(update_neighbors)
-			turf_to_check.update_icon()
+	if(has_edge_icon)
+		cut_overlays()
+		if(LAZYLEN(decals))
+			add_overlay(decals)
+		for(var/direction in cardinal)
+			var/turf/turf_to_check = get_step(src,direction)
+			if(!istype(turf_to_check, type))
+				var/image/rock_side = image(icon, "edge[pick(0,1,2)]", dir = turn(direction, 180))
+				switch(direction)
+					if(NORTH)
+						rock_side.pixel_y += world.icon_size
+					if(SOUTH)
+						rock_side.pixel_y -= world.icon_size
+					if(EAST)
+						rock_side.pixel_x += world.icon_size
+					if(WEST)
+						rock_side.pixel_x -= world.icon_size
+				overlays += rock_side
+			else if(update_neighbors)
+				turf_to_check.update_icon()
 
 //Water
 /turf/simulated/floor/exoplanet/water/update_icon()
@@ -143,6 +145,15 @@
 	if(prob(2))
 		resources[MATERIAL_DIAMOND] = 1
 
+/turf/simulated/floor/exoplanet/grass/grove
+	icon_state = "grove_grass1"
+	color = null
+	has_edge_icon = FALSE
+
+/turf/simulated/floor/exoplanet/grass/grove/Initialize()
+	. = ..()
+	icon_state = "grove_grass[rand(1,2)]"
+
 //Sand
 /turf/simulated/floor/exoplanet/desert
 	name = "sand"
@@ -153,6 +164,12 @@
 /turf/simulated/floor/exoplanet/desert/Initialize()
 	. = ..()
 	icon_state = "desert[rand(0,4)]"
+
+/turf/simulated/floor/exoplanet/mineral
+	name = "sand"
+	desc = "It's coarse and gets everywhere."
+	dirt_color = "#544c31"
+	footstep_sound = /decl/sound_category/sand_footstep
 
 //Concrete
 /turf/simulated/floor/exoplanet/concrete
