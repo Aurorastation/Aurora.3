@@ -22,7 +22,7 @@
 /decl/origin_item/origin/new_gibson
     name = "New Gibson"
     desc = "New Gibson has suffered many tragedies throughout its history, leading to a hardened, communal society. While the multiculturalism that exists within the Republic of Biesel has also affected New Gibsonites, they are still far more reliant on their colonial roots compared to their Biesellite counterparts."
-    important_information = "Due to the insular nature of the Undirstads of New Gibson, <b>characters hailing from them must have names and appearances consistent with the Nordic regions of earth, the original colonists of the Undirstads.</b> Only those born in the Undirstads may take the Undirstad accent. This is enforceable by server moderation and admins."
+    important_information = "Due to the insular nature of the Undirstads of New Gibson, <b>characters hailing from them must have names and appearances consistent with the Nordic regions of Earth, the original colonists of the Undirstads.</b> Only those born in the Undirstads may take the Undirstad accent. This is enforceable by server moderation and admins."
     possible_accents = list(ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR)
     possible_citizenships = list(CITIZENSHIP_BIESEL)
     possible_religions = RELIGIONS_BIESEL
