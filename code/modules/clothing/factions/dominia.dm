@@ -424,7 +424,6 @@
 	icon_state = "dominia_beret_priest"
 	item_state = "dominia_beret_priest"
 
-
 /obj/item/clothing/head/beret/dominia/priest/red
 	name = "tribunalist's beret"
 	desc = "A red beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by full members of the Tribunal's clergy."
