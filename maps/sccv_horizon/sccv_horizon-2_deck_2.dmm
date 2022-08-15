@@ -9538,6 +9538,15 @@
 "feC" = (
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
+"feM" = (
+/obj/machinery/power/tesla_coil,
+/obj/structure/cable/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_room/tesla)
 "ffe" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -30004,6 +30013,15 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
+"pVY" = (
+/obj/structure/cable/orange{
+	icon_state = "1-2"
+	},
+/obj/structure/sign/electricshock/tesla{
+	pixel_x = 32
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_room/tesla)
 "pWb" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /turf/simulated/floor/tiled,
@@ -70792,7 +70810,7 @@ qgN
 fJv
 ntt
 rkO
-eUL
+feM
 doG
 aBY
 hMt
@@ -72208,7 +72226,7 @@ qgN
 fJv
 ntt
 rlj
-xfX
+pVY
 jKV
 jKV
 jKV
