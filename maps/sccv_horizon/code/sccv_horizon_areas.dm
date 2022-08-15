@@ -311,7 +311,7 @@
 
 // Exterior
 /area/horizon/exterior
-	name = "Horizon - Exterior"
+	name = "Horizon - Exterior (DO NOT ENCROACH ON LANDING PLACES)"
 	icon_state = "exterior"
 	base_turf = /turf/space
 	dynamic_lighting = TRUE
