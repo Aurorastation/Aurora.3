@@ -699,21 +699,14 @@ var/datum/controller/subsystem/ticker/SSticker
 			minds += player.mind
 
 /datum/controller/subsystem/ticker/proc/equip_characters()
-	var/captainless = TRUE
 	for(var/mob/living/carbon/human/player in player_list)
 		if(player && player.mind && player.mind.assigned_role)
-			if(player.mind.assigned_role == "Captain")
-				captainless = FALSE
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
 				SSjobs.EquipAugments(player, player.client.prefs)
 				SSjobs.EquipRank(player, player.mind.assigned_role, 0)
 				equip_custom_items(player)
 
 		CHECK_TICK
-	if(captainless)
-		for(var/mob/M in player_list)
-			if(!istype(M,/mob/abstract/new_player))
-				to_chat(M, "Captainship not forced on anyone.")
 
 // Registers a callback to run on round-start.
 /datum/controller/subsystem/ticker/proc/OnRoundstart(datum/callback/callback)
