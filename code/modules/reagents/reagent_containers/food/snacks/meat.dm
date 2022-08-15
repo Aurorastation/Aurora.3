@@ -36,6 +36,11 @@
 /obj/item/reagent_containers/food/snacks/meat/monkey
 	//same as plain meat
 
+/obj/item/reagent_containers/food/snacks/meat/neaera
+	name = "neaera meat"
+	icon_state = "neaera_meat"
+	reagents_to_add = list(/decl/reagent/nutriment/protein = 3, /decl/reagent/nutriment/protein/seafood = 3, /decl/reagent/nutriment/triglyceride = 2)
+
 /obj/item/reagent_containers/food/snacks/meat/corgi
 	name = "corgi meat"
 	desc = "Tastes like... well, you know."

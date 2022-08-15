@@ -596,7 +596,7 @@
 "be" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12)
+	req_one_access = list(12,63)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -1254,11 +1254,11 @@
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "ct" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Nature Showcase Maintenance";
-	req_access = list(26)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(12,26);
+	name = "Nature Showcase Maintenance"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "cu" = (
@@ -5356,7 +5356,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12)
+	req_one_access = list(12,63)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5477,10 +5477,6 @@
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/cobweb,
 /obj/random/junk,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
 /obj/random/loot,
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -6035,11 +6031,8 @@
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
 "kV" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Cryogenics Maintenance";
-	req_access = list(12)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "kW" = (
@@ -10390,14 +10383,6 @@
 	dir = 4
 	},
 /area/bridge)
-"tf" = (
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Cryogenic Storage";
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
-/area/maintenance/bridge)
 "tg" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -12447,7 +12432,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "wS" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_one_access = list(5,12)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -13841,15 +13826,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
-"zv" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/obj/structure/sign/directions/cryo{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/starboard)
 "zw" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/vending/cigarette,
@@ -14966,6 +14942,10 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = -33
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Cryogenic Storage";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo)
 "BI" = (
@@ -15554,8 +15534,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "CR" = (
@@ -15697,7 +15675,7 @@
 "De" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cryogenics Maintenance";
-	req_access = list(12)
+	req_one_access = list(5,12)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -18345,9 +18323,6 @@
 	},
 /obj/structure/table/rack,
 /obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "Ic" = (
@@ -20891,7 +20866,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12)
+	req_one_access = list(12,63)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -46376,7 +46351,7 @@ Ye
 IM
 GY
 Vp
-zv
+ye
 nP
 yK
 ir
@@ -46583,7 +46558,7 @@ nP
 YP
 xq
 uN
-tf
+QQ
 Cf
 Kj
 Xg
@@ -46784,7 +46759,7 @@ ye
 nP
 nP
 nP
-vZ
+kV
 nP
 Cf
 Cf

@@ -331,7 +331,8 @@
 		/obj/item/surgery/hemostat = 1,
 		/obj/item/surgery/retractor = 1,
 		/obj/item/surgery/scalpel = 1,
-		/obj/item/surgery/surgicaldrill = 1
+		/obj/item/surgery/surgicaldrill = 1,
+		/obj/item/surgery/cautery,
 	)
 
 	can_hold = list(
