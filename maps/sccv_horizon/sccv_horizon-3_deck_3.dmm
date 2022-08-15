@@ -11845,6 +11845,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
+"vK" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "vL" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -44984,7 +44990,7 @@ Nf
 kS
 kS
 kS
-kS
+Ax
 gr
 QA
 QA
@@ -46198,7 +46204,7 @@ aa
 Nf
 kS
 kS
-kS
+Ax
 nL
 Av
 Bi
@@ -50239,7 +50245,7 @@ kS
 kS
 kS
 kS
-kS
+Ax
 kS
 kS
 kS
@@ -50439,11 +50445,11 @@ Nf
 kS
 kS
 kS
-kS
 bk
 bk
 bk
-Np
+bk
+bk
 Np
 Lk
 Lk
@@ -51044,13 +51050,13 @@ Wm
 Nf
 kS
 kS
-kS
+bk
 bk
 EC
 xV
 EC
 bk
-kS
+bk
 cq
 kS
 em
@@ -52255,7 +52261,7 @@ Wm
 Nf
 kS
 kS
-kS
+Ax
 bk
 EC
 EH
@@ -53475,8 +53481,8 @@ wf
 UI
 EC
 bk
-kS
-kS
+vK
+vK
 em
 em
 em
@@ -53678,7 +53684,7 @@ KI
 EC
 bk
 kS
-kS
+Ax
 kS
 kS
 kS
@@ -54276,13 +54282,13 @@ Wm
 Io
 Vu
 kS
-kS
 bk
 bk
 bk
 bk
 bk
-kS
+bk
+bk
 kS
 kS
 kS
@@ -54481,7 +54487,7 @@ kS
 kS
 kS
 kS
-kS
+Ax
 kS
 kS
 kS
