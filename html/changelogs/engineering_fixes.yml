@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - maptweak: "Tweaks engineering and atmospherics to add QoL features and to polish the mapping."
-  - bugfix: "Fixes missing openspaces on deck 3."
+  - bugfix: "Fixes missing \"open spaces\" on deck 3."
