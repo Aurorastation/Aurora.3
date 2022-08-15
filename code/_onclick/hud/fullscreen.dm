@@ -1,4 +1,3 @@
-
 /mob
 	var/list/screens = list()
 
@@ -94,9 +93,7 @@
 	layer = OBFUSCATION_LAYER
 
 /obj/screen/fullscreen/blackout
-	icon = 'icons/mob/screen/effects.dmi'
-	icon_state = "black"
-	screen_loc = ui_entire_screen
+	icon_state = "blackout"
 	layer = OBFUSCATION_LAYER
 
 /obj/screen/fullscreen/impaired

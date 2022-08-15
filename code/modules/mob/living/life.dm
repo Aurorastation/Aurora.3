@@ -174,7 +174,7 @@
 
 /mob/living/proc/update_living_sight()
 	var/set_sight_flags = is_ventcrawling ? (SEE_TURFS) : sight & ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
-	if((stat & UNCONSCIOUS) || is_ventcrawling)
+	if(is_ventcrawling)
 		set_sight_flags |= BLIND
 	else
 		set_sight_flags &= ~BLIND
