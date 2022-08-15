@@ -8099,11 +8099,11 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -28;
-	pixel_y = 4
+	pixel_y = 3
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -28;
-	pixel_y = -11
+	pixel_y = -10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
@@ -13703,7 +13703,8 @@
 	name = "Crew Armoury Main Access";
 	req_access = list(60);
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 25;
+	pixel_y = -7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
@@ -17965,11 +17966,12 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 1;
+	dir = 8;
 	id = "crew_armoury_desk";
 	name = "Crew Armoury Auxiliary Access";
 	req_access = list(60);
-	pixel_y = -32
+	pixel_y = -25;
+	pixel_x = 25
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
@@ -19652,8 +19654,12 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_x = 5;
-	pixel_y = -32
+	pixel_x = 4;
+	pixel_y = -29
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = -42
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
@@ -20768,11 +20774,11 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 36;
-	pixel_y = 4
+	pixel_y = 3
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 36;
-	pixel_y = -11
+	pixel_y = -10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
@@ -20837,8 +20843,9 @@
 	dir = 4;
 	id = "crew_armoury_desk";
 	name = "Crew Armoury Auxiliary Access";
-	pixel_x = -32;
-	req_access = list(60)
+	pixel_x = -25;
+	req_access = list(60);
+	pixel_y = 7
 	},
 /obj/machinery/light{
 	dir = 8
