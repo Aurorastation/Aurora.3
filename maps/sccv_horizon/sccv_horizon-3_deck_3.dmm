@@ -13076,11 +13076,11 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
-/obj/effect/landmark/start{
-	name = "Surgeon"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/effect/landmark/start{
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -27614,7 +27614,7 @@
 	dir = 6
 	},
 /obj/effect/landmark/start{
-	name = "Surgeon"
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)

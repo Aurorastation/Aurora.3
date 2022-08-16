@@ -84,30 +84,6 @@
 	outfit = /datum/outfit/job/doctor
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/datum/job/surgeon
-	title = "Surgeon"
-	flag = SURGEON
-	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
-	department_flag = MEDSCI
-	faction = "Station"
-	supervisors = "the chief medical officer"
-	selection_color = "#15903a"
-	economic_modifier = 7
-
-	spawn_positions = 2
-	total_positions = 2
-
-	minimum_character_age = list(
-		SPECIES_HUMAN = 30,
-		SPECIES_SKRELL = 60,
-		SPECIES_SKRELL_AXIORI = 60
-	)
-
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
-	outfit = /datum/outfit/job/doctor/surgeon
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
-
 /datum/outfit/job/doctor
 	name = "Physician"
 	base_name = "Physician"
@@ -132,18 +108,6 @@
 	satchel = /obj/item/storage/backpack/satchel/med
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
-
-/datum/outfit/job/doctor/surgeon
-	name = "Surgeon"
-	jobtype = /datum/job/doctor
-
-	uniform = /obj/item/clothing/under/rank/medical/surgeon
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	shoes = /obj/item/clothing/shoes/surgeon
-
-/datum/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(!isskrell(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery(H), slot_head)
 
 /datum/job/pharmacist
 	title = "Pharmacist"
