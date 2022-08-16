@@ -84,10 +84,9 @@
 		"An enchanting smell of cedar, cherry and morning freshness penetrates through the air.",
 		"A vibrant burst of color permeates through the sky, basking the air in pleasing rainbow luminescence for a moment.", 
 		"In the center of a green park Vaurca workers paint not on canvas but in the air, seemingly looking at the landscape for inspiration."
-
 		)
 		if("Athvur's Garden of Splendour")
-			light_color = "#34b434"
+			light_color = "#3adf3a"
 			possible_messages = list( 
 		"A tranquil garden landscape stretches out to the horizon, its peaceful scenery embellished with flowers of every variety.",
 		"Harmonious music accents an indescribable aroma of flowers.",
