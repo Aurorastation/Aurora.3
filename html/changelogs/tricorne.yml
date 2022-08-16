@@ -2,5 +2,5 @@ author: Sparky_hotdog
 
 delete-after: True
 
-  - tweak: "Editted the sprite, name and description for the tricorne hat (Old recoat's hat)."
+  - tweak: "Editted the sprite, name and description for the tricorne hat (Old redcoat's hat)."
   - rscadd: "Added the tricorne to the hat selection loadout."
