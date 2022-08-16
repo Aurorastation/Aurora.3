@@ -78,7 +78,7 @@
 		if("Athvur's City of Paradise")
 			light_color = "#eff3ef"
 			possible_messages = list(
-		"A transcendent cityscape dominates the area, with towering structures of elegant stone resting atop a blanket of clouds.",
+		"A transcendent cityscape dominates the area, with towering structures of elegant white stone resting atop a blanket of clouds.",
 		"In the distance of the cityscape towers a set of sublime sculptures, accented by light from beneath the clouds.",
 		"Orchestral music resonates from within an auditorium, the melody carried through the heavens.",
 		"An enchanting smell of cedar, cherry and morning freshness penetrates through the air."
