@@ -90,6 +90,11 @@
 	oxygen = 0
 	nitrogen = ATMOSTANK_NITROGEN
 
+// Reinforced Reactor Flooring
+/turf/simulated/floor/reinforced/reactor
+	name = "reinforced reactor floor"
+	oxygen = 0
+
 /turf/simulated/floor/reinforced/oxygen
 	oxygen = ATMOSTANK_OXYGEN
 	nitrogen = 0

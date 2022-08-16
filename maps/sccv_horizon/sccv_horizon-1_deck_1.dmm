@@ -281,7 +281,6 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "aph" = (
-/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -294,7 +293,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "apQ" = (
@@ -1739,8 +1737,12 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "btw" = (
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 5
+/obj/effect/floor_decal/corner/yellow,
+/obj/effect/floor_decal/corner/blue{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -2998,9 +3000,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "cpt" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 5
-	},
 /obj/machinery/requests_console{
 	pixel_x = -29
 	},
@@ -3010,7 +3009,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "cpF" = (
 /obj/structure/grille/diagonal,
@@ -3209,9 +3212,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
-"cxA" = (
-/turf/simulated/wall,
-/area/engineering/atmos/air)
 "cxG" = (
 /obj/structure/janitorialcart/full,
 /obj/effect/floor_decal/corner/purple{
@@ -4337,6 +4337,23 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
+"dvN" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/hallway/engineering)
 "dvT" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "1deckworkshop"
@@ -4704,7 +4721,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "dMM" = (
 /obj/machinery/door/firedoor,
@@ -5390,6 +5407,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "eqk" = (
@@ -5896,13 +5916,8 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "eIS" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 8;
-	name = "Carbon dioxide to Connector"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos)
+/turf/simulated/wall/r_wall,
+/area/janitor)
 "eJu" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
@@ -6708,7 +6723,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "flw" = (
-/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -6725,7 +6739,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "fmi" = (
@@ -9184,6 +9200,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "hgn" = (
@@ -9229,7 +9246,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "hgH" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -9249,7 +9267,7 @@
 "hgU" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "hhv" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -9556,7 +9574,7 @@
 	name = "Connectors to Mix"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "hvO" = (
 /obj/machinery/vending/robotics,
@@ -10676,7 +10694,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "irW" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -10748,10 +10766,12 @@
 /area/horizon/stairwell/central)
 "ivW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
-/obj/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 4
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Phoron to Connector"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "iwn" = (
 /obj/effect/decal/cleanable/dirt,
@@ -11210,11 +11230,13 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "iPW" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Hydrogen to Connector"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "iQI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -12508,7 +12530,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "jVj" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -12530,7 +12552,7 @@
 	name = "Mix to Connector"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "jWE" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -14031,7 +14053,7 @@
 /area/engineering/atmos/air)
 "ldI" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
-/turf/simulated/wall,
+/turf/simulated/wall/r_wall,
 /area/engineering/atmos/air)
 "ldW" = (
 /turf/simulated/wall,
@@ -14648,7 +14670,7 @@
 	name = "Connectors to Filtering"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "lJy" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -15532,7 +15554,7 @@
 	name = "Phoron to Mix"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "mst" = (
 /obj/structure/railing/mapped{
@@ -16051,7 +16073,7 @@
 	name = "Mix to Connectors"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "mPU" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -16864,11 +16886,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "nrq" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Carbon dioxide to Connector"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "nrY" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -17568,11 +17592,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "nUR" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/blue{
-	dir = 4
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -18657,6 +18678,9 @@
 /obj/effect/floor_decal/corner/yellow,
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
+	},
+/obj/structure/sign/nosmoking_1{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
@@ -20087,13 +20111,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/effect/floor_decal/corner/blue{
-	dir = 8
+	dir = 10
 	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 6
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "qio" = (
@@ -21423,7 +21447,7 @@
 	name = "Carbon dioxide to Mix"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "rlW" = (
 /obj/machinery/door/airlock/maintenance{
@@ -21980,6 +22004,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
 	},
+/obj/structure/sign/nosmoking_1{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "rNv" = (
@@ -21987,11 +22014,9 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "rNy" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 8;
-	name = "Hydrogen to Connector"
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "rNz" = (
@@ -23558,10 +23583,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "sXy" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 5
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "sXU" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -25820,11 +25846,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "uPe" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 8;
-	name = "Phoron to Connector"
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "uPk" = (
@@ -26190,7 +26214,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "vdn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -27315,7 +27340,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "wbX" = (
 /obj/machinery/weapons_analyzer,
@@ -27740,6 +27766,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
+"wqr" = (
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/atmos)
 "wqs" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -28854,7 +28893,7 @@
 	name = "Hydrogen to Mix"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "xmV" = (
 /obj/structure/cable/green{
@@ -48141,7 +48180,7 @@ jHu
 hPC
 oDB
 qYx
-arr
+eIS
 aMG
 cEl
 lNE
@@ -48343,7 +48382,7 @@ xmg
 rnt
 mQd
 vjW
-arr
+eIS
 wbg
 jiS
 ias
@@ -48538,14 +48577,14 @@ fUm
 pLc
 aJB
 hVn
-xVg
+dvN
 fdA
 lSy
 uNg
 dnJ
 iGC
-vjW
-arr
+wqr
+eIS
 arr
 arr
 tes
@@ -48747,7 +48786,7 @@ xmg
 mnQ
 dee
 sua
-arr
+eIS
 kzv
 nmQ
 rfR
@@ -48949,7 +48988,7 @@ fLz
 fRu
 xaE
 hgA
-arr
+eIS
 vJM
 cEl
 mnr
@@ -49151,7 +49190,7 @@ eqa
 cYS
 bcj
 gxR
-arr
+eIS
 qzt
 pJm
 tvn
@@ -49353,7 +49392,7 @@ faE
 hpU
 iFd
 qew
-arr
+eIS
 suA
 esS
 xvG
@@ -49555,7 +49594,7 @@ vlY
 jVj
 dMa
 mGp
-arr
+eIS
 qDK
 gcZ
 hZS
@@ -49757,7 +49796,7 @@ hVE
 bDc
 jTJ
 rNe
-arr
+eIS
 eZm
 arr
 pxY
@@ -49959,7 +49998,7 @@ fkH
 xol
 aix
 ehH
-jCK
+oDB
 wXF
 bBD
 ygx
@@ -50362,8 +50401,8 @@ pZd
 wIO
 lRH
 eNU
-vTT
-jCK
+btw
+oDB
 sWB
 slH
 xQI
@@ -50760,7 +50799,7 @@ wup
 wEY
 gaC
 keQ
-eIS
+mzL
 dVG
 oTA
 mPy
@@ -51164,7 +51203,7 @@ wup
 wEY
 hWb
 aph
-btw
+sXy
 mzL
 pZd
 hgU
@@ -51985,7 +52024,7 @@ uez
 rNv
 rNv
 nCC
-cxA
+riL
 xMa
 usu
 bap
@@ -52187,7 +52226,7 @@ efM
 rIz
 riL
 jOJ
-cxA
+riL
 pwd
 lvP
 mVU
@@ -52389,7 +52428,7 @@ tri
 mxs
 rBf
 uoV
-cxA
+riL
 amz
 lvP
 mVU
@@ -52591,7 +52630,7 @@ qri
 uOH
 xhL
 rdy
-cxA
+riL
 hIw
 fTy
 mVU
@@ -52793,7 +52832,7 @@ rCl
 qKj
 brk
 jOJ
-cxA
+riL
 pwd
 fTy
 als
@@ -52995,7 +53034,7 @@ kHo
 nwI
 riL
 qep
-cxA
+riL
 pwd
 fTy
 fzA
@@ -53601,7 +53640,7 @@ axK
 llk
 suZ
 jOJ
-cxA
+riL
 xkJ
 lvP
 mVU
@@ -53803,7 +53842,7 @@ bwN
 bao
 riL
 jOJ
-cxA
+riL
 pwd
 lvP
 aNR
@@ -54005,7 +54044,7 @@ kEX
 ceP
 doR
 cch
-cxA
+riL
 nKK
 lvP
 mVU
@@ -54207,7 +54246,7 @@ kop
 fDO
 png
 rdy
-cxA
+riL
 pwd
 lvP
 mVU
@@ -54409,7 +54448,7 @@ soD
 juK
 bfA
 jOJ
-cxA
+riL
 aHr
 fTy
 mVU
@@ -54611,7 +54650,7 @@ nzj
 vZl
 riL
 jOJ
-cxA
+riL
 pwd
 fTy
 mVU
@@ -54813,7 +54852,7 @@ eLB
 rNv
 rNv
 uDG
-cxA
+riL
 pwd
 lvP
 fep
@@ -55001,21 +55040,21 @@ tkS
 mKb
 lMv
 uVL
-cxA
-cxA
-cxA
-cxA
-cxA
-cxA
+riL
+riL
+riL
+riL
+riL
+riL
 aUi
-cxA
-cxA
-cxA
-cxA
-cxA
-cxA
-cxA
-cxA
+riL
+riL
+riL
+riL
+riL
+riL
+riL
+riL
 aWB
 lvP
 lvP

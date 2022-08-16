@@ -1743,10 +1743,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/greengrid/nitrogen{
-	icon = 'icons/turf/flooring/plating.dmi';
-	icon_state = "plating"
-	},
+/turf/simulated/floor/reinforced/reactor,
 /area/engineering/engine_room)
 "aQb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5535,6 +5532,7 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "cUA" = (
@@ -6737,7 +6735,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room)
 "dAX" = (
 /obj/structure/cable{
@@ -8784,6 +8782,15 @@
 /obj/machinery/light/spot/weak,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"eMT" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "shutters_deck2_eng_frontdesk";
+	name = "Engineering Front Desk Shutter"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/lobby)
 "eNj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8884,7 +8891,6 @@
 /area/horizon/hallway/deck_two/fore)
 "eQg" = (
 /obj/structure/table/standard,
-/obj/item/folder/yellow,
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_y = 25
@@ -8892,6 +8898,9 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
 	},
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/item/folder/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "eQs" = (
@@ -13902,6 +13911,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
+"hok" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck2_eng_frontdesk";
+	name = "Engineering Front Desk Shutter"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/lobby)
 "hoo" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -15480,8 +15498,8 @@
 "iji" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Engineering Monitoring Room";
-	req_one_access = list(10)
+	name = "Engineering Front Desk";
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/lobby)
@@ -15543,10 +15561,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/greengrid/nitrogen{
-	icon = 'icons/turf/flooring/plating.dmi';
-	icon_state = "plating"
-	},
+/turf/simulated/floor/reinforced/reactor,
 /area/engineering/engine_room)
 "ijN" = (
 /obj/structure/disposalpipe/segment{
@@ -15875,9 +15890,13 @@
 /area/maintenance/substation/engineering)
 "iwd" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/fancy/crayons/chalkbox,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/machinery/button/remote/blast_door{
+	pixel_x = 6;
+	pixel_y = -2;
+	id = "shutters_deck2_eng_frontdesk"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
@@ -15940,10 +15959,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/greengrid/nitrogen{
-	icon = 'icons/turf/flooring/plating.dmi';
-	icon_state = "plating"
-	},
+/turf/simulated/floor/reinforced/reactor,
 /area/engineering/engine_room)
 "iyl" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -17478,15 +17494,12 @@
 /area/security/brig)
 "jmW" = (
 /obj/structure/table/standard,
-/obj/machinery/door/window/brigdoor/northleft{
-	dir = 8;
-	name = "Engineering Desk";
-	req_access = list(32)
+/obj/machinery/door/window/westleft{
+	name = "Engineering Front Desk Internal";
+	req_access = list(10)
 	},
-/obj/machinery/ringer_button{
-	id = "engie_ringer";
-	pixel_x = 5;
-	pixel_y = 5
+/obj/machinery/door/window/eastright{
+	name = "Engineering Front Desk External"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/lobby)
@@ -17970,8 +17983,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/item/paper_bin,
-/obj/item/pen,
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
@@ -17983,6 +17994,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
+/obj/item/storage/box/fancy/crayons/chalkbox,
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "jzV" = (
@@ -19570,9 +19582,11 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "kwW" = (
-/obj/structure/bed/stool/chair/office/dark,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
@@ -20226,10 +20240,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/greengrid/nitrogen{
-	icon = 'icons/turf/flooring/plating.dmi';
-	icon_state = "plating"
-	},
+/turf/simulated/floor/reinforced/reactor,
 /area/engineering/engine_room)
 "kRr" = (
 /obj/machinery/door/airlock{
@@ -22644,7 +22655,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room)
 "mep" = (
 /obj/effect/floor_decal/corner/purple{
@@ -24146,6 +24157,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
+"mRi" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/ringer_button{
+	id = "engie_ringer";
+	pixel_x = -21;
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/lobby)
 "mRr" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -27381,10 +27406,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/greengrid/nitrogen{
-	icon = 'icons/turf/flooring/plating.dmi';
-	icon_state = "plating"
-	},
+/turf/simulated/floor/reinforced/reactor,
 /area/engineering/engine_room)
 "oCz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -28740,6 +28762,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
 "pnY" = (
@@ -30127,8 +30150,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Engineering Monitoring Room";
-	req_one_access = list(10)
+	name = "Engineering Front Desk";
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/lobby)
@@ -30280,7 +30303,7 @@
 	desc = "A warning sign which reads 'DANGER: MASS EJECTOR PATH ON THIS SIGN'.";
 	name = "\improper DANGER: MASS EJECTOR PATH sign"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "qff" = (
 /obj/machinery/light{
@@ -34506,16 +34529,17 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "smr" = (
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/machinery/button/remote/driver{
 	id = "enginecore";
-	name = "Emergency Core Eject";
-	pixel_x = 25;
-	req_one_access = list(11,24)
+	name = "Supermatter Reactor Emergency Crystal Ejection";
+	dir = 8;
+	pixel_x = 23
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "snt" = (
 /turf/simulated/floor/wood,
@@ -35246,10 +35270,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/greengrid/nitrogen{
-	icon = 'icons/turf/flooring/plating.dmi';
-	icon_state = "plating"
-	},
+/turf/simulated/floor/reinforced/reactor,
 /area/engineering/engine_room)
 "sMi" = (
 /obj/machinery/door/firedoor,
@@ -36841,10 +36862,7 @@
 	id = "enginecore"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/greengrid/nitrogen{
-	icon = 'icons/turf/flooring/plating.dmi';
-	icon_state = "plating"
-	},
+/turf/simulated/floor/reinforced/reactor,
 /area/engineering/engine_room)
 "tFH" = (
 /obj/effect/floor_decal/spline/plain/cee{
@@ -38219,10 +38237,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/greengrid/nitrogen{
-	icon = 'icons/turf/flooring/plating.dmi';
-	icon_state = "plating"
-	},
+/turf/simulated/floor/reinforced/reactor,
 /area/engineering/engine_room)
 "uon" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -39854,7 +39869,7 @@
 	is_critical = 1;
 	name = "Supermatter Emergency Ventilatory Blast Door"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room)
 "vdy" = (
 /obj/structure/cable/green{
@@ -40291,6 +40306,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "vsb" = (
@@ -41169,13 +41185,38 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "vOS" = (
-/obj/structure/window/borosilicate/reinforced{
-	dir = 1
-	},
 /obj/structure/cable/orange{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the engine charging port.";
+	id = "SupermatterPort";
+	name = "Supermatter Reactor Crystal Viewing Blast Doors";
+	pixel_x = -6;
+	pixel_y = 7;
+	req_one_access = list(11,24)
+	},
+/obj/machinery/button/remote/emitter{
+	desc = "A remote control-switch for the supermatter reactor's emitter.";
+	id = "ReactorEmitter";
+	name = "Supermatter Reactor Emitter";
+	pixel_x = 6;
+	pixel_y = 7;
+	req_one_access = list(11,24)
+	},
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the engine control room blast doors.";
+	id = "EngineBlast";
+	name = "Supermatter Reactor Monitoring Room Blast Doors";
+	pixel_y = -3;
+	req_one_access = list(11,24)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "vOZ" = (
 /obj/effect/floor_decal/corner/green{
@@ -44334,6 +44375,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "xlK" = (
@@ -45529,10 +45571,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/greengrid/nitrogen{
-	icon = 'icons/turf/flooring/plating.dmi';
-	icon_state = "plating"
-	},
+/turf/simulated/floor/reinforced/reactor,
 /area/engineering/engine_room)
 "xUW" = (
 /obj/effect/floor_decal/corner/blue{
@@ -64748,7 +64787,7 @@ gPw
 mfq
 hfm
 gII
-xEH
+eMT
 fKi
 nbJ
 dpG
@@ -65152,7 +65191,7 @@ jzq
 sNT
 vpj
 isH
-xEH
+eMT
 fKi
 nbJ
 isH
@@ -65556,7 +65595,7 @@ eQg
 iwd
 kwW
 cUi
-xEH
+eMT
 fKi
 nbJ
 isH
@@ -65754,11 +65793,11 @@ xNO
 voz
 voz
 nge
-xEH
-xEH
+hok
+hok
 jmW
-xEH
-xEH
+hok
+eMT
 wSp
 way
 vWt
@@ -65959,7 +65998,7 @@ lTb
 vBE
 vBE
 cQz
-vBE
+mRi
 vBE
 oWB
 nbJ
