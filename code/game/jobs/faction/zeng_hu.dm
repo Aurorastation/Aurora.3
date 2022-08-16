@@ -9,14 +9,9 @@
 	years, they were also the first mega-corporation to partner with the newly-discovered
 	Skrell, working closely with this alien species to pioneer cloning, a once
 	controversial field that is now more accepted today.
-	</p>
-	<p>Zeng-Hu Pharmaceuticals employees can be in the following departments:
-	<ul>
-	<li><b>Science</b>
-	<li><b>Medical</b>
-	</ul></p>"}
+	</p>"}
 
-
+	departments = {"Medical<br>Science"}
 	title_suffix = "Zeng"
 
 	allowed_role_types = ZENG_ROLES
@@ -54,7 +49,7 @@
 		"Medical Intern" = /datum/outfit/job/intern_med/zeng_hu,
 		"Scientist" = /datum/outfit/job/scientist/zeng_hu,
 		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
-		"Xenobotanist" = /datum/outfit/job/scientist/xenobiologist/botany/zeng_hu,
+		"Xenobotanist" = /datum/outfit/job/scientist/xenobotanist/zeng_hu,
 		"Lab Assistant" = /datum/outfit/job/intern_sci/zeng_hu,
 		"Xenoarcheologist"= /datum/outfit/job/scientist/xenoarcheologist/zeng_hu,
 		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
@@ -95,7 +90,7 @@
 /datum/outfit/job/med_tech/zeng_hu
 	name = "First Responder - Zeng-Hu"
 
-	head = /obj/item/clothing/head/softcap/medical/zeng
+	head = /obj/item/clothing/head/softcap/zeng
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
 	id = /obj/item/card/id/zeng_hu
@@ -120,7 +115,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
 
-/datum/outfit/job/scientist/xenobiologist/botany/zeng_hu
+/datum/outfit/job/scientist/xenobotanist/zeng_hu
 	name = "Xenobotanist - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/scientist/botany/zeng
@@ -130,7 +125,7 @@
 /datum/outfit/job/scientist/xenoarcheologist/zeng_hu
 	name = "Xenoarcheologist - Zeng-Hu"
 
-	uniform = /obj/item/clothing/under/rank/xenoarcheologist/zeng
+	uniform = /obj/item/clothing/under/rank/scientist/xenoarcheologist/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
 

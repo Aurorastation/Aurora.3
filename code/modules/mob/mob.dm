@@ -11,7 +11,6 @@
 		for(var/atom/movable/AM in client.screen)
 			qdel(AM)
 		client.screen = list()
-		client.cleanup_parallax_references()
 	if (mind)
 		mind.handle_mob_deletion(src)
 	for(var/infection in viruses)
@@ -111,6 +110,7 @@
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
 /mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
+	set waitfor = FALSE
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
@@ -152,7 +152,11 @@
 		O.see_emote(src, message)
 
 	if(intent_message)
-		intent_message(intent_message, intent_range)
+		intent_message(intent_message, intent_range, messagemobs)
+
+	//Multiz, have shadow do same
+	if(bound_overlay)
+		bound_overlay.visible_message(message, blind_message, range)
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
@@ -205,14 +209,14 @@
 	for(var/m in mobs)
 		var/mob/M = m
 		if(self_message && M==src)
-			M.show_message(self_message,2,deaf_message,1)
+			M.show_message("[get_accent_icon(null, M)] [self_message]", 2, deaf_message, 1)
 			continue
 
-		M.show_message(message,2,deaf_message,1)
+		M.show_message("[get_accent_icon(null, M)] [message]", 2, deaf_message,1)
 
 	for(var/o in objs)
 		var/obj/O = o
-		O.show_message(message,2,deaf_message,1)
+		O.show_message("[get_accent_icon(null, src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -221,6 +225,8 @@
 	return 0
 
 /mob/proc/movement_delay()
+	if(lying) //Crawling, it's slower
+		. += (8 + ((weakened * 3) + (confused * 2)))
 	. = get_pulling_movement_delay()
 
 /mob/proc/get_pulling_movement_delay()
@@ -342,7 +348,7 @@
 /mob/living/simple_animal/borer/can_examine()
 	. = ..()
 	if(!. && iscarbon(loc) && isturf(loc.loc)) // We're inside someone, let us examine still.
-		return TRUE 
+		return TRUE
 
 /mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
 
@@ -942,7 +948,7 @@
 			lying = 0
 		else
 			lying = incapacitated(INCAPACITATION_KNOCKDOWN)
-			canmove = !incapacitated(INCAPACITATION_DISABLED)
+			canmove = !incapacitated(INCAPACITATION_KNOCKOUT)
 
 	if(lying)
 		density = 0
@@ -1310,20 +1316,14 @@
 	if (dest != loc && istype(dest, /atom/movable))
 		AM = dest
 		LAZYADD(AM.contained_mobs, src)
+		if(pulledby)
+			pulledby.stop_pulling()
 
 	if (istype(loc, /atom/movable))
 		AM = loc
 		LAZYREMOVE(AM.contained_mobs, src)
 
 	. = ..()
-
-	if (!contained_mobs)	// If this is true, the parent will have already called the client hook.
-		update_client_hook(loc)
-
-/mob/Move()
-	. = ..()
-	if (. && !contained_mobs && client)
-		update_client_hook(loc)
 
 /mob/verb/northfaceperm()
 	set hidden = 1

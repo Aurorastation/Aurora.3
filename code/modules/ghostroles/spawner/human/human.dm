@@ -97,6 +97,7 @@
 
 	if(assigned_role)
 		M.mind.assigned_role = assigned_role
+		M.mind.role_alt_title = assigned_role
 	if(special_role)
 		M.mind.special_role = special_role
 	if(faction)
@@ -105,12 +106,6 @@
 	//Move the mob
 	M.forceMove(T)
 	M.lastarea = get_area(M.loc) //So gravity doesnt fuck them.
-
-	//Setup the appearance
-	if(allow_appearance_change)
-		M.change_appearance(allow_appearance_change, M)
-	else //otherwise randomize
-		M.client.prefs.randomize_appearance_for(M, FALSE)
 
 	//Setup the mob age and name
 	if(!mname)
@@ -133,6 +128,12 @@
 	else if(outfit)
 		M.preEquipOutfit(outfit, FALSE)
 		M.equipOutfit(outfit, FALSE)
+
+	//Setup the appearance
+	if(allow_appearance_change)
+		M.change_appearance(allow_appearance_change, M, update_id = TRUE)
+	else //otherwise randomize
+		M.client.prefs.randomize_appearance_for(M, FALSE)
 
 	for(var/language in extra_languages)
 		M.add_language(language)

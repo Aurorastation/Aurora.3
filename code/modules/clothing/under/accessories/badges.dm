@@ -21,7 +21,7 @@
 
 /obj/item/clothing/accessory/badge/press
 	name = "corporate press pass"
-	desc = "A corporate reporter's pass, emblazoned with the NanoTrasen logo."
+	desc = "A corporate reporter's pass, emblazoned with the SCC logo."
 	icon_state = "pressbadge"
 	item_state = "pbadge"
 	overlay_state = "pbadge"
@@ -448,15 +448,6 @@
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 
-/obj/item/clothing/accessory/badge/passcard/techno
-	name = "techno-conglomerate passcard"
-	desc = "A clump of machinery scraps repurposed into a functional passcard, used by the Techno-Conglomerate."
-	desc_fluff = "In a society that values progress towards perfection, the Techno-Conglomerate has also applied this to their 'governance'. Prospective wayfarers and explorers will often be required to assemble \
-	their own cards from scraps left over from the early days of the technology, often leading to outdated or buggy versions. Urban legend claims that some have even found a way to exploit this technology to 'sequence' \
-	their way into more secure locales."
-	icon_state = "passcard_techno"
-	item_state = "passcard_techno"
-
 /obj/item/clothing/accessory/badge/passcard/burzsia
 	name = "burzsian passcard"
 	desc = "A passcard issued to Burzsian Hephaestus employees and- owned IPCs- working abroad."
@@ -468,8 +459,7 @@
 /obj/item/clothing/accessory/badge/passcard/konyang
 	name = "konyanger passcard"
 	desc = "A passcard issued to residents of the planet Konyang."
-	desc_fluff = "The 'homeworld' of the human positronic intelligence, life on Konyang is a tightly-knit tapestry of organic-synthetic relations. This is even reflected in their passcards, featuring dried moss \
-	from the planet's farms in the same plastic casing as a small sigil of the Perfection said to grant safe passage abroad for adherents."
+	desc_fluff = "The 'homeworld' of the human positronic intelligence, life on Konyang is a tightly-knit tapestry of organic-synthetic relations. The planet's unique conditions are reflected by a small piece of preserved moss stored in the card's plastic casing."
 	icon_state = "passcard_konyang"
 	item_state = "passcard_konyang"
 

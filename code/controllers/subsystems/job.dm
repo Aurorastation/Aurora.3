@@ -457,7 +457,7 @@
 
 	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cryogenic Storage"]
 	if(spawnpos && istype(spawnpos))
-		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in cryo the whole time!</span>")
+		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the [current_map.station_name] at all! You were in cryo the whole time!</span>")
 		src.forceMove(pick(spawnpos.turfs))
 		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
 		var/rank= src.mind.assigned_role
@@ -475,7 +475,7 @@
 
 	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cyborg Storage"]
 	if(spawnpos && istype(spawnpos))
-		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in robotic storage the whole time!</span>")
+		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the [current_map.station_name] at all! You were in robotic storage the whole time!</span>")
 		src.forceMove(pick(spawnpos.turfs))
 		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
 	else
@@ -690,7 +690,7 @@
 
 			var/permitted = !G.allowed_roles || (job.title in G.allowed_roles)
 			permitted = permitted && G.check_species_whitelist(H)
-			permitted = permitted && (!G.faction || (G.faction == H.employer_faction))
+			permitted = permitted && (!G.faction || (G.faction == H.employer_faction || H.employer_faction == "Stellar Corporate Conglomerate"))
 			var/our_culture = text2path(prefs.culture)
 			permitted = permitted && (!G.culture_restriction || (our_culture in G.culture_restriction))
 			var/our_origin = text2path(prefs.origin)
@@ -710,11 +710,7 @@
 				else
 					metadata = list()
 				var/obj/item/CI = G.spawn_item(null,metadata, H)
-				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
-					if (leftovers)
-						leftovers += thing
-					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
-				else if (H.equip_to_slot_or_del(CI, G.slot))
+				if (H.equip_to_slot_or_del(CI, G.slot))
 					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
 					if(G.slot != slot_tie)
 						custom_equip_slots += G.slot
@@ -835,7 +831,7 @@
 
 			var/permitted = !G.allowed_roles || (rank.title in G.allowed_roles)
 			permitted = permitted && G.check_species_whitelist(H)
-			permitted = permitted && (!G.faction || (G.faction == H.employer_faction))
+			permitted = permitted && (!G.faction || (G.faction == H.employer_faction || H.employer_faction == "Stellar Corporate Conglomerate"))
 			var/decl/origin_item/culture/our_culture = decls_repository.get_decl(text2path(prefs.culture))
 			permitted = permitted && (!G.culture_restriction || (our_culture in G.culture_restriction))
 			var/decl/origin_item/origin/our_origin = decls_repository.get_decl(text2path(prefs.origin))

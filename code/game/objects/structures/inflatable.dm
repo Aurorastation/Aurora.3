@@ -44,7 +44,7 @@
 	var/deflating = FALSE
 	var/undeploy_path = null
 	var/torn_path = null
-	var/health = 50.0
+	var/health = 15
 
 /obj/structure/inflatable/wall
 	name = "inflatable wall"
@@ -60,12 +60,18 @@
 	return ..()
 
 /obj/structure/inflatable/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(isprojectile(mover))
+		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"))
+		deflate(TRUE)
+		return TRUE
 	return FALSE
 
 /obj/structure/inflatable/bullet_act(var/obj/item/projectile/Proj)
 	var/proj_damage = Proj.get_structure_damage()
 	if(!proj_damage)
 		return
+
+	bullet_ping(Proj)
 
 	health -= proj_damage
 	..()
@@ -79,11 +85,11 @@
 			qdel(src)
 			return
 		if(2.0)
-			deflate(TRUE)
+			deflate(TRUE, FALSE)
 			return
 		if(3.0)
 			if(prob(50))
-				deflate(TRUE)
+				deflate(TRUE, FALSE)
 				return
 
 /obj/structure/inflatable/attack_hand(mob/user)
@@ -113,7 +119,7 @@
 /obj/structure/inflatable/CtrlClick()
 	hand_deflate()
 
-/obj/structure/inflatable/proc/deflate(var/violent = FALSE)
+/obj/structure/inflatable/proc/deflate(var/violent = FALSE, msg = TRUE)
 	if(deflating)
 		return
 	playsound(loc, 'sound/machines/hiss.ogg', 75, TRUE)
@@ -121,7 +127,8 @@
 		if(!torn_path)
 			return
 		deflating = TRUE
-		visible_message(SPAN_WARNING("\The [src] rapidly deflates!"))
+		if(msg)
+			visible_message(SPAN_WARNING("\The [src] rapidly deflates!"))
 		var/matrix/M = new
 		M.Scale(0.6)
 		M.Turn(pick(-40, 40))
@@ -131,7 +138,8 @@
 		if(!undeploy_path)
 			return
 		deflating = TRUE
-		visible_message(SPAN_NOTICE("\The [src] slowly deflates."))
+		if(msg)
+			visible_message(SPAN_NOTICE("\The [src] slowly deflates."))
 		var/matrix/M = new
 		M.Scale(0.6)
 		animate(src, 2.6 SECONDS, transform = M)
@@ -197,6 +205,10 @@
 		return state
 	if(istype(mover, /obj/effect/beam))
 		return !opacity
+	if(isprojectile(mover))
+		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"))
+		deflate(TRUE)
+		return TRUE
 	return !density
 
 /obj/structure/inflatable/door/proc/TryToSwitchState(mob/user)
@@ -270,7 +282,7 @@
 /obj/item/storage/bag/inflatable
 	name = "inflatable barrier box"
 	desc = "Contains inflatable walls and doors."
-	icon = 'icons/obj/contained_items/tools/inflatables.dmi'
+	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
 	contained_sprite = TRUE
@@ -287,6 +299,8 @@
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
 /obj/item/storage/bag/inflatable/emergency
+	name = "emergency inflatable barrier box"
+	desc = "Contains inflatable walls and doors. This box has emergency labelling on it and outlines that there's only enough inflatables within to secure a small area."
 	starts_with = list(/obj/item/inflatable/door = 2, /obj/item/inflatable/wall = 3)
 
 #undef STATE_CLOSED

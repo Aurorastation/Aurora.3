@@ -2,12 +2,12 @@
 
 /datum/ghostspawner/human/orion_express_courier
 	short_name = "orion_express_courier"
-	name = "Orion Express Courier"
-	desc = "Crew a Orion Express Ship and deliver parcels."
+	name = "Orion Express Station Crew"
+	desc = "Crew the Orion Express mobile refueling station."
 	tags = list("External")
 
 	spawnpoints = list("orion_express_courier")
-	max_count = 2
+	max_count = 3
 
 	outfit = /datum/outfit/admin/orion_express_courier
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER)
@@ -43,7 +43,7 @@
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
-		var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
+		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/inhaler/phoron_special, slot_in_backpack)
@@ -56,7 +56,7 @@
 /datum/ghostspawner/human/orion_express_courier/captain
 	short_name = "orion_express_captain"
 	name = "Orion Express Captain"
-	desc = "Pilot and command an Orion Express Ship."
+	desc = "Pilot and command the Orion Express mobile refueling station."
 	tags = list("External")
 
 	spawnpoints = list("orion_express_captain")
@@ -111,7 +111,7 @@
 
 	uniform = /obj/item/clothing/under/rank/engineer/heph
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = /obj/item/storage/backpack/satchel_norm
+	back = /obj/item/storage/backpack/satchel/norm
 	belt = /obj/item/storage/belt/utility/full
 	accessory = /obj/item/clothing/accessory/storage/pouches/black
 

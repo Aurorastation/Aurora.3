@@ -83,6 +83,8 @@
 	var/displays_maptext = FALSE
 	var/can_ammo_display = TRUE
 	var/obj/item/ammo_display
+	var/empty_sound = /decl/sound_category/out_of_ammo
+	var/casing_drop_sound = /decl/sound_category/casing_drop_sound
 	maptext_x = 22
 	maptext_y = 2
 
@@ -137,11 +139,12 @@
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
 
-	if (!pin && needspin)
-		pin = /obj/item/device/firing_pin
-
-	if(pin && needspin)
+	if (needspin)
+		if(!pin)
+			pin = /obj/item/device/firing_pin
 		pin = new pin(src)
+	else
+		pin = null
 
 	if(istype(loc, /obj/item/robot_module))
 		has_safety = FALSE
@@ -311,7 +314,7 @@
 	user.setClickCooldown(shoot_time)
 	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
-	
+
 	user.face_atom(target, TRUE)
 
 	return TRUE
@@ -433,8 +436,8 @@
 	if(user)
 		to_chat(user, SPAN_DANGER("*click*"))
 	else
-		src.visible_message("*click click*")
-	playsound(loc, 'sound/weapons/empty.ogg', 100, 1)
+		src.visible_message("*click*")
+	playsound(loc, empty_sound, 100, 1)
 
 //called after successfully firing
 /obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
@@ -921,7 +924,7 @@
 
 	if(pin && I.isscrewdriver())
 		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
-		if(do_after(user, 45 SECONDS))
+		if(I.use_tool(src, user, 45, volume = 50))
 			if(pin.durable || prob(50))
 				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"))
 				pin.forceMove(get_turf(src))

@@ -165,7 +165,7 @@
 	return between(0, 100 * (occupant.health - occupant.maxHealth * 75 / 100) / (occupant.maxHealth * (heal_level - 75) / 100), 100)
 
 //Grow clones to maturity then kick them out.  FREELOADERS
-/obj/machinery/clonepod/machinery_process()
+/obj/machinery/clonepod/process()
 
 	if(stat & NOPOWER) //Autoeject if power is lost
 		if(occupant)
@@ -200,7 +200,7 @@
 		//Also heal some oxyloss ourselves because inaprovaline is so bad at preventing it!!
 		occupant.adjustOxyLoss(-4)
 
-		use_power(7500) //This might need tweaking.
+		use_power_oneoff(7500) //This might need tweaking.
 		return
 
 	else if((!occupant) || (occupant.loc != src))
@@ -460,7 +460,7 @@
 
 /obj/item/storage/box/disks
 	name = "Diskette Box"
-	icon_state = "disk_kit"
+	illustration = "disk_kit"
 
 /obj/item/storage/box/disks/fill()
 	new /obj/item/disk/data(src)

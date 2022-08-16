@@ -20,6 +20,12 @@
 	initial_flooring = /decl/flooring/carpet
 	footstep_sound = /decl/sound_category/carpet_footstep
 
+/turf/simulated/floor/holofloor/carpet/rubber
+	name = "rubber carpet"
+	icon = 'icons/turf/flooring/carpet.dmi'
+	icon_state = "rub_carpet"
+	initial_flooring = /decl/flooring/carpet/rubber
+
 /turf/simulated/floor/holofloor/tiled
 	name = "floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -61,6 +67,12 @@
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
 	footstep_sound = /decl/sound_category/grass_footstep
+
+/turf/simulated/floor/holofloor/grass/alt
+	name = "lush grass"
+	icon = 'icons/turf/total_floors.dmi'
+	icon_state = "grass_alt"
+	initial_flooring = /decl/flooring/grass/alt
 
 /turf/simulated/floor/holofloor/snow
 	name = "snow"
@@ -367,7 +379,7 @@
 	var/eventstarted = 0
 
 	anchored = 1.0
-	use_power = 0 // reason is because the holodeck already takes power so this can be powered as a result.
+	use_power = POWER_USE_OFF // reason is because the holodeck already takes power so this can be powered as a result.
 
 /obj/machinery/readybutton/attack_ai(mob/user as mob)
 	to_chat(user, "The station AI is not to interact with these devices!")

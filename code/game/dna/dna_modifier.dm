@@ -44,7 +44,6 @@
 	icon_state = "scanner_0"
 	density = 1
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 50
 	active_power_usage = 300
 	interact_offline = 1
@@ -206,8 +205,10 @@
 
 /obj/machinery/computer/scan_consolenew
 	name = "DNA Modifier Access Console"
-	desc = "Scand DNA."
-	icon_screen = "med"
+	desc = "Scan DNA."
+	icon_screen = "dna"
+	icon_keyboard = "teal_key"
+	light_color = LIGHT_COLOR_BLUE
 	density = 1
 	circuit = /obj/item/circuitboard/scan_consolenew
 	var/selected_ui_block = 1.0
@@ -225,7 +226,6 @@
 	var/obj/item/disk/data/disk = null
 	var/selected_menu_key = null
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 400
 	var/waiting_for_user_input=0 // Fix for #274 (Mash create block injector without answering dialog to make unlimited injectors) - N3X
@@ -273,7 +273,7 @@
 /obj/machinery/computer/scan_consolenew/proc/all_dna_blocks(var/list/buffer)
 	var/list/arr = list()
 	for(var/i = 1, i <= buffer.len, i++)
-		arr += "[i]:[EncodeDNABlock(buffer[i])]"
+		arr += "[i]:[num2hex(buffer[i], 3)]"
 	return arr
 
 /obj/machinery/computer/scan_consolenew/proc/setInjectorBlock(var/obj/item/dnainjector/I, var/blk, var/datum/dna2/record/buffer)

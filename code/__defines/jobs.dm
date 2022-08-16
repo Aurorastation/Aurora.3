@@ -5,12 +5,11 @@
 #define CIVILIAN_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/passenger)
 #define OPERATIONS_ROLES list(/datum/job/hangar_tech, /datum/job/mining, /datum/job/machinist)
 #define MEDICAL_ROLES list(/datum/job/doctor, /datum/job/surgeon, /datum/job/pharmacist, /datum/job/psychiatrist, /datum/job/med_tech, /datum/job/intern_med)
-#define SCIENCE_ROLES list(/datum/job/scientist, /datum/job/xenobiologist, /datum/job/intern_sci)
+#define SCIENCE_ROLES list(/datum/job/scientist, /datum/job/xenobiologist, /datum/job/xenobotanist, /datum/job/intern_sci)
 #define SECURITY_ROLES list(/datum/job/warden, /datum/job/investigator, /datum/job/officer, /datum/job/intern_sec)
 #define EQUIPMENT_ROLES list(/datum/job/ai, /datum/job/cyborg)
-#define INDEP_ROLES list(/datum/job/merchant, /datum/job/passenger, /datum/job/consular, /datum/job/journalist, /datum/job/chaplain)
 #define ALL_FACTION_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/representative)
-#define ALL_JOBS list(COMMAND_ROLES, ENGINEERING_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, CARGO_ROLES, MEDICAL_ROLES, SCIENCE_ROLES, SECURITY_ROLES, EQUIPMENT_ROLES, INDEP_ROLES)
+#define ALL_JOBS list(COMMAND_ROLES, ENGINEERING_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, OPERATIONS_ROLES, MEDICAL_ROLES, SCIENCE_ROLES, SECURITY_ROLES, EQUIPMENT_ROLES, INDEP_ROLES)
 
 // Factions
 #define IDRIS_ROLES list(SECURITY_ROLES, SERVICE_ROLES, ALL_FACTION_ROLES)
@@ -21,3 +20,4 @@
 #define HEPH_ROLES list(OPERATIONS_ROLES, ENGINEERING_ROLES, ALL_FACTION_ROLES)
 #define ORION_ROLES list(OPERATIONS_ROLES, ALL_FACTION_ROLES)
 #define SCC_ROLES list(COMMAND_ROLES, EQUIPMENT_ROLES)
+#define INDEP_ROLES list(CIVILIAN_ROLES, /datum/job/merchant, /datum/job/consular, /datum/job/journalist, /datum/job/chaplain)

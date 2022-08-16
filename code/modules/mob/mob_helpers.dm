@@ -314,7 +314,7 @@ var/list/global/organ_rel_size = list(
 // Emulates targetting a specific body part, and miss chances
 // May return null if missed
 // miss_chance_mod may be negative.
-/proc/get_zone_with_miss_chance(zone, var/mob/target, var/miss_chance_mod = 0, var/ranged_attack=0)
+/proc/get_zone_with_miss_chance(zone, var/mob/target, var/miss_chance_mod = 0, var/ranged_attack=0, var/point_blank = FALSE)
 	zone = check_zone(zone)
 
 	if(!ranged_attack)
@@ -325,6 +325,8 @@ var/list/global/organ_rel_size = list(
 		for(var/obj/item/grab/G in target.grabbed_by)
 			if(G.state >= GRAB_AGGRESSIVE)
 				return zone
+		if(point_blank)
+			return zone //Point blank shots don't miss.
 
 	var/miss_chance = 10
 	if (zone in base_miss_chance)
@@ -1187,10 +1189,10 @@ proc/is_blind(A)
 /mob/proc/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	SHOULD_CALL_PARENT(TRUE)
 	var/used_accent = force_accent ? force_accent : accent
-	if(used_accent && speaking?.allow_accents)
+	if(used_accent && (speaking?.allow_accents || !speaking))
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		if(istype(a))
-			if(hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
+			if(hearer && hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
 				return "([a.text_tag])"
 			else
 				var/final_icon = a.tag_icon

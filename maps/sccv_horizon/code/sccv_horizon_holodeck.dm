@@ -1,19 +1,19 @@
 /datum/map/sccv_horizon
 	holodeck_programs = list(
-		"emptycourt" = new /datum/holodeck_program(/area/holodeck/source_emptycourt,
+		"emptycourt" = new /datum/holodeck_program(/area/horizon/holodeck/source_emptycourt,
 			list('sound/music/THUNDERDOME.ogg')
 		),
-		"boxingcourt" = new /datum/holodeck_program(/area/holodeck/source_boxingcourt,
+		"boxingcourt" = new /datum/holodeck_program(/area/horizon/holodeck/source_boxingcourt,
 			list('sound/music/THUNDERDOME.ogg')
 		),
-		"basketball" = new /datum/holodeck_program(/area/holodeck/source_basketball,
+		"basketball" = new /datum/holodeck_program(/area/horizon/holodeck/source_basketball,
 			list('sound/music/THUNDERDOME.ogg')
 		),
-		"thunderdomecourt" = new /datum/holodeck_program(/area/holodeck/source_thunderdomecourt,
+		"thunderdomecourt" = new /datum/holodeck_program(/area/horizon/holodeck/source_thunderdomecourt,
 			list('sound/music/THUNDERDOME.ogg')
 		),
-		"beach" = new /datum/holodeck_program(/area/holodeck/source_beach),
-		"desert" = new /datum/holodeck_program(/area/holodeck/source_desert,
+		"beach" = new /datum/holodeck_program(/area/horizon/holodeck/source_beach),
+		"desert" = new /datum/holodeck_program(/area/horizon/holodeck/source_desert,
 			list(
 				'sound/effects/wind/wind_2_1.ogg',
 				'sound/effects/wind/wind_2_2.ogg',
@@ -23,7 +23,7 @@
 				'sound/effects/wind/wind_5_1.ogg'
 			)
 		),
-		"snowfield" = new /datum/holodeck_program(/area/holodeck/source_snowfield,
+		"snowfield" = new /datum/holodeck_program(/area/horizon/holodeck/source_snowfield,
 			list(
 				'sound/effects/wind/wind_2_1.ogg',
 				'sound/effects/wind/wind_2_2.ogg',
@@ -33,37 +33,37 @@
 				'sound/effects/wind/wind_5_1.ogg'
 			)
 		),
-		"space" = new /datum/holodeck_program(/area/holodeck/source_space,
+		"space" = new /datum/holodeck_program(/area/horizon/holodeck/source_space,
 			list(
-				'sound/ambience/ambispace.ogg',
+				'sound/music/ambispace.ogg',
 				'sound/music/main.ogg',
 				'sound/music/space.ogg',
 				'sound/music/traitor.ogg'
 			)
 		),
-		"picnicarea" = new /datum/holodeck_program(/area/holodeck/source_picnicarea,
+		"picnicarea" = new /datum/holodeck_program(/area/horizon/holodeck/source_picnicarea,
 			list('sound/music/title2.ogg')
 		),
-		"dininghall" = new /datum/holodeck_program(/area/holodeck/source_dininghall,
+		"dininghall" = new /datum/holodeck_program(/area/horizon/holodeck/source_dininghall,
 			list('sound/music/title2.ogg')
 		),
-		"theatre" = new /datum/holodeck_program(/area/holodeck/source_theatre),
-		"meetinghall" = new /datum/holodeck_program(/area/holodeck/source_meetinghall),
-		"courtroom" = new /datum/holodeck_program(/area/holodeck/source_courtroom,
+		"theatre" = new /datum/holodeck_program(/area/horizon/holodeck/source_theatre),
+		"meetinghall" = new /datum/holodeck_program(/area/horizon/holodeck/source_meetinghall),
+		"courtroom" = new /datum/holodeck_program(/area/horizon/holodeck/source_courtroom,
 			list('sound/music/traitor.ogg')
 		),
-		"burntest" = new /datum/holodeck_program(/area/holodeck/source_burntest, list()),
-		"wildlifecarp" = new /datum/holodeck_program(/area/holodeck/source_wildlife, list()),
-		"chapel" = new /datum/holodeck_program(/area/holodeck/source_chapel, list()),
-		"gym" = new /datum/holodeck_program(/area/holodeck/source_gym),
-		"battlemonsters" = new /datum/holodeck_program(/area/holodeck/source_battlemonsters,
+		"burntest" = new /datum/holodeck_program(/area/horizon/holodeck/source_burntest, list()),
+		"wildlifecarp" = new /datum/holodeck_program(/area/horizon/holodeck/source_wildlife, list()),
+		"chapel" = new /datum/holodeck_program(/area/horizon/holodeck/source_chapel, list()),
+		"gym" = new /datum/holodeck_program(/area/horizon/holodeck/source_gym),
+		"battlemonsters" = new /datum/holodeck_program(/area/horizon/holodeck/source_battlemonsters,
 			list(
 				'sound/music/battlemonsters_theme.ogg'
 			),
 			FALSE
 		),
-		"chessboard" = new /datum/holodeck_program(/area/holodeck/source_chessboard),
-		"turnoff" = new /datum/holodeck_program(/area/holodeck/source_plating)
+		"chessboard" = new /datum/holodeck_program(/area/horizon/holodeck/source_chessboard),
+		"turnoff" = new /datum/holodeck_program(/area/horizon/holodeck/source_plating)
 	)
 
 	holodeck_supported_programs = list(

@@ -23,7 +23,6 @@
 	var/force_unwielded
 	var/wield_sound = /decl/sound_category/generic_wield_sound
 	var/unwield_sound = null
-	var/base_icon
 	var/base_name
 	var/unwielded_force_divisor = 0.25
 	var/parry_chance = 15

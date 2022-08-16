@@ -317,6 +317,7 @@ em						{font-style: normal;font-weight: bold;}
 .centradio				{color: #5C5C8A;}
 .airadio				{color: #FF00FF;}
 .entradio				{color: #bd893c;}
+.shipradio				{color: #7331c4;}
 
 .secradio				{color: #A30000;}
 .engradio				{color: #A66300;}
@@ -365,7 +366,7 @@ h1.alert, h2.alert		{color: #000080;}
 .changeling				{color: #800080;}
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
 .say_quote				{font-family: Georgia, Verdana, sans-serif;}
-.yassa					{color: #400987;}
+.yassa					{color: #801fff;}
 .delvahhi				{color: #5E2612; font-weight: bold;}
 .siiktau				{color: #A52A2A;}
 .revenant				{color: #215a5c; font-style: italic;}

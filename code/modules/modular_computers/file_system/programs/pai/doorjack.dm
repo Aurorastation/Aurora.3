@@ -2,6 +2,7 @@
 	filename = "doorjack"
 	filedesc = "Door Jack"
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program is used to access standard-issue pAI door jack systems."
 	size = 12
 
@@ -35,7 +36,7 @@
 	if(headerdata)
 		data["_PC"] = headerdata
 		. = data
-	
+
 	if(!istype(computer, /obj/item/modular_computer/silicon))
 		return
 	var/obj/item/modular_computer/silicon/true_computer = computer
@@ -48,7 +49,7 @@
 	VUEUI_SET_CHECK(data["ishacking"], !!host.hackdoor, ., data)
 	VUEUI_SET_CHECK(data["progress"], host.hackprogress, ., data)
 	VUEUI_SET_CHECK(data["aborted"], host.hack_aborted, ., data)
-	
+
 /datum/computer_file/program/pai_doorjack/Topic(href, href_list)
 	. = ..()
 
@@ -58,7 +59,7 @@
 	if(!istype(true_computer.computer_host, /mob/living/silicon/pai))
 		return
 	var/mob/living/silicon/pai/host = true_computer.computer_host
-	
+
 	if(href_list["hack"])
 		if(host.cable && host.cable.machine)
 			host.hackdoor = host.cable.machine

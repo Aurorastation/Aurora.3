@@ -6,6 +6,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 /obj/machinery/computer/ship
 	var/list/viewers // Weakrefs to mobs in direct-view mode.
 	var/extra_view = 0 // how much the view is increased by when the mob is in overmap mode.
+	var/obj/effect/overmap/visitable/ship/connected //The ship we're attached to. This is a typecheck for linked, to ensure we're linked to a ship and not a sector
 
 /obj/machinery/computer/ship/proc/display_reconnect_dialog(var/mob/user, var/flavor)
 	var/datum/browser/popup = new (user, "[src]", "[src]")
@@ -36,6 +37,11 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		usr.unset_machine()
 		return TOPIC_HANDLED
 	return TOPIC_NOACTION
+
+/obj/machinery/computer/ship/sync_linked()
+	. = ..()
+	if(istype(linked, /obj/effect/overmap/visitable/ship))
+		connected = linked
 
 // Management of mob view displacement. look to shift view to the ship on the overmap; unlook to shift back.
 
@@ -94,12 +100,13 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		return 0
 
 /obj/machinery/computer/ship/Destroy()
-	if(linked)
-		LAZYREMOVE(linked.consoles, src)
+	if(connected)
+		LAZYREMOVE(connected.consoles, src)
 	. = ..()
 
 /obj/machinery/computer/ship/sensors/Destroy()
 	sensors = null
+	identification = null
 	if(LAZYLEN(viewers))
 		for(var/datum/weakref/W in viewers)
 			var/M = W.resolve()
@@ -110,15 +117,17 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 /obj/machinery/computer/ship/on_user_login(mob/M)
 	unlook(M)
 
-/obj/machinery/computer/ship/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
+/obj/machinery/computer/ship/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
 
 	if(.)
-		LAZYSET(linked.consoles, src, TRUE)
+		if(istype(linked, /obj/effect/overmap/visitable/ship)) //Only ships get ship computers
+			connected = linked
+			LAZYSET(connected.consoles, src, TRUE)
 
 /obj/machinery/computer/ship/Initialize()
 	. = ..()
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
-		if (istype(my_sector, /obj/effect/overmap/visitable/ship))
+		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)

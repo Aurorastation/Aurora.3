@@ -59,7 +59,7 @@
 	icon_state = "large"
 	density = TRUE
 	anchored = TRUE
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 
 	var/hits = 4
 	var/hitpwr = 2 //Level of ex_act to be called on hit.
@@ -163,7 +163,7 @@
 /obj/effect/meteor/dust
 	name = "space dust"
 	icon_state = "dust"
-	pass_flags = PASSTABLE | PASSGRILLE
+	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
 	meteor_loot = list(/obj/item/ore/glass)
 	dropamt = 1
 

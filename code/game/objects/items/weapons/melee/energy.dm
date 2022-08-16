@@ -5,7 +5,7 @@
 	var/active_w_class
 	sharp = 0
 	edge = FALSE
-	armor_penetration = 10
+	armor_penetration = 20
 	flags = NOBLOODY
 	can_embed = 0//No embedding pls
 	var/base_reflectchance = 40
@@ -79,15 +79,14 @@
 		var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
 		if(check_shield_arc(user, bad_arc, damage_source, attacker))
 
-			if(prob(base_block_chance))
+			if(prob(base_block_chance) && shield_power)
 				spark(src, 5)
 				playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
-				shield_power -= round(damage/4)
+				shield_power -= round(damage * 0.75)
 
 				if(shield_power <= 0)
-					visible_message("<span class='danger'>\The [user]'s [src.name] overloads!</span>")
-					deactivate()
-					shield_power = initial(shield_power)
+					to_chat(user, SPAN_DANGER("\The [src]'s integrated shield goes out! It will no longer assist in parrying."))
+					shield_power = 0
 					return FALSE
 
 				if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
@@ -133,11 +132,12 @@
 	name = "energy glaive"
 	desc = "An energized glaive."
 	icon_state = "eglaive0"
+	force = 20
+	throwforce = 30
 	active_force = 40
 	active_throwforce = 60
 	active_w_class = ITEMSIZE_HUGE
-	force = 20
-	throwforce = 30
+	armor_penetration = 20 
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_HUGE
@@ -151,7 +151,6 @@
 	base_block_chance = 0 //cannot be used to block guns
 	shield_power = 0
 	can_block_bullets = 0
-	armor_penetration = 20
 
 /obj/item/melee/energy/glaive/activate(mob/living/user)
 	..()
@@ -373,8 +372,7 @@
 	icon_state = "blade"
 	force = 40
 	active_force = 40 //Normal attacks deal very high damage - about the same as wielded fire axe
-	armor_penetration = 100
-	sharp = 1
+	sharp = TRUE
 	edge = TRUE
 	anchored = 1    // Never spawned outside of inventory, should be fine.
 	throwforce = 1  //Throwing or dropping the item deletes it.
@@ -386,9 +384,8 @@
 	var/mob/living/creator
 	base_reflectchance = 140
 	base_block_chance = 75
-	shield_power = 150
-	can_block_bullets = 1
-	active = 1
+	can_block_bullets = TRUE
+	active = TRUE
 	var/datum/effect_system/sparks/spark_system
 
 /obj/item/melee/energy/blade/Initialize()

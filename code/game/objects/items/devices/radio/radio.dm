@@ -11,7 +11,7 @@ var/global/list/default_internal_channels = list(
 	num2text(SEC_FREQ) = list(access_security),
 	num2text(SEC_I_FREQ)=list(access_security),
 	num2text(PEN_FREQ) = list(access_armory),
-	num2text(SCI_FREQ) = list(access_tox,access_robotics,access_xenobiology),
+	num2text(SCI_FREQ) = list(access_tox,access_robotics,access_xenobiology,access_xenobotany),
 	num2text(SUP_FREQ) = list(access_cargo),
 	num2text(SRV_FREQ) = list(access_janitor, access_hydroponics)
 )
@@ -359,6 +359,12 @@ var/global/list/default_medbay_channels = list(
 
 	var/turf/position = get_turf(src)
 
+	var/obj/effect/overmap/visitable/sector
+	if(current_map.use_overmap)
+		var/my_sector = map_sectors["[position.z]"]
+		if(istype(my_sector, /obj/effect/overmap/visitable))
+			sector = my_sector
+
 	//#### Tagging the signal with all appropriate identity values ####//
 
 	// ||-- The mob's name identity --||
@@ -446,7 +452,8 @@ var/global/list/default_medbay_channels = list(
 			"reject" = 0,	// if nonzero, the signal will not be accepted by any broadcasting machinery
 			"level" = position.z, // The source's z level
 			"language" = speaking,
-			"verb" = verb
+			"verb" = verb,
+			"sector" = sector
 		)
 		signal.frequency = connection.frequency // Quick frequency set
 
@@ -508,7 +515,8 @@ var/global/list/default_medbay_channels = list(
 		"reject" = 0,
 		"level" = position.z,
 		"language" = speaking,
-		"verb" = verb
+		"verb" = verb,
+		"sector" = sector
 	)
 	signal.frequency = connection.frequency // Quick frequency set
 

@@ -31,6 +31,7 @@
 #define NOREACT            0x40  // Reagents don't react inside this container.
 #define PROXMOVE           0x80  // Does this object require proximity checking in Enter()?
 #define HELDMAPTEXT        0x100 // Uses the special held maptext system, which sets a specific maptext if the item is in possession of a mob.
+#define NOMOVE             0x200 // Cannot be moved from its current inventory slot. Mostly for augments, modules, and other "attached" items.
 
 //Flags for items (equipment)
 #define THICKMATERIAL          BITFLAG(0)  // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.
@@ -50,6 +51,7 @@
 #define PASSDOORHATCH	0x8
 #define PASSMOB			0x10
 #define PASSTRACE       0x20 //Used by turrets in the check_trajectory proc to target mobs hiding behind certain things (such as closets)
+#define PASSRAILING     0x40
 
 // Bitmasks for the flags_inv variable. These determine when a piece of clothing hides another, i.e. a helmet hiding glasses.
 #define HIDEGLOVES      0x1

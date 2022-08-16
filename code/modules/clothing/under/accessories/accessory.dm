@@ -223,14 +223,17 @@
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
+	desc_info = "Click on the UI action button toggle between the examination modes. Automatic will use the stethoscope on the person you're \
+	examining when adjacent to them, automatically using it on the selected body part. Manual will make it so you don't automatically use it via examine."
 	icon_state = "stethoscope"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
 		)
 	flippable = 1
+	var/auto_examine = FALSE
 
-/obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/human/M, mob/living/user)
+/obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/human/M, mob/user)
 	if(ishuman(M) && isliving(user))
 		if(user.a_intent == I_HELP)
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
@@ -239,6 +242,38 @@
 									 "You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
 				return
 	return ..(M,user)
+
+/obj/item/clothing/accessory/stethoscope/attack_self(mob/user)
+	toggle_examine()
+
+/obj/item/clothing/accessory/stethoscope/on_attached(obj/item/clothing/S, mob/user)
+	..()
+	has_suit.verbs += /obj/item/clothing/accessory/stethoscope/verb/toggle_examine
+
+/obj/item/clothing/accessory/stethoscope/on_removed(mob/user)
+	if(has_suit)
+		has_suit.verbs -= /obj/item/clothing/accessory/stethoscope/verb/toggle_examine
+	..()
+
+/obj/item/clothing/accessory/stethoscope/proc/mode_switch(mob/user)
+	auto_examine = !auto_examine
+	to_chat(user, SPAN_NOTICE("\The [src]'s Examination Mode is now [auto_examine ? "Automatic" : "Manual"]."))
+
+/obj/item/clothing/accessory/stethoscope/verb/toggle_examine()
+	set name = "Toggle Examination Mode"
+	set category = "Object"
+	set src in usr
+
+	if(!ishuman(usr))
+		return
+	if(usr.incapacitated())
+		return
+
+	var/obj/item/clothing/accessory/stethoscope/stet = get_accessory(/obj/item/clothing/accessory/stethoscope)
+	if(!stet)
+		return
+
+	stet.mode_switch(usr)
 
 //Religious items
 /obj/item/clothing/accessory/rosary
@@ -384,13 +419,13 @@
 
 /obj/item/clothing/accessory/poncho/roles/science
 	name = "science poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard NanoTrasen Science colors."
+	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard science colors."
 	icon_state = "sciponcho"
 	item_state = "sciponcho"
 
 /obj/item/clothing/accessory/poncho/roles/cargo
-	name = "cargo poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of Cargo."
+	name = "operations poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of operations."
 	icon_state = "cargoponcho"
 	item_state = "cargoponcho"
 
@@ -442,6 +477,13 @@
 	desc = "A sash, designed to be worn over one shoulder and come down to the opposing hip."
 	item_state = "sash_colourable"
 	icon_state = "sash_colourable"
+
+/obj/item/clothing/accessory/sash/horizontal
+	name = "horizontal sash"
+	desc = "A sash, designed to be worn around the waist."
+	item_state = "sash_horizontal"
+	icon_state = "sash_horizontal"
+	icon = 'icons/clothing/accessories/sash_horizontal.dmi'
 
 /*
  * Cloak
@@ -567,7 +609,7 @@
 
 /obj/item/clothing/accessory/poncho/shouldercape/nova
 	name = "nova cape"
-	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it"
+	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it."
 	icon_state = "novacape"
 	item_state = "novacape"
 	overlay_state = "novacape"
@@ -578,6 +620,13 @@
 	icon_state = "galaxycape"
 	item_state = "galaxycape"
 	overlay_state = "galaxycape"
+
+/obj/item/clothing/accessory/poncho/shouldercape/cosmic
+	name = "cosmic cape"
+	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it, of constellations and stars visible from Qerrbalak."
+	icon_state = "cosmiccape"
+	item_state = "cosmiccape"
+	overlay_state = "cosmiccape"
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	name = "qeblak mantle"
@@ -775,7 +824,7 @@
 	overlay_state = "necrosec_patch"
 
 /obj/item/clothing/accessory/sleevepatch/erisec
-	name = "\improper PMCG sleeve patch"
+	name = "\improper EPMC sleeve patch"
 	desc = "A digital patch which can be attached to the shoulder sleeve of clothing. This one denotes the wearer as an Eridani Private Military Contractor."
 	icon_state = "erisec_patch"
 	overlay_state = "erisec_patch"
@@ -873,7 +922,7 @@
 
 /obj/item/clothing/accessory/pin/corporate
 	name = "corporate badge"
-	desc = "A shiny button which reads, <i>'Nanotrasen - The leader in all things Phoron!'</i>"
+	desc = "A shiny button which reads, <i>'NanoTrasen - The leader in all things Phoron!'</i>"
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	icon_state = "nt_liaison_badge"
 	item_state = "nt_liaison_badge"
@@ -917,7 +966,7 @@
 	desc_fluff = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
 	icon = 'icons/clothing/accessories/BZ_Gorget.dmi'
 	icon_state = "Burz_gorget"
-	item_state = "Burz_gorget"	
+	item_state = "Burz_gorget"
 	contained_sprite = TRUE
 	icon_override = null
 	body_parts_covered = UPPER_TORSO

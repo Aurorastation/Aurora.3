@@ -31,6 +31,11 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
 	build_path = /obj/item/device/kinetic_analyzer
 
+/datum/design/item/mining/pick_set
+	req_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 1700, MATERIAL_GLASS = 200)
+	build_path = /obj/item/storage/box/excavation
+
 //Frames
 /datum/design/item/mining/ka_frame01
 	req_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
@@ -110,64 +115,64 @@
 
 /datum/design/item/mining/ka_cell05
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 6, TECH_MAGNET = 5, TECH_POWER = 5, TECH_PHORON = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 3000, MATERIAL_SILVER = 3000, MATERIAL_GOLD = 1000, MATERIAL_PHORON = 5000)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 3000, MATERIAL_SILVER = 3000, MATERIAL_GOLD = 1000, MATERIAL_URANIUM = 5000)
 	build_path = /obj/item/custom_ka_upgrade/cells/cell05
 
 /datum/design/item/mining/ka_cellinertia
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 6, TECH_MAGNET = 5, TECH_POWER = 5, TECH_PHORON = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_SILVER = 4000, MATERIAL_GOLD = 2000, MATERIAL_PHORON = 5000)
+	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_SILVER = 4000, MATERIAL_GOLD = 4000, MATERIAL_URANIUM = 5000)
 	build_path = /obj/item/custom_ka_upgrade/cells/inertia_charging
 
 /datum/design/item/mining/ka_cellphoron
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 6, TECH_MAGNET = 5, TECH_POWER = 5, TECH_PHORON = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_SILVER = 5000, MATERIAL_GOLD = 2000, MATERIAL_PHORON = 4000)
+	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_SILVER = 5000, MATERIAL_GOLD = 5000, MATERIAL_PHORON = 4000)
 	build_path = /obj/item/custom_ka_upgrade/cells/loader
 
 /datum/design/item/mining/ka_celluranium
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 6, TECH_MAGNET = 5, TECH_POWER = 5, TECH_PHORON = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_SILVER = 4000, MATERIAL_GOLD = 2000, MATERIAL_PHORON = 3000)
+	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_SILVER = 7000, MATERIAL_GOLD = 7000, MATERIAL_URANIUM = 3000)
 	build_path = /obj/item/custom_ka_upgrade/cells/loader/uranium
 
 /datum/design/item/mining/ka_cellhydrogen
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 6, TECH_MAGNET = 5, TECH_POWER = 5, TECH_PHORON = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_SILVER = 4000, MATERIAL_GOLD = 2000, MATERIAL_PHORON = 2000)
+	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_SILVER = 4000, MATERIAL_GOLD = 4000, MATERIAL_URANIUM = 2000)
 	build_path = /obj/item/custom_ka_upgrade/cells/loader/hydrogen
 
 
 //Barrels
 /datum/design/item/mining/ka_barrel01
 	req_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_MAGNET = 1, TECH_PHORON = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000, MATERIAL_PHORON = 500)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000, MATERIAL_URANIUM = 500)
 	build_path = /obj/item/custom_ka_upgrade/barrels/barrel01
 
 /datum/design/item/mining/ka_barrel02
 	req_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_MAGNET = 3, TECH_PHORON = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 2000, MATERIAL_PHORON = 500)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 2000, MATERIAL_URANIUM = 500)
 	build_path = /obj/item/custom_ka_upgrade/barrels/barrel02
 
 /datum/design/item/mining/ka_barrel03
 	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 3, TECH_PHORON = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_GLASS = 2000, MATERIAL_GOLD = 2000, MATERIAL_PHORON = 1000)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_GLASS = 2000, MATERIAL_GOLD = 2000, MATERIAL_URANIUM = 1000)
 	build_path = /obj/item/custom_ka_upgrade/barrels/barrel03
 
 /datum/design/item/mining/ka_barrel04
 	req_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 3, TECH_MAGNET = 5, TECH_PHORON = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 3000, MATERIAL_GOLD = 3000, MATERIAL_PHORON = 3000, MATERIAL_DIAMOND = 1000)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 3000, MATERIAL_GOLD = 3000, MATERIAL_URANIUM = 3000, MATERIAL_DIAMOND = 1000)
 	build_path = /obj/item/custom_ka_upgrade/barrels/barrel04
 
 /datum/design/item/mining/ka_barrel05
 	req_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 5, TECH_MAGNET = 6, TECH_PHORON = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_GOLD = 4000, MATERIAL_PHORON = 4000, MATERIAL_DIAMOND = 2000)
+	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_GOLD = 4000, MATERIAL_URANIUM = 4000, MATERIAL_DIAMOND = 2000)
 	build_path = /obj/item/custom_ka_upgrade/barrels/barrel05
 
 /datum/design/item/mining/ka_barrel02_alt
 	req_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 3, TECH_PHORON = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_GLASS = 3000, MATERIAL_PHORON = 600)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_GLASS = 3000, MATERIAL_URANIUM = 600)
 	build_path = /obj/item/custom_ka_upgrade/barrels/barrel02_alt
 
 /datum/design/item/mining/ka_barrelphoron
 	req_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 5, TECH_MAGNET = 6, TECH_PHORON = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 8000, MATERIAL_GLASS = 6000, MATERIAL_GOLD = 6000, MATERIAL_PHORON = 6000, MATERIAL_DIAMOND = 3000)
+	materials = list(DEFAULT_WALL_MATERIAL = 8000, MATERIAL_GLASS = 6000, MATERIAL_GOLD = 6000, MATERIAL_PHORON= 6000, MATERIAL_DIAMOND = 3000)
 	build_path = /obj/item/custom_ka_upgrade/barrels/phoron
 
 //Upgrades

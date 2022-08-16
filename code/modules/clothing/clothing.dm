@@ -418,7 +418,7 @@
 
 /obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 	..()
-	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
+	if(is_sharp(W))
 		if(clipped)
 			to_chat(user, SPAN_NOTICE("\The [src] have already been clipped!"))
 			update_icon()
@@ -584,8 +584,6 @@
 
 	if(!success)
 		return FALSE
-	else if(success == ALREADY_WEARING_HAT)
-		to_chat(user, SPAN_WARNING("You are already wearing a hat."))
 	else if(success == WEAR_HAT)
 		to_chat(user, SPAN_NOTICE("You crawl under \the [src]."))
 	return TRUE

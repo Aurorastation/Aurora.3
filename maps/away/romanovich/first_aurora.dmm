@@ -62,13 +62,13 @@
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "ak" = (
 /obj/structure/table/wood,
 /obj/item/clothing/mask/smokable/cigarette/cigar,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "al" = (
 /obj/structure/window/reinforced{
@@ -93,11 +93,11 @@
 /area/derelict/hallway/northwest)
 "ap" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "aq" = (
 /obj/machinery/constructable_frame/temp_deco,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "ar" = (
 /turf/simulated/floor/airless,
@@ -115,7 +115,7 @@
 "at" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "au" = (
 /obj/effect/decal/cleanable/dirt,
@@ -140,7 +140,7 @@
 /obj/effect/decal/remains/xeno{
 	desc = "A dirty collar around its neck reads 'Chauncey'."
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "az" = (
 /turf/simulated/floor/tiled/airless,
@@ -160,12 +160,12 @@
 /turf/template_noop,
 /area/derelict/hallway/northwest)
 "aC" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "aD" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "aE" = (
 /obj/structure/table/wood,
@@ -259,40 +259,40 @@
 	anchored = 1
 	},
 /obj/machinery/light,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "aU" = (
 /obj/structure/computerframe{
 	anchored = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "aV" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "aW" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "aX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/constructable_frame/temp_deco,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "aY" = (
 /obj/machinery/photocopier,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "aZ" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "ba" = (
 /obj/effect/decal/cleanable/dirt,
@@ -441,18 +441,18 @@
 /area/template_noop)
 "bJ" = (
 /obj/structure/computerframe,
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "bK" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "bL" = (
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "bM" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
 "bN" = (
 /obj/machinery/light{
@@ -460,11 +460,11 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/constructable_frame/temp_deco,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
 "bO" = (
 /obj/machinery/constructable_frame/temp_deco,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
 "bP" = (
 /obj/item/material/shard{
@@ -512,16 +512,13 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "bX" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid,
-/area/derelict/hallway/northwest)
-"bY" = (
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "bZ" = (
 /obj/machinery/light{
@@ -584,10 +581,6 @@
 /obj/item/ammo_casing/c45,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
-"cj" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/hallway/northwest)
 "ck" = (
 /obj/machinery/door/airlock/freezer{
 	autoclose = 0;
@@ -627,25 +620,18 @@
 	icon_state = "engineering_door";
 	layer = 4
 	},
-/turf/simulated/floor{
-	icon_state = "dark"
-	},
+/turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "cr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "cs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/hallway/northwest)
-"ct" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
 "cu" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -656,7 +642,7 @@
 	icon_state = "engineering_door";
 	layer = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
 "cv" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -692,7 +678,7 @@
 /obj/item/camera_assembly,
 /obj/item/camera_assembly,
 /obj/item/camera_assembly,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
 "cD" = (
 /obj/item/stack/material/wood,
@@ -780,13 +766,13 @@
 /area/template_noop)
 "cT" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/bluegrid,
+/turf/simulated/floor/bluegrid/airless,
 /area/derelict/hallway/northwest)
 "cU" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
 "cV" = (
 /obj/item/material/shard,
@@ -853,7 +839,7 @@
 /area/template_noop)
 "dh" = (
 /obj/structure/computerframe,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
 "di" = (
 /obj/structure/grille/broken,
@@ -1285,11 +1271,11 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "eF" = (
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/northeast)
 "eG" = (
 /obj/item/stack/rods,
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/northeast)
 "eH" = (
 /obj/item/book/manual/nuclear,
@@ -2659,7 +2645,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jh" = (
 /obj/machinery/chemical_dispenser,
@@ -2667,7 +2653,7 @@
 /area/derelict/hallway/southeast)
 "ji" = (
 /obj/machinery/constructable_frame/temp_deco,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jj" = (
 /turf/template_noop,
@@ -2677,14 +2663,10 @@
 /obj/item/reagent_containers/spray/cleaner,
 /turf/template_noop,
 /area/template_noop)
-"jl" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/derelict/hallway/southeast)
 "jn" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jo" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -2738,7 +2720,7 @@
 "jv" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jw" = (
 /obj/structure/window/reinforced{
@@ -2746,18 +2728,17 @@
 	},
 /obj/item/device/mmi,
 /obj/structure/table/standard,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jx" = (
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/southeast)
 "jy" = (
 /obj/structure/morgue{
 	dir = 2;
 	icon_state = "morgue1"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jz" = (
 /obj/item/material/shard{
@@ -2786,13 +2767,13 @@
 "jC" = (
 /obj/machinery/autolathe,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jD" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jE" = (
 /obj/machinery/door/airlock{
@@ -2877,10 +2858,7 @@
 "jU" = (
 /obj/item/storage/belt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/derelict/hallway/southeast)
-"jW" = (
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jX" = (
 /obj/machinery/door/airlock/research{
@@ -2888,7 +2866,7 @@
 	name = "Research Division Access";
 	req_access = list(47)
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jY" = (
 /obj/structure/grille,
@@ -2945,13 +2923,8 @@
 "kg" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southwest)
-"kh" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/derelict/hallway/southeast)
 "ki" = (
 /obj/structure/table/standard,
 /obj/item/device/mass_spectrometer,
@@ -2977,30 +2950,30 @@
 /obj/item/device/mmi,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "kn" = (
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/medical2,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "ko" = (
 /obj/machinery/optable{
 	desc = "Used for advanced medical procedures, such as removing brains for cyborgification. Also used to repair unlawed synthetics.";
 	name = "Robotics Operating Table"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "kp" = (
 /obj/machinery/computer/operating,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "kq" = (
 /obj/structure/closet/emcloset/legacy,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "kr" = (
 /obj/structure/sink{
@@ -3010,7 +2983,7 @@
 	pixel_y = 0
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "ks" = (
 /obj/item/gun/energy/temperature,
@@ -3065,12 +3038,12 @@
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southwest)
 "kD" = (
 /obj/item/reagent_containers/glass/beaker/vial/random/toxin,
 /obj/item/material/shard,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "kE" = (
 /obj/structure/window/reinforced{
@@ -3080,13 +3053,13 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "kF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "kG" = (
 /obj/structure/table/standard,
@@ -3105,17 +3078,17 @@
 /area/template_noop)
 "kJ" = (
 /obj/machinery/r_n_d/circuit_imprinter,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "kK" = (
 /obj/structure/computerframe,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "kL" = (
 /obj/structure/closet/firecloset,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "kM" = (
 /obj/machinery/shower{
@@ -3125,12 +3098,12 @@
 	pixel_y = 0
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "kN" = (
 /obj/machinery/r_n_d/destructive_analyzer,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "kO" = (
 /obj/item/stack/rods,
@@ -3190,16 +3163,16 @@
 /area/derelict/hallway/southwest)
 "kX" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southwest)
 "kY" = (
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southwest)
 "lb" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southwest)
 "ld" = (
 /obj/item/material/shard,
@@ -3223,14 +3196,14 @@
 /area/template_noop)
 "lg" = (
 /obj/machinery/chem_master,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "lh" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "li" = (
 /obj/structure/sign/greencross{
@@ -3238,7 +3211,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "lj" = (
 /obj/machinery/light/small,
@@ -3250,11 +3223,11 @@
 	req_access = list(29)
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "ll" = (
 /obj/machinery/mecha_part_fabricator,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "lm" = (
 /obj/structure/sink{
@@ -3266,7 +3239,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "ln" = (
 /obj/structure/window/reinforced{
@@ -3360,24 +3333,24 @@
 /area/derelict/hallway/southwest)
 "lx" = (
 /obj/item/reagent_containers/food/drinks/drinkingglass,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southwest)
 "ly" = (
 /obj/item/stack/material/cyborg/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southwest)
 "lz" = (
 /obj/item/stack/material/cyborg/wood,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southwest)
 "lA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southwest)
 "lB" = (
 /obj/structure/reagent_dispensers/keg/beerkeg,
@@ -3417,7 +3390,7 @@
 /area/derelict/hallway/southeast)
 "lG" = (
 /obj/item/cell/super,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "lH" = (
 /obj/machinery/door/airlock/research{
@@ -3426,7 +3399,7 @@
 	req_access = list(47)
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "lI" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3507,7 +3480,7 @@
 "lS" = (
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southwest)
 "lT" = (
 /obj/item/material/shard{
@@ -3518,7 +3491,7 @@
 "lV" = (
 /obj/random/firstaid,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "lW" = (
 /obj/machinery/door/airlock/medical{
@@ -3530,7 +3503,7 @@
 "lX" = (
 /obj/item/device/mmi/digital/posibrain,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "lY" = (
 /obj/item/gun/energy/mindflayer,
@@ -3602,7 +3575,7 @@
 "mj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/constructable_frame/temp_deco,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southwest)
 "mk" = (
 /obj/item/material/shard{
@@ -3618,7 +3591,7 @@
 	icon_state = "tube1"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "mm" = (
 /obj/structure/girder,
@@ -3643,7 +3616,7 @@
 	name = "Research and Development";
 	req_access = list(7)
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "mr" = (
 /obj/structure/grille,
@@ -3719,7 +3692,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "mA" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/template_noop)
 "mB" = (
 /obj/random/medical,
@@ -3729,7 +3702,7 @@
 /obj/structure/door_assembly/door_assembly_science{
 	icon_state = "door_as_res0"
 	},
-/turf/template_noop,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "mE" = (
 /obj/machinery/door/firedoor{
@@ -3787,7 +3760,7 @@
 /obj/structure/door_assembly/door_assembly_med{
 	icon_state = "door_as_gmed0"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "mL" = (
 /obj/machinery/door/airlock/glass_medical{
@@ -3795,7 +3768,7 @@
 	name = "Genetics Laboratory";
 	req_access = list(9)
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "mM" = (
 /obj/structure/window/reinforced,
@@ -3831,12 +3804,6 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/derelict/hallway/southeast)
-"mT" = (
-/obj/structure/door_assembly/door_assembly_ext{
-	icon_state = "door_as_ext0"
-	},
-/turf/template_noop,
-/area/template_noop)
 "mU" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -3921,7 +3888,7 @@
 "nd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "ne" = (
 /obj/structure/sink{
@@ -3931,7 +3898,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "nf" = (
 /obj/structure/grille,
@@ -4000,7 +3967,7 @@
 "np" = (
 /obj/item/bodybag/cryobag,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "nq" = (
 /obj/structure/grille,
@@ -4016,14 +3983,14 @@
 "nr" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "ns" = (
 /obj/item/device/flashlight/pen,
 /obj/item/material/shard{
 	icon_state = "small"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "nt" = (
 /obj/structure/door_assembly/door_assembly_science{
@@ -4043,7 +4010,7 @@
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "nx" = (
 /obj/machinery/conveyor{
@@ -4102,7 +4069,6 @@
 /area/derelict/hallway/southwest)
 "nE" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
 	name = "kitchen crate";
 	opened = 1
 	},
@@ -4124,14 +4090,14 @@
 	name = "Genetics Lab";
 	req_access = list(47)
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "nH" = (
 /obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "nJ" = (
 /obj/machinery/door/airlock/command{
@@ -4178,7 +4144,7 @@
 /area/derelict/hallway/southwest)
 "nR" = (
 /obj/item/device/flashlight/pen,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "nS" = (
 /obj/structure/table/rack{
@@ -4235,17 +4201,17 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "nZ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "oc" = (
 /obj/machinery/clonepod,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "od" = (
 /obj/item/material/shard,
@@ -4255,13 +4221,13 @@
 /obj/item/material/shard{
 	icon_state = "small"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "of" = (
 /obj/item/material/shard{
 	icon_state = "medium"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "og" = (
 /obj/structure/lattice,
@@ -4443,12 +4409,12 @@
 /area/template_noop)
 "oC" = (
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "oD" = (
 /obj/machinery/light,
 /obj/machinery/constructable_frame/temp_deco,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "oF" = (
 /obj/structure/door_assembly/door_assembly_med{
@@ -4457,13 +4423,13 @@
 /obj/machinery/holosign/surgery,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "oG" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "oH" = (
 /obj/machinery/door/airlock/external,
@@ -4519,7 +4485,7 @@
 /area/template_noop)
 "oO" = (
 /obj/structure/filingcabinet/chestdrawer,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "oQ" = (
 /obj/structure/lattice,
@@ -4534,21 +4500,21 @@
 	dir = 9;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "oS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "oT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "oU" = (
 /obj/machinery/door/airlock/maintenance,
@@ -4604,16 +4570,16 @@
 "pc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/constructable_frame/temp_deco,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pd" = (
 /obj/machinery/vending/snack,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pe" = (
 /obj/machinery/vending/medical,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pf" = (
 /obj/item/cane,
@@ -4627,13 +4593,13 @@
 /obj/item/clothing/glasses/regular,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pi" = (
 /obj/structure/table/rack,
 /obj/item/clothing/accessory/stethoscope,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pj" = (
 /obj/structure/grille,
@@ -4657,7 +4623,7 @@
 	dir = 8;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "pm" = (
 /obj/structure/table/glass,
@@ -4672,14 +4638,14 @@
 	listening = 1;
 	name = "Red Telephone"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "pn" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "po" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4699,7 +4665,7 @@
 /obj/machinery/door/airlock/glass_medical{
 	name = "Break Room"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "ps" = (
 /obj/item/clothing/glasses/regular,
@@ -4710,7 +4676,7 @@
 	name = "Medical Equipment";
 	req_access = list(66)
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pu" = (
 /obj/machinery/light{
@@ -4718,25 +4684,25 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pv" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "pw" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "px" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6;
 	icon_state = "spline_fancy"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "py" = (
 /obj/machinery/door/airlock/research{
@@ -4788,23 +4754,23 @@
 "pF" = (
 /obj/machinery/recharge_station,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pG" = (
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pH" = (
 /obj/machinery/vending/coffee,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pI" = (
 /obj/structure/table/standard,
 /obj/item/cane,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pJ" = (
 /obj/structure/table/standard,
@@ -4812,7 +4778,7 @@
 /obj/item/clothing/glasses/regular,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pK" = (
 /obj/structure/sink{
@@ -4822,7 +4788,7 @@
 	pixel_y = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "pL" = (
 /obj/item/material/shard{
@@ -4834,12 +4800,6 @@
 /obj/structure/closet/secure_closet/miner,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
-"pO" = (
-/obj/structure/door_assembly/door_assembly_med{
-	icon_state = "door_as_med0"
-	},
-/turf/simulated/floor/tiled/white,
-/area/derelict/hallway/southeast)
 "pP" = (
 /obj/item/stack/nanopaste,
 /turf/simulated/floor/airless,
@@ -4851,10 +4811,10 @@
 /turf/template_noop,
 /area/template_noop)
 "pR" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronwindow0"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1;
 	icon_state = "phoronrwindow"
 	},
@@ -4940,11 +4900,11 @@
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "qb" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1;
 	icon_state = "phoronrwindow"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	icon_state = "phoronwindow0"
 	},
 /turf/simulated/floor/airless,
@@ -4976,27 +4936,27 @@
 /area/derelict/hallway/southeast)
 "qf" = (
 /obj/item/device/gps/science,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "qg" = (
 /obj/item/material/shard/phoron{
 	icon_state = "phoronsmall"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "qh" = (
 /obj/structure/closet/bombcloset,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "qi" = (
 /obj/item/material/shard/phoron{
 	icon_state = "phoronsmall"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4;
 	icon_state = "phoronrwindow"
 	},
@@ -5036,23 +4996,23 @@
 /area/derelict/hallway/southeast)
 "qq" = (
 /obj/item/clothing/mask/gas,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "qr" = (
 /obj/machinery/suit_cycler,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "qs" = (
 /obj/structure/grille,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4;
 	icon_state = "phoronrwindow"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "qt" = (
@@ -5201,7 +5161,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "qS" = (
 /obj/item/clothing/glasses/meson,
@@ -5452,7 +5412,7 @@
 "rH" = (
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "rJ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5508,13 +5468,11 @@
 "rO" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "rP" = (
-/obj/structure/door_assembly/door_assembly_science{
-	icon_state = "door_as_res0"
-	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/southeast)
 "rQ" = (
 /obj/machinery/power/solar_control{
@@ -5728,17 +5686,17 @@
 /obj/structure/table/standard,
 /obj/item/gun/launcher/syringe/rapid,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/southeast)
 "so" = (
 /obj/item/bedsheet/medical,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "sp" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "sq" = (
 /obj/structure/table/standard,
@@ -5833,15 +5791,15 @@
 "sC" = (
 /obj/item/clipboard,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "sD" = (
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "sE" = (
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/derelict/hallway/southeast)
 "sF" = (
 /obj/structure/grille,
@@ -5860,7 +5818,7 @@
 /area/derelict/hallway/southeast)
 "sG" = (
 /obj/structure/window/reinforced,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "sH" = (
 /obj/structure/grille,
@@ -5925,7 +5883,7 @@
 /area/derelict/hallway/southeast)
 "sT" = (
 /obj/machinery/door/window/eastright,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "sU" = (
 /obj/structure/cable/yellow{
@@ -5981,7 +5939,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/southeast)
 "tb" = (
 /obj/item/material/shard{
@@ -5991,7 +5949,7 @@
 /area/template_noop)
 "tc" = (
 /obj/item/stack/rods,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "td" = (
 /obj/structure/closet/secure_closet/personal/patient,
@@ -6000,7 +5958,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "tf" = (
 /obj/structure/table/standard,
@@ -6008,13 +5966,13 @@
 /obj/item/pen,
 /obj/item/paper_bin,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "tg" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "th" = (
 /obj/structure/window/reinforced{
@@ -6072,7 +6030,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "tq" = (
 /obj/structure/lattice,
@@ -6154,7 +6112,7 @@
 /area/template_noop)
 "tA" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/southeast)
 "tB" = (
 /obj/structure/cable/yellow{
@@ -6261,21 +6219,21 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "tO" = (
 /obj/machinery/smartfridge/secure/extract,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "tP" = (
 /obj/machinery/optable,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "tQ" = (
 /obj/machinery/computer/operating{
 	name = "Xenobiology Operating Computer"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "tR" = (
 /obj/structure/cable/yellow{
@@ -6411,7 +6369,7 @@
 "ug" = (
 /obj/item/slime_extract/gold,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "uh" = (
 /obj/structure/sink{
@@ -6420,7 +6378,7 @@
 	pixel_x = 11;
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "ui" = (
 /obj/machinery/power/solar{
@@ -6754,7 +6712,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "uR" = (
 /obj/structure/cable/yellow{
@@ -6843,7 +6801,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/syringes,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "vc" = (
 /obj/machinery/light{
@@ -6851,14 +6809,14 @@
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/beakers,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "vd" = (
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "ve" = (
 /obj/item/slime_extract/adamantine,
@@ -6893,7 +6851,7 @@
 /obj/machinery/door/window/westleft,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "vi" = (
 /obj/structure/cable/yellow{
@@ -6926,13 +6884,13 @@
 	},
 /obj/structure/window/reinforced,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "vl" = (
 /obj/structure/window/reinforced,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "vm" = (
 /obj/structure/cable/yellow{
@@ -6970,7 +6928,7 @@
 /area/derelict/hallway/southeast)
 "vs" = (
 /obj/machinery/door/blast/regular,
-/turf/template_noop,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
 "vu" = (
 /obj/structure/grille,
@@ -6990,7 +6948,7 @@
 	name = "Virology Laboratory";
 	req_access = list(39)
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "vw" = (
 /obj/structure/grille,
@@ -7003,7 +6961,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/green,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "vA" = (
 /obj/machinery/power/portgen/basic,
@@ -7017,7 +6975,7 @@
 	req_access = list(11)
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
 "vC" = (
 /obj/machinery/power/emitter{
@@ -7038,10 +6996,10 @@
 /obj/item/clothing/glasses/hud/health,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "vF" = (
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
 "vG" = (
 /obj/machinery/power/smes/buildable,
@@ -7062,12 +7020,12 @@
 /obj/structure/table/standard,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "vK" = (
 /obj/structure/closet/secure_closet/personal/patient,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "vP" = (
 /obj/structure/grille,
@@ -7083,6 +7041,9 @@
 	},
 /turf/template_noop,
 /area/derelict/hallway/southeast)
+"vV" = (
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hallway/northwest)
 "vW" = (
 /obj/machinery/power/emitter{
 	anchored = 1;
@@ -7097,7 +7058,7 @@
 	name = "SMES Access";
 	req_access = list(11)
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
 "vY" = (
 /obj/machinery/door/blast/regular,
@@ -7111,22 +7072,18 @@
 /turf/template_noop,
 /turf/template_noop,
 /area/template_noop)
-"wc" = (
-/obj/machinery/door/blast/regular,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/hallway/southwest)
 "wd" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
 "we" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
 "wf" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southeast)
 "wg" = (
 /obj/machinery/artifact,
@@ -7249,7 +7206,7 @@
 /obj/item/gun/projectile/pistol{
 	jam_chance = 50
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict/hallway/northwest)
 "wD" = (
 /obj/structure/table,
@@ -7259,7 +7216,7 @@
 "wE" = (
 /obj/structure/table/standard,
 /obj/random/loot,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
 "wF" = (
 /obj/structure/lattice,
@@ -7314,14 +7271,14 @@
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "wQ" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "wR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7335,11 +7292,12 @@
 /area/derelict/hallway/southeast)
 "wT" = (
 /obj/item/gun/projectile/shotgun/improvised,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/template_noop)
 "wU" = (
-/obj/random/loot,
-/turf/simulated/floor/tiled/white,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/southeast)
 "wV" = (
 /obj/structure/table/rack,
@@ -7349,7 +7307,7 @@
 "wW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "wX" = (
 /obj/random/loot,
@@ -7362,8 +7320,20 @@
 "wZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
+"yi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hallway/southeast)
+"Aa" = (
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hallway/southeast)
+"BS" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hallway/southeast)
 "Da" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -7381,6 +7351,29 @@
 "FM" = (
 /turf/template_noop,
 /area/space)
+"HF" = (
+/obj/structure/door_assembly/door_assembly_med{
+	icon_state = "door_as_med0"
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hallway/southeast)
+"OM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hallway/northwest)
+"WJ" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hallway/southeast)
+"Xv" = (
+/obj/random/loot,
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hallway/southeast)
+"YY" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict/hallway/northwest)
 
 (1,1,1) = {"
 aa
@@ -31480,8 +31473,8 @@ kQ
 kQ
 kQ
 kQ
-wc
-wc
+vs
+vs
 kQ
 kQ
 kQ
@@ -31630,9 +31623,9 @@ ac
 ae
 bK
 bK
-cj
+YY
 cr
-cj
+YY
 bK
 cT
 ae
@@ -31887,9 +31880,9 @@ ac
 ae
 bJ
 bL
-cj
+YY
 cs
-ct
+OM
 bK
 cT
 ae
@@ -32144,9 +32137,9 @@ ac
 ae
 bL
 bL
-cj
-ct
-cj
+YY
+OM
+YY
 bK
 cT
 ae
@@ -32401,9 +32394,9 @@ aa
 ae
 bL
 bX
-bY
-bY
-bY
+vV
+vV
+vV
 bX
 bL
 ae
@@ -32914,13 +32907,13 @@ ac
 aa
 ae
 bM
-bY
-cj
-ct
-cj
+vV
+YY
+OM
+YY
 ae
-bY
-bY
+vV
+vV
 bM
 ae
 av
@@ -33171,13 +33164,13 @@ aa
 aa
 ae
 wE
-bY
-cj
-ct
-cj
+vV
+YY
+OM
+YY
 cM
-bY
-bY
+vV
+vV
 bO
 ae
 aH
@@ -33428,13 +33421,13 @@ ar
 ac
 ae
 bN
-bY
-bY
-bY
-bY
+vV
+vV
+vV
+vV
 ae
-bY
-bY
+vV
+vV
 dh
 aH
 aH
@@ -33685,13 +33678,13 @@ ae
 ac
 ae
 bO
-bY
-bY
-bY
+vV
+vV
+vV
 cA
 ae
 cU
-bY
+vV
 bO
 ae
 ba
@@ -35079,7 +35072,7 @@ iq
 vF
 kQ
 kQ
-wc
+vs
 kQ
 kQ
 ws
@@ -40170,7 +40163,7 @@ aa
 aa
 aa
 ik
-wU
+Xv
 ij
 ik
 ac
@@ -40424,10 +40417,10 @@ iv
 mB
 ik
 aa
-jW
+Aa
 ik
-jl
-jl
+BS
+BS
 ij
 ik
 oN
@@ -40674,22 +40667,22 @@ ik
 jP
 aa
 kD
-jW
+Aa
 lE
-jl
-kh
-jl
+BS
+yi
+BS
 ij
 nd
-jW
+Aa
 ij
 ik
-jl
+BS
 ij
 ij
 ij
 pc
-kh
+yi
 pG
 ij
 ik
@@ -40933,20 +40926,20 @@ aa
 aa
 ik
 lF
-jl
-kh
-jl
+BS
+yi
+BS
 mK
-jl
+BS
 np
 ij
-kh
-kh
-jl
+yi
+yi
+BS
 oC
 ij
 pd
-kh
+yi
 jD
 ij
 aa
@@ -41194,13 +41187,13 @@ le
 ml
 lV
 jb
-jl
-jl
+BS
+BS
 ij
-kh
+yi
 nY
-kh
-jl
+yi
+BS
 ij
 jd
 pr
@@ -41451,16 +41444,16 @@ ij
 ij
 ij
 ij
-jl
-jW
+BS
+Aa
 ij
-jl
+BS
 nZ
 iv
 oD
 ij
 pe
-jW
+Aa
 pH
 ij
 ik
@@ -41704,21 +41697,21 @@ aa
 cJ
 ac
 ik
-jl
-jl
-jl
+BS
+BS
+BS
 jg
-jl
-jW
+BS
+Aa
 ik
 aa
 aa
 aa
 ik
-jW
+Aa
 pK
-jl
-jW
+BS
+Aa
 ik
 aa
 ac
@@ -41961,10 +41954,10 @@ aa
 aa
 ac
 ik
-jW
+Aa
 ik
-jl
-jl
+BS
+BS
 ik
 aa
 aa
@@ -41974,8 +41967,8 @@ ac
 jj
 ik
 pf
-jl
-jl
+BS
+BS
 ij
 aa
 aa
@@ -42736,7 +42729,7 @@ aa
 aa
 aa
 ij
-kh
+yi
 iv
 hL
 ac
@@ -42993,12 +42986,12 @@ ac
 aa
 ac
 aa
-kh
+yi
 iv
 iv
 aa
 aa
-jl
+BS
 iv
 aa
 aa
@@ -43243,20 +43236,20 @@ aa
 ik
 ik
 ik
-jl
-jl
+BS
+BS
 le
 ij
 ik
 aa
 ik
-kh
+yi
 nd
-kh
-jl
-jl
-jl
-jl
+yi
+BS
+BS
+BS
+BS
 oO
 pg
 ps
@@ -43497,26 +43490,26 @@ aa
 ac
 aa
 di
-jl
-jl
-jl
+BS
+BS
+BS
 kE
 lh
-jl
+BS
 ij
-jl
-jW
+BS
+Aa
 ij
 aa
 aa
 aa
-jl
-jl
-jl
-jl
+BS
+BS
+BS
+BS
 ij
 ph
-jl
+BS
 pI
 ij
 aa
@@ -43754,26 +43747,26 @@ aa
 ac
 aa
 hR
-jl
-jl
-jl
+BS
+BS
+BS
 kF
-jl
-jl
-jl
-jl
-jl
+BS
+BS
+BS
+BS
+BS
 ij
 ac
 ac
 aa
 aa
 jn
-jl
+BS
 ml
 ij
 pi
-jl
+BS
 pJ
 ij
 ik
@@ -44012,13 +44005,13 @@ aP
 aa
 ij
 jn
-jl
-kh
-kh
+BS
+yi
+yi
 li
-jl
-kh
-jl
+BS
+yi
+BS
 aa
 iZ
 ac
@@ -44046,11 +44039,11 @@ ij
 ij
 ij
 ij
-qz
-qy
-qz
+rP
+wU
+rP
 iv
-qz
+rP
 aa
 in
 aa
@@ -44062,14 +44055,14 @@ bc
 aa
 aa
 in
-jl
+BS
 iv
 aa
 aa
 ac
 aa
 ik
-jl
+BS
 aa
 aa
 aa
@@ -44273,9 +44266,9 @@ ij
 ij
 ij
 ij
-jl
+BS
 ij
-jW
+Aa
 iv
 ac
 aa
@@ -44285,11 +44278,11 @@ aa
 aa
 aa
 ik
-jW
-jl
-jl
-kh
-jl
+Aa
+BS
+BS
+yi
+BS
 ik
 aa
 aa
@@ -44301,9 +44294,9 @@ aa
 aa
 ac
 aa
-jW
+Aa
 jd
-qz
+rP
 iR
 jS
 aa
@@ -44319,9 +44312,9 @@ aa
 aa
 aa
 in
-jl
-jl
-jl
+BS
+BS
+BS
 ik
 aa
 bc
@@ -44532,7 +44525,7 @@ kG
 jr
 ij
 ij
-kh
+yi
 jS
 ac
 aa
@@ -44540,12 +44533,12 @@ aa
 aa
 ac
 aa
-jl
-jl
+BS
+BS
 iv
-kh
-jl
-kh
+yi
+BS
+yi
 iv
 aa
 aa
@@ -44558,11 +44551,11 @@ ac
 ac
 aa
 aa
-jl
+BS
 rZ
-qz
-qy
-qy
+rP
+wU
+wU
 aa
 tl
 tz
@@ -44789,7 +44782,7 @@ jr
 jr
 jr
 ij
-jl
+BS
 iv
 aa
 ac
@@ -44803,7 +44796,7 @@ ov
 ov
 ij
 ij
-pO
+HF
 ij
 aa
 ac
@@ -44814,14 +44807,14 @@ aa
 ac
 ac
 ij
-jl
-jl
+BS
+BS
 jd
 sm
 sA
 iv
 ta
-tm
+jx
 tA
 in
 rj
@@ -44834,9 +44827,9 @@ aa
 aa
 in
 ij
-jl
-jl
-jl
+BS
+BS
+BS
 wP
 jD
 vE
@@ -45046,21 +45039,21 @@ kH
 jr
 jr
 lW
-kh
+yi
 iv
 ij
 aa
 ac
 ac
 aa
-jW
+Aa
 ij
-jl
-jl
+BS
+BS
 ij
 pu
 pK
-jW
+Aa
 ik
 aa
 aa
@@ -45071,8 +45064,8 @@ ac
 aa
 ac
 ij
-jl
-jl
+BS
+BS
 ij
 jd
 ij
@@ -45092,11 +45085,11 @@ in
 in
 ij
 ij
-jl
-jl
-jl
-kh
-kh
+BS
+BS
+BS
+yi
+yi
 jn
 jn
 ud
@@ -45303,17 +45296,17 @@ jr
 jr
 jr
 ij
-kh
-jl
+yi
+BS
 mL
 ik
 iv
 aa
 aa
-jW
+Aa
 ij
-jW
-jl
+Aa
+BS
 pj
 ik
 pL
@@ -45341,21 +45334,21 @@ ij
 tN
 wW
 ij
-jl
+BS
 uQ
-jW
+Aa
 ik
 ik
 aa
-jW
+Aa
 ij
-jl
-jl
+BS
+BS
 jv
 jD
-jl
-jl
-jl
+BS
+BS
+BS
 lD
 aa
 aa
@@ -45560,17 +45553,17 @@ js
 js
 ij
 ij
-jl
-jl
+BS
+BS
 ij
-jl
-kh
-jl
-jl
+BS
+yi
+BS
+BS
 oc
 ij
 oG
-jl
+BS
 pk
 aa
 ac
@@ -45582,37 +45575,37 @@ aa
 aa
 aa
 aa
-kh
-jl
+yi
+BS
 lF
 ik
 aa
 ac
 aa
-jl
+BS
 iv
 ik
 ar
 ik
-pO
-kh
-kh
-pO
-jl
-kh
+HF
+yi
+yi
+HF
+BS
+yi
 iv
 jj
 ac
 aa
-jW
+Aa
 vj
-jl
-jl
+BS
+BS
 jn
-jl
-jl
-jl
-jl
+BS
+BS
+BS
+BS
 lE
 aa
 aa
@@ -45826,8 +45819,8 @@ nG
 nf
 nq
 ij
-jW
-jW
+Aa
+Aa
 ik
 ac
 ac
@@ -45840,22 +45833,22 @@ aa
 ac
 aa
 iv
-kh
+yi
 ij
 aa
 aa
 aa
 ik
-jl
-jl
+BS
+BS
 tc
 ik
 ik
 ij
-jl
-jl
+BS
+BS
 ij
-jW
+Aa
 ik
 ik
 ac
@@ -45863,11 +45856,11 @@ ac
 ar
 le
 ij
-jl
-kh
+BS
+yi
 jn
-jl
-jl
+BS
+BS
 rO
 in
 in
@@ -46077,11 +46070,11 @@ ik
 ij
 iv
 mM
-jl
-jl
-jl
+BS
+BS
+BS
 jn
-jx
+WJ
 ij
 ij
 ij
@@ -46120,8 +46113,8 @@ aa
 ij
 ij
 ij
-jl
-jl
+BS
+BS
 vu
 qK
 qK
@@ -46334,12 +46327,12 @@ ik
 mm
 jS
 mN
-jl
-jl
-jl
-kh
-jl
-jl
+BS
+BS
+BS
+yi
+BS
+BS
 ik
 aa
 aa
@@ -46357,13 +46350,13 @@ ij
 ij
 ij
 iv
-jl
+BS
 ij
 so
-jW
+Aa
 ij
 td
-jl
+BS
 ij
 ik
 ik
@@ -46377,12 +46370,12 @@ in
 jn
 jn
 wP
-kh
-kh
+yi
+yi
 vv
-jl
-jl
-jx
+BS
+BS
+WJ
 vP
 aa
 aa
@@ -46591,11 +46584,11 @@ aa
 mm
 iv
 mO
-jl
+BS
 nr
 nH
-jl
-jl
+BS
+BS
 ow
 jj
 aa
@@ -46613,14 +46606,14 @@ qM
 qZ
 rk
 ry
-jl
+BS
 rO
 ij
-jl
+BS
 sC
 ij
-jl
-jl
+BS
+BS
 ij
 ik
 ik
@@ -46633,12 +46626,12 @@ aa
 in
 vb
 nY
-kh
+yi
 nY
-jl
+BS
 ud
 vz
-kh
+yi
 vK
 in
 aa
@@ -46848,11 +46841,11 @@ aa
 ij
 iR
 mP
-jl
-jl
-jl
+BS
+BS
+BS
 nR
-jW
+Aa
 ik
 ac
 ac
@@ -46870,8 +46863,8 @@ qE
 ra
 rl
 qP
-jl
-jl
+BS
+BS
 ij
 sp
 sD
@@ -46891,8 +46884,8 @@ in
 vc
 nY
 nY
-kh
-jl
+yi
+BS
 vw
 qK
 qK
@@ -47105,10 +47098,10 @@ aa
 ij
 jS
 mQ
-jl
+BS
 ns
-jW
-jW
+Aa
+Aa
 od
 aa
 ac
@@ -47127,8 +47120,8 @@ qy
 rk
 rm
 qQ
-jl
-jl
+BS
+BS
 ij
 ij
 ij
@@ -47148,11 +47141,11 @@ in
 vd
 vh
 vk
-kh
-jl
+yi
+BS
 lE
 vz
-jl
+BS
 jn
 in
 aa
@@ -47362,9 +47355,9 @@ ik
 ij
 iv
 mM
-kh
-jl
-jx
+yi
+BS
+WJ
 wP
 ik
 ac
@@ -47384,11 +47377,11 @@ ij
 ij
 ij
 ij
-jW
-jW
-pO
-jW
-jW
+Aa
+Aa
+HF
+Aa
+Aa
 sR
 ik
 ac
@@ -47402,14 +47395,14 @@ aa
 aa
 aa
 in
-jl
+BS
 nY
 vl
-jl
-jl
+BS
+BS
 vv
-jl
-jl
+BS
+BS
 vK
 vP
 aa
@@ -47644,9 +47637,9 @@ ij
 rc
 ij
 ij
-jW
-jW
-jW
+Aa
+Aa
+Aa
 ik
 ac
 aa
@@ -48404,8 +48397,8 @@ aa
 aa
 ac
 aa
-jW
-jW
+Aa
+Aa
 in
 aa
 ik
@@ -48662,7 +48655,7 @@ pQ
 ac
 ik
 qf
-jW
+Aa
 in
 aa
 aa
@@ -48907,9 +48900,9 @@ aa
 ac
 ik
 in
-jW
-jW
-jW
+Aa
+Aa
+Aa
 in
 aa
 aP
@@ -49164,8 +49157,8 @@ aa
 ac
 ik
 in
-jW
-jW
+Aa
+Aa
 ik
 aa
 aa
@@ -49174,9 +49167,9 @@ aa
 aa
 ac
 aa
-jW
-jW
-jW
+Aa
+Aa
+Aa
 in
 aa
 qO
@@ -49431,9 +49424,9 @@ aa
 aa
 aa
 ik
-jW
+Aa
 qh
-jW
+Aa
 in
 aa
 wV
@@ -49676,9 +49669,9 @@ aa
 aa
 ac
 iv
-jl
+BS
 nJ
-jW
+Aa
 ik
 aa
 ac
@@ -49689,8 +49682,8 @@ aa
 ac
 pV
 ik
-jW
-jW
+Aa
+Aa
 in
 aa
 ik
@@ -49932,10 +49925,10 @@ ik
 aa
 aa
 mS
-kh
-kh
+yi
+yi
 in
-jW
+Aa
 ik
 ac
 aa
@@ -49946,7 +49939,7 @@ aa
 aa
 ac
 ik
-jW
+Aa
 qr
 in
 qG
@@ -50180,16 +50173,16 @@ iw
 iw
 jd
 wP
-jl
-jl
+BS
+BS
 kJ
 jd
-jl
+BS
 lX
 ik
 aa
 ij
-jl
+BS
 nv
 in
 dY
@@ -50436,17 +50429,17 @@ ix
 ix
 ix
 je
-jl
+BS
 jU
-kh
-kh
+yi
+yi
 lk
-kh
-kh
-jl
+yi
+yi
+BS
 bc
 ij
-jl
+BS
 aa
 in
 in
@@ -50694,14 +50687,14 @@ iJ
 ix
 jd
 jv
-jl
+BS
 km
 kK
 jd
-jW
+Aa
 iv
-jl
-jl
+BS
+BS
 gh
 aa
 aa
@@ -50951,14 +50944,14 @@ ix
 ix
 in
 jw
-jW
+Aa
 kn
 ij
 ij
 ik
 aa
 aa
-jl
+BS
 gh
 aa
 ac
@@ -50989,8 +50982,8 @@ in
 sG
 sT
 tg
-jW
-jW
+Aa
+Aa
 aa
 aa
 aa
@@ -51207,8 +51200,8 @@ iw
 iw
 iw
 in
-jx
-jW
+WJ
+Aa
 ko
 ij
 ll
@@ -51216,7 +51209,7 @@ lG
 aa
 ac
 ik
-jW
+Aa
 aa
 aa
 ij
@@ -51243,10 +51236,10 @@ aa
 aa
 da
 in
-jl
-jl
-jl
-jl
+BS
+BS
+BS
+BS
 aa
 ac
 aa
@@ -51465,12 +51458,12 @@ ix
 ix
 in
 jy
-jW
+Aa
 kp
 ij
 ll
-jW
-jW
+Aa
+Aa
 ik
 aa
 aa
@@ -51500,10 +51493,10 @@ aa
 aa
 aa
 in
-jl
+BS
 aa
 od
-jl
+BS
 ik
 aa
 ac
@@ -51761,7 +51754,7 @@ ij
 ac
 aa
 ik
-jl
+BS
 tJ
 ac
 aa
@@ -51984,7 +51977,7 @@ kq
 kL
 kL
 in
-jl
+BS
 iv
 bc
 ac
@@ -52012,13 +52005,13 @@ aa
 aa
 rH
 in
-jW
+Aa
 ik
 ac
 ac
 ac
 ik
-jl
+BS
 aa
 ac
 ac
@@ -52237,12 +52230,12 @@ iJ
 ix
 iw
 jX
-kh
-kh
-kh
+yi
+yi
+yi
 lH
-kh
-kh
+yi
+yi
 iv
 ac
 aa
@@ -52263,19 +52256,19 @@ ac
 ac
 ac
 aa
-kh
+yi
 nt
 aP
 ac
 aa
-rP
-jW
+mC
+Aa
 ik
 aa
 ik
 aa
-jl
-jl
+BS
+BS
 ik
 aa
 ac
@@ -52498,8 +52491,8 @@ kr
 kM
 lm
 lI
-jl
-jl
+BS
+BS
 iv
 aa
 aa
@@ -52526,14 +52519,14 @@ rp
 aa
 aa
 in
-jW
-jW
-jW
+Aa
+Aa
+Aa
 ij
-jl
-kh
-kh
-jW
+BS
+yi
+yi
+Aa
 ik
 aa
 aa
@@ -52787,17 +52780,17 @@ in
 in
 in
 in
-wU
-jl
-kh
-kh
-jl
-kh
+Xv
+BS
+yi
+yi
+BS
+yi
 gh
 aa
 aa
 aa
-jW
+Aa
 ij
 ij
 ij
@@ -53007,11 +53000,11 @@ aa
 aa
 jf
 jA
-jl
-kh
+BS
+yi
 kN
 ey
-jl
+BS
 jD
 mo
 aa
@@ -53041,7 +53034,7 @@ aa
 og
 ac
 ik
-jW
+Aa
 in
 in
 in
@@ -53049,12 +53042,12 @@ in
 in
 in
 tO
-kh
-kh
+yi
+yi
 ij
 aa
-jW
-jW
+Aa
+Aa
 uZ
 aa
 aa
@@ -53307,7 +53300,7 @@ aa
 in
 tP
 ug
-kh
+yi
 ij
 aa
 aa
@@ -53564,7 +53557,7 @@ aa
 in
 tQ
 uh
-jx
+WJ
 ij
 cJ
 ac
@@ -53778,17 +53771,17 @@ ac
 aa
 in
 in
-jl
+BS
 ks
 ac
 aa
 iv
-kh
+yi
 mq
 aa
 aa
 in
-jW
+Aa
 aa
 ac
 aa
@@ -54035,18 +54028,18 @@ aa
 ac
 in
 jC
-jl
+BS
 aa
 iv
 iv
-kh
+yi
 iv
 mr
 jS
-jl
+BS
 in
-jW
-jW
+Aa
+Aa
 aa
 og
 ac
@@ -54292,15 +54285,15 @@ ac
 aa
 in
 wQ
-jl
-jl
+BS
+BS
 jS
 jn
 jn
 lY
 in
-jW
-jl
+Aa
+BS
 in
 aa
 aa
@@ -54326,7 +54319,7 @@ ik
 aa
 aa
 pQ
-jW
+Aa
 in
 aa
 aa
@@ -54557,7 +54550,7 @@ in
 in
 in
 mC
-jl
+BS
 in
 in
 aa
@@ -54839,8 +54832,8 @@ aa
 aa
 ac
 ac
-jW
-jW
+Aa
+Aa
 in
 aa
 ac
@@ -56869,7 +56862,7 @@ aa
 aa
 aa
 ij
-rn
+ik
 ij
 ik
 iw
@@ -57130,7 +57123,7 @@ aa
 aa
 iu
 iw
-rn
+ik
 aa
 aa
 aa
@@ -57386,7 +57379,7 @@ aa
 aa
 aa
 ni
-rn
+ik
 ij
 aa
 aa
@@ -57898,10 +57891,10 @@ aa
 aa
 aa
 aa
-mT
+vo
 iu
 iu
-rn
+ik
 aa
 aa
 aa

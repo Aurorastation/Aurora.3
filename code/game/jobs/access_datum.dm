@@ -303,7 +303,11 @@
 	region = ACCESS_REGION_SUPPLY
 
 // /var/const/free_access_id = 51
-// /var/const/free_access_id = 52
+/var/const/access_xenobotany = 52
+/datum/access/xenobotany
+	id = access_xenobotany
+	desc = "Xenobotany"
+	region = ACCESS_REGION_RESEARCH
 
 /var/const/access_heads_vault = 53
 /datum/access/heads_vault
@@ -595,4 +599,14 @@ var/const/access_kataphract_trader = 116
 /var/const/access_ee_spy_ship = 205
 /datum/access/ee_spy_ship
 	id = access_ee_spy_ship
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_civilian_station = 206
+/datum/access/access_civilian_station
+	id = access_civilian_station
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_elyran_naval_infantry_ship = 207
+/datum/access/access_elyran_naval_infantry_ship
+	id = access_elyran_naval_infantry_ship
 	access_type = ACCESS_TYPE_CENTCOM

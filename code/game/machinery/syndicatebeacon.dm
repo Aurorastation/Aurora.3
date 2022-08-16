@@ -101,7 +101,7 @@
 			singulo.target = src
 	icon_state = "[icontype]1"
 	active = 1
-	SSmachinery.processing_machines |= src
+	START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	if(user)
 		to_chat(user, "<span class='notice'>You activate the beacon.</span>")
 
@@ -113,23 +113,21 @@
 			singulo.target = null
 	icon_state = "[icontype]0"
 	active = 0
+	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	if(user)
 		to_chat(user, "<span class='notice'>You deactivate the beacon.</span>")
 
-
-/obj/machinery/power/singularity_beacon/attack_ai(mob/user as mob)
+/obj/machinery/power/singularity_beacon/attack_ai(mob/user)
 	return
 
-
-/obj/machinery/power/singularity_beacon/attack_hand(var/mob/user as mob)
+/obj/machinery/power/singularity_beacon/attack_hand(mob/user)
 	if(anchored)
 		return active ? Deactivate(user) : Activate(user)
 	else
 		to_chat(user, "<span class='danger'>You need to screw the beacon to the floor first!</span>")
 		return
 
-
-/obj/machinery/power/singularity_beacon/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/power/singularity_beacon/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		if(active)
 			to_chat(user, "<span class='danger'>You need to deactivate the beacon first!</span>")
@@ -155,7 +153,7 @@
 	return ..()
 
 //stealth direct power usage
-/obj/machinery/power/singularity_beacon/machinery_process()
+/obj/machinery/power/singularity_beacon/process()
 	if(!active)
 		return PROCESS_KILL
 	else
@@ -170,3 +168,9 @@
 /obj/machinery/power/singularity_beacon/emergency
 	name = "emergency singularity beacon"
 	desc = "A beacon that is designed to be used as last resort to contain Singularity or Tesla Engine. A one time use device."
+
+/obj/machinery/power/singularity_beacon/emergency/attack_ai(mob/user)
+	if(Adjacent(user))
+		return attack_hand(user)
+	else
+		to_chat(user, SPAN_WARNING("You need to be adjacent to \the [src] to activate it!"))

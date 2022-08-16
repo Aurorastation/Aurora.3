@@ -5,9 +5,10 @@
 	desc = "A console that displays information on the status of the patient on an adjacent operating table."
 	density = TRUE
 	anchored = TRUE
+	icon_screen = "crew"
+	icon_keyboard = "teal_key"
+	light_color = LIGHT_COLOR_BLUE
 
-	light_color = LIGHT_COLOR_GREEN
-	icon_screen = "med"
 	circuit = /obj/item/circuitboard/operating
 	var/mob/living/carbon/human/victim = null
 	var/obj/machinery/optable/table = null
@@ -32,7 +33,7 @@
 	if(!internal_bodyscanner) // So it can scan correctly
 		var/obj/machinery/body_scanconsole/S = new (src)
 		S.forceMove(src)
-		S.use_power = FALSE
+		S.update_use_power(POWER_USE_OFF)
 		internal_bodyscanner = S
 
 /obj/machinery/computer/operating/Destroy()
@@ -157,7 +158,7 @@
 				usr.visible_message("\The [src] beeps, printing a new [input_scan] after a moment.")
 	return
 
-/obj/machinery/computer/operating/machinery_process()
+/obj/machinery/computer/operating/process()
 	if(operable())
 		src.updateDialog()
 	if(src.stat & BROKEN)
@@ -287,7 +288,7 @@
 			lung_ruptured = "Lung ruptured."
 		if(e.status & ORGAN_SPLINTED)
 			splint = "Splinted."
-		if(e.is_dislocated())
+		if(ORGAN_IS_DISLOCATED(e))
 			dislocated = "Dislocated."
 		if(e.status & ORGAN_BLEEDING)
 			bled = "Bleeding."
@@ -306,18 +307,24 @@
 
 		if (e.implants.len)
 			var/unknown_body = 0
+			var/list/organic = list()
 			for(var/I in e.implants)
 				if(is_type_in_list(I,internal_bodyscanner.known_implants))
 					imp += "[I] implanted:"
+				else if(istype(I, /obj/effect/spider))
+					organic += I
 				else
 					unknown_body++
 			if(unknown_body)
 				imp += "Unknown body present:"
+			var/friends = length(organic)
+			if(friends)
+				imp += friends > 1 ? "Multiple abnormal organic bodies present:" : "Abnormal organic body present:"
 
 		if(!AN && !open && !infected && !imp)
 			AN = "None:"
 		if(!e.is_stump())
-			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[get_severity(e.brute_dam, TRUE)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
+			dat += "<td>[e.name]</td><td>[get_severity(e.burn_dam, TRUE)]</td><td>[get_severity(e.brute_dam, TRUE)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
 		else
 			dat += "<td>[e.name]</td><td>-</td><td>-</td><td>Not [e.is_stump() ? "Found" : "Attached Completely"]</td>"
 		dat += "</tr>"

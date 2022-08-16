@@ -64,9 +64,15 @@
 
 /obj/item/clothing/accessory/armband/idris
 	name = "\improper Idris Incorporated armband"
-	desc = "A armband, worn by contractors to denote which company they're from. This one shows the Idris Incorporated logo  displayed on a cyan background."
+	desc = "An armband, worn by contractors to denote which company they're from. This one shows the Idris Incorporated logo  displayed on a cyan background."
 	icon_state = "idris_armband"
 	overlay_state = "idris_armband"
+
+/obj/item/clothing/accessory/armband/pmc
+	name = "\improper PMCG armband"
+	desc = "An armband, worn by contractors to denote which company they're from. This one bears the Private Military Contractor Group logo."
+	icon_state = "pmc_armband"
+	overlay_state = "pmc_armband"
 
 /obj/item/clothing/accessory/armband/colourable
 	name = "armband"

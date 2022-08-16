@@ -25,8 +25,9 @@
 #define SS_INIT_SUNLIGHT    1	// Sunlight setup. Creates lots of lighting & SSzcopy updates.
 #define SS_INIT_LIGHTING    0	// Generation of lighting overlays and pre-bake. May cause openturf updates, should initialize before SSzcopy.
 #define SS_INIT_ZCOPY      -1	// Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
-#define SS_INIT_LOBBY      -2	// Lobby timer starts here. The lobby timer won't actually start going down until the MC starts ticking, so you probably want this last
-#define SS_INIT_CHAT       -3	// To ensure chat remains smooth during init.
+#define SS_INIT_XENOARCH   -2   // Xenoarch is this far below because it can infinite loop if placed in SS_INIT_MISC as it was before, due to some subsystems spawning stuff there.
+#define SS_INIT_LOBBY      -3	// Lobby timer starts here. The lobby timer won't actually start going down until the MC starts ticking, so you probably want this last
+#define SS_INIT_CHAT       -4	// To ensure chat remains smooth during init.
 
 // Something to remember when setting priorities: SS_TICKER runs before Normal, which runs before SS_BACKGROUND.
 // Each group has its own priority bracket.
@@ -48,14 +49,14 @@
 // Normal
 #define SS_PRIORITY_TICKER     100	// Gameticker.
 //#define SS_PRIORITY_DEFAULT   50	// This is defined somewhere else.
-#define SS_PRIORITY_LIGHTING    50	// Queued lighting engine updates.
-#define SS_PRIORITY_MOB         30	// Mob Life().
-#define SS_PRIORITY_AIR         30	// ZAS processing.
+#define SS_PRIORITY_MOB         40	// Mob Life().
+#define SS_PRIORITY_AIR         40	// ZAS processing.
 #define SS_PRIORITY_CHAT        30  // Chat
-#define SS_PRIORITY_NANOUI      20	// UI updates.
+#define SS_PRIORITY_LIGHTING    25	// Queued lighting engine updates.
+#define SS_PRIORITY_MACHINERY   25	// Machinery + powernet ticks.
+#define SS_PRIORITY_NANOUI      25	// UI updates.
 #define SS_PRIORITY_VOTE        20
 #define SS_PRIORITY_ELECTRONICS 20	// Integrated Electronics processing.
-#define SS_PRIORITY_MACHINERY   20	// Machinery + powernet ticks.
 #define SS_PRIORITY_CALAMITY    20	// Singularity, Tesla, Nar'sie, blob, etc.
 #define SS_PRIORITY_EVENT       20
 #define SS_PRIORITY_DISEASE     20	// Disease ticks.

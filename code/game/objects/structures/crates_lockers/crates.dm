@@ -247,7 +247,7 @@
 
 /obj/structure/closet/crate/contraband
 	name = "Poster crate"
-	desc = "A random assortment of posters manufactured by providers NOT listed under Nanotrasen's whitelist."
+	desc = "A random assortment of posters manufactured by providers NOT listed under NanoTrasen's whitelist."
 	icon_state = "crate"
 	icon_opened = "crateopen"
 	icon_closed = "crate"
@@ -326,11 +326,11 @@
 
 /obj/structure/closet/crate/freezer/rations //For use in the escape shuttle
 	name = "emergency rations"
-	desc = "A crate of emergency rations containing liquid food and some bottles of water."
+	desc = "A crate of emergency rations and some bottles of water."
 
 /obj/structure/closet/crate/freezer/rations/fill()
 	for(var/i=1,i<=6,i++)
-		new /obj/item/reagent_containers/food/snacks/liquidfood(src)
+		new /obj/random/mre
 		new /obj/item/reagent_containers/food/drinks/waterbottle(src)
 
 /obj/structure/closet/crate/bin
@@ -439,7 +439,7 @@
 	name = "secure hydroponics crate"
 	desc = "A crate with a lock on it, painted in the scheme of the station's botanists."
 	icon_state = "hydro_secure_crate"
-	req_one_access = list(access_hydroponics, access_xenobiology)
+	req_one_access = list(access_hydroponics, access_xenobotany)
 
 /obj/structure/closet/crate/secure/bin
 	name = "secure bin"
@@ -539,19 +539,24 @@
 		"3" = (100 - ((STOCK_RARE_PROB * rarity) + (STOCK_UNCOMMON_PROB * rarity)))
 	)
 
-	var/list/valid_loot = typesof(/obj/structure/closet/crate) - typesof(/obj/structure/closet/crate/secure/gear_loadout)
-	valid_loot -= typesof(/obj/structure/closet/crate/loot)
-	var/icontype = pick(valid_loot)
-	var/obj/structure/closet/crate/C = new icontype(get_turf(src))
+	var/list/crates_to_use = typesof(/obj/structure/closet/crate) - typesof(/obj/structure/closet/crate/secure/gear_loadout)
+	crates_to_use -= /obj/structure/closet/crate/loot
+	var/icontype = pick(crates_to_use)
+	var/obj/structure/closet/crate/C = new icontype(get_turf(src), TRUE) //TRUE as we do not want the crate to fill(), we will fill it ourselves.
 
 	C.name = "unusual container"
 	C.desc = "A mysterious container of unknown origins. What mysteries lie within?"
-	if(C.secure)
-		C.secure = FALSE
-	C.update_icon()
+
 	for(var/i in 1 to quantity)
 		var/newtype = get_spawntype()
 		call(newtype)(C)
+
+	if(C.secure || C.locked) //These should always be accessible
+		C.secure = FALSE
+		C.locked = FALSE
+		C.secure_lights = FALSE
+		C.req_access = null
+	C.update_icon()
 
 	qdel(src)
 

@@ -4,12 +4,17 @@
 	if(hat.item_state_slots && hat.item_state_slots[slot_head_str])
 		t_state = hat.item_state_slots[slot_head_str]
 	else if(hat.item_state)
-		t_state = hat.item_state
+		if(hat.contained_sprite)
+			t_state = "[hat.item_state][WORN_HEAD]"
+		else
+			t_state = hat.item_state
 	var/key = "[t_state]_[offset_x]_[offset_y]"
 	if(!mob_hat_cache[key])            // Not ideal as there's no guarantee all hat icon_states
 		var/t_icon = INV_HEAD_DEF_ICON // are unique across multiple dmis, but whatever.
 		if(hat.icon_override)
 			t_icon = hat.icon_override
+		else if (hat.contained_sprite)
+			t_icon = hat.icon
 		else if(hat.item_icons && (slot_head_str in hat.item_icons))
 			t_icon = hat.item_icons[slot_head_str]
 		var/image/I = image(icon = t_icon, icon_state = t_state)
@@ -44,7 +49,7 @@
 	// Interaction
 	universal_speak = FALSE
 	universal_understand = TRUE
-	pass_flags = PASSTABLE | PASSDOORHATCH
+	pass_flags = PASSTABLE | PASSDOORHATCH | PASSRAILING
 	density = FALSE
 	possession_candidate = TRUE
 	mob_size = 4
@@ -78,7 +83,7 @@
 	var/obj/item/hat
 	var/image/hat_overlay
 	var/hat_x_offset = 0
-	var/hat_y_offset = -13
+	var/hat_y_offset = -14
 
 	var/can_swipe = TRUE
 	var/rebooting = FALSE
@@ -144,6 +149,9 @@
 		return default_language
 	return all_languages[LANGUAGE_LOCAL_DRONE]
 
+/mob/living/silicon/robot/drone/fall_impact()
+  ..(damage_mod = 0.25) //reduces fall damage by 75%
+
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
 	name = "construction drone"
@@ -162,7 +170,7 @@
 	holder_type = /obj/item/holder/drone/heavy
 
 	// Hats!!
-	hat_x_offset = 1
+	hat_x_offset = 0
 	hat_y_offset = -12
 
 	standard_drone = FALSE
@@ -176,7 +184,7 @@
 
 /mob/living/silicon/robot/drone/construction/welcome_drone()
 	to_chat(src, SPAN_NOTICE("<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."))
-	to_chat(src, SPAN_NOTICE("You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
+	to_chat(src, SPAN_NOTICE("You are assigned to an SCC construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
 	to_chat(src, SPAN_NOTICE("Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."))
 	to_chat(src, SPAN_NOTICE("<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."))
 
@@ -200,6 +208,8 @@
 	module_type = /obj/item/robot_module/drone/construction/matriarch
 	law_type = /datum/ai_laws/matriarch_drone
 	can_swipe = FALSE
+	maxHealth = 50
+	health = 50
 
 	var/matrix_tag
 
@@ -567,12 +577,6 @@
 
 /mob/living/silicon/robot/drone/examine(mob/user)
 	..()
-	var/msg
-	if(emagged)
-		msg += "Their eye glows red."
-	else
-		msg += "Their eye glows green."
-	to_chat(user, msg)
 
 /mob/living/silicon/robot/drone/self_diagnosis()
 	if(!is_component_functioning("diagnosis unit"))

@@ -26,8 +26,11 @@
 	var/wall_mounted = FALSE //never solid (You can always pass over it)
 	var/health = 100
 	var/breakout = 0 //if someone is currently breaking out. mutex
-	var/storage_capacity = 40 //Tying this to mob sizes was dumb
-	//This is so that someone can't pack hundreds of items in a locker/crate then open it in a populated area to crash clients.
+
+	var/storage_capacity = 45 //Tying this to mob sizes was dumb
+	//This is so that someone can't pack hundreds of items in a locker/crate
+							  //then open it in a populated area to crash clients.
+
 	var/open_sound = 'sound/effects/closet_open.ogg'
 	var/close_sound = 'sound/effects/closet_close.ogg'
 	var/open_sound_volume = 35
@@ -73,10 +76,11 @@
 	if(content_size > storage_capacity-5)
 		storage_capacity = content_size + 5
 
-/obj/structure/closet/Initialize(mapload)
+/obj/structure/closet/Initialize(mapload, var/no_fill)
 	. = ..()
 	update_icon()
-	fill()
+	if(!no_fill)
+		fill()
 	if(secure)
 		verbs += /obj/structure/closet/proc/verb_togglelock
 	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
@@ -335,7 +339,7 @@
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
 				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
 					return
-				if(!WT.remove_fuel(0,user))
+				if(!WT.use(0,user))
 					to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 					return
 				else
@@ -365,6 +369,15 @@
 			user.drop_from_inventory(W,loc)
 		else
 			user.drop_item()
+	else if(istype(W, /obj/item/device/cratescanner))
+		var/obj/item/device/cratescanner/Cscanner = W
+		if(locked)
+			to_chat(user, SPAN_WARNING("[W] refuses to scan [src]. Unlock it first!"))
+			return
+		if(welded)
+			to_chat(user, SPAN_WARNING("[W] detects that [src] is welded shut, and refuses to scan."))
+			return
+		Cscanner.print_contents(name, contents, src.loc)
 	else if(istype(W, /obj/item/stack/packageWrap))
 		return
 	else if(istype(W, /obj/item/ducttape))
@@ -378,9 +391,9 @@
 				"You hear a welding torch on metal."
 			)
 			playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
-			if (!do_after(user, 2/W.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+			if(!W.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_closed)))
 				return
-			if(!WT.remove_fuel(0,user))
+			if(!WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 				return
 			welded = !welded
@@ -748,3 +761,32 @@
 	if(linked_teleporter)
 		QDEL_NULL(linked_teleporter)
 	return ..()
+
+/*
+==========================
+	Contents Scanner
+==========================
+*/
+/obj/item/device/cratescanner
+	name = "crate contents scanner"
+	desc = "A  handheld device used to scan and print a manifest of a container's contents. Does not work on locked crates, for privacy reasons."
+	icon_state = "cratescanner"
+	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
+	w_class = ITEMSIZE_SMALL
+	item_state = "electronic"
+	flags = CONDUCT
+	slot_flags = SLOT_BELT
+
+/obj/item/device/cratescanner/proc/print_contents(targetname, targetcontents, targetloc)
+	var/output = list()
+	var/list/outputstring
+	for(var/atom/item in targetcontents)
+		if(item.name in output)
+			output[item.name] = output[item.name] + 1
+		else
+			output[item.name] = 1
+	for(var/entry in output)
+		outputstring += "- [entry]: [output[entry]]x<br>"
+	var/obj/item/paper/printout = new /obj/item/paper(targetloc)
+	printout.info = "contents of [targetname]<br>"
+	printout.info += "[outputstring]"

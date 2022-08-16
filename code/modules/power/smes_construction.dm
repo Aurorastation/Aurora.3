@@ -103,7 +103,6 @@
 /obj/machinery/power/smes/buildable/Destroy()
 	qdel(wires)
 	wires = null
-	SSmachinery.queue_rcon_update()
 	return ..()
 
 /obj/machinery/power/smes/buildable/bullet_act(obj/item/projectile/P, def_zone)
@@ -133,7 +132,7 @@
 // Parameters: None
 // Description: Uses parent process, but if grounding wire is cut causes sparks to fly around.
 // This also causes the SMES to quickly discharge, and has small chance of damaging output APCs.
-/obj/machinery/power/smes/buildable/machinery_process()
+/obj/machinery/power/smes/buildable/process()
 	if(!grounding && (Percentage() > 5))
 		spark(src, 5, alldirs)
 		charge -= (output_level_max * SMESRATE)
@@ -162,8 +161,6 @@
 // Description: Adds standard components for this SMES, and forces recalculation of properties.
 /obj/machinery/power/smes/buildable/Initialize(mapload, dir)
 	wires = new /datum/wires/smes(src)
-
-	SSmachinery.queue_rcon_update()
 	..()
 
 	LAZYINITLIST(component_parts)	// Parent machinery call won't initialize this list if this is a newly constructed SMES.
@@ -370,7 +367,7 @@
 			if(WT.get_fuel() < 2)
 				to_chat(user, SPAN_WARNING("You don't have enough fuel to repair \the [src]."))
 				return
-			if(do_after(user, 5 SECONDS) && WT.remove_fuel(2, user))
+			if(WT.use_tool(src, user, 50, volume = 50) && WT.use(2, user))
 				health = min(health + 100, initial(health))
 				to_chat(user, SPAN_NOTICE("You repair \the [src], it is now [round((health / initial(health)) * 100)]% repaired."))
 				if(health == initial(health))
@@ -382,7 +379,6 @@
 			if(newtag)
 				RCon_tag = newtag
 				to_chat(user, "<span class='notice'>You changed the RCON tag to: [newtag]</span>")
-				SSmachinery.queue_rcon_update()
 			return
 		// Charged above 1% and safeties are enabled.
 		if((charge > (capacity/100)) && safeties_enabled)

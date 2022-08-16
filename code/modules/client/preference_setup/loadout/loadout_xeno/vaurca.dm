@@ -92,6 +92,30 @@
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/uniform/vaurca_harness
+	display_name = "vaurcan gear harness"
+	description = "A selection of vaurca colored gear harnesses."
+	path = /obj/item/clothing/under/vaurca/gearharness
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/vaurca_harness/New()
+	..()
+	var/list/harness = list()
+	harness["vaurcan gear harness, brown"] = /obj/item/clothing/under/vaurca/gearharness
+	harness["vaurcan gear harness, white"] = /obj/item/clothing/under/vaurca/gearharness/white
+	harness["vaurcan gear harness, black"] = /obj/item/clothing/under/vaurca/gearharness/black
+	gear_tweaks += new /datum/gear_tweak/path(harness)
+
+/datum/gear/uniform/vaurca_harness_colorable
+	display_name = "vaurcan gear harness (colorable)"
+	description = "A tight-fitting gear harness designed for the Vaurcan form. Mass-produced from equally mass-produced materials."
+	path = /obj/item/clothing/under/vaurca/gearharness/colorable
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/suit/vaurca
 	display_name = "shaper robes"
 	path = /obj/item/clothing/suit/vaurca/shaper
@@ -126,6 +150,15 @@
 	shrouds["vaurcan shroud, brown"] = /obj/item/clothing/head/shroud/brown
 	gear_tweaks += new /datum/gear_tweak/path(shrouds)
 
+/datum/gear/suit/vaurca_shroud_colorable
+	display_name = "vaurcan shroud (colorable)"
+	description = "A selection of vaurca colored shrouds."
+	path = /obj/item/clothing/head/shroud/colorable
+	cost = 1
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/vaurca_mantle
 	display_name = "vaurcan mantle"
 	path = /obj/item/clothing/accessory/poncho/vaurca
@@ -138,7 +171,7 @@
 	display_name = "language processor"
 	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective hives."
 	path = /obj/item/organ/internal/augment/language/klax
-	cost = 2
+	cost = 0
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_NO_SELECTION
@@ -169,7 +202,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_vaurca(), lunchables_vaurca_snack(), lunchables_drinks(), lunchables_utensil())
 
-/datum/gear/ears/vaurca/rings 
+/datum/gear/ears/vaurca/rings
 	display_name = "bulwark horn rings"
 	description = "Rings worn by Bulwarks to decorate their horns."
 	cost = 1
@@ -177,3 +210,12 @@
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_BULWARK)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/skrell_projector/vaurca_projector
+	display_name = "virtual reality looking-glass"
+	description = "A holographic projector using advanced technology that immerses someone into a scene. It is developed and distributed by Hive Zo'ra and allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur."
+	cost = 2
+	path = /obj/item/skrell_projector/vaurca_projector
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

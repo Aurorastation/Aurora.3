@@ -11,7 +11,6 @@
 		,/area/tdome
 		,/area/centcom
 		,/area/antag
-		,/area/beach
 		,/area/prison
 		,/area/supply/dock
 		,/area/turbolift
@@ -35,6 +34,16 @@
 		,/area/medical/cryo
 		,/area/medical/patient_c
 		,/area/security/penal_colony
+	)
+	ut_fire_exempt_areas = list(
+		/area/maintenance,
+		/area/rnd/isolation_a,
+		/area/rnd/isolation_b,
+		/area/rnd/isolation_c,
+		/area/rnd/test_area,
+		/area/rnd/xenobiology/cells,
+		/area/security/penal_colony,
+		/area/turret_protected/tcomsat
 	)
 
 /datum/unit_test/zas_area_test/aurora

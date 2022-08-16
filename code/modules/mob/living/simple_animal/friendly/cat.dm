@@ -76,6 +76,18 @@
 		if (!movement_target)
 			walk_to(src,0)
 
+		if(prob(2)) //spooky
+			var/mob/abstract/observer/spook = locate() in range(src,5)
+			if(spook)
+				var/turf/T = spook.loc
+				var/list/visible = list()
+				for(var/obj/O in T.contents)
+					if(!O.invisibility && O.name)
+						visible += O
+				if(visible.len)
+					var/atom/A = pick(visible)
+					visible_emote("suddenly stops and stares at something unseen[istype(A) ? " near [A]":""].",0)
+
 /mob/living/simple_animal/cat/proc/attack_mice()
 	if((src.loc) && isturf(src.loc))
 		if(!stat && !resting && !buckled_to)
@@ -331,3 +343,21 @@
 	icon_dead = "penny_dead"
 	icon_rest = "penny_rest"
 	holder_type = /obj/item/holder/cat/penny
+
+/mob/living/simple_animal/cat/crusher
+	name = "Crusher"
+	desc = "A cream coloured, young, and cuddly cat, with a small tag on her collar that says \"Dr. Crusher\". She never lets an opportunity pass to receive some pets or prey on some unsuspecting mice."
+	named = TRUE
+	gender = FEMALE
+	icon_state = "crusher"
+	icon_state = "crusher"
+	icon_living = "crusher"
+	icon_dead = "crusher_dead"
+	icon_rest = "crusher_rest"
+	can_nap = TRUE
+	holder_type = /obj/item/holder/cat/crusher
+
+/mob/living/simple_animal/cat/crusher/examine(mob/user)
+	..()
+	if(stat == DEAD)
+		to_chat(user, "Crusher's dead. How could this have happened? She counted on you!")

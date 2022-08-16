@@ -17,7 +17,6 @@
 			/obj/item/stock_parts/scanning_module = 2,
 			/obj/item/device/healthanalyzer
 		)
-	use_power = 1
 	idle_power_usage = 60
 	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
 
@@ -96,7 +95,7 @@
 	usr.client.eye = src
 	usr.forceMove(src)
 	occupant = usr
-	update_use_power(2)
+	update_use_power(POWER_USE_ACTIVE)
 	update_icon()
 	add_fingerprint(usr)
 	return
@@ -114,7 +113,7 @@
 		occupant.client.perspective = MOB_PERSPECTIVE
 	occupant.forceMove(loc)
 	occupant = null
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	update_icon()
 	return
 
@@ -141,7 +140,7 @@
 
 		M.forceMove(src)
 		occupant = M
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 		update_icon()
 		//Foreach goto(154)
 	add_fingerprint(user)
@@ -181,7 +180,7 @@
 			M.client.eye = src
 		M.forceMove(src)
 		occupant = M
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 		update_icon()
 		playsound(loc, 'sound/machines/medbayscanner1.ogg', 50)
 	add_fingerprint(user)
@@ -248,7 +247,7 @@
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "body_scannerconsole"
 	var/obj/machinery/bodyscanner/connected
-	var/known_implants = list(/obj/item/implant/chem, /obj/item/implant/death_alarm, /obj/item/implant/mindshield, /obj/item/implant/tracking)
+	var/known_implants = list(/obj/item/implant/chem, /obj/item/implant/death_alarm, /obj/item/implant/mindshield, /obj/item/implant/tracking, /obj/item/implant/integrated_circuit)
 	var/collapse_desc = ""
 	var/broken_desc = ""
 	var/has_internal_injuries = FALSE
@@ -491,9 +490,9 @@
 	var/organs = list()
 	for (var/obj/item/organ/external/O in H.organs)
 		var/list/data = list()
-		var/burn_damage = get_wound_severity(O.burn_ratio, TRUE)
+		var/burn_damage = get_severity(O.burn_dam, TRUE)
 		data["burnDmg"] = burn_damage
-		var/brute_damage = get_wound_severity(O.brute_ratio, TRUE)
+		var/brute_damage = get_severity(O.brute_dam, TRUE)
 		data["bruteDmg"] = brute_damage
 		data["name"] = capitalize_first_letters(O.name)
 
@@ -509,7 +508,7 @@
 			wounds += "Splinted."
 		if (O.status & ORGAN_BLEEDING)
 			wounds += "Bleeding."
-		if(O.is_dislocated())
+		if(ORGAN_IS_DISLOCATED(O))
 			wounds += "Dislocated."
 		if (O.status & ORGAN_BROKEN)
 			wounds += "[O.broken_description]."
@@ -524,13 +523,19 @@
 
 		if (O.implants.len)
 			var/unk = 0
+			var/list/organic = list()
 			for (var/atom/movable/I in O.implants)
-				if (is_type_in_list(I, known_implants))
+				if(is_type_in_list(I, known_implants))
 					wounds += "\a [I.name] is installed."
+				else if(istype(I, /obj/effect/spider))
+					organic += I
 				else
 					unk += 1
 			if (unk)
 				wounds += "Has an abnormal mass present."
+			var/friends = length(organic)
+			if(friends)
+				wounds += friends > 1 ? "Multiple abnormal organic bodies present." : "Abnormal organic body present."
 
 		if(length(wounds) || brute_damage != "None" || burn_damage != "None")
 			has_external_injuries = TRUE
@@ -722,7 +727,7 @@
 			lung_ruptured = "Lung ruptured."
 		if(e.status & ORGAN_SPLINTED)
 			splint = "Splinted."
-		if(e.is_dislocated())
+		if(ORGAN_IS_DISLOCATED(e))
 			dislocated = "Dislocated."
 		if(e.status & ORGAN_BLEEDING)
 			bled = "Bleeding."
@@ -741,18 +746,24 @@
 
 		if (e.implants.len)
 			var/unknown_body = 0
+			var/list/organic = list()
 			for(var/I in e.implants)
 				if(is_type_in_list(I,known_implants))
 					imp += "[I] implanted:"
+				else if(istype(I, /obj/effect/spider))
+					organic += I
 				else
 					unknown_body++
 			if(unknown_body)
 				imp += "Unknown body present:"
+			var/friends = length(organic)
+			if(friends)
+				imp += friends > 1 ? "Multiple abnormal organic bodies present:" : "Abnormal organic body present:"
 
 		if(!AN && !open && !infected && !imp)
 			AN = "None:"
 		if(!e.is_stump())
-			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[get_severity(e.brute_dam, TRUE)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
+			dat += "<td>[e.name]</td><td>[get_severity(e.burn_dam, TRUE)]</td><td>[get_severity(e.brute_dam, TRUE)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
 		else
 			dat += "<td>[e.name]</td><td>-</td><td>-</td><td>Not [e.is_stump() ? "Found" : "Attached Completely"]</td>"
 		dat += "</tr>"

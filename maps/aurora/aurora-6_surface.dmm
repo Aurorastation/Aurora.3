@@ -2842,6 +2842,7 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 12
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "ckT" = (
@@ -5645,6 +5646,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/stairs)
+"eTa" = (
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled/freezer,
+/area/crew_quarters/toilet)
 "eTH" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
@@ -10204,6 +10209,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
+"iQw" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/tcommsat/lounge)
 "iQS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -20152,7 +20164,7 @@
 	pixel_x = -6;
 	pixel_y = 12
 	},
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 5;
 	pixel_y = -1
 	},
@@ -20166,6 +20178,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
+"rpG" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/turret_protected/tcomfoyer)
 "rqf" = (
 /obj/machinery/smartfridge/drying_rack,
 /obj/machinery/light{
@@ -23466,6 +23482,11 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
+"tZL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/plating,
+/area/store)
 "uaq" = (
 /obj/machinery/status_display{
 	pixel_y = 32
@@ -25948,6 +25969,15 @@
 	},
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
+"wiv" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/bluegrid{
+	name = "Mainframe Base";
+	nitrogen = 100;
+	oxygen = 0;
+	temperature = 80
+	},
+/area/tcommsat/chamber)
 "wkD" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -26222,8 +26252,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/closet/secure_closet/freezer{
-	icon_state = "freezer"
-	name = "cafe fridge"
+	icon_state = "freezer"name = "cafe fridge"
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "poolcafe";
@@ -39051,7 +39080,7 @@ hlb
 qRF
 rjc
 qys
-xBr
+wiv
 mRI
 uso
 mRI
@@ -40346,7 +40375,7 @@ mRI
 mRI
 xBr
 qys
-czc
+rpG
 fEH
 scq
 exe
@@ -41095,7 +41124,7 @@ gfY
 bPW
 moB
 odh
-odh
+iQw
 fSf
 pcH
 kii
@@ -52404,7 +52433,7 @@ nZj
 wHS
 mox
 aEx
-tSy
+tZL
 ePX
 tSy
 nvR
@@ -58570,7 +58599,7 @@ pTq
 gqB
 meV
 lOa
-kjO
+eTa
 kjO
 vnh
 alj

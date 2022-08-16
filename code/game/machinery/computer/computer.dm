@@ -1,10 +1,9 @@
 /obj/machinery/computer
 	name = "computer"
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/modular_console.dmi'
 	icon_state = "computer"
 	density = 1
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 300
 	active_power_usage = 300
 	clicksound = /decl/sound_category/keyboard_sound
@@ -12,8 +11,9 @@
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = 0
 
-	var/icon_screen = "generic"
+	var/icon_screen = "computer_generic"
 	var/icon_scanline
+	var/icon_keyboard = "green_key"
 	var/light_range_on = 2
 	var/light_power_on = 1.3
 	var/overlay_layer
@@ -63,12 +63,21 @@
 	..()
 
 /obj/machinery/computer/update_icon()
+	switch(dir)
+		if(NORTH)
+			layer = ABOVE_MOB_LAYER
+		if(SOUTH)
+			layer = initial(layer)
+		if(EAST)
+			layer = ABOVE_MOB_LAYER
+		if(WEST)
+			layer = ABOVE_MOB_LAYER
 	cut_overlays()
 	if(stat & NOPOWER)
 		set_light(0)
 		return
 	else
-		set_light(light_range_on, light_power_on, COLOR_CYAN)
+		set_light(light_range_on, light_power_on, light_color)
 
 	icon_state = initial(icon_state)
 
@@ -83,6 +92,8 @@
 			holographic_overlay(src, src.icon, icon_screen)
 		if (icon_scanline)
 			add_overlay(icon_scanline)
+		if (icon_keyboard)
+			add_overlay(icon_keyboard)
 		else if (overlay_layer != layer)
 			add_overlay(image(icon, icon_screen, overlay_layer))
 		else
@@ -94,7 +105,7 @@
 	if(stat & NOPOWER)
 		set_light(0)
 	else
-		set_light(light_range_on, light_power_on, COLOR_CYAN)
+		set_light(light_range_on, light_power_on, light_color)
 
 
 /obj/machinery/computer/proc/set_broken()
@@ -106,10 +117,9 @@
 	text = replacetext(text, "\n", "<BR>")
 	return text
 
-/obj/machinery/computer/attackby(var/obj/W, user as mob)
+/obj/machinery/computer/attackby(var/obj/item/W as obj, user as mob)
 	if(W.isscrewdriver() && circuit)
-		playsound(src.loc,  W.usesound, 50, 1)
-		if(do_after(user, 20))
+		if(W.use_tool(src, user, 20, volume = 50))
 			var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 			var/obj/item/circuitboard/M = new circuit( A )
 			A.circuit = M

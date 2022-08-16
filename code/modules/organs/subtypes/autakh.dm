@@ -283,6 +283,8 @@
 
 		owner.last_special = world.time + 100
 		var/obj/item/M = new augment_type(owner)
+		M.canremove = FALSE
+		M.item_flags |= NOMOVE
 		owner.put_in_active_hand(M)
 		owner.visible_message("<span class='notice'>\The [M] slides out of \the [owner]'s [src].</span>","<span class='notice'>You deploy \the [M]!</span>")
 
@@ -320,6 +322,7 @@
 
 /obj/item/pickaxe/drill/integrated
 	name = "integrated mining drill"
+	desc = "A integrated mining drill that is installed on the hand of the user, it can retract at the user's command."
 	icon_state = "integrateddrill"
 	item_state = "integrateddrill"
 

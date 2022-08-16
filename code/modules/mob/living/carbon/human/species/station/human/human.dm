@@ -75,7 +75,7 @@
 		var/maxdam = 0
 		var/obj/item/organ/external/damaged_organ = null
 		for(var/obj/item/organ/external/E in H.organs)
-			if(!E.can_feel_pain())
+			if(!ORGAN_CAN_FEEL_PAIN(E))
 				continue
 			var/dam = E.get_damage()
 			// make the choice of the organ depend on damage,

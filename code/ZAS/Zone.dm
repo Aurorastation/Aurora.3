@@ -53,9 +53,6 @@ Class Procs:
 
 	var/datum/gas_mixture/air = new
 
-	var/list/graphic_add
-	var/list/graphic_remove
-
 /zone/New()
 	SSair.add_zone(src)
 	air.temperature = TCMB
@@ -156,16 +153,11 @@ Class Procs:
 		if(istype(T))
 			T.create_fire(vsc.fire_firelevel_multiplier)
 
-	LAZYINITLIST(graphic_add)
-	LAZYINITLIST(graphic_remove)
+	var/list/graphic_add = list()
+	var/list/graphic_remove = list()
 	if(air.check_tile_graphic(graphic_add, graphic_remove))
 		for(var/turf/simulated/T in contents)
 			T.update_graphic(graphic_add, graphic_remove)
-
-		LAZYCLEARLIST(graphic_add)
-		LAZYCLEARLIST(graphic_remove)
-		UNSETEMPTY(graphic_add)
-		UNSETEMPTY(graphic_remove)
 
 	for(var/connection_edge/E in edges)
 		if(E.sleeping)

@@ -665,16 +665,16 @@
 
 /obj/item/device/radio/headset/bluespace
 	name = "bluespace headset"
-	desc = "A bluespace mockery of a standard Nanotrasen headset. It seems to function. Takes encryption keys."
+	desc = "A bluespace mockery of a standard NanoTrasen headset. It seems to function. Takes encryption keys."
 	icon_state = "bs_headset"
 	item_state = "com_headset" // laziness or genius, you decide
 	syndie = TRUE
 	ks1type = /obj/item/device/encryptionkey/bluespace
 
+//Ghostrole headset
 /obj/item/device/radio/headset/ship
 	icon_state = "syn_headset"
 	ks1type = /obj/item/device/encryptionkey/ship
-	syndie = TRUE
 
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_ILLEGAL = 3)

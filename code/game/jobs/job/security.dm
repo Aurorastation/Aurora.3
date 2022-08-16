@@ -61,7 +61,7 @@
 	)
 
 	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
+	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
@@ -97,7 +97,7 @@
 	uniform = /obj/item/clothing/under/rank/warden
 	suit = /obj/item/clothing/suit/storage/toggle/warden
 	shoes = /obj/item/clothing/shoes/jackboots
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/headset_warden
@@ -110,7 +110,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/security
 
 	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
+	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
@@ -159,7 +159,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/security/detective
 
 	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
+	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
@@ -197,7 +197,6 @@
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security
-	suit = /obj/item/clothing/suit/storage/hazardvest/security/officer
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_pocket = /obj/item/device/flash
 
@@ -211,7 +210,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/security
 
 	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
+	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
@@ -255,7 +254,7 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/sec
 
 	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel_sec
+	satchel = /obj/item/storage/backpack/satchel/sec
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 

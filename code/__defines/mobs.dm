@@ -145,8 +145,11 @@
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
 #define BP_AUG_TOOL         "retractable combitool"
 #define BP_AUG_PEN          "retractable combipen"
+#define BP_AUG_CRAYON         "retractable crayon"
+#define BP_AUG_CYBORG_ANALYZER    "retractable cyborg analyzer"
 #define BP_AUG_LIGHTER      "retractable lighter"
 #define BP_AUG_HEALTHSCAN   "integrated health scanner"
+#define BP_AUG_DRILL        "integrated mining drill"
 #define BP_AUG_GUSTATORIAL   "integrated gustatorial centre"
 #define BP_AUG_TESLA        "tesla spine"
 #define BP_AUG_EYE_SENSORS  "integrated eyes sensors"
@@ -242,8 +245,9 @@
 #define ECONOMICALLY_AVERAGE	"Average"
 #define ECONOMICALLY_UNDERPAID	"Underpaid"
 #define ECONOMICALLY_POOR		"Poor"
+#define ECONOMICALLY_DESTITUTE  "Impoverished"
 
-#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR)
+#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR, ECONOMICALLY_DESTITUTE)
 
 // Defines the argument used for get_mobs_or_objs_in_view
 #define GHOSTS_ALL_HEAR 1

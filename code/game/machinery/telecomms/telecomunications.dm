@@ -38,6 +38,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	var/hide = 0				// Is it a hidden machine?
 	var/list/listening_level = 0	// 0 = auto set in New() - this is the z level that the machine is listening to.
 
+	var/overmap_range = 2 //OVERMAP: Number of sectors out we can communicate
+
 
 /obj/machinery/telecomms/proc/relay_information(datum/signal/signal, filter, copysig, amount = 20)
 	// relay signal to all linked machinery that are of type [filter]. If signal has been sent [amount] times, stop sending
@@ -105,6 +107,20 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	else
 		return 0
 
+//OVERMAP: Since telecomms is subspace, limit how far it goes. This prevents double-broadcasts across the entire overmap, and gives the ability to intrude on comms range of other ships
+/obj/machinery/telecomms/proc/check_receive_sector(datum/signal/signal)
+	if(isAdminLevel(z) || isAdminLevel(signal.data["level"])) //Messages to and from centcomm levels are not sector-restricted. 
+		return TRUE
+	if(current_map.use_overmap)
+		if(!linked) //If we're using overmap and not associated with a sector, doesn't work.
+			return FALSE
+		var/obj/effect/overmap/visitable/S = signal.data["sector"]
+		if(istype(S)) //If our signal isn't sending a sector, it's something associated with telecomms_process_active(), which has their own limits. 
+			if(S != linked) //If we're not the same ship, check range
+				if(get_dist(S, linked) > overmap_range && !(S in view(overmap_range, linked)))
+					return FALSE
+	return TRUE
+
 /obj/machinery/telecomms/New()
 	telecomms_list += src
 	..()
@@ -128,6 +144,11 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 			listening_level += above.z
 		if(below)
 			listening_level += below.z
+
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if (istype(my_sector, /obj/effect/overmap/visitable))
+			attempt_hook_up(my_sector)
 
 /obj/machinery/telecomms/Destroy()
 	telecomms_list -= src
@@ -163,7 +184,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	else
 		on = 0
 
-/obj/machinery/telecomms/machinery_process()
+/obj/machinery/telecomms/process()
 	update_power()
 
 	// Check heat and generate some
@@ -248,7 +269,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	desc = "This machine has a dish-like shape and green lights. It is designed to detect and process subspace radio activity."
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 600
 	machinetype = 1
 	produces_heat = 0
@@ -262,6 +282,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 		return
 	if(!check_receive_level(signal))
 		return
+	if(!check_receive_sector(signal))
+		return
 
 	if(signal.transmission_method == TRANSMISSION_SUBSPACE)
 		if(is_freq_listening(signal)) // detect subspace signals
@@ -274,7 +296,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/receiver/proc/check_receive_level(datum/signal/signal)
 
-	if(signal.data["level"] != listening_level)
+	if(!(signal.data["level"] in listening_level))
 		for(var/obj/machinery/telecomms/hub/H in links)
 			var/list/connected_levels = list()
 			for(var/obj/machinery/telecomms/relay/R in H.links)
@@ -284,7 +306,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 				return 1
 		return 0
 	return 1
-
 
 /*
 	The HUB idles until it receives information. It then passes on that information
@@ -302,7 +323,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	desc = "A mighty piece of hardware used to send/receive massive amounts of data."
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 1600
 	machinetype = 7
 	circuitboard = "/obj/item/circuitboard/telecomms/hub"
@@ -335,7 +355,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	desc = "A mighty piece of hardware used to send massive amounts of data far away."
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 600
 	machinetype = 8
 	produces_heat = 0
@@ -386,7 +405,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	desc = "A mighty piece of hardware used to send massive amounts of data quickly."
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 1000
 	machinetype = 2
 	circuitboard = "/obj/item/circuitboard/telecomms/bus"
@@ -437,7 +455,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	desc = "This machine is used to process large quantities of information."
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 600
 	machinetype = 3
 	delay = 5
@@ -474,7 +491,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	desc = "A machine used to store data and network statistics."
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 300
 	machinetype = 4
 	circuitboard = "/obj/item/circuitboard/telecomms/server"
@@ -587,7 +603,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 		relay_information(signal, "/obj/machinery/telecomms/broadcaster")
 
 
-/obj/machinery/telecomms/server/machinery_process()
+/obj/machinery/telecomms/server/process()
 	. = ..()
 	if(istype(Program))
 		Program.retrieve_messages()
@@ -625,9 +641,3 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 
 // NTSL2++ code
-
-
-
-
-
-

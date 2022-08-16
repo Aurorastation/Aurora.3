@@ -10,7 +10,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/industrial(src)
 	else
-		new /obj/item/storage/backpack/satchel_eng(src)
+		new /obj/item/storage/backpack/satchel/eng(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/clothing/under/rank/miner(src)
 	new /obj/item/clothing/gloves/black(src)
@@ -28,6 +28,7 @@
 	new /obj/item/clothing/head/bandana/miner(src)
 	new /obj/item/clothing/head/hardhat/orange(src)
 	new /obj/item/device/radio(src)
+	new /obj/item/device/flashlight/lantern(src)
 
 /******************************Lantern*******************************/
 
@@ -380,6 +381,9 @@
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
 	sharp = FALSE
 	edge = TRUE
+	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
+	usesound = /decl/sound_category/shovel_sound
 
 /obj/item/shovel/spade
 	name = "spade"
@@ -484,9 +488,6 @@
 	var/obj/item/stack/flag/F = locate() in get_turf(src)
 
 	var/turf/T = get_turf(src)
-	if(!T || !istype(T, /turf/unsimulated/floor/asteroid))
-		to_chat(user, SPAN_WARNING("The beacon won't stand up in this terrain."))
-		return
 
 	if(F?.upright)
 		to_chat(user, SPAN_WARNING("There is already a beacon here."))
@@ -557,7 +558,7 @@
 		return
 	if(C.iswelder())
 		var/obj/item/weldingtool/WT = C
-		if(WT.remove_fuel(0, user))
+		if(WT.use(0, user))
 			to_chat(user, SPAN_NOTICE("You slice apart the track."))
 			new /obj/item/stack/rods(get_turf(src))
 			qdel(src)
@@ -978,7 +979,7 @@ var/list/total_extraction_beacons = list()
 			var/obj/machinery/anti_bluespace/AB = found_inhibitor
 			if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
-			AB.use_power(AB.active_power_usage)
+			AB.use_power_oneoff(AB.active_power_usage)
 			to_chat(user, SPAN_WARNING("A nearby bluespace inhibitor interferes with \the [src]!"))
 			return
 		to_chat(user, SPAN_NOTICE("You start attaching the pack to \the [A]..."))
@@ -1227,8 +1228,7 @@ var/list/total_extraction_beacons = list()
 /obj/structure/sculpting_block/attackby(obj/item/C, mob/user)
 	if(C.iswrench())
 		visible_message("<b>[user]</b> starts to [anchored ? "un" : ""]anchor \the [src].", SPAN_NOTICE("You start to [anchored ? "un" : ""]anchor \the [src]."))
-		if(do_after(user, 5 SECONDS, TRUE))
-			playsound(src.loc, C.usesound, 100, 1)
+		if(C.use_tool(src, user, 50, volume = 50))
 			anchored = !anchored
 
 	else if(istype(C, /obj/item/autochisel))

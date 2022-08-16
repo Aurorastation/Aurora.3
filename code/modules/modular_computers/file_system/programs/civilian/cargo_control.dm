@@ -2,7 +2,8 @@
 	filename = "cargocontrol"
 	filedesc = "Cargo Control"
 	extended_desc = "Application to Control Cargo Orders"
-	program_icon_state = "ops"
+	program_icon_state = "supply"
+	program_key_icon_state = "yellow_key"
 	size = 12
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
@@ -237,7 +238,7 @@
 				console.visible_message(SPAN_NOTICE("\The [console] prints out paper."))
 	if(href_list["bounty_print"])
 		if(console && console.nano_printer)
-			var/text = "<h2>Nanotrasen Cargo Bounties</h2></br>"
+			var/text = "<h2>SCC Cargo Bounties</h2></br>"
 			for(var/datum/bounty/B in SScargo.bounties_list)
 				if(B.claimed)
 					continue

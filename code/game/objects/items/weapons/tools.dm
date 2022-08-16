@@ -213,6 +213,7 @@
 	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
 	icon_state = "welder"
 	item_state = "welder"
+	var/welding_state = "welding_sparks"
 	contained_sprite = TRUE
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -237,9 +238,8 @@
 
 	//Welding tool specific stuff
 	var/welding = 0 	//Whether or not the welding tool is off(0), on(1) or currently welding(2)
-	var/status = 1 		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
+	var/status = TRUE		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
 	var/max_fuel = 20 	//The max amount of fuel the welder can hold
-
 	var/change_icons = TRUE
 
 /obj/item/weldingtool/iswelder()
@@ -297,6 +297,12 @@
 	R.my_atom = src
 	R.add_reagent(/decl/reagent/fuel, max_fuel)
 	update_icon()
+
+/obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
+	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state, EFFECTS_ABOVE_LIGHTING_LAYER)
+	target.add_overlay(welding_sparks)
+	. = ..()
+	target.cut_overlay(welding_sparks)
 
 /obj/item/weldingtool/proc/update_torch()
 	if(welding)
@@ -362,7 +368,7 @@
 /obj/item/weldingtool/process()
 	if(welding)
 		if(prob(5))
-			remove_fuel(1, null, colourChange = FALSE)
+			use(1, null, colourChange = FALSE)
 
 		if(get_fuel() < 1)
 			setWelding(0)
@@ -414,7 +420,7 @@
 		return
 
 	if(do_mob(user, target, 30))
-		if(remove_fuel(0))
+		if(use(0))
 			var/static/list/repair_messages = list(
 				"patches some dents",
 				"mends some tears",
@@ -422,7 +428,7 @@
 			)
 			affecting.heal_damage(brute = 15, robo_repair = TRUE)
 			user.visible_message(SPAN_WARNING("\The [user] [pick(repair_messages)] on [target]'s [affecting.name] with \the [src]."))
-			playsound(target, 'sound/items/welder_pry.ogg', 15)
+			playsound(target, usesound, 15)
 			repair_organ(user, target, affecting)
 
 /obj/item/weldingtool/afterattack(obj/O, mob/user, proximity)
@@ -467,7 +473,7 @@
 				return
 		return
 	if (welding)
-		remove_fuel(1)
+		use(1)
 		var/turf/location = get_turf(user)
 		if(isliving(O))
 			var/mob/living/L = O
@@ -483,12 +489,11 @@
 /obj/item/weldingtool/proc/get_fuel()
 	return REAGENT_VOLUME(reagents, /decl/reagent/fuel)
 
-//Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob. This should probably be renamed to use()
-/obj/item/weldingtool/proc/remove_fuel(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
+//Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob.
+/obj/item/weldingtool/use(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
 	if(!welding)
 		return 0
 	else if(welding > 0 && colourChange)
-		set_light(0.7, 2, l_color = LIGHT_COLOR_CYAN)
 		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
 	if(get_fuel() >= amount)
 		reagents.remove_reagent(/decl/reagent/fuel, amount)
@@ -530,6 +535,7 @@
 			damtype = BURN
 			w_class = ITEMSIZE_LARGE
 			welding = TRUE
+			hitsound = SOUNDS_LASER_MEAT
 			attack_verb = list("scorched", "burned", "blasted", "blazed")
 			update_icon()
 			set_processing(TRUE)
@@ -679,7 +685,7 @@
 		return
 	return ..()
 
-/obj/item/weldingtool/experimental/remove_fuel(amount, mob/M, colourChange)
+/obj/item/weldingtool/experimental/use(amount, mob/M, colourChange)
 	. = ..(overcap ? amount * 3 : amount, M, colourChange)
 	if(!. && welding && overcap) // to ensure that the fuel gets used even if the amount is high
 		reagents.remove_reagent(/decl/reagent/fuel, get_fuel())
@@ -736,6 +742,38 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "crowbar_red"
 	item_state = "crowbar_red"
+
+/obj/item/crowbar/rescue_axe //Imagine something like a crash axe found on airplanes or forcing tools used by emergency services. This is a tool first and foremost.
+	name = "rescue axe"
+	desc = "A short lightweight emergency tool meant to chop, pry and pierce. Most of the handle is insulated excepting the wedge at the very bottom. The axe head atop the tool has a short pick opposite of the blade."
+	icon_state = "rescue_axe"
+	item_state = "rescue_axe"
+	w_class = ITEMSIZE_NORMAL
+	force = 12
+	throwforce = 12
+	flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
+	sharp = TRUE
+	edge = TRUE
+	origin_tech = list(TECH_ENGINEERING = 2)
+
+/obj/item/crowbar/rescue_axe/resolve_attackby(atom/A)//In practice this means it just does full damage to reinforced windows, which halve the force of attacks done against it already. That's just fine.
+	if(istype(A, /obj/structure/window))
+		force = initial(force) * 2
+	else
+		force = initial(force)
+	. = ..()
+
+/obj/item/crowbar/rescue_axe/iscrowbar()//go ham
+	if(ismob(loc))
+		var/mob/M = loc
+		if(M.a_intent && M.a_intent == I_HURT)
+			return FALSE
+
+	return TRUE
+
+/obj/item/crowbar/rescue_axe/red
+	icon_state = "rescue_axe_red"
+	item_state = "rescue_axe_red"
 
 // Pipe wrench
 /obj/item/pipewrench
@@ -979,7 +1017,7 @@
 	attack_verb = list("smashed", "hammered")
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
-	usesound = /decl/sound_category/crowbar_sound
+	usesound = /decl/sound_category/hammer_sound
 
 /obj/item/hammer/Initialize()
 	. = ..()

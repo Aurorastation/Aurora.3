@@ -133,6 +133,12 @@
 	category = "General"
 	is_stack = 1
 
+/datum/autolathe/recipe/barbed_wire
+	name = "barbed wire"
+	path = /obj/item/stack/barbed_wire
+	category = "General"
+	is_stack = 1
+
 /datum/autolathe/recipe/knife
 	name = "kitchen knife"
 	path = /obj/item/material/knife
@@ -408,6 +414,11 @@
 	path = /obj/item/device/destTagger
 	category = "General"
 
+/datum/autolathe/recipe/cratescanner
+	name = "crate contents scanner"
+	path = /obj/item/device/cratescanner
+	category = "General"
+
 /datum/autolathe/recipe/debugger
 	name = "debugger"
 	path = /obj/item/device/debugger
@@ -493,9 +504,21 @@
 	hidden = 1
 	category = "Arms and Ammunition"
 
+/datum/autolathe/recipe/magazine_carbinepolymer
+	name = "ammunition (5.56mm, polymer)"
+	path = /obj/item/ammo_magazine/a556/polymer
+	hidden = 1
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/magazine_smallcarbine
 	name = "ammunition (5.56mm, small)"
 	path = /obj/item/ammo_magazine/a556/carbine
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_smallcarbinepolymer
+	name = "ammunition (5.56mm, small polymer)"
+	path = /obj/item/ammo_magazine/a556/carbine/polymer
 	hidden = 1
 	category = "Arms and Ammunition"
 

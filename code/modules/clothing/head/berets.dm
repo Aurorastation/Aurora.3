@@ -67,8 +67,8 @@
 	item_state = "beret_hydro"
 
 /obj/item/clothing/head/beret/cargo
-	name = "cargo beret"
-	desc = "A beret with the cargo insignia emblazoned on it. Get attacked by a manhack hiding in a crate - in style!"
+	name = "operations beret"
+	desc = "A beret with the operations insignia emblazoned on it."
 	icon_state = "beret_cargo"
 	item_state = "beret_cargo"
 
@@ -145,10 +145,16 @@
 	item_state = "heph"
 
 /obj/item/clothing/head/beret/corporate/pmc
-	name = "eridani beret"
-	desc = "A beret with the Eridani PMC insignia emblazoned on it."
+	name = "PMCG beret"
+	desc = "A beret with the PMCG insignia emblazoned on it."
 	icon_state = "pmc"
 	item_state = "pmc"
+
+/obj/item/clothing/head/beret/corporate/pmc/epmc
+	name = "epmc beret"
+	desc = "A beret with the Eridani Private Military Contractor logo emblazoned on it."
+	icon_state = "epmc"
+	item_state = "epmc"
 
 /obj/item/clothing/head/beret/corporate/idris
 	name = "idris beret"
@@ -208,6 +214,6 @@
 
 /obj/item/clothing/head/beret/centcom/commander
 	name = "commander's beret"
-	desc = "A black beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
+	desc = "A black beret adorned with the crest of an ERT detachment. Worn by commanders of NanoTrasen response teams."
 	icon_state = "centcomcaptain"
 	item_state = "centcomcaptain"

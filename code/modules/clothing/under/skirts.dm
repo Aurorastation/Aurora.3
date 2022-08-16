@@ -83,6 +83,14 @@
 	item_state = "skirt_tube"
 	worn_state = "skirt_tube"
 
+/obj/item/clothing/under/skirt/straightlong
+	name = "straight long skirt"
+	desc = "A skirt that goes all the way down to the ankles."
+	desc_fluff = "Enough fabric for two skirts, and then some."
+	icon_state = "skirt_straightlong"
+	item_state = "skirt_straightlong"
+	worn_state = "skirt_straightlong"
+
 /obj/item/clothing/under/skirt/offworlder
 	name = "\improper CR skirt"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear. This variant seems to have a poofy skirt and longer sleeves than normal."

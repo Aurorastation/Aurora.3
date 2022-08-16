@@ -1,13 +1,13 @@
 /datum/outfit/admin/ert/fsf
 	name = "Free Solarian Fleets Marine"
 
-	uniform = /obj/item/clothing/under/rank/fatigues/marine
+	uniform = /obj/item/clothing/under/rank/sol/marine
 	shoes = /obj/item/clothing/shoes/swat/ert
 	gloves = /obj/item/clothing/gloves/swat/ert
 	belt = /obj/item/storage/belt/military
-	back = /obj/item/storage/backpack/satchel_norm
-	head = /obj/item/clothing/head/helmet/space/void/sol
-	suit = /obj/item/clothing/suit/space/void/sol
+	back = /obj/item/storage/backpack/satchel/norm
+	head = /obj/item/clothing/head/helmet/space/void/sol/fsf
+	suit = /obj/item/clothing/suit/space/void/sol/fsf
 	suit_store = /obj/item/gun/projectile/automatic/rifle/sol
 	id = /obj/item/card/id/distress/fsf
 	l_pocket = /obj/item/tank/emergency_oxygen/double
@@ -37,7 +37,7 @@
 	name = "Free Solarian Fleets Medic"
 
 	belt = /obj/item/storage/belt/medical/first_responder/combat
-	back = /obj/item/storage/backpack/satchel_med
+	back = /obj/item/storage/backpack/satchel/med
 	glasses = /obj/item/clothing/glasses/hud/health
 	suit_store = /obj/item/gun/projectile/shotgun/pump/combat/sol
 	gloves = /obj/item/clothing/gloves/latex
@@ -107,11 +107,11 @@
 		/obj/item/ammo_magazine/mc9mm = 2,
 		/obj/item/handcuffs/ziptie = 2
 	)
-	
+
 /datum/outfit/admin/ert/fsf/synth
 	name = "Free Solarian Fleets Synthetic Unit"
 
-	uniform = /obj/item/clothing/under/rank/fatigues
+	uniform = /obj/item/clothing/under/rank/sol
 	accessory = /obj/item/clothing/accessory/storage/webbingharness/pouches/ert
 	accessory_contents = list(/obj/item/gun/projectile/pistol/sol = 1, /obj/item/ammo_magazine/mc9mm = 2)
 	shoes = /obj/item/clothing/shoes/jackboots

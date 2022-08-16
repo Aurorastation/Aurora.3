@@ -10,7 +10,7 @@
 	id = /obj/item/card/id
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1
+		/obj/item/storage/box/survival/engineer = 1
 	)
 
 	id_icon = "centcom"
@@ -50,7 +50,7 @@
 	belt = /obj/item/storage/belt/security
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/clothing/head/helmet/swat/peacekeeper = 1,
 		/obj/item/clothing/accessory/holster/hip = 1,
 		/obj/item/gun/energy/disruptorpistol/magnum = 1
@@ -204,7 +204,7 @@
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs = 1
 	)
@@ -227,7 +227,7 @@
 	)
 
 	backpack_contents = list(
-		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/storage/box/zipties = 1,
 		/obj/item/clothing/head/helmet = 1
 	)
@@ -248,7 +248,7 @@
 
 	gloves = /obj/item/clothing/gloves/white
 	belt = /obj/item/storage/belt/medical
-	back = /obj/item/storage/backpack/satchel_med
+	back = /obj/item/storage/backpack/satchel/med
 	accessory = /obj/item/clothing/accessory/storage/white_vest
 	accessory_contents = list(/obj/item/stack/medical/advanced/bruise_pack = 1, /obj/item/stack/medical/advanced/ointment = 1, /obj/item/reagent_containers/glass/bottle/mortaphenyl = 1)
 
@@ -284,7 +284,7 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 
 	backpack = /obj/item/storage/backpack/pharmacy
-	satchel = /obj/item/storage/backpack/satchel_pharm
+	satchel = /obj/item/storage/backpack/satchel/pharm
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
 	messengerbag = /obj/item/storage/backpack/messenger/pharm
 

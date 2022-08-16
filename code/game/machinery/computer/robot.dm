@@ -1,10 +1,12 @@
 /obj/machinery/computer/robotics
 	name = "robotics control console"
 	desc = "Used to remotely lockdown or detonate linked cyborgs."
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/modular_console.dmi'
 
-	icon_screen = "sci"
-	light_color = "#a97faa"
+	icon_screen = "robot"
+	icon_keyboard = "purple_key"
+	light_color = LIGHT_COLOR_PURPLE
+
 	req_access = list(access_robotics)
 	circuit = /obj/item/circuitboard/robotics
 

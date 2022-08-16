@@ -62,7 +62,7 @@
 	softcaps["softcap, hydroponics"] = /obj/item/clothing/head/softcap/hydro
 	softcaps["softcap, cargo"] = /obj/item/clothing/head/softcap/cargo
 	softcaps["softcap, mining"] = /obj/item/clothing/head/softcap/miner
-	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/janitor
+	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/custodian
 	softcaps["softcap, tcfl"] = /obj/item/clothing/head/softcap/tcfl
 
 	gear_tweaks += new /datum/gear_tweak/path(softcaps)
@@ -137,10 +137,11 @@
 /datum/gear/head/hardhat/New()
 	..()
 	var/list/hardhat = list()
-	hardhat["hard hat, yellow"] = /obj/item/clothing/head/hardhat
-	hardhat["hard hat, blue"] = /obj/item/clothing/head/hardhat/dblue
-	hardhat["hard hat, orange"] = /obj/item/clothing/head/hardhat/orange
-	hardhat["hard hat, red"] = /obj/item/clothing/head/hardhat/red
+	hardhat["hard hat, operations yellow"] = /obj/item/clothing/head/hardhat
+	hardhat["hard hat, command blue"] = /obj/item/clothing/head/hardhat/dblue
+	hardhat["hard hat, engineering orange"] = /obj/item/clothing/head/hardhat/orange
+	hardhat["hard hat, zavodskoi red"] = /obj/item/clothing/head/hardhat/red
+	hardhat["hard hat, hephaestus green"] = /obj/item/clothing/head/hardhat/green
 	gear_tweaks += new /datum/gear_tweak/path(hardhat)
 
 /datum/gear/head/flowercrown
@@ -267,11 +268,11 @@
 /datum/gear/head/surgical/New()
 	..()
 	var/list/surgical = list()
-	surgical["surgical cap, nanotrasen navy blue"] = /obj/item/clothing/under/rank/medical/surgeon/zeng
-	surgical["surgical cap, zeng-hu purple"] = /obj/item/clothing/under/rank/medical/surgeon/zeng
+	surgical["surgical cap, nanotrasen navy blue"] = /obj/item/clothing/head/surgery
+	surgical["surgical cap, zeng-hu purple"] = /obj/item/clothing/head/surgery/zeng
 	surgical["surgical cap, PMCG blue"] = /obj/item/clothing/head/surgery/pmc
-	surgical["surgical cap, zavodskoi black"] = /obj/item/clothing/under/rank/medical/surgeon/zavod
-	surgical["surgical cap, idris green"] = /obj/item/clothing/under/rank/medical/surgeon/idris
+	surgical["surgical cap, zavodskoi black"] = /obj/item/clothing/head/surgery/zavod
+	surgical["surgical cap, idris green"] = /obj/item/clothing/head/surgery/idris
 	gear_tweaks += new /datum/gear_tweak/path(surgical)
 
 /datum/gear/head/headbando
@@ -357,6 +358,7 @@
 	gadpathur["gadpathurian engineer beret"] = /obj/item/clothing/head/beret/gadpathur/engineer
 	gadpathur["gadpathurian medical beret"] = /obj/item/clothing/head/beret/gadpathur/medical
 	gadpathur["gadpathurian turban"] = /obj/item/clothing/head/turban/gadpathur
+	gadpathur["gadpathurian patrol cap"] = /obj/item/clothing/head/ushanka/gadpathur
 	gear_tweaks += new /datum/gear_tweak/path(gadpathur)
 
 /datum/gear/head/dominia
@@ -371,7 +373,7 @@
 
 /datum/gear/head/hairnet
 	display_name = "hairnet"
-	path = /obj/item/clothing/head/surgery/hairnet
+	path = /obj/item/clothing/head/hairnet
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /*

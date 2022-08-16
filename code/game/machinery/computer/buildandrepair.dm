@@ -4,7 +4,7 @@
 	density = 1
 	anchored = 0
 	name = "computer frame"
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/modular_console.dmi'
 	icon_state = "0"
 	build_amt = 5
 	var/state = 0
@@ -14,19 +14,17 @@
 	switch(state)
 		if(0)
 			if(P.iswrench())
-				playsound(src.loc, P.usesound, 50, 1)
-				if(do_after(user, 20/P.toolspeed))
+				if(P.use_tool(src, user, 20, volume = 50))
 					to_chat(user, "<span class='notice'>You wrench the frame into place.</span>")
 					src.anchored = 1
 					src.state = 1
 				return TRUE
 			if(P.iswelder())
 				var/obj/item/weldingtool/WT = P
-				if(!WT.remove_fuel(0, user))
+				if(!WT.use(0, user))
 					to_chat(user, "The welding tool must be on to complete this task.")
 					return TRUE
-				playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
-				if(do_after(user, 20/P.toolspeed))
+				if(P.use_tool(src, user, 20, volume = 50))
 					if(!src || !WT.isOn()) return
 					to_chat(user, "<span class='notice'>You deconstruct the frame.</span>")
 					new /obj/item/stack/material/steel( src.loc, 5 )
@@ -34,8 +32,7 @@
 				return TRUE
 		if(1)
 			if(P.iswrench())
-				playsound(src.loc, P.usesound, 50, 1)
-				if(do_after(user, 20/P.toolspeed))
+				if(P.use_tool(src, user, 20, volume = 50))
 					to_chat(user, "<span class='notice'>You unfasten the frame.</span>")
 					src.anchored = 0
 					src.state = 0

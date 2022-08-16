@@ -77,6 +77,7 @@
 			qdel(src)
 		else
 			to_chat(user, "<span class='warning'>You need one length of cable to finish the balloon!</span>")
+	. = ..()
 
 /obj/item/clothing/gloves/latex/nitrile
 	name = "nitrile gloves"
@@ -99,7 +100,7 @@
 	item_state = "nitrile"
 	species_restricted = list(BODYTYPE_TAJARA)
 
-/obj/item/clothing/gloves/latex/nitrile/vaurca 
+/obj/item/clothing/gloves/latex/nitrile/vaurca
 	name = "vaurca nitrile gloves"
 	desc = "Sterile nitrile gloves. Designed for Vaurca use."
 	icon_state = "nitrile"
@@ -139,8 +140,30 @@
 	name = "tajaran leather gloves"
 	species_restricted = list(BODYTYPE_TAJARA)
 
-/obj/item/clothing/gloves/botanic_leather/vaurca 
+/obj/item/clothing/gloves/botanic_leather/vaurca
 	name = "vaurca leather gloves"
+	species_restricted = list(BODYTYPE_VAURCA)
+
+/obj/item/clothing/gloves/janitor
+	name = "rubber cleaning gloves"
+	desc = "A pair of thick, long, yellow rubber gloves, designed to protect the wearer from the splash of industrial strength cleaners. Not certified for electrical work."
+	icon_state = "janitor"
+	item_state = "janitor"
+	permeability_coefficient = 0.01 //Prevents chemical seepage as well as latex, but without any of the sterility or protection
+	siemens_coefficient = 0.50
+	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
+
+/obj/item/clothing/gloves/janitor/unathi
+	name = "unathi cleaning gloves"
+	species_restricted = list(BODYTYPE_UNATHI)
+
+/obj/item/clothing/gloves/janitor/tajara
+	name = "tajaran cleaning gloves"
+	species_restricted = list(BODYTYPE_TAJARA)
+
+/obj/item/clothing/gloves/janitor/vaurca
+	name = "vaurca cleaning gloves"
 	species_restricted = list(BODYTYPE_VAURCA)
 
 	/*

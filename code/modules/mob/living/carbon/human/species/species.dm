@@ -122,6 +122,8 @@
 	var/organ_med_burn_message = "<span class='danger'><font size=3>Your %PARTNAME% burns horribly!</font></span>"
 	var/organ_high_burn_message = "<span class='danger'><font size=4>Your %PARTNAME% feels like it's on fire!</font></span>"
 
+	var/list/stutter_verbs = list("stammers", "stutters")
+
 	// Environment tolerance/life processes vars.
 	var/reagent_tag                                   //Used for metabolizing reagents.
 	var/breath_pressure = 16                          // Minimum partial pressure safe for breathing, kPa
@@ -612,17 +614,18 @@
 			H.adjustHalLoss(remainder*0.25)
 		H.adjustOxyLoss(remainder * 0.2) //Keeping oxyloss small when out of stamina to prevent old issue where running until exhausted sometimes gave you brain damage.
 
+	var/shock = H.get_shock()
 	if(!pre_move)
 		H.adjustHalLoss(remainder*0.3)
 		H.updatehealth()
-		if((H.get_shock() >= 10) && prob(H.get_shock() *2))
-			H.flash_pain(H.get_shock())
+		if((shock >= 10) && prob(shock *2))
+			H.flash_pain(shock)
 
-	if((H.get_shock() + H.getOxyLoss()*2) >= (exhaust_threshold * 0.8))
+	if((shock + H.getOxyLoss()*2) >= (exhaust_threshold * 0.8))
 		H.m_intent = M_WALK
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
-		H.flash_pain(H.get_shock())
+		H.flash_pain(shock)
 		return 0
 
 	if(!pre_move)
@@ -805,7 +808,7 @@
 				spark(H, 5)
 		else if (E.is_broken() || !E.is_usable())
 			stance_damage += 1
-		else if (E.is_dislocated())
+		else if (ORGAN_IS_DISLOCATED(E))
 			stance_damage += 0.5
 
 	// Canes and crutches help you stand (if the latter is ever added)

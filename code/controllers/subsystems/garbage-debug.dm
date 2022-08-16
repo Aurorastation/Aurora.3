@@ -363,7 +363,6 @@
 	SearchVar(SSnightlight)
 	SearchVar(SSorbit)
 	SearchVar(SSoverlays)
-	SearchVar(SSparallax)
 	SearchVar(SSradio)
 	SearchVar(SSrecords)
 	SearchVar(sun)
@@ -377,9 +376,9 @@
 	SearchVar(SSdisease)
 	SearchVar(SSmodifiers)
 	SearchVar(SSnanoui)
-	SearchVar(SSpipenet)
 	SearchVar(SSprocessing)
 	SearchVar(SSshuttle)
+	SearchVar(SSskybox)
 	SearchVar(SSmapping)
 	SearchVar(base_law_type)
 	SearchVar(discord_bot)
@@ -864,5 +863,6 @@
 	SearchVar(mark)
 	SearchVar(contamination_overlay)
 	SearchVar(vsc)
+	SearchVar(cable_list)
 
 #endif

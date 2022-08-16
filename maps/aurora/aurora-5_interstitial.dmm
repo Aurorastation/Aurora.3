@@ -989,7 +989,7 @@
 /obj/structure/ladder/up{
 	pixel_y = 16
 	},
-/obj/structure/sign/emerg_exitZ{
+/obj/structure/sign/emergency/exit/ladder{
 	dir = 1;
 	pixel_x = 32;
 	tag = "icon-emerg_exitZ (NORTH)"
@@ -3654,7 +3654,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/sign/emerg_exit{
+/obj/structure/sign/emergency/exit{
 	pixel_x = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -10150,7 +10150,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "PP" = (
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /obj/item/reagent_containers/spray/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,
 /obj/item/grenade/chem_grenade/cleaner,

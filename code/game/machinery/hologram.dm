@@ -36,7 +36,6 @@ Possible to do for anyone motivated enough:
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
-	use_power = 1
 
 	var/holopad_id
 
@@ -56,6 +55,8 @@ Possible to do for anyone motivated enough:
 	var/forcing_call = FALSE
 
 	var/max_overmap_call_range = 0
+
+	var/list/linked_pdas = list()
 
 /obj/machinery/hologram/holopad/Initialize()
 	. = ..()
@@ -94,8 +95,9 @@ Possible to do for anyone motivated enough:
 		icon_state = "holopad0[icon_state_suffix]"
 		set_light(0)
 
-/obj/machinery/hologram/holopad/attack_hand(var/mob/user) //Carn: Hologram requests.
-	user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
+/obj/machinery/hologram/holopad/attack_hand(var/mob/user)
+	if(user.Adjacent(src))
+		user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
 	if(incoming_connection)
 		audible_message("The pad hums quietly as it establishes a connection.")
 		take_call()
@@ -182,13 +184,23 @@ Possible to do for anyone motivated enough:
 
 	if(forced_call)
 		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming call with command authorization from [connected_pad.holopad_id].\"")
+		connected_pad.notify_pdas(connected_pad.holopad_id)
 		to_chat(user, SPAN_NOTICE("Establishing forced connection to the holopad in [connected_pad.holopad_id]."))
 		connected_pad.forced = TRUE
 		sleep(80)
 		connected_pad.take_call()
 	else
 		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming communications request from [connected_pad.connected_pad.holopad_id].\"")
+		connected_pad.notify_pdas(connected_pad.connected_pad.holopad_id) //what in the everloving fuck is connected_pad.connected_pad?
 		to_chat(user, SPAN_NOTICE("Trying to establish a connection to the holopad in [connected_pad.holopad_id]... Please await confirmation from recipient."))
+
+/obj/machinery/hologram/holopad/proc/notify_pdas(var/caller)
+	for(var/obj/item/modular_computer/MC in linked_pdas)
+		if(!QDELETED(MC))
+			MC.audible_message("<b>\The [MC]</b> beeps, <i><span class='notice'>\"Incoming communications request from <b>[caller]</b> at <b>[holopad_id]</b>!\"</span></i>")
+			playsound(MC, 'sound/machines/chime.ogg', 25)
+		else
+			linked_pdas -= MC
 
 /obj/machinery/hologram/holopad/proc/take_call()
 	incoming_connection = FALSE
@@ -226,6 +238,19 @@ Possible to do for anyone motivated enough:
 	if(LAZYISIN(active_holograms, user))
 		return 0
 	return -1
+
+/obj/machinery/hologram/holopad/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/modular_computer))
+		var/obj/item/modular_computer/MC = W
+		if(!(MC in linked_pdas))
+			linked_pdas |= MC
+			to_chat(user, SPAN_NOTICE("You link \the [MC] to \the [src]."))
+			return TRUE
+		else
+			linked_pdas -= MC
+			to_chat(user, SPAN_NOTICE("You unlink \the [MC] from \the [src]."))
+			return TRUE
+	return FALSE
 
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/user)
 	if(!istype(user))
@@ -343,7 +368,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	LAZYREMOVE(active_holograms, M)
 	update_icon()
 
-/obj/machinery/hologram/holopad/machinery_process()
+/obj/machinery/hologram/holopad/process()
 	for(var/thing in active_holograms)
 		var/mob/M = thing
 		var/is_inactive_ai = FALSE
@@ -358,7 +383,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(!check_connected_pad())
 			return TRUE
 
-	use_power(power_per_hologram * LAZYLEN(active_holograms))
+	use_power_oneoff(power_per_hologram * LAZYLEN(active_holograms))
 
 	if(last_request + 20 SECONDS < world.time && incoming_connection)
 		incoming_connection = FALSE
@@ -439,7 +464,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram
 	icon = 'icons/obj/holopad.dmi'
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 5
 	active_power_usage = 100
 
@@ -461,6 +485,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	clear_holos(TRUE)
 	listening_objects -= src
 	SSmachinery.all_holopads -= src
+	linked_pdas.Cut()
 	return ..()
 
 /obj/effect/overlay/hologram
