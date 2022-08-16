@@ -102,7 +102,7 @@
 			"A massive display is decorated with examples of seemingly delicately crafted Zo'rane artwork.",
 			"Workers mull about the museum, seemingly taking in the atmosphere brought forth by the displays.", 
 			"An exhibit showcases reportedly hand-painted landscapes that have won awards.", 
-			"A melodic harmony is carried from a distant display marked with 'Music', only perceptible due to the quiet atmosphere of the sounding exhibition.", 
+			"A melodic harmony is carried from a distant display marked with 'Music' only perceptible due to the quiet atmosphere of the sounding exhibition.", 
 			"Sculptures of notable Zo'rane historical figures dominate their respective corners, carved from a variety of rare materials.", 
 			"Groups of workers move around, seemingly taking a guided tour through the museum, watching each art piece explained to them attentively"
 		)
