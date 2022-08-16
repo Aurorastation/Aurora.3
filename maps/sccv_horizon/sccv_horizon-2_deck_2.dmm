@@ -13030,7 +13030,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "EngineVent";
-	is_critical = 1;
 	name = "Reactor Vent"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -22157,7 +22156,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "EngineVent";
-	is_critical = 1;
 	name = "Reactor Vent"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -29871,7 +29869,6 @@
 	dir = 2;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
-	is_critical = 1;
 	name = "Reactor Blast Door";
 	opacity = 0
 	},
@@ -34016,7 +34013,6 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
-	is_critical = 1;
 	name = "Reactor Blast Door";
 	opacity = 0
 	},

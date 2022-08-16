@@ -10580,7 +10580,6 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
-	is_critical = 1;
 	name = "Reactor Blast Door";
 	opacity = 0
 	},
@@ -10597,7 +10596,6 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
-	is_critical = 1;
 	name = "Reactor Blast Door";
 	opacity = 0
 	},
@@ -10617,7 +10615,6 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
-	is_critical = 1;
 	name = "Reactor Blast Door";
 	opacity = 0
 	},
@@ -12401,7 +12398,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "EngineVent";
-	is_critical = 1;
 	name = "Reactor Vent"
 	},
 /turf/simulated/floor/airless{
@@ -12449,7 +12445,6 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
-	is_critical = 1;
 	name = "Reactor Blast Door";
 	opacity = 0
 	},
@@ -59897,7 +59892,6 @@
 "eiB" = (
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	is_critical = 1;
 	name = "shutter"
 	},
 /obj/machinery/conveyor{
