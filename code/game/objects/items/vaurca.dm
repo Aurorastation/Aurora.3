@@ -1,6 +1,6 @@
 /obj/item/skrell_projector/vaurca_projector
 	name = "virtual reality looking glass"
-	desc = "A holographic projector using advanced technology that immerses someone into a scene using full panoramic holograms, smell and 3D spatial sound projection. It is developed and distributed by Hive Zo'ra and allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur."
+	desc = "A holographic projector using advanced technology that immerses someone into a scene using full panoramic holograms, smell and 3D spatial sound projection. It is developed and distributed by Hive Zo'ra and allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur or Queen Athvur."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "zora_projector"
 	worlds_selection = list("Vaur's Tranquil Ocean", "Vaur's Hive War Exhibition", "Vaur's Celestial Landing Ground", "Vaur's City of New Sedantis", "Vaur's Titan Prime Recreation", "Athvur's City of Paradise", "Athvur's Garden of Splendour", "Athvur's Museum of Fine Art")
