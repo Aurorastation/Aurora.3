@@ -3,7 +3,7 @@
 	desc = "A holographic projector using advanced technology that immerses someone into a scene using full panoramic holograms, smell and 3D spatial sound projection. It is developed and distributed by Hive Zo'ra and allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "zora_projector"
-	worlds_selection = list("Ocean", "Hive War Exhibition", "Celestial Landing Ground", "City of New Sedantis", "Titan Prime")
+	worlds_selection = list("Vaur's Tranquil Ocean", "Vaur's Hive War Exhibition", "Vaur's Celestial Landing Ground", "Vaur's City of New Sedantis", "Vaur's Titan Prime Recreation", "Athvur's City of Paradise", "Athvur's Garden of Splendour")
 	message_frequency = 10
 	var/hologram_message
 	var/possible_messages
@@ -29,7 +29,7 @@
 	if(choice)
 		selected_world = choice
 	switch(choice)
-		if("Ocean")
+		if("Vaur's Tranquil Ocean")
 			light_color = "#1122c2"
 			possible_messages = list(
 			"You see a golden fortress floating majestically above an ocean of sapphire.",
@@ -39,14 +39,14 @@
             "The turquoise water emits a jubilant smell of freshly cut lemons which lasts for only for a moment.",
             "You see the gas giant Sedantis dominating a starry sky."
 			)
-		if("Hive War Exhibition")
+		if("Vaur's Hive War Exhibition")
 			light_color = "#83290b"
 			possible_messages = list(
 			"You see a carefully crafted exhibition detailing the Great Hive War. It explains in brief the details of the event through paintings and dioramas.",
 			"You smell burning and rusted metal. An exhibition showcases the Battle of a Thousand Titans.",
 			"You see a  memorial to the lives lost, a sad hymn flowing in the background."
 			)
-		if("Celestial Landing Ground")
+		if("Vaur's Celestial Landing Ground")
 			light_color = "#f5e61d"
 			possible_messages = list(
 			"An awe inspiring fortress of gold dominates the landscape and bathes the surrounding area in yellow luminescence.",
@@ -57,7 +57,7 @@
             "You see the gas giant Sedantis dominating a starry sky.",
 			"For a moment the Golden Fortress towering above starts to glimmer majestically, catching the light from the imposing gas giant in the sky."
 			)
-		if("City of New Sedantis")
+		if("Vaur's City of New Sedantis")
 			light_color = "#1395c9"
 			possible_messages = list(
 			"A towering cavernous city takes up the viewfinder, great buildings of stone jutting out of the ground and twisting towards the ceiling.",
@@ -67,9 +67,7 @@
             "A distant forge emits Phoron gas from a tower atop its lofty form, as worker drones collect lilac stained glass from within.",
 			"A group of Vaurca warriors move through the streets below seemingly practicing for some task unknown."
 			)
-
-
-		if("Titan Prime")
+		if("Vaur's Titan Prime Recreation")
 			light_color = "#418144"
 			possible_messages = list(
 			"An imposing vessel of steel emits a soft glow as it travels through the starry sky aimlessly.",
@@ -77,7 +75,22 @@
 			"A green light flickers from the steel vessel above bathing the surrounding idyllic landscape in its majesty.",
             "You see the gas giant Sedantis dominating a starry sky, an imposing vessel of steel blotting out but a small portion of it."
 			)
-
+		if("Athvur's City of Paradise")
+		light_color = "#eff3ef"
+		possible_messages = list(
+		"A transcendent cityscape dominates the area, with towering structures of elegant stone sitting atop a blanket of clouds.",
+		"In the distance of the cityscape towers a set of sublime sculptures, accented by light from beneath the clouds.",
+		"Orchestral music resonates from within an auditorium, the melody carried through the heavens.",
+		"An enchanting smell of cedar, cherry and morning freshness penetrates through the air."
+		)
+		if("Athvur's Garden of Splendour")
+		light_color = "#34b434"
+		possible_messages = list( 
+		"A tranquil garden landscape stretches out to the horizon, its peaceful scenery embellished with flowers of every variety.",
+		"Harmonious music accents an indescribable aroma of flowers.",
+		"In the distance of the garden, beyond the soothing plants, workers move through an ornate gazebo.",
+		"A fountain sits nestled within a thicket clearing, producing a golden substance from which gathered workers drink.",
+		)
 		else
 			brightness = 0
 			working = FALSE
