@@ -76,21 +76,22 @@
             "You see the gas giant Sedantis dominating a starry sky, an imposing vessel of steel blotting out but a small portion of it."
 			)
 		if("Athvur's City of Paradise")
-		light_color = "#eff3ef"
-		possible_messages = list(
+			light_color = "#eff3ef"
+			possible_messages = list(
 		"A transcendent cityscape dominates the area, with towering structures of elegant stone sitting atop a blanket of clouds.",
 		"In the distance of the cityscape towers a set of sublime sculptures, accented by light from beneath the clouds.",
 		"Orchestral music resonates from within an auditorium, the melody carried through the heavens.",
 		"An enchanting smell of cedar, cherry and morning freshness penetrates through the air."
 		)
 		if("Athvur's Garden of Splendour")
-		light_color = "#34b434"
-		possible_messages = list( 
+			light_color = "#34b434"
+			possible_messages = list( 
 		"A tranquil garden landscape stretches out to the horizon, its peaceful scenery embellished with flowers of every variety.",
 		"Harmonious music accents an indescribable aroma of flowers.",
 		"In the distance of the garden, beyond the soothing plants, workers move through an ornate gazebo.",
 		"A fountain sits nestled within a thicket clearing, producing a golden substance from which gathered workers drink.",
 		)
+		
 		else
 			brightness = 0
 			working = FALSE
