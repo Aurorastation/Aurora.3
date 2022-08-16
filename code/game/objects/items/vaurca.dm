@@ -7,7 +7,7 @@
 	message_frequency = 10
 	var/hologram_message
 	var/possible_messages
-	var/first_message
+	var/first_message = FALSE
 
 
 /obj/item/skrell_projector/vaurca_projector/attack_self(mob/user as mob)
@@ -103,6 +103,6 @@
 
 		else
 			hologram_message = pick(possible_messages)
-
+			first_message = TRUE
 		if(hologram_message)
 			visible_message("<span class='notice'>[hologram_message]</span>")
