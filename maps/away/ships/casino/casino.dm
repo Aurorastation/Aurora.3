@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/casino
 	name = "Casino"
 	description = "A casino ship!"
-	suffix = "generic/casino/casino.dmm"
+	suffix = "ships/casino/casino.dmm"
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
 	spawn_cost = 1
@@ -18,7 +18,6 @@
 	name = "passenger liner"
 	class = "ICV"
 	desc = "A spaceborne casino slash passenger liner of an uncertain design. It's hardly nimble, quite defenceless and is likely far from any safe pre-planned route. Sensors detect that it is undamaged and without any signs of activity within."
-	color = "#bd6100"
 	icon_state = "ship_grey"
 	moving_state = "ship_grey_moving"
 	vessel_mass = 50000
@@ -110,7 +109,7 @@
 /obj/structure/casino/bj_table
 	name = "blackjack table"
 	desc = "This is a blackjack table. "
-	icon = 'maps/away/generic/casino/casino_sprites.dmi'
+	icon = 'maps/away/ships/casino/casino_sprites.dmi'
 	icon_state = "bj_left"
 	density = FALSE
 	anchored = TRUE
@@ -121,7 +120,7 @@
 /obj/structure/casino/craps
 	name = "craps table"
 	desc = "Craps table: roll dice!"
-	icon = 'maps/away/generic/casino/casino_sprites.dmi'
+	icon = 'maps/away/ships/casino/casino_sprites.dmi'
 	icon_state = "craps_top"
 	density = FALSE
 	anchored = TRUE

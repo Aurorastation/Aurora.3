@@ -108,6 +108,41 @@
 	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_WOOD)
 	canSmoothWith = list(src.type)
+	
+/turf/simulated/wall/birchwood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_BIRCH)
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/mahoganywood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_MAHOGANY)
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/maplewood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_MAPLE)
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/bamboowood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_BAMBOO)
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/ebonywood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_EBONY)
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/walnutwood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_WALNUT)
+	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/yewwood/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_YEW)
+	canSmoothWith = list(src.type)
 
 /turf/simulated/wall/rusty/Initialize(mapload)
 	canSmoothWith = list(src.type)

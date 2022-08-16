@@ -79,39 +79,39 @@
 	icon_state = "tile_woodcoloured"
 
 /obj/item/stack/tile/wood/coloured/birch
-	name = "birch floor tile"
+	name = "birch wood floor tile"
 	color = WOOD_COLOR_BIRCH 
 	build_type = /obj/item/stack/tile/wood/coloured/birch
 
-/obj/item/stack/tile/wood/coloured/rich
-	name = "rich wood floor tile"
+/obj/item/stack/tile/wood/coloured/mahogany
+	name = "mahogany wood floor tile"
 	color = WOOD_COLOR_RICH
-	build_type = /obj/item/stack/tile/wood/coloured/rich
+	build_type = /obj/item/stack/tile/wood/coloured/mahogany
 
-/obj/item/stack/tile/wood/coloured/pale
-	name = "pale wood floor tile"
+/obj/item/stack/tile/wood/coloured/maple
+	name = "maple wood floor tile"
 	color = WOOD_COLOR_PALE
-	build_type = /obj/item/stack/tile/wood/coloured/pale
+	build_type = /obj/item/stack/tile/wood/coloured/maple
 
-/obj/item/stack/tile/wood/coloured/pale2
-	name = "pale wood floor tile"
+/obj/item/stack/tile/wood/coloured/bamboo
+	name = "bamboo wood floor tile"
 	color = WOOD_COLOR_PALE2
-	build_type = /obj/item/stack/tile/wood/coloured/pale2
+	build_type = /obj/item/stack/tile/wood/coloured/bamboo
 
-/obj/item/stack/tile/wood/coloured/black
-	name = "black wood floor tile"
+/obj/item/stack/tile/wood/coloured/ebony
+	name = "ebony wood floor tile"
 	color = WOOD_COLOR_BLACK
-	build_type = /obj/item/stack/tile/wood/coloured/black
+	build_type = /obj/item/stack/tile/wood/coloured/ebony
 
-/obj/item/stack/tile/wood/coloured/chocolate
-	name = "chocolate wood floor tile"
+/obj/item/stack/tile/wood/coloured/walnut
+	name = "walnut wood floor tile"
 	color = WOOD_COLOR_CHOCOLATE
-	build_type = /obj/item/stack/tile/wood/coloured/chocolate
+	build_type = /obj/item/stack/tile/wood/coloured/walnut
 
-/obj/item/stack/tile/wood/coloured/yellow
-	name = "yellow wood floor tile"
+/obj/item/stack/tile/wood/coloured/yew
+	name = "yew wood floor tile"
 	color = WOOD_COLOR_YELLOW
-	build_type = /obj/item/stack/tile/wood/coloured/yellow
+	build_type = /obj/item/stack/tile/wood/coloured/yew
 
 /*
  * Carpets

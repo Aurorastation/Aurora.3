@@ -92,22 +92,22 @@
 /turf/simulated/floor/wood/coloured/birch
 	color = WOOD_COLOR_BIRCH
 
-/turf/simulated/floor/wood/coloured/rich
+/turf/simulated/floor/wood/coloured/mahogany
 	color = WOOD_COLOR_RICH
 
-/turf/simulated/floor/wood/coloured/pale
+/turf/simulated/floor/wood/coloured/walnut
 	color = WOOD_COLOR_PALE
 
-/turf/simulated/floor/wood/coloured/pale/alt
+/turf/simulated/floor/wood/coloured/bamboo
 	color = WOOD_COLOR_PALE2
 
-/turf/simulated/floor/wood/coloured/black
+/turf/simulated/floor/wood/coloured/ebony
 	color = WOOD_COLOR_BLACK
 
-/turf/simulated/floor/wood/coloured/chocolate
+/turf/simulated/floor/wood/coloured/walnut
 	color = WOOD_COLOR_CHOCOLATE
 
-/turf/simulated/floor/wood/coloured/yellow
+/turf/simulated/floor/wood/coloured/yew
 	color = WOOD_COLOR_YELLOW
 
 //Grass

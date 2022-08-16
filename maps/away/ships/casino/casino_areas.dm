@@ -1,5 +1,5 @@
 /area/casino
-	icon = 'maps/away/generic/casino/casino_sprites.dmi'
+	icon = 'maps/away/ships/casino/casino_sprites.dmi'
 	no_light_control = 1
 
 /area/casino/casino_mainfloor
@@ -72,6 +72,6 @@
 
 /area/shuttle/casino_cutter
 	name = "\improper Casino Cutter"
-	icon = 'maps/away/generic/casino/casino_sprites.dmi'
+	icon = 'maps/away/ships/casino/casino_sprites.dmi'
 	icon_state = "shuttle"
 	requires_power = TRUE

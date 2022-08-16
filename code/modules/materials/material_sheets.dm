@@ -312,6 +312,65 @@
 	amount = max_amount
 	update_icon()
 
+/obj/item/stack/material/wood/coloured
+	icon_state = "sheet-woodcolour"
+
+/obj/item/stack/material/wood/coloured/birch
+	color = WOOD_COLOR_BIRCH
+
+/obj/item/stack/material/wood/coloured/birch/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/mahogany
+	color = WOOD_COLOR_RICH
+
+/obj/item/stack/material/wood/coloured/mahogany/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/maple
+	color = WOOD_COLOR_PALE
+
+/obj/item/stack/material/wood/coloured/maple/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/bamboo
+	color = WOOD_COLOR_PALE2
+
+/obj/item/stack/material/wood/coloured/bamboo/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/ebony
+	color = WOOD_COLOR_BLACK
+
+/obj/item/stack/material/wood/coloured/ebony/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/walnut
+	color = WOOD_COLOR_CHOCOLATE
+
+/obj/item/stack/material/wood/coloured/walnut/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/wood/coloured/yew
+	color = WOOD_COLOR_YELLOW
+
+/obj/item/stack/material/wood/coloured/yew/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/woodlog
 	name = "log"
 	icon_state = "sheet-wood"

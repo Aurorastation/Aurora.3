@@ -267,29 +267,29 @@
 	color = WOOD_COLOR_BIRCH 
 	build_type = /obj/item/stack/tile/wood/coloured/birch
 
-/decl/flooring/wood/coloured/rich
+/decl/flooring/wood/coloured/mahogany
 	color = WOOD_COLOR_RICH
-	build_type = /obj/item/stack/tile/wood/coloured/rich
+	build_type = /obj/item/stack/tile/wood/coloured/mahogany
 
-/decl/flooring/wood/coloured/pale
+/decl/flooring/wood/coloured/maple
 	color = WOOD_COLOR_PALE
-	build_type = /obj/item/stack/tile/wood/coloured/pale
+	build_type = /obj/item/stack/tile/wood/coloured/maple
 
-/decl/flooring/wood/coloured/pale2
+/decl/flooring/wood/coloured/bamboo
 	color = WOOD_COLOR_PALE2
-	build_type = /obj/item/stack/tile/wood/coloured/pale2
+	build_type = /obj/item/stack/tile/wood/coloured/bamboo
 
-/decl/flooring/wood/coloured/black
+/decl/flooring/wood/coloured/ebony
 	color = WOOD_COLOR_BLACK
-	build_type = /obj/item/stack/tile/wood/coloured/black
+	build_type = /obj/item/stack/tile/wood/coloured/ebony
 
-/decl/flooring/wood/coloured/chocolate
+/decl/flooring/wood/coloured/walnut
 	color = WOOD_COLOR_CHOCOLATE
-	build_type = /obj/item/stack/tile/wood/coloured/chocolate
+	build_type = /obj/item/stack/tile/wood/coloured/walnut
 
-/decl/flooring/wood/coloured/yellow
+/decl/flooring/wood/coloured/yew
 	color = WOOD_COLOR_YELLOW
-	build_type = /obj/item/stack/tile/wood/coloured/yellow
+	build_type = /obj/item/stack/tile/wood/coloured/yew
 
 /decl/flooring/reinforced
 	name = "reinforced floor"
