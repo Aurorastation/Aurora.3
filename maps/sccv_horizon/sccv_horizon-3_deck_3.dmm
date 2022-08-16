@@ -3736,7 +3736,8 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_y = 24
+	pixel_y = 24;
+	is_critical = 1
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
