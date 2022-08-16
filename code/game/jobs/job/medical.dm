@@ -67,8 +67,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 6
-	spawn_positions = 6
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "the chief medical officer"
 	selection_color = "#15903a"
 	economic_modifier = 7
