@@ -42,7 +42,6 @@
 		"Security Cadet" = /datum/outfit/job/intern_sec/pmc,
 		"Investigator" =/datum/outfit/job/forensics/pmc,
 		"Physician" = /datum/outfit/job/doctor/pmc,
-		"Surgeon" = /datum/outfit/job/doctor/surgeon/pmc,
 		"Pharmacist" = /datum/outfit/job/pharmacist/pmc,
 		"Psychiatrist" = /datum/outfit/job/psychiatrist/pmc,
 		"Psychologist" = /datum/outfit/job/psychiatrist/pmc,
@@ -85,17 +84,6 @@
 	uniform = /obj/item/clothing/under/rank/medical/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	id = /obj/item/card/id/pmc
-
-/datum/outfit/job/doctor/surgeon/pmc
-	name = "Surgeon - PMC"
-
-	uniform = /obj/item/clothing/under/rank/medical/surgeon/pmc
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
-	id = /obj/item/card/id/pmc
-
-/datum/outfit/job/doctor/surgeon/pmc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(!isskrell(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/pmc(H), slot_head)
 
 /datum/outfit/job/pharmacist/pmc
 	name = "Pharmacist - PMC"

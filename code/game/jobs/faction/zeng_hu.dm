@@ -41,7 +41,6 @@
 
 	titles_to_loadout = list(
 		"Physician" = /datum/outfit/job/doctor/zeng_hu,
-		"Surgeon" = /datum/outfit/job/doctor/surgeon/zeng_hu,
 		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
 		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
@@ -61,17 +60,6 @@
 	uniform = /obj/item/clothing/under/rank/medical/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
 	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/doctor/surgeon/zeng_hu
-	name = "Surgeon - Zeng-Hu"
-
-	uniform = /obj/item/clothing/under/rank/medical/surgeon/zeng
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
-	id = /obj/item/card/id/zeng_hu
-
-/datum/outfit/job/doctor/surgeon/zeng_hu/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(!isskrell(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery/zeng(H), slot_head)
 
 /datum/outfit/job/pharmacist/zeng_hu
 	name = "Pharmacist - Zeng-Hu"

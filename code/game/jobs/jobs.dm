@@ -26,7 +26,7 @@ var/const/SCIENTIST			=(1<<1)
 var/const/CHEMIST			=(1<<2)
 var/const/CMO				=(1<<3)
 var/const/DOCTOR			=(1<<4)
-var/const/SURGEON			=(1<<5)
+// Empty slot.
 var/const/VIROLOGIST		=(1<<6)
 var/const/PSYCHIATRIST		=(1<<7)
 var/const/ROBOTICIST		=(1<<8)
@@ -77,7 +77,6 @@ var/list/engineering_positions = list(
 var/list/medical_positions = list(
 	"Chief Medical Officer",
 	"Physician",
-	"Surgeon",
 	"Psychiatrist",
 	"Pharmacist",
 	"First Responder",

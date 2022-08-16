@@ -7,7 +7,7 @@
 #define ASSIGNMENT_MEDICAL "Medical"
 #define ASSIGNMENT_SCIENTIST "Scientist"
 #define ASSIGNMENT_SECURITY "Security"
-#define ASSIGNMENT_SURGEON "Surgeon"
+#define ASSIGNMENT_PHYSICIAN "Physician"
 
 var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT_LEVEL_MODERATE = "Moderate", EVENT_LEVEL_MAJOR = "Major")
 
@@ -152,7 +152,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	severity = EVENT_LEVEL_MODERATE
 	available_events = list(
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Nothing",							/datum/event/nothing,						200),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Appendicitis", 					/datum/event/spontaneous_appendicitis, 		0,		list(ASSIGNMENT_SURGEON = 25)),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Appendicitis", 					/datum/event/spontaneous_appendicitis, 		0,		list(ASSIGNMENT_PHYSICIAN = 25)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Carp School",						/datum/event/carp_migration,				25, 	list(ASSIGNMENT_SECURITY = 15)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Communication Blackout",			/datum/event/communications_blackout,		100),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Electrical Storm",					/datum/event/electrical_storm, 				50,		list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
@@ -192,4 +192,4 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 #undef ASSIGNMENT_MEDICAL
 #undef ASSIGNMENT_SCIENTIST
 #undef ASSIGNMENT_SECURITY
-#undef ASSIGNMENT_SURGEON
+#undef ASSIGNMENT_PHYSICIAN

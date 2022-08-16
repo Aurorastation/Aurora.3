@@ -108,12 +108,12 @@ datum/gear/suit/colorvest
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
 
 /datum/gear/suit/medical_outerwear
 	display_name = "medical outerwear (jackets, vests, rigs)"
 	path = /obj/item/clothing/suit/storage/toggle/fr_jacket
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Pharmacist", "First Responder", "Medical Intern")
 
 /datum/gear/suit/medical_outerwear/New()
 	..()
@@ -125,7 +125,7 @@ datum/gear/suit/colorvest
 /datum/gear/suit/iac_outerwear
 	display_name = "IAC outerwear (jackets, vests, rigs)"
 	path = /obj/item/clothing/suit/storage/hazardvest/iac
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Pharmacist", "First Responder", "Medical Intern")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/iac_outerwear/New()

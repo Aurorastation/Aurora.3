@@ -75,7 +75,7 @@
 	display_name = "medical HUD selection"
 	description = "A selection of medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
+	allowed_roles = list("Physician", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
 
 /datum/gear/eyes/medhuds/New()
 	..()

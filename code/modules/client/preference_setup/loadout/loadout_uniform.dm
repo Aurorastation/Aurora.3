@@ -8,7 +8,7 @@
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Pharmacist", "First Responder", "Medical Intern")
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
@@ -95,7 +95,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/surgeon/zavod
-	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
 
 /datum/gear/uniform/scrubs/New()
 	..()
