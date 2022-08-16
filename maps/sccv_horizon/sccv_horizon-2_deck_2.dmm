@@ -18332,6 +18332,12 @@
 	req_one_access = list(1,19);
 	name = "Marooning Equipment Access"
 	},
+/obj/structure/sign/securearea{
+	pixel_x = 16;
+	pixel_y = 32;
+	name = "\improper MAROONING EQUIPMENT sign";
+	desc = "A warning sign which reads 'MAROONING EQUIPMENT' and 'MISUSE OF EQUIPMENT MAKES YOU GUILTY OF i206 'NEGLECT OF DUTY''."
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/brig)
 "jUs" = (
