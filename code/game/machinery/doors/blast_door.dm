@@ -184,9 +184,9 @@
 // Controls how blast doors and shutters should act when power is lost or gained.
 /obj/machinery/door/blast/power_change()
 	..()
-	if(src.operating || (stat & BROKEN)
+	if(src.operating || (stat & BROKEN))
 		return
-	if(stat & NOPOWER) && fail_secure)
+	if((stat & NOPOWER) && fail_secure)
 		securitylock = !density // Blast doors will only re-open when power is restored if they were open originally.
 		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_close)
 	else if(securitylock && fail_secure)
