@@ -35,8 +35,6 @@
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
 
-	var/securitylock = TRUE
-
 /obj/machinery/door/blast/Initialize()
 	. = ..()
 	if(_wifi_id)
