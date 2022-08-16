@@ -16789,11 +16789,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'DANGER: AUTOMATIC EQUIPMENT STARTS AND STOPS AUTOMATICALLY' and 'CRUSH HAZARD'.";
-	name = "\improper DANGER: AUTOMATIC EQUIPMENT - CRUSH HAZARD sign";
-	pixel_x = 32
-	},
 /obj/machinery/door/blast/shutters/open{
 	id = "shutters_deck2_portstairwellsec";
 	name = "Security Shutter";
@@ -23684,9 +23679,7 @@
 	name = "Mech Bay and Recharging Station Elevator Access";
 	req_one_access = list(29,47)
 	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'DANGER: EQUIPMENT STARTS AND STOPS AUTOMATICALLY' and 'CRUSH HAZARD'.";
-	name = "\improper DANGER: AUTOMATIC EQUIPMENT - CRUSH HAZARD sign";
+/obj/structure/sign/crush{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -24313,6 +24306,9 @@
 	},
 /obj/machinery/light/spot/weak{
 	dir = 1
+	},
+/obj/structure/sign/crush{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/ramp{
 	dir = 8
@@ -25403,10 +25399,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "uBL" = (
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'DANGER: AUTOMATIC EQUIPMENT STARTS AND STOPS AUTOMATICALLY' and 'CRUSH HAZARD'.";
-	name = "\improper DANGER: AUTOMATIC EQUIPMENT - CRUSH HAZARD sign"
-	},
+/obj/structure/sign/crush,
 /turf/simulated/wall,
 /area/operations/loading)
 "uCq" = (
