@@ -56,3 +56,43 @@
 	icon_state = "skr_poncho_brn"
 	item_state = "skr_poncho_brn"
 	overlay_state = "skr_poncho_brn"
+
+//Capes
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes
+	name = "\improper Jargon cape"
+	desc = "A cape that has the Jargon flag on the back."
+	desc_fluff = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Jargon Federation - specifically, the inner systems."
+	icon = 'icons/obj/contained_items/skrell/nationcapes.dmi'
+	icon_override = 'icons/obj/contained_items/skrell/nationcapes.dmi'
+	item_state = "jargcape"
+	icon_state = "jargcape"
+	flippable = TRUE
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/traverse
+	name = "\improper Traverse cape"
+	desc = "A cape that has the Free Traverse flag on the back."
+	desc_fluff = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Jargon Federation - specifically, the Traverse. As the Free Traverse Flag is linked to the lyukal and general Traverse independence movements, it is not recommended to wear this flag openly in Federation space."
+	item_state = "travcape"
+	icon_state = "travcape"
+
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/sol
+	name = "\improper Sol cape"
+	desc = "A cape that has the Solarian Alliance flag on the back."
+	desc_fluff = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Sol Alliance. Unlike similar capes, it is generally acceptable to Fed-aligned Skrell to wear this due to the Sol Alliance's relationship with the Federation."
+	item_state = "solcape"
+	icon_state = "solcape"
+
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/coc
+	name = "\improper CoC cape"
+	desc = "A cape that has the Coalition of Colonies flag on the back."
+	desc_fluff = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Coalition of Colonies. Due to the poor relationship between the Coalition of Colonies and the Jargon Federation, Fed-aligned Skrell do not approve of this cape."
+	item_state = "coccape"
+	icon_state = "coccape"
+
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel
+	name = "\improper Biesel cape"
+	desc = "A cape that has the Republic of Biesel flag on the back."
+	desc_fluff = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Republic of Biesel. Due to the mix of both pro-Fed and anti-Fed Skrell in the Republic, this cape usually does not warrant strong emotions until the wearer's political leanings are known."
+	item_state = "biescape"
+	icon_state = "biescape"

@@ -1,11 +1,13 @@
 /obj/item/clothing/under/konyang
-	name = "hanbok"
+	name = "magenta hanbok"
 	desc = "A traditional Konyanger hanbok."
 	desc_fluff = "An ancient form of dress carried over from Earth by the initial Konyang colonists; the hanbok has since become a symbol of Konyang and its most iconic formalwear."
-	icon_state = "hanbok"
-	worn_state = "hanbok"
-	item_state = "hanbok"
+	icon = 'icons/clothing/under/uniforms/konyang_femalehanbok.dmi'
+	icon_state = "hanbok_magenta"
+	worn_state = "hanbok_magenta"
+	item_state = "hanbok_magenta"
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/konyang/pink
 	name = "pink hanbok"
@@ -15,7 +17,16 @@
 	item_state = "hanbok_pink"
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 
+/obj/item/clothing/under/konyang/blue
+	name = "blue hanbok"
+	desc = "A traditional Konyanger hanbok. This one is blue and white."
+	icon_state = "hanbok_blue"
+	worn_state = "hanbok_blue"
+	item_state = "hanbok_blue"
+	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
+
 /obj/item/clothing/under/konyang/male
+	name = "hanbok"
 	desc = "A traditional Konyanger hanbok tailored for men."
 	icon_state = "hanbok_male"
 	worn_state = "hanbok_male"
@@ -72,6 +83,38 @@
 	worn_state = "konyang_dress"
 	item_state = "konyang_dress"
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/konyang/male/sleeveless
+	name = "sleeveless hanbok"
+	icon = 'icons/clothing/under/uniforms/konyang_malehanbok_colorable.dmi'
+	icon_state = "hanbok_male_sleeveless_colorable"
+	worn_state = "hanbok_male_sleeveless_colorable"
+	item_state = "hanbok_male_sleeveless_colorable"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/konyang/male/shortsleeve
+	name = "short sleeve hanbok"
+	icon = 'icons/clothing/under/uniforms/konyang_malehanbok_colorable.dmi'
+	icon_state = "hanbok_male_shortsleeve_colorable"
+	worn_state = "hanbok_male_shortsleeve_colorable"
+	item_state = "hanbok_male_shortsleeve_colorable"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/konyang
+	name = "male hanbok belt"
+	desc = "A traditional belt worn over hanbok typically tailored for men."
+	icon = 'icons/clothing/accessories/konyang_belt.dmi'
+	icon_state = "konyang_belt"
+	item_state = "konyang_belt"
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/konyang
+	name = "gomusin"
+	desc = "A traditional pair of shoes typically worn by men."
+	icon = 'icons/clothing/shoes/konyang_gomusin.dmi'
+	icon_state = "gomusin"
+	item_state = "gomusin"
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/konyangdresstraditional

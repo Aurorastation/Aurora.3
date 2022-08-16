@@ -67,8 +67,8 @@
 	item_state = "beret_hydro"
 
 /obj/item/clothing/head/beret/cargo
-	name = "cargo beret"
-	desc = "A beret with the cargo insignia emblazoned on it. Get attacked by a manhack hiding in a crate - in style!"
+	name = "operations beret"
+	desc = "A beret with the operations insignia emblazoned on it."
 	icon_state = "beret_cargo"
 	item_state = "beret_cargo"
 
@@ -214,6 +214,6 @@
 
 /obj/item/clothing/head/beret/centcom/commander
 	name = "commander's beret"
-	desc = "A black beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
+	desc = "A black beret adorned with the crest of an ERT detachment. Worn by commanders of NanoTrasen response teams."
 	icon_state = "centcomcaptain"
 	item_state = "centcomcaptain"

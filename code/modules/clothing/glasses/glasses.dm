@@ -585,7 +585,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/welding/emergency
 	name = "emergency welding goggles"
-	desc = "A cheaper version of standard welding goggles, approved for emergency use by the Nanotrasen Safety Board."
+	desc = "A cheaper version of standard welding goggles, approved for emergency use by the NanoTrasen Safety Board."
 	icon = 'icons/clothing/eyes/welding_goggles.dmi'
 	icon_state = "ewelding-g"
 	item_state = "ewelding-g"

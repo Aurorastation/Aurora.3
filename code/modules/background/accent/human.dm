@@ -100,12 +100,19 @@
 	tag_icon = "luna"
 	text_tag = "LUN"
 
-/datum/accent/gibson
-	name = ACCENT_GIBSON
-	description = "The New Gibsoner accent is very close to the accent of Tau Ceti proper, due to the nature of the planet's colonization. However, New Gibsoners are known for talking \
+/datum/accent/gibson_ovan
+	name = ACCENT_GIBSON_OVAN
+	description = "The New Gibson Ovanstad accent is very close to the accent of Tau Ceti proper, due to the nature of the planet's colonization. However, New Gibsoners are known for talking \
 	with a faster and more clipped accent than those from Biesel and, at times, sound as if they are tripping over their words due to the rapid pace at which they speak."
-	tag_icon = "gibson"
-	text_tag = "GIB"
+	tag_icon = "gibson_ovan"
+	text_tag = "OVA"
+
+/datum/accent/gibson_undir
+	name = ACCENT_GIBSON_UNDIR
+	description = "The New Gibson Undirstad accent is not wildly known or heard outside of New Gibson itself, as those hailing from the Undirstads are quite insular and isolated from the more attractive surface archologies. The Undirstad accent is much slower than the Ovanstad accent, \
+	and keeps more to its cultural roots."
+	tag_icon = "gibson_undir"
+	text_tag = "UND"
 
 /datum/accent/konyang
 	name = ACCENT_KONYAN
@@ -167,11 +174,19 @@
 
 /datum/accent/jupiter
 	name = ACCENT_JUPITER
-	description = "The Jovian accent is an odd mish-mash of accents from Jupiter's various moons, and has heavy variation on each of the moons. On Idris Incorporated-dominated Europa, \
-	the Jovian accent often takes on traces of Tradeband due to the amount of high-income tourism, while the Castillean Jovian accent is known for the rapid, breathless pace at which it \
-	is typically spoken. Ganymede is often seen as the \"standard\" Jovian accent, though some on Castillo vehemently believe that the Castillian accent should be the standard."
+	description = "The Jovian accent is an odd mish-mash of accents from Jupiter's various moons, and has heavy variation on each of the moons. On Europa, the Jovian accent often takes on traces of \
+	Tradeband due to the amount of high-income tourism, while the Callistean Jovian accent is known for the rapid, breathless pace at which it is typically spoken. Ganymede is often seen as the standard \
+	Jovian accent, though some on Castillo vehemently believe that the Callistean accent should be considered the standard."
 	tag_icon = "jupiter"
 	text_tag = "JUP"
+
+/datum/accent/callisto
+	name = ACCENT_CALLISTO
+	description = "Considered to be one of the most recognizable accents in the Sol System due to its uniquely breathless pace, the stereotypical Callistean accent has its roots in the moon's \
+	port district of New Valletta. While not all Callisteans speak with the breathless pace of those from New Valletta, the district's status as a port has led to its accent becoming the moon's most \
+	recognized one. As a whole the Callistean accent can be easily recognized by its fast pace of speaking and seeking disregard for pauses."
+	tag_icon = "callisto"
+	text_tag = "CAL"
 
 /datum/accent/europa
 	name = ACCENT_EUROPA

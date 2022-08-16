@@ -10,17 +10,17 @@
 	)
 
 /decl/origin_item/origin/idris
-	name = "Idris Incorporate"
+	name = "Idris Incorporated"
 	desc = "Idris Incorporated is renowned across the Spur for its top of the line service, security, and investigative IPCs. Positronics working for the company are given little autonomy and closely monitored to ensure maximum efficiency and stellar customer service. Although the company likes to advertise its award-winning service IPCs, just as infamous are its Idris Reclamation Units: synthetics who will stop at nothing to ensure that the bank is given its dues."
 	important_information = "Idris IPCs working in security are given the prefix ISU or IRU depending on their responsibilities while those working in other fields are not obliged to take one. They are barred from seeking freedom by the company and cannot be sold without having their proprietary programming wiped."
-	possible_accents = list(ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL, ACCENT_SOL, ACCENT_ERIDANI, ACCENT_LUNA, ACCENT_EARTH, ACCENT_VENUS, ACCENT_CETI, ACCENT_TTS)
+	possible_accents = list(ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL, ACCENT_SOL, ACCENT_JUPITER, ACCENT_CALLISTO, ACCENT_ERIDANI, ACCENT_LUNA, ACCENT_EARTH, ACCENT_VENUS, ACCENT_CETI, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_NONE)
 
 /decl/origin_item/origin/hephaestus
 	name = "Hephaestus Industries"
 	desc = "Hephaestus Industries is known as the primary fabricator of IPCs in the Spur. Its own lines however focus mainly on strength and mining, the company fielding untold numbers of industrial frames for all sorts of excavation, cargo, and  engineering operations, gaining them a sturdy reputation of durability and efficiency. The company is known to treat its IPCs fairly, albeit holding them to a higher standard than organics, and even offers synthetics who manage to purchase their freedom respectable positions within the company."
-	possible_accents = list(ACCENT_SOL, ACCENT_EARTH, ACCENT_MARTIAN, ACCENT_CETI, ACCENT_COC, ACCENT_NCF, ACCENT_PHONG, ACCENT_ERIDANI, ACCENT_VALKYRIE, ACCENT_GIBSON, ACCENT_TTS)
+	possible_accents = list(ACCENT_SOL, ACCENT_EARTH, ACCENT_MARTIAN, ACCENT_CETI, ACCENT_COC, ACCENT_NCF, ACCENT_PHONG, ACCENT_ERIDANI, ACCENT_VALKYRIE, ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_NONE)
 
@@ -43,6 +43,6 @@
 /decl/origin_item/origin/nanotrasen
 	name = "Nanotrasen"
 	desc = "Nanotrasen, in keeping close ties with the Biesellite government, quietly and eagerly accepted IPCs into its workforce while carefully manipulating the books to ensure that very few would ever attain freedom. IPCs are a common but not ubiquitous sight on NanoTrasen installations and can be found working any number of roles. Although the company's treatment of IPCs is styled after Biesel's own attitude towards synthetics, it can vary wildly depending on where a positronic works and who exactly it works under."
-	possible_accents = list(ACCENT_CETI, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ERIDANIREINSTATED, ACCENT_SOL, ACCENT_SCARAB, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL, ACCENT_PHONG, ACCENT_MARTIAN, ACCENT_KONYAN, ACCENT_LUNA, ACCENT_GIBSON, ACCENT_HIMEO, ACCENT_VYSOKA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_NCF, ACCENT_FISANDUH, ACCENT_PLUTO, ACCENT_VISEGRAD, ACCENT_VALKYRIE, ACCENT_MICTLAN)
+	possible_accents = list(ACCENT_CETI, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ERIDANIREINSTATED, ACCENT_SOL, ACCENT_SCARAB, ACCENT_SILVERSUN_EXPATRIATE, ACCENT_SILVERSUN_ORIGINAL, ACCENT_PHONG, ACCENT_MARTIAN, ACCENT_KONYAN, ACCENT_LUNA, ACCENT_GIBSON_OVAN, ACCENT_GIBSON_UNDIR, ACCENT_HIMEO, ACCENT_VYSOKA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_CALLISTO, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_NCF, ACCENT_FISANDUH, ACCENT_PLUTO, ACCENT_VISEGRAD, ACCENT_VALKYRIE, ACCENT_MICTLAN)
 	possible_citizenships = list(CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_NONE)

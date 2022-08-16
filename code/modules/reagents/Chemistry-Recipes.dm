@@ -1537,6 +1537,34 @@
 	required_reagents = list(/decl/reagent/water = 5, /decl/reagent/nutriment/coco = 1)
 	result_amount = 5
 
+/datum/chemical_reaction/grapejuice
+	name = "Grape Juice"
+	result = /decl/reagent/drink/grapejuice
+	required_reagents = list(/decl/reagent/water = 3, /decl/reagent/nutriment/instantjuice/grape = 1)
+	result_amount = 3
+	mix_message = "The solution settles into a purplish-red beverage."
+
+/datum/chemical_reaction/orangejuice
+	name = "Orange Juice"
+	result = /decl/reagent/drink/orangejuice
+	required_reagents = list(/decl/reagent/water = 3, /decl/reagent/nutriment/instantjuice/orange = 1)
+	result_amount = 3
+	mix_message = "The solution settles into an orange beverage."
+
+/datum/chemical_reaction/watermelonjuice
+	name = "Watermelon Juice"
+	result = /decl/reagent/drink/watermelonjuice
+	required_reagents = list(/decl/reagent/water = 3, /decl/reagent/nutriment/instantjuice/watermelon = 1)
+	result_amount = 3
+	mix_message = "The solution settles into a red beverage."
+
+/datum/chemical_reaction/applejuice
+	name = "Apple Juice"
+	result = /decl/reagent/drink/applejuice
+	required_reagents = list(/decl/reagent/water = 3, /decl/reagent/nutriment/instantjuice/apple = 1)
+	result_amount = 3
+	mix_message = "The solution settles into a clear brown beverage."
+
 /datum/chemical_reaction/soysauce
 	name = "Soy Sauce"
 	id = "soysauce"
@@ -3424,7 +3452,7 @@
 	id = "coffee"
 	result = /decl/reagent/drink/coffee
 	required_reagents = list(/decl/reagent/nutriment/coffeegrounds = 1, /decl/reagent/water = 5)
-	result_amount = 10
+	result_amount = 5
 
 /datum/chemical_reaction/drink/espresso
 	name = "Espresso"
@@ -3599,10 +3627,10 @@
 	required_reagents = list(/decl/reagent/drink/tea/securitea = 1, /decl/reagent/alcohol/whiskey = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/drink/cloudyoran
-	name = "Cloudy Oran"
-	id = "cloudyoran"
-	result = /decl/reagent/alcohol/cloudyoran
+/datum/chemical_reaction/drink/cloudyeridani
+	name = "Cloudy Eridani"
+	id = "cloudyeridani"
+	result = /decl/reagent/alcohol/cloudyeridani
 	required_reagents = list(/decl/reagent/alcohol/sake = 1, /decl/reagent/drink/tea/greentea = 1, /decl/reagent/drink/milk/soymilk = 1)
 	result_amount = 3
 

@@ -600,3 +600,13 @@ var/const/access_kataphract_trader = 116
 /datum/access/ee_spy_ship
 	id = access_ee_spy_ship
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_civilian_station = 206
+/datum/access/access_civilian_station
+	id = access_civilian_station
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_elyran_naval_infantry_ship = 207
+/datum/access/access_elyran_naval_infantry_ship
+	id = access_elyran_naval_infantry_ship
+	access_type = ACCESS_TYPE_CENTCOM

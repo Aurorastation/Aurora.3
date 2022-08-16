@@ -131,10 +131,6 @@ STOCK_ITEM_UNCOMMON(jetpack, 3)
 	if(prob(40))
 		new /obj/item/tank/emergency_oxygen/double(L)
 
-STOCK_ITEM_UNCOMMON(xenocostume, 1)
-	new /obj/item/clothing/suit/xenos(L)
-	new /obj/item/clothing/head/xenos(L)
-
 STOCK_ITEM_UNCOMMON(inhaler, 1)
 	var/obj/item/reagent_containers/inhaler/I = pick(subtypesof(/obj/item/reagent_containers/inhaler))
 	new I(L)
@@ -171,7 +167,7 @@ STOCK_ITEM_UNCOMMON(violin, 1)
 	new /obj/item/device/violin(L)
 
 STOCK_ITEM_UNCOMMON(atmosfiresuit, 2)
-	new /obj/item/clothing/head/hardhat/red/atmos(L)
+	new /obj/item/clothing/head/hardhat/atmos(L)
 	new /obj/item/clothing/suit/fire/atmos(L)
 
 STOCK_ITEM_UNCOMMON(debugger, 2)

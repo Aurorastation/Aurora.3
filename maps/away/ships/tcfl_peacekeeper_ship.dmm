@@ -116,6 +116,15 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
+"aEJ" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/machinery/button/distress{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "aLZ" = (
 /obj/structure/table/steel,
 /obj/structure/window/reinforced{
@@ -814,6 +823,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
+"fMU" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor,
+/area/shuttle/tcfl_shuttle)
 "fNN" = (
 /obj/machinery/light{
 	dir = 4;
@@ -1648,6 +1667,9 @@
 "kiO" = (
 /obj/structure/table/wood,
 /obj/item/clothing/suit/storage/legion,
+/obj/item/device/versebook/biesel{
+	pixel_y = -6
+	},
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
 "kkV" = (
@@ -2038,6 +2060,7 @@
 /area/ship/tcfl_peacekeeper_ship)
 "mPM" = (
 /obj/structure/table/steel,
+/obj/item/device/versebook/biesel,
 /obj/item/device/flashlight/maglight,
 /obj/machinery/light{
 	dir = 1;
@@ -2421,7 +2444,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "pNl" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "pPl" = (
@@ -3361,6 +3384,14 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/shuttle/tan,
+/area/ship/tcfl_peacekeeper_ship)
+"ymi" = (
+/obj/machinery/iff_beacon/name_change,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
 /area/ship/tcfl_peacekeeper_ship)
 
 (1,1,1) = {"
@@ -27639,7 +27670,7 @@ xji
 uaE
 vdz
 yjk
-xRX
+ymi
 xRX
 xRX
 xRX
@@ -29949,7 +29980,7 @@ tkU
 uwT
 tuA
 yjk
-tUb
+aEJ
 vgp
 dze
 dze
@@ -31452,7 +31483,7 @@ xoc
 sWY
 ive
 pPl
-pPl
+fMU
 wJV
 dyN
 dyN

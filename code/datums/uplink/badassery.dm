@@ -13,6 +13,12 @@
 	name = "For showing that you love NT SOO much (Useless Balloon)"
 	path = /obj/item/toy/balloon/nanotrasen
 
+/datum/uplink_item/item/badassery/crayonmre
+	name = "Crayon MRE"
+	desc = "An exceptionally robust MRE."
+	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
+	path = /obj/item/storage/box/fancy/mre/menu11/special
+
 /**************
 * Random Item *
 **************/

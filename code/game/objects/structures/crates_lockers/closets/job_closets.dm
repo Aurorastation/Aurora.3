@@ -65,9 +65,7 @@
 	icon_door = "blue"
 
 /obj/structure/closet/lawcloset/fill()
-	new /obj/item/clothing/under/lawyer/black(src)
 	new /obj/item/clothing/under/lawyer/red(src)
-	new /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket(src)
 	new /obj/item/clothing/under/lawyer/purple(src)
 	new /obj/item/clothing/suit/storage/lawyer/purpjacket(src)
 	new /obj/item/clothing/shoes/brown(src)

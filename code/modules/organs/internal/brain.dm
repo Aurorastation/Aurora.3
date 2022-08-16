@@ -177,7 +177,7 @@
 	if(is_broken())
 		if(!owner.lying && prob(5))
 			to_chat(owner, "<span class='danger'>You black out!</span>")
-		owner.Paralyse(10)
+			owner.Paralyse(10)
 
 /obj/item/organ/internal/brain/surgical_fix(mob/user)
 	var/blood_volume = owner.get_blood_oxygenation()

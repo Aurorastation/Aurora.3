@@ -7,7 +7,7 @@
 	uniform = /obj/item/clothing/under/syndicate
 	back = null
 	backpack = /obj/item/storage/backpack/syndie
-	satchel = /obj/item/storage/backpack/satchel_syndie
+	satchel = /obj/item/storage/backpack/satchel/syndie
 	satchel_alt = /obj/item/storage/backpack/satchel
 	dufflebag = /obj/item/storage/backpack/duffel/syndie
 	messengerbag = /obj/item/storage/backpack/messenger/syndie
@@ -445,7 +445,6 @@
 		/obj/item/gun/projectile/silenced,
 		/obj/item/gun/projectile/colt,
 		/obj/item/gun/projectile/colt/super,
-		/obj/item/gun/projectile/revolver/deckard,
 		/obj/item/gun/projectile/revolver/lemat
 		)
 

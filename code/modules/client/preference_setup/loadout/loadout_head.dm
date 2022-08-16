@@ -137,10 +137,11 @@
 /datum/gear/head/hardhat/New()
 	..()
 	var/list/hardhat = list()
-	hardhat["hard hat, yellow"] = /obj/item/clothing/head/hardhat
-	hardhat["hard hat, blue"] = /obj/item/clothing/head/hardhat/dblue
-	hardhat["hard hat, orange"] = /obj/item/clothing/head/hardhat/orange
-	hardhat["hard hat, red"] = /obj/item/clothing/head/hardhat/red
+	hardhat["hard hat, operations yellow"] = /obj/item/clothing/head/hardhat
+	hardhat["hard hat, command blue"] = /obj/item/clothing/head/hardhat/dblue
+	hardhat["hard hat, engineering orange"] = /obj/item/clothing/head/hardhat/orange
+	hardhat["hard hat, zavodskoi red"] = /obj/item/clothing/head/hardhat/red
+	hardhat["hard hat, hephaestus green"] = /obj/item/clothing/head/hardhat/green
 	gear_tweaks += new /datum/gear_tweak/path(hardhat)
 
 /datum/gear/head/hairflower
@@ -338,6 +339,7 @@
 	gadpathur["gadpathurian engineer beret"] = /obj/item/clothing/head/beret/gadpathur/engineer
 	gadpathur["gadpathurian medical beret"] = /obj/item/clothing/head/beret/gadpathur/medical
 	gadpathur["gadpathurian turban"] = /obj/item/clothing/head/turban/gadpathur
+	gadpathur["gadpathurian patrol cap"] = /obj/item/clothing/head/ushanka/gadpathur
 	gear_tweaks += new /datum/gear_tweak/path(gadpathur)
 
 /datum/gear/head/dominia

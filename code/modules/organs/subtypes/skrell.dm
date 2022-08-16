@@ -45,3 +45,15 @@
 
 /obj/item/organ/external/head/skrell/attack_self(mob/user)
 	storage.open(user)
+
+/obj/item/organ/internal/heart/skrell/neaera
+
+/obj/item/organ/internal/lungs/skrell/neaera
+
+/obj/item/organ/internal/kidneys/skrell/neaera
+
+/obj/item/organ/internal/eyes/skrell/neaera
+
+/obj/item/organ/internal/liver/skrell/neaera
+
+/obj/item/organ/internal/brain/skrell/neaera
