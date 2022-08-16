@@ -7,6 +7,7 @@
 	message_frequency = 10
 	var/hologram_message
 	var/possible_messages
+	var/first_message
 
 
 /obj/item/skrell_projector/vaurca_projector/attack_self(mob/user as mob)
