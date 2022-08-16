@@ -485,7 +485,7 @@
 /obj/machinery/door/airlock/silver{
 	insecure = 0
 	},
-/turf/space,
+/turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
 "bD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
