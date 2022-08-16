@@ -13076,11 +13076,11 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
-/obj/effect/landmark/start{
-	name = "Surgeon"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/effect/landmark/start{
+	name = "First Responder"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -16590,10 +16590,10 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
-/obj/effect/landmark/start{
-	name = "First Responder"
-	},
 /obj/machinery/firealarm/south,
+/obj/effect/landmark/start{
+	name = "Psychiatrist"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "EW" = (
@@ -17998,9 +17998,6 @@
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
-	},
-/obj/effect/landmark/start{
-	name = "First Responder"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -27614,7 +27611,7 @@
 	dir = 6
 	},
 /obj/effect/landmark/start{
-	name = "Surgeon"
+	name = "First Responder"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)

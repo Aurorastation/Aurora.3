@@ -27995,9 +27995,6 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/obj/effect/landmark/start{
-	name = "Psychiatrist"
-	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "pjQ" = (
