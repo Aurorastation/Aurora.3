@@ -15510,7 +15510,7 @@
 /area/maintenance/wing/starboard)
 "iji" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_engineering{
+/obj/machinery/door/airlock/engineering{
 	name = "Engineering Front Desk";
 	req_access = list(10)
 	},
