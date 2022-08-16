@@ -8898,9 +8898,22 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
 	},
-/obj/item/paper_bin,
-/obj/item/pen,
-/obj/item/folder/yellow,
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/item/pen{
+	pixel_x = 5;
+	pixel_y = 9
+	},
+/obj/item/folder/yellow{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/obj/item/folder/yellow{
+	pixel_x = -7;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "eQs" = (
@@ -13009,9 +13022,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
@@ -13020,6 +13030,9 @@
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
@@ -17078,6 +17091,9 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "jck" = (
@@ -17493,13 +17509,18 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "jmW" = (
-/obj/structure/table/standard,
 /obj/machinery/door/window/westleft{
 	name = "Engineering Front Desk Internal";
 	req_access = list(10)
 	},
 /obj/machinery/door/window/eastright{
 	name = "Engineering Front Desk External"
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck2_eng_frontdesk";
+	name = "Engineering Front Desk Shutter"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/lobby)
@@ -22683,6 +22704,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hallway/primary/central_two)
 "mfq" = (
+/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -64784,7 +64806,7 @@ wch
 wGh
 nge
 gPw
-mfq
+gbT
 hfm
 gII
 eMT
@@ -64986,7 +65008,7 @@ fwA
 xgH
 aEt
 jbB
-fQz
+mfq
 fQz
 ilT
 nge

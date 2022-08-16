@@ -94,6 +94,7 @@
 /turf/simulated/floor/reinforced/reactor
 	name = "reinforced reactor floor"
 	oxygen = 0
+	nitrogen = MOLES_CELLSTANDARD // One atmosphere of nitrogen.
 
 /turf/simulated/floor/reinforced/oxygen
 	oxygen = ATMOSTANK_OXYGEN
