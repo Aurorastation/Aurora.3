@@ -3,7 +3,7 @@
 	desc = "A holographic projector using advanced technology that immerses someone into a scene using full panoramic holograms, smell and 3D spatial sound projection. It is developed and distributed by Hive Zo'ra and allows the viewer to peer in real-time into virtual reality realms specifically designed for outside viewing such as those belonging to High Queen Vaur."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "zora_projector"
-	worlds_selection = list("Vaur's Tranquil Ocean", "Vaur's Hive War Exhibition", "Vaur's Celestial Landing Ground", "Vaur's City of New Sedantis", "Vaur's Titan Prime Recreation", "Athvur's City of Paradise", "Athvur's Garden of Splendour")
+	worlds_selection = list("Vaur's Tranquil Ocean", "Vaur's Hive War Exhibition", "Vaur's Celestial Landing Ground", "Vaur's City of New Sedantis", "Vaur's Titan Prime Recreation", "Athvur's City of Paradise", "Athvur's Garden of Splendour", "Athvur's Museum of Fine Art")
 	message_frequency = 10
 	var/hologram_message
 	var/possible_messages
@@ -81,7 +81,10 @@
 		"A transcendent cityscape dominates the area, with towering structures of elegant white stone resting atop a blanket of clouds.",
 		"In the distance of the cityscape towers a set of sublime sculptures, accented by light from beneath the clouds.",
 		"Orchestral music resonates from within an auditorium, the melody carried through the heavens.",
-		"An enchanting smell of cedar, cherry and morning freshness penetrates through the air."
+		"An enchanting smell of cedar, cherry and morning freshness penetrates through the air.",
+		"A vibrant burst of color permeates through the sky, basking the air in pleasing rainbow luminescence for a moment.", 
+		"In the center of a green park Vaurca workers paint not on canvas but in the air, seemingly looking at the landscape for inspiration."
+
 		)
 		if("Athvur's Garden of Splendour")
 			light_color = "#34b434"
@@ -90,8 +93,21 @@
 		"Harmonious music accents an indescribable aroma of flowers.",
 		"In the distance of the garden, beyond the soothing plants, workers move through an ornate gazebo.",
 		"A fountain sits nestled within a thicket clearing, producing a golden substance from which gathered workers drink.",
+		"A herd of majestic creatures, each as tall as two people, graze on a patch of grass and lie curled up against each other's silky fur.", 
+		"Lilac-breasted birds dart between the tree-line and sing a soothing melody which seems to carry with it a smell of vanilla."
 		)
-		
+		if("Athvur's Museum of Fine Art")
+			light_color = "#e7f0ec"
+			possible_messages = list( 
+			"A massive display is decorated with examples of seemingly delicately crafted Zo'rane artwork.",
+			"Workers mull about the museum, seemingly taking in the atmosphere brought forth by the displays.", 
+			"An exhibit showcases reportedly hand-painted landscapes that have won awards.", 
+			"A melodic harmony is carried from a distant display marked with 'Music', only perceptible due to the quiet atmosphere of the sounding exhibition.", 
+			"Sculptures of notable Zo'rane historical figures dominate their respective corners, carved from a variety of rare materials.", 
+			"Groups of workers move around, seemingly taking a guided tour through the museum, watching each art piece explained to them attentively"
+		)
+
+
 		else
 			brightness = 0
 			working = FALSE
