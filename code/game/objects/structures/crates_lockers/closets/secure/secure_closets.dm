@@ -92,7 +92,7 @@
 /obj/structure/closet/secure_closet/marooning_equipment
 	name = "marooning equipment locker"
 	icon_state = "maroon"
-	req_access = list(access_security, access_heads) // Marooned personnel would likely be marooned by security and/or command.
+	req_one_access = list(access_security, access_heads) // Marooned personnel would likely be marooned by security and/or command.
 
 /obj/structure/closet/secure_closet/marooning_equipment/fill()
 	new /obj/item/clothing/mask/breath(src)
@@ -107,11 +107,8 @@
 	name = "marooning equipment duffel bag"
 	desc = "A duffel bag full of marooning equipment."
 	starts_with = list(
-		// to do: add box of flares (dependant on #14615)
-		// Rations
-		/obj/item/storage/box/fancy/mre/menu5 = 1,
-		/obj/item/storage/box/fancy/mre/menu9 = 1,
-		/obj/item/reagent_containers/food/drinks/waterbottle = 4,
+		// Weapon
+		/obj/item/gun/energy/mousegun/xenofauna = 1,
 
 		// Equipment
 		/obj/item/crowbar/rescue_axe/red = 1,
@@ -119,6 +116,11 @@
 		/obj/item/device/flashlight/heavy = 1,
 		/obj/item/device/gps/marooning_equipment = 1,
 		/obj/item/airbubble = 1,
+
+		// Rations
+		/obj/item/storage/box/fancy/mre/menu5 = 1,
+		/obj/item/storage/box/fancy/mre/menu9 = 1,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 4,
 
 		// Medical Supplies
 		/obj/item/storage/firstaid/marooning_equipment = 1,

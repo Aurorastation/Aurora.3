@@ -18323,16 +18323,16 @@
 /turf/simulated/floor/carpet,
 /area/horizon/library)
 "jUq" = (
-/obj/machinery/status_display{
-	layer = 4;
-	pixel_y = 32
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/secure_closet/marooning_equipment,
-/turf/simulated/floor/tiled,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/southleft{
+	req_one_access = list(1,19);
+	name = "Marooning Equipment Access"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/security/brig)
 "jUs" = (
 /obj/machinery/atmospherics/unary/freezer{
@@ -21567,12 +21567,13 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "lMT" = (
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/secure_closet/marooning_equipment,
-/turf/simulated/floor/tiled,
+/obj/machinery/door/window/southright{
+	req_one_access = list(1,19);
+	name = "Marooning Equipment Access"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/security/brig)
 "lNb" = (
 /obj/effect/floor_decal/corner/green{
@@ -45002,6 +45003,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
+	},
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
