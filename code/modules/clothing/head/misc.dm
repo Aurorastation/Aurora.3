@@ -106,9 +106,9 @@
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/redcoat
-	name = "redcoat's hat"
+	name = "tricorne hat"
 	icon_state = "redcoat"
-	desc = "<i>'I guess it's a redhead.'</i>"
+	desc = "A hat with three corners."
 
 /obj/item/clothing/head/mailman
 	name = "station cap"

@@ -198,6 +198,7 @@
 	hats["hat, wide-brimmed cowboy"] = /obj/item/clothing/head/cowboy/wide
 	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
 	hats["hat, flatcap"] = /obj/item/clothing/head/flatcap
+	hats["hat, tricorne"] = /obj/item/clothing/head/redcoat
 	gear_tweaks += new /datum/gear_tweak/path(hats)
 
 /datum/gear/head/hijab
