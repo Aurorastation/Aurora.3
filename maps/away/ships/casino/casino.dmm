@@ -2150,7 +2150,6 @@
 /turf/simulated/floor/tiled/steel,
 /area/casino/casino_crew_cantina)
 "gp" = (
-/obj/random/ammo,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -5417,6 +5416,16 @@
 	},
 /turf/simulated/floor/carpet/fancybrown,
 /area/casino/casino_mainfloor)
+"Md" = (
+/obj/machinery/iff_beacon/name_change,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/casino/casino_bridge)
 "Nc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5636,16 +5645,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_bow)
-"RM" = (
-/obj/machinery/iff_beacon/name_change,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/space)
 "Sb" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -10305,7 +10304,7 @@ uc
 uc
 uc
 uc
-RM
+Md
 am
 at
 at
