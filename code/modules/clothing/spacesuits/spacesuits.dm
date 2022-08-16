@@ -97,6 +97,10 @@
 	flags_inv = HIDEMASK | HIDEEARS | BLOCKHAIR
 	flash_protection = FLASH_PROTECTION_NONE
 
+/obj/item/clothing/head/helmet/space/emergency/marooning_equipment
+	name = "marooning softsuit helmet"
+	desc = "A simple, cheap helmet with a built in light, designed for issuing to marooned personnel."
+
 /obj/item/clothing/suit/space/emergency
 	name = "emergency softsuit"
 	desc = "A thin, ungainly softsuit colored in blaze orange for rescuers to easily locate. It looks pretty fragile."
@@ -105,3 +109,7 @@
 	item_state = "softsuit_emergency"
 	contained_sprite = TRUE
 	slowdown = 2
+
+/obj/item/clothing/suit/space/emergency/marooning_equipment
+	name = "marooning softsuit"
+	desc = "A thin, ungainly softsuit colored in blaze orange for rescuers to easily locate. Designed for issuing to marooned personnel and it looks pretty fragile."

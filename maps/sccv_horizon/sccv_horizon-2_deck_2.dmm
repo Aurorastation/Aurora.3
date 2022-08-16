@@ -18327,11 +18327,11 @@
 	layer = 4;
 	pixel_y = 32
 	},
-/obj/structure/closet/secure_closet/brig,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/marooning_equipment,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "jUs" = (
@@ -21212,11 +21212,11 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "lFP" = (
-/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/brig,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "lFU" = (
@@ -21567,11 +21567,11 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "lMT" = (
-/obj/structure/closet/secure_closet/brig,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/marooning_equipment,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "lNb" = (
@@ -31590,7 +31590,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "rec" = (
-/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
@@ -31598,6 +31597,7 @@
 	c_tag = "Security - Corridor Camera 2"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/brig,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "reo" = (

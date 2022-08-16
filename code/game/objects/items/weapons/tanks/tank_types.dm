@@ -40,6 +40,15 @@
 	icon_state = "oxygen_br"
 	item_state = "oxygen_br"
 
+/obj/item/tank/oxygen/marooning_equipment
+	name = "marooning oxygen tank"
+	desc = "A tank of oxygen, this one is yellow. Issued to marooned personnel."
+	icon_state = "oxygen_f"
+	item_state = "oxygen_f"
+
+/obj/item/tank/oxygen/marooning_equipment/adjust_initial_gas()
+	air_contents.adjust_gas(GAS_OXYGEN, (10*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+
 /*
  * Anesthetic
  */
