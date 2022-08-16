@@ -511,9 +511,6 @@
 	},
 /obj/item/storage/bible,
 /obj/item/pen/blue,
-/obj/item/paper{
-	info = "Let me introduce myself. My name is Commander Archibald McKinley, although the Fleet fucks think that I do not deserve the title. Well, fuck them. They accused me of facilitating a destruction of the ship I was CO of. A small missile cruiser, with zero to fucking none point defenses was attacked, and they  first accuse me of escaping before any of my crew. What kind of person wouldn't expect someone to escape when their ship is on fire? It's lunacy. But it only got worse. Then they said that I helped the Terrans take the ship. Well fuck them, they are wrong. That's non sense. I have no connection to the Terrans. They said that I got a large sum of money from them in order to betray my ship's position, which is once again total nonsense. I've got about 20 years of life left here, and I know that I will be safe with my ship here. I need to resupply once every 5 years, given how much food and fuel I have, and I've got enough range to go to pretty much any known part of the galaxy, in complete silence, as we are totally solar powered. I wish I could afford ion thrusters to not have to rely on gas for propulsion, but, our gas heaters should provide us with enough pressure to get anywhere in relative decent speed. Also, I got a robot butler who cooks delicious food for me! No more crappy lance corporal food, eh"
-	},
 /obj/item/device/flashlight/lamp/green,
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/purple,
@@ -1007,7 +1004,12 @@
 /turf/simulated/floor/wood/coloured/yew,
 /area/shuttle/yacht/living)
 "df" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/window/shuttle{
+	maxhealth = 150;
+	health = 150
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/bridge)
 "dg" = (
@@ -1357,7 +1359,12 @@
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "mL" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/window/shuttle{
+	maxhealth = 150;
+	health = 150
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/living)
 "nb" = (
@@ -1467,7 +1474,12 @@
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
 "Be" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/window/shuttle{
+	maxhealth = 150;
+	health = 150
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "Hj" = (
