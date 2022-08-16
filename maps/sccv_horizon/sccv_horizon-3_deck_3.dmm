@@ -3504,7 +3504,6 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "gA" = (
@@ -7383,7 +7382,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -9890,6 +9889,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bridge/bridge_crew)
+"sh" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard)
 "si" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -9906,7 +9915,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
 "sk" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/green{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "sl" = (
@@ -13887,12 +13898,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/investigations)
 "zC" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/effect/floor_decal/corner/green/full{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/ramp{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "zD" = (
 /obj/machinery/door/airlock/glass{
@@ -14065,11 +14076,12 @@
 /area/security/forensics_morgue)
 "zU" = (
 /obj/structure/railing/mapped{
-	dir = 1
+	dir = 8
 	},
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 4
+/obj/effect/floor_decal/corner/green{
+	dir = 9
 	},
+/turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "zV" = (
 /obj/machinery/vending/dinnerware,
@@ -14435,7 +14447,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -14642,7 +14654,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -15522,7 +15534,7 @@
 	dir = 4
 	},
 /obj/machinery/light,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -16207,8 +16219,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/green/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -18362,7 +18377,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "If" = (
-/obj/structure/railing/mapped,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -18372,9 +18386,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/ramp{
-	dir = 4
-	},
+/obj/effect/floor_decal/corner/green/full,
+/turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Ig" = (
 /obj/machinery/light{
@@ -19433,7 +19446,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
 "JX" = (
-/obj/structure/railing/mapped,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -19443,9 +19455,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 4
+/obj/effect/floor_decal/corner/green{
+	dir = 10
 	},
+/turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "JY" = (
 /obj/structure/lattice/catwalk,
@@ -23777,6 +23790,9 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
+"RM" = (
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/starboard)
 "RN" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -24673,7 +24689,8 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "Ty" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 1
+	dir = 2;
+	name = "Deck 3 Port Stairwell"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -24687,7 +24704,7 @@
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Tz" = (
 /obj/effect/floor_decal/corner/green{
@@ -25421,7 +25438,7 @@
 	pixel_x = 5;
 	pixel_y = 24
 	},
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -25855,7 +25872,6 @@
 /area/tcommsat/chamber)
 "VG" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "VH" = (
@@ -51819,7 +51835,7 @@ fq
 xs
 xs
 xs
-uk
+RM
 Ty
 rs
 Yh
@@ -52223,7 +52239,7 @@ YJ
 xs
 UV
 UV
-zU
+sh
 JX
 rs
 BI
@@ -52424,7 +52440,7 @@ Dj
 xQ
 xs
 Em
-sk
+zU
 sk
 CP
 rs
@@ -52625,7 +52641,7 @@ Gr
 hS
 xC
 be
-fI
+GY
 gz
 VG
 AH
