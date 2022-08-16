@@ -7,7 +7,7 @@
 	message_frequency = 10
 	var/hologram_message
 	var/possible_messages
-	var/first_message = TRUE
+	var/first_message
 
 /obj/item/skrell_projector/vaurca_projector/attack_self(mob/user as mob)
 	working = !working
@@ -15,6 +15,7 @@
 	if(working)
 		var/choice = input("You change the projector's holographic viewfinder to display:","Change the projector's viewfinder.") as null|anything in worlds_selection
 		apply_world(choice)
+		first_message = TRUE
 		START_PROCESSING(SSprocessing, src)
 	else
 		set_light(0)
