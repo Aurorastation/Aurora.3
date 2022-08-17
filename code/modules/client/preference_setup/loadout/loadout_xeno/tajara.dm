@@ -8,9 +8,8 @@
 /datum/gear/shoes/tajara/boots/New()
 	..()
 	var/list/boots = list()
-	boots["black boots, short"] = /obj/item/clothing/shoes/tajara/jackboots
-	boots["black boots, knee"] = /obj/item/clothing/shoes/tajara/jackboots/knee
-	boots["black boots, thigh"] = /obj/item/clothing/shoes/tajara/jackboots/thigh
+	boots["jackboots"] = /obj/item/clothing/shoes/tajara/jackboots
+	boots["cavalry boots"] = /obj/item/clothing/shoes/tajara/jackboots/cavalry
 	boots["brown workboots"] = /obj/item/clothing/shoes/tajara/workboots
 	boots["grey workboots"] = /obj/item/clothing/shoes/tajara/workboots/grey
 	boots["dark workboots"] = /obj/item/clothing/shoes/tajara/workboots/dark
@@ -106,14 +105,14 @@
 	display_name = "PRA medical coat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "Geneticist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "First Responder", "Medical Intern")
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/tajaran_surgeon
 	display_name = "adhomian surgeon garb"
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/surgery
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Xenobiologist", "Roboticist")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Xenobiologist", "Roboticist", "Medical Intern")
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara

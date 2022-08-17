@@ -966,7 +966,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "aOD" = (
@@ -1368,6 +1368,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"bec" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "bek" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -2394,7 +2400,7 @@
 	dir = 4
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "bOR" = (
@@ -3935,7 +3941,7 @@
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "dgl" = (
@@ -7376,6 +7382,7 @@
 	dir = 4;
 	pixel_x = 32
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "fQU" = (
@@ -17993,7 +18000,7 @@
 /area/engineering/atmos/air)
 "oCq" = (
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "oCT" = (
@@ -18092,7 +18099,7 @@
 	dir = 6
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "oFI" = (
@@ -19146,7 +19153,7 @@
 	dir = 6
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "pEl" = (
@@ -22447,6 +22454,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "sll" = (
@@ -22816,8 +22824,8 @@
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/escape_pod/pod2)
 "syS" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "szM" = (
@@ -22993,6 +23001,7 @@
 	dir = 6
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "sId" = (
@@ -23698,11 +23707,11 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/structure/closet/firecloset,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/closet/firecloset,
-/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "tkS" = (
@@ -26077,6 +26086,7 @@
 /area/rnd/eva)
 "vfc" = (
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "vfk" = (
@@ -28475,6 +28485,7 @@
 	dir = 4
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "xiQ" = (
@@ -50790,7 +50801,7 @@ gQh
 rHK
 rHK
 kuh
-fgF
+bec
 wLL
 gux
 pIy
@@ -50992,7 +51003,7 @@ rHK
 rHK
 rHK
 kuh
-fgF
+bec
 wLL
 riM
 bNT
@@ -51194,7 +51205,7 @@ qMY
 rHK
 rHK
 kuh
-fgF
+bec
 wLL
 tLM
 wRE
