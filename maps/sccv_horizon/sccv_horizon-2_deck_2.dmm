@@ -10230,7 +10230,12 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/closet/l3closet/scientist,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/suit/bio_suit/scientist,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/head/bio_hood/scientist,
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "fEQ" = (
 /obj/effect/floor_decal/corner/green{
@@ -19763,31 +19768,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
-"kJQ" = (
-/obj/machinery/door/airlock/research{
-	name = "Research storage";
-	req_access = list(7)
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
-	density = 0;
-	icon_state = "pdoor0";
-	id = "RDStorage";
-	name = "Storage lockdown";
-	opacity = 0
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/rnd/strongroom)
 "kKk" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -35906,13 +35886,10 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "two" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -40313,10 +40290,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/morgue_lift)
 "vLu" = (
-/obj/structure/closet/secure_closet/scientist,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/storage/box/gloves,
+/obj/structure/closet/secure_closet/guncabinet/sci,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/spline/plain{
+	dir = 6
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/strongroom)
 "vMl" = (
@@ -42986,9 +42964,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "wUS" = (
-/obj/machinery/door/airlock/maintenance_hatch,
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/research_port)
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "wUU" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -69872,7 +69850,7 @@ rgc
 rLw
 soW
 rZU
-cNU
+ulB
 byv
 amz
 hME
@@ -72702,7 +72680,7 @@ iyA
 xeF
 lKI
 nZu
-kJQ
+rnA
 dOi
 lzI
 lhU
