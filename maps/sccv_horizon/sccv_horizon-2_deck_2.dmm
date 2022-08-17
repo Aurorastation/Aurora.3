@@ -207,6 +207,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/horizon/library)
+"aeR" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_two)
 "afe" = (
 /obj/machinery/light/small/red{
 	dir = 4
@@ -12511,11 +12517,11 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/starboard)
 "gGI" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
+/obj/effect/floor_decal/corner/green{
+	dir = 5
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Deck 2 - Port Stairwell"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
@@ -20313,19 +20319,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
 "lcL" = (
-/obj/machinery/button/remote/blast_door{
-	desc = "It controls the Mech Bay's shutters.";
-	dir = 8;
-	id = "MechBayShutter";
-	name = "Mech Bay Access Shutters";
-	pixel_x = 24;
-	pixel_y = 7;
-	req_one_access = list(29,47)
+/obj/effect/floor_decal/corner/mauve{
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "ldk" = (
@@ -21112,7 +21111,12 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "lCX" = (
-/obj/effect/floor_decal/corner/green/full,
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "lDb" = (
@@ -24455,7 +24459,10 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "nkF" = (
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "nkK" = (
 /obj/structure/stairs/west,
@@ -30823,6 +30830,15 @@
 	dir = 4
 	},
 /area/chapel/main)
+"qIJ" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_two)
 "qJr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -65378,8 +65394,8 @@ vXs
 bJp
 siL
 hEF
-nkF
-nkF
+fhU
+fhU
 xWr
 noi
 ouK
@@ -65580,7 +65596,7 @@ vXs
 bJp
 siL
 hEF
-nkF
+fhU
 mCE
 xWr
 vyg
@@ -65782,7 +65798,7 @@ vXs
 cMn
 wlg
 hEF
-nkF
+fhU
 stI
 pWx
 pWx
@@ -66176,16 +66192,16 @@ bJp
 mHG
 cTn
 hEF
-nkF
-nkF
-nkF
-nkF
-nkF
-nkF
-nkF
-nkF
-nkF
-nkF
+fhU
+fhU
+fhU
+fhU
+fhU
+fhU
+fhU
+fhU
+fhU
+fhU
 ooj
 ryi
 pWx
@@ -66580,7 +66596,7 @@ fEQ
 gDw
 nJq
 hEF
-nkF
+fhU
 vXs
 dex
 iVQ
@@ -66777,12 +66793,12 @@ iVp
 iVp
 nUN
 wgL
-tcE
-tcE
+aeR
+aeR
 cIr
-nkF
+fhU
 hEF
-nkF
+fhU
 ept
 cMs
 fwK
@@ -66984,7 +67000,7 @@ xuv
 hDr
 hDr
 mVO
-nkF
+fhU
 ept
 opp
 fSg
@@ -67186,7 +67202,7 @@ rCd
 dRN
 fjc
 gzF
-nkF
+fhU
 ept
 tHk
 gkM
@@ -67388,7 +67404,7 @@ qyh
 dki
 fjc
 gzF
-nkF
+fhU
 vXs
 dPz
 gkM
@@ -68005,7 +68021,7 @@ dza
 ayF
 uXq
 eNj
-mFQ
+bOR
 bDo
 dLu
 pTQ
@@ -68605,12 +68621,12 @@ doI
 ejU
 len
 vrd
-gBE
-cIr
-gBE
-gBE
+vtM
+qIJ
+aeR
+aeR
 mXJ
-tcE
+lCX
 mFQ
 acz
 rIK
@@ -69012,8 +69028,8 @@ pQq
 jow
 qav
 nGI
-lCX
-vtM
+gDw
+nkF
 dyZ
 mye
 tXR
@@ -69415,7 +69431,7 @@ cxi
 cxi
 quT
 mQW
-hEF
+lcL
 mzL
 ayF
 ayF
@@ -69617,7 +69633,7 @@ tlX
 tlX
 evJ
 rXJ
-hEF
+gGI
 vXs
 bhJ
 xZy
