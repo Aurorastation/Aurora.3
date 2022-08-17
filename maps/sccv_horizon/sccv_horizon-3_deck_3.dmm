@@ -1100,14 +1100,9 @@
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "aTY" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "aVs" = (
@@ -4060,7 +4055,7 @@
 "drQ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/vending/snack,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/deck_three/cafeteria)
 "dsd" = (
 /turf/simulated/wall,
@@ -4706,18 +4701,13 @@
 /turf/simulated/floor/reinforced,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "dQD" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 5
-	},
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "dQY" = (
@@ -7800,14 +7790,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/lounge)
 "gor" = (
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 4
-	},
 /obj/machinery/disposal/small/west,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "goB" = (
 /obj/machinery/firealarm/west,
@@ -8568,7 +8556,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/vending/zora,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/deck_three/cafeteria)
 "gVE" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -9504,15 +9492,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
-"hKk" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/lino/grey,
-/area/horizon/deck_three/cafeteria)
 "hLf" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -11527,14 +11506,6 @@
 /area/security/vacantoffice2)
 "jlp" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/power/apc/low{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/spline/plain{
@@ -11543,6 +11514,9 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck - Central Ring Port";
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
@@ -12300,9 +12274,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
-"jXx" = (
-/turf/space,
-/area/horizon/hallway/deck_three/primary/starboard)
 "jXz" = (
 /obj/structure/lattice,
 /obj/structure/lattice,
@@ -12537,9 +12508,6 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/cable/green{
 	icon_state = "1-4"
-	},
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino/grey,
@@ -13682,7 +13650,6 @@
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "lmT" = (
-/obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -14022,9 +13989,6 @@
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "lEF" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -14034,10 +13998,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 9
-	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "lFl" = (
@@ -17913,19 +17875,11 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "oSE" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/lino/grey,
-/area/horizon/deck_three/cafeteria)
-"oSU" = (
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "oTN" = (
@@ -19217,7 +19171,7 @@
 	},
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/deck_three/cafeteria)
 "pTd" = (
 /obj/structure/lattice/catwalk,
@@ -19434,7 +19388,7 @@
 "qba" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/vending/cigarette,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/deck_three/cafeteria)
 "qbb" = (
 /obj/structure/table/reinforced/steel,
@@ -20750,12 +20704,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "rck" = (
-/obj/effect/floor_decal/corner/paleblue/full,
 /obj/structure/disposalpipe/junction{
 	dir = 2;
 	icon_state = "pipe-j2"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/red/diagonal,
+/turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "rcq" = (
 /obj/structure/lattice/catwalk,
@@ -21047,19 +21001,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/starboard)
 "rpE" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "rqA" = (
@@ -23215,6 +23164,7 @@
 /area/crew_armory)
 "teW" = (
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "tfd" = (
@@ -52534,8 +52484,8 @@ lmT
 lmT
 lmT
 itE
-oSU
-hKk
+xbE
+xbE
 gor
 sCe
 ryX
@@ -52727,8 +52677,8 @@ uXX
 bEo
 bLh
 tce
-jXx
-jXx
+kdY
+nwQ
 drQ
 pSQ
 nJQ
@@ -52929,8 +52879,8 @@ gGF
 bEo
 uwN
 tce
-jXx
-jXx
+giL
+qLE
 xYb
 uzC
 tVu
@@ -54532,7 +54482,7 @@ htn
 htn
 ero
 wTZ
-ero
+mGa
 mGa
 mGa
 knA
