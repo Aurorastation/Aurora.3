@@ -1164,14 +1164,8 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aAp" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
-/area/maintenance/wing/port)
+/area/security/investigations)
 "aAu" = (
 /obj/structure/table/wood,
 /obj/item/flame/candle{
@@ -21459,6 +21453,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
+"lKY" = (
+/obj/random/junk,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port)
 "lLj" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
@@ -38809,9 +38808,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/kitchen/freezer)
 "uUz" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -39882,7 +39878,7 @@
 	req_access = list(63)
 	},
 /turf/simulated/floor/tiled,
-/area/maintenance/wing/port)
+/area/security/brig)
 "vDc" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -71564,7 +71560,7 @@ rgR
 kGX
 jxs
 wAm
-wsW
+uNK
 sEk
 sEk
 sEk
@@ -71766,7 +71762,7 @@ smn
 kGX
 urg
 kZv
-wsW
+uNK
 elh
 aAp
 jrz
@@ -71968,7 +71964,7 @@ xGz
 kGX
 nvF
 kaT
-wsW
+uNK
 elh
 aAp
 jrz
@@ -72170,7 +72166,7 @@ vLu
 kGX
 kaT
 kaT
-wsW
+uNK
 uNK
 uNK
 uNK
@@ -72576,9 +72572,9 @@ kaT
 kaT
 kaT
 kaT
-nvF
-uXV
-wsW
+lKY
+kaT
+sGm
 jUq
 mvM
 gqy
@@ -72780,7 +72776,7 @@ wsW
 kaT
 kaT
 uUz
-wsW
+sGm
 lMT
 bTy
 lGQ
