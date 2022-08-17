@@ -103,7 +103,7 @@
 			"An exhibit showcases reportedly hand-painted landscapes that have won awards.", 
 			"A melodic harmony is carried from a distant display marked with 'Music' only perceptible due to the quiet atmosphere of the surrounding exhibition.", 
 			"Sculptures of notable Zo'rane historical figures dominate their respective corners, carved from a variety of rare materials.", 
-			"Groups of workers move around, seemingly taking a guided tour through the museum, watching each art piece explained to them attentively"
+			"Groups of workers move around, seemingly taking a guided tour through the museum, watching each art piece explained to them attentively."
 		)
 
 
