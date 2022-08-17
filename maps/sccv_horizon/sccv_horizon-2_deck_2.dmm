@@ -965,16 +965,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "avM" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_atmos{
-	name = "Atmospherics Locker Room";
-	req_access = list(24)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/engineering/atmos/storage)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/tesla)
 "aww" = (
 /obj/machinery/cryopod/robot,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1563,7 +1556,10 @@
 "aKL" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/hallway/engineering)
 "aKO" = (
 /obj/structure/closet/crate,
@@ -2852,6 +2848,16 @@
 /obj/structure/sign/radiation{
 	pixel_y = 32
 	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "engineering_storage";
+	name = "Engineering Hard Storage";
+	pixel_y = 25;
+	pixel_x = -25
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "brZ" = (
@@ -2939,7 +2945,8 @@
 	req_access = list(11);
 	name = "Engineering Hard Storage Maintenance"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_hard)
 "bue" = (
 /obj/structure/bed/stool/chair/sofa/right/brown{
@@ -5450,6 +5457,7 @@
 	name = "Engineering Hard Storage";
 	req_access = list(11)
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/engineering/storage_hard)
 "cRN" = (
@@ -10657,8 +10665,11 @@
 /area/maintenance/wing/starboard/far)
 "fKZ" = (
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "fLi" = (
 /obj/item/trap/animal/medium,
@@ -13409,11 +13420,8 @@
 /area/horizon/hydroponics/garden)
 "hal" = (
 /obj/effect/floor_decal/corner_wide/yellow/full,
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "engineering_storage";
-	name = "Engineering Hard Storage";
-	pixel_y = -25
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
@@ -18445,6 +18453,7 @@
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "jLM" = (
@@ -22511,7 +22520,7 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
 "lZQ" = (
 /obj/structure/railing/mapped{
@@ -23012,7 +23021,7 @@
 	dir = 8;
 	id = "engineering_storage";
 	name = "Engineering Hard Storage";
-	pixel_y = 27;
+	pixel_y = 25;
 	pixel_x = 25
 	},
 /turf/simulated/floor/tiled,
@@ -24242,7 +24251,7 @@
 	req_access = list(11);
 	name = "Engineering Locker Room Maintenance"
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/locker_room)
 "mUz" = (
 /obj/structure/cable/green{
@@ -26787,6 +26796,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
