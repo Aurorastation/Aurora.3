@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "The bridge control APC is now critical and won't turn off during an electrical storm"
