@@ -1246,6 +1246,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
+"aCQ" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/security/brig)
 "aCR" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Secure Technical Storage";
@@ -6778,6 +6784,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard/far)
+"dFs" = (
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
 "dFC" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -13850,6 +13862,8 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "hsA" = (
@@ -16042,6 +16056,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "iJq" = (
@@ -17431,6 +17448,9 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "jrz" = (
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "jrH" = (
@@ -31228,7 +31248,7 @@
 /area/operations/lobby)
 "qUt" = (
 /obj/machinery/door/airlock/multi_tile/glass,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/security/brig)
 "qUz" = (
 /obj/structure/window/reinforced{
@@ -34001,6 +34021,12 @@
 /obj/machinery/disposal/small/west,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/security/brig)
+"sql" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -39877,7 +39903,9 @@
 	name = "Security Maintenance";
 	req_access = list(63)
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/full,
 /area/security/brig)
 "vDc" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -40836,6 +40864,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "vYE" = (
@@ -43641,6 +43671,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"xra" = (
+/turf/simulated/floor/tiled/full,
+/area/security/brig)
 "xrh" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
@@ -44458,6 +44491,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
+"xPR" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/security/investigations)
 "xPY" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
@@ -71766,9 +71805,9 @@ uNK
 elh
 aAp
 jrz
-jrz
+xPR
 qUt
-aOz
+aCQ
 kbZ
 aOz
 bFU
@@ -71967,10 +72006,10 @@ kaT
 uNK
 elh
 aAp
-jrz
+dFs
 iIX
-aOz
-aOz
+xra
+sql
 pwy
 nrr
 iWm
