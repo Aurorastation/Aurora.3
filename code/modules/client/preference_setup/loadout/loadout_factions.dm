@@ -87,6 +87,7 @@
 	idris_labcoats["idris labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/alt
 	idris_labcoats["idris letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/letterman
 	idris_labcoats["idris letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/letterman/alt
+	idris_labcoats["idris labcoat, long"] = /obj/item/clothing/suit/storage/longcoat/idris
 	idris_labcoats["idris windbreaker"] = /obj/item/clothing/suit/storage/toggle/idris
 	gear_tweaks += new /datum/gear_tweak/path(idris_labcoats)
 
@@ -143,6 +144,7 @@
 	zavodskoi_labcoats["zavodskoi labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/alt
 	zavodskoi_labcoats["zavodskoi letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman
 	zavodskoi_labcoats["zavodskoi letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman/alt
+	zavodskoi_labcoats["zavodskoi labcoat, long"] = /obj/item/clothing/suit/storage/longcoat/zavodskoi
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoi_labcoats)
 
 /datum/gear/faction/zavod_sunglasses
@@ -202,9 +204,10 @@
 /datum/gear/faction/pmc_labcoat/New()
 	..()
 	var/list/pmc_labcoats = list()
-	pmc_labcoats["labcoat, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
-	pmc_labcoats["labcoat alt, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
-	pmc_labcoats["labcoat, PMCG"] = /obj/item/clothing/suit/storage/toggle/labcoat/epmc
+	pmc_labcoats["PMCG labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
+	pmc_labcoats["PMCG labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
+	pmc_labcoats["PMCG labcoat, long"] = /obj/item/clothing/suit/storage/longcoat/pmc
+	pmc_labcoats["EPMC labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/epmc
 	gear_tweaks += new /datum/gear_tweak/path(pmc_labcoats)
 
 /datum/gear/faction/pmcg_headwear
@@ -297,6 +300,7 @@
 	zenghu_labcoats["zeng-hu letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman
 	zenghu_labcoats["zeng-hu letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt
 	zenghu_labcoats["zeng-hu letterman labcoat, classic"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt2
+	zenghu_labcoats["zeng-hu labcoat, long"] = /obj/item/clothing/suit/storage/longcoat/zeng
 	zenghu_labcoats["zeng-hu first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
 	gear_tweaks += new /datum/gear_tweak/path(zenghu_labcoats)
 
@@ -331,6 +335,7 @@
 	var/list/heph_labcoats = list()
 	heph_labcoats["hephaestus labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/heph
 	heph_labcoats["hephaestus letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/heph/letterman
+	heph_labcoats["hephaestus labcoat, long"] = /obj/item/clothing/suit/storage/longcoat/heph
 	gear_tweaks += new /datum/gear_tweak/path(heph_labcoats)
 
 /datum/gear/faction/heph_beret
@@ -346,6 +351,12 @@
 	faction = "Hephaestus Industries"
 
 //NanoTrasen
+/datum/gear/faction/nanotrasen_labcoat
+	display_name = "nanotrasen labcoat, long"
+	path = /obj/item/clothing/suit/storage/longcoat/nt
+	slot = slot_wear_suit
+	faction = "NanoTrasen"
+
 /datum/gear/faction/nt_custodialjumpsuit
 	display_name = "nanotrasen custodial jumpsuit, alternative"
 	path = /obj/item/clothing/under/rank/janitor/alt

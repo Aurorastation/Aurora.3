@@ -98,6 +98,14 @@
 /obj/item/material/kitchen/utensil/fork/plastic
 	default_material = MATERIAL_PLASTIC
 
+/obj/item/material/kitchen/utensil/spork
+	name = "spork"
+	desc = "It's a spork. It's much like a fork, but much blunter."
+	icon_state = "spork"
+
+/obj/item/material/kitchen/utensil/spork/plastic
+	default_material = MATERIAL_PLASTIC
+
 /obj/item/material/kitchen/utensil/fork/chopsticks
 	name = "chopsticks"
 	desc = "A pair of chopsticks. The most challenging utensil in the Spur."

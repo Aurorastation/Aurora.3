@@ -24,6 +24,7 @@
 
 /obj/effect/overmap/visitable/ship/elyran_strike_craft
 	name = "Elyran Naval Strike Craft"
+	class = "ENV"
 	desc = "The Aslan-class Strike Craft is among the oldest designs in the Elyran naval arsenal, and is one of the ship classes slated to be retired in the ongoing Elyran military modernization plan. Not an independent vessel in of itself, it is instead an oversized attack craft designed to be launched from the General Abd Al-Hamid-class Carrier, a type of Elyran capital ship, named after the Republic’s foremost national hero. As such, it has limited crew facilities and life support capabilities, and is instead reliant on its mothership for long-term operation. This ship is an interdiction variant, with its torpedo bay and railgun hardpoint replaced by a hangar and a boarding pod launch room, respectively. This one’s transponder identifies it as an Elyran Naval Infantry interdiction vessel."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
@@ -42,7 +43,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/elyran_strike_craft/New()
-	name = "ENV [pick("Persepolis", "Damascus", "Medina", "Aemaq", "New Suez", "Bursa", "Republican", "Falcon", "Gelin", "Sphinx", "Takam", "Dandan", "Anqa", "Falak", "Uthra", "Djinn", "Roc", "Shadhavar", "Karkadann")]"
+	designation = "[pick("Persepolis", "Damascus", "Medina", "Aemaq", "New Suez", "Bursa", "Republican", "Falcon", "Gelin", "Sphinx", "Takam", "Dandan", "Anqa", "Falak", "Uthra", "Djinn", "Roc", "Shadhavar", "Karkadann")]"
 	..()
 
 /obj/effect/shuttle_landmark/elyran_strike_craft/nav1

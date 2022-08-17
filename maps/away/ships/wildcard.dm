@@ -24,7 +24,8 @@
 
 /obj/effect/overmap/visitable/ship/tramp_freighter
 	name = "Tramp Freighter"
-	desc = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space. This one's transponder identifies it as an independent vessel."
+	class = "ICV"
+	desc = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space. This one’s transponder identifies it as an independent vessel."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	max_speed = 1/(2 SECONDS)
@@ -42,7 +43,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/tramp_freighter/New()
-    name = "ICV [pick("Tuckerbag", "Do No Harm", "Volatile Cargo", "Stay Clear", "Entrepreneurial", "Good Things Only", "Worthless", "Skip This One", "Pay No Mind", "Customs-Cleared", "Friendly", "Reactor Leak", "Fool's Gold", "Cursed Cargo", "Guards Aboard")]"
+    designation = "[pick("Tuckerbag", "Do No Harm", "Volatile Cargo", "Stay Clear", "Entrepreneurial", "Good Things Only", "Worthless", "Skip This One", "Pay No Mind", "Customs-Cleared", "Friendly", "Reactor Leak", "Fool's Gold", "Cursed Cargo", "Guards Aboard")]"
     ..()
 
 /obj/effect/shuttle_landmark/tramp_freighter/nav1
@@ -130,6 +131,7 @@
 
 /obj/effect/overmap/visitable/ship/militia_ship
 	name = "Militia Ship"
+	class = "IPV"
 	desc = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus. This one’s transponder identifies it as a local militia vessel."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
@@ -148,7 +150,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/militia_ship/New()
-    name = "IPV [pick("Volunteer", "Part-Timer", "Last Line", "Fearless", "Protector", "Minuteman", "Watchdog", "Family Man", "Guardian", "Hoplite", "Home Guard", "Defender", "Watchman")]"
+    designation = "[pick("Volunteer", "Part-Timer", "Last Line", "Fearless", "Protector", "Minuteman", "Watchdog", "Family Man", "Guardian", "Hoplite", "Home Guard", "Defender")]"
     ..()
 
 /obj/effect/shuttle_landmark/militia_ship/nav1
