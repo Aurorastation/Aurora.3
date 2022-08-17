@@ -180,6 +180,19 @@
 		/decl/emote/audible/synth/deny,
 		)
 
+/mob/living/simple_animal/spiderbot
+	default_emotes = list(
+		/decl/emote/visible/twitch,
+		/decl/emote/visible/twitch_v,
+		/decl/emote/visible/look,
+		/decl/emote/visible/stare,
+		/decl/emote/audible/synth,
+		/decl/emote/audible/synth/ping,
+		/decl/emote/audible/synth/buzz,
+		/decl/emote/audible/synth/confirm,
+		/decl/emote/audible/synth/deny,
+		)
+
 /mob/living/carbon/slime
 	default_emotes = list(
 		/decl/emote/audible/moan,

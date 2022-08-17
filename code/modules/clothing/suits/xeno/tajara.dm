@@ -79,8 +79,10 @@
 /obj/item/clothing/suit/storage/tajaran/azubarre
 	name = "Azubarre priest robes"
 	desc = "Large and fancy robes worn by the priests of Azubarre."
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "azubarre"
 	item_state = "azubarre"
+	contained_sprite = TRUE
 	no_overheat = TRUE
 	desc_fluff = "The priests of Azubarre are often adored and many aspire to become one, their large flowing robes and beautiful faces often accompany carnivals, marriages, \
 	birthdays, births and many other social events making them the epitome of life. However, the selection for such priests is considered by most to be very shallow, as only those \
@@ -90,8 +92,10 @@
 /obj/item/clothing/suit/storage/tajaran/raskara
 	name = "raskariim robes"
 	desc = "Sinister robes worn by the members of the cult of Raskara."
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "raskarasuit"
 	item_state = "raskarasuit"
+	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list(BODYTYPE_TAJARA)

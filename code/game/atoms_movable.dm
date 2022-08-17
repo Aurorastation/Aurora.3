@@ -25,6 +25,7 @@
 
 	var/can_hold_mob = FALSE
 	var/list/contained_mobs
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND
 
 // We don't really need this, and apparently defining it slows down GC.
 /*/atom/movable/Del()
@@ -43,6 +44,9 @@
 		if (pulledby.pulling == src)
 			pulledby.pulling = null
 		pulledby = null
+
+	if (bound_overlay)
+		QDEL_NULL(bound_overlay)
 
 // This is called when this atom is prevented from moving by atom/A.
 /atom/movable/proc/Collide(atom/A)
@@ -303,24 +307,6 @@
 	icon_rotation = new_rotation
 	update_transform()
 
-// Parallax stuff.
-
-/atom/movable/proc/update_client_hook(atom/destination)
-	. = isturf(destination)
-	if (.)
-		for (var/thing in contained_mobs)
-			var/mob/M = thing
-			if (!M.client || !M.hud_used)
-				continue
-
-			if (get_turf(M.client.eye) == destination)
-				M.hud_used.update_parallax_values()
-
-/mob/update_client_hook(atom/destination)
-	. = ..()
-	if (. && hud_used && client && get_turf(client.eye) == destination)
-		hud_used.update_parallax_values()
-
 // Core movement hooks & procs.
 /atom/movable/proc/forceMove(atom/destination)
 	if(destination)
@@ -329,11 +315,7 @@
 		var/old_loc = loc
 		loc = destination
 		loc.Entered(src, old_loc)
-		if (contained_mobs)
-			update_client_hook(loc)
 		return 1
-	if (contained_mobs)
-		update_client_hook(loc)
 	return 0
 
 /atom/movable/Move()
@@ -343,10 +325,6 @@
 		// Events.
 		if (moved_event.listeners_assoc[src])
 			moved_event.raise_event(src, old_loc, loc)
-
-		// Parallax.
-		if (contained_mobs)
-			update_client_hook(loc)
 
 		// Lighting.
 		if (light_sources)
@@ -369,64 +347,74 @@
 /atom/movable/proc/get_bullet_impact_effect_type()
 	return BULLET_IMPACT_NONE
 
-/atom/movable/proc/do_pickup_animation(atom/target)
-	set waitfor = FALSE
+/atom/movable/proc/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
 	if(!isturf(loc))
 		return
-	var/image/I = image(icon, loc, icon_state, layer + 0.1, dir, pixel_x, pixel_y)
-	I.transform *= 0.75
-	I.appearance_flags = (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
+	pickup_animation.color = color
+	pickup_animation.transform.Scale(0.75)
+	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+
 	var/turf/T = get_turf(src)
-	var/direction
-	var/to_x = 0
-	var/to_y = 0
+	var/direction = get_dir(T, target)
+	var/to_x = target.pixel_x
+	var/to_y = target.pixel_y
 
-	if(!QDELETED(T) && !QDELETED(target))
-		direction = get_dir(T, target)
 	if(direction & NORTH)
-		to_y = 32
+		to_y += 32
 	else if(direction & SOUTH)
-		to_y = -32
+		to_y -= 32
 	if(direction & EAST)
-		to_x = 32
+		to_x += 32
 	else if(direction & WEST)
-		to_x = -32
+		to_x -= 32
 	if(!direction)
-		to_y = 16
-	var/list/viewing = list()
-	for(var/mob/M in viewers(target))
-		if(M.client)
-			viewing |= M.client
-	flick_overlay(I, viewing, 7)
-	var/matrix/M = new
-	M.Turn(pick(-30, 30))
-	animate(I, alpha = 175, pixel_x = to_x, pixel_y = to_y, time = 3, transform = M, easing = CUBIC_EASING)
-	sleep(1)
-	animate(I, alpha = 0, transform = matrix(), time = 1)
+		to_y += 10
+		pickup_animation.pixel_x += 6 * (prob(50) ? 1 : -1) //6 to the right or left, helps break up the straight upward move
 
-/atom/movable/proc/simple_move_animation(atom/target)
-	set waitfor = FALSE
+	flick_overlay_view(pickup_animation, target, 4)
+	var/matrix/animation_matrix = new(pickup_animation.transform)
+	animation_matrix.Turn(pick(-30, 30))
+	animation_matrix.Scale(0.65)
 
-	var/old_invisibility = invisibility // I don't know, it may be used.
-	invisibility = 100
-	var/turf/old_turf = get_turf(src)
-	var/image/I = image(icon = src, loc = src.loc, layer = layer + 0.1)
-	I.appearance_flags = (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
+	animate(pickup_animation, alpha = 175, pixel_x = to_x, pixel_y = to_y, time = 3, transform = animation_matrix, easing = CUBIC_EASING)
+	animate(alpha = 0, transform = matrix().Scale(0.7), time = 1)
 
-	var/list/viewing = list()
-	for(var/mob/M in viewers(target))
-		if(M.client)
-			viewing |= M.client
-	flick_overlay(I, viewing, 4)
-
-	var/to_x = (target.x - old_turf.x) * 32 + pixel_x
-	var/to_y = (target.y - old_turf.y) * 32 + pixel_y
-
-	animate(I, pixel_x = to_x, pixel_y = to_y, time = 3, easing = CUBIC_EASING)
-	sleep(3)
-	if(QDELETED(src))
+/atom/movable/proc/do_drop_animation(atom/moving_from)
+	if(!isturf(loc))
 		return
-	invisibility = old_invisibility
+	var/turf/current_turf = get_turf(src)
+	var/direction = get_dir(moving_from, current_turf)
+	var/from_x = 0
+	var/from_y = 0
+
+	if(direction & NORTH)
+		from_y -= 32
+	else if(direction & SOUTH)
+		from_y += 32
+	if(direction & EAST)
+		from_x -= 32
+	else if(direction & WEST)
+		from_x += 32
+	if(!direction)
+		from_y += 10
+		from_x += 6 * (prob(50) ? 1 : -1) //6 to the right or left, helps break up the straight upward move
+
+	//We're moving from these chords to our current ones
+	var/old_x = pixel_x
+	var/old_y = pixel_y
+	var/old_alpha = alpha
+	var/matrix/old_transform = transform
+	var/matrix/animation_matrix = new(old_transform)
+	animation_matrix.Turn(pick(-30, 30))
+	animation_matrix.Scale(0.7) // Shrink to start, end up normal sized
+
+	pixel_x = from_x
+	pixel_y = from_y
+	alpha = 0
+	transform = animation_matrix
+
+	// This is instant on byond's end, but to our clients this looks like a quick drop
+	animate(src, alpha = old_alpha, pixel_x = old_x, pixel_y = old_y, transform = old_transform, time = 3, easing = CUBIC_EASING)
 
 /atom/movable/proc/get_floating_chat_x_offset()
 	return 0

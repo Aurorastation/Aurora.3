@@ -3,7 +3,7 @@
 /datum/ghostspawner/human/sfa_navy_crewman
 	short_name = "sfa_navy_crewman"
 	name = "SFA Navy Crewman"
-	desc = "Crew the Southern Fleet Administration auxiliary patrol ship. Figure out what to do now that the warlord you serve is dead."
+	desc = "Crew the Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead."
 	tags = list("External")
 	mob_name_prefix = "PO3. "
 
@@ -22,11 +22,11 @@
 /datum/outfit/admin/sfa_navy_crewman
 	name = "SFA Navy Crewman"
 
-	uniform = /obj/item/clothing/under/rank/fatigues/
+	uniform = /obj/item/clothing/under/rank/sol/
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = /obj/item/storage/backpack/satchel_norm
+	back = /obj/item/storage/backpack/satchel/norm
 	belt = /obj/item/storage/belt/utility/full
-	head = /obj/item/clothing/head/navy
+	head = /obj/item/clothing/head/sol
 	accessory = /obj/item/clothing/accessory/storage/brown_vest
 
 	id = /obj/item/card/id/sfa_ship
@@ -41,9 +41,9 @@
 /datum/ghostspawner/human/sfa_navy_officer
 	short_name = "sfa_navy_officer"
 	name = "SFA Navy Officer"
-	desc = "Pilot and command a Southern Fleet Administration auxiliary patrol ship. Figure out what to do now that the warlord you serve is dead."
+	desc = "Pilot and command a Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead."
 	tags = list("External")
-	mob_name_prefix = "ENS. "
+	mob_name_prefix = "LT. "
 
 	spawnpoints = list("sfa_navy_officer")
 	max_count = 1
@@ -60,10 +60,10 @@
 /datum/outfit/admin/sfa_navy_officer
 	name = "SFA Navy Officer"
 
-	uniform = /obj/item/clothing/under/rank/dress/subofficer
+	uniform = /obj/item/clothing/under/rank/sol/dress/subofficer
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel
-	head = /obj/item/clothing/head/dress
+	head = /obj/item/clothing/head/sol/dress
 	accessory = /obj/item/clothing/accessory/holster/thigh
 
 	id = /obj/item/card/id/sfa_ship
@@ -78,7 +78,7 @@
 /datum/ghostspawner/human/sfa_marine
 	short_name = "sfa_marine"
 	name = "SFA Marine"
-	desc = "Protect the Southern Fleet Administration auxiliary patrol ship. Figure out what to do now that the warlord you serve is dead."
+	desc = "Protect the Southern Fleet Administration corvette. Figure out what to do now that the warlord you serve is dead."
 	tags = list("External")
 	mob_name_prefix = "Pfc. "
 
@@ -97,11 +97,11 @@
 /datum/outfit/admin/sfa_marine
 	name = "SFA Marine"
 
-	uniform = /obj/item/clothing/under/rank/fatigues/marine
+	uniform = /obj/item/clothing/under/rank/sol/marine
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = /obj/item/storage/backpack/satchel_norm
+	back = /obj/item/storage/backpack/satchel/norm
 	belt = /obj/item/storage/belt/military
-	head = /obj/item/clothing/head/navy/marine
+	head = /obj/item/clothing/head/sol/marine
 	accessory = /obj/item/clothing/accessory/storage/pouches/black
 
 	id = /obj/item/card/id/sfa_ship
@@ -143,11 +143,11 @@
 /datum/outfit/admin/fsf_navy_crewman
 	name = "FSF Navy Crewman"
 
-	uniform = /obj/item/clothing/under/rank/fatigues/
+	uniform = /obj/item/clothing/under/rank/sol/
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = /obj/item/storage/backpack/satchel_norm
+	back = /obj/item/storage/backpack/satchel/norm
 	belt = /obj/item/storage/belt/utility/full
-	head = /obj/item/clothing/head/navy
+	head = /obj/item/clothing/head/sol
 	accessory = /obj/item/clothing/accessory/storage/brown_vest
 
 	id = /obj/item/card/id/fsf_ship
@@ -181,10 +181,10 @@
 /datum/outfit/admin/fsf_navy_officer
 	name = "FSF Navy Officer"
 
-	uniform = /obj/item/clothing/under/rank/dress/subofficer
+	uniform = /obj/item/clothing/under/rank/sol/dress/subofficer
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel
-	head = /obj/item/clothing/head/dress
+	head = /obj/item/clothing/head/sol/dress
 	accessory = /obj/item/clothing/accessory/holster/thigh
 
 	id = /obj/item/card/id/fsf_ship

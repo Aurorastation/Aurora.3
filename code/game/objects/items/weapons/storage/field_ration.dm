@@ -1,7 +1,7 @@
 /obj/item/storage/field_ration
 	name = "field ration"
 	desc = "An individually packed meal, designated to be consumed on field."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "ration"
 	desc_fluff = "The republican army is the best equipped among the warring factions of Adhomai, being supplied by NanoTrasen and other outworld supporters. Canned goods and \
 	modern rations are issued to all branches of the Republic's military. Native field meals are composed of salt-cured Fatshouters's meat, bread and Victory Gin, while imported ones \

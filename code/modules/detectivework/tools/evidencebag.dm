@@ -4,7 +4,7 @@
 	name = "evidence bag"
 	desc = "An empty evidence bag."
 	desc_info = "Click drag this onto an object to put it inside. Click it in-hand to remove an object from it."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/forensics.dmi'
 	icon_state = "evidenceobj"
 	item_state = ""
 	w_class = ITEMSIZE_SMALL
@@ -109,7 +109,7 @@
 			label_text = tmp_label
 			update_name_label()
 		return
-	. = ..() 
+	. = ..()
 
 /obj/item/evidencebag/proc/update_name_label(var/base_name = initial(name))
 	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)

@@ -391,13 +391,6 @@
 	icon_state = "wood_light"
 	},
 /area/city/mendell/interior)
-"ci" = (
-/obj/structure/signpost{
-	desc = "An informative signpost indicating that northwards leads to scenario selection.";
-	name = "directions"
-	},
-/turf/simulated/floor/bluegrid,
-/area/city/mendell)
 "cj" = (
 /obj/machinery/light/small,
 /obj/structure/closet/secure_closet/cabinet/bar,
@@ -446,7 +439,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
 "cF" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/flag/sol/right,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
@@ -490,7 +483,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "cL" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/flag/coalition/right,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
@@ -568,7 +561,7 @@
 	},
 /area/city/mendell)
 "db" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -1139,7 +1132,7 @@
 	},
 /area/city/mendell/interior)
 "fK" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/plating,
 /area/city/mendell)
 "fQ" = (
@@ -1600,7 +1593,7 @@
 /area/shuttle/city)
 "ie" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 11;
 	pixel_y = 12
 	},
@@ -1735,7 +1728,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "iV" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/city)
 "iW" = (
@@ -1967,7 +1960,7 @@
 	},
 /area/city/mendell)
 "kl" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/city/mendell)
 "kt" = (
@@ -2029,7 +2022,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "kM" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor{
 	icon_state = "concrete";
 	name = "concrete"
@@ -2901,7 +2894,7 @@
 	},
 /area/city/mendell/interior)
 "qs" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/greencross{
 	name = "Emergency Room"
 	},
@@ -3227,7 +3220,7 @@
 	},
 /area/city/mendell/interior)
 "rK" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/shuttle/black,
 /area/city/mendell)
 "rL" = (
@@ -3305,7 +3298,7 @@
 	},
 /area/city/mendell/interior)
 "se" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/plating,
 /area/city/mendell/interior)
@@ -4648,7 +4641,7 @@
 	},
 /area/city/mendell)
 "Af" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/lino/grey,
 /area/city/mendell/interior)
 "Aj" = (
@@ -4868,7 +4861,7 @@
 /area/city/mendell/interior)
 "BJ" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 11;
 	pixel_y = 12
 	},
@@ -5501,7 +5494,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "Fb" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/city/mendell)
 "Fe" = (
@@ -5952,7 +5945,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "IA" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "IC" = (
@@ -7187,7 +7180,7 @@
 /turf/simulated/floor/plating,
 /area/city/mendell/interior)
 "OQ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/flag/sol/left,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
@@ -7741,7 +7734,7 @@
 /turf/simulated/floor/lino/grey,
 /area/city/mendell)
 "RD" = (
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /obj/item/gun/launcher/grenade{
 	name = "active cleaning utility dispenser"
 	},
@@ -8003,7 +7996,7 @@
 	},
 /area/city/mendell/interior)
 "Tp" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
@@ -8312,7 +8305,7 @@
 /turf/simulated/floor/lino/grey,
 /area/city/mendell)
 "Vh" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/flag/coalition/left,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
@@ -8903,7 +8896,7 @@
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "YI" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/plating,
 /area/shuttle/city)
 "YL" = (
@@ -29329,7 +29322,7 @@ Hh
 hP
 QX
 QX
-ci
+QX
 QX
 QX
 QX
@@ -29593,7 +29586,7 @@ zn
 Ty
 xD
 xD
-ci
+QX
 hP
 hP
 hP
@@ -30289,7 +30282,7 @@ QX
 QX
 xD
 xD
-ci
+QX
 hP
 hP
 hP
@@ -30547,7 +30540,7 @@ QX
 QX
 QX
 QX
-ci
+QX
 QX
 QX
 QX

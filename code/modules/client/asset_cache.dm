@@ -358,16 +358,16 @@ var/list/asset_datums = list()
 
 /datum/asset/simple/faction_icons
 	assets = list(
-		"faction_EPMC.png" = 'icons/misc/factions/ECFlogo.png',
-		"faction_Zeng.png" = 'icons/misc/factions/ZhenHulogo.png',
-		"faction_Zavod.png" = 'icons/misc/factions/Zavodlogo.png',
-		"faction_NT.png" = 'icons/misc/factions/NanoTrasenlogo.png',
-		"faction_Idris.png" = 'icons/misc/factions/Idrislogo.png',
-		"faction_Hepht.png" = 'icons/misc/factions/Hephaestuslogo.png',
-		"faction_unaffiliated.png" = 'icons/misc/factions/Unaffiliatedlogo.png',
-		"faction_PMCG.png" = 'icons/misc/factions/pmcglogo.png',
-		"faction_Orion.png" = 'icons/misc/factions/Orionlogo.png',
-		"faction_SCC.png" = 'icons/misc/factions/SCClogo.png'
+		"faction_EPMC.png" = 'html/images/factions/ECFlogo.png',
+		"faction_Zeng.png" = 'html/images/factions/zenghulogo.png',
+		"faction_Zavod.png" = 'html/images/factions/zavodlogo.png',
+		"faction_NT.png" = 'html/images/factions/nanotrasenlogo.png',
+		"faction_Idris.png" = 'html/images/factions/idrislogo.png',
+		"faction_Hepht.png" = 'html/images/factions/hephlogo.png',
+		"faction_INDEP.png" = 'html/images/factions/unaffiliatedlogo.png',
+		"faction_PMCG.png" = 'html/images/factions/pmcglogo.png',
+		"faction_Orion.png" = 'html/images/factions/orionlogo.png',
+		"faction_SCC.png" = 'html/images/factions/scclogo.png'
 	)
 
 /datum/asset/simple/jquery
@@ -413,16 +413,17 @@ var/list/asset_datums = list()
 		"barcode1.png" = 'html/images/barcode1.png',
 		"barcode2.png" = 'html/images/barcode2.png',
 		"barcode3.png" = 'html/images/barcode3.png',
-		"scclogo.png" = 'html/images/scclogo.png',
+		"scclogo.png" = 'html/images/factions/scclogo.png',
 		"ntlogo.png" = 'html/images/ntlogo.png',
 		"ntlogo_small.png" = 'html/images/ntlogo_small.png',
-		"zhlogo.png" = 'html/images/zhlogo.png',
-		"idrislogo.png" = 'html/images/idrislogo.png',
-		"eridanilogo.png" = 'html/images/eridanilogo.png',
-		"pmcglogo.png" = 'html/images/pmcglogo.png',
-		"zavodlogo.png" = 'html/images/zavodlogo.png',
-		"orionlogo.png" = 'html/images/orionlogo.png',
-		"hplogo.png" = 'html/images/hplogo.png',
+		"zhlogo.png" = 'html/images/factions/zenghulogo.png',
+		"idrislogo.png" = 'html/images/factions/idrislogo.png',
+		"eridanilogo.png" = 'html/images/factions/ECFlogo.png',
+		"pmcglogo.png" = 'html/images/factions/pmcglogo.png',
+		"zavodlogo.png" = 'html/images/factions/zavodlogo.png',
+		"orionlogo.png" = 'html/images/factions/orionlogo.png',
+		"hplogolarge.png" = 'html/images/hplogolarge.png',
+		"hplogo.png" = 'html/images/factions/hephlogo.png',
 		"beflag.png" = 'html/images/beflag.png',
 		"elyraflag.png" = 'html/images/elyraflag.png',
 		"solflag.png" = 'html/images/solflag.png',

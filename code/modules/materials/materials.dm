@@ -7,7 +7,7 @@
 	PATHS THAT USE DATUMS
 		turf/simulated/wall
 		obj/item/material
-		obj/structure/barricade
+		obj/structure/blocker
 		obj/item/stack/material
 		obj/structure/table
 
@@ -418,7 +418,7 @@
 	melting_point = 6000
 	icon_base = "solid"
 	icon_reinf = "reinf_over"
-	icon_colour = "#777777"
+	icon_colour = "#666666"
 	explosion_resistance = 25
 	hardness = 80
 	weight = 23
@@ -585,7 +585,7 @@
 	integrity = 100
 	icon_colour = "#FC2BC5"
 	stack_origin_tech = list(TECH_MATERIAL = 4)
-	created_window = /obj/structure/window/phoronbasic
+	created_window = /obj/structure/window/borosilicate
 	wire_product = null
 	rod_product = /obj/item/stack/material/glass/phoronrglass
 	golem = SPECIES_GOLEM_PHORON
@@ -596,7 +596,7 @@
 	stack_type = /obj/item/stack/material/glass/phoronrglass
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	composite_material = list() //todo
-	created_window = /obj/structure/window/phoronreinforced
+	created_window = /obj/structure/window/borosilicate/reinforced
 	hardness = 40
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)
@@ -986,7 +986,7 @@
 
 /material/shuttle
 	name = MATERIAL_SHUTTLE
-	display_name = "spaceship alloy"
+	display_name = "plastitanium alloy"
 	stack_type = null
 	icon_base = "shuttle"
 	integrity = 1200
@@ -995,6 +995,7 @@
 	hardness = 500
 	weight = 500
 	protectiveness = 80 // 80%
+	cut_delay = 20 SECONDS
 
 /material/shuttle/skrell
 	name = MATERIAL_SHUTTLE_SKRELL

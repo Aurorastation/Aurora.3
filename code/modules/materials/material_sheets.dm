@@ -290,6 +290,18 @@
 	amount = max_amount
 	update_icon()
 
+/obj/item/stack/material/shuttle
+	name = "plastitanium"
+	icon_state = "sheet-plastitanium"
+	item_state = "sheet-metal"
+	default_type = MATERIAL_SHUTTLE
+	icon_has_variants = TRUE
+
+/obj/item/stack/material/shuttle/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/wood
 	name = "wooden plank"
 	icon_state = "sheet-wood"

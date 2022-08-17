@@ -273,8 +273,8 @@
 /obj/machinery/power/solar_control
 	name = "solar panel control"
 	desc = "A controller for solar panel arrays."
-	icon = 'icons/obj/computer.dmi'
-	icon_state = "computer"
+	icon = 'icons/obj/modular_console.dmi'
+	light_color = LIGHT_COLOR_YELLOW
 	anchored = 1
 	density = 1
 	use_power = POWER_USE_IDLE
@@ -347,21 +347,6 @@
 	. = ..()
 	if(!connect_to_network()) return
 	set_panels(cdir)
-
-/obj/machinery/power/solar_control/update_icon()
-	icon_state = initial(icon_state)
-	cut_overlays()
-	if(stat & BROKEN)
-		icon_state = "computer-broken"
-		add_overlay("broken")
-		return
-	if(stat & NOPOWER)
-		icon_state = "computer"
-		return
-	add_overlay("solar")
-	if(cdir > -1)
-		add_overlay(image('icons/obj/computer.dmi', "solcon-o", FLY_LAYER, angle2dir(cdir)))
-	return
 
 /obj/machinery/power/solar_control/attack_hand(mob/user)
 	if(!..())
@@ -502,6 +487,10 @@
 /obj/machinery/power/solar_control/power_change()
 	..()
 	update_icon()
+	if(stat & NOPOWER)
+		set_light(0)
+	else
+		set_light(2, 1.3, light_color)
 
 
 /obj/machinery/power/solar_control/proc/broken()
@@ -529,6 +518,8 @@
 
 /obj/machinery/power/solar_control/autostart/Initialize()
 	. = ..()
+	power_change()
+	update_icon()
 	addtimer(CALLBACK(src, .proc/do_solars), 1800)
 
 /obj/machinery/power/solar_control/autostart/proc/do_solars()
@@ -536,6 +527,24 @@
 	if(connected_tracker && track == 2)
 		connected_tracker.modify_angle(sun.angle)
 	set_panels(cdir)
+
+/obj/machinery/power/solar_control/update_icon()
+	cut_overlays()
+	if(stat & NOPOWER)
+		set_light(0)
+		return
+	else
+		set_light(2, 1.3, light_color)
+
+	icon_state = initial(icon_state)
+
+	if(stat & BROKEN)
+		icon_state = "[initial(icon_state)]-broken"
+		holographic_overlay(src, src.icon, "broken")
+		add_overlay("red_key")
+	else
+		holographic_overlay(src, src.icon, "solar")
+		add_overlay("yellow_key")
 
 //
 // MISC

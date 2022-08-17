@@ -133,7 +133,7 @@
 /obj/structure/table/stone/marble,
 /obj/effect/spider/stickyweb,
 /obj/item/tape/medical,
-/obj/structure/barricade,
+/obj/structure/blocker,
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/white,
 /area/racers)
@@ -229,7 +229,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/structure/barricade,
+/obj/structure/blocker,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel,
 /area/racers)
@@ -908,7 +908,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "esD" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/effect/map_effect/airlock/w_to_e,
 /turf/simulated/floor/plating,
 /area/racers)
@@ -1452,9 +1452,9 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "hkp" = (
-/obj/effect/map_effect/wingrille_spawn/full/phoron,
 /obj/item/material/sword/amohdan_sword,
 /obj/machinery/door/blast/shutters/open,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "hkT" = (
@@ -1525,7 +1525,7 @@
 /area/racers)
 "hyW" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "hzI" = (
@@ -1741,7 +1741,7 @@
 	},
 /obj/effect/spider/stickyweb,
 /obj/item/tape/medical,
-/obj/structure/barricade,
+/obj/structure/blocker,
 /turf/simulated/floor/holofloor/tiled,
 /area/racers)
 "iJa" = (
@@ -1753,7 +1753,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/racers)
 "iKO" = (
-/obj/structure/barricade,
+/obj/structure/blocker,
 /turf/simulated/floor/plating,
 /area/racers)
 "iNZ" = (
@@ -1805,7 +1805,7 @@
 	},
 /obj/item/tape/medical,
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm,
-/obj/structure/barricade,
+/obj/structure/blocker,
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/white,
 /area/racers)
@@ -1876,7 +1876,7 @@
 /area/racers)
 "jgx" = (
 /obj/effect/decal/cleanable/blood/drip,
-/obj/structure/barricade,
+/obj/structure/blocker,
 /turf/simulated/floor/plating,
 /area/racers)
 "jiB" = (
@@ -1988,7 +1988,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "jzv" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/wall/r_wall,
 /area/racers)
 "jAg" = (
@@ -2212,7 +2212,7 @@
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/item/tape/medical,
-/obj/structure/barricade,
+/obj/structure/blocker,
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/white,
 /area/racers)
@@ -2684,7 +2684,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "nfm" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "nhS" = (
@@ -2811,9 +2811,9 @@
 /turf/simulated/floor/carpet,
 /area/racers)
 "nRF" = (
-/obj/effect/map_effect/wingrille_spawn/full/phoron,
 /obj/item/melee/ceremonial_sword,
 /obj/machinery/door/blast/shutters/open,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "nUG" = (
@@ -2823,7 +2823,7 @@
 "nVi" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 4;
 	pixel_y = 13
 	},
@@ -3164,7 +3164,7 @@
 /turf/simulated/floor/lino/grey,
 /area/racers)
 "pyN" = (
-/mob/living/simple_animal/hostile/carp/old,
+/mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "pCU" = (
@@ -3475,7 +3475,7 @@
 /turf/simulated/floor/wood,
 /area/racers)
 "qUf" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/template_noop,
 /area/racers)
 "qUF" = (
@@ -3875,11 +3875,11 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "sOd" = (
-/obj/effect/map_effect/wingrille_spawn/full/phoron,
 /obj/item/clothing/head/unathi/maxtlatl{
 	pixel_y = -4
 	},
 /obj/machinery/door/blast/shutters/open,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "sRo" = (
@@ -4177,7 +4177,7 @@
 /area/racers)
 "uoH" = (
 /obj/structure/inflatable/wall,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "upu" = (
@@ -4329,7 +4329,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "vcf" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/wood,
 /area/racers)
 "vcF" = (
@@ -4457,7 +4457,7 @@
 /obj/machinery/door/blast/regular{
 	id = "pet"
 	},
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "vBl" = (
@@ -4645,7 +4645,7 @@
 /turf/simulated/floor/lino/grey,
 /area/racers)
 "wKE" = (
-/obj/structure/barricade,
+/obj/structure/blocker,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel,
 /area/racers)
@@ -4831,7 +4831,7 @@
 /area/racers)
 "xwJ" = (
 /obj/structure/lattice,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/racers)
 "xzv" = (

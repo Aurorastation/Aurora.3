@@ -1,7 +1,7 @@
 /obj/machinery/computer/HolodeckControl
 	name = "holodeck control console"
 	desc = "A computer used to control a nearby holodeck."
-
+	icon = 'icons/obj/computer.dmi'
 	icon_state  = "computerw"
 	icon_screen = "holocontrolw"
 	light_color = LIGHT_COLOR_CYAN

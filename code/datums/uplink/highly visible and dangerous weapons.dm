@@ -81,7 +81,7 @@
 
 /datum/uplink_item/item/visible_weapons/gatling
 	name = "Gatling Machine Gun"
-	item_cost = 30
+	item_cost = 40
 	path = /obj/item/minigunpack
 
 /datum/uplink_item/item/visible_weapons/chainsaw
@@ -103,6 +103,21 @@
 	name = "Laser Rifle"
 	item_cost = 8
 	path = /obj/item/gun/energy/rifle/laser
+
+/datum/uplink_item/item/visible_weapons/ballistic_carbine
+	name = "Ballistic Carbine"
+	item_cost = 8
+	path = /obj/item/gun/projectile/automatic/rifle/carbine
+
+/datum/uplink_item/item/visible_weapons/noctiluca
+	name = "Combat Laser Rifle"
+	item_cost = 8
+	path = /obj/item/gun/energy/rifle/laser/noctiluca
+
+/datum/uplink_item/item/visible_weapons/jingya
+	name = "Burst Rifle"
+	item_cost = 8
+	path = /obj/item/gun/projectile/automatic/rifle/jingya
 
 /datum/uplink_item/item/visible_weapons/energy_carbine
 	name = "Energy Carbine"
@@ -144,12 +159,27 @@
 	item_cost = 5
 	path = /obj/item/gun/projectile/recoilless_rifle
 
-/datum/uplink_item/item/visible_weapons/random_weapon
-	name = "Random Gun"
-	item_cost = 3
-	path = /obj/item/storage/box/syndie_kit/random_weapon
-
 /datum/uplink_item/item/visible_weapons/ionrifle
 	name = "Ion Rifle"
 	item_cost = 5
 	path = /obj/item/gun/energy/rifle/ionrifle
+
+/datum/uplink_item/item/visible_weapons/lmg
+	name = "Light Machine Gun"
+	item_cost = 20
+	path = /obj/item/gun/projectile/automatic/rifle/l6_saw
+
+/datum/uplink_item/item/visible_weapons/random_weapon
+	name = "Random Gun"
+	item_cost = 6
+	path = /obj/item/storage/box/syndie_kit/random_weapon
+
+/datum/uplink_item/item/visible_weapons/super_heavy_pistol
+	name = "Super Heavy Pistol"
+	item_cost = 4
+	path = /obj/item/gun/projectile/pistol/super_heavy
+
+/datum/uplink_item/item/visible_weapons/energy_pistol
+	name = "Energy Pistol"
+	item_cost = 2
+	path = /obj/item/gun/energy/pistol

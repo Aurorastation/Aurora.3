@@ -113,26 +113,14 @@
 	desc = "Slick threads."
 	name = "lawyer suit"
 
-/obj/item/clothing/under/lawyer/black
-	name = "black lawyer suit"
-	icon_state = "lawyer_black"
-	item_state = "lawyer_black"
-	worn_state = "lawyer_black"
-
 /obj/item/clothing/under/lawyer/red
-	name = "red Lawyer suit"
+	name = "garish red suit"
 	icon_state = "lawyer_red"
 	item_state = "lawyer_red"
 	worn_state = "lawyer_red"
 
-/obj/item/clothing/under/lawyer/blue
-	name = "blue Lawyer suit"
-	icon_state = "lawyer_blue"
-	item_state = "lawyer_blue"
-	worn_state = "lawyer_blue"
-
 /obj/item/clothing/under/lawyer/purple
-	name = "purple suit"
+	name = "garish purple suit"
 	icon_state = "lawyer_purple"
 	item_state = "ba_suit"
 	worn_state = "lawyer_purple"

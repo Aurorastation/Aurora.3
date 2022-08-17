@@ -213,6 +213,7 @@
 	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
 	icon_state = "welder"
 	item_state = "welder"
+	var/welding_state = "welding_sparks"
 	contained_sprite = TRUE
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -239,7 +240,6 @@
 	var/welding = 0 	//Whether or not the welding tool is off(0), on(1) or currently welding(2)
 	var/status = TRUE		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
 	var/max_fuel = 20 	//The max amount of fuel the welder can hold
-
 	var/change_icons = TRUE
 
 /obj/item/weldingtool/iswelder()
@@ -297,6 +297,12 @@
 	R.my_atom = src
 	R.add_reagent(/decl/reagent/fuel, max_fuel)
 	update_icon()
+
+/obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
+	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state, EFFECTS_ABOVE_LIGHTING_LAYER)
+	target.add_overlay(welding_sparks)
+	. = ..()
+	target.cut_overlay(welding_sparks)
 
 /obj/item/weldingtool/proc/update_torch()
 	if(welding)
@@ -736,6 +742,38 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "crowbar_red"
 	item_state = "crowbar_red"
+
+/obj/item/crowbar/rescue_axe //Imagine something like a crash axe found on airplanes or forcing tools used by emergency services. This is a tool first and foremost.
+	name = "rescue axe"
+	desc = "A short lightweight emergency tool meant to chop, pry and pierce. Most of the handle is insulated excepting the wedge at the very bottom. The axe head atop the tool has a short pick opposite of the blade."
+	icon_state = "rescue_axe"
+	item_state = "rescue_axe"
+	w_class = ITEMSIZE_NORMAL
+	force = 12
+	throwforce = 12
+	flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
+	sharp = TRUE
+	edge = TRUE
+	origin_tech = list(TECH_ENGINEERING = 2)
+
+/obj/item/crowbar/rescue_axe/resolve_attackby(atom/A)//In practice this means it just does full damage to reinforced windows, which halve the force of attacks done against it already. That's just fine.
+	if(istype(A, /obj/structure/window))
+		force = initial(force) * 2
+	else
+		force = initial(force)
+	. = ..()
+
+/obj/item/crowbar/rescue_axe/iscrowbar()//go ham
+	if(ismob(loc))
+		var/mob/M = loc
+		if(M.a_intent && M.a_intent == I_HURT)
+			return FALSE
+
+	return TRUE
+
+/obj/item/crowbar/rescue_axe/red
+	icon_state = "rescue_axe_red"
+	item_state = "rescue_axe_red"
 
 // Pipe wrench
 /obj/item/pipewrench

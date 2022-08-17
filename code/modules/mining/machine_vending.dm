@@ -192,7 +192,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 
 /obj/machinery/mineral/equipment_vendor/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/coin/mining))
-		var/choice = input(user, "Which special equipment would you like to dispense from \the [src]?", capitalize_first_letters(name)) as null|anything in list("Enhanced Power Converter", "Hand-held Drill")
+		var/choice = input(user, "Which special equipment would you like to dispense from \the [src]?", capitalize_first_letters(name)) as null|anything in list("Enhanced Power Converter", "Hand-held Drill", "Autonomous Mining Drone")
 		if(!choice || QDELETED(I) || !Adjacent(user))
 			return
 		var/obj/dispensed_equipment
@@ -201,10 +201,13 @@ var/global/list/minevendor_list = list( //keep in order of price
 				dispensed_equipment = new /obj/item/custom_ka_upgrade/barrels/barrel02(src)
 			if("Hand-held Drill")
 				dispensed_equipment = new /obj/item/pickaxe/drill/weak(src)
+			if("Autonomous Mining Drone")
+				dispensed_equipment = new /mob/living/silicon/robot/drone/mining(get_turf(user))
 		if(dispensed_equipment)
 			to_chat(user, SPAN_NOTICE("\The [src] accepts your coin and dispenses \a [dispensed_equipment]."))
 			qdel(I)
-			user.put_in_hands(dispensed_equipment)
+			if(dispensed_equipment && isobj(dispensed_equipment))
+				user.put_in_hands(dispensed_equipment)
 		return
 	if(default_deconstruction_screwdriver(user, "mining-open", "mining", I))
 		updateUsrDialog()

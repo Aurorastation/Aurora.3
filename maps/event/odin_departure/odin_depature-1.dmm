@@ -467,7 +467,7 @@
 /obj/item/storage/backpack/messenger,
 /obj/item/storage/backpack/satchel/withwallet,
 /obj/item/storage/backpack/duffel,
-/obj/item/storage/backpack/satchel_norm,
+/obj/item/storage/backpack/satchel/norm,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/circuit.dmi';
 	icon_state = "bcircuit"
@@ -2580,7 +2580,7 @@
 /turf/simulated/floor/shuttle,
 /area/template_noop)
 "aiY" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
 "ajd" = (
@@ -3588,14 +3588,14 @@
 /obj/item/storage/backpack/messenger/syndie,
 /obj/item/storage/backpack/duffel/syndie,
 /obj/item/storage/backpack/duffel/syndie,
-/obj/item/storage/backpack/satchel_syndie,
-/obj/item/storage/backpack/satchel_syndie,
+/obj/item/storage/backpack/satchel/syndie,
+/obj/item/storage/backpack/satchel/syndie,
 /obj/item/storage/backpack/syndie,
 /obj/item/storage/backpack/syndie,
-/obj/item/storage/backpack/satchel_norm,
-/obj/item/storage/backpack/satchel_norm,
-/obj/item/storage/backpack/satchel_norm,
-/obj/item/storage/backpack/satchel_norm,
+/obj/item/storage/backpack/satchel/norm,
+/obj/item/storage/backpack/satchel/norm,
+/obj/item/storage/backpack/satchel/norm,
+/obj/item/storage/backpack/satchel/norm,
 /obj/item/storage/backpack/satchel,
 /obj/item/storage/backpack/satchel,
 /obj/item/storage/backpack/satchel,
@@ -3940,7 +3940,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "avR" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
 "avT" = (
@@ -3971,7 +3971,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "awh" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
@@ -4037,7 +4037,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "ayw" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/centcom/control)
 "ayG" = (
@@ -4111,7 +4111,7 @@
 	density = 1;
 	opacity = 1
 	},
-/area/beach)
+/area/template_noop)
 "aBl" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -4125,15 +4125,14 @@
 /area/centcom/spawning)
 "aBw" = (
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBx" = (
-/obj/structure/signpost,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBy" = (
 /obj/structure/closet,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBD" = (
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -4188,12 +4187,12 @@
 "aBV" = (
 /obj/effect/overlay/palmtree_l,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBW" = (
 /obj/effect/overlay/palmtree_r,
 /obj/effect/overlay/coconut,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aBX" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -4209,7 +4208,7 @@
 "aCa" = (
 /obj/effect/overlay/coconut,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aCb" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -4269,7 +4268,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aCm" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
@@ -4332,7 +4331,7 @@
 "aCH" = (
 /obj/effect/overlay/palmtree_r,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aCI" = (
 /obj/machinery/light{
 	dir = 8;
@@ -4359,7 +4358,7 @@
 	name = "endgame_exit"
 	},
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aCU" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -4386,7 +4385,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/specops)
 "aDb" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aDf" = (
@@ -4413,16 +4412,15 @@
 "aDj" = (
 /obj/structure/table/standard,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDk" = (
 /obj/structure/table/standard,
-/obj/item/clothing/under/rainbow,
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/head/collectable/petehat{
 	pixel_y = 5
 	},
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDo" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -4451,7 +4449,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/chips,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDu" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/cans/cola,
@@ -4461,11 +4459,11 @@
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /obj/item/reagent_containers/food/drinks/cans/cola,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDv" = (
 /obj/item/beach_ball,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aDA" = (
 /obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_right"
@@ -4538,11 +4536,10 @@
 	name = "endgame_exit"
 	},
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aEd" = (
-/mob/living/simple_animal/crab/Coffee,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aEf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -4552,7 +4549,7 @@
 "aEi" = (
 /obj/item/clothing/head/collectable/paper,
 /turf/unsimulated/beach/sand,
-/area/beach)
+/area/template_noop)
 "aEj" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1;
@@ -4661,10 +4658,10 @@
 	density = 1;
 	opacity = 1
 	},
-/area/beach)
+/area/template_noop)
 "aEF" = (
 /turf/unsimulated/beach/coastline,
-/area/beach)
+/area/template_noop)
 "aEG" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,11"
@@ -4714,10 +4711,10 @@
 	density = 1;
 	opacity = 1
 	},
-/area/beach)
+/area/template_noop)
 "aEY" = (
 /turf/unsimulated/beach/water,
-/area/beach)
+/area/template_noop)
 "aFa" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -5702,7 +5699,7 @@
 	},
 /area/shuttle/skipjack)
 "aKZ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
@@ -5738,7 +5735,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/arrival)
 "aLi" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor,
 /area/tdome/tdome2)
 "aLk" = (
@@ -7886,7 +7883,7 @@
 	},
 /area/centcom/legion/hangar5)
 "biK" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor,
 /area/tdome/tdome1)
 "bjr" = (
@@ -9685,7 +9682,7 @@
 	},
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/structure/table/stone/marble,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 4;
 	pixel_y = 9
 	},
@@ -10741,7 +10738,7 @@
 	},
 /area/shuttle/escape)
 "cZw" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "cZH" = (
@@ -11353,7 +11350,7 @@
 	},
 /area/shuttle/administration)
 "dtU" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/staff_only{
 	pixel_y = 4
 	},
@@ -13416,7 +13413,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "eJc" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor,
 /area/centcom/holding)
 "eJU" = (
@@ -14875,7 +14872,7 @@
 	},
 /area/centcom/control)
 "fFe" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/disposalpipe/segment,
 /turf/unsimulated/floor/plating,
 /area/tdome/tdomeadmin)
@@ -16127,7 +16124,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/mercenary)
 "goi" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/double/map/right{
 	desc = "A framed picture of a station.";
 	pixel_x = -16;
@@ -16260,7 +16257,7 @@
 	name = "mechanical supply crate";
 	pixel_x = 1
 	},
-/obj/structure/sign/emerg_exitZ{
+/obj/structure/sign/emergency/exit/ladder{
 	dir = 1;
 	pixel_x = -9;
 	pixel_y = 30
@@ -17289,7 +17286,7 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = -12;
 	pixel_y = 11
 	},
@@ -18068,7 +18065,7 @@
 	},
 /area/centcom/control)
 "hpC" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/unsimulated/floor/plating,
 /area/tdome/tdomeadmin)
@@ -18482,7 +18479,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
 "hHP" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "hHX" = (
@@ -18542,7 +18539,7 @@
 	},
 /area/centcom/control)
 "hLS" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/pods{
 	desc = "A direction sign which reads 'DROPPODS'.";
 	name = "\improper DROPPODS"
@@ -18742,17 +18739,17 @@
 /turf/simulated/floor/plating,
 /area/shuttle/syndicate_elite)
 "hRS" = (
-/obj/structure/closet/jcloset,
+/obj/structure/closet/secure_closet/custodial,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
 /area/centcom/holding)
 "hTi" = (
 /obj/structure/shuttle/engine/heater,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
@@ -19097,7 +19094,7 @@
 /turf/simulated/floor/wood,
 /area/centcom/shared_dream)
 "idk" = (
-/obj/structure/sign/emerg_exit{
+/obj/structure/sign/emergency/exit{
 	dir = 8;
 	pixel_y = 32
 	},
@@ -19488,7 +19485,7 @@
 /area/shuttle/merchant)
 "ipA" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/unsimulated/floor{
 	icon_state = "tiles"
 	},
@@ -20812,7 +20809,7 @@
 	},
 /area/centcom/bar)
 "jcG" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "jdm" = (
@@ -21600,7 +21597,7 @@
 	pixel_y = 6
 	},
 /obj/item/storage/box/masks,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/fire{
 	layer = 2.9;
@@ -22666,7 +22663,7 @@
 	},
 /area/shuttle/merchant)
 "krP" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/disposalpipe/segment,
 /turf/unsimulated/floor/plating,
 /area/tdome/tdomeobserve)
@@ -24260,7 +24257,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
 "lvs" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/tdome/tdomeobserve)
 "lvy" = (
@@ -25115,7 +25112,7 @@
 /turf/space/dynamic,
 /area/shuttle/merchant)
 "lWl" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/machinery/door/blast/odin{
 	dir = 2;
 	icon_state = "shutter1";
@@ -25323,7 +25320,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
 "mbM" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
@@ -28375,7 +28372,7 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "nQZ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/tdome/tdomeadmin)
 "nRo" = (
@@ -28387,18 +28384,18 @@
 /obj/structure/closet/gimmick{
 	name = "sol clothing"
 	},
-/obj/item/clothing/under/rank/fatigues,
-/obj/item/clothing/under/rank/fatigues,
-/obj/item/clothing/under/rank/fatigues,
-/obj/item/clothing/under/rank/fatigues,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/sol,
 /obj/item/flag/sol,
 /obj/item/flag/sol,
 /obj/item/flag/sol/l,
 /obj/item/flag/sol/l,
-/obj/item/clothing/under/rank/fatigues/marine,
-/obj/item/clothing/under/rank/fatigues/marine,
-/obj/item/clothing/under/rank/fatigues/marine,
-/obj/item/clothing/under/rank/fatigues/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/sol/marine,
 /obj/item/clothing/suit/storage/vest/sol,
 /obj/item/clothing/suit/storage/vest/sol,
 /obj/item/clothing/suit/storage/vest/sol,
@@ -28407,15 +28404,15 @@
 /obj/item/clothing/head/helmet/sol,
 /obj/item/clothing/head/helmet/sol,
 /obj/item/clothing/head/helmet/sol,
-/obj/item/clothing/head/navy,
-/obj/item/clothing/head/navy,
-/obj/item/clothing/head/navy,
-/obj/item/clothing/head/navy,
-/obj/item/clothing/head/navy/marine,
-/obj/item/clothing/head/navy/marine,
-/obj/item/clothing/head/navy/marine,
-/obj/item/clothing/head/navy/garrison,
-/obj/item/clothing/head/dress/admiral,
+/obj/item/clothing/head/sol,
+/obj/item/clothing/head/sol,
+/obj/item/clothing/head/sol,
+/obj/item/clothing/head/sol,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/garrison,
+/obj/item/clothing/head/sol/dress/admiral,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -28835,10 +28832,10 @@
 /area/centcom/specops)
 "oci" = (
 /obj/structure/shuttle/engine/heater,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
@@ -29527,7 +29524,7 @@
 /area/shuttle/escape)
 "oGs" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
@@ -30768,7 +30765,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
 "pAs" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/staff_only,
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
@@ -31678,7 +31675,7 @@
 	},
 /area/antag/ninja)
 "qce" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/machinery/status_display/arrivals_display,
 /turf/unsimulated/floor{
 	icon_state = "plating"
@@ -32013,7 +32010,7 @@
 	},
 /area/shuttle/legion)
 "qrB" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/directions/medical{
 	dir = 1;
 	pixel_y = -5
@@ -32700,7 +32697,7 @@
 	pixel_y = -8
 	},
 /obj/item/reagent_containers/syringe,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_y = 12
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline{
@@ -32748,7 +32745,7 @@
 /turf/space/transit/west,
 /area/template_noop)
 "qSn" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/directions/com{
 	dir = 8;
 	pixel_y = -4
@@ -33543,7 +33540,7 @@
 	},
 /area/antag/raider)
 "rvN" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/directions/tram{
 	dir = 1;
 	pixel_x = 1;
@@ -34568,7 +34565,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "sjp" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/double/map/left{
 	desc = "A framed picture of a station.";
 	pixel_x = 16;
@@ -34655,7 +34652,7 @@
 	},
 /area/centcom/control)
 "smt" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/greencross{
 	name = "Emergency Room"
 	},
@@ -36015,7 +36012,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "tix" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/machinery/door/blast/odin{
 	icon_state = "shutter1";
 	icon_state_closed = "shutter1";
@@ -36314,7 +36311,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/specops)
 "tvn" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/antag/mercenary)
 "tvo" = (
@@ -37448,7 +37445,7 @@
 /turf/unsimulated/floor,
 /area/centcom/bar)
 "ujN" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "ujT" = (
@@ -37893,7 +37890,7 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/item/storage/box/masks,
 /obj/machinery/light{
 	dir = 4;
@@ -38642,7 +38639,7 @@
 "uTK" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_y = -8
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal{
@@ -39266,7 +39263,7 @@
 /area/centcom/legion/hangar5)
 "vrQ" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 11;
 	pixel_y = 12
 	},
@@ -40397,7 +40394,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "weG" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/vacuum,
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
@@ -41593,7 +41590,7 @@
 /obj/structure/shuttle/engine/heater{
 	icon_state = "router"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
@@ -42529,7 +42526,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "xkw" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "xkH" = (
@@ -43056,7 +43053,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/syndicate_elite)
 "xyH" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/pods{
 	desc = "A direction sign which reads 'DROPPODS'.";
 	name = "\improper DROPPODS"
@@ -43535,7 +43532,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/specops)
 "xQs" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/sign/directions/com{
 	dir = 8;
 	pixel_y = 5
@@ -44085,7 +44082,7 @@
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_dininghall)
 "yhJ" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
 /area/antag/wizard)
 "yil" = (

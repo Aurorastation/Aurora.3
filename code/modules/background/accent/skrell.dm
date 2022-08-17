@@ -40,7 +40,7 @@
 	seems to remain within the low ranges, often described as high-pitched and nasal in tone."
 	tag_icon = "skrell_traverse"
 	text_tag = "TRA"
-	
+
 /datum/accent/skrell/genner
 	name = ACCENT_GENNER
 	description = "The Generation Fleet accent is actually a catch-all term for the various accents that have developed aboard the Generation Fleets of the Jargon Federation. \
@@ -48,7 +48,7 @@
 	described as sounding 'older' by other Skrell."
 	tag_icon = "skrell_genner"
 	text_tag = "GEN"
-	
+
 /datum/accent/skrell/ceti
 	name = ACCENT_SKRELLCETI
 	description = "While the Biesel accent is easy to pick up by most Tau Ceti Basic speakers, the Biesellite Skrell Standard accent is common in the more insular Skrell communities, \
@@ -56,7 +56,7 @@
 	characteristics of the Biesellite accent."
 	tag_icon = "skrell_biesel"
 	text_tag = "BSS"
-	
+
 /datum/accent/skrell/sol
 	name = ACCENT_SKRELLSOL
 	description = "Solarian Skrell Standard can be seen as the Skrellian equivalent of the Solarian accent, having hundreds of variants that can be found on planets across \
@@ -64,7 +64,7 @@
 	average Solarian accent."
 	tag_icon = "skrell_sol"
 	text_tag = "SSS"
-	
+
 /datum/accent/skrell/coc
 	name = ACCENT_SKRELLCOC
 	description = "Coalition Skrell Standard refers to the various accents of Skrell living within the Coalition of Colonies. Heavily influenced by Freespeak, this accent \
@@ -72,3 +72,16 @@
 	resulted in this accent being seen by Skrell as anti-Federation by association."
 	tag_icon = "skrell_coalition"
 	text_tag = "CSS"
+
+/datum/accent/skrell/srom
+	name = ACCENT_SROM
+	description = "The projection of one's inner voice within the Srom. Anyone can understand or speak this language innately upon entering the Srom."
+	tag_icon = "skrell_srom"
+	text_tag = "SRM"
+
+/datum/accent/skrell/tattuqig
+	name = ACCENT_TATTUQIG
+	description = "The Tattuqig accent has a slight drawl to it, and is known for the dropping or merging of vowels when speaking. Like many other Traverse accents it has \
+	a certain stigma attached to it, and is noted as being 'rural' or 'unrefined' by Skrell from the inner systems."
+	tag_icon = "skrell_tattuqig"
+	text_tag = "TAT"

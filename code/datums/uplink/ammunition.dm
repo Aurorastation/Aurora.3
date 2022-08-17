@@ -52,7 +52,25 @@
 	path = /obj/item/ammo_magazine/boltaction
 	desc = "Contains five rounds of 7.62mm bullets."
 
+/datum/uplink_item/item/ammo/carbine_mag
+	name = "5.56 carbine magazine"
+	item_cost = 2
+	path = /obj/item/ammo_magazine/a556/carbine 
+	desc = "Contains 15 rounds of 5.56."
+
+/datum/uplink_item/item/ammo/lmg_drum
+	name = "7.62 LMG drum"
+	item_cost = 5
+	path = /obj/item/ammo_magazine/a762
+	desc = "Contains 50 rounds of 7.62."
+
 /datum/uplink_item/item/ammo/peac
 	name = "Anti-materiel Cannon Cartridge"
 	path = /obj/item/ammo_casing/peac
 	desc = "Contains one anti-materiel cannon cartridge."
+
+/datum/uplink_item/item/ammo/super_heavy
+	name = "K2557 Magazine"
+	item_cost = 2
+	path = /obj/item/ammo_magazine/super_heavy
+	desc = "A spare magazine, for the super heavy K2557 pistol."

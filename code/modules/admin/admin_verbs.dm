@@ -767,7 +767,7 @@ var/list/admin_verbs_cciaa = list(
 		deadmin_holder.reassociate()
 		log_admin("[src] re-admined themself.",admin_key=key_name(src))
 		message_admins("[src] re-admined themself.", 1)
-		to_chat(src, "<span class='interface'>You now have the keys to control the planet, or atleast a small space station</span>")
+		to_chat(src, "<span class='interface'>You now have the keys to control the galaxy, or at least a small space ship</span>")
 		verbs -= /client/proc/readmin_self
 
 /client/proc/deadmin_self()

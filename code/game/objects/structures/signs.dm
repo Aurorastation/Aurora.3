@@ -1,49 +1,43 @@
+//
+// Signs
+//
+
 /obj/structure/sign
-	icon = 'icons/obj/decals.dmi'
-	anchored = 1
-	opacity = 0
-	density = 0
+	name = "sign"
+	desc = "A sign."
+	icon = 'icons/obj/signs.dmi'
+	anchored = TRUE
+	density = FALSE
+	opacity = FALSE
 	layer = 3.5
 	w_class = ITEMSIZE_NORMAL
 
 /obj/structure/sign/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			qdel(src)
-			return
-		if(2.0)
-			qdel(src)
-			return
-		if(3.0)
-			qdel(src)
-			return
-		else
-	return
+	qdel(src)
 
-/obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
+/obj/structure/sign/attackby(obj/item/tool, mob/user) // Deconstruction.
 	if(tool.isscrewdriver() && !istype(src, /obj/structure/sign/double))
-		to_chat(user, "You unfasten the sign with your [tool].")
-		unfasten()
+		playsound(get_turf(user), tool.usesound, 50, 1)
+		unfasten(user)
 	else ..()
 
-/obj/structure/sign/proc/unfasten()
+/obj/structure/sign/proc/unfasten(mob/user)
+	user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), SPAN_NOTICE("You unfasten \the [src]."))
 	var/obj/item/sign/S = new(src.loc)
 	S.name = name
 	S.desc = desc
 	S.icon_state = icon_state
-	//var/icon/I = icon('icons/obj/decals.dmi', icon_state)
-	//S.icon = I.Scale(24, 24)
 	S.sign_state = icon_state
 	qdel(src)
 
 /obj/item/sign
 	name = "sign"
-	desc = ""
-	icon = 'icons/obj/decals.dmi'
-	w_class = ITEMSIZE_HUGE		//big
+	desc = "A sign."
+	icon = 'icons/obj/signs.dmi'
+	w_class = ITEMSIZE_HUGE
 	var/sign_state = ""
 
-/obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
+/obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob) // Construction.
 	if(tool.isscrewdriver() && isturf(user.loc))
 		var/direction = input("In which direction?", "Select direction.") in list("North", "East", "South", "West", "Cancel")
 		if(direction == "Cancel") return
@@ -65,249 +59,12 @@
 		qdel(src)
 	else ..()
 
-/obj/structure/sign/double/map
-	name = "station map"
-	desc = "A framed picture of the station."
+//
+// Christmas
+//
 
-/obj/structure/sign/double/map/left
-	icon_state = "map-left"
-
-/obj/structure/sign/double/map/right
-	icon_state = "map-right"
-
-/obj/structure/sign/securearea
-	name = "\improper SECURE AREA"
-	desc = "A warning sign which reads 'SECURE AREA'."
-	icon_state = "securearea"
-
-/obj/structure/sign/biohazard
-	name = "\improper BIOHAZARD"
-	desc = "A warning sign which reads 'BIOHAZARD'."
-	icon_state = "bio"
-
-/obj/structure/sign/electricshock
-	name = "\improper HIGH VOLTAGE"
-	desc = "A warning sign which reads 'HIGH VOLTAGE'."
-	icon_state = "shock"
-
-/obj/structure/sign/examroom
-	name = "\improper EXAM"
-	desc = "A guidance sign which reads 'EXAM ROOM'."
-	icon_state = "examroom"
-
-/obj/structure/sign/vacuum
-	name = "\improper HARD VACUUM AHEAD"
-	desc = "A warning sign which reads 'HARD VACUUM AHEAD'."
-	icon_state = "space"
-
-/obj/structure/sign/drop
-	name = "\improper DANGER! DROP HAZARD"
-	desc = "A warning sign which reads 'DANGER! DROP HAZARD'."
-	icon_state = "drop"
-
-/obj/structure/sign/deathsposal
-	name = "\improper DISPOSAL LEADS TO SPACE"
-	desc = "A warning sign which reads 'DISPOSAL LEADS TO SPACE'."
-	icon_state = "deathsposal"
-
-/obj/structure/sign/pods
-	name = "\improper ESCAPE PODS"
-	desc = "A warning sign which reads 'ESCAPE PODS'."
-	icon_state = "pods"
-
-/obj/structure/sign/fire
-	name = "\improper DANGER: FIRE"
-	desc = "A warning sign which reads 'DANGER: FIRE'."
-	icon_state = "fire"
-
-/obj/structure/sign/nosmoking_1
-	name = "\improper NO SMOKING"
-	desc = "A warning sign which reads 'NO SMOKING'."
-	icon_state = "nosmoking"
-
-/obj/structure/sign/nosmoking_2
-	name = "\improper NO SMOKING"
-	desc = "A warning sign which reads 'NO SMOKING'."
-	icon_state = "nosmoking2"
-
-/obj/structure/sign/greencross
-	name = "medbay"
-	desc = "The Intergalactic symbol of Medical institutions. You'll probably get help here."
-	icon_state = "greencross"
-
-/obj/structure/sign/goldenplaque
-	name = "The Most Robust Men Award for Robustness"
-	desc = "To be Robust is not an action or a way of life, but a mental state. Only those with the force of Will strong enough to act during a crisis, saving friend from foe, are truly Robust. Stay Robust my friends."
-	icon_state = "goldenplaque"
-
-/obj/structure/sign/kiddieplaque
-	name = "\improper AI developers plaque"
-	desc = "Next to the extremely long list of names and job titles, there is a drawing of a little child. Beneath the image, someone has scratched the word \"PACKETS\""
-	icon_state = "kiddieplaque"
-
-/obj/structure/sign/kiddieplaque/janitor
-	desc = "A humble wooden plaque. In simple lettering begin the words: \"Primum non sordes\"."
-	name = "\improper Janitorial Oath"
-
-/obj/structure/sign/atmosplaque
-	name = "\improper FEA atmospherics division plaque"
-	desc = "This plaque commemorates the fall of the Atmos FEA division. For all the charred, dizzy, and brittle men who have died in its hands."
-	icon_state = "atmosplaque"
-
-/obj/structure/sign/double/maltesefalcon	//The sign is 64x32, so it needs two tiles. ;3
-	name = "The Maltese Falcon"
-	desc = "The Maltese Falcon, Space Bar and Grill."
-
-/obj/structure/sign/double/maltesefalcon/left
-	icon_state = "maltesefalcon-left"
-
-/obj/structure/sign/double/maltesefalcon/right
-	icon_state = "maltesefalcon-right"
-
-/obj/structure/sign/science			//These 3 have multiple types, just var-edit the icon_state to whatever one you want on the map
-	name = "\improper SCIENCE!"
-	desc = "A warning sign which reads 'SCIENCE!'."
-	icon_state = "science1"
-
-/obj/structure/sign/chemistry
-	name = "\improper CHEMISTRY"
-	desc = "A warning sign which reads 'CHEMISTRY'."
-	icon_state = "chemistry1"
-
-/obj/structure/sign/pharmacy
-	name = "\improper Pharmacy"
-	desc = "A warning sign which reads 'PHARMACY'."
-	icon_state = "pharmacy1"
-
-/obj/structure/sign/botany
-	name = "\improper HYDROPONICS"
-	desc = "A warning sign which reads 'HYDROPONICS'."
-	icon_state = "hydro1"
-
-/obj/structure/sign/patients_only
-	name = "\improper PATIENTS ONLY"
-	desc = "A big blue sign that reads 'PATIENTS ONLY'. Underneath you can read: 'Authorized personnel only. Tresspassers will be prosecuted by the security department.'"
-	icon_state = "patients_only"
-
-/obj/structure/sign/staff_only
-	name = "\improper STAFF ONLY"
-	desc = "A big blue sign that reads 'STAFF ONLY'"
-	icon_state = "staff_only"
-
-//Location and direction signs
-/obj/structure/sign/directions
-	name = "direction sign"
-	desc = "A direction sign, claiming to know the way."
-	icon_state = null
-
-/obj/structure/sign/directions/science
-	name = "\improper Science department"
-	desc = "A direction sign, pointing out which way the Science department is."
-	icon_state = "direction_sci"
-
-/obj/structure/sign/directions/engineering
-	name = "\improper Engineering department"
-	desc = "A direction sign, pointing out which way the Engineering department is."
-	icon_state = "direction_eng"
-
-/obj/structure/sign/directions/security
-	name = "\improper Security department"
-	desc = "A direction sign, pointing out which way the Security department is."
-	icon_state = "direction_sec"
-
-/obj/structure/sign/directions/medical
-	name = "\improper Medical Bay"
-	desc = "A direction sign, pointing out which way the Medical Bay is."
-	icon_state = "direction_med"
-
-/obj/structure/sign/directions/evac
-	name = "\improper Escape Dock"
-	desc = "A direction sign, pointing out which way the escape shuttle dock is."
-	icon_state = "direction_evac"
-
-/obj/structure/sign/directions/cryo
-	name = "\improper Cryogenics Storage"
-	desc = "A direction sign, pointing out which way the station's Cryogenics Storage station is."
-	icon_state = "direction_cryo"
-
-/obj/structure/sign/directions/dock
-	name = "\improper Departures/Arrivals Dock"
-	desc = "A direction sign. It reads: 'Reminder: All personnel are required to make use of the Auto-locker device before heading to the Docking area. Thank you.'"
-	icon_state = "direction_dock"
-
-/obj/structure/sign/directions/civ
-	name = "\improper Civilian department"
-	desc = "A direction sign, pointing out which way the Civilian sector is."
-	icon_state = "direction_civ"
-
-/obj/structure/sign/directions/com
-	name = "\improper Command department"
-	desc = "A direction sign, pointing out which way the Command sector is."
-	icon_state = "direction_com"
-
-/obj/structure/sign/directions/tcom
-	name = "\improper Telecommunications"
-	desc = "A direction sign, pointing out which way Telecommunications is."
-	icon_state = "direction_tcom"
-
-/obj/structure/sign/directions/tram
-	name = "\improper Tram Station"
-	desc = "A direction sign, pointing out which way the Tram is."
-	icon_state = "direction_tram"
-
-/obj/structure/sign/directions/mndl
-	name = "\improper Mendell Transport Shuttle"
-	desc = "A direction sign, pointing out which way the Mendell City Transport Shuttle is."
-	icon_state = "direction_mndl"
-
-/obj/structure/sign/directions/all
-	name = "\improper All directions"
-	desc = "A multi-coloured direction sign, pointing out in which all main departments are located."
-	icon_state = "direction_all"
-
-/obj/structure/sign/meeting_point
-	name = "\improper EMERGENCY MEETING POINT"
-	desc = "A green sign which depicts a group of people in the middle of the sign, being pointed at by arrows."
-	icon_state = "meeting_point"
-
-/obj/structure/sign/emerg_exit
-	name = "\improper EMERGENCY EXIT"
-	desc = "A green sign pointing towards an emergency exit."
-	icon_state = "emerg_exit"
-
-/obj/structure/sign/emerg_exit/evac
-	name = "\improper EVACUATION ROUTE sign"
-	desc = "A green sign pointing towards an evacuation route."
-	icon_state = "emerg_exit"
-
-/obj/structure/sign/emerg_exitZ
-	name = "\improper EMERGENCY LADDER"
-	desc = "A green sign that depicts a person climbing the ladder towards the arrow's direction, pointing at the emergency exit."
-	icon_state = "emerg_exitZ"
-
-/obj/structure/sign/emerg_exitZ/evac
-	name = "\improper EVACUATION ROUTE sign"
-	desc = "A green sign that depicts a person climbing a ladder towards an evacuation route."
-	icon_state = "emerg_exitZ"
-
-/obj/structure/sign/emerg_exitZ_stairs
-	name = "\improper STAIRS"
-	desc = "A green sign that depicts a person using stairs towards the arrow's direction, pointing at the emergency exit."
-	icon_state = "emerg_exitZ_stairs"
-
-/obj/structure/sign/emerg_exitZ_stairs/evac
-	name = "\improper EVACUATION ROUTE sign"
-	desc = "A green sign that depicts a person using a stairwell, moving towards an evacuation route."
-	icon_state = "emerg_exitZ_stairs"
-
-/obj/structure/sign/emerg_pods
-	name = "\improper EVACUATION POD sign"
-	desc = "A green sign that depicts an evacuation pod, with the text \"EVACUATION PODS\" under it."
-	icon_state = "emerg_pods"
-
-//Christmas
 /obj/structure/sign/christmas/lights
-	name = "Christmas lights"
+	name = "christmas lights"
 	desc = "Flashy."
 	icon = 'icons/obj/christmas.dmi'
 	icon_state = "xmaslights"
@@ -320,10 +77,424 @@
 	icon_state = "doorwreath"
 	layer = 5
 
+//
+// Generic Signs
+//
+
+/obj/structure/sign/double/map
+	name = "station map"
+	desc = "A framed picture of the station."
+
+/obj/structure/sign/double/map/left
+	icon_state = "map-left"
+
+/obj/structure/sign/double/map/right
+	icon_state = "map-right"
+
+/obj/structure/sign/examroom
+	name = "\improper EXAM sign"
+	desc = "A sign which reads 'EXAM ROOM'."
+	icon_state = "examroom"
+
+/obj/structure/sign/vacuum
+	name = "\improper VACUUM AHEAD sign"
+	desc = "A warning sign which reads 'VACUUM AHEAD'."
+	icon_state = "space"
+
+/obj/structure/sign/deathsposal
+	name = "\improper DISPOSAL LEADS TO SPACE sign"
+	desc = "A warning sign which reads 'DISPOSAL LEADS TO SPACE'."
+	icon_state = "deathsposal"
+
+/obj/structure/sign/pods
+	name = "\improper ESCAPE PODS sign"
+	desc = "A warning sign which reads 'ESCAPE PODS'."
+	icon_state = "pods"
+
+/obj/structure/sign/nosmoking_1
+	name = "\improper NO SMOKING sign"
+	desc = "A warning sign which reads 'NO SMOKING'."
+	icon_state = "nosmoking"
+
+/obj/structure/sign/nosmoking_2
+	name = "\improper NO SMOKING sign"
+	desc = "A warning sign which reads 'NO SMOKING'."
+	icon_state = "nosmoking2"
+
+/obj/structure/sign/greencross
+	name = "\improper MEDICAL sign"
+	desc = "The Intergalactic symbol of Medical institutions. You'll probably get help here."
+	icon_state = "greencross"
+
+/obj/structure/sign/goldenplaque
+	name = "\improper The Most Robust Men Award for Robustness sign"
+	desc = "To be Robust is not an action or a way of life, but a mental state. Only those with the force of Will strong enough to act during a crisis, saving friend from foe, are truly Robust. Stay Robust my friends."
+	icon_state = "goldenplaque"
+
+/obj/structure/sign/kiddieplaque
+	name = "\improper AI developers plaque sign"
+	desc = "Next to the extremely long list of names and job titles, there is a drawing of a little child. Beneath the image, someone has scratched the word \"PACKETS\""
+	icon_state = "kiddieplaque"
+
+/obj/structure/sign/kiddieplaque/janitor
+	name = "\improper Janitorial Oath sign"
+	desc = "A humble wooden plaque. In simple lettering begin the words: \"Primum non sordes\"."
+
+/obj/structure/sign/atmosplaque
+	name = "\improper FEA atmospherics division plaque"
+	desc = "This plaque commemorates the fall of the Atmos FEA division. For all the charred, dizzy, and brittle men who have died in its hands."
+	icon_state = "atmosplaque"
+
+/obj/structure/sign/science
+	name = "\improper SCIENCE sign"
+	desc = "A warning sign which reads 'SCIENCE'."
+	icon_state = "science1"
+
+/obj/structure/sign/chemistry
+	name = "\improper CHEMISTRY sign"
+	desc = "A warning sign which reads 'CHEMISTRY'."
+	icon_state = "chemistry1"
+
+/obj/structure/sign/pharmacy
+	name = "\improper PHARMACY sign"
+	desc = "A warning sign which reads 'PHARMACY'."
+	icon_state = "pharmacy1"
+
+/obj/structure/sign/botany
+	name = "\improper HYDROPONICS sign"
+	desc = "A warning sign which reads 'HYDROPONICS'."
+	icon_state = "hydro1"
+
+/obj/structure/sign/patients_only
+	name = "\improper PATIENTS ONLY sign"
+	desc = "A big blue sign that reads 'PATIENTS ONLY'. Underneath you can read: 'Authorized personnel only. Tresspassers will be prosecuted by the security department.'"
+	icon_state = "patients_only"
+
+/obj/structure/sign/staff_only
+	name = "\improper STAFF ONLY sign"
+	desc = "A big blue sign that reads 'STAFF ONLY'"
+	icon_state = "staff_only"
+
+//
+// Location and Direction Signs
+//
+
+/obj/structure/sign/directions
+	name = "direction sign"
+	desc = "A direction sign, claiming to know the way."
+	icon_state = null
+
+/obj/structure/sign/directions/science
+	name = "\improper SCIENCE DEAPRTMENT sign"
+	desc = "A direction sign, pointing out which way the science department is."
+	icon_state = "direction_sci"
+
+/obj/structure/sign/directions/engineering
+	name = "\improper ENGINEERING DEPARTMENT sign"
+	desc = "A direction sign, pointing out which way the engineering department is."
+	icon_state = "direction_eng"
+
+/obj/structure/sign/directions/security
+	name = "\improper SECURITY DEPARTMENT sign"
+	desc = "A direction sign, pointing out which way the security department is."
+	icon_state = "direction_sec"
+
+/obj/structure/sign/directions/medical
+	name = "\improper MEDICAL DEPARTMENT sign"
+	desc = "A direction sign, pointing out which way the medical department is."
+	icon_state = "direction_med"
+
+/obj/structure/sign/directions/evac
+	name = "\improper ESCAPE DOCK sign"
+	desc = "A direction sign, pointing out which way the escape dock is."
+	icon_state = "direction_evac"
+
+/obj/structure/sign/directions/cryo
+	name = "\improper CRYOGENICS STORAGE sign"
+	desc = "A direction sign, pointing out which way the cryogenics storage is."
+	icon_state = "direction_cryo"
+
+/obj/structure/sign/directions/dock
+	name = "arrivals/departures dock sign"
+	desc = "A direction sign, pointing out which way the arrivals/departures dock is."
+	icon_state = "direction_dock"
+
+/obj/structure/sign/directions/civ
+	name = "\improper CIVILIAN sign"
+	desc = "A direction sign, pointing out which way the civilian sector is."
+	icon_state = "direction_civ"
+
+/obj/structure/sign/directions/com
+	name = "\improper COMMAND sign"
+	desc = "A direction sign, pointing out which way the command sector is."
+	icon_state = "direction_com"
+
+/obj/structure/sign/directions/tcom
+	name = "\improper TELECOMMUNICATIONS sign"
+	desc = "A direction sign, pointing out which way telecommunications is."
+	icon_state = "direction_tcom"
+
+/obj/structure/sign/directions/tram
+	name = "\improper TRAM STATION sign"
+	desc = "A direction sign, pointing out which way the tram station is."
+	icon_state = "direction_tram"
+
+/obj/structure/sign/directions/mndl
+	name = "\improper Mendell Transport Shuttle sign"
+	desc = "A direction sign, pointing out which way the Mendell City Transport Shuttle is."
+	icon_state = "direction_mndl"
+
+/obj/structure/sign/directions/all
+	name = "\improper ALL DEPARTMENTS sign"
+	desc = "A multi-coloured direction sign, pointing out in which all main departments are located."
+	icon_state = "direction_all"
+
+//
+// Danger, Warning, and Hazard Signs
+//
+
+/obj/structure/sign/securearea
+	name = "\improper WARNING: SECURE AREA sign"
+	desc = "A warning sign which reads \"WARNING: SECURE AREA\"."
+	icon_state = "securearea"
+
+/obj/structure/sign/biohazard
+	name = "\improper WARNING: BIOHAZARD sign"
+	desc = "A warning sign which reads \"WARNING: BIOHAZARD\"."
+	icon_state = "bio"
+
+/obj/structure/sign/electricshock
+	name = "\improper DANGER: HIGH VOLTAGE sign"
+	desc = "A danger sign which reads \"DANGER: HIGH VOLTAGE\"."
+	icon_state = "shock"
+
+/obj/structure/sign/fire
+	name = "\improper DANGER: FIRE sign"
+	desc = "A danger sign which reads \"DANGER: FIRE\"."
+	icon_state = "fire"
+
+/obj/structure/sign/radiation
+	name = "\improper RADIATION HAZARD sign"
+	desc = "A hazard sign which reads \"RADIATION HAZARD\"."
+	icon_state = "radiation"
+
+/obj/structure/sign/drop
+	name = "\improper DANGER: DROP HAZARD sign"
+	desc = "A danger sign which reads \"DANGER: DROP HAZARD\"."
+	icon_state = "drop"
+
+/obj/structure/sign/vacuum
+	name = "\improper DANGER: VACUUM sign"
+	desc = "A danger sign which reads \"DANGER: VACUUM\"."
+	icon_state = "vacuum"
+
+//
+// Emergency Signs
+//
+
+// Emergency (Parent)
+/obj/structure/sign/emergency
+	name = "emergency sign"
+	desc = "An emergency sign."
+	icon_state = null
+
+// Emergency
+/obj/structure/sign/emergency/exit
+	name = "\improper EMERGENCY EXIT sign"
+	desc = "A green sign pointing towards an emergency exit."
+	icon_state = "emerg_exit"
+
+/obj/structure/sign/emergency/exit/ladder
+	name = "\improper EMERGENCY EXIT LADDER sign"
+	desc = "A green sign that depicts a person climbing the ladder towards the arrow's direction, pointing at the emergency exit."
+	icon_state = "emerg_exitZ"
+
+/obj/structure/sign/emergency/exit/stairs
+	name = "\improper EMERGENCY EXIT STAIRS sign"
+	desc = "A green sign that depicts a person using stairs towards the arrow's direction, pointing at the emergency exit."
+	icon_state = "emerg_exitZ_stairs"
+
+// Evacuation
+/obj/structure/sign/emergency/evacuation
+	name = "\improper EVACUATION ROUTE sign"
+	desc = "A green sign pointing towards an evacuation route."
+	icon_state = "emerg_exit"
+
+/obj/structure/sign/emergency/evacuation/ladder
+	name = "\improper EVACUATION ROUTE sign"
+	desc = "A green sign that depicts a person climbing a ladder towards an evacuation route."
+	icon_state = "emerg_exitZ"
+
+/obj/structure/sign/emergency/evacuation/stairs
+	name = "\improper EVACUATION ROUTE sign"
+	desc = "A green sign that depicts a person using a stairwell, moving towards an evacuation route."
+	icon_state = "emerg_exitZ_stairs"
+
+/obj/structure/sign/emergency/evacuation/pods
+	name = "\improper EVACUATION PODS sign"
+	desc = "A green sign that depicts an evacuation pod, with the text \"EVACUATION PODS\" under it."
+	icon_state = "emerg_pods"
+
+// Miscellanous
+/obj/structure/sign/emergency/meetingpoint
+	name = "\improper EMERGENCY MEETING POINT sign"
+	desc = "A green sign which depicts a group of people in the middle of the sign, being pointed at by arrows."
+	icon_state = "meeting_point"
+
+//
+// Flags
+//
+
+// Flag Item
+/obj/item/flag
+	name = "boxed flag"
+	desc = "A flag neatly folded into a wooden container."
+	icon = 'icons/obj/flags.dmi'
+	icon_state = "flag_boxed"
+	var/flag_path
+	var/flag_size = 0
+
+// Flag on Wall
+/obj/structure/sign/flag
+	name = "blank flag"
+	desc = "Nothing to see here."
+	icon = 'icons/obj/flags.dmi'
+	icon_state = "flag"
+	var/icon/ripped_outline = icon('icons/obj/flags.dmi', "ripped")
+	var/obj/structure/sign/flag/linked_flag //For double flags
+	var/obj/item/flag/flagtype //For returning your flag
+	var/ripped = FALSE //If we've been torn down
+
 /obj/structure/sign/flag/blank
 	name = "blank banner"
 	desc = "A blank blue flag."
 	icon_state = "flag"
+
+/obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
+	if (!adjacent)
+		return
+
+	if((!iswall(A) && !istype(A, /obj/structure/window)) || !isturf(user.loc))
+		to_chat(user, SPAN_WARNING("You can't place this here!"))
+		return
+
+	var/placement_dir = get_dir(user, A)
+	if (!(placement_dir in cardinal))
+		to_chat(user, SPAN_WARNING("You must stand directly in front of the location you wish to place that on."))
+		return
+
+	var/obj/structure/sign/flag/P = new(user.loc)
+
+	switch(placement_dir)
+		if(NORTH)
+			P.pixel_y = 32
+		if(SOUTH)
+			P.pixel_y = -32
+		if(EAST)
+			P.pixel_x = 32
+		if(WEST)
+			P.pixel_x = -32
+
+	P.dir = placement_dir
+	if(flag_size)
+		P.icon_state = "[flag_path]_l"
+		var/obj/structure/sign/flag/P2 = new(user.loc)
+		P.linked_flag = P2
+		P2.linked_flag = P
+		P2.icon_state = "[flag_path]_r"
+		P2.dir = P.dir
+		switch(P2.dir)
+			if(NORTH)
+				P2.pixel_y = P.pixel_y
+				P2.pixel_x = 32
+			if(SOUTH)
+				P2.pixel_y = P.pixel_y
+				P2.pixel_x = 32
+			if(EAST)
+				P2.pixel_x = P.pixel_x
+				P2.pixel_y = -32
+			if(WEST)
+				P2.pixel_x = P.pixel_x
+				P2.pixel_y = 32
+		P2.name = name
+		P2.desc = desc
+		P2.desc_info = desc_info
+		P2.desc_fluff = desc_fluff
+		P2.flagtype = type
+	else
+		P.icon_state = "[flag_path]"
+	P.name = name
+	P.desc = desc
+	P.desc_info = desc_info
+	P.desc_fluff = desc_fluff
+	P.flagtype = type
+	qdel(src)
+
+/obj/structure/sign/flag/Destroy()
+	if(linked_flag?.linked_flag == src) // Catches other instances where one half might be destroyed, say by a broken wall, to avoid runtimes.
+		linked_flag.linked_flag = null // linked_flag
+	. = ..()
+
+/obj/structure/sign/flag/ex_act(severity)
+	switch(severity)
+		if(1)
+			qdel(src)
+		if(2)
+			if(prob(50))
+				qdel(src)
+			else
+				rip()
+		if(3)
+			rip()
+
+/obj/structure/sign/flag/unfasten(mob/user)
+	if(!ripped)
+		user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src] and folds it back up."), SPAN_NOTICE("You unfasten \the [src] and fold it back up."))
+		var/obj/item/flag/F = new flagtype(get_turf(user))
+		user.put_in_hands(F)
+	else
+		user.visible_message(SPAN_NOTICE("\The [user] unfastens the tattered remnants of \the [src]."), SPAN_NOTICE("You unfasten the tattered remains of \the [src]."))
+	if(linked_flag)
+		qdel(linked_flag) // Otherwise you're going to get weird duping nonsense.
+	qdel(src)
+
+/obj/structure/sign/flag/attack_hand(mob/user)
+	if(alert("Do you want to rip \the [src] from its place?","You think...","Yes","No") == "Yes")
+		if(!Adjacent(user)) // Cannot bring up dialogue and walk away.
+			return FALSE
+		if(!do_after(user, 2 SECONDS, act_target = src))
+			return FALSE
+		visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!" ))
+		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
+		add_fingerprint(user)
+		rip()
+
+/obj/structure/sign/flag/proc/rip(var/rip_linked = TRUE)
+	var/icon/I = new('icons/obj/flags.dmi', icon_state)
+	var/icon/mask = new('icons/obj/flags.dmi', "ripped")
+	I.AddAlphaMask(mask)
+	icon = I
+	name = "ripped flag"
+	desc = "You can't make out anything from the flag's original print. It's ruined."
+	ripped = TRUE
+	if(linked_flag && rip_linked)
+		linked_flag.rip(FALSE) // Prevents an infinite ripping loop.
+
+/obj/structure/sign/flag/attackby(obj/item/W, mob/user)
+	..()
+
+	if(W.isFlameSource())
+
+		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
+		if(!do_after(user, 2 SECONDS, act_target = src))
+			return FALSE
+		visible_message(SPAN_WARNING("\The [user] burns \the [src] down!"))
+		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 100, 1)
+		new /obj/effect/decal/cleanable/ash(src.loc)
+		if(linked_flag)
+			qdel(linked_flag)
+		qdel(src)
+		return TRUE
 
 /obj/structure/sign/flag/blank/left
 	icon_state = "flag_l"
@@ -430,7 +601,7 @@
 /obj/item/flag/jargon/l
 	name = "Large Jargon Federation flag"
 	flag_size = 1
-	
+
 /obj/structure/sign/flag/traverse
 	name = "Free Traverser flag"
 	desc = "The insignia of the Free Traversers."
@@ -679,14 +850,6 @@
 /obj/structure/sign/flag/zenghu/right
 	icon_state = "zenghu_r"
 
-/obj/item/flag
-	name = "boxed flag"
-	desc = "A flag neatly folded into a wooden container."
-	icon = 'icons/obj/decals.dmi'
-	icon_state = "flag_boxed"
-	var/flag_path
-	var/flag_size = 0
-
 /obj/structure/sign/flag/zavodskoi
 	name = "Zavodskoi Interstellar flag"
 	desc = "The logo of Zavodskoi Interstellar on a flag."
@@ -752,12 +915,12 @@
 
 /obj/item/flag/diona
 	name = "Imperial Diona standard"
-	desc = "A green Dominian standard which represents the dionae within the Empire."
+	desc = "A green Dominian standard which represents the Dionae within the Empire."
 	flag_path = "diona"
 
 /obj/structure/sign/flag/diona
 	name = "Imperial Diona standard"
-	desc = "A green Dominian standard which represents the dionae within the Empire."
+	desc = "A green Dominian standard which represents the Dionae within the Empire."
 	icon_state = "diona"
 
 /obj/item/flag/strelitz
@@ -781,7 +944,7 @@
 /obj/structure/sign/flag/volvalaad
 	name = "House Volvalaad standard"
 	desc = "A blue-and-black standard which represents House Volvalaad, one of the great houses of the Empire of Dominia. \
-	They are known for their Habsburgian inbreeding, reformist ideals, and scientific prowess."
+	They are known for their reformist ideals and scientific prowess."
 	icon_state = "volvalaad"
 
 /obj/item/flag/kazkhz
@@ -798,25 +961,25 @@
 
 /obj/item/flag/caladius
 	name = "House Caladius standard"
-	desc = "A purple standard which represensts House Caladius, one of the great houses of the Empire of Dominia. They are \
+	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
 	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
 	flag_path = "caladius"
 
 /obj/structure/sign/flag/caladius
 	name = "House Caladius standard"
-	desc = "A purple standard which represensts House Caladius, one of the great houses of the Empire of Dominia. They are \
+	desc = "A purple standard which represents House Caladius, one of the great houses of the Empire of Dominia. They are \
 	known for their support of the Dominian clergy as well as the skill of their bureaucrats and economists."
 	icon_state = "caladius"
 
 /obj/item/flag/zhao
 	name = "House Zhao standard"
-	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of \
+	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of the Empire of Dominia,\
 	known for its naval officers and patronage of the Dominian shipbuilding industry."
 	flag_path = "zhao"
 
 /obj/structure/sign/flag/zhao
 	name = "House Zhao standard"
-	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of \
+	desc = "A white Dominian standard with a prominent grey circle which represents House Zhao, one of the great houses of  the Empire of Dominia,\
 	known for its naval officers and patronage of the Dominian shipbuilding and naval industries."
 	icon_state = "zhao"
 
@@ -937,91 +1100,3 @@
 
 /obj/structure/sign/flag/vysoka/right
 	icon_state = "vysoka_r"
-
-/obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
-	if (!adjacent)
-		return
-
-	if((!iswall(A) && !istype(A, /obj/structure/window)) || !isturf(user.loc))
-		to_chat(user, SPAN_WARNING("You can't place this here!"))
-		return
-
-	var/placement_dir = get_dir(user, A)
-	if (!(placement_dir in cardinal))
-		to_chat(user, SPAN_WARNING("You must stand directly in front of the location you wish to place that on."))
-		return
-
-	var/obj/structure/sign/flag/P = new(user.loc)
-
-	switch(placement_dir)
-		if(NORTH)
-			P.pixel_y = 32
-		if(SOUTH)
-			P.pixel_y = -32
-		if(EAST)
-			P.pixel_x = 32
-		if(WEST)
-			P.pixel_x = -32
-
-	P.dir = placement_dir
-	if(flag_size)
-		P.icon_state = "[flag_path]_l"
-		var/obj/structure/sign/flag/P2 = new(user.loc)
-		P2.icon_state = "[flag_path]_r"
-		P2.dir = P.dir
-		switch(P2.dir)
-			if(NORTH)
-				P2.pixel_y = P.pixel_y
-				P2.pixel_x = 32
-			if(SOUTH)
-				P2.pixel_y = P.pixel_y
-				P2.pixel_x = 32
-			if(EAST)
-				P2.pixel_x = P.pixel_x
-				P2.pixel_y = -32
-			if(WEST)
-				P2.pixel_x = P.pixel_x
-				P2.pixel_y = 32
-		P2.name = name
-		P2.desc = desc
-		P2.desc_info = desc_info
-		P2.desc_fluff = desc_fluff
-	else
-		P.icon_state = "[flag_path]"
-	P.name = name
-	P.desc = desc
-	P.desc_info = desc_info
-	P.desc_fluff = desc_fluff
-	qdel(src)
-
-
-/obj/structure/sign/flag/attack_hand(mob/user as mob)
-
-	if(alert("Do you want to rip \the [src] from its place?","You think...","Yes","No") == "Yes")
-
-		if(!do_after(user, 2 SECONDS, act_target = src))
-			return 0
-
-		visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!" ))
-		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
-		icon_state = "poster_ripped"
-		name = "ripped poster"
-		desc = "You can't make out anything from the flag's original print. It's ruined."
-		add_fingerprint(user)
-
-/obj/structure/sign/flag/attackby(obj/item/W, mob/user)
-	..()
-
-	if(W.isFlameSource())
-
-		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
-
-		if(!do_after(user, 2 SECONDS, act_target = src))
-			return 0
-		visible_message(SPAN_WARNING("\The [user] burns \the [src] down!"))
-		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 100, 1)
-		new /obj/effect/decal/cleanable/ash(src.loc)
-
-		qdel(src)
-		return TRUE
-

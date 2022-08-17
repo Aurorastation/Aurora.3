@@ -243,6 +243,14 @@
 
 	reagents_to_add = list(/decl/reagent/tricordrazine = 15, /decl/reagent/inaprovaline = 5, /decl/reagent/dexalin/plus = 5, /decl/reagent/oxycomorphine = 3, /decl/reagent/synaptizine = 2, /decl/reagent/mental/corophenidate = 5)
 
+/obj/item/reagent_containers/hypospray/autoinjector/berserk
+	name_label = "berserk injector"
+	desc = "An injector containing Red Nightshade. Used before fights to induce a berserk state."
+	volume = 5
+	amount_per_transfer_from_this = 5
+
+	reagents_to_add = list(/decl/reagent/toxin/berserk = 5)
+
 /obj/item/reagent_containers/hypospray/autoinjector/trauma
 	name = "trauma hypo-injector"
 	desc = "A special hypospray made to combat most forms of physical trauma."
@@ -306,3 +314,11 @@
 	name = "combat hypospray"
 	desc = "A sleek black hypospray. Its needle has the ability to bypass armor."
 	reagents_to_add = FALSE
+
+/obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
+	name = "sanasomnum autoinjector"
+	desc = "A special autoinjector loaded with outlawed biomechanical stem cells, inducing a regenerative coma so intense it can heal almost any injury - even broken bones, organ and brain damage, severed tendons, and arterial damage. Upon use one will fall immediately into a state of unconsciousness lasting roughly three to five minutes, arising completely healed. The only thing it cannot fix are organs that have been destroyed outright, or so much cumulative damage that death is all but certain. The only downside is that Sanasomnum use guarantees extreme cancerous growth months or years down the line, which is invariably fatal in the long-term. However, in the short-term, it will save your life."
+	volume = 20
+	amount_per_transfer_from_this = 20
+
+	reagents_to_add = list(/decl/reagent/sanasomnum = 20)

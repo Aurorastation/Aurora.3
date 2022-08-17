@@ -294,8 +294,7 @@
 	return "[return_value][include_faction_prefix ? " ([H.mind.selected_faction.title_suffix])" : ""]"
 
 /proc/generate_record_id()
-	return add_zero(num2hex(rand(1, 65535)), 4)
-
+	return num2hex(rand(1, 65535), 4)
 
 /datum/controller/subsystem/records/proc/InitializeCitizenships()
 	for (var/type in subtypesof(/datum/citizenship))

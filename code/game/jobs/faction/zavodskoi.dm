@@ -3,32 +3,12 @@
 	description = {"<p>
 	The largest weapons producer in human space, Zavodskoi Interstellar initially
 	found its place with the invention of a militarized voidsuit for use in the Interstellar War.
-	With many extraordinarily weapons contracts thanks to the Sol Alliance, as well as acquisitions of
+	With many lucrative weapon contracts thanks to the Sol Alliance, as well as acquisitions of
 	other major armaments companies, Zavodskoi weapons can be found in the hands of nearly every
 	military force across the Orion Spur. They are the main corporation found in the Empire of
 	Dominia, and are at the forefront of weapons development technology.
-	</p>
-
-	<p>Some character examples are:
-	<ul>
-	<li><b>Surgical Specialist</b>: Unit to unit Zavodskoi ships the most firearms and weapons compared
-	to any other corporation in the known galaxy and you're proud of it, but know the business comes with
-	its hazards. Your medical experience has allowed you to survive the closing of many genetics testing
-	centers during the recent transfer of leadership, and you know it. Zeng-Hu may have a reputation for
-	being the best in the Orion Spur, but they are in the past - Zavodskoi is the future. You are a
-	professional through-and-through, and consider yourself a (literal) cut above whatever washouts
-	the SCC can hire as surgeons. Just remember, you need to prove that you're better than Zeng-Hu.
-	We need these medical contracts, lest we have to cut back the medical division just like the genetics one.</li>
-	<li><b>Personal Security Professional</b>: Excellent customer service and client
-	care is why Zavodskoi's private security personnel win security contracts and
-	you know this. A cut above the rest, you are clear, calm, concise and polite when
-	working. As a security force you were voted the most professional private security
-	force to work for and as such, you have corporate standards to uphold! The protection
-	of Zavodskoi staff is your first priority, but every member of the crew
-	should be treated as a valued customer. After all, imagine how bad it would look to
-	the shareholders if you were found beating a drunk like some kind of merc.
-	The reputation would last, but your career certainly wouldn't.</li>
-	</ul></p>"}
+	</p>"}
+	departments = {"Science<br>Security"}
 	title_suffix = "Zavod"
 
 	allowed_role_types = ZAVOD_ROLES
@@ -132,7 +112,7 @@
 /datum/outfit/job/scientist/xenoarcheologist/zavodskoi
 	name = "Xenoarcheologist - Zavodskoi Interstellar"
 
-	uniform = /obj/item/clothing/under/rank/xenoarcheologist/zavod
+	uniform = /obj/item/clothing/under/rank/scientist/xenoarcheologist/zavod
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	id = /obj/item/card/id/zavodskoi
 
@@ -146,18 +126,21 @@
 	name = "Engineer - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/engineer/zavod
+	head = /obj/item/clothing/head/hardhat/red
 	id = /obj/item/card/id/zavodskoi
 
 /datum/outfit/job/atmos/zavodskoi
 	name = "Atmospheric Technician - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician/zavod
+	head = /obj/item/clothing/head/hardhat/red
 	id = /obj/item/card/id/zavodskoi
 
 /datum/outfit/job/intern_eng/zavodskoi
 	name = "Engineering Apprentice - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice/zavod
+	head = /obj/item/clothing/head/beret/corporate/zavod
 	id = /obj/item/card/id/zavodskoi
 
 /datum/outfit/job/representative/zavodskoi

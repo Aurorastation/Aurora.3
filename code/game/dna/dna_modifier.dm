@@ -205,8 +205,10 @@
 
 /obj/machinery/computer/scan_consolenew
 	name = "DNA Modifier Access Console"
-	desc = "Scand DNA."
-	icon_screen = "med"
+	desc = "Scan DNA."
+	icon_screen = "dna"
+	icon_keyboard = "teal_key"
+	light_color = LIGHT_COLOR_BLUE
 	density = 1
 	circuit = /obj/item/circuitboard/scan_consolenew
 	var/selected_ui_block = 1.0
@@ -271,7 +273,7 @@
 /obj/machinery/computer/scan_consolenew/proc/all_dna_blocks(var/list/buffer)
 	var/list/arr = list()
 	for(var/i = 1, i <= buffer.len, i++)
-		arr += "[i]:[EncodeDNABlock(buffer[i])]"
+		arr += "[i]:[num2hex(buffer[i], 3)]"
 	return arr
 
 /obj/machinery/computer/scan_consolenew/proc/setInjectorBlock(var/obj/item/dnainjector/I, var/blk, var/datum/dna2/record/buffer)

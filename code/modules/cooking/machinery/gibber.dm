@@ -16,7 +16,7 @@
 
 	idle_power_usage = 2
 	active_power_usage = 500
-
+	
 //auto-gibs anything that bumps into it
 /obj/machinery/gibber/autogibber
 	var/turf/input_plate
@@ -121,7 +121,7 @@
 		to_chat(user, SPAN_DANGER("This is not suitable for [src]!"))
 		return
 
-	if(ishuman(victim) && !emagged)
+	if(ishuman(victim) && !emagged && !victim.isMonkey())
 		to_chat(user, SPAN_DANGER("[src]'s safety guard is engaged!"))
 		return
 

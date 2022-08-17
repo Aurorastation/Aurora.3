@@ -788,6 +788,9 @@ var/list/ai_verbs_default = list(
 	set name = "Remote Control Shell"
 	set category = "AI Commands"
 	set desc = "Remotely control any active shells on your AI shell network."
+
+	if(check_unable(AI_CHECK_WIRELESS))
+		return
 	SSvirtualreality.bound_selection(src, REMOTE_AI_ROBOT)
 
 /mob/living/silicon/ai/proc/toggle_hologram_movement()

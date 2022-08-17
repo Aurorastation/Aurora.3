@@ -229,6 +229,10 @@
 		else if(jitteriness >= 100)
 			msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")] twitching ever so slightly.</span>\n"
 
+	//Red Nightshade
+	if(is_berserk())
+		msg += "<span class='warning'><B>[get_pronoun("He")] [get_pronoun("has")] engorged veins which appear a vibrant red.</B></span>\n"
+		
 	//splints
 	for(var/organ in list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_R_FOOT,BP_L_FOOT))
 		var/obj/item/organ/external/o = get_organ(organ)

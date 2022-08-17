@@ -152,7 +152,7 @@
 	name = "phoron glass"
 	singular_name = "phoron glass sheet"
 	icon_state = "sheet-phoronglass"
-	created_window = /obj/structure/window/phoronbasic
+	created_window = /obj/structure/window/borosilicate
 	default_type = "phoron glass"
 	icon_has_variants = FALSE
 
@@ -164,6 +164,6 @@
 	singular_name = "reinforced phoron glass sheet"
 	icon_state = "sheet-phoronrglass"
 	default_type = "reinforced phoron glass"
-	created_window = /obj/structure/window/phoronreinforced
+	created_window = /obj/structure/window/borosilicate/reinforced
 	is_reinforced = 1
 	icon_has_variants = FALSE

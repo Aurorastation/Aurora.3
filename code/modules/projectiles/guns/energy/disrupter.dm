@@ -2,7 +2,7 @@
 
 /obj/item/gun/energy/disruptorpistol
 	name = "disruptor pistol"
-	desc = "A Nanotrasen designed blaster pistol with two settings: stun and lethal."
+	desc = "A NanoTrasen designed blaster pistol with two settings: stun and lethal."
 	desc_fluff = "Developed and produced by NanoTrasen for its internal security division, the NT DP-7 is a state of the art blaster pistol capable of firing reduced-power bolts which disrupt the central nervous system, inducing a stunning effect on the victim. It is also capable of firing full-power blaster bolts."
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistols.dmi'
 	icon_state = "disruptorpistol"
@@ -33,7 +33,7 @@
 
 /obj/item/gun/energy/disruptorpistol/miniature
 	name = "miniature disruptor pistol"
-	desc = "A Nanotrasen designed blaster pistol with two settings: stun and lethal. This is the miniature version."
+	desc = "A NanoTrasen designed blaster pistol with two settings: stun and lethal. This is the miniature version."
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistolc.dmi'
 	max_shots = 8
 	force = 3
@@ -45,7 +45,7 @@
 
 /obj/item/gun/energy/disruptorpistol/magnum
 	name = "magnum disruptor pistol"
-	desc = "A Nanotrasen designed blaster pistol with two settings: stun and lethal. This is the magnum version."
+	desc = "A NanoTrasen designed blaster pistol with two settings: stun and lethal. This is the magnum version."
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistolm.dmi'
 	max_shots = 15
 	force = 6

@@ -7,7 +7,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "ac" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/grand_romanovich)
 "ad" = (
@@ -213,7 +213,7 @@
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
 	},
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/grand_romanovich)
 "aK" = (
@@ -1007,7 +1007,7 @@
 	dir = 1;
 	icon_state = "spline_fancy"
 	},
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/grand_romanovich)
 "cB" = (
@@ -4228,7 +4228,7 @@
 /area/grand_romanovich)
 "ll" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 11;
 	pixel_y = 12
 	},
@@ -4927,7 +4927,7 @@
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
 	},
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/grand_romanovich/outdoors)
 "mT" = (
@@ -6984,8 +6984,8 @@
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
 	},
-/obj/effect/map_effect/wingrille_spawn/reinforced,
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/grand_romanovich)
 "KO" = (

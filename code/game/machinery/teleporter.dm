@@ -19,6 +19,7 @@
 	var/max_teleport_range = 4 //max overmap teleport distance
 	var/calibration = 0 // a percentage chance for teleporting into space instead of your target. 0 is perfectly calibrated, 100 is totally uncalibrated
 	var/engaged = FALSE
+	var/ignore_distance = FALSE // For antag teleporters.
 
 /obj/machinery/teleport/pad/Initialize()
 	. = ..()
@@ -68,6 +69,8 @@
 			add_overlay(I)
 
 /obj/machinery/teleport/pad/proc/within_range(var/target)
+	if(ignore_distance)
+		return TRUE
 	if (isweakref(target))
 		var/datum/weakref/target_ref = target
 		target = target_ref.resolve()
@@ -115,3 +118,6 @@
 /obj/machinery/teleport/pad/proc/recalibrate()
 	calibration = 0
 	audible_message(SPAN_NOTICE("Calibration complete."))
+
+/obj/machinery/teleport/pad/ninja
+	ignore_distance = TRUE

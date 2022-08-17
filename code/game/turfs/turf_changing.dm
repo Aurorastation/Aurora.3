@@ -83,9 +83,9 @@
 			else
 				lighting_clear_overlay()
 
-	if (config.starlight)
-		for (var/turf/space/S in RANGE_TURFS(1, src))
-			S.update_starlight(FALSE)
+		if (config.starlight)
+			for (var/turf/space/S in RANGE_TURFS(1, src))
+				S.update_starlight()
 
 	W.above = old_above
 

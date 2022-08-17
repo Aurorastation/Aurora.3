@@ -88,7 +88,7 @@
 /obj/item/gun/projectile/sec
 	name = ".45 pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. Uses .45 rounds."
-	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. It uses .45 rounds."
+	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun.dmi'
 	icon_state = "secgun"
 	item_state = "secgun"
@@ -117,7 +117,7 @@
 
 /obj/item/gun/projectile/sec/wood
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip. Uses .45 rounds."
-	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
+	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
 	name = "custom .45 Pistol"
 	icon = 'icons/obj/guns/secgun_wood.dmi'
 	icon_state = "secgunwood"
@@ -133,9 +133,9 @@
 /obj/item/gun/projectile/automatic/x9
 	name = "automatic .45 pistol"
 	desc = "A NanoTrasen-designed sidearm, modified for fully-automatic fire. Issued to select security and law enforcement groups. Uses .45 rounds."
-	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security \
+	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security \
 	forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. \
-	A trademark of Nanotrasen security forces. This one has been modified for fully-automatic fire from the factory and sports a collapsible shoulder stock for better control. It uses .45 rounds."
+	A trademark of NanoTrasen security forces. This one has been modified for fully-automatic fire from the factory and sports a collapsible shoulder stock for better control. It uses .45 rounds."
 	icon = 'icons/obj/guns/x9.dmi'
 	icon_state = "secgunauto"
 	item_state = "secgunauto"
@@ -162,9 +162,9 @@
 		icon_state = "secgunauto-e"
 
 /obj/item/gun/projectile/tanto
-	desc = "A crude-looking open-bolt machine pistol manufactured by a multitude of arms companies, or in some cases, particularly handy individuals. \
-    Owing to their low cost and relative effectiveness, weapons like these are very common all across the Spur, from the tunnels of Oran to fringe colonies along the frontier. \
-    This pistol is made almost entirely from sheet metal and has cloth wrappings around the grip for shooter comfort."
+	desc = "An automatic variant of the NanoTrasen Mk1 Everyman handgun that has been built to accept detachable magazines, negating one of the original \
+	weapon's biggest shortcomings. It is marketed towards lower-echelon security companies as a machine pistol named the Tanto, and features a burst-fire selector \
+	and sturdier barrel with heatshield to better take advantage of the higher capacity."
 	name = "10mm auto-pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
@@ -302,7 +302,7 @@
 
 /obj/item/gun/projectile/pistol/detective
 	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip. Uses 9mm rounds."
-	desc_fluff = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by Nanotrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in 9mm caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - 9mm in such a small package can be unpleasant for the average shooter."
+	desc_fluff = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by NanoTrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in 9mm caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - 9mm in such a small package can be unpleasant for the average shooter."
 	name = "compact 9mm pistol"
 	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
 	icon = 'icons/obj/guns/detgun.dmi'
@@ -411,7 +411,7 @@
 
 /obj/item/gun/projectile/leyon
 	name = "10mm pistol"
-	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses 10mm rounds."
+	desc = "NanoTrasen's first marketed firearm design, the Mk1, better known as the Everyman, was an instant hit - though it is a crude, stripper clip-fed design with a very small capacity, the Everyman is absurdly inexpensive and famously reliable, and is now one of the most common weapons found in the Orion Spur. Chambered in 10mm."
 	icon = 'icons/obj/guns/leyon.dmi'
 	icon_state = "leyon"
 	item_state = "leyon"
@@ -462,3 +462,67 @@
 		icon_state = "adhomian_pistol"
 	else
 		icon_state = "adhomian_pistol-e"
+
+/obj/item/gun/projectile/pistol/super_heavy
+	name = "super-heavy pistol"
+	desc = "A big, bulky and extremely powerful pistol, intended to pierce even your strongest enemy. You should wield this thing with two hands, if you want your wrists to stay intact."
+	desc_info = "You should not shoot this pistol unwielded, if you are not a Unathi or a G2. It will fly out of your hand and almost certainly break the hand you are using. Even as a Unathi or G2, the accuracy will suffer, if shot unwielded."
+	desc_fluff = "The Kumar Arms 2557 is a newly designed type of \"super-heavy\" pistol. \
+	It features a light-weight polymer pistol grip, a bulky plasteel frame and an extra long barrel. \
+	It is chambered in the newly developed .599 Kumar Super rifle cartridge. Despite designed for rifle use, the newly developed propellants allows this cartridge for use in the Kumar Arms 2557, upping the stopping power significantly. \
+	Kumar Arms guarantees your enemy's armor penetrated or your money back. It features a revolving bolt system with an electromagnetic striker, allowing for hammerless actuation. It has a revolutinary blowback system to ensure accuracy at the cost of fire rate."
+	icon = 'icons/obj/contained_items/weapons/k_arms.dmi'
+	icon_state = "k2557-loaded"
+	item_state = "k2557-loaded"
+	contained_sprite = TRUE
+	can_silence = FALSE
+	w_class = ITEMSIZE_NORMAL
+	load_method = MAGAZINE
+	handle_casings = EJECT_CASINGS
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	is_wieldable = TRUE
+	fire_sound = 'sound/weapons/gunshot/k2557-shot.ogg'
+	caliber = ".599 Kumar Super"
+	ammo_type = /obj/item/ammo_casing/kumar_super
+	magazine_type = /obj/item/ammo_magazine/super_heavy
+	allowed_magazines = list(/obj/item/ammo_magazine/super_heavy)
+	fire_delay = 18
+	fire_delay_wielded = 18
+	max_shells = 5
+	force = 3
+	recoil = 5
+	recoil_wielded = 1
+	accuracy = -3
+	accuracy_wielded = 1
+
+	
+/obj/item/gun/projectile/pistol/super_heavy/update_icon()
+	..()
+	if(istype(ammo_magazine))
+		if(ammo_magazine.stored_ammo.len)
+			icon_state = "k2557-loaded"
+		else
+			icon_state = "k2557-empty"
+	else 
+		icon_state = "k2557"
+
+/obj/item/gun/projectile/pistol/super_heavy/handle_post_fire(mob/user)
+	..()
+	if(wielded)
+		return
+	else
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(H.mob_size <10)
+				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
+				H.drop_item(src)
+				src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 4, 4)
+
+				var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
+				var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
+				var/active_hand = H.hand
+
+				if(active_hand)
+					LH.take_damage(30)
+				else
+					RH.take_damage(30)

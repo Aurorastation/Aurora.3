@@ -53,6 +53,8 @@
 	halloss_message = "encounters a hardware fault and suddenly reboots."
 	halloss_message_self = "ERROR: Unrecoverable machine check exception.<BR>System halted, rebooting..."
 
+	stutter_verbs = list("sputters", "crackles", "stutters")
+
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
 

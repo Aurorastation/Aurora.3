@@ -20164,7 +20164,7 @@
 	pixel_x = -6;
 	pixel_y = 12
 	},
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 5;
 	pixel_y = -1
 	},

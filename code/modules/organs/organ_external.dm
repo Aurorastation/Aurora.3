@@ -187,19 +187,22 @@
 	..()
 
 /obj/item/organ/external/proc/dislocate(var/primary)
-	if(dislocated != -1)
-		if(primary)
-			dislocated = 2
-		else
-			dislocated = 1
+	if(dislocated == -1)
+		return
+	if(primary)
+		dislocated = 2
+	else
+		dislocated = 1
 	owner.verbs |= /mob/living/carbon/human/proc/undislocate
 	if(children && children.len)
 		for(var/obj/item/organ/external/child in children)
 			child.dislocate()
 
 /obj/item/organ/external/proc/undislocate()
-	if(dislocated != -1)
-		dislocated = 0
+	if(dislocated == -1)
+		return
+
+	dislocated = 0
 	if(children && children.len)
 		for(var/obj/item/organ/external/child in children)
 			if(child.dislocated == 1)
@@ -390,7 +393,7 @@
 		victim.take_internal_damage(damage_amt)
 		return TRUE
 
-/obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon,var/brute,var/burn)
+/obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon, var/brute, var/burn)
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
 		if((limb_flags & ORGAN_CAN_AMPUTATE) && config.limbs_can_break)
@@ -412,7 +415,7 @@
 					if(W.w_class >= w_class && (dam_flags & DAM_EDGE))
 						edge_eligible = TRUE
 
-				if(!blunt_eligible && edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus))
+				if(!blunt_eligible && edge_eligible && (brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus)))
 					droplimb(0, DROPLIMB_EDGE)
 				else if(burn >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
 					droplimb(0, DROPLIMB_BURN)
@@ -1208,6 +1211,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/embed(var/obj/item/W, var/silent = 0, var/supplied_message)
 	if(!owner || loc != owner)
 		return
+	if(!W.canremove || is_robot_module(W)) //Modules and augments cannot embed
+		return
 	if(species.flags & NO_EMBED)
 		return
 	if(!silent)
@@ -1468,7 +1473,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	pain = max(0, min(pain + amount, species.total_health * 2))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
-	if(amount > 5)
+	if(amount > 5 && owner)
 		owner.undo_srom_pull()
 	return pain-last_pain
 

@@ -131,6 +131,8 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	var/power = force
 	if(HULK in user.mutations)
 		power *= 2
+	if(user.is_berserk())
+		power *= 1.5
 	if(ishuman(user))
 		var/mob/living/carbon/human/X = user
 		if(ishuman(target))

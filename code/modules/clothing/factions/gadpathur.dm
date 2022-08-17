@@ -89,6 +89,24 @@
 	icon_state = "gadpathur_medic_beret"
 	item_state = "gadpathur_medic_beret"
 
+/obj/item/clothing/head/ushanka/gadpathur
+	name = "gadpathurian patrol cap"
+	desc = "A Gadpathurian cap with a sun shade for protection against the planet's ash storms."
+	icon_state = "gadpathur_kepi"
+	item_state = "gadpathur_kepi"
+	icon = 'icons/clothing/head/gadpathur_kepi.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/ushanka/gadpathur/attack_self(mob/user as mob)
+	src.earsup = !src.earsup
+	if(src.earsup)
+		icon_state = "[initial(icon_state)]_up"
+		item_state = "[initial(icon_state)]_up"
+		to_chat(user, SPAN_NOTICE("You raise the sun shade on the cap."))
+	else
+		src.icon_state = initial(icon_state)
+		to_chat(user, SPAN_NOTICE("You lower the sun shade on the cap."))
+	update_clothing_icon()
 
 /obj/item/clothing/accessory/armband/gadpathur
 	name = "cadre brassard"

@@ -55,8 +55,9 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid
 	name = "mineral asteroid"
 	desc = "A large, resource rich asteroid."
+	surface_color = COLOR_GRAY
 	map_generators = list(/datum/random_map/noise/exoplanet/barren/asteroid, /datum/random_map/noise/ore/rich)
-	rock_colors = null
+	rock_colors = list(COLOR_ASTEROID_ROCK)
 	planetary_area = /area/exoplanet/barren/asteroid
 	possible_features = list(/datum/map_template/ruin/exoplanet/abandoned_mining)
 

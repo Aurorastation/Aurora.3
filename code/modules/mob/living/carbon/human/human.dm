@@ -228,7 +228,7 @@
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
-		flick("flash", flash)
+		flash_eyes()
 
 	var/b_loss = null
 	var/f_loss = null
@@ -896,10 +896,12 @@
 
 /mob/living/carbon/human/proc/check_has_mouth()
 	// Todo, check stomach organ when implemented.
-	var/obj/item/organ/external/head/H = get_organ(BP_HEAD)
-	if(!H || !H.can_intake_reagents)
-		return 0
-	return 1
+	var/obj/item/organ/external/E = get_organ(BP_HEAD)
+	if(E && !E.is_stump())
+		var/obj/item/organ/external/head/H = E
+		if(!H.can_intake_reagents)
+			return FALSE
+	return TRUE
 
 /mob/living/proc/empty_stomach()
 	return
@@ -1837,15 +1839,15 @@
 	switch(pulse())
 		if(PULSE_NONE)
 			return 0
-		if(PULSE_SLOW)
+		if(PULSE_SLOW to (PULSE_NORM - 0.1))
 			return rand(species.low_pulse, species.norm_pulse)
-		if(PULSE_NORM)
+		if(PULSE_NORM to (PULSE_FAST - 0.1))
 			return rand(species.norm_pulse, species.fast_pulse)
-		if(PULSE_FAST)
+		if(PULSE_FAST to (PULSE_2FAST - 0.1))
 			return rand(species.fast_pulse, species.v_fast_pulse)
-		if(PULSE_2FAST)
+		if(PULSE_2FAST to (PULSE_THREADY - 0.1))
 			return rand(species.v_fast_pulse, species.max_pulse)
-		if(PULSE_THREADY)
+		if(PULSE_THREADY to INFINITY)
 			return PULSE_MAX_BPM
 	return 0
 

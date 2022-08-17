@@ -411,9 +411,17 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	name = "infiltrator uplink"
 	starting_telecrystals = 15
 
+/obj/item/device/special_uplink/mercenary
+	name = "milspec uplink"
+	starting_telecrystals = 15
+
 /obj/item/device/special_uplink/burglar
 	name = "sponsored uplink"
-	starting_telecrystals = 15
+	starting_telecrystals = 20
+
+/obj/item/device/special_uplink/raider
+	name = "underground uplink"
+	starting_telecrystals = 3
 
 /obj/item/device/special_uplink/rev
 	name = "station bounced radio"

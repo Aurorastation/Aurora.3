@@ -65,6 +65,7 @@
 		/obj/item/seeds/guamiseed = 2,
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/limeseed = 3,
+		/obj/item/seeds/mossseed = 2,
 		/obj/item/seeds/mtearseed = 2,
 		/obj/item/seeds/mintseed = 3,
 		/obj/item/seeds/nifberries = 2,
@@ -103,7 +104,8 @@
 		/obj/item/seeds/clam = 15,
 		/obj/item/seeds/barnacle = 15,
 		/obj/item/seeds/mollusc = 15,
-		/obj/item/seeds/clam/rasval = 15
+		/obj/item/seeds/clam/rasval = 15,
+		/obj/item/seeds/fjylozyn = 1
 	)
 
 /obj/machinery/seed_storage/xenobotany
@@ -170,7 +172,8 @@
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/wulumunushaseed = 3,
-		/obj/item/seeds/dynseed = 3
+		/obj/item/seeds/dynseed = 3,
+		/obj/item/seeds/fjylozyn = 3
 	)
 
 /obj/machinery/seed_storage/attack_hand(mob/user as mob)

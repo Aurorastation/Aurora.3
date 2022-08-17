@@ -10,7 +10,7 @@
 	var/static/list/hal_emote = list("mutters quietly.", "stares.", "grunts.", "looks around.", "twitches.", "shivers.", "swats at the air.", "wobbles.", "gasps!", "blinks rapidly.", "murmurs.",
 				"dry heaves!", "twitches violently.", "giggles.", "drools.", "scratches all over.", "grinds their teeth.", "whispers something quietly.")
 	var/static/list/message_sender = list("Mom", "Dad", "Captain", "Captain(as Captain)", "help", "Home", "MaxBet Online Casino", "IDrist Corp", "Dr. Maxman",
-			"www.wetskrell.nt", "You are our lucky grand prize winner!",  "Officer Beepsky", "Ginny", "Ian",
+			"www.wetskrell.nt", "You are our lucky grand prize winner!",  "Matriarch Drone", "Ginny", "Human Resources",
 			"what have you DONE?", "Miranda Trasen", "Central Command", "AI", "maintenance drone", "Unknown", "I don't want to die")
 	var/list/all_hallucinations = list()
 

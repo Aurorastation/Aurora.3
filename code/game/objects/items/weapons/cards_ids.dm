@@ -473,7 +473,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "fib"
 
 /obj/item/card/id/ert
-	name = "\improper Nanotrasen Emergency Response Team ID"
+	name = "\improper NanoTrasen Emergency Response Team ID"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Emergency Response Team"
@@ -483,7 +483,7 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/card/id/asset_protection
-	name = "\improper Nanotrasen Asset Protection ID"
+	name = "\improper NanoTrasen Asset Protection ID"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Asset Protection"
@@ -615,7 +615,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"
-	desc = "A bizarre imitation of Nanotrasen identification cards. It seems to function normally as well."
+	desc = "A bizarre imitation of NanoTrasen identification cards. It seems to function normally as well."
 	desc_antag = "Access can be copied from other ID cards by clicking on them."
 	icon_state = "crystalid"
 	iff_faction = IFF_BLUESPACE

@@ -460,7 +460,7 @@
 
 /obj/item/storage/box/disks
 	name = "Diskette Box"
-	icon_state = "disk_kit"
+	illustration = "disk_kit"
 
 /obj/item/storage/box/disks/fill()
 	new /obj/item/disk/data(src)

@@ -114,7 +114,7 @@
 /datum/outfit/admin/event/sol_marine
 	name = "Solarian Marine"
 
-	uniform = /obj/item/clothing/under/rank/fatigues
+	uniform = /obj/item/clothing/under/rank/sol
 	shoes = /obj/item/clothing/shoes/magboots
 	gloves = /obj/item/clothing/gloves/combat
 	l_ear = /obj/item/device/radio/headset/syndicate

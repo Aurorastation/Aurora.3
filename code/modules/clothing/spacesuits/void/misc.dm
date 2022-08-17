@@ -60,7 +60,7 @@
 
 /obj/item/clothing/suit/space/void/coalition
 	name = "coalition vulture voidsuit"
-	desc = "An iconic Coalition of Colonies standard-issue voidsuit, designed after the Interstellar War and seen in use to this day."
+	desc = "An iconic voidsuit of Xanusian make, designed after the Interstellar War and seen in use to this day all throughout the Coalition of Colonies."
 	icon_state = "vulture"
 	item_state = "vulture"
 	slowdown = 1
@@ -410,14 +410,14 @@
 
 //Freelancer voidsuit
 /obj/item/clothing/head/helmet/space/void/freelancer
-	name = "freelancer voidsuit helmet"
-	desc = "An older design of special operations voidsuit helmet utilized by private military corporations."
+	name = "armored voidsuit helmet"
+	desc = "A helmet from a commercial combat voidsuit design. Acceptably well-armored and prolific thoughout the Orion Spur, it can be seen in use by everyone from mercenaries to militia groups to police forces."
 	icon_state = "rig0-freelancer"
 
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
@@ -431,8 +431,8 @@
 
 /obj/item/clothing/suit/space/void/freelancer
 	icon_state = "freelancer"
-	name = "freelancer voidsuit"
-	desc = "An advanced protective voidsuit used for special operations."
+	name = "armored voidsuit"
+	desc = "A suit from a commercial combat voidsuit design. Acceptably well-armored and prolific thoughout the Orion Spur, it can be seen in use by everyone from mercenaries to militia groups to police forces."
 	item_state = "freelancer"
 
 	slowdown = 1
@@ -440,7 +440,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
+		laser = ARMOR_LASER_PISTOL,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
@@ -786,3 +786,122 @@
 	)
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
+
+/obj/item/clothing/head/helmet/space/void/sol/srf
+	name = "solarian restoration front voidsuit helmet"
+	desc = "An uparmored variant of the gargoyle voidsuit helmet, with a solid visor and redundant comms antenna. Intended for urban combat operations."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "srf_helmet"
+	item_state = "srf_helmet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/space/void/sol/srf
+	name = "solarian restoration front voidsuit"
+	desc = "A variant of the Solarian Armed Forces Type-4 \"Gargoyle\" voidsuit, the Type-5 \"Cyclops\" is the urban combat version of the Gargoyle. While practical testing showed it was a marginal improvement over the Type-4 at best, the SRF have taken to using this modification \
+	both on account of its intimidating design and in an effort to distinguish its forces from others using the Type-4, warlord or not. This one has the SRF's flag on the breastplate."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "srf_suit"
+	item_state = "srf_suit"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/void/sol/league
+	name = "anti-corporate league voidsuit helmet"
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the League of Independent Corporate-Free Systems to match the colors of the Xanusian \"Vulture\" voidsuit, and also features a modified comms antenna."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "league_helmet"
+	item_state = "league_helmet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/space/void/sol/league
+	name = "anti-corporate league voidsuit"
+	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been modified by the forces of the League of Independent Corporate-Free Systems to match the colors of the Xanusian \
+	\"Vulture\" voidsuit, to make it more easily identified by friendly Coalition forces."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "league_suit"
+	item_state = "league_suit"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/void/sol/fsf
+	name = "free solarian fleets voidsuit helmet"
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Free Solarian Fleets to make it more easily identifiable from other forces using the Type-4, warlord or not."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "fsf_helmet"
+	item_state = "fsf_helmet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/space/void/sol/fsf
+	name = "free solarian fleets voidsuit"
+	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the forces of the Free Solarian Fleets to make it more easily identifiable \
+	from other forces using the Type-4, warlord or not."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "fsf_suit"
+	item_state = "fsf_suit"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/void/sol/ssmd
+	name = "military district voidsuit helmet"
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Southern Solarian Military District to make it more easily identifiable from other forces using the Type-4, warlord or not."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "ssmd_helmet"
+	item_state = "ssmd_helmet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/space/void/sol/ssmd
+	name = "military district voidsuit"
+	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the forces of the Southern Solarian Military District to make it more easily identifiable \
+	from other forces using the Type-4, warlord or not."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "ssmd_suit"
+	item_state = "ssmd_suit"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/void/sol/spg
+	name = "provisional government voidsuit helmet"
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Solarian Provisional Government to make it more easily identifiable from other forces using the Type-4, warlord or not."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "spg_helmet"
+	item_state = "spg_helmet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/space/void/sol/spg
+	name = "provisional government voidsuit"
+	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the forces of the Solarian Provisional Government to make it more easily identifiable \
+	from other forces using the Type-4, warlord or not."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "spg_suit"
+	item_state = "spg_suit"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/void/sol/mrsp
+	name = "shield pact voidsuit helmet"
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Middle Ring Shield Pact to make it more easily identifiable from other forces using the Type-4, warlord or not."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "mrsp_helmet"
+	item_state = "mrsp_helmet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/space/void/sol/mrsp
+	name = "shield pact voidsuit"
+	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the scant forces of the Middle Ring Shield Pact to make it more easily identifiable \
+	from other forces using the Type-4, warlord or not."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "mrsp_suit"
+	item_state = "mrsp_suit"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/void/sol/sfa
+	name = "southern fleet administration voidsuit helmet"
+	desc = "A sleek and waspish composite-armored voidsuit helmet, issued to the personnel of the Sol Alliance's military. This one has been modified by the forces of the Southern Fleet Administration to make it more easily identifiable from other forces using the Type-4, warlord or not."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "sfa_helmet"
+	item_state = "sfa_helmet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/space/void/sol/sfa
+	name = "southern fleet administration voidsuit"
+	desc = "A midweight Zavodskoi-manufactured voidsuit designed for the Solarian Armed Forces, the Type-4 \"Gargoyle\" is the primary armored voidsuit in use by the Alliance military. This one has been repainted by the scant forces of the Southern Fleet Administration to make it more easily identifiable \
+	from other forces using the Type-4, warlord or not. Due to poor maintenance, the highlights appear to have gone out."
+	icon = 'icons/obj/contained_items/voidsuits/warlordsuit.dmi'
+	icon_state = "sfa_suit"
+	item_state = "sfa_suit"
+	contained_sprite = TRUE

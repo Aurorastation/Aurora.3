@@ -1,8 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aaa" = (
-/obj/effect/overmap/visitable/sector/ee_spy_ship,
-/turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
 "aab" = (
 /obj/machinery/computer/shuttle_control/explore/ee_shuttle{
 	dir = 4;
@@ -10,25 +6,18 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
-"aac" = (
-/obj/machinery/computer/shuttle_control/explore/ee_spy_ship{
-	dir = 1;
-	req_access = list(205)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
 "aaI" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aaJ" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms"
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "ajL" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/space_ship,
@@ -38,15 +27,15 @@
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aow" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "atj" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "awG" = (
 /obj/structure/table/rack,
 /obj/item/tank/jetpack,
@@ -54,7 +43,7 @@
 /obj/item/tank/jetpack,
 /obj/item/tank/jetpack,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aBD" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -62,13 +51,13 @@
 	id_tag = "ee_spy_ship_out"
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aCd" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aEq" = (
 /obj/structure/table/rack,
 /obj/machinery/light{
@@ -79,7 +68,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aEB" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -89,99 +78,99 @@
 /obj/item/clothing/suit/space/void/einstein,
 /obj/item/clothing/head/helmet/space/void/einstein,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aHs" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aHt" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/meter,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aHv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aHw" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aJd" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
 	layer = 2.8
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aMB" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /obj/machinery/papershredder,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aOU" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aSi" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aSm" = (
 /obj/machinery/door/airlock/silver{
 	name = "Toilet"
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aSJ" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "aSN" = (
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "bcf" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "bci" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1;
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "bgV" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/shuttle/ee_shuttle)
 "bkQ" = (
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "buA" = (
 /obj/structure/table/standard,
 /obj/item/stack/medical/bruise_pack/full,
 /obj/item/stack/medical/ointment/full,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "buK" = (
 /obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "buM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -192,7 +181,7 @@
 	id_tag = "ee_spy_ship_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "cLC" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin,
@@ -200,11 +189,11 @@
 /obj/item/pen,
 /obj/item/pen,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "cMo" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "cQs" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -214,31 +203,31 @@
 "cTq" = (
 /obj/structure/bookcase/manuals,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "cVA" = (
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "cYw" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "dfe" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "dqJ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "dHA" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "dQZ" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/machinery/light/small,
@@ -246,13 +235,13 @@
 	name = "cooled floor";
 	temperature = 278
 	},
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "dTw" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Hangar"
 	},
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "eiL" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -261,17 +250,17 @@
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/o2,
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "eiR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "epw" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "etL" = (
 /turf/space/transit/south,
 /area/space)
@@ -279,13 +268,13 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "ewW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "exg" = (
 /obj/machinery/light{
 	dir = 1;
@@ -297,53 +286,53 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "eBK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/effect/shuttle_landmark/ee_shuttle/hangar,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "eCV" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "eIb" = (
 /obj/machinery/vending/engivend{
 	req_access = list(205)
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "eMT" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "eTH" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "eYX" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "fnE" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/overmap/visitable/ship/landable/ee_spy_ship,
+/obj/effect/overmap/visitable/ship/ee_spy_ship,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "fnY" = (
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "frC" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
@@ -355,7 +344,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "fws" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -368,33 +357,33 @@
 	tag_interior_door = "ee_spy_ship_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "fBb" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/gloves,
 /obj/item/storage/box/masks,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "fNZ" = (
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "fQq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Head";
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "fRD" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 25
 	},
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "fVv" = (
 /obj/structure/closet{
 	name = "disguise equipment"
@@ -417,14 +406,14 @@
 /obj/item/clothing/head/softcap/idris,
 /obj/item/storage/secure/briefcase,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "fZq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Horizon Refuse Sorting";
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "gcq" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(205)
@@ -436,7 +425,7 @@
 /obj/item/gun/energy/pistol,
 /obj/item/gun/energy/pistol,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "goI" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/shuttle/black,
@@ -447,23 +436,23 @@
 	},
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "gyl" = (
 /obj/machinery/vending/tool,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "gHC" = (
 /obj/structure/fuel_port{
 	pixel_x = -32
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "gLO" = (
 /obj/structure/table/steel,
 /obj/item/folder/yellow,
 /obj/item/folder/red,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "hdb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
@@ -471,7 +460,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "heP" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -485,22 +474,22 @@
 /obj/item/mop,
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "hiw" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance"
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "huE" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "hBd" = (
 /obj/structure/table/standard,
 /obj/item/soap,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "hBs" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
@@ -522,21 +511,21 @@
 	name = "igs - ee_crewman"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "hZq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Dock";
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "iaK" = (
 /obj/structure/toilet,
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "iiZ" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -557,7 +546,7 @@
 "irX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "ive" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -576,27 +565,33 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
+"iOV" = (
+/obj/machinery/computer/ship/engines{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/ee_spy_ship)
 "jEu" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "kaR" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
 	},
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "kfX" = (
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "kpR" = (
 /obj/machinery/light/small,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "kqx" = (
 /obj/structure/table/steel,
 /obj/structure/window/reinforced{
@@ -604,28 +599,28 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "krH" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Research Officer's Quarters";
 	req_access = list(205)
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "kwe" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "kzm" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "kAt" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "kPs" = (
 /obj/structure/closet/cabinet,
 /obj/item/spacecash/c1000,
@@ -645,14 +640,14 @@
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1000,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "lhC" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Operations";
 	req_access = list(205)
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "lpe" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/ee_shuttle,
@@ -665,26 +660,36 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "lwj" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/lava/blue,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "lFg" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/toothbrush/green,
 /obj/item/reagent_containers/toothpaste,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
+"mjR" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor,
+/area/ship/ee_spy_ship)
 "mkb" = (
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "mwP" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "mEc" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -692,7 +697,7 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "mET" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -702,46 +707,69 @@
 	name = "trashbin"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "mJE" = (
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "mLa" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "mPM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
+"ncB" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "ee_spy_ship_out"
+	},
+/obj/effect/shuttle_landmark/ee_spy_ship/nav2,
+/turf/simulated/floor,
+/area/ship/ee_spy_ship)
 "ntt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+/obj/structure/railing/mapped{
+	dir = 8
 	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/shuttle/fsf_shuttle)
 "nty" = (
 /obj/structure/table/steel,
 /obj/item/device/camera,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
+"nzr" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/airless,
+/area/ship/ee_spy_ship)
 "nDn" = (
 /obj/item/device/flashlight/lamp,
 /obj/structure/table/steel,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "nVi" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light{
@@ -749,7 +777,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "ofY" = (
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
@@ -765,7 +793,7 @@
 	pixel_y = 31
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "opS" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -773,14 +801,14 @@
 	id_tag = "ee_spy_ship_pump"
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "oNi" = (
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "pfE" = (
 /obj/structure/fuel_port{
 	pixel_x = -32
@@ -790,7 +818,7 @@
 "piw" = (
 /obj/item/modular_computer/console/preset/civilian,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "pwR" = (
 /obj/machinery/light{
 	dir = 1;
@@ -800,17 +828,17 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "pAh" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle,
 /turf/simulated/floor/plating,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "pBl" = (
 /obj/structure/table/steel,
 /obj/item/storage/briefcase/crimekit,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "pCa" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -823,7 +851,7 @@
 	pixel_y = 26
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "pDZ" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
@@ -842,7 +870,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
@@ -855,18 +883,18 @@
 	id_tag = "ee_spy_ship_in"
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "pXP" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp/lava/green,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "pYB" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "que" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/south,
@@ -876,7 +904,7 @@
 	dir = 10
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "qHO" = (
 /obj/effect/shuttle_landmark/ee_spy_ship/transit,
 /turf/space/transit/south,
@@ -886,13 +914,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "rtf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "rNp" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -910,7 +938,7 @@
 	pixel_y = -8
 	},
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "szY" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
@@ -930,30 +958,26 @@
 "sBA" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "sGi" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Cockpit";
 	req_access = list(205)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "sOb" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/south,
 /area/space)
-"ths" = (
-/obj/effect/shuttle_landmark/ee_spy_ship/start,
-/turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
 "tpL" = (
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "tra" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(205)
@@ -963,29 +987,29 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "tCH" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
 /obj/item/device/binoculars,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "uaE" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "ufp" = (
 /obj/machinery/light/small,
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "upC" = (
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "uwT" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -996,18 +1020,21 @@
 	pixel_y = -10
 	},
 /turf/template_noop,
-/area/shuttle/ee_spy_ship)
+/area/space)
 "uxz" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/cups,
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "uCl" = (
 /obj/machinery/cryopod{
 	dir = 2
 	},
+/obj/machinery/computer/cryopod{
+	pixel_y = 30
+	},
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "uNN" = (
 /obj/structure/bed/padded,
 /obj/effect/ghostspawpoint{
@@ -1016,13 +1043,13 @@
 	},
 /obj/item/bedsheet/black,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "uWn" = (
 /obj/structure/table/rack,
 /obj/item/storage/firstaid,
 /obj/item/storage/firstaid/adv,
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "uYP" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -1037,14 +1064,14 @@
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "vdX" = (
 /obj/effect/shuttle_landmark/ee_spy_ship/nav1,
 /turf/template_noop,
 /area/space)
 "vwF" = (
 /turf/unsimulated/wall/fakepdoor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "vxN" = (
 /obj/structure/closet/crate,
 /obj/item/stack/material/phoron{
@@ -1057,7 +1084,7 @@
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "vMq" = (
 /obj/structure/bed/padded,
 /obj/effect/ghostspawpoint{
@@ -1066,20 +1093,20 @@
 	},
 /obj/item/bedsheet/black,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "vTv" = (
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "vUu" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "wfy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -1093,7 +1120,7 @@
 	req_access = list(205)
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "wrJ" = (
 /obj/effect/shuttle_landmark/ee_shuttle/transit,
 /turf/space/transit/south,
@@ -1103,7 +1130,7 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "wCo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -1116,10 +1143,10 @@
 "wLs" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "wUJ" = (
 /turf/simulated/floor/tiled/yellow,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "wXi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
@@ -1129,7 +1156,7 @@
 /obj/item/clothing/suit/space/void/einstein,
 /obj/item/clothing/head/helmet/space/void/einstein,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "wZf" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle,
@@ -1137,7 +1164,7 @@
 /area/shuttle/ee_shuttle)
 "xbK" = (
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "xoc" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/ee_shuttle)
@@ -1149,13 +1176,13 @@
 /area/shuttle/ee_shuttle)
 "xQS" = (
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 "xRX" = (
 /turf/template_noop,
 /area/space)
 "yjk" = (
 /turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/ee_spy_ship)
+/area/ship/ee_spy_ship)
 
 (1,1,1) = {"
 xRX
@@ -32366,7 +32393,7 @@ xbK
 xbK
 pBl
 yjk
-xRX
+nzr
 xRX
 xRX
 xRX
@@ -33385,9 +33412,9 @@ wUJ
 wUJ
 wUJ
 wUJ
-ths
 wUJ
-aaa
+wUJ
+wUJ
 wUJ
 wUJ
 wUJ
@@ -33653,7 +33680,7 @@ dfe
 yjk
 pwR
 xQS
-aac
+iOV
 pAh
 xRX
 xRX
@@ -34395,7 +34422,7 @@ yjk
 eMT
 mkb
 yjk
-rtf
+mjR
 xoc
 bgV
 aab
@@ -36724,7 +36751,7 @@ xRX
 xRX
 xRX
 pAh
-aBD
+ncB
 aBD
 pAh
 xRX

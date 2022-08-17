@@ -685,8 +685,8 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/tape_roll(src) //allows it to place flyers
 	modules += new /obj/item/device/nanoquikpay(src)
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
-	modules += new /obj/item/taperoll/police(src) // To enable 'borgs to telegraph danger visually.
-	modules += new /obj/item/paper_scanner(src)
+	modules += new /obj/item/taperoll/police(src)
+	modules += new /obj/item/paper_scanner(src) //TODO: Add functionality to allow for scanned paperwork to show up in internal computer
 	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
 	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
@@ -760,7 +760,9 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/research
 	name = "research module"
-	channels = list(CHANNEL_SCIENCE = TRUE)
+	channels = list(CHANNEL_SCIENCE = TRUE,
+					CHANNEL_SUPPLY  = TRUE
+					)
 	networks = list(NETWORK_RESEARCH)
 	sprites = list(
 			"Basic" =          list(ROBOT_CHASSIS = "robot_sci", ROBOT_PANEL = "robot", ROBOT_EYES = "robot"),
@@ -827,6 +829,13 @@ var/global/list/robot_modules = list(
 	N.charge_costs = list(1000)
 	N.synths = list(nanite)
 	modules += N
+
+	var/datum/matter_synth/metal = new /datum/matter_synth/metal(15000)
+	synths += metal
+
+	var/obj/item/stack/material/cyborg/steel/M = new /obj/item/stack/material/cyborg/steel(src)
+	M.synths = list(metal)
+	modules += M
 
 /obj/item/robot_module/syndicate
 	name = "syndicate robot module"
@@ -938,6 +947,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/extinguisher(src)
 	modules += new /obj/item/device/pipe_painter(src)
 	modules += new /obj/item/device/floor_painter(src)
+	modules += new /obj/item/device/t_scanner(src)
 	modules += new /obj/item/gripper/multi_purpose(src)
 	modules += new /obj/item/gripper/no_use/loader(src)
 

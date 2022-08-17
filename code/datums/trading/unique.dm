@@ -151,7 +151,22 @@
 		/obj/item/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/koisbar_clean    = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/grown/kois       = TRADER_THIS_TYPE,
-		/obj/item/stack/material/phoron                                  = TRADER_THIS_TYPE
+		/obj/item/stack/material/phoron                             = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/friedkois			= TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/koiskebab1			= TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/koiskebab2			= TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/koiskebab3			= TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/soup/kois			= TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/koiswaffles		= TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/koisjelly			= TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/koissteak			= TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/donut/kois			= TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/koismuffin			= TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/koisburger			= TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/phoroncandy		= TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly = TRADER_THIS_TYPE
+
+
 	)
 
 	possible_trading_items = list(
@@ -163,7 +178,12 @@
 		/obj/item/clothing/suit/space/void/vaurca        = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/space/void/vaurca = TRADER_THIS_TYPE,
 		/obj/item/clothing/shoes/magboots/vaurca     = TRADER_THIS_TYPE,
-		/obj/item/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE
+		/obj/item/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/space/void/scout	= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/scout	= TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/space/void/commando	= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/commando = TRADER_THIS_TYPE,
+		/obj/item/clothing/mask/gas/vaurca = TRADER_THIS_TYPE
 	)
 
 	speech = list(

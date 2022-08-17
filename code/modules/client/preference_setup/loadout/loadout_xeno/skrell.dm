@@ -66,6 +66,7 @@
 	capes["nebula cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nebula
 	capes["nova cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nova
 	capes["galaxy cape"] = /obj/item/clothing/accessory/poncho/shouldercape/galaxy
+	capes["cosmic cape"] = /obj/item/clothing/accessory/poncho/shouldercape/cosmic
 	gear_tweaks += new /datum/gear_tweak/path(capes)
 
 /datum/gear/accessory/qeblak
@@ -73,7 +74,7 @@
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Skrell"
-	
+
 /datum/gear/accessory/weishii
 	display_name = "weishii robe"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
@@ -110,7 +111,7 @@
 /datum/gear/skrell_projector
 	display_name = "nralakk projector"
 	path = /obj/item/skrell_projector
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/homeworld_deck
@@ -304,6 +305,13 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 	jacket["iqi medical"] = /obj/item/clothing/suit/storage/toggle/skrell/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
 
+/datum/gear/accessory/skrell/starcoat
+	display_name = "star coat"
+	path = /obj/item/clothing/suit/storage/toggle/skrell/starcoat
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Skrell"
+	slot = slot_wear_suit
+
 /datum/gear/accessory/skrell/poncho
 	display_name = "skrell poncho"
 	path = /obj/item/clothing/accessory/poncho/skrell
@@ -371,3 +379,45 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 	dress["maelstrom formal wetshirt"] = /obj/item/clothing/accessory/dressshirt/skrell/maelstrom
 	dress["reef formal wetshirt"] = /obj/item/clothing/accessory/dressshirt/skrell/reef
 	gear_tweaks += new /datum/gear_tweak/path(dress)
+
+/datum/gear/uniform/skrell/wetsuit
+	display_name = "casual wetsuit"
+	path = /obj/item/clothing/under/skrell/wetsuit
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
+
+/datum/gear/ears/skrell/tailband
+	display_name = "SCS tailband"
+	path = /obj/item/clothing/ears/skrell/tailband
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	cost = 0
+
+/datum/gear/ears/skrell/tailband/New()
+	..()
+	var/list/tailband = list()
+	tailband["Ox Tailband"] = /obj/item/clothing/ears/skrell/tailband/
+	tailband["Ix Tailband"] = /obj/item/clothing/ears/skrell/tailband/ix
+	tailband["Oqi Tailband"] = /obj/item/clothing/ears/skrell/tailband/oqi
+	tailband["Iqi Tailband"] = /obj/item/clothing/ears/skrell/tailband/iqi
+	gear_tweaks += new /datum/gear_tweak/path(tailband)
+
+/datum/gear/accessory/skrell/nationcapes
+	display_name = "nation capes"
+	path = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/skrell/nationcapes/New()
+	..()
+	var/list/nationcapes = list()
+	nationcapes["Jargon Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes
+	nationcapes["Free Traverse Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/traverse
+	nationcapes["Sol Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/sol
+	nationcapes["Coalition Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/coc
+	nationcapes["Biesel Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel
+	gear_tweaks += new /datum/gear_tweak/path(nationcapes)
+

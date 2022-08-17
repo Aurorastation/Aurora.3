@@ -123,6 +123,7 @@
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
+	empty_sound = /decl/sound_category/out_of_ammo_rifle
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 
@@ -211,6 +212,19 @@
 	..()
 	icon_state = (ammo_magazine)? "bcarbine" : "bcarbine-empty"
 
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine
+	name = "bullpup carbine"
+	desc = "A variant of the ZI Bulldog assault carbine, the ZI Terrier is a slimmer and lighter version, chambered in the same 5.56 caliber but only capable of accepting smaller magazines. It lacks the integral grenade launcher and the burst fire of the Bulldog."
+	desc_fluff = "It makes you feel like a corporate goon when you hold it."
+	icon = 'icons/obj/guns/civcarbine.dmi'
+	icon_state = "civcarbine"
+	item_state = "civcarbine"
+	can_bayonet = FALSE
+
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "civcarbine" : "civcarbine-empty"
+
 /obj/item/gun/projectile/automatic/rifle/sol
 	name = "solarian assault rifle"
 	desc = "A reliable assault rifle manufactured by Zavodskoi Interstellar, the M469 is the standard service rifle of the Solarian Armed Forces, most commonly associated with its ground forces. \
@@ -236,7 +250,8 @@
 
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
-	desc = "The Z8 Bulldog bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 5.56mm rounds. Makes you feel like a space marine when you hold it."
+	desc = "The ZI Bulldog bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle. Uses 5.56mm rounds."
+	desc_fluff = "It makes you feel like a corporate commando when you hold it."
 	icon = 'icons/obj/guns/carbine.dmi'
 	icon_state = "carbine"
 	item_state = "carbine"
@@ -304,6 +319,37 @@
 		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
 	else
 		to_chat(user, "\The [launcher] is empty.")
+
+/obj/item/gun/projectile/automatic/rifle/jingya
+	name = "burst rifle"
+	desc = "The Jingya A-1 is the first of a new line of NanoTrasen rifles, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. They are made to be sleek, easy to use by users with minimal training and cheap to mass produce while still being reliable."
+	desc_fluff = "The Jingya A-1 won a hard-fought victory in the ballistic side of the SCC Future Firearms contest hosted in 2463, which was also its first unveiling: this rifle is made to function where laser weaponry may be either too risky or not functional for the engagement at hand. It is slated to be deployed for trial usage by a select few special TCFL regiments in Mictlan."
+	icon = 'icons/obj/guns/crew_rifle.dmi'
+	icon_state = "arifle"
+	item_state = "arifle"
+	w_class = ITEMSIZE_LARGE
+	force = 10
+	caliber = "a556"
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
+	ammo_type = /obj/item/ammo_casing/a556
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
+	slot_flags = SLOT_BACK
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine, /obj/item/ammo_magazine/a556/carbine/polymer)
+
+	burst_delay = 4
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=12),
+		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(1, 1))
+	)
+
+/obj/item/gun/projectile/automatic/rifle/jingya/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "arifle"
+	else
+		icon_state = "arifle-empty"
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"

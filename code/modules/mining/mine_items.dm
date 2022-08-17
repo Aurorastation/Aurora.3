@@ -10,7 +10,7 @@
 	if(prob(50))
 		new /obj/item/storage/backpack/industrial(src)
 	else
-		new /obj/item/storage/backpack/satchel_eng(src)
+		new /obj/item/storage/backpack/satchel/eng(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/clothing/under/rank/miner(src)
 	new /obj/item/clothing/gloves/black(src)
@@ -28,6 +28,7 @@
 	new /obj/item/clothing/head/bandana/miner(src)
 	new /obj/item/clothing/head/hardhat/orange(src)
 	new /obj/item/device/radio(src)
+	new /obj/item/device/flashlight/lantern(src)
 
 /******************************Lantern*******************************/
 
@@ -487,9 +488,6 @@
 	var/obj/item/stack/flag/F = locate() in get_turf(src)
 
 	var/turf/T = get_turf(src)
-	if(!T || !istype(T, /turf/unsimulated/floor/asteroid))
-		to_chat(user, SPAN_WARNING("The beacon won't stand up in this terrain."))
-		return
 
 	if(F?.upright)
 		to_chat(user, SPAN_WARNING("There is already a beacon here."))

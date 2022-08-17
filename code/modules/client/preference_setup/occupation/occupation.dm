@@ -144,7 +144,7 @@
 
 	var/list/dat = list(
 		"<style>span.none{color: black} span.low{color: #DDD} span.med{color: yellow} span.high{color: lime} a:hover span{color: #40628a !important}</style>",
-		"<center><b>Character faction</b><br>",
+		"<center><b>Character Faction</b><br>",
 		"<small>This will influence the jobs you can select from, and the starting equipment.</small><br>",
 		"<b><a href='?src=\ref[src];faction_preview=[html_encode(pref.faction)]'>[pref.faction]</a></b></center><br><hr>"
 	)
@@ -158,7 +158,7 @@
 	var/index = -1
 
 	var/datum/faction/faction = SSjobs.name_factions[pref.faction] || SSjobs.default_faction
-	for(var/datum/job/job in faction.get_occupations())
+	for(var/datum/job/job in SSjobs.occupations)
 		index += 1
 		if((index >= limit) || (job.title in splitJobs))
 			dat += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
@@ -180,6 +180,9 @@
 			continue
 		else if(!LAZYLEN(pref.GetValidTitles(job))) // we have no available jobs the character is old enough for
 			dat += "<del>[dispRank]</del></td><td> \[MINIMUM AGE: [LAZYLEN(job.alt_ages) ? min(job.get_alt_character_age(), job.get_minimum_character_age(user.get_species())) : job.get_minimum_character_age(user.get_species())]]</td></tr>"
+			continue
+		if(!(job in faction.get_occupations()))
+			dat += "<del>[dispRank]</del></td><td><b> \[FACTION RESTRICTED]</b></td></tr>"
 			continue
 		else if (ban_reason)
 			dat += "<del>[dispRank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=[rank];'>BANNED</a>]</b></td></tr>"
@@ -407,10 +410,10 @@
 
 	pref.player_alt_titles.Cut()
 
-/datum/category_item/player_setup_item/occupation/proc/show_faction_menu(mob/user, selected_faction)
+/datum/category_item/player_setup_item/occupation/proc/show_faction_menu(mob/user, selected_faction) //note : selected faction is what you choose to see, pref.faction is the actual chosen faction
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/faction_icons)
 
-	var/list/dat = list("<center><b>")
+	var/list/dat = list("<center><h2>")
 
 	var/list/factions = list()
 	for (var/datum/faction/faction in SSjobs.factions)
@@ -419,30 +422,37 @@
 		else
 			factions += "<a href='?src=\ref[src];faction_preview=[html_encode(faction.name)]'>[faction.name]</a>"
 
-	dat += factions.Join(" | ") + "</b>"
+	dat += factions.Join(" ")
 
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
 	if(!istype(faction))
 		to_client_chat(SPAN_DANGER("Invalid faction chosen. Resetting to default."))
 		selected_faction = SSjobs.default_faction.name
 
+	dat += "</h2></center><hr/>"
+	dat += "<table padding='8px'>"
+	dat += "<tr>"
+	dat += "<td width = 500>[faction.description]</td>"
+	dat += "<td width = 200 align='center'>"
+	dat += {"<img style="height:132px;" src="[faction.get_logo_name()]">"}
+
+	dat += "<br/><b>Departments:</br></b>"
+	dat += "<small><b>[faction.departments]</b></small>"
+	dat += "</td>"
+	dat += "</tr>"
+	dat += "</table><center><hr/>"
+
+	dat += "You can learn more about this faction on <a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>.</center>"
+
 	if (selected_faction == pref.faction)
-		dat += "<br>\[Faction already selected\]"
+		dat += "<br>\[selected\]"
 	else if (faction.can_select(pref))
-		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>Select faction</a>\]"
+		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>select</a>\]"
 	else
 		dat += "<br><span class='warning'>[faction.get_selection_error(pref)]</span>"
 
-	dat += "</center><hr><center><large><u>[faction.name]</u></large>"
-	dat += {"<br><img style="height:100px;" src="[faction.get_logo_name()]"></center>"}
-
-	if (faction.is_default)
-		dat += "<br><center><small>This faction is the default faction aboard this installation.</small></center>"
-
-	dat += "<br><br><center><a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>Read the Wiki</a></center>"
-	dat += "<br>[faction.description]"
-
-	show_browser(user, dat.Join(), "window=factionpreview;size=400x600")
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat.Join()), "window=factionpreview;size=750x450")
 
 /datum/category_item/player_setup_item/occupation/proc/validate_and_set_faction(selected_faction)
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]

@@ -48,6 +48,8 @@ var/global/universe_has_ended = 0
 	if(evacuation_controller.cancel_evacuation())
 		priority_announcement.Announce("The evacuation has been aborted due to bluespace distortion.")
 
+	SSskybox.change_skybox("cascade", new_use_stars = FALSE, new_use_overmap_details = FALSE)
+
 	AreaSet()
 	MiscSet()
 	APCSet()
@@ -90,7 +92,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 
 /datum/universal_state/supermatter_cascade/proc/AreaSet()
 	for(var/area/A in all_areas)
-		if(!istype(A,/area) || istype(A, /area/space) || istype(A,/area/beach))
+		if(!istype(A,/area) || istype(A, /area/space))
 			continue
 
 		A.queue_icon_update()

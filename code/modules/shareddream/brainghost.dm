@@ -1,6 +1,7 @@
 /mob/living/brain_ghost
 	name = "Brain Ghost"
 	desc = "A Telepathic connection."
+	accent = ACCENT_SROM
 
 	alpha = 200
 

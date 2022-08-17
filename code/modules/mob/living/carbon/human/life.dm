@@ -421,7 +421,7 @@
 
 	if(adjusted_pressure >= species.hazard_high_pressure)
 		var/pressure_damage = min( ( (adjusted_pressure / species.hazard_high_pressure) -1 )*PRESSURE_DAMAGE_COEFFICIENT , MAX_HIGH_PRESSURE_DAMAGE)
-		take_overall_damage(brute=pressure_damage, used_weapon = "High Pressure")
+		take_overall_damage(pressure_damage, used_weapon = "High Pressure")
 		pressure_alert = 2
 	else if(adjusted_pressure >= species.warning_high_pressure)
 		pressure_alert = 1
@@ -757,7 +757,7 @@
 			handle_hallucinations()
 
 		if(get_shock() >= species.total_health)
-			if(!stat)
+			if(!stat && !paralysis)
 				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
@@ -921,7 +921,8 @@
 
 				var/no_damage = 1
 				var/trauma_val = 0 // Used in calculating softcrit/hardcrit indicators.
-				trauma_val = max(shock_stage,get_shock())/(species.total_health-100)
+				if(can_feel_pain())
+					trauma_val = max(shock_stage,get_shock())/(species.total_health-100)
 				// Collect and apply the images all at once to avoid appearance churn.
 				var/list/health_images = list()
 				for(var/obj/item/organ/external/E in organs)
@@ -1115,6 +1116,8 @@
 		Paralyse(3)
 		return
 	if(!can_feel_pain())
+		if(isSynthetic() &&(get_total_health() < maxHealth * 0.5))
+			stuttering = max(stuttering, 5)
 		return
 
 	if(is_asystole)

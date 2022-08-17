@@ -2,22 +2,26 @@
 
 /obj/machinery/computer/ship/engines
 	name = "engine control console"
-	icon_screen = "command"
+	icon_screen = "enginecontrol"
+	icon_keyboard = "cyan_key"
+	light_color = LIGHT_COLOR_CYAN
+	circuit = /obj/item/circuitboard/ship/engines
 	var/display_state = "status"
 
 /obj/machinery/computer/ship/engines/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if(!linked)
+	if(!connected)
 		display_reconnect_dialog(user, "ship control systems")
 		return
 
+
 	var/data[0]
 	data["state"] = display_state
-	data["global_state"] = linked.engines_state
-	data["global_limit"] = round(linked.thrust_limit*100)
+	data["global_state"] = connected.engines_state
+	data["global_limit"] = round(connected.thrust_limit*100)
 	var/total_thrust = 0
 
 	var/list/enginfo[0]
-	for(var/datum/ship_engine/E in linked.engines)
+	for(var/datum/ship_engine/E in connected.engines)
 		var/list/rdata[0]
 		rdata["eng_type"] = E.name
 		rdata["eng_on"] = E.is_on()
@@ -33,7 +37,7 @@
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "engines_control.tmpl", "[linked.name] Engines Control", 390, 530)
+		ui = new(user, src, ui_key, "engines_control.tmpl", "[connected.get_real_name()] Engines Control", 390, 530)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
@@ -47,25 +51,25 @@
 		return TOPIC_REFRESH
 
 	if(href_list["global_toggle"])
-		linked.engines_state = !linked.engines_state
-		for(var/datum/ship_engine/E in linked.engines)
-			if(linked.engines_state == !E.is_on())
+		connected.engines_state = !connected.engines_state
+		for(var/datum/ship_engine/E in connected.engines)
+			if(connected.engines_state == !E.is_on())
 				E.toggle()
 		return TOPIC_REFRESH
 
 	if(href_list["set_global_limit"])
-		var/newlim = input("Input new thrust limit (0..100%)", "Thrust limit", linked.thrust_limit*100) as num
+		var/newlim = input("Input new thrust limit (0..100%)", "Thrust limit", connected.thrust_limit*100) as num
 		if(!CanInteract(usr, physical_state))
 			return TOPIC_NOACTION
-		linked.thrust_limit = Clamp(newlim/100, 0, 1)
-		for(var/datum/ship_engine/E in linked.engines)
-			E.set_thrust_limit(linked.thrust_limit)
+		connected.thrust_limit = Clamp(newlim/100, 0, 1)
+		for(var/datum/ship_engine/E in connected.engines)
+			E.set_thrust_limit(connected.thrust_limit)
 		return TOPIC_REFRESH
 
 	if(href_list["global_limit"])
-		linked.thrust_limit = Clamp(linked.thrust_limit + text2num(href_list["global_limit"]), 0, 1)
-		for(var/datum/ship_engine/E in linked.engines)
-			E.set_thrust_limit(linked.thrust_limit)
+		connected.thrust_limit = Clamp(connected.thrust_limit + text2num(href_list["global_limit"]), 0, 1)
+		for(var/datum/ship_engine/E in connected.engines)
+			E.set_thrust_limit(connected.thrust_limit)
 		return TOPIC_REFRESH
 
 	if(href_list["engine"])

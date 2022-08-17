@@ -541,9 +541,116 @@
 		'sound/items/drop/casing2.ogg',
 		'sound/items/drop/casing3.ogg',
 		'sound/items/drop/casing4.ogg',
-		'sound/items/drop/casing5.ogg'
+		'sound/items/drop/casing5.ogg',
+		'sound/items/drop/casing6.ogg',
+		'sound/items/drop/casing7.ogg',
+		'sound/items/drop/casing8.ogg',
+		'sound/items/drop/casing9.ogg',
+		'sound/items/drop/casing10.ogg',
+		'sound/items/drop/casing11.ogg',
+		'sound/items/drop/casing12.ogg',
+		'sound/items/drop/casing13.ogg',
+		'sound/items/drop/casing15.ogg',
+		'sound/items/drop/casing16.ogg',
+		'sound/items/drop/casing17.ogg',
+		'sound/items/drop/casing18.ogg',
+		'sound/items/drop/casing19.ogg',
+		'sound/items/drop/casing20.ogg',
+		'sound/items/drop/casing21.ogg',
+		'sound/items/drop/casing22.ogg',
+		'sound/items/drop/casing23.ogg',
+		'sound/items/drop/casing24.ogg',
+		'sound/items/drop/casing25.ogg'
 	)
 
+/decl/sound_category/casing_drop_sound_shotgun
+	sounds = list(
+		'sound/items/drop/casing_shotgun1.ogg',
+		'sound/items/drop/casing_shotgun2.ogg',
+		'sound/items/drop/casing_shotgun3.ogg',
+		'sound/items/drop/casing_shotgun4.ogg',
+		'sound/items/drop/casing_shotgun5.ogg'
+	)
+
+/decl/sound_category/out_of_ammo
+	sounds = list(
+		'sound/weapons/empty/empty2.ogg',
+		'sound/weapons/empty/empty3.ogg',
+		'sound/weapons/empty/empty4.ogg',
+		'sound/weapons/empty/empty5.ogg',
+		'sound/weapons/empty/empty6.ogg'
+	)
+
+/decl/sound_category/out_of_ammo_revolver
+	sounds = list(
+		'sound/weapons/empty/empty_revolver.ogg',
+		'sound/weapons/empty/empty_revolver3.ogg'
+	)
+
+/decl/sound_category/out_of_ammo_rifle
+	sounds = list(
+		'sound/weapons/empty/empty_rifle1.ogg',
+		'sound/weapons/empty/empty_rifle2.ogg'
+	)
+
+/decl/sound_category/out_of_ammo_shotgun
+	sounds = list(
+		'sound/weapons/empty/empty_shotgun1.ogg'
+	)
+
+/decl/sound_category/metal_slide_reload
+	sounds = list(
+		'sound/weapons/reloads/pistol_metal_slide1.ogg',
+		'sound/weapons/reloads/pistol_metal_slide2.ogg',
+		'sound/weapons/reloads/pistol_metal_slide3.ogg',
+		'sound/weapons/reloads/pistol_metal_slide4.ogg',
+		'sound/weapons/reloads/pistol_metal_slide5.ogg',
+		'sound/weapons/reloads/pistol_metal_slide6.ogg'
+	)
+
+/decl/sound_category/polymer_slide_reload
+	sounds = list(
+		'sound/weapons/reloads/pistol_polymer_slide1.ogg',
+		'sound/weapons/reloads/pistol_polymer_slide2.ogg',
+		'sound/weapons/reloads/pistol_polymer_slide3.ogg'
+	)
+
+/decl/sound_category/rifle_slide_reload
+	sounds = list(
+		'sound/weapons/reloads/rifle_slide.ogg',
+		'sound/weapons/reloads/rifle_slide2.ogg',
+		'sound/weapons/reloads/rifle_slide3.ogg',
+		'sound/weapons/reloads/rifle_slide4.ogg',
+		'sound/weapons/reloads/rifle_slide5.ogg'
+	)
+
+/decl/sound_category/revolver_reload
+	sounds = list(
+		'sound/weapons/reloads/revolver_reload.ogg'
+	)
+/decl/sound_category/shotgun_pump
+	sounds = list(
+		'sound/weapons/reloads/shotgun_pump2.ogg',
+		'sound/weapons/reloads/shotgun_pump3.ogg',
+		'sound/weapons/reloads/shotgun_pump4.ogg',
+		'sound/weapons/reloads/shotgun_pump5.ogg',
+		'sound/weapons/reloads/shotgun_pump6.ogg'
+	)
+
+/decl/sound_category/shotgun_reload
+	sounds = list(
+		'sound/weapons/reloads/reload_shell.ogg',
+		'sound/weapons/reloads/reload_shell2.ogg',
+		'sound/weapons/reloads/reload_shell3.ogg',
+		'sound/weapons/reloads/reload_shell4.ogg'
+	)
+
+/decl/sound_category/heavy_machine_gun_reload
+	sounds = list(
+		'sound/weapons/reloads/hmg_reload1.ogg',
+		'sound/weapons/reloads/hmg_reload2.ogg',
+		'sound/weapons/reloads/hmg_reload3.ogg'
+	)
 /decl/sound_category/drillhit_sound
 	sounds = list(
 		'sound/weapons/saw/drillhit1.ogg',
@@ -553,13 +660,13 @@
 /decl/sound_category/generic_drop_sound
 	sounds = list(
 		'sound/items/drop/generic1.ogg',
-		'sound/items/drop/generic2.ogg',
+		'sound/items/drop/generic2.ogg'
 	)
 /decl/sound_category/generic_pickup_sound
 	sounds = list(
 		'sound/items/pickup/generic1.ogg',
 		'sound/items/pickup/generic2.ogg',
-		'sound/items/pickup/generic3.ogg',
+		'sound/items/pickup/generic3.ogg'
 	)
 /decl/sound_category/generic_wield_sound
 	sounds = list(

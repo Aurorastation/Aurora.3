@@ -76,6 +76,11 @@ var/datum/controller/subsystem/lighting/SSlighting
 	for (var/zlevel = 1 to world.maxz)
 		for (thing in Z_ALL_TURFS(zlevel))
 			T = thing
+			if(config.starlight)
+				var/turf/space/S = T
+				if(istype(S) && S.use_starlight)
+					S.update_starlight()
+
 			if (!T.dynamic_lighting)
 				continue
 

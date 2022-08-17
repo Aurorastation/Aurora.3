@@ -22,7 +22,10 @@
 //set disable_warning to disable the 'you are unable to equip that' warning.
 //unset redraw_mob to prevent the mob from being redrawn at the end.
 /mob/proc/equip_to_slot_if_possible(obj/item/W as obj, slot, del_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, ignore_blocked = FALSE, assisted_equip = FALSE)
-	if(!istype(W)) return 0
+	if(!istype(W))
+		return FALSE
+	if(W.item_flags & NOMOVE) //Cannot move NOMOVE items from one inventory slot to another. Cannot do canremove here because then BSTs spawn naked. 
+		return FALSE
 
 	if(!W.mob_can_equip(src, slot, disable_warning, ignore_blocked))
 		if(del_on_fail)
@@ -183,6 +186,7 @@ var/list/slot_equipment_priority = list( \
 		if(!(W && W.loc))
 			return TRUE
 		W.forceMove(target)
+		W.do_drop_animation(src)
 		update_icon()
 		return TRUE
 	return FALSE
@@ -378,12 +382,27 @@ var/list/slot_equipment_priority = list( \
 				to_chat(src, SPAN_NOTICE("You offer \the [I] to \the [target]."))
 				do_give(H)
 			return TRUE
-		remove_from_mob(I)
-		make_item_drop_sound(I)
-		I.forceMove(get_turf(target))
-		return TRUE
 
-	remove_from_mob(item)
+		var/turf/T = get_turf(target)
+		if(T.density) //Don't put the item in dense turfs
+			return TRUE //Takes off throw mode
+		if(T.contains_dense_objects())
+			for(var/obj/O in T)
+				if(!O.density) //We don't care about you.
+					continue
+				if(O.CanPass(item, T)) //Items have CANPASS for tables/railings, allows placement. Also checks windows. 
+					continue
+				if(istype(O, /obj/structure/closet/crate)) //Placing on/in crates is fine.
+					continue
+				return TRUE //Something is stopping us. Takes off throw mode.
+				
+		if(unEquip(I))
+			make_item_drop_sound(I)
+			I.forceMove(T)
+			return TRUE
+
+	if(!unEquip(item))
+		return TRUE
 
 	if(is_pacified())
 		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")

@@ -85,8 +85,8 @@
 	build_type = /obj/item/stack/tile/carpet_art
 
 /decl/flooring/tiling
-	name = "floor"
-	desc = "Scuffed from the passage of countless greyshirts."
+	name = "steel tiles"
+	desc = "A set of steel floor tiles."
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "steel"
 	has_damage_range = 4
@@ -95,6 +95,12 @@
 	build_type = /obj/item/stack/tile/floor
 	can_paint = 1
 	footstep_sound = /decl/sound_category/tiles_footstep
+
+/decl/flooring/tiling/full
+	name = "full steel tiles"
+	desc = "A full steel floor tile."
+	icon_base = "steel_full"
+	build_type = /obj/item/stack/tile/floor/full
 
 /decl/flooring/tiling/asteroid
 	name = "floor"
@@ -179,12 +185,18 @@
 	build_type = /obj/item/stack/tile/floor_yellow
 
 /decl/flooring/tiling/dark
-	name = "floor"
-	desc = "How ominous."
+	name = "plasteel tiles"
+	desc = "A set of plasteel floor tiles."
 	icon_base = "dark"
 	has_damage_range = null
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_dark
+
+/decl/flooring/tiling/dark/full
+	name = "full plasteel tile"
+	desc = "A full plasteel floor tile."
+	icon_base = "dark_full"
+	build_type = /obj/item/stack/tile/floor_dark/full
 
 /decl/flooring/tiling/freezer
 	name = "floor"

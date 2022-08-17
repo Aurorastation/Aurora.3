@@ -2,7 +2,8 @@
 	desc = "The basic building block of all walls."
 	desc_info = "Use metal sheets on this to build a normal wall.<br>\
 	A false wall can be made by using a crowbar on this girder, and then adding some material.<br>\
-	You can dismantle the grider with a wrench, or add support struts with a screwdriver to enable further reinforcement."
+	You can dismantle the grider with a wrench, or add support struts with a screwdriver to enable further reinforcement.<br>\
+	If reinforced, before you can dismantle it, you must first unscrew the support struts, then cut them with wirecutters."
 	icon_state = "girder"
 	anchored = 1
 	density = 1
@@ -184,7 +185,7 @@
 		if(reinf_material)
 			weaken += reinf_material.integrity * 3 //Since girders don't have a secondary material, buff 'em up a bit.
 		weaken /= 100
-		do_attack_animation(src)
+		user.do_attack_animation(src)
 		playsound(src, 'sound/weapons/smash.ogg', 50)
 		if(damage_to_deal > weaken && (damage_to_deal > MIN_DAMAGE_TO_HIT))
 			damage_to_deal -= weaken
