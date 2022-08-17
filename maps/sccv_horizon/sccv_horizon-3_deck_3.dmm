@@ -236,7 +236,10 @@
 	opacity = 0;
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "investigator_office"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
@@ -1479,7 +1482,8 @@
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "bkE" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 2
+	dir = 2;
+	name = "Deck 3 Port Stairwell"
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -8083,7 +8087,8 @@
 	opacity = 0;
 	dir = 4
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/investigations)
 "gxx" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -8456,8 +8461,10 @@
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "gQK" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "Interro"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/security/investigations)
 "gRE" = (
 /obj/item/material/ashtray/bronze,
@@ -8747,9 +8754,11 @@
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "hgj" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
-/area/lawoffice/representative)
+/obj/item/hullbeacon/red{
+	pixel_x = -32
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "hgk" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -16330,7 +16339,8 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "nEc" = (
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/investigations)
 "nEe" = (
 /obj/structure/bed/stool/chair/office/bridge{
@@ -19740,11 +19750,6 @@
 /obj/machinery/iff_beacon/horizon,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
-"qre" = (
-/turf/simulated/floor/plating,
-/area/security/forensics_office{
-	name = "Security - Investigations Office"
-	})
 "qrh" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -20309,11 +20314,14 @@
 /turf/simulated/floor,
 /area/maintenance/substation/civilian_east)
 "qNa" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "journalist"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/journalistoffice)
 "qOa" = (
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/vacantoffice2)
 "qOs" = (
 /obj/machinery/vending/snack,
@@ -22752,7 +22760,10 @@
 	name = "Security Blast Door";
 	opacity = 0
 	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "investigator_office"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
@@ -26470,8 +26481,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "vBu" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "sec_autopsy"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/security/forensics_morgue)
 "vBF" = (
 /obj/machinery/telecomms/processor/preset_four,
@@ -27242,7 +27255,9 @@
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
 "wmB" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Deck 3 Port Stairwell"
+	},
 /obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
@@ -53741,7 +53756,7 @@ xzQ
 dnU
 hzg
 xQG
-hgj
+hjl
 qqy
 qwg
 gpP
@@ -53943,7 +53958,7 @@ wmB
 dRM
 hzg
 xQG
-hgj
+hjl
 kKb
 ujV
 qgr
@@ -54940,7 +54955,7 @@ tts
 nfy
 rCQ
 vRz
-nEc
+gQK
 rFS
 ovt
 bXc
@@ -55142,7 +55157,7 @@ pmf
 nfy
 iiM
 wzX
-nEc
+gQK
 kuT
 ueR
 niZ
@@ -55344,7 +55359,7 @@ ecw
 nfy
 jfL
 vRz
-nEc
+gQK
 kpR
 ovt
 niZ
@@ -55754,7 +55769,7 @@ vEx
 niZ
 niZ
 fRe
-qre
+sJx
 niZ
 niZ
 niZ
@@ -59375,10 +59390,10 @@ iFs
 iFs
 iFs
 iFs
+hgj
 iFs
 iFs
-iFs
-iFs
+hgj
 iFs
 iFs
 iFs
