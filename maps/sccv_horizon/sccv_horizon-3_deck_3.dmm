@@ -13618,7 +13618,16 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/machinery/firealarm/south,
+/obj/structure/closet/walllocker/medical{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "lmG" = (
@@ -23276,6 +23285,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/effect/floor_decal/corner/paleblue/full,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "tkt" = (
@@ -27823,6 +27833,12 @@
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
+"wJm" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard)
 "wJY" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -28002,6 +28018,9 @@
 	dir = 10
 	},
 /obj/machinery/light,
+/obj/machinery/newscaster{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "wRC" = (
@@ -54482,8 +54501,8 @@ htn
 ero
 wTZ
 mGa
-mGa
-mGa
+wJm
+wJm
 knA
 lNP
 qqd
