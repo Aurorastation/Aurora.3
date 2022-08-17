@@ -78,22 +78,22 @@
 		if("Athvur's City of Paradise")
 			light_color = "#eff3ef"
 			possible_messages = list(
-		"A transcendent cityscape dominates the area, with towering structures of elegant white stone resting atop a blanket of clouds.",
-		"In the distance of the cityscape towers a set of sublime sculptures, accented by light from beneath the clouds.",
-		"Orchestral music resonates from within an auditorium, the melody carried through the heavens.",
-		"An enchanting smell of cedar, cherry and morning freshness penetrates through the air.",
-		"A vibrant burst of color permeates through the sky, basking the air in pleasing rainbow luminescence for a moment.", 
-		"In the center of a green park Vaurca workers paint not on canvas but in the air, seemingly looking at the landscape for inspiration."
+			"A transcendent cityscape dominates the area, with towering structures of elegant white stone resting atop a blanket of clouds.",
+			"In the distance of the cityscape towers a set of sublime sculptures, accented by light from beneath the clouds.",
+			"Orchestral music resonates from within an auditorium, the melody carried through the heavens.",
+			"An enchanting smell of cedar, cherry and morning freshness penetrates through the air.",
+			"A vibrant burst of color permeates through the sky, basking the air in pleasing rainbow luminescence for a moment.", 
+			"In the center of a green park Vaurca workers paint not on canvas but in the air, seemingly looking at the landscape for inspiration."
 		)
 		if("Athvur's Garden of Splendour")
 			light_color = "#3adf3a"
 			possible_messages = list( 
-		"A tranquil garden landscape stretches out to the horizon, its peaceful scenery embellished with flowers of every variety.",
-		"Harmonious music accents an indescribable aroma of flowers.",
-		"In the distance of the garden, beyond the soothing plants, workers move through an ornate gazebo.",
-		"A fountain sits nestled within a thicket clearing, producing a golden substance from which gathered workers drink.",
-		"A herd of majestic creatures, each as tall as two people, graze on a patch of grass and lie curled up against each other's silky fur.", 
-		"Lilac-breasted birds dart between the tree-line and sing a soothing melody which seems to carry with it a smell of vanilla."
+			"A tranquil garden landscape stretches out to the horizon, its peaceful scenery embellished with flowers of every variety.",
+			"Harmonious music accents an indescribable aroma of flowers.",
+			"In the distance of the garden, beyond the soothing plants, workers move through an ornate gazebo.",
+			"A fountain sits nestled within a thicket clearing, producing a golden substance from which gathered workers drink.",
+			"A herd of majestic creatures, each as tall as two people, graze on a patch of grass and lie curled up against each other's silky fur.", 
+			"Lilac-breasted birds dart between the tree-line and sing a soothing melody which seems to carry with it a smell of vanilla."
 		)
 		if("Athvur's Museum of Fine Art")
 			light_color = "#e7f0ec"
