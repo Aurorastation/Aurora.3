@@ -46,8 +46,8 @@
 	dir = EAST
 
 /obj/structure/closet/walllocker/firecloset //wall mounted fire closet
-	name = "fire-safety closet"
-	desc = "It's a storage unit for fire-fighting supplies."
+	name = "firefighting closet"
+	desc = "It's a storage unit for firefighting supplies."
 	icon_state = "hydrant"
 
 /obj/structure/closet/walllocker/firecloset/fill()

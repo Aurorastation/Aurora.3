@@ -139,7 +139,7 @@
 #define BP_IPCTAG   "ipc tag"
 
 // Zombie organ
-#define BP_ZOMBIE_PARASITE "zombieparasite"
+#define BP_ZOMBIE_PARASITE "black tumour"
 
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
