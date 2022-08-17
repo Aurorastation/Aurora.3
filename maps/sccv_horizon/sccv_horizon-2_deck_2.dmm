@@ -13177,18 +13177,10 @@
 /turf/simulated/floor/airless,
 /area/engineering/engine_room)
 "gWW" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "gXb" = (
 /obj/effect/floor_decal/corner/green/full{
