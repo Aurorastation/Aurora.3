@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "Added a button to the inside of the engineering hard storage, that controls the shutters."

@@ -22487,6 +22487,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "engineering_storage";
+	name = "Engineering Hard Storage";
+	pixel_y = 27;
+	pixel_x = 25
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
 "mpN" = (
