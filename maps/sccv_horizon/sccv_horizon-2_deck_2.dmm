@@ -2245,7 +2245,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "baJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6107,6 +6107,17 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
+"dkJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/teleporter)
 "dkR" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -6216,7 +6227,10 @@
 	c_tag = "Third Deck - Teleporter";
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "dnP" = (
 /obj/effect/floor_decal/corner/brown{
@@ -6870,7 +6884,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "dGz" = (
 /obj/structure/shuttle_part/scc_space_ship{
@@ -11780,7 +11794,7 @@
 	req_access = list(47);
 	name = "Research Storage"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/strongroom)
 "gof" = (
 /obj/structure/reagent_dispensers/water_cooler,
@@ -11819,7 +11833,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "goQ" = (
-/obj/effect/floor_decal/industrial/warning,
 /obj/item/device/radio/intercom{
 	dir = 8;
 	name = "Station Intercom (General)";
@@ -11828,7 +11841,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "gps" = (
 /obj/effect/floor_decal/corner/mauve/full{
@@ -13416,7 +13433,10 @@
 "heH" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "hfh" = (
 /obj/machinery/camera/network/service{
@@ -13451,7 +13471,7 @@
 	req_access = list(30)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hor)
 "hfx" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -13889,7 +13909,7 @@
 	name = "Aft Research Hallway Maintenance";
 	req_one_access = list(12,47)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/hallway)
 "hqC" = (
 /obj/structure/table/rack,
@@ -16565,8 +16585,8 @@
 /area/engineering/storage_eva)
 "iRq" = (
 /obj/structure/bed/stool/chair/padded/black,
-/obj/effect/floor_decal/corner/mauve{
-	dir = 6
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
@@ -17740,9 +17760,11 @@
 	pixel_x = -9;
 	pixel_y = 24
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "jvV" = (
 /turf/simulated/wall,
@@ -22284,7 +22306,7 @@
 	name = "Emergency Supplies Closet"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/hallway)
 "mdU" = (
 /obj/machinery/door/blast/regular{
@@ -24226,7 +24248,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "ndO" = (
-/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -24238,7 +24259,9 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/blue/full,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "nen" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -29644,6 +29667,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
 "pZV" = (
@@ -29786,7 +29812,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "qdY" = (
 /obj/structure/railing/mapped{
@@ -31452,9 +31481,11 @@
 /area/engineering/engine_monitoring/tesla)
 "qXH" = (
 /obj/machinery/firealarm/east,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "qXJ" = (
 /obj/effect/floor_decal/corner/lime/full{
@@ -35150,8 +35181,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 9
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
@@ -35305,6 +35336,9 @@
 /obj/structure/bed/stool/chair/padded/black,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
@@ -36450,7 +36484,7 @@
 	name = "Research and Development";
 	req_access = list(7)
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/research)
 "tKo" = (
 /obj/machinery/status_display{
@@ -36583,11 +36617,14 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "tNT" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(17)
-	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/command{
+	name = "Teleporter";
+	req_access = list(19)
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/teleporter)
 "tNU" = (
 /obj/structure/railing/mapped{
@@ -36778,7 +36815,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "tTM" = (
 /obj/structure/cable/green,
@@ -38534,13 +38574,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
 	name = "Exploratory Chemistry";
 	req_access = list(7)
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/chemistry)
 "uKJ" = (
 /obj/machinery/light,
@@ -40099,6 +40138,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "vFN" = (
@@ -40330,7 +40370,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/mauve{
+/obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -42537,7 +42577,7 @@
 	name = "Research and Development";
 	req_access = list(7)
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/research)
 "wLi" = (
 /obj/structure/table/standard,
@@ -42773,11 +42813,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "wOV" = (
-/obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "wPj" = (
 /obj/structure/railing/mapped{
@@ -44866,7 +44909,7 @@
 	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/conference)
 "xWc" = (
 /obj/effect/shuttle_landmark/skipjack_ship/second_deck,
@@ -71081,7 +71124,7 @@ vBO
 qhA
 vMD
 tNT
-baq
+dkJ
 baq
 dGp
 wOV
