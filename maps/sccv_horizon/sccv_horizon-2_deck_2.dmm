@@ -4911,6 +4911,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
+"cBr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/hallway)
 "cBF" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -69851,7 +69866,7 @@ rLw
 soW
 rZU
 ulB
-byv
+cBr
 amz
 hME
 tlX
