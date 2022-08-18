@@ -93,12 +93,14 @@ BREATH ANALYZER
 
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
+		playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
 		return
 
 	var/mob/living/carbon/human/H = M
 
 	if(H.isSynthetic() && !H.isFBP())
 		to_chat(user, "<span class='warning'>This scanner is designed for organic humanoid patients only.</span>")
+		playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
 		return
 
 	. = list()
@@ -611,15 +613,19 @@ BREATH ANALYZER
 
 	if(H.stat == DEAD || H.losebreath || !H.breathing)
 		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
+		playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25)
 		return
 
 	switch(H.getOxyLoss())
 		if(0 to 25)
 			to_chat(user,"Subject oxygen levels nominal.")
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25)
 		if(25 to 50)
 			to_chat(user,"<span class='notice'>Subject oxygen levels abnormal.</span>")
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25)
 		if(50 to INFINITY)
 			to_chat(user,"<span class='notice'><b>Severe oxygen deprivation detected.</b></span>")
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25)
 
 	var/obj/item/organ/internal/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L))
