@@ -77,7 +77,7 @@
 	var/list/beret = list()
 	beret["tribunal initiate's beret"] = /obj/item/clothing/head/beret/dominia
 	beret["tribunalist's beret"] = /obj/item/clothing/head/beret/dominia/priest
-	beret["tribunalist's beret red"] = /obj/item/clothing/head/beret/dominia/priest/red
+	beret["tribunalist's beret, red"] = /obj/item/clothing/head/beret/dominia/priest/red
 	gear_tweaks += new /datum/gear_tweak/path(beret)
 
 /datum/gear/religion/dominia/cape
