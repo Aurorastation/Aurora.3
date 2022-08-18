@@ -6155,7 +6155,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "dlG" = (
 /obj/structure/sink/kitchen{
 	dir = 8;
@@ -10341,7 +10341,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "fDF" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/door/blast/regular{
@@ -18565,7 +18565,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "jPb" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
@@ -25675,7 +25675,7 @@
 	dir = 1
 	},
 /turf/simulated/open/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "nEx" = (
 /obj/structure/railing/mapped,
 /turf/simulated/open,
@@ -27675,7 +27675,7 @@
 /area/maintenance/wing/port/far)
 "oKP" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/template_noop)
+/area/horizon/exterior)
 "oKR" = (
 /obj/machinery/light/small/emergency,
 /obj/effect/floor_decal/industrial/warning{
@@ -28380,7 +28380,7 @@
 "pep" = (
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/tiled/dark/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "pev" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
@@ -35691,7 +35691,7 @@
 /obj/machinery/door/window/westright,
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "tae" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -36341,7 +36341,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/tiled/dark/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "tsA" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -39662,7 +39662,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/open/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "uZh" = (
 /obj/machinery/light{
 	dir = 8
@@ -42406,7 +42406,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
-/area/template_noop)
+/area/horizon/exterior)
 "wpb" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
