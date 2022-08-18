@@ -33,8 +33,8 @@
 		///////////////
 		//SOUND STUFF//
 		///////////////
-	var/ambience_playing= null
-	var/played			= 0
+	var/ambient_hum_playing = null // "world.time".
+	var/ambience_last_played_time = null // "world.time".
 
 		////////////
 		//SECURITY//
