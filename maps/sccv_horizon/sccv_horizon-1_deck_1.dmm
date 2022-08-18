@@ -7593,6 +7593,9 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "fXy" = (
@@ -10063,6 +10066,13 @@
 "hWb" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/atmos)
+"hWn" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/deck1)
 "hWY" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -28281,6 +28291,9 @@
 	},
 /obj/machinery/alarm{
 	pixel_y = 28
+	},
+/obj/effect/landmark{
+	name = "Revenant"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -62271,7 +62284,7 @@ eSV
 eSV
 eSV
 xst
-suT
+hWn
 qBU
 xst
 hoV
