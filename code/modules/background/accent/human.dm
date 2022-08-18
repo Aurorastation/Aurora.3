@@ -265,7 +265,7 @@
 
 /datum/accent/antillia
 	name = ACCENT_ANTILLIA
-	description = "There are two distinct dialects present on the planet, one that sees heavy lifting from Tradeband and the other more influenced by Solarian Common. It is relatively easy to identify the differences between each, Antilleans influenced by Tradeband sound more nasally and rhythmic, whereas those that grew up in regions where Solarian Common are more soft-spoken, and annunciated compared to other colonies."
+	description = "There are two distinct dialects present on the planet: one that sees heavy lifting from Tradeband and the other more influenced by Solarian Common. It is relatively easy to identify the differences between the two: Antilleans influenced by Tradeband sound more nasal and rhythmic, whereas those that grew up in regions where Solarian Common is the dominant language are more soft-spoken and enunciated."
 	tag_icon = "antillia"
 	text_tag = "PRT"
 
