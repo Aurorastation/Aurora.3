@@ -216,8 +216,8 @@
 	item_state = "pmc_surgeon"
 
 /obj/item/clothing/under/rank/medical/surgeon/pmc/alt
-	icon_state = "pmcalt_surgeon"
-	item_state = "pmcalt_surgeon"
+	icon_state = "pmc_alt_surgeon"
+	item_state = "pmc_alt_surgeon"
 
 // Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
@@ -246,8 +246,8 @@
 	item_state = "pmc_psych"
 
 /obj/item/clothing/under/rank/medical/psych/pmc/alt
-	icon_state = "pmcalt_psych"
-	item_state = "pmcalt_psych"
+	icon_state = "pmc_alt_psych"
+	item_state = "pmc_alt_psych"
 
 // Pharmacist
 
