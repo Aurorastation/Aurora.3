@@ -705,6 +705,13 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
+"vj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/cryopod{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tajara_safehouse)
 "vm" = (
 /obj/structure/closet/cabinet,
 /obj/item/reagent_containers/food/drinks/bottle/treebark_firewater,
@@ -1293,6 +1300,12 @@
 /area/tajara_safehouse)
 "Vr" = (
 /obj/machinery/vending/cola,
+/turf/simulated/floor/tiled/dark,
+/area/tajara_safehouse)
+"VG" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "Wi" = (
@@ -25131,7 +25144,7 @@ qq
 Sv
 qq
 vx
-qq
+VG
 nk
 nk
 nk
@@ -25388,7 +25401,7 @@ sI
 lH
 lH
 lH
-sI
+vj
 nk
 cs
 hw
