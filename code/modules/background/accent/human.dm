@@ -263,6 +263,12 @@
 	tag_icon = "mictlan"
 	text_tag = "MIC"
 
+/datum/accent/antillia
+	name = ACCENT_ANTILLIA
+	description = "There are two distinct dialects present on the planet, one that sees heavy lifting from Tradeband and the other more influenced by Solarian Common. It is relatively easy to identify the differences between each, Antilleans influenced by Tradeband sound more nasally and rhythmic, whereas those that grew up in regions where Solarian Common are more soft-spoken, and annunciated compared to other colonies."
+	tag_icon = "antillia"
+	text_tag = "PRT"
+
 /datum/accent/persepolis
 	name = ACCENT_PERSEPOLIS
 	description = "Well-known across Elyra for its rapid-fire, energetic cadence, the Persepolitian accent is characterised by a vibrant and fast-paced nature that represents the New Ankaran Jewel's cosmopolitan nature. \
