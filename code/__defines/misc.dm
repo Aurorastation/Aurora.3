@@ -31,10 +31,6 @@
 // Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
 #define PROCESS_KILL 26 // Used to trigger removal from a processing list.
 
-// Age limits on a character.
-#define AGE_MIN 17
-#define AGE_MAX 85
-
 #define MAX_GEAR_COST 15 // Used in chargen for accessory loadout limit.
 
 // Preference toggles.
@@ -56,7 +52,8 @@
 #define CHAT_NOICONS    0x8000
 #define CHAT_GHOSTLOOC	0x10000
 
-//Note that 0x1 and 0x2 are free. Use those!
+// 0x1 is free.
+// 0x2 is free.
 #define PROGRESS_BARS  0x4
 #define PARALLAX_IS_STATIC 0x8
 #define FLOATING_MESSAGES 0x10
