@@ -21,14 +21,19 @@ BREATH ANALYZER
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	var/mode = 1
+	var/last_scan = 0
 
 /obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
-	health_scan_mob(M, user, mode)
-	add_fingerprint(user)
+	if(last_scan <= world.time - 20) //Spam limiter.
+		last_scan = world.time
+		health_scan_mob(M, user, mode)
+		add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
-	health_scan_mob(user, user, mode)
-	add_fingerprint(user)
+	if(last_scan <= world.time - 20) //Spam limiter.
+		last_scan = world.time
+		health_scan_mob(user, user, mode)
+		add_fingerprint(user)
 
 /proc/get_wound_severity(var/damage_ratio, var/uppercase = FALSE) //Used for ratios.
 	var/degree = "none"
@@ -76,8 +81,8 @@ BREATH ANALYZER
 	if(!just_scan)
 		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
-			to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
-			to_chat(user, "Overall Status: <span class='good'>Healthy</span>")
+			to_chat(user, "<span class='notice'><b>Scan results for the ERROR:</b></span>")
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
 			return
 
 		if(!usr.IsAdvancedToolUser())
@@ -115,8 +120,21 @@ BREATH ANALYZER
 	. += "[b]Scan results for \the [H]:[endb]"
 
 	// Brain activity.
-	var/brain_result = H.get_brain_status()
-	dat += "Brain activity: [brain_result]."
+	var/brain_status = H.get_brain_status()
+	dat += "Brain activity: [brain_status]."
+	var/brain_result = H.get_brain_result()
+	switch(brain_result)
+		if(0)
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25)
+		if(-1)
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+		else
+			if(brain_result <= 50)
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25)
+			else if(brain_result <= 80)
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25)
+			else
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25)
 
 	if(H.stat == DEAD || H.status_flags & FAKEDEATH)
 		dat += "<span class='scan_warning'>[b]Time of Death:[endb] [worldtime2text(H.timeofdeath)]</span>"
