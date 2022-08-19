@@ -31,15 +31,11 @@
 		clouds.color = atmo_color
 		skybox_image.overlays += clouds
 
-//		var/image/atmo = image('icons/skybox/planet.dmi', "atmoring")
-//		skybox_image.underlays += atmo
 
 	var/image/shadow = image('icons/skybox/planet.dmi', "shadow[pick(1,2,3)]")
 	shadow.blend_mode = BLEND_MULTIPLY
 	skybox_image.overlays += shadow
 
-//	var/image/light = image('icons/skybox/planet.dmi', "lightrim")
-//	skybox_image.overlays += light
 
 	if (prob(20))
 		var/image/rings = image('icons/skybox/planet_rings.dmi')
