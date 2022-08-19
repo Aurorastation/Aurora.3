@@ -53,3 +53,10 @@
 #define CLICKCATCHER_PLANE -100
 
 #define DEFAULT_APPEARANCE_FLAGS (PIXEL_SCALE)
+
+// Bay Compatibility Layers
+// BS12REL (<-- Searchable Tag)
+#define EFFECTS_ABOVE_LIGHTING_PLANE 4
+#define DEFAULT_PLANE 1
+#define FIRE_LAYER 4.16
+#define HEAT_EFFECT_TARGET "*heat"

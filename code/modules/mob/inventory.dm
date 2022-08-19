@@ -262,6 +262,12 @@ var/list/slot_equipment_priority = list( \
 	var/slot = get_inventory_slot(I)
 	return slot && I.mob_can_unequip(src, slot)
 
+/mob/proc/unequip_item(atom/target)
+	if(!canUnEquip(get_active_hand()))
+		return
+	drop_item(target)
+	return TRUE
+
 /mob/proc/get_inventory_slot(obj/item/I)
 	var/slot = 0
 	for(var/s in slot_first to slot_last) //kind of worries me

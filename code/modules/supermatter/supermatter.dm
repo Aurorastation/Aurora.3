@@ -251,7 +251,7 @@
 		if (oxygen > 0.8)
 			//If chain reacting at oxygen == 1, we want the power at 800 K to stabilize at a power level of 400
 			equilibrium_power = 400
-			icon_state = "[base_icon_state]_glow"
+			icon_state = "[base_icon_state]-glow"
 		else
 			//If chain reacting at oxygen == 1, we want the power at 800 K to stabilize at a power level of 250
 			equilibrium_power = 250
@@ -339,7 +339,7 @@
 
 	Consume(user)
 
-// This is purely informational UI that may be accessed by AIs or robots
+// This is purely informational UI that may be accessed by AIs or robots.
 /obj/machinery/power/supermatter/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	data = ..() || list()
 	data["integrity_percentage"] = round(get_integrity())
@@ -357,16 +357,6 @@
 		ui = new(user, src, "machinery-power-supermattercrystal", 500, 300, "Supermatter Crystal")
 		ui.auto_update_content = TRUE
 		ui.open()
-
-/*
-/obj/machinery/power/supermatter/proc/transfer_energy()
-	for(var/obj/machinery/power/rad_collector/R in rad_collectors)
-		var/distance = get_dist(R, src)
-		if(distance <= 15)
-			//for collectors using standard phoron tanks at 1013 kPa, the actual power generated will be this power*POWER_FACTOR*20*29 = power*POWER_FACTOR*580
-			R.receive_pulse(power * POWER_FACTOR * (min(3/distance, 1))**2)
-	return
-*/
 
 /obj/machinery/power/supermatter/attackby(obj/item/W as obj, mob/living/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
@@ -390,7 +380,7 @@
 		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... [AM.get_pronoun("his")] body starts to glow and catch flame before flashing into ash.</span>",\
 		"<span class=\"danger\">You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
 		"<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
-	else if(!grav_pulling) //To prevent spam, detonating supermatter does not indicate non-mobs being destroyed
+	else if(!grav_pulling) // To prevent spam, detonating supermatter does not indicate non-mobs being destroyed.
 		AM.visible_message("<span class=\"warning\">\The [AM] smacks into \the [src] and rapidly flashes to ash.</span>",\
 		"<span class=\"warning\">You hear a loud crack as you are washed with a wave of heat.</span>")
 
@@ -439,10 +429,10 @@
 	return
 
 /obj/machinery/power/supermatter/shard //Small subtype, less efficient and more sensitive, but less boom.
-	name = "Supermatter Shard"
+	name = "supermatter shard"
 	desc = "A strangely translucent and iridescent crystal that looks like it used to be part of a larger structure. <span class='warning'>You get headaches just from looking at it.</span>"
-	icon_state = "darkmatter_shard"
-	base_icon_state = "darkmatter_shard"
+	icon_state = "supermatter_shard"
+	base_icon_state = "supermatter_shard"
 
 	warning_point = 50
 	emergency_point = 400

@@ -6,12 +6,12 @@
 	desc = "A gas circulator turbine and heat exchanger."
 	desc_info = "This generates electricity, depending on the difference in temperature between each side of the machine.  The meter in \
 	the center of the machine gives an indicator of how much elecrtricity is being generated."
-	icon = 'icons/obj/pipes.dmi'
-	icon_state = "circ-off"
+	icon = 'icons/contained_objects/machinery/circulator.dmi'
+	icon_state = "circulator_unassembled"
 	anchored = FALSE
 	obj_flags = OBJ_FLAG_ROTATABLE
 
-	var/kinetic_efficiency = 0.04 //combined kinetic and kinetic-to-electric efficiency
+	var/kinetic_efficiency = 0.04 // Combined kinetic and kinetic-to-electric efficiency.
 	var/volume_ratio = 0.2
 
 	var/recent_moles_transferred = 0
@@ -22,6 +22,7 @@
 	var/last_stored_energy_transferred = 0
 	var/volume_capacity_used = 0
 	var/stored_energy = 0
+	var/temperature_overlay
 
 	density = TRUE
 
@@ -76,51 +77,59 @@
 		update_icon()
 
 /obj/machinery/atmospherics/binary/circulator/update_icon()
+	icon_state = anchored ? "circulator_assembled" : "circulator_unassembled"
+	cut_overlays()
 	if(stat & (BROKEN|NOPOWER) || !anchored)
-		icon_state = "circ-p"
-	else if(last_pressure_delta > 0 && recent_moles_transferred > 0)
-		if(last_pressure_delta > 5*ONE_ATMOSPHERE)
-			icon_state = "circ-run"
-		else
-			icon_state = "circ-slow"
-	else
-		icon_state = "circ-off"
-
-	return 1
-
-/obj/machinery/atmospherics/binary/circulator/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iswrench())
-		playsound(src.loc, W.usesound, 50, 1)
-		anchored = !anchored
-		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
-					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
-					"You hear a ratchet")
-
-		if(anchored)
-			if(dir & (NORTH|SOUTH))
-				initialize_directions = NORTH|SOUTH
-			else if(dir & (EAST|WEST))
-				initialize_directions = EAST|WEST
-
-			atmos_init()
-			build_network()
-			if (node1)
-				node1.atmos_init()
-				node1.build_network()
-			if (node2)
-				node2.atmos_init()
-				node2.build_network()
-		else
-			if(node1)
-				node1.disconnect(src)
-				qdel(network1)
-			if(node2)
-				node2.disconnect(src)
-				qdel(network2)
-
-			node1 = null
-			node2 = null
-
 		return TRUE
+	if(last_pressure_delta > 0 && recent_moles_transferred > 0)
+		if(temperature_overlay)
+			add_overlay(temperature_overlay)
+		if(last_pressure_delta > 5*ONE_ATMOSPHERE)
+			add_overlay("circulator-run")
+		else
+			add_overlay("circulator-slow")
+	else
+		add_overlay("circulator-off")
+
+	return TRUE
+
+/obj/machinery/atmospherics/binary/circulator/attackby(obj/item/W, mob/user)
+	if(W.iswrench())
+		if(do_after(user, 2 SECONDS))
+			anchored = !anchored
+			user.visible_message(
+				"[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.",\
+				"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.",\
+				"You hear a ratchet."
+			)
+
+			if(anchored)
+				temperature_overlay = null
+				if(dir & (NORTH|SOUTH))
+					initialize_directions = NORTH|SOUTH
+				else if(dir & (EAST|WEST))
+					initialize_directions = EAST|WEST
+
+				atmos_init()
+				build_network()
+				if (node1)
+					node1.atmos_init()
+					node1.build_network()
+				if (node2)
+					node2.atmos_init()
+					node2.build_network()
+			else
+				if(node1)
+					node1.disconnect(src)
+					qdel(network1)
+				if(node2)
+					node2.disconnect(src)
+					qdel(network2)
+
+				node1 = null
+				node2 = null
+			update_icon()
+
+			return TRUE
 	else
 		..()
