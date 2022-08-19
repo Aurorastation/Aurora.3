@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - tweak: "Reworks and cleans up the ambience code."
+  - tweak: "Reworks and cleans up the ambience code. Seperates the ambience and ambient hum and makes the ambient hum its own SFX toggle."
