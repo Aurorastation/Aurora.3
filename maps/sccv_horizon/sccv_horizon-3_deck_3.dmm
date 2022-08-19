@@ -20591,7 +20591,7 @@
 /obj/machinery/door/airlock/security{
 	name = "Evidence Storage";
 	req_access = null;
-	req_one_access = list(4,68)
+	req_one_access = list(2,4,68)
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/firedoor,
