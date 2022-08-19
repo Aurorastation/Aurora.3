@@ -1620,6 +1620,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"aMY" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "aNp" = (
 /obj/effect/floor_decal/corner/mauve,
 /obj/effect/floor_decal/corner/brown{
@@ -5542,6 +5548,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
+"cWj" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "cWx" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -17100,6 +17113,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
+"jkB" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/starboard)
 "jkO" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -17297,6 +17317,12 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/security/prison)
+"joM" = (
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/far)
 "jpc" = (
 /obj/structure/girder,
 /turf/simulated/floor/tiled,
@@ -50301,7 +50327,7 @@ uOq
 uOq
 uOq
 nzc
-vaL
+joM
 vaL
 vaL
 vaL
@@ -57157,7 +57183,7 @@ gGB
 gGB
 hGK
 ceU
-hcT
+jkB
 qSn
 iMf
 fsf
@@ -78391,7 +78417,7 @@ qZj
 bUk
 sNr
 fuu
-lBd
+cWj
 fuu
 agG
 kmx
@@ -80803,7 +80829,7 @@ lBd
 lBd
 lBd
 uCD
-pVs
+aMY
 pVs
 pVs
 pVs
