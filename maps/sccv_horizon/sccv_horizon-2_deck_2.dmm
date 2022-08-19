@@ -14474,7 +14474,6 @@
 /obj/structure/ladder{
 	pixel_y = 4
 	},
-/obj/structure/lattice/catwalk,
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Aft";
 	dir = 1
