@@ -1,10 +1,10 @@
 /obj/item/gun/energy/gun
 	name = "energy carbine"
-	desc = "A Nanotrasen designed energy-based carbine with two settings: Stun and kill."
+	desc = "A NanoTrasen designed energy-based carbine with two settings: Stun and kill."
 	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
 	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To switch between stun and lethal, click the weapon \
 	in your hand.  To recharge this weapon, use a weapon recharger."
-	desc_fluff = "The NT EC-4 is an energy carbine developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
+	desc_fluff = "The NT EC-4 is an energy carbine developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/ecarbine.dmi'
 	icon_state = "energystun"
 	item_state = "energystun"
@@ -126,8 +126,8 @@
 
 /obj/item/gun/energy/pistol
 	name = "energy pistol"
-	desc = "A Nanotrasen energy-based pistol gun with two settings: Stun and kill."
-	desc_fluff = "The NT EP-3 is an energy sidearm developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
+	desc = "A NanoTrasen energy-based pistol gun with two settings: Stun and kill."
+	desc_fluff = "The NT EP-3 is an energy sidearm developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/epistol.dmi'
 	icon_state = "epistolstun100"
 	item_state = "epistolstun100"

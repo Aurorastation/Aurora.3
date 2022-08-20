@@ -267,6 +267,7 @@
 	plushies["plushie, firefighter bear"] = /obj/item/toy/plushie/bearfire
 	plushies["plushie, random squid"] = /obj/item/toy/plushie/squid //if someone can figure out how to make color work with these, good luck lmao
 	plushies["plushie, bee"] = /obj/item/toy/plushie/bee
+	plushies["plushie, shark"] = /obj/item/toy/plushie/shark
 	plushies["plushie, schlorrgo"] = /obj/item/toy/plushie/schlorrgo
 	plushies["plushie, cool schlorrgo"] = /obj/item/toy/plushie/coolschlorrgo
 	plushies["plushie, slime"] = /obj/item/toy/plushie/slime
@@ -280,7 +281,7 @@
 
 /datum/gear/comic
 	display_name = "comic selection"
-	description = "A selection of comics and manga from across the Spur."
+	description = "A selection of comics, manga, and magazines from across the Spur."
 	path = /obj/item/toy/comic
 
 /datum/gear/comic/New()
@@ -289,6 +290,7 @@
 	comics["comic book"] = /obj/item/toy/comic
 	comics["inspector 404 manga"] = /obj/item/toy/comic/inspector
 	comics["stormman manga"] = /obj/item/toy/comic/stormman
+	comics["outlandish tales magazine"] = /obj/item/toy/comic/outlandish_tales
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste

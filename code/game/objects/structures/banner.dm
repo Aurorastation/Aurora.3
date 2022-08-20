@@ -1,6 +1,6 @@
 /obj/structure/banner
 	name = "corporate banner"
-	desc = "A blue flag emblazoned with a golden logo of Nanotrasen hanging from a wooden stand."
+	desc = "A blue flag emblazoned with a golden logo of NanoTrasen hanging from a wooden stand."
 	anchored = 1
 	density = 1
 	layer = 9

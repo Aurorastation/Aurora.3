@@ -284,7 +284,7 @@
 				create_device()
 				return TRUE
 		else if(istype(W, /obj/item/card/tech_support))
-			create_device("Have a Nanotrasen day!")
+			create_device("Have a NanoTrasen day!")
 			return TRUE
 	return ..()
 

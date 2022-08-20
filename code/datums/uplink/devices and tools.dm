@@ -14,7 +14,7 @@
 	name = "Fully Loaded Tool-belt"
 	item_cost = 1
 	path = /obj/item/storage/belt/utility/very_full
-	desc = "A fully loaded tool-belt even Nanotrasen's top Chief Engineer would be proud to wear."
+	desc = "A fully loaded tool-belt even NanoTrasen's top Chief Engineer would be proud to wear."
 
 /datum/uplink_item/item/tools/money
 	name = "Operations Funding"

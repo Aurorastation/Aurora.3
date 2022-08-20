@@ -1,7 +1,7 @@
 /obj/item/gun/energy/rifle
 	name = "energy rifle"
-	desc = "A Nanotrasen designed energy-based rifle with two settings: Stun and Kill."
-	desc_fluff = "The NT ER-2 is an energy rifle developed and produced by Nanotrasen. Widely produced and sold across the galaxy. Designed to both stun and kill with concentrated energy blasts of varying strengths based on the fire mode, focused through a crystal lens. Considered to be a dual-purpose rifle with prolonged combat capability."
+	desc = "A NanoTrasen designed energy-based rifle with two settings: Stun and Kill."
+	desc_fluff = "The NT ER-2 is an energy rifle developed and produced by NanoTrasen. Widely produced and sold across the galaxy. Designed to both stun and kill with concentrated energy blasts of varying strengths based on the fire mode, focused through a crystal lens. Considered to be a dual-purpose rifle with prolonged combat capability."
 	icon = 'icons/obj/guns/erifle.dmi'
 	icon_state = "eriflestun"
 	item_state = "eriflestun"
@@ -39,8 +39,8 @@
 
 /obj/item/gun/energy/rifle/laser
 	name = "laser rifle"
-	desc = "A Nanotrasen designed laser weapon, designed to kill with concentrated energy blasts."
-	desc_fluff = "The NT LR-6 is a laser rifle developed and produced by Nanotrasen. Designed to kill with concentrated energy blasts focused through a crystal lens. It is considered to be the template of other standard laser weaponry."
+	desc = "A NanoTrasen designed laser weapon, designed to kill with concentrated energy blasts."
+	desc_fluff = "The NT LR-6 is a laser rifle developed and produced by NanoTrasen. Designed to kill with concentrated energy blasts focused through a crystal lens. It is considered to be the template of other standard laser weaponry."
 	icon = 'icons/obj/guns/laserrifle.dmi'
 	icon_state = "laserrifle"
 	item_state = "laserrifle"
@@ -87,7 +87,7 @@
 /obj/item/gun/energy/rifle/laser/heavy
 	name = "laser cannon"
 	desc = "A nanotrasen designed laser cannon capable of acting as a powerful support weapon."
-	desc_fluff = "The NT LC-4 is a laser cannon developed and produced by Nanotrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
+	desc_fluff = "The NT LC-4 is a laser cannon developed and produced by NanoTrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
 	icon = 'icons/obj/guns/lasercannon.dmi'
 	icon_state = "lasercannon100"
 	item_state = "lasercannon100"
@@ -112,8 +112,8 @@
 
 /obj/item/gun/energy/rifle/laser/xray
 	name = "xray laser rifle"
-	desc = "A Nanotrasen designed high-power laser rifle capable of expelling concentrated xray blasts."
-	desc_fluff = "The NT XR-1 is a laser firearm developed and produced by Nanotrasen. A recent innovation, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover, all the while having a large ammo capacity."
+	desc = "A NanoTrasen designed high-power laser rifle capable of expelling concentrated xray blasts."
+	desc_fluff = "The NT XR-1 is a laser firearm developed and produced by NanoTrasen. A recent innovation, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover, all the while having a large ammo capacity."
 	icon = 'icons/obj/guns/xrifle.dmi'
 	icon_state = "xrifle"
 	item_state = "xrifle"
@@ -196,7 +196,7 @@
 
 /obj/item/gun/energy/rifle/ionrifle
 	name = "ion rifle"
-	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by Nanotrasen."
+	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NanoTrasen."
 	icon = 'icons/obj/guns/ionrifle.dmi'
 	icon_state = "ionrifle"
 	item_state = "ionrifle"

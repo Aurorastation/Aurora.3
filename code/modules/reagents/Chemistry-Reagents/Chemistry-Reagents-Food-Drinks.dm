@@ -195,6 +195,10 @@
 	icon_cooked = "batter_cooked"
 	coated_adj = "battered"
 	taste_description = "batter"
+	condiment_name = "Batter Jar"
+	condiment_desc = "A vat of the most artery clogging frying ingredient around. Pour into beaker before attempting to coat ingredients."
+	condiment_icon_state = "batter"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/nutriment/coating/beerbatter
 	name = "Beer Batter Mix"
@@ -215,7 +219,7 @@
 	name = "Animal Protein"
 	color = "#440000"
 	blood_factor = 3
-	taste_description = "meat"
+	taste_description = "some sort of protein"
 
 /decl/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
@@ -250,6 +254,10 @@
 	name = "Egg Yolk"
 	color = "#FFFFAA"
 	taste_description = "egg"
+	condiment_name = "Egg Yolk Carton"
+	condiment_desc = "A carton full of Egg Yolk."
+	condiment_icon_state = "eggyolkcarton"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/nutriment/egg/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
@@ -272,6 +280,10 @@
 	nutriment_factor = 12
 	color = "#ffdfb0"
 	taste_description = "fat"
+	condiment_name = "Triglyceride"
+	condiment_desc = "A bottle full of Triglyceride. Feel the burn."
+	condiment_icon_state = "triglyceridebottle"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 //Unathi can digest fats too
 /decl/reagent/nutriment/triglyceride/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -314,6 +326,15 @@
 		step = (S.heat_level_2 - S.heat_level_1)*1.5
 
 	return min((holder.get_temperature() - threshold)/step, 2.5)
+
+/decl/reagent/nutriment/grapejelly
+	name = "Grape Jelly"
+	description = "A jelly produced from blending grapes."
+	color = "#410083"
+	taste_description = "grapes"
+	condiment_name = "Grape Jelly"
+	condiment_desc = "A jar of jelly derived from grapes. Superior to cherry jelly."
+	condiment_icon_state = "grapejelly"
 
 /decl/reagent/nutriment/triglyceride/oil/corn
 	name = "Corn Oil"
@@ -374,6 +395,40 @@
 	color = "#302000"
 	taste_description = "bitterness"
 	taste_mult = 1.3
+	condiment_name = "Cocoa Powder Can"
+	condiment_icon_state = "cocoapowder"
+	condiment_desc = "A can full of chocolately powder. Try not to think of the calories."
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/decl/reagent/nutriment/instantjuice
+	name = "Juice Powder"
+	description = "Dehydrated, powdered juice of some kind."
+	taste_mult = 1.3
+	nutriment_factor = 1
+
+/decl/reagent/nutriment/instantjuice/grape
+	name = "Grape Juice Powder"
+	description = "Dehydrated, powdered grape juice."
+	taste_description = "dry grapes"
+	color = "#863333"
+
+/decl/reagent/nutriment/instantjuice/orange
+	name = "Orange Juice Powder"
+	description = "Dehydrated, powdered orange juice."
+	taste_description = "dry oranges"
+	color = "#e78108"
+
+/decl/reagent/nutriment/instantjuice/watermelon
+	name = "Watermelon Juice Powder"
+	description = "Dehydrated, powdered watermelon juice."
+	taste_description = "dry sweet watermelon"
+	color = "#b83333"
+
+/decl/reagent/nutriment/instantjuice/apple
+	name = "Apple Juice Powder"
+	description = "Dehydrated, powdered apple juice."
+	taste_description = "dry sweet apples"
+	color = "#c07c40"
 
 /decl/reagent/nutriment/coffeegrounds
 	name = "Coffee Grounds"
@@ -701,14 +756,13 @@
 	taste_mult = 1.5
 	fallback_specific_heat = 2
 	condiment_name = "hotsauce"
-	condiment_desc = "You can almost TASTE the stomach ulcers now!"
+	condiment_desc = "Hot sauce. It's in the name."
 	condiment_icon_state = "hotsauce"
 
-	var/agony_dose = 5
+	var/agony_dose = 15 // Capsaicin required to proc agony. (3 to 5 chilis.)
 	var/agony_amount = 1
-	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
+	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot.</span>"
 	var/slime_temp_adj = 10
-
 
 /decl/reagent/capsaicin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustToxLoss(0.5 * removed)
@@ -721,15 +775,15 @@
 		var/mob/living/carbon/human/H = M
 		if(!H.can_feel_pain())
 			return
-	if(M.chem_doses[type] < agony_dose && prob(5))
+
+	if(M.chem_doses[type] >= agony_dose && prob(5))
 		to_chat(M, discomfort_message)
-	else
+		M.visible_message("<b>[M]</b> [pick("dry heaves!", "coughs!", "splutters!")]")
 		M.apply_effect(agony_amount, PAIN, 0)
-		if(prob(5))
-			M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
-			to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
+
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
+
 	holder.remove_reagent(/decl/reagent/frostoil, 5)
 
 #define EYES_PROTECTED 1
@@ -740,7 +794,7 @@
 	description = "A chemical agent used for self-defense and in police work."
 	taste_mult = 10
 	reagent_state = LIQUID
-	touch_met = 50 // Get rid of it quickly
+	touch_met = 50 // Get rid of it quickly.
 	color = "#B31008"
 	agony_dose = 0.5
 	agony_amount = 4
@@ -1141,12 +1195,21 @@
 /decl/reagent/drink/applejuice
 	name = "Apple Juice"
 	description = "Juice from an apple. The most basic beverage you can imagine."
-	taste_description = "apple juice"
+	taste_description = "sweet apples"
 	color = "#f2d779"
 
 	glass_icon_state = "glass_apple"
 	glass_name = "glass of apple juice"
 	glass_desc = "Juice from an apple. The most basic beverage you can imagine."
+
+/decl/reagent/drink/pearjuice
+	name = "Pear Juice"
+	description = "Delicious sweet juice made from pears."
+	taste_description = "sweet pears"
+	color = "#ffff66"
+
+	glass_name = "pear juice"
+	glass_desc = "Delicious juice made from pears."
 
 /decl/reagent/drink/dynjuice
 	name = "Dyn Juice"
@@ -2517,15 +2580,15 @@
 	glass_desc = "A glass of sake."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
-/decl/reagent/alcohol/cloudyoran
-	name = "Cloudy Oran"
+/decl/reagent/alcohol/cloudyeridani
+	name = "Cloudy Eridani"
 	description = "Reminds Suits of home. Dregs, not so much."
 	color = "#F6F6F6"
 	strength = 15
 	taste_description = "soy milk putting on airs"
 
-	glass_icon_state = "cloudyoranglass"
-	glass_name = "glass of Cloudy Oran"
+	glass_icon_state = "cloudyeridaniglass"
+	glass_name = "glass of Cloudy Eridani"
 	glass_desc = "A frothy white beverage. Reminds Suits of home. Dregs, not so much."
 	glass_center_of_mass = list("x"=16, "y"=5)
 
@@ -4905,6 +4968,10 @@
 	description = "The gooey insides of a slain pumpkin. This day is the greatest..."
 	color = "#f9ab28"
 	taste_description = "gooey pumpkin"
+	condiment_name = "Pumpkin Pulp Jar"
+	condiment_desc = "An orange jar with a picture of a pumpkin on its label. Spooky."
+	condiment_icon_state = "pumpkinpulp"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/spacespice/pumpkinspice
 	name = "Pumpkin Spice"
@@ -4912,6 +4979,10 @@
 	color = "#AE771C"
 	taste_description = "autumn bliss"
 	condiment_name = "bottle of pumpkin spice"
+	condiment_name = "Pumpkin Spice"
+	condiment_desc = "Every teenager's favorite seasonal ingredient."
+	condiment_icon_state = "pumpkinspice"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /decl/reagent/drink/syrup_chocolate
 	name = "Chocolate Syrup"

@@ -15,9 +15,6 @@ var/list/mineral_can_smooth_with = list(
 	/turf/unsimulated/wall
 )
 
-// Some extra types for the surface to keep things pretty.
-/turf/simulated/mineral/surface
-	mined_turf = /turf/unsimulated/floor/asteroid/ash
 
 /turf/simulated/mineral //wall piece
 	name = "rock"
@@ -505,6 +502,9 @@ var/list/mineral_can_smooth_with = list(
 		MineralSpread()
 	. = ..()
 
+/turf/simulated/mineral/random/exoplanet
+	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
 /turf/simulated/mineral/random/high_chance
 	mineralSpawnChanceList = list(
 		ORE_URANIUM = 2,
@@ -527,6 +527,9 @@ var/list/mineral_can_smooth_with = list(
 		ORE_GOLD = 2,
 		ORE_SILVER = 2
 	)
+
+/turf/simulated/mineral/random/high_chance/exoplanet
+	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/random/higher_chance
 	mineralSpawnChanceList = list(
@@ -564,6 +567,13 @@ var/list/mineral_can_smooth_with = list(
 			if(start.CanZPass(H, UP))
 				if(destination.CanZPass(H, UP))
 					H.climb(UP, src, 20)
+
+// Some extra types for the surface to keep things pretty.
+/turf/simulated/mineral/surface
+	mined_turf = /turf/unsimulated/floor/asteroid/ash
+
+/turf/simulated/mineral/planet
+	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /**********************Asteroid**************************/
 

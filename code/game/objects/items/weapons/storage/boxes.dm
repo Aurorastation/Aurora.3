@@ -392,7 +392,7 @@
 
 /obj/item/storage/box/loyaltypins
 	name = "box of firing pins"
-	desc = "A box of specialised \"loyalty\" authentication pins produced by Nanotrasen; these check to see if the user of the gun it's installed in has been implanted with a mind shield implant. Often used in ERTs."
+	desc = "A box of specialised \"loyalty\" authentication pins produced by NanoTrasen; these check to see if the user of the gun it's installed in has been implanted with a mind shield implant. Often used in ERTs."
 	illustration = "firingpin"
 	starts_with = list(/obj/item/device/firing_pin/implant/loyalty = 7)
 
@@ -1082,7 +1082,7 @@
 		if(!papersack_designs)
 			papersack_designs = sortList(list(
 			"None" = image(icon = src.icon, icon_state = "paperbag_None"),
-			"NanotrasenStandard" = image(icon = src.icon, icon_state = "paperbag_NanotrasenStandard"),
+			"NanoTrasenStandard" = image(icon = src.icon, icon_state = "paperbag_NanoTrasenStandard"),
 			"Idris" = image(icon = src.icon, icon_state = "paperbag_Idris"),
 			"Heart" = image(icon = src.icon, icon_state = "paperbag_Heart"),
 			"SmileyFace" = image(icon = src.icon, icon_state = "paperbag_SmileyFace")
@@ -1095,8 +1095,8 @@
 		switch(choice)
 			if("None")
 				desc = "A sack neatly crafted out of paper."
-			if("NanotrasenStandard")
-				desc = "A standard Nanotrasen paper lunch sack for loyal employees on the go."
+			if("NanoTrasenStandard")
+				desc = "A standard NanoTrasen paper lunch sack for loyal employees on the go."
 			if("Idris")
 				desc = "A premium paper bag produced by Idris Incorporated."
 			if("Heart")

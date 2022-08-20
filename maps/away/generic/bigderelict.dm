@@ -2,7 +2,7 @@
 	name = "large derelict"
 	description = "A very large derelict station. According to the starmap, it shouldn't exist."
 	suffix = "generic/bigderelict.dmm"
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ)
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "big_derelict"
