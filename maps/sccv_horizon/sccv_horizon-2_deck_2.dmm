@@ -1573,6 +1573,9 @@
 	name = "Chaplain's Office and Chapel Storage";
 	req_access = list(22)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "aMl" = (
@@ -6123,6 +6126,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "dlR" = (
@@ -7998,6 +8004,7 @@
 	name = "Chaplain's Office";
 	req_access = list(22)
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "eqv" = (
@@ -12498,6 +12505,9 @@
 	req_access = null;
 	req_one_access = list(26,31,48,67)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "gFT" = (
@@ -15560,6 +15570,9 @@
 	req_access = null;
 	req_one_access = list(26,31,48,67)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "iqu" = (
@@ -16632,6 +16645,9 @@
 	id = "entrance_shutters";
 	name = "Entrance Lockdown Shutters";
 	opacity = 0
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
@@ -27684,6 +27700,7 @@
 	name = "Operations Manager";
 	req_access = list(41)
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "oZN" = (
@@ -28682,12 +28699,6 @@
 	c_tag = "Medical - Entrance";
 	dir = 8
 	},
-/obj/machinery/button/remote/airlock{
-	id = "main_door";
-	name = "Main Exit Door Control";
-	pixel_x = 26;
-	req_access = null
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "pDK" = (
@@ -29070,6 +29081,9 @@
 	id = "entrance_shutters";
 	name = "Entrance Lockdown Shutters";
 	opacity = 0
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
@@ -30561,6 +30575,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
 "qCX" = (
@@ -35175,11 +35192,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "tcQ" = (
-/obj/machinery/button/remote/airlock{
-	id = "medaltdoor";
-	name = "Auxiliary Exit Door Control";
-	pixel_y = -26
-	},
 /obj/effect/floor_decal/corner_wide/green/full,
 /obj/effect/floor_decal/sign/cmo,
 /turf/simulated/floor/tiled/white,
@@ -36035,6 +36047,7 @@
 	name = "Chapel Storage";
 	req_access = list(22)
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "tDZ" = (
@@ -43901,7 +43914,6 @@
 /area/engineering/engine_room)
 "xzM" = (
 /obj/machinery/door/airlock/glass_medical{
-	id_tag = "medaltdoor";
 	name = "Medical";
 	req_access = list(5)
 	},
@@ -43914,6 +43926,9 @@
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
 	opacity = 0
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/medical)

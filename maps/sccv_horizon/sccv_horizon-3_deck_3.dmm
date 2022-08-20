@@ -7836,6 +7836,7 @@
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "om" = (
@@ -10667,6 +10668,7 @@
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "tF" = (
@@ -17931,6 +17933,7 @@
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "Hq" = (
