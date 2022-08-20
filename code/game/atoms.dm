@@ -316,6 +316,12 @@
 /atom/proc/melt()
 	return
 
+/atom/proc/lava_act()
+	visible_message("<span class='danger'>\The [src] sizzles and melts away, consumed by the lava!</span>")
+	playsound(src, 'sound/items/flare.ogg', 100, TRUE)
+	qdel(src)
+	. = TRUE
+
 /atom/proc/hitby(atom/movable/AM as mob|obj)
 	if(density)
 		AM.throwing = 0

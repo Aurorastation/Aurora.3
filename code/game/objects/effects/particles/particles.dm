@@ -1,3 +1,23 @@
+//Spawner object
+//Maybe we could pool them in and out
+/obj/particle_emitter
+	name = ""
+	anchored = TRUE
+	mouse_opacity = 0
+	appearance_flags = PIXEL_SCALE
+
+/obj/particle_emitter/Initialize(mapload, time, _color)
+	. = ..()
+	if(time > 0)
+		QDEL_IN(src, time)
+	color = _color
+
+/obj/particle_emitter/proc/enable(on)
+	if(on)
+		particles.spawning = initial(particles.spawning)
+	else
+		particles.spawning = 0
+
 /* A series of particle systems. Some are based on F0lak's particle systems
 */
 
@@ -139,25 +159,19 @@
 	drift = generator("circle", 0.4, NORMAL_RAND)
 	velocity = generator("circle", 0, 3, NORMAL_RAND)
 
-//Spawner object
-//Maybe we could pool them in and out
-/obj/particle_emitter
-	name = ""
-	anchored = TRUE
-	mouse_opacity = 0
-	appearance_flags = PIXEL_SCALE
-
-/obj/particle_emitter/Initialize(mapload, time, _color)
-	. = ..()
-	if(time > 0)
-		QDEL_IN(src, time)
-	color = _color
-
-/obj/particle_emitter/proc/enable(on)
-	if(on)
-		particles.spawning = initial(particles.spawning)
-	else
-		particles.spawning = 0
+/particles/bluespace_drive_torus
+	width = 700
+	height = 700
+	count = 2700
+	spawning = 260
+	lifespan = 0.75 SECONDS
+	fade = 0.95 SECONDS
+	position = generator("circle", 16, 24, NORMAL_RAND)
+	velocity = generator("circle", -6, 6, NORMAL_RAND)
+	friction = 0.15
+	gradient = list(0, COLOR_WHITE, 0.75, COLOR_BLUE_LIGHT)
+	color_change = 0.125
+	drift = generator("vector", list(-0.2, -0.2), list(0.2, 0.2))
 
 /obj/particle_emitter/sparks
 	particles = new/particles/drill_sparks

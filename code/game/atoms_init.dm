@@ -39,6 +39,10 @@
 		var/turf/T = loc
 		T.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 
+	if(health_max)
+		health_current = health_max
+		health_dead = FALSE
+
 #ifdef AO_USE_LIGHTING_OPACITY
 		if (!mapload)
 			T.regenerate_ao()

@@ -498,3 +498,12 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it.
 
 #define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets
+
+// Severities for ex_act()
+#define EX_ACT_DEVASTATING 1 // Within devastation range - Destructive/deadly, unlikely to survive.
+#define EX_ACT_HEAVY 2 // Within heavy range - Heavy damage, very dangerous
+#define EX_ACT_LIGHT 3 // Within light range - Minor damage.
+
+// Severities for emp_act()
+#define EMP_ACT_HEAVY 1
+#define EMP_ACT_LIGHT 2
