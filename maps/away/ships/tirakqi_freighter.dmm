@@ -501,7 +501,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/template_noop,
+/turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "gMA" = (
 /obj/machinery/pipedispenser,
@@ -789,6 +789,15 @@
 /area/shuttle/tirakqi_shuttle)
 "jrJ" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
+/area/ship/tirakqi_freighter)
+"jvV" = (
+/obj/structure/lattice,
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "jyv" = (
 /obj/machinery/autolathe,
@@ -36153,7 +36162,7 @@ xRX
 xRX
 fHl
 gIX
-fHl
+jvV
 fHl
 fHl
 fHl
