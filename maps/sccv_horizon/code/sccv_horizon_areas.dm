@@ -593,4 +593,9 @@
 	name = "Horizon - Bar"
 	icon_state = "bar"
 	allow_nightmode = FALSE
+
+// Bluespace Drive
+/area/horizon/bluespace_drive
+	name = "Horizon - Bluespace Drive Chamber"
+	allow_nightmode = FALSE
 /********** Unique End **********/
