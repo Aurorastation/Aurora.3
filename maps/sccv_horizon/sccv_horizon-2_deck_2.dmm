@@ -1398,6 +1398,9 @@
 	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/engine_monitoring)
 "aFJ" = (
@@ -10605,6 +10608,9 @@
 	req_one_access = list(10)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
 "fKe" = (
@@ -13802,6 +13808,9 @@
 	name = "Engineering Hallway";
 	req_access = list(10)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering/tesla)
 "hjT" = (
@@ -16355,6 +16364,9 @@
 	req_one_access = list(10)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
 "iIx" = (
@@ -22466,6 +22478,9 @@
 	req_access = list(10)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
 "lWQ" = (
@@ -26004,6 +26019,9 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
 	req_access = list(10)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering/tesla)
@@ -38861,6 +38879,9 @@
 	req_access = list(10)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
 "uCD" = (
