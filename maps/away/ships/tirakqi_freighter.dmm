@@ -501,7 +501,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/airless,
 /area/ship/tirakqi_freighter)
 "gMA" = (
 /obj/machinery/pipedispenser,
@@ -797,7 +797,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor/airless,
 /area/ship/tirakqi_freighter)
 "jyv" = (
 /obj/machinery/autolathe,
