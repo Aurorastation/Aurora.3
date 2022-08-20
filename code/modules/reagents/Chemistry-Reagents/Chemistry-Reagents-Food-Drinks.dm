@@ -92,13 +92,6 @@
 	taste_description = "food"
 	fallback_specific_heat = 1.25
 
-/decl/reagent/nutriment/synthetic
-	name = "Synthetic Nutriment"
-	description = "A cheaper alternative to actual nutriment."
-	taste_description = "cheap food"
-	nutriment_factor = 6
-	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
-
 /decl/reagent/nutriment/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
 	if(isemptylist(newdata))
 		return
