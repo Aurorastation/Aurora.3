@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - tweak: "Blast doors and shutters now stay in the state they were in when power is lost."

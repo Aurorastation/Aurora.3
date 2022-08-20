@@ -1,6 +1,0 @@
-author: anconfuzedrock
-
-delete-after: True
-
-changes:
-  - bugfix: "Autakh graspers can be deployed properly again."
