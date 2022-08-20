@@ -14853,7 +14853,6 @@
 	},
 /obj/machinery/door/blast/shutters{
 	id = "shutters_runcaprun";
-	is_critical = 1;
 	name = "Decrepit Maintenance Shutter"
 	},
 /obj/structure/curtain/black,
@@ -24623,8 +24622,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	id = "blastdoors_tcomms";
-	is_critical = 1
+	id = "blastdoors_tcomms"
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/chamber)

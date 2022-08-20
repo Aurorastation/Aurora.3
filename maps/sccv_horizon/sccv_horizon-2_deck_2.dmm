@@ -848,7 +848,8 @@
 	icon_state = "pdoor0";
 	id = "xenobio";
 	name = "Xenobiology Blast Door";
-	opacity = 0
+	opacity = 0;
+	fail_secure = 1
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
@@ -7673,14 +7674,15 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
 "egB" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
 	id = "xenobio";
 	name = "Xenobiology Blast Door";
-	opacity = 0
+	opacity = 0;
+	fail_secure = 1
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
 "egY" = (
@@ -9008,7 +9010,8 @@
 	icon_state = "pdoor0";
 	id = "xenobio";
 	name = "Xenobiology Blast Door";
-	opacity = 0
+	opacity = 0;
+	fail_secure = 1
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
@@ -13072,7 +13075,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "EngineVent";
-	is_critical = 1;
 	name = "Reactor Vent"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -22206,7 +22208,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "EngineVent";
-	is_critical = 1;
 	name = "Reactor Vent"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -28207,6 +28208,15 @@
 /area/engineering/storage_hard)
 "pnj" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "xenobio";
+	name = "Xenobiology Blast Door";
+	opacity = 0;
+	fail_secure = 1;
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
 "pnF" = (
@@ -29896,7 +29906,6 @@
 	dir = 2;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
-	is_critical = 1;
 	name = "Reactor Blast Door";
 	opacity = 0
 	},
@@ -33785,7 +33794,8 @@
 	icon_state = "pdoor0";
 	id = "xenobio";
 	name = "Xenobiology Blast Door";
-	opacity = 0
+	opacity = 0;
+	fail_secure = 1
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
@@ -34030,7 +34040,6 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
-	is_critical = 1;
 	name = "Reactor Blast Door";
 	opacity = 0
 	},
@@ -36926,10 +36935,10 @@
 	name = "Xenobiology Blast Door";
 	opacity = 0
 	},
-/obj/machinery/door/airlock/research{
+/obj/machinery/door/airlock/glass_research{
 	name = "Autopsy and Incineration"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/rnd/xenobiology)
 "ubz" = (
 /obj/effect/floor_decal/industrial/warning,
