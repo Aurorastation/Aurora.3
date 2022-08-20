@@ -237,3 +237,66 @@
 		"insult_good"          = "Your humor izzz odd.",
 		"insult_bad"           = "I do not take inzzultzz kindly."
 	)
+
+/datum/trader/ship/nka_trading_company
+	name = "Her Majesty’s Mercantile Flotilla Ship"
+	name_language = LANGUAGE_SIIK_MAAS
+	origin = "Her Majesty’s Mercantile Flotilla"
+	possible_origins = list("NKAMV Rredouane", "NKAMV Kaltir", "NKAMV Plasteel Maiden", "NKAMV Her Majesty's Chosen", "NKAMV Ancestry", "NKAMV Harr'nrr")
+	trade_flags = TRADER_MONEY
+
+	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR)
+
+
+	possible_trading_items = list(
+		/obj/item/clothing/suit/storage/toggle/tajaran            = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/storage/toggle/tajaran/wool             = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/storage/toggle/tajaran/raakti_shariim                           = TRADER_THIS_TYPE,
+		/obj/item/clothing/accessory/poncho/tajarancloak                  = TRADER_ALL,
+		/obj/item/clothing/suit/storage/hooded/tajaran                  = TRADER_ALL,
+		/obj/item/clothing/under/tajaran/fancy			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/tajaran/summer			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/pants/tajaran			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/tajaran/raakti_shariim			= TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/storage/tajaran/fancy			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/tajaran/nka_noble			= TRADER_THIS_TYPE,
+		/obj/item/clothing/accessory/tajaran/nka_waistcoat			= TRADER_THIS_TYPE,
+		/obj/item/clothing/accessory/tajaran/nka_vest			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/dress/tajaran/summer			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/dress/tajaran/fancy			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/dress/tajaran/fancy/black		= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/dress/tajaran/fancy			= TRADER_THIS_TYPE,
+		/obj/item/clothing/accessory/tajaran/nka_vest			= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/beret/tajaran/raakti_shariim	= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/beret/tajaran/nka	= TRADER_THIS_TYPE,
+		/obj/item/clothing/shoes/tajara/fancy	= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/beret/tajaran/nka/officer	= TRADER_THIS_TYPE,
+		/obj/item/clothing/shoes/tajara/fancy	= TRADER_THIS_TYPE,
+		/obj/item/book/manual/nka_manifesto			= TRADER_THIS_TYPE,
+		/obj/item/pocketwatch/adhomai			= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/amohda			= TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/amohda			= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/kettle			= TRADER_THIS_TYPE,
+		/obj/item/clothing/under/tajaran/nka_uniform			= TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/armor/cuirass			= TRADER_THIS_TYPE,
+		/obj/item/material/sword/amohdan_sword			= TRADER_THIS_TYPE,
+		/obj/item/storage/field_ration/nka			= TRADER_THIS_TYPE
+	)
+
+	speech = list(
+		"hail_generic"       = "Suns bless the norrrth! They have the best selection of Adhomian goods!",
+		"hail_Tajara"        = "Welcome, fellow Tajara; as long they believe in the cause of the New Kingdom...",
+		"hail_deny"          = "They have no rrreason to conduct business with them!.",
+		"trade_complete"     = "Enjoy theirr fine prrroducts!",
+		"trade_blacklist"    = "They do not deal with this.",
+		"what_want"          = "They have a list of what they rrequirre.",
+		"trade_no_goods"     = "They only deal with crrredits.",
+		"trade_not_enough"   = "Theirr prrroducts arre morre valuable than that!",
+		"how_much"           = "A rreal bargain, it is only VALUE crrredits.",
+		"compliment_deny"    = "They arre Herr Majesty's Merrchantile Fotilla, they arre above that!",
+		"compliment_accept"  = "Theirr worrds arre verrry kind.",
+		"insult_good"        = "Is this some kind of alien joke?",
+		"insult_bad"         = "They do not deal with these lowlife!",
+		"bribe_refusal"      = "That is not even enough to pay theirr valuable fuel.",
+		"bribe_accept"       = "They can worrrk with that, yes."
+	)

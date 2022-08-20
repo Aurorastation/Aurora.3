@@ -223,7 +223,7 @@
 	possible_origins = list("Adhomian Delicacies", "Little Rafama Cantina", "The Taste of Home", "Tajaran Home Cuisine", "From Adhomai to Them", "The Cauldron")
 	trade_flags = TRADER_MONEY
 
-	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL) //only in places with some tajaran presence
+	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL) //only in places with some tajaran presence
 
 	possible_trading_items = list(
 		/obj/item/reagent_containers/food/snacks/tajaran_bread               = TRADER_THIS_TYPE,
@@ -268,7 +268,7 @@
 		"what_want"          = "They need something like this.",
 		"trade_no_goods"     = "They only accept crrredits.",
 		"trade_not_enough"   = "This is not enough to pay forrr theirrr amazing dishes.",
-		"how_much"           = "This wonderrrful dish is only VALUE credits.",
+		"how_much"           = "This wonderrrful dish is only VALUE crrredits.",
 		"compliment_deny"    = "That is strrrange...",
 		"compliment_accept"  = "They will say thanks to theirrr chefs in theirrr behalf.",
 		"insult_good"        = "Grrreat joke. Arrre they interrrested in buying any of theirrr dishes?",
