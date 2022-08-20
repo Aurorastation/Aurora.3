@@ -1,0 +1,10 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a atom-based health system, that lets atoms (i.e. objects) have a health value and damage resistances set."
+  - rscadd: "Adds a particle emitter system with pre-made particles (such as smoke and sparks)."
+  - rscadd: "Adds a bluespace drive."
+  - imageadd: "Adds new circulator and TEG sprites."
+  - maptweak: "Maps in the bluespace drive where the shields used to be and moves the shields to above cryogenics."
