@@ -175,6 +175,7 @@
 	banners["banner, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh
 	banners["banner, Gadpathur"] = /obj/item/flag/gadpathur
 	banners["banner, Vysoka"] = /obj/item/flag/vysoka
+	banners["banner, Konyang"] = /obj/item/flag/konyang
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -224,6 +225,7 @@
 	flags["flag, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh/l
 	flags["flag, Gadpathur"] = /obj/item/flag/gadpathur/l
 	flags["flag, Vysoka"] = /obj/item/flag/vysoka/l
+	flags["flag, Konyang"] = /obj/item/flag/konyang/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
