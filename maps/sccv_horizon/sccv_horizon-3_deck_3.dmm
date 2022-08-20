@@ -596,7 +596,7 @@
 "be" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12)
+	req_one_access = list(12,63)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -1077,6 +1077,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "cc" = (
@@ -1254,11 +1257,11 @@
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "ct" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Nature Showcase Maintenance";
-	req_access = list(26)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(12,26);
+	name = "Nature Showcase Maintenance"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "cu" = (
@@ -1386,7 +1389,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner/paleblue/full,
+/obj/structure/closet/firecloset,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "cF" = (
@@ -3733,13 +3738,12 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/power/apc/critical{
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -4639,6 +4643,7 @@
 	layer = 4;
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "iy" = (
@@ -5356,7 +5361,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12)
+	req_one_access = list(12,63)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5477,10 +5482,6 @@
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/cobweb,
 /obj/random/junk,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
 /obj/random/loot,
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -6035,11 +6036,8 @@
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
 "kV" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Cryogenics Maintenance";
-	req_access = list(12)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "kW" = (
@@ -8039,6 +8037,7 @@
 	dir = 1
 	},
 /obj/machinery/firealarm/south,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "oE" = (
@@ -8257,7 +8256,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "pc" = (
@@ -8331,6 +8330,7 @@
 	dir = 5
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "pk" = (
@@ -10390,14 +10390,6 @@
 	dir = 4
 	},
 /area/bridge)
-"tf" = (
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck - Cryogenic Storage";
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
-/area/maintenance/bridge)
 "tg" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -12447,7 +12439,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "wS" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_one_access = list(5,12)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -13841,15 +13833,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
-"zv" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/obj/structure/sign/directions/cryo{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/starboard)
 "zw" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/vending/cigarette,
@@ -14012,6 +13995,18 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"zM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard)
 "zN" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -14223,6 +14218,10 @@
 /area/engineering/break_room)
 "Aj" = (
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Ak" = (
@@ -14966,6 +14965,10 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = -33
 	},
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck - Cryogenic Storage";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo)
 "BI" = (
@@ -15554,8 +15557,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "CR" = (
@@ -15697,7 +15698,7 @@
 "De" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cryogenics Maintenance";
-	req_access = list(12)
+	req_one_access = list(5,12)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -15866,6 +15867,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/paleblue,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Dz" = (
@@ -16175,6 +16177,10 @@
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "Ej" = (
@@ -18005,6 +18011,7 @@
 	layer = 4;
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/security/investigations)
 "Hx" = (
@@ -18344,9 +18351,6 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/structure/table/rack,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
 /obj/random/loot,
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -18973,6 +18977,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/washroom)
+"Jg" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard)
 "Jh" = (
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
@@ -19214,7 +19224,7 @@
 	dir = 4
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
 "JE" = (
@@ -20755,7 +20765,7 @@
 	dir = 5
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "Mr" = (
@@ -20891,7 +20901,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12)
+	req_one_access = list(12,63)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -21044,6 +21054,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
+"MO" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/disposalpipe/segment,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor,
+/area/maintenance/security_starboard)
 "MP" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -21206,6 +21227,14 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
+"Nf" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor,
+/area/maintenance/bridge)
 "Ng" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -24296,6 +24325,12 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/crew_quarters/fitness/gym)
+"SG" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard)
 "SH" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -25451,6 +25486,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"UQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard)
 "UR" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -25533,6 +25580,7 @@
 	dir = 1
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Vc" = (
@@ -26711,7 +26759,7 @@
 	dir = 5
 	},
 /obj/structure/closet/firecloset/full,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "Xp" = (
@@ -45975,7 +46023,7 @@ Fc
 Xj
 SW
 Ru
-Ru
+Nf
 xF
 Ru
 rJ
@@ -46376,7 +46424,7 @@ Ye
 IM
 GY
 Vp
-zv
+ye
 nP
 yK
 ir
@@ -46583,7 +46631,7 @@ nP
 YP
 xq
 uN
-tf
+QQ
 Cf
 Kj
 Xg
@@ -46784,7 +46832,7 @@ ye
 nP
 nP
 nP
-vZ
+kV
 nP
 Cf
 Cf
@@ -48998,7 +49046,7 @@ fJ
 fJ
 fJ
 Uc
-uk
+SG
 cE
 Vm
 Ie
@@ -49200,10 +49248,10 @@ fJ
 fJ
 fJ
 Uc
-uk
+Jg
 cb
-JS
-gl
+uL
+zM
 ag
 AG
 UV
@@ -49402,7 +49450,7 @@ fJ
 fJ
 fJ
 Uc
-uk
+Jg
 hY
 kF
 tR
@@ -49604,10 +49652,10 @@ fJ
 fJ
 fJ
 Uc
-uk
+Jg
 Dy
-JS
-gl
+aP
+UQ
 iY
 AG
 UV
@@ -52237,7 +52285,7 @@ Gj
 Qm
 jJ
 SD
-SD
+MO
 SD
 NJ
 SD
