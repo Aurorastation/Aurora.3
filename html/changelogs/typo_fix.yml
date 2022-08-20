@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Fixes some typos."
+  - spellcheck: "Fixes some typos."
