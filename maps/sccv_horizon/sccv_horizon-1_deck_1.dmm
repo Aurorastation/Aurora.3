@@ -966,7 +966,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "aOD" = (
@@ -1368,6 +1368,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"bec" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "bek" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -2394,7 +2400,7 @@
 	dir = 4
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "bOR" = (
@@ -3935,7 +3941,7 @@
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "dgl" = (
@@ -7376,6 +7382,7 @@
 	dir = 4;
 	pixel_x = 32
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "fQU" = (
@@ -7586,6 +7593,9 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "fXy" = (
@@ -10056,6 +10066,13 @@
 "hWb" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/atmos)
+"hWn" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/deck1)
 "hWY" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -12731,6 +12748,16 @@
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Isolation A";
 	dir = 1
+	},
+/obj/machinery/alarm{
+	alarm_id = 1501;
+	breach_detection = 0;
+	dir = 1;
+	name = "Isolation A";
+	pixel_y = -28;
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_c)
@@ -17968,7 +17995,7 @@
 /area/engineering/atmos/air)
 "oCq" = (
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "oCT" = (
@@ -18067,7 +18094,7 @@
 	dir = 6
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "oFI" = (
@@ -19121,7 +19148,7 @@
 	dir = 6
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "pEl" = (
@@ -19288,6 +19315,16 @@
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Isolation C";
 	dir = 1
+	},
+/obj/machinery/alarm{
+	alarm_id = 1503;
+	breach_detection = 0;
+	dir = 1;
+	name = "Isolation C";
+	pixel_y = -28;
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_a)
@@ -20070,6 +20107,16 @@
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Isolation B";
 	dir = 1
+	},
+/obj/machinery/alarm{
+	alarm_id = 1502;
+	breach_detection = 0;
+	dir = 1;
+	name = "Isolation B";
+	pixel_y = -28;
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_b)
@@ -22419,6 +22466,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "sll" = (
@@ -22788,8 +22836,8 @@
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/escape_pod/pod2)
 "syS" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "szM" = (
@@ -22965,6 +23013,7 @@
 	dir = 6
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "sId" = (
@@ -23667,11 +23716,11 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/structure/closet/firecloset,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/closet/firecloset,
-/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "tkS" = (
@@ -26020,6 +26069,7 @@
 /area/rnd/eva)
 "vfc" = (
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "vfk" = (
@@ -28272,6 +28322,9 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "xdK" = (
@@ -28412,6 +28465,7 @@
 	dir = 4
 	},
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "xiQ" = (
@@ -50727,7 +50781,7 @@ gQh
 rHK
 rHK
 kuh
-fgF
+bec
 wLL
 gux
 pIy
@@ -50929,7 +50983,7 @@ rHK
 rHK
 rHK
 kuh
-fgF
+bec
 wLL
 riM
 bNT
@@ -51131,7 +51185,7 @@ qMY
 rHK
 rHK
 kuh
-fgF
+bec
 wLL
 tLM
 wRE
@@ -62260,7 +62314,7 @@ eSV
 eSV
 eSV
 xst
-suT
+hWn
 qBU
 xst
 hoV

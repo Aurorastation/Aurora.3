@@ -1,12 +1,12 @@
 /area/odin_departure
-	name = "Odin Departure"
+	name = "Generic Dock"
 	luminosity = 0
 	requires_power = FALSE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 
 /area/odin_departure/away
-	name = "Odin Departure - Away Site"
+	name = "Generic Dock - Away"
 	luminosity = 0
 	requires_power = FALSE
 	dynamic_lighting = TRUE
