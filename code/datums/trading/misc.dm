@@ -201,3 +201,39 @@
 		"bribe_refusal"     = "Do not try to dissshonor me again.",
 		"bribe_accept"      = "Very well. I will ssstay for a bit longer."
 	)
+
+/datum/trader/ship/vaurca
+	origin = "The Hive Shop"
+	name_language = LANGUAGE_VAURCA
+
+	possible_trading_items = list(
+		/obj/item/clothing/mask/breath/vaurca            = TRADER_THIS_TYPE,
+		/obj/item/melee/energy/vaurca             = TRADER_THIS_TYPE,
+		/obj/item/vaurca/box                             = TRADER_THIS_TYPE,
+		/obj/item/melee/vaurca/rock               = TRADER_THIS_TYPE,
+		/obj/item/grenade/spawnergrenade/vaurca   = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/space/void/vaurca        = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/vaurca = TRADER_THIS_TYPE,
+		/obj/item/clothing/shoes/magboots/vaurca     = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/space/void/scout	= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/scout	= TRADER_THIS_TYPE,
+		/obj/item/clothing/suit/space/void/commando	= TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/commando = TRADER_THIS_TYPE,
+		/obj/item/clothing/mask/gas/vaurca = TRADER_THIS_TYPE
+	)
+
+	speech = list(
+		"hail_generic"         = "Greetingzz.",
+		"hail_deny"            = "I'm zzorry, we do not want to zzzpeak to you.",
+		"trade_complete"       = "Enjoy it, zzzir!",
+		"trade_no_money"       = "I have no uzzze vhor creditzzz.",
+		"trade_not_enough"     = "I want more, zzzzir.",
+		"trade_found_unwanted" = "That izzz not what I want.",
+		"how_much"             = "We need k'oizz or vhoron, zzzir.",
+		"what_want"            = "K'oizzz or vhoron.",
+		"compliment_deny"      = "No kind wordzzzz...",
+		"compliment_accept"    = "I appreciate kind wordzzz.",
+		"insult_good"          = "Your humor izzz odd.",
+		"insult_bad"           = "I do not take inzzultzz kindly."
+	)

@@ -142,65 +142,6 @@
 		"insult_bad"           = "Blub feels bad now."
 	)
 
-/datum/trader/ship/unique/vaurca
-	origin = "The Hive Shop"
-	name_language = LANGUAGE_VAURCA
-
-	possible_wanted_items = list(
-		/obj/item/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/koisbar_clean    = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/grown/kois       = TRADER_THIS_TYPE,
-		/obj/item/stack/material/phoron                             = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/friedkois			= TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/koiskebab1			= TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/koiskebab2			= TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/koiskebab3			= TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/soup/kois			= TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/koiswaffles		= TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/koisjelly			= TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/koissteak			= TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/donut/kois			= TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/koismuffin			= TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/koisburger			= TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/snacks/phoroncandy		= TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly = TRADER_THIS_TYPE
-
-
-	)
-
-	possible_trading_items = list(
-		/obj/item/clothing/mask/breath/vaurca            = TRADER_THIS_TYPE,
-		/obj/item/melee/energy/vaurca             = TRADER_THIS_TYPE,
-		/obj/item/vaurca/box                             = TRADER_THIS_TYPE,
-		/obj/item/melee/vaurca/rock               = TRADER_THIS_TYPE,
-		/obj/item/grenade/spawnergrenade/vaurca   = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/space/void/vaurca        = TRADER_THIS_TYPE,
-		/obj/item/clothing/head/helmet/space/void/vaurca = TRADER_THIS_TYPE,
-		/obj/item/clothing/shoes/magboots/vaurca     = TRADER_THIS_TYPE,
-		/obj/item/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/space/void/scout	= TRADER_THIS_TYPE,
-		/obj/item/clothing/head/helmet/space/void/scout	= TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/space/void/commando	= TRADER_THIS_TYPE,
-		/obj/item/clothing/head/helmet/space/void/commando = TRADER_THIS_TYPE,
-		/obj/item/clothing/mask/gas/vaurca = TRADER_THIS_TYPE
-	)
-
-	speech = list(
-		"hail_generic"         = "Greetingzz.",
-		"hail_deny"            = "I'm zzorry, we do not want to zzzpeak to you.",
-		"trade_complete"       = "Enjoy it, zzzir!",
-		"trade_no_money"       = "I have no uzzze vhor creditzzz.",
-		"trade_not_enough"     = "I want more, zzzzir.",
-		"trade_found_unwanted" = "That izzz not what I want.",
-		"how_much"             = "We need k'oizz or vhoron, zzzir.",
-		"what_want"            = "K'oizzz or vhoron.",
-		"compliment_deny"      = "No kind wordzzzz...",
-		"compliment_accept"    = "I appreciate kind wordzzz.",
-		"insult_good"          = "Your humor izzz odd.",
-		"insult_bad"           = "I do not take inzzultzz kindly."
-	)
-
-
 /datum/trader/ship/unique/bluespace
 	name = "Maximus Crane"
 	origin = "Bluespace Emporium"

@@ -39,8 +39,8 @@
 		box.pizza = M
 		box.boxtag = "A special order from [origin]"
 
-/datum/trader/oriental
-	name = "Chinese Restaurant"
+/datum/trader/konyang
+	name = "Konyanger Restaurant"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Captain Panda Bistro"
 	trade_flags = TRADER_GOODS|TRADER_MONEY|TRADER_WANTED_ONLY
@@ -84,7 +84,7 @@
 	)
 
 	speech = list(
-		"hail_generic"       = "There are two things constant in life, death and oriental food. How may I help you?",
+		"hail_generic"       = "There are two things constant in life, death and Konyanger food. How may I help you?",
 		"hail_deny"          = "We do not take orders from rude customers.",
 		"trade_complete"     = "Thank you, sir, for your patronage.",
 		"trade_blacklist"    = "No, that is very odd. Why would you trade that away?",
@@ -100,7 +100,7 @@
 		"bribe_accept"       = "Oh yes! I think I'll stay a few more minutes, then."
 	)
 
-/datum/trader/oriental/trade(var/list/offers, var/num, var/turf/location)
+/datum/trader/konyang/trade(var/list/offers, var/num, var/turf/location)
 	. = ..()
 	if(.)
 		var/obj/item/reagent_containers/food/snacks/fortunecookie/cookie = new(location)
