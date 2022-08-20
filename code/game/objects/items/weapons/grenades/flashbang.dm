@@ -21,7 +21,7 @@
 		B.update_icon()
 
 	single_spark(src.loc)
-	new/obj/effect/effect/smoke/illumination(src.loc, brightness=15)
+	new/obj/effect/effect/smoke/illumination(src.loc, power=15)
 	qdel(src)
 	return
 

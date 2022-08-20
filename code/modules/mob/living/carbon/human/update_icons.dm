@@ -85,39 +85,39 @@ There are several things that need to be remembered:
 */
 
 // Human Overlays Indexes //
-#define MUTATIONS_LAYER   1
-#define DAMAGE_LAYER      2
-#define SURGERY_LAYER     3
-#define UNDERWEAR_LAYER   4
-#define TAIL_SOUTH_LAYER  5
-#define SHOES_LAYER_ALT   6
-#define UNIFORM_LAYER     7
-#define ID_LAYER          8
-#define SHOES_LAYER       9
-#define GLOVES_LAYER      10
-#define BELT_LAYER        11
-#define WRISTS_LAYER_ALT  12
-#define SUIT_LAYER        13
-#define ID_LAYER_ALT      14
-#define TAIL_NORTH_LAYER  15
-#define GLASSES_LAYER     16
-#define BELT_LAYER_ALT    17
-#define SUIT_STORE_LAYER  18
-#define BACK_LAYER        19
-#define HAIR_LAYER        20
-#define GLASSES_LAYER_ALT 21
-#define L_EAR_LAYER       22
-#define R_EAR_LAYER       23
-#define FACEMASK_LAYER    24
-#define HEAD_LAYER        25
-#define COLLAR_LAYER      26
-#define HANDCUFF_LAYER    27
-#define LEGCUFF_LAYER     28
-#define L_HAND_LAYER      29
-#define R_HAND_LAYER      30
-#define WRISTS_LAYER      31
-#define FIRE_LAYER        32		//If you're on fire
-#define TOTAL_LAYERS      32
+#define MUTATIONS_LAYER		1
+#define DAMAGE_LAYER		2
+#define SURGERY_LAYER		3
+#define UNDERWEAR_LAYER		4
+#define TAIL_SOUTH_LAYER	5
+#define SHOES_LAYER_ALT		6
+#define UNIFORM_LAYER		7
+#define ID_LAYER			8
+#define SHOES_LAYER			9
+#define GLOVES_LAYER		10
+#define BELT_LAYER			11
+#define WRISTS_LAYER_ALT	12
+#define SUIT_LAYER			13
+#define ID_LAYER_ALT		14
+#define TAIL_NORTH_LAYER	15
+#define GLASSES_LAYER		16
+#define BELT_LAYER_ALT		17
+#define SUIT_STORE_LAYER	18
+#define BACK_LAYER			19
+#define HAIR_LAYER			20
+#define GLASSES_LAYER_ALT	21
+#define L_EAR_LAYER			22
+#define R_EAR_LAYER			23
+#define FACEMASK_LAYER		24
+#define HEAD_LAYER			25
+#define COLLAR_LAYER		26
+#define HANDCUFF_LAYER		27
+#define LEGCUFF_LAYER		28
+#define L_HAND_LAYER		29
+#define R_HAND_LAYER		30
+#define WRISTS_LAYER		31
+#define HUMAN_FIRE_LAYER	32 //If you're on fire
+#define TOTAL_LAYERS		32
 //////////////////////////////////
 
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
@@ -1382,10 +1382,10 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	var/image/fire_image = on_fire ? image(species.onfire_overlay, "Standing", layer = FIRE_LAYER) : null
+	var/image/fire_image = on_fire ? image(species.onfire_overlay, "Standing", layer = HUMAN_FIRE_LAYER) : null
 	if(fire_image)
 		fire_image.appearance_flags = RESET_ALPHA
-	overlays_raw[FIRE_LAYER] = fire_image
+	overlays_raw[HUMAN_FIRE_LAYER] = fire_image
 
 	if(update_icons)
 		update_icon()
@@ -1540,7 +1540,7 @@ There are several things that need to be remembered:
 #undef L_HAND_LAYER
 #undef R_HAND_LAYER
 #undef WRISTS_LAYER
-#undef FIRE_LAYER
+#undef HUMAN_FIRE_LAYER
 #undef TOTAL_LAYERS
 
 #undef UNDERSCORE_OR_NULL
