@@ -5,12 +5,12 @@
 #define SIGNAL_HYDROGEN 16
 
 /obj/machinery/air_sensor
+	name = "gas sensor"
+	desc = "Measures the gas content of the atmosphere around the sensor."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "gsensor1"
-	name = "gas Sensor"
-	desc = "Measures the gas content of the atmosphere around the sensor."
+	anchored = TRUE
 
-	anchored = 1
 	var/state = 0
 
 	var/id_tag

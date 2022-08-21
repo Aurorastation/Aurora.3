@@ -27,7 +27,8 @@
 		"Monkey" = "monkey",
 		"Rabbit" = "rabbit",
 		"Parrot" = "parrot",
-		"Fox" = "fox"
+		"Fox" = "fox",
+		"Schlorrgo" = "schlorrgo"
 		)
 
 	var/global/list/pai_holder_types = list(
@@ -37,7 +38,8 @@
 		"Monkey" = /obj/item/holder/pai/monkey,
 		"Rabbit" = /obj/item/holder/pai/rabbit,
 		"Parrot" = /obj/item/holder/pai/parrot,
-		"Fox" = /obj/item/holder/pai/fox
+		"Fox" = /obj/item/holder/pai/fox,
+		"Schlorrgo" = /obj/item/holder/pai/schlorrgo
 		)
 
 	var/global/list/possible_say_verbs = list(
