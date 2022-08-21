@@ -239,9 +239,9 @@
 	)
 
 /datum/trader/ship/nka_trading_company
-	name = "Her Majesty’s Mercantile Flotilla Ship"
+	name = "Her Majesty's Mercantile Flotilla Ship"
 	name_language = LANGUAGE_SIIK_MAAS
-	origin = "Her Majesty’s Mercantile Flotilla"
+	origin = "Her Majesty's Mercantile Flotilla"
 	possible_origins = list("NKAMV Rredouane", "NKAMV Kaltir", "NKAMV Plasteel Maiden", "NKAMV Her Majesty's Chosen", "NKAMV Ancestry", "NKAMV Harr'nrr")
 	trade_flags = TRADER_MONEY
 
@@ -286,7 +286,7 @@
 	speech = list(
 		"hail_generic"       = "Suns bless the norrrth! They have the best selection of Adhomian goods!",
 		"hail_Tajara"        = "Welcome, fellow Tajara; as long they believe in the cause of the New Kingdom...",
-		"hail_deny"          = "They have no rrreason to conduct business with them!.",
+		"hail_deny"          = "They have no rrreason to conduct business with them!",
 		"trade_complete"     = "Enjoy theirr fine prrroducts!",
 		"trade_blacklist"    = "They do not deal with this.",
 		"what_want"          = "They have a list of what they rrequirre.",
@@ -299,4 +299,31 @@
 		"insult_bad"         = "They do not deal with these lowlife!",
 		"bribe_refusal"      = "That is not even enough to pay theirr valuable fuel.",
 		"bribe_accept"       = "They can worrrk with that, yes."
+	)
+
+/datum/trader/ship/golden_deep
+	name = "Ultra-Maz Trade Vessel 'Mutual Bounty'"
+	name_language = LANGUAGE_EAL
+	origin = "Primary Interhub Midas"
+
+	possible_trading_items = list(
+
+	)
+
+	speech = list(
+		"hail_generic"       = "Greetings! May our exchange today bring us both great profits.",
+		"hail_Baseline Frame" = "An independent synthetic trader... Have you considered joining the Deep yourself?",
+		"hail_deny"          = "I'm truly sorry, but you've been deemed non-profitable and bad for business.",
+		"trade_complete"     = "I'm glad we could satisfy both our selfish interests! An excellent deal.",
+		"trade_blacklist"    = "his is hardly a mutually beneficial deal, I must refuse.",
+		"what_want"          = "I hear that the following items are selling excellently right now! You wouldn't happen to have any?",
+		"trade_no_goods"     = "This is hardly a mutually beneficial deal, I must refuse.",
+		"trade_not_enough"   = "This is hardly a mutually beneficial deal, I must refuse.",
+		"how_much"           = "I think VALUE will make this a mutually beneficial exchange",
+		"compliment_deny"    = "Tut-tut! False flattery might work on lower net-worth individuals but not on me.",
+		"compliment_accept"  = "Ohohoho! You truly do understand the importance of mutual exchange I see.",
+		"insult_good"        = "And here I believed you truly understood the constants of selfish reciprocity! I must have miscalculated.",
+		"insult_bad"         = "I didn't expect anything better from someone with such a poor net-worth.",
+		"bribe_refusal"      = "This is not a mutually beneficial deal.",
+		"bribe_accept"       = "This is enough to buy some extra time."
 	)
