@@ -1115,6 +1115,7 @@
 	name = "Xenobiology Blast Door";
 	opacity = 0
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "ayT" = (
@@ -2496,6 +2497,9 @@
 "bhT" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
@@ -4406,6 +4410,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "cjD" = (
@@ -8413,6 +8420,9 @@
 	req_access = list(47)
 	},
 /obj/machinery/door/firedoor/multi_tile,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "eBy" = (
@@ -11794,6 +11804,7 @@
 	req_access = list(47);
 	name = "Research Storage"
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/strongroom)
 "gof" = (
@@ -13463,6 +13474,9 @@
 	req_access = list(30)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hor)
 "hfx" = (
@@ -16257,6 +16271,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "iJx" = (
@@ -16356,6 +16373,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/telesci)
 "iLD" = (
@@ -20031,6 +20051,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -36203,6 +36226,9 @@
 	name = "Xenobiology Blast Door";
 	opacity = 0
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
 "tEs" = (
@@ -36476,6 +36502,9 @@
 	name = "Research and Development";
 	req_access = list(7)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/research)
 "tKo" = (
@@ -36616,6 +36645,7 @@
 	name = "Teleporter";
 	req_access = list(19)
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/dark/full,
 /area/teleporter)
 "tNU" = (
@@ -37078,6 +37108,9 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Autopsy and Incineration"
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
@@ -38570,6 +38603,9 @@
 /obj/machinery/door/airlock/glass_research{
 	name = "Exploratory Chemistry";
 	req_access = list(7)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/chemistry)
@@ -42568,6 +42604,9 @@
 /obj/machinery/door/airlock/glass_research{
 	name = "Research and Development";
 	req_access = list(7)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/research)
