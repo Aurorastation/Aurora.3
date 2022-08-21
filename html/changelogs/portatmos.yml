@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - imageadd: "Adds new portable atmospherics sprites."
