@@ -7593,6 +7593,9 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "fXy" = (
@@ -10067,6 +10070,13 @@
 "hWb" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/atmos)
+"hWn" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/deck1)
 "hWY" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -10324,7 +10334,6 @@
 "ifE" = (
 /obj/machinery/door/blast/regular{
 	id = "iso_c_purge";
-	is_critical = 1;
 	name = "Exterior Blast Door"
 	},
 /turf/simulated/floor/reinforced,
@@ -12742,6 +12751,16 @@
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Isolation A";
 	dir = 1
+	},
+/obj/machinery/alarm{
+	alarm_id = 1501;
+	breach_detection = 0;
+	dir = 1;
+	name = "Isolation A";
+	pixel_y = -28;
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_c)
@@ -19300,6 +19319,16 @@
 	c_tag = "Research - Isolation C";
 	dir = 1
 	},
+/obj/machinery/alarm{
+	alarm_id = 1503;
+	breach_detection = 0;
+	dir = 1;
+	name = "Isolation C";
+	pixel_y = -28;
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_a)
 "pLc" = (
@@ -20081,6 +20110,16 @@
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Isolation B";
 	dir = 1
+	},
+/obj/machinery/alarm{
+	alarm_id = 1502;
+	breach_detection = 0;
+	dir = 1;
+	name = "Isolation B";
+	pixel_y = -28;
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_b)
@@ -25243,7 +25282,6 @@
 "uwm" = (
 /obj/machinery/door/blast/regular{
 	id = "iso_a_purge";
-	is_critical = 1;
 	name = "Exterior Blast Door"
 	},
 /turf/simulated/floor/reinforced,
@@ -28286,6 +28324,9 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "xdK" = (
@@ -29442,7 +29483,6 @@
 "xRN" = (
 /obj/machinery/door/blast/regular{
 	id = "iso_b_purge";
-	is_critical = 1;
 	name = "Exterior Blast Door"
 	},
 /turf/simulated/floor/reinforced,
@@ -62275,7 +62315,7 @@ eSV
 eSV
 eSV
 xst
-suT
+hWn
 qBU
 xst
 hoV

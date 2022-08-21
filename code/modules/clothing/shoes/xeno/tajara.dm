@@ -56,7 +56,7 @@
 	item_state = "twhitedf"
 
 /obj/item/clothing/shoes/tajara/jackboots // Because yes, Tajara don't leave their toes out all the time.
-	name = "jackboots"
+	name = "black boots"
 	desc = "Tall synthleather boots with an artificial shine. Fitted for Tajara."
 	icon = 'icons/mob/species/tajaran/shoes.dmi'
 	icon_state = "taj_jackboots"
@@ -73,11 +73,17 @@
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/tajara/jackboots/cavalry
-	name = "cavalry boots"
-	desc = "Good old-fashioned calf-length cavalry boots. Adhomai doesn't have horses, but one can appreciate a good, tall boot."
-	icon_state = "taj_cavalryboots"
-	item_state = "taj_cavalryboots"
+/obj/item/clothing/shoes/tajara/jackboots/knee
+	name = "knee-length black boots"
+	desc = "Taller synthleather boots with an artificial shine. Fitted for Tajara."
+	icon_state = "taj_kneeboots"
+	item_state = "taj_kneeboots"
+
+/obj/item/clothing/shoes/tajara/jackboots/thigh
+	name = "thigh-length black boots"
+	desc = "Even taller synthleather boots with an artificial shine. Fitted for Tajara."
+	icon_state = "taj_thighboots"
+	item_state = "taj_thighboots"
 
 /obj/item/clothing/shoes/tajara/workboots
 	name = "workboots"

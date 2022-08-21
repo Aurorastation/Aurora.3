@@ -14853,7 +14853,6 @@
 	},
 /obj/machinery/door/blast/shutters{
 	id = "shutters_runcaprun";
-	is_critical = 1;
 	name = "Decrepit Maintenance Shutter"
 	},
 /obj/structure/curtain/black,
@@ -21054,6 +21053,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
+"MO" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/disposalpipe/segment,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor,
+/area/maintenance/security_starboard)
 "MP" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -21216,6 +21226,14 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
+"Nf" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
+/turf/simulated/floor,
+/area/maintenance/bridge)
 "Ng" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -24604,8 +24622,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	id = "blastdoors_tcomms";
-	is_critical = 1
+	id = "blastdoors_tcomms"
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/chamber)
@@ -46004,7 +46021,7 @@ Fc
 Xj
 SW
 Ru
-Ru
+Nf
 xF
 Ru
 rJ
@@ -52266,7 +52283,7 @@ Gj
 Qm
 jJ
 SD
-SD
+MO
 SD
 NJ
 SD
