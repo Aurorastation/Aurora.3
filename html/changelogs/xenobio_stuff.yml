@@ -1,0 +1,49 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.
+author: kermit
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - rscadd: "Cerulean slimes have been re-added and are used to create Extract Enhancer - all in line with the wiki."
+  - rscadd: "Sepia slimes have been re-added. They are not used to create cameras anymore as the wiki suggests. They instead can be used to open wood/cardboard material portals (with water) or leather/hide material portals (with blood) - for use resupplying departments or creating fancier golems."
+  - rscadd: "Pyrite slimes have been re-added. They are not used to create paint/crayons anymore as the wiki suggests. They instead can be used to transmute various chemicals into stronger variants, some examples include: dexalin -> dexalin plus; radium -> unstable mutagen, EZ nutrient -> diethylamine."
+  - tweak: "Docility Potions have been renamed to Docility Serums. The Advanced Docility Potion is now also a lighter pink, complimenting the slime it's acquired from."
+  - rscadd: "Some extract abilities have been added to various slimes to compliment their pre-existing abilities: Green Slimes (silver & carbon -> bluespace crystal), Red (sugar -> glycerol; phoron -> nightshade), Pink (water -> paxazide), Oil (water -> plastic/glass material portal)."
+  - balance: "Gelds the slime glomp attack - them pouncing and latching onto prey is already strong enough, especially considering 'friends' of slimes may still, on occasion, be glomped by RNG."
+  - balance: "Some extract abilities don't just require 1u of a chemical to activate, some now have a larger 'chemical cost' - mostly reserved for the more powerful abilities."
+  - tweak: "Slime jelly no longer nukes the liver with 100-300 toxins out of nowhere. Instead, it deals genetic damage over time, just like slimes actually do."
+  - tweak: "Now that Slime jelly's healing properties can be used safely, it now treats both brute and burn damage to the same degree as butazoline and dermaline. It also reoxygenates blood."
