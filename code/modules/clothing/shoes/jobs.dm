@@ -15,13 +15,10 @@
 	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
 
 /obj/item/clothing/shoes/jackboots
-	name = "jackboots"
+	name = "black boots"
 	desc = "Tall synthleather boots with an artificial shine."
 	icon_state = "jackboots"
 	item_state = "jackboots"
-	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
-	)
 	force = 3
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES
@@ -32,24 +29,39 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
-/obj/item/clothing/shoes/jackboots/cavalry
-	name = "black cavalry boots"
-	desc = "Good old-fashioned calf-length cavalry boots. If only you had a horse to ride."
+/obj/item/clothing/shoes/jackboots/knee
+	name = "knee-length black boots"
+	desc = "Taller synthleather boots with an artificial shine."
 	icon_state = "kneeboots"
 	item_state = "kneeboots"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
+	)
+
+/obj/item/clothing/shoes/jackboots/thigh
+	name = "thigh-length black boots"
+	desc = "Even taller synthleather boots with an artificial shine."
+	icon_state = "thighboots"
+	item_state = "thighboots"
 
 /obj/item/clothing/shoes/jackboots/toeless
-	name = "toeless jackboots"
+	name = "toe-less black boots"
 	desc = "Modified pair of boots, particularly friendly to those species whose toes hold claws."
 	icon_state = "jackboots_toeless"
 	species_restricted = null
 	sprite_sheets = list(BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi', BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi')
 
-/obj/item/clothing/shoes/jackboots/toeless/cavalry
-	name = "toeless cavalry boots"
-	desc = "Modified calf-length cavarly boots. Friendly to species whose toes hold claws. Better not ride a horse in these - it's for their sake."
-	icon_state = "cavalryboots_toeless"
-	item_state = "cavalryboots_toeless"
+/obj/item/clothing/shoes/jackboots/toeless/knee
+	name = "knee-high toeless black boots"
+	desc = "Modified pair of taller boots, particularly friendly to those species whose toes hold claws."
+	icon_state = "kneeboots_toeless"
+	item_state = "kneeboots_toeless"
+
+/obj/item/clothing/shoes/jackboots/toeless/thigh
+	name = "thigh-high toeless black boots"
+	desc = "Modified pair of even taller boots, particularly friendly to those species whose toes hold claws."
+	icon_state = "thighboots_toeless"
+	item_state = "thighboots_toeless"
 
 /obj/item/clothing/shoes/workboots
 	name = "workboots"
