@@ -842,7 +842,8 @@
 	},
 /obj/structure/plasticflaps/mining,
 /obj/machinery/door/blast/shutters{
-	id = "smuggler_cargo"
+	id = "smuggler_cargo";
+	dir = 2
 	},
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
@@ -1136,7 +1137,8 @@
 	},
 /obj/structure/plasticflaps/mining,
 /obj/machinery/door/blast/shutters{
-	id = "smuggler_cargo"
+	id = "smuggler_cargo";
+	dir = 2
 	},
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
