@@ -4437,9 +4437,6 @@
 "cjD" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora_hazard)
-"cjX" = (
-/turf/simulated/wall,
-/area/rnd/strongroom)
 "ckc" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -7219,7 +7216,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "dOi" = (
-/turf/simulated/wall,
+/turf/simulated/wall/r_wall,
 /area/rnd/conference)
 "dOq" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -16294,10 +16291,6 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/research{
-	name = "Xenobotany Decontamination";
-	req_access = list(52)
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -16306,6 +16299,10 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
+	},
+/obj/machinery/door/airlock/glass_research{
+	name = "Xenobotany Decontamination";
+	req_access = list(52)
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -20100,10 +20097,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/research{
-	name = "Xenobotany Decontamination";
-	req_access = list(52)
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -20112,6 +20105,10 @@
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
+	},
+/obj/machinery/door/airlock/glass_research{
+	name = "Xenobotany Decontamination";
+	req_access = list(52)
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -43549,9 +43546,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
-"xeF" = (
-/turf/simulated/wall,
-/area/rnd/hallway)
 "xeR" = (
 /obj/structure/table/standard,
 /obj/machinery/button/remote/blast_door{
@@ -72883,11 +72877,11 @@ cOs
 mBB
 mBB
 str
-xeF
+sig
 tME
 vAw
 iyA
-xeF
+sig
 lKI
 nZu
 rnA
@@ -72897,7 +72891,7 @@ lhU
 uDd
 fqa
 uon
-cjX
+kGX
 dzI
 kaT
 kaT
@@ -73099,7 +73093,7 @@ huw
 dgZ
 huw
 uGW
-cjX
+kGX
 pXp
 kaT
 vRt
@@ -73301,7 +73295,7 @@ qFD
 hiq
 nac
 eZp
-cjX
+kGX
 erY
 kaT
 jwc
@@ -73503,7 +73497,7 @@ xun
 ygL
 nac
 qFg
-cjX
+kGX
 rfO
 kaT
 eUp
@@ -73705,7 +73699,7 @@ rlX
 pJy
 nac
 qRY
-cjX
+kGX
 gKG
 kaT
 xsU
@@ -73907,7 +73901,7 @@ fkF
 rVL
 mRW
 eZp
-cjX
+kGX
 rbL
 kaT
 xsU
@@ -74109,7 +74103,7 @@ jjl
 jjl
 wlF
 vVL
-cjX
+kGX
 bzh
 kQA
 sYc
@@ -74311,7 +74305,7 @@ hSU
 vye
 ccO
 dxH
-wsW
+bzh
 aTd
 kaT
 sYc
@@ -74513,7 +74507,7 @@ ouk
 ncA
 bXS
 dxH
-wsW
+bzh
 aTd
 kaT
 sYc
@@ -74715,7 +74709,7 @@ dOi
 dOi
 dOi
 kur
-wsW
+bzh
 kaT
 kZv
 sYc
@@ -75113,7 +75107,7 @@ rFn
 bDv
 daM
 fYi
-wsW
+bzh
 iwF
 iwF
 iwF
