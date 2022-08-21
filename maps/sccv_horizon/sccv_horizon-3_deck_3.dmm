@@ -1272,8 +1272,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	id = "crew_armoury_desk";
-	name = "Crew Armoury Desk";
-	is_critical = 1
+	name = "Crew Armoury Desk"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -13346,8 +13345,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	id = "crew_armoury_desk";
-	name = "Crew Armoury Desk";
-	is_critical = 1
+	name = "Crew Armoury Desk"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -15605,8 +15603,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "crew_armory";
-	name = "Crew Armoury";
-	is_critical = 1
+	name = "Crew Armoury"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -20563,8 +20560,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "crew_armory";
-	name = "Crew Armoury";
-	is_critical = 1
+	name = "Crew Armoury"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -27241,8 +27237,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "crew_armory";
-	name = "Crew Armoury";
-	is_critical = 1
+	name = "Crew Armoury"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_armory)
