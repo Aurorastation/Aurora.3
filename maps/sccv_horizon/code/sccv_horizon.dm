@@ -23,8 +23,8 @@
 
 	station_name = "SCCV Horizon"
 	station_short = "Horizon"
-	dock_name = "SCC Shipyard"
-	dock_short = "Shipyard"
+	dock_name = "SCC Sector Liaison Facility"
+	dock_short = "Sector Liaison Facility"
 	boss_name = "Stellar Corporate Conglomerate"
 	boss_short = "SCC"
 	company_name = "Stellar Corporate Conglomerate"
