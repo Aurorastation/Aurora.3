@@ -138,6 +138,12 @@
 /mob/living/carbon/slime/black/Initialize(mapload, colour = "black")
 	..()
 
+/mob/living/carbon/slime/cerulean/Initialize(mapload, colour = "cerulean")
+	..()
+
+/mob/living/carbon/slime/pyrite/Initialize(mapload, colour = "pyrite")
+	..()
+
 /mob/living/carbon/slime/getToxLoss()
 	return toxloss
 

@@ -10330,7 +10330,6 @@
 "ifE" = (
 /obj/machinery/door/blast/regular{
 	id = "iso_c_purge";
-	is_critical = 1;
 	name = "Exterior Blast Door"
 	},
 /turf/simulated/floor/reinforced,
@@ -25279,7 +25278,6 @@
 "uwm" = (
 /obj/machinery/door/blast/regular{
 	id = "iso_a_purge";
-	is_critical = 1;
 	name = "Exterior Blast Door"
 	},
 /turf/simulated/floor/reinforced,
@@ -29481,7 +29479,6 @@
 "xRN" = (
 /obj/machinery/door/blast/regular{
 	id = "iso_b_purge";
-	is_critical = 1;
 	name = "Exterior Blast Door"
 	},
 /turf/simulated/floor/reinforced,
