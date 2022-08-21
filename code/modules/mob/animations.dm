@@ -269,6 +269,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 			spintime -= speed
 	return
 
+// Mob Throwing Animation
 /proc/animate_throw(atom/A)
 	var/ipx = A.pixel_x
 	var/ipy = A.pixel_y
