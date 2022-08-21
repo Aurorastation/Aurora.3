@@ -546,6 +546,11 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cult/tome{
+	name = "altar";
+	icon_state = "churchaltar";
+	desc = "A black stone altar dedicated to Minharrzka, the goddess of the waters and patroness of sailors."
+	},
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
 "fFU" = (
