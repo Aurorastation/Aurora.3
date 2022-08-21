@@ -5,3 +5,4 @@ delete-after: True
 changes:
   - tweak: "Tweaks unconsciousness so you are able to see 1.5 tiles around your character (including the tile they are on)."
   - rscadd: "Adds a informative message when losing consciousness."
+  - rscdel: "Removes paralysis from N2O as it was redundant."
