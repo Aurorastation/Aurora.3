@@ -1000,7 +1000,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/effect/shuttle_landmark/tajaran_smuggler_shuttle,
+/obj/effect/shuttle_landmark/tajaran_smuggler_shuttle/hangar,
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
 "lRa" = (
@@ -1103,6 +1103,10 @@
 	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
+/area/ship/tajaran_smuggler)
+"nmt" = (
+/obj/effect/shuttle_landmark/tajaran_smuggler/nav1,
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
 "nny" = (
@@ -1502,7 +1506,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tajaran_smuggler)
 "wrJ" = (
-/obj/effect/shuttle_landmark/sfa_shuttle/transit,
+/obj/effect/shuttle_landmark/tajaran_smuggler_shuttle/transit,
 /turf/space/transit/south,
 /area/space)
 "wBq" = (
@@ -35085,7 +35089,7 @@ mwV
 xmZ
 huE
 wBq
-wBq
+nmt
 huE
 xRX
 xRX

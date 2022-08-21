@@ -7,6 +7,7 @@ datum/map_template/ruin/away_site/tajaran_smuggler
 	spawn_cost = 1
 	id = "tajaran_smuggler"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajaran_smuggler_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /decl/submap_archetype/tajaran_smuggler
 	map = "Adhomian Freighter"
@@ -34,7 +35,7 @@ datum/map_template/ruin/away_site/tajaran_smuggler
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_restricted_waypoints = list(
-		"Freight Shuttle" = list("nav_tajaran_smuggler_shuttle")
+		"Adhomian Freight Shuttle" = list("nav_tajaran_smuggler_shuttle")
 	)
 
 	initial_generic_waypoints = list(
@@ -80,7 +81,7 @@ datum/map_template/ruin/away_site/tajaran_smuggler
 
 
 /datum/shuttle/autodock/overmap/tajaran_smuggler_shuttle
-	name = "Freight Shuttle"
+	name = "Adhomian Freight Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/tajaran_smuggler)
 	current_location = "nav_tajaran_smuggler_shuttle"
@@ -91,7 +92,7 @@ datum/map_template/ruin/away_site/tajaran_smuggler
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/tajaran_smuggler_shuttle/hangar
-	name = "Freight Shuttle Hangar"
+	name = "Adhomian Freight Shuttle Hangar"
 	landmark_tag = "nav_tajaran_smuggler_shuttle"
 	docking_controller = "tajaran_smuggler_shuttle_dock"
 	base_area = /area/ship/tajaran_smuggler
