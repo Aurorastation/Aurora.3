@@ -107,11 +107,6 @@
 	name = "marooning equipment duffel bag"
 	desc = "A duffel bag full of marooning equipment."
 	starts_with = list(
-		// Weapon
-		/obj/item/gun/energy/mousegun/xenofauna = 1,
-
-		// Equipment
-		/obj/item/crowbar/rescue_axe/red = 1,
 		/obj/item/crowbar/red = 1,
 		/obj/item/device/flashlight/heavy = 1,
 		/obj/item/device/gps/marooning_equipment = 1,
