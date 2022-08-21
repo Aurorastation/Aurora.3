@@ -10381,7 +10381,6 @@
 	dir = 2;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
-	is_critical = 1;
 	name = "Supermatter Reactor Crystal Viewing Blast Door";
 	opacity = 0
 	},
@@ -39901,7 +39900,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "EngineVent";
-	is_critical = 1;
 	name = "Supermatter Emergency Ventilatory Blast Door"
 	},
 /turf/simulated/floor/reinforced/airless,
