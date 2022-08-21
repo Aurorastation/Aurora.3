@@ -18,6 +18,9 @@
 	..()
 	atmosphere.remove_ratio(0.9)
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/get_surface_color()
+	return "#6C6251"
+
 /datum/random_map/noise/exoplanet/barren
 	descriptor = "barren exoplanet"
 	smoothing_iterations = 4
