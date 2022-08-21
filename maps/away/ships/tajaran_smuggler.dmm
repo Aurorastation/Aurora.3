@@ -344,7 +344,7 @@
 	id = "tajara_smuggler";
 	layer = 2.9
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/space)
 "cdD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -680,7 +680,7 @@
 	id = "tajara_smuggler";
 	layer = 2.9
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/space)
 "gXv" = (
 /obj/effect/floor_decal/industrial/warning{
