@@ -24486,6 +24486,10 @@
 "njB" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/storage/box/plasticbag{
+	pixel_x = 5;
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "njF" = (
