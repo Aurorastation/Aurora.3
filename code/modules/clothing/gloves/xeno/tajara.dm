@@ -62,10 +62,6 @@
 	with the Party. The average worker that labours in the industrial suburbs, can expect an honest living to be made, and a modest lifestyle to be led. The majority of the city labourers \
 	work in government run factories and spaceports, with stable but strict work hours and schedule the Hadii regime boasts of its fairness to the worker."
 
-/obj/item/clothing/gloves/black/tajara/smithgloves
-	name = "machinist gloves"
-	desc = "Protective leather gloves worn by Adhomian urban workers."
-
 /obj/item/clothing/gloves/tajaran_gauntlets
 	name = "adhomian gauntlets"
 	desc = "A pair of armored gauntlets made for Tajaran use."
