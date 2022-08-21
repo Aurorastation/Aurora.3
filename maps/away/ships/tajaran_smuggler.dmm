@@ -316,10 +316,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
-"bNj" = (
-/obj/effect/shuttle_landmark/sfa_patrol_ship/transit,
-/turf/space/transit/south,
-/area/space)
 "bOZ" = (
 /obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/carpet/art,
@@ -11583,7 +11579,7 @@ etL
 etL
 etL
 etL
-bNj
+etL
 etL
 etL
 etL
