@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/tirakqi_crew
 	short_name = "tirakqi_crew"
 	name = "Ti'Rakqi Qu'fup"
-	desc = "You crew the ship, mop the floors, cook the meals, and shoot whoever gets to close too the goods. Try to show some initiative!"
+	desc = "You crew the ship, mop the floors, cook the meals, and shoot whoever gets too close to the goods. Try to show some initiative!"
 	tags = list("External")
 
 	spawnpoints = list("tirakqi_crew")
