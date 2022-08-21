@@ -133,6 +133,10 @@
 /obj/structure/sign/poster{
 	pixel_y = -32
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "tajaran_smuggler";
+	name = "igs - tajaran_smuggler"
+	},
 /turf/simulated/floor/wood,
 /area/ship/tajaran_smuggler)
 "aGW" = (
@@ -647,11 +651,12 @@
 "gyl" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/head/beret/tajaran/pra,
-/obj/item/clothing/head/beret/tajaran/pra,
-/obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
 /obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
 /obj/item/clothing/under/tajaran/pra_uniform,
-/obj/item/clothing/under/tajaran/pra_uniform,
+/obj/item/clothing/shoes/tajara/armored,
+/obj/item/clothing/gloves/tajaran_gauntlets,
+/obj/item/clothing/suit/armor/cuirass,
+/obj/item/clothing/head/helmet/kettle,
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
 "gyL" = (
@@ -704,6 +709,14 @@
 "hjW" = (
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor,
+/area/ship/tajaran_smuggler)
+"hra" = (
+/obj/structure/bed/stool/bar/padded/red,
+/obj/effect/ghostspawpoint{
+	identifier = "tajaran_smuggler_captain";
+	name = "igs - tajaran_smuggler_captain"
+	},
+/turf/simulated/floor/wood,
 /area/ship/tajaran_smuggler)
 "huE" = (
 /obj/effect/map_effect/window_spawner/reinforced,
@@ -1551,6 +1564,10 @@
 "xCV" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/ghostspawpoint{
+	identifier = "tajaran_smuggler";
+	name = "igs - tajaran_smuggler"
+	},
 /turf/simulated/floor/wood,
 /area/ship/tajaran_smuggler)
 "xKJ" = (
@@ -1561,6 +1578,14 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/random/spacecash,
+/obj/item/clothing/under/suit_jacket,
+/obj/item/clothing/under/suit_jacket/burgundy,
+/obj/item/clothing/under/suit_jacket/charcoal,
+/obj/item/clothing/under/suit_jacket/checkered,
+/obj/item/clothing/under/suit_jacket/navy,
+/obj/item/clothing/under/suit_jacket/really_black,
+/obj/item/clothing/under/suit_jacket/white,
+/obj/item/clothing/under/suit_jacket/tan,
 /turf/simulated/floor/wood,
 /area/ship/tajaran_smuggler)
 "xRX" = (
@@ -31755,7 +31780,7 @@ jHa
 acx
 kWZ
 eOK
-kFw
+hra
 iQt
 aGW
 aCd

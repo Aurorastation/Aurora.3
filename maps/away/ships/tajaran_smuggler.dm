@@ -44,7 +44,7 @@ datum/map_template/ruin/away_site/tajaran_smuggler
 	)
 
 /obj/effect/overmap/visitable/ship/tajaran_smuggler/New()
-    designation = "[pick("Tuckerbag", "Do No Harm", "Volatile Cargo", "Stay Clear", "Entrepreneurial", "Good Things Only", "Worthless", "Skip This One", "Pay No Mind", "Customs-Cleared", "Friendly", "Reactor Leak", "Fool's Gold", "Cursed Cargo", "Guards Aboard")]"
+    designation = "[pick("Brave Ha'rron", "Trickster Farwa", "Legal and Safe Cargo", "Adhomian Trader", "Minharrzka", "Rredouane's Chosen", "Adhomai's Pride")]"
     ..()
 
 /obj/effect/shuttle_landmark/tajaran_smuggler/nav1
