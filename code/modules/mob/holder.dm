@@ -636,6 +636,10 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "fox_rest"
 	item_state = "fox"
 
+/obj/item/holder/pai/schlorrgo
+	icon_state = "schlorrgo_rest"
+	item_state = "schlorrgo"
+
 /obj/item/holder/pai/custom
 	var/customsprite = 1
 
