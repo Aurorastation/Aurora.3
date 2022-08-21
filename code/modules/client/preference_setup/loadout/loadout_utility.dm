@@ -158,7 +158,7 @@
 
 /datum/gear/utility/plasticbag
 	display_name = "resealable plastic bag"
-	path = /obj/item/evidencebag/plastic_bag
+	path = /obj/item/evidencebag/plasticbag
 
 /datum/gear/utility/buddy_tag/New()
 	..()
