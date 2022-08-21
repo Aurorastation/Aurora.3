@@ -1,7 +1,8 @@
-//
-// Areas
-//
+// Areas.dm
 
+
+
+// ===
 /area
 	var/global/global_uid = 0
 	var/uid
@@ -45,6 +46,7 @@
 	var/air_doors_activated = 0
 	var/list/ambience = list()
 	var/list/forced_ambience = null
+	var/loop_ambience = TRUE
 	var/sound_env = STANDARD_STATION
 	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
 	var/no_light_control = 0		// if 1, lights in area cannot be toggled with light controller
@@ -261,7 +263,7 @@
 var/list/mob/living/forced_ambiance_list = new
 
 /area/Entered(mob/living/L)
-	if(!istype(L, /mob/living) || !ROUND_IS_STARTED)
+	if(!istype(L,/mob/living) || !ROUND_IS_STARTED)
 		return
 
 	if(!L.ckey)	return
@@ -270,50 +272,41 @@ var/list/mob/living/forced_ambiance_list = new
 		L.lastarea = get_area(L.loc)
 	var/area/newarea = get_area(L.loc)
 	var/area/oldarea = L.lastarea
-	if((oldarea.has_gravity() == FALSE) && (newarea.has_gravity() == TRUE) && (L.m_intent == M_RUN)) // Being ready when you change areas gives you a chance to avoid falling all together.
+	if((oldarea.has_gravity() == 0) && (newarea.has_gravity() == 1) && (L.m_intent == M_RUN)) // Being ready when you change areas gives you a chance to avoid falling all together.
 		thunk(L)
-		L.update_floating(L.Check_Dense_Object())
+		L.update_floating( L.Check_Dense_Object() )
 
 	L.lastarea = newarea
 
-	// Start playing ambience.
-	if(L && L.client && (L.client.prefs.asfx_togs & ASFX_AMBIENCE) && !L.ear_deaf)
-		play_ambience(L)
-	else
-		stop_ambience(L)
+	// Ambience goes down here -- make sure to list each area seperately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
+	if(!(L && L.client && (L.client.prefs.asfx_togs & ASFX_AMBIENCE)))	return
 
-	// The dreaded ship ambience hum.
-	// Explanation for the "if" clause: If the mob exists, has a client, the client has the hum ASFX toggled on, the area the mob is in is a station area,
-	// the mob isn't deaf, and the client doesn't already have the ambient hum playing, then start playing the ambient hum.
-	if(L && L.client && (L.client.prefs.asfx_togs & ASFX_HUM) && newarea.station_area && !L.ear_deaf)
-		if(!L.client.ambient_hum_playing)
-			L.client.ambient_hum_playing = TRUE
-			L << sound('sound/ambience/shipambience.ogg', repeat = 1, volume = 35, channel = 2)
-	// Otherwise, stop playing the ambient hum.
-	else
-		L << sound(null, channel = 2)
-		L.client.ambient_hum_playing = FALSE
+	play_ambience(L)
 
 /area/proc/play_ambience(var/mob/living/L)
-	// If we previously were in an area with force played ambience, stop it.
+	// Ambience goes down here -- make sure to list each area seperately for ease of adding things in later, thanks! Note: areas adjacent to each other should have the same sounds to prevent cutoff when possible.- LastyScratch
+	if(!(L && L.client && (L.client.prefs.toggles & SOUND_AMBIENCE)))	return
+
+	// If we previously were in an area with force-played ambiance, stop it.
 	if(L in forced_ambiance_list)
 		L << sound(null, channel = 1)
 		forced_ambiance_list -= L
 
+	if(!L.client.ambience_playing)
+		L.client.ambience_playing = 1
+		L << sound('sound/ambience/shipambience.ogg', repeat = loop_ambience, wait = 0, volume = 35, channel = 2)
+
 	if(forced_ambience)
 		if(forced_ambience.len)
 			forced_ambiance_list |= L
-			L << sound(pick(forced_ambience), repeat = 1, volume = 30, channel = 1)
+			L << sound(pick(forced_ambience), repeat = loop_ambience, wait = 0, volume = 25, channel = 1)
 		else
 			L << sound(null, channel = 1)
-	else if(src.ambience.len)
-		if((world.time >= L.client.ambience_last_played_time + 30 SECONDS))
+	else if(src.ambience.len && prob(35))
+		if((world.time >= L.client.played + 600))
 			var/sound = pick(ambience)
-			L << sound(sound, volume = 30, channel = 1)
-			L.client.ambience_last_played_time = world.time
-
-/area/proc/stop_ambience(var/mob/living/L)
-	L << sound(null, channel = 1)
+			L << sound(sound, repeat = 0, wait = 0, volume = 25, channel = 1)
+			L.client.played = world.time
 
 /area/proc/gravitychange(var/gravitystate = 0)
 	has_gravity = gravitystate
@@ -340,7 +333,7 @@ var/list/mob/living/forced_ambiance_list = new
 		else
 			H.AdjustStunned(1)
 			H.AdjustWeakened(1)
-		to_chat(mob, SPAN_WARNING("The sudden appearance of gravity makes you fall to the floor!"))
+		to_chat(mob, "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>")
 
 /area/proc/prison_break()
 	for(var/obj/machinery/power/apc/temp_apc in src)

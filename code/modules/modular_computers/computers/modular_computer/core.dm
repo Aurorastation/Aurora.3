@@ -46,9 +46,9 @@
 	working = hard_drive && processor_unit && damage < broken_damage && computer_use_power()
 	check_update_ui_need()
 
-	if(!is_portable && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
-		playsound(get_turf(src), /decl/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
-		ambience_last_played_time = world.time
+	if(working && enabled && world.time > ambience_last_played + 30 SECONDS && prob(3))
+		playsound(get_turf(src), /decl/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = SOUND_AMBIENCE)
+		ambience_last_played = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(preset_type)
 	for(var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)

@@ -110,6 +110,7 @@
 	to_chat(src, "You will [(prefs.toggles & CHAT_OOC) ? "now" : "no longer"] see messages on the OOC channel.")
 	feedback_add_details("admin_verb","TOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+
 /client/verb/listen_looc()
 	set name = "Show/Hide LOOC (All)"
 	set category = "Preferences"
@@ -143,6 +144,21 @@
 
 	to_chat(src, "You will [!(prefs.toggles & CHAT_NOICONS) ? "now" : "no longer"] see chat tag icons.")
 	feedback_add_details("admin_verb","TCTAG") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+
+/client/verb/Toggle_Soundscape() //All new ambience should be added here so it works with this verb until someone better at things comes up with a fix that isn't awful
+	set name = "Hear/Silence Ambience"
+	set category = "Preferences"
+	set desc = "Toggles hearing ambient sound effects"
+	prefs.toggles ^= SOUND_AMBIENCE
+	prefs.save_preferences()
+	if(prefs.toggles & SOUND_AMBIENCE)
+		to_chat(src, "You will now hear ambient sounds.")
+	else
+		to_chat(src, "You will no longer hear ambient sounds.")
+		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 1)
+		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 2)
+	feedback_add_details("admin_verb","TAmbi") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/toggle_progress()
 	set name = "Show/Hide Progress Bars"
