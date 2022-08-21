@@ -1,7 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - maptweak: "Tweaks engineering and atmospherics to add QoL features and to polish the mapping."
-  - bugfix: "Fixes missing \"open spaces\" on deck 3."
