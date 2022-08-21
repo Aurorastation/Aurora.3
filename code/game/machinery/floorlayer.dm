@@ -12,7 +12,7 @@
 
 /obj/machinery/floorlayer/Initialize()
 	. = ..()
-	T = new /obj/item/stack/tile/floor/full(src)
+	T = new /obj/item/stack/tile/floor/full_stack(src)
 
 /obj/machinery/floorlayer/Move(new_turf,M_Dir)
 	..()
