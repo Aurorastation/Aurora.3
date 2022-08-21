@@ -472,6 +472,7 @@
 /obj/random/contraband,
 /obj/random/contraband,
 /obj/random/contraband,
+/obj/item/material/knife/raskariim,
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
 "eYk" = (
@@ -1105,10 +1106,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
-"nmt" = (
-/obj/effect/shuttle_landmark/tajaran_smuggler/nav1,
-/turf/simulated/floor,
-/area/ship/tajaran_smuggler)
 "nny" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -1426,6 +1423,10 @@
 	name = "Cargo Section"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/tajaran_smuggler)
+"vtM" = (
+/obj/effect/shuttle_landmark/tajaran_smuggler/nav1,
+/turf/simulated/floor,
 /area/ship/tajaran_smuggler)
 "vwF" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -33535,7 +33536,7 @@ bfg
 wBq
 wBq
 vxN
-wBq
+bfg
 wBq
 wBq
 wBq
@@ -35089,7 +35090,7 @@ mwV
 xmZ
 huE
 wBq
-nmt
+vtM
 huE
 xRX
 xRX
