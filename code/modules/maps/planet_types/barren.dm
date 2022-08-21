@@ -76,5 +76,5 @@
 					/mob/living/simple_animal/hostile/carp/shark/reaver/eel, /mob/living/simple_animal/hostile/gnat)
 
 /area/exoplanet/barren/asteroid
-	name = "\improper Asteroi surface"
+	name = "\improper Asteroid Surface"
 	base_turf = /turf/unsimulated/floor/asteroid/ash

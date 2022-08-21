@@ -4582,7 +4582,6 @@
 	reagent_data = list(/decl/reagent/nutriment = list("regret" = 6))
 	filling_color = "#B042FF"
 
-// Ligger food and also bacon
 /obj/item/reagent_containers/food/snacks/rawbacon
 	name = "raw bacon"
 	desc = "A very thin piece of raw meat, cut from beef."
@@ -4660,7 +4659,7 @@
 	filling_color = "#FC5647"
 
 /obj/item/reagent_containers/food/snacks/stuffed_meatball
-	name = "stuffed meatball" //YES
+	name = "stuffed meatball"
 	desc = "A meatball loaded with cheese."
 	icon_state = "stuffed_meatball"
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 4)
