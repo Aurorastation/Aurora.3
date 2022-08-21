@@ -818,6 +818,12 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
+"bC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "bD" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
@@ -13360,6 +13366,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"yx" = (
+/obj/structure/lattice/catwalk,
+/turf/simulated/open/airless,
+/area/horizon/exterior)
 "yy" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Crew Armoury Desk";
@@ -45292,7 +45302,7 @@ aa
 aa
 aa
 aa
-Io
+bC
 Vu
 kS
 kS
@@ -45495,7 +45505,7 @@ aa
 aa
 aa
 aa
-Io
+bC
 Vu
 kS
 kS
@@ -45698,7 +45708,7 @@ aa
 aa
 aa
 aa
-Io
+bC
 Vu
 kS
 sS
@@ -46507,7 +46517,7 @@ aa
 aa
 aa
 aa
-Io
+bC
 Vu
 kS
 kS
@@ -46912,7 +46922,7 @@ aa
 aa
 aa
 aa
-Io
+bC
 Vu
 kS
 lG
@@ -47115,7 +47125,7 @@ aa
 aa
 aa
 aa
-Io
+bC
 Ds
 Ds
 Ds
@@ -49541,7 +49551,7 @@ Wm
 Wm
 RF
 TE
-SP
+yx
 YB
 OM
 RF
@@ -49742,7 +49752,7 @@ Wm
 Wm
 Wm
 MQ
-SP
+yx
 CB
 CB
 pP
@@ -54180,7 +54190,7 @@ Wm
 Wm
 Wm
 Wm
-Io
+bC
 Vu
 kS
 kS
@@ -54383,7 +54393,7 @@ Wm
 Wm
 Wm
 Wm
-Io
+bC
 Vu
 kS
 bk
@@ -54788,7 +54798,7 @@ Wm
 Wm
 Wm
 Wm
-Io
+bC
 Ds
 Ds
 Vu
@@ -55397,7 +55407,7 @@ Wm
 Wm
 Wm
 Wm
-Io
+bC
 Ds
 Ds
 Ds
@@ -55813,7 +55823,7 @@ Wm
 Wm
 zy
 RF
-Io
+bC
 Vu
 kS
 kS
@@ -56622,7 +56632,7 @@ Wm
 En
 ea
 JY
-Io
+bC
 Ds
 Ds
 Ds
