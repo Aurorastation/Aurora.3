@@ -13726,10 +13726,10 @@
 /area/operations/lobby)
 "heH" = (
 /obj/machinery/suit_storage_unit/standard_unit,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "hfh" = (
@@ -22348,6 +22348,10 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/medical/main_storage)
+"lPk" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/conference)
 "lPn" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -24853,7 +24857,6 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
-/obj/machinery/hologram/holopad,
 /obj/machinery/requests_console{
 	department = "Research and Development";
 	departmentType = 2;
@@ -36844,6 +36847,9 @@
 	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
@@ -74046,7 +74052,7 @@ aov
 rnA
 bSD
 rDh
-huw
+lPk
 dgZ
 huw
 uGW
