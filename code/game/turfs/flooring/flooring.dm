@@ -97,7 +97,7 @@
 	footstep_sound = /decl/sound_category/tiles_footstep
 
 /decl/flooring/tiling/full
-	name = "full steel tiles"
+	name = "full steel tile"
 	desc = "A full steel floor tile."
 	icon_base = "steel_full"
 	build_type = /obj/item/stack/tile/floor/full
