@@ -1100,3 +1100,27 @@
 
 /obj/structure/sign/flag/vysoka/right
 	icon_state = "vysoka_r"
+
+/obj/item/flag/konyang
+	name = "Konyang flag"
+	desc = "The flag of Konyang."
+	desc_fluff = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of \
+	the new state, with the color blue representing the waterways the planet is known for and yellow, their aim of prosperity. The white background represents Konyang's purity."
+	flag_path = "konyang"
+
+/obj/structure/sign/flag/konyang
+	name = "Konyang flag"
+	desc = "The flag of Konyang."
+	desc_fluff = "The white, blue and yellow flag of Konyang was adopted in 2462, having unofficially been used by pro-autonomy circles long before the declaration of independence. The traditional taitju represents peace and harmony as the highest values of \
+	the new state, with the color blue representing the waterways the planet is known for and yellow, their aim of prosperity. The white background represents Konyang's purity."
+	icon_state = "konyang"
+
+/obj/item/flag/konyang/l
+	name = "large Konyang flag"
+	flag_size = 1
+
+/obj/structure/sign/flag/konyang/left
+	icon_state = "konyang_l"
+
+/obj/structure/sign/flag/konyang/right
+	icon_state = "konyang_r"
