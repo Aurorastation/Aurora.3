@@ -8744,7 +8744,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/machinery/camera/network/engine{
+/obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Engine Fore";
 	dir = 4
 	},
@@ -11467,7 +11467,7 @@
 	},
 /area/mine/unexplored)
 "avs" = (
-/obj/machinery/camera/network/engine{
+/obj/machinery/camera/network/reactor{
 	c_tag = "Engine Core West";
 	dir = 4
 	},
@@ -12505,7 +12505,7 @@
 /obj/structure/cable/orange{
 	icon_state = "1-2"
 	},
-/obj/machinery/camera/network/engine{
+/obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Engine Starboard";
 	dir = 8
 	},
@@ -16665,7 +16665,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/machinery/camera/network/engine{
+/obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Engine Aft";
 	dir = 4
 	},
