@@ -29,7 +29,7 @@
 		"Airlock"				=	'sound/machines/airlock.ogg',
 		"Airlock Creak"			=	'sound/machines/airlock_open_force.ogg',
 
-		"Shotgun Pumping"		=	'sound/weapons/reloads/shotgun_pump.ogg',
+		"Shotgun Pumping"		=	'sound/weapons/shotgun_pump.ogg',
 		"Flash"					=	'sound/weapons/flash.ogg',
 		"Bite"					=	'sound/weapons/bite.ogg',
 		"Low-Caliber Gun Firing"=	'sound/weapons/gunshot/gunshot_light.ogg',
