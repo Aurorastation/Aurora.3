@@ -7,7 +7,6 @@ datum/map_template/ruin/away_site/tajaran_smuggler
 	spawn_cost = 1
 	id = "tajaran_smuggler"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajaran_smuggler_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /decl/submap_archetype/tajaran_smuggler
 	map = "Adhomian Freighter"
