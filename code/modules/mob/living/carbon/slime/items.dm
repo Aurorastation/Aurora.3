@@ -14,7 +14,7 @@
 	flags = OPENCONTAINER
 
 /obj/item/slime_extract/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/slimesteroid2))
+	if(istype(O, /obj/item/extract_enhancer))
 		if(enhanced)
 			to_chat(user, SPAN_WARNING("This extract has already been enhanced!"))
 			return ..()
@@ -123,36 +123,37 @@
 
 ////Pet Slime Creation///
 
-/obj/item/slimepotion
-	name = "docility potion"
-	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame."
+/obj/item/docility_serum
+	name = "docility serum"
+	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for baby slimes."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle-1"
 
-/obj/item/slimepotion/Initialize() // Better than hardsprited in stuff.
+/obj/item/docility_serum/Initialize() // Better than hardsprited in stuff.
 	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
 	filling.color = COLOR_PINK
 	add_overlay(filling)
 
-/obj/item/slimepotion/attack(var/mob/living/carbon/slime/M, var/mob/user)
-	if(!istype(M, /mob/living/carbon/slime)) //If target is not a slime.
-		to_chat(user, SPAN_WARNING("The potion only works on baby slimes!"))
-		return ..()
-	if(M.is_adult) //Can't tame adults
-		to_chat(user, SPAN_WARNING("Only baby slimes can be tamed!"))
+/obj/item/docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
+	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
+		to_chat(user, SPAN_WARNING("The docility serum only works on slimes!"))
 		return ..()
 	if(M.stat)
 		to_chat(user, SPAN_WARNING("The slime is dead!"))
-		return..()
-	if(M.mind)
-		to_chat(user, SPAN_WARNING("The slime resists!"))
 		return ..()
+	if(M.mind)
+		to_chat(user, SPAN_WARNING("The slime is too intelligent to be pacified!"))
+		return ..()
+	if(M.is_adult)	
+		to_chat(user, SPAN_WARNING("The serum isn't advanced enough to affect adult slimes."))
+		return ..()
+
 	var/mob/living/simple_animal/slime/pet = new /mob/living/simple_animal/slime(M.loc)
 	pet.icon_state = "[M.colour] baby slime"
 	pet.icon_living = "[M.colour] baby slime"
 	pet.icon_dead = "[M.colour] baby slime dead"
 	pet.colour = "[M.colour]"
-	to_chat(user, SPAN_NOTICE("You feed the slime the potion, removing its powers and calming it."))
+	to_chat(user, SPAN_NOTICE("You feed the slime the docility serum, removing its powers and calming it."))
 	qdel(M)
 
 	var/newname = sanitize(input(user, "Would you like to give the slime a name?", "Name your new pet", "pet slime") as null|text, MAX_NAME_LEN)
@@ -162,36 +163,40 @@
 	pet.real_name = newname
 	qdel(src)
 
-/obj/item/slimepotion2
-	name = "advanced docility potion"
+/obj/item/advanced_docility_serum
+	name = "advanced docility serum"
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for adult slimes"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle-1"
 
-/obj/item/slimepotion2/Initialize() // Better than hardsprited in stuff.
+/obj/item/advanced_docility_serum/Initialize() // Better than hardsprited in stuff.
 	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
-	filling.color = COLOR_PINK
+	filling.color = COLOR_PALE_PINK
 	add_overlay(filling)
 
-/obj/item/slimepotion2/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
+/obj/item/advanced_docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
-		to_chat(user, SPAN_WARNING("The potion only works on slimes!"))
+		to_chat(user, SPAN_WARNING("The docility serum only works on slimes!"))
 		return ..()
 	if(M.stat)
 		to_chat(user, SPAN_WARNING("The slime is dead!"))
 		return ..()
 	if(M.mind)
-		to_chat(user, SPAN_WARNING("The slime resists!"))
+		to_chat(user, SPAN_WARNING("The slime is too intelligent to be pacified!"))
 		return ..()
-	var/mob/living/simple_animal/adultslime/pet = new /mob/living/simple_animal/adultslime(M.loc)
+	if(!M.is_adult)	
+		to_chat(user, SPAN_WARNING("The serum is too advanced to affect baby slimes."))
+		return ..()
+
+	var/mob/living/simple_animal/adultslime/pet = new /mob/living/simple_animal/slime(M.loc)
 	pet.icon_state = "[M.colour] adult slime"
 	pet.icon_living = "[M.colour] adult slime"
 	pet.icon_dead = "[M.colour] baby slime dead"
 	pet.colour = "[M.colour]"
-	to_chat(user, "You feed the slime the potion, removing it's powers and calming it.")
+	to_chat(user, SPAN_NOTICE("You feed the slime the advanced docility serum, removing its powers and calming it."))
 	qdel(M)
-	var/newname = sanitize(input(user, "Would you like to give the slime a name?", "Name your new pet", "pet slime") as null|text, MAX_NAME_LEN)
 
+	var/newname = sanitize(input(user, "Would you like to give the slime a name?", "Name your new pet", "pet slime") as null|text, MAX_NAME_LEN)
 	if(!newname)
 		newname = "pet slime"
 	pet.name = newname
@@ -227,13 +232,13 @@
 	M.cores *= 3
 	qdel(src)
 
-/obj/item/slimesteroid2
+/obj/item/extract_enhancer
 	name = "extract enhancer"
 	desc = "A potent chemical mix that will give a slime extract three uses."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle-1"
 
-/obj/item/slimesteroid2/Initialize() // Better than hardsprited in stuff.
+/obj/item/extract_enhancer/Initialize() // Better than hardsprited in stuff.
 	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-100")
 	filling.color = COLOR_BLUE
 	add_overlay(filling)
