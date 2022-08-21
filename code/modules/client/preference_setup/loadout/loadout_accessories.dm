@@ -236,6 +236,7 @@
 	shirt["blouse"] = /obj/item/clothing/accessory/blouse
 	shirt["long-sleeved blouse"] = /obj/item/clothing/accessory/longblouse
 	shirt["puffy blouse"] = /obj/item/clothing/accessory/puffyblouse
+	shirt["halter top"] = /obj/item/clothing/accessory/haltertop
 	gear_tweaks += new /datum/gear_tweak/path(shirt)
 
 /datum/gear/accessory/silversun

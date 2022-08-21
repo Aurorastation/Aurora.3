@@ -761,6 +761,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/civilian_station)
 "fat" = (
@@ -1161,6 +1162,10 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
+/area/civilian_station)
+"iDG" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/dark,
 /area/civilian_station)
 "iHR" = (
 /obj/machinery/light{
@@ -2280,6 +2285,16 @@
 /area/civilian_station)
 "wji" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/civilian_station)
+"wtR" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "wJk" = (
@@ -32678,7 +32693,7 @@ ygr
 ndF
 ndF
 ndF
-ndF
+iDG
 jiW
 upu
 aVe
@@ -34986,7 +35001,7 @@ iVQ
 xfD
 ooO
 xfD
-iVQ
+wtR
 ygr
 xRX
 xRX
