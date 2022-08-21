@@ -910,7 +910,7 @@
 	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "ave" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -2450,8 +2450,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "beK" = (
 /obj/structure/cable/green{
@@ -3941,8 +3940,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "bTg" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "bTo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4079,8 +4077,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "bXB" = (
 /obj/structure/cable/green{
@@ -5238,6 +5235,7 @@
 	output_attempt = 1;
 	output_level = 500000
 	},
+/obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating,
 /area/engineering/smes/tesla)
 "cKJ" = (
@@ -5713,8 +5711,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "cYy" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "cZa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7126,8 +7123,7 @@
 /obj/structure/cable/orange{
 	icon_state = "2-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "dKE" = (
 /obj/structure/closet/l3closet/scientist,
@@ -7489,14 +7485,13 @@
 	icon_state = "2-4"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "dVY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -7734,7 +7729,7 @@
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "ecV" = (
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "edY" = (
 /obj/machinery/vending/zora,
@@ -8223,7 +8218,7 @@
 	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "etv" = (
 /obj/item/storage/bag/circuits/basic,
@@ -11219,6 +11214,12 @@
 /obj/machinery/power/breakerbox{
 	RCon_tag = "Tesla Grid Bypass"
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/smes/tesla)
 "fWG" = (
@@ -11327,8 +11328,7 @@
 /obj/structure/sign/electricshock/tesla{
 	pixel_x = 32
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "fZV" = (
 /obj/structure/cable{
@@ -11776,7 +11776,7 @@
 	name = "Tesla Reactor Fore Storage Shutters"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "gkB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -12059,8 +12059,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "gqY" = (
 /obj/structure/bookcase/libraryspawn/fiction,
@@ -13336,20 +13335,9 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "gWf" = (
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "EngineVent";
-	name = "Reactor Vent"
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/engineering/engine_room)
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_monitoring)
 "gWW" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -13483,8 +13471,7 @@
 /obj/structure/sign/electricshock/tesla{
 	pixel_x = -32
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "haI" = (
 /obj/machinery/light{
@@ -13560,7 +13547,7 @@
 /obj/structure/sign/electricshock/tesla{
 	pixel_x = -32
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "hed" = (
 /obj/structure/table/standard,
@@ -14049,8 +14036,7 @@
 	c_tag = "Engineering - SMES Room 1";
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "hpA" = (
 /obj/machinery/chem_master,
@@ -14247,8 +14233,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "hvm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -14513,8 +14498,7 @@
 	dir = 1
 	},
 /obj/machinery/firealarm/south,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "hCj" = (
 /obj/machinery/conveyor{
@@ -15683,15 +15667,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
 "ikT" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/structure/cable/orange{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_engineering{
-	name = "Tesla Reactor Bay";
-	req_access = list(11)
-	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "ilm" = (
 /obj/structure/grille/diagonal{
@@ -15999,10 +15979,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "iwC" = (
 /obj/machinery/cryopod/living_quarters{
@@ -16322,10 +16301,9 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
 "iHq" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "iHH" = (
 /obj/structure/cable{
@@ -16398,8 +16376,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "iIM" = (
 /obj/structure/cable/green{
@@ -17846,8 +17823,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "jri" = (
 /turf/simulated/floor/plating,
@@ -18512,8 +18488,7 @@
 /obj/structure/cable/orange{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "jLH" = (
 /obj/structure/closet/radiation,
@@ -18969,7 +18944,7 @@
 	req_access = list(11);
 	name = "Tesla Reactor Maintenance"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "jWV" = (
 /turf/simulated/wall,
@@ -21250,7 +21225,7 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "lnO" = (
 /obj/machinery/door/airlock/service{
@@ -21337,8 +21312,7 @@
 	dir = 8;
 	pixel_x = -24
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "lrQ" = (
 /obj/machinery/light/small/red{
@@ -24171,10 +24145,9 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "mPl" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -24340,8 +24313,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "mUy" = (
 /obj/machinery/door/firedoor,
@@ -25560,8 +25532,7 @@
 /obj/structure/sign/electricshock/tesla{
 	pixel_y = 32
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "nzv" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -25608,6 +25579,9 @@
 "nAO" = (
 /obj/structure/cable/orange{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
@@ -25838,8 +25812,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "nGI" = (
 /turf/simulated/floor/tiled,
@@ -27245,8 +27218,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "oyD" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -28411,7 +28383,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "pbS" = (
 /obj/effect/floor_decal/spline/plain{
@@ -29929,8 +29901,7 @@
 /obj/machinery/light/spot/weak{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "pRo" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -30055,7 +30026,7 @@
 	c_tag = "Engineering - SMES Room 2";
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "pVg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -30101,8 +30072,7 @@
 /obj/structure/sign/electricshock/tesla{
 	pixel_x = 32
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "pWb" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
@@ -30257,8 +30227,7 @@
 /area/engineering/lobby)
 "qao" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "qar" = (
 /obj/structure/lattice,
@@ -32333,8 +32302,7 @@
 /obj/structure/sign/electricshock/tesla{
 	pixel_x = 42
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "rew" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -32541,8 +32509,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "rkZ" = (
 /obj/structure/closet/secure_closet/security,
@@ -32568,8 +32535,7 @@
 /obj/machinery/light/spot/weak{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "rlp" = (
 /obj/structure/cable/green{
@@ -32636,8 +32602,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "rns" = (
 /obj/structure/cable/green{
@@ -33077,8 +33042,7 @@
 /obj/structure/sign/electricshock/tesla{
 	pixel_x = -32
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "rxk" = (
 /obj/structure/disposalpipe/segment{
@@ -34388,6 +34352,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_monitoring/tesla)
 "seV" = (
@@ -34458,8 +34425,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "sig" = (
 /turf/simulated/wall/r_wall,
@@ -34906,14 +34872,13 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "svf" = (
 /obj/structure/shuttle_part/scc_space_ship{
@@ -35314,8 +35279,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "sKn" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -35705,8 +35669,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "sWS" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -36616,14 +36579,13 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "txc" = (
 /obj/structure/closet/crate/software_backup,
@@ -37183,8 +37145,7 @@
 /area/engineering/storage/tech)
 "tKs" = (
 /obj/machinery/firealarm/north,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "tKw" = (
 /obj/effect/floor_decal/corner/blue{
@@ -37691,8 +37652,7 @@
 	c_tag = "Engineering - Tesla Room 1";
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "tZs" = (
 /obj/structure/bed/stool/chair/sofa/left/brown,
@@ -38062,7 +38022,7 @@
 	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "ujk" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -38697,12 +38657,11 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "uwe" = (
 /obj/machinery/door/firedoor,
@@ -38845,8 +38804,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/firealarm/south,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "uzL" = (
 /obj/structure/table/standard,
@@ -39098,8 +39056,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "uGv" = (
 /obj/effect/floor_decal/corner/green{
@@ -39844,8 +39801,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "uZD" = (
 /obj/machinery/light{
@@ -40070,16 +40026,12 @@
 /turf/simulated/floor/tiled,
 /area/security/armory)
 "vgZ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "vhe" = (
 /obj/machinery/light/small{
@@ -40848,16 +40800,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_port)
 "vEo" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "vFw" = (
 /obj/machinery/light,
@@ -40924,8 +40872,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "vGT" = (
 /obj/machinery/media/jukebox/audioconsole/wall{
@@ -41372,14 +41319,13 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "vQs" = (
 /obj/structure/railing/mapped,
@@ -41511,8 +41457,7 @@
 /obj/structure/cable/orange{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "vTJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -41889,7 +41834,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "vZx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -42737,13 +42682,12 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "wsV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -44285,7 +44229,7 @@
 	name = "Tesla Reactor Fore Storage Shutters"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "xhf" = (
 /obj/effect/floor_decal/corner/lime/full{
@@ -45145,8 +45089,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "xHv" = (
 /obj/structure/table/reinforced,
