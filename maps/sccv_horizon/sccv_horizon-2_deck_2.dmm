@@ -8178,6 +8178,9 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "erH" = (
@@ -12318,10 +12321,7 @@
 /area/horizon/bar)
 "gwP" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "gwY" = (
@@ -18955,11 +18955,11 @@
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "jYg" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
 /obj/machinery/light{
-	dir = 1
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
@@ -21713,9 +21713,7 @@
 /area/maintenance/wing/starboard)
 "lER" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "lFn" = (
@@ -22870,11 +22868,11 @@
 /turf/simulated/floor/plating,
 /area/turret_protected/ai_upload)
 "mgW" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
 /obj/machinery/light{
-	dir = 1
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
@@ -27926,6 +27924,16 @@
 /obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
+"oRl" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/structure/sign/radiation{
+	pixel_y = 32;
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room)
 "oRn" = (
 /obj/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk{
@@ -29648,7 +29656,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
@@ -30440,6 +30448,10 @@
 /area/medical/surgery)
 "qgz" = (
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/structure/sign/radiation{
+	pixel_y = -32;
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "qgL" = (
@@ -32522,9 +32534,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "rlj" = (
@@ -33147,6 +33157,10 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/structure/sign/radiation{
+	pixel_y = -32;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "rAd" = (
@@ -33553,6 +33567,16 @@
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
+"rLm" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/structure/sign/radiation{
+	pixel_y = 32;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room)
 "rLn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
@@ -45602,9 +45626,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "xVz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
 "xVB" = (
@@ -59918,15 +59940,15 @@ xPj
 oSQ
 wcr
 wcr
-wcr
-wcr
-wcr
-wcr
-wcr
-wcr
-wcr
-wcr
-wcr
+hMy
+hMy
+hMy
+hMy
+hMy
+hMy
+hMy
+hMy
+hMy
 hMy
 fQA
 rwe
@@ -60119,8 +60141,8 @@ oSQ
 lVd
 xPj
 wcr
-wcr
-wcr
+hMy
+hMy
 bAe
 oZh
 pDK
@@ -60321,8 +60343,8 @@ xPj
 oSQ
 wcr
 wcr
-wcr
-sSY
+hMy
+sLp
 vUO
 usW
 auc
@@ -60522,9 +60544,9 @@ xPj
 lVd
 xPj
 wcr
-wcr
+hMy
+hMy
 sLp
-sSY
 fMh
 riM
 ura
@@ -60724,7 +60746,7 @@ lVd
 xPj
 wcr
 wcr
-wcr
+hMy
 sLp
 sSY
 weu
@@ -60925,8 +60947,8 @@ lVd
 xPj
 wcr
 wcr
-wcr
-wcr
+hMy
+hMy
 mYs
 sSY
 weu
@@ -61126,8 +61148,8 @@ oSQ
 oSQ
 wcr
 wcr
-wcr
-wcr
+hMy
+hMy
 kDG
 mWY
 fwS
@@ -61327,8 +61349,8 @@ bxp
 oSQ
 oSQ
 wcr
-wcr
-wcr
+hMy
+hMy
 vPu
 ptk
 ptk
@@ -61529,7 +61551,7 @@ bxp
 oSQ
 oSQ
 sui
-sui
+egl
 jYg
 iKv
 qgz
@@ -61538,7 +61560,7 @@ vrC
 kug
 vrC
 avy
-uSq
+oRl
 mOI
 rTZ
 pfb
@@ -61731,8 +61753,8 @@ bxp
 oSQ
 oSQ
 sui
-sui
 kgc
+vrC
 smr
 lIz
 hMy
@@ -61933,7 +61955,7 @@ bxp
 oSQ
 oSQ
 wcr
-wcr
+hMy
 bcP
 hMy
 bcP
@@ -62337,7 +62359,7 @@ bxp
 oSQ
 rwn
 wcr
-wcr
+hMy
 bcP
 hMy
 bcP
@@ -62539,8 +62561,8 @@ bxp
 oSQ
 oSQ
 sui
-sui
 egl
+ptk
 hfx
 ygx
 hMy
@@ -62741,7 +62763,7 @@ bxp
 oSQ
 oSQ
 sui
-sui
+kgc
 mgW
 uSq
 rzD
@@ -62750,7 +62772,7 @@ ptk
 dYg
 ptk
 iOI
-iKv
+rLm
 mOI
 rTZ
 dPM
@@ -62943,8 +62965,8 @@ bxp
 oSQ
 oSQ
 wcr
-wcr
-wcr
+hMy
+hMy
 tHd
 vrC
 vrC
@@ -63146,8 +63168,8 @@ oSQ
 oSQ
 wcr
 wcr
-wcr
-wcr
+hMy
+hMy
 eah
 mWY
 kPn
@@ -63349,8 +63371,8 @@ rMw
 rrN
 wcr
 wcr
-wcr
-wcr
+hMy
+hMy
 sNe
 xGT
 kZr
@@ -63552,7 +63574,7 @@ rMw
 rrN
 tNa
 tNa
-tNa
+gsz
 gsz
 gsz
 rPY
@@ -63754,7 +63776,7 @@ rrN
 rMw
 rrN
 tNa
-tNa
+gsz
 xVz
 gwP
 pLA
@@ -63956,7 +63978,7 @@ rMw
 rrN
 oSQ
 tNa
-tNa
+gsz
 rlf
 lER
 erh
@@ -64158,8 +64180,8 @@ bxp
 oSQ
 oSQ
 tNa
-tNa
-ily
+gsz
+gsz
 plc
 sKn
 aab
@@ -64361,7 +64383,7 @@ oSQ
 oSQ
 tNa
 tNa
-tNa
+gsz
 crP
 ily
 ily
@@ -64563,8 +64585,8 @@ oSQ
 rMw
 rrN
 tNa
-tNa
-tNa
+gsz
+gsz
 cZc
 ily
 ily
@@ -64766,14 +64788,14 @@ rrN
 oSQ
 tNa
 tNa
-tNa
-tNa
-tNa
-tNa
+gsz
+gsz
+gsz
+gsz
 boU
-tNa
-tNa
-tNa
+gsz
+gsz
+gsz
 iSx
 xZI
 iSx
