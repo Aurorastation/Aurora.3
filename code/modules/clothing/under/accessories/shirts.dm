@@ -246,8 +246,10 @@
 /obj/item/clothing/accessory/haltertop
 	name = "halter top"
 	desc = "A sleeveless tank with straps tied behind the neck, commonly seen worn in Biesel."
+	icon = 'icons/contained_items/clothing/halter_top.dmi'
 	icon_state = "haltertop"
 	item_state = "haltertop"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/silversun
 	name = "silversun floral shirt"

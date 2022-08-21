@@ -275,5 +275,7 @@
 /obj/item/clothing/under/pants/flared
 	name = "flared pants"
 	desc = "The peak of Biesellite fashion, these pants are flared at the ankle."
+	icon = 'icons/contained_items/clothing/flared_pants.dmi'
 	icon_state = "flaredpants"
 	item_state = "flaredpants"
+	contained_sprite = TRUE
