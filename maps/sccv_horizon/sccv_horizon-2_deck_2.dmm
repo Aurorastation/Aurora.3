@@ -18144,6 +18144,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/server)
 "jFo" = (
@@ -24612,6 +24615,9 @@
 /obj/structure/plasticflaps/airtight,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
