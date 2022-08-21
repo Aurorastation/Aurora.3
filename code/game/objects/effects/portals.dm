@@ -166,6 +166,28 @@
 		/obj/item/stack/material/phoron = 3
 	)
 
+/obj/effect/portal/spawner/plasticglass
+	num_of_spawns = 3
+	spawn_things = list(
+		/obj/item/stack/material/plastic = 5,
+		/obj/item/stack/material/glass = 5
+	)
+
+/obj/effect/portal/spawner/wood
+	num_of_spawns = 3
+	spawn_things = list(
+		/obj/item/stack/material/wood = 5,
+		/obj/item/stack/material/cardboard = 5,
+		/obj/item/stack/material/cloth = 5
+	)
+
+/obj/effect/portal/spawner/hide
+	num_of_spawns = 3
+	spawn_things = list(
+		/obj/item/stack/material/animalhide = 5,
+		/obj/item/stack/material/leather = 5
+	)
+
 /obj/effect/portal/spawner/monkey_cube
 	num_of_spawns = 1
 	spawn_things = list(

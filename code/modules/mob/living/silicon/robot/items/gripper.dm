@@ -257,9 +257,9 @@
 		/obj/item/material/minihoe,//Farmbots and xenoflora
 		/obj/item/computer_hardware,
 		/obj/item/slimesteroid,
-		/obj/item/slimesteroid2,
-		/obj/item/slimepotion,
-		/obj/item/slimepotion2,
+		/obj/item/extract_enhancer,
+		/obj/item/docility_serum,
+		/obj/item/advanced_docility_serum,
 		/obj/item/remote_mecha,
 		/obj/item/smallDelivery,
 		/obj/item/gift
