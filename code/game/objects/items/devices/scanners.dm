@@ -24,16 +24,12 @@ BREATH ANALYZER
 	var/last_scan = 0
 
 /obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
-	if(last_scan <= world.time - 20) //Spam limiter.
-		last_scan = world.time
-		health_scan_mob(M, user, mode)
-		add_fingerprint(user)
+	health_scan_mob(M, user, mode)
+	add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
-	if(last_scan <= world.time - 20) //Spam limiter.
-		last_scan = world.time
-		health_scan_mob(user, user, mode)
-		add_fingerprint(user)
+	health_scan_mob(user, user, mode)
+	add_fingerprint(user)
 
 /proc/get_wound_severity(var/damage_ratio, var/uppercase = FALSE) //Used for ratios.
 	var/degree = "none"
@@ -82,7 +78,9 @@ BREATH ANALYZER
 		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
 			to_chat(user, "<span class='notice'><b>Scan results for the ERROR:</b></span>")
-			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+			if(last_scan <= world.time - 20) //Spam limiter.
+				last_scan = world.time
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
 			return
 
 		if(!usr.IsAdvancedToolUser())
@@ -93,14 +91,18 @@ BREATH ANALYZER
 
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
-		playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+		if(last_scan <= world.time - 20) //Spam limiter.
+			last_scan = world.time
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
 		return
 
 	var/mob/living/carbon/human/H = M
 
 	if(H.isSynthetic() && !H.isFBP())
 		to_chat(user, "<span class='warning'>This scanner is designed for organic humanoid patients only.</span>")
-		playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+		if(last_scan <= world.time - 20) //Spam limiter.
+			last_scan = world.time
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
 		return
 
 	. = list()
@@ -125,18 +127,21 @@ BREATH ANALYZER
 	var/brain_status = H.get_brain_status()
 	dat += "Brain activity: [brain_status]."
 	var/brain_result = H.get_brain_result()
-	switch(brain_result)
-		if(0)
-			playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25)
-		if(-1)
-			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
-		else
-			if(brain_result <= 50)
-				playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25)
-			else if(brain_result <= 80)
-				playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25)
+
+	if(last_scan <= world.time - 20) //Spam limiter.
+		last_scan = world.time
+		switch(brain_result)
+			if(0)
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25)
+			if(-1)
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
 			else
-				playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25)
+				if(brain_result <= 50)
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25)
+				else if(brain_result <= 80)
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25)
+				else
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25)
 
 	if(H.stat == DEAD || H.status_flags & FAKEDEATH)
 		dat += "<span class='scan_warning'>[b]Time of Death:[endb] [worldtime2text(H.timeofdeath)]</span>"
