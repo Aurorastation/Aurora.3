@@ -3,6 +3,8 @@
 	desc = "A shell of some sort."
 	w_class = ITEMSIZE_HUGE
 	slowdown = 2
+	var/caliber
+	var/impact_type = SHIP_AMMO_IMPACT_HE //This decides what happens when the ammo hits. Is it a bunkerbuster? HE? AP?
 	var/ammunition_status = SHIP_AMMO_STATUS_GOOD
 	var/ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
 	var/rupture_flags = SHIP_AMMO_RUPTURE_FLAG_EXPLODE

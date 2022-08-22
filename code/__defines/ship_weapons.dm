@@ -1,4 +1,12 @@
 #define SHIP_CALIBER_NONE "none"
+#define SHIP_CALIBER_406MM "406mm"
+
+#define SHIP_AMMO_IMPACT_HE "high explosive"
+#define SHIP_AMMO_IMPACT_AP "armour-piercing"
+#define SHIP_AMMO_IMPACT_LASER "laser"
+#define SHIP_AMMO_IMPACT_BUNKERBUSTER "bunker-buster"
+#define SHIP_AMMO_IMPACT_PLASMA "plasma"
+#define SHIP_AMMO_IMPACT_PHORON_WMD "phoron nuke"
 
 #define FIRING_FLAG_SCREENSHAKE 1
 #define FIRING_FLAG_THROW_MOBS  2
