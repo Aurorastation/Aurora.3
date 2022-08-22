@@ -763,6 +763,7 @@
 	'sound/weapons/gunshot/gunshot3.ogg',
 	'sound/weapons/gunshot/musket.ogg',
 	'sound/weapons/gunshot/slammer.ogg'
+	'sound/weapons/gunshot/gunshot_thump.ogg'
 )
 
 /decl/sound_category/gunshots/ballistic
