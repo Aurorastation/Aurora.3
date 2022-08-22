@@ -537,7 +537,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_thump.ogg'
 	fire_sound_text = "a satisfying thump"
 	slot_flags = SLOT_BELT | SLOT_HOLSTER
-	w_class = ITEMSIZE_SMALL
+	w_class = ITEMSIZE_NORMAL
 	matter = list(MATERIAL_STEEL = 1500, MATERIAL_PLASTIC = 2000)
 
 	caliber = "shotgun"
