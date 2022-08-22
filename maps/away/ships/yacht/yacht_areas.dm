@@ -13,8 +13,3 @@
 /area/shuttle/yacht/engine
 	name = "\improper Yacht Engine"
 	icon_state = "engine" 
-
-/obj/effect/shuttle_landmark/yacht/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_yacht"
-	base_turf = /turf/space/transit/south

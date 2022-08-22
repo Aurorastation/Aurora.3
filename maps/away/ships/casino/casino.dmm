@@ -4934,6 +4934,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/casino/casino_crew_cantina)
+"vS" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/steel,
+/area/casino/casino_bridge)
 "vZ" = (
 /obj/random/spacecash,
 /turf/simulated/floor/carpet/fancybrown,
@@ -9928,7 +9932,7 @@ an
 ar
 au
 ay
-ap
+vS
 qb
 rb
 ub
