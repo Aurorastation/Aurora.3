@@ -495,7 +495,7 @@
 	accuracy = -3
 	accuracy_wielded = 1
 
-	
+
 /obj/item/gun/projectile/pistol/super_heavy/update_icon()
 	..()
 	if(istype(ammo_magazine))
@@ -503,7 +503,7 @@
 			icon_state = "k2557-loaded"
 		else
 			icon_state = "k2557-empty"
-	else 
+	else
 		icon_state = "k2557"
 
 /obj/item/gun/projectile/pistol/super_heavy/handle_post_fire(mob/user)
@@ -526,3 +526,52 @@
 					LH.take_damage(30)
 				else
 					RH.take_damage(30)
+
+/obj/item/gun/projectile/pistol/flaregun
+	name = "emergency flare launcher"
+	desc = "A single shot polymer flare gun, the KA-EFL-C is a reliable way to launch flares away from yourself."
+	desc_fluff = "The \ Kumar Arms Emergency Flare Launcher Civilian \ is, as the name implies, the civilian version of Zavodskoi's popular and widly used single shot flare gun, intended for use in emergency situations, expeditions or to simply illuminate your way."
+	icon = 'icons/obj/contained_items/weapons/flaregun.dmi'
+	icon_state = "flaregun"
+	item_state = "flaregun"
+	fire_sound = 'sound/weapons/empty/empty2.ogg'
+	fire_sound_text = "a satisfying thump"
+	slot_flags = SLOT_BELT | SLOT_HOLSTER
+	w_class = ITEMSIZE_SMALL
+	matter = list(MATERIAL_STEEL = 1500, MATERIAL_PLASTIC = 2000)
+
+	caliber = "shotgun"
+	handle_casings = CYCLE_CASINGS
+	load_method = SINGLE_CASING
+	max_shells = 1
+	//load_sound = /decl/sound_category/shotgun_reload//
+
+/obj/item/gun/projectile/flare/loaded
+	ammo_type = /obj/item/ammo_casing/shotgun/flash
+
+/obj/item/gun/projectile/flare/examine(mob/user, distance)
+	. = ..()
+	if(distance <= 2 && loaded.len)
+		to_chat(user, "\A [loaded[1]] is chambered.")
+
+/obj/item/gun/projectile/pistol/flaregun/special_check()
+	if(length(loaded))
+		var/obj/item/ammo_casing/casing = loaded[1]
+		if(istype(casing) && !istype(casing, /obj/item/ammo_casing/shotgun/flash))
+			var/damage = casing.BB.get_structure_damage()
+			if(istype(casing.BB, /obj/item/projectile/bullet/pellet))
+				var/obj/item/projectile/bullet/pellet/PP = casing.BB
+				damage = PP.damage*PP.pellets
+			if(damage > 5)
+				var/mob/living/carbon/C = loc
+				if(istype(C))
+					C.visible_message("<span class='danger'>[src] explodes in [C]'s hands!</span>", "<span class='danger'>[src] explodes in your face!</span>")
+					C.drop_from_inventory(src)
+					for(var/zone in list(BP_L_HAND, BP_R_HAND))
+						C.apply_damage(rand(10,20), def_zone=zone)
+				else
+					visible_message("<span class='danger'>[src] explodes!</span>")
+				explosion(get_turf(src), -1, -1, 1)
+				qdel(src)
+				return FALSE
+	return ..()
