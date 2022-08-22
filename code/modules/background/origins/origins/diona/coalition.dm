@@ -8,7 +8,7 @@
 /decl/origin_item/origin/coc_grown
 	name = "CoC Grown"
 	desc = "Dionae who were originally grown in and influenced by a planet within the Coalition of Colonies "
-	important_information = "As a result of no federal laws dictating how Dionae grown within CoC territory should be treated, their treatment can vary greatly from system to system, although generally are treated well and fully integrated into their local planet’s society."
+	important_information = "As a result of no federal laws dictating how Dionae grown within CoC territory should be treated, their treatment can vary greatly from system to system, although generally are treated well and fully integrated into their local planet's society."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_EUM)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)

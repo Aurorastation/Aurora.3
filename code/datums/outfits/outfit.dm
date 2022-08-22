@@ -75,7 +75,7 @@
 	// Must be paths, used to allow player-pref backpack choice
 	var/allow_backbag_choice = FALSE
 	var/backpack = /obj/item/storage/backpack
-	var/satchel = /obj/item/storage/backpack/satchel_norm
+	var/satchel = /obj/item/storage/backpack/satchel/norm
 	var/satchel_alt = /obj/item/storage/backpack/satchel/leather
 	var/dufflebag = /obj/item/storage/backpack/duffel
 	var/messengerbag = /obj/item/storage/backpack/messenger
@@ -124,7 +124,7 @@
 			if (OUTFIT_BACKPACK)
 				back = use_job_specific ? backpack : /obj/item/storage/backpack
 			if (OUTFIT_SATCHEL)
-				back = use_job_specific ? satchel : /obj/item/storage/backpack/satchel_norm
+				back = use_job_specific ? satchel : /obj/item/storage/backpack/satchel/norm
 			if (OUTFIT_SATCHEL_ALT)
 				back = use_job_specific ? satchel_alt : /obj/item/storage/backpack/satchel/leather
 			if (OUTFIT_DUFFELBAG)
@@ -357,15 +357,6 @@
 		else
 			H.equip_or_collect(I, slot_wear_id)
 
-	if(id)
-		var/obj/item/modular_computer/P = H.wear_id
-		var/obj/item/I = new id(H)
-		imprint_idcard(H,I)
-		if(istype(P) && P.card_slot)
-			addtimer(CALLBACK(src, .proc/register_pda, P, I), 2 SECOND)
-		else
-			H.equip_or_collect(I, slot_wear_id)
-
 	if(!visualsOnly) // Items in pockets or backpack don't show up on mob's icon.
 		if(l_pocket)
 			equip_item(H, l_pocket, slot_l_store)
@@ -380,6 +371,15 @@
 			var/number = belt_contents[path]
 			for(var/i in 1 to number)
 				H.equip_or_collect(new path(H), slot_in_belt)
+
+		if(id)
+			var/obj/item/modular_computer/P = H.wear_id
+			var/obj/item/I = new id(H)
+			imprint_idcard(H,I)
+			if(istype(P) && P.card_slot)
+				addtimer(CALLBACK(src, .proc/register_pda, P, I), 2 SECOND)
+			else
+				H.equip_or_collect(I, slot_wear_id)
 
 	post_equip(H, visualsOnly)
 

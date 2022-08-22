@@ -98,6 +98,7 @@
 	var/real_damage = rand_damage
 	var/hit_dam_type = attack.damage_type
 	var/damage_flags = attack.damage_flags()
+	var/armor_penetration = attack.armor_penetration
 
 	real_damage += attack.get_unarmed_damage(A)
 	real_damage *= D.damage_multiplier
@@ -106,6 +107,9 @@
 	if(HULK in A.mutations)
 		real_damage *= 2 // Hulks do twice the damage
 		rand_damage *= 2
+	if(A.is_berserk())
+		real_damage *= 1.5 // Nightshade increases damage by 50%
+		rand_damage *= 1.5
 
 	real_damage = max(1, real_damage)
 
@@ -129,7 +133,7 @@
 
 	attack.apply_effects(A, D, rand_damage, hit_zone)
 
-	D.apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags)
+	D.apply_damage(real_damage, hit_dam_type, hit_zone, damage_flags = damage_flags, armor_pen = armor_penetration)
 
 	return 1
 

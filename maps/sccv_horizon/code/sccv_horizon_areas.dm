@@ -309,6 +309,17 @@
 	icon_state = "unknown"
 	station_area = TRUE
 
+// Exterior
+/area/horizon/exterior
+	name = "Horizon - Exterior"
+	icon_state = "exterior"
+	base_turf = /turf/space
+	dynamic_lighting = TRUE
+	requires_power = FALSE
+	has_gravity = FALSE
+	no_light_control = TRUE
+	allow_nightmode = FALSE
+
 /********** Maintenance Start **********/
 // Maintenance
 /area/horizon/maintenance
@@ -543,12 +554,6 @@
 /area/horizon/deck_three/cafeteria
 	name = "Horizon - Deck 3 - Cafeteria"
 	icon_state = "cafeteria"
-
-// Nature Showcase
-/area/horizon/deck_three/nature_showcase
-	name = "Horizon - Deck 3 - Nature Showcase"
-	icon_state = "nature_showcase"
-	sound_env = SMALL_ENCLOSED
 /********** Decks End **********/
 
 /********** Unique Start **********/

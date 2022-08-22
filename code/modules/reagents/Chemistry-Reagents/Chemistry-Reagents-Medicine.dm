@@ -259,7 +259,7 @@
 	od_minimum_dose = 2
 	scannable = TRUE
 	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
-	ingest_met = REM * 2 // .4 units per tick
+	ingest_met = REM / 3 // Should be 0.06 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sickness"
 	metabolism_min = 0.005
@@ -288,7 +288,7 @@
 	scannable = TRUE
 	od_minimum_dose = 2
 	metabolism = REM / 3.33 // 0.06ish units per tick
-	ingest_met = REM * 2 // .4 units per tick
+	ingest_met = REM / 2.3 // Should be 0.08 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sourness"
 	metabolism_min = 0.005
@@ -300,7 +300,7 @@
 /decl/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(3))
 		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
-	
+
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 50)
 		if(!M.chem_effects[CE_CLEARSIGHT])
@@ -354,7 +354,7 @@
 	od_minimum_dose = 2
 	scannable = TRUE
 	metabolism = REM / 3.33 // 0.06ish units per tick
-	ingest_met = REM * 2 // .4 units per tick
+	ingest_met = REM / 1.5 // Should be 0.13 units per tick
 	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "bitterness"
 	metabolism_min = 0.005
@@ -937,7 +937,7 @@
 
 /* mental */
 
-#define MEDICATION_MESSAGE_DELAY 10 MINUTES 
+#define MEDICATION_MESSAGE_DELAY 10 MINUTES
 
 /decl/reagent/mental
 	name = null //Just like alcohol
@@ -1305,6 +1305,60 @@
 	if(M.chem_doses[type] > 10)
 		M.make_dizzy(5)
 		M.make_jittery(5)
+
+/decl/reagent/sanasomnum
+	name = "Sanasomnum"
+	description = "Not strictly a drug, Sanasomnum is actually a cocktail of biomechanical stem cells, which induce a regenerative state of unconsciousness capable healing almost any injury in minutes - however, usage nearly guarantees long-term and irreversible complications, and it is banned from medical use throughout the spur."
+	reagent_state = SOLID
+	color = "#b2db5e"
+	overdose = REAGENTS_OVERDOSE
+	scannable = TRUE
+	taste_description = "blood"
+	specific_heat = 1
+
+/decl/reagent/sanasomnum/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_ORGANREPAIR, 20)
+		M.add_chemical_effect(CE_BLOODRESTORE, 15)
+		M.add_chemical_effect(CE_BLOODCLOT, 15)
+		M.add_chemical_effect(CE_BRAIN_REGEN, 20)
+		M.add_chemical_effect(CE_OXYGENATED, 15)
+		M.add_chemical_effect(CE_ANTITOXIN, 15)
+		M.add_chemical_effect(CE_ANTIBIOTIC, 15)
+		M.add_chemical_effect(CE_STABLE, 15)
+		M.add_chemical_effect(CE_UNDEXTROUS, 30)
+		M.add_chemical_effect(CE_CLUMSY, 30)
+
+/decl/reagent/sanasomnum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.adjustCloneLoss(-20 * removed)
+	M.adjustOxyLoss(-2 * removed)
+	M.heal_organ_damage(20 * removed, 20 * removed)
+	if(M.is_asystole() && prob(20))
+		M.resuscitate()
+	if(M.chem_doses[type] > 3)
+		M.status_flags &= ~DISFIGURED
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_SCAN))
+		return
+	if (!(CE_UNDEXTROUS in M.chem_effects))
+		to_chat(M, SPAN_WARNING("Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
+		M.confused = max(M.confused, 250)
+		M.eye_blurry = max(M.eye_blurry, 250)
+	if(M.chem_doses[type] > 0.2)
+		M.Weaken(10)
+	if(M.chem_doses[type] > 5)
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & ORGAN_ARTERY_CUT && prob(10))
+				E.status &= ~ORGAN_ARTERY_CUT
+	if(M.chem_doses[type] > 5)
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & ORGAN_BROKEN && prob(10))
+				E.status &= ~ORGAN_BROKEN
+	if(M.chem_doses[type] > 5)
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & TENDON_CUT && prob(10))
+				E.status &= ~TENDON_CUT
 
 /decl/reagent/verunol
 	name = "Verunol Syrup"

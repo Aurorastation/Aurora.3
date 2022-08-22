@@ -303,7 +303,10 @@
 	w_class = ITEMSIZE_LARGE
 	can_hold = list(/obj/item/coin,/obj/item/spacecash)
 
-/obj/item/storage/bag/money/vault
+/obj/item/storage/bag/money/Initialize(mapload)
+	. = ..()
+	if(prob(20))
+		icon_state = "moneybagalt"
 
 /obj/item/storage/bag/money/vault/New()
 	..()

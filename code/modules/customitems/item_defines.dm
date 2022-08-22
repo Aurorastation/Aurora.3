@@ -1305,79 +1305,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat //Biochemist Holocoat - Neith Mekesatis - vrow
-	name = "biochemist holocoat"
-	desc = "An extremely cared for and high quality labcoat that protects against minor chemical spills. The material feels like it could shimmer. There is a pharmaceutical logo displayed on the front."
-	icon = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
-	icon_override = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
-	icon_state = "mekesatis_labcoat"
-	item_state = "mekesatis_labcoat"
-	var/holo_name = "eridanian holocoat"
-	var/holo_desc = "An impeccably designed and cared for dark Eridani Corporate Federation holocoat modelled after a high quality labcoat. It has a prominent animated logo of the ECF on the back, \
-	as well as a minor one across the front."
-	var/changed = FALSE
-	var/changing = FALSE
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/examine(mob/user)
-	..()
-	if(!in_range(user, src))
-		to_chat(user, SPAN_NOTICE("There might be something written on the inside of the coat. You have to get closer if you want to read it."))
-		return
-
-	if(!(all_languages[LANGUAGE_TRADEBAND] in user.languages))
-		to_chat(user, SPAN_NOTICE("On the inside of the coat there is a sentence in Tradeband printed in [changed ? "an elegant blue" : "a stylish red"] font."))
-		return
-
-	else if(!changed)
-		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in a stylish red font:<br><span style='font-family: Fixedsys; color: red'>Exclusive Time Limited Holocoat Deal from July 30, 2459. \
-		Now with graced with an animated Eridani Corporate Federation logo. For the Prosperity of all Eridanians - <i>Delta HoloTextiles. Sector Alpha's best wears.</i></span>"))
-		return
-
-	else
-		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in an elegant blue font:<br><i><font face='Courier New'>Every cloud has a silver lining, \
-		and you should be grateful for yours. Congratulations on your graduation.</font> - <font face='Times New Roman'>Taiwo O. M.</font></i>"))
-		return
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/toggle_open()
-	if(!changing)
-		opened = !opened
-		to_chat(usr, SPAN_NOTICE("You [opened ? "unbutton" : "button up"] \the [src]."))
-		playsound(src, /decl/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
-		icon_state = "mekesatis_[changed ? "holocoat" : "labcoat"][opened ? "_open" : ""]"
-		item_state = icon_state
-		update_clothing_icon()
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/verb/activate_holocoat()
-	set name = "Toggle Holocoat"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return
-
-	if(changing)
-		return
-
-	usr.visible_message("<span class='notice'>With a subtle gesture, [changed ? "the holocoat fades to a normal labcoat." : "the labcoat shimmers in activity!"]</span>")
-	icon_state = "mekesatis_[changed ? "labcoat_r" : "holocoat_t"][opened ? "_open" : ""]"
-	item_state = icon_state
-	name = "[changed ? initial(name) : holo_name]"
-	desc = "[changed ? initial(desc) : holo_desc]"
-	flick("mekesatis_[changed ? "labcoat_r" : "holocoat_t"][opened ? "_open" : ""]", src)
-
-	update_icon()
-	usr.update_inv_wear_suit()
-	changing = TRUE
-	addtimer(CALLBACK(src, .proc/finish_toggle, usr), 6 SECONDS)
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/proc/finish_toggle(mob/user)
-	changed = !changed
-	icon_state = "mekesatis_[changed ? "holocoat" : "labcoat"][opened ? "_open" : ""]"
-	item_state = icon_state
-	update_icon()
-	user.update_inv_wear_suit()
-	changing = FALSE
-
 /obj/item/device/megaphone/fluff/akinyi_mic //Resonance Microphone - Akinyi Idowu - kyres1
 	name = "resonance microphone"
 	desc = "A rather costly voice amplifier disguised as a microphone. A button on the side permits the user to dial their vocal volume with ease."
@@ -2300,54 +2227,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 		if(lit_message)
 			visible_message(SPAN_NOTICE(lit_message), range = 3)
-
-/obj/item/clothing/under/fluff/yanna_dress //Techno-Conglomerate CR dress - Yanna Trevidic - simplemaroon
-	name = "techno-conglomerate CR dress"
-	desc = "A sky blue-colored comfort-and-relaxation dress designed for off-worlders. This one is made to Techno-Conglomerate specifications, \
-	with sensors outlined across the ribcage that grow brighter or duller based on the wearer's emotional intensity."
-	icon = 'icons/obj/custom_items/yanna_dress.dmi'
-	icon_override = 'icons/obj/custom_items/yanna_dress.dmi'
-	icon_state = "yanna_dress"
-	item_state = "yanna_dress"
-	contained_sprite = TRUE
-	var/list/emotional_settings = list("0", "1", "2", "3")
-	var/emotional_choice
-	action_button_name = "Adjust Emotional Setting"
-
-/obj/item/clothing/under/fluff/yanna_dress/Initialize()
-	for(var/setting in emotional_settings)
-		emotional_settings[setting] = image('icons/obj/custom_items/yanna_dress.dmi', "level_[emotional_settings.Find(setting) - 1]")
-	.=..()
-
-/obj/item/clothing/under/fluff/yanna_dress/attack_self(mob/user)
-	choose_setting(user)
-
-/obj/item/clothing/under/fluff/yanna_dress/verb/adjust_setting()
-	set category = "Object"
-	set name = "Adjust Emotional Setting"
-	set src in usr
-
-	choose_setting(usr)
-
-/obj/item/clothing/under/fluff/yanna_dress/proc/choose_setting(mob/user)
-	var/emotional_setting = RADIAL_INPUT(user, emotional_settings)
-	if(!emotional_setting)
-		return
-	set_light(text2num(emotional_setting) * 0.4, text2num(emotional_setting) * 0.4, COLOR_BRIGHT_GREEN)
-	emotional_choice = "level_" + emotional_setting
-	update_icon()
-	update_clothing_icon()
-	get_mob_overlay(TRUE)
-
-/obj/item/clothing/under/fluff/yanna_dress/update_icon()
-	cut_overlays()
-	add_overlay(emotional_choice)
-
-/obj/item/clothing/under/fluff/yanna_dress/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
-	var/image/I = ..()
-	I.add_overlay(emotional_choice + "_un")
-	return I
-
 
 /obj/item/clothing/suit/vaurca/fluff/bells_zora_cloak //Tailored Hive Cloak - Ka'Akaix'Bells Zo'ra - shestrying
 	name = "tailored hive cloak"

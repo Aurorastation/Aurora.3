@@ -152,7 +152,7 @@
 	landmark_tag = "nav_first_deck"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
-
+// Intrepid
 /datum/shuttle/autodock/overmap/intrepid
 	name = "Intrepid"
 	move_time = 20
@@ -176,11 +176,12 @@
 	landmark_tag = "nav_transit_intrepid"
 	base_turf = /turf/space/transit
 
+// Mining Shuttle
 /datum/shuttle/autodock/overmap/mining
 	name = "Mining Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/mining)
-	dock_target = "mining_shuttle"
+	shuttle_area = /area/shuttle/mining
+	dock_target = "mining_shuttle_controller"
 	current_location = "nav_hangar_mining"
 	landmark_transition = "nav_transit_mining"
 	range = 1
@@ -190,10 +191,10 @@
 /obj/effect/shuttle_landmark/mining/hangar
 	name = "Mining Shuttle Hangar"
 	landmark_tag = "nav_hangar_mining"
-	docking_controller = "mining_dock"
-	base_turf = /turf/simulated/floor/plating
+	docking_controller = "mining_shuttle_dock"
+	base_turf = /turf/simulated/floor/airless
+	base_area = /area/hangar/operations
 
 /obj/effect/shuttle_landmark/mining/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_mining"
-

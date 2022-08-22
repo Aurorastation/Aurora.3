@@ -585,7 +585,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/welding/emergency
 	name = "emergency welding goggles"
-	desc = "A cheaper version of standard welding goggles, approved for emergency use by the Nanotrasen Safety Board."
+	desc = "A cheaper version of standard welding goggles, approved for emergency use by the NanoTrasen Safety Board."
 	icon = 'icons/clothing/eyes/welding_goggles.dmi'
 	icon_state = "ewelding-g"
 	item_state = "ewelding-g"
@@ -663,12 +663,12 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/sunglasses/sechud/pmc
 	name = "PMCG HUDsunglasses"
 	desc = "Sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
-	icon_state = "sunhud_pmc"
+	icon_state = "sunhud_pmcg"
 
 /obj/item/clothing/glasses/sunglasses/sechud/big/pmc
 	name = "fat PMCG HUDsunglasses"
 	desc = "Fat sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
-	icon_state = "bigsunglasses_hud_pmc"
+	icon_state = "bigsunglasses_hud_pmcg"
 
 /obj/item/clothing/glasses/sunglasses/sechud/idris
 	name = "Idris HUDsunglasses"
@@ -700,7 +700,7 @@ BLIND     // can't see anything
 	flash_protection = FLASH_PROTECTION_NONE
 	icon_state = "aviator_sec"
 	off_state = "aviator_sec_off"
-	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
+	item_state_slots = list(slot_r_hand_str = "aviator_sec", slot_l_hand_str = "aviator_sec")
 	action_button_name = "Toggle Mode"
 	var/on = TRUE
 	toggleable = TRUE
@@ -759,8 +759,8 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc
 	name = "PMCG HUD aviators"
 	desc = "PMCG security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
-	icon_state = "aviator_sec_pmc"
-	off_state = "aviator_sec_pmc_off"
+	icon_state = "aviator_sec_pmcg"
+	off_state = "aviator_sec_pmcg_off"
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
 	name = "Idris HUD aviators"

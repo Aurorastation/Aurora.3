@@ -545,20 +545,20 @@
 			var/obj/item/organ/external/l_foot = get_organ(BP_L_FOOT)
 			var/obj/item/organ/external/r_foot = get_organ(BP_R_FOOT)
 
-			if(prob(50) && l_foot)
+			if(prob(50) && l_foot && l_foot.dislocated != -1)
 				fall_message("left ankle", "bends unnaturally")
 				l_foot.dislocate(TRUE)
-			else if(r_foot)
+			else if(r_foot && r_foot.dislocated != -1)
 				fall_message("right ankle", "bends unnaturally")
 				r_foot.dislocate(TRUE)
 		else if(prob(15))
 			var/obj/item/organ/external/l_leg = get_organ(BP_L_LEG)
 			var/obj/item/organ/external/r_leg = get_organ(BP_R_LEG)
 
-			if(prob(50) && l_leg)
+			if(prob(50) && l_leg && l_leg.dislocated != -1)
 				fall_message("left knee", "caves in")
 				l_leg.dislocate(TRUE)
-			else if(r_leg)
+			else if(r_leg && r_leg.dislocated != -1)
 				fall_message("right knee", "caves in")
 				l_leg.dislocate(TRUE)
 
@@ -588,20 +588,20 @@
 			var/obj/item/organ/external/l_hand = get_organ(BP_L_HAND)
 			var/obj/item/organ/external/r_hand = get_organ(BP_R_HAND)
 
-			if(prob(50) && l_hand)
+			if(prob(50) && l_hand && l_hand.dislocated != -1)
 				fall_message("left wrist", "bends unnaturally")
 				l_hand.dislocate(TRUE)
-			else if(r_hand)
+			else if(r_hand && r_hand.dislocated != -1)
 				fall_message("right wrist", "bends unnaturally")
 				r_hand.dislocate(TRUE)
 		else if(prob(15))
 			var/obj/item/organ/external/l_arm = get_organ(BP_L_ARM)
 			var/obj/item/organ/external/r_arm = get_organ(BP_R_ARM)
 
-			if(prob(50) && l_arm)
+			if(prob(50) && l_arm && l_arm.dislocated != -1)
 				fall_message("left elbow", "caves in")
 				l_arm.dislocate(TRUE)
-			else if(r_arm)
+			else if(r_arm && r_arm.dislocated != -1)
 				fall_message("right elbow", "caves in")
 				r_arm.dislocate(TRUE)
 
@@ -611,7 +611,7 @@
 			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
 
 		var/obj/item/organ/external/head = get_organ(BP_HEAD)
-		if(prob(20) && head)
+		if(prob(20) && head && head.dislocated != -1)
 			fall_message("jaw", "cracks loose")
 			head.dislocate(TRUE)
 
@@ -684,7 +684,7 @@
  *
  * @return	The /mob/living that was hit. null if no mob was hit.
  */
-/atom/movable/proc/fall_collateral(levels_fallen, stopped_early = FALSE)
+/atom/movable/proc/fall_collateral(levels_fallen, stopped_early = FALSE, armor_penetration = 0)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
 	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
@@ -727,8 +727,9 @@
 	if (ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/cranial_damage = rand(0,damage/2)
-		H.apply_damage(cranial_damage, BRUTE, BP_HEAD)
-		H.apply_damage((damage - cranial_damage), BRUTE, BP_CHEST)
+		H.apply_damage(cranial_damage, BRUTE, BP_HEAD, armor_pen = cranial_damage + armor_penetration)
+		var/new_damage = damage - cranial_damage
+		H.apply_damage(new_damage, BRUTE, BP_CHEST, armor_pen = new_damage + armor_penetration)
 
 		if (damage >= THROWNOBJ_KNOCKBACK_DIVISOR)
 			H.Weaken(rand(damage / 4, damage / 2))
@@ -753,6 +754,9 @@
 
 	if (.)
 		to_chat(src, SPAN_DANGER("You fell ontop of \the [.]!"))
+
+/obj/fall_collateral(levels_fallen, stopped_early = FALSE, armor_penetration)
+	. = ..(levels_fallen, stopped_early, src.armor_penetration)
 
 /**
  * Helper proc for customizing which attributes should be used in fall damage
@@ -799,7 +803,7 @@
 	forceMove(get_step(owner, UP))
 	if(isturf(src.loc))
 		var/turf/T = src.loc
-		if(T.flags & MIMIC_BELOW)
+		if(T.z_flags & ZM_MIMIC_BELOW)
 			return
 	owner.reset_view(null)
 	owner.z_eye = null
@@ -808,7 +812,7 @@
 /atom/movable/z_observer/z_down/follow()
 	forceMove(get_step(tile_shifted ? src : owner, DOWN))
 	var/turf/T = get_turf(tile_shifted ? get_step(owner, owner.dir) : owner)
-	if(T && (T.flags & MIMIC_BELOW))
+	if(T && (T.z_flags & ZM_MIMIC_BELOW))
 		return
 	owner.reset_view(null)
 	owner.z_eye = null

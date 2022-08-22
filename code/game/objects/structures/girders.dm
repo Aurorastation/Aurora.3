@@ -185,7 +185,7 @@
 		if(reinf_material)
 			weaken += reinf_material.integrity * 3 //Since girders don't have a secondary material, buff 'em up a bit.
 		weaken /= 100
-		do_attack_animation(src)
+		user.do_attack_animation(src)
 		playsound(src, 'sound/weapons/smash.ogg', 50)
 		if(damage_to_deal > weaken && (damage_to_deal > MIN_DAMAGE_TO_HIT))
 			damage_to_deal -= weaken

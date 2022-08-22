@@ -76,6 +76,13 @@
 	icon_state = "vacshroudbrown"
 	item_state = "vacshroudbrown"
 
+/obj/item/clothing/head/shroud/colorable
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles."
+	icon_state = "vacshroudcol"
+	item_state = "vacshroudcol"
+	worn_overlay = "over"
+	build_from_parts = TRUE
+
 /obj/item/melee/energy/vaurca
 	name = "thermal knife"
 	desc = "A Vaurcae-designed combat knife with a thermal energy blade designed for close-quarter encounters."
@@ -299,7 +306,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "commando"
 	item_state = "commando"
-	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
+	desc = "A design perfected by the Zo'ra, this armor is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
@@ -442,7 +449,7 @@
 	pump(user)
 
 /obj/item/gun/launcher/crossbow/vaurca/proc/pump(mob/M as mob)
-	playsound(M, 'sound/weapons/shotgun_pump.ogg', 60, 1)
+	playsound(M, 'sound/weapons/reloads/shotgun_pump.ogg', 60, 1)
 
 	if(bolt)
 		if(tension < max_tension)

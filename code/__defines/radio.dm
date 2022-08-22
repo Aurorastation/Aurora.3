@@ -80,8 +80,7 @@ var/list/ANTAG_FREQS_ASSOC = list(
 	"[SYND_FREQ]" = TRUE,
 	"[RAID_FREQ]" = TRUE,
 	"[NINJ_FREQ]" = TRUE,
-	"[BURG_FREQ]" = TRUE,
-	"[SHIP_FREQ]" = TRUE
+	"[BURG_FREQ]" = TRUE
 )
 
 //Department channels, arranged lexically

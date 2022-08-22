@@ -18,6 +18,11 @@
 /area/space_bar
 	name = "Spacer Bar"
 	icon_state = "bar"
+	flags = RAD_SHIELDED
 	requires_power = FALSE
-	base_turf = /turf/space
+	base_turf = /turf/simulated/floor/plating
 	no_light_control = TRUE
+
+/area/space_bar/hangar
+	name = "Spacer Bar Hangar"
+	icon_state = "exit"

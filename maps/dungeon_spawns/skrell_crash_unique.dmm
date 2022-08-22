@@ -166,7 +166,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "aD" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /obj/structure/door_assembly/door_assembly_skrell{
 	name = "Bridge"
 	},
@@ -212,7 +212,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "aK" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "aL" = (
@@ -333,7 +333,7 @@
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
 "bh" = (
-/obj/item/nitrilebox,
+/obj/item/storage/box/gloves,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "loadingarea";
@@ -450,7 +450,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "bD" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "bE" = (
@@ -578,7 +578,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bX" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /obj/machinery/light/skrell{
 	dir = 4
 	},

@@ -34,16 +34,18 @@ BREATH ANALYZER
 	var/degree = "none"
 
 	switch(damage_ratio)
-		if(0.05 to 0.1)
+		if(0.001 to 0.1)
 			degree = "minor"
-		if(0.1 to 0.25)
+		if(0.1 to 0.2)
 			degree = "moderate"
-		if(0.25 to 0.5)
+		if(0.2 to 0.4)
 			degree = "significant"
-		if(0.5 to 0.75)
+		if(0.4 to 0.6)
 			degree = "severe"
-		if(0.75 to 1)
-			degree = "extreme"
+		if(0.6 to 0.8)
+			degree = "critical"
+		if(0.8 to 1)
+			degree = "fatal"
 
 	if(uppercase)
 		degree = capitalize(degree)
@@ -53,6 +55,10 @@ BREATH ANALYZER
 	var/output = "none"
 	if(!amount)
 		output = "none"
+	else if(amount > 100)
+		output = "fatal"
+	else if(amount > 75)
+		output = "critical"
 	else if(amount > 50)
 		output = "severe"
 	else if(amount > 25)

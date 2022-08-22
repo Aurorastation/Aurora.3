@@ -205,7 +205,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/exoplanet/barren/asteroid)
 "vK" = (
-/obj/effect/map_effect/wingrille_spawn/full,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/airless,
 /area/exoplanet/barren/asteroid)
 "vV" = (

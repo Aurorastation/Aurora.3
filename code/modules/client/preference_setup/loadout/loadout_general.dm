@@ -280,7 +280,7 @@
 
 /datum/gear/comic
 	display_name = "comic selection"
-	description = "A selection of comics and manga from across the Spur."
+	description = "A selection of comics, manga, and magazines from across the Spur."
 	path = /obj/item/toy/comic
 
 /datum/gear/comic/New()
@@ -289,6 +289,7 @@
 	comics["comic book"] = /obj/item/toy/comic
 	comics["inspector 404 manga"] = /obj/item/toy/comic/inspector
 	comics["stormman manga"] = /obj/item/toy/comic/stormman
+	comics["outlandish tales magazine"] = /obj/item/toy/comic/outlandish_tales
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste
@@ -327,7 +328,7 @@
 
 /datum/gear/gadbook
 	display_name = "gadpathurian morale manual"
-	path = /obj/item/device/litanybook/gadpathur
+	path = /obj/item/device/versebook/gadpathur
 	origin_restriction = list(/decl/origin_item/origin/gadpathur)
 
 /datum/gear/aurora_miniature

@@ -51,7 +51,7 @@
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Captain.\""
 	name = "officer's dress uniform"
 	icon_state = "officer"
-	item_state = "lawyer_black"
+	item_state = "bl_suit"
 	worn_state = "officer"
 	displays_id = 0
 
@@ -59,7 +59,7 @@
 	name = "officer's dress uniform"
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral.\""
 	icon_state = "officer"
-	item_state = "lawyer_black"
+	item_state = "bl_suit"
 	worn_state = "officer"
 	displays_id = 0
 
@@ -67,7 +67,7 @@
 	name = "officer's dress uniform"
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral-Executive.\""
 	icon_state = "centcom"
-	item_state = "lawyer_black"
+	item_state = "bl_suit"
 	worn_state = "centcom"
 	displays_id = 0
 
@@ -112,7 +112,7 @@
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Commander.\ It has a patch denoting a Pheonix on the sleeves."
 	name = "\improper ERT commander's dress uniform"
 	icon_state = "centcom"
-	item_state = "lawyer_black"
+	item_state = "bl_suit"
 	worn_state = "centcom"
 
 /obj/item/clothing/under/space
@@ -198,7 +198,7 @@
 	desc = "A formal black suit and red tie, intended for the station's finest."
 	icon_state = "really_black_suit"
 	item_state = "jensensuit"
-	worn_state = "black_suit"
+	worn_state = "really_black_suit"
 
 /obj/item/clothing/under/suit_jacket/red
 	name = "red suit"
@@ -505,29 +505,35 @@
 /obj/item/clothing/under/legion
 	name = "Tau Ceti Foreign Legion uniform"
 	desc = "A blue field uniform worn by Tau Ceti Foreign Legion forces."
-	icon_state = "taucetilegion"
-	item_state = "bl_suit"
-	worn_state = "taucetilegion"
+	icon = 'icons/clothing/under/uniforms/tcfl_uniform.dmi'
+	icon_state = "tauceti_volunteer"
+	item_state = "tauceti_volunteer"
+	worn_state = "tauceti_volunteer"
+	contained_sprite = TRUE
 	siemens_coefficient = 0.7
 	armor = list(
 		melee = ARMOR_MELEE_MINOR)
 
 /obj/item/clothing/under/legion/sentinel
 	name = "Tau Ceti Foreign Legion sentinel uniform"
-	desc = "A blue field uniform with purple trimming, indicating that the wearer is a sentinel of the TCFL."
-	worn_state = "taucetilegion_sentinel"
+	desc = "A blue field uniform with black trimming, indicating that the wearer is a sentinel of the TCFL."
+	icon_state = "tauceti_sentinel"
+	item_state = "tauceti_sentinel"
+	worn_state = "tauceti_sentinel"
 
 /obj/item/clothing/under/legion/legate
 	name = "Tau Ceti Foreign Legion legate uniform"
 	desc = "A stark red field uniform worn by senior officers of the Tau Ceti Foreign Legion."
-	icon_state = "taucetilegion_legate"
-	worn_state = "taucetilegion_legate"
+	icon_state = "tauceti_legate"
+	item_state = "tauceti_legate"
+	worn_state = "tauceti_legate"
 
 /obj/item/clothing/under/legion/pilot
 	name = "Tau Ceti Foreign Legion flightsuit"
 	desc = "A green flightsuit worn by Tau Ceti Foreign Legion pilots."
-	icon_state = "taucetilegion_pilot"
-	worn_state = "taucetilegion_pilot"
+	icon_state = "tauceti_pilot"
+	item_state = "tauceti_pilot"
+	worn_state = "tauceti_pilot"
 
 /obj/item/clothing/under/offworlder
 	name = "\improper CR suit"

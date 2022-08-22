@@ -73,7 +73,7 @@
 /turf/simulated/floor/tiled,
 /area/derelict)
 "asg" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/derelict)
 "atj" = (
@@ -299,7 +299,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "hiw" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "huE" = (

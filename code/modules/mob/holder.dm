@@ -669,8 +669,8 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/schlorrgo
 	name = "schlorrgo"
 	icon = 'icons/mob/npc/schlorrgo.dmi'
-	icon_state = "schlorgo"
-	item_state = "schlorgo"
+	icon_state = "schlorrgo"
+	item_state = "schlorrgo"
 	w_class = ITEMSIZE_NORMAL
 
 /obj/item/holder/schlorrgo/baby

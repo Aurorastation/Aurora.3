@@ -176,8 +176,6 @@
 	new /obj/item/clothing/gloves/white(src.loc)
 	new /obj/item/clothing/shoes/white(src.loc)
 	new /obj/item/clothing/under/suit_jacket/white(src.loc)
-	if (prob(30))
-		new /obj/item/clothing/head/cueball(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/highlander/New()
@@ -223,19 +221,8 @@
 	new /obj/item/clothing/head/ushanka/grey(src.loc)
 	delete_me = 1
 
-/obj/effect/landmark/costume/imperium_monk/New()
-	new /obj/item/clothing/suit/imperium_monk(src.loc)
-	if (prob(25))
-		new /obj/item/clothing/mask/gas/cyborg(src.loc)
-	delete_me = 1
-
 /obj/effect/landmark/costume/holiday_priest/New()
 	new /obj/item/clothing/suit/holidaypriest(src.loc)
-	delete_me = 1
-
-/obj/effect/landmark/costume/marisawizard/fake/New()
-	new /obj/item/clothing/head/wizard/marisa/fake(src.loc)
-	new/obj/item/clothing/suit/wizrobe/marisa/fake(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/cutewitch/New()

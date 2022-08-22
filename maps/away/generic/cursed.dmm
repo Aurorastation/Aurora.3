@@ -39,17 +39,17 @@
 /area/space)
 "asH" = (
 /obj/machinery/portable_atmospherics/canister/phoron_scarce,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "atI" = (
 /obj/structure/table/wood,
-/obj/item/device/litanybook/gadpathur{
+/obj/item/device/versebook/gadpathur{
 	pixel_y = 2
 	},
 /turf/simulated/floor/wood,
@@ -342,7 +342,7 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -514,9 +514,9 @@
 /turf/simulated/floor,
 /area/cursed/bridge)
 "cEa" = (
-/obj/structure/window/full,
-/turf/simulated/floor,
-/area/cursed/eva_storage)
+/obj/machinery/light/spot,
+/turf/simulated/floor/airless,
+/area/cursed/bridge)
 "cGx" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -737,12 +737,11 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "eyg" = (
-/obj/structure/window/full,
 /obj/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "eyA" = (
@@ -762,8 +761,7 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "eyW" = (
-/obj/structure/window/full,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "eDl" = (
@@ -1424,8 +1422,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "iEm" = (
-/obj/structure/window/full,
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/bridge)
 "iIo" = (
@@ -1470,12 +1467,12 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "jaT" = (
-/obj/structure/window/full,
 /obj/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "jdh" = (
@@ -1509,7 +1506,7 @@
 "jpT" = (
 /mob/living/simple_animal/rat/brown,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -1521,7 +1518,7 @@
 /area/cursed/storage)
 "jsF" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/borosilicate/reinforced{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/yellow,
@@ -2161,7 +2158,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/cursed/eva_storage)
 "mQc" = (
-/obj/item/device/litanybook,
+/obj/item/device/versebook/tribunal,
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine{
 	pixel_x = 9;
@@ -2388,9 +2385,8 @@
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "oet" = (
-/obj/structure/window/full,
-/obj/machinery/light/spot,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/airless,
 /area/cursed/bridge)
 "omB" = (
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
@@ -2520,7 +2516,7 @@
 /obj/machinery/door/blast/shutters{
 	id = "cursedshutters"
 	},
-/obj/effect/map_effect/wingrille_spawn/full/phoron,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "oVA" = (
@@ -2738,12 +2734,12 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "pUH" = (
-/obj/structure/window/full,
 /obj/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/bridge)
 "pWK" = (
@@ -3414,7 +3410,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "tkd" = (
-/obj/structure/window/full,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "tqe" = (
@@ -34037,7 +34033,7 @@ lyr
 lyr
 gqk
 rqz
-cEa
+eyW
 eyW
 rqz
 kNP
@@ -34294,7 +34290,7 @@ mHz
 mHz
 lyr
 lyr
-cEa
+mHz
 eyW
 hDm
 nvp
@@ -34551,7 +34547,7 @@ dTm
 nwk
 foL
 foL
-rqz
+foL
 rqz
 tLw
 vLT
@@ -35064,7 +35060,7 @@ xRX
 xRX
 hfc
 iui
-tkd
+iui
 hfy
 hfy
 hfy
@@ -41482,8 +41478,8 @@ xRX
 xRX
 xRX
 fpi
-sDN
-sDN
+cEa
+oet
 iEm
 iEm
 iEm
@@ -41740,7 +41736,7 @@ xRX
 xRX
 xRX
 xRX
-oet
+iEm
 iEm
 jue
 bgW
@@ -41997,7 +41993,7 @@ xRX
 xRX
 xRX
 xRX
-oet
+iEm
 iEm
 lUq
 xWU

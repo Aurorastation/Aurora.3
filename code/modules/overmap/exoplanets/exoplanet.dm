@@ -93,6 +93,7 @@
 	generate_landing(2)
 	update_biome()
 	generate_daycycle()
+	generate_planet_image()
 	START_PROCESSING(SSprocessing, src)
 
 //attempt at more consistent history generation for xenoarch finds.
@@ -165,10 +166,11 @@
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
-	var/list/grasscolors = plant_colors.Copy()
-	grasscolors -= "RANDOM"
-	if(length(grasscolors))
-		grass_color = pick(grasscolors)
+	if(plant_colors)
+		var/list/grasscolors = plant_colors.Copy()
+		grasscolors -= "RANDOM"
+		if(length(grasscolors))
+			grass_color = pick(grasscolors)
 
 	for(var/datum/exoplanet_theme/T as anything in themes)
 		T.before_map_generation(src)

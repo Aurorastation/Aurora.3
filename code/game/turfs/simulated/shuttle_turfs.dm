@@ -17,54 +17,6 @@
 /turf/simulated/wall/shuttle/Initialize(mapload)
 	. = ..(mapload,"shuttle")
 
-/turf/simulated/wall/shuttle/attackby(obj/item/W as obj, mob/user as mob)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if (!user)
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
-
-	if(!istype(user.loc, /turf))
-		return
-
-	if(locate(/obj/effect/overlay/wallrot) in src)
-		if(W.iswelder() )
-			var/obj/item/weldingtool/WT = W
-			if( WT.use(0,user) )
-				to_chat(user, "<span class='notice'>You burn away the fungi with \the [WT].</span>")
-				playsound(src, 'sound/items/welder.ogg', 10, 1)
-				for(var/obj/effect/overlay/wallrot/WR in src)
-					qdel(WR)
-				return
-		else if(!is_sharp(W) && W.force >= 10 || W.force >= 20)
-			to_chat(user, "<span class='notice'>\The [src] crumbles away under the force of your [W.name].</span>")
-			src.dismantle_wall(1)
-			return
-
-	if(thermite)
-		if(W.iswelder() )
-			var/obj/item/weldingtool/WT = W
-			if( WT.use(0,user) )
-				thermitemelt(user)
-				return
-
-		else if(istype(W, /obj/item/gun/energy/plasmacutter))
-			thermitemelt(user)
-			return
-
-		else if( istype(W, /obj/item/melee/energy/blade) )
-			var/obj/item/melee/energy/blade/EB = W
-
-			spark(EB, 5)
-			to_chat(user, "<span class='notice'>You slash \the [src] with \the [EB]; the thermite ignites!</span>")
-			playsound(src, /decl/sound_category/spark_sound, 50, 1)
-			playsound(src, 'sound/weapons/blade.ogg', 50, 1)
-
-			thermitemelt(user)
-			return
-
-	if(!istype(W, /obj/item/reagent_containers))
-		return attack_hand(user)
-
 /turf/simulated/wall/shuttle/cardinal
 	smooth = SMOOTH_TRUE
 
@@ -124,7 +76,8 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
-		/turf/simulated/wall/shuttle/scc_space_ship
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/obj/structure/window/shuttle/scc_space_ship
 	)
 
 /obj/structure/shuttle_part/scc_space_ship

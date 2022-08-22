@@ -1158,7 +1158,7 @@
 				and then is screwed in for one and a quarter full rotations clockwise, leaving the faceplate directly in front of you. There is a small button on the right side of the helmet that activates the helmet light.
 				The tanks that fasten onto the side slot are emergency tanks, as well as full-sized oxygen tanks, leaving your back free for a backpack or satchel.<BR><BR>
 
-				These suits generally only fit one species. Nanotrasen's are usually human-fitting by default, but there's equipment that can make modifications to the voidsuits to fit them to other species.<BR><BR>
+				These suits generally only fit one species. NanoTrasen's are usually human-fitting by default, but there's equipment that can make modifications to the voidsuits to fit them to other species.<BR><BR>
 
 				<h2><a name="Equipment">Modification Equipment</a></h2>
 				<I>How to actually make voidsuits fit you.</I><BR>
@@ -1647,10 +1647,12 @@
 				</head>
 				<body>
 				<br>\
-				The Tau Ceti Foreign Legion is a military force employed by the Republic of Biesel consisting of mostly volunteers of all recognized sentient citizens. It primarily
-				comprises of immigrants and external parties seeking citizenship or stakes in Tau Ceti, which the Republic offers in exchange for participation. It can often be seen
-				working with NanoTrasen assets wherever possible, extending operations slightly further than most NanoTrasen ERT officially reach. As such, the Foreign Legion can be
-				seen regularly patrolling areas nearby the N.S.S. Aurora and the Romanovich Cloud.
+				The Tau Ceti Foreign Legion is the primary armed force of the Republic of Biesel and is comprised of volunteer immigrants. External parties seeking citizenship \
+				often enlist, since the Republic offers citizenship in turn for service. Since 2464 the Legion was promoted to the official armed forces of the Republic, which \
+				resulted in a great boost in popularity, funding and manpower. This happened after President Dorn enacted the People's Protection Act megacorporations are also \
+				able to fund the legion, something the Stellar Corporate Conglomerate immediately did. The Legion's largest deployment currently is throughout the Corporate \
+				Reconstruction Zone, ensuring the SCC's growing influence over the region. To help with this task the Legion also seeks the assistance of the Private Military \
+				Contracting Group.
 				</body>
 			</html>
 			"}

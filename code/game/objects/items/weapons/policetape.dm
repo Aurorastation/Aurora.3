@@ -3,7 +3,7 @@ var/list/tape_roll_applications = list()
 //Define all tape types in policetape.dm
 /obj/item/taperoll
 	name = "tape roll"
-	icon = 'icons/policetape.dmi'
+	icon = 'icons/obj/policetape.dmi'
 	icon_state = "tape"
 	w_class = ITEMSIZE_SMALL
 	var/static/list/hazard_overlays
@@ -23,7 +23,7 @@ var/list/tape_roll_applications = list()
 
 /obj/item/tape
 	name = "tape"
-	icon = 'icons/policetape.dmi'
+	icon = 'icons/obj/policetape.dmi'
 	anchored = 1
 	layer = 3.1 // Above closed airlocks.
 	var/lifted = 0
@@ -105,6 +105,19 @@ var/list/tape_roll_applications = list()
 			animate(src, 1 SECOND, color = initial(color))
 		return
 	return ..()
+
+/obj/item/taperoll/custodial
+	name = "custodial holographic tape"
+	desc = "A high-tech roll of custodial tape, used to prevent people from tracking dirt everywhere and getting their shoes dirty."
+	icon_state = "custodial_start"
+	tape_type = /obj/item/tape/custodial
+	icon_base = "custodial"
+
+/obj/item/tape/custodial
+	name = "custodial holographic tape"
+	desc = "A length of custodial tape. Better not cross it."
+	req_one_access = list(access_janitor)
+	icon_base = "custodial"
 
 /obj/item/taperoll/attack_self(mob/user as mob)
 	if(icon_state == "[icon_base]_start")

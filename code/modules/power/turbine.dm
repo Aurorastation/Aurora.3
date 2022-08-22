@@ -28,9 +28,10 @@
 /obj/machinery/computer/turbine_computer
 	name = "Gas turbine control computer"
 	desc = "A computer to remotely control a gas turbine"
-	icon = 'icons/obj/computer.dmi'
+	icon_screen = "enginecontrol"
+	icon_keyboard = "cyan_key"
+	light_color = LIGHT_COLOR_CYAN
 
-	icon_screen = "command"
 	circuit = /obj/item/circuitboard/turbine_control
 	anchored = 1
 	density = 1

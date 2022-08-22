@@ -6,7 +6,6 @@
 	slot_flags = 0
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_MASK | SLOT_TIE
-	var/base_icon
 	var/open
 	var/obj/item/held //Item inside locket.
 

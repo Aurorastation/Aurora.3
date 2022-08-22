@@ -201,11 +201,11 @@
 /area/dungeon/bluespace_outpost)
 "aK" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aL" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aM" = (
@@ -394,11 +394,11 @@
 /area/dungeon/bluespace_outpost)
 "br" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bs" = (
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bt" = (
@@ -583,7 +583,7 @@
 /area/dungeon/bluespace_outpost)
 "ha" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/borosilicate/reinforced,
 /obj/item/material/shard/shrapnel,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)

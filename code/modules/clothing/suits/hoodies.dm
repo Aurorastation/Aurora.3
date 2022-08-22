@@ -175,7 +175,7 @@
 	item_state = "coathydro"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
-	name = "cargo winter coat"
+	name = "operations winter coat"
 	icon_state = "coatcargo"
 	item_state = "coatcargo"
 

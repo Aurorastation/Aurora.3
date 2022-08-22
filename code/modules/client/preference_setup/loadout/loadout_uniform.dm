@@ -18,26 +18,26 @@
 /datum/gear/uniform/jumpsuit/New()
 	..()
 	var/list/jumpsuit = list()
-	jumpsuit["grey jumpsuit"] = /obj/item/clothing/under/color/grey
 	jumpsuit["black jumpsuit"] = /obj/item/clothing/under/color/black
-	jumpsuit["blue jumpsuit"] = /obj/item/clothing/under/color/blue
-	jumpsuit["green jumpsuit"] = /obj/item/clothing/under/color/green
-	jumpsuit["orange jumpsuit"] = /obj/item/clothing/under/color/orange
-	jumpsuit["pink jumpsuit"] = /obj/item/clothing/under/color/pink
-	jumpsuit["red jumpsuit"] = /obj/item/clothing/under/color/red
+	jumpsuit["grey jumpsuit"] = /obj/item/clothing/under/color/grey
 	jumpsuit["white jumpsuit"] = /obj/item/clothing/under/color/white
+	jumpsuit["dark red jumpsuit"] = /obj/item/clothing/under/color/darkred
+	jumpsuit["red jumpsuit"] = /obj/item/clothing/under/color/red
+	jumpsuit["light red jumpsuit"] = /obj/item/clothing/under/color/lightred
+	jumpsuit["light brown jumpsuit"] = /obj/item/clothing/under/color/lightbrown
+	jumpsuit["brown jumpsuit"] = /obj/item/clothing/under/color/brown
 	jumpsuit["yellow jumpsuit"] = /obj/item/clothing/under/color/yellow
-	jumpsuit["light blue jumpsuit"] = /obj/item/clothing/under/lightblue
-	jumpsuit["aqua jumpsuit"] = /obj/item/clothing/under/aqua
-	jumpsuit["purple jumpsuit"] = /obj/item/clothing/under/purple
-	jumpsuit["light purple jumpsuit"] = /obj/item/clothing/under/lightpurple
-	jumpsuit["light green jumpsuit"] = /obj/item/clothing/under/lightgreen
-	jumpsuit["brown jumpsuit"] = /obj/item/clothing/under/brown
-	jumpsuit["light brown jumpsuit"] = /obj/item/clothing/under/lightbrown
-	jumpsuit["yellow green jumpsuit"] = /obj/item/clothing/under/yellowgreen
-	jumpsuit["light red jumpsuit"] = /obj/item/clothing/under/lightred
-	jumpsuit["dark red jumpsuit"] = /obj/item/clothing/under/darkred
-	jumpsuit["rainbow jumpsuit"] = /obj/item/clothing/under/rainbow
+	jumpsuit["yellow green jumpsuit"] = /obj/item/clothing/under/color/yellowgreen
+	jumpsuit["light green jumpsuit"] = /obj/item/clothing/under/color/lightgreen
+	jumpsuit["green jumpsuit"] = /obj/item/clothing/under/color/green
+	jumpsuit["aqua jumpsuit"] = /obj/item/clothing/under/color/aqua
+	jumpsuit["light blue jumpsuit"] = /obj/item/clothing/under/color/lightblue
+	jumpsuit["blue jumpsuit"] = /obj/item/clothing/under/color/blue
+	jumpsuit["dark blue jumpsuit"] = /obj/item/clothing/under/color/darkblue
+	jumpsuit["purple jumpsuit"] = /obj/item/clothing/under/color/purple
+	jumpsuit["light purple jumpsuit"] = /obj/item/clothing/under/color/lightpurple
+	jumpsuit["pink jumpsuit"] = /obj/item/clothing/under/color/pink
+	jumpsuit["orange jumpsuit"] = /obj/item/clothing/under/color/orange
 	gear_tweaks += new /datum/gear_tweak/path(jumpsuit)
 
 /datum/gear/uniform/colorjumpsuit
@@ -79,7 +79,6 @@
 	var/list/suits = list()
 	suits["amish suit"] = /obj/item/clothing/under/sl_suit
 	suits["black suit"] = /obj/item/clothing/under/suit_jacket
-	suits["blue suit"] = /obj/item/clothing/under/lawyer/blue
 	suits["burgundy suit"] = /obj/item/clothing/under/suit_jacket/burgundy
 	suits["charcoal suit"] = /obj/item/clothing/under/suit_jacket/charcoal
 	suits["checkered suit"] = /obj/item/clothing/under/suit_jacket/checkered
@@ -88,7 +87,6 @@
 	suits["purple suit"] = /obj/item/clothing/under/lawyer/purple
 	suits["red suit"] = /obj/item/clothing/under/suit_jacket/red
 	suits["red lawyer suit"] = /obj/item/clothing/under/lawyer/red
-	suits["shiny black suit"] = /obj/item/clothing/under/lawyer/black
 	suits["tan suit"] = /obj/item/clothing/under/suit_jacket/tan
 	suits["white suit"] = /obj/item/clothing/under/suit_jacket/white
 	suits["nt skirtsuit"] = /obj/item/clothing/under/suit_jacket/nt_skirtsuit
@@ -249,7 +247,7 @@
 	description = "A selection of Dominian clothing belonging to the Diplomatic Service."
 	path = /obj/item/clothing/under/dominia/consular
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi)
+	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
 
 /datum/gear/uniform/dominia_consular/New()
 	..()
@@ -307,8 +305,22 @@
 	var/list/hanbok = list()
 	hanbok["magenta-blue hanbok"] = /obj/item/clothing/under/konyang
 	hanbok["white-pink hanbok"] = /obj/item/clothing/under/konyang/pink
+	hanbok["white-blue hanbok"] = /obj/item/clothing/under/konyang/blue
 	hanbok["male hanbok"] = /obj/item/clothing/under/konyang/male
 	gear_tweaks += new /datum/gear_tweak/path(hanbok)
+
+/datum/gear/uniform/miscellaneous/hanbokcolorable
+	display_name = "colorable hanbok selection"
+	description = "A selection of Konyanger formalwear."
+	path = /obj/item/clothing/under/konyang/male/shortsleeve
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/uniform/miscellaneous/hanbokcolorable/New()
+	..()
+	var/list/hanbokcolorable = list()
+	hanbokcolorable["short sleeve hanbok"] = /obj/item/clothing/under/konyang/male/shortsleeve
+	hanbokcolorable["sleeveless hanbok"] = /obj/item/clothing/under/konyang/male/sleeveless
+	gear_tweaks += new /datum/gear_tweak/path(hanbokcolorable)
 
 /datum/gear/uniform/konyang
 	display_name = "konyanger dress"

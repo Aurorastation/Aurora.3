@@ -690,7 +690,7 @@
 
 			var/permitted = !G.allowed_roles || (job.title in G.allowed_roles)
 			permitted = permitted && G.check_species_whitelist(H)
-			permitted = permitted && (!G.faction || (G.faction == H.employer_faction))
+			permitted = permitted && (!G.faction || (G.faction == H.employer_faction || H.employer_faction == "Stellar Corporate Conglomerate"))
 			var/our_culture = text2path(prefs.culture)
 			permitted = permitted && (!G.culture_restriction || (our_culture in G.culture_restriction))
 			var/our_origin = text2path(prefs.origin)
@@ -831,7 +831,7 @@
 
 			var/permitted = !G.allowed_roles || (rank.title in G.allowed_roles)
 			permitted = permitted && G.check_species_whitelist(H)
-			permitted = permitted && (!G.faction || (G.faction == H.employer_faction))
+			permitted = permitted && (!G.faction || (G.faction == H.employer_faction || H.employer_faction == "Stellar Corporate Conglomerate"))
 			var/decl/origin_item/culture/our_culture = decls_repository.get_decl(text2path(prefs.culture))
 			permitted = permitted && (!G.culture_restriction || (our_culture in G.culture_restriction))
 			var/decl/origin_item/origin/our_origin = decls_repository.get_decl(text2path(prefs.origin))

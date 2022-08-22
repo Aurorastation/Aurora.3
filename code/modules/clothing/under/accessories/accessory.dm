@@ -403,13 +403,13 @@
 
 /obj/item/clothing/accessory/poncho/roles/science
 	name = "science poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard NanoTrasen Science colors."
+	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard science colors."
 	icon_state = "sciponcho"
 	item_state = "sciponcho"
 
 /obj/item/clothing/accessory/poncho/roles/cargo
-	name = "cargo poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of Cargo."
+	name = "operations poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of operations."
 	icon_state = "cargoponcho"
 	item_state = "cargoponcho"
 
@@ -593,7 +593,7 @@
 
 /obj/item/clothing/accessory/poncho/shouldercape/nova
 	name = "nova cape"
-	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it"
+	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it."
 	icon_state = "novacape"
 	item_state = "novacape"
 	overlay_state = "novacape"
@@ -604,6 +604,13 @@
 	icon_state = "galaxycape"
 	item_state = "galaxycape"
 	overlay_state = "galaxycape"
+
+/obj/item/clothing/accessory/poncho/shouldercape/cosmic
+	name = "cosmic cape"
+	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it, of constellations and stars visible from Qerrbalak."
+	icon_state = "cosmiccape"
+	item_state = "cosmiccape"
+	overlay_state = "cosmiccape"
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	name = "qeblak mantle"
@@ -899,7 +906,7 @@
 
 /obj/item/clothing/accessory/pin/corporate
 	name = "corporate badge"
-	desc = "A shiny button which reads, <i>'Nanotrasen - The leader in all things Phoron!'</i>"
+	desc = "A shiny button which reads, <i>'NanoTrasen - The leader in all things Phoron!'</i>"
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	icon_state = "nt_liaison_badge"
 	item_state = "nt_liaison_badge"
@@ -943,7 +950,7 @@
 	desc_fluff = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
 	icon = 'icons/clothing/accessories/BZ_Gorget.dmi'
 	icon_state = "Burz_gorget"
-	item_state = "Burz_gorget"	
+	item_state = "Burz_gorget"
 	contained_sprite = TRUE
 	icon_override = null
 	body_parts_covered = UPPER_TORSO

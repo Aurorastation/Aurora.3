@@ -7,7 +7,8 @@
 /datum/computer_file/program/comm
 	filename = "comm"
 	filedesc = "Command and Communications Program"
-	program_icon_state = "command"
+	program_icon_state = "comm"
+	program_key_icon_state = "lightblue_key"
 	nanomodule_path = /datum/nano_module/program/comm
 	extended_desc = "Used to command and control the station. Can relay long-range communications."
 	required_access_run = access_heads
@@ -171,7 +172,8 @@
 				if(!input || !can_still_topic())
 					SSnanoui.update_uis(src)
 					return
-				crew_announcement.Announce(input)
+				var/affected_zlevels = GetConnectedZlevels(GET_Z(program.computer))
+				crew_announcement.Announce(input, zlevels = affected_zlevels)
 				set_announcement_cooldown(TRUE)
 				addtimer(CALLBACK(src, .proc/set_announcement_cooldown, FALSE), 600) //One minute cooldown
 		if("message")
@@ -241,7 +243,7 @@
 						post_display_status(href_list["target"])
 
 		if("setalert")
-			if(is_authenticated(user) && !issilicon(usr) && ntn_cont && ntn_comm)
+			if(is_authenticated(user) && (!issilicon(usr) || isAI(usr)) && ntn_cont && ntn_comm)
 				var/current_level = text2num(href_list["target"])
 				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", name, "No", "Yes")
 				if(confirm == "Yes" && can_still_topic())

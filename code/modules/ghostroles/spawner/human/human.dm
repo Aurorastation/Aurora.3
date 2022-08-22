@@ -97,6 +97,7 @@
 
 	if(assigned_role)
 		M.mind.assigned_role = assigned_role
+		M.mind.role_alt_title = assigned_role
 	if(special_role)
 		M.mind.special_role = special_role
 	if(faction)

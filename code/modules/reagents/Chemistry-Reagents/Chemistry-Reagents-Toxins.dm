@@ -135,7 +135,18 @@
 		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 			return
 
-	M.take_organ_damage(0, removed * 0.1) //being splashed directly with phoron causes minor chemical burns
+	M.take_organ_damage(0, removed * 0.3) //being splashed directly with phoron causes minor chemical burns
+	if(prob(50))
+		M.pl_effects()
+
+/decl/reagent/toxin/phoron/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(istype(M, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
+		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
+			return
+
+	M.take_organ_damage(0, removed * 0.6) //Breathing phoron? Oh hell no boy my boy.
 	if(prob(50))
 		M.pl_effects()
 
@@ -637,7 +648,7 @@
 	taste_mult = 2
 
 /mob/living/carbon/human/proc/berserk_start()
-	to_chat(src, SPAN_DANGER("An uncontrollable rage overtakes your thoughts!"))
+	to_chat(src, SPAN_DANGER("An uncontrollable rage courses through your body and overtakes your thoughts - your blood begins to boil with fury!"))
 	add_client_color(/datum/client_color/berserk)
 	shock_stage = 0
 	SetParalysis(0)
@@ -655,17 +666,18 @@
 	adjustHalLoss(-1)
 
 /mob/living/carbon/human/proc/berserk_stop()
-	to_chat(src, SPAN_DANGER("Your rage fades away, your thoughts are clear once more!"))
+	to_chat(src, SPAN_DANGER("Your rage fades away and the boiling sensation subsides, your thoughts are clear once more."))
 	remove_client_color(/datum/client_color/berserk)
 
 /decl/reagent/toxin/berserk
 	name = "Red Nightshade"
-	description = "An illegal combat performance enhancer originating from the criminal syndicates of Mars. The drug stimulates regions of the brain responsible for violence and rage, inducing a feral, berserk state in users."
+	description = "An illegal combat performance enhancer originating from the criminal syndicates of Mars. The drug stimulates regions of the brain responsible for violence and rage, inducing a feral, berserk state in users. It is incredibly hard on the liver."
 	reagent_state = LIQUID
 	color = "#AF111C"
-	strength = 5
-	taste_description = "bitterness"
-	metabolism = REM * 2
+	strength = 3
+	overdose = 10
+	taste_description = "popping candy"
+	metabolism = REM*0.3 //10u = ~5 minutes of being berserk.
 	unaffected_species = IS_DIONA | IS_MACHINE
 
 /decl/reagent/toxin/berserk/initial_effect(var/mob/living/carbon/human/H, var/alien, var/holder)
@@ -687,9 +699,14 @@
 	M.add_chemical_effect(CE_BERSERK, 1)
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
-	var/obj/item/organ/internal/heart = M.internal_organs_by_name[BP_HEART]
-	if(heart)
-		M.add_chemical_effect(CE_CARDIOTOXIC, removed * 0.020)
+	if(prob(3))
+		to_chat(M, SPAN_WARNING(pick("Your blood boils with rage!", "A monster stirs within you - let it out.", "You feel an overwhelming sense of rage!", "You cannot contain your anger!", "You struggle to relax - a fury stirs within you.", "You feel an electric sensation course through your body!")))
+	if(prob(5))
+		M.emote(pick("twitch_v", "grunt"))
+
+/decl/reagent/toxin/berserk/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
+	if(prob(25))
+		M.add_chemical_effect(CE_CARDIOTOXIC, 1)
 
 /decl/reagent/toxin/spectrocybin
 	name = "Spectrocybin"

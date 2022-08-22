@@ -32,11 +32,15 @@
 
 
 /obj/structure/closet/l3closet/janitor
+	name = "level 3 biohazard custodial gear closet"
+	desc = "It's a storage unit for level 3 biohazard custodial gear."
 	icon_state = "bio_jan"
 
 /obj/structure/closet/l3closet/janitor/fill()
 	new /obj/item/clothing/suit/bio_suit/janitor(src)
 	new /obj/item/clothing/head/bio_hood/janitor(src)
+	new /obj/item/clothing/mask/gas/half(src)
+	new /obj/item/watertank/janitor(src)
 
 /obj/structure/closet/l3closet/scientist
 	icon_state = "bio_scientist"

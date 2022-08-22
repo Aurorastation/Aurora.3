@@ -6,7 +6,9 @@
 
 /obj/machinery/computer/telecomms/traffic
 	name = "Telecommunications Traffic Control"
-	icon_screen = "sci"
+	icon_screen = "computer_generic"
+	icon_keyboard = "green_key"
+	light_color = LIGHT_COLOR_GREEN
 
 	var/screen = 0				// the screen number:
 	var/list/servers = list()	// the servers located by the computer

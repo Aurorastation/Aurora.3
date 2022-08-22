@@ -15,7 +15,8 @@
 	path = /obj/item/storage/box/syndie_kit/cigarette
 
 /datum/uplink_item/item/stealthy_weapons/random_toxin
-	name = "Random Toxin - Beaker"
+	name = "Random Toxins Kit"
+	desc = "A kit that contains 3 vials containing random toxins. Comes with a syringe!"
 	item_cost = 1
 	path = /obj/item/storage/box/syndie_kit/toxin
 

@@ -8,6 +8,31 @@
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
 
+/obj/item/clothing/ears/antenna/verb/lock_antennae()
+	set name = "Lock Antenna(e)"
+	set desc = "Lock your antenna(e) in place."
+	set category = "Object"
+
+	if(!ishuman(usr))
+		return
+
+	var/mob/living/carbon/human/user = usr
+
+	if(use_check_and_message(user))
+		return
+
+	if(!user.isSynthetic())
+		to_chat(user, SPAN_WARNING("The locking mechanism refuses to work!"))
+		return
+
+	if(user.r_ear != src && user.l_ear != src)
+		to_chat(user, SPAN_WARNING("Your antennae must be on your head for the locking mechanism to work."))
+		return
+
+	to_chat(user, SPAN_NOTICE("You [canremove ? "enable" : "disable"] the locking mechanism on your antennae."))
+	playsound(user, canremove ? 'sound/machines/hatch_close.ogg' : 'sound/machines/hatch_open.ogg', 25)
+	canremove = !canremove
+
 /obj/item/clothing/ears/antenna/curved
 	name = "curved antennae"
 	desc = "A set of decorative antennae. This particular pair is curved in the middle point, arcing upwards. Unfortunately, it doesn't get FM here."

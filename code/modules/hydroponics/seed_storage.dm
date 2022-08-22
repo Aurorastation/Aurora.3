@@ -65,6 +65,7 @@
 		/obj/item/seeds/guamiseed = 2,
 		/obj/item/seeds/lemonseed = 3,
 		/obj/item/seeds/limeseed = 3,
+		/obj/item/seeds/mossseed = 2,
 		/obj/item/seeds/mtearseed = 2,
 		/obj/item/seeds/mintseed = 3,
 		/obj/item/seeds/nifberries = 2,

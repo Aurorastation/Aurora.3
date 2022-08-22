@@ -119,7 +119,7 @@ Class Procs:
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
 	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
-	var/obj/effect/overmap/visitable/ship/linked // overmap sector the machine is linked to
+	var/obj/effect/overmap/visitable/linked // overmap sector the machine is linked to
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	. = ..()
@@ -463,6 +463,11 @@ Class Procs:
 	paper.forceMove(loc)
 	printing = FALSE
 
+/obj/machinery/bullet_act(obj/item/projectile/P, def_zone)
+	. = ..()
+	if(P.get_structure_damage() > 5)
+		bullet_ping(P)
+
 /obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
 	if(stat & (NOPOWER|BROKEN))
 		return
@@ -494,7 +499,7 @@ Class Procs:
 
 
 // A late init operation called in SSshuttle for ship computers and holopads, used to attach the thing to the right ship.
-/obj/machinery/proc/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
+/obj/machinery/proc/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	SHOULD_CALL_PARENT(TRUE)
 	if(!istype(sector))
 		return FALSE
@@ -504,15 +509,15 @@ Class Procs:
 	return FALSE
 
 /obj/machinery/proc/sync_linked()
-	var/obj/effect/overmap/visitable/ship/sector = map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector = map_sectors["[z]"]
 	if(!sector)
 		return
 	return attempt_hook_up_recursive(sector)
 
-/obj/machinery/proc/attempt_hook_up_recursive(obj/effect/overmap/visitable/ship/sector)
+/obj/machinery/proc/attempt_hook_up_recursive(var/obj/effect/overmap/visitable/sector)
 	if(attempt_hook_up(sector))
 		return sector
-	for(var/obj/effect/overmap/visitable/ship/candidate in sector)
+	for(var/obj/effect/overmap/visitable/candidate in sector)
 		if((. = .(candidate)))
 			return
 

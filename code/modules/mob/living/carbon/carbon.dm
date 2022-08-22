@@ -210,7 +210,7 @@
 		if(src == M && istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
 			src.visible_message(
-				SPAN_NOTICE("[src] examines [src.gender==MALE?"himself":"herself"]."), \
+				SPAN_NOTICE("[src] examines [src.get_pronoun("himself")]."), \
 				SPAN_NOTICE("You check yourself for injuries.") \
 				)
 

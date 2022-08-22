@@ -1,5 +1,5 @@
-/obj/structure/window/New()
-	..()
+/obj/structure/window/New(loc, start_dir = null, constructed = 0)
+	..(loc, start_dir, constructed)
 	for(var/obj/structure/table/T in view(src, 1))
 		T.update_connections()
 		T.update_icon()

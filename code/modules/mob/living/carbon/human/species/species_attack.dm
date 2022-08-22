@@ -74,6 +74,12 @@
 	shredding = TRUE
 	attack_name = "strong claws"
 
+/datum/unarmed_attack/claws/strong/zombie
+	attack_verb = list("mauled", "slashed", "gored", "stabbed")
+	desc = "These claws are armor-piercing and do a good amount of damage, but do not infect! Use these if you need to take someone with heavy armor down."
+	damage = 25
+	armor_penetration = 35
+
 /datum/unarmed_attack/bite/strong
 	attack_verb = list("mauled")
 	damage = 10
@@ -182,12 +188,16 @@
 	attack_verb = list("mauled","gored","perforated")
 	attack_noun = list("mandibles")
 	damage = 35
+	armor_penetration = 25
 	shredding = TRUE
 	sharp = TRUE
 	edge = TRUE
 	attack_name = "mandibles"
 
 /datum/unarmed_attack/bite/infectious
+	desc = "This attack infects those you bite, but it is chance-based and depends on their armour. It is not very strong against armoured foes, compared to your claws."
+	damage = 20
+	armor_penetration = 15
 	shredding = TRUE
 
 /datum/unarmed_attack/bite/infectious/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
@@ -243,6 +253,7 @@
 	eye_attack_text = "claws"
 	eye_attack_text_victim = "claws"
 	attack_name = "clawed fists"
+	shredding = TRUE
 
 	damage = 7.5
 	attack_door = 20

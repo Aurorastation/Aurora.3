@@ -7,7 +7,7 @@
 	attack_verb = list("diced")
 	max_amount = 6
 
-	var/base_icon = "d6"
+	base_icon = "d6"
 	var/side_mult = 1 // Used for d100s.
 	var/sides = 6
 	var/weight_roll = 0 // chance of the dice falling on its favored number

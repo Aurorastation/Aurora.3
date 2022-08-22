@@ -142,3 +142,8 @@
 	name = T_BOARD("Ship Sensors Console")
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 2)
 	build_path = /obj/machinery/computer/ship/sensors
+
+/obj/item/circuitboard/ship/engines
+	name = T_BOARD("Ship Engines Control Console")
+	origin_tech = list(TECH_ENGINEERING = 3)
+	build_path = /obj/machinery/computer/ship/engines

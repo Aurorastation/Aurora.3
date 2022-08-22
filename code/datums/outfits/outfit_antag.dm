@@ -7,7 +7,7 @@
 	uniform = /obj/item/clothing/under/syndicate
 	back = null
 	backpack = /obj/item/storage/backpack/syndie
-	satchel = /obj/item/storage/backpack/satchel_syndie
+	satchel = /obj/item/storage/backpack/satchel/syndie
 	satchel_alt = /obj/item/storage/backpack/satchel
 	dufflebag = /obj/item/storage/backpack/duffel/syndie
 	messengerbag = /obj/item/storage/backpack/messenger/syndie
@@ -151,6 +151,7 @@
 	gloves = /obj/item/clothing/gloves/swat
 	shoes = /obj/item/clothing/shoes/jackboots
 	pda = /obj/item/modular_computer/handheld/pda/syndicate
+	r_pocket = /obj/item/device/special_uplink/mercenary
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
@@ -190,7 +191,7 @@
 	uniform = list(
 		/obj/item/clothing/under/serviceoveralls,
 		/obj/item/clothing/under/det/zavod,
-		/obj/item/clothing/under/brown,
+		/obj/item/clothing/under/color/brown,
 		/obj/item/clothing/under/syndicate/tracksuit,
 		/obj/item/clothing/under/captainformal,
 		/obj/item/clothing/under/dominia,
@@ -209,7 +210,7 @@
 		/obj/item/clothing/under/rank/chef,
 		/obj/item/clothing/under/rank/chaplain,
 		/obj/item/clothing/under/rank/engineer,
-		/obj/item/clothing/under/rank/fatigues,
+		/obj/item/clothing/under/rank/sol,
 		/obj/item/clothing/under/rank/miner,
 		/obj/item/clothing/under/skirt/offworlder,
 		/obj/item/clothing/under/suit_jacket/tan,
@@ -297,7 +298,7 @@
 		/obj/item/clothing/head/hijab,
 		/obj/item/clothing/head/hijab/grey,
 		/obj/item/clothing/head/hijab/red,
-		/obj/item/clothing/head/navy/garrison,
+		/obj/item/clothing/head/sol/garrison,
 		/obj/item/clothing/head/nonla,
 		/obj/item/clothing/head/helmet/bucket,
 		/obj/item/clothing/head/helmet/material/makeshift/plasteel,
@@ -316,8 +317,14 @@
 	back = null
 	belt = null
 	gloves = null
+	glasses = list(
+			/obj/item/clothing/glasses/sunglasses,
+			/obj/item/clothing/glasses/sunglasses/aviator,
+			/obj/item/clothing/glasses/sunglasses/big,
+			/obj/item/clothing/glasses/sunglasses/visor
+			)
 	l_ear = /obj/item/device/radio/headset/raider
-	l_pocket = /obj/item/device/contract_uplink
+	l_pocket = /obj/item/device/special_uplink/raider
 	r_pocket = list(
 			/obj/item/clothing/glasses/eyepatch/hud/thermal,
 			/obj/item/clothing/glasses/thermal,
@@ -393,7 +400,7 @@
 		)
 
 	belt = null
-	suit = /obj/item/clothing/suit/armor/carrier/ballistic
+	suit = null
 
 	shoes = list(
 		/obj/item/clothing/shoes/laceup/all_species,
@@ -438,7 +445,6 @@
 		/obj/item/gun/projectile/silenced,
 		/obj/item/gun/projectile/colt,
 		/obj/item/gun/projectile/colt/super,
-		/obj/item/gun/projectile/revolver/deckard,
 		/obj/item/gun/projectile/revolver/lemat
 		)
 

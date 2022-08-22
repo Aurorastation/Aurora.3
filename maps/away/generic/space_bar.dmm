@@ -272,7 +272,7 @@
 "aIw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/nitrilebox{
+/obj/item/storage/box/gloves{
 	pixel_x = 4;
 	pixel_y = 13
 	},
@@ -306,7 +306,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "bhz" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -348,7 +348,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "bVS" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -377,7 +377,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "ctQ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/chem_master/condimaster{
@@ -394,7 +394,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "cJe" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -492,7 +492,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "fnY" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -511,7 +511,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "frn" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/space_bar)
 "fGz" = (
@@ -519,6 +519,10 @@
 /obj/effect/ghostspawpoint{
 	identifier = "space_bar_chef";
 	name = "igs - space_bar_chef"
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
@@ -529,12 +533,16 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/space_bar)
+"fWG" = (
+/obj/machinery/cryopod,
+/turf/simulated/floor/tiled/freezer,
+/area/space_bar)
 "fZJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "gaA" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -567,7 +575,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "gxE" = (
 /obj/machinery/chem_heater,
 /turf/simulated/floor/lino/grey,
@@ -661,7 +669,7 @@
 /area/space_bar)
 "hBd" = (
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "hFr" = (
 /obj/machinery/light{
 	dir = 8;
@@ -683,7 +691,7 @@
 "hNl" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "hNM" = (
 /obj/machinery/door/airlock/glass{
 	name = "Bar"
@@ -778,6 +786,9 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
+"jiW" = (
+/turf/simulated/wall/r_wall,
+/area/space_bar/hangar)
 "jmo" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -806,7 +817,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "jIR" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/wood,
@@ -862,7 +873,7 @@
 "lOr" = (
 /obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "mhC" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -939,7 +950,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "odP" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 4
@@ -959,7 +970,7 @@
 	name = "Bar Lounge"
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/space_bar)
+/area/space_bar/hangar)
 "oAH" = (
 /obj/machinery/button/remote/airlock{
 	desc = "A remote control-switch for the office door.";
@@ -970,6 +981,10 @@
 	req_access = list(22)
 	},
 /turf/simulated/floor/wood,
+/area/space_bar)
+"oYQ" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/lino/grey,
 /area/space_bar)
 "oZv" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -1032,7 +1047,7 @@
 /area/space_bar)
 "pRm" = (
 /turf/unsimulated/wall/fakepdoor,
-/area/space_bar)
+/area/space_bar/hangar)
 "qje" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/holofloor/tiled,
@@ -1040,7 +1055,7 @@
 "qmJ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "quQ" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/bed/stool/bar/padded/red,
@@ -1061,7 +1076,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "qWo" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment,
@@ -1131,7 +1146,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "szY" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/rag,
@@ -1213,7 +1228,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "uaE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -1226,7 +1241,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "uuL" = (
 /obj/structure/mopbucket,
 /obj/item/reagent_containers/glass/bucket,
@@ -1272,7 +1287,7 @@
 /turf/simulated/floor/carpet,
 /area/space_bar)
 "vdz" = (
-/obj/effect/map_effect/wingrille_spawn/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -1330,6 +1345,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/darmadhir_brew,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/reagent_containers/food/drinks/bottle/vintage_wine,
+/obj/item/storage/box/fancy/crayons,
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "wfU" = (
@@ -1350,7 +1366,7 @@
 "wJk" = (
 /obj/machinery/vending/engivend,
 /turf/simulated/floor/tiled/steel,
-/area/space_bar)
+/area/space_bar/hangar)
 "wLs" = (
 /obj/structure/sign/double/barsign{
 	pixel_y = 32;
@@ -24523,33 +24539,33 @@ xRX
 xRX
 xRX
 xRX
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
 xRX
 xRX
 xRX
@@ -24780,7 +24796,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 tQq
 gmi
@@ -25037,7 +25053,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -25294,7 +25310,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -25551,7 +25567,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 wJk
 aVe
 hBd
@@ -25808,7 +25824,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -26065,7 +26081,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 upu
 aVe
 hBd
@@ -26322,7 +26338,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -26579,7 +26595,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -26836,7 +26852,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -27093,7 +27109,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -27350,7 +27366,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -27607,7 +27623,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 upu
 aVe
 qmJ
@@ -27864,7 +27880,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -28121,7 +28137,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -28378,7 +28394,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -28635,7 +28651,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -28892,7 +28908,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 qmJ
@@ -29149,7 +29165,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 qmJ
@@ -29406,7 +29422,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 upu
 aVe
 qmJ
@@ -29663,7 +29679,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -29920,7 +29936,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -30177,7 +30193,7 @@ frn
 frn
 ygr
 ygr
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -30434,7 +30450,7 @@ vth
 vth
 wRv
 hmL
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -30948,7 +30964,7 @@ sth
 sth
 jyw
 dcL
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -31205,7 +31221,7 @@ frn
 frn
 ygr
 ygr
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -31443,7 +31459,7 @@ ygr
 fSX
 lkB
 piw
-piw
+fWG
 vxN
 vxN
 ygr
@@ -31462,7 +31478,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 aVe
 hBd
@@ -31719,7 +31735,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 upu
 aVe
 hBd
@@ -31976,7 +31992,7 @@ xRX
 xRX
 xRX
 xRX
-ygr
+jiW
 hBd
 fZJ
 bKn
@@ -32233,33 +32249,33 @@ xRX
 xRX
 xRX
 xRX
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
-ygr
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
+jiW
 xRX
 xRX
 xRX
@@ -34783,7 +34799,7 @@ ndF
 ygr
 huE
 gfL
-gfL
+oYQ
 sBA
 oZv
 xQS

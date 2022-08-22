@@ -40,19 +40,15 @@
 	return
 
 /obj/item/storage/box/pineapple
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "pineapple_rings"
 	name = "can of pineapple rings"
 	desc = "An aluminium can with fresh pineapple slices."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "pineapple_rings"
 	use_sound = 'sound/items/pickup/soda.ogg'
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
 	starts_with = list(/obj/item/reagent_containers/food/snacks/pineapple_ring = 6)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/pineapple_ring)
-
-/obj/item/storage/box/pineapple/fill()
-	. = ..()
-	update_icon()
 
 //cigarette papers
 /obj/item/storage/box/fancy/cigpaper

@@ -2,6 +2,8 @@
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
 #define JOINTEXT(X) jointext(X, null)
 #define list_find(L, needle, LIMITS...) L.Find(needle, LIMITS)
+#define hex2num(hex) text2num(hex, 16)
+#define num2hex(num, pad) num2text(num, pad, 16)
 
 #define span(class, text) ("<span class='[class]'>" + text + "</span>")
 #define SPAN_NOTICE(X) ("<span class='notice'>" + X + "</span>")
@@ -69,6 +71,8 @@
 #define isobj(A) istype(A, /obj)
 
 #define isspace(A) istype(A, /area/space)
+
+#define isspaceturf(A) istype(A, /turf/space)
 
 #define isobserver(A) istype(A, /mob/abstract/observer)
 

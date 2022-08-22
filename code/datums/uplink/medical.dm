@@ -14,6 +14,11 @@
 	item_cost = 1
 	path = /obj/item/storage/toolbox/lunchbox/syndicate/filled
 
+/datum/uplink_item/item/medical/sanasomnum
+	name = "Sanasomnum Injector"
+	item_cost = 2
+	path = /obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
+
 /datum/uplink_item/item/medical/combathypo
 	name = "Combat Hypospray"
 	item_cost = 1
@@ -39,6 +44,12 @@
 	name = "Box of Combat Stimulants"
 	item_cost = 1
 	path = /obj/item/storage/box/syndie_kit/stimulants
+
+/datum/uplink_item/item/medical/berserk_injectors
+	name = "Box of Berserk Injectors"
+	item_cost = 2
+	path = /obj/item/storage/box/syndie_kit/berserk_injectors
+	desc = "Comes with 2x autoinjectors filled with Red Nightshade - used to induce a berserk state lasting ~2.5 minutes per injector. You cannot use advanced tools (guns/computer consoles/etc.) while berserk. Using both injectors will increase time berserk, but will lead to liver failure."
 
 /datum/uplink_item/item/medical/sideeffectbegone
 	name = "Box of Sideeffect-Be-Gone Injectors"

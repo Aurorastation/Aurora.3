@@ -111,10 +111,10 @@
 			qdel(animation)
 
 	if(!flashfail)
-		flick("flash2", src)
+		M.flash_eyes()
 		if(!issilicon(M))
 
-			user.visible_message("<span class='disarm'>[user] blinds [M] with the flash!</span>")
+			user.visible_message("<span class='warning'>[user] blinds [M] with the flash!</span>")
 		else
 
 			user.visible_message("<span class='notice'>[user] overloads [M]'s sensors with the flash!</span>")
@@ -152,7 +152,7 @@
 			user.show_message("<span class='warning'>*click* *click*</span>", 2)
 			return
 	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
-	flick("flash2", src)
+	user.flash_eyes()
 	if(user && isrobot(user))
 		spawn(0)
 			var/atom/movable/overlay/animation = new(user.loc)
@@ -173,7 +173,7 @@
 		var/safety = M.eyecheck(TRUE)
 		if(safety < FLASH_PROTECTION_MODERATE)
 			if(!M.blinded)
-				flick("flash", M.flash)
+				M.flash_eyes()
 
 	return
 
