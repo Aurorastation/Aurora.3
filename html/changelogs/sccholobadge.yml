@@ -1,6 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - imageadd: "Resprites the security holobadges to have the SCC logo rather than the NanoTrasen one."
