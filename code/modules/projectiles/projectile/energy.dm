@@ -48,8 +48,32 @@
 /obj/item/projectile/energy/flash/illumination_flare
 	damage = 25
 	damage_type = BURN
-	brightness = 10
-	light_duration = 500
+	agony = 30
+
+/obj/item/projectile/energy/flash/flare/on_hit(atom/target, blocked = 0, def_zone = null)
+	. = ..()
+	if(.)
+		var/mob/living/M = target
+		if(istype(M) && prob(33))
+			M.fire_stacks = max(2, M.fire_stacks)
+			M.IgniteMob()
+
+/obj/item/projectile/energy/flash/illumination_flare/on_impact(var/atom/A)
+	light_colour = pick("#e58775", "#ffffff", "#faa159", "#e34e0e")
+	set_light(1, 2, 6, 1, light_colour)
+	..()
+
+	new /obj/effect/effect/smoke/illumination/illumination_flare(src.loc, rand(30 SECONDS,60 SECONDS), range=8, power=1, color=light_colour)
+
+	var/turf/TO = get_turf(src)
+	var/area/AO = TO.loc
+	if(AO && (AO.area_flags & AREA_FLAG_EXTERNAL))
+		for(var/mob/living/mob in GLOB.alive_mobs)
+			var/turf/T = get_turf(mob)
+			if(T && (T != TO) && (TO.z == T.z) && !mob.blinded)
+				to_chat(mob, SPAN_NOTICE("You see a bright light to \the [dir2text(get_dir(T,TO))]"))
+			CHECK_TICK
+
 
 /obj/item/projectile/energy/electrode
 	name = "electrode"
