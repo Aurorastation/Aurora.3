@@ -356,7 +356,8 @@
 /area/casino/casino_maintenance)
 "bk" = (
 /obj/machinery/door/blast/regular{
-	id = "casino_weaponry"
+	id = "casino_weaponry";
+	name = "armoury door"
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
