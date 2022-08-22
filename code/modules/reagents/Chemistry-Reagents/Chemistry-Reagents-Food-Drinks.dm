@@ -768,6 +768,8 @@
 	M.adjustToxLoss(0.5 * removed)
 
 /decl/reagent/capsaicin/initial_effect(var/mob/living/carbon/M, var/alien)
+	if(M.species.origin_traits & ORIGIN_TRAIT_IGNORE_CAPSAICIN)
+		return
 	to_chat(M, discomfort_message)
 
 /decl/reagent/capsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -778,6 +780,9 @@
 
 	if(M.chem_doses[type] >= agony_dose && prob(5))
 		to_chat(M, discomfort_message)
+		if(M.species.origin_traits & ORIGIN_TRAIT_IGNORE_CAPSAICIN)
+			return
+
 		M.visible_message("<b>[M]</b> [pick("dry heaves!", "coughs!", "splutters!")]")
 		M.apply_effect(agony_amount, PAIN, 0)
 
@@ -839,7 +844,7 @@
 		if (!mouth_covered && (eyes_covered & EYES_PROTECTED))
 			message = "<span class='warning'>Your [eye_protection] protects your eyes from the pepperspray!</span>"
 		else if (eyes_covered & EYES_MECH)
-			message = "<span class='warning'>Your mechanical eyes are invulnurable to pepperspray!</span>"
+			message = "<span class='warning'>Your mechanical eyes are invulnerable to pepperspray!</span>"
 	else
 		message = "<span class='warning'>The pepperspray gets in your eyes!</span>"
 		if(mouth_covered)
