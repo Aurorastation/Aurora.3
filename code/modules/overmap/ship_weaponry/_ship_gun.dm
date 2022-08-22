@@ -28,8 +28,8 @@
 //What kind of dinky ass gun is only 32x32?
 /obj/structure/ship_weapon_dummy
 	name = "ship weapon"
-	icon = null
-	icon_state = ""
+	icon = 'icons/obj/machines/ship_guns/ship_weapon_attachments.dmi'
+	icon_state = "dummy"
 	layer = OBJ_LAYER //Higher than the gun itself.
 	density = TRUE
 	opacity = FALSE

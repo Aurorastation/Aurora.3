@@ -15720,10 +15720,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
-"izp" = (
-/obj/structure/ship_weapon_dummy,
-/turf/template_noop,
-/area/template_noop)
 "izy" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -23099,6 +23095,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
+"mEj" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/starboard/far)
 "mFc" = (
 /obj/machinery/power/apc/low{
 	dir = 1;
@@ -27585,6 +27585,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/r_wall,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
+"oXU" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/template_noop)
 "oXY" = (
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
@@ -34315,6 +34319,10 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
+"sCD" = (
+/obj/machinery/computer/ship/navigation,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/starboard/far)
 "sCE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -41384,10 +41392,6 @@
 /obj/structure/grille/broken,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
-"wkD" = (
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/wing/starboard/far)
 "wkN" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -49962,17 +49966,17 @@ nox
 exw
 nox
 nox
-nox
-wkD
-wkD
+sCD
+mEj
+mEj
 xvS
-izp
-izp
-izp
-izp
-izp
-izp
-izp
+oXU
+oXU
+oXU
+oXU
+oXU
+oXU
+oXU
 qgN
 qgN
 qgN
@@ -50165,16 +50169,16 @@ dMK
 dMK
 dMK
 mQi
-wkD
-wkD
-wkD
-izp
-izp
-izp
-izp
-izp
-izp
-izp
+mEj
+mEj
+mEj
+oXU
+oXU
+oXU
+oXU
+oXU
+oXU
+oXU
 qgN
 qgN
 qgN
@@ -50367,10 +50371,10 @@ vaL
 vaL
 vaL
 czJ
-wkD
-wkD
-wkD
-izp
+mEj
+mEj
+mEj
+oXU
 qgN
 qgN
 qgN
