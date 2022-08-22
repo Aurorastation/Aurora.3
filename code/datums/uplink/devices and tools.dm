@@ -215,3 +215,9 @@
 	desc = "Use these bags to set up some barricades. Does not come with barbed wire included."
 	item_cost = 2
 	path = /obj/item/stack/liquidbags
+
+/datum/uplink_item/item/tools/memorywiper
+	name = "Portable Memory Wiper"
+	desc = "Use this to wipe the memories of any IPC."
+	item_cost = 1
+	path = /obj/item/device/memorywiper
