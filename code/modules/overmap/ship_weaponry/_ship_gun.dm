@@ -10,7 +10,6 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/ship_weapon/LateInitialize()
-	. = ..()
 	weapon = new weapon()
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
@@ -25,9 +24,31 @@
 	QDEL_NULL(weapon)
 	return ..()
 
+//The fake objects below handle things like density/opaqueness for empty tiles, since the icons for guns are larger than 32x32.
+//What kind of dinky ass gun is only 32x32?
 /obj/structure/ship_weapon_dummy
 	name = "ship weapon"
+	icon = null
+	icon_state = ""
+	layer = OBJ_LAYER //Higher than the gun itself.
+	density = TRUE
+	opacity = FALSE
 	var/obj/machinery/ship_weapon/connected
+
+/obj/structure/ship_weapon_dummy/attack_hand(mob/user)
+	connected.attack_hand(user)
+
+/obj/structure/ship_weapon_dummy/attackby(obj/item/W, mob/user)
+	connected.attackby(W, user)
+
+/obj/structure/ship_weapon_dummy/hitby(atom/movable/AM)
+	connected.hitby(AM)
+
+/obj/structure/ship_weapon_dummy/bullet_act(obj/item/projectile/P, def_zone)
+	connected.bullet_act(P)
+
+/obj/structure/ship_weapon_dummy/ex_act(severity)
+	connected.ex_act(severity)
 
 /obj/structure/ship_weapon_dummy/proc/connect(var/obj/machinery/ship_weapon/SW)
 	connected = SW
@@ -35,5 +56,5 @@
 	desc = SW.weapon.name
 	for(var/obj/structure/ship_weapon_dummy/SD in orange(1, src))
 		if(!SD.connected)
-			SD.connect(src)
+			SD.connect(SW)
 

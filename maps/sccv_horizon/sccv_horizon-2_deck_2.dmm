@@ -4366,17 +4366,17 @@
 /area/engineering/engine_room)
 "chP" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(5);
-	name = "Intensive Care Unit Maintenance"
+	name = "Intensive Care Unit Maintenance";
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/icu)
@@ -5427,9 +5427,9 @@
 	dir = 1
 	},
 /obj/machinery/computer/shuttle_control/lift/wall{
-	shuttle_tag = "Morgue Lift";
 	dir = 4;
-	pixel_x = -32
+	pixel_x = -32;
+	shuttle_tag = "Morgue Lift"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -5564,10 +5564,10 @@
 "cWG" = (
 /obj/structure/table/wood,
 /obj/machinery/button/switch/windowtint{
+	dir = 8;
 	id = "psych";
 	pixel_x = 24;
-	pixel_y = -9;
-	dir = 8
+	pixel_y = -9
 	},
 /obj/machinery/light{
 	dir = 4
@@ -10102,23 +10102,23 @@
 /area/security/security_office)
 "fAK" = (
 /obj/machinery/button/remote/airlock{
+	dir = 8;
 	id = "CEdoor";
 	name = "Office Door Control";
 	pixel_x = 25;
-	req_access = list(56);
-	dir = 8;
-	pixel_y = -7
+	pixel_y = -7;
+	req_access = list(56)
 	},
 /obj/machinery/button/switch/windowtint{
+	dir = 8;
 	id = "ce";
 	pixel_x = 24;
 	pixel_y = 2;
-	range = 9;
-	dir = 8
+	range = 9
 	},
 /obj/machinery/light_switch{
-	pixel_x = 24;
 	dir = 8;
+	pixel_x = 24;
 	pixel_y = 9
 	},
 /turf/simulated/floor/carpet,
@@ -12144,17 +12144,17 @@
 /area/maintenance/wing/port)
 "gzg" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(5);
-	name = "Examination Room Maintenance"
+	name = "Examination Room Maintenance";
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/exam)
@@ -15720,6 +15720,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
+"izp" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/template_noop)
 "izy" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -19430,12 +19434,12 @@
 "kBY" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
-	pixel_y = 2;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 2
 	},
 /obj/item/pen{
-	pixel_y = 2;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 2
 	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
@@ -20316,11 +20320,11 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/psych)
@@ -22558,8 +22562,8 @@
 	dir = 8;
 	id = "engineering_storage";
 	name = "Engineering Hard Storage";
-	pixel_y = 27;
-	pixel_x = 25
+	pixel_x = 25;
+	pixel_y = 27
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
@@ -22899,38 +22903,38 @@
 /area/rnd/research)
 "mxs" = (
 /obj/machinery/button/remote/driver{
+	dir = 1;
 	id = "enginecore";
 	name = "Emergency Core Eject";
-	pixel_y = -34;
-	dir = 1;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = -34
 	},
 /obj/item/modular_computer/console/preset/engineering/ce{
 	dir = 1
 	},
 /obj/machinery/light,
 /obj/machinery/keycard_auth{
-	pixel_y = -25;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = -25
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for engine core.";
+	dir = 1;
 	id = "EngineVent";
 	name = "Engine Ventillatory Control";
 	pixel_x = 7;
 	pixel_y = -25;
-	req_access = list(10);
-	dir = 1
+	req_access = list(10)
 	},
 /obj/machinery/button/remote/airlock{
 	desc = "A remote control-switch for the engine core airlock hatch bolts.";
+	dir = 1;
 	id = "engine_access_hatch";
 	name = "Engine Hatch Bolt Control";
 	pixel_x = 7;
 	pixel_y = -35;
 	req_access = list(10);
-	specialfunctions = 4;
-	dir = 1
+	specialfunctions = 4
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
@@ -23079,11 +23083,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/or1)
@@ -26943,11 +26947,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/or2)
@@ -28799,8 +28803,8 @@
 	dir = 5
 	},
 /obj/machinery/vending/mredispenser{
-	pixel_y = 24;
-	density = 0
+	density = 0;
+	pixel_y = 24
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/kitchen/hallway)
@@ -36886,11 +36890,11 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/psych)
@@ -38101,8 +38105,8 @@
 	id = "ringers_custodialaux";
 	name = "\improper Auxiliary Custodial Ringer Terminal";
 	pixel_x = 27;
-	req_access = list(26);
-	pixel_y = 5
+	pixel_y = 5;
+	req_access = list(26)
 	},
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
@@ -39239,6 +39243,10 @@
 /obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
+"vjc" = (
+/obj/machinery/weapon_control,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/starboard/far)
 "vjN" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -39980,6 +39988,10 @@
 /obj/machinery/disposal/small/west,
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
+"vFR" = (
+/obj/structure/viewport/zavod,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/starboard/far)
 "vGd" = (
 /obj/structure/bed/stool/chair/sofa/corner/brown{
 	dir = 1
@@ -41372,6 +41384,10 @@
 /obj/structure/grille/broken,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
+"wkD" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/starboard/far)
 "wkN" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -42240,8 +42256,8 @@
 /area/operations/break_room)
 "wGh" = (
 /obj/machinery/light_switch{
-	pixel_x = -24;
 	dir = 4;
+	pixel_x = -24;
 	pixel_y = 9
 	},
 /obj/machinery/newscaster{
@@ -42496,11 +42512,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/medical)
@@ -43767,6 +43783,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
+"xvS" = (
+/obj/machinery/ship_weapon/trauerschwan{
+	pixel_y = -256
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/wing/starboard/far)
 "xvZ" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
@@ -49741,7 +49764,7 @@ kDC
 kDC
 kDC
 kDC
-kDC
+qgN
 qgN
 qgN
 qgN
@@ -49940,16 +49963,16 @@ exw
 nox
 nox
 nox
-dEz
-bAF
-bAF
-kDC
-kDC
-qgN
-qgN
-qgN
-qgN
-qgN
+wkD
+wkD
+xvS
+izp
+izp
+izp
+izp
+izp
+izp
+izp
 qgN
 qgN
 qgN
@@ -50142,16 +50165,16 @@ dMK
 dMK
 dMK
 mQi
-dEz
-bAF
-bAF
-bAF
-kDC
-qgN
-qgN
-qgN
-qgN
-qgN
+wkD
+wkD
+wkD
+izp
+izp
+izp
+izp
+izp
+izp
+izp
 qgN
 qgN
 qgN
@@ -50344,11 +50367,11 @@ vaL
 vaL
 vaL
 czJ
-dEz
-bAF
-bAF
-bAF
-kDC
+wkD
+wkD
+wkD
+izp
+qgN
 qgN
 qgN
 qgN
@@ -50546,11 +50569,11 @@ vuI
 vuI
 vuI
 vPt
-dEz
-bAF
-bAF
-bAF
-kDC
+vjc
+nox
+vFR
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -50748,11 +50771,11 @@ atB
 nox
 nox
 nox
-dEz
-bAF
-bAF
+nox
+nox
 kDC
-kDC
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -50953,7 +50976,7 @@ kDC
 kDC
 kDC
 kDC
-kDC
+qgN
 qgN
 qgN
 qgN
