@@ -1,6 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - tweak: "Security Officers and the Warden can now access Evidence Storage."
