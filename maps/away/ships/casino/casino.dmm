@@ -5055,7 +5055,7 @@
 "zc" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	name = "Kitchen"
+	name = "Kitchen";
 	insecure = 0
 	},
 /obj/structure/cable{
