@@ -1,7 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/turf/space,
-/area/space)
 "ab" = (
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
@@ -22,12 +19,12 @@
 /area/space)
 "af" = (
 /obj/effect/shuttle_landmark/nav_casino/cutter_transit,
-/turf/space,
+/turf/template_noop,
 /area/space)
 "ah" = (
-/obj/effect/step_trigger/teleporter,
-/turf/space,
-/area/space)
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/steel,
+/area/casino/casino_bridge)
 "ai" = (
 /obj/effect/shuttle_landmark/nav_casino/nav1,
 /turf/template_noop,
@@ -47,7 +44,6 @@
 	icon_state = "pdoor0";
 	id = "casino_bridge";
 	name = "Casino Bridge Blast Doors";
-	is_critical = 1;
 	opacity = 0
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
@@ -76,7 +72,6 @@
 	icon_state = "pdoor0";
 	id = "casino_bridge";
 	name = "Casino Bridge Blast Doors";
-	is_critical = 1;
 	opacity = 0
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
@@ -355,8 +350,7 @@
 /area/casino/casino_maintenance)
 "bk" = (
 /obj/machinery/door/blast/regular{
-	id = "casino_weaponry";
-	is_critical = 1
+	id = "casino_weaponry"
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
@@ -904,8 +898,7 @@
 "cD" = (
 /obj/machinery/door/blast/regular/open{
 	icon_state = "pdoor0";
-	id = "casino_shuttle_control";
-	is_critical = 1
+	id = "casino_shuttle_control"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -1751,7 +1744,6 @@
 	icon_state = "pdoor0";
 	id = "casino_checkpoint";
 	name = "Casino Checkpoint Blast Doors";
-	is_critical = 1;
 	opacity = 0
 	},
 /turf/simulated/floor/tiled,
@@ -1850,7 +1842,6 @@
 	icon_state = "pdoor0";
 	id = "casino_checkpoint";
 	name = "Casino Checkpoint Blast Doors";
-	is_critical = 1;
 	opacity = 0
 	},
 /turf/simulated/floor/tiled,
@@ -2095,7 +2086,6 @@
 	icon_state = "pdoor0";
 	id = "casino_checkpoint";
 	name = "Casino Checkpoint Blast Doors";
-	is_critical = 1;
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
@@ -4934,10 +4924,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/casino/casino_crew_cantina)
-"vS" = (
-/obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/tiled/steel,
-/area/casino/casino_bridge)
 "vZ" = (
 /obj/random/spacecash,
 /turf/simulated/floor/carpet/fancybrown,
@@ -9932,7 +9918,7 @@ an
 ar
 au
 ay
-vS
+ah
 qb
 rb
 ub
@@ -14804,12 +14790,12 @@ uc
 ab
 uc
 uc
-ah
-ah
-ah
-ah
-ah
-ah
+ab
+ab
+ab
+ab
+ab
+ab
 uc
 uc
 ab
@@ -14906,12 +14892,12 @@ uc
 ab
 uc
 uc
-ah
-aa
-aa
-aa
-aa
-ah
+ab
+uc
+uc
+uc
+uc
+ab
 uc
 uc
 ab
@@ -15008,12 +14994,12 @@ uc
 ab
 uc
 uc
-ah
-aa
-aa
-aa
-aa
-ah
+ab
+uc
+uc
+uc
+uc
+ab
 uc
 uc
 ab
@@ -15110,12 +15096,12 @@ uc
 ab
 uc
 uc
-ah
-aa
-aa
-aa
+ab
+uc
+uc
+uc
 af
-ah
+ab
 uc
 uc
 ab
@@ -15212,12 +15198,12 @@ uc
 ab
 uc
 uc
-ah
-aa
-aa
-aa
-aa
-ah
+ab
+uc
+uc
+uc
+uc
+ab
 uc
 uc
 ab
@@ -15314,12 +15300,12 @@ uc
 ab
 uc
 uc
-ah
-aa
-aa
-aa
-aa
-ah
+ab
+uc
+uc
+uc
+uc
+ab
 uc
 uc
 ab
@@ -15416,12 +15402,12 @@ uc
 ab
 uc
 uc
-ah
-aa
-aa
-aa
-aa
-ah
+ab
+uc
+uc
+uc
+uc
+ab
 uc
 uc
 ab
@@ -15518,12 +15504,12 @@ uc
 ab
 uc
 uc
-ah
-aa
-aa
-aa
-aa
-ah
+ab
+uc
+uc
+uc
+uc
+ab
 uc
 uc
 ab
@@ -15620,12 +15606,12 @@ uc
 ab
 uc
 uc
-ah
-aa
-aa
-aa
-aa
-ah
+ab
+uc
+uc
+uc
+uc
+ab
 uc
 uc
 ab
@@ -15722,12 +15708,12 @@ uc
 ab
 uc
 uc
-ah
-ah
-ah
-ah
-ah
-ah
+ab
+ab
+ab
+ab
+ab
+ab
 uc
 uc
 ab
