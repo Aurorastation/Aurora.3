@@ -54,11 +54,6 @@
 		args[1] = TRUE
 		SSatoms.InitAtom(src, args)
 
-	if(max_damage)
-		min_broken_damage = Floor(max_damage / 2)
-	else
-		max_damage = min_broken_damage * 2
-
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	if(!owner)

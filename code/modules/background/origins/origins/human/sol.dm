@@ -19,7 +19,8 @@
 		/decl/origin_item/origin/outer_ring,
 		/decl/origin_item/origin/konyang,
 		/decl/origin_item/origin/visegrad,
-		/decl/origin_item/origin/mictlan
+		/decl/origin_item/origin/mictlan,
+		/decl/origin_item/origin/antillia
 	)
 
 /decl/origin_item/origin/sol_system
@@ -133,3 +134,11 @@
 	possible_accents = list(ACCENT_MICTLAN)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
+
+/decl/origin_item/origin/antillia
+    name = "Port Antillia"
+    desc = "A former middle ring Solarian colony annexed into the Corporate Reconstruction Zone following the Solarian Collapse. Port Antillia is an under-developed ocean world with a unique, unstable geological profile and strong tradition of regional governance. Now with the formation of a unified planetary government within the Corporate Reconstruction Zone, Port Antillia looks forward to a hopeful, brighter future."
+    important_information = "Due to the rather insular and unstable history of Port Antillia as the singular colonisation attempt by the Caribbean Federation, <b>characters born on Port Antillia will have names and appearances consistent with the peoples of the Antilles.</b> Only those native to Port Antillia may take its accent. This is enforceable by server moderators and admins."
+    possible_accents = list(ACCENT_ANTILLIA)
+    possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
+    possible_religions = RELIGIONS_SOLARIAN

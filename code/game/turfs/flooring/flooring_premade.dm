@@ -156,6 +156,12 @@
 	oxygen = 0
 	nitrogen = ATMOSTANK_NITROGEN
 
+// Reinforced Reactor Flooring
+/turf/simulated/floor/reinforced/reactor
+	name = "reinforced reactor floor"
+	oxygen = 0
+	nitrogen = MOLES_CELLSTANDARD // One atmosphere of nitrogen.
+
 /turf/simulated/floor/reinforced/oxygen
 	oxygen = ATMOSTANK_OXYGEN
 	nitrogen = 0
