@@ -13155,7 +13155,6 @@
 	dir = 8
 	},
 /obj/item/aicard,
-/obj/item/device/memorywiper,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "gYP" = (

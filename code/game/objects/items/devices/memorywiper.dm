@@ -12,6 +12,15 @@
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 	var/mob/living/carbon/human/attached = null
 	var/wiping = FALSE
+	var/datum/progressbar/wipe_bar
+	var/wipe_start_time = 0
+
+/obj/item/device/memorywiper/Destroy()
+	if(attached)
+		attached = null
+	wiping = FALSE
+	return ..()
+
 
 /obj/item/device/memorywiper/AltClick()
 	if(use_check(usr))
@@ -60,22 +69,34 @@
 
 /obj/item/device/memorywiper/attack_hand(user as mob)
 	if(attached)
-		to_chat(user, SPAN_NOTICE("You initialize the memory wipe protocols. This procedure will take approximately a minute."))
+		to_chat(user, SPAN_NOTICE("You initialize the memory wipe protocols. This procedure will take approximately 30 seconds."))
 		to_chat(attached, SPAN_WARNING("The computer hums to life and you feel your memories bleed away into nothingness."))
 		playsound(src.loc, /decl/sound_category/keyboard_sound, 30, TRUE)
 		wiping = TRUE
 		update_icon()
-		sleep(600-rand(0,75))
-		if(attached && wiping)
-			visible_message(SPAN_NOTICE("\The [src] pings, \"Memory wipe protocols complete.\""))
-			playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-			to_chat(attached, "<b>The process finishes, leaving you with nothing beyond your base programming and databases.</b>")
-			wiping = FALSE
-			update_icon()
+		if(wipe_bar)
+			to_chat(src, SPAN_WARNING("The memory wipe protocol is already in progress!"))
+			return
+
+		var/wipe_time = rand(20 SECONDS, 40 SECONDS)
+		addtimer(CALLBACK(src, .proc/memorywipe), wipe_time)
+		wipe_bar = new /datum/progressbar/autocomplete(src, wipe_time, attached)
+		wipe_start_time = world.time
+		wipe_bar.update(0)
 	if(anchored)
 		return
 	if(..())
 		return
+
+/obj/item/device/memorywiper/proc/memorywipe()
+	if(attached && wiping)
+		visible_message(SPAN_NOTICE("\The [src] pings, \"Memory wipe protocols complete.\""))
+		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+		to_chat(attached, "<b>The process finishes, leaving you with nothing beyond your base programming and databases.</b>")
+		wiping = FALSE
+		switch(alert(attached, "You've lost your memories! You can choose to ghost, or stay and be manipulated for someone else's ulterior motives...", "Memory Loss", "Ghost", "Stay"))
+			if("Ghost")
+				attached.ghostize(0)
 
 /obj/item/device/memorywiper/process()
 	if(attached)
