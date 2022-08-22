@@ -60,12 +60,12 @@
 
 /obj/item/device/memorywiper/attack_hand(user as mob)
 	if(attached)
-		to_chat(user, SPAN_NOTICE("You initialize the memory wipe protocols. This procedure will take approximately 2 minutes."))
+		to_chat(user, SPAN_NOTICE("You initialize the memory wipe protocols. This procedure will take approximately a minute."))
 		to_chat(attached, SPAN_WARNING("The computer hums to life and you feel your memories bleed away into nothingness."))
 		playsound(src.loc, /decl/sound_category/keyboard_sound, 30, TRUE)
 		wiping = TRUE
 		update_icon()
-		sleep(1200-rand(0,150))
+		sleep(600-rand(0,75))
 		if(attached && wiping)
 			visible_message(SPAN_NOTICE("\The [src] pings, \"Memory wipe protocols complete.\""))
 			playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
