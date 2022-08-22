@@ -530,12 +530,11 @@
 /obj/item/gun/projectile/flaregun
 	name = "emergency flare launcher"
 	desc = "A single shot polymer flare gun, the KA-EFL-C is a reliable way to launch flares away from yourself."
-	desc_fluff = "The \ Kumar Arms Emergency Flare Launcher Civilian \ is, as the name implies, the civilian version of Zavodskoi's popular and widly used single shot flare gun, intended for use in emergency situations, expeditions or to simply illuminate your way."
+	desc_fluff = "The \ Kumar Arms Emergency Flare Launcher Civilian \ is, as the name implies, the civilian version of Zavodskoi's popular and widely used single shot flare gun, intended for use in emergency situations, expeditions or to simply illuminate your way."
 	icon = 'icons/obj/contained_items/weapons/flare_gun.dmi'
 	icon_state = "flaregun"
 	item_state = "flaregun"
 	fire_sound = 'sound/weapons/gunshot/gunshot_thump.ogg'
-	fire_sound_text = "a satisfying thump"
 	slot_flags = SLOT_BELT | SLOT_HOLSTER
 	w_class = ITEMSIZE_NORMAL
 	matter = list(MATERIAL_STEEL = 1500, MATERIAL_PLASTIC = 2000)

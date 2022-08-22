@@ -167,6 +167,15 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 90, MATERIAL_GLASS = 90)
 	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
+//Does no damage, is used for signalling and illumination
+/obj/item/ammo_casing/shotgun/flare
+	name = "flare shell"
+	desc = "A 12-gauge special flare shell, used for signalling and illumination."
+	icon_state = "flareshell"
+	spent_icon = "flareshell-spent"
+	projectile_type = /obj/item/projectile/energy/flash/illumination_flare
+	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 100)
+
 /obj/item/ammo_casing/shotgun/incendiary
 	name = "incendiary shell"
 	desc = "A 12-gauge incendiary shell."

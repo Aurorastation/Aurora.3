@@ -45,6 +45,12 @@
 	brightness = 9 //similar to a flare
 	light_duration = 200
 
+/obj/item/projectile/energy/flash/illumination_flare
+	damage = 25
+	damage_type = BURN
+	brightness = 10
+	light_duration = 500
+
 /obj/item/projectile/energy/electrode
 	name = "electrode"
 	icon_state = "spark"
