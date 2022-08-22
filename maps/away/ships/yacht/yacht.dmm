@@ -388,13 +388,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/yacht/living)
-"bp" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/paper{
-	info = "I have accepted my fate. I will go into EVA with one of the cyanide pills in my mouth, and I will float off. I want a military funeral, and I will arrange it myself. Good bye all. I have earned and sealed my fate. "
-	},
-/turf/simulated/floor/wood/coloured/yew,
-/area/shuttle/yacht/living)
 "bq" = (
 /obj/structure/bookcase,
 /turf/simulated/floor/carpet/purple,
@@ -6898,7 +6891,7 @@ aF
 aY
 aF
 aF
-bp
+aF
 bt
 bB
 bK

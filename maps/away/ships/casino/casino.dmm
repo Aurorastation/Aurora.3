@@ -764,9 +764,6 @@
 /obj/structure/bed,
 /obj/random/plushie,
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/structure/sign/flag/hegemony{
-	pixel_x = -32
-	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_bunk)
 "cs" = (
@@ -779,9 +776,6 @@
 /obj/item/haircomb/random,
 /obj/item/flame/lighter/random,
 /obj/random/loot,
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 30
-	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_bunk)
 "ct" = (
@@ -794,9 +788,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
-	},
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 29
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_bunk)
@@ -821,9 +812,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
-	},
-/obj/structure/sign/flag/biesel/left{
-	pixel_y = 29
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_bunk)
@@ -850,9 +838,6 @@
 	icon_state = "4-8"
 	},
 /obj/random/loot,
-/obj/structure/sign/flag/biesel/right{
-	pixel_y = 29
-	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_bunk)
 "cy" = (
@@ -1102,12 +1087,18 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_bunk)
 "dg" = (
-/obj/structure/bed,
-/obj/structure/sign/flag/coalition{
-	pixel_y = -33
+/obj/structure/table/stone/marble,
+/obj/random/coin{
+	pixel_x = -5;
+	pixel_y = 4
 	},
-/turf/simulated/floor/tiled,
-/area/casino/casino_crew_bunk)
+/obj/random/coin,
+/obj/random/coin{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/steel,
+/area/casino/casino_mainfloor)
 "dh" = (
 /obj/structure/bed,
 /obj/random/plushie,
@@ -1253,16 +1244,10 @@
 /area/casino/casino_storage)
 "dN" = (
 /obj/structure/casino/bj_table,
-/obj/structure/sign/flag/dpra/left{
-	pixel_y = 30
-	},
 /turf/simulated/floor/plating,
 /area/casino/casino_storage)
 "dO" = (
 /obj/structure/casino/bj_table/bj_right,
-/obj/structure/sign/flag/dpra/right{
-	pixel_y = 30
-	},
 /turf/simulated/floor/plating,
 /area/casino/casino_storage)
 "dP" = (
@@ -1282,13 +1267,12 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/item/stack/cable_coil,
 /obj/structure/table/wood,
-/obj/structure/sign/flag/biesel{
-	pixel_y = 30
-	},
 /turf/simulated/floor/plating,
 /area/casino/casino_storage)
 "dT" = (
-/obj/structure/largecrate/animal/adhomai,
+/obj/structure/largecrate/animal/adhomai{
+	name = "exotic animal crate"
+	},
 /turf/simulated/floor/plating,
 /area/casino/casino_storage)
 "eb" = (
@@ -1475,9 +1459,6 @@
 /area/casino/casino_storage)
 "ey" = (
 /obj/structure/bed,
-/obj/structure/sign/flag/pra{
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_bunk)
 "ez" = (
@@ -1503,6 +1484,7 @@
 "eE" = (
 /obj/random/coin,
 /obj/random/coin,
+/obj/item/storage/bag/money,
 /turf/simulated/floor/plating,
 /area/casino/casino_security)
 "eF" = (
@@ -2157,38 +2139,18 @@
 /turf/simulated/floor/tiled/steel,
 /area/casino/casino_mainfloor)
 "gq" = (
-/obj/structure/safe,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
+/obj/structure/safe,
 /turf/simulated/floor/tiled/steel,
 /area/casino/casino_mainfloor)
 "gr" = (
-/obj/structure/safe,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
-/obj/random/coin,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/safe,
 /turf/simulated/floor/tiled/steel,
 /area/casino/casino_mainfloor)
 "gs" = (
@@ -2317,10 +2279,6 @@
 "gG" = (
 /turf/space/dynamic,
 /area/space)
-"gH" = (
-/obj/random/coin,
-/turf/simulated/floor/tiled/steel,
-/area/casino/casino_mainfloor)
 "gI" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -3089,7 +3047,10 @@
 /obj/item/trash/tray,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/snacks/stew,
+/obj/item/reagent_containers/food/snacks/stew{
+	desc = "A cold stew. It's clearly been sitting out for a while.";
+	name = "cold stew"
+	},
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_kitchen)
 "iR" = (
@@ -5605,7 +5566,6 @@
 /area/casino/casino_bow)
 "Qe" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/item/storage/bag/money,
 /obj/machinery/alarm{
 	pixel_y = 25
 	},
@@ -10864,7 +10824,7 @@ bC
 ca
 bQ
 cN
-dg
+ey
 dx
 dQ
 ek
@@ -11691,7 +11651,7 @@ fr
 cb
 cb
 gq
-gH
+gY
 gX
 hg
 ge
@@ -11894,7 +11854,7 @@ bq
 Fb
 fH
 cb
-gs
+dg
 gI
 kJ
 hg

@@ -19,7 +19,7 @@
 	desc = "A spaceborne casino slash passenger liner of an uncertain design. It's hardly nimble, quite defenceless and is likely far from any safe transit routes. Sensors detect that it is undamaged and without any signs of activity within."
 	icon_state = "ship_grey"
 	moving_state = "ship_grey_moving"
-	vessel_mass = 10000
+	vessel_mass = 15000
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECOND
 	fore_dir = NORTH
@@ -73,7 +73,7 @@
 //A very small shuttle, it can't move independently on the overmap and can only land near where its mothership goes to. If we ever want that to change though, gave it the settings for it.
 /obj/effect/overmap/visitable/ship/landable/casino_cutter
 	name = "Casino Cutter"
-	desc = "A generic small boxy transport shuttle. It looks like a brick and it handles like one too."
+	desc = "A generic small, boxy transport shuttle. It looks like a brick and it handles like one too."
 	shuttle = "Casino Cutter"
 	icon_state = "shuttle_grey"
 	moving_state = "shuttle_grey_moving"
@@ -90,7 +90,7 @@
 	shuttle_area = /area/shuttle/casino_cutter
 	current_location = "nav_casino_hangar"
 	landmark_transition = "nav_casino_transit"
-	fuel_consumption = 0.5//it's small
+	fuel_consumption = 2
 	logging_home_tag = "nav_casino_hangar"
 	range = 1
 	defer_initialisation = TRUE
