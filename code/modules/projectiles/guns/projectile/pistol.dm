@@ -531,7 +531,7 @@
 	name = "emergency flare launcher"
 	desc = "A single shot polymer flare gun, the KA-EFL-C is a reliable way to launch flares away from yourself."
 	desc_fluff = "The \ Kumar Arms Emergency Flare Launcher Civilian \ is, as the name implies, the civilian version of Zavodskoi's popular and widly used single shot flare gun, intended for use in emergency situations, expeditions or to simply illuminate your way."
-	icon = 'icons/obj/contained_items/weapons/flaregun.dmi'
+	icon = 'icons/obj/contained_items/weapons/flare_gun.dmi'
 	icon_state = "flaregun"
 	item_state = "flaregun"
 	fire_sound = 'sound/weapons/empty/empty2.ogg'
@@ -544,7 +544,6 @@
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
 	max_shells = 1
-	//load_sound = /decl/sound_category/shotgun_reload//
 
 /obj/item/gun/projectile/flare/loaded
 	ammo_type = /obj/item/ammo_casing/shotgun/flash
