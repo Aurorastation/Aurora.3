@@ -95,6 +95,7 @@
 	possible_accents = list(ACCENT_PHONG)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = ORIGIN_TRAIT_IGNORE_CAPSAICIN
 
 /decl/origin_item/origin/silversun
 	name = "Silversun"
