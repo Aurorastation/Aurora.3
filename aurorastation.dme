@@ -2623,6 +2623,7 @@
 #include "code\modules\paperwork\photography.dm"
 #include "code\modules\paperwork\silicon_photography.dm"
 #include "code\modules\paperwork\stamps.dm"
+#include "code\modules\paperwork\sticky_notes.dm"
 #include "code\modules\power\apc.dm"
 #include "code\modules\power\batteryrack.dm"
 #include "code\modules\power\breaker_box.dm"
