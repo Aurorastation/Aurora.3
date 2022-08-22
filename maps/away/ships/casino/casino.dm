@@ -2,7 +2,7 @@
 	name = "Casino"
 	description = "A casino ship!"
 	suffix = "ships/casino/casino.dmm"
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
+	ssectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "awaysite_casino"
@@ -38,7 +38,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/casino/New()
-	designation = "[pick("Grand Rafama","Gold Rush","Rredouane's Favoured","Four Leaves", "Over Easy")]"
+	designation = "[pick("Lady Luck","Gold Rush","Fortune's Favoured","Four Leaves", "Over Easy")]"
 	..()
 
 //Landmarks
