@@ -464,6 +464,7 @@ datum/preferences
 	character.religion = religion
 	character.accent = accent
 	character.origin = decls_repository.get_decl(text2path(origin))
+	character.origin.on_apply(character)
 	character.culture = decls_repository.get_decl(text2path(culture))
 
 	character.skills = skills
