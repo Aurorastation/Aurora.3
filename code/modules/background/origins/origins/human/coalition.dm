@@ -54,12 +54,18 @@
 	possible_citizenships = list(CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER)
 
+/decl/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/human/H)
+  H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
+
 /decl/origin_item/origin/gadpathur_exile
 	name = "Gadpathurian Exile"
 	desc = "As an exile from Gadpathur you are, above all other things, a failure. A failure to meet the standards of Gadpathurian society found unworthy of defending it from the Solarian imperialists. You are a weakness that the planet and its people cannot afford to keep around, lest you compromise its defense. Stripped over everything that makes you Gadpathurian and cast aside to the Republic of Biesel or Coalition of Colonies, it is now up to you -- and you alone -- to make something of yourself despite your status as a failure. The one certainty is that your home will not take you back, no matter what you do."
 	possible_accents = list(ACCENT_GADPATHUR)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_COALITION
+
+/decl/origin_item/origin/gadpathur_exile/on_apply(var/mob/living/carbon/human/H)
+  H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
 
 /decl/origin_item/origin/assunzione
 	name = "Republic of Assunzione"
