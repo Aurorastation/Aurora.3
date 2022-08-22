@@ -802,7 +802,9 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/item/storage/toolbox/syndicate,
+/obj/item/storage/toolbox/syndicate{
+	name = "black toolbox"
+	},
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
