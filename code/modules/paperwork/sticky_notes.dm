@@ -1,7 +1,7 @@
 /obj/item/sticky_pad
 	name = "stickynote pad"
 	desc = "A pad, with lots of little sticky notes attached."
-	colour = COLOR_YELLOW
+	color = COLOR_YELLOW
 	icon_state = "pad_full"
 	item_state = "paper"
 	w_class = ITEMSIZE_TINY
@@ -10,8 +10,9 @@
 	var/written_text
 	var/written_by
 	var/paper_type = /obj/item/paper/sticky
+	var/free_space = 512
 
-/obj/item/sticky_pad/on_update_icon()
+/obj/item/sticky_pad/update_icon()
 	if(papers <= 15)
 		icon_state = "pad_empty"
 	else if(papers <=50)
@@ -23,11 +24,11 @@
 
 /obj/item/sticky_pad/attackby(var/obj/item/thing, var/mob/user)
 	if(istype(thing, /obj/item/pen))
-		if(writing_space <=0)
+		if(free_space <=0)
 			to_chat(user, SPAN_WARNING("There is no room left on \the [src]."))
 			return
-		var/text = sanitizeSafe(input("What would you like to write?") as text, writing_space)
-		if(!text || thing.loc != user || (!Adjacent(user) : loc != user) || user.incapacitated())
+		var/text = sanitizeSafe(input("What would you like to write?") as text, free_space)
+		if(!text || thing.loc != user || (!Adjacent(user) && loc != user) || user.incapacitated())
 			return
 		user.visible_message(SPAN_NOTICE ("\The [user] sticks down a note on the \the [src]."))
 		if(written_text)
@@ -70,7 +71,7 @@
 	color = COLOR_YELLOW
 	slot_flags = 0
 
-/obj/item/sticky/on_update_icon()
+/obj/item/sticky/update_icon()
 	if(icon_state != "scrap")
 		icon_state = info ? "paper_words" : "paper"
 
@@ -79,7 +80,7 @@
 
 /obj/item/paper/sticky/afterattack(var/A, var/mob/user, var/flag, var/params)
 
-	if(!in_range(user, A)) || istype(A, obj/machinery/door) || istype(A, obj/item/storage) || icon_state == "scrap"
+	if((!in_range(user, A)) || istype(A, obj/machinery/door) || istype(A, obj/item/storage) || icon_state == "scrap")
 		return
 
 	var/turf/target_turf = get_turf(A)
@@ -100,7 +101,7 @@
 				if(dir_offset & EAST)
 					pixel_x -= 32
 				else if(dir_offset & WEST)
-					pixel_x = -= 32
+					pixel_x -= 32
 			if(mouse_control["icon-y"])
 				pixel_y = text2num(mouse_control["icon-y"]) - 16
 				if(dir_offset & NORTH)
