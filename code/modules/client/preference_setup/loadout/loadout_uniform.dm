@@ -205,6 +205,7 @@
 	colorpants["tailored jeans"] = /obj/item/clothing/under/pants/tailoredjeans
 	colorpants["mustang jeans"] = /obj/item/clothing/under/pants/musthangcolour
 	colorpants["shorts"] = /obj/item/clothing/under/shorts/color
+	colorpants["flared pants"] = /obj/item/clothing/under/pants/flared
 	gear_tweaks += new /datum/gear_tweak/path(colorpants)
 
 /datum/gear/uniform/turtleneck

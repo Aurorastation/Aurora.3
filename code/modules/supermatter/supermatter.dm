@@ -33,7 +33,7 @@
 #define LIGHT_POWER_CALC (max(power / 50, 1))
 
 /obj/machinery/power/supermatter
-	name = "Supermatter"
+	name = "supermatter crystal"
 	desc = "A strangely translucent and iridescent crystal. <span class='warning'>You get headaches just from looking at it.</span>"
 	desc_info = "When energized by a laser (or something hitting it), it emits radiation and heat.  If the heat reaches above 7000 kelvin, it will send an alert and start taking damage. \
 	After integrity falls to zero percent, it will delaminate, causing a massive explosion, station-wide radiation spikes, and hallucinations. \

@@ -268,6 +268,11 @@
 	desc = "A danger sign which reads \"DANGER: HIGH VOLTAGE\"."
 	icon_state = "shock"
 
+/obj/structure/sign/electricshock/tesla
+	name = "\improper TESLA REACTOR - DANGER: HIGH VOLTAGE sign"
+	desc = "A danger sign which reads \"TESLA REACTOR - DANGER: HIGH VOLTAGE\" and \"HIGH POWER MAGNETIC FIELDS IN USE\"."
+	icon_state = "shock"
+
 /obj/structure/sign/fire
 	name = "\improper DANGER: FIRE sign"
 	desc = "A danger sign which reads \"DANGER: FIRE\"."

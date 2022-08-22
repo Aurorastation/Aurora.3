@@ -1,0 +1,1 @@
+Folder intended for storing contained custom item sprites.
