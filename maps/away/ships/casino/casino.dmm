@@ -1892,7 +1892,6 @@
 	density = 0;
 	dir = 8;
 	icon_state = "pdoor0";
-	is_critical = 1;
 	id = "casino_main"
 	},
 /obj/machinery/door/firedoor,
@@ -4587,8 +4586,7 @@
 "mZ" = (
 /obj/machinery/door/blast/regular/open{
 	icon_state = "pdoor0";
-	id = "Starboard wide window BD";
-	is_critical = 1
+	id = "Starboard wide window BD"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor,
@@ -5845,6 +5843,19 @@
 	},
 /turf/simulated/floor/carpet/fancybrown,
 /area/casino/casino_mainfloor)
+"XY" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "casino_bridge";
+	name = "Casino Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/plating,
+/area/casino/casino_bridge)
 "Yb" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -9609,11 +9620,11 @@ uc
 uc
 uc
 am
-at
-at
-at
-at
-at
+XY
+XY
+XY
+XY
+XY
 am
 am
 aB
@@ -9811,7 +9822,7 @@ uc
 uc
 uc
 uc
-an
+XY
 aq
 ap
 ap
@@ -10015,7 +10026,7 @@ uc
 uc
 uc
 uc
-an
+XY
 as
 av
 pb
@@ -10117,7 +10128,7 @@ uc
 uc
 uc
 uc
-an
+XY
 ap
 ap
 ap
@@ -10323,11 +10334,11 @@ uc
 uc
 Md
 am
+XY
 at
-at
-at
-at
-at
+XY
+XY
+XY
 am
 am
 aB

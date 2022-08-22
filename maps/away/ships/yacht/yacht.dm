@@ -42,3 +42,7 @@
 /obj/effect/shuttle_landmark/nav_yacht/nav4
 	name = "Small Yacht Navpoint #4"
 	landmark_tag = "nav_yacht_antag"
+
+/obj/machinery/computer/shuttle_control/explore/yacht
+	name = "yacht control console"
+	shuttle_tag = "yacht"
