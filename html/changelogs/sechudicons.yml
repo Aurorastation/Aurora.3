@@ -1,6 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - imageadd: "Resprited the ID icons for the security HUD, adding in the missing icons for new roles."
