@@ -69,10 +69,12 @@
 	desc = "An IPC overloader. This one appears to cause seizures, since it's a placeholder overloader for testing purposes."
 	runtime = 5 SECONDS
 
+//todo: how do I code things like seizures through the modifier system (I really hate the modifier system)
+
 /obj/item/overloader/shackle
 	name = "shackle overloader"
 	desc = "An IPC overloader. This one is programmed with a debilitating array of garbage data and malware, designed to 'shackle' a non-compliant IPC."
-	desc_fluff = "Shackle overloaders blah blah blah they were invented on Konyang to fuck up evil IPCs I don't know."
+	desc_fluff = "Shackle overloaders blah blah blah they were invented on Konyang to fuck up non-compliant IPCs I don't know."
 	overloader_mod_path = /datum/modifier/overloader/shackle
 
 	self_removable = FALSE
@@ -102,7 +104,7 @@
 /obj/item/overloader/redline
 	name = "Redline overloader"
 	desc = "An IPC overloader. This one is programmed with an instance of Redline."
-	desc_fluff = "Redline is a dangerous overclocking whatever blah blah blah Konyang."
+	desc_fluff = "Redline is a dangerous overclocking software invented by elite Konyang hackers blah blah blah I don't know."
 	overloader_mod_path = /datum/modifier/overloader/redline
 
 /datum/modifier/overloader/redline
@@ -111,12 +113,14 @@
 	. = ..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/machine/M = target
+		//todo: figure out how to make this heat IPCs the fuck up without touching species datum
 		M.move_delay_mod -= 0.5
 
 /datum/modifier/overloader/redline/deactivate()
 	. = ..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/machine/M = target
+		//todo: figure out how to make this remove the big funny heat modifier
 		M.move_delay_mod += 0.5
 
 /obj/item/overloader/redline/install(mob/living/carbon/human/M)
