@@ -7,7 +7,6 @@
 	spawn_cost = 1
 	id = "awaysite_casino"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/casino_cutter)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /decl/submap_archetype/casino
 	map = "Casino"
@@ -17,10 +16,10 @@
 /obj/effect/overmap/visitable/ship/casino
 	name = "passenger liner"
 	class = "ICV"
-	desc = "A spaceborne casino slash passenger liner of an uncertain design. It's hardly nimble, quite defenceless and is likely far from any safe pre-planned route. Sensors detect that it is undamaged and without any signs of activity within."
+	desc = "A spaceborne casino slash passenger liner of an uncertain design. It's hardly nimble, quite defenceless and is likely far from any safe transit routes. Sensors detect that it is undamaged and without any signs of activity within."
 	icon_state = "ship_grey"
 	moving_state = "ship_grey_moving"
-	vessel_mass = 50000
+	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECOND
 	fore_dir = NORTH
@@ -66,6 +65,10 @@
 /obj/effect/shuttle_landmark/nav_casino/nav5
 	name = "Casino Ship Navpoint #5"
 	landmark_tag = "nav_casino_antag"
+
+/obj/effect/shuttle_landmark/nav_casino/nav6
+	name = "Casino Ship Navpoint #6"
+	landmark_tag = "nav_casino_6"
 
 //A very small shuttle, it can't move independently on the overmap and can only land near where its mothership goes to. If we ever want that to change though, gave it the settings for it.
 /obj/effect/overmap/visitable/ship/landable/casino_cutter

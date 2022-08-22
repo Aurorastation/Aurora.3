@@ -37,16 +37,16 @@
 /turf/simulated/wall/r_wall,
 /area/casino/casino_bridge)
 "an" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 2;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "casino_bridge";
 	name = "Casino Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor/plating,
 /area/casino/casino_bridge)
 "ap" = (
@@ -87,6 +87,12 @@
 "av" = (
 /obj/structure/table/steel,
 /obj/item/gun/projectile/colt,
+/obj/machinery/button/remote/blast_door{
+	id = "casino_bridge";
+	name = "Bridge lockdown";
+	pixel_x = 5;
+	pixel_y = -1
+	},
 /turf/simulated/floor/tiled/steel,
 /area/casino/casino_bridge)
 "aw" = (
@@ -1202,11 +1208,16 @@
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/beanbags{
+	pixel_x = 5;
+	pixel_y = -6
+	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
 "dC" = (
 /obj/structure/table/rack,
+/obj/item/clothing/head/helmet/security/generic,
+/obj/item/clothing/head/helmet/security/generic,
 /obj/item/clothing/suit/armor/carrier/generic,
 /obj/item/clothing/suit/armor/carrier/generic,
 /turf/simulated/floor/tiled,
@@ -4161,6 +4172,7 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/ammo_casing/pistol/magnum/used,
+/obj/item/broken_bottle,
 /turf/simulated/floor/wood/coloured/birch,
 /area/casino/casino_private_vip)
 "lG" = (
@@ -5096,6 +5108,10 @@
 /obj/item/stack/material/plastic,
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
+"AP" = (
+/obj/effect/shuttle_landmark/nav_casino/nav6,
+/turf/template_noop,
+/area/space)
 "AT" = (
 /obj/effect/shuttle_landmark/nav_casino/cutter_hangar,
 /obj/structure/cable/green{
@@ -5834,18 +5850,20 @@
 /turf/simulated/floor/carpet/fancybrown,
 /area/casino/casino_mainfloor)
 "XY" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "casino_bridge";
-	name = "Casino Bridge Blast Doors";
-	opacity = 0
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/turf/simulated/floor/plating,
-/area/casino/casino_bridge)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/item/broken_bottle,
+/turf/simulated/floor/carpet/fancybrown,
+/area/casino/casino_mainfloor)
 "Yb" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -9610,11 +9628,11 @@ uc
 uc
 uc
 am
-XY
-XY
-XY
-XY
-XY
+at
+at
+at
+at
+at
 am
 am
 aB
@@ -9812,7 +9830,7 @@ uc
 uc
 uc
 uc
-XY
+at
 aq
 ap
 ap
@@ -10016,7 +10034,7 @@ uc
 uc
 uc
 uc
-XY
+at
 as
 av
 pb
@@ -10118,7 +10136,7 @@ uc
 uc
 uc
 uc
-XY
+at
 ap
 ap
 ap
@@ -10324,11 +10342,11 @@ uc
 uc
 Md
 am
-XY
 at
-XY
-XY
-XY
+at
+at
+at
+at
 am
 am
 aB
@@ -10873,7 +10891,7 @@ ga
 ga
 ga
 Ck
-kI
+XY
 kR
 lh
 lI
@@ -14636,7 +14654,7 @@ uc
 uc
 uc
 uc
-uc
+AP
 uc
 uc
 uc
