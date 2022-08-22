@@ -18760,16 +18760,22 @@
 /turf/simulated/floor/carpet,
 /area/horizon/library)
 "jUq" = (
-/obj/machinery/status_display{
-	layer = 4;
-	pixel_y = 32
-	},
-/obj/structure/closet/secure_closet/brig,
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
+/obj/structure/closet/secure_closet/marooning_equipment,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/southleft{
+	req_one_access = list(1,19);
+	name = "Marooning Equipment Access"
+	},
+/obj/structure/sign/securearea{
+	pixel_x = 16;
+	pixel_y = 32;
+	name = "\improper MAROONING EQUIPMENT sign";
+	desc = "A warning sign which reads 'MAROONING EQUIPMENT' and 'MISUSE OF EQUIPMENT MAKES YOU GUILTY OF i206 'NEGLECT OF DUTY''."
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/security/brig)
 "jUs" = (
 /obj/machinery/atmospherics/unary/freezer{
@@ -21736,11 +21742,11 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "lFP" = (
-/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/brig,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "lFU" = (
@@ -22089,12 +22095,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "lMT" = (
-/obj/structure/closet/secure_closet/brig,
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
+/obj/structure/closet/secure_closet/marooning_equipment,
+/obj/machinery/door/window/southright{
+	req_one_access = list(1,19);
+	name = "Marooning Equipment Access"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/security/brig)
 "lNb" = (
 /obj/effect/floor_decal/corner/green{
@@ -32283,7 +32290,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "rec" = (
-/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
@@ -32291,6 +32297,7 @@
 	c_tag = "Security - Corridor Camera 2"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/brig,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "reo" = (
@@ -45952,6 +45959,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
+	},
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
