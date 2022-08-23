@@ -197,7 +197,6 @@
 		surge_left += 1
 		stage_interval += 250
 
-
 /obj/item/organ/internal/eyes/optical_sensor
 	name = "optical sensor"
 	singular_name = "optical sensor"
