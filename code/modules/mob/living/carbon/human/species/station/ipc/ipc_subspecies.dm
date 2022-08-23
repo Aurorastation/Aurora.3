@@ -246,10 +246,10 @@
 
 	has_organ = list(
 		BP_BRAIN = /obj/item/organ/internal/mmi_holder/posibrain/terminator,
-		"cell" = /obj/item/organ/internal/cell,
+		"cell" = /obj/item/organ/internal/cell/terminator,
 		BP_EYES = /obj/item/organ/internal/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/internal/data,
-		"terminator surge"  = /obj/item/organ/internal/surge/advanced/terminator
+		"surge"  = /obj/item/organ/internal/surge/advanced
 	)
 
 	has_limbs = list(
