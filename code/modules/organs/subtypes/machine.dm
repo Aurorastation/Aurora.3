@@ -381,10 +381,6 @@
 	vital = TRUE
 	emp_coeff = 0.1
 
-/obj/item/organ/internal/cell/terminator/Initialize()
-	robotize()
-	replace_cell(new cell(src))
-	. = ..()
 
 /obj/item/organ/external/head/terminator
 	dislocated = -1
