@@ -1,5 +1,5 @@
 /obj/machinery/weapon_control
-	name = "artillery loader"
+	name = "ammunition loader"
 	desc = "An ammunition loader for ship weapons systems. All hands to battlestations!"
 	icon = 'icons/obj/machines/ship_guns/ship_weapon_attachments.dmi'
 	icon_state = "ammo_loader"

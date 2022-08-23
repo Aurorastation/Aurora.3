@@ -11,6 +11,7 @@
 
 /obj/machinery/ship_weapon/LateInitialize()
 	weapon = new weapon()
+	weapon.controller = src
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))

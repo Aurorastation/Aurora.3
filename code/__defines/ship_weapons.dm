@@ -6,10 +6,13 @@
 #define SHIP_AMMO_IMPACT_LASER "laser"
 #define SHIP_AMMO_IMPACT_BUNKERBUSTER "bunker-buster"
 #define SHIP_AMMO_IMPACT_PLASMA "plasma"
-#define SHIP_AMMO_IMPACT_PHORON_WMD "phoron nuke"
 
-#define FIRING_FLAG_SCREENSHAKE 1
-#define FIRING_FLAG_THROW_MOBS  2
+#define FIRING_EFFECT_FLAG_THROW_MOBS  1
+#define FIRING_EFFECT_FLAG_EXTREMELY_LOUD 2 //Play the heavy firing sound to all mobs on connected zlevels.
+#define FIRING_EFFECT_FLAG_SILENT 4 //Only play the heavy firing sound to nearby mobs, don't play the light sound.
+
+#define SHIP_GUN_SCREENSHAKE_SCREEN 1
+#define SHIP_GUN_SCREENSHAKE_ALL_MOBS 2
 
 #define SHIP_AMMO_STATUS_RUPTURED 0
 #define SHIP_AMMO_STATUS_GOOD     1
