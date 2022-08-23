@@ -6,8 +6,8 @@
 	desc = "A gas circulator turbine and heat exchanger."
 	desc_info = "This generates electricity, depending on the difference in temperature between each side of the machine.  The meter in \
 	the center of the machine gives an indicator of how much elecrtricity is being generated."
-	icon = 'icons/obj/pipes.dmi'
-	icon_state = "circ-off"
+	icon = 'icons/obj/power.dmi'
+	icon_state = "circ-unassembled"
 	anchored = FALSE
 	obj_flags = OBJ_FLAG_ROTATABLE
 
@@ -22,6 +22,7 @@
 	var/last_stored_energy_transferred = 0
 	var/volume_capacity_used = 0
 	var/stored_energy = 0
+	var/temperature_overlay
 
 	density = TRUE
 
@@ -76,15 +77,19 @@
 		update_icon()
 
 /obj/machinery/atmospherics/binary/circulator/update_icon()
-	if(stat & (BROKEN|NOPOWER) || !anchored)
-		icon_state = "circ-p"
-	else if(last_pressure_delta > 0 && recent_moles_transferred > 0)
-		if(last_pressure_delta > 5*ONE_ATMOSPHERE)
-			icon_state = "circ-run"
+	icon_state = anchored ? "circ-assembled" : "circ-unassembled"
+	cut_overlays()
+	if (stat & (BROKEN|NOPOWER) || !anchored)
+		return 1
+	if (last_pressure_delta > 0 && recent_moles_transferred > 0)
+		if (temperature_overlay)
+			overlays += image('icons/obj/power.dmi', temperature_overlay)
+		if (last_pressure_delta > 5*ONE_ATMOSPHERE)
+			overlays += image('icons/obj/power.dmi', "circ-run")
 		else
-			icon_state = "circ-slow"
+			overlays += image('icons/obj/power.dmi', "circ-slow")
 	else
-		icon_state = "circ-off"
+		overlays += image('icons/obj/power.dmi', "circ-off")
 
 	return 1
 
@@ -97,6 +102,7 @@
 					"You hear a ratchet")
 
 		if(anchored)
+			temperature_overlay = null
 			if(dir & (NORTH|SOUTH))
 				initialize_directions = NORTH|SOUTH
 			else if(dir & (EAST|WEST))
@@ -120,6 +126,7 @@
 
 			node1 = null
 			node2 = null
+		update_icon()
 
 		return TRUE
 	else

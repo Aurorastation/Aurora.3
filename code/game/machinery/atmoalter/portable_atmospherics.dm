@@ -121,6 +121,7 @@
 		if(connected_port)
 			disconnect()
 			to_chat(user, "<span class='notice'>You disconnect \the [src] from the port.</span>")
+			playsound(src.loc, W.usesound, 50, 1)
 			update_icon()
 			SSvueui.check_uis_for_change(src)
 			return TRUE
@@ -129,6 +130,7 @@
 			if(possible_port)
 				if(connect(possible_port))
 					to_chat(user, "<span class='notice'>You connect \the [src] to the port.</span>")
+					playsound(src.loc, W.usesound, 50, 1)
 					update_icon()
 					SSvueui.check_uis_for_change(src)
 					return TRUE
