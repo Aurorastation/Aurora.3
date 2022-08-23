@@ -381,7 +381,7 @@
 	vital = TRUE
 	emp_coeff = 0.1
 
-/obj/item/organ/internal/cell/Initialize()
+/obj/item/organ/internal/cell/terminator/Initialize()
 	robotize()
 	replace_cell(new cell(src))
 	. = ..()
