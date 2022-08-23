@@ -30090,6 +30090,9 @@
 /obj/structure/sign/electricshock/tesla{
 	pixel_x = 32
 	},
+/obj/structure/cable/orange{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "pWb" = (
@@ -44242,12 +44245,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "xgG" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
+/obj/effect/floor_decal/corner_wide/yellow/full{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/ramp/bottom{
-	dir = 1
-	},
+/turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
 "xgH" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
