@@ -249,7 +249,7 @@
 		"shielded cell" = /obj/item/organ/internal/cell/terminator,
 		BP_EYES = /obj/item/organ/internal/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/internal/data,
-		"surge"  = /obj/item/organ/internal/surge/advanced
+		"surge" = /obj/item/organ/internal/surge/advanced
 	)
 
 	has_limbs = list(
