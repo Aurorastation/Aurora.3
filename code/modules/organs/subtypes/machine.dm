@@ -197,6 +197,8 @@
 		surge_left += 1
 		stage_interval += 250
 
+	
+
 /obj/item/organ/internal/eyes/optical_sensor
 	name = "optical sensor"
 	singular_name = "optical sensor"
@@ -371,19 +373,10 @@
 	robotize()
 	. = ..()
 
-/obj/item/organ/internal/cell/terminator
-	name = "shielded microbattery"
-	desc = "A small, powerful cell for use in fully prosthetic bodies. Equipped with a Faraday shield."
-	icon = 'icons/obj/power.dmi'
-	icon_state = "scell"
-	organ_tag = "shielded cell"
-	parent_organ = BP_CHEST
-	vital = TRUE
-	emp_coeff = 0.1
+/obj/item/organ/internal/surge/advanced/terminator
+	name = "faraday surge preventor"
+	var/max_charges = 15
 
-/obj/item/organ/internal/cell/Initialize()
-	robotize()
-	. = ..()
 
 /obj/item/organ/external/head/terminator
 	dislocated = -1
