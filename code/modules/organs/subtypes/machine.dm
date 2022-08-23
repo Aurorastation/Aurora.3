@@ -383,7 +383,7 @@
 
 /obj/item/organ/internal/cell/Initialize()
 	robotize()
-	replace_cell()
+	replace_cell(W)
 	. = ..()
 
 /obj/item/organ/external/head/terminator
