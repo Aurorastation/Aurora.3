@@ -197,7 +197,7 @@
 		surge_left += 1
 		stage_interval += 250
 
-	
+
 
 /obj/item/organ/internal/eyes/optical_sensor
 	name = "optical sensor"
@@ -375,7 +375,7 @@
 
 /obj/item/organ/internal/surge/advanced/terminator
 	name = "faraday surge preventor"
-	var/max_charges = 15
+	max_charges = 15
 
 
 /obj/item/organ/external/head/terminator
