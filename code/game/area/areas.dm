@@ -2,6 +2,10 @@
 // Areas
 //
 
+#define VOLUME_AMBIENCE 30
+#define VOLUME_AMBIENT_HUM 35
+#define VOLUME_MUSIC 30
+
 /area
 	var/global/global_uid = 0
 	var/uid
@@ -293,7 +297,7 @@ var/list/mob/living/forced_ambiance_list = new
 	if(L && L.client && (L.client.prefs.asfx_togs & ASFX_HUM) && newarea.station_area && !L.ear_deaf)
 		if(!L.client.ambient_hum_playing)
 			L.client.ambient_hum_playing = TRUE
-			L << sound('sound/ambience/shipambience.ogg', repeat = 1, volume = 35, channel = 3)
+			L << sound('sound/ambience/shipambience.ogg', repeat = 1, volume = VOLUME_AMBIENT_HUM, channel = 3)
 	// Otherwise, stop playing the ambient hum.
 	else
 		L << sound(null, channel = 3)
@@ -310,7 +314,7 @@ var/list/mob/living/forced_ambiance_list = new
 /area/proc/play_ambience(var/mob/living/L)
 	if((world.time >= L.client.ambience_last_played_time + 30 SECONDS) && prob(20))
 		var/picked_ambience = pick(ambience)
-		L << sound(picked_ambience, volume = 30, channel = 2)
+		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = 2)
 		L.client.ambience_last_played_time = world.time
 
 // Stop Ambience
@@ -321,7 +325,7 @@ var/list/mob/living/forced_ambiance_list = new
 /area/proc/play_music(var/mob/living/L)
 	if(src.music.len)
 		var/picked_music = pick(music)
-		L << sound(picked_music, volume = 30, channel = 4)
+		L << sound(picked_music, volume = VOLUME_MUSIC, channel = 4)
 
 // Stop Music
 /area/proc/stop_music(var/mob/living/L)
@@ -335,7 +339,7 @@ var/list/mob/living/forced_ambiance_list = new
 			thunk(M)
 		else
 			to_chat(M, SPAN_NOTICE("The sudden lack of gravity makes you feel weightless and float cluelessly."))
-		M.update_floating( M.Check_Dense_Object() )
+		M.update_floating(M.Check_Dense_Object())
 
 /area/proc/thunk(mob)
 	if(istype(get_turf(mob), /turf/space)) // Can't fall onto nothing.
@@ -458,3 +462,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 	for(var/obj/machinery/M in T)
 		M.shuttle_move(T)
+
+#undef VOLUME_AMBIENCE
+#undef VOLUME_AMBIENT_HUM
+#undef VOLUME_MUSIC
