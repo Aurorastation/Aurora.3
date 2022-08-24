@@ -7421,6 +7421,9 @@
 	name = "Atmosphere Control";
 	req_access = list(24)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "fPG" = (
@@ -13044,6 +13047,7 @@
 	req_access = list(24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "kqO" = (
