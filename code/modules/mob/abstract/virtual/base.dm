@@ -1,3 +1,7 @@
+//
+// Virtual Mob
+//
+
 var/global/list/all_virtual_listeners = list()
 
 /mob/abstract/observer/virtual
@@ -50,9 +54,9 @@ var/global/list/all_virtual_listeners = list()
 	if(abilities & VIRTUAL_ABILITY_SEE)
 		overlays += overlay_icons["see"]
 
-/***********************
-* Virtual Mob Creation *
-***********************/
+//
+// Virtual Mob Creation
+//
 /atom/movable
 	var/mob/abstract/observer/virtual/virtual_mob
 
