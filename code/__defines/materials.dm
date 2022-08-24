@@ -51,6 +51,13 @@
 
 // Wood.
 #define MATERIAL_WOOD                    "wood"
+#define MATERIAL_BIRCH                   "birch wood"
+#define MATERIAL_MAHOGANY                "mahogany wood"
+#define MATERIAL_MAPLE                   "maple wood"
+#define MATERIAL_BAMBOO                  "bamboo wood"
+#define MATERIAL_EBONY                   "ebony wood"
+#define MATERIAL_WALNUT                  "walnut wood"
+#define MATERIAL_YEW                     "yew wood"
 #define MATERIAL_WOOD_HOLO               "holowood"
 #define MATERIAL_WOOD_LOG                "log"
 #define MATERIAL_WOOD_BRANCH             "branch"

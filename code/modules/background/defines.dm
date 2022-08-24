@@ -101,6 +101,7 @@
 #define ACCENT_AEMAQ "Aemaq"
 #define ACCENT_NEWSUEZ "New Suez"
 #define ACCENT_DAMASCUS "Damascus II"
+#define ACCENT_ANTILLIA "Port Antillia"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"
