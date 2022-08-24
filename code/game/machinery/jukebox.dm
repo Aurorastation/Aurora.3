@@ -187,9 +187,7 @@ datum/track/New(var/title_name, var/audio)
 	var/area/main_area = get_area(src)
 	// Always kill the current sound
 	for(var/mob/living/M in mobs_in_area(main_area))
-		M << sound(null, channel = 3)
-
-		main_area.music = null
+		M << sound(null, channel = 4)
 	playing = 0
 	update_use_power(POWER_USE_IDLE)
 	update_icon()
