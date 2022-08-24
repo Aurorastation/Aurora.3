@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - tweak: "Adds one-way unrestricted access from the inside of departments and some rooms, so that people are able to leave without requiring someone to let them out."
