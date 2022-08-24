@@ -371,8 +371,6 @@
 	robotize()
 	. = ..()
 
-<<<<<<< HEAD
-=======
 /obj/item/organ/internal/cell/terminator
 	name = "shielded microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies. Equipped with a Faraday shield."
@@ -385,10 +383,8 @@
 
 /obj/item/organ/internal/cell/Initialize()
 	robotize()
-	replace_cell(W)
 	. = ..()
 
->>>>>>> parent of 5cb9520153 (Try again)
 /obj/item/organ/external/head/terminator
 	dislocated = -1
 	can_intake_reagents = 0
