@@ -16975,9 +16975,6 @@
 	name = "Entrance Lockdown Shutters";
 	opacity = 0
 	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "iWt" = (
