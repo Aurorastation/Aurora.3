@@ -3187,4 +3187,7 @@
 #include "maps\sccv_horizon\code\sccv_horizon_unittest.dm"
 #include "maps\templates\distress\distress_equipment.dm"
 #include "maps\templates\orbital\orbital_templates.dm"
+#include "code\modules\mob\abstract\virtual\base.dm"
+#include "code\modules\mob\abstract\virtual\helpers.dm"
+#include "code\modules\mob\abstract\virtual\mob.dm"
 // END_INCLUDE
