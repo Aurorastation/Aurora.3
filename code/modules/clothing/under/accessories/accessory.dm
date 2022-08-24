@@ -202,7 +202,7 @@
 /obj/item/clothing/accessory/tie/bowtie
 	name = "bowtie"
 	desc = "A bowtie."
-	icon = 'icons/obj/contained_items/accessories/neck/bowtie.dmi'
+	icon = 'icons/contained_items/accessories/neck/bowtie.dmi'
 	icon_state = "bowtie"
 	item_state = "bowtie"
 	contained_sprite = TRUE
@@ -210,7 +210,7 @@
 /obj/item/clothing/accessory/tie/bow
 	name = "bow"
 	desc = "A bow."
-	icon = 'icons/obj/contained_items/accessories/neck/bow.dmi'
+	icon = 'icons/contained_items/accessories/neck/bow.dmi'
 	icon_state = "bow"
 	item_state = "bow"
 	contained_sprite = TRUE
@@ -218,7 +218,7 @@
 /obj/item/clothing/accessory/tie/ribbon
 	name = "ribbon"
 	desc = "A ribbon."
-	icon = 'icons/obj/contained_items/accessories/neck/ribbon.dmi'
+	icon = 'icons/contained_items/accessories/neck/ribbon.dmi'
 	icon_state = "ribbon"
 	item_state = "ribbon"
 	contained_sprite = TRUE

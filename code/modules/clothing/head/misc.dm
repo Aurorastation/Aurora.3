@@ -87,7 +87,7 @@
 /obj/item/clothing/head/pin/bow/alt
 	name = "hair bow"
 	desc = "A hair bow with a small removable clip on the back, so it can be attached to hair or tied into it."
-	icon = 'icons/obj/contained_items/accessories/hair/hairbow.dmi'
+	icon = 'icons/contained_items/accessories/hair/hairbow.dmi'
 	icon_state = "bow"
 	item_state = "bow"
 	contained_sprite = TRUE
