@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds virtual mobs."
+  - tweak: "Cleans up sight code to use procs where applicable."
