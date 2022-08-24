@@ -9192,7 +9192,7 @@
 /obj/machinery/door/airlock/glass_security{
 	id_tag = null;
 	name = "Armory Entrance";
-	req_access = list(63)
+	req_access = list(1)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -37814,7 +37814,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Security Equipment Room";
-	req_access = list(63)
+	req_access = list(1)
 	},
 /turf/simulated/floor/tiled,
 /area/security/main)
