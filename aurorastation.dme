@@ -2135,6 +2135,10 @@
 #include "code\modules\mob\abstract\observer\observer.dm"
 #include "code\modules\mob\abstract\observer\say.dm"
 #include "code\modules\mob\abstract\unauthed\login.dm"
+#include "code\modules\mob\abstract\virtual\_constants.dm"
+#include "code\modules\mob\abstract\virtual\base.dm"
+#include "code\modules\mob\abstract\virtual\helpers.dm"
+#include "code\modules\mob\abstract\virtual\mob.dm"
 #include "code\modules\mob\language\generic.dm"
 #include "code\modules\mob\language\language.dm"
 #include "code\modules\mob\language\monkey.dm"
@@ -3187,7 +3191,4 @@
 #include "maps\sccv_horizon\code\sccv_horizon_unittest.dm"
 #include "maps\templates\distress\distress_equipment.dm"
 #include "maps\templates\orbital\orbital_templates.dm"
-#include "code\modules\mob\abstract\virtual\base.dm"
-#include "code\modules\mob\abstract\virtual\helpers.dm"
-#include "code\modules\mob\abstract\virtual\mob.dm"
 // END_INCLUDE

@@ -30,7 +30,7 @@ var/global/list/all_virtual_listeners = list()
 
 /mob/abstract/observer/virtual/Initialize()
 	. = ..()
-	STOP_PROCESSING_MOB(src)
+	STOP_PROCESSING(SSmob, src)
 
 /mob/abstract/observer/virtual/Destroy()
 	moved_event.unregister(host, src, /atom/movable/proc/move_to_turf_or_null)
@@ -38,7 +38,7 @@ var/global/list/all_virtual_listeners = list()
 	host = null
 	return ..()
 
-/mob/abstract/observer/virtual/on_update_icon()
+/mob/abstract/observer/virtual/update_icon()
 	if(!overlay_icons)
 		overlay_icons = list()
 		for(var/i_state in icon_states(icon))
