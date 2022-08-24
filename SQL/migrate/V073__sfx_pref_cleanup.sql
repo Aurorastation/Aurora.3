@@ -1,7 +1,7 @@
 --
+-- Implemented in PR #14716.
 -- Clear unused "SOUND_AMBIENCE" (0x4) flag from "prefs.toggles".
 -- Rename "asfx_togs" to "sfx_toggles".
--- Implemented in PR #XXXXX.
 -- 
 
 UPDATE `ss13_player_preferences` SET `toggles` = `toggles` ~| 0x4;
