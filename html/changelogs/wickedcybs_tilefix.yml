@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "The casino ship away site had some improper tiles, missing fire shutters and misaligned air alarms that were fixed."
