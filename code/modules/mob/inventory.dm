@@ -369,6 +369,14 @@ var/list/slot_equipment_priority = list( \
 	if(!item)
 		return FALSE //Grab processing has a chance of returning null
 
+	if(item.too_heavy_to_throw())
+		to_chat(src, SPAN_DANGER("You try to throw \the [item] with a lot of difficulty..."))
+		if(do_after(src, 2 SECONDS))
+			to_chat(src, SPAN_DANGER("<font size=4>Your grip slips and \the [item] falls onto your foot!</font>"))
+			throw_fail_consequences(item)
+			drop_from_inventory(item)
+		return FALSE
+
 	if(a_intent == I_HELP && Adjacent(target) && isitem(item))
 		var/obj/item/I = item
 		if(ishuman(target))
@@ -473,3 +481,7 @@ var/list/slot_equipment_priority = list( \
 		var/obj/item/I = entry
 		if(I.body_parts_covered & body_parts)
 			return I
+
+//When you drop an extremely heavy 406mm shell onto your foot. Oops!
+/mob/living/carbon/proc/throw_fail_consequences(var/obj/item/I)
+	apply_damage(45, BRUTE, pick(list(BP_L_FOOT, BP_R_FOOT)), I, armor_pen = 30)

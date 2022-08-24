@@ -39252,7 +39252,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "vjc" = (
-/obj/machinery/weapon_control,
+/obj/machinery/ammunition_loader,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard/far)
 "vjN" = (

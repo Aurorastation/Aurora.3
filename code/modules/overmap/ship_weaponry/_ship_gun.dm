@@ -2,7 +2,9 @@
 	name = "ship weapon"
 	desc = "You shouldn't be seeing this."
 	icon = 'icons/obj/machines/ship_guns/zavod_longarm.dmi'
-	var/weapon_id //TODOMATT: Figure out if this is needed after all. This is a variable to allow connection to weapon controllers w/o adjacency in the same area
+	var/weapon_id //TODOMATT: Figure out if this is needed after all. Used to connect weapon systems to the relevant ammunition loader.
+	var/list/obj/item/ship_ammunition/ammunition = list()
+	var/load_time = 5 SECONDS
 	var/datum/ship_weapon/weapon
 
 /obj/machinery/ship_weapon/Initialize(mapload)
@@ -23,7 +25,34 @@
 
 /obj/machinery/ship_weapon/Destroy()
 	QDEL_NULL(weapon)
+	for(var/obj/O in ammunition)
+		qdel(O)
+	ammunition.Cut()
 	return ..()
+
+/obj/machinery/ship_weapon/proc/load_ammunition(var/obj/item/ship_ammunition/SA)
+	ammunition |= SA
+	SA.forceMove(src)
+
+/obj/machinery/ship_weapon/proc/firing_checks() //Check if we CAN fire.
+	if(length(ammunition))
+		return TRUE
+	else
+		return FALSE
+
+/obj/machinery/ship_weapon/proc/firing_command()
+	if(firing_checks())
+		weapon.pre_fire()
+
+/obj/machinery/ship_weapon/proc/consume_ammo(var/ammo_per_shot)
+	for(var/i = 1; i <= ammo_per_shot; i++)
+		var/obj/item/ship_ammunition/SA = ammunition[i]
+		SA.eject_shell(src)
+		ammunition -= SA
+		qdel(SA)
+
+/obj/machinery/ship_weapon/proc/get_caliber()
+	return weapon.caliber
 
 //The fake objects below handle things like density/opaqueness for empty tiles, since the icons for guns are larger than 32x32.
 //What kind of dinky ass gun is only 32x32?

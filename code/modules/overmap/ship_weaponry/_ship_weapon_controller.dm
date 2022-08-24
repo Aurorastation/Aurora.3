@@ -1,26 +1,32 @@
-/obj/machinery/weapon_control
+/obj/machinery/ammunition_loader
 	name = "ammunition loader"
 	desc = "An ammunition loader for ship weapons systems. All hands to battlestations!"
 	icon = 'icons/obj/machines/ship_guns/ship_weapon_attachments.dmi'
 	icon_state = "ammo_loader"
 	density = TRUE
 	var/obj/machinery/ship_weapon/weapon
+	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
 
-/obj/machinery/weapon_control/Initialize(mapload)
+/obj/machinery/ammunition_loader/Initialize(mapload)
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/weapon_control/LateInitialize()
-	if(current_map.use_overmap && !linked)
-		var/my_sector = map_sectors["[z]"]
-		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
-			attempt_hook_up(my_sector)
-	var/area/A = get_area(src)
-	for(var/obj/machinery/ship_weapon/SW in A)
-		if(SW.Adjacent(src))
+/obj/machinery/ammunition_loader/LateInitialize()
+	for(var/obj/machinery/ship_weapon/SW in SSmachinery.machinery)
+		if(SW.weapon_id == weapon_id)
 			weapon = SW
 	if(!weapon)
 		crash_with("[src] at [x] [y] [z] has no weapon attached!")
+
+/obj/machinery/ammunition_loader/attackby(obj/item/W, mob/user)
+	. = ..()
+	if(istype(W, /obj/item/ship_ammunition))
+		var/obj/item/ship_ammunition/SA = W
+		if(SA.caliber == weapon.get_caliber())
+			visible_message(SPAN_NOTICE("[user] begins loading \the [SA] into \the [src]..."))
+			if(do_after(user, weapon.load_time))
+				visible_message(SPAN_NOTICE("[user] loads \the [SA] into \the [src]."))
+				weapon.load_ammunition(SA)
 
 /obj/structure/viewport
 	name = "viewport"

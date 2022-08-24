@@ -7,28 +7,19 @@
 	var/caliber = SHIP_CALIBER_NONE
 	var/firing_effects
 	var/screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
-	var/list/obj/item/ship_ammunition/loaded = list()
-	var/obj/machinery/weapon_control/controller
+	var/ammo_per_shot = 1
+	var/obj/machinery/ship_weapon/controller
 
 /datum/ship_weapon/Destroy()
-	for(var/obj/O in loaded)
-		qdel(O)
-	loaded.Cut()
 	controller = null
 	return ..()
-
-/datum/ship_weapon/proc/firing_checks() //Check if we CAN fire.
-	if(length(loaded))
-		pre_fire()
-		return TRUE
-	else
-		return FALSE
 
 /datum/ship_weapon/proc/pre_fire() //We can fire, so what do we do before that? Think like a laser charging up.
 	on_fire()
 	return TRUE
 
 /datum/ship_weapon/proc/on_fire() //We just fired! Cool effects!
+	controller.consume_ammo(ammo_per_shot)
 	if(firing_effects & FIRING_EFFECT_FLAG_EXTREMELY_LOUD)
 		var/list/connected_z_levels = GetConnectedZlevels(controller.z)
 		for(var/mob/living/carbon/human/H in player_list)
