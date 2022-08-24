@@ -10,6 +10,9 @@
 	possible_themes = list(/datum/exoplanet_theme/mountains/breathable)
 	ruin_tags_blacklist = RUIN_VOID
 
+/obj/effect/overmap/visitable/sector/exoplanet/grass/grove/get_surface_color()
+	return "#5C7F34"
+
 /area/exoplanet/grass/grove
 	base_turf = /turf/simulated/floor/exoplanet/grass/grove
 
