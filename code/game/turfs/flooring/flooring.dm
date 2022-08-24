@@ -59,6 +59,7 @@
 	build_type = null
 	footstep_sound = /decl/sound_category/asteroid_footstep
 
+//Carpet
 /decl/flooring/carpet
 	name = "carpet"
 	desc = "Imported and comfy."
@@ -83,6 +84,42 @@
 /decl/flooring/carpet/art
 	icon_base = "artcarpet"
 	build_type = /obj/item/stack/tile/carpet_art
+
+/decl/flooring/carpet/fancybrown
+	icon_base = "brown"
+	build_type = /obj/item/stack/tile/carpet_fancybrown
+
+/decl/flooring/carpet/red
+	icon_base = "red"
+	build_type = /obj/item/stack/tile/carpet_red
+
+/decl/flooring/carpet/darkblue
+	icon_base = "blue1"
+	build_type = /obj/item/stack/tile/carpet_darkblue
+
+/decl/flooring/carpet/lightblue
+	icon_base = "blue2"
+	build_type = /obj/item/stack/tile/carpet_lightblue
+
+/decl/flooring/carpet/aquablue
+	icon_base = "blue3"
+	build_type = /obj/item/stack/tile/carpet_aquablue
+
+/decl/flooring/carpet/green
+	icon_base = "green"
+	build_type = /obj/item/stack/tile/carpet_green
+
+/decl/flooring/carpet/magenta
+	icon_base = "magenta"
+	build_type = /obj/item/stack/tile/carpet_magenta
+
+/decl/flooring/carpet/purple
+	icon_base = "purple"
+	build_type = /obj/item/stack/tile/carpet_purple
+
+/decl/flooring/carpet/orange
+	icon_base = "orange"
+	build_type = /obj/item/stack/tile/carpet_orange
 
 /decl/flooring/tiling
 	name = "steel tiles"
@@ -206,6 +243,7 @@
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_freezer
 
+//Wood
 /decl/flooring/wood
 	name = "wooden floor"
 	desc = "Polished redwood planks."
@@ -217,6 +255,40 @@
 	build_type = /obj/item/stack/tile/wood
 	flags = TURF_CAN_BREAK | TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER | TURF_CAN_BURN
 	footstep_sound = /decl/sound_category/wood_footstep
+
+/decl/flooring/wood/coloured
+	icon_base = "woodcolour"
+	desc = "Polished wooden planks."
+	build_type = /obj/item/stack/tile/wood/coloured
+	var/color
+
+/decl/flooring/wood/coloured/birch
+	color = WOOD_COLOR_BIRCH 
+	build_type = /obj/item/stack/tile/wood/coloured/birch
+
+/decl/flooring/wood/coloured/mahogany
+	color = WOOD_COLOR_RICH
+	build_type = /obj/item/stack/tile/wood/coloured/mahogany
+
+/decl/flooring/wood/coloured/maple
+	color = WOOD_COLOR_PALE
+	build_type = /obj/item/stack/tile/wood/coloured/maple
+
+/decl/flooring/wood/coloured/bamboo
+	color = WOOD_COLOR_PALE2
+	build_type = /obj/item/stack/tile/wood/coloured/bamboo
+
+/decl/flooring/wood/coloured/ebony
+	color = WOOD_COLOR_BLACK
+	build_type = /obj/item/stack/tile/wood/coloured/ebony
+
+/decl/flooring/wood/coloured/walnut
+	color = WOOD_COLOR_CHOCOLATE
+	build_type = /obj/item/stack/tile/wood/coloured/walnut
+
+/decl/flooring/wood/coloured/yew
+	color = WOOD_COLOR_YELLOW
+	build_type = /obj/item/stack/tile/wood/coloured/yew
 
 /decl/flooring/reinforced
 	name = "reinforced floor"
