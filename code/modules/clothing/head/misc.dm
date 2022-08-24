@@ -177,9 +177,16 @@
 
 /obj/item/clothing/head/flatcap
 	name = "flat cap"
-	desc = "A working man's cap."
+	desc = "A working man's hat."
+	icon = 'icons/contained_items/clothing/hats/flat_cap.dmi'
 	icon_state = "flat_cap"
+	item_state = "flat_cap"
+	contained_sprite = TRUE
 	siemens_coefficient = 0.9
+
+/obj/item/clothing/head/flatcap/colourable
+	icon_state = "flat_cap_greyscale"
+	item_state = "flat_cap_greyscale"
 
 /obj/item/clothing/head/pirate
 	name = "pirate hat"
