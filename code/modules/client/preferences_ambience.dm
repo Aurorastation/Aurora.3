@@ -1,3 +1,11 @@
+//
+// ASFX Toggles
+//
+
+// Ambience plays on channel 2.
+// Ambient hum plays on channel 3.
+// Music plays on channel 4.
+
 // ASFX Toggles List
 /var/global/asfx_togs = list(
 	/client/proc/toggle_footsteps,
@@ -18,10 +26,7 @@
 	verbs ^= asfx_togs
 	return
 
-//
-// ASFX Toggles
-//
-
+// Ambience Toggle
 /client/verb/toggle_asfx()
 	set name = "Toggle Ambience SFX"
 	set category = "Preferences"
@@ -33,10 +38,10 @@
 		to_chat(src, SPAN_INFO("You will now hear ambient sounds."))
 	else
 		to_chat(src, SPAN_INFO("You will no longer hear ambient sounds."))
-		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 1) // Ambience plays on channel 1.
-	feedback_add_details("admin_verb", "TSFXAmbi") // If you are copy pasting this, ensure the 2nd parameter is unique to the new proc.
+		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 2) // Ambience plays on channel 2.
 
-/client/verb/toggle_asfx_hum(var/mob/living/L)
+// Ambient Hum Toggle
+/client/verb/toggle_asfx_hum()
 	set name = "Toggle Ambient Hum SFX"
 	set category = "Preferences"
 	set desc = "Toggles hearing the ambient hum sound effect"
@@ -47,9 +52,18 @@
 		to_chat(src, SPAN_INFO("You will now hear the ambient hum sound."))
 	else
 		to_chat(src, SPAN_INFO("You will no longer hear the ambient hum sound."))
-		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 2) // Ambient hum plays on channel 2.
-		L.client.ambient_hum_playing = FALSE
-	feedback_add_details("admin_verb", "TSFXHum")
+		src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 3) // Ambient hum plays on channel 3.
+		ambient_hum_playing = FALSE
+
+/client/verb/toggle_sfx_music()
+	set name = "Toggle Music SFX"
+	set category = "Preferences"
+	set desc = "Toggles hearing music"
+
+	prefs.asfx_togs ^= ASFX_MUSIC
+	prefs.save_preferences()
+	src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 4) // Music plays on channel 4.
+	to_chat(src, SPAN_INFO("You will [(prefs.asfx_togs & ASFX_MUSIC) ? "now" : "no longer"] hear music (such as from jukeboxes)."))
 
 //
 // SFX Toggles
