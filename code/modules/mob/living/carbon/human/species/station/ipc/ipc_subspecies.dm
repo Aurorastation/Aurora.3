@@ -246,7 +246,11 @@
 
 	has_organ = list(
 		BP_BRAIN = /obj/item/organ/internal/mmi_holder/posibrain/terminator,
+<<<<<<< HEAD
 		BP_CELL = /obj/item/organ/internal/cell,
+=======
+		"cell" = /obj/item/organ/internal/cell/terminator,
+>>>>>>> parent of 86f63c409b (fix a mistype)
 		BP_EYES = /obj/item/organ/internal/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/internal/data,
 		"surge" = /obj/item/organ/internal/surge/advanced
