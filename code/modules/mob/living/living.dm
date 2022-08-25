@@ -21,6 +21,11 @@ var/mob/living/next_point_time = 0
 	if(.)
 		visible_message("<b>\The [src]</b> points to \the [A].")
 
+/mob/living/drop_from_inventory(var/obj/item/W, var/atom/target)
+	. = ..(W, target)
+	if(istype(W, /obj/item/card/id) || istype(W, /obj/item/modular_computer))
+		BITSET(hud_updateflag, ID_HUD) //If we drop our ID, update ID HUD
+
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
 default behaviour is:
