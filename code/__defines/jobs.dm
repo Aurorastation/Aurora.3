@@ -5,7 +5,7 @@
 #define CIVILIAN_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/passenger)
 #define OPERATIONS_ROLES list(/datum/job/hangar_tech, /datum/job/mining, /datum/job/machinist)
 #define MEDICAL_ROLES list(/datum/job/doctor, /datum/job/surgeon, /datum/job/pharmacist, /datum/job/psychiatrist, /datum/job/med_tech, /datum/job/intern_med)
-#define SCIENCE_ROLES list(/datum/job/scientist, /datum/job/xenobiologist, /datum/job/xenobotanist, /datum/job/intern_sci)
+#define SCIENCE_ROLES list(/datum/job/scientist, /datum/job/xenoarchaeologist, /datum/job/xenobiologist, /datum/job/xenobotanist, /datum/job/intern_sci)
 #define SECURITY_ROLES list(/datum/job/warden, /datum/job/investigator, /datum/job/officer, /datum/job/intern_sec)
 #define EQUIPMENT_ROLES list(/datum/job/ai, /datum/job/cyborg)
 #define ALL_FACTION_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/representative)
