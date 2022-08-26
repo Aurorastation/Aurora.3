@@ -304,7 +304,7 @@ var/list/mob/living/forced_ambiance_list = new
 		L.client.ambient_hum_playing = FALSE
 
 	// Start playing music, if it exists.
-	if(src.music.len && L && L.client && (L.client.prefs.asfx_togs & ASFX_MUSIC))
+	if(src.music.len && L && L.client && (L.client.prefs.sfx_toggles & ASFX_MUSIC))
 		play_music(L)
 	// Stop playing music.
 	else

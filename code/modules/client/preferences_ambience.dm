@@ -60,10 +60,10 @@
 	set category = "Preferences"
 	set desc = "Toggles hearing music"
 
-	prefs.asfx_togs ^= ASFX_MUSIC
+	prefs.sfx_toggles ^= ASFX_MUSIC
 	prefs.save_preferences()
 	src << sound(null, repeat = 0, wait = 0, volume = 0, channel = 4) // Music plays on channel 4.
-	to_chat(src, SPAN_INFO("You will [(prefs.asfx_togs & ASFX_MUSIC) ? "now" : "no longer"] hear music (such as from jukeboxes)."))
+	to_chat(src, SPAN_INFO("You will [(prefs.sfx_toggles & ASFX_MUSIC) ? "now" : "no longer"] hear music (such as from jukeboxes)."))
 
 //
 // SFX Toggles
