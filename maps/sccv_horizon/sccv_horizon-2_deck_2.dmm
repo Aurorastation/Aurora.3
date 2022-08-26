@@ -1597,11 +1597,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "aLc" = (
-/obj/structure/railing/mapped{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/railing/mapped,
-/turf/simulated/open,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "aLq" = (
 /obj/structure/bed/stool/padded/red,
@@ -7325,7 +7324,7 @@
 "dMG" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/disposalpipe/down{
-	dir = 2
+	dir = 8
 	},
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
@@ -12145,6 +12144,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "gqo" = (
@@ -13643,8 +13643,10 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
 "hcT" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/rack,
+/obj/random/loot,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "hdo" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -17139,17 +17141,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "iWj" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/brown/diagonal,
+/turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard)
 "iWm" = (
 /obj/structure/cable/green,
@@ -21787,6 +21780,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
+"lBw" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard)
 "lBE" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "chapel"
@@ -24184,10 +24183,12 @@
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "mMf" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/brown/diagonal,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "mMh" = (
 /obj/structure/railing/mapped{
@@ -29725,15 +29726,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "pGX" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/disposalpipe/segment,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/obj/structure/lattice,
-/turf/simulated/open,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "pHp" = (
 /obj/structure/cable/green{
@@ -30516,8 +30511,9 @@
 /area/security/warden)
 "qaI" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "qbl" = (
@@ -32480,12 +32476,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "rbO" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
-/turf/simulated/open,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "rca" = (
 /obj/structure/toilet,
@@ -32688,12 +32682,20 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "rhT" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "riG" = (
@@ -34599,14 +34601,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard/far)
 "sem" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
 /obj/structure/disposalpipe/segment,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/open,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "sen" = (
 /turf/simulated/wall/r_wall,
@@ -36032,6 +36032,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/hydroponics/garden)
+"sYt" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard)
 "sYy" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -36045,14 +36054,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "sYA" = (
@@ -36961,6 +36966,10 @@
 "tyq" = (
 /obj/random/junk,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "tyZ" = (
@@ -39631,13 +39640,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "uLC" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "uLE" = (
@@ -39739,8 +39742,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "uOy" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "uOD" = (
@@ -40037,10 +40041,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "uWx" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/item/material/shard{
 	icon_state = "small"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "uXd" = (
@@ -40612,6 +40616,16 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/chapel/main)
+"vqi" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/maintenance/wing/starboard)
 "vqk" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
@@ -42204,6 +42218,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/lounge/bar)
+"vZB" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/loot,
+/obj/structure/table/rack,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard)
 "vZH" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
@@ -42406,14 +42426,12 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "weh" = (
-/obj/structure/disposalpipe/segment,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "wej" = (
@@ -44371,9 +44389,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "xas" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/open,
 /area/maintenance/wing/starboard)
 "xbu" = (
 /obj/effect/floor_decal/corner/blue{
@@ -45503,6 +45526,10 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "xIo" = (
@@ -46302,13 +46329,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "ycb" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "yci" = (
@@ -54478,10 +54499,10 @@ qgN
 dzL
 ftS
 oIL
-xGl
+hcT
 wnA
 uJk
-xas
+xGl
 dEz
 uOq
 uOq
@@ -55084,7 +55105,7 @@ dzL
 oiL
 vIU
 wiD
-fsf
+xGl
 wnA
 iYH
 ogd
@@ -55286,7 +55307,7 @@ iAB
 oIL
 gJn
 wiD
-fsf
+xGl
 wnA
 lpB
 fsf
@@ -55488,7 +55509,7 @@ ugZ
 oIL
 pgQ
 wiD
-fsf
+xGl
 wnA
 lpB
 fsf
@@ -55690,7 +55711,7 @@ oiL
 oIL
 oIL
 oIL
-fsf
+xGl
 cpW
 lpB
 fsf
@@ -55892,8 +55913,8 @@ oIL
 oIL
 oIL
 oIL
-fsf
-rhT
+xGl
+xGl
 iYH
 fsf
 fsf
@@ -55904,13 +55925,13 @@ fsf
 gSh
 xHZ
 gqd
-fsf
-fsf
-fsf
+pGX
+lBw
+mMf
 tyq
-fsf
-fsf
-lWf
+mMf
+sem
+rhT
 oIL
 dLX
 gJM
@@ -56095,23 +56116,23 @@ qLA
 qrz
 bci
 ijb
-czb
+fsf
 iYH
 uWx
-eAU
-sdi
+rbO
+sYt
 aLc
-fsf
-fsf
+aLc
+aLc
 qaI
 dMG
 weh
+aLc
 uOy
-uOy
-sem
-pGX
-rbO
-uOy
+eAU
+sdi
+atK
+czb
 sYy
 qlm
 eoK
@@ -56299,7 +56320,7 @@ atK
 uEl
 ycb
 oAX
-fsf
+vZB
 rqA
 rqA
 rqA
@@ -56500,7 +56521,7 @@ rlv
 gCv
 uEl
 uLC
-rlv
+xas
 xpJ
 rqA
 qKi
@@ -56702,7 +56723,7 @@ aob
 xoW
 uEl
 uLC
-sDy
+nyI
 pRA
 rqA
 hgK
@@ -56903,8 +56924,8 @@ jIg
 wbC
 wPJ
 cKP
-iWj
-aob
+uLC
+vqi
 aob
 rqA
 xiO
@@ -57104,9 +57125,9 @@ oIL
 oIL
 oIL
 oIL
-vQs
-fsf
-fsf
+iWj
+xGl
+xGl
 fQn
 rqA
 muO
@@ -57306,8 +57327,8 @@ pEQ
 pEQ
 pEQ
 oIL
-mMf
-uJk
+prk
+xGl
 rqA
 rqA
 rqA
@@ -57508,8 +57529,8 @@ oIL
 oIL
 oIL
 oIL
-mMf
-fsf
+prk
+xGl
 rqA
 bBh
 aMl
@@ -57709,7 +57730,7 @@ cww
 uya
 uya
 maq
-hcT
+oXY
 prk
 fsf
 rqA
@@ -57911,7 +57932,7 @@ gGB
 vNI
 uya
 jJW
-uya
+ctg
 deH
 ogd
 rqA
