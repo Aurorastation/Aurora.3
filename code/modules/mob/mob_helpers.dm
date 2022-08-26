@@ -1192,7 +1192,7 @@ proc/is_blind(A)
 	if(used_accent && (speaking?.allow_accents || !speaking))
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		if(istype(a))
-			if(hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
+			if(hearer && hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
 				return "([a.text_tag])"
 			else
 				var/final_icon = a.tag_icon

@@ -429,9 +429,9 @@
 
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
 	if(!istype(faction))
-		to_client_chat(SPAN_DANGER("Invalid faction chosen. Resetting to default."))
+		to_client_chat(SPAN_DANGER("Invalid faction chosen. Resetting to [SSjobs.default_faction.name]."))
 		selected_faction = SSjobs.default_faction.name
-		return
+		faction = SSjobs.name_factions[selected_faction]
 
 	dat += "</h2></center><hr/>"
 	dat += "<table padding='8px'>"

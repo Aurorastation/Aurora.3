@@ -115,7 +115,8 @@
 		/obj/item/powerdrill,
 		/obj/item/device/radio,
 		/obj/item/device/debugger,
-		/obj/item/device/eftpos
+		/obj/item/device/eftpos,
+		/obj/item/tape_roll
 	)
 	content_overlays = TRUE
 
@@ -139,7 +140,6 @@
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters/toolbelt = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1,
 		/obj/item/hammer = 1
 	)
 
@@ -393,7 +393,7 @@
 	desc_fluff = "A custodial belt is similar to most utility belts, but designed with pockets and attachment points that can hold common custodial tools."
 	icon_state = "custodialbelt"
 	item_state = "custodialbelt"
-	storage_slots = 8
+	storage_slots = 12
 	w_class = ITEMSIZE_NORMAL
 	max_w_class = ITEMSIZE_NORMAL
 	can_hold = list(

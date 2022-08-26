@@ -620,6 +620,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
+"fnS" = (
+/obj/machinery/button/distress{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
 "fnY" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
@@ -1668,6 +1674,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
+"mHp" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/airless,
+/area/ship/fsf_patrol_ship)
 "mWk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2638,6 +2652,22 @@
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
+"xyj" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor,
+/area/shuttle/fsf_shuttle)
 "xzu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -31617,7 +31647,7 @@ ttG
 sSs
 tKM
 yjk
-sSs
+fnS
 sSs
 sSs
 bfg
@@ -34167,7 +34197,7 @@ sLj
 yjk
 hBs
 sSs
-eYX
+xyj
 nic
 nic
 nic
@@ -35723,7 +35753,7 @@ sSs
 sSs
 buK
 yjk
-xRX
+mHp
 xRX
 xRX
 xRX

@@ -21,6 +21,7 @@
 /area/ship/tramp_freighter)
 "aap" = (
 /obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
 /area/ship/tramp_freighter)
 "aaI" = (
@@ -1023,6 +1024,19 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"gQH" = (
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/shuttle/freighter_shuttle)
 "hdb" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -1284,6 +1298,14 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"jMF" = (
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/ship/tramp_freighter)
 "kon" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -1805,6 +1827,13 @@
 	dir = 4
 	},
 /turf/simulated/floor,
+/area/ship/tramp_freighter)
+"unX" = (
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
 "uCl" = (
 /obj/structure/closet,
@@ -33460,7 +33489,7 @@ onP
 ozs
 qFX
 wYA
-xRX
+jMF
 xRX
 xRX
 xRX
@@ -33948,7 +33977,7 @@ xRX
 xRX
 rtf
 wZf
-wZf
+gQH
 phz
 phz
 phz
@@ -36287,7 +36316,7 @@ hdb
 ylV
 fFU
 hsz
-wTJ
+unX
 hOr
 nZo
 lXE

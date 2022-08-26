@@ -302,9 +302,10 @@
 	name = "comic book"
 	desc = "A magazine presenting a fictional story through a sequence of images. Perfect for those long, boring shifts."
 	w_class = ITEMSIZE_SMALL
-	icon = 'icons/obj/toy.dmi'
 	icon_state = "comic"
 	item_state = "comic"
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/toy/comic/inspector
 	name = "inspector 404 manga"
@@ -320,6 +321,17 @@
 	have been made, including a conversion of the show to a paperback manga."
 	icon_state = "comicstormman"
 	item_state = "comicstormman"
+
+/obj/item/toy/comic/outlandish_tales
+	name = "outlandish tales magazine"
+	desc = "A magazine specialized in publishing Tajaran Otherworldly Literature stories. The periodical magazine features texts submitted by amateur and established writers alike. \
+	Since it is printed using cheap, recycled paper, outlandish tales is sold for a couple of credits on the streets of Little Adhomai. The magazine also has a section dedicated to \
+	exploring the urban legends and mysteries of Mendell City."
+	desc_fluff = "Influenced by recent events and the growing interest in urban legends, Little Adhomai became the birthplace of Tajaran Otherworldly Literature. This literary genre combines \
+	aspects of fantasy, horror, and speculative fiction alongside Adhomian paranormal elements, frequently reimagining mythological creatures and events. Tajaran Otherworldly texts are usually \
+	published in magazines or on extranet sites."
+	icon_state = "comicoutlandish"
+	item_state = "comicoutlandish"
 
 //
 // Toy Crossbows
@@ -953,10 +965,9 @@
 
 /obj/item/toy/plushie/pennyplush
 	name = "Penny plush"
-	desc = "It's a plush of the beloved company mascot cat, Penny! For the price Nanotrasen sells these things at, you probably could have bought an actual cat."
+	desc = "It's a plush of the beloved company mascot cat, Penny! For the price NanoTrasen sells these things at, you probably could have bought an actual cat."
 	icon_state = "pennyplushie"
 	slot_flags = SLOT_HEAD
-
 
 /obj/item/toy/plushie/lizard
 	name = "lizard plush"
@@ -1000,11 +1011,19 @@
 	name = "slime plush"
 	desc = "A beanbag-filled slime plushie. Relaxing!"
 	icon_state = "slimeplushie"
+	phrase = "Rawr!"
 
 /obj/item/toy/plushie/bee
 	name = "bee plush"
 	desc = "A chunky plushie bee. Your new buzz-t friend!"
 	icon_state = "beeplushie"
+	phrase = "Buzz!"
+
+/obj/item/toy/plushie/shark
+	name = "shark plush"
+	desc = "A beloved jumbo sized shark that is sure to impress your friends."
+	icon_state = "sharkplushie"
+	phrase = "Gashunk!"
 
 /obj/item/toy/plushie/greimorian
 	name = "greimorian plushie"
@@ -1016,19 +1035,19 @@
 	name = "Axic plushie"
 	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Axic. "
 	icon_state = "axicplushie"
-	phrase = "warble!"
+	phrase = "Warble!"
 
 /obj/item/toy/plushie/qill
 	name = "Qill plushie"
 	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Qill. "
 	icon_state = "qillplushie"
-	phrase = "warble!"
+	phrase = "Warble!"
 
 /obj/item/toy/plushie/xana
 	name = "Xana plushie"
 	desc = "Plushie designed after the main characters of the hit show, Swimstars! This one is Xana. "
 	icon_state = "xanaplushie"
-	phrase = "warble!"
+	phrase = "Warble!"
 
 /obj/item/toy/plushie/ipc
 	name = "Aphy plushie"

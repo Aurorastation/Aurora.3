@@ -166,10 +166,11 @@
 	repopulate_types |= M.type
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
-	var/list/grasscolors = plant_colors.Copy()
-	grasscolors -= "RANDOM"
-	if(length(grasscolors))
-		grass_color = pick(grasscolors)
+	if(plant_colors)
+		var/list/grasscolors = plant_colors.Copy()
+		grasscolors -= "RANDOM"
+		if(length(grasscolors))
+			grass_color = pick(grasscolors)
 
 	for(var/datum/exoplanet_theme/T as anything in themes)
 		T.before_map_generation(src)
@@ -226,6 +227,7 @@
 	S.set_trait(TRAIT_HEAT_TOLERANCE,      S.get_trait(TRAIT_HEAT_TOLERANCE) + rand(-5,5),800,70)
 	S.set_trait(TRAIT_LOWKPA_TOLERANCE,    atmosphere.return_pressure() + rand(-5,-50),80,0)
 	S.set_trait(TRAIT_HIGHKPA_TOLERANCE,   atmosphere.return_pressure() + rand(5,50),500,110)
+	S.set_trait(TRAIT_SPREAD,0)
 	if(S.exude_gasses)
 		S.exude_gasses -= badgas
 	if(atmosphere)

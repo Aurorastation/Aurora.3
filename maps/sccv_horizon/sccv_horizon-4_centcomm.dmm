@@ -20183,7 +20183,7 @@
 	name = "mechanical supply crate";
 	pixel_x = 1
 	},
-/obj/structure/sign/emerg_exitZ{
+/obj/structure/sign/emergency/exit/ladder{
 	dir = 1;
 	pixel_x = -9;
 	pixel_y = 30
@@ -20656,7 +20656,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "aYn" = (
-/obj/structure/sign/emerg_exit{
+/obj/structure/sign/emergency/exit{
 	dir = 8;
 	pixel_y = 32
 	},
@@ -26203,6 +26203,7 @@
 	pixel_y = 2
 	},
 /obj/item/device/megaphone/red,
+/obj/item/stack/material/steel/full,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjH" = (
@@ -26247,6 +26248,7 @@
 	},
 /obj/item/crowbar,
 /obj/item/crowbar,
+/obj/item/stack/liquidbags/half_full,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjL" = (
@@ -28966,7 +28968,7 @@
 /area/antag/raider)
 "bpV" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/unsimulated/floor{
 	icon_state = "tiles"
 	},
@@ -32473,6 +32475,7 @@
 	pixel_x = -15;
 	pixel_y = 1
 	},
+/obj/item/stack/liquidbags/half_full,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "byw" = (
@@ -33739,6 +33742,7 @@
 /obj/structure/table/rack,
 /obj/random/melee,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/stack/material/steel/full,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "bCv" = (

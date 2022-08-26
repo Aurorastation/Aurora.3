@@ -38,6 +38,6 @@
 
 	if(!faked)
 		if(num_recovered > length(drones_list) * 0.75)
-			command_announcement.Announce(current_map.rogue_drone_end_message, "Rogue Drone Alert", new_sound = 'sound/AI/rogue_drone_end_message.ogg')
+			command_announcement.Announce(current_map.rogue_drone_end_message, "Rogue Drone Alert", new_sound = 'sound/AI/rogue_drone_end_message.ogg', zlevels = affecting_z)
 		else
-			command_announcement.Announce(current_map.rogue_drone_destroyed_message, "Rogue Drone Alert", new_sound = 'sound/AI/rogue_drone_destroyed_message.ogg')
+			command_announcement.Announce(current_map.rogue_drone_destroyed_message, "Rogue Drone Alert", new_sound = 'sound/AI/rogue_drone_destroyed_message.ogg', zlevels = affecting_z)

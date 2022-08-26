@@ -11,6 +11,7 @@
 	mouse_opacity = 0
 	animate_movement = 0	//Use SLIDE_STEPS in conjunction with legacy
 	var/projectile_type = /obj/item/projectile
+	var/ping_effect = "ping_b" //Effect displayed when a bullet hits a barricade. See atom/proc/bullet_ping.
 
 	var/def_zone = ""	//Aiming at
 	var/hit_zone		// The place that actually got hit
@@ -656,3 +657,28 @@
 		var/obj/shrapnel = new shrapnel_type
 		. += "Shrapnel Type: [shrapnel.name]<br>"
 	. += "Armor Penetration: [initial(armor_penetration)]%<br>"
+
+//This is where the bullet bounces off.
+/atom/proc/bullet_ping(obj/item/projectile/P, var/pixel_x_offset, var/pixel_y_offset)
+	if(!P || !P.ping_effect)
+		return
+
+	var/image/I = image('icons/obj/projectiles.dmi', src,P.ping_effect,10, pixel_x = pixel_x_offset, pixel_y = pixel_y_offset)
+	var/angle = (P.firer && prob(60)) ? round(Get_Angle(P.firer,src)) : round(rand(1,359))
+	I.pixel_x += rand(-6,6)
+	I.pixel_y += rand(-6,6)
+
+	var/matrix/rotate = matrix()
+	rotate.Turn(angle)
+	I.transform = rotate
+	// Need to do this in order to prevent the ping from being deleted
+	addtimer(CALLBACK(I, /image/.proc/flick_overlay, src, 3), 1)
+
+
+/image/proc/flick_overlay(var/atom/A, var/duration)
+	A.overlays.Add(src)
+	addtimer(CALLBACK(src, .proc/flick_remove_overlay, A), duration)
+
+/image/proc/flick_remove_overlay(var/atom/A)
+	if(A)
+		A.overlays.Remove(src)

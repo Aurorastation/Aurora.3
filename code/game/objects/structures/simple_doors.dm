@@ -185,8 +185,8 @@
 
 /obj/structure/simple_door/bullet_act(var/obj/item/projectile/Proj)
 	health -= Proj.damage
+	bullet_ping(Proj)
 	CheckHealth()
-	return
 
 /obj/structure/simple_door/proc/CheckHealth()
 	if(health <= 0)

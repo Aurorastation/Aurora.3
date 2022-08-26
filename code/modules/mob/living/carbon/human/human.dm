@@ -1839,15 +1839,15 @@
 	switch(pulse())
 		if(PULSE_NONE)
 			return 0
-		if(PULSE_SLOW)
+		if(PULSE_SLOW to (PULSE_NORM - 0.1))
 			return rand(species.low_pulse, species.norm_pulse)
-		if(PULSE_NORM)
+		if(PULSE_NORM to (PULSE_FAST - 0.1))
 			return rand(species.norm_pulse, species.fast_pulse)
-		if(PULSE_FAST)
+		if(PULSE_FAST to (PULSE_2FAST - 0.1))
 			return rand(species.fast_pulse, species.v_fast_pulse)
-		if(PULSE_2FAST)
+		if(PULSE_2FAST to (PULSE_THREADY - 0.1))
 			return rand(species.v_fast_pulse, species.max_pulse)
-		if(PULSE_THREADY)
+		if(PULSE_THREADY to INFINITY)
 			return PULSE_MAX_BPM
 	return 0
 
