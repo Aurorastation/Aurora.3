@@ -25,6 +25,7 @@
 	var/antag_involvement_text = null
 
 	var/datum/ccia_report/selected_report = null
+	var/interviewer_id = null
 	var/interviewee_id = null
 	var/interviewee_name = null
 	var/date_string = null
@@ -43,7 +44,7 @@
 	set name = "Start Recording"
 	set category = "Recorder"
 
-	if(!check_rights(R_CCIAA,FALSE)) //TODO: Add a condition here to check the job of the user as an ALTERNATIVE to the char id
+	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
 		return
 	if(use_check_and_message(usr))
@@ -82,6 +83,9 @@
 				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 				return
 			selected_report = new(report_id, time2text(world.realtime, "YYYY_MM_DD"), report_name)
+		var/mob/living/carbon/human/H = usr
+		if(istype(H))
+			interviewer_id = H.character_id
 		return
 	//If we are ready to record, but no interviewee is selected
 	else if(selected_report && !interviewee_id)
@@ -282,6 +286,10 @@
 		var/mob/living/carbon/human/H = user
 		if(!H.character_id)
 			to_chat(user,"<span class='notice'>The device beeps and flashes \"Fingerprint is not recognized\".</span>")
+			return
+
+		if(H.character_id == interviewer_id)
+			to_chat(user,"<span class='notice'>You need to pass the recorder to the interviewee to scan their fingerprint.</span>")
 			return
 
 		//Sync the intervieweee_id and interviewee_name

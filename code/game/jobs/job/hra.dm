@@ -30,7 +30,7 @@
 	name = "Human Resources Assistant"
 	jobtype = /datum/job/hra
 
-	uniform = /obj/item/clothing/under/rank/scc
+	uniform = /obj/item/clothing/under/rank/scc2
 	suit = /obj/item/clothing/suit/storage/toggle/armor/vest/scc
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/white

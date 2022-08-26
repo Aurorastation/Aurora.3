@@ -1,4 +1,4 @@
-/obj/item/clothing/under/rank/scc
+/obj/item/clothing/under/rank/scc2
 	name = "\improper SCC uniform"
 	desc = "A standardized uniform used by SCC personnel."
 	contained_sprite = TRUE
@@ -30,12 +30,12 @@
 	)
 
 /obj/item/clothing/suit/storage/toggle/armor/vest/scc/toggle_open()
-	to_chat(usr ,"Safety regulations forbid you from opening the vest while on the job.")
+	to_chat(usr ,"Safety regulations forbid you from opening the stab-vest while on the job.")
 	return
 
 /obj/item/clothing/accessory/tie/corporate/scc
 	name = "SCC tie"
-	des = "TODO: Add Description HERE."
+	desc = "A tie made to the exact specifications of the SCC"
 	contained_sprite = TRUE
 	icon = 'icons/obj/contained_items/scc.dmi'
 	icon_state = "scc_tie"
@@ -43,7 +43,7 @@
 
 /obj/item/clothing/head/beret/scc
 	name = "SCC beret"
-	desc = "TODO: Add Description HERE."
+	desc = "A snazzy beret in SCC colors"
 	contained_sprite = TRUE
 	icon = 'icons/obj/contained_items/scc.dmi'
 	icon_state = "scc_beret"

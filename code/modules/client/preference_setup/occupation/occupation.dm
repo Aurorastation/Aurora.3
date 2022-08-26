@@ -432,6 +432,7 @@
 		to_client_chat(SPAN_DANGER("Invalid faction chosen. Resetting to [SSjobs.default_faction.name]."))
 		selected_faction = SSjobs.default_faction.name
 		faction = SSjobs.name_factions[selected_faction]
+		return
 
 	dat += "</h2></center><hr/>"
 	dat += "<table padding='8px'>"
