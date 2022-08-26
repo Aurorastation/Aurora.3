@@ -74,11 +74,11 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/safe,
 /obj/item/reagent_containers/pill/cyanide,
 /obj/item/gun/energy/captain,
 /obj/effect/spider/stickyweb,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/safe/highvalue,
 /turf/simulated/floor/wood/coloured/walnut,
 /area/shuttle/yacht/bridge)
 "ar" = (
