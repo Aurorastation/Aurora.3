@@ -43,8 +43,8 @@
 	item_state = "hive_rep_shoes_cthur"
 	icon_state = "hive_rep_shoes_cthur"
 
-/obj/item/clothing/shoes/vaurca/breeder/jargon
-	name = "jargon representative shoes"
+/obj/item/clothing/shoes/vaurca/breeder/nralakk
+	name = "nralakk representative shoes"
 	desc = "Large shoes used by Nralakk representatives."
 	item_state = "hive_rep_shoes_jargon"
 	icon_state = "hive_rep_shoes_jargon"

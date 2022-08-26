@@ -51,7 +51,7 @@
 	icon_state = "slugger_wetsuit"
 
 // Skrell Ox clothing
-/obj/item/clothing/under/skrell/jargon
+/obj/item/clothing/under/skrell/nralakk
 	name = "Ox research uniform"
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in a scientific field."
 	desc_fluff = "The Nralakk Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Nralakk Society."
@@ -62,121 +62,121 @@
 	item_state = "ox_sci"
 	icon_state = "ox_sci"
 
-/obj/item/clothing/under/skrell/jargon/ox
+/obj/item/clothing/under/skrell/nralakk/ox
 	name = "Ox bridge and security uniform"
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in the security service or as pilots or bridge crew."
 	item_state = "ox_sec"
 	icon_state = "ox_sec"
 
-/obj/item/clothing/under/skrell/jargon/ox/engineer
+/obj/item/clothing/under/skrell/nralakk/ox/engineer
 	name = "Ox engineering and maintenance uniform"
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in the engineering industry or in maintenance."
 	item_state = "ox_engi"
 	icon_state = "ox_engi"
 
-/obj/item/clothing/under/skrell/jargon/ox/service
+/obj/item/clothing/under/skrell/nralakk/ox/service
 	name = "Ox mailing and service uniform"
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in the mail service or hospitality industries."
 	item_state = "ox_cargo"
 	icon_state = "ox_cargo"
 
-/obj/item/clothing/under/skrell/jargon/ox/med
+/obj/item/clothing/under/skrell/nralakk/ox/med
 	name = "Ox healthcare uniform"
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical in the healthcare industry."
 	item_state = "ox_med"
 	icon_state = "ox_med"
 
 // Skrell Ix clothing
-/obj/item/clothing/under/skrell/jargon/ix
+/obj/item/clothing/under/skrell/nralakk/ix
 	name = "Ix research uniform"
 	desc = "A plain jumpsuit that signifies the wearer as a low-scoring Secondary Numerical working in a scientific field."
 	desc_fluff = "The Nralakk Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ix are those who are low-scoring Secondary Numericals with their clothes typically being plain, yet still considered pleasant to wear and be seen in. Secondary Numericals are the majority population in the Nralakk Federation, with Ix being those who are in the lower end of the band. "
 	item_state = "ix_sci"
 	icon_state = "ix_sci"
 
-/obj/item/clothing/under/skrell/jargon/ix/security
+/obj/item/clothing/under/skrell/nralakk/ix/security
 	name = "Ix bridge and security uniform"
 	desc = "A plain jumpsuit that signifies the wearer as a low-scoring Secondary Numerical working in the security service or as pilots or bridge crew."
 	item_state = "ix_sec"
 	icon_state = "ix_sec"
 
-/obj/item/clothing/under/skrell/jargon/ix/engineer
+/obj/item/clothing/under/skrell/nralakk/ix/engineer
 	name = "Ix engineering and maintenance uniform"
 	desc = "A plain jumpsuit that signifies the wearer as a low-scoring Secondary Numerical in the engineering industry or in maintenance."
 	item_state = "ix_engi"
 	icon_state = "ix_engi"
 
-/obj/item/clothing/under/skrell/jargon/ix/service
+/obj/item/clothing/under/skrell/nralakk/ix/service
 	name = "Ix mailing and service uniform"
 	desc = "A plain jumpsuit that signifies the wearer as a low-scoring Secondary Numerical in the mail service or hospitality industries."
 	item_state = "ix_cargo"
 	icon_state = "ix_cargo"
 
-/obj/item/clothing/under/skrell/jargon/ix/med
+/obj/item/clothing/under/skrell/nralakk/ix/med
 	name = "Ix healthcare uniform"
 	desc = "A plain jumpsuit that signifies the wearer as a low-scoring Secondary Numerical in the healthcare industry."
 	item_state = "ix_med"
 	icon_state = "ix_med"
 
 // Skrell Oqi clothing
-/obj/item/clothing/under/skrell/jargon/oqi
+/obj/item/clothing/under/skrell/nralakk/oqi
 	name = "Oqi research uniform"
 	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in a scientific field."
 	desc_fluff = "The Nralakk Federation ranks its workers based on their social credit score, and provides workwear based on said score: Oqi are high-scoring Secondary Numericals or low-scoring Primary Numericals, with their workwear generally having more accessories that help them work in their specific industry. Skrell who are Oqi are typically more fashion-conscious, making it not uncommon to see these uniforms altered slightly to account for the latest fashion trends in the Nralakk Federation."
 	item_state = "oqi_sci"
 	icon_state = "oqi_sci"
 
-/obj/item/clothing/under/skrell/jargon/oqi/security
+/obj/item/clothing/under/skrell/nralakk/oqi/security
 	name = "Oqi bridge and security uniform"
 	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in the security service or as pilots or bridge crew."
 	item_state = "oqi_sec"
 	icon_state = "oqi_sec"
 
-/obj/item/clothing/under/skrell/jargon/oqi/engineer
+/obj/item/clothing/under/skrell/nralakk/oqi/engineer
 	name = "Oqi engineering and maintenance uniform"
 	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in the engineering industry or in maintenance."
 	item_state = "oqi_engi"
 	icon_state = "oqi_engi"
 
-/obj/item/clothing/under/skrell/jargon/oqi/service
+/obj/item/clothing/under/skrell/nralakk/oqi/service
 	name = "Oqi mailing and service uniform"
 	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in the mail service or hospitality industries."
 	item_state = "oqi_cargo"
 	icon_state = "oqi_cargo"
 
-/obj/item/clothing/under/skrell/jargon/oqi/med
+/obj/item/clothing/under/skrell/nralakk/oqi/med
 	name = "Oqi healthcare uniform"
 	desc = "A more fashionable jumpsuit that signifies the wearer as either a high-scoring Secondary Numerical or low-scoring Primary Numerical in the healthcare industry."
 	item_state = "oqi_med"
 	icon_state = "oqi_med"
 
 // Skrell Iqi clothing
-/obj/item/clothing/under/skrell/jargon/iqi
+/obj/item/clothing/under/skrell/nralakk/iqi
 	name = "Iqi research uniform"
 	desc = "A very fashionable jumpsuit that signifies the wearer as a high-scoring Primary Numerical in a scientific field."
 	desc_fluff = "The Nralakk Federation ranks its workers based on their social credit score, and provides workwear based on said score: Iqi are high-scoring Primary Numericals, and as such their workwear is of the highest quality afforded by the Federation. These clothes are typically made of sturdier materials and are more comfortable to wear. Primary Numericals are typically seen as the trend-setters in Federation society, and Skrell who are ranked at Iqi are known to influence fashion through how they accessorise."
 	item_state = "iqi_sci"
 	icon_state = "iqi_sci"
 
-/obj/item/clothing/under/skrell/jargon/iqi/security
+/obj/item/clothing/under/skrell/nralakk/iqi/security
 	name = "Iqi bridge and security uniform"
 	desc = "A very fashionable jumpsuit that signifies the wearer as a high-scoring Primary Numerical in the security service or as pilots or bridge crew."
 	item_state = "iqi_sec"
 	icon_state = "iqi_sec"
 
-/obj/item/clothing/under/skrell/jargon/iqi/engineer
+/obj/item/clothing/under/skrell/nralakk/iqi/engineer
 	name = "Iqi engineering and maintenance uniform"
 	desc = "A very fashionable jumpsuit that signifies the wearer as a high-scoring Primary Numerical in the engineering industry or in maintenance."
 	item_state = "iqi_engi"
 	icon_state = "iqi_engi"
 
-/obj/item/clothing/under/skrell/jargon/iqi/service
+/obj/item/clothing/under/skrell/nralakk/iqi/service
 	name = "Iqi mailing and service uniform"
 	desc = "A very fashionable jumpsuit that signifies the wearer as a high-scoring Primary Numerical in the mail service or hospitality industries."
 	item_state = "iqi_cargo"
 	icon_state = "iqi_cargo"
 
-/obj/item/clothing/under/skrell/jargon/iqi/med
+/obj/item/clothing/under/skrell/nralakk/iqi/med
 	name = "Iqi healthcare uniform"
 	desc = "A very fashionable jumpsuit that signifies the wearer as a high-scoring Primary Numerical in the healthcare industry."
 	item_state = "iqi_med"

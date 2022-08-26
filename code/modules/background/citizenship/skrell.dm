@@ -1,4 +1,4 @@
-/datum/citizenship/jargon
+/datum/citizenship/nralakk
 	name = CITIZENSHIP_NRALAKK
 	description = "Home of the Skrell, a centralized union of solar systems run by councilors of different ranks and positions. The capital of the Federation is located at the city of \
 	Kal'lo on the core planet Nralakk IV, also known as Qerrbalak, within the Nralakk system. While the majority of Skrell live within the Nralakk Federation, a sizable portion live \
@@ -6,7 +6,7 @@
 	life almost unmatched anywhere else in the Spur. \
 	A rogue artificial intelligence, Glorsh-Omega, has traumatized this nation for centuries to come. The Federation is very wary of humanity, who has acquired AI technology \
 	after a Federation tech leak provided them with the research required to create their own AI, as well as allowing them to create IPCs."
-	consular_outfit = /datum/outfit/job/representative/consular/jargon
+	consular_outfit = /datum/outfit/job/representative/consular/nralakk
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -31,7 +31,7 @@
 		)
 	)
 
-/datum/citizenship/jargon/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/nralakk/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
 	switch(mission_level)
@@ -50,19 +50,19 @@
 
 	return rep_objectives
 
-/datum/outfit/job/representative/consular/jargon
+/datum/outfit/job/representative/consular/nralakk
 	name = "Nralakk Consular Officer"
 
 	uniform = /obj/item/clothing/under/skrell
 
-/datum/outfit/job/representative/consular/jargon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H)) // there should be a system for this but for now this will have to do i guess
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/jargon(H), slot_head)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder/jargon(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/nralakk(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder/nralakk(H), slot_shoes)
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/jargon(H), slot_wear_suit)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/nralakk(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
 		else
 			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)

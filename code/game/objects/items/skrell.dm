@@ -220,7 +220,7 @@
 	apply_world(selected_world)
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/jargontag
+/obj/item/nralakktag
 	name = "\improper Nralakk Federation loyalty ear-tag"
 	desc = "An ear-tag that shows the wearer is loyal to the Nralakk Federation. A small cable travels into the ear canal..."
 	w_class = ITEMSIZE_SMALL
@@ -231,7 +231,7 @@
 	contained_sprite = TRUE
 	var/fried = FALSE // Doesn't work anymore
 
-/obj/item/jargontag/equipped(mob/living/carbon/human/M)
+/obj/item/nralakktag/equipped(mob/living/carbon/human/M)
 	..()
 	if(fried)
 		return
@@ -241,10 +241,10 @@
 			clamp_on(H)
 
 // Could add some stuff to this in the future? I dunno. I just couldn't figure out how to callback to_chat LOL - geeves
-/obj/item/jargontag/proc/do_loyalty(var/mob/wearer)
+/obj/item/nralakktag/proc/do_loyalty(var/mob/wearer)
 	to_chat(wearer, SPAN_GOOD("You feel an intense feeling of loyalty towards the Nralakk Federation surge through your brain."))
 
-/obj/item/jargontag/proc/clamp_on(var/mob/wearer)
+/obj/item/nralakktag/proc/clamp_on(var/mob/wearer)
 	if(fried)
 		return
 	canremove = FALSE
@@ -252,7 +252,7 @@
 	to_chat(wearer, SPAN_WARNING("\The [src] clamps down around your ear, releasing a burst of static before going silent. Something probes at your ear canal..."))
 	addtimer(CALLBACK(src, .proc/do_loyalty, wearer), 15)
 
-/obj/item/jargontag/proc/unclamp()
+/obj/item/nralakktag/proc/unclamp()
 	if(fried)
 		return
 	if(!canremove)
@@ -261,10 +261,10 @@
 		canremove = TRUE
 		fried = TRUE
 
-/obj/item/jargontag/emp_act(severity)
+/obj/item/nralakktag/emp_act(severity)
 	unclamp()
 
-/obj/item/jargontag/emag_act(var/remaining_charges, var/mob/user)
+/obj/item/nralakktag/emag_act(var/remaining_charges, var/mob/user)
 	if(anchored && !canremove)
 		unclamp()
 		return TRUE

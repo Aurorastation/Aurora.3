@@ -53,8 +53,8 @@
 	item_state = "hive_rep_clothes_cthur"
 	icon_state = "hive_rep_clothes_cthur"
 
-/obj/item/clothing/suit/vaurca/breeder/jargon
-	name = "jargon representative clothes"
+/obj/item/clothing/suit/vaurca/breeder/nralakk
+	name = "nralakk representative clothes"
 	desc = "A large piece of clothing used by Nralakk representatives."
 	item_state = "hive_rep_clothes_jargon"
 	icon_state = "hive_rep_clothes_jargon"
