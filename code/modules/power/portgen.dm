@@ -440,3 +440,60 @@
 /obj/machinery/power/portgen/basic/super/explode()
 	explosion(loc, 3, 6, 12, 16, 1) // No special effects, but the explosion is pretty big (same as a supermatter shard).
 	qdel(src)
+
+/obj/machinery/power/portgen/basic/super/nuclear_reactor
+	name = "nuclear reactor"
+	desc = "The RT7-0, an industrial all-in-one nuclear power plant by Hephaestus. It uses uranium as a fuel source and relies on coolant to keep the reactor cool. Rated for 150 kW max safe output."
+	power_gen = 30000		//Watts output per power_output level
+	icon_state = "reactoron"
+	base_icon = "reactor"
+	max_safe_output = 5
+	max_power_output = 8	//The maximum power setting without emagging.
+	temperature_gain = 70	//how much the temperature increases per power output level, in degrees per level
+	max_temperature = 450
+	time_per_sheet = 400
+	anchored = TRUE
+	var/coolant_volume = 360
+	var/coolant_use = 0.2
+	var/coolant_reagent = /decl/reagent/coolant
+
+/obj/machinery/power/portgen/basic/super/nuclear_reactor/New()
+	create_reagents(coolant_volume)
+	..()
+
+/obj/machinery/power/portgen/basic/super/nuclear_reactor/examine(mob/user)
+	. = ..()
+	to_chat(user, "Auxilary tank shows [reagents.total_volume]u of liquid in it.")
+
+/obj/machinery/power/portgen/basic/super/nuclear_reactor/UseFuel()
+	if(reagents.has_reagent(coolant_reagent))
+		temperature_gain = 60
+		reagents.remove_any(coolant_use)
+		if(prob(2))
+			audible_message("<span class='notice'>[src] churns happily</span>")
+	else
+		temperature_gain = initial(temperature_gain)
+	..()
+	if (prob(2 * power_output))
+		for (var/mob/living/L in range(src, 5))
+			L.apply_damage(1, IRRADIATE, damage_flags = DAM_DISPERSED) //should amount to ~5 rads per minute at max safe power
+	..()
+
+/obj/machinery/power/portgen/basic/super/nuclear_reactor/update_icon()
+	if(..())
+		return 1
+	if(power_output > max_safe_output)
+		icon_state = "reactordanger"
+
+/obj/machinery/power/portgen/basic/super/nuclear_reactor/attackby(var/obj/item/O, var/mob/user)
+	if(istype(O, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/R = O
+		if(R.standard_pour_into(src,user))
+			if(reagents.has_reagent("coolant"))
+				audible_message("<span class='notice'>[src] blips happily</span>")
+				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
+			else
+				audible_message("<span class='warning'>[src] blips in disappointment</span>")
+				playsound(get_turf(src), 'sound/machines/synth_no.ogg', 50, 0)
+		return
+	..()
