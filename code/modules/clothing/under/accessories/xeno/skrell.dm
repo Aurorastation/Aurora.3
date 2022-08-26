@@ -3,8 +3,8 @@
 	name = "Ox cloak"
 	desc = "A plain cloak that denotes the wearer as being an Ox-class worker."
 	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Jargon Society."
-	icon = 'icons/obj/contained_items/skrell/jargon_cloaks.dmi'
-	icon_override = 'icons/obj/contained_items/skrell/jargon_cloaks.dmi'
+	icon = 'icons/obj/contained_items/skrell/nralakk_cloaks.dmi'
+	icon_override = 'icons/obj/contained_items/skrell/nralakk_cloaks.dmi'
 	item_state = "ox_cloak"
 	icon_state = "cloak_item"
 	flippable = FALSE

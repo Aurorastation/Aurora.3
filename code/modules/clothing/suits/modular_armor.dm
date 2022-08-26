@@ -470,8 +470,8 @@
 	name = "jargon flagpatch"
 	desc = "A flagpatch representing the Jargon Federation. The free use of these patches is a contentious issue back home as \
 	there is a fear that their wearers may misrepresent the nation."
-	icon_state = "flagpatch_jargon"
-	item_state = "flagpatch_jargon"
+	icon_state = "flagpatch_nralakk"
+	item_state = "flagpatch_nralakk"
 
 /obj/item/clothing/accessory/flagpatch/pra
 	name = "pra flagpatch"

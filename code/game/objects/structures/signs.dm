@@ -590,13 +590,13 @@
 /obj/structure/sign/flag/jargon
 	name = "Jargon Federation flag"
 	desc = "The insignia of the Jargon Federation."
-	icon_state = "jargon"
+	icon_state = "nralakk"
 
 /obj/structure/sign/flag/jargon/left
-	icon_state = "jargon_l"
+	icon_state = "nralakk_l"
 
 /obj/structure/sign/flag/jargon/right
-	icon_state = "jargon_r"
+	icon_state = "nralakk_r"
 
 /obj/item/flag/jargon
 	name = "Jargon Federation flag"

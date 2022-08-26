@@ -55,9 +55,9 @@
 	name = "Ox research uniform"
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in a scientific field."
 	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Jargon Society."
-	icon = 'icons/obj/contained_items/skrell/jargon_uniforms.dmi'
+	icon = 'icons/obj/contained_items/skrell/nralakk_uniforms.dmi'
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/obj/contained_items/vaurca/bulwark/jargon_uniforms.dmi'
+		BODYTYPE_VAURCA_BULWARK = 'icons/obj/contained_items/vaurca/bulwark/nralakk_uniforms.dmi'
 	)
 	item_state = "ox_sci"
 	icon_state = "ox_sci"
@@ -187,7 +187,7 @@
 	name = "Ox research jacket"
 	desc = "A plain, utilitarian jacket that signifies the wearer as a Tertiary Numerical in a scientific field."
 	desc_fluff = "The Jargon Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Jargon Society."
-	icon = 'icons/obj/contained_items/skrell/jargon_jackets.dmi'
+	icon = 'icons/obj/contained_items/skrell/nralakk_jackets.dmi'
 	item_state = "ox_sci_jacket"
 	icon_state = "ox_sci_jacket"
 	contained_sprite = TRUE
@@ -340,7 +340,7 @@
 	name = "star coat"
 	desc = "A very fashionable coat, that traps moisture and provides good insulation. Starry patterns have been woven into its fabric."
 	desc_fluff = "The patterns typically represent the constellations visible from the home system of the wearer. Coats like this one are usually very personal and custom made."
-	icon = 'icons/obj/contained_items/skrell/jargon_jackets.dmi'
+	icon = 'icons/obj/contained_items/skrell/nralakk_jackets.dmi'
 	item_state = "starcoat"
 	icon_state = "starcoat"
 	contained_sprite = TRUE

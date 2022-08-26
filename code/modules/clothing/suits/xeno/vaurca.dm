@@ -47,6 +47,7 @@
 	desc = "A large piece of clothing used by K'lax representatives."
 	item_state = "hive_rep_clothes_klax"
 	icon_state = "hive_rep_clothes_klax"
+
 /obj/item/clothing/suit/vaurca/breeder/cthur
 	name = "c'thur representative clothes"
 	desc = "A large piece of clothing used by C'thur representatives."
@@ -56,5 +57,5 @@
 /obj/item/clothing/suit/vaurca/breeder/jargon
 	name = "jargon representative clothes"
 	desc = "A large piece of clothing used by Jargon representatives."
-	item_state = "hive_rep_clothes_jargon"
-	icon_state = "hive_rep_clothes_jargon"
+	item_state = "hive_rep_clothes_nralakk"
+	icon_state = "hive_rep_clothes_nralakk"
