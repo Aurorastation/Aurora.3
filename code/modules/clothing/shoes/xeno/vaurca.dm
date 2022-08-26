@@ -45,6 +45,6 @@
 
 /obj/item/clothing/shoes/vaurca/breeder/jargon
 	name = "jargon representative shoes"
-	desc = "Large shoes used by Jargon representatives."
+	desc = "Large shoes used by Nralakk representatives."
 	item_state = "hive_rep_shoes_jargon"
 	icon_state = "hive_rep_shoes_jargon"

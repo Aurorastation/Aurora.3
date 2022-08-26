@@ -232,7 +232,7 @@ datum/gear_tweak/social_credit/get_default()
 	return 5
 
 datum/gear_tweak/social_credit/get_metadata(var/user, var/metadata)
-	var/credit_score = input(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Jargon calculations.)", "Social Credit Score") as null|num
+	var/credit_score = input(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Credit Score") as null|num
 	if(credit_score)
 		return round(credit_score, 0.01)
 	return metadata
@@ -414,7 +414,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 /datum/gear/accessory/skrell/nationcapes/New()
 	..()
 	var/list/nationcapes = list()
-	nationcapes["Jargon Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes
+	nationcapes["Nralakk Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes
 	nationcapes["Free Traverse Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/traverse
 	nationcapes["Sol Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/sol
 	nationcapes["Coalition Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/coc

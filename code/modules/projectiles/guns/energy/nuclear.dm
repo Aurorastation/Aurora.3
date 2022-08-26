@@ -214,7 +214,7 @@
 
 /obj/item/gun/energy/gun/skrell/pistol
 	name = "jargon particle pistol"
-	desc = "A Jargon Federation particle-beam pistol with two settings: Disable and Lethal."
+	desc = "A Nralakk Federation particle-beam pistol with two settings: Disable and Lethal."
 	icon = 'icons/obj/guns/jargonpistol.dmi'
 	icon_state = "particlepistol"
 	item_state = "particlepistol"
@@ -230,7 +230,7 @@
 
 /obj/item/gun/energy/gun/skrell/smg
 	name = "jargon particle submachinegun"
-	desc = "A Jargon Federation particle-beam submachine gun with two settings: Disable and Lethal."
+	desc = "A Nralakk Federation particle-beam submachine gun with two settings: Disable and Lethal."
 	icon = 'icons/obj/guns/jargonsmg.dmi'
 	icon_state = "particlesmg"
 	item_state = "particlesmg"

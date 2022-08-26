@@ -162,7 +162,7 @@
 		switch(selected_world) // If this gets bigger, should probably be a lookup. Switch seems ok for only 11 cases. - lly
 
 			if("Nralakk")
-				hologram_message = pick("You see the Jargon system sky projected on the ceiling.",
+				hologram_message = pick("You see the Nralakk system sky projected on the ceiling.",
 										"You see planets slowly orbiting Nralakk above the projector.",
 										"You hear faint ceremonial hymns.")
 			if("Qerrbalak")
@@ -187,7 +187,7 @@
 										"You see large insects hovering above the projector.")
 			if("the Traverse")
 				hologram_message = pick("You see an empty, dark hologram that fills the room, scattered with infrequent planets in the distance.",
-										"A holographic fleet of Jargon's generational ships are emitted from the projector. They pass by, before disappearing into the dark.",
+										"A holographic fleet of Nralakk's generational ships are emitted from the projector. They pass by, before disappearing into the dark.",
 										"Atop the projector is displayed a depiction of the crown of the Traverse, Pluat Ven'qop. Qukala ships patrol in circles around it.")
 			if("Europa")
 				hologram_message = pick("Upon the walls is projected the window of a submarine, and beyond it a vast, black ocean.",
@@ -221,8 +221,8 @@
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/jargontag
-	name = "\improper Jargon Federation loyalty ear-tag"
-	desc = "An ear-tag that shows the wearer is loyal to the Jargon Federation. A small cable travels into the ear canal..."
+	name = "\improper Nralakk Federation loyalty ear-tag"
+	desc = "An ear-tag that shows the wearer is loyal to the Nralakk Federation. A small cable travels into the ear canal..."
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_EARS
 	icon = 'icons/obj/contained_items/skrell/jargtag.dmi'
@@ -242,7 +242,7 @@
 
 // Could add some stuff to this in the future? I dunno. I just couldn't figure out how to callback to_chat LOL - geeves
 /obj/item/jargontag/proc/do_loyalty(var/mob/wearer)
-	to_chat(wearer, SPAN_GOOD("You feel an intense feeling of loyalty towards the Jargon Federation surge through your brain."))
+	to_chat(wearer, SPAN_GOOD("You feel an intense feeling of loyalty towards the Nralakk Federation surge through your brain."))
 
 /obj/item/jargontag/proc/clamp_on(var/mob/wearer)
 	if(fried)

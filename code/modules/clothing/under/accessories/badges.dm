@@ -541,7 +541,7 @@
 
 /obj/item/clothing/accessory/badge/passport/jargon
 	name = "jargon federation passport"
-	desc = "A passport issued to citizens of the Jargon Federation. Shiny, and compact, it's perfect to use on the go."
+	desc = "A passport issued to citizens of the Nralakk Federation. Shiny, and compact, it's perfect to use on the go."
 	icon_state = "passport_jargon"
 	item_state = "passport_jargon"
 	open = CLOSED

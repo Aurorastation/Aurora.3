@@ -22,6 +22,6 @@
 
 /obj/item/clothing/head/vaurca_breeder/jargon
 	name = "jargon representative shroud"
-	desc = "Large shroud used by Jargon representatives."
+	desc = "Large shroud used by Nralakk representatives."
 	item_state = "hive_rep_shroud_jargon"
 	icon_state = "hive_rep_shroud_jargon"

@@ -16,7 +16,7 @@
 
 /obj/item/clothing/accessory/dressshirt/skrell/reef
     name = "reef formal wetshirt"
-    desc = "This slightly tacky wetshirt resembles the coral reefs found throughout Jargon Space. This clothing is meant to trap moisture, making it uncomfortable for non-Skrell."
+    desc = "This slightly tacky wetshirt resembles the coral reefs found throughout Nralakk space. This clothing is meant to trap moisture, making it uncomfortable for non-Skrell."
     icon_state = "reef_dressshirt"
     item_state = "reef_dressshirt"
 
@@ -39,7 +39,7 @@
 
 /obj/item/clothing/accessory/tshirt/skrell/reef
     name = "reef wetshirt"
-    desc = "This slightly tacky wetshirt resembles the coral reefs found throughout Jargon Space. This clothing is meant to trap moisture, making it uncomfortable for non-Skrell."
+    desc = "This slightly tacky wetshirt resembles the coral reefs found throughout Nralakk space. This clothing is meant to trap moisture, making it uncomfortable for non-Skrell."
     icon_state = "reef_tee"
     item_state = "reef_tee"
 
