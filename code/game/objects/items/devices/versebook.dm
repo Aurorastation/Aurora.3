@@ -1,6 +1,5 @@
 /obj/item/device/versebook
 	name = "\improper versebook"
-	w_class = ITEMSIZE_SMALL
 	desc = "If you see this, someone fucked up. Make a issue request."
 	desc_fluff = "No, seriously. Make a issue request"
 	item_icons = list(
@@ -10,6 +9,7 @@
 	icon = 'icons/obj/library.dmi'
 	icon_state = "dominiabook"
 	item_state = "dominia"
+	w_class = ITEMSIZE_SMALL
 	var/reading = FALSE
 
 	drop_sound = 'sound/items/drop/book.ogg'
