@@ -1262,8 +1262,8 @@
 
 /obj/random/highvalue/cash
 	problist = list(
-	/obj/item/storage/secure/briefcase/money = 1
-	/obj/item/stack/material/phoron/full = 0.1,
+	/obj/item/storage/secure/briefcase/money = 1,
+	/obj/item/stack/material/phoron/full = 0.1
 	)
 
 /obj/random/junk
