@@ -1175,10 +1175,9 @@
 /turf/simulated/floor/wood/coloured/walnut,
 /area/shuttle/yacht/living)
 "fb" = (
-/obj/machinery/access_button/airlock_exterior{
-	frequency = 1439;
-	master_tag = "yacht_airlock";
-	pixel_x = 24
+/obj/machinery/access_button{
+	pixel_x = 25;
+	master_tag = "yacht_airlock"
 	},
 /turf/template_noop,
 /area/space)
@@ -1188,12 +1187,11 @@
 	icon_state = "0-2"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/access_button/airlock_interior{
-	frequency = 1439;
-	master_tag = "yacht_airlock";
-	pixel_x = -24
-	},
 /obj/structure/computerframe,
+/obj/machinery/access_button{
+	pixel_x = -26;
+	master_tag = "yacht_airlock"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "gm" = (
