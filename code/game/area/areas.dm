@@ -286,7 +286,7 @@ var/list/mob/living/forced_ambiance_list = new
 	L.lastarea = newarea
 
 	// Start playing ambience.
-	if(src.ambience.len && L && L.client && (L.client.prefs.asfx_togs & ASFX_AMBIENCE) && !L.ear_deaf)
+	if(src.ambience.len && L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
 		play_ambience(L)
 	else
 		stop_ambience(L)
@@ -294,7 +294,7 @@ var/list/mob/living/forced_ambiance_list = new
 	// The dreaded ship ambience hum.
 	// Explanation for the "if" clause: If the area has ambience, the mob exists, has a client, the client has the hum ASFX toggled on, the area the mob is in is a station area,
 	// the mob isn't deaf, and the client doesn't already have the ambient hum playing, then start playing the ambient hum.
-	if(L && L.client && (L.client.prefs.asfx_togs & ASFX_HUM) && newarea.station_area && !L.ear_deaf)
+	if(L && L.client && (L.client.prefs.sfx_toggles & ASFX_HUM) && newarea.station_area && !L.ear_deaf)
 		if(!L.client.ambient_hum_playing)
 			L.client.ambient_hum_playing = TRUE
 			L << sound('sound/ambience/shipambience.ogg', repeat = 1, volume = VOLUME_AMBIENT_HUM, channel = 3)
