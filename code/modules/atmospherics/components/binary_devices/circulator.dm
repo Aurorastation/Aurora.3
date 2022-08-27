@@ -91,7 +91,7 @@
 	else
 		add_overlay("circ-off")
 
-	return 1
+	return TRUE
 
 /obj/machinery/atmospherics/binary/circulator/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench())
