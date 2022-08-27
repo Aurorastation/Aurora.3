@@ -3260,7 +3260,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoarcheology 3";
+	c_tag = "Research - Xenoarchaeology 3";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -3551,6 +3551,9 @@
 	name = "Cargo Bay";
 	req_access = null;
 	req_one_access = list(26,31,48,67)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
@@ -4221,6 +4224,9 @@
 	req_one_access = list(26,31,48,67)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "doK" = (
@@ -6023,6 +6029,9 @@
 	id = "hangarlockdown";
 	name = "Hangar Lockdown"
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "eKr" = (
@@ -6898,7 +6907,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_research{
-	name = "Xenoarcheology and Anomalous Materials";
+	name = "Xenoarchaeology and Anomalous Materials";
 	req_access = list(47)
 	},
 /obj/structure/cable/green{
@@ -7412,6 +7421,9 @@
 	name = "Atmosphere Control";
 	req_access = list(24)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "fPG" = (
@@ -7677,6 +7689,9 @@
 /obj/machinery/door/blast/regular/open{
 	id = "hangarlockdown";
 	name = "Hangar Lockdown"
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
@@ -9288,6 +9303,10 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
+"hhI" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_atrium)
 "hhO" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -10147,7 +10166,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
 /obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoarcheology 1";
+	c_tag = "Research - Xenoarchaeology 1";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -10246,7 +10265,7 @@
 /area/shuttle/intrepid/medical_compartment)
 "hXX" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Substation - Xenoarcheology"
+	RCon_tag = "Substation - Xenoarchaeology"
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -13032,6 +13051,7 @@
 	req_access = list(24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "kqO" = (
@@ -13474,7 +13494,7 @@
 	dir = 4
 	},
 /obj/machinery/door/window/westleft{
-	name = "Xenoarcheology Platform Access";
+	name = "Xenoarchaeology Platform Access";
 	req_access = list(65)
 	},
 /obj/structure/railing/mapped,
@@ -13733,6 +13753,9 @@
 	dir = 4;
 	id = "hangarlockdown";
 	name = "Hangar Lockdown"
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
@@ -20100,7 +20123,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoarcheology 2"
+	c_tag = "Research - Xenoarchaeology 2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -21497,7 +21520,7 @@
 /area/engineering/atmos)
 "rlW" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Xenoarcheology Maintenance Access";
+	name = "Xenoarchaeology Maintenance Access";
 	req_access = list(65)
 	},
 /obj/structure/cable/green{
@@ -22340,6 +22363,9 @@
 	req_one_access = list(26,31,48,67)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "rWM" = (
@@ -22781,6 +22807,9 @@
 	req_one_access = list(26,31,48,67)
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "spL" = (
@@ -25388,7 +25417,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoarcheology Entrance";
+	c_tag = "Research - Xenoarchaeology Entrance";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -25498,6 +25527,9 @@
 /obj/machinery/door/airlock/glass_mining{
 	name = "Warehouse";
 	req_one_access = list(26,31,48,67)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
@@ -27184,7 +27216,7 @@
 	dir = 4
 	},
 /obj/machinery/door/window/eastright{
-	name = "Xenoarcheology Platform Access";
+	name = "Xenoarchaeology Platform Access";
 	req_access = list(65)
 	},
 /obj/structure/railing/mapped,
@@ -27586,7 +27618,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoarcheology Suits";
+	c_tag = "Research - Xenoarchaeology Suits";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -27913,7 +27945,7 @@
 /area/maintenance/wing/port/deck1)
 "wtV" = (
 /obj/machinery/door/window/eastleft{
-	name = "Xenoarcheology Platform Access";
+	name = "Xenoarchaeology Platform Access";
 	req_access = list(65)
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -28018,7 +28050,7 @@
 /area/engineering/atmos/propulsion/starboard)
 "wAk" = (
 /obj/machinery/door/window/westright{
-	name = "Xenoarcheology Platform Access";
+	name = "Xenoarchaeology Platform Access";
 	req_access = list(65)
 	},
 /turf/simulated/floor/tiled/ramp{
@@ -28276,7 +28308,7 @@
 /area/maintenance/research_port)
 "wRa" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "Xenoarcheology Substation"
+	RCon_tag = "Xenoarchaeology Substation"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)
@@ -58139,7 +58171,7 @@ erL
 erL
 clb
 erL
-jrJ
+hhI
 vbD
 gWC
 lrC
@@ -58341,7 +58373,7 @@ erL
 erL
 erL
 erL
-jrJ
+hhI
 vbD
 sgI
 cWk
