@@ -281,7 +281,7 @@
 	name = "Sinta Restaurant"
 	name_language = LANGUAGE_UNATHI
 	origin = "Sinta Restaurant"
-	possible_origins = list("The Delicacy Traders' Guild", "The Long Range Food Transporters' Guild", "Riziek's Desserts")
+	possible_origins = list("Esteemed Epicureans of Moghes Trading Company", "The Delicacy Deliverer's Guild", "Mo'gunz Merchants")
 	trade_flags = TRADER_MONEY
 
 	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_GAKAL)
@@ -309,16 +309,16 @@
 
 	speech = list(
 		"hail_generic"       = "Good day, and welcome! Feeling hungry?",
-		"hail_Unathi"        = "Oh no it'sss a- uh- Hello... Kin! Hungry for sssomething?",
-		"hail_deny"          = "What do you mean they found usss- Oh uh... We're closssed! Sssee you another time!",
-		"trade_complete"     = "Another legitimate and PERFECTLY legal deal! Thank you, friend!",
+		"hail_Unathi"        = "Ah... a pleasssure, for.. esssteemed kin",
+		"hail_deny"          = "What do you mean they're onto usss- We're closed, sssee you another time!",
+		"trade_complete"     = "Another quick sssca- sssettlement! Thank you, friend!",
 		"trade_blacklist"    = "That jussst won't work.",
 		"trade_no_goods"     = "That jussst won't work.",
 		"trade_not_enough"   = "That jussst won't work.",
-		"how_much"           = "Thisss will be VALUE.",
-		"compliment_deny"    = "Right, okay, but can we move to the trading part, though? We uh... We don't have all day. We really don't.",
-		"compliment_accept"  = "Well thank you! Only the best- and most legal and legitimate- just for you, you very flattering friend!",
-		"insult_good"        = "Where did thisss come from!? Are you looking for trouble? Do you know who we are!?- Legitimate traderssss of courssse!",
+		"how_much"           = "Ah! A mere VALUE.",
+		"compliment_deny"    = "Right, okay, but can we move to the trading part, though? We uh... have places to be.",
+		"compliment_accept"  = "Well thank you! Only the bessst - and mossst legitimate - jussst for you, you very flattering friend!",
+		"insult_good"        = "Where did thisss come from! Are you looking for trouble? Do you know who we are - legitimate tradersss of courssse!",
 		"insult_bad"         = "You think we're just random tradersss?! You have no ideas who you're messsing with!",
 		"bribe_refusal"      = "Thisss iss too little,",
 		"bribe_accept"       = "Thank you for your donation!"
