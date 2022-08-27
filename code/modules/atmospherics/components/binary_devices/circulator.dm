@@ -89,7 +89,7 @@
 		else
 			add_overlay("circ-slow")
 	else
-		overlays += image('icons/obj/power.dmi', "circ-off")
+		add_overlay("circ-off")
 
 	return 1
 
