@@ -85,7 +85,7 @@
 		if (temperature_overlay)
 			add_overlay(temperature_overlay)
 		if (last_pressure_delta > 5*ONE_ATMOSPHERE)
-			overlays += image('icons/obj/power.dmi', "circ-run")
+			add_overlay("circ-run")
 		else
 			overlays += image('icons/obj/power.dmi', "circ-slow")
 	else
