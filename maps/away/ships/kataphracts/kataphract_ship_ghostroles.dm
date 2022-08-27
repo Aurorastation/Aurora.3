@@ -38,7 +38,7 @@
 /datum/ghostspawner/human/kataphract/knight
 	short_name = "kataphract_knight"
 	name = "Kataphract Knight"
-	desc = "Display honour in everything you do. Be an excellent person. Act as the leader of the Kataphract Chapter and Shipmaster of your vessel. You are a Knight and should as an example to your subordinates."
+	desc = "Display honour in everything you do. Be an excellent person. Act as the leader of the Kataphract Chapter and Shipmaster of your vessel. You are a Knight and should act as an example to your subordinates."
 	max_count = 1
 	uses_species_whitelist = TRUE
 
