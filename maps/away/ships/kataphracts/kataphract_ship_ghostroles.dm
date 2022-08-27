@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/kataphract
 	short_name = "kataphract_hop"
 	name = "Kataphract-Hopeful"
-	desc = "Display honour in everything you do. Be an excellent person. Listen to the Knight."
+	desc = "Display honour in everything you do. Be an excellent person. Listen to the Saa's (Knights). Remember, you serve the Izweski Hegemony."
 	tags = list("External")
 
 	spawnpoints = list("kataphract")
@@ -25,7 +25,7 @@
 /datum/ghostspawner/human/kataphract/klax
 	short_name = "kataphract_hop_klax"
 	name = "Kataphract-Hopeful Klaxan"
-	desc = "Display honour in everything you do. Be an excellent person. Learn how to be a proper Kataphract by your fellow Unathi."
+	desc = "Display honour in everything you do. Be an excellent person. Learn how to be a proper Kataphract by your fellow Unathi. Remember, you serve the Izweski Hegemony on behalf of your K'laxan compatriots."
 	max_count = 1
 	uses_species_whitelist = TRUE
 
@@ -38,7 +38,7 @@
 /datum/ghostspawner/human/kataphract/knight
 	short_name = "kataphract_knight"
 	name = "Kataphract Knight"
-	desc = "Display honour in everything you do. Be an excellent person. Act as the leader of the Kataphract Chapter and Shipmaster of your vessel,"
+	desc = "Display honour in everything you do. Be an excellent person. Act as the leader of the Kataphract Chapter and Shipmaster of your vessel. You are a Knight and should as an example to your subordinates."
 	max_count = 1
 	uses_species_whitelist = TRUE
 
@@ -48,13 +48,13 @@
 
 	outfit = /datum/outfit/admin/kataphract/knight
 
-	assigned_role = "Kataphract Knight"
-	special_role = "Kataphract Knight"
+	assigned_role = "Kataphract Knight Captain"
+	special_role = "Kataphract Knight Captain"
 
 /datum/ghostspawner/human/kataphract/quartermaster
 	short_name = "kataphract_quart"
 	name = "Kataphract Quartermaster"
-	desc = "Display honour in everything you do. Be an excellent person. Ensure the Kataphracts are well-stocked and ready for anything."
+	desc = "Display honour in everything you do. Be an excellent person. Ensure the Kataphracts are well-stocked and ready for anything. You are a proper knight and should act as an example to your subordinates. Listen to the Shipmaster. Remember, you serve the Izweski Hegemony."
 	max_count = 1
 
 	mob_name_prefix = "Saa "

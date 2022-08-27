@@ -13,7 +13,7 @@
 	class = "HKV" //Hegemony Kataphract Vessel 
 	icon_state = "ship_green"
 	moving_state = "ship_green_moving"
-	vessel_mass = 10000
+	vessel_mass = 9000
 	max_speed = 1/(2 SECONDS)
 	initial_generic_waypoints = list(
 		"nav_kataphract_1",
