@@ -293,16 +293,16 @@ FLOOR SAFES
 
 /obj/structure/safe/cash/Initialize()
 	. = ..()
-	new /obj/random/highvalue/cash
-	new /obj/random/highvalue/cash
-	new /obj/random/highvalue/cash
+	new /obj/random/highvalue/cash(src)
+	new /obj/random/highvalue/cash(src)
+	new /obj/random/highvalue/cash(src)
 
 /obj/structure/safe/highvalue
 	name = "valuables safe"
 
 /obj/structure/safe/highvalue/Initialize()
 	. = ..()
-	new /obj/random/highvalue/no_weapon
-	new /obj/random/highvalue/no_weapon
-	new /obj/random/highvalue/no_weapon
-	new /obj/random/highvalue/no_weapon
+	new /obj/random/highvalue/no_weapon(src)
+	new /obj/random/highvalue/no_weapon(src)
+	new /obj/random/highvalue/no_weapon(src)
+	new /obj/random/highvalue/no_weapon(src)
