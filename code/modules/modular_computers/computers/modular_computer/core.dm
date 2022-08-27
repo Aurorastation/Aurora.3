@@ -46,7 +46,7 @@
 	working = hard_drive && processor_unit && damage < broken_damage && computer_use_power()
 	check_update_ui_need()
 
-	if(!is_portable && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
+	if(looping_sound && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
 		playsound(get_turf(src), /decl/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
 		ambience_last_played_time = world.time
 
@@ -93,6 +93,8 @@
 		install_default_programs()
 	handle_verbs()
 	update_icon()
+	if(looping_sound)
+		soundloop = new(src, enabled)
 	initial_name = name
 
 /obj/item/modular_computer/Destroy()
@@ -105,6 +107,7 @@
 	listening_objects -= src
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(listener)
+	QDEL_NULL(soundloop)
 	return ..()
 
 /obj/item/modular_computer/CouldUseTopic(var/mob/user)
@@ -231,10 +234,14 @@
 		visible_message(SPAN_NOTICE("\The [src] shuts down."))
 	SSvueui.close_uis(src)
 	enabled = FALSE
+	if(looping_sound)
+		soundloop.stop()
 	update_icon()
 
 /obj/item/modular_computer/proc/enable_computer(var/mob/user, var/ar_forced=FALSE)
 	enabled = TRUE
+	if(looping_sound)
+		soundloop.start()
 	update_icon()
 
 	// Autorun feature

@@ -79,10 +79,8 @@
 /obj/machinery/appliance/cooker/fryer/update_icon()
 	if (cooking)
 		icon_state = on_icon
-		fry_loop.start(src)
 	else
 		icon_state = off_icon
-		fry_loop.stop(src)
 	..()
 
 //Fryer gradually infuses any cooked food with oil. Moar calories
@@ -221,3 +219,11 @@
 			return TRUE
 	//If neither of the above returned, then call parent as normal
 	..()
+
+/obj/machinery/appliance/cooker/fryer/add_content(obj/item/I, mob/user)
+	. = ..()
+	fry_loop.start(src)
+
+/obj/machinery/appliance/cooker/fryer/eject(datum/cooking_item/CI, mob/user)
+	. = ..()
+	fry_loop.stop(src)

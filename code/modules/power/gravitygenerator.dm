@@ -27,6 +27,8 @@
 	light_color = LIGHT_COLOR_CYAN
 	light_power = 1
 	light_range = 8
+	var/datum/looping_sound/gravgen/soundloop
+
 /obj/machinery/gravity_generator/ex_act(severity)
 	if(severity == 1) // Very sturdy.
 		set_broken()
@@ -128,6 +130,7 @@
 	log_debug("Gravity Generator Destroyed")
 	investigate_log("was destroyed!", "gravity")
 	on = 0
+	QDEL_NULL(soundloop)
 	update_list(TRUE)
 	for(var/obj/machinery/gravity_generator/part/O in parts)
 		O.main_part = null
@@ -347,12 +350,14 @@
 		if(!area.has_gravity())
 			alert = 1
 			gravity_is_on = 1
+			soundloop.start()
 			investigate_log("was brought online and is now producing gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought online. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
 	else
 		if(area.has_gravity())
 			alert = 1
 			gravity_is_on = 0
+			soundloop.stop()
 			investigate_log("was brought offline and there is now no gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought offline with no backup generator. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
 
@@ -443,6 +448,7 @@
 
 /obj/machinery/gravity_generator/main/Initialize()
 	. = ..()
+	soundloop = new(src, start_immediately = FALSE)
 	addtimer(CALLBACK(src, .proc/updateareas), 10)
 	return
 
