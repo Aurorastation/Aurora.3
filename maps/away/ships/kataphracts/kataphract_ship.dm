@@ -67,7 +67,7 @@
 	req_access = list(access_kataphract)
 
 /datum/shuttle/autodock/overmap/kataphract_transport
-	name = "Elyran Naval Shuttle"
+	name = "Kataphract Transport Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/kataphract_shuttle/main_compartment, /area/shuttle/kataphract_shuttle/engine_compartment)
 	current_location = "nav_hangar_kataphract_shuttle"
