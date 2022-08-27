@@ -1,13 +1,12 @@
 /datum/ghostspawner/human/kataphract
 	short_name = "kataphract_hop"
 	name = "Kataphract-Hopeful"
-	desc = "Display honour in everything you do. Be an excellent person."
+	desc = "Display honour in everything you do. Be an excellent person. Listen to the Knight."
 	tags = list("External")
 
-	enabled = FALSE
 	spawnpoints = list("kataphract")
 	req_perms = null
-	max_count = 2
+	max_count = 3
 	uses_species_whitelist = FALSE
 
 	mob_name_prefix = "Zosaa "
@@ -28,6 +27,7 @@
 	name = "Kataphract-Hopeful Klaxan"
 	desc = "Display honour in everything you do. Be an excellent person. Learn how to be a proper Kataphract by your fellow Unathi."
 	max_count = 1
+	uses_species_whitelist = TRUE
 
 	spawnpoints = list("kataphract_klax")
 
@@ -38,8 +38,9 @@
 /datum/ghostspawner/human/kataphract/knight
 	short_name = "kataphract_knight"
 	name = "Kataphract Knight"
-	desc = "Display honour in everything you do. Be an excellent person. Be a co-leader of the Kataphract Chapter, along with the other knight."
-	max_count = 2
+	desc = "Display honour in everything you do. Be an excellent person. Act as the leader of the Kataphract Chapter and Shipmaster of your vessel,"
+	max_count = 1
+	uses_species_whitelist = TRUE
 
 	mob_name_prefix = "Saa "
 
@@ -65,21 +66,6 @@
 	assigned_role = "Kataphract Quartermaster"
 	special_role = "Kataphract Quartermaster"
 
-/datum/ghostspawner/human/kataphract/trader
-	short_name = "kataphract_trad"
-	name = "Kataphract Trader"
-	desc = "Display honour in everything you do. Be an excellent person. Buy and sell items on the market, ensure the Quartermaster has stock. Conduct trade with any visitors."
-	max_count = 1
-
-	mob_name_prefix = "Saa "
-
-	spawnpoints = list("kataphract_trader")
-
-	outfit = /datum/outfit/admin/kataphract/trader
-
-	assigned_role = "Kataphract Trader"
-	special_role = "Kataphract Trader"
-
 // Kataphract who are not combat ready
 /datum/outfit/admin/kataphract
 	name = "Kataphract-Hopeful"
@@ -99,7 +85,7 @@
 		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
 
 /datum/outfit/admin/kataphract/get_id_access()
-	return list(access_kataphract)
+	return list(access_kataphract, access_external_airlocks)
 
 /datum/outfit/admin/kataphract/klax
 
@@ -140,16 +126,16 @@
 	suit = /obj/item/clothing/accessory/poncho/red
 
 /datum/outfit/admin/kataphract/knight/get_id_access()
-	return list(access_kataphract, access_kataphract_knight)
+	return list(access_kataphract, access_kataphract_knight, access_kataphract_quartermaster, access_kataphract_trader, access_external_airlocks)
 
 /datum/outfit/admin/kataphract/quartermaster
 	name = "Kataphract Quartermaster"
 
 /datum/outfit/admin/kataphract/quartermaster/get_id_access()
-	return list(access_kataphract, access_kataphract_quartermaster)
+	return list(access_kataphract, access_kataphract_quartermaster, access_kataphract_trader, access_external_airlocks)
 
-/datum/outfit/admin/kataphract/trader
+/datum/outfit/admin/kataphract/trader // Unused from an old trimmed out ghostrole, but handy to have still
 	name = "Kataphract Trader"
 
 /datum/outfit/admin/kataphract/trader/get_id_access()
-	return list(access_kataphract, access_kataphract_trader)
+	return list(access_kataphract, access_kataphract_trader, access_external_airlocks), 
