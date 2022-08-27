@@ -22,6 +22,9 @@
 		"nav_kataphract_4",
 		"nav_kataphract_5",
 	)
+	initial_restricted_waypoints = list(
+		"Kataphract Transport Shuttle" = list("nav_casino_hangar"),
+	)
 
 /obj/effect/overmap/visitable/ship/kataphract_ship/New()
 	designation = "[pick("Pious Avenger", "Persistent Conviction", "Solemn Retribution", "Old Ironscales", "Sword of Faith", "Glorious Succor", "Sacred Retribution", "Unflinching Soul", "Unrelenting", "Ascendant Absolution")]"
@@ -66,8 +69,8 @@
 /datum/shuttle/autodock/overmap/kataphract_transport
 	name = "Elyran Naval Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/didntmapityet)
-	current_location = "nav_hangar_kataphract"
+	shuttle_area = list(/area/shuttle/kataphract_shuttle/main_compartment, /area/shuttle/kataphract_shuttle/engine_compartment)
+	current_location = "nav_hangar_kataphract_shuttle"
 	landmark_transition = "nav_transit_kataphract_transport"
 	range = 1
 	fuel_consumption = 2
@@ -76,7 +79,7 @@
 
 /obj/effect/shuttle_landmark/kataphract_transport/hangar
 	name = "Kataphract Transport Shuttle Hangar"
-	landmark_tag = "nav_hangar_kataphract"
+	landmark_tag = "nav_hangar_kataphract_shuttle"
 	docking_controller = "kataphract_shuttle_dock"
 	base_area = /area/ship/morbius
 	base_turf = /turf/simulated/floor/plating
