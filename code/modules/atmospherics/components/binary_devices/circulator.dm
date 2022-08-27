@@ -80,7 +80,7 @@
 	icon_state = anchored ? "circ-assembled" : "circ-unassembled"
 	cut_overlays()
 	if (stat & (BROKEN|NOPOWER) || !anchored)
-		return 1
+		return TRUE
 	if (last_pressure_delta > 0 && recent_moles_transferred > 0)
 		if (temperature_overlay)
 			overlays += image('icons/obj/power.dmi', temperature_overlay)
