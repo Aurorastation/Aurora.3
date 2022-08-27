@@ -82,7 +82,7 @@
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/shuttle_landmark/elyran_shuttle/transit
+/obj/effect/shuttle_landmark/kataphract_shuttle/transit
 	name = "In transit"
-	landmark_tag = "nav_transit_elyran_shuttle"
+	landmark_tag = "nav_transit_kataphract_shuttle"
 	base_turf = /turf/space/transit/south
