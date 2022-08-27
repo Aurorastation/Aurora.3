@@ -1842,7 +1842,6 @@
 #include "code\modules\ghostroles\spawner\atom\technomancer_apprentice.dm"
 #include "code\modules\ghostroles\spawner\human\emergencypod.dm"
 #include "code\modules\ghostroles\spawner\human\human.dm"
-#include "code\modules\ghostroles\spawner\human\kataphract.dm"
 #include "code\modules\ghostroles\spawner\human\merchant.dm"
 #include "code\modules\ghostroles\spawner\human\pra.dm"
 #include "code\modules\ghostroles\spawner\human\visitor.dm"

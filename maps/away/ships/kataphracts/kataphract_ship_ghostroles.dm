@@ -138,4 +138,4 @@
 	name = "Kataphract Trader"
 
 /datum/outfit/admin/kataphract/trader/get_id_access()
-	return list(access_kataphract, access_kataphract_trader, access_external_airlocks), 
+	return list(access_kataphract, access_kataphract_trader, access_external_airlocks)
