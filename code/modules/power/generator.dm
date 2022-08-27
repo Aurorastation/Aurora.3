@@ -129,7 +129,7 @@
 			else
 				air2.temperature = air2.temperature + heat/air2_heat_capacity
 				air1.temperature = air1.temperature - energy_transfer/air1_heat_capacity
-			playsound(src.loc, 'sound/effects/beam.ogg', 25, 0, 10, , required_preferences = ASFX_AMBIENCE)
+			playsound(get_turf(src), 'sound/effects/beam.ogg', 25, FALSE, 10, , required_preferences = ASFX_AMBIENCE)
 
 	//Transfer the air
 	if (air1)
