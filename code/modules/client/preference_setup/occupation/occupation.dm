@@ -417,6 +417,9 @@
 
 	var/list/factions = list()
 	for (var/datum/faction/faction in SSjobs.factions)
+		if(!faction.is_visible(user))
+			continue
+
 		if (faction.name == selected_faction)
 			factions += "[faction.name]"
 		else
@@ -429,6 +432,7 @@
 		to_client_chat(SPAN_DANGER("Invalid faction chosen. Resetting to [SSjobs.default_faction.name]."))
 		selected_faction = SSjobs.default_faction.name
 		faction = SSjobs.name_factions[selected_faction]
+		return
 
 	dat += "</h2></center><hr/>"
 	dat += "<table padding='8px'>"
@@ -446,11 +450,11 @@
 	dat += "You can learn more about this faction on <a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>.</center>"
 
 	if (selected_faction == pref.faction)
-		dat += "<br>\[selected\]"
-	else if (faction.can_select(pref))
-		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>select</a>\]"
+		dat += "<br>\[Faction already selected\]"
+	else if (faction.can_select(pref,user))
+		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>Select faction</a>\]"
 	else
-		dat += "<br><span class='warning'>[faction.get_selection_error(pref)]</span>"
+		dat += "<br><span class='warning'>[faction.get_selection_error(pref, user)]</span>"
 
 	send_theme_resources(user)
 	user << browse(enable_ui_theme(user, dat.Join()), "window=factionpreview;size=750x450")
