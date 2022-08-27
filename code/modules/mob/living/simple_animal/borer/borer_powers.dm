@@ -393,7 +393,7 @@
 		verbs -= /mob/living/carbon/proc/spawn_larvae
 
 	else
-		to_chat(src, SPAN_DANGER("Something has gone terribly wrong, as your host's brain does not seem to contain you. Make a Github report and ahelp to get out."))
+		to_chat(src, SPAN_DANGER("Something has gone terribly wrong, as your host's brain does not seem to contain you. Make a GitHub report and ahelp to get out."))
 
 //Brain slug proc for tormenting the host.
 /mob/living/carbon/proc/punish_host()
