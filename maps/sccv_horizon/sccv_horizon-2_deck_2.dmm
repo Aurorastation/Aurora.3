@@ -9637,13 +9637,13 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "fer" = (
-/obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Research Director's Office"
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hor)
 "feu" = (
@@ -22088,10 +22088,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "lJp" = (
-/obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/brigdoor/northleft{
+	dir = 2;
+	req_access = list(30)
+	},
+/mob/living/simple_animal/hostile/commanded/baby_harvester,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hor)
 "lJP" = (
