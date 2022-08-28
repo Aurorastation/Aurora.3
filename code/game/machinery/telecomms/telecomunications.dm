@@ -129,7 +129,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/Initialize()
 	. = ..()
-	soundloop = new(src, on)
+	soundloop = new(list(src), on)
 	if(autolinkers.len)
 		// Links nearby machines
 		if(!long_range_link)

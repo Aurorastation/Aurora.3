@@ -78,8 +78,6 @@
 /datum/looping_sound/proc/play(soundfile, volume_override)
 	var/list/atoms_cache = output_atoms
 	var/sound/S = sound(soundfile)
-	if(volume_override)
-		volume = volume_override
 //	if(direct)
 	//	S.channel = open_sound_channel() someone could probably make this work but you could probably just delete this with no reprecussions.
 	//	S.volume = volume
@@ -88,7 +86,7 @@
 	//	if(direct)
 	//		SEND_SOUND(thing, S)
 	//	else
-		playsound(thing, S, volume, vary, extra_range, falloff, required_preferences = ASFX_AMBIENCE) // you can turn it off, i guess.
+		playsound(thing, S, volume_override || volume, vary, extra_range, falloff, required_preferences = ASFX_AMBIENCE) // you can turn it off, i guess.
 
 /datum/looping_sound/proc/get_sound(starttime, _mid_sounds)
 	. = _mid_sounds || mid_sounds
