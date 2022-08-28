@@ -179,7 +179,6 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	icon_state = state
 
 /obj/machinery/telecomms/proc/update_power()
-
 	if(toggled)
 		if(stat & (BROKEN|NOPOWER|EMPED) || integrity <= 0) // if powered, on. if not powered, off. if too damaged, off
 			on = FALSE

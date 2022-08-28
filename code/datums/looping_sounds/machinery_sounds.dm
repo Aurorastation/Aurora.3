@@ -1,7 +1,7 @@
 /datum/looping_sound/showering
 	start_sound = 'sound/machines/shower/shower_start.ogg'
 	start_length = 2
-	mid_sounds = list('sound/machines/shower/shower_mid1.ogg'=1,'sound/machines/shower/shower_mid2.ogg'=1,'sound/machines/shower/shower_mid3.ogg'=1)
+	mid_sounds = list('sound/machines/shower/shower_mid1.ogg' = 1,'sound/machines/shower/shower_mid2.ogg' = 1,'sound/machines/shower/shower_mid3.ogg' = 1)
 	mid_length = 10
 	end_sound = 'sound/machines/shower/shower_end.ogg'
 	volume = 20
@@ -21,7 +21,7 @@
 /datum/looping_sound/generator
 	start_sound = 'sound/machines/generator/generator_start.ogg'
 	start_length = 4
-	mid_sounds = list('sound/machines/generator/generator_mid1.ogg'=1, 'sound/machines/generator/generator_mid2.ogg'=1, 'sound/machines/generator/generator_mid3.ogg'=1)
+	mid_sounds = list('sound/machines/generator/generator_mid1.ogg' = 1, 'sound/machines/generator/generator_mid2.ogg' = 1, 'sound/machines/generator/generator_mid3.ogg' = 1)
 	mid_length = 4
 	end_sound = 'sound/machines/generator/generator_end.ogg'
 	volume = 20
@@ -60,7 +60,7 @@
 /datum/looping_sound/microwave
 	start_sound = 'sound/machines/microwave/microwave-start.ogg'
 	start_length = 10
-	mid_sounds = list('sound/machines/microwave/microwave-mid1.ogg'=10, 'sound/machines/microwave/microwave-mid2.ogg'=1)
+	mid_sounds = list('sound/machines/microwave/microwave-mid1.ogg'= 1, 'sound/machines/microwave/microwave-mid2.ogg'= 1)
 	mid_length = 10
 	end_sound = 'sound/machines/microwave/microwave-end.ogg'
 	volume = 30
@@ -75,7 +75,7 @@
 		'sound/machines/tcomms/tcomms_mid4.ogg' = 1,
 		'sound/machines/tcomms/tcomms_mid5.ogg' = 1,
 		'sound/machines/tcomms/tcomms_mid6.ogg' = 1,
-		'sound/machines/tcomms/tcomms_mid7.ogg' = 1,
+		'sound/machines/tcomms/tcomms_mid7.ogg' = 1
 	)
 	mid_length = 1.8 SECONDS
 	extra_range = -4.5
@@ -86,7 +86,7 @@
 	start_sound = 'sound/machines/computer/computer_start.ogg'
 	start_length = 7.2 SECONDS
 	start_volume = 10
-	mid_sounds = list('sound/machines/computer/computer_mid1.ogg', 'sound/machines/computer/computer_mid2.ogg')
+	mid_sounds = list('sound/machines/computer/computer_mid1.ogg' = 1, 'sound/machines/computer/computer_mid2.ogg' = 1)
 	mid_length = 1.8 SECONDS
 	end_sound = 'sound/machines/computer/computer_end.ogg'
 	end_volume = 10
