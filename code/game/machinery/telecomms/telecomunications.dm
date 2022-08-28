@@ -124,12 +124,12 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	return TRUE
 
 /obj/machinery/telecomms/New()
+	soundloop = new(src, on)
 	telecomms_list += src
 	..()
 
 /obj/machinery/telecomms/Initialize()
 	. = ..()
-	soundloop = new(src, on)
 
 	if(autolinkers.len)
 		// Links nearby machines
