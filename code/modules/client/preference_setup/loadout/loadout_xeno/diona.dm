@@ -35,13 +35,13 @@
 	
 //skrell shared things
 
-/datum/gear/accessory/diona/capes
+/datum/gear/accessory/capes/diona
 	display_name = "shoulder capes"
 	path = /obj/item/clothing/accessory/poncho/shouldercape
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 
-/datum/gear/accessory/diona/capes/New()
+/datum/gear/accessory/capes/diona/New()
 	..()
 	var/list/capes = list()
 	capes["star cape"] = /obj/item/clothing/accessory/poncho/shouldercape/star
@@ -50,38 +50,38 @@
 	capes["galaxy cape"] = /obj/item/clothing/accessory/poncho/shouldercape/galaxy
 	gear_tweaks += new /datum/gear_tweak/path(capes)
 
-/datum/gear/accessory/diona/qeblak
+/datum/gear/accessory/qeblak/diona
 	display_name = "qeblak mantle"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 
-/datum/gear/accessory/diona/weishii
+/datum/gear/accessory/weishii/diona
 	display_name = "weishii robe"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 
-/datum/gear/diona/skrell_projector
+/datum/gear/skrell_projector/diona
 	display_name = "nralakk projector"
 	path = /obj/item/skrell_projector
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 
-/datum/gear/diona/homeworld_deck
+/datum/gear/homeworld_deck/diona
 	display_name = "qweipaqui homeworld deck"
 	path = /obj/item/deck/tarot/jargon
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_NO_SELECTION
 
-/datum/gear/diona/colonist_deck // Intentionally separate from homeworld_deck, so that both can be chosen. -Lly
+/datum/gear/colonist_deck/diona // Intentionally separate from homeworld_deck, so that both can be chosen. -Lly
 	display_name = "qweipaqui colonist deck"
 	path = /obj/item/deck/tarot/nonjargon
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	
-/datum/gear/accessory/diona/skrell_passport
+/datum/gear/accessory/skrell_passport/diona
 	display_name = "jargon federation passport"
 	path = /obj/item/clothing/accessory/badge/passport/jargon
 	sort_category = "Xenowear - Skrell"
@@ -104,13 +104,13 @@
 		J.species_tag = tag
 	return J
 	
-/datum/gear/uniform/diona/work
+/datum/gear/uniform/work/diona
 	display_name = "work uniforms"
 	path = /obj/item/clothing/under/skrell/jargon
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	flags = GEAR_HAS_DESC_SELECTION
 	
-/datum/gear/uniform/diona/work/New()
+/datum/gear/uniform/work/diona/New()
 	..()
 	var/list/outfit = list()
 	outfit["ox research"] = /obj/item/clothing/under/skrell/jargon
@@ -135,14 +135,14 @@
 	outfit["iqi medical"] = /obj/item/clothing/under/skrell/jargon/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(outfit)
 	
-/datum/gear/suit/diona/jacket
+/datum/gear/suit/jacketdiona/
 	display_name = "work jackets"
 	path = /obj/item/clothing/suit/storage/toggle/skrell
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/suit/diona/jacket/New()
+/datum/gear/suit/jacket/diona/New()
 	..()
 	var/list/jacket = list()
 	jacket["ox research"] = /obj/item/clothing/suit/storage/toggle/skrell
