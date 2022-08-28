@@ -85,10 +85,10 @@
 	move_time = 20
 	shuttle_area = list(/area/shuttle/kataphract_shuttle/main_compartment, /area/shuttle/kataphract_shuttle/engine_compartment)
 	current_location = "nav_hangar_kataphract_shuttle"
-	landmark_transition = "nav_transit_kataphract_transport"
+	landmark_transition = "nav_kataphract_transport_transit"
 	range = 2
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_kataphract"
+	logging_home_tag = "nav_hangar_kataphract_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/kataphract_transport/hangar
@@ -99,7 +99,7 @@
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/shuttle_landmark/kataphract_shuttle/transit
+/obj/effect/shuttle_landmark/kataphract_transport/transit
 	name = "In transit"
-	landmark_tag = "nav_transit_kataphract_shuttle"
+	landmark_tag = "nav_kataphract_transport_transit"
 	base_turf = /turf/space/transit/south
