@@ -48,7 +48,7 @@
 	else
 		set_light(0)
 		active = FALSE
-		soundloop.stop()
+		soundloop.stop(src)
 		icon_state = initial(icon_state)
 		handleInactive()
 
@@ -371,12 +371,12 @@
 			if(!active && HasFuel() && !IsBroken())
 				active = TRUE
 				update_icon()
-				soundloop.start()
+				soundloop.start(src)
 		if(href_list["action"] == "disable")
 			if (active)
 				active = FALSE
 				update_icon()
-				soundloop.stop()
+				soundloop.stop(src)
 		if(href_list["action"] == "eject")
 			if(!active)
 				DropFuel()

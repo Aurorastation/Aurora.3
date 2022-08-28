@@ -235,13 +235,13 @@
 	SSvueui.close_uis(src)
 	enabled = FALSE
 	if(looping_sound)
-		soundloop.stop()
+		soundloop.stop(src)
 	update_icon()
 
 /obj/item/modular_computer/proc/enable_computer(var/mob/user, var/ar_forced=FALSE)
 	enabled = TRUE
 	if(looping_sound)
-		soundloop.start()
+		soundloop.start(src)
 	update_icon()
 
 	// Autorun feature

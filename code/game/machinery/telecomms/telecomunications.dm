@@ -183,13 +183,13 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	if(toggled)
 		if(stat & (BROKEN|NOPOWER|EMPED) || integrity <= 0) // if powered, on. if not powered, off. if too damaged, off
 			on = FALSE
-			soundloop.stop()
+			soundloop.stop(src)
 		else
 			on = TRUE
-			soundloop.start()
+			soundloop.start(src)
 	else
 		on = FALSE
-		soundloop.stop()
+		soundloop.stop(src)
 
 /obj/machinery/telecomms/process()
 	update_power()
