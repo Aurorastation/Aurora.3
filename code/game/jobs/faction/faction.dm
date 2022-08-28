@@ -45,7 +45,7 @@
 				role.blacklisted_species = J.blacklisted_species
 			. += role
 
-/datum/faction/proc/get_selection_error(datum/preferences/prefs, var/user=usr)
+/datum/faction/proc/get_selection_error(datum/preferences/prefs, var/mob/user)
 	if (!length(allowed_species_types))
 		return null
 
@@ -57,12 +57,12 @@
 	if (!is_type_in_typecache(S, allowed_species_types))
 		return "Invalid species selected."
 
-	if(!is_visible(user))
+	if (!is_visible(user))
 		return "This faction is not available to you."
 
 	return null
 
-/datum/faction/proc/can_select(datum/preferences/prefs, var/user)
+/datum/faction/proc/can_select(datum/preferences/prefs, var/mob/user)
 	return !get_selection_error(prefs, user)
 
 /datum/faction/proc/get_logo_name()
@@ -83,6 +83,5 @@
 
 	return objective
 
-
-/datum/faction/proc/is_visible(var/user)
+/datum/faction/proc/is_visible(var/mob/user)
 	return TRUE

@@ -35,7 +35,7 @@
 
 /obj/item/clothing/accessory/tie/corporate/scc
 	name = "SCC tie"
-	desc = "A tie made to the exact specifications of the SCC"
+	desc = "A sleek corporate tie, worn by SCC employees."
 	contained_sprite = TRUE
 	icon = 'icons/obj/contained_items/scc.dmi'
 	icon_state = "scc_tie"
@@ -43,7 +43,7 @@
 
 /obj/item/clothing/head/beret/scc
 	name = "SCC beret"
-	desc = "A snazzy beret in SCC colors"
+	desc = "A corporate beret in the colours of the Stellar Corporate Conglomerate."
 	contained_sprite = TRUE
 	icon = 'icons/obj/contained_items/scc.dmi'
 	icon_state = "scc_beret"

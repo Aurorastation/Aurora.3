@@ -450,9 +450,9 @@
 	dat += "You can learn more about this faction on <a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>.</center>"
 
 	if (selected_faction == pref.faction)
-		dat += "<br>\[Faction already selected\]"
+		dat += "<br>\[Faction Already Selected\]"
 	else if (faction.can_select(pref,user))
-		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>Select faction</a>\]"
+		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>Select Faction</a>\]"
 	else
 		dat += "<br><span class='warning'>[faction.get_selection_error(pref, user)]</span>"
 

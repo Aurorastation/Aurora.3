@@ -1,12 +1,12 @@
 /datum/job/hra
 	title = "Human Resources Assistant"
 	faction = "Station"
-	flag = CCIA
+	flag = HRA
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND)
 	department_flag = ENGSEC
 	total_positions = 2
 	spawn_positions = 0
-	supervisors = "SCC and Internal Affairs"
+	supervisors = "SCC and the Internal Affairs department"
 	minimal_player_age = 10
 	economic_modifier = 10
 	ideal_character_age = list(
@@ -17,9 +17,9 @@
 
 	selection_color = "#c9ad12"
 
-	access = list(access_sec_doors, access_medical, access_engine, access_eva, access_heads, access_all_personal_lockers, access_maint_tunnels,
+	access = list(access_sec_doors, access_medical, access_engine, access_eva, access_heads, access_maint_tunnels,
 			            access_construction, access_research, access_gateway, access_weapons, access_bridge_crew, access_intrepid, access_cent_ccia)
-	minimal_access = list(access_sec_doors, access_medical, access_engine, access_eva, access_heads, access_all_personal_lockers, access_maint_tunnels,
+	minimal_access = list(access_sec_doors, access_medical, access_engine, access_eva, access_heads, access_maint_tunnels,
 			            access_construction, access_research, access_gateway, access_weapons, access_bridge_crew, access_intrepid, access_cent_ccia)
 
 	outfit = /datum/outfit/job/hra
@@ -50,5 +50,4 @@
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/device/taperecorder/cciaa
 	l_hand = /obj/item/storage/lockbox/cciaa
-	//pda = /obj/item/modular_computer/handheld/pda/command/cciaa
 	id = /obj/item/card/id/gold

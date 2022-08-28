@@ -17,7 +17,7 @@ var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
 var/const/BRIDGE_CREW		=(1<<12)
 var/const/OPERATIONS_MANAGER =(1<<13)
-var/const/CCIA              =(1<<14)
+var/const/HRA              =(1<<14)
 
 // MEDSCI
 var/const/MEDSCI			=(1<<1)

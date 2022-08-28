@@ -1,7 +1,7 @@
 /datum/faction/admin
 	name = "Admin Jobs"
 	description = {"<p>
-	This faction is used exclusively for administrative jobs used by Staff Roles
+	This faction is for IC administrative jobs used by staff.
 	</p>
 	"}
 
@@ -14,5 +14,5 @@
 		/datum/species/skrell
 	)
 
-/datum/faction/admin/is_visible(var/user)
+/datum/faction/admin/is_visible(var/mob/user)
 	return check_rights(R_CCIAA,FALSE,user)
