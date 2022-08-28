@@ -65,12 +65,20 @@
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/shoes/sandal
-	desc = "A pair of rather plain, wooden sandals."
+	desc = "A pair of rather plain wooden sandals."
 	name = "sandals"
 	icon_state = "sandals"
 	species_restricted = null
 	body_parts_covered = FALSE
 	sprite_sheets = list("Tajara" = 'icons/mob/species/tajaran/shoes.dmi')
+
+/obj/item/clothing/shoes/sandal/wooden
+	desc = "A pair of rather plain wooden sandals."
+	name = "wooden sandals"
+	icon = 'icons/clothing/shoes/woodensandal.dmi'
+	icon_state = "woodensandal"
+	item_state = "woodensandal"
+	contained_sprite = TRUE
 
 /obj/item/clothing/shoes/sandal/flipflop
 	name = "flip flops"

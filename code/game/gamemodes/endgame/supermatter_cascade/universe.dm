@@ -48,6 +48,8 @@ var/global/universe_has_ended = 0
 	if(evacuation_controller.cancel_evacuation())
 		priority_announcement.Announce("The evacuation has been aborted due to bluespace distortion.")
 
+	SSskybox.change_skybox("cascade", new_use_stars = FALSE, new_use_overmap_details = FALSE)
+
 	AreaSet()
 	MiscSet()
 	APCSet()

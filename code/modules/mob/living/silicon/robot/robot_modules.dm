@@ -760,7 +760,9 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/research
 	name = "research module"
-	channels = list(CHANNEL_SCIENCE = TRUE)
+	channels = list(CHANNEL_SCIENCE = TRUE,
+					CHANNEL_SUPPLY  = TRUE
+					)
 	networks = list(NETWORK_RESEARCH)
 	sprites = list(
 			"Basic" =          list(ROBOT_CHASSIS = "robot_sci", ROBOT_PANEL = "robot", ROBOT_EYES = "robot"),
@@ -827,6 +829,13 @@ var/global/list/robot_modules = list(
 	N.charge_costs = list(1000)
 	N.synths = list(nanite)
 	modules += N
+
+	var/datum/matter_synth/metal = new /datum/matter_synth/metal(15000)
+	synths += metal
+
+	var/obj/item/stack/material/cyborg/steel/M = new /obj/item/stack/material/cyborg/steel(src)
+	M.synths = list(metal)
+	modules += M
 
 /obj/item/robot_module/syndicate
 	name = "syndicate robot module"

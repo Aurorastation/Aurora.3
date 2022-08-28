@@ -84,6 +84,8 @@
 		burn(2500)
 	else if(istype(Proj,/obj/item/projectile/ion))
 		burn(500)
+	
+	bullet_ping(Proj)
 
 	var/proj_damage = Proj.get_structure_damage()
 
@@ -91,7 +93,6 @@
 	var/damage = min(proj_damage, 100)
 
 	take_damage(damage)
-	return
 
 /turf/simulated/wall/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
 	..()

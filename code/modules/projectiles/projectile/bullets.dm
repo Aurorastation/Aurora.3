@@ -434,9 +434,10 @@
 	embed = FALSE
 	penetrating = FALSE
 	armor_penetration = 10
+	var/heavy_impact_range = 1
 
 /obj/item/projectile/bullet/recoilless_rifle/on_impact(var/atom/A)
-	explosion(A, -1, 1, 2)
+	explosion(A, -1, heavy_impact_range, 2)
 	..()
 
 /obj/item/projectile/bullet/recoilless_rifle/peac
@@ -444,3 +445,4 @@
 	icon_state = "peac"
 	damage = 45
 	penetrating = TRUE
+	heavy_impact_range = -1

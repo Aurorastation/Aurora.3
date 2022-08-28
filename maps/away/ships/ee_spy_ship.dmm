@@ -672,6 +672,16 @@
 /obj/item/reagent_containers/toothpaste,
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
+"mjR" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor,
+/area/ship/ee_spy_ship)
 "mkb" = (
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -730,16 +740,30 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+/obj/structure/railing/mapped{
+	dir = 8
 	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor,
-/area/ship/ee_spy_ship)
+/area/shuttle/fsf_shuttle)
 "nty" = (
 /obj/structure/table/steel,
 /obj/item/device/camera,
 /turf/simulated/floor/carpet/rubber,
+/area/ship/ee_spy_ship)
+"nzr" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/airless,
 /area/ship/ee_spy_ship)
 "nDn" = (
 /obj/item/device/flashlight/lamp,
@@ -32369,7 +32393,7 @@ xbK
 xbK
 pBl
 yjk
-xRX
+nzr
 xRX
 xRX
 xRX
@@ -34398,7 +34422,7 @@ yjk
 eMT
 mkb
 yjk
-rtf
+mjR
 xoc
 bgV
 aab

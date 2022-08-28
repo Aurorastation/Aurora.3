@@ -151,9 +151,23 @@
 		/obj/item/device/healthanalyzer = 1
 	)
 
-/obj/item/storage/firstaid/surgery/fill()
+/obj/item/storage/firstaid/brute/fill()
 	..()
 	icon_state = pick("brute","brute2","brute3")
+
+/obj/item/storage/firstaid/marooning_equipment
+	name = "marooning first aid kit"
+	desc = "A first aid kit for marooned personnel."
+	starts_with = list(
+		/obj/item/stack/medical/bruise_pack = 2,
+		/obj/item/stack/medical/ointment = 2,
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/reagent_containers/pill/bicaridine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1,
+		/obj/item/storage/pill_bottle/perconol = 1
+	)
 
 /*
  * Pill Bottles

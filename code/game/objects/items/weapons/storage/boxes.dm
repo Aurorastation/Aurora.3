@@ -392,7 +392,7 @@
 
 /obj/item/storage/box/loyaltypins
 	name = "box of firing pins"
-	desc = "A box of specialised \"loyalty\" authentication pins produced by Nanotrasen; these check to see if the user of the gun it's installed in has been implanted with a mind shield implant. Often used in ERTs."
+	desc = "A box of specialised \"loyalty\" authentication pins produced by NanoTrasen; these check to see if the user of the gun it's installed in has been implanted with a mind shield implant. Often used in ERTs."
 	illustration = "firingpin"
 	starts_with = list(/obj/item/device/firing_pin/implant/loyalty = 7)
 
@@ -1082,7 +1082,7 @@
 		if(!papersack_designs)
 			papersack_designs = sortList(list(
 			"None" = image(icon = src.icon, icon_state = "paperbag_None"),
-			"NanotrasenStandard" = image(icon = src.icon, icon_state = "paperbag_NanotrasenStandard"),
+			"NanoTrasenStandard" = image(icon = src.icon, icon_state = "paperbag_NanoTrasenStandard"),
 			"Idris" = image(icon = src.icon, icon_state = "paperbag_Idris"),
 			"Heart" = image(icon = src.icon, icon_state = "paperbag_Heart"),
 			"SmileyFace" = image(icon = src.icon, icon_state = "paperbag_SmileyFace")
@@ -1095,8 +1095,8 @@
 		switch(choice)
 			if("None")
 				desc = "A sack neatly crafted out of paper."
-			if("NanotrasenStandard")
-				desc = "A standard Nanotrasen paper lunch sack for loyal employees on the go."
+			if("NanoTrasenStandard")
+				desc = "A standard NanoTrasen paper lunch sack for loyal employees on the go."
 			if("Idris")
 				desc = "A premium paper bag produced by Idris Incorporated."
 			if("Heart")
@@ -1124,3 +1124,52 @@
 			to_chat(user, SPAN_WARNING("\The [src] needs to be empty before you can do that!"))
 	else
 		..()
+
+// Flares
+/obj/item/storage/box/flares
+	name = "flares box"
+	desc = "A box full of flares."
+	foldable = FALSE
+	max_storage_space = 4
+	can_hold = list(
+		/obj/item/device/flashlight/flare
+	)
+	starts_with = list(
+		/obj/item/device/flashlight/flare = 4
+	)
+
+// Magnetic Locks
+/obj/item/storage/box/magnetic_locks
+	name = "magnetic lock box"
+	desc = "A box full of magnetic locks."
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_NORMAL
+	foldable = FALSE
+	max_storage_space = 16
+	can_hold = list(
+		/obj/item/device/magnetic_lock
+	)
+	starts_with = list(
+		/obj/item/device/magnetic_lock = 4
+	)
+
+// Power Cells
+/obj/item/storage/box/cell
+	name = "power cell box"
+	desc = "A box full of power cells."
+	foldable = FALSE
+	max_storage_space = 6
+	can_hold = list(
+		/obj/item/cell
+	)
+	starts_with = list(
+		/obj/item/cell = 3
+	)
+
+// High-capacity Power Cells
+/obj/item/storage/box/cell/high
+	name = "high-capacity power cell box"
+	desc = "A box full of high-capacity power cells."
+	starts_with = list(
+		/obj/item/cell/high = 3
+	)

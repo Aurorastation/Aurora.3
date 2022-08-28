@@ -1039,6 +1039,12 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "short ponytail"
 
+	ponytail_short5
+		name = "Ponytail, Short 5"
+		icon_state = "hair_ponytail_short5"
+		length = 2
+		chatname = "short ponytail"
+
 	ponytail_fringetail
 		name = "Ponytail, Fringetail"
 		icon_state = "hair_ponytail_fringetail"
@@ -2364,6 +2370,41 @@ Follow by example and make good judgement based on length which list to include 
 			length = 6
 			chatname = "massive frills"
 
+		una_hornsbusted
+			name = "Unathi Horns-Busted"
+			icon_state = "unathi_simplehornbusted"
+			length = 5
+			chatname = "horns"
+
+		una_ramhornshortbusted
+			name = "Unathi Short Ram Horns-Busted"
+			icon_state = "unathi_ramhornbusted"
+			length = 5
+			chatname = "horns"
+
+		una_shorthornbusted
+			name = "Unathi Short Horns-Busted"
+			icon_state = "unathi_shorthornbusted"
+			length = 5
+			chatname = "horns"
+
+		una_drachornbusted
+			name = "Unathi Draconic Horns-Busted"
+			icon_state = "unathi_drachornbusted"
+			length = 5
+			chatname = "horns"
+
+		una_shortfrill2busted
+			name = "Unathi Short Frills 2-Busted"
+			icon_state = "unathi_shortfrills2busted"
+			length = 0
+			chatname = "frills"
+
+		una_styrahornbusted
+			name = "Unathi Styra Horn-Busted"
+			icon_state = "styrahornbusted"
+			length = 2
+			chatname = "horn stub"
 
 //skrell tentacles
 
@@ -3512,6 +3553,30 @@ Follow by example and make good judgement based on length which list to include 
 		una_regal
 			name = "Unathi Regal Frills"
 			icon_state = "unathi_regalfrills"
+
+		una_hornsbusted
+			name = "Unathi Horns-Busted"
+			icon_state = "unathi_simplehornbusted"
+
+		una_ramhornshortbusted
+			name = "Unathi Short Ram Horns-Busted"
+			icon_state = "unathi_ramhornbusted"
+
+		una_shorthornbusted
+			name = "Unathi Short Horns-Busted"
+			icon_state = "unathi_shorthornbusted"
+
+		una_drachornbusted
+			name = "Unathi Draconic Horns-Busted"
+			icon_state = "unathi_drachornbusted"
+
+		una_shortfrill2busted
+			name = "Unathi Short Frills 2-Busted"
+			icon_state = "unathi_shortfrills2busted"
+
+		una_styrahornbusted
+			name = "Unathi Styra Horn-Busted"
+			icon_state = "styrahornbusted"
 
 //ipc screens
 

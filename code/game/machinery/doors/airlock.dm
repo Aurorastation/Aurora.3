@@ -1515,7 +1515,9 @@ About the new airlock wires panel:
 	return 0
 
 /mob/living/blocks_airlock()
-	return mob_size > MOB_SMALL
+	// if this returns false, a mob can be crushed by airlock
+	// cat is 2.5, corgi is 3.5, fox is 4, human is 9
+	return mob_size > 2.4
 
 /atom/movable/proc/airlock_crush(var/crush_damage)
 	return 0

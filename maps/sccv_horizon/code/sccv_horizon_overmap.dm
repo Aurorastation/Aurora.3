@@ -1,5 +1,6 @@
 /obj/effect/overmap/visitable/ship/sccv_horizon
-	name = "SCCV Horizon"
+	class = "SCCV"
+	designation = "Horizon"
 	desc = "A line without compare, the Venator-series consists of one vessel so far: the SCCV Horizon, the lead ship of its class. Designed to be an entirely self-sufficient general-purpose surveying ship and to carry multiple replacement crews simultaneously, the Venator is equipped with both a bluespace and a warp drive and two different engines. Defying typical cruiser dimensions, the Venator is home to a sizable residential deck below the operations deck of the ship, where the crew is housed. It also features weapon hardpoints in its prominent wing nacelles. This one’s transponder identifies it, obviously, as the SCCV Horizon."
 	fore_dir = SOUTH
 	vessel_mass = 100000
@@ -41,7 +42,7 @@
 
 /obj/effect/overmap/visitable/ship/landable/intrepid
 	name = "Intrepid"
-	desc = "A standard-sized unarmed exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one’s transponder identifies it as the SCCV Intrepid."
+	desc = "A standard-sized unarmed exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid."
 	shuttle = "Intrepid"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
@@ -51,7 +52,7 @@
 
 /obj/effect/overmap/visitable/ship/landable/mining_shuttle
 	name = "Mining Shuttle"
-	desc = "A common, modestly-sized short-range shuttle manufactured by Hephaestus. Most frequently used as a mining platform, the Pickaxe-class is entirely reliant on a reasonably-sized mothership for anything but short-term functionality. This one’s transponder identifies it as belonging to the Stellar Corporate Conglomerate."
+	desc = "A common, modestly-sized short-range shuttle manufactured by Hephaestus. Most frequently used as a mining platform, the Pickaxe-class is entirely reliant on a reasonably-sized mothership for anything but short-term functionality. This one's transponder identifies it as belonging to the Stellar Corporate Conglomerate."
 	shuttle = "Mining Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS

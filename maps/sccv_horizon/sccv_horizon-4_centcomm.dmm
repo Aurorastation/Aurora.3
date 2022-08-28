@@ -7718,9 +7718,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "merchant_airlock";
 	name = "external airlock shutter";
+	pixel_x = -7;
 	pixel_y = 35;
-	req_access = null;
-	pixel_x = -7
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
@@ -7828,16 +7828,16 @@
 /obj/machinery/button/remote/blast_door{
 	id = "merchant_windows";
 	name = "viewing shutters";
+	pixel_x = -7;
 	pixel_y = 25;
-	req_access = null;
-	pixel_x = -7
+	req_access = null
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "merchant_airlock";
 	name = "external airlock shutter";
+	pixel_x = -7;
 	pixel_y = 35;
-	req_access = null;
-	pixel_x = -7
+	req_access = null
 	},
 /turf/simulated/floor/wood,
 /area/shuttle/merchant)
@@ -8592,10 +8592,10 @@
 /obj/structure/table/reinforced,
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
-	pixel_y = -1;
-	pixel_x = -6;
+	id = "merchant_bridge";
 	name = "bridge window shutters";
-	id = "merchant_bridge"
+	pixel_x = -6;
+	pixel_y = -1
 	},
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant)
@@ -9093,9 +9093,9 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
+	dir = 8;
 	id = "merchant_bridge";
-	name = "viewing shutter";
-	dir = 8
+	name = "viewing shutter"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
@@ -11000,9 +11000,9 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
+	dir = 2;
 	id = "merchant_bridge";
-	name = "viewing shutter";
-	dir = 2
+	name = "viewing shutter"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
@@ -20183,7 +20183,7 @@
 	name = "mechanical supply crate";
 	pixel_x = 1
 	},
-/obj/structure/sign/emerg_exitZ{
+/obj/structure/sign/emergency/exit/ladder{
 	dir = 1;
 	pixel_x = -9;
 	pixel_y = 30
@@ -20656,7 +20656,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "aYn" = (
-/obj/structure/sign/emerg_exit{
+/obj/structure/sign/emergency/exit{
 	dir = 8;
 	pixel_y = 32
 	},
@@ -24104,9 +24104,9 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
+/obj/effect/landmark{
+	name = "Nuclear-Bomb"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -26203,6 +26203,7 @@
 	pixel_y = 2
 	},
 /obj/item/device/megaphone/red,
+/obj/item/stack/material/steel/full,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjH" = (
@@ -26247,6 +26248,7 @@
 	},
 /obj/item/crowbar,
 /obj/item/crowbar,
+/obj/item/stack/liquidbags/half_full,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjL" = (
@@ -28966,7 +28968,7 @@
 /area/antag/raider)
 "bpV" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/unsimulated/floor{
 	icon_state = "tiles"
 	},
@@ -31351,9 +31353,6 @@
 "buz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/drop,
-/obj/effect/spawner/newbomb/timer/syndicate,
-/obj/effect/spawner/newbomb/timer/syndicate,
-/obj/effect/spawner/newbomb/timer/syndicate,
 /turf/simulated/floor/reinforced,
 /area/shuttle/mercenary)
 "buA" = (
@@ -31454,14 +31453,6 @@
 /obj/item/clothing/under/rank/sol/marine,
 /obj/item/clothing/under/rank/sol/marine,
 /obj/item/clothing/under/rank/sol/marine,
-/obj/item/clothing/suit/storage/vest/sol,
-/obj/item/clothing/suit/storage/vest/sol,
-/obj/item/clothing/suit/storage/vest/sol,
-/obj/item/clothing/suit/storage/vest/sol,
-/obj/item/clothing/head/helmet/sol,
-/obj/item/clothing/head/helmet/sol,
-/obj/item/clothing/head/helmet/sol,
-/obj/item/clothing/head/helmet/sol,
 /obj/item/clothing/head/sol,
 /obj/item/clothing/head/sol,
 /obj/item/clothing/head/sol,
@@ -31469,9 +31460,38 @@
 /obj/item/clothing/head/sol/marine,
 /obj/item/clothing/head/sol/marine,
 /obj/item/clothing/head/sol/marine,
-/obj/item/clothing/head/sol/garrison,
-/obj/item/clothing/head/sol/dress/admiral,
+/obj/item/clothing/head/sol/marine,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/head/helmet/military,
+/obj/item/clothing/head/helmet/military,
+/obj/item/clothing/head/helmet/military,
+/obj/item/clothing/head/helmet/military,
+/obj/item/clothing/accessory/leg_guard/military,
+/obj/item/clothing/accessory/leg_guard/military,
+/obj/item/clothing/accessory/leg_guard/military,
+/obj/item/clothing/accessory/leg_guard/military,
+/obj/item/clothing/accessory/arm_guard/military,
+/obj/item/clothing/accessory/arm_guard/military,
+/obj/item/clothing/accessory/arm_guard/military,
+/obj/item/clothing/accessory/arm_guard/military,
+/obj/item/clothing/suit/armor/carrier/military,
+/obj/item/clothing/suit/armor/carrier/military,
+/obj/item/clothing/suit/armor/carrier/military,
+/obj/item/clothing/suit/armor/carrier/military,
+/obj/item/clothing/under/rank/sol/army,
+/obj/item/clothing/under/rank/sol/army,
+/obj/item/clothing/under/rank/sol/army,
+/obj/item/clothing/under/rank/sol/army,
+/obj/item/clothing/under/rank/sol/dress/subofficer,
+/obj/item/clothing/under/rank/sol/dress/officer,
+/obj/item/clothing/under/rank/sol/dress/admiral,
+/obj/item/clothing/head/sol/dress/marine,
+/obj/item/clothing/head/sol/dress/officer,
+/obj/item/clothing/head/sol/dress/admiral,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/under/rank/sol,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -32455,6 +32475,7 @@
 	pixel_x = -15;
 	pixel_y = 1
 	},
+/obj/item/stack/liquidbags/half_full,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "byw" = (
@@ -33721,6 +33742,7 @@
 /obj/structure/table/rack,
 /obj/random/melee,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/stack/material/steel/full,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "bCv" = (
@@ -36609,9 +36631,9 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
+	dir = 2;
 	id = "merchant_bridge";
-	name = "viewing shutter";
-	dir = 2
+	name = "viewing shutter"
 	},
 /obj/structure/grille/diagonal{
 	dir = 1
@@ -36979,9 +37001,9 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
+	dir = 2;
 	id = "merchant_bridge";
-	name = "viewing shutter";
-	dir = 2
+	name = "viewing shutter"
 	},
 /obj/structure/grille/diagonal{
 	dir = 4

@@ -92,7 +92,7 @@
 	if (A.flags & SPAWN_ROOF)
 		spawn_roof()
 
-	if (flags & MIMIC_BELOW)
+	if (z_flags & ZM_MIMIC_BELOW)
 		setup_zmimic(mapload)
 
 	return INITIALIZE_HINT_NORMAL
@@ -111,11 +111,11 @@
 		SSocclusion.queue -= src
 		ao_queued = 0
 
-	if (flags & MIMIC_BELOW)
+	if (z_flags & ZM_MIMIC_BELOW)
 		cleanup_zmimic()
 
-	if (bound_overlay)
-		QDEL_NULL(bound_overlay)
+	if (z_flags & ZM_MIMIC_BELOW)
+		cleanup_zmimic()
 
 	..()
 	return QDEL_HINT_IWILLGC

@@ -99,8 +99,8 @@
 /area/rnd/conference
 	name = "Research - Conference Room"
 
-/area/maintenance/substation/xenoarcheology
-	name = "Xenoarcheology Substation"
+/area/maintenance/substation/xenoarchaeology
+	name = "Xenoarchaeology Substation"
 
 //Hangar
 
@@ -311,7 +311,7 @@
 
 // Exterior
 /area/horizon/exterior
-	name = "Horizon - Exterior"
+	name = "Horizon - Exterior (DO NOT ENCROACH ON LANDING PLACES)"
 	icon_state = "exterior"
 	base_turf = /turf/space
 	dynamic_lighting = TRUE
@@ -554,12 +554,6 @@
 /area/horizon/deck_three/cafeteria
 	name = "Horizon - Deck 3 - Cafeteria"
 	icon_state = "cafeteria"
-
-// Nature Showcase
-/area/horizon/deck_three/nature_showcase
-	name = "Horizon - Deck 3 - Nature Showcase"
-	icon_state = "nature_showcase"
-	sound_env = SMALL_ENCLOSED
 /********** Decks End **********/
 
 /********** Unique Start **********/

@@ -206,8 +206,8 @@ var/list/localhost_addresses = list(
 			// Forum link from various panels.
 			if ("github")
 				if (!config.githuburl)
-					to_chat(src, "<span class='danger'>Github URL not set in the config. Unable to open the site.</span>")
-				else if (alert("This will open the Github page in your browser. Are you sure?",, "Yes", "No") == "Yes")
+					to_chat(src, "<span class='danger'>GitHub URL not set in the config. Unable to open the site.</span>")
+				else if (alert("This will open the GitHub page in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					if (href_list["pr"])
 						var/pr_link = "[config.githuburl]pull/[href_list["pr"]]"
 						send_link(src, pr_link)
