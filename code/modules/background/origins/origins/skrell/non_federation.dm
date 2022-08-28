@@ -19,7 +19,7 @@
 	name = "Republic of Biesel"
 	desc = "With first contact with Humanity, many Skrell elected to move into human space. The Republic of Biesel has a considerable population of Skrell as it was a former Sol Alliance colony, and the population has only increased with the acceptance of former Sol Alliance planets into the Republic. The Republic of Biesel is also a popular destination for those fleeing the Jargon Federation as there is precedence for the Republic to refuse to deport Federation Skrell if they join the Tau Ceti Foreign Legion."
 	important_information = "Skrell living in the Republic of Biesel are protected from deportation to the Jargon Federation if they renounce their Jargon citizenship and join the Tau Ceti Foreign Legion."
-	possible_accents = list(ACCENT_SKRELLCETI, ACCENT_GIBSON)
+	possible_accents = list(ACCENT_SKRELLCETI, ACCENT_GIBSON_OVAN)
 	possible_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_EUM)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
 

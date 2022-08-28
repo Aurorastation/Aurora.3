@@ -53,7 +53,7 @@
 		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zavodskoi,
 		"Xenobotanist" = /datum/outfit/job/scientist/xenobotanist/zavodskoi,
 		"Lab Assistant" = /datum/outfit/job/intern_sci/zavodskoi,
-		"Xenoarcheologist"= /datum/outfit/job/scientist/xenoarcheologist/zavodskoi,
+		"Xenoarchaeologist"= /datum/outfit/job/scientist/xenoarchaeologist/zavodskoi,
 		"Engineer" = /datum/outfit/job/engineer/zavodskoi,
 		"Atmospheric Technician" = /datum/outfit/job/atmos/zavodskoi,
 		"Engineering Apprentice" = /datum/outfit/job/intern_eng/zavodskoi,
@@ -139,10 +139,10 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	id = /obj/item/card/id/zavodskoi
 
-/datum/outfit/job/scientist/xenoarcheologist/zavodskoi
-	name = "Xenoarcheologist - Zavodskoi Interstellar"
+/datum/outfit/job/scientist/xenoarchaeologist/zavodskoi
+	name = "Xenoarchaeologist - Zavodskoi Interstellar"
 
-	uniform = /obj/item/clothing/under/rank/scientist/xenoarcheologist/zavod
+	uniform = /obj/item/clothing/under/rank/scientist/xenoarchaeologist/zavod
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	id = /obj/item/card/id/zavodskoi
 

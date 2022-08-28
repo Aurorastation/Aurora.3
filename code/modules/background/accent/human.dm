@@ -100,12 +100,19 @@
 	tag_icon = "luna"
 	text_tag = "LUN"
 
-/datum/accent/gibson
-	name = ACCENT_GIBSON
-	description = "The New Gibsoner accent is very close to the accent of Tau Ceti proper, due to the nature of the planet's colonization. However, New Gibsoners are known for talking \
+/datum/accent/gibson_ovan
+	name = ACCENT_GIBSON_OVAN
+	description = "The New Gibson Ovanstad accent is very close to the accent of Tau Ceti proper, due to the nature of the planet's colonization. However, New Gibsoners are known for talking \
 	with a faster and more clipped accent than those from Biesel and, at times, sound as if they are tripping over their words due to the rapid pace at which they speak."
-	tag_icon = "gibson"
-	text_tag = "GIB"
+	tag_icon = "gibson_ovan"
+	text_tag = "OVA"
+
+/datum/accent/gibson_undir
+	name = ACCENT_GIBSON_UNDIR
+	description = "The New Gibson Undirstad accent is not wildly known or heard outside of New Gibson itself, as those hailing from the Undirstads are quite insular and isolated from the more attractive surface archologies. The Undirstad accent is much slower than the Ovanstad accent, \
+	and keeps more to its cultural roots."
+	tag_icon = "gibson_undir"
+	text_tag = "UND"
 
 /datum/accent/konyang
 	name = ACCENT_KONYAN
@@ -255,6 +262,12 @@
 	some youth may try to sound rebellious and conceal the softness of their voice, this musicality is still prevalent and universally recognizable."
 	tag_icon = "mictlan"
 	text_tag = "MIC"
+
+/datum/accent/antillia
+	name = ACCENT_ANTILLIA
+	description = "There are two distinct dialects present on the planet: one that sees heavy lifting from Tradeband and the other more influenced by Solarian Common. It is relatively easy to identify the differences between the two: Antilleans influenced by Tradeband sound more nasal and rhythmic, whereas those that grew up in regions where Solarian Common is the dominant language are more soft-spoken and enunciated."
+	tag_icon = "antillia"
+	text_tag = "PRT"
 
 /datum/accent/persepolis
 	name = ACCENT_PERSEPOLIS

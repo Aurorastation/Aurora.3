@@ -613,6 +613,8 @@ datum/preferences
 	exploit_record = ""
 	ccia_record = ""
 
+	gear_list = list() //Dont copy the loadout
+
 	ZeroSkills(1)
 
 	// Do we need to reinitialize a whole bunch more vars?
