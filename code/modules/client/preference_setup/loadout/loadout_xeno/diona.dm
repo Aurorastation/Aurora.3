@@ -171,7 +171,7 @@
 	display_name = "skrell poncho"
 	path = /obj/item/clothing/accessory/poncho/skrell
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
-	sort_category = "Xenowear - Diona
+	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/skrell/poncho/New()
@@ -187,7 +187,7 @@
 	display_name = "work cloaks"
 	path = /obj/item/clothing/accessory/poncho/shouldercape
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
-	sort_category = "Xenowear - Diona
+	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/skrell/workcloak/New()
