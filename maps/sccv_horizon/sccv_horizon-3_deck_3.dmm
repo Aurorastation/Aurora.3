@@ -21213,6 +21213,10 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
+"MR" = (
+/obj/effect/shuttle_landmark/horizon/nav4,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "MS" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/corner/green{
@@ -55443,7 +55447,7 @@ at
 at
 at
 at
-at
+MR
 at
 at
 Cu

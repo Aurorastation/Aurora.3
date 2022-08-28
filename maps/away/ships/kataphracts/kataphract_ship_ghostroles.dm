@@ -63,8 +63,8 @@
 
 	outfit = /datum/outfit/admin/kataphract/quartermaster
 
-	assigned_role = "Kataphract Quartermaster"
-	special_role = "Kataphract Quartermaster"
+	assigned_role = "Kataphract Knight Quartermaster"
+	special_role = "Kataphract Knight Quartermaster"
 
 // Kataphract who are not combat ready
 /datum/outfit/admin/kataphract
@@ -85,7 +85,7 @@
 		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
 
 /datum/outfit/admin/kataphract/get_id_access()
-	return list(access_kataphract, access_external_airlocks)
+	return list(access_kataphract, access_kataphract_trader, access_external_airlocks)
 
 /datum/outfit/admin/kataphract/klax
 

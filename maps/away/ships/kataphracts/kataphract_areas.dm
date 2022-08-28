@@ -25,6 +25,10 @@
 	name = "Kataphract Chapter - Main Ring"
 	icon_state = "yellow"
 
+/area/kataphract_chapter/medical
+	name = "Kataphract Chapter - Medicine Room"
+	icon_state = "law"
+
 /area/kataphract_chapter/dorms
 	name = "Kataphract Chapter - Dormitory"
 	icon_state = "Sleep"
@@ -49,6 +53,11 @@
 	icon_state = "engineering_workshop"
 	ambience = AMBIENCE_ENGINEERING
 
+/area/kataphract_chapter/port_solars_array
+	name = "Kataphract Chapter - Port solars Array"
+	icon_state = "engineering_workshop"
+	ambience = AMBIENCE_ENGINEERING
+
 /area/kataphract_chapter/port_solars
 	name = "Kataphract Chapter - Port Solars"
 	icon_state = "panelsA"
@@ -59,9 +68,18 @@
 	icon_state = "panelsA"
 	ambience = AMBIENCE_SPACE
 
+/area/kataphract_chapter/starboard_solars_array
+	name = "Kataphract Chapter - Starboard Solars Array"
+	icon_state = "engineering_workshop"
+	ambience = AMBIENCE_ENGINEERING
+
 /area/kataphract_chapter/trading_area
 	name = "Kataphract Chapter - Trading Area"
 	icon_state = "quartoffice"
+
+/area/kataphract_chapter/propulsion
+	name = "Kataphract Chapter - Propulsion"
+	icon_state = "engineering_workshop"
 
 /area/kataphract_chapter/warehouse
 	name = "Kataphract Chapter - Warehouse"

@@ -83,6 +83,12 @@
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
+/obj/effect/shuttle_landmark/horizon/nav4 //shares a spot with the TCFL ERT shuttle, but having multiple use cases is fine, ERTs are adminspawned only as well
+	name = "Port Primary Docking Arm"
+	landmark_tag = "nav_hangar_horizon_4"
+	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/space
+
 //Deck one landmarks that overmap shuttles can go to
 /obj/effect/shuttle_landmark/horizon/deckone
 	base_turf = /turf/space

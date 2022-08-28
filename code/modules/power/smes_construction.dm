@@ -84,6 +84,25 @@
 	output_level = 1300000
 	charge = 5.55e+007
 
+/obj/machinery/power/smes/buildable/third_party_shuttle/Initialize() 
+	. = ..()
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	input_attempt = TRUE
+	output_attempt = TRUE
+	input_level = 1000000
+	output_level = 1000000
+	charge = 5.00265e+006
+
+/obj/machinery/power/smes/buildable/autosolars/Initialize() //for third parties that have their solars autostart, It's slightly upgraded for them
+	. = ..()
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	input_attempt = TRUE
+	output_attempt = TRUE
+	input_level = 1000000
+	output_level = 1000000
+	charge = 0
+
 // END SMES SUBTYPES
 
 // SMES itself

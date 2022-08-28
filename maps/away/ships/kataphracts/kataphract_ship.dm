@@ -13,8 +13,10 @@
 	class = "HKV" //Hegemony Kataphract Vessel 
 	icon_state = "ship_green"
 	moving_state = "ship_green_moving"
-	vessel_mass = 9000
+	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
+	fore_dir = NORTH
+	vessel_size = SHIP_SIZE_SMALL
 	initial_generic_waypoints = list(
 		"nav_kataphract_1",
 		"nav_kataphract_2",
@@ -23,11 +25,11 @@
 		"nav_kataphract_5",
 	)
 	initial_restricted_waypoints = list(
-		"Kataphract Transport Shuttle" = list("nav_casino_hangar"),
+		"Kataphract Transport Shuttle" = list("nav_hangar_kataphract_shuttle"),
 	)
 
 /obj/effect/overmap/visitable/ship/kataphract_ship/New()
-	designation = "[pick("Pious Avenger", "Persistent Conviction", "Solemn Retribution", "Old Ironscales", "Sword of Faith", "Glorious Succor", "Sacred Retribution", "Unflinching Soul", "Unrelenting", "Ascendant Absolution")]"
+	designation = "[pick("Pious Avenger", "Persistent Conviction", "Solemn Retribution", "Venerable Ironscales", "Sword of Faith", "Glorious Succor", "Sacred Retribution", "Unflinching Soul", "Unrelenting", "Ascendant Absolution")]"
 	..()
 
 /obj/effect/shuttle_landmark/nav_kataphract_ship/nav1
@@ -50,15 +52,19 @@
 	name = "Kataphract Ship Navpoint #5"
 	landmark_tag = "nav__kataphract_ship_5"
 
+/obj/effect/shuttle_landmark/nav_kataphract_ship/nav6 //Might only be useable by the Intrepid, not exactly sure how to sync these up
+	name = "Kataphract Ship Port Docking"
+	landmark_tag = "nav__kataphract_ship_6"
+
 //shuttle 
 /obj/effect/overmap/visitable/ship/landable/kataphract_transport
 	name = "Kataphract Transport Shuttle"
-	desc = "idk i transport jon its what I do."
+	desc = "A small egg shaped shuttle of the 'Spearhead' class, commonly seen carried by Izweski Hegemony vessels. They're never far from their motherships and are a telltale sign of an Unathi presence within a sector. Affectionately called the 'Hatchling' by its operators. The transponder for this vessel identifies it as belonging to the Kataphracts of the Hegemony."
 	shuttle = "Kataphract Transport Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
-	vessel_mass = 3000 
-	fore_dir = NORTH
+	vessel_mass = 4000 
+	fore_dir = WEST
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/kataphract_transport
@@ -72,7 +78,7 @@
 	shuttle_area = list(/area/shuttle/kataphract_shuttle/main_compartment, /area/shuttle/kataphract_shuttle/engine_compartment)
 	current_location = "nav_hangar_kataphract_shuttle"
 	landmark_transition = "nav_transit_kataphract_transport"
-	range = 1
+	range = 2
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_kataphract"
 	defer_initialisation = TRUE
@@ -81,7 +87,7 @@
 	name = "Kataphract Transport Shuttle Hangar"
 	landmark_tag = "nav_hangar_kataphract_shuttle"
 	docking_controller = "kataphract_shuttle_dock"
-	base_area = /area/ship/morbius
+	base_area = /area/kataphract_chapter/hangar
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
