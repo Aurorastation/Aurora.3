@@ -11,9 +11,6 @@
 	var/temp = "" // output message
 	var/construct_op = 0
 
-	///Looping sounds for any servers
-	var/datum/looping_sound/server/soundloop
-
 
 /obj/machinery/telecomms/attackby(obj/item/I, mob/user)
 
