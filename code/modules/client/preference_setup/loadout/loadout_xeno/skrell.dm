@@ -56,7 +56,7 @@
 /datum/gear/accessory/capes
 	display_name = "shoulder capes"
 	path = /obj/item/clothing/accessory/poncho/shouldercape
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/accessory/capes/New()
@@ -71,13 +71,13 @@
 /datum/gear/accessory/qeblak
 	display_name = "qeblak mantle"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/accessory/weishii
 	display_name = "weishii robe"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/uniform/skrell
@@ -110,20 +110,20 @@
 /datum/gear/skrell_projector
 	display_name = "nralakk projector"
 	path = /obj/item/skrell_projector
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/homeworld_deck
 	display_name = "qweipaqui homeworld deck"
 	path = /obj/item/deck/tarot/jargon
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/colonist_deck // Intentionally separate from homeworld_deck, so that both can be chosen. -Lly
 	display_name = "qweipaqui colonist deck"
 	path = /obj/item/deck/tarot/nonjargon
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_NO_SELECTION
 
@@ -181,7 +181,7 @@
 	display_name = "jargon federation passport"
 	path = /obj/item/clothing/accessory/badge/passport/jargon
 	sort_category = "Xenowear - Skrell"
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	flags = GEAR_NO_SELECTION
 	cost = 0
 
@@ -244,7 +244,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 /datum/gear/uniform/skrell/work
 	display_name = "work uniforms"
 	path = /obj/item/clothing/under/skrell/jargon
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/skrell/work/New()
@@ -275,7 +275,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 /datum/gear/suit/skrell/jacket
 	display_name = "work jackets"
 	path = /obj/item/clothing/suit/storage/toggle/skrell
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -307,7 +307,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 /datum/gear/accessory/skrell/poncho
 	display_name = "skrell poncho"
 	path = /obj/item/clothing/accessory/poncho/skrell
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -323,7 +323,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 /datum/gear/accessory/skrell/workcloak
 	display_name = "work cloaks"
 	path = /obj/item/clothing/accessory/poncho/shouldercape
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
