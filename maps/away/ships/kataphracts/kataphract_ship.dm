@@ -5,12 +5,13 @@
 	suffix = "ships/kataphracts/kataphract_ship.dmm"
 	spawn_cost = 1
 	spawn_weight = 1
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA)
 
 /obj/effect/overmap/visitable/ship/kataphract_ship
 	name = "kataphract chapter ship"
 	desc = "A large corvette manufactured by a Hephaestus sponsered Hegemonic Guild. This is a Kataphract Chapter ship of the venerable 'Voidbreaker' class, a relative of the more common 'Foundation' class used by their counterparts in the Hegemon's navy. These vessels are rarely seen together and strive for maximum self-suffiency as they are the homes and primary means of transportation for questing Kataphracts and their Hopefuls. They carry enough firepower to deter the common pirate as well as a set of boarding pods." 
-	class = "HKV" //Hegemony Kataphract Vessel 
+	class = "IHKV" //Izweski Hegemony Kataphract Vessel 
 	icon_state = "ship_green"
 	moving_state = "ship_green_moving"
 	vessel_mass = 10000
@@ -23,14 +24,19 @@
 		"nav_kataphract_3",
 		"nav_kataphract_4",
 		"nav_kataphract_5",
+		"nav_kataphract_6",
 	)
 	initial_restricted_waypoints = list(
-		"Kataphract Transport Shuttle" = list("nav_hangar_kataphract_shuttle"),
+		"Kataphract Transport" = list("nav_hangar_kataphract_shuttle"),
 	)
 
 /obj/effect/overmap/visitable/ship/kataphract_ship/New()
 	designation = "[pick("Pious Avenger", "Persistent Conviction", "Solemn Retribution", "Venerable Ironscales", "Sword of Faith", "Glorious Succor", "Sacred Retribution", "Unflinching Soul", "Unrelenting", "Ascendant Absolution")]"
 	..()
+
+/obj/effect/shuttle_landmark/nav_kataphract_ship
+	base_turf = /turf/space
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/nav_kataphract_ship/nav1
 	name = "Kataphract Ship Navpoint #1"
@@ -58,9 +64,11 @@
 
 //shuttle 
 /obj/effect/overmap/visitable/ship/landable/kataphract_transport
-	name = "Kataphract Transport Shuttle"
+	name = "Kataphract Transport"
 	desc = "A small egg shaped shuttle of the 'Spearhead' class, commonly seen carried by Izweski Hegemony vessels. They're never far from their motherships and are a telltale sign of an Unathi presence within a sector. Affectionately called the 'Hatchling' by its operators. The transponder for this vessel identifies it as belonging to the Kataphracts of the Hegemony."
-	shuttle = "Kataphract Transport Shuttle"
+	shuttle = "Kataphract Transport"
+	icon_state = "shuttle_green"
+	moving_state = "shuttle_green_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 4000 
@@ -69,11 +77,11 @@
 
 /obj/machinery/computer/shuttle_control/explore/kataphract_transport
 	name = "shuttle control console"
-	shuttle_tag = "Kataphract Transport Shuttle"
+	shuttle_tag = "Kataphract Transport"
 	req_access = list(access_kataphract)
 
 /datum/shuttle/autodock/overmap/kataphract_transport
-	name = "Kataphract Transport Shuttle"
+	name = "Kataphract Transport"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/kataphract_shuttle/main_compartment, /area/shuttle/kataphract_shuttle/engine_compartment)
 	current_location = "nav_hangar_kataphract_shuttle"

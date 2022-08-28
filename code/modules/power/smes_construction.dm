@@ -91,7 +91,7 @@
 	output_attempt = TRUE
 	input_level = 1000000
 	output_level = 1000000
-	charge = 5.00265e+006
+	charge = 6.56158e+007
 
 /obj/machinery/power/smes/buildable/autosolars/Initialize() //for third parties that have their solars autostart, It's slightly upgraded for them
 	. = ..()
@@ -101,7 +101,7 @@
 	output_attempt = TRUE
 	input_level = 1000000
 	output_level = 1000000
-	charge = 0
+	charge = 3.02024e+006
 
 // END SMES SUBTYPES
 
