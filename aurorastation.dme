@@ -558,7 +558,6 @@
 #include "code\game\gamemodes\mixed\traitorling.dm"
 #include "code\game\gamemodes\mixed\uprising.dm"
 #include "code\game\gamemodes\mixed\veilparty.dm"
-#include "code\game\gamemodes\mixed\visitors.dm"
 #include "code\game\gamemodes\ninja\ninja.dm"
 #include "code\game\gamemodes\nuclear\nuclear.dm"
 #include "code\game\gamemodes\nuclear\pinpointer.dm"
