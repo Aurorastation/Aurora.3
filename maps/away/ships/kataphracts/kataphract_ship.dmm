@@ -4706,7 +4706,7 @@
 /area/kataphract_chapter/port_solars_array)
 "jO" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/kataphract_chapter/warehouse)
 "jP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6761,10 +6761,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "pX" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 10;
-	icon_state = "wall3"
-	},
+/turf/template_noop,
 /area/kataphract_chapter/hangar)
 "qd" = (
 /obj/machinery/door/airlock/external{
@@ -7424,12 +7421,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
-"zt" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 6;
-	icon_state = "wall3"
-	},
-/area/space)
 "zF" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -19968,7 +19959,7 @@ aa
 kr
 kr
 kr
-pX
+kr
 iB
 iB
 iB
@@ -25321,7 +25312,7 @@ no
 no
 jg
 jg
-iV
+jg
 iB
 iB
 iB
@@ -25482,7 +25473,7 @@ kw
 jg
 jg
 jg
-zt
+jg
 iB
 iB
 iB
