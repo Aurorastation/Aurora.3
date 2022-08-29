@@ -20,7 +20,6 @@
 	minimal_access = list(access_lawyer)
 	alt_titles = list(
 		"Workplace Liaison",
-		"Union Representative",
 		"Corporate Representative",
 		"Corporate Executive"
 		)
