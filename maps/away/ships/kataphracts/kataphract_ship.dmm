@@ -25,13 +25,6 @@
 "ae" = (
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/main_compartment)
-"af" = (
-/turf/space,
-/turf/simulated/wall/shuttle/dark/corner{
-	icon_state = "wall3";
-	dir = 5
-	},
-/area/kataphract_chapter/bridge)
 "ah" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -24768,7 +24761,7 @@ iB
 iB
 iB
 iB
-af
+ab
 ms
 ms
 ms
@@ -25936,7 +25929,7 @@ OJ
 jT
 OJ
 pf
-iV
+jg
 iB
 iB
 iB
