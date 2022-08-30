@@ -345,21 +345,23 @@
 
 
 /obj/machinery/vending/cola
-	name = "Robust Softdrinks"
-	desc = "A softdrink vendor provided by Robust Industries, LLC."
+	name = "drinks vending machine"
+	desc = "A drinks vending machine."
 	icon_state = "cola_machine"
 	icon_vend = "cola_machine-vend"
-	product_slogans = "Robust Softdrinks: More robust than a toolbox to the head!"
-	product_ads = "Refreshing!;Hope you're thirsty!;Over 1 million drinks sold!;Thirsty? Why not cola?;Please, have a drink!;Drink up!;The best drinks in space."
 	vend_id = "cola"
+
 	products = list(
-		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
-		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 10,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
+		/obj/item/reagent_containers/food/drinks/cans/carbonated_water = 10,
+		/obj/item/reagent_containers/food/drinks/cans/starfall = 10,
+		/obj/item/reagent_containers/food/drinks/cans/starfall_max = 10,
+		/obj/item/reagent_containers/food/drinks/cans/comet_cola = 10,
+		/obj/item/reagent_containers/food/drinks/cans/comet_cola_zero = 10,
 		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 10,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 10,
 		/obj/item/reagent_containers/food/drinks/cans/starkist = 10,
-		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
 		/obj/item/reagent_containers/food/drinks/cans/dyn = 10,
 		/obj/item/reagent_containers/food/drinks/cans/space_up = 10,
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 10,
@@ -372,22 +374,28 @@
 		/obj/item/reagent_containers/food/drinks/small_milk_choco = 10,
 		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 10
 	)
+
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5
 	)
+
 	premium = list(
 		/obj/item/reagent_containers/food/drinks/bottle/cola = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/space_up = 2
 	)
+
 	prices = list(
-		/obj/item/reagent_containers/food/drinks/cans/cola = 15,
-		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 15,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
+		/obj/item/reagent_containers/food/drinks/cans/carbonated_water = 10,
+		/obj/item/reagent_containers/food/drinks/cans/starfall = 15,
+		/obj/item/reagent_containers/food/drinks/cans/starfall_max = 15,
+		/obj/item/reagent_containers/food/drinks/cans/comet_cola = 15,
+		/obj/item/reagent_containers/food/drinks/cans/comet_cola_zero = 15,
 		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 11,
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 16,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 13,
 		/obj/item/reagent_containers/food/drinks/cans/starkist = 15,
-		/obj/item/reagent_containers/food/drinks/waterbottle = 12,
 		/obj/item/reagent_containers/food/drinks/cans/dyn = 18,
 		/obj/item/reagent_containers/food/drinks/cans/space_up = 15,
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 13,
@@ -400,13 +408,14 @@
 		/obj/item/reagent_containers/food/drinks/small_milk_choco = 18,
 		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 18
 	)
-	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+
+	idle_power_usage = 211
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	temperature_setting = -1
 	light_color = COLOR_GUNMETAL
 
 /obj/machinery/vending/cigarette
-	name = "Cigarette machine" //OCD had to be uppercase to look nice with the new formating
+	name = "cigarette vending machine"
 	desc = "If you want to get cancer, might as well do it in style!"
 	product_slogans = "Space cigs taste good like a cigarette should.;I'd rather toolbox than switch.;Smoke!;Don't believe the reports - smoke today!"
 	product_ads = "Probably not bad for you!;Don't believe the scientists!;It's good for you!;Don't quit, buy more!;Smoke!;Nicotine heaven.;Best cigarettes since 2150.;Award-winning cigs."

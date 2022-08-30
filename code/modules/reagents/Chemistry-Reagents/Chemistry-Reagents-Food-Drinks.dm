@@ -5298,3 +5298,12 @@
 	glass_icon_state = "pulque_coffee"
 	glass_name = "coffee pulque"
 	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."
+
+/decl/reagent/water/carbonated
+	name = "carbonated water"
+	description = "Carbonated water."
+	taste_description = "bubbly, carbonated water"
+
+	glass_icon_state = "glass_clear"
+	glass_name = "glass of carbonatedwater"
+	glass_desc = "A glass of carbonated water."

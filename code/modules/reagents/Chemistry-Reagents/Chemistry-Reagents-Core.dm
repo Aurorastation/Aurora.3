@@ -177,7 +177,6 @@
 			S.target = null
 			++S.discipline
 
-
 /decl/reagent/fuel
 	name = "Welding Fuel"
 	description = "Required for welders. Flammable."
