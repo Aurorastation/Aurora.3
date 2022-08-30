@@ -1,28 +1,51 @@
-#define LETHAL_FUEL_CAPACITY 21 // this many units of fuel will cause a harmful explosion
-#define FUSELENGTH_MAX 10 // this is the longest a fuse can be
-#define FUSELENGTH_MIN 3 // and the minimum that the builder can intentionally make
-#define FUSELENGTH_SHORT 5 // the upper boundary of the short fuse
-#define FUSELENGTH_LONG 6 // the lower boundary of the long fuse
-#define BOMBCASING_EMPTY 0 // no grenade casing
-#define BOMBCASING_LOOSE 1 // it's in a grenade casing but not secured
-#define BOMBCASING_SECURE 2 // it's in a grenade casing and secured - shrapnel count increased
+//
+// Cans
+//
 
+// Can Defines
+#define CLOSED 1
+#define OPEN   2
+
+// Bomb Defines
+#define LETHAL_FUEL_CAPACITY 21 // This many units of fuel will cause a harmful explosion.
+#define FUSELENGTH_MAX       10 // This is the longest a fuse can be.
+#define FUSELENGTH_MIN        3 // And the minimum that the builder can intentionally make.
+#define FUSELENGTH_SHORT      5 // The upper boundary of the short fuse.
+#define FUSELENGTH_LONG       6 // The lower boundary of the long fuse.
+#define BOMBCASING_EMPTY      0 // No grenade casing.
+#define BOMBCASING_LOOSE      1 // It is in a grenade casing but not secured.
+#define BOMBCASING_SECURE     2 // It is in a grenade casing and secured - shrapnel count increased.
+
+// Parent Item
 /obj/item/reagent_containers/food/drinks/cans
-	var/fuselength = 0
-	var/fuselit
-	var/bombcasing
-	var/shrapnelcount = 7
-	var/list/can_size_overrides = list("x" = 0, "y" = -3) // position of the can's opening - make sure to take away 16 from X and 23 from Y
-	volume = 40 //just over one and a half cups
-	amount_per_transfer_from_this = 5
-	flags = 0 //starts closed
+	name = "can"
+	desc = "An aluminium can."
+	desc_info = "Activate it in your active hand to open it.\
+				 If it's carbonated and closed, you can shake it by activating it on harm intent.\
+				 If it's empty, you can crush it on your forehead by selecting your head on the targetting doll and clicking on yourself on harm intent.\
+				 You can also crush cans on other people's foreheads as well."
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
-	desc_info = "Click it in your hand to open it.\
-				 If it's carbonated and closed, you can shake it by clicking on it with harm intent. \
-				 If it's empty, you can crush it on your forehead by selecting your head and clicking on yourself with harm intent. \
-				 You can also crush cans on other people's foreheads as well."
+	flags = 0 // Item flag to check if you can pour stuff inside.
+	amount_per_transfer_from_this = 5
+	volume = 33 // Centiliters.
+	state = CLOSED
 
+	var/list/can_size_overrides = list("x" = 0, "y" = -3) // Position of the can's opening. Make sure to take away 16 from X and 23 from Y.
+	var/sticker // Used to know which overlay sticker to put on the can.
+
+	// Bomb Code
+	var/fuse_length = 0
+	var/fuse_lit
+	var/bombcasing
+	var/shrapnelcount = 7
+
+// Initialize()
+/obj/item/reagent_containers/food/drinks/cans/Initialize()
+	add_overlay(sticker)
+	..()
+
+// attack()
 /obj/item/reagent_containers/food/drinks/cans/attack(mob/living/M, mob/user, var/target_zone)
 	if(iscarbon(M) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
 		if(M == user)
@@ -38,14 +61,21 @@
 		return TRUE
 	. = ..()
 
+// update_icon()
 /obj/item/reagent_containers/food/drinks/cans/update_icon()
 	cut_overlays()
-	if(fuselength)
+
+	add_overlay(sticker)
+
+
+
+	// Bomb Code
+	if(fuse_length)
 		var/image/fuseoverlay = image('icons/obj/fuses.dmi', icon_state = "fuse_short")
-		switch(fuselength)
+		switch(fuse_length)
 			if(FUSELENGTH_LONG to INFINITY)
 				fuseoverlay.icon_state = "fuse_long"
-		if(fuselit)
+		if(fuse_lit)
 			fuseoverlay.icon_state = "lit_fuse"
 		fuseoverlay.pixel_x = can_size_overrides["x"]
 		fuseoverlay.pixel_y = can_size_overrides["y"]
@@ -54,13 +84,24 @@
 		var/image/casingoverlay = image('icons/obj/fuses.dmi', icon_state = "pipe_bomb")
 		add_overlay(casingoverlay)
 
+/obj/item/reagent_containers/food/drinks/cans/open(mob/user)
+	playsound(src,'sound/items/soda_open.ogg', rand(10, 50), TRUE)
+	user.visible_message(
+		"\The <b>[user]</b> opens \the [src].",
+		SPAN_NOTICE("You open \the [src] with an audible pop!"),
+		"You can hear a pop."
+	)
+	flags |= OPENCONTAINER
+	state = OPEN
+
+// attackby()
 /obj/item/reagent_containers/food/drinks/cans/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/grenade/chem_grenade/large))
 		var/obj/item/grenade/chem_grenade/grenade_casing = W
 		if(!grenade_casing.detonator && !length(grenade_casing.beakers) && bombcasing < BOMBCASING_LOOSE)
 			bombcasing = BOMBCASING_LOOSE
 			desc = "A grenade casing with \a [name] slotted into it."
-			if(fuselength)
+			if(fuse_length)
 				desc += " It has some steel wool stuffed into the opening."
 			user.visible_message(SPAN_NOTICE("[user] slots \the [grenade_casing] over \the [name]."), SPAN_NOTICE("You slot \the [grenade_casing] over \the [name]."))
 			desc = "A grenade casing with \a [name] slotted into it."
@@ -76,7 +117,7 @@
 			bombcasing = BOMBCASING_EMPTY
 			shrapnelcount = initial(shrapnelcount)
 			desc = initial(desc)
-			if(fuselength)
+			if(fuse_length)
 				desc += " It has some steel wool stuffed into the opening."
 			user.visible_message(SPAN_NOTICE("[user] removes \the [name] from the grenade casing."), SPAN_NOTICE("You remove \the [name] from the grenade casing."))
 			new /obj/item/grenade/chem_grenade/large(get_turf(src))
@@ -85,10 +126,10 @@
 
 	if(istype(W, /obj/item/steelwool))
 		if(is_open_container())
-			switch(fuselength)
+			switch(fuse_length)
 				if(-INFINITY to FUSELENGTH_MAX)
 					user.visible_message("<b>[user]</b> stuffs some steel wool into \the [name].", SPAN_NOTICE("You feed steel wool into \the [name], ruining it in the process. It will last approximately 10 seconds."))
-					fuselength = FUSELENGTH_MAX
+					fuse_length = FUSELENGTH_MAX
 					update_icon()
 					desc += " It has some steel wool stuffed into the opening."
 					if(W.isFlameSource())
@@ -99,26 +140,26 @@
 		else
 			to_chat(user, SPAN_WARNING("There is no opening on \the [name] for the steel wool!"))
 
-	else if(W.iswirecutter() && fuselength)
-		switch(fuselength)
+	else if(W.iswirecutter() && fuse_length)
+		switch(fuse_length)
 			if(1 to FUSELENGTH_MIN) // you can't increase the fuse with wirecutters and you can't trim it down below 3, so just remove it outright.
 				user.visible_message("<b>[user]</b> removes the steel wool from \the [name].", SPAN_NOTICE("You remove the steel wool fuse from \the [name]."))
-				FuseRemove()
+				fuse_remove()
 			if(4 to FUSELENGTH_MAX)
 				var/fchoice = alert("Do you want to shorten or remove the fuse on \the [name]?", "Shorten or Remove", "Shorten", "Remove", "Cancel")
 				switch(fchoice)
 					if("Shorten")
 						var/short = input("How many seconds do you want the fuse to be?", "[name] fuse") as null|num
 						if(!use_check_and_message(user))
-							if(short < fuselength && short >= FUSELENGTH_MIN)
+							if(short < fuse_length && short >= FUSELENGTH_MIN)
 								to_chat(user, SPAN_NOTICE("You shorten the fuse to [short] seconds."))
-								FuseRemove(fuselength - short)
+								fuse_remove(fuse_length - short)
 							else if(!short && !isnull(short))
 								user.visible_message("<b>[user]</b> removes the steel wool from \the [name]", SPAN_NOTICE("You remove the steel wool fuse from \the [name]."))
-								FuseRemove()
-							else if(short == fuselength || isnull(short))
+								fuse_remove()
+							else if(short == fuse_length || isnull(short))
 								to_chat(user, SPAN_NOTICE("You decide against modifying the fuse."))
-							else if (short > fuselength)
+							else if (short > fuse_length)
 								to_chat(user, SPAN_WARNING("You cannot make the fuse longer than it already is!"))
 							else if(short in list(1,2))
 								to_chat(user, SPAN_WARNING("The fuse cannot be shorter than 3 seconds!"))
@@ -127,26 +168,27 @@
 					if("Remove")
 						if(!use_check_and_message(user))
 							user.visible_message("<b>[user]</b> removes the steel wool from \the [name].", "You remove the steel wool fuse from \the [name].")
-							FuseRemove()
+							fuse_remove()
 					if("Cancel")
 						return
 				return
 
-	else if(W.isFlameSource() && fuselength)
+	else if(W.isFlameSource() && fuse_length)
 		light_fuse(W, user)
 	. = ..()
 
+// light_fuse()
 /obj/item/reagent_containers/food/drinks/cans/proc/light_fuse(obj/item/W, mob/user, var/premature=FALSE)
 	if(can_light())
-		fuselit = TRUE
+		fuse_lit = TRUE
 		update_icon()
 		set_light(2, 2, LIGHT_COLOR_LAVA)
 		if(REAGENT_VOLUME(reagents, /decl/reagent/fuel) >= LETHAL_FUEL_CAPACITY && user)
 			msg_admin_attack("[user] ([user.ckey]) lit the fuse on an improvised [name] grenade. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
-			if(fuselength >= FUSELENGTH_MIN && fuselength <= FUSELENGTH_SHORT)
+			if(fuse_length >= FUSELENGTH_MIN && fuse_length <= FUSELENGTH_SHORT)
 				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
 				detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade balance in check
-		if(fuselength < FUSELENGTH_MIN)
+		if(fuse_length < FUSELENGTH_MIN)
 			user.visible_message(SPAN_DANGER("<b>[user]</b> tries to light the fuse on \the [name] but it was too short!"), SPAN_DANGER("You try to light the fuse but it was too short!"))
 			detonate(TRUE) // if you're somehow THAT determined and/or ignorant you managed to get the fuse below 3 seconds, so be it. reap what you sow.
 		else
@@ -157,30 +199,31 @@
 			playsound(get_turf(src), 'sound/items/flare.ogg', 50)
 			detonate(FALSE)
 
+// detonate()
 /obj/item/reagent_containers/food/drinks/cans/proc/detonate(var/instant)
 	var/fuel = REAGENT_VOLUME(reagents, /decl/reagent/fuel)
 	if(instant)
-		fuselength = 0
-	else if(prob(fuselength * 6)) // the longer the fuse, the higher chance it will fizzle out (18% chance minimum)
-		var/fizzle = rand(1, fuselength - 1)
+		fuse_length = 0
+	else if(prob(fuse_length * 6)) // the longer the fuse, the higher chance it will fizzle out (18% chance minimum)
+		var/fizzle = rand(1, fuse_length - 1)
 		sleep(fizzle * 1 SECOND)
 
-		fuselength -= fizzle
+		fuse_length -= fizzle
 		visible_message(SPAN_WARNING("The fuse on \the [name] fizzles out early."))
 		playsound(get_turf(src), 'sound/items/cigs_lighters/cig_snuff.ogg', 50)
-		fuselit = FALSE
+		fuse_lit = FALSE
 		set_light(0, 0)
 		update_icon()
 		return
 	else
-		fuselength += rand(-2, 2) // if the fuse isn't fizzling out or detonating instantly, make it a little harder to predict the fuse by +2/-2 seconds
-	sleep(fuselength * 1 SECOND)
+		fuse_length += rand(-2, 2) // if the fuse isn't fizzling out or detonating instantly, make it a little harder to predict the fuse by +2/-2 seconds
+	sleep(fuse_length * 1 SECOND)
 
 	switch(round(fuel))
 		if(0)
 			visible_message(SPAN_NOTICE("\The [name]'s fuse burns out and nothing happens."))
-			fuselength = 0
-			fuselit = FALSE
+			fuse_length = 0
+			fuse_lit = FALSE
 			update_icon()
 			set_light(0, 0)
 			return
@@ -198,17 +241,18 @@
 			fragem(src, shrapnelcount, shrapnelcount, 1, 0, 5, 1, TRUE, 2) // The main aim of the grenade should be to hit and wound people with shrapnel instead of causing a lot of station damage, hence the small explosion radius
 			playsound(get_turf(src), 'sound/effects/Explosion1.ogg', 50)
 			visible_message(SPAN_DANGER("<b>\The [name] explodes!</b>"))
-	fuselit = FALSE
+	fuse_lit = FALSE
 	update_icon()
 	qdel(src)
 
-/obj/item/reagent_containers/food/drinks/cans/proc/can_light() // just reverses the fuselit var to return a TRUE or FALSE, should hopefully make things a little easier if someone adds more fuse interactions later.
-    return !fuselit && fuselength
+// can_light()
+/obj/item/reagent_containers/food/drinks/cans/proc/can_light() // just reverses the fuse_lit var to return a TRUE or FALSE, should hopefully make things a little easier if someone adds more fuse interactions later.
+    return !fuse_lit && fuse_length
 
-/obj/item/reagent_containers/food/drinks/cans/proc/FuseRemove(var/CableRemoved = fuselength)
-	fuselength -= CableRemoved
+/obj/item/reagent_containers/food/drinks/cans/proc/fuse_remove(var/cable_removed = fuse_length)
+	fuse_length -= cable_removed
 	update_icon()
-	if(!fuselength)
+	if(!fuse_length)
 		if(bombcasing > BOMBCASING_EMPTY)
 			desc = "A grenade casing with \a [name] slotted into it."
 		else
@@ -228,21 +272,32 @@
 
 /obj/item/reagent_containers/food/drinks/cans/fire_act()
 	if(can_light())
-		fuselit = TRUE
+		fuse_lit = TRUE
 		detonate(FALSE)
 		visible_message(SPAN_WARNING("<b>\The [name]'s fuse catches on fire!</b>"))
 	. = ..()
 
-#undef LETHAL_FUEL_CAPACITY
-#undef FUSELENGTH_MAX
-#undef FUSELENGTH_MIN
-#undef FUSELENGTH_SHORT
-#undef FUSELENGTH_LONG
-#undef BOMBCASING_EMPTY
-#undef BOMBCASING_LOOSE
-#undef BOMBCASING_SECURE
+//
+// Can Sizes
+//
 
-//DRINKS
+// 33 Centiliter Can
+// Regular sodas, juice, et cetera.
+/obj/item/reagent_containers/food/drinks/cans/regular
+	name = "33 cl can"
+	desc = "A 33 cl aluminium can."
+	volume = 33
+
+// 50 Centiliter Can
+// Water, energy drinks, et cetera.
+/obj/item/reagent_containers/food/drinks/cans/large
+	name = "50 cl can"
+	desc = "A 50 cl aluminium can."
+	volume = 50
+
+//
+// Drinks
+//
 
 /obj/item/reagent_containers/food/drinks/cans/cola
 	name = "space cola"
@@ -465,3 +520,15 @@
 	icon_state = "xanu_rush"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/peach_soda = 30)
+
+#undef CLOSED
+#undef OPEN
+
+#undef LETHAL_FUEL_CAPACITY
+#undef FUSELENGTH_MAX
+#undef FUSELENGTH_MIN
+#undef FUSELENGTH_SHORT
+#undef FUSELENGTH_LONG
+#undef BOMBCASING_EMPTY
+#undef BOMBCASING_LOOSE
+#undef BOMBCASING_SECURE
