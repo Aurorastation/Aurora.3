@@ -381,7 +381,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(fetil_dress)
 
 /datum/gear/uniform/miscellaneous/colorfetil_dress
-	display_name = "fètil dress (recolorable)"
+	display_name = "fetil dress (recolorable)"
 	description = "A flowing dress from the Fetil islands on Port Antillia, usually in either white or muted dark shades. Great for dancing. These dresses are recolorable."
 	path = /obj/item/clothing/under/antillean
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
