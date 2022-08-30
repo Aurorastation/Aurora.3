@@ -3,7 +3,7 @@
 	description = "SCCV XYZ Desc."
 	suffix = "ships/scc_scout_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
-	spawn_weight = 1000
+	spawn_weight = 100000000
 	spawn_cost = 1
 	id = "scc_scout_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/scc_scout_shuttle)
@@ -77,7 +77,7 @@
 /obj/machinery/computer/shuttle_control/explore/scc_scout_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "SCCV XYZ Scout Shuttle"
-	req_access = list(access_scc_scout_ship)
+	req_access = list()
 
 /datum/shuttle/autodock/overmap/scc_scout_shuttle
 	name = "SCCV XYZ Scout Shuttle"

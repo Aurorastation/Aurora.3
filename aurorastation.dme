@@ -3154,6 +3154,8 @@
 #include "maps\away\ships\corporate_ship_ghostroles.dm"
 #include "maps\away\ships\elyra.dm"
 #include "maps\away\ships\elyra_ship_ghostroles.dm"
+#include "maps\away\ships\scc_scout_ship.dm"
+#include "maps\away\ships\scc_scout_ship_ghostroles.dm"
 #include "maps\away\ships\sol.dm"
 #include "maps\away\ships\sol_ship_ghostroles.dm"
 #include "maps\away\ships\wildcard.dm"
