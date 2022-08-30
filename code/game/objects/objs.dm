@@ -279,6 +279,7 @@
 		shake_object()
 
 /obj/Initialize()
+	..()
 	if(climbable)
 		verbs += /obj/proc/climb_onto_object
 
