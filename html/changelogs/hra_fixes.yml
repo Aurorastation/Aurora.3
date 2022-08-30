@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - spellcheck: "Fixes some minor typos and clean code related stuff in the HRA code."
