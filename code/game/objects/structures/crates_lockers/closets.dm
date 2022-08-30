@@ -162,7 +162,7 @@
 		return 0
 
 	if(climbable)
-		structure_shaken()
+		shake_object()
 	opened = TRUE
 	dump_contents()
 	animate_door(FALSE)

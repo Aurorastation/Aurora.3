@@ -30,6 +30,12 @@
 	var/usesound
 	var/toolspeed = 1
 
+	// Climbing Variables
+	var/climbable = FALSE
+	var/climb_time = 5 SECONDS
+	var/shakable = FALSE
+	var/list/climbers = list()
+
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
@@ -50,7 +56,7 @@
 /obj/CanUseTopic(var/mob/user, var/datum/topic_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
-	to_chat(user, "<span class='danger'>[icon2html(src, user)]Access Denied!</span>")
+	to_chat(user, SPAN_DANGER("[icon2html(src, user)]Access Denied!"))
 	return STATUS_CLOSE
 
 /mob/living/silicon/CanUseObjTopic(var/obj/O)
@@ -109,12 +115,12 @@
 		var/is_in_use = 0
 		var/list/nearby = viewers(1, src)
 		for(var/mob/M in nearby)
-			if ((M.client && M.machine == src))
+			if((M.client && M.machine == src))
 				is_in_use = 1
 				src.attack_hand(M)
-		if (istype(usr, /mob/living/silicon/ai) || istype(usr, /mob/living/silicon/robot))
-			if (!(usr in nearby))
-				if (usr.client && usr.machine==src) // && M.machine == src is omitted because if we triggered this by using the dialog, it doesn't matter if our machine changed in between triggering it and this - the dialog is probably still supposed to refresh.
+		if(istype(usr, /mob/living/silicon/ai) || istype(usr, /mob/living/silicon/robot))
+			if(!(usr in nearby))
+				if(usr.client && usr.machine==src) // && M.machine == src is omitted because if we triggered this by using the dialog, it doesn't matter if our machine changed in between triggering it and this - the dialog is probably still supposed to refresh.
 					is_in_use = 1
 					src.attack_ai(usr)
 		in_use = is_in_use
@@ -125,7 +131,7 @@
 		var/list/nearby = viewers(1, src)
 		var/is_in_use = 0
 		for(var/mob/M in nearby)
-			if ((M.client && M.machine == src))
+			if((M.client && M.machine == src))
 				is_in_use = 1
 				src.interact(M)
 		var/ai_in_use = AutoUpdateAI(src)
@@ -190,7 +196,7 @@
 //To be called from things that spill objects on the floor.
 //Makes an object move around randomly for a couple of tiles
 /obj/proc/tumble(var/dist)
-	if (dist >= 1)
+	if(dist >= 1)
 		spawn()
 			dist += rand(0,1)
 			for(var/i = 1, i <= dist, i++)
@@ -202,8 +208,8 @@
 /obj/proc/auto_adapt_species(var/mob/living/carbon/human/wearer)
 	if(icon_auto_adapt)
 		icon_species_tag = ""
-		if (loc == wearer && icon_supported_species_tags.len)
-			if (wearer.species.short_name in icon_supported_species_tags)
+		if(loc == wearer && icon_supported_species_tags.len)
+			if(wearer.species.short_name in icon_supported_species_tags)
 				icon_species_tag = wearer.species.short_name
 				return 1
 	return 0
@@ -258,3 +264,158 @@
 		. |= DAM_SHARP
 		if(damtype == BURN)
 			. |= DAM_LASER
+
+//
+// Climbing Code
+//
+
+/obj/attack_hand(mob/user)
+	if(shakable)
+		if(LAZYLEN(climbers) && !(user in climbers))
+			user.visible_message(
+				SPAN_DANGER("\The [user] shakes \the [src]."),
+				SPAN_NOTICE("You shake \the [src].")
+			)
+		shake_object()
+
+/obj/Initialize()
+	if(climbable)
+		verbs += /obj/proc/climb_onto_object
+
+/obj/proc/climb_onto_object()
+	set name = "Climb Onto"
+	set desc = "Climbs onto something"
+	set category = "Object"
+	set src in oview(1)
+
+	if(can_climb(usr))
+		do_climb(usr)
+
+/obj/handle_middle_mouse_click(mob/user)
+	if(can_climb(user))
+		do_climb(usr)
+		return TRUE
+	return FALSE
+
+/obj/MouseDrop_T(mob/target, mob/user)
+	var/mob/living/H = user
+	if(istype(H) && can_climb(H) && target == user)
+		do_climb(target)
+
+/obj/proc/can_climb(var/mob/living/user, post_climb_check = 0)
+	if(!climbable || !can_touch(user) || (!post_climb_check && (user in climbers)))
+		return FALSE
+
+	if(!user.Adjacent(src))
+		to_chat(user, SPAN_DANGER("You can't climb there, the way is blocked."))
+		return FALSE
+
+	var/obj/occupied = turf_is_crowded()
+	if(occupied)
+		to_chat(user, SPAN_DANGER("There's \a [occupied] in the way."))
+		return FALSE
+	return TRUE
+
+/obj/proc/turf_is_crowded(var/exclude_self = FALSE)
+	var/turf/T = get_turf(src)
+	if(!T || !istype(T))
+		return FALSE
+	for(var/obj/O in T.contents)
+		if(istype(O, /obj))
+			var/obj/S = O
+			if(S.climbable)
+				continue
+		if(O && O.density && !(O.flags & ON_BORDER)) //ON_BORDER is handled by the Adjacent() check.
+			if(exclude_self && O == src)
+				continue
+			return O
+	return FALSE
+
+/obj/proc/do_climb(var/mob/living/user)
+	if(!can_climb(user))
+		return
+
+	user.visible_message(SPAN_WARNING("[user] starts [flags & ON_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
+	LAZYADD(climbers, user)
+
+	if(!do_after(user, climb_time))
+		LAZYREMOVE(climbers, user)
+		return
+
+	if(!can_climb(user, post_climb_check=1))
+		LAZYREMOVE(climbers, user)
+		return
+		
+	var/turf/TT = get_turf(src)
+	if(flags & ON_BORDER)
+		TT = get_step(get_turf(src), dir)
+		if(user.loc == TT)
+			TT = get_turf(src)
+
+	user.visible_message(SPAN_WARNING("[user] [flags & ON_BORDER ? "leaps over" : "climbs onto"] \the [src]!"))
+	user.forceMove(TT)
+	LAZYREMOVE(climbers, user)
+
+/obj/proc/shake_object()
+	for(var/mob/living/M in climbers)
+		M.Weaken(1)
+		to_chat(M, SPAN_DANGER("You topple as you are shaken off \the [src]!"))
+		LAZYREMOVE(climbers, M)
+
+	for(var/mob/living/M in get_turf(src))
+		if(M.lying)
+			return // No spamming this on people.
+
+		M.Weaken(3)
+
+		to_chat(M, SPAN_DANGER("You topple as \the [src] moves under you!"))
+
+		if(prob(25))
+			var/damage = rand(15, 30)
+			var/mob/living/carbon/human/H = M
+			if(!istype(H))
+				to_chat(H, SPAN_DANGER("You land heavily!"))
+				M.adjustBruteLoss(damage)
+				return
+
+			var/obj/item/organ/external/affecting
+
+			switch(pick(list("ankle","wrist",BP_HEAD,"knee","elbow")))
+				if("ankle")
+					affecting = H.get_organ(pick(BP_L_FOOT, BP_R_FOOT))
+				if("knee")
+					affecting = H.get_organ(pick(BP_L_LEG, BP_R_LEG))
+				if("wrist")
+					affecting = H.get_organ(pick(BP_L_HAND, BP_R_HAND))
+				if("elbow")
+					affecting = H.get_organ(pick(BP_L_ARM, BP_R_ARM))
+				if(BP_HEAD)
+					affecting = H.get_organ(BP_HEAD)
+
+			if(affecting)
+				to_chat(M, SPAN_DANGER("You land heavily on your [affecting.name]!"))
+				affecting.take_damage(damage, 0)
+				if(affecting.parent)
+					affecting.parent.add_autopsy_data("Misadventure", damage)
+			else
+				to_chat(H, SPAN_DANGER("You land heavily!"))
+				H.adjustBruteLoss(damage)
+
+			H.UpdateDamageIcon()
+			H.updatehealth()
+	return
+
+/obj/proc/can_touch(var/mob/user)
+	if(!user)
+		return FALSE
+	if(!Adjacent(user))
+		return FALSE
+	if(user.restrained() || user.buckled_to)
+		to_chat(user, SPAN_NOTICE("You need your hands and legs free for this."))
+		return FALSE
+	if(user.stat || user.paralysis || user.sleeping || user.lying || user.weakened)
+		return FALSE
+	if(issilicon(user))
+		to_chat(user, SPAN_NOTICE("You need hands for this."))
+		return FALSE
+	return TRUE

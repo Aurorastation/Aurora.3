@@ -86,7 +86,7 @@
 		)
 
 
-/obj/structure/table/structure_shaken()
+/obj/structure/table/shake_object()
 	..()
 	throw_things()
 

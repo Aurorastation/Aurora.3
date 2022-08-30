@@ -28,7 +28,7 @@
 	usr.visible_message(SPAN_WARNING("[usr] flips \the [src]!"), intent_message = THUNK_SOUND)
 
 	if(climbable)
-		structure_shaken()
+		shake_object()
 
 	return
 
