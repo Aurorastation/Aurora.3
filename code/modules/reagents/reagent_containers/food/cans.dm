@@ -20,6 +20,8 @@
 /obj/item/reagent_containers/food/drinks/cans
 	name = "can"
 	desc = "An aluminium can."
+	icon = 'icons/contained_items/items/cans.dmi'
+	icon_state = "can_33cl"
 	desc_info = "Activate it in your active hand to open it.\
 				 If it's carbonated and closed, you can shake it by activating it on harm intent.\
 				 If it's empty, you can crush it on your forehead by selecting your head on the targetting doll and clicking on yourself on harm intent.\
@@ -29,10 +31,12 @@
 	flags = 0 // Item flag to check if you can pour stuff inside.
 	amount_per_transfer_from_this = 5
 	volume = 33 // Centiliters.
-	state = CLOSED
 
-	var/list/can_size_overrides = list("x" = 0, "y" = -3) // Position of the can's opening. Make sure to take away 16 from X and 23 from Y.
+	var/state = CLOSED
 	var/sticker // Used to know which overlay sticker to put on the can.
+	var/shadow_overlay = "33cl_shadow_overlay"
+	var/open_overlay = "33cl_open_overlay" // Used to know where the open overlay goes.
+	var/list/can_size_overrides = list("x" = 0, "y" = -3) // Position of the can's opening. Make sure to take away 16 from X and 23 from Y.
 
 	// Bomb Code
 	var/fuse_length = 0
@@ -42,7 +46,7 @@
 
 // Initialize()
 /obj/item/reagent_containers/food/drinks/cans/Initialize()
-	add_overlay(sticker)
+	update_icon()
 	..()
 
 // attack()
@@ -65,9 +69,11 @@
 /obj/item/reagent_containers/food/drinks/cans/update_icon()
 	cut_overlays()
 
+	add_overlay(shadow_overlay)
 	add_overlay(sticker)
 
-
+	if(state == OPEN)
+		add_overlay(open_overlay)
 
 	// Bomb Code
 	if(fuse_length)
@@ -80,6 +86,7 @@
 		fuseoverlay.pixel_x = can_size_overrides["x"]
 		fuseoverlay.pixel_y = can_size_overrides["y"]
 		add_overlay(fuseoverlay)
+
 	if(bombcasing > BOMBCASING_EMPTY)
 		var/image/casingoverlay = image('icons/obj/fuses.dmi', icon_state = "pipe_bomb")
 		add_overlay(casingoverlay)
@@ -89,10 +96,11 @@
 	user.visible_message(
 		"\The <b>[user]</b> opens \the [src].",
 		SPAN_NOTICE("You open \the [src] with an audible pop!"),
-		"You can hear a pop."
+		SPAN_NOTICE("You can hear a pop.")
 	)
 	flags |= OPENCONTAINER
 	state = OPEN
+	update_icon()
 
 // attackby()
 /obj/item/reagent_containers/food/drinks/cans/attackby(obj/item/W, mob/user)
@@ -302,14 +310,14 @@
 /obj/item/reagent_containers/food/drinks/cans/cola
 	name = "space cola"
 	desc = "Cola. in space."
-	icon_state = "cola"
+	sticker = "comet_cola"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/space_cola = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/space_mountain_wind
 	name = "\improper Space Mountain Wind"
 	desc = "Blows right through you like a space wind."
-	icon_state = "space_mountain_wind"
+
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/spacemountainwind = 30)
@@ -317,7 +325,7 @@
 /obj/item/reagent_containers/food/drinks/cans/thirteenloko
 	name = "thirteen loko"
 	desc = "The CMO has advised crew members that consumption of Thirteen Loko may result in seizures, blindness, drunkeness, or even death. Please Drink Responsibly."
-	icon_state = "thirteen_loko"
+
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/alcohol/thirteenloko = 30)
@@ -325,7 +333,7 @@
 /obj/item/reagent_containers/food/drinks/cans/dr_gibb
 	name = "\improper Dr. Gibb"
 	desc = "A delicious mixture of 42 different flavors."
-	icon_state = "dr_gibb"
+
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/dr_gibb = 30)
@@ -333,7 +341,7 @@
 /obj/item/reagent_containers/food/drinks/cans/starkist
 	name = "\improper Star-kist"
 	desc = "The taste of a star in liquid form. And, a bit of tuna...?"
-	icon_state = "starkist"
+
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/brownstar = 30)
@@ -341,7 +349,7 @@
 /obj/item/reagent_containers/food/drinks/cans/space_up
 	name = "\improper Space-Up"
 	desc = "Tastes like a hull breach in your mouth."
-	icon_state = "space-up"
+
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/spaceup = 30)
@@ -349,7 +357,7 @@
 /obj/item/reagent_containers/food/drinks/cans/lemon_lime
 	name = "\improper Lemon-Lime"
 	desc = "You wanted ORANGE. It gave you Lemon Lime."
-	icon_state = "lemon-lime"
+
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/lemon_lime = 30)
@@ -357,7 +365,7 @@
 /obj/item/reagent_containers/food/drinks/cans/iced_tea
 	name = "\improper Silversun Wave iced tea"
 	desc = "Marketed as a favorite amongst parched Silversun beachgoers, there's actually more sugar in this than there is tea."
-	icon_state = "ice_tea_can"
+
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/icetea = 30)
@@ -365,7 +373,7 @@
 /obj/item/reagent_containers/food/drinks/cans/grape_juice
 	name = "\improper Grapel juice"
 	desc = "500 pages of rules of how to appropriately enter into a combat with this juice!"
-	icon_state = "grapesoda"
+
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/grapejuice = 30)
@@ -373,7 +381,7 @@
 /obj/item/reagent_containers/food/drinks/cans/tonic
 	name = "\improper T-Borg's tonic water"
 	desc = "Quinine tastes funny, but at least it'll keep that Space Malaria away."
-	icon_state = "tonic"
+
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/tonic = 50)
@@ -381,7 +389,7 @@
 /obj/item/reagent_containers/food/drinks/cans/sodawater
 	name = "soda water"
 	desc = "A can of soda water. Still water's more refreshing cousin."
-	icon_state = "sodawater"
+
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/sodawater = 50)
@@ -389,7 +397,7 @@
 /obj/item/reagent_containers/food/drinks/cans/koispunch
 	name = "\improper Phoron Punch!"
 	desc = "A radical looking can of " + SPAN_WARNING("Phoron Punch!") + " Phoron poisoning has never been more extreme! " + SPAN_DANGER("WARNING: Phoron is toxic to non-Vaurca. Consuming this product might lead to death.")
-	icon_state = "phoron_punch"
+
 	center_of_mass = list("x"=16, "y"=8)
 	can_size_overrides = list("x" = 1)
 	reagents_to_add = list(/decl/reagent/kois/clean = 10, /decl/reagent/toxin/phoron = 5)
@@ -397,12 +405,15 @@
 /obj/item/reagent_containers/food/drinks/cans/root_beer
 	name = "\improper RnD Root Beer"
 	desc = "A classic Earth drink from the United Americas province."
-	icon_state = "root_beer"
+
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/root_beer = 30)
 
+//
 // Zo'ra Sodas
+//
+
 /obj/item/reagent_containers/food/drinks/cans/zorasoda
 	name = "\improper Zo'ra Soda"
 	desc = "A can of Zo'ra Soda energy drink, with V'krexi additives. You aren't supposed to see this."
@@ -413,61 +424,61 @@
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry
 	name = "\improper Zo'ra Soda Cherry"
 	desc = "A can of cherry flavoured Zo'ra Soda energy drink, with V'krexi additives. All good energy drinks come in cherry."
-	icon_state = "zoracherry"
+
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/cherry = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron
 	name = "\improper Zo'ra Soda Phoron Passion"
 	desc = "A can of grape flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes nothing like phoron according to Unbound vaurca taste testers."
-	icon_state = "phoronpassion"
+
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/phoron = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/klax
 	name = "\improper K'laxan Energy Crush"
 	desc = "A can of nitrogen-infused creamy orange zest flavoured Zo'ra Soda energy drink, with V'krexi additives. The smooth taste is engineered to near perfection."
-	icon_state = "klaxancrush"
+
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/klax = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur
 	name = "\improper C'thur Rockin' Raspberry"
 	desc = "A can of \"blue raspberry\" flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes like a more flowery and aromatic raspberry."
-	icon_state = "cthurberry"
+
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/cthur = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass
 	name = "\improper Zo'ra Sour Venom Grass"
 	desc = "A can of sour \"venom grass\" flavoured Zo'ra Soda energy drink, with V'krexi additives. Tastes like a cloud of angry stinging acidic bees."
-	icon_state = "sourvenomgrass"
+
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/venomgrass = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm // "Contraband"
 	name = "\improper High Octane Zorane Might"
 	desc = "A can of mint flavoured Zo'ra Soda energy drink, with a lot of V'krexi additives. Tastes like impaling the roof of your mouth with a freezing cold spear laced with angry bees and road salt.<br/>" + SPAN_DANGER(" WARNING: Not for the faint hearted!")
-	icon_state = "hozm"
+
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/hozm = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/kois
 	name = "\improper Zo'ra Soda K'ois Twist"
 	desc = "A can of K'ois-imitation flavoured Zo'ra Soda energy drink, with V'krexi additives. Contains no K'ois, contrary to what the name may imply."
-	icon_state = "koistwist"
+
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/kois = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/drone
 	name = "\improper Vaurca Drone Fuel"
 	desc = "A can of industrial fluid flavoured Zo'ra Soda energy drink, with V'krexi additives, meant for Vaurca.<br/>" + SPAN_DANGER(" WARNING: Known to induce vomiting in all species except vaurcae and dionae!")
-	icon_state = "dronefuel"
+
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/drone = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly
 	name = "\improper Royal Vaurca Jelly"
 	desc = "A can of..." + SPAN_ITALIC(" sludge?") + " It smells kind of pleasant either way. Royal jelly is a nutritious concentrated substance commonly created by Caretaker Vaurca in order to feed larvae. It is known to have a stimulating effect in most, if not all, species."
-	icon_state = "royaljelly"
+
 	reagents_to_add = list(/decl/reagent/drink/zorasoda/jelly = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/adhomai_milk
 	name = "fermented fatshouters milk"
 	desc = "A can of fermented fatshouters milk, imported from Adhomai."
-	icon_state = "milk_can"
+
 	center_of_mass = list("x"=16, "y"=10)
 	desc_fluff = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
 
@@ -476,7 +487,7 @@
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk
 	name = "\improper Hakhma Milk"
 	desc = "A can of Hakhma beetle milk, sourced from Scarab and Drifter communities."
-	icon_state = "beetlemilk"
+
 	center_of_mass = list("x"=17, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/milk/beetle = 30)
 	can_size_overrides = list("x" = 1, "y" = -2)
@@ -484,14 +495,14 @@
 /obj/item/reagent_containers/food/drinks/cans/dyn
 	name = "Cooling Breeze"
 	desc = "The most refreshing thing you can find on the market, based on a Skrell medicinal plant. No salt or sugar."
-	icon_state = "dyncan"
+
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/dynjuice/cold = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/threetowns
 	name = "\improper Three Towns Cider"
 	desc = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland."
-	icon_state = "three_towns_cider"
+
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/alcohol/butanol/threetownscider = 30)
 
@@ -501,7 +512,7 @@
 	desc_fluff = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as a herbal tea by the \
 	colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university \
 	students because of its stimulant effect."
-	icon_state = "hrozamal_soda_can"
+
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/decl/reagent/drink/hrozamal_soda = 30)
