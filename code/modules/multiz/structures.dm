@@ -16,7 +16,7 @@
 	var/obj/structure/ladder/target_down
 	var/base_icon = "ladder"
 
-	var/const/climb_time = 2 SECONDS
+	var/const/ladder_climb_time = 2 SECONDS
 	var/list/climbsounds = list('sound/effects/ladder1.ogg','sound/effects/ladder2.ogg','sound/effects/ladder3.ogg','sound/effects/ladder4.ogg')
 	var/climb_sound_vol = 50
 	var/climb_sound_vary = FALSE
@@ -95,7 +95,7 @@
 
 	target_ladder.audible_message("<span class='notice'>You hear something coming [direction] \the [src]</span>")
 
-	if(do_after(M, istype(G) ? (climb_time*2) : climb_time))
+	if(do_after(M, istype(G) ? (ladder_climb_time*2) : ladder_climb_time))
 		climbLadder(M, target_ladder)
 
 /obj/structure/ladder/attack_ghost(var/mob/M)

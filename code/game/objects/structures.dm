@@ -76,8 +76,8 @@
 		queue_smooth_neighbors(src)
 
 /obj/structure/proc/climb_on()
-	set name = "Climb structure"
-	set desc = "Climbs onto a structure."
+	set name = "Climb Onto"
+	set desc = "Climbs onto something"
 	set category = "Object"
 	set src in oview(1)
 
