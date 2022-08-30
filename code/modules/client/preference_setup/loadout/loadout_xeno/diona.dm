@@ -6,7 +6,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_NO_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/diona_sol
+	culture_restriction = list(/decl/origin_item/culture/diona_sol)
 
 /datum/gear/suit/diona/eternal
 	display_name = "mesh weave robes"
@@ -221,7 +221,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dionae_moghes
+	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 	
 /datum/gear/suit/sash/diona
 	display_name = "gyazo belt"
@@ -230,14 +230,14 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dionae_moghes
+	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 	
 /datum/gear/uniform/unathi/sashes/diona
 	display_name = "gyzao sashes"
 	path = /obj/item/clothing/under/unathi/sashes
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/decl/origin_item/culture/dionae_moghes
+	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 
 /datum/gear/suit/unathi_mantle/diona
 	display_name = "peasant hide mantle selection"
@@ -248,7 +248,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_COLOR_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dionae_moghes
+	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 
 /datum/gear/suit/unathi_mantle/diona/New()
 	..()
@@ -264,7 +264,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dionae_moghes
+	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 	
 /datum/gear/suit/unathi_robe/kilt
 	display_name = "wasteland kilt"
@@ -277,14 +277,14 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dionae_moghes
+	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 	
 /datum/gear/head/sinta_ronin/diona
 	display_name = "straw hat"
 	path = /obj/item/clothing/head/unathi
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/decl/origin_item/culture/dionae_moghes
+	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 	
 /datum/gear/suit/robe_coat/diona
 	display_name = "tzirzi robe"
@@ -292,7 +292,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/decl/origin_item/culture/dionae_moghes
+	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 	
 /datum/gear/eyes/wasteland_goggles/diona
 	display_name = "wasteland goggles"
@@ -306,4 +306,4 @@
 	path = /obj/item/clothing/under/unathi/zozo
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/decl/origin_item/culture/dionae_moghes
+	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
