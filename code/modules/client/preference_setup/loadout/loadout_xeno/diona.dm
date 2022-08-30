@@ -6,6 +6,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_NO_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/diona_sol
 
 /datum/gear/suit/diona/eternal
 	display_name = "mesh weave robes"
@@ -32,6 +33,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
+	culture_restriction = list(/decl/origin_item/culture/narrows)
 	
 //skrell shared things
 
@@ -40,6 +42,7 @@
 	path = /obj/item/clothing/accessory/poncho/shouldercape
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
+	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/accessory/capes/diona/New()
 	..()
@@ -55,18 +58,21 @@
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
+	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/accessory/weishii/diona
 	display_name = "weishii robe"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
+	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/skrell_projector/diona
 	display_name = "nralakk projector"
 	path = /obj/item/skrell_projector
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
+	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim)
 
 /datum/gear/homeworld_deck/diona
 	display_name = "qweipaqui homeworld deck"
@@ -74,12 +80,14 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_NO_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/colonist_deck/diona // Intentionally separate from homeworld_deck, so that both can be chosen. -Lly
 	display_name = "qweipaqui colonist deck"
 	path = /obj/item/deck/tarot/nonjargon
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
+	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 	
 /datum/gear/accessory/skrell_passport/diona
 	display_name = "jargon federation passport"
@@ -89,6 +97,7 @@
 	sort_category = "Xenowear - Diona"
 	cost = 0
 	flags = GEAR_NO_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 	
 /datum/gear/accessory/diona/skrell_passport/check_species_whitelist(mob/living/carbon/human/H)
 	var/static/list/species_list = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -109,6 +118,7 @@
 	path = /obj/item/clothing/under/skrell/jargon
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	flags = GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 	
 /datum/gear/uniform/work/diona/New()
 	..()
@@ -141,6 +151,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/suit/jacket/diona/New()
 	..()
@@ -173,6 +184,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/accessory/diona/poncho/New()
 	..()
@@ -189,6 +201,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/accessory/diona/workcloak/New()
 	..()
