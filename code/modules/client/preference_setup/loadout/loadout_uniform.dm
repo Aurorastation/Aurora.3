@@ -366,3 +366,29 @@
 	qipao["qipao"] = /obj/item/clothing/under/qipao
 	qipao["slim qipao"] = /obj/item/clothing/under/qipao2
 	gear_tweaks += new /datum/gear_tweak/path(qipao)
+
+/datum/gear/uniform/miscellaneous/fetil_dress
+	display_name = "fetil dress"
+	description = "A flowing dress from the Fetil islands on Port Antillia, usually in either white or muted dark shades. Great for dancing."
+	path = /obj/item/clothing/under/antillean
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/miscellaneous/fetil_dress/New()
+	..()
+	var/list/fetil_dress = list()
+	fetil_dress["fetil dress, ocean"] = /obj/item/clothing/under/antillean/teal
+	fetil_dress["fetil dress, rose"] = /obj/item/clothing/under/antillean/rose
+	gear_tweaks += new /datum/gear_tweak/path(fetil_dress)
+
+/datum/gear/uniform/miscellaneous/colorfetil_dress
+	display_name = "fètil dress (recolorable)"
+	description = "A flowing dress from the Fetil islands on Port Antillia, usually in either white or muted dark shades. Great for dancing. These dresses are recolorable."
+	path = /obj/item/clothing/under/antillean
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/uniform/miscellaneous/colorfetil_dress/New()
+	..()
+	var/list/fetil_dress = list()
+	fetil_dress["fetil dress, red flairs"] = /obj/item/clothing/under/antillean
+	fetil_dress["fetil dress, gold flairs"] = /obj/item/clothing/under/antillean/goldflair
+	gear_tweaks += new /datum/gear_tweak/path(fetil_dress)
