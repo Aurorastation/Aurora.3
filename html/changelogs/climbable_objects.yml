@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Makes the portable gas canisters climbable."
+  - rscadd: "Makes closets and lockers climbable, excluding wall-mounted ones."

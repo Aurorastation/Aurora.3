@@ -58,6 +58,9 @@
 	var/door_hinge_alt = 6.5 // for closets with two doors. why a seperate var? because some closets may be weirdly shaped or something.
 	var/door_anim_time = 2.5 // set to 0 to make the door not animate at all
 
+	// Climbing Variables
+	climbable = TRUE
+	climb_time = 10 SECONDS
 
 /obj/structure/closet/LateInitialize()
 	if(opened)	// if closed, any item at the crate's loc is put in the contents

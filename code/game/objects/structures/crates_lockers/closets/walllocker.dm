@@ -1,11 +1,8 @@
-//added by cael from old bs12
-//not sure if there's an immediate place for secure wall lockers, but i'm sure the players will think of something
-
 /obj/structure/closet/walllocker
 	name = "wall locker"
 	desc = "A wall mounted storage locker."
 	icon = 'icons/obj/walllocker.dmi'
-	icon_state = "walllocker" //...man, how OLD is this $#!?
+	icon_state = "walllocker"
 	door_anim_angle = 132
 	door_anim_squish = 0.38
 	door_hinge = -7
@@ -14,6 +11,10 @@
 	density = FALSE
 	anchored = TRUE
 	wall_mounted = TRUE
+
+	// Climbing Variables
+	climbable = FALSE // Self-explanatory.
+	climb_time = null // Not used.
 
 /obj/structure/closet/walllocker/emerglocker
 	name = "emergency locker"

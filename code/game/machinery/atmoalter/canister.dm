@@ -28,6 +28,10 @@
 	var/release_log = ""
 	var/update_flag = 0
 
+	// Climbing Variables
+	climbable = TRUE
+	climb_time = 10 SECONDS
+
 /obj/machinery/portable_atmospherics/canister/drain_power()
 	return -1
 

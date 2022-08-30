@@ -3,9 +3,8 @@
 	icon = 'icons/obj/tables.dmi'
 	icon_state = "frame"
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
-	density = 1
-	anchored = 1
-	climbable = TRUE
+	density = TRUE
+	anchored = TRUE
 	layer = LAYER_TABLE
 	throwpass = 1
 	var/flipped = 0
@@ -24,6 +23,10 @@
 	var/carpeted = 0
 
 	var/list/connections = list("nw0", "ne0", "sw0", "se0")
+
+	// Climbing Variables
+	climbable = TRUE
+	climb_time = 2.5 SECONDS
 
 /obj/structure/table/proc/update_material()
 	var/old_maxhealth = maxhealth

@@ -4,6 +4,7 @@
 	layer = OBJ_LAYER - 0.01
 
 	var/climbable
+	var/climb_time = 5 SECONDS
 	var/breakable
 	var/parts
 	var/list/climbers
@@ -75,7 +76,6 @@
 		queue_smooth_neighbors(src)
 
 /obj/structure/proc/climb_on()
-
 	set name = "Climb structure"
 	set desc = "Climbs onto a structure."
 	set category = "Object"
@@ -134,7 +134,7 @@
 	user.visible_message(SPAN_WARNING("[user] starts [flags & ON_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
 
-	if(!do_after(user,50))
+	if(!do_after(user, climb_time))
 		LAZYREMOVE(climbers, user)
 		return
 
