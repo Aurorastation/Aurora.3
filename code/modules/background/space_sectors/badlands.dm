@@ -54,9 +54,3 @@
 	description = "The home of the Unathi race, Uueoa-Esa is a solar system with 4 rocky planets and 1 gas giant. Moghes is the homeworld of the Unathi species and third from its mother star. \
 	It is similar in density and composition to Earth and held host to varied and complex environments and local fauna and flora. It's surface area of salt water is much lower than most other habitable planets. \
 	Moghes is currently experiencing immense environmental degradation following a global nuclear war in the 2430's."
-//The star nursery sector. This isn't technically a labelled map sector, but this functions to change the skybox. For use in the idris_cruise event map.
-/datum/space_sector/star_nursery
-	name = SECTOR_STAR_NURSERY
-	description = "A corporate-owned open space star nursery. The stellar climate here is unbelievably chaotic, leading to some of the most fabulous views one can see in all the galaxy. \
-	The study of these cosmic fields is a lucrative one, as one can see the very moments stars and their systems are born and die here. The wonders outside each viewport are truly humbling."
-	skybox_icon = "star_nursery"
