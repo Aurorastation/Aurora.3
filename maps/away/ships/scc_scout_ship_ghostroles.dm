@@ -3,11 +3,11 @@
 /datum/ghostspawner/human/scc_scout_ship_crew
 	short_name = "scc_scout_ship_crew"
 	name = "SCCV XYZ Scout Ship Crew"
-	desc = ""
+	desc = "SCCV XYZ Scout Ship Crew desc"
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_crew")
-	max_count = 3
+	max_count = 2
 
 	outfit = /datum/outfit/admin/scc_scout_ship_crew
 	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_WORKER)

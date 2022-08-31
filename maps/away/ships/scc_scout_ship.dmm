@@ -1,4 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ai" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "am" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/warning{
@@ -100,8 +106,7 @@
 /area/shuttle/scc_scout_shuttle)
 "bq" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Maintenance";
-	req_access = list(201)
+	name = "Maintenance"
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -139,9 +144,11 @@
 	dir = 6
 	},
 /obj/structure/closet,
-/obj/item/clothing/accessory/armband/scc,
 /obj/item/storage/backpack/messenger/engi,
-/obj/item/clothing/under/rank/chief_engineer,
+/obj/structure/sign/flag/heph{
+	pixel_y = 0;
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "cs" = (
@@ -158,11 +165,17 @@
 "cD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"cG" = (
+/obj/machinery/computer/ship/helm{
+	req_access = null
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "cJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/dispenser/oxygen,
@@ -181,11 +194,38 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"dg" = (
+/obj/machinery/atmospherics/binary/pump/high_power,
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"dh" = (
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -25
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "do" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"dv" = (
+/obj/machinery/computer/ship/helm{
+	req_access = null;
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"dx" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "dA" = (
 /obj/structure/bed/stool/chair/sofa/right/brown{
 	dir = 4
@@ -219,6 +259,11 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/template_noop,
 /area/ship/scc_scout_ship)
+"dV" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/freighter_shuttle,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "dW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -244,13 +289,13 @@
 /obj/effect/floor_decal/spline/fancy,
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship)
+"eh" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scc_scout_shuttle)
 "ek" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/vending/wallmed1{
-	pixel_x = -1;
-	pixel_y = 29;
-	req_access = null
-	},
 /obj/machinery/sleeper,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_scout_shuttle)
@@ -260,6 +305,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"ep" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "freight_shuttle";
+	name = "Port docking controller";
+	pixel_x = 6;
+	pixel_y = 28;
+	tag_door = "freight_shuttle_out"
+	},
+/obj/machinery/computer/ship/sensors{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "es" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -292,6 +351,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"eF" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "eG" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9;
@@ -327,10 +394,6 @@
 "fq" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/spline/fancy,
-/obj/item/storage/box/cups{
-	pixel_y = -7;
-	pixel_x = -4
-	},
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship)
 "fr" = (
@@ -362,6 +425,7 @@
 /area/ship/scc_scout_ship)
 "fH" = (
 /obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/scc_scout_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "fM" = (
@@ -393,8 +457,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/structure/closet,
-/obj/item/storage/backpack/messenger,
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship)
 "gb" = (
@@ -404,16 +467,34 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/template_noop,
 /area/ship/scc_scout_ship)
+"gd" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/closet/walllocker/emerglocker/north,
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "gi" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"gj" = (
+/obj/machinery/vending/wallmed1{
+	name = "Medical Supplies";
+	pixel_x = -26;
+	pixel_y = -1;
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "go" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
 /obj/machinery/iv_drip{
 	pixel_x = 7
 	},
+/obj/effect/floor_decal/corner/lime,
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "gr" = (
@@ -455,9 +536,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/bed/roller,
-/obj/machinery/iv_drip{
-	pixel_x = 7
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_scout_shuttle)
@@ -491,9 +571,8 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "hy" = (
-/obj/machinery/door/airlock/mining{
-	name = "Crew Quarters";
-	req_access = list(201)
+/obj/machinery/door/airlock/service{
+	name = "Crew Quarters"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
@@ -516,8 +595,23 @@
 	dir = 9
 	},
 /obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"hY" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "freight_shuttle";
+	name = "Port docking controller";
+	tag_door = "freight_shuttle_out";
+	pixel_y = -28;
+	pixel_x = -6
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "iw" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
@@ -530,18 +624,36 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
+"iJ" = (
+/obj/structure/fuel_port{
+	pixel_x = -32
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"iK" = (
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/space)
 "iO" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/closet/walllocker/medical/secure{
-	name = "blood closet";
-	pixel_x = 30;
-	req_access = null
-	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/machinery/light{
 	icon_state = "tube1"
+	},
+/obj/structure/closet/walllocker/medical{
+	pixel_x = 32;
+	name = "blood closet"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
@@ -563,13 +675,13 @@
 	},
 /obj/machinery/door/window/westleft,
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/floor_decal/spline/plain{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_scout_shuttle)
 "jH" = (
-/obj/machinery/door/airlock/glass_command{
-	name = "E.V.A.";
-	req_one_access = list(18)
-	},
+/obj/machinery/door/airlock/glass,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "jJ" = (
@@ -635,6 +747,15 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_shuttle)
+"ko" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = -32
+	},
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
 "kD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
@@ -648,13 +769,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"kH" = (
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/carpet,
+/area/ship/scc_scout_ship)
 "kI" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/item/reagent_containers/food/snacks/browniesslice/filled,
-/obj/item/reagent_containers/toothpaste{
-	pixel_x = 1;
-	pixel_y = 10
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
@@ -670,12 +794,20 @@
 /obj/structure/closet/crate/trashcart,
 /obj/random/loot,
 /obj/random/loot,
+/obj/item/trash/raisins,
 /obj/random/loot,
+/obj/item/trash/cookiesnack,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "lc" = (
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
+"lw" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "lF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -718,8 +850,15 @@
 	pixel_y = -8
 	},
 /obj/random/powercell,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"mq" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "mv" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9;
@@ -734,6 +873,20 @@
 /obj/item/clothing/head/helmet/pilot,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"mw" = (
+/obj/machinery/computer/shuttle_control/explore/freighter_shuttle{
+	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "freight_shuttle";
+	name = "Port docking controller";
+	tag_door = "freight_shuttle_out";
+	pixel_x = 6;
+	pixel_y = -28
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "mz" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
@@ -741,11 +894,6 @@
 "mB" = (
 /obj/structure/bed,
 /obj/item/bedsheet/captain,
-/obj/structure/curtain/open/bed,
-/obj/effect/ghostspawpoint{
-	identifier = "scc_scout_ship_captain";
-	name = "igs - scc_scout_ship_captain"
-	},
 /turf/simulated/floor/wood/coloured/walnut,
 /area/ship/scc_scout_ship)
 "mD" = (
@@ -762,7 +910,7 @@
 /obj/structure/toilet{
 	pixel_y = 15
 	},
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -823,6 +971,10 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/scc_scout_ship)
+"nz" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/plating,
+/area/space)
 "nB" = (
 /obj/machinery/atmospherics/unary/engine{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
@@ -872,6 +1024,11 @@
 /obj/machinery/iff_beacon,
 /turf/template_noop,
 /area/ship/scc_scout_ship)
+"op" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scc_scout_shuttle)
 "oq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -892,7 +1049,7 @@
 /turf/template_noop,
 /area/ship/scc_scout_ship)
 "oA" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "oF" = (
@@ -909,8 +1066,7 @@
 "pm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/hatch{
-	name = "Maintenance";
-	req_access = list(201)
+	name = "Maintenance"
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -974,12 +1130,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "qd" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/machinery/sleeper{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/lime,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
@@ -988,6 +1147,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/structure/bed/stool/bar/padded/beige,
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship)
 "ql" = (
@@ -999,10 +1159,6 @@
 /area/ship/scc_scout_ship)
 "qo" = (
 /obj/structure/table/steel,
-/obj/item/storage/toolbox/lunchbox/scc{
-	pixel_y = 3;
-	pixel_x = 2
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "qA" = (
@@ -1015,7 +1171,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "qH" = (
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/grey{
@@ -1063,8 +1219,8 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "rG" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/stool/chair/office/dark,
+/obj/effect/floor_decal/corner/lime,
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "rO" = (
@@ -1072,18 +1228,13 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/hatch{
-	name = "Maintenance";
-	req_access = list(201)
+	name = "Maintenance"
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "rT" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/scc_scout_shuttle)
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "sf" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/folder/blue,
@@ -1102,9 +1253,6 @@
 	dir = 5
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
@@ -1114,6 +1262,7 @@
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
+/obj/item/trash/coffee,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "sN" = (
@@ -1156,7 +1305,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1191,6 +1340,9 @@
 	dir = 9;
 	icon_state = "corner_white"
 	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "uc" = (
@@ -1201,6 +1353,12 @@
 "uf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/tiled/dark,
+/area/ship/scc_scout_ship)
+"ug" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "ui" = (
@@ -1214,7 +1372,7 @@
 	frequency = 2137;
 	id_tag = scc_scout_ship_n_pump
 	},
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1242,6 +1400,9 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"uZ" = (
+/turf/simulated/wall/shuttle/scc/cardinal,
+/area/space)
 "ve" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -1317,6 +1478,12 @@
 /obj/structure/closet/walllocker/emerglocker/east,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"wg" = (
+/obj/structure/closet/walllocker/emerglocker/west{
+	pixel_x = 32
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "wh" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
@@ -1326,8 +1493,19 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"wt" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "freight_shuttle_out"
+	},
+/turf/simulated/floor,
+/area/space)
 "wJ" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
@@ -1346,15 +1524,31 @@
 	dir = 6
 	},
 /obj/structure/closet,
-/obj/item/clothing/accessory/armband/scc,
 /obj/item/storage/backpack/messenger/tox,
-/obj/item/clothing/under/rank/research_director,
+/obj/structure/sign/flag/zenghu{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "wR" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"wW" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/wall/shuttle/space_ship/mercenary{
+	name = "military hull"
+	},
+/area/space)
+"wZ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/obj/machinery/meter,
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "xj" = (
 /obj/structure/curtain/black,
 /obj/effect/floor_decal/corner/grey{
@@ -1387,6 +1581,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"xJ" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "tajara_safehouse_shuttle_out"
+	},
+/turf/simulated/floor,
+/area/space)
+"xL" = (
+/obj/effect/floor_decal/corner/lime,
+/turf/simulated/floor/tiled/white,
+/area/ship/scc_scout_ship)
 "xQ" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/table/stone/marble,
@@ -1396,16 +1602,21 @@
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	pixel_y = 5
 	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "xX" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/structure/table/steel,
 /obj/item/roller,
-/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/effect/floor_decal/corner/lime,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "yc" = (
@@ -1424,8 +1635,14 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/item/gun/energy/captain,
 /turf/simulated/floor/wood/coloured/walnut,
+/area/ship/scc_scout_ship)
+"ye" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "yj" = (
 /obj/machinery/suit_cycler/science,
@@ -1435,20 +1652,31 @@
 /obj/item/clothing/head/helmet/space/void/sci,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"yp" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/toolcloset,
+/obj/item/storage/bag/inflatable,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scc_scout_shuttle)
 "yB" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/structure/closet/walllocker/medical/secure{
-	name = "blood closet";
-	pixel_x = 30;
-	req_access = null
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 31;
+	name = "meds closet"
+	},
+/obj/structure/closet/walllocker/medical{
+	name = "meds closet";
+	pixel_x = 32
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/syringe/inaprovaline,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_scout_shuttle)
 "yE" = (
@@ -1463,8 +1691,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_shuttle)
 "yM" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/door/window/northleft,
+/obj/effect/floor_decal/corner/lime,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "zd" = (
@@ -1545,8 +1776,7 @@
 /area/shuttle/scc_scout_shuttle)
 "Ae" = (
 /obj/structure/bed,
-/obj/item/bedsheet/ce,
-/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/orange,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Ag" = (
@@ -1569,6 +1799,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
+"AH" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/area/space)
 "AI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/toolcloset,
@@ -1606,15 +1839,13 @@
 	pixel_x = 6;
 	pixel_y = -3
 	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "Bn" = (
 /obj/structure/closet,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/suit/storage/longcoat/zavodskoi,
-/obj/item/clothing/suit/storage/longcoat/nt,
-/obj/item/clothing/under/rank/medical/surgeon,
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship)
 "Bs" = (
@@ -1629,6 +1860,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
+/obj/item/tank/emergency_oxygen/engi,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "BB" = (
@@ -1636,8 +1868,17 @@
 /area/ship/scc_scout_ship)
 "BC" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"BP" = (
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor,
+/area/space)
 "BU" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -1664,11 +1905,23 @@
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
-/obj/machinery/light/small,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"CJ" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/obj/structure/table/steel,
+/obj/machinery/vending/wallmed1{
+	name = "Medical Supplies";
+	pixel_x = -26;
+	pixel_y = -1;
+	req_access = null
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "CQ" = (
-/obj/item/storage/briefcase/nt/captain,
 /turf/simulated/floor/wood/coloured/walnut,
 /area/ship/scc_scout_ship)
 "CV" = (
@@ -1700,8 +1953,29 @@
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/milk,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
+"Df" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/tajara_safehouse_shuttle,
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"Dk" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/space)
 "Dl" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1731,8 +2005,10 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/machinery/cryopod{
-	dir = 4
+/obj/structure/closet,
+/obj/item/storage/backpack/messenger,
+/obj/structure/sign/flag/nanotrasen{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
@@ -1755,14 +2031,31 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"DJ" = (
+/obj/effect/shuttle_landmark/scc_scout_shuttle/hangar,
+/turf/template_noop,
+/area/space)
 "Eg" = (
-/obj/structure/closet,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/green,
-/obj/item/clothing/head/beret/corporate/heph,
-/obj/item/clothing/accessory/storage/overalls/engineer,
-/turf/simulated/floor/wood,
-/area/ship/scc_scout_ship)
+/obj/machinery/vending/wallmed1{
+	name = "Medical Supplies";
+	pixel_x = -26;
+	pixel_y = -1;
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
+	},
+/obj/structure/table/steel,
+/obj/item/storage/bag/inflatable,
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"Em" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Eu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
@@ -1792,10 +2085,13 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/closet/walllocker/medical{
-	pixel_y = 31
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
 	},
-/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/structure/bed/roller,
+/obj/machinery/iv_drip{
+	pixel_x = 7
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_scout_shuttle)
 "EO" = (
@@ -1809,12 +2105,11 @@
 /area/shuttle/scc_scout_shuttle)
 "Fb" = (
 /obj/structure/bed,
-/obj/item/bedsheet/blue,
-/obj/structure/curtain/open/bed,
 /obj/effect/ghostspawpoint{
 	identifier = "scc_scout_ship_crew";
 	name = "igs - scc_scout_ship_crew"
 	},
+/obj/item/bedsheet/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Fp" = (
@@ -1872,6 +2167,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"Gj" = (
+/obj/structure/closet/walllocker/emerglocker/west,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Gn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -1890,13 +2189,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "Gu" = (
-/obj/machinery/door/airlock/glass_command{
-	name = "E.V.A.";
-	req_one_access = list(18)
-	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
 	},
+/obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "GB" = (
@@ -1936,8 +2232,18 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
+/obj/item/trash/cigbutt/cigarbutt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"Hk" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Hm" = (
 /obj/structure/window/reinforced{
 	layer = 5;
@@ -1957,8 +2263,15 @@
 	pixel_x = 4;
 	pixel_y = 11
 	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_scout_shuttle)
+"Hr" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
 "Ht" = (
 /obj/machinery/suit_cycler/engineering,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1968,8 +2281,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Hv" = (
-/obj/structure/closet/emcloset,
-/obj/item/reagent_containers/food/snacks/koisbar,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
@@ -2006,6 +2317,10 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle,
+/obj/structure/sign/flag/scc{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "Iw" = (
@@ -2034,6 +2349,9 @@
 	pixel_x = -9;
 	pixel_y = 5
 	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "Ix" = (
@@ -2041,17 +2359,18 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "IB" = (
-/obj/structure/closet,
-/obj/item/clothing/suit/storage/toggle/labcoat/nt,
-/obj/item/clothing/suit/storage/toggle/labcoat/pmc,
-/obj/item/clothing/suit/storage/toggle/labcoat/zeng,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/under/rank/medical/surgeon/pmc,
-/turf/simulated/floor/wood,
-/area/ship/scc_scout_ship)
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/space)
+"ID" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "IF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -2072,17 +2391,20 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "IO" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
 	layer = 2.8
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "IS" = (
-/obj/structure/sign/greencross,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "IW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -2126,10 +2448,15 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_shuttle)
 "Kj" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/closet/walllocker/medical{
-	pixel_x = -32
+	pixel_x = -32;
+	name = "meds closet"
 	},
+/obj/effect/floor_decal/corner/lime,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/syringe/inaprovaline,
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "Kq" = (
@@ -2183,6 +2510,12 @@
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"KN" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/unsimulated/floor/plating,
+/area/space)
 "KT" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -2234,11 +2567,11 @@
 "Lq" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Emergency Weaponry";
-	req_access = list(73)
+	req_access = null
 	},
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun{
-	pixel_y = -5
+	pixel_y = -6
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9;
@@ -2247,7 +2580,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Ls" = (
-/obj/structure/reagent_dispensers/water_cooler,
+/obj/structure/reagent_dispensers/water_cooler{
+	pixel_x = -9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Lx" = (
@@ -2269,25 +2604,27 @@
 "LM" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "LU" = (
 /obj/structure/closet,
-/obj/item/flag/scc,
-/obj/item/flag/scc,
-/obj/item/clothing/under/scc_captain,
 /obj/item/storage/backpack/messenger/com,
-/obj/item/clothing/head/caphat/cap/beret,
-/obj/item/clothing/accessory/medal/gold/captain,
 /turf/simulated/floor/wood/coloured/walnut,
 /area/ship/scc_scout_ship)
 "Me" = (
 /obj/machinery/door/window/westright,
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_scout_shuttle)
 "Mj" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "Ml" = (
@@ -2310,6 +2647,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"MX" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/cryopod{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/scc_scout_ship)
 "MZ" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -2324,6 +2668,9 @@
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -6;
 	pixel_y = 12
+	},
+/obj/machinery/computer/cryopod{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
@@ -2350,12 +2697,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "NS" = (
-/obj/machinery/light/small,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "Om" = (
-/obj/item/storage/briefcase/nt/captain_white,
-/turf/simulated/floor/wood/coloured/walnut,
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "OB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -2371,15 +2722,18 @@
 "OM" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Emergency Weaponry";
-	req_access = list(73)
+	req_access = null
 	},
-/obj/item/gun/energy/laser/shotgun/research,
 /obj/item/gun/energy/laser/shotgun/research{
-	pixel_y = -5
+	pixel_y = 2;
+	name = "laser shotgun"
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9;
 	icon_state = "corner_white"
+	},
+/obj/item/gun/energy/rifle/laser{
+	pixel_y = -6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
@@ -2420,6 +2774,14 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/template_noop,
 /area/ship/scc_scout_ship)
+"PJ" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/space)
 "Qj" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/sign/vacuum{
@@ -2482,6 +2844,9 @@
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "Rb" = (
@@ -2524,14 +2889,25 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
+"Sl" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/space)
 "Sr" = (
 /obj/structure/bed,
-/obj/item/bedsheet/rd,
-/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/purple,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "SA" = (
 /turf/simulated/wall/shuttle/scc/cardinal,
+/area/shuttle/scc_scout_shuttle)
+"SD" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -32;
+	pixel_y = -32
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "SI" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -2548,6 +2924,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"SV" = (
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "SX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced,
@@ -2555,12 +2938,17 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "SZ" = (
-/obj/structure/closet/walllocker/emerglocker/north,
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"Ta" = (
+/obj/machinery/computer/shuttle_control/explore/freighter_shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Te" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
@@ -2584,6 +2972,13 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/scc_scout_ship)
+"Tv" = (
+/obj/machinery/atmospherics/unary/engine{
+	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
+	icon_state = "se2"
+	},
+/turf/unsimulated/floor/plating,
+/area/space)
 "TG" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -2621,6 +3016,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"Uc" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Um" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -2633,6 +3036,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"Up" = (
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8;
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/fuel_port{
+	pixel_x = -32
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Ut" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
@@ -2649,12 +3063,27 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/vending/medical{
 	density = 0;
-	pixel_x = -32
+	pixel_x = -32;
+	req_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
+"UD" = (
+/obj/structure/closet/emcloset,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
+"UL" = (
+/obj/structure/bed,
+/obj/item/bedsheet/blue,
+/obj/effect/ghostspawpoint{
+	identifier = "scc_scout_ship_crew";
+	name = "igs - scc_scout_ship_crew"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/scc_scout_ship)
 "UR" = (
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey{
@@ -2673,6 +3102,9 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "UZ" = (
@@ -2680,6 +3112,9 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Va" = (
@@ -2689,6 +3124,9 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"Vc" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
 "Ve" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/curtain/open/shower,
@@ -2703,8 +3141,7 @@
 /area/ship/scc_scout_ship)
 "Vi" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Propulsion";
-	req_one_access = list(11,24)
+	name = "Propulsion"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -2714,6 +3151,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
+/area/ship/scc_scout_ship)
+"VB" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "VE" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -2743,13 +3187,19 @@
 /obj/item/storage/firstaid/o2{
 	pixel_x = -2
 	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_scout_shuttle)
+"VV" = (
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "VW" = (
 /obj/structure/closet,
 /obj/item/clothing/under/color/black,
 /obj/item/clothing/under/color/black,
 /obj/item/clothing/under/color/grey,
+/obj/item/storage/backpack/messenger,
 /obj/item/clothing/suit/storage/toggle/brown_jacket/scc,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
@@ -2778,9 +3228,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"Wd" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "tajara_safehouse_shuttle";
+	name = "Port docking controller";
+	pixel_x = 6;
+	pixel_y = 28;
+	tag_door = "tajara_safehouse_shuttle_out"
+	},
+/obj/machinery/computer/ship/sensors{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Wf" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/door/window/northright,
+/obj/effect/floor_decal/corner/lime,
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "Wj" = (
@@ -2810,35 +3277,45 @@
 	},
 /turf/simulated/floor/carpet,
 /area/ship/scc_scout_ship)
+"WC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ore_box,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scc_scout_shuttle)
 "WR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "WV" = (
-/obj/machinery/door/airlock/mining{
-	name = "Captain's Quarters";
-	req_access = list(201)
+/obj/machinery/door/airlock/command{
+	name = "Captain's Quarters"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "Xa" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/walllocker/emerglocker/west,
-/obj/structure/ore_box,
+/obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
+"Xh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Xj" = (
 /turf/template_noop,
 /area/space)
 "Xl" = (
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
-	name = "Bridge";
-	req_one_access = list(19,38)
+	name = "Bridge"
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
@@ -2849,6 +3326,12 @@
 /obj/structure/window/shuttle/scc,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"Xx" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/scc_scout_ship)
 "XC" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -2873,17 +3356,36 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "XQ" = (
-/obj/machinery/recharge_station,
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
+/obj/structure/closet,
+/obj/item/storage/backpack/messenger,
+/obj/structure/sign/flag/zavodskoi{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"XY" = (
+/obj/machinery/computer/shuttle_control/explore/tajara_safehouse_shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Yg" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"Ys" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary{
+	name = "military hull"
+	},
+/area/space)
+"YD" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
 "YL" = (
 /obj/machinery/door/window/eastright,
 /turf/simulated/floor/carpet/rubber,
@@ -2895,11 +3397,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"YT" = (
+/obj/structure/window/shuttle/scc,
+/turf/simulated/floor/plating,
+/area/space)
 "Zd" = (
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
-	name = "Helm";
-	req_one_access = list(19,38)
+	name = "Helm"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -2930,6 +3435,10 @@
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
+/obj/item/reagent_containers/spray/sterilizine{
+	pixel_y = -1;
+	pixel_x = -8
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
 "ZH" = (
@@ -2945,6 +3454,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship)
+"ZL" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -25
+	},
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 
 (1,1,1) = {"
 Xj
@@ -24649,17 +25167,17 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+AH
+Ys
+Ys
+Ys
+xJ
+xJ
+Ys
+Ys
+Ys
+Ys
+Ys
 Xj
 Xj
 Xj
@@ -24906,17 +25424,17 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+AH
+AH
+XY
+ZL
+rT
+rT
+Gj
+iJ
+gj
+wW
+KN
 Xj
 Xj
 Xj
@@ -25163,17 +25681,17 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+Sl
+cG
+ai
+rT
+Df
+rT
+rT
+rT
+Uc
+wW
+KN
 Xj
 Xj
 Xj
@@ -25420,17 +25938,17 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+AH
+AH
+Wd
+mq
+Hk
+mq
+SV
+dg
+eF
+wW
+KN
 Xj
 Xj
 Xj
@@ -25676,18 +26194,18 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+Dk
+AH
+Ys
+Ys
+Ys
+Ys
+Ys
+Ys
+Ys
+Ys
+Ys
+Ys
 Xj
 Xj
 Xj
@@ -26190,18 +26708,18 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+iK
+Vc
+Vc
+Vc
+Vc
+wt
+wt
+Vc
+Vc
+Vc
+Vc
+Vc
 Xj
 Xj
 Xj
@@ -26448,17 +26966,17 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+IB
+IB
+Ta
+ZL
+rT
+rT
+Gj
+iJ
+Eg
+YD
+KN
 Xj
 Xj
 Xj
@@ -26705,17 +27223,17 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+nz
+cG
+ai
+rT
+dV
+rT
+rT
+rT
+dx
+YD
+KN
 Xj
 Xj
 Xj
@@ -26962,17 +27480,17 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+IB
+IB
+ep
+mq
+Hk
+mq
+SV
+dg
+wZ
+YD
+KN
 Xj
 Xj
 Xj
@@ -27218,18 +27736,18 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+Dk
+IB
+Vc
+Vc
+Vc
+Vc
+Hr
+Hr
+Vc
+Vc
+Vc
+Vc
 Xj
 Xj
 Xj
@@ -27732,18 +28250,18 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+uZ
+uZ
+uZ
+uZ
+uZ
+wt
+wt
+uZ
+uZ
+uZ
+uZ
+BP
 Xj
 Xj
 Xj
@@ -27990,17 +28508,17 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+Tv
+CJ
+Em
+Up
+rT
+rT
+lw
+dh
+mw
+uZ
+uZ
 Xj
 Xj
 Xj
@@ -28247,17 +28765,17 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+Tv
+VV
+rT
+rT
+rT
+rT
+ID
+rT
+ai
+dv
+YT
 Xj
 Xj
 Xj
@@ -28504,17 +29022,17 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+Tv
+Xh
+rT
+wg
+rT
+rT
+mq
+mq
+hY
+uZ
+uZ
 Xj
 Xj
 Xj
@@ -28760,18 +29278,18 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+uZ
+uZ
+uZ
+uZ
+uZ
+wt
+wt
+uZ
+uZ
+uZ
+uZ
+PJ
 Xj
 Xj
 Xj
@@ -32347,7 +32865,7 @@ Xp
 Ae
 Sr
 Xp
-Fb
+UL
 Fb
 Xp
 Xp
@@ -33127,7 +33645,7 @@ BB
 bC
 Xp
 Hv
-BB
+UD
 Xp
 Xj
 Xj
@@ -33376,7 +33894,7 @@ Xp
 VW
 fV
 oN
-Eg
+Bn
 Xp
 SI
 hF
@@ -33881,16 +34399,16 @@ gG
 Xp
 Xp
 Xp
-pU
-pU
+tG
+tG
 Xp
 Ve
-vl
+MX
 Xp
 fA
 oN
 qf
-IB
+Bn
 Xp
 ui
 BB
@@ -34138,8 +34656,8 @@ Xp
 oF
 zl
 Xp
-tG
-tG
+dX
+Ij
 Xp
 Xp
 Xp
@@ -34395,8 +34913,8 @@ aC
 oA
 wJ
 Xp
-dX
-Ij
+bO
+CQ
 hE
 Xp
 Ls
@@ -34420,7 +34938,7 @@ Xj
 Xj
 HF
 iT
-Xj
+DJ
 Xj
 Xj
 Xj
@@ -34652,8 +35170,8 @@ mL
 IF
 QK
 eZ
-bO
-Om
+CQ
+CQ
 CQ
 WV
 cj
@@ -34926,7 +35444,7 @@ SA
 SA
 SA
 SA
-SA
+Xr
 SA
 Xr
 SA
@@ -35172,7 +35690,7 @@ Xp
 Xp
 QO
 KT
-Kw
+ye
 Kw
 Kw
 yE
@@ -35183,11 +35701,11 @@ uz
 Mj
 SA
 JD
-cz
+WC
 Xa
-VE
+op
 gV
-VE
+eh
 SA
 XD
 xz
@@ -35701,8 +36219,8 @@ zI
 we
 zI
 zw
+SD
 gi
-rT
 zq
 rk
 Ml
@@ -35938,7 +36456,7 @@ Xp
 rO
 Xp
 DE
-oS
+kH
 Wo
 TU
 cj
@@ -36192,7 +36710,7 @@ Xj
 Xp
 GB
 sp
-nL
+ko
 Xp
 Xp
 Xp
@@ -36709,7 +37227,7 @@ Tm
 nY
 Va
 Xp
-KT
+gd
 KT
 KT
 KT
@@ -36971,7 +37489,7 @@ YR
 Bs
 cj
 fT
-IS
+Xp
 Xp
 Xp
 Xp
@@ -37744,7 +38262,7 @@ MW
 Ca
 Wf
 mI
-AW
+xL
 AW
 tG
 iT
@@ -38016,8 +38534,8 @@ ek
 yB
 Cc
 Hm
-mh
-tN
+yp
+cz
 SA
 SA
 SA
@@ -38520,8 +39038,8 @@ Lg
 Xp
 Xp
 Xp
-tG
-tG
+Xp
+Xp
 Xp
 Xp
 iT
@@ -39295,8 +39813,8 @@ Xp
 tG
 tG
 Xp
-tG
-tG
+IS
+IS
 iT
 Xj
 Xj
@@ -39553,7 +40071,7 @@ eG
 eG
 mv
 vv
-tG
+IS
 HF
 HF
 HF
@@ -39810,7 +40328,7 @@ gx
 fH
 gF
 cg
-tG
+IS
 HF
 RB
 RB
@@ -40060,14 +40578,14 @@ oa
 KT
 zG
 Xp
-tG
-tG
+IS
+IS
 Xp
 aq
 zD
 EE
 Fp
-tG
+IS
 Xj
 Xj
 Xj
@@ -40308,10 +40826,10 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
 tG
-cj
+VB
+ug
+Xx
 cj
 YR
 KT
@@ -40321,10 +40839,10 @@ Xj
 Xj
 gG
 Xp
-tG
-tG
-tG
-tG
+IS
+IS
+IS
+IS
 Xj
 Xj
 Xj
@@ -40565,11 +41083,11 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
 tG
-cj
-cj
+Om
+Om
+Om
+Om
 Xp
 Wj
 yc
@@ -40822,8 +41340,8 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
+tG
+tG
 tG
 tG
 tG
