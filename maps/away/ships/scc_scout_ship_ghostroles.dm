@@ -20,7 +20,7 @@
 /datum/ghostspawner/human/scc_scout_ship_crew/captain
 	short_name = "scc_scout_ship_captain"
 	name = "SCCV XYZ Scout Ship Captain"
-	desc = "SCCV XYZ Scout Ship Captain desc"
+	desc = "You are the captain. Pilot the ship, lead your crew, start expeditions, explore worlds."
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_captain")
@@ -37,7 +37,7 @@
 /datum/ghostspawner/human/scc_scout_ship_crew/heph
 	short_name = "scc_scout_ship_heph"
 	name = "SCCV XYZ Scout Ship Hephaestus Crewman"
-	desc = "SCCV XYZ Scout Ship Hephaestus Crewman desc"
+	desc = "You are a Hephaestus Industries crewman. Be the ship's engineer, or a cargo and fuel technician, or a miner, or a general crewman/assistant who knows a tiny bit of everything."
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_heph")
@@ -54,7 +54,7 @@
 /datum/ghostspawner/human/scc_scout_ship_crew/zeng
 	short_name = "scc_scout_ship_zeng"
 	name = "SCCV XYZ Scout Ship Zeng-Hu Crewman"
-	desc = "SCCV XYZ Scout Ship Zeng-Hu Crewman desc"
+	desc = "You are a Zeng-Hu Pharmaceuticals crewman. Be the ship's scientist, or a archeologist, or a physician, or a surgeon, or a general crewman/assistant who knows a tiny bit of everything."
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_zeng")
@@ -71,7 +71,7 @@
 /datum/ghostspawner/human/scc_scout_ship_crew/nanotrasen
 	short_name = "scc_scout_ship_nanotrasen"
 	name = "SCCV XYZ Scout Ship NanoTrasen Crewman"
-	desc = "SCCV XYZ Scout Ship NanoTrasen Crewman desc"
+	desc = "You are a NanoTrasen Corporation crewman. Be the ship's physician, or a surgeon, or a scientist, or a archeologist, or a general crewman/assistant who knows a tiny bit of everything."
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_nanotrasen")
@@ -88,7 +88,7 @@
 /datum/ghostspawner/human/scc_scout_ship_crew/zavod
 	short_name = "scc_scout_ship_zavod"
 	name = "SCCV XYZ Scout Ship Zavod Crewman"
-	desc = "SCCV XYZ Scout Ship Zavod Crewman desc"
+	desc = "You are a Zavodskoi Interstellar crewman. Be the ship's engineer, or a scientist, or a archeologist, or a general crewman/assistant who knows a tiny bit of everything."
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_zavod")
@@ -113,7 +113,7 @@
 	back = list(/obj/item/storage/backpack/messenger, /obj/item/storage/backpack/duffel)
 	l_ear = /obj/item/device/radio/headset/ship
 
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
@@ -121,7 +121,7 @@
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/jackboots/toeless,
-		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/jackboots/toeless
+		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
 /datum/outfit/admin/scc_scout_ship_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -133,7 +133,9 @@
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/inhaler/phoron_special, slot_in_backpack)
 	if(isoffworlder(H))
+		H.equip_or_collect(new /obj/item/clothing/accessory/offworlder/bracer, slot_in_backpack)
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+		H.equip_or_collect(new /obj/item/rig/light/offworlder, slot_in_backpack)
 
 /datum/outfit/admin/scc_scout_ship_crew/get_id_access()
 	return list(access_external_airlocks)
