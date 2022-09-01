@@ -112,7 +112,7 @@
 	coffeecups["Eridani coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/eridani
 	coffeecups["Elyra coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/elyra
 	coffeecups["Hegemony coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony
-	coffeecups["Jargon coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/jargon
+	coffeecups["Nralakk coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nralakk
 	coffeecups["NT coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt
 	coffeecups["Hephaestus coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht
 	coffeecups["Idris coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris
@@ -156,7 +156,7 @@
 	banners["banner, Dominia"] = /obj/item/flag/dominia
 	banners["banner, Elyra"] = /obj/item/flag/elyra
 	banners["banner, Hegemony"] = /obj/item/flag/hegemony
-	banners["banner, Jargon"] = /obj/item/flag/jargon
+	banners["banner, Nralakk"] = /obj/item/flag/nralakk
 	banners["banner, Traverse"] = /obj/item/flag/traverse
 	banners["banner, NanoTrasen"] = /obj/item/flag/nanotrasen
 	banners["banner, Eridani Fed"] = /obj/item/flag/eridani
@@ -175,6 +175,7 @@
 	banners["banner, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh
 	banners["banner, Gadpathur"] = /obj/item/flag/gadpathur
 	banners["banner, Vysoka"] = /obj/item/flag/vysoka
+	banners["banner, Konyang"] = /obj/item/flag/konyang
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -206,7 +207,7 @@
 	flags["flag, Dominia"] = /obj/item/flag/dominia/l
 	flags["flag, Elyra"] = /obj/item/flag/elyra/l
 	flags["flag, Hegemony"] = /obj/item/flag/hegemony/l
-	flags["flag, Jargon"] = /obj/item/flag/jargon/l
+	flags["flag, Nralakk"] = /obj/item/flag/nralakk/l
 	flags["flag, Traverse"] = /obj/item/flag/traverse/l
 	flags["flag, NanoTrasen"] = /obj/item/flag/nanotrasen/l
 	flags["flag, Eridani Fed"] = /obj/item/flag/eridani/l
@@ -224,6 +225,7 @@
 	flags["flag, Confederate States of Fisanduh"] = /obj/item/flag/fisanduh/l
 	flags["flag, Gadpathur"] = /obj/item/flag/gadpathur/l
 	flags["flag, Vysoka"] = /obj/item/flag/vysoka/l
+	flags["flag, Konyang"] = /obj/item/flag/konyang/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel

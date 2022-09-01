@@ -461,7 +461,7 @@
 
 /decl/reagent/xuxigas
 	name = "Xu'Xi Gas"
-	description = "A recreational drug hailing from Qerr'Malic that must be inhaled. It produces a mild high similar to Wulumunusha and is known to make users susceptible to persuasion. Most forms of Xu'Xi Gas found outside of the Jargon Federation are cheap, synthetic substitutes. Only works when inhaled."
+	description = "A recreational drug hailing from Qerr'Malic that must be inhaled. It produces a mild high similar to Wulumunusha and is known to make users susceptible to persuasion. Most forms of Xu'Xi Gas found outside of the Nralakk Federation are cheap, synthetic substitutes. Only works when inhaled."
 	color = "#58D373"
 	taste_description = "algae"
 	reagent_state = GAS

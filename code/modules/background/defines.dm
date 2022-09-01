@@ -8,7 +8,7 @@
 
 #define CITIZENSHIP_IZWESKI "Izweski Hegemony"
 
-#define CITIZENSHIP_JARGON "Jargon Federation"
+#define CITIZENSHIP_NRALAKK "Nralakk Federation"
 #define CITIZENSHIP_EUM "Co-Operative Territories of EUM"
 
 #define CITIZENSHIP_PRA "People's Republic of Adhomai"

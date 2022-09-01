@@ -78,9 +78,9 @@
 	desc = "A coffee cup bearing the flag of the Izweski Hegemony."
 	icon_state = "coffeecup_hegemony"
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/jargon
-	name = "\improper Jargon coffee cup"
-	desc = "A purple coffee cup emblazoned with the flag of the Jargon Federation."
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nralakk
+	name = "\improper Nralakk coffee cup"
+	desc = "A purple coffee cup emblazoned with the flag of the Nralakk Federation."
 	icon_state = "coffeecup_jarg"
 
 // Organisations
