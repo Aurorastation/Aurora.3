@@ -350,6 +350,7 @@
 	desc = O.desc
 	icon = O.icon
 	icon_state = O.icon_state
+	color = O.color
 	set_dir(O.dir)
 
 /obj/item/clothing/ears/offear/attack_hand(mob/living/carbon/human/H)

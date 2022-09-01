@@ -10,20 +10,18 @@
 	slot = null
 
 /datum/gear/ears/double/headphones
-	display_name = "headphones"
+	display_name = "headphone selection"
+	description = "A selection of headphones."
 	path = /obj/item/clothing/ears/earmuffs/headphones
+	flags = GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/ears/double/earphones
-	display_name = "earphones selection"
-	description = "A selection of earphones."
-	path = /obj/item/clothing/ears/earmuffs/headphones/earphones
-
-/datum/gear/ears/double/earphones/New()
+/datum/gear/ears/double/headphones/New()
 	..()
-	var/list/earphones = list()
-	earphones["earphones"] = /obj/item/clothing/ears/earmuffs/headphones/earphones
-	earphones["blue earphones"] = /obj/item/clothing/ears/earmuffs/headphones/earphones/blue
-	gear_tweaks += new /datum/gear_tweak/path(earphones)
+	var/list/headphones = list()
+	headphones["headphones"] = /obj/item/clothing/ears/earmuffs/headphones
+	headphones["earphones"] = /obj/item/clothing/ears/earmuffs/headphones/earphones
+	headphones["earbuds"] = /obj/item/clothing/ears/earmuffs/headphones/earbuds
+	gear_tweaks += new /datum/gear_tweak/path(headphones)
 
 /datum/gear/ears/earrings
 	display_name = "earring selection"
@@ -52,4 +50,3 @@
 	hearingaids["hearing aid, white"] = /obj/item/device/hearing_aid/white
 	hearingaids["hearing aid, skrellian"] = /obj/item/device/hearing_aid/skrell
 	gear_tweaks += new /datum/gear_tweak/path(hearingaids)
-
