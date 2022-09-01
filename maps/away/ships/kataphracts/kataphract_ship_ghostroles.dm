@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/kataphract
 	short_name = "kataphract_hop"
 	name = "Kataphract-Hopeful"
-	desc = "Display honour in everything you do. Be an excellent person. Listen to the Saa's (Knights). Remember, you serve the Izweski Hegemony."
+	desc = "A Zo'saa (squire) of the traveling Kataphract Guild. Display honour in everything you do. Be an excellent person. Listen to the Saa's (Knights). Remember, you serve the Izweski Hegemony."
 	tags = list("External")
 
 	spawnpoints = list("kataphract")
@@ -25,7 +25,7 @@
 /datum/ghostspawner/human/kataphract/klax
 	short_name = "kataphract_hop_klax"
 	name = "Kataphract-Hopeful Klaxan"
-	desc = "Display honour in everything you do. Be an excellent person. Learn how to be a proper Kataphract by your fellow Unathi. Remember, you serve the Izweski Hegemony on behalf of your K'laxan compatriots."
+	desc = "A Zo'saa (squire) from the K'lax hive, here to learn what it means to be honourable. Remember, you serve the Izweski Hegemony on behalf of your K'laxan compatriots."
 	max_count = 1
 	uses_species_whitelist = TRUE
 
@@ -37,8 +37,8 @@
 
 /datum/ghostspawner/human/kataphract/knight
 	short_name = "kataphract_knight"
-	name = "Kataphract Knight"
-	desc = "Display honour in everything you do. Be an excellent person. Act as the leader of the Kataphract Chapter and Shipmaster of your vessel. You are a Knight and should act as an example to your subordinates."
+	name = "Kataphract Knight Captain"
+	desc = "A Saa (Knight) of the traveling Kataphract Guild. Display honour in everything you do. Be an excellent person. You are the foremost authority on your vessel. Lead by example."
 	max_count = 1
 	uses_species_whitelist = TRUE
 
@@ -53,8 +53,8 @@
 
 /datum/ghostspawner/human/kataphract/quartermaster
 	short_name = "kataphract_quart"
-	name = "Kataphract Quartermaster"
-	desc = "Display honour in everything you do. Be an excellent person. Ensure the Kataphracts are well-stocked and ready for anything. You are a proper knight and should act as an example to your subordinates. Listen to the Shipmaster. Remember, you serve the Izweski Hegemony."
+	name = "Kataphract Knight Quartermaster"
+	desc = "A Saa (Knight) of the traveling Kataphract Guild. Display honour in everything you do. Be an excellent person. Ensure the Kataphracts are well-stocked and ready for anything. Lead by example with the Knight Captain. Remember, you serve the Izweski Hegemony."
 	max_count = 1
 
 	mob_name_prefix = "Saa "
@@ -72,9 +72,12 @@
 
 	uniform = /obj/item/clothing/under/unathi
 	belt = /obj/item/melee/energy/sword/hegemony
-	shoes = /obj/item/clothing/shoes/caligae/grey
+	shoes = /obj/item/clothing/shoes/caligae
 	id = /obj/item/card/id/distress/kataphract
 	back = /obj/item/storage/backpack/satchel
+
+
+	l_ear = /obj/item/device/radio/headset/ship
 
 	backpack_contents = list(
 		/obj/item/storage/box/donkpockets = 1

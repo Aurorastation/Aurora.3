@@ -105,4 +105,4 @@
 	name = "\improper Kataphract Transport"
 
 /area/shuttle/kataphract_shuttle/engine_compartment
-	name = "\improper Kataphract Transpor Engine compartmentt"
+	name = "\improper Kataphract Transport Engine compartment"
