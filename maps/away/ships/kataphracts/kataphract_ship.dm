@@ -32,7 +32,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/kataphract_ship/New()
-	designation = "[pick("Pious Avenger", "Persistent Conviction", "Solemn Retribution", "Venerable Ironscales", "Sword of Faith", "Glorious Succor", "Sacred Retribution", "Unflinching Soul", "Unrelenting", "Ascendant Absolution")]"
+	designation = "[pick("Pious Avenger", "Persistent Conviction", "Solemn Retribution", "Venerable Ironscales", "Blade of Faith", "Glorious Succor", "Sacred Retribution", "Unflinching Soul", "Unrelenting Fervor", "Ascendant Absolution")]"
 	..()
 
 /obj/effect/shuttle_landmark/nav_kataphract_ship
