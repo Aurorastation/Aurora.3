@@ -60,7 +60,7 @@
 	landmark_tag = "nav_kataphract_ship_5"
 
 /obj/effect/shuttle_landmark/nav_kataphract_ship/starboarddock //any ship with a docking port on their left side assuming they have their landmark mapped in properly
-	name = "Kataphract Ship starboard Docking"
+	name = "Kataphract Ship Starboard Docking"
 	landmark_tag = "nav_kataphract_ship_starboarddock"
 
 /obj/effect/shuttle_landmark/nav_kataphract_ship/dockintrepid // restricted for the intrepid only or else other ships will be able to use this point, and not properly dock 
