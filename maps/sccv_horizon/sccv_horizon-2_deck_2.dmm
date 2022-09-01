@@ -2549,6 +2549,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "bib" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
@@ -4355,6 +4356,9 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -12220,7 +12224,7 @@
 	dir = 5
 	},
 /obj/structure/cable/yellow{
-	icon_state = "4-8"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -16810,12 +16814,6 @@
 "iSx" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/disposal)
-"iSB" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_room)
 "iSG" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/carpet/rubber,
@@ -19060,6 +19058,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -32467,9 +32468,6 @@
 	dir = 4
 	},
 /obj/structure/cable/yellow,
-/obj/structure/cable/yellow{
-	icon_state = "0-2"
-	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "riM" = (
@@ -33693,13 +33691,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "rNR" = (
-/obj/machinery/atmospherics/valve/digital{
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
-	icon_state = "1-2"
+	icon_state = "2-8"
 	},
-/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "rNZ" = (
@@ -34229,6 +34227,9 @@
 "sbu" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -60769,8 +60770,8 @@ xIJ
 mxh
 sbu
 riG
-rNR
-iSB
+fMh
+sSY
 fas
 qFY
 uYK
@@ -60969,10 +60970,10 @@ sSY
 weu
 aAd
 vBp
-aAd
+bib
 xIJ
 jUH
-bib
+sSY
 jyd
 aSO
 uYK
@@ -61171,7 +61172,7 @@ fwS
 guv
 eGV
 iAF
-kaQ
+rNR
 kaQ
 cei
 guj
