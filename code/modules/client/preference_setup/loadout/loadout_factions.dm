@@ -317,7 +317,7 @@
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zenghu_cloak
-	display_name = "Zeng-Hu Jargon Division cloak"
+	display_name = "Zeng-Hu Nralakk Division cloak"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
 	slot = slot_wear_suit
 	faction = "Zeng-Hu Pharmaceuticals"

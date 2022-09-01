@@ -466,9 +466,9 @@
 	icon_state = "flagpatch_fisanduh"
 	item_state = "flagpatch_fisanduh"
 
-/obj/item/clothing/accessory/flagpatch/jargon
-	name = "jargon flagpatch"
-	desc = "A flagpatch representing the Jargon Federation. The free use of these patches is a contentious issue back home as \
+/obj/item/clothing/accessory/flagpatch/nralakk
+	name = "nralakk flagpatch"
+	desc = "A flagpatch representing the Nralakk Federation. The free use of these patches is a contentious issue back home as \
 	there is a fear that their wearers may misrepresent the nation."
 	icon_state = "flagpatch_jargon"
 	item_state = "flagpatch_jargon"
