@@ -6739,7 +6739,7 @@
 /area/kataphract_chapter/hangar)
 "px" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "pH" = (
 /obj/structure/bed/stool/padded/red,
