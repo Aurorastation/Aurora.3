@@ -130,7 +130,7 @@
 	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
 	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
 	pref.backbag_color = sanitize_integer(pref.backbag_color, 1, backbagcolors.len, initial(pref.backbag_color))
-	pref.backbag_strap = sanitize_bool(pref.backbag_strap, FALSE)
+	pref.backbag_strap = sanitize_integer(pref.backbag_strap, 1, backbagstrap.len, initial(pref.backbag_strap))
 	pref.pda_choice = sanitize_integer(pref.pda_choice, 1, pdalist.len, initial(pref.pda_choice))
 	pref.headset_choice	= sanitize_integer(pref.headset_choice, 1, headsetlist.len, initial(pref.headset_choice))
 	if(!(pref.primary_radio_slot in primary_radio_slot_choice))
@@ -153,7 +153,7 @@
 	. += "Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[backbaglist[pref.backbag]]</b></a><br>"
 	. += "Backpack Style: <a href='?src=\ref[src];change_backpack_style=1'><b>[backbagstyles[pref.backbag_style]]</b></a><br>"
 	. += "Backpack Color: <a href='?src=\ref[src];change_backpack_color=1'><b>[backbagcolors[pref.backbag_color]]</b></a><br>"
-	. += "Backbag Strap: <a href='?src=\ref[src];change_backbag_strap=1'>[pref.backbag_strap ? "Enabled" : "Disabled"]</a><br>"
+	. += "Backbag Strap: <a href='?src=\ref[src];change_backbag_strap=1'><b>[backbagstrap[pref.backbag_strap]]</b></a><br>"
 	. += "PDA Type: <a href='?src=\ref[src];change_pda=1'><b>[pdalist[pref.pda_choice]]</b></a><br>"
 	. += "Headset Type: <a href='?src=\ref[src];change_headset=1'><b>[headsetlist[pref.headset_choice]]</b></a><br>"
 	. += "Primary Radio Slot: <a href='?src=\ref[src];change_radio_slot=1'><b>[pref.primary_radio_slot]</b></a><br>"
@@ -196,8 +196,10 @@
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_backbag_strap"])
-		pref.backbag_strap = !pref.backbag_strap
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		var/new_backbag = input(user, "Choose your character's style of bag strap:", "Character Preference", backbagstrap[pref.backbag_strap]) as null|anything in backbagstrap
+		if(!isnull(new_backbag) && CanUseTopic(user))
+			pref.backbag_strap = backbagstrap.Find(new_backbag)
+			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_pda"])
 		var/new_pda = input(user, "Choose your character's PDA type:", "Character Preference", pdalist[pref.pda_choice]) as null|anything in pdalist

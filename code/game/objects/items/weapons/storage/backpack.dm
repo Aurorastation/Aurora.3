@@ -23,29 +23,30 @@
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 	allow_quick_empty = TRUE
 	empty_delay = 0.5 SECOND
-	var/straps = FALSE
+	var/straps = FALSE // Only really used for the verb.
 
 /obj/item/storage/backpack/Initialize()
-	if(initial(straps) == TRUE)
-		verbs += /obj/item/storage/backpack/proc/toggle_backpack_straps
+	if(straps == TRUE)
+		verbs += /obj/item/storage/backpack/proc/adjust_backpack_straps
 
-/obj/item/storage/backpack/proc/toggle_backpack_straps()
-	set name = "Toggle Bag Straps"
-	set desc = "Toggle your bag straps."
+/obj/item/storage/backpack/proc/adjust_backpack_straps()
+	set name = "Adjust Bag Straps"
+	set desc = "Adjust your bag straps."
 	set category = "Object"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
-	straps = !straps
-	to_chat(usr, SPAN_NOTICE("You [straps ? "stop hiding" : "hide"] [src]'s straps under your clothing."))
-	update_icon()
+	switch(input(usr, "Choose your bag strap style.", "[src]") as null|anything in backbagstrap)
+		if("Normal")
+			alpha_mask = null
+		if("Thin")
+			alpha_mask = "thin"
+		if("Hidden")
+			alpha_mask = "hidden"
+	to_chat(usr, SPAN_NOTICE("You adjust your bag strap to be [alpha_mask ? "[alpha_mask]" : "normal"]."))
 	var/mob/living/carbon/human/H = src.loc
 	H.update_icon()
 	H.update_inv_back()
-
-/obj/item/storage/backpack/update_icon()
-	. = ..()
-	alpha_mask = "[straps ? "" : "alpha_mask"]"
 
 /obj/item/storage/backpack/mob_can_equip(M as mob, slot, disable_warning = FALSE)
 

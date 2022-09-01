@@ -44,7 +44,7 @@ datum/preferences
 	var/backbag = OUTFIT_BACKPACK		//backpack type (defines in outfit.dm)
 	var/backbag_style = OUTFIT_JOBSPECIFIC
 	var/backbag_color = OUTFIT_NOTHING
-	var/backbag_strap = TRUE
+	var/backbag_strap = OUTFIT_NORMAL
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 	var/primary_radio_slot = "Left Ear"

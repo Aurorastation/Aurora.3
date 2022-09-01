@@ -12,6 +12,9 @@
 #define OUTFIT_GENERIC 2
 #define OUTFIT_FACTIONSPECIFIC 3
 
+#define OUTFIT_NORMAL 2
+#define OUTFIT_THIN 3
+
 #define OUTFIT_BLUE 2
 #define OUTFIT_GREEN 3
 #define OUTFIT_NAVY 4
@@ -187,7 +190,7 @@
 
 	if(back)
 		var/obj/item/storage/backpack/B = new back(H) //i'll be honest with you - i'm kinda retarded
-		if (H.backbag == OUTFIT_SATCHEL_ALT | OUTFIT_RUCKSACK | OUTFIT_POCKETBOOK)
+		if (H.backbag == OUTFIT_SATCHEL_ALT || H.backbag == OUTFIT_RUCKSACK || H.backbag == OUTFIT_POCKETBOOK)
 			switch (H.backbag_color)
 				if (OUTFIT_NOTHING)
 					B.color = null
@@ -209,9 +212,15 @@
 					B.color = "#512828"
 				if (OUTFIT_BROWN)
 					B.color = "#3d2711"
-		if (!H.backbag_strap && !(B.straps == 2))
-			B.straps = FALSE
-			B.update_icon()
+		else
+			B.color = null
+		switch (H.backbag_strap)
+			if (OUTFIT_NOTHING)
+				B.alpha_mask = "hidden"
+			if (OUTFIT_NORMAL)
+				B.alpha_mask = null
+			if (OUTFIT_THIN)
+				B.alpha_mask = "thin"
 		if(isvaurca(H, TRUE))
 			H.equip_or_collect(B, slot_r_hand)
 		else
