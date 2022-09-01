@@ -1359,7 +1359,7 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
 "en" = (
-/obj/structure/safe,
+/obj/structure/safe/highvalue,
 /turf/simulated/floor/plating,
 /area/casino/casino_security)
 "eq" = (
@@ -2148,14 +2148,14 @@
 	dir = 8;
 	level = 2
 	},
-/obj/structure/safe,
+/obj/structure/safe/cash,
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "gr" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/safe,
+/obj/structure/safe/cash,
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "gs" = (
@@ -5217,6 +5217,10 @@
 /obj/machinery/power/portgen/basic,
 /turf/simulated/floor/plating,
 /area/casino/casino_storage)
+"FC" = (
+/obj/structure/safe/cash,
+/turf/simulated/floor/plating,
+/area/casino/casino_security)
 "Gb" = (
 /obj/item/ammo_casing/pistol/magnum/used,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -11651,9 +11655,9 @@ yb
 Ab
 dB
 bq
-en
+FC
 eD
-en
+FC
 bq
 fr
 cb
@@ -11753,9 +11757,9 @@ cS
 Bb
 dC
 bq
-en
+FC
 eD
-en
+FC
 bq
 Eb
 Gb

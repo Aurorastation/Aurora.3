@@ -20,8 +20,8 @@
 	item_state = "hive_rep_shroud_cthur"
 	icon_state = "hive_rep_shroud_cthur"
 
-/obj/item/clothing/head/vaurca_breeder/jargon
-	name = "jargon representative shroud"
-	desc = "Large shroud used by Jargon representatives."
+/obj/item/clothing/head/vaurca_breeder/nralakk
+	name = "nralakk representative shroud"
+	desc = "Large shroud used by Nralakk representatives."
 	item_state = "hive_rep_shroud_nralakk"
 	icon_state = "hive_rep_shroud_nralakk"

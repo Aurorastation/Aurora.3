@@ -539,20 +539,20 @@
 	icon_state = "passport_dominia"
 	item_state = "passport_dominia"
 
-/obj/item/clothing/accessory/badge/passport/jargon
-	name = "jargon federation passport"
-	desc = "A passport issued to citizens of the Jargon Federation. Shiny, and compact, it's perfect to use on the go."
+/obj/item/clothing/accessory/badge/passport/nralakk
+	name = "nralakk federation passport"
+	desc = "A passport issued to citizens of the Nralakk Federation. Shiny, and compact, it's perfect to use on the go."
 	icon_state = "passport_nralakk"
 	item_state = "passport_nralakk"
 	open = CLOSED
 	var/credit_score = 5
 	var/species_tag = ""
 
-/obj/item/clothing/accessory/badge/passport/jargon/examine(mob/user)
+/obj/item/clothing/accessory/badge/passport/nralakk/examine(mob/user)
 	. = ..()
 	to_chat(user, SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score]."))
 
-/obj/item/clothing/accessory/badge/passport/jargon/update_icon()
+/obj/item/clothing/accessory/badge/passport/nralakk/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"
 
 #undef CANT_OPEN

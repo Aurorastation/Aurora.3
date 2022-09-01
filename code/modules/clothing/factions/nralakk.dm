@@ -16,7 +16,7 @@
 
 /obj/item/clothing/accessory/dressshirt/skrell/reef
     name = "reef formal wetshirt"
-    desc = "This slightly tacky wetshirt resembles the coral reefs found throughout Jargon Space. This clothing is meant to trap moisture, making it uncomfortable for non-Skrell."
+    desc = "This slightly tacky wetshirt resembles the coral reefs found throughout Nralakk space. This clothing is meant to trap moisture, making it uncomfortable for non-Skrell."
     icon_state = "reef_dressshirt"
     item_state = "reef_dressshirt"
 
@@ -39,7 +39,7 @@
 
 /obj/item/clothing/accessory/tshirt/skrell/reef
     name = "reef wetshirt"
-    desc = "This slightly tacky wetshirt resembles the coral reefs found throughout Jargon Space. This clothing is meant to trap moisture, making it uncomfortable for non-Skrell."
+    desc = "This slightly tacky wetshirt resembles the coral reefs found throughout Nralakk space. This clothing is meant to trap moisture, making it uncomfortable for non-Skrell."
     icon_state = "reef_tee"
     item_state = "reef_tee"
 
@@ -73,8 +73,8 @@
     icon_state = "white_skrell_hawaiian"
     item_state = "white_skrell_hawaiian"
 
-/obj/item/clothing/accessory/tshirt/skrell/nebula/jargon
-    name = "jargon eriuyushi nebula shirt"
+/obj/item/clothing/accessory/tshirt/skrell/nebula/nralakk
+    name = "nralakk eriuyushi nebula shirt"
     desc = "This shirt resembles the designs of Silversun tourist clothing. Most of these shirts are made in Eriuyushi and sold at their resort. This clothing is meant to trap moisture, making it uncomfortable for non-Skrell."
     icon_state = "nralakk_skrell_hawaiian"
     item_state = "nralakk_skrell_hawaiian"

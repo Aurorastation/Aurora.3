@@ -587,24 +587,24 @@
 	name = "Large Hegemony flag"
 	flag_size = 1
 
-/obj/structure/sign/flag/jargon
-	name = "Jargon Federation flag"
-	desc = "The insignia of the Jargon Federation."
+/obj/structure/sign/flag/nralakk
+	name = "Nralakk Federation flag"
+	desc = "The insignia of the Nralakk Federation."
 	icon_state = "nralakk"
 
-/obj/structure/sign/flag/jargon/left
+/obj/structure/sign/flag/nralakk/left
 	icon_state = "nralakk_l"
 
-/obj/structure/sign/flag/jargon/right
+/obj/structure/sign/flag/nralakk/right
 	icon_state = "nralakk_r"
 
-/obj/item/flag/jargon
-	name = "Jargon Federation flag"
-	desc = "The insignia of the Jargon Federation."
-	flag_path = "jargon"
+/obj/item/flag/nralakk
+	name = "Nralakk Federation flag"
+	desc = "The insignia of the Nralakk Federation."
+	flag_path = "nralakk"
 
-/obj/item/flag/jargon/l
-	name = "Large Jargon Federation flag"
+/obj/item/flag/nralakk/l
+	name = "Large Nralakk Federation flag"
 	flag_size = 1
 
 /obj/structure/sign/flag/traverse
