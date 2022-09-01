@@ -550,6 +550,8 @@ datum/preferences
 	exploit_record = ""
 	ccia_record = ""
 
+	gear_list = list() //Dont copy the loadout
+
 	// Do we need to reinitialize a whole bunch more vars?
 	if (re_initialize)
 		be_special_role = list()

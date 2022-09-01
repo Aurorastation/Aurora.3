@@ -228,6 +228,7 @@
 	shirt["blouse"] = /obj/item/clothing/accessory/blouse
 	shirt["long-sleeved blouse"] = /obj/item/clothing/accessory/longblouse
 	shirt["puffy blouse"] = /obj/item/clothing/accessory/puffyblouse
+	shirt["halter top"] = /obj/item/clothing/accessory/haltertop
 	gear_tweaks += new /datum/gear_tweak/path(shirt)
 
 /datum/gear/accessory/silversun
@@ -543,6 +544,6 @@
 	flagpatch_national["flagpatch, dpra"] = /obj/item/clothing/accessory/flagpatch/dpra
 	flagpatch_national["flagpatch, nka"] = /obj/item/clothing/accessory/flagpatch/nka
 	flagpatch_national["flagpatch, free council"] = /obj/item/clothing/accessory/flagpatch/freecouncil
-	flagpatch_national["flagpatch, jargon"] = /obj/item/clothing/accessory/flagpatch/jargon
+	flagpatch_national["flagpatch, nralakk"] = /obj/item/clothing/accessory/flagpatch/nralakk
 	flagpatch_national["flagpatch, hegemony"] = /obj/item/clothing/accessory/flagpatch/hegemony
 	gear_tweaks += new /datum/gear_tweak/path(flagpatch_national)

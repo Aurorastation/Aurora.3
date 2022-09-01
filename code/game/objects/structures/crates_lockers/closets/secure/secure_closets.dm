@@ -87,3 +87,37 @@
 		togglelock(usr)
 	else
 		to_chat(usr, SPAN_WARNING("This mob type can't use this verb."))
+
+// Marooning Equipment
+/obj/structure/closet/secure_closet/marooning_equipment
+	name = "marooning equipment locker"
+	icon_state = "maroon"
+	req_one_access = list(access_security, access_heads) // Marooned personnel would likely be marooned by security and/or command.
+
+/obj/structure/closet/secure_closet/marooning_equipment/fill()
+	new /obj/item/clothing/mask/breath(src)
+	new /obj/item/clothing/under/color/yellow(src)
+	new /obj/item/clothing/shoes/workboots/grey(src)
+	new /obj/item/clothing/head/helmet/space/emergency/marooning_equipment(src)
+	new /obj/item/clothing/suit/space/emergency/marooning_equipment(src)
+	new /obj/item/tank/oxygen/marooning_equipment(src)
+	new /obj/item/storage/backpack/duffel/marooning_equipment(src)
+
+/obj/item/storage/backpack/duffel/marooning_equipment
+	name = "marooning equipment duffel bag"
+	desc = "A duffel bag full of marooning equipment."
+	starts_with = list(
+		/obj/item/crowbar/red = 1,
+		/obj/item/device/flashlight/heavy = 1,
+		/obj/item/device/gps/marooning_equipment = 1,
+		/obj/item/airbubble = 1,
+
+		// Rations
+		/obj/item/storage/box/fancy/mre/menu5 = 1,
+		/obj/item/storage/box/fancy/mre/menu9 = 1,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 4,
+
+		// Medical Supplies
+		/obj/item/storage/firstaid/marooning_equipment = 1,
+		/obj/item/storage/firstaid/o2 = 1
+	)

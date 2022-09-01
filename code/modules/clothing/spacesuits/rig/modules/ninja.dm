@@ -152,7 +152,7 @@
 	return TRUE
 
 /obj/item/rig_module/teleporter/skrell
-	name = "jargon teleportation module"
+	name = "nralakk teleportation module"
 
 	phase_in_visual = /obj/effect/temp_visual/phase/rift
 	phase_out_visual = /obj/effect/temp_visual/phase/rift

@@ -66,7 +66,7 @@
 
 	disconnect_time = null
 	next_move = 1
-	sight |= SEE_SELF
+	set_sight(sight|SEE_SELF)
 	disconnect_time = null
 
 	player_age = client.player_age

@@ -13,10 +13,10 @@
 	var/obj/item/reagent_containers/syringe/syringe
 
 /obj/item/syringe_cartridge/update_icon()
-	underlays.Cut()
 	if(syringe)
-		underlays += image(syringe.icon, src, syringe.icon_state)
-		underlays += syringe.filling
+		icon_state = "syringe-cartridge-loaded"
+	else
+		icon_state = "syringe-cartridge"
 
 /obj/item/syringe_cartridge/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/reagent_containers/syringe))

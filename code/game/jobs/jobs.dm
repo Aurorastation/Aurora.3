@@ -17,6 +17,7 @@ var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
 var/const/BRIDGE_CREW		=(1<<12)
 var/const/OPERATIONS_MANAGER =(1<<13)
+var/const/HRA              =(1<<14)
 
 // MEDSCI
 var/const/MEDSCI			=(1<<1)
@@ -35,6 +36,7 @@ var/const/MED_TECH			=(1<<10)
 var/const/INTERN_MED		=(1<<11)
 var/const/INTERN_SCI		=(1<<12)
 var/const/XENOBOTANIST		=(1<<13)
+var/const/XENOARCHEOLOGIST	=(1<<14)
 
 // SERVICE
 var/const/SERVICE			=(1<<2)
@@ -87,6 +89,7 @@ var/list/medical_positions = list(
 var/list/science_positions = list(
 	"Research Director",
 	"Scientist",
+	"Xenoarchaeologist",
 	"Xenobiologist",
 	"Xenobotanist",
 	"Lab Assistant"

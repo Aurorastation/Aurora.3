@@ -860,7 +860,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set category = "Ghost"
 	ghostvision = !(ghostvision)
 	updateghostsight()
-	to_chat(usr, "You [(ghostvision?"now":"no longer")] have ghost vision.")
+	to_chat(usr, "You [(ghostvision ? "now" : "no longer")] have ghost vision.")
 
 /mob/abstract/observer/verb/toggle_darkness()
 	set name = "Toggle Darkness"
@@ -872,21 +872,19 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	//if they are on a restricted level, then set the ghost vision for them.
 	if(on_restricted_level())
 		//On the restricted level they have the same sight as the mob
-		sight &= ~(SEE_TURFS | SEE_MOBS | SEE_OBJS)
-		see_in_dark = 2
-		see_invisible = SEE_INVISIBLE_OBSERVER
+		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
+		set_see_in_dark(2)
+		set_see_invisible(SEE_INVISIBLE_OBSERVER)
 	else
 		//Outside of the restrcited level, they have enhanced vision
-		sight |= (SEE_TURFS | SEE_MOBS | SEE_OBJS)
-		see_in_dark = 100
-		see_invisible = SEE_INVISIBLE_LEVEL_TWO
+		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		set_see_in_dark(100)
+		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 
 		if (!seedarkness)
-			see_invisible = SEE_INVISIBLE_NOLIGHTING
+			set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 		else
-			see_invisible = SEE_INVISIBLE_OBSERVER
-			if (!ghostvision)
-				see_invisible = SEE_INVISIBLE_LIVING
+			set_see_invisible(ghostvision ? SEE_INVISIBLE_OBSERVER : SEE_INVISIBLE_LIVING)
 
 	updateghostimages()
 

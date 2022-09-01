@@ -92,13 +92,6 @@
 	taste_description = "food"
 	fallback_specific_heat = 1.25
 
-/decl/reagent/nutriment/synthetic
-	name = "Synthetic Nutriment"
-	description = "A cheaper alternative to actual nutriment."
-	taste_description = "cheap food"
-	nutriment_factor = 6
-	attrition_factor = (REM * 4)/BASE_MAX_NUTRITION // Increases attrition rate.
-
 /decl/reagent/nutriment/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
 	if(isemptylist(newdata))
 		return
@@ -4444,12 +4437,12 @@
 	name = "The Third Incident"
 	color = "#1936a0"
 	strength = 10
-	description = "A controversial drink popular with the punk youth of the Jargon Federation. Represents blood, eggs, and tears."
+	description = "A controversial drink popular with the punk youth of the Nralakk Federation. Represents blood, eggs, and tears."
 	taste_description = "genophage sadness"
 
 	glass_icon_state = "thirdincident"
 	glass_name = "glass of the Third Incident"
-	glass_desc = "A controversial drink popular with the punk youth of the Jargon Federation. Represents blood, eggs, and tears."
+	glass_desc = "A controversial drink popular with the punk youth of the Nralakk Federation. Represents blood, eggs, and tears."
 
 /decl/reagent/drink/upsidedowncup
 	name = "Upside-Down Cup"

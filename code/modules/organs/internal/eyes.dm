@@ -6,6 +6,7 @@
 	parent_organ = BP_HEAD
 	robotic_name = "optical sensors"
 	max_damage = 45
+	min_broken_damage = 25
 	relative_size = 5
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"
