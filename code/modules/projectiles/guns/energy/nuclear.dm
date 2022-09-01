@@ -215,7 +215,7 @@
 /obj/item/gun/energy/gun/skrell/pistol
 	name = "nralakk particle pistol"
 	desc = "A Nralakk Federation particle-beam pistol with two settings: Disable and Lethal."
-	icon = 'icons/obj/guns/jargonpistol.dmi'
+	icon = 'icons/obj/guns/nralakkpistol.dmi'
 	icon_state = "particlepistol"
 	item_state = "particlepistol"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -231,7 +231,7 @@
 /obj/item/gun/energy/gun/skrell/smg
 	name = "nralakk particle submachinegun"
 	desc = "A Nralakk Federation particle-beam submachine gun with two settings: Disable and Lethal."
-	icon = 'icons/obj/guns/jargonsmg.dmi'
+	icon = 'icons/obj/guns/nralakksmg.dmi'
 	icon_state = "particlesmg"
 	item_state = "particlesmg"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_BACK

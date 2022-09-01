@@ -65,7 +65,7 @@
 /obj/item/deck/tarot/nralakk
 	name = "qwei'paqui homeworld deck"
 	desc = "A Skrellian deck of tarot cards depicting the main constellations of Nralakk."
-	icon_state = "deck_jargon"
+	icon_state = "deck_nralakk"
 
 /obj/item/deck/tarot/nralakk/generate_deck()
 	var/datum/playingcard/P
@@ -118,7 +118,7 @@
 /obj/item/deck/tarot/nonnralakk
 	name = "qwei'paqui colonist deck"
 	desc = "A Skrellian deck of tarot cards depicting the local constellations of planets outside Nralakk."
-	icon_state = "deck_nonjargon"
+	icon_state = "deck_nonnralakk"
 
 /obj/item/deck/tarot/nonnralakk/generate_deck()
 	var/datum/playingcard/P

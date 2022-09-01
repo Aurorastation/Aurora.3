@@ -1,12 +1,12 @@
 /obj/item/clothing/head/helmet/space/rig/skrell
-	light_overlay = "helmet_light_jargon_rig"
+	light_overlay = "helmet_light_nralakk_rig"
 	light_color = LIGHT_COLOR_CYAN
 
 /obj/item/rig/skrell
 	name = "nralakk suit control module"
 	desc = "A suit control module designed by the Nralakk Federation for JFSF operations. It is designed to be sleek and agile, equipped with best protection and technology the Federation has to offer for its elite."
-	icon = 'icons/clothing/rig/jargon.dmi'
-	icon_state = "jargon_rig"
+	icon = 'icons/clothing/rig/nralakk.dmi'
+	icon_state = "nralakk_rig"
 	suit_type = "nralakk suit"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,

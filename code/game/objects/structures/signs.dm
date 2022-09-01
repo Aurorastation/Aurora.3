@@ -590,13 +590,13 @@
 /obj/structure/sign/flag/nralakk
 	name = "Nralakk Federation flag"
 	desc = "The insignia of the Nralakk Federation."
-	icon_state = "jargon"
+	icon_state = "nralakk"
 
 /obj/structure/sign/flag/nralakk/left
-	icon_state = "jargon_l"
+	icon_state = "nralakk_l"
 
 /obj/structure/sign/flag/nralakk/right
-	icon_state = "jargon_r"
+	icon_state = "nralakk_r"
 
 /obj/item/flag/nralakk
 	name = "Nralakk Federation flag"

@@ -76,5 +76,5 @@
 /obj/item/clothing/accessory/tshirt/skrell/nebula/nralakk
     name = "nralakk eriuyushi nebula shirt"
     desc = "This shirt resembles the designs of Silversun tourist clothing. Most of these shirts are made in Eriuyushi and sold at their resort. This clothing is meant to trap moisture, making it uncomfortable for non-Skrell."
-    icon_state = "jargon_skrell_hawaiian"
-    item_state = "jargon_skrell_hawaiian"
+    icon_state = "nralakk_skrell_hawaiian"
+    item_state = "nralakk_skrell_hawaiian"
