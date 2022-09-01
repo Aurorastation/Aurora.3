@@ -163,19 +163,19 @@
 
 	id = /obj/item/card/id/zeng_hu
 	uniform = list(/obj/item/clothing/under/color/purple, /obj/item/clothing/under/color/white, /obj/item/clothing/under/rank/medical/surgeon/zeng)
-	head = list(/obj/item/clothing/head/beret/corporate/zeng, /obj/item/clothing/head/softcap/zeng)
+	head = list(/obj/item/clothing/head/beret/corporate/zeng, /obj/item/clothing/head/softcap/zeng, /obj/item/clothing/head/surgery/zeng)
 
 /datum/outfit/admin/scc_scout_ship_crew/nanotrasen
 	name = "SCCV XYZ Scout Ship NanoTrasen Crewman"
 
 	id = /obj/item/card/id
 	uniform = list(/obj/item/clothing/under/color/blue, /obj/item/clothing/under/color/lightblue, /obj/item/clothing/under/rank/medical/surgeon)
-	head = list(/obj/item/clothing/head/beret/corporate, /obj/item/clothing/head/softcap/nt)
+	head = list(/obj/item/clothing/head/beret/corporate, /obj/item/clothing/head/softcap/nt, /obj/item/clothing/head/surgery)
 
 /datum/outfit/admin/scc_scout_ship_crew/zavod
 	name = "SCCV XYZ Scout Ship Zavodskoi Crewman"
 
 	id = /obj/item/card/id/zavodskoi
 	uniform = list(/obj/item/clothing/under/color/red, /obj/item/clothing/under/color/brown, /obj/item/clothing/under/rank/medical/surgeon/zavod)
-	head = list(/obj/item/clothing/head/beret/corporate/zavod, /obj/item/clothing/head/softcap/zavod, /obj/item/clothing/head/beret/red)
+	head = list(/obj/item/clothing/head/beret/corporate/zavod, /obj/item/clothing/head/softcap/zavod, /obj/item/clothing/head/beret/red, /obj/item/clothing/head/surgery/zavod)
 

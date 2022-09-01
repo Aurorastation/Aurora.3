@@ -24,7 +24,7 @@
 
 /obj/effect/overmap/visitable/ship/scc_scout_ship
 	name = "SCCV XYZ Scout Ship"
-	class = "OEV"
+	class = "SCCV"
 	desc = "SCCV XYZ Desc."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
