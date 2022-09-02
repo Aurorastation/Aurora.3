@@ -55,8 +55,9 @@
 					user.mutations.Add(HEAL)
 				if (!(XRAY in user.mutations))
 					user.mutations.Add(XRAY)
-					user.sight |= (SEE_MOBS|SEE_OBJS|SEE_TURFS)
-					user.see_invisible = SEE_INVISIBLE_LEVEL_TWO
+					user.set_sight(user.sight|SEE_MOBS|SEE_OBJS|SEE_TURFS)
+					user.set_see_in_dark(8)
+					user.set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 					to_chat(user, "<span class='notice'>The walls suddenly disappear.</span>")
 					user.set_species(SPECIES_REVENANT)
 					user.mind.special_role = "Avatar of the Wish Granter"

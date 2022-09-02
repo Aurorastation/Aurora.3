@@ -3927,7 +3927,7 @@
 
 /obj/item/reagent_containers/food/snacks/skrellsnacks
 	name = "\improper SkrellSnax"
-	desc = "Cured eki shipped all the way from Jargon 4, almost like jerky! Almost."
+	desc = "Cured eki shipped all the way from Nralakk IV, almost like jerky! Almost."
 	icon_state = "skrellsnacks"
 	trash = /obj/item/trash/skrellsnacks
 	filling_color = "#A66829"
@@ -4012,7 +4012,7 @@
 /obj/item/reagent_containers/food/snacks/neaerakabob
 	name = "neaera-kabob"
 	icon_state = "neaera_skewer"
-	desc = "Neaera meat and organs that have been cooked on a skewer. Typical street vendor food in the Jargon Federation."
+	desc = "Neaera meat and organs that have been cooked on a skewer. Typical street vendor food in the Nralakk Federation."
 	trash = /obj/item/stack/rods
 	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 8)
 	reagent_data = list(/decl/reagent/nutriment/protein/seafood = list("fatty meat" = 2))

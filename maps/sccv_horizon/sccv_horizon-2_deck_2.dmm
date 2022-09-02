@@ -9266,7 +9266,7 @@
 /obj/machinery/door/airlock/glass_security{
 	id_tag = null;
 	name = "Armory Entrance";
-	req_access = list(63)
+	req_access = list(1)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -30881,7 +30881,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
 "qlV" = (
-/obj/machinery/door/airlock/glass_security,
+/obj/machinery/door/airlock/glass_security{
+	name = "Security Desk";
+	req_access = list(1)
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -37607,6 +37610,9 @@
 	req_access = list(19)
 	},
 /obj/effect/map_effect/door_helper/unres,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/teleporter)
 "tNU" = (
@@ -38129,7 +38135,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Security Equipment Room";
-	req_access = list(63)
+	req_access = list(1)
 	},
 /turf/simulated/floor/tiled,
 /area/security/main)

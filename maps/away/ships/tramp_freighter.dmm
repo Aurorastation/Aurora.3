@@ -522,7 +522,7 @@
 /area/ship/tramp_freighter)
 "dqq" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = list(203)
+	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -1863,6 +1863,7 @@
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
 "uDF" = (
