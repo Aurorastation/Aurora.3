@@ -2,10 +2,6 @@
 // Cans
 //
 
-// Can Defines
-#define CLOSED 1
-#define OPEN   2
-
 // Bomb Defines
 #define LETHAL_FUEL_CAPACITY 21 // This many units of fuel will cause a harmful explosion.
 #define FUSELENGTH_MAX       10 // This is the longest a fuse can be.
@@ -32,7 +28,7 @@
 	amount_per_transfer_from_this = 5
 	volume = 33 // Centiliters.
 
-	var/state = CLOSED
+	var/can_open = FALSE // If the can is opened. Used for the "open_overlay".
 	var/sticker // Used to know which overlay sticker to put on the can.
 	var/shadow_overlay = "33cl_shadow_overlay" // Used to know where the shadow overlay goes.
 	var/open_overlay = "33cl_open_overlay" // Used to know where the open overlay goes.
@@ -78,7 +74,7 @@
 	add_overlay(shadow_overlay)
 	add_overlay(sticker)
 
-	if(state == OPEN)
+	if(can_open)
 		add_overlay(open_overlay)
 
 	// Bomb Code
@@ -105,7 +101,7 @@
 		SPAN_NOTICE("You can hear a pop.")
 	)
 	flags |= OPENCONTAINER
-	state = OPEN
+	can_open = TRUE
 	update_icon()
 
 // attackby()
@@ -328,50 +324,66 @@
 // Carbonated Water
 /obj/item/reagent_containers/food/drinks/cans/carbonated_water
 	name = "\improper carbonated water can"
-	desc = "A can of carbonated water."
+	desc = "A 33 cl can of carbonated water."
 	sticker = "water"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/water/carbonated = 33)
 
-// Starfall
+// Starfall (Cola)
 /obj/item/reagent_containers/food/drinks/cans/starfall
 	name = "\improper Starfall can"
-	desc = "A can of Starfall cola."
+	desc = "A 33 cl can of Starfall cola."
 	sticker = "starfall"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/space_cola = 33)
 
-// Starfall Max
+// Starfall Max (Cola)
 /obj/item/reagent_containers/food/drinks/cans/starfall_max
 	name = "\improper Starfall Max can"
-	desc = "A can of Starfall Max cola. Contains no sugar, unless you count the sweetener as sugar."
+	desc = "A 33 cl can of Starfall Max cola. Contains no sugar, unless you count the sweetener as sugar."
 	sticker = "starfall_max"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/diet_cola = 33)
 
-// Comet Cola
+// Comet Cola (Cola)
 /obj/item/reagent_containers/food/drinks/cans/comet_cola
 	name = "\improper Comet Cola can"
-	desc = "A can of Comet Cola."
+	desc = "A 33 cl can of Comet Cola."
 	sticker = "comet_cola"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/space_cola = 33)
 
-// Comet Cola Zero
+// Comet Cola Zero (Cola)
 /obj/item/reagent_containers/food/drinks/cans/comet_cola_zero
 	name = "\improper Comet Cola Zero can"
-	desc = "A can of Comet Cola Zero, the zero sugar variant as the name implies."
+	desc = "A 33 cl can of Comet Cola Zero. The zero sugar variant as the name implies."
 	sticker = "comet_cola_zero"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/decl/reagent/drink/diet_cola = 33)
 
-/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind
-	name = "\improper Space Mountain Wind"
-	desc = "Blows right through you like a space wind."
-
+// Stellar Jolt (Lemon and Lime Soda)
+/obj/item/reagent_containers/food/drinks/cans/stellar_jolt
+	name = "\improper Stellar Jolt can"
+	desc = "A 33 cl can of Stellar Jolt."
+	sticker = "jolt"
 	center_of_mass = list("x"=16, "y"=10)
-
 	reagents_to_add = list(/decl/reagent/drink/spacemountainwind = 33)
+
+// Lemon Twist (Lemon and Lime Soda)
+/obj/item/reagent_containers/food/drinks/cans/lemon_twist
+	name = "\improper Lemon Twist can"
+	desc = "A 33 cl can of Lemon Twist."
+	sticker = "lemon_twist"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/decl/reagent/drink/spacemountainwind = 33)
+
+// OJ Dash (Orange Soda)
+/obj/item/reagent_containers/food/drinks/cans/oj_dash
+	name = "\improper OJ Dash can"
+	desc = "A 33 cl can of OJ Dash."
+	sticker = "oj_dash"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/decl/reagent/drink/brownstar = 33)
 
 /obj/item/reagent_containers/food/drinks/cans/thirteenloko
 	name = "thirteen loko"
@@ -389,32 +401,8 @@
 
 	reagents_to_add = list(/decl/reagent/drink/dr_gibb = 33)
 
-/obj/item/reagent_containers/food/drinks/cans/starkist
-	name = "\improper Star-kist"
-	desc = "The taste of a star in liquid form. And, a bit of tuna...?"
-
-	center_of_mass = list("x"=16, "y"=10)
-
-	reagents_to_add = list(/decl/reagent/drink/brownstar = 33)
-
-/obj/item/reagent_containers/food/drinks/cans/space_up
-	name = "\improper Space-Up"
-	desc = "Tastes like a hull breach in your mouth."
-
-	center_of_mass = list("x"=16, "y"=10)
-
-	reagents_to_add = list(/decl/reagent/drink/spaceup = 33)
-
-/obj/item/reagent_containers/food/drinks/cans/lemon_lime
-	name = "\improper Lemon-Lime"
-	desc = "You wanted ORANGE. It gave you Lemon Lime."
-
-	center_of_mass = list("x"=16, "y"=10)
-
-	reagents_to_add = list(/decl/reagent/drink/lemon_lime = 33)
-
 /obj/item/reagent_containers/food/drinks/cans/iced_tea
-	name = "\improper Silversun Wave iced tea"
+	name = "\improper Silversun Wave ice tea"
 	desc = "Marketed as a favorite amongst parched Silversun beachgoers, there's actually more sugar in this than there is tea."
 
 	center_of_mass = list("x"=16, "y"=10)
