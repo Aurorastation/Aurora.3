@@ -14518,7 +14518,7 @@
 	},
 /obj/machinery/door/window/westleft{
 	name = "Pun Pun's Cage Access";
-	req_access = list(57)
+	req_access = list(25)
 	},
 /mob/living/carbon/human/monkey/punpun,
 /turf/simulated/floor/carpet,
