@@ -187,6 +187,7 @@
 	..()
 	var/list/sweater = list()
 	sweater["sweater"] = /obj/item/clothing/accessory/sweater
+	sweater["sweater, alt"] = /obj/item/clothing/accessory/sweater/alt
 	sweater["crewneck sweater"] = /obj/item/clothing/accessory/sweatercrewneck
 	sweater["v-neck sweater"] = /obj/item/clothing/accessory/sweatervneck
 	sweater["sweater vest"] = /obj/item/clothing/accessory/sweatervest

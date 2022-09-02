@@ -5,6 +5,12 @@
 	icon_state = "sweater"
 	item_state = "sweater"
 
+/obj/item/clothing/accessory/sweater/alt
+	icon = 'icons/contained_items/clothing/shirts/sweater_alt.dmi'
+	icon_state = "sweater_alt"
+	item_state = "sweater_alt"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/sweatervest
 	name = "sweater vest"
 	desc = "A warm knit sweater vest."
