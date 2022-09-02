@@ -72,6 +72,8 @@
 
 #define isspace(A) istype(A, /area/space)
 
+#define isspaceturf(A) istype(A, /turf/space)
+
 #define isobserver(A) istype(A, /mob/abstract/observer)
 
 #define isorgan(A) istype(A, /obj/item/organ/external)

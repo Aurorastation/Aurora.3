@@ -12,7 +12,7 @@
 
 	var/prefix = null
 	var/suffix = null
-	template_flags = 0 // No duplicates by default
+	template_flags = TEMPLATE_FLAG_NO_RUINS // Don't let ruins spawn on top of ruins
 
 	// !! Currently only implemented for away sites
 	var/list/force_ruins // Listed ruins are always spawned unless disallowed by flags.

@@ -187,6 +187,7 @@
 	name = "exterior access button";
 	pixel_x = 32
 	},
+/obj/machinery/iff_beacon/name_change,
 /turf/template_noop,
 /area/ship/orion_express_ship)
 "bgA" = (
@@ -744,7 +745,7 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "fwA" = (
-/obj/structure/barricade/steel,
+/obj/structure/blocker/steel,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "fJC" = (
@@ -1103,6 +1104,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor/airless,
 /area/shuttle/orion_express_shuttle)
 "iGD" = (
@@ -2277,6 +2279,9 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
+	},
+/obj/machinery/button/distress{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)

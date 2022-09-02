@@ -99,6 +99,14 @@
 /obj/effect/floor_decal/corner/green/full
 	icon_state = "corner_white_full"
 
+/obj/effect/floor_decal/corner/light
+	name = "light corner"
+	icon_state = "corner_light"
+
+/obj/effect/floor_decal/corner/light/full
+	name = "full light corner"
+	icon_state = "corner_light_full"
+
 /obj/effect/floor_decal/corner/lime
 	name = "lime corner"
 	color = COLOR_PALE_GREEN_GRAY
@@ -265,6 +273,14 @@
 
 /obj/effect/floor_decal/corner_wide/lime/full
 	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/light
+	name = "light wide corner"
+	icon_state = "wide_corner_light"
+
+/obj/effect/floor_decal/corner_wide/light/full
+	name = "full light wide corner"
+	icon_state = "wide_corner_full_light"
 
 /obj/effect/floor_decal/corner_wide/yellow
 	name = "yellow corner"
@@ -444,10 +460,14 @@
 /obj/effect/floor_decal/industrial/hatch/red
 	color = "#990C0C"
 
+//
+// Outline
+//
 /obj/effect/floor_decal/industrial/outline
 	name = "white outline"
 	icon_state = "outline"
 
+// Outline - Colours
 /obj/effect/floor_decal/industrial/outline/blue
 	name = "cyan outline"
 	color = "#b6efe1"
@@ -464,6 +484,7 @@
 	name = "red outline"
 	color = "#990C0C"
 
+// Outline - Departmental
 /obj/effect/floor_decal/industrial/outline/custodial
 	name = "custodial purple outline"
 	color = COLOR_PURPLE_GRAY
@@ -487,6 +508,15 @@
 /obj/effect/floor_decal/industrial/outline/security
 	name = "security blue outline"
 	color = COLOR_BLUE_GRAY
+
+// Outline - Informative
+/obj/effect/floor_decal/industrial/outline/emergency_closet
+	name = "blue emergency closet outline"
+	color = "#618FBA"
+
+/obj/effect/floor_decal/industrial/outline/firefighting_closet
+	name = "red firefighting closet outline"
+	color = "#C82D2D"
 
 /obj/effect/floor_decal/industrial/loading
 	name = "loading area"

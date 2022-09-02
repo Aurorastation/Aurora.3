@@ -3,12 +3,17 @@
 	description = "The Badlands are home to some of the Orion Spur's most savage flora and fauna, a phenomenon that attracts only the wildest and wisest of the system's inhabitants - xenobiologists, \
 	weapon scientists, there's even a market for mercenaries, in the hunting of the particularly large and lethal creatures. Of course, there are also those looking to make a life for themselves, \
 	but natives aren't known to treat settlements kindly."
+	skybox_icon = "badlands"
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren)
 
 /datum/space_sector/valley_hale
 	name = SECTOR_VALLEY_HALE
 	description = "Nestled in the narrow Frontier space between the Republic of Elyra and the former borders of the Solarian Alliance is Valley Hale, a large region filled with a large \
 	amount of old, dying stars and impassable nebulae. Due to close proximity to patrols on either end of this space, it isn't frequented much by criminal elements and is one of the \
 	safer parts of the known Frontier. After 2462, the Republic of Elyra has occupied the majority of Valley Hale, now bordering the Republic of Biesel."
+	skybox_icon = "valley_hale"
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren)
+
 
 /datum/space_sector/new_ankara
 	name = SECTOR_NEW_ANKARA
@@ -16,6 +21,7 @@
 	native ecosystems already present. Original Alliance-funded terraforming efforts transformed the planet into an Earthlike planet within a decade, allowing the population to flourish \
 	before and after independence. Commercial and service sector jobs remain the highest employer, second to refineries processing phoron or other minerals transported to the planet's \
 	orbit. This is among the primary locations in Elyra where phoron can be found in abundance."
+	skybox_icon = "valley_hale"
 
 /datum/space_sector/aemag
 	name = SECTOR_AEMAQ
@@ -24,6 +30,7 @@
 	Rumaidair. The chemical seas are home to a variety of fauna, some of which are known as leviathans -- truly massive creatures able to grow up to two kilometers long! Though the \
 	planet well-known for its research into the seas the chemical industry remains the primary employer on Aemaq, and many hopeful immigrants to the Republic find themselves working \
 	in the massive chemical plants of Aemaq to make ends meet."
+	skybox_icon = "valley_hale"
 
 /datum/space_sector/srandmarr
 	name = SECTOR_SRANDMARR

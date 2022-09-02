@@ -11,7 +11,6 @@
 		for(var/atom/movable/AM in client.screen)
 			qdel(AM)
 		client.screen = list()
-		client.cleanup_parallax_references()
 	if (mind)
 		mind.handle_mob_deletion(src)
 	for(var/infection in viruses)
@@ -154,6 +153,10 @@
 
 	if(intent_message)
 		intent_message(intent_message, intent_range, messagemobs)
+
+	//Multiz, have shadow do same
+	if(bound_overlay)
+		bound_overlay.visible_message(message, blind_message, range)
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
@@ -1321,14 +1324,6 @@
 		LAZYREMOVE(AM.contained_mobs, src)
 
 	. = ..()
-
-	if (!contained_mobs)	// If this is true, the parent will have already called the client hook.
-		update_client_hook(loc)
-
-/mob/Move()
-	. = ..()
-	if (. && !contained_mobs && client)
-		update_client_hook(loc)
 
 /mob/verb/northfaceperm()
 	set hidden = 1

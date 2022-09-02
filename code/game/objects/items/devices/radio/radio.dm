@@ -1,8 +1,9 @@
-// Access check is of the type requires one. These have been carefully selected to avoid allowing the janitor to see channels he shouldn't
+// Access check is of the type "req_one_access".
+// These have been carefully selected to avoid allowing anyone with generic departmental access to see channels they should not.
 var/global/list/default_internal_channels = list(
 	num2text(PUB_FREQ) = list(),
-	num2text(AI_FREQ)  = list(access_synth),
 	num2text(ENT_FREQ) = list(),
+	num2text(AI_FREQ)  = list(access_synth),
 	num2text(ERT_FREQ) = list(access_cent_specops),
 	num2text(COMM_FREQ)= list(access_heads),
 	num2text(ENG_FREQ) = list(access_engine_equip, access_atmospherics),
@@ -21,6 +22,10 @@ var/global/list/default_medbay_channels = list(
 	num2text(MED_FREQ) = list(access_medical_equip),
 	num2text(MED_I_FREQ) = list(access_medical_equip)
 )
+
+//
+// Radios
+//
 
 /obj/item/device/radio
 	icon = 'icons/obj/radio.dmi'
@@ -625,22 +630,9 @@ var/global/list/default_medbay_channels = list(
 		channels[ch_name] = 0
 	..()
 
-/obj/item/device/radio/med
-	icon_state = "walkietalkie-med"
-
-/obj/item/device/radio/sec
-	icon_state = "walkietalkie-sec"
-
-/obj/item/device/radio/eng
-	icon_state = "walkietalkie-eng"
-
-/obj/item/device/radio/sci
-	icon_state = "walkietalkie-sci"	
-
-///////////////////////////////
-//////////Borg Radios//////////
-///////////////////////////////
-//Giving borgs their own radio to have some more room to work with -Sieve
+//
+// Vesselbound Synthetic Radio
+//
 
 /obj/item/device/radio/borg
 	var/mob/living/silicon/robot/myborg = null // Cyborg which owns this radio. Used for power checks
@@ -814,9 +806,47 @@ var/global/list/default_medbay_channels = list(
 			secure_radio_connections[ch_name] = SSradio.add_object(src, radiochannels[ch_name],  RADIO_CHAT)
 	return
 
+//
+// Radio Variants
+//
+
+// Radio (Off)
 /obj/item/device/radio/off
 	listening = FALSE
 
+// Medical
+/obj/item/device/radio/med
+	icon_state = "walkietalkie-med"
+
+// Medical (Off)
+/obj/item/device/radio/med/off
+	listening = FALSE
+
+// Security
+/obj/item/device/radio/sec
+	icon_state = "walkietalkie-sec"
+
+// Security (Off)
+/obj/item/device/radio/sec/off
+	listening = FALSE
+
+// Engineering
+/obj/item/device/radio/eng
+	icon_state = "walkietalkie-eng"
+
+// Engineering (Off)
+/obj/item/device/radio/eng/off
+	listening = FALSE
+
+// Science
+/obj/item/device/radio/sci
+	icon_state = "walkietalkie-sci"
+
+// Science (Off)
+/obj/item/device/radio/sci/off
+	listening = FALSE
+
+// Phone
 /obj/item/device/radio/phone
 	broadcasting = FALSE
 	icon = 'icons/obj/radio.dmi'
@@ -825,6 +855,7 @@ var/global/list/default_medbay_channels = list(
 	name = "phone"
 	var/radio_sound = null
 
+// Medical Phone
 /obj/item/device/radio/phone/medbay
 	frequency = MED_I_FREQ
 
@@ -832,6 +863,7 @@ var/global/list/default_medbay_channels = list(
 	. = ..()
 	internal_channels = default_medbay_channels.Copy()
 
+// All-channel Radio
 /obj/item/device/radio/all_channels/Initialize()
 	channels = ALL_RADIO_CHANNELS.Copy()
 	. = ..()

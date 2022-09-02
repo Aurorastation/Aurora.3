@@ -309,7 +309,7 @@
 			G.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			return
 
-		if(istype(O, /obj/structure/barricade) || istype(O, /obj/structure/closet) || istype(O, /obj/structure/inflatable))
+		if(istype(O, /obj/structure/blocker) || istype(O, /obj/structure/closet) || istype(O, /obj/structure/inflatable))
 			var/obj/structure/S = O
 			rapid = 1
 			OpenFire(S)

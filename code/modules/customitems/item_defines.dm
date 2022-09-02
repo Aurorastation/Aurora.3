@@ -1305,79 +1305,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat //Biochemist Holocoat - Neith Mekesatis - vrow
-	name = "biochemist holocoat"
-	desc = "An extremely cared for and high quality labcoat that protects against minor chemical spills. The material feels like it could shimmer. There is a pharmaceutical logo displayed on the front."
-	icon = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
-	icon_override = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
-	icon_state = "mekesatis_labcoat"
-	item_state = "mekesatis_labcoat"
-	var/holo_name = "eridanian holocoat"
-	var/holo_desc = "An impeccably designed and cared for dark Eridani Corporate Federation holocoat modelled after a high quality labcoat. It has a prominent animated logo of the ECF on the back, \
-	as well as a minor one across the front."
-	var/changed = FALSE
-	var/changing = FALSE
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/examine(mob/user)
-	..()
-	if(!in_range(user, src))
-		to_chat(user, SPAN_NOTICE("There might be something written on the inside of the coat. You have to get closer if you want to read it."))
-		return
-
-	if(!(all_languages[LANGUAGE_TRADEBAND] in user.languages))
-		to_chat(user, SPAN_NOTICE("On the inside of the coat there is a sentence in Tradeband printed in [changed ? "an elegant blue" : "a stylish red"] font."))
-		return
-
-	else if(!changed)
-		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in a stylish red font:<br><span style='font-family: Fixedsys; color: red'>Exclusive Time Limited Holocoat Deal from July 30, 2459. \
-		Now with graced with an animated Eridani Corporate Federation logo. For the Prosperity of all Eridanians - <i>Delta HoloTextiles. Sector Alpha's best wears.</i></span>"))
-		return
-
-	else
-		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in an elegant blue font:<br><i><font face='Courier New'>Every cloud has a silver lining, \
-		and you should be grateful for yours. Congratulations on your graduation.</font> - <font face='Times New Roman'>Taiwo O. M.</font></i>"))
-		return
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/toggle_open()
-	if(!changing)
-		opened = !opened
-		to_chat(usr, SPAN_NOTICE("You [opened ? "unbutton" : "button up"] \the [src]."))
-		playsound(src, /decl/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
-		icon_state = "mekesatis_[changed ? "holocoat" : "labcoat"][opened ? "_open" : ""]"
-		item_state = icon_state
-		update_clothing_icon()
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/verb/activate_holocoat()
-	set name = "Toggle Holocoat"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return
-
-	if(changing)
-		return
-
-	usr.visible_message("<span class='notice'>With a subtle gesture, [changed ? "the holocoat fades to a normal labcoat." : "the labcoat shimmers in activity!"]</span>")
-	icon_state = "mekesatis_[changed ? "labcoat_r" : "holocoat_t"][opened ? "_open" : ""]"
-	item_state = icon_state
-	name = "[changed ? initial(name) : holo_name]"
-	desc = "[changed ? initial(desc) : holo_desc]"
-	flick("mekesatis_[changed ? "labcoat_r" : "holocoat_t"][opened ? "_open" : ""]", src)
-
-	update_icon()
-	usr.update_inv_wear_suit()
-	changing = TRUE
-	addtimer(CALLBACK(src, .proc/finish_toggle, usr), 6 SECONDS)
-
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/proc/finish_toggle(mob/user)
-	changed = !changed
-	icon_state = "mekesatis_[changed ? "holocoat" : "labcoat"][opened ? "_open" : ""]"
-	item_state = icon_state
-	update_icon()
-	user.update_inv_wear_suit()
-	changing = FALSE
-
 /obj/item/device/megaphone/fluff/akinyi_mic //Resonance Microphone - Akinyi Idowu - kyres1
 	name = "resonance microphone"
 	desc = "A rather costly voice amplifier disguised as a microphone. A button on the side permits the user to dial their vocal volume with ease."
@@ -2138,7 +2065,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/suit/storage/fluff/quoro_suit //Skrellian Fancy Robes - Quoro Wurri'Til - witchbells
 	name = "skrellian fancy robes"
 	desc = "An elaborate yet functional set of robes favored by the upper echelons of skrellian society, with a silver belt attached. A star is embroidered on the back, \
-	symbolizing the Jargon Federation."
+	symbolizing the Nralakk Federation."
 	icon = 'icons/obj/custom_items/quoro_items.dmi'
 	icon_override = 'icons/obj/custom_items/quoro_items.dmi'
 	icon_state = "quoro_suit"
@@ -2146,9 +2073,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Jargon division cloak - Eden Li - Huntime
-	name = "Zeng-Hu cloak: Jargon Division"
-	desc = "A cloak worn by Zeng-Hu personnel who worked with or in the Jargon Federation."
+/obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Nralakk division cloak - Eden Li - Huntime
+	name = "Zeng-Hu cloak: Nralakk Division"
+	desc = "A cloak worn by Zeng-Hu personnel who worked with or in the Nralakk Federation."
 	icon = 'icons/obj/custom_items/eden_cloak.dmi'
 	icon_override = 'icons/obj/custom_items/eden_cloak.dmi'
 	icon_state = "ZH_cape_custom"

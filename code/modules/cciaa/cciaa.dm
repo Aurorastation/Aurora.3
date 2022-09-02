@@ -1,11 +1,3 @@
-/proc/clear_cciaa_job(var/mob/living/carbon/human/M)
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/actual_clear_ccia_job, M), 9000)
-
-/proc/actual_clear_ccia_job(mob/living/carbon/human/H)
-	if (!H.client)
-		var/oldjob = H.mind.assigned_role
-		SSjobs.FreeRole(oldjob)
-
 /datum/admins/proc/create_admin_fax(var/department in alldepartments)
 	set name = "Send admin fax"
 	set desc = "Send a fax from Central Command"

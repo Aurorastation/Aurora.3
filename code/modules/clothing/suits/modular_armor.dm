@@ -107,7 +107,7 @@
 	)
 
 /obj/item/clothing/accessory/armor_plate/generic
-	name = "kevlar armor plate"
+	name = "standard armor plate"
 	desc = "A light-weight kevlar armor plate in drab black colors. A galactic favourite of Zavodskoi fans."
 	icon_state = "plate_generic"
 	item_state = "plate_generic"
@@ -242,6 +242,12 @@
 	contained_sprite = TRUE
 	icon_state = "helm_sec"
 	item_state = "helm_sec"
+
+/obj/item/clothing/head/helmet/security/generic
+	name = "standard helmet"
+	desc = "A shiny helmet in grey! Goes well with the respective plate carrier."
+	icon_state = "helm_generic"
+	item_state = "helm_generic"
 
 /obj/item/clothing/head/helmet/security/skrell
 	name = "skrellmet"
@@ -460,12 +466,12 @@
 	icon_state = "flagpatch_fisanduh"
 	item_state = "flagpatch_fisanduh"
 
-/obj/item/clothing/accessory/flagpatch/jargon
-	name = "jargon flagpatch"
-	desc = "A flagpatch representing the Jargon Federation. The free use of these patches is a contentious issue back home as \
+/obj/item/clothing/accessory/flagpatch/nralakk
+	name = "nralakk flagpatch"
+	desc = "A flagpatch representing the Nralakk Federation. The free use of these patches is a contentious issue back home as \
 	there is a fear that their wearers may misrepresent the nation."
-	icon_state = "flagpatch_jargon"
-	item_state = "flagpatch_jargon"
+	icon_state = "flagpatch_nralakk"
+	item_state = "flagpatch_nralakk"
 
 /obj/item/clothing/accessory/flagpatch/pra
 	name = "pra flagpatch"

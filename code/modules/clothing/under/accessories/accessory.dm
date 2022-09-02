@@ -593,7 +593,7 @@
 
 /obj/item/clothing/accessory/poncho/shouldercape/nova
 	name = "nova cape"
-	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it"
+	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it."
 	icon_state = "novacape"
 	item_state = "novacape"
 	overlay_state = "novacape"
@@ -604,6 +604,13 @@
 	icon_state = "galaxycape"
 	item_state = "galaxycape"
 	overlay_state = "galaxycape"
+
+/obj/item/clothing/accessory/poncho/shouldercape/cosmic
+	name = "cosmic cape"
+	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it, of constellations and stars visible from Qerrbalak."
+	icon_state = "cosmiccape"
+	item_state = "cosmiccape"
+	overlay_state = "cosmiccape"
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	name = "qeblak mantle"
@@ -626,10 +633,10 @@
 	flippable = FALSE
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
-	name = "Jargon Division Zeng-Hu cloak"
-	desc = "This cloak is given to Zeng-Hu employees who have assisted or worked in collaboration with the Jargon Federation."
+	name = "Nralakk Division Zeng-Hu cloak"
+	desc = "This cloak is given to Zeng-Hu employees who have assisted or worked in collaboration with the Nralakk Federation."
 	desc_fluff = "A cloak given to senior level doctors and researchers for Zeng-Hu who has \
-	in the past been given the privilege of working within or in collaboration with the Jargon Federation\
+	in the past been given the privilege of working within or in collaboration with the Nralakk Federation\
 	 as a show of goodwill between the corporation and federation."
 	icon = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
 	icon_override = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
@@ -899,7 +906,7 @@
 
 /obj/item/clothing/accessory/pin/corporate
 	name = "corporate badge"
-	desc = "A shiny button which reads, <i>'Nanotrasen - The leader in all things Phoron!'</i>"
+	desc = "A shiny button which reads, <i>'NanoTrasen - The leader in all things Phoron!'</i>"
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	icon_state = "nt_liaison_badge"
 	item_state = "nt_liaison_badge"

@@ -417,12 +417,21 @@
 
 /obj/item/clothing/head/beret/dominia/priest
 	name = "tribunalist's beret"
-	desc = " black beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by full members of the Tribunal's clergy."
+	desc = "A black beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by full members of the Tribunal's clergy."
 	desc_fluff = "With their black and gold clothing designed to resemble that of their noble counterparts, the full clergy of the Moroz Holy Tribunal \
 	are a sight to behold both inside and outside of the Empire of Dominia. This beret features an emblem luxuriously and painstakingly crafted out of real gold."
 	icon = 'icons/clothing/head/dominia_beret_priest.dmi'
 	icon_state = "dominia_beret_priest"
 	item_state = "dominia_beret_priest"
+
+/obj/item/clothing/head/beret/dominia/priest/red
+	name = "tribunalist's beret"
+	desc = "A red beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by full members of the Tribunal's clergy."
+	desc_fluff = "With their red and gold clothing designed to resemble that of their noble counterparts, the full clergy of the Moroz Holy Tribunal \
+	are a sight to behold both inside and outside of the Empire of Dominia. This beret features an emblem luxuriously and painstakingly crafted out of real gold."
+	icon = 'icons/clothing/head/dominia_beret_priest.dmi'
+	icon_state = "dominia_beret_priest_red"
+	item_state = "dominia_beret_priest_red"
 
 /obj/item/clothing/head/beret/dominia/consular
 	name = "tribunalist's beret"

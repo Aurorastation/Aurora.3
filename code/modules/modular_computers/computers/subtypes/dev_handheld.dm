@@ -13,6 +13,7 @@
 	hardware_flag = PROGRAM_TABLET
 	max_hardware_size = 1
 	w_class = ITEMSIZE_SMALL
+	is_portable = TRUE
 
 /obj/item/modular_computer/handheld/Initialize()
 	. = ..()

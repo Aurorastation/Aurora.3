@@ -320,6 +320,37 @@
 	else
 		to_chat(user, "\The [launcher] is empty.")
 
+/obj/item/gun/projectile/automatic/rifle/jingya
+	name = "burst rifle"
+	desc = "The Jingya A-1 is the first of a new line of NanoTrasen rifles, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. They are made to be sleek, easy to use by users with minimal training and cheap to mass produce while still being reliable."
+	desc_fluff = "The Jingya A-1 won a hard-fought victory in the ballistic side of the SCC Future Firearms contest hosted in 2463, which was also its first unveiling: this rifle is made to function where laser weaponry may be either too risky or not functional for the engagement at hand. It is slated to be deployed for trial usage by a select few special TCFL regiments in Mictlan."
+	icon = 'icons/obj/guns/crew_rifle.dmi'
+	icon_state = "arifle"
+	item_state = "arifle"
+	w_class = ITEMSIZE_LARGE
+	force = 10
+	caliber = "a556"
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
+	ammo_type = /obj/item/ammo_casing/a556
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
+	slot_flags = SLOT_BACK
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/a556/carbine/polymer
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine, /obj/item/ammo_magazine/a556/carbine/polymer)
+
+	burst_delay = 4
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=12),
+		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(1, 1))
+	)
+
+/obj/item/gun/projectile/automatic/rifle/jingya/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "arifle"
+	else
+		icon_state = "arifle-empty"
+
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"
 	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armory- 2431' engraved on the receiver"

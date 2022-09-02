@@ -253,6 +253,7 @@
 	eye_attack_text = "claws"
 	eye_attack_text_victim = "claws"
 	attack_name = "clawed fists"
+	shredding = TRUE
 
 	damage = 7.5
 	attack_door = 20
