@@ -64,3 +64,5 @@
 	new /obj/item/clothing/under/rank/machinist/heph(src)
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/device/multitool(src)
+	new /obj/item/ipc_tag_scanner(src)
+	new /obj/item/device/robotanalyzer(src)
