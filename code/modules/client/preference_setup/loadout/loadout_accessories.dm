@@ -193,7 +193,7 @@
 	sweater["turtleneck sweater"] = /obj/item/clothing/accessory/sweater/turtleneck
 	sweater["crewneck sweater"] = /obj/item/clothing/accessory/sweater/crewneck
 	sweater["v-neck sweater"] = /obj/item/clothing/accessory/sweater/v_neck
-	sweater["v-neck sweater, alt"] = /obj/item/clothing/accessory/sweater/v_neck/alt
+	sweater["deep v-neck sweater"] = /obj/item/clothing/accessory/sweater/v_neck/deep
 
 	// Argyle Sweaters
 	sweater["argyle sweater"] = /obj/item/clothing/accessory/argyle_sweater

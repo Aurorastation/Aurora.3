@@ -41,9 +41,9 @@
 	item_state = "sweater_v_neck"
 
 // Alternative V-neck Sweater
-/obj/item/clothing/accessory/sweater/v_neck/alt
-	icon_state = "sweater_v_neck_alt"
-	item_state = "sweater_v_neck_alt"
+/obj/item/clothing/accessory/sweater/v_neck/deep
+	icon_state = "sweater_deep_v_neck"
+	item_state = "sweater_deep_v_neck"
 	contained_sprite = TRUE
 
 // Argyle Sweater
