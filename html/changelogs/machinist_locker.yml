@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds two machinist's lockers to the machinist workshop."
+  - maptweak: "Tweaks the machinist workshop layout slightly."

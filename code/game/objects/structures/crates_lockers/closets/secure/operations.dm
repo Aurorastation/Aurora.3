@@ -45,3 +45,22 @@
 /obj/structure/closet/secure_closet/merchant
 	name = "merchant locker"
 	req_access = list(access_merchant)
+
+/obj/structure/closet/secure_closet/machinist
+	name = "machinist's locker"
+	req_access = list(access_robotics)
+	icon_state = "cargo"
+
+/obj/structure/closet/secure_closet/machinist/fill()
+	..()
+	new /obj/item/clothing/head/welding(src)
+	new /obj/item/clothing/glasses/welding(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
+	new /obj/item/clothing/gloves/black(src)
+	new /obj/item/clothing/gloves/yellow(src)
+	new /obj/item/clothing/gloves/yellow/specialu(src)
+	new /obj/item/clothing/gloves/yellow/specialt(src)
+	new /obj/item/clothing/under/rank/machinist/orion(src)
+	new /obj/item/clothing/under/rank/machinist/heph(src)
+	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/device/multitool(src)
