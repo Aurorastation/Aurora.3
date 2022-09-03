@@ -8122,6 +8122,7 @@
 /area/kataphract_chapter/propulsion)
 "Ht" = (
 /obj/effect/overmap/visitable/ship/kataphract_ship,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "HK" = (
