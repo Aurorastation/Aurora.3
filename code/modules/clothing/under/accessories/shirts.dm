@@ -7,7 +7,7 @@
 	name = "sweater"
 	desc = "A warm, knit sweater."
 	desc_fluff = "Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
-	icon = 'icons/contained_items/clothing/shirts/sweaters.dmi'
+	icon = 'icons/contained_items/clothing/topwear/sweaters.dmi'
 	icon_state = "sweater"
 	item_state = "sweater"
 	contained_sprite = TRUE
@@ -50,7 +50,7 @@
 /obj/item/clothing/accessory/argyle_sweater
 	name = "argyle sweater"
 	desc = "A warm, knit sweater with an argyle pattern."
-	icon = 'icons/contained_items/clothing/shirts/sweaters.dmi'
+	icon = 'icons/contained_items/clothing/topwear/shirts/sweaters.dmi'
 	icon_state = "argyle_sweater"
 	item_state = "argyle_sweater"
 	contained_sprite = TRUE
@@ -88,7 +88,7 @@
 	name = "sweater vest"
 	desc = "A warm, knit sweater vest."
 	desc_fluff = "Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
-	icon = 'icons/contained_items/clothing/shirts/sweaters.dmi'
+	icon = 'icons/contained_items/clothing/topwear/shirts/sweaters.dmi'
 	icon_state = "sweater_vest"
 	item_state = "sweater_vest"
 	contained_sprite = TRUE
@@ -98,7 +98,7 @@
 	name = "argyle sweater vest"
 	desc = "A warm, knit sweater vest with an argyle pattern."
 	desc_fluff = "Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
-	icon = 'icons/contained_items/clothing/shirts/sweaters.dmi'
+	icon = 'icons/contained_items/clothing/topwear/shirts/sweaters.dmi'
 	icon_state = "argyle_sweater_vest"
 	item_state = "argyle_sweater_vest"
 	contained_sprite = TRUE
@@ -272,7 +272,7 @@
 /obj/item/clothing/accessory/haltertop
 	name = "halter top"
 	desc = "A sleeveless tank with straps tied behind the neck, commonly seen worn in Biesel."
-	icon = 'icons/contained_items/clothing/halter_top.dmi'
+	icon = 'icons/contained_items/clothing/topwear/halter_top.dmi'
 	icon_state = "haltertop"
 	item_state = "haltertop"
 	contained_sprite = TRUE

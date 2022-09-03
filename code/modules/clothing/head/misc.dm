@@ -178,7 +178,7 @@
 /obj/item/clothing/head/flatcap
 	name = "flat cap"
 	desc = "A working man's hat."
-	icon = 'icons/contained_items/clothing/hats/flat_cap.dmi'
+	icon = 'icons/contained_items/clothing/headwear/flat_cap.dmi'
 	icon_state = "flat_cap"
 	item_state = "flat_cap"
 	contained_sprite = TRUE
