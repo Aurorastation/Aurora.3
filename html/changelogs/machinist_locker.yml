@@ -4,5 +4,5 @@ delete-after: True
 
 changes:
   - rscadd: "Adds two machinist's lockers to the machinist workshop."
-  - rscadd: "Adds a basic circuit kit to the machinist workshop, wiring tool, and debugging tool."
+  - rscadd: "Adds a basic circuit kit, wiring tool, and debugging tool to the machinist workshop."
   - maptweak: "Tweaks the machinist workshop layout slightly."
