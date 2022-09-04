@@ -30,6 +30,8 @@
 		if(islist(path))
 			for(var/role_path in path)
 				var/datum/job/role = SSjobs.type_occupations[role_path]
+				if(!istype(role))
+					continue
 				if(LAZYACCESS(job_species_blacklist, role.title))
 					role.blacklisted_species = job_species_blacklist[role.title]
 				else
