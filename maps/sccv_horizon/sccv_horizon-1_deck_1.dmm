@@ -4864,7 +4864,6 @@
 /area/hangar/auxiliary)
 "dUK" = (
 /obj/structure/table/steel,
-/obj/item/device/floor_painter,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -4873,6 +4872,13 @@
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
+	},
+/obj/item/storage/bag/circuits/basic,
+/obj/item/device/integrated_electronics/debugger{
+	pixel_x = 6
+	},
+/obj/item/device/integrated_electronics/wirer{
+	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
