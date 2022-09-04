@@ -148,8 +148,13 @@
 	back = list(/obj/item/storage/backpack/messenger/com, /obj/item/storage/backpack/duffel/cap)
 	head = /obj/item/clothing/head/caphat/cap/beret
 	gloves = /obj/item/clothing/gloves/captain/white
+	accessory = /obj/item/clothing/accessory/sleevepatch/scc
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
+
+	implants = list(
+		/obj/item/implant/mindshield
+	)
 
 /datum/outfit/admin/scc_scout_ship_crew/heph
 	name = "SCCV XYZ Scout Ship Hephaestus Crewman"
@@ -157,6 +162,7 @@
 	id = /obj/item/card/id/hephaestus
 	uniform = list(/obj/item/clothing/under/color/brown, /obj/item/clothing/under/color/green, /obj/item/clothing/under/serviceoveralls)
 	head = list(/obj/item/clothing/head/beret/corporate/heph, /obj/item/clothing/head/hardhat/green)
+	accessory = /obj/item/clothing/accessory/pin/corporate/heph
 
 /datum/outfit/admin/scc_scout_ship_crew/zeng
 	name = "SCCV XYZ Scout Ship Zeng-Hu Crewman"
@@ -164,6 +170,7 @@
 	id = /obj/item/card/id/zeng_hu
 	uniform = list(/obj/item/clothing/under/color/purple, /obj/item/clothing/under/color/white, /obj/item/clothing/under/rank/medical/surgeon/zeng)
 	head = list(/obj/item/clothing/head/beret/corporate/zeng, /obj/item/clothing/head/softcap/zeng, /obj/item/clothing/head/surgery/zeng)
+	accessory = /obj/item/clothing/accessory/pin/corporate/zeng
 
 /datum/outfit/admin/scc_scout_ship_crew/nanotrasen
 	name = "SCCV XYZ Scout Ship NanoTrasen Crewman"
@@ -171,6 +178,7 @@
 	id = /obj/item/card/id
 	uniform = list(/obj/item/clothing/under/color/blue, /obj/item/clothing/under/color/lightblue, /obj/item/clothing/under/rank/medical/surgeon)
 	head = list(/obj/item/clothing/head/beret/corporate, /obj/item/clothing/head/softcap/nt, /obj/item/clothing/head/surgery)
+	accessory = /obj/item/clothing/accessory/pin/corporate
 
 /datum/outfit/admin/scc_scout_ship_crew/zavod
 	name = "SCCV XYZ Scout Ship Zavodskoi Crewman"
@@ -178,4 +186,5 @@
 	id = /obj/item/card/id/zavodskoi
 	uniform = list(/obj/item/clothing/under/color/red, /obj/item/clothing/under/color/brown, /obj/item/clothing/under/rank/medical/surgeon/zavod)
 	head = list(/obj/item/clothing/head/beret/corporate/zavod, /obj/item/clothing/head/softcap/zavod, /obj/item/clothing/head/beret/red, /obj/item/clothing/head/surgery/zavod)
+	accessory = /obj/item/clothing/accessory/pin/corporate/zavod
 
