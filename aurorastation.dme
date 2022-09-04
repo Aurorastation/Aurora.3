@@ -1564,6 +1564,7 @@
 #include "code\modules\clothing\factions\konyang.dm"
 #include "code\modules\clothing\factions\nralakk.dm"
 #include "code\modules\clothing\factions\pmcg.dm"
+#include "code\modules\clothing\factions\portantillia.dm"
 #include "code\modules\clothing\factions\scc.dm"
 #include "code\modules\clothing\factions\vysoka.dm"
 #include "code\modules\clothing\glasses\glasses.dm"
