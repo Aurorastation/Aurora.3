@@ -24,7 +24,8 @@
 
 /obj/effect/overmap/visitable/ship/sfa_patrol_ship
 	name = "SFA Patrol Ship"
-	desc = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew. This one's transponder identifies it as belonging to the Southern Fleet Administration, an all-but-defunct Solarian warlord state."
+	class = "SFAV"
+	desc = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship’s lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew. This one's transponder identifies it as belonging to the Southern Fleet Administration, an all-but-defunct Solarian warlord state."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	max_speed = 1/(2 SECONDS)
@@ -42,7 +43,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/sfa_patrol_ship/New()
-	name = "SFAV [pick("Brigand", "Zheng Yi Sao", "Watchman", "Edward Teach", "Beauchamp's Revenge", "Blackguard", "Viking", "Despoiler", "Wayward Son", "Black Sheep")]"
+	designation = "[pick("Brigand", "Zheng Yi Sao", "Corruption", "Edward Teach", "Beauchamp's Revenge", "Blackguard", "Viking", "Despoiler", "Wayward Son", "Black Sheep", "Gluttony", "Pride", "Avarice", "Greed", "Envy", "Sloth", "Wrath", "We're The Good Ones", "Reformed", "Repentant", "Recidivist", "Just Following Orders", "Habitual Offender", "Felon", "Misdemeanor", "Conscientious Objector")]"
 	..()
 
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav1
@@ -130,7 +131,8 @@
 
 /obj/effect/overmap/visitable/ship/fsf_patrol_ship
 	name = "FSF Patrol Ship"
-	desc = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew. This one's transponder identifies it as belonging to the Free Solarian Fleets, a Solarian warlord's mercenary fleet."
+	class = "FSFV"
+	desc = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship’s lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew. This one's transponder identifies it as belonging to the Free Solarian Fleets, a Solarian warlord's mercenary fleet."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	max_speed = 1/(2 SECONDS)
@@ -148,7 +150,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/fsf_patrol_ship/New()
-	name = "FSFV [pick("Varangian", "Swiss Guard", "Free Company", "Praetorian", "Gurkha", "Roland", "Whispering Death", "Gordon Ingram", "Jungle Work", "Habiru", "Francs-Tireurs", "Catalan", "Navarrese", "Breton", "Corsair")]"
+	designation = "[pick("Varangian", "Swiss Guard", "Free Company", "Praetorian", "Gurkha", "Roland", "Whispering Death", "Gordon Ingram", "Jungle Work", "Habiru", "Francs-Tireurs", "Catalan", "Navarrese", "Breton", "Corsair", "Landsknecht", "Hessian")]"
 	..()
 
 /obj/effect/shuttle_landmark/fsf_patrol_ship/nav1

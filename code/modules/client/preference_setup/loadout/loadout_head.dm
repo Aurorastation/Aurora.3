@@ -200,6 +200,18 @@
 	hats["hat, flatcap"] = /obj/item/clothing/head/flatcap
 	gear_tweaks += new /datum/gear_tweak/path(hats)
 
+/datum/gear/head/hats_colourable
+	display_name = "hat selection (colourable)"
+	description = "A selection of hats."
+	path = /obj/item/clothing/head/flatcap/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/hats_colourable/New()
+	..()
+	var/list/hats_colourable = list()
+	hats_colourable["hat, flatcap"] = /obj/item/clothing/head/flatcap/colourable
+	gear_tweaks += new /datum/gear_tweak/path(hats_colourable)
+
 /datum/gear/head/hijab
 	display_name = "hijab selection"
 	path = /obj/item/clothing/head/hijab
@@ -339,6 +351,7 @@
 	gadpathur["gadpathurian engineer beret"] = /obj/item/clothing/head/beret/gadpathur/engineer
 	gadpathur["gadpathurian medical beret"] = /obj/item/clothing/head/beret/gadpathur/medical
 	gadpathur["gadpathurian turban"] = /obj/item/clothing/head/turban/gadpathur
+	gadpathur["gadpathurian patrol cap"] = /obj/item/clothing/head/ushanka/gadpathur
 	gear_tweaks += new /datum/gear_tweak/path(gadpathur)
 
 /datum/gear/head/dominia

@@ -581,7 +581,7 @@
 
 /obj/item/storage/box/monkeycubes/neaeracubes
 	name = "neaera cube box"
-	desc = "Drymate brand neaera cubes, shipped from Jargon 4. Just add water!"
+	desc = "Drymate brand neaera cubes, shipped from Nralakk IV. Just add water!"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube = 5)
 
 /obj/item/storage/box/monkeycubes/vkrexicubes
@@ -1124,3 +1124,52 @@
 			to_chat(user, SPAN_WARNING("\The [src] needs to be empty before you can do that!"))
 	else
 		..()
+
+// Flares
+/obj/item/storage/box/flares
+	name = "flares box"
+	desc = "A box full of flares."
+	foldable = FALSE
+	max_storage_space = 4
+	can_hold = list(
+		/obj/item/device/flashlight/flare
+	)
+	starts_with = list(
+		/obj/item/device/flashlight/flare = 4
+	)
+
+// Magnetic Locks
+/obj/item/storage/box/magnetic_locks
+	name = "magnetic lock box"
+	desc = "A box full of magnetic locks."
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_NORMAL
+	foldable = FALSE
+	max_storage_space = 16
+	can_hold = list(
+		/obj/item/device/magnetic_lock
+	)
+	starts_with = list(
+		/obj/item/device/magnetic_lock = 4
+	)
+
+// Power Cells
+/obj/item/storage/box/cell
+	name = "power cell box"
+	desc = "A box full of power cells."
+	foldable = FALSE
+	max_storage_space = 6
+	can_hold = list(
+		/obj/item/cell
+	)
+	starts_with = list(
+		/obj/item/cell = 3
+	)
+
+// High-capacity Power Cells
+/obj/item/storage/box/cell/high
+	name = "high-capacity power cell box"
+	desc = "A box full of high-capacity power cells."
+	starts_with = list(
+		/obj/item/cell/high = 3
+	)

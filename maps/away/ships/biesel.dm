@@ -24,7 +24,8 @@
 
 /obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship
 	name = "TCFL Peacekeeper Ship"
-	desc = "Serving as the very foundation of the SCC's (And more specifically, NanoTrasen's) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design's interdiction counterpart - the Hydrus-class shuttle. This one's transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
+	class = "BLV"
+	desc = "Serving as the very foundation of the SCC’s (And more specifically, NanoTrasen’s) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design’s interdiction counterpart - the Hydrus-class shuttle. This one’s transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	max_speed = 1/(2 SECONDS)
@@ -42,7 +43,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship/New()
-	name = "BLV [pick("Castle", "Rook", "Gin Rummy", "Pawn", "Bishop", "Knight", "Blackjack", "Torch", "Liberty", "President Dorn")]"
+	designation = "[pick("Castle", "Rook", "Gin Rummy", "Pawn", "Bishop", "Knight", "Blackjack", "Torch", "Liberty", "President Dorn", "Independence", "Civic Duty", "Democracy", "Progress", "Prosperity", "New Gibson", "Biesel", "Justice", "Equality")]"
 	..()
 
 /obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/nav1

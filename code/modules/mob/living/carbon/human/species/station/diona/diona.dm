@@ -120,7 +120,7 @@
 		/decl/origin_item/culture/diona_eridani,
 		/decl/origin_item/culture/diona_dominia,
 		/decl/origin_item/culture/dionae_moghes,
-		/decl/origin_item/culture/dionae_jargon,
+		/decl/origin_item/culture/dionae_nralakk,
 		/decl/origin_item/culture/diona_coalition,
 		/decl/origin_item/culture/deep_space
 	)

@@ -2593,7 +2593,6 @@
 	},
 /obj/machinery/door/blast/regular{
 	id = "iso_b_purge";
-	is_critical = 1;
 	name = "Exterior Blast Door"
 	},
 /turf/simulated/floor/plating,
@@ -5811,7 +5810,6 @@
 	},
 /obj/machinery/door/blast/regular{
 	id = "iso_a_purge";
-	is_critical = 1;
 	name = "Exterior Blast Door"
 	},
 /turf/simulated/floor/plating,
@@ -12128,7 +12126,7 @@
 	icon_state = "door_locked";
 	id_tag = "research_outer";
 	locked = 1;
-	name = "Xenoarcheology External Airlock"
+	name = "Xenoarchaeology External Airlock"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -12593,7 +12591,7 @@
 	icon_state = "door_locked";
 	id_tag = "research_inner";
 	locked = 1;
-	name = "Xenoarcheology Internal Airlock";
+	name = "Xenoarchaeology Internal Airlock";
 	open_layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -13173,9 +13171,9 @@
 	dir = 8
 	},
 /obj/machinery/requests_console{
-	department = "Xenoarcheology";
+	department = "Xenoarchaeology";
 	departmentType = 2;
-	name = "Xenoarcheology Requests Console";
+	name = "Xenoarchaeology Requests Console";
 	pixel_x = -32
 	},
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -14865,7 +14863,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
-	name = "Xenoarcheology Atrium";
+	name = "Xenoarchaeology Atrium";
 	req_access = list(7)
 	},
 /turf/simulated/floor/tiled/white,
@@ -26037,7 +26035,7 @@
 "bDz" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
-	name = "Xenoarcheology and Anomalous Materials";
+	name = "Xenoarchaeology and Anomalous Materials";
 	req_access = list(7)
 	},
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -27899,7 +27897,7 @@
 "fag" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
-	name = "Xenoarcheology and Anomalous Materials";
+	name = "Xenoarchaeology and Anomalous Materials";
 	req_access = list(7)
 	},
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -35783,7 +35781,6 @@
 	},
 /obj/machinery/door/blast/regular{
 	id = "iso_c_purge";
-	is_critical = 1;
 	name = "Exterior Blast Door"
 	},
 /turf/simulated/floor/plating,

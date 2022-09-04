@@ -27,11 +27,11 @@
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 			            access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
-			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_intrepid)
+			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_intrepid, access_network)
 	minimal_access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 			            access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
-			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_bridge_crew, access_intrepid)
+			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_bridge_crew, access_intrepid, access_network)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 

@@ -21,6 +21,7 @@
 /area/ship/tramp_freighter)
 "aap" = (
 /obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
 /area/ship/tramp_freighter)
 "aaI" = (
@@ -521,7 +522,7 @@
 /area/ship/tramp_freighter)
 "dqq" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = list(203)
+	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -1023,6 +1024,19 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"gQH" = (
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/shuttle/freighter_shuttle)
 "hdb" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -1284,6 +1298,14 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"jMF" = (
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/ship/tramp_freighter)
 "kon" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -1841,6 +1863,7 @@
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
 "uDF" = (
@@ -33467,7 +33490,7 @@ onP
 ozs
 qFX
 wYA
-xRX
+jMF
 xRX
 xRX
 xRX
@@ -33955,7 +33978,7 @@ xRX
 xRX
 rtf
 wZf
-wZf
+gQH
 phz
 phz
 phz

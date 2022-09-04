@@ -2,7 +2,7 @@
 	name = "lone asteroid"
 	description = "A lone asteroid with a hangar. Latest data from this sector shows it as a Hephaestus mining station, two years ago."
 	suffix = "generic/cursed.dmm"
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "cursed"
