@@ -23,6 +23,7 @@
 	glasses["glasses, circle"] = /obj/item/clothing/glasses/regular/circle
 	glasses["glasses, jamjar"] = /obj/item/clothing/glasses/regular/jamjar
 	glasses["glasses, monocle"] = /obj/item/clothing/glasses/monocle
+	glasses["glasses, prescription safety"] = /obj/item/clothing/glasses/safety
 	glasses["glasses, safety"] = /obj/item/clothing/glasses/safety
 	gear_tweaks += new /datum/gear_tweak/path(glasses)
 
@@ -69,6 +70,7 @@
 	goggles["goggles, scanning"] = /obj/item/clothing/glasses/regular/scanners
 	goggles["goggles, science"] = /obj/item/clothing/glasses/science
 	goggles["goggles, orange"] = /obj/item/clothing/glasses/spiffygogs
+	goggles["prescription goggles, safety"] = /obj/item/clothing/glasses/safety/goggles/prescription
 	gear_tweaks += new /datum/gear_tweak/path(goggles)
 
 /datum/gear/eyes/medhuds
