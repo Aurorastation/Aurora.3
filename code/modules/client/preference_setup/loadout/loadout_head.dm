@@ -219,19 +219,19 @@
 /datum/gear/head/hijab/New()
 	..()
 	var/list/hijab = list()
-	hijab["black hijab"] = /obj/item/clothing/head/hijab
+	hijab["white hijab"] = /obj/item/clothing/head/hijab
 	hijab["grey hijab"] = /obj/item/clothing/head/hijab/grey
 	hijab["red hijab"] = /obj/item/clothing/head/hijab/red
 	hijab["brown hijab"] = /obj/item/clothing/head/hijab/brown
 	hijab["green hijab"] = /obj/item/clothing/head/hijab/green
 	hijab["blue hijab"] = /obj/item/clothing/head/hijab/blue
-	hijab["white hijab"] = /obj/item/clothing/head/hijab/white
+	hijab["black hijab"] = /obj/item/clothing/head/hijab/black
 
 	gear_tweaks += new /datum/gear_tweak/path(hijab)
 
 /datum/gear/head/hijab_colorable
 	display_name = "colorable hijab"
-	path = /obj/item/clothing/head/hijab/white
+	path = /obj/item/clothing/head/hijab
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/turban
