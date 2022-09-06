@@ -252,7 +252,7 @@
 "bB" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/space)
+/area/ship/scc_scout_ship)
 "bC" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -600,6 +600,7 @@
 /obj/item/gun/energy/plasmacutter,
 /obj/item/pickaxe,
 /obj/structure/closet/crate/miningcart,
+/obj/item/stack/flag/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship)
 "dM" = (
@@ -625,7 +626,10 @@
 /turf/simulated/floor/carpet,
 /area/ship/scc_scout_ship)
 "dP" = (
-/obj/machinery/meter,
+/obj/machinery/meter{
+	pixel_y = -8;
+	pixel_x = 7
+	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -842,19 +846,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "fd" = (
-/obj/structure/bed/stool/chair/shuttle{
-	can_dismantle = 1;
-	dir = 4;
-	name = "worn chair"
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small/emergency{
+	dir = 2
 	},
-/obj/structure/window/reinforced{
-	dir = 8;
-	maxhealth = 140
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "fg" = (
 /obj/structure/window/reinforced{
@@ -1246,6 +1243,9 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "hL" = (
@@ -1570,20 +1570,18 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "km" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
-/obj/structure/bed/stool/chair/shuttle{
-	can_dismantle = 1;
-	dir = 4;
-	name = "worn chair"
-	},
 /obj/structure/window/reinforced{
 	dir = 8;
 	maxhealth = 140
 	},
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
@@ -2889,6 +2887,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "sN" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
@@ -3922,6 +3923,10 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/machinery/meter{
+	pixel_x = 8;
+	pixel_y = -8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "zC" = (
@@ -3930,12 +3935,7 @@
 	pixel_y = 0;
 	pixel_x = -8
 	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 6
-	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "zD" = (
@@ -4135,7 +4135,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
-/obj/machinery/meter,
+/obj/machinery/meter{
+	pixel_y = 9;
+	pixel_x = 7
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "BB" = (
@@ -4182,6 +4185,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"BV" = (
+/obj/structure/table/steel,
+/obj/item/folder/red{
+	pixel_y = 2;
+	pixel_x = 14
+	},
+/obj/item/device/flashlight/lamp{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/scc_scout_shuttle)
 "BY" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -4538,7 +4553,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/machinery/meter{
+	pixel_y = -9;
+	pixel_x = -9
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "DR" = (
@@ -4939,6 +4957,10 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 1
+	},
+/obj/machinery/meter{
+	pixel_x = 8;
+	pixel_y = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -5447,14 +5469,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "JO" = (
-/obj/structure/bed/stool/chair/shuttle{
-	can_dismantle = 1;
-	dir = 4;
-	name = "worn chair"
-	},
 /obj/structure/window/reinforced{
 	dir = 8;
 	maxhealth = 140
+	},
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
@@ -5553,12 +5576,6 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
 "KF" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 6
-	},
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -5567,6 +5584,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "KG" = (
@@ -5987,6 +6005,19 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship)
+"NZ" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/scc_scout_shuttle)
 "Oc" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
@@ -6273,9 +6304,6 @@
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "QI" = (
@@ -6360,10 +6388,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
+/obj/machinery/meter{
+	pixel_y = 9;
+	pixel_x = 8
+	},
 /obj/structure/fuel_port{
 	pixel_x = -32
 	},
-/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "Rc" = (
@@ -6810,6 +6841,9 @@
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "Ut" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
@@ -7211,6 +7245,7 @@
 /obj/item/device/measuring_tape,
 /obj/item/pickaxe/hand,
 /obj/item/storage/bag/fossils,
+/obj/item/stack/flag/green,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scc_scout_shuttle)
 "Xd" = (
@@ -36552,7 +36587,7 @@ bB
 bB
 bB
 bB
-gG
+Xp
 rP
 rP
 Xp
@@ -38589,7 +38624,7 @@ Xj
 GB
 Xp
 Xp
-gG
+Xp
 Xp
 Xp
 Xp
@@ -38627,7 +38662,7 @@ bB
 bB
 bB
 bB
-bB
+Xj
 AH
 Ys
 Ys
@@ -41190,7 +41225,7 @@ Rc
 Nw
 FF
 km
-fd
+JO
 JO
 Xr
 pX
@@ -41448,7 +41483,7 @@ uT
 FF
 rE
 sB
-sB
+BV
 Xr
 lc
 EV
@@ -41705,7 +41740,7 @@ uT
 FF
 Ut
 sN
-sN
+NZ
 SA
 YJ
 Xr
@@ -42469,7 +42504,7 @@ Co
 iQ
 kD
 Gt
-BC
+fd
 SA
 EM
 hn
