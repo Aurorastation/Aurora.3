@@ -520,9 +520,9 @@
 /obj/item/clothing/head/helmet/space/void/dominia
 	name = "dominian prejoroub combat helmet"
 	desc = "A glamorous, decorated helmet with thick plating across its faces. It holds the emblematic markings of the Empire of Dominia, if its design wasn't unmistakable enough."
-	icon = 'icons/obj/clothing/voidsuit/dominia.dmi'
-	icon_state = "prejoroubhelm"
-	item_state = "prejoroubhelm"
+	icon = 'icons/clothing/rig/dominia.dmi'
+	icon_state = "dvoidsuithelm"
+	item_state = "dvoidsuithelm"
 	contained_sprite = 1
 
 	armor = list(
