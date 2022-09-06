@@ -538,12 +538,19 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	brightness_on = 6
 
+/obj/item/clothing/head/helmet/space/void/dominia/unathi
+	name = "dominian unathi prejoroub combat helmet"
+	icon_state = "una_dvoidsuithelm"
+	item_state = "una_dvoidsuithelm"
+
+	species_restricted = list(BODYTYPE_UNATHI)
+
 /obj/item/clothing/suit/space/void/dominia
 	name = "dominian prejoroub combat suit"
 	desc = "An offshoot of the Coalition's vulture suit design, painted in Dominian colors with portability and maneuverability in mind over its bulkier counterpart."
-	icon = 'icons/obj/clothing/voidsuit/dominia.dmi'
-	icon_state = "prejoroub"
-	item_state = "prejoroub"
+	icon = 'icons/clothing/rig/dominia.dmi'
+	icon_state = "dvoidsuit"
+	item_state = "dvoidsuit"
 	contained_sprite = 1
 	slowdown = 1
 
@@ -561,6 +568,13 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 
+/obj/item/clothing/suit/space/void/dominia/unathi
+	name = "dominian unathi prejoroub combat suit"
+	desc = "An offshoot of the Coalition's vulture suit design, painted in Dominian colors with portability and maneuverability in mind over its bulkier counterpart. This variant is fit for an Unathi."
+	icon_state = "una_dvoidsuit"
+	item_state = "una_dvoidsuit"
+
+	species_restricted = list(BODYTYPE_UNATHI)
 /obj/item/clothing/head/helmet/space/void/golden_deep
 	name = "golden helmet"
 	desc = "A glamorous, decorated helmet plated with gold. Very hefty."

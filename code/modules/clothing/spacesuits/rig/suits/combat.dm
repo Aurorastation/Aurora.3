@@ -376,8 +376,8 @@
 /obj/item/rig/jinxiang
 	name = "jinxiang-pattern combat suit control module"
 	desc = "An off-shoot of the core Bunker Suit design, utilized by the Imperial Dominian military and painted accordingly. This is a powerful suit specializing in melee confrontations."
-	icon = 'icons/clothing/rig/jinxiang.dmi'
-	icon_state = "jinxiang"
+	icon = 'icons/clothing/rig/dominia.dmi'
+	icon_state = "dominia"
 	suit_type = "jinxiang combat suit"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
