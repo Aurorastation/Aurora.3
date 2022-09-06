@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - rscadd: "Lets xenoarchaelogists pick hardhats and the mining overalls in the loadout. Adds a regular yellow hardhat to their lockers."
-  - bugfix: "Fixes access on the xenoarcheologists locker not using their dedicated access."
+  - bugfix: "Fixes access on the xenoarcheologists locker not using their dedicated access.."
