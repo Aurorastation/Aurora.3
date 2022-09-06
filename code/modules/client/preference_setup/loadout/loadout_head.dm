@@ -325,6 +325,7 @@
 	display_name = "himean cap"
 	path = /obj/item/clothing/head/softcap/himeo
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/himeo, /decl/origin_item/origin/ipc_himeo, /decl/origin_item/origin/free_council)
 
 /datum/gear/head/vysoka
 	display_name = "vysokan fur cap"
