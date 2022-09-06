@@ -266,7 +266,7 @@ BLIND     // can't see anything
 	usr.update_action_buttons()
 
 /obj/item/clothing/glasses/safety/goggles/prescription
-	name = "safety goggles"
+	name = "prescription safety goggles"
 	desc = "A simple pair of safety goggles. It's general chemistry all over again. Comes with prescription overlay."
 	prescription = 7
 
