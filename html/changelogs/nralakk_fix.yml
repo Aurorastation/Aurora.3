@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes \"Jargon\" remaining in some item/object paths instead of Nralakk."
