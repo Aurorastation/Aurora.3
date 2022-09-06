@@ -8688,7 +8688,7 @@
 /turf/simulated/floor/carpet,
 /area/horizon/crew_quarters/lounge/bar)
 "eDW" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations -  Upper Warehouse Port";
 	dir = 8
@@ -8740,7 +8740,7 @@
 	name = "Station Intercom (General)";
 	pixel_y = -25
 	},
-/obj/structure/closet/secure_closet/operation_manager,
+/obj/structure/closet/secure_closet/operations_manager,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
@@ -23343,7 +23343,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "mqj" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -36446,7 +36446,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "tiD" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -46527,7 +46527,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "yeF" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
