@@ -278,7 +278,7 @@
 /obj/item/projectile/plasma/light
 	name = "plasma bolt"
 	damage = 20
-	armor_penetration = 10
+	armor_penetration = 25
 	incinerate = 8
 
 /obj/item/missile
