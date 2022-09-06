@@ -378,6 +378,7 @@
 	desc = "An off-shoot of the core Bunker Suit design, utilized by the Imperial Dominian military and painted accordingly. This is a powerful suit specializing in melee confrontations."
 	icon = 'icons/clothing/rig/dominia.dmi'
 	icon_state = "dominia"
+	icon_supported_species_tags = list("una")
 	suit_type = "jinxiang combat suit"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
@@ -395,7 +396,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 
