@@ -572,7 +572,7 @@ BREATH ANALYZER
 
 /obj/item/device/breath_analyzer
 	name = "breath analyzer"
-	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's repository system."
+	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respiratory system."
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
 	w_class = ITEMSIZE_SMALL

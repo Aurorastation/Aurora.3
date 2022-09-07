@@ -3,4 +3,4 @@ author: listerla
 delete-after: True
 
 changes:
-  - spellcheck: "Changed respitory to respiratory in the breath analyzer."
+  - spellcheck: "Fixed typos of 'respiratory' in the breath analyzer."
