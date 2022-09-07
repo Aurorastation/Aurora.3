@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds teleporter access to the Command staff that didn't have it. That would be the XO, CMO, HoS, OM"
+  - rscadd: "Adds teleporter access to the Bridge Crew."
