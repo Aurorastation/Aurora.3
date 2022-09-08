@@ -4,7 +4,7 @@
 
 // Operations Manager
 /obj/structure/closet/secure_closet/operations_manager
-	name = "operation manager's locker"
+	name = "operations manager's locker"
 	icon_state = "om"
 	req_access = list(access_qm)
 
