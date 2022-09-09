@@ -1,7 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - rscadd: "Buffed the xenoarch belt to have 9 slots."
-  - rscdel: "Explorer's belt and xenoarch's belt may now hold ore detectors."
