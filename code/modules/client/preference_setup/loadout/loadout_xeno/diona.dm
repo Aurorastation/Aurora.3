@@ -42,7 +42,7 @@
 	path = /obj/item/clothing/accessory/poncho/shouldercape
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
+	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/accessory/capes/diona/New()
 	..()
@@ -58,46 +58,46 @@
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
+	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/accessory/weishii/diona
 	display_name = "weishii robe"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
+	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/skrell_projector/diona
 	display_name = "nralakk projector"
 	path = /obj/item/skrell_projector
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim)
+	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim)
 
 /datum/gear/homeworld_deck/diona
 	display_name = "qweipaqui homeworld deck"
-	path = /obj/item/deck/tarot/jargon
+	path = /obj/item/deck/tarot/nralakk
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_NO_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
+	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/colonist_deck/diona // Intentionally separate from homeworld_deck, so that both can be chosen. -Lly
 	display_name = "qweipaqui colonist deck"
-	path = /obj/item/deck/tarot/nonjargon
+	path = /obj/item/deck/tarot/nonnralakk
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
+	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 	
 /datum/gear/accessory/skrell_passport/diona
-	display_name = "jargon federation passport"
-	path = /obj/item/clothing/accessory/badge/passport/jargon
+	display_name = "nralakk federation passport"
+	path = /obj/item/clothing/accessory/badge/passport/nralakk
 	sort_category = "Xenowear - Skrell"
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	cost = 0
 	flags = GEAR_NO_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
+	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 	
 /datum/gear/accessory/diona/skrell_passport/check_species_whitelist(mob/living/carbon/human/H)
 	var/static/list/species_list = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -106,7 +106,7 @@
 	return FALSE
 
 /datum/gear/accessory/diona/skrell_passport/spawn_item(location, metadata, mob/living/carbon/human/H)
-	var/obj/item/clothing/accessory/badge/passport/jargon/J = ..()
+	var/obj/item/clothing/accessory/badge/passport/nralakk/J = ..()
 	var/static/list/species_name_to_tag = list(, SPECIES_DIONA = "_d", SPECIES_DIONA_COEUS = "_d")
 	var/tag = species_name_to_tag[H.species.name]
 	if(tag)
@@ -115,34 +115,34 @@
 	
 /datum/gear/uniform/work/diona
 	display_name = "work uniforms"
-	path = /obj/item/clothing/under/skrell/jargon
+	path = /obj/item/clothing/under/skrell/nralakk
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
+	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 	
 /datum/gear/uniform/work/diona/New()
 	..()
 	var/list/outfit = list()
-	outfit["ox research"] = /obj/item/clothing/under/skrell/jargon
-	outfit["ox security"] = /obj/item/clothing/under/skrell/jargon/ox
-	outfit["ox engineer"] = /obj/item/clothing/under/skrell/jargon/ox/engineer
-	outfit["ox service"] = /obj/item/clothing/under/skrell/jargon/ox/service
-	outfit["ox medical"] = /obj/item/clothing/under/skrell/jargon/ox/med
-	outfit["ix research"] = /obj/item/clothing/under/skrell/jargon/ix
-	outfit["ix security"] = /obj/item/clothing/under/skrell/jargon/ix/security
-	outfit["ix engineer"] = /obj/item/clothing/under/skrell/jargon/ix/engineer
-	outfit["ix service"] = /obj/item/clothing/under/skrell/jargon/ix/service
-	outfit["ix medical"] = /obj/item/clothing/under/skrell/jargon/ix/med
-	outfit["oqi research"] = /obj/item/clothing/under/skrell/jargon/oqi
-	outfit["oqi security"] = /obj/item/clothing/under/skrell/jargon/oqi/security
-	outfit["oqi engineer"] = /obj/item/clothing/under/skrell/jargon/oqi/engineer
-	outfit["oqi service"] = /obj/item/clothing/under/skrell/jargon/oqi/service
-	outfit["oqi medical"] = /obj/item/clothing/under/skrell/jargon/oqi/med
-	outfit["iqi research"] = /obj/item/clothing/under/skrell/jargon/iqi
-	outfit["iqi security"] = /obj/item/clothing/under/skrell/jargon/iqi/security
-	outfit["iqi engineer"] = /obj/item/clothing/under/skrell/jargon/iqi/engineer
-	outfit["iqi service"] = /obj/item/clothing/under/skrell/jargon/iqi/service
-	outfit["iqi medical"] = /obj/item/clothing/under/skrell/jargon/iqi/med
+	outfit["ox research"] = /obj/item/clothing/under/skrell/nralakk
+	outfit["ox security"] = /obj/item/clothing/under/skrell/nralakk/ox
+	outfit["ox engineer"] = /obj/item/clothing/under/skrell/nralakk/ox/engineer
+	outfit["ox service"] = /obj/item/clothing/under/skrell/jnralakk/ox/service
+	outfit["ox medical"] = /obj/item/clothing/under/skrell/nralakk/ox/med
+	outfit["ix research"] = /obj/item/clothing/under/skrell/nralakk/ix
+	outfit["ix security"] = /obj/item/clothing/under/skrell/nralakk/ix/security
+	outfit["ix engineer"] = /obj/item/clothing/under/skrell/nralakk/ix/engineer
+	outfit["ix service"] = /obj/item/clothing/under/skrell/nralakkn/ix/service
+	outfit["ix medical"] = /obj/item/clothing/under/skrell/nralakk/ix/med
+	outfit["oqi research"] = /obj/item/clothing/under/skrell/nralakk/oqi
+	outfit["oqi security"] = /obj/item/clothing/under/skrell/nralakk/oqi/security
+	outfit["oqi engineer"] = /obj/item/clothing/under/skrell/nralakk/oqi/engineer
+	outfit["oqi service"] = /obj/item/clothing/under/skrell/nralakk/oqi/service
+	outfit["oqi medical"] = /obj/item/clothing/under/skrell/nralakk/oqi/med
+	outfit["iqi research"] = /obj/item/clothing/under/skrell/nralakk/iqi
+	outfit["iqi security"] = /obj/item/clothing/under/skrell/nralakk/iqi/security
+	outfit["iqi engineer"] = /obj/item/clothing/under/skrell/nralakk/iqi/engineer
+	outfit["iqi service"] = /obj/item/clothing/under/skrell/nralakk/iqi/service
+	outfit["iqi medical"] = /obj/item/clothing/under/skrell/nralakk/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(outfit)
 	
 /datum/gear/suit/jacketdiona/
@@ -151,7 +151,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
+	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/suit/jacket/diona/New()
 	..()
@@ -184,7 +184,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
+	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/accessory/diona/poncho/New()
 	..()
@@ -201,7 +201,7 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
-	culture_restriction = list(/decl/origin_item/culture/dionae_jargon, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
+	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/accessory/diona/workcloak/New()
 	..()
