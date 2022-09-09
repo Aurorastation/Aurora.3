@@ -54,7 +54,7 @@
 /obj/effect/shuttle_landmark/tirakqi_freighter/transit
 	name = "In transit"
 	landmark_tag = "nav_tirakqi_freighter_freighter"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tirakqi_shuttle
@@ -94,4 +94,4 @@
 /obj/effect/shuttle_landmark/tirakqi_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tirakqi_freighter"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north

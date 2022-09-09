@@ -262,7 +262,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "etL" = (
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "euz" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -897,7 +897,7 @@
 /area/ship/ee_spy_ship)
 "que" = (
 /obj/effect/step_trigger/teleporter,
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "qHm" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -907,7 +907,7 @@
 /area/ship/ee_spy_ship)
 "qHO" = (
 /obj/effect/shuttle_landmark/ee_spy_ship/transit,
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "rdB" = (
 /obj/machinery/computer/ship/sensors{
@@ -969,7 +969,7 @@
 "sOb" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "tpL" = (
 /obj/machinery/light{
@@ -1123,7 +1123,7 @@
 /area/ship/ee_spy_ship)
 "wrJ" = (
 /obj/effect/shuttle_landmark/ee_shuttle/transit,
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "wBq" = (
 /obj/effect/floor_decal/industrial/warning{

@@ -61,7 +61,7 @@
 /obj/effect/shuttle_landmark/sfa_patrol_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_sfa_patrol_ship"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/sfa_shuttle
@@ -101,7 +101,7 @@
 /obj/effect/shuttle_landmark/sfa_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_sfa_shuttle"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //fsf patrol ship
 
@@ -168,7 +168,7 @@
 /obj/effect/shuttle_landmark/fsf_patrol_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_fsf_patrol_ship"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/fsf_shuttle
@@ -208,4 +208,4 @@
 /obj/effect/shuttle_landmark/fsf_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_fsf_shuttle"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
