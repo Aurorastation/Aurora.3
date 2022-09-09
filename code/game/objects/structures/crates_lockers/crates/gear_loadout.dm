@@ -304,6 +304,12 @@
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/shield/energy/dominia(src)
 
+/obj/structure/closet/crate/secure/gear_loadout/dominia/single/unathi/fill()
+	new /obj/item/clothing/head/helmet/space/void/dominia/unathi(src)
+	new /obj/item/clothing/suit/space/void/dominia/unathi(src)
+	new /obj/item/melee/energy/sword/pirate(src)
+	new /obj/item/shield/energy/dominia(src)
+
 /obj/structure/closet/crate/secure/gear_loadout/kosmostrelki/fill()
 	new /obj/item/clothing/under/tajaran/cosmonaut(src)
 	new /obj/item/clothing/under/tajaran/cosmonaut(src)
