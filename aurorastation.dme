@@ -1535,6 +1535,7 @@
 #include "code\modules\client\preference_setup\loadout\loadout_utility.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_wrists.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_xeno.dm"
+#include "code\modules\client\preference_setup\loadout\loadout_xeno\diona.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_xeno\human.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_xeno\machine.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_xeno\skrell.dm"
