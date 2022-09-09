@@ -1,4 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/item/hullbeacon/red,
+/turf/space/dynamic,
+/area/ship/scc_scout_ship)
 "ai" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -589,6 +597,12 @@
 /obj/structure/bed/stool/bar/padded/beige,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
+"dG" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped,
+/obj/item/hullbeacon/red,
+/turf/space/dynamic,
+/area/ship/scc_scout_ship)
 "dJ" = (
 /obj/item/storage/bag/ore,
 /obj/item/gun/custom_ka/frame01/prebuilt,
@@ -647,11 +661,10 @@
 /area/ship/scc_scout_ship)
 "dS" = (
 /obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/hullbeacon/red,
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
@@ -988,17 +1001,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship)
 "gb" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/space/dynamic,
-/area/ship/scc_scout_ship)
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
 "gc" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
 	},
-/obj/structure/table/wood,
+/obj/structure/bookcase/libraryspawn/reference,
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship)
 "gd" = (
@@ -1988,6 +1998,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"mU" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/hullbeacon/red,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/space/dynamic,
+/area/ship/scc_scout_ship)
 "nc" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2218,6 +2239,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/item/hullbeacon/red,
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
 "ov" = (
@@ -2969,6 +2991,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
 "to" = (
@@ -3376,9 +3399,17 @@
 /obj/machinery/light/small,
 /turf/simulated/floor,
 /area/space)
+"wd" = (
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/hullbeacon/red,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/space/dynamic,
+/area/ship/scc_scout_ship)
 "we" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/closet/walllocker/emerglocker/east,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
@@ -4482,6 +4513,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/item/hullbeacon/red,
 /turf/space/dynamic,
 /area/ship/scc_scout_ship)
 "DG" = (
@@ -5054,6 +5086,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"Hc" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/space/dynamic,
+/area/ship/scc_scout_ship)
 "He" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -5863,6 +5903,14 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_shuttle)
+"MB" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/item/hullbeacon/red,
+/turf/space/dynamic,
+/area/ship/scc_scout_ship)
 "MK" = (
 /obj/machinery/light/small,
 /obj/effect/floor_decal/corner/blue/full{
@@ -7129,6 +7177,11 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"Wi" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/hullbeacon/red,
+/turf/space/dynamic,
+/area/ship/scc_scout_ship)
 "Wj" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -7222,6 +7275,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
+/area/ship/scc_scout_ship)
+"WU" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet,
 /area/ship/scc_scout_ship)
 "WV" = (
 /obj/machinery/door/airlock/command{
@@ -7475,6 +7532,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"Yn" = (
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/ship/scc_scout_ship)
 "Yp" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
@@ -36822,19 +36884,19 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+mU
+pU
+pU
+pU
+HF
+HF
 dS
 Px
 Px
 Px
 Px
 pU
-pU
+aa
 HF
 HF
 Xp
@@ -37079,13 +37141,13 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-gb
+FL
+HF
+HF
+HF
+HF
+HF
+HF
 HF
 HF
 HF
@@ -37336,12 +37398,12 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+bB
+bB
+bB
+bB
+bB
+bB
 bB
 bB
 bB
@@ -37596,7 +37658,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+gb
 Xj
 Xj
 Xj
@@ -37853,7 +37915,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+gb
 Xj
 Xj
 Xj
@@ -38110,7 +38172,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+gb
 Xj
 Xj
 bB
@@ -38145,7 +38207,7 @@ pU
 pU
 pU
 pU
-pU
+aa
 pU
 HF
 HF
@@ -38154,8 +38216,8 @@ pU
 pU
 pU
 pU
-vk
-Xj
+pU
+wd
 Xj
 Xj
 Xj
@@ -38367,7 +38429,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+gb
 Xj
 gG
 Xp
@@ -38411,8 +38473,8 @@ HF
 HF
 HF
 HF
-iT
-Xj
+HF
+Yn
 Xj
 Xj
 Xj
@@ -39165,7 +39227,7 @@ ap
 Xp
 HF
 HF
-iT
+dG
 bB
 Xj
 Xj
@@ -39420,7 +39482,7 @@ Xp
 Xp
 Xp
 Xp
-RB
+Hc
 HF
 jV
 SA
@@ -39907,7 +39969,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+FL
 Xp
 Xp
 Xp
@@ -40164,8 +40226,8 @@ Xj
 Xj
 Xj
 Xj
-Xj
-FL
+MB
+HF
 HF
 Xp
 zG
@@ -40421,8 +40483,8 @@ Xj
 Xj
 Xj
 Xj
-Xj
 FL
+HF
 HF
 Xp
 zG
@@ -40678,7 +40740,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+FL
 Xp
 Xp
 Xp
@@ -40689,7 +40751,7 @@ oG
 Xp
 gc
 kH
-oS
+WU
 Wo
 TU
 oH
@@ -40935,7 +40997,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+FL
 Xp
 nY
 Wc
@@ -41192,7 +41254,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+FL
 Xp
 db
 Wz
@@ -41449,7 +41511,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+MB
 Xp
 wJ
 By
@@ -41706,7 +41768,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+FL
 Xp
 mL
 DJ
@@ -43275,7 +43337,7 @@ Xp
 Xp
 Xp
 Xp
-pU
+aa
 HF
 vk
 SA
@@ -43534,7 +43596,7 @@ po
 Zd
 HF
 HF
-iT
+dG
 Xj
 Xj
 bB
@@ -44056,7 +44118,7 @@ HF
 HF
 bB
 bB
-Xj
+bB
 Xj
 Xj
 Xj
@@ -44312,8 +44374,8 @@ HF
 HF
 HF
 HF
+HF
 iT
-Xj
 Xj
 Xj
 Xj
@@ -44569,8 +44631,8 @@ RB
 RB
 RB
 HF
-iT
-Xj
+HF
+dG
 Xj
 Xj
 Xj
@@ -45333,7 +45395,7 @@ HF
 HF
 HF
 HF
-iT
+dG
 Xj
 Sl
 cG
@@ -46091,12 +46153,12 @@ RB
 RB
 RB
 HF
-HF
+Wi
 Xp
 Dl
 Ky
 Xp
-HF
+Wi
 iT
 bB
 Xj
