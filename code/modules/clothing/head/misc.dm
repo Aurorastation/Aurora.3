@@ -277,8 +277,8 @@
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
 	icon = 'icons/obj/clothing/hijabs.dmi'
-	icon_state = "hijab_black"
-	item_state = "hijab_black"
+	icon_state = "hijab_white"
+	item_state = "hijab_white"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 	contained_sprite = 1
@@ -312,10 +312,10 @@
 	icon_state = "hijab_blue"
 	item_state = "hijab_blue"
 
-/obj/item/clothing/head/hijab/white
-	name = "white hijab"
-	icon_state = "hijab_white"
-	item_state = "hijab_white"
+/obj/item/clothing/head/hijab/black
+	name = "black hijab"
+	icon_state = "hijab_black"
+	item_state = "hijab_black"
 
 /obj/item/clothing/head/cowboy
 	name = "cowboy hat"
