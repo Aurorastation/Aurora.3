@@ -1,6 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - tweak: "Made the white hijab the default, as to fix the colorable hijab's name."

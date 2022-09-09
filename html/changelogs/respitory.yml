@@ -1,6 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - spellcheck: "Fixed typos of 'respiratory' in the breath analyzer."
