@@ -13,9 +13,9 @@
 	)
 	opened = TRUE // spawns opened
 
-/obj/item/clothing/suit/storage/longcoat
+/obj/item/clothing/suit/storage/toggle/longcoat
 	name = "long labcoat"
-	desc = "A long, victorian styled labcoat. For those inclined to cartoonish villiany and manaical laughter."
+	desc = "A long, victorian styled labcoat that protects against minor chemical spills."
 	icon = 'icons/mob/clothing/suit/labcoat.dmi'
 	contained_sprite = TRUE
 	icon_state = "labcoat_long"
@@ -52,7 +52,7 @@
 	name = "nanotrasen labcoat"
 	icon_state = "labcoat_nt"
 
-/obj/item/clothing/suit/storage/longcoat/nt
+/obj/item/clothing/suit/storage/toggle/longcoat/nt
 	name = "nanotrasen long labcoat"
 	icon_state = "labcoat_long_nt"
 	item_state = "labcoat_long_nt"
@@ -77,13 +77,12 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt2
 	icon_state = "labcoat_letterman_zeng_alt2"
 
-/obj/item/clothing/suit/storage/longcoat/zeng
+/obj/item/clothing/suit/storage/toggle/longcoat/zeng
 	name = "zeng-hu long labcoat"
 	icon_state = "labcoat_long_zeng"
 	item_state = "labcoat_long_zeng"
 
 //Zavodskoi
-
 /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	name = "zavodskoi interstellar labcoat"
 	icon_state = "labcoat_zav"
@@ -97,13 +96,12 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman/alt
 	icon_state = "labcoat_letterman_zav_alt"
 
-/obj/item/clothing/suit/storage/longcoat/zavodskoi
+/obj/item/clothing/suit/storage/toggle/longcoat/zavodskoi
 	name = "zavodskoi long labcoat"
 	icon_state = "labcoat_long_zav"
 	item_state = "labcoat_long_zav"
 
 //Hephaestus
-
 /obj/item/clothing/suit/storage/toggle/labcoat/heph
 	name = "hephaestus labcoat"
 	icon_state = "labcoat_heph"
@@ -111,7 +109,7 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/heph/letterman
 	icon_state = "labcoat_letterman_heph"
 
-/obj/item/clothing/suit/storage/longcoat/heph
+/obj/item/clothing/suit/storage/toggle/longcoat/heph
 	name = "hephaestus long labcoat"
 	icon_state = "labcoat_long_heph"
 	item_state = "labcoat_long_heph"
@@ -128,7 +126,7 @@
 	name = "EPMC labcoat"
 	icon_state = "labcoat_epmc"
 
-/obj/item/clothing/suit/storage/longcoat/pmc
+/obj/item/clothing/suit/storage/toggle/longcoat/pmc
 	name = "PMCG long labcoat"
 	icon_state = "labcoat_long_pmc"
 	item_state = "labcoat_long_pmc"
@@ -148,13 +146,12 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/idris/letterman/alt
 	icon_state = "labcoat_letterman_idris_alt"
 
-/obj/item/clothing/suit/storage/longcoat/idris
+/obj/item/clothing/suit/storage/toggle/longcoat/idris
 	name = "idris long labcoat"
 	icon_state = "labcoat_long_idris"
 	item_state = "labcoat_long_idris"
 
 //IAC
-
 /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	name = "iac labcoat"
 	icon_state = "labcoat_iac"
