@@ -1,0 +1,6 @@
+author: listerla
+
+delete-after: True
+
+changes:
+  - bugfix: "Short reef headtail ties are no longer offset."
