@@ -115,6 +115,9 @@
 /obj/machinery/power/apc/hyper
 	cell_type = /obj/item/cell/hyper
 
+/obj/machinery/power/apc/empty
+	start_charge = 0
+
 /obj/machinery/power/apc
 	name = "area power controller"
 	desc = "A control terminal for the area electrical systems."

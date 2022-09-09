@@ -152,7 +152,7 @@
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/pouches/black
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Investigator")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
@@ -168,7 +168,7 @@
 /datum/gear/accessory/overalls_mining
 	display_name = "overalls, mining"
 	path = /obj/item/clothing/accessory/storage/overalls/mining
-	allowed_roles = list("Shaft Miner")
+	allowed_roles = list("Shaft Miner, Xenoarchaeologist")
 	cost = 2
 
 /datum/gear/accessory/overalls_engineer
@@ -544,6 +544,6 @@
 	flagpatch_national["flagpatch, dpra"] = /obj/item/clothing/accessory/flagpatch/dpra
 	flagpatch_national["flagpatch, nka"] = /obj/item/clothing/accessory/flagpatch/nka
 	flagpatch_national["flagpatch, free council"] = /obj/item/clothing/accessory/flagpatch/freecouncil
-	flagpatch_national["flagpatch, jargon"] = /obj/item/clothing/accessory/flagpatch/jargon
+	flagpatch_national["flagpatch, nralakk"] = /obj/item/clothing/accessory/flagpatch/nralakk
 	flagpatch_national["flagpatch, hegemony"] = /obj/item/clothing/accessory/flagpatch/hegemony
 	gear_tweaks += new /datum/gear_tweak/path(flagpatch_national)
