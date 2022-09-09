@@ -38,7 +38,7 @@
 //skrell shared things
 
 /datum/gear/accessory/capes/diona
-	display_name = "shoulder capes"
+	display_name = "dionae shoulder capes"
 	path = /obj/item/clothing/accessory/poncho/shouldercape
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
@@ -54,28 +54,28 @@
 	gear_tweaks += new /datum/gear_tweak/path(capes)
 
 /datum/gear/accessory/qeblak/diona
-	display_name = "qeblak mantle"
+	display_name = "dionae qeblak mantle"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/accessory/weishii/diona
-	display_name = "weishii robe"
+	display_name = "dionae weishii robe"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/skrell_projector/diona
-	display_name = "nralakk projector"
+	display_name = "dionae nralakk projector"
 	path = /obj/item/skrell_projector
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim)
 
 /datum/gear/homeworld_deck/diona
-	display_name = "qweipaqui homeworld deck"
+	display_name = "dionae qweipaqui homeworld deck"
 	path = /obj/item/deck/tarot/nralakk
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
@@ -83,14 +83,14 @@
 	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 
 /datum/gear/colonist_deck/diona // Intentionally separate from homeworld_deck, so that both can be chosen. -Lly
-	display_name = "qweipaqui colonist deck"
+	display_name = "dionae qweipaqui colonist deck"
 	path = /obj/item/deck/tarot/nonnralakk
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/decl/origin_item/culture/dionae_nralakk, /decl/origin_item/culture/eum, /decl/origin_item/culture/xrim) 
 	
 /datum/gear/accessory/skrell_passport/diona
-	display_name = "nralakk federation passport"
+	display_name = "dionae nralakk federation passport"
 	path = /obj/item/clothing/accessory/badge/passport/nralakk
 	sort_category = "Xenowear - Skrell"
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -114,7 +114,7 @@
 	return J
 	
 /datum/gear/uniform/work/diona
-	display_name = "work uniforms"
+	display_name = "dionae work uniforms"
 	path = /obj/item/clothing/under/skrell/nralakk
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	flags = GEAR_HAS_DESC_SELECTION
@@ -126,12 +126,12 @@
 	outfit["ox research"] = /obj/item/clothing/under/skrell/nralakk
 	outfit["ox security"] = /obj/item/clothing/under/skrell/nralakk/ox
 	outfit["ox engineer"] = /obj/item/clothing/under/skrell/nralakk/ox/engineer
-	outfit["ox service"] = /obj/item/clothing/under/skrell/jnralakk/ox/service
+	outfit["ox service"] = /obj/item/clothing/under/skrell/nralakk/ox/service
 	outfit["ox medical"] = /obj/item/clothing/under/skrell/nralakk/ox/med
 	outfit["ix research"] = /obj/item/clothing/under/skrell/nralakk/ix
 	outfit["ix security"] = /obj/item/clothing/under/skrell/nralakk/ix/security
 	outfit["ix engineer"] = /obj/item/clothing/under/skrell/nralakk/ix/engineer
-	outfit["ix service"] = /obj/item/clothing/under/skrell/nralakkn/ix/service
+	outfit["ix service"] = /obj/item/clothing/under/skrell/nralakk/ix/service
 	outfit["ix medical"] = /obj/item/clothing/under/skrell/nralakk/ix/med
 	outfit["oqi research"] = /obj/item/clothing/under/skrell/nralakk/oqi
 	outfit["oqi security"] = /obj/item/clothing/under/skrell/nralakk/oqi/security
@@ -146,7 +146,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(outfit)
 	
 /datum/gear/suit/jacketdiona/
-	display_name = "work jackets"
+	display_name = "dionae work jackets"
 	path = /obj/item/clothing/suit/storage/toggle/skrell
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
@@ -179,7 +179,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
 	
 /datum/gear/accessory/diona/poncho
-	display_name = "skrell poncho"
+	display_name = "dionae skrell poncho"
 	path = /obj/item/clothing/accessory/poncho/skrell
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
@@ -196,7 +196,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(poncho)
 
 /datum/gear/accessory/diona/workcloak
-	display_name = "work cloaks"
+	display_name = "dionae work cloaks"
 	path = /obj/item/clothing/accessory/poncho/shouldercape
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
@@ -215,7 +215,7 @@
 //unathi shared things
 
 /datum/gear/accessory/sinta_hood/diona
-	display_name = "clan hood"
+	display_name = "dionae clan hood"
 	slot = slot_head
 	path = /obj/item/clothing/accessory/sinta_hood
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -224,7 +224,7 @@
 	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 	
 /datum/gear/suit/sash/diona
-	display_name = "gyazo belt"
+	display_name = "dionae gyazo belt"
 	path = /obj/item/clothing/accessory/unathi
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -233,7 +233,7 @@
 	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 
 /datum/gear/suit/unathi_mantle/diona
-	display_name = "peasant hide mantle selection"
+	display_name = "dionae peasant hide mantle selection"
 	description = "A selection of hide mantles, one for each of the desert, and mountainous \
 	regions of Moghes. The forest mantle is exclusively for nobility these days."
 	path = /obj/item/clothing/accessory/poncho/unathimantle
@@ -251,7 +251,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(mantles)
 	
 /datum/gear/suit/unathi_robe/diona
-	display_name = "roughspun robe"
+	display_name = "dionae roughspun robe"
 	path = /obj/item/clothing/suit/unathi/robe
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -260,12 +260,12 @@
 	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 	
 /datum/gear/suit/unathi_robe/kilt
-	display_name = "wasteland kilt"
+	display_name = "dionae wasteland kilt"
 	path = /obj/item/clothing/suit/unathi/robe/kilt
 	origin_restriction = list(/decl/origin_item/origin/dionae_wasteland)
 
 /datum/gear/uniform/unathi/diona
-	display_name = "sinta tunic"
+	display_name = "dionae sinta tunic"
 	path = /obj/item/clothing/under/unathi
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
@@ -273,14 +273,14 @@
 	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 	
 /datum/gear/head/sinta_ronin/diona
-	display_name = "straw hat"
+	display_name = "dionae straw hat"
 	path = /obj/item/clothing/head/unathi
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 	
 /datum/gear/suit/robe_coat/diona
-	display_name = "tzirzi robe"
+	display_name = "dionae tzirzi robe"
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -288,14 +288,14 @@
 	culture_restriction = list(/decl/origin_item/culture/dionae_moghes)
 	
 /datum/gear/eyes/wasteland_goggles/diona
-	display_name = "wasteland goggles"
+	display_name = "dionae wasteland goggles"
 	path = /obj/item/clothing/glasses/safety/goggles/wasteland
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	origin_restriction = list(/decl/origin_item/origin/dionae_wasteland)
 	sort_category = "Xenowear - Diona"
 	
 /datum/gear/uniform/unathi/zozo
-	display_name = "zozo top"
+	display_name = "dionae zozo top"
 	path = /obj/item/clothing/under/unathi/zozo
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
