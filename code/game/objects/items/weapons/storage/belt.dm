@@ -464,7 +464,8 @@
 		/obj/item/extraction_pack,
 		/obj/item/rfd/mining,
 		/obj/item/gun/custom_ka,
-		/obj/item/device/orbital_dropper
+		/obj/item/device/orbital_dropper,
+		/obj/item/ore_detector
 		)
 
 /obj/item/storage/belt/hydro
