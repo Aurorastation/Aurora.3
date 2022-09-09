@@ -7,10 +7,10 @@
 /datum/accent/coc
 	name = ACCENT_COC
 	description = "The frontier is home to an unknowably vast amount of humans and settlements, covering everything from small outposts of only a few hundred to major planets such as \
-	Xanu Prime. The Frontiersfolk are as diverse as their accents are, but the most common \"frontier accent\" is generally regarded as that of Xanu Prime - the arguable capital of \
-	the massive Coalition of Colonies."
+	Xanu Prime. It is difficult to define a standard \"Coalition accent,\" or dialect due to the diversity and regionalism of the Coalition, along with its lack of a strong central government. \
+	Solarian linguists generally define the Coalition dialect as an umbrella encompassing all Freespeak native speakers not from a major settlement of the Coalition."
 	tag_icon = "coalition"
-	text_tag = "COC"
+	text_tag = "COA"
 
 /datum/accent/elyra
 	name = ACCENT_ELYRA
@@ -202,6 +202,14 @@
 	from Luna to Xanu - are, one way or another, descended from this ancient accent."
 	tag_icon = "earth"
 	text_tag = "EAR"
+
+/datum/accent/xanu
+	name = ACCENT_XANU
+	description = "The Xanu Standard dialect is arguably the most notable Freespeak dialect. Xanu Standard first emerged as an informal creole designed to make communication between the various nationalities \
+	who settled the planet more easily and possessed loan words from upwards of a half-dozen languages during this early period. Over time this creole would morph into the Xanu Standard dialect of Freespeak \
+	and is arguably the oldest and most widespread of the 25th century's common Freespeak dialects. Freespeak taught abroad, such as in the Serene Republic of Elyra and Republic of Biesel, is most often based upon the Xanu Standard dialect."
+	tag_icon = "xanu"
+	text_tag = "XAN"
 
 /datum/accent/ncf
 	name = ACCENT_NCF

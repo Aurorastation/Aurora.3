@@ -358,7 +358,7 @@
 /obj/item/clothing/accessory/tshirt/skrell/maelstrom,
 /obj/item/clothing/accessory/tshirt/skrell/nebula,
 /obj/item/clothing/accessory/tshirt/skrell/nebula/black,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/jargon,
+/obj/item/clothing/accessory/tshirt/skrell/nebula/nralakk,
 /obj/item/clothing/accessory/tshirt/skrell/nebula/purple,
 /obj/item/clothing/accessory/tshirt/skrell/nebula/teal,
 /obj/item/clothing/accessory/tshirt/skrell/nebula/white,
@@ -412,10 +412,10 @@
 /obj/item/clothing/accessory/poncho/skrell/tan,
 /obj/item/clothing/ears/skrell/workcap,
 /obj/item/clothing/ears/skrell/workcap/long,
-/obj/item/clothing/under/skrell/jargon,
-/obj/item/clothing/under/skrell/jargon/iqi/engineer,
-/obj/item/clothing/under/skrell/jargon/iqi/med,
-/obj/item/clothing/under/skrell/jargon/iqi/security,
+/obj/item/clothing/under/skrell/nralakk,
+/obj/item/clothing/under/skrell/nralakk/iqi/engineer,
+/obj/item/clothing/under/skrell/nralakk/iqi/med,
+/obj/item/clothing/under/skrell/nralakk/iqi/security,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "fZq" = (
