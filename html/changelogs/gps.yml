@@ -1,0 +1,6 @@
+author: Tap0r & listerla
+
+delete-after: True
+
+changes:
+  - imageadd: "Ported new GPS sprites from Tau Ceti Station, including a new medical GPS."
