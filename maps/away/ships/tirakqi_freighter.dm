@@ -38,7 +38,8 @@
 	)
 
 	initial_generic_waypoints = list(
-		"nav_tirakqi_shuttle_freighter_1"
+		"nav_tirakqi_freighter_1",
+		"nav_tirakqi_freighter_2"
 	)
 
 /obj/effect/overmap/visitable/ship/tirakqi_freighter/New()
@@ -48,6 +49,12 @@
 /obj/effect/shuttle_landmark/tirakqi_freighter/nav1
 	name = "Ti'Rakqi Freighter - Starboard Side"
 	landmark_tag = "nav_tirakqi_freighter_1"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/tirakqi_freighter/nav2
+	name = "Ti'Rakqi Freighter - Port Side"
+	landmark_tag = "nav_tirakqi_freighter_2"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
