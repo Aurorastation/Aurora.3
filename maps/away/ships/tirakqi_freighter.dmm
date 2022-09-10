@@ -753,10 +753,10 @@
 /obj/machinery/light/skrell{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
