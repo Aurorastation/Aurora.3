@@ -154,6 +154,10 @@
 /obj/effect/shuttle_landmark/tirakqi_freighter/nav2,
 /turf/template_noop,
 /area/space)
+"cAm" = (
+/obj/effect/shuttle_landmark/tirakqi_freighter/nav4,
+/turf/template_noop,
+/area/space)
 "cIZ" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 1
@@ -1354,6 +1358,10 @@
 "nbG" = (
 /obj/effect/shuttle_landmark/tirakqi_freighter/transit,
 /turf/space/transit/south,
+/area/space)
+"ndr" = (
+/obj/effect/shuttle_landmark/tirakqi_freighter/nav3,
+/turf/template_noop,
 /area/space)
 "ngE" = (
 /obj/structure/closet/crate/medical,
@@ -31698,7 +31706,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+cAm
 xRX
 xRX
 xRX
@@ -34457,7 +34465,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+ndr
 xRX
 xRX
 xRX
