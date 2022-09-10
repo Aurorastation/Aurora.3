@@ -23,6 +23,16 @@
 
 	mob_name = null
 
+//Return a error message if the user CANT spawn. Otherwise FALSE
+/datum/ghostspawner/human/cant_spawn(mob/user)
+	//If whitelist is required, check if user can spawn in ANY of the possible species
+	var/can_spawn_as_any = !uses_species_whitelist
+	for (var/S in possible_species)
+		if(is_alien_whitelisted(user, S))
+			can_spawn_as_any = TRUE
+	if(!can_spawn_as_any)
+		return "This spawner requires whitelists for its spawnable species, and you do not have any such."
+	. = ..()
 
 //Proc executed before someone is spawned in
 /datum/ghostspawner/human/pre_spawn(mob/user)
