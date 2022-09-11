@@ -20,5 +20,10 @@
 	boss_short = "Idris"
 	company_name = "Idris Incorporated"
 	company_short = "Idris"
+	station_type = "ship"
 
 	use_overmap = FALSE
+
+	allowed_spawns = list("Living Quarters Lift", "Cryogenic Storage")
+	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo)
+	default_spawn = "Living Quarters Lift"
