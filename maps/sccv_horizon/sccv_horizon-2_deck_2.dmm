@@ -41364,9 +41364,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "vGT" = (
-/obj/machinery/media/jukebox/audioconsole/wall{
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 8
 	},
