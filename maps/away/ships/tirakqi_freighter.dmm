@@ -1304,11 +1304,11 @@
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "vwF" = (
-/obj/structure/fuel_port{
-	pixel_x = -32
-	},
 /obj/structure/bed/stool/chair/office/hover/command{
 	dir = 4
+	},
+/obj/structure/fuel_port/phoron{
+	pixel_x = -32
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tirakqi_shuttle)

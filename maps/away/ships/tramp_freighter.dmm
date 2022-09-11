@@ -56,7 +56,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "ajL" = (
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
 /turf/simulated/floor,
@@ -1293,7 +1293,7 @@
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "jIP" = (
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
 /turf/simulated/floor/shuttle/black,

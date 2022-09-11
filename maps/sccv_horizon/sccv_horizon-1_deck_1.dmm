@@ -12655,7 +12655,7 @@
 /area/hangar/operations)
 "jXW" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
 /obj/structure/bed/handrail{
@@ -22552,7 +22552,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_y = 32
 	},
 /obj/structure/table/rack,
