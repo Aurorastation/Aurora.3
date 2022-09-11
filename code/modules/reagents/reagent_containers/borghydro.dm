@@ -30,7 +30,7 @@
 	reagent_ids = list(/decl/reagent/tricordrazine, /decl/reagent/dexalin, /decl/reagent/inaprovaline, /decl/reagent/dylovene, /decl/reagent/perconol, /decl/reagent/mortaphenyl, /decl/reagent/adrenaline, /decl/reagent/coagzolug)
 
 /obj/item/reagent_containers/hypospray/borghypo/hacked
-	reagent_ids = list(/decl/reagent/toxin/zombiepowder, /decl/reagent/toxin/cyanide, /decl/reagent/polysomnine, /decl/reagent/toxin/panotoxin, /decl/reagent/toxin/berserk)
+	reagent_ids = list(/decl/reagent/toxin/zombiepowder, /decl/reagent/toxin/cyanide, /decl/reagent/polysomnine, /decl/reagent/toxin/panotoxin, /decl/reagent/toxin/berserk, /decl/reagent/wulumunusha)
 
 
 /obj/item/reagent_containers/hypospray/borghypo/Initialize()
