@@ -1,0 +1,7 @@
+author: listerla
+
+delete-after: True
+
+changes:
+  - tweak: "All Himean items are now origin-locked."
+  - bugfix: "Himean IPCs and Free Council Tajara may now access Himean-locked items."
