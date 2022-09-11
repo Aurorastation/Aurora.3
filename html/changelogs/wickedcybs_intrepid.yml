@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "The power line to the Intrepid's SMES runs off of the main grid now, rather than a subgrid."

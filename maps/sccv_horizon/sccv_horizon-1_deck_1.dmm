@@ -2927,11 +2927,11 @@
 /turf/space/dynamic,
 /area/horizon/exterior)
 "cnb" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
@@ -4631,6 +4631,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "dHW" = (
@@ -6071,7 +6074,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "eKr" = (
-/obj/structure/cable/green{
+/obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -13567,6 +13570,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
+"kEW" = (
+/obj/machinery/door/blast/regular/open{
+	id = "hangarlockdown";
+	name = "Hangar Lockdown"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/hangar/control)
 "kEX" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
@@ -17675,11 +17689,11 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/effect/floor_decal/corner/black{
 	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
@@ -18265,6 +18279,13 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
+"oCE" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/control)
 "oCT" = (
 /obj/structure/shuttle/engine/propulsion/burst/left{
 	dir = 8
@@ -18629,6 +18650,18 @@
 "oYQ" = (
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/escape_pod/pod4)
+"oYU" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/control)
 "oZj" = (
 /obj/machinery/mecha_part_fabricator{
 	dir = 8
@@ -18907,7 +18940,7 @@
 "pkw" = (
 /obj/structure/window/shuttle/scc,
 /obj/machinery/door/firedoor,
-/obj/structure/cable/green{
+/obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -26458,14 +26491,14 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
 /obj/machinery/power/portgen/basic,
 /obj/item/stack/material/graphite/full,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
 "vgw" = (
@@ -52675,7 +52708,7 @@ qCA
 fQJ
 aWP
 vht
-vht
+kEW
 vht
 aWP
 aWP
@@ -53079,7 +53112,7 @@ fox
 aWP
 acp
 gOe
-oEp
+oCE
 rdU
 nmF
 bHV
@@ -53281,7 +53314,7 @@ cBF
 aWP
 vai
 dxv
-oEp
+oCE
 oEp
 vJe
 aWP
@@ -53483,7 +53516,7 @@ qgi
 gnn
 pYu
 eev
-tKi
+oYU
 tKi
 fZX
 aWP
