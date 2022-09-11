@@ -294,9 +294,8 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	modules += new /obj/item/gripper/paperwork(src)
-	emag = new /obj/item/reagent_containers/hypospray/cmo(src)
-	emag.reagents.add_reagent(/decl/reagent/wulumunusha, 30)
-	emag.name = "Wulumunusha Hypospray"
+	emag = new /obj/item/reagent_containers/hypospray/borghypo/hacked(src)
+	emag.name = "Hacked Module Hypospray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
 	synths += medicine
