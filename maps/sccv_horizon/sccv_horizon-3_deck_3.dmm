@@ -13485,7 +13485,7 @@
 /area/template_noop)
 "yG" = (
 /obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/coffee,
+/obj/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "yH" = (
@@ -28370,7 +28370,7 @@
 	dir = 6
 	},
 /obj/machinery/light,
-/obj/machinery/chemical_dispenser/coffee,
+/obj/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "ZM" = (

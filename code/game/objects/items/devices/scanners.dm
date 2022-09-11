@@ -572,7 +572,7 @@ BREATH ANALYZER
 
 /obj/item/device/breath_analyzer
 	name = "breath analyzer"
-	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's repository system."
+	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respiratory system."
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
 	w_class = ITEMSIZE_SMALL
@@ -670,11 +670,11 @@ BREATH ANALYZER
 		for(var/_R in H.breathing.reagent_volumes)
 			var/decl/reagent/R = decls_repository.get_decl(_R)
 			if(R.scannable)
-				to_chat(user,"<span class='notice'>[R.name] found in subject's respitory system.</span>")
+				to_chat(user,"<span class='notice'>[R.name] found in subject's respiratory system.</span>")
 			else
 				++unknown
 		if(unknown)
-			to_chat(user,"<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respitory system.</span>")
+			to_chat(user,"<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respiratory system.</span>")
 
 
 /obj/item/device/advanced_healthanalyzer
