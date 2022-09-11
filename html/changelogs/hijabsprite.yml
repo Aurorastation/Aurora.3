@@ -1,6 +1,0 @@
-author: listerla
-
-delete-after: True
-
-changes:
-  - tweak: "Added a single pixel to the hijab sprite so that you can't see the floor through it."
