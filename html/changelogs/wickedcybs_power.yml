@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "The Intrepid will be directly charged by the main power line now, rather than by a single APC."

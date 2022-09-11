@@ -2927,11 +2927,11 @@
 /turf/space/dynamic,
 /area/horizon/exterior)
 "cnb" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
@@ -4631,6 +4631,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "dHW" = (
@@ -6071,7 +6074,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "eKr" = (
-/obj/structure/cable/green{
+/obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -7414,6 +7417,18 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
+"fLc" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/control)
 "fLz" = (
 /obj/structure/tank_wall{
 	icon_state = "m-9"
@@ -14976,6 +14991,13 @@
 "lPW" = (
 /turf/simulated/wall,
 /area/hangar/auxiliary)
+"lQj" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/control)
 "lQI" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -16699,6 +16721,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"ngw" = (
+/obj/machinery/door/blast/regular/open{
+	id = "hangarlockdown";
+	name = "Hangar Lockdown"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/hangar/control)
 "ngD" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
@@ -17675,11 +17708,11 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/effect/floor_decal/corner/black{
 	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
@@ -18907,7 +18940,7 @@
 "pkw" = (
 /obj/structure/window/shuttle/scc,
 /obj/machinery/door/firedoor,
-/obj/structure/cable/green{
+/obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
@@ -26458,14 +26491,14 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
 /obj/machinery/power/portgen/basic,
 /obj/item/stack/material/graphite/full,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/engine_compartment)
 "vgw" = (
@@ -52675,7 +52708,7 @@ qCA
 fQJ
 aWP
 vht
-vht
+ngw
 vht
 aWP
 aWP
@@ -53079,7 +53112,7 @@ fox
 aWP
 acp
 gOe
-oEp
+lQj
 rdU
 nmF
 bHV
@@ -53281,7 +53314,7 @@ cBF
 aWP
 vai
 dxv
-oEp
+lQj
 oEp
 vJe
 aWP
@@ -53483,7 +53516,7 @@ qgi
 gnn
 pYu
 eev
-tKi
+fLc
 tKi
 fZX
 aWP
