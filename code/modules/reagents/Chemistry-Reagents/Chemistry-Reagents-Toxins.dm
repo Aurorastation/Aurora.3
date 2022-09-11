@@ -166,6 +166,7 @@
 	taste_description = "cherry"
 	conflicting_reagent = /decl/reagent/toxin/phoron
 	strength = 1
+	touch_mul = 0.75
 
 /decl/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
@@ -542,6 +543,7 @@
 		M.eye_blurry = max(M.eye_blurry, 10)
 	else
 		M.sleeping = max(M.sleeping, 30)
+		M.eye_blurry = max(M.eye_blurry, 30)
 
 	if(dose > 1)
 		M.add_chemical_effect(CE_TOXIN, removed)

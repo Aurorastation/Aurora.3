@@ -10,7 +10,7 @@
 	name = "superconductive magnetic coil"
 	desc = "Standard superconductive magnetic coil with balanced capacity and I/O rating."
 	icon = 'icons/obj/stock_parts.dmi'
-	icon_state = "smes_coil"			// Just few icons patched together. If someone wants to make better icon, feel free to do so!
+	icon_state = "smes_coil"
 	w_class = ITEMSIZE_LARGE 			// It's LARGE (backpack size)
 	var/ChargeCapacity = 5000000
 	var/IOCapacity = 250000
@@ -28,6 +28,7 @@
 /obj/item/smes_coil/weak
 	name = "basic superconductive magnetic coil"
 	desc = "Cheaper model of the standard superconductive magnetic coil. Its capacity and I/O rating are considerably lower."
+	icon_state = "smes_coil_weak"
 	ChargeCapacity = 1000000
 	IOCapacity = 150000
 
@@ -35,6 +36,7 @@
 /obj/item/smes_coil/super_capacity
 	name = "superconductive capacitance coil"
 	desc = "Specialised version of the standard superconductive magnetic coil. It has significantly stronger containment field, allowing for immense power storage. However its I/O rating is much lower."
+	icon_state = "smes_coil_capacitance"
 	ChargeCapacity = 50000000
 	IOCapacity = 50000
 
@@ -42,6 +44,7 @@
 /obj/item/smes_coil/super_io
 	name = "superconductive transmission coil"
 	desc = "Specialised version of the standard superconductive magnetic coil. While it's almost useless for power storage it can rapidly transfer power, making it useful in systems that require large throughput."
+	icon_state = "smes_coil_transmission"
 	ChargeCapacity = 500000
 	IOCapacity = 1000000
 
@@ -80,6 +83,25 @@
 	input_level = 1300000
 	output_level = 1300000
 	charge = 5.55e+007
+
+/obj/machinery/power/smes/buildable/third_party_shuttle/Initialize() 
+	. = ..()
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	input_attempt = TRUE
+	output_attempt = TRUE
+	input_level = 1000000
+	output_level = 1000000
+	charge = 6.56158e+007
+
+/obj/machinery/power/smes/buildable/autosolars/Initialize() //for third parties that have their solars autostart, It's slightly upgraded for them
+	. = ..()
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	input_attempt = TRUE
+	output_attempt = TRUE
+	input_level = 1000000
+	output_level = 1000000
+	charge = 3.02024e+006
 
 // END SMES SUBTYPES
 

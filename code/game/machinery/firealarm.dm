@@ -230,12 +230,12 @@
 	return
 
 /obj/machinery/firealarm/proc/alarm(var/duration = 0)
-	if (!( src.working))
+	if(!(src.working))
 		return
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
 		fire_alarm.triggerAlarm(loc, FA, duration)
-		playsound(FA.loc, 'sound/ambience/firealarm.ogg', 75, 0)
+		playsound(get_turf(FA), 'sound/ambience/firealarm.ogg', 75, FALSE)
 	update_icon()
 	return
 

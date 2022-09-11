@@ -298,6 +298,12 @@ var/list/GPS_list = list()
 	compass_color = "#6eaa2c"
 	gpstag = "JAN0"
 
+/obj/item/device/gps/marooning_equipment
+	icon_state = "gps-e"
+	gps_prefix = "MAROON"
+	compass_color = "#EAD152"
+	gpstag = "MAROON0"
+
 // Static GPS
 /obj/item/device/gps/stationary
 	name = "static GPS"

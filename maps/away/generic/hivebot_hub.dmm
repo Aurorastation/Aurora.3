@@ -387,8 +387,8 @@
 /area/derelict)
 "aN" = (
 /obj/item/paper,
-/obj/structure/safe,
 /obj/random/handgun,
+/obj/structure/safe/cash,
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "aO" = (

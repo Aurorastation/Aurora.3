@@ -145,7 +145,7 @@
 /datum/citizenship/cthur
 	name = CITIZENSHIP_CTHUR
 	description = "They are the third Hive that has developed relationships with other sophonts of the Orion Spur. \
-	While their arrival was kept in secret by the Jargon Federation, the revelation has reignited diplomatic disputes between K'lax and C'thur, with outright hostility met by the K'lax towards the C'thur. \
+	While their arrival was kept in secret by the Nralakk Federation, the revelation has reignited diplomatic disputes between K'lax and C'thur, with outright hostility met by the K'lax towards the C'thur. \
 	Unlike all other hives, the C'thur are led by their original Hive Queen, who, with a council of three other Lesser Queens, leads the Hive in this new age. \
 	In this effort, the Hive has begun dealing with the multitude of governments and corporations of the galaxy, all under the auspices of their Skrellian saviors. \
 	The C'thur are the most economically developed hive, having stakes in Einstein Engines and Zeng-Hu Pharmaceuticals."

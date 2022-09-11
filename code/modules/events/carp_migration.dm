@@ -25,10 +25,10 @@
 			var/announcement = ""
 			var/soundfile = 'sound/AI/carp_migration.ogg'
 			if(severity == EVENT_LEVEL_MAJOR && deploy_drones)
-				announcement = "A massive migration of unknown biological entities has been detected near [location_name()], please stand-by. The NDV Icarus has dispatched combat drones to assist."
+				announcement = "A massive migration of unknown biological entities has been detected near [location_name()], please stand-by."
 				soundfile = 'sound/AI/massivespacecarp.ogg'
 			else
-				announcement = "Unknown biological [length(spawned_carp) == 1 ? "entity has" : "entities have"] been detected near [location_name()], please stand-by.[severity == EVENT_LEVEL_MODERATE ? " The NDV Icarus has dispatched combat drones to assist." : ""]"
+				announcement = "Unknown biological [length(spawned_carp) == 1 ? "entity has" : "entities have"] been detected near [location_name()], please stand-by."
 			command_announcement.Announce(announcement, "Lifesign Alert", new_sound = soundfile)
 			break
 
