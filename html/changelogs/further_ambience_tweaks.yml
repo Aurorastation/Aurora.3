@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - rscadd: "Adds a Music SFX toggle, to stop jukeboxes and areas from playing music."
