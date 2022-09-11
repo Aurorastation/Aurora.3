@@ -357,6 +357,7 @@
 /area/horizon/hallway/deck_two/fore
 	name = "Horizon - Deck 2 - Fore Hallway"
 	icon_state = "hallF"
+	
 /********** Hallways End **********/
 
 /********** Stairwells Start **********/
