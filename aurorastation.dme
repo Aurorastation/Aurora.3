@@ -3173,6 +3173,7 @@
 #include "maps\away\ships\wildcard_ship_ghostroles.dm"
 #include "maps\away\ships\casino\casino.dm"
 #include "maps\away\ships\casino\casino_areas.dm"
+#include "maps\away\ships\circus\adhomian_circus.dm"
 #include "maps\away\ships\kataphracts\kataphract_areas.dm"
 #include "maps\away\ships\kataphracts\kataphract_ship.dm"
 #include "maps\away\ships\kataphracts\kataphract_ship_ghostroles.dm"
