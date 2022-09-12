@@ -2584,7 +2584,7 @@
 "mDd" = (
 /obj/item/clothing/suit/storage/toggle/leather_jacket/biker,
 /obj/item/clothing/head/welding,
-/obj/structure/closet/wardrobe/machinist,
+/obj/structure/closet/secure_closet/machinist,
 /obj/item/clothing/accessory/tie/red_clip,
 /obj/item/clothing/gloves/boxing,
 /obj/item/book/manual/atmospipes,

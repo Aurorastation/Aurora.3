@@ -141,7 +141,7 @@
 	uses_species_whitelist = TRUE
 
 /datum/outfit/admin/tirakqi_crew/medic
-	name = "Ti'Rakqi Medic "
+	name = "Ti'Rakqi Medic"
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
@@ -150,8 +150,8 @@
 
 /datum/ghostspawner/human/tirakqi_engineer
 	short_name = "tirakqi_engineer"
-	name = "Ti'Rakqi Medic"
-	desc = "You're a trained doctor serving with the Ti'Rakqi! Try to keep the crew alive or you may find yourself stranded in space."
+	name = "Ti'Rakqi Engineer"
+	desc = "You're a trained engineer serving with the Ti'Rakqi! Try to keep the ship functioning or you may find yourself stranded in space."
 	tags = list("External")
 
 	spawnpoints = list("tirakqi_engineer")
@@ -168,7 +168,7 @@
 	uses_species_whitelist = TRUE
 
 /datum/outfit/admin/tirakqi_crew/engineer
-	name = "Ti'Rakqi Medic "
+	name = "Ti'Rakqi Engineer"
 
 	uniform = /obj/item/clothing/under/serviceoveralls
 	suit = /obj/item/clothing/accessory/storage/overalls

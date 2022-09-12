@@ -3718,6 +3718,7 @@
 	name = "Hydroponics Maintenance";
 	req_access = list(35)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "bOI" = (
@@ -8688,7 +8689,7 @@
 /turf/simulated/floor/carpet,
 /area/horizon/crew_quarters/lounge/bar)
 "eDW" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations -  Upper Warehouse Port";
 	dir = 8
@@ -8740,7 +8741,7 @@
 	name = "Station Intercom (General)";
 	pixel_y = -25
 	},
-/obj/structure/closet/secure_closet/operation_manager,
+/obj/structure/closet/secure_closet/operations_manager,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
@@ -8799,10 +8800,10 @@
 "eGS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_two)
 "eGV" = (
@@ -23343,7 +23344,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "mqj" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -36446,7 +36447,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "tiD" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -46527,7 +46528,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "yeF" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
