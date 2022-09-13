@@ -136,12 +136,12 @@
 	possible_religions = RELIGIONS_SOLARIAN
 
 /decl/origin_item/origin/antillia
-    name = "Port Antillia"
-    desc = "A former middle ring Solarian colony annexed into the Corporate Reconstruction Zone following the Solarian Collapse. Port Antillia is an under-developed ocean world with a unique, unstable geological profile and strong tradition of regional governance. Now with the formation of a unified planetary government within the Corporate Reconstruction Zone, Port Antillia looks forward to a hopeful, brighter future."
-    important_information = "Due to the rather insular and unstable history of Port Antillia as the singular colonisation attempt by the Caribbean Federation, <b>characters born on Port Antillia will have names and appearances consistent with the peoples of the Antilles.</b> Only those native to Port Antillia may take its accent. This is enforceable by server moderators and admins."
-    possible_accents = list(ACCENT_ANTILLIA)
-    possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
-    possible_religions = RELIGIONS_SOLARIAN
+	name = "Port Antillia"
+	desc = "A former middle ring Solarian colony annexed into the Corporate Reconstruction Zone following the Solarian Collapse. Port Antillia is an under-developed ocean world with a unique, unstable geological profile and strong tradition of regional governance. Now with the formation of a unified planetary government within the Corporate Reconstruction Zone, Port Antillia looks forward to a hopeful, brighter future."
+	important_information = "Due to the rather insular and unstable history of Port Antillia as the singular colonisation attempt by the Caribbean Federation, <b>characters born on Port Antillia will have names and appearances consistent with the peoples of the Antilles.</b> Only those native to Port Antillia may take its accent. This is enforceable by server moderators and admins."
+	possible_accents = list(ACCENT_ANTILLIA)
+	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
+	possible_religions = RELIGIONS_SOLARIAN
 
 /decl/origin_item/origin/sancolette
 	name = "San Colette"
@@ -154,4 +154,4 @@
 	important_information = "Because of the ethnic make-up of San Colette's original settlers and assimilation of immigrants into the native population during and following the Warp Gate Project, human characters born on San Colette will have appearances consistent with the people of the Iberian Peninsula. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_SANCOLETTE)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
-    possible_religions = RELIGIONS_SOLARIAN
+	possible_religions = RELIGIONS_SOLARIAN
