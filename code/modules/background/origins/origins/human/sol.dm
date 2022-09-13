@@ -20,7 +20,8 @@
 		/decl/origin_item/origin/konyang,
 		/decl/origin_item/origin/visegrad,
 		/decl/origin_item/origin/mictlan,
-		/decl/origin_item/origin/antillia
+		/decl/origin_item/origin/antillia,
+		/decl/origin_item/origin/sancolette
 	)
 
 /decl/origin_item/origin/sol_system
