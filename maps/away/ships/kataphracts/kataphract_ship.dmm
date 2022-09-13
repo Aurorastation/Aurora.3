@@ -1128,7 +1128,7 @@
 /area/kataphract_chapter/office)
 "cH" = (
 /obj/structure/foamedmetal,
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/plating,
 /area/kataphract_chapter/port_solars_array)
 "cI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1611,10 +1611,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
-"dO" = (
-/obj/structure/foamedmetal,
-/turf/simulated/wall/r_wall,
-/area/kataphract_chapter/trading_area)
 "dP" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -6615,10 +6611,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/kataphract_chapter/office)
-"nF" = (
-/obj/structure/foamedmetal,
-/turf/space,
-/area/kataphract_chapter/trading_area)
 "nM" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
@@ -23642,7 +23634,7 @@ Sp
 ly
 jM
 ly
-nF
+rm
 la
 kP
 kS
@@ -23804,7 +23796,7 @@ bo
 ly
 uN
 ly
-nF
+rm
 la
 kP
 kU
@@ -24776,18 +24768,18 @@ bo
 ly
 jM
 ly
-rm
-rm
+fm
+fm
 la
 ii
 kU
 ld
 lx
 la
-dO
-dO
-dO
-dO
+rm
+rm
+rm
+rm
 la
 la
 la
@@ -24938,8 +24930,8 @@ wT
 ly
 uN
 ly
-rm
-rm
+fm
+fm
 la
 iR
 lh
@@ -25100,8 +25092,8 @@ ly
 ly
 jM
 ly
-rm
-rm
+fm
+fm
 kJ
 iR
 lh
