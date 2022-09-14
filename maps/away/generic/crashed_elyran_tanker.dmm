@@ -538,6 +538,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"em" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/temp_deco,
+/turf/simulated/floor/airless,
+/area/space)
 "er" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 9
@@ -556,6 +561,7 @@
 /area/space)
 "ew" = (
 /obj/structure/inflatable/door,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/airless,
 /area/space)
 "eA" = (
@@ -730,6 +736,12 @@
 /obj/item/screwdriver,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"fT" = (
+/obj/item/material/shard/shrapnel{
+	icon_state = "shrapnelmedium"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/space)
 "gb" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
@@ -786,6 +798,13 @@
 	id_tag = "intrepid_shuttle_cargo_pump"
 	},
 /turf/simulated/floor/plating,
+/area/space)
+"gq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard/shrapnel{
+	icon_state = "shrapnelmedium"
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "gr" = (
 /obj/structure/bed/stool/chair/office/bridge,
@@ -1183,6 +1202,13 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
+/area/space)
+"jj" = (
+/obj/structure/lattice,
+/obj/item/material/shard/shrapnel{
+	icon_state = "shrapnelmedium"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "jm" = (
 /obj/machinery/shipsensors/weak,
@@ -1636,6 +1662,9 @@
 "nw" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/device/radio/phone{
+	frequency = 1280
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "nx" = (
@@ -1800,6 +1829,13 @@
 "oO" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
+/area/space)
+"oQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "oR" = (
 /obj/structure/tank_wall/phoron{
@@ -1979,6 +2015,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled,
+/area/space)
+"qn" = (
+/obj/structure/table/steel,
+/obj/item/device/radio/phone{
+	frequency = 1280
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "qo" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2274,6 +2317,10 @@
 /mob/living/simple_animal/carp,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
+"tA" = (
+/obj/structure/flora/rock/pile,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/space)
 "tB" = (
 /obj/structure/closet/walllocker/emerglocker/east,
 /obj/effect/floor_decal/corner/blue{
@@ -2531,7 +2578,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "vP" = (
@@ -2678,6 +2725,9 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "wR" = (
@@ -2726,6 +2776,13 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"xq" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/portable_atmospherics/canister/empty/phoron{
+	icon_state = "orange-1"
+	},
+/turf/template_noop,
 /area/space)
 "xs" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -2875,6 +2932,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/rods,
+/obj/item/material/shard/shrapnel{
+	icon_state = "shrapnelmedium"
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "yq" = (
@@ -2940,6 +3000,9 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -3020,6 +3083,7 @@
 /area/space)
 "zI" = (
 /obj/item/stack/rods/full,
+/obj/structure/flora/rock/pile,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "zN" = (
@@ -3096,6 +3160,11 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
+/area/space)
+"AE" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/airless,
 /area/space)
 "AO" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
@@ -3206,6 +3275,12 @@
 /obj/structure/foamedmetal,
 /turf/simulated/floor/airless,
 /area/space)
+"BP" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/airless{
+	icon_state = "steel_burned1"
+	},
+/area/space)
 "BS" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
@@ -3228,6 +3303,13 @@
 /area/space)
 "BX" = (
 /obj/item/wirecutters,
+/turf/simulated/floor/airless,
+/area/space)
+"Ca" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/empty/phoron{
+	icon_state = "orange-1"
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "Cc" = (
@@ -3529,7 +3611,9 @@
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/airless{
+	icon_state = "steel_burned0"
+	},
 /area/space)
 "EI" = (
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -3594,10 +3678,24 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/space)
+"Fu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard/shrapnel{
+	icon_state = "shrapnelmedium"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "FC" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
+/area/space)
+"FE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/temp_deco{
+	icon_state = "vbox_2"
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "FI" = (
 /obj/structure/bed/stool/chair/office/bridge,
@@ -4047,6 +4145,13 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/space)
+"Jl" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/valve{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "Jo" = (
 /obj/structure/foamedmetal,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -4091,6 +4196,13 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"JB" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/space)
 "JC" = (
 /turf/simulated/floor/carpet/rubber,
@@ -4272,14 +4384,8 @@
 /turf/simulated/floor/reinforced/phoron,
 /area/space)
 "Lf" = (
-/obj/item/ore/glass{
-	pixel_y = -5;
-	pixel_x = -4
-	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/inflatable/wall{
-	pixel_y = 12
-	},
+/obj/structure/girder,
 /turf/simulated/floor/tiled/steel/airless{
 	icon_state = "damaged4"
 	},
@@ -4335,6 +4441,13 @@
 "Lu" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
+/area/space)
+"Lv" = (
+/obj/structure/lattice,
+/obj/item/material/shard/shrapnel{
+	icon_state = "shrapnelmedium"
+	},
+/turf/template_noop,
 /area/space)
 "Lx" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -4454,6 +4567,14 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
+/area/space)
+"MD" = (
+/obj/item/material/shard/shrapnel{
+	icon_state = "shrapnelmedium"
+	},
+/turf/simulated/floor/tiled/steel/airless{
+	icon_state = "damaged1"
+	},
 /area/space)
 "ME" = (
 /obj/effect/floor_decal/corner/beige{
@@ -4601,6 +4722,14 @@
 	pixel_x = 3
 	},
 /turf/simulated/floor/airless,
+/area/space)
+"NS" = (
+/obj/structure/lattice,
+/obj/item/material/shard/shrapnel{
+	icon_state = "shrapnelmedium"
+	},
+/obj/structure/flora/rock/pile,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "NY" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -4789,6 +4918,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
+/obj/item/inflatable/wall{
+	pixel_y = 12
+	},
+/obj/item/ore/glass{
+	pixel_y = -5;
+	pixel_x = -4
+	},
 /turf/simulated/floor/tiled/steel/airless{
 	icon_state = "damaged2"
 	},
@@ -4860,6 +4996,13 @@
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
+/area/space)
+"PQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard/shrapnel{
+	icon_state = "shrapnelmedium"
+	},
+/turf/simulated/floor/tiled/steel/airless,
 /area/space)
 "PU" = (
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -4963,6 +5106,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"Rk" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "Rp" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -5413,6 +5561,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/space)
+"UQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/temp_deco{
+	icon_state = "box_1"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "UZ" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
@@ -5425,11 +5580,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"Vc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "Vj" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
+/area/space)
+"Vk" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor,
 /area/space)
 "Vm" = (
 /obj/machinery/light/small/red,
@@ -5624,6 +5793,9 @@
 /area/space)
 "WN" = (
 /obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -5888,6 +6060,13 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/unsimulated/floor/plating,
 /area/space)
+"YY" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "Za" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -6049,6 +6228,12 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/carpet/rubber,
+/area/space)
+"ZV" = (
+/obj/item/material/shard/shrapnel{
+	icon_state = "shrapnelmedium"
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "ZX" = (
 /obj/structure/bed/stool/chair/shuttle,
@@ -18762,7 +18947,7 @@ Dg
 Dg
 Dg
 Dg
-qu
+tA
 qu
 qu
 qu
@@ -19005,7 +19190,7 @@ Dg
 Dg
 Dg
 qu
-qu
+tA
 qu
 Dg
 Dg
@@ -20052,7 +20237,7 @@ Dg
 qu
 yi
 yi
-qu
+tA
 qu
 Dg
 Dg
@@ -21871,7 +22056,7 @@ Dg
 Dg
 qu
 qu
-qu
+tA
 qu
 yi
 yi
@@ -22391,7 +22576,7 @@ yi
 yi
 qu
 qu
-qu
+tA
 qu
 Dg
 Dg
@@ -23148,7 +23333,7 @@ Dg
 Dg
 qu
 qu
-qu
+tA
 qu
 qu
 yi
@@ -23414,7 +23599,7 @@ yi
 qu
 qu
 qu
-qu
+tA
 qu
 qu
 qu
@@ -23883,7 +24068,7 @@ qu
 qu
 qu
 qu
-qu
+tA
 qu
 Dg
 Dg
@@ -24162,7 +24347,7 @@ Dg
 Dg
 Dg
 qu
-qu
+tA
 yi
 yi
 yi
@@ -24394,7 +24579,7 @@ qu
 qu
 qu
 qu
-qu
+tA
 qu
 qu
 qu
@@ -24413,7 +24598,7 @@ Dg
 Dg
 Dg
 Dg
-qu
+tA
 qu
 Dg
 Dg
@@ -24645,7 +24830,7 @@ Dg
 Dg
 qu
 qu
-qu
+tA
 qu
 qu
 yi
@@ -25198,7 +25383,7 @@ yi
 yi
 yi
 yi
-qu
+tA
 qu
 Dg
 Dg
@@ -25435,7 +25620,7 @@ yi
 yi
 yi
 qu
-qu
+tA
 qu
 Dg
 Dg
@@ -25965,7 +26150,7 @@ Dg
 Dg
 Dg
 Dg
-qu
+tA
 qu
 qu
 qu
@@ -26716,7 +26901,7 @@ yi
 yi
 qu
 qu
-qu
+tA
 qu
 qu
 qu
@@ -26964,7 +27149,7 @@ Dg
 Dg
 Dg
 Dg
-qu
+tA
 qu
 qu
 qu
@@ -26982,13 +27167,13 @@ Dg
 Dg
 Dg
 qu
-qu
+tA
 qA
 qA
 Yf
 Yf
 Dg
-qu
+tA
 qu
 qu
 qu
@@ -27512,7 +27697,7 @@ qu
 qu
 qu
 qu
-qu
+tA
 Dg
 Dg
 Dg
@@ -27752,7 +27937,7 @@ Dg
 Dg
 Dg
 Dg
-qu
+tA
 SA
 is
 is
@@ -28551,7 +28736,7 @@ Dg
 Dg
 qu
 qu
-qu
+tA
 qu
 Dg
 Dg
@@ -29041,7 +29226,7 @@ qA
 IG
 Ie
 SJ
-Ie
+qn
 VZ
 DQ
 IV
@@ -29057,7 +29242,7 @@ yi
 yi
 qu
 qu
-qu
+tA
 qu
 qu
 qu
@@ -29305,8 +29490,8 @@ IV
 IG
 qA
 qA
-qu
-qu
+fT
+tA
 qu
 yi
 yi
@@ -29320,7 +29505,7 @@ qu
 qu
 qu
 qu
-qu
+tA
 Dg
 Dg
 Dg
@@ -29816,7 +30001,7 @@ vm
 MM
 oV
 IG
-ih
+UQ
 SA
 vP
 SA
@@ -30073,8 +30258,8 @@ Yy
 MM
 lX
 IG
-ih
-Kp
+em
+Lv
 Wi
 yi
 IG
@@ -30330,7 +30515,7 @@ IG
 jr
 IG
 IG
-ih
+FE
 Kp
 SA
 ih
@@ -30587,10 +30772,10 @@ jx
 jx
 jx
 fw
-ih
+Vc
 Kp
 Kp
-ih
+oQ
 dG
 Ss
 ea
@@ -30846,11 +31031,11 @@ jx
 fw
 ih
 VU
-ih
+Fu
 ih
 yb
 Zc
-Zc
+gq
 Ay
 Ay
 yi
@@ -31110,7 +31295,7 @@ YV
 ai
 jx
 jH
-yi
+tA
 Og
 IG
 IG
@@ -31374,7 +31559,7 @@ IG
 qu
 qu
 yi
-qu
+tA
 yi
 qu
 qu
@@ -31628,7 +31813,7 @@ Od
 my
 IG
 IG
-qu
+tA
 qu
 yi
 qu
@@ -31879,9 +32064,9 @@ Kp
 HG
 TE
 xC
-SA
+jj
 fw
-TU
+xq
 ja
 Dg
 qu
@@ -32894,7 +33079,7 @@ Dg
 Dg
 Dg
 or
-Dg
+Kp
 uc
 jx
 QR
@@ -32909,7 +33094,7 @@ jx
 kg
 BG
 Id
-Dg
+Kp
 ja
 Dg
 Dg
@@ -32918,7 +33103,7 @@ Dg
 qu
 qu
 qu
-qu
+tA
 qu
 Dg
 Dg
@@ -33929,8 +34114,8 @@ jx
 jx
 fw
 Kp
-gl
-bi
+Jl
+Jl
 Kp
 HG
 jx
@@ -34452,7 +34637,7 @@ qo
 hb
 qA
 Dg
-TU
+ja
 Dg
 Dg
 Dg
@@ -34709,7 +34894,7 @@ VF
 qg
 Jw
 Dg
-TU
+ja
 Dg
 Dg
 Dg
@@ -34721,7 +34906,7 @@ qu
 yi
 yi
 qu
-qu
+tA
 Dg
 Dg
 Dg
@@ -34950,7 +35135,7 @@ Dg
 Dg
 Dg
 or
-Dg
+Kp
 uc
 Tn
 et
@@ -34965,7 +35150,7 @@ Tn
 et
 Tn
 Id
-Dg
+Kp
 TU
 Dg
 Dg
@@ -35966,7 +36151,7 @@ qu
 qu
 yi
 qu
-qu
+tA
 qu
 qu
 Dg
@@ -35985,15 +36170,15 @@ jx
 jx
 fw
 Kp
-gl
-bi
+Jl
+Jl
 Kp
 HG
 jx
 jx
 jx
 fw
-Dg
+Kp
 Kp
 Dg
 Dg
@@ -36006,7 +36191,7 @@ Dg
 Dg
 Dg
 Dg
-qu
+tA
 qu
 Dg
 Dg
@@ -37006,7 +37191,7 @@ Dg
 Dg
 Dg
 or
-Dg
+Kp
 HK
 bV
 UG
@@ -37021,7 +37206,7 @@ Wr
 HE
 Wr
 CQ
-Dg
+Kp
 ja
 Dg
 Dg
@@ -37245,7 +37430,7 @@ Dg
 Dg
 Dg
 Dg
-qu
+tA
 qu
 Dg
 Dg
@@ -37547,7 +37732,7 @@ Dg
 Dg
 Dg
 qu
-qu
+tA
 qu
 qu
 Dg
@@ -37807,7 +37992,7 @@ qu
 yi
 qu
 qu
-Dg
+qu
 Dg
 Dg
 Dg
@@ -38041,8 +38226,8 @@ jx
 jx
 fw
 Kp
-gl
-bi
+Jl
+Jl
 Kp
 HG
 jx
@@ -38825,7 +39010,7 @@ ur
 Dg
 qu
 qu
-qu
+tA
 qu
 Dg
 Dg
@@ -39062,7 +39247,7 @@ Dg
 Dg
 Dg
 or
-Dg
+Kp
 uc
 Zc
 Qr
@@ -39077,7 +39262,7 @@ jx
 QR
 jx
 Id
-Dg
+Kp
 Kp
 Dg
 qu
@@ -39593,7 +39778,7 @@ ib
 qA
 Dg
 Kp
-qu
+tA
 qu
 qu
 qu
@@ -39606,7 +39791,7 @@ Dg
 Dg
 Dg
 qu
-qu
+tA
 yi
 yi
 yi
@@ -39838,7 +40023,7 @@ HG
 jx
 jx
 jx
-fw
+Rk
 Dg
 gl
 bi
@@ -39869,7 +40054,7 @@ yi
 yi
 yi
 qu
-qu
+tA
 qu
 Dg
 Dg
@@ -40626,7 +40811,7 @@ Jo
 yi
 yi
 yi
-qu
+tA
 qu
 Dg
 Dg
@@ -40639,7 +40824,7 @@ qu
 qu
 qu
 qu
-qu
+tA
 qu
 qu
 qu
@@ -41158,7 +41343,7 @@ Dg
 Dg
 Dg
 qu
-qu
+tA
 qu
 Dg
 Dg
@@ -41901,8 +42086,8 @@ qh
 CB
 IG
 IG
-Dv
-Dv
+YY
+YY
 IG
 IG
 cl
@@ -42164,7 +42349,7 @@ BV
 Wg
 BT
 KG
-HA
+MD
 Ij
 IG
 Dg
@@ -42401,7 +42586,7 @@ BJ
 IG
 kP
 Ma
-lk
+ZV
 sV
 IG
 wR
@@ -42421,7 +42606,7 @@ BV
 fj
 ni
 ux
-ih
+Ca
 jK
 IG
 Dg
@@ -42683,7 +42868,7 @@ yL
 IG
 Dg
 Dg
-qu
+tA
 Dg
 Dg
 Dg
@@ -43188,9 +43373,9 @@ uB
 Gi
 IG
 xK
-xK
+BP
 ge
-Tv
+PQ
 HA
 BX
 Tv
@@ -43968,7 +44153,7 @@ yv
 lN
 lN
 BN
-Dv
+AE
 Dg
 Dg
 Dg
@@ -44705,7 +44890,7 @@ MN
 IW
 xJ
 iH
-UC
+JB
 Lu
 Gx
 UC
@@ -44733,7 +44918,7 @@ Dg
 Kp
 Kp
 Kp
-SA
+NS
 Kp
 Kp
 IG
@@ -44962,7 +45147,7 @@ xL
 Jc
 rm
 iH
-UC
+JB
 Nj
 GM
 UC
@@ -45755,7 +45940,7 @@ cr
 qA
 ok
 OH
-Dv
+AE
 Dg
 Dg
 Dg
@@ -46012,7 +46197,7 @@ Vv
 qA
 ok
 ok
-Dv
+AE
 Dg
 Dg
 Dg
@@ -46766,8 +46951,8 @@ Dg
 Dg
 Dg
 bk
-UC
-UC
+Vk
+Vk
 bk
 bk
 Kp
