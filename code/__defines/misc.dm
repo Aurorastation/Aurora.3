@@ -67,7 +67,8 @@
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | SOUND_LOBBY | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
 
-//Sound effects toggles
+// ASFX and SFX Toggles
+// (ASFX = Ambient Sound Effects; SFX = Sound Effects)
 #define ASFX_AMBIENCE	1
 #define ASFX_FOOTSTEPS	2
 #define ASFX_VOTE		4
@@ -77,8 +78,9 @@
 #define ASFX_RADIO		64
 #define ASFX_INSTRUMENT 128
 #define ASFX_HUM 256
+#define ASFX_MUSIC 512
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE | ASFX_FOOTSTEPS | ASFX_VOTE | ASFX_VOX | ASFX_DROPSOUND | ASFX_ARCADE | ASFX_RADIO | ASFX_INSTRUMENT | ASFX_HUM)
+#define ASFX_DEFAULT (ASFX_AMBIENCE | ASFX_FOOTSTEPS | ASFX_VOTE | ASFX_VOX | ASFX_DROPSOUND | ASFX_ARCADE | ASFX_RADIO | ASFX_INSTRUMENT | ASFX_HUM | ASFX_MUSIC)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line reading the pulse.

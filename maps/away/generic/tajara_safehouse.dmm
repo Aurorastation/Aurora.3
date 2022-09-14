@@ -808,7 +808,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "zj" = (
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
 /turf/simulated/floor/shuttle/black,

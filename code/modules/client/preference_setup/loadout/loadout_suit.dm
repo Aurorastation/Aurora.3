@@ -422,7 +422,7 @@ datum/gear/suit/colorvest
 	display_name = "himean coat selection"
 	path = /obj/item/clothing/suit/storage/toggle/himeo
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/decl/origin_item/origin/himeo)
+	origin_restriction = list(/decl/origin_item/origin/himeo, /decl/origin_item/origin/ipc_himeo, /decl/origin_item/origin/free_council)
 
 /datum/gear/suit/himeo/New()
 	..()

@@ -2013,9 +2013,9 @@
 	pixel_y = 8
 	},
 /obj/item/gun/launcher/syringe,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
 "dI" = (
@@ -4949,10 +4949,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/starboard)
-"iZ" = (
-/obj/effect/shuttle_landmark/horizon/nav3,
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
 "ja" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -10931,6 +10927,7 @@
 	name = "Emergency Services Dock";
 	req_access = list(13)
 	},
+/obj/effect/shuttle_landmark/horizon/dock2,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
 "tX" = (
@@ -21221,6 +21218,10 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
+"MR" = (
+/obj/effect/shuttle_landmark/horizon/dock1,
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "MS" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/corner/green{
@@ -38699,7 +38700,7 @@ at
 at
 at
 at
-iZ
+at
 at
 at
 at
@@ -39306,7 +39307,7 @@ at
 at
 at
 at
-OX
+MR
 OX
 OX
 OX
