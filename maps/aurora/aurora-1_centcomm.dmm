@@ -25266,7 +25266,7 @@
 	},
 /obj/effect/decal/fake_object{
 	density = 1;
-	icon = 'icons/obj/contained_items/tools/inflatables.dmi';
+	icon = 'icons/obj/inflatables.dmi';
 	icon_state = "wall";
 	layer = 2.3;
 	name = "inflatable wall"

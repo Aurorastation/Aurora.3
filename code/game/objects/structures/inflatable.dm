@@ -5,7 +5,7 @@
 	name = "inflatable"
 	desc_info = "Inflate by using it in your hand. The inflatable barrier will inflate on the turf you are standing on. To deflate it, use the 'deflate' verb."
 	w_class = ITEMSIZE_SMALL
-	icon = 'icons/contained_items/items/inflatables.dmi'
+	icon = 'icons/obj/inflatables.dmi'
 	var/deploy_path = null
 
 /obj/item/inflatable/attack_self(mob/user)
@@ -34,7 +34,7 @@
 	name = "inflatable"
 	desc = "An inflated membrane. Do not puncture."
 	desc_info = "To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
-	icon = 'icons/contained_objects/objects/inflatables.dmi'
+	icon = 'icons/obj/inflatables.dmi'
 	icon_state = "wall"
 
 	density = TRUE
@@ -282,7 +282,7 @@
 /obj/item/storage/bag/inflatable
 	name = "inflatable barrier box"
 	desc = "Contains inflatable walls and doors."
-	icon = 'icons/contained_items/items/inflatables_box.dmi'
+	icon = 'icons/obj/inflatables.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
 	contained_sprite = TRUE
