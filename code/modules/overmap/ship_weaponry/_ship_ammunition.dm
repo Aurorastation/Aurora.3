@@ -39,7 +39,7 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			var/datum/species/S = H.species
-			if(S.mob_size >= MOB_LARGE || S.resist_mod >= 10)
+			if(S.mob_size >= MOB_LARGE || S.resist_mod >= 10 || user.status_flags & GODMODE)
 				visible_message(SPAN_NOTICE("[user] tightens their grip on [src] and starts heaving..."))
 				if(do_after(user, 1 SECONDS))
 					visible_message(SPAN_NOTICE("[user] heaves \the [src] up!"))
@@ -97,9 +97,6 @@
 // Move to the overmap until we encounter a new z
 /obj/item/ship_ammunition/touch_map_edge()	
 	transfer_to_overmap()
-	
-	log_and_message_admins("A projectile has entered the Overmap! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[overmap_missile.x];Y=[overmap_missile.y];Z=[overmap_missile.z]'>JMP</a>)")
-
 
 	origin = map_sectors["[z]"]
 
@@ -108,7 +105,7 @@
 	transfer_to_overmap()
 
 /obj/item/ship_ammunition/proc/transfer_to_overmap()
-	var/obj/effect/overmap/start_object = waypoint_sector(src)
+	var/obj/effect/overmap/start_object = map_sectors["[z]"]
 	if(!start_object)
 		return FALSE
 	
@@ -117,6 +114,7 @@
 	P.desc = desc
 	P.set_ammunition(src)
 	forceMove(P)
+	log_and_message_admins("A projectile has entered the Overmap! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
 	return TRUE
 
 //SNOWFLAKE CODE: ACTIVATE
@@ -124,10 +122,23 @@
 //The solution? Let's co-opt projectile code!
 /obj/item/projectile/ship_ammo
 	name = "ship ammunition"
+	icon_state = "missile"
+	range = 250
 	var/obj/item/ship_ammunition/ammo
+
+/obj/item/projectile/ship_ammo/Initialize()
+	. = ..()
+	to_world("Spawned! [x] [y] [z]")
+
+/obj/item/projectile/ship_ammo/pixel_move(moves, trajectory_multiplier, hitscanning)
+	. = ..()
+	to_world("Moving!")
 
 /obj/item/projectile/ship_ammo/touch_map_edge()
 	. = ..()
 	if(ammo.touch_map_edge())
 		ammo = null
 		qdel(src)
+
+/obj/item/ship_ammunition/longbow
+	caliber = SHIP_CALIBER_406MM //debug item

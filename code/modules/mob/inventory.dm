@@ -374,7 +374,7 @@ var/list/slot_equipment_priority = list( \
 		if(do_after(src, 2 SECONDS))
 			to_chat(src, SPAN_DANGER("<font size=4>Your grip slips and \the [item] falls onto your foot!</font>"))
 			throw_fail_consequences(item)
-			drop_from_inventory(item)
+			drop_item()
 		return FALSE
 
 	if(a_intent == I_HELP && Adjacent(target) && isitem(item))

@@ -52,7 +52,7 @@
 	var/turf/firing_turf = get_step(barrel, barrel.dir)
 	var/obj/item/projectile/ship_ammo/projectile = new(firing_turf)
 	projectile.ammo = SA
-	projectile.launch_projectile(get_step(barrel, barrel.dir))
+	projectile.launch_projectile(get_step(src, barrel.dir))
 	return TRUE
 
 /obj/machinery/ship_weapon/proc/consume_ammo()
@@ -74,6 +74,7 @@
 	layer = OBJ_LAYER //Higher than the gun itself.
 	density = TRUE
 	opacity = FALSE
+	atmos_canpass = CANPASS_DENSITY
 	var/obj/machinery/ship_weapon/connected
 	var/is_barrel = FALSE //Ammo spawns in front of THIS dummy.
 

@@ -10086,6 +10086,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/engineering)
+"fAA" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/template_noop,
+/area/template_noop)
 "fAC" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -43788,7 +43794,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "xvS" = (
-/obj/machinery/ship_weapon/trauerschwan{
+/obj/machinery/ship_weapon/longbow{
 	pixel_y = -256
 	},
 /obj/structure/ship_weapon_dummy,
@@ -50178,7 +50184,7 @@ oXU
 oXU
 oXU
 oXU
-oXU
+fAA
 qgN
 qgN
 qgN

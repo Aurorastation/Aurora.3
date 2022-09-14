@@ -4,6 +4,7 @@
 	icon = 'icons/obj/machines/ship_guns/ship_weapon_attachments.dmi'
 	icon_state = "ammo_loader"
 	density = TRUE
+	anchored = TRUE
 	var/obj/machinery/ship_weapon/weapon
 	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
 
@@ -36,6 +37,7 @@
 	density = TRUE
 	opacity = FALSE
 	anchored = TRUE
+	atmos_canpass = CANPASS_DENSITY
 
 /obj/structure/viewport/zavod
 	icon = 'icons/obj/machines/ship_guns/ship_weapon_attachments.dmi'
