@@ -25,3 +25,8 @@ var/list/mimic_defines = list(
 	"ZM_MIMIC_NO_AO",
 	"ZM_NO_OCCLUDE"
 )
+
+#define OVERMAP_SECTOR_BASE              1 // Whether or not this sector is a starting sector. Z levels contained in this sector are added to station_levels
+#define OVERMAP_SECTOR_KNOWN             2 // Makes the sector show up on nav computers
+#define OVERMAP_SECTOR_IN_SPACE          4 // If the sector can be accessed by drifting off the map edge
+#define OVERMAP_SECTOR_UNTARGETABLE      8 // If the sector is untargetable by missiles

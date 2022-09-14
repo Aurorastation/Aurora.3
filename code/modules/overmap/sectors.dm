@@ -12,8 +12,6 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/obfuscated_desc = "This object is not displaying its IFF signature."
 	var/obfuscated = FALSE //Whether we hide our name and class or not.
 
-	var/list/map_z = list()
-
 	var/list/initial_generic_waypoints //store landmark_tag of landmarks that should be added to the actual lists below on init.
 	var/list/initial_restricted_waypoints //For use with non-automatic landmarks (automatic ones add themselves).
 

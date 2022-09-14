@@ -3,6 +3,7 @@
 	desc = "You shouldn't be seeing this."
 	icon = 'icons/obj/machines/ship_guns/zavod_longarm.dmi'
 	var/weapon_id //TODOMATT: Figure out if this is needed after all. Used to connect weapon systems to the relevant ammunition loader.
+	var/obj/structure/ship_weapon_dummy/barrel
 	var/list/obj/item/ship_ammunition/ammunition = list()
 	var/load_time = 5 SECONDS
 	var/datum/ship_weapon/weapon
@@ -44,12 +45,22 @@
 	if(firing_checks())
 		weapon.pre_fire()
 
-/obj/machinery/ship_weapon/proc/consume_ammo(var/ammo_per_shot)
-	for(var/i = 1; i <= ammo_per_shot; i++)
-		var/obj/item/ship_ammunition/SA = ammunition[i]
-		SA.eject_shell(src)
-		ammunition -= SA
-		qdel(SA)
+/obj/machinery/ship_weapon/proc/fire()
+	var/obj/item/ship_ammunition/SA = consume_ammo()
+	if(!barrel)
+		crash_with("No barrel found for [src] at [x] [y] [z]! Cannot fire!")
+	var/turf/firing_turf = get_step(barrel, barrel.dir)
+	var/obj/item/projectile/ship_ammo/projectile = new(firing_turf)
+	projectile.ammo = SA
+	projectile.launch_projectile(get_step(barrel, barrel.dir))
+	return TRUE
+
+/obj/machinery/ship_weapon/proc/consume_ammo()
+	//In this proc, 'ammo per shot' is intended as ammunition per SINGLE SHOT. A gatling gun that fires 30 times in one burst fires 30 individual shots.
+	var/obj/item/ship_ammunition/SA = ammunition[1]
+	SA.eject_shell(src)
+	ammunition -= SA
+	return SA
 
 /obj/machinery/ship_weapon/proc/get_caliber()
 	return weapon.caliber
@@ -64,6 +75,7 @@
 	density = TRUE
 	opacity = FALSE
 	var/obj/machinery/ship_weapon/connected
+	var/is_barrel = FALSE //Ammo spawns in front of THIS dummy.
 
 /obj/structure/ship_weapon_dummy/attack_hand(mob/user)
 	connected.attack_hand(user)
@@ -84,6 +96,8 @@
 	connected = SW
 	name = SW.weapon.name
 	desc = SW.weapon.name
+	if(is_barrel)
+		SW.barrel = src
 	for(var/obj/structure/ship_weapon_dummy/SD in orange(1, src))
 		if(!SD.connected)
 			SD.connect(SW)

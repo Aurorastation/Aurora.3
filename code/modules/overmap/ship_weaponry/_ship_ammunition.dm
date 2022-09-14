@@ -5,6 +5,8 @@
 	icon_state = "nuke"
 	w_class = ITEMSIZE_HUGE
 	slowdown = 2
+	drop_sound = 'sound/items/drop/shell_drop.ogg'
+	var/written_message
 	var/wielded = FALSE
 	var/caliber = SHIP_CALIBER_NONE
 	var/impact_type = SHIP_AMMO_IMPACT_HE //This decides what happens when the ammo hits. Is it a bunkerbuster? HE? AP?
@@ -12,6 +14,25 @@
 	var/ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
 	var/rupture_flags = SHIP_AMMO_RUPTURE_FLAG_EXPLODE
 	var/rupture_gas
+	var/obj/effect/overmap/origin
+
+/obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
+	. = ..()
+	if(I.ispen())
+		var/obj/item/pen/P = I
+		if(use_check_and_message(user))
+			var/friendly_message = sanitizeSafe(input(user, "What do you want to write on \the [src]?", "Personal Message"), 32)
+			if(friendly_message)
+				written_message = friendly_message
+			visible_message(SPAN_NOTICE("[user] writes something on \the [src] with \the [P]."), SPAN_NOTICE("You leave a nice message on \the [src]!"))
+
+/obj/item/ship_ammunition/examine(mob/user, distance)
+	. = ..()
+	if(written_message)
+		if(get_dist(user, src) > 3)
+			to_chat(user, "It has something written on it, but you'd need to get closer to tell what the writing says.")
+		else
+			to_chat(user, "It has a message written on the casing: <span class='notice'><i>[written_message]</i></span>")
 
 /obj/item/ship_ammunition/do_additional_pickup_checks(var/mob/user)
 	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_HEAVY)
@@ -69,3 +90,44 @@
 	if(wielded)
 		return FALSE
 	return TRUE
+
+/obj/item/ship_ammunition/proc/get_additional_info()
+	return
+
+// Move to the overmap until we encounter a new z
+/obj/item/ship_ammunition/touch_map_edge()	
+	transfer_to_overmap()
+	
+	log_and_message_admins("A projectile has entered the Overmap! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[overmap_missile.x];Y=[overmap_missile.y];Z=[overmap_missile.z]'>JMP</a>)")
+
+
+	origin = map_sectors["[z]"]
+
+	// Abort walk
+	walk(src, 0)
+	transfer_to_overmap()
+
+/obj/item/ship_ammunition/proc/transfer_to_overmap()
+	var/obj/effect/overmap/start_object = waypoint_sector(src)
+	if(!start_object)
+		return FALSE
+	
+	var/obj/effect/overmap/projectile/P = new(null, start_object.x, start_object.y)
+	P.name = name
+	P.desc = desc
+	P.set_ammunition(src)
+	forceMove(P)
+	return TRUE
+
+//SNOWFLAKE CODE: ACTIVATE
+//The problem is getting the projectile from the gun to the map edge. We want to do this naturally, but using process() and BYOND's walk procs makes it look very... unnatural. And also slow!
+//The solution? Let's co-opt projectile code!
+/obj/item/projectile/ship_ammo
+	name = "ship ammunition"
+	var/obj/item/ship_ammunition/ammo
+
+/obj/item/projectile/ship_ammo/touch_map_edge()
+	. = ..()
+	if(ammo.touch_map_edge())
+		ammo = null
+		qdel(src)
