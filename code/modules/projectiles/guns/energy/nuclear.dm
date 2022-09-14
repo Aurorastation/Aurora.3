@@ -244,3 +244,29 @@
 		list(mode_name="disable", projectile_type=/obj/item/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pulse/skrell, fire_sound='sound/weapons/Laser3.ogg', burst = 2, burst_delay = 2)
 		)
+
+/obj/item/gun/energy/gun/qukala
+	name = "tqi-qop rifle"
+	desc = "The Tqi-Qop Rifle is the main weapon of the Qukala. Its compact light frame and excellent ammo capacity make it a superb weapon for the Skrell."
+	desc_fluff = ""
+	icon = 'icons/obj/contained_items/skrell/skrell_weaponry.dmi'
+	icon_state = "qukalagun"
+	item_state = "qukalagun"
+	fire_sound = 'sound/weapons/Taser.ogg'
+	slot_flags = SLOT_BELT
+	accuracy = 2
+	max_shots = 25
+	secondary_projectile_type = /obj/item/projectile/beam
+	secondary_fire_sound = 'sound/weapons/laser1.ogg'
+	can_switch_modes = 1
+
+	projectile_type = /obj/item/projectile/beam/stun
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
+	modifystate = "energystun"
+
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/midlaser/skrell, fire_sound='sound/weapons/laser1.ogg')
+		)
+
+	has_item_ratio = FALSE

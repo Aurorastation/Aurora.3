@@ -11,7 +11,7 @@
 /decl/origin_item/origin/ipc_xanu
 	name = "Xanu Prime"
 	desc = "Considered the most advanced planet in the Coalition in terms of technology and infrastructure, Xanu Prime is the natural choice for many IPC living or escaping into the Frontier. The planet hosts a population of both free and owned synthetics, offering opportunities for work and citizenship as well as danger for refugees."
-	possible_accents = list(ACCENT_COC, ACCENT_TTS)
+	possible_accents = list(ACCENT_XANU, ACCENT_COC, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_NONE)
 	possible_religions = RELIGIONS_ALL_IPC
 
