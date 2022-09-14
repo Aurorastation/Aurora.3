@@ -1359,7 +1359,7 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
 "en" = (
-/obj/structure/safe,
+/obj/structure/safe/highvalue,
 /turf/simulated/floor/plating,
 /area/casino/casino_security)
 "eq" = (
@@ -2148,18 +2148,19 @@
 	dir = 8;
 	level = 2
 	},
-/obj/structure/safe,
+/obj/structure/safe/cash,
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "gr" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/safe,
+/obj/structure/safe/cash,
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "gs" = (
 /obj/structure/table/stone/marble,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "gt" = (
@@ -3275,6 +3276,7 @@
 /obj/machinery/vending/boozeomat{
 	req_access = list()
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "ju" = (
@@ -3383,6 +3385,7 @@
 "jH" = (
 /obj/item/material/ashtray/bronze,
 /obj/structure/table/stone/marble,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "jJ" = (
@@ -3468,7 +3471,8 @@
 "jT" = (
 /obj/random/coin,
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/tiled/steel,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "jU" = (
 /obj/item/trash/plate,
@@ -3555,6 +3559,7 @@
 "kh" = (
 /obj/item/reagent_containers/food/drinks/bottle/cognac,
 /obj/structure/table/stone/marble,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "ki" = (
@@ -3619,6 +3624,7 @@
 "ko" = (
 /obj/item/reagent_containers/food/drinks/h_chocolate,
 /obj/structure/table/stone/marble,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/steel,
 /area/casino/casino_mainfloor)
 "kq" = (
@@ -3630,6 +3636,7 @@
 "kr" = (
 /obj/random/loot,
 /obj/structure/table/stone/marble,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "ks" = (
@@ -4355,6 +4362,7 @@
 "mr" = (
 /obj/structure/table/stone/marble,
 /obj/item/flame/lighter/random,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "mt" = (
@@ -5209,6 +5217,10 @@
 /obj/machinery/power/portgen/basic,
 /turf/simulated/floor/plating,
 /area/casino/casino_storage)
+"FC" = (
+/obj/structure/safe/cash,
+/turf/simulated/floor/plating,
+/area/casino/casino_security)
 "Gb" = (
 /obj/item/ammo_casing/pistol/magnum/used,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -5567,7 +5579,7 @@
 "Qe" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/machinery/alarm{
-	pixel_y = 25
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/steel,
 /area/shuttle/casino_cutter)
@@ -11643,9 +11655,9 @@ yb
 Ab
 dB
 bq
-en
+FC
 eD
-en
+FC
 bq
 fr
 cb
@@ -11745,9 +11757,9 @@ cS
 Bb
 dC
 bq
-en
+FC
 eD
-en
+FC
 bq
 Eb
 Gb

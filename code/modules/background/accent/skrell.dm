@@ -1,6 +1,6 @@
 /datum/accent/skrell
 	name = ACCENT_SKRELL
-	description = "In the Jargon Federation, the typical skrellian accent has dozens of minute and tiny variations and can be found across a multitude of planets (and their colonies) \
+	description = "In the Nralakk Federation, the typical skrellian accent has dozens of minute and tiny variations and can be found across a multitude of planets (and their colonies) \
 	and in a wide range of sectors. Its generality has resulted in the belief that it is the 'standard' accent for all Skrell. "
 	tag_icon = "skrell"
 	text_tag = "NRA"
@@ -43,7 +43,7 @@
 
 /datum/accent/skrell/genner
 	name = ACCENT_GENNER
-	description = "The Generation Fleet accent is actually a catch-all term for the various accents that have developed aboard the Generation Fleets of the Jargon Federation. \
+	description = "The Generation Fleet accent is actually a catch-all term for the various accents that have developed aboard the Generation Fleets of the Nralakk Federation. \
 	As a result of being separated from their planet of origin for generations, these accents don't have much in common with any modern Skrell accent, and are usually \
 	described as sounding 'older' by other Skrell."
 	tag_icon = "skrell_genner"
@@ -52,7 +52,7 @@
 /datum/accent/skrell/ceti
 	name = ACCENT_SKRELLCETI
 	description = "While the Biesel accent is easy to pick up by most Tau Ceti Basic speakers, the Biesellite Skrell Standard accent is common in the more insular Skrell communities, \
-	especially those who are strongly pro-Federation. Biesellite Skrell Standard has many holdovers from Jargon accents while also having some of the more obvious \
+	especially those who are strongly pro-Federation. Biesellite Skrell Standard has many holdovers from Nralakk accents while also having some of the more obvious \
 	characteristics of the Biesellite accent."
 	tag_icon = "skrell_biesel"
 	text_tag = "BSS"

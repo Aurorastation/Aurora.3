@@ -1352,7 +1352,7 @@
 		if(viewflags < 0)
 			reset_view(null, 0)
 		else if(viewflags)
-			sight |= viewflags
+			set_sight(sight, viewflags)
 	else if(eyeobj)
 		if(eyeobj.owner != src)
 			reset_view(null)
@@ -1389,7 +1389,7 @@
 	if(stat == DEAD)
 		return
 	if(XRAY in mutations)
-		sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 
 /mob/living/carbon/human/proc/handle_stamina()
 	if (species.stamina == -1) //If species stamina is -1, it has special mechanics which will be handled elsewhere
