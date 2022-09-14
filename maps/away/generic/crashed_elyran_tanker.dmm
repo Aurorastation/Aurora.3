@@ -5,6 +5,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "2-8";
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/space)
 "ab" = (
@@ -150,6 +154,11 @@
 	icon_state = "2-8";
 	dir = 1
 	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor,
 /area/space)
 "aX" = (
@@ -216,6 +225,11 @@
 	},
 /obj/structure/lattice,
 /turf/template_noop,
+/area/space)
+"bj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "bk" = (
 /turf/simulated/wall,
@@ -801,6 +815,11 @@
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
 /area/space)
@@ -1421,6 +1440,12 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
+/area/space)
+"ji" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "jj" = (
 /obj/structure/lattice,
@@ -2654,6 +2679,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"th" = (
+/obj/structure/cable{
+	icon_state = "2-8";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "tl" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
@@ -3015,6 +3048,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet,
 /turf/simulated/floor/tiled,
+/area/space)
+"vU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "vV" = (
 /obj/machinery/portable_atmospherics/canister/empty,
@@ -3523,6 +3564,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"ze" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "zg" = (
 /obj/structure/bed/roller,
 /obj/structure/window/reinforced{
@@ -3543,6 +3594,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/distress{
+	pixel_y = 25
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "zl" = (
@@ -3721,6 +3775,11 @@
 "Bs" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/closet/crate/loot,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/space)
 "Bv" = (
@@ -3875,6 +3934,13 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor,
 /area/space)
+"Cr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "Cu" = (
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/reinforced/airless,
@@ -3947,6 +4013,10 @@
 "CP" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/item/gun/projectile/plasma/bolter/pistol{
+	pixel_y = 4;
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "CQ" = (
@@ -5502,6 +5572,11 @@
 "OH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/inflatable/wall,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "OJ" = (
@@ -5843,6 +5918,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "QR" = (
@@ -6148,10 +6226,6 @@
 /obj/item/bedsheet/orange,
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
-	},
-/obj/item/gun/projectile/plasma/bolter{
-	pixel_y = -5;
-	pixel_x = -1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -6614,6 +6688,13 @@
 	dir = 4
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
+/area/space)
+"Wv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/space)
 "WF" = (
 /obj/effect/floor_decal/corner/blue/full,
@@ -43305,7 +43386,7 @@ KG
 MD
 Ij
 IG
-Dg
+Kp
 Dg
 qu
 Dg
@@ -43562,7 +43643,7 @@ ux
 Ca
 jK
 IG
-Dg
+Kp
 Dg
 qu
 Dg
@@ -43819,7 +43900,7 @@ eO
 Pw
 yL
 IG
-Dg
+Kp
 Dg
 tA
 Dg
@@ -45352,8 +45433,8 @@ qA
 qA
 qA
 qA
-Kp
-Kp
+bj
+ji
 Kp
 IG
 Ry
@@ -45608,9 +45689,9 @@ nu
 CL
 gT
 qA
-Kp
-Kp
-Dg
+bj
+bj
+ji
 Kp
 IG
 IG
@@ -45865,9 +45946,9 @@ eT
 eT
 wd
 qA
-Kp
-Dg
-Dg
+bj
+vU
+cP
 Kp
 Kp
 Kp
@@ -46123,9 +46204,9 @@ wW
 xO
 qA
 qA
-Dg
-Dg
-Dg
+Wv
+cP
+Kp
 Dg
 Dg
 yi
@@ -46380,9 +46461,9 @@ Bs
 aa
 FY
 qA
-Dg
-Dg
-Dg
+Wv
+cP
+Kp
 Dg
 Dg
 Dg
@@ -46637,9 +46718,9 @@ qA
 fy
 Dv
 qA
-Dg
-Dg
-Dg
+Wv
+cP
+Kp
 Dg
 Dg
 Dg
@@ -46893,10 +46974,10 @@ cn
 qA
 QQ
 OH
-AE
-Dg
-Dg
-Dg
+ze
+th
+cP
+Kp
 Dg
 Dg
 Dg
@@ -47151,9 +47232,9 @@ qA
 ok
 ok
 AE
-Dg
-Dg
-Dg
+Zc
+cP
+Kp
 Dg
 Dg
 Dg
@@ -47408,9 +47489,9 @@ qA
 qA
 qA
 qA
-Dg
-Dg
-Dg
+gF
+Cr
+Kp
 Dg
 Dg
 Dg
@@ -47664,10 +47745,10 @@ nX
 lp
 YE
 qA
-Dg
-Dg
-Dg
-Dg
+Kp
+Kp
+Kp
+Kp
 Dg
 Dg
 Dg
