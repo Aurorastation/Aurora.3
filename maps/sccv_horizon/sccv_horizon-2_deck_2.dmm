@@ -2409,16 +2409,14 @@
 	pixel_x = 5;
 	pixel_y = 6
 	},
-/obj/item/device/gps{
-	gpstag = "MED1";
-	pixel_x = 5
-	},
-/obj/item/device/gps{
-	gpstag = "MED0";
-	pixel_x = -7
-	},
 /obj/machinery/vending/wallmed2{
 	pixel_y = -29
+	},
+/obj/item/device/gps/medical{
+	pixel_x = 5
+	},
+/obj/item/device/gps/medical{
+	pixel_x = -7
 	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
