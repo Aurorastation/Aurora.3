@@ -1261,8 +1261,8 @@
 "ct" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12,26);
-	name = "Nature Showcase Maintenance"
+	name = "Nature Showcase Maintenance";
+	req_one_access = list(12,26)
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -2013,9 +2013,9 @@
 	pixel_y = 8
 	},
 /obj/item/gun/launcher/syringe,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
 "dI" = (
@@ -2547,7 +2547,13 @@
 	dir = 8;
 	id = "conference_room";
 	name = "Conference Room Bolts";
+	pixel_x = 6;
 	specialfunctions = 4
+	},
+/obj/machinery/button/switch/windowtint{
+	dir = 4;
+	id = "bridgeconf";
+	pixel_x = -4
 	},
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
@@ -4943,10 +4949,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/starboard)
-"iZ" = (
-/obj/effect/shuttle_landmark/horizon/nav3,
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
 "ja" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -5204,9 +5206,9 @@
 	c_tag = "Third Deck - Crew Armoury Entrance"
 	},
 /obj/structure/sign/securearea{
-	pixel_y = 32;
+	desc = "A sign which reads 'CREW ARMOURY'.";
 	name = "\improper CREW ARMOURY sign";
-	desc = "A sign which reads 'CREW ARMOURY'."
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
@@ -7824,6 +7826,7 @@
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "om" = (
@@ -10693,6 +10696,7 @@
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "tF" = (
@@ -10923,6 +10927,7 @@
 	name = "Emergency Services Dock";
 	req_access = list(13)
 	},
+/obj/effect/shuttle_landmark/horizon/dock2,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
 "tX" = (
@@ -13477,7 +13482,7 @@
 /area/template_noop)
 "yG" = (
 /obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/coffee,
+/obj/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "yH" = (
@@ -13721,12 +13726,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "crew_armory";
 	name = "Crew Armoury Main Access";
-	req_access = list(60);
-	dir = 8;
 	pixel_x = 25;
-	pixel_y = -7
+	pixel_y = -7;
+	req_access = list(60)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
@@ -18026,9 +18031,9 @@
 	dir = 8;
 	id = "crew_armoury_desk";
 	name = "Crew Armoury Auxiliary Access";
-	req_access = list(60);
+	pixel_x = 25;
 	pixel_y = -25;
-	pixel_x = 25
+	req_access = list(60)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
@@ -18044,6 +18049,7 @@
 	name = "Bridge";
 	req_one_access = list(19,38)
 	},
+/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "Hq" = (
@@ -20267,7 +20273,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "Ll" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "bridgeconf"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/meeting_room)
 "Lm" = (
@@ -20910,8 +20918,8 @@
 	id = "crew_armoury_desk";
 	name = "Crew Armoury Auxiliary Access";
 	pixel_x = -25;
-	req_access = list(60);
-	pixel_y = 7
+	pixel_y = 7;
+	req_access = list(60)
 	},
 /obj/machinery/light{
 	dir = 8
@@ -21210,6 +21218,10 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
+"MR" = (
+/obj/effect/shuttle_landmark/horizon/dock1,
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "MS" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/corner/green{
@@ -28359,7 +28371,7 @@
 	dir = 6
 	},
 /obj/machinery/light,
-/obj/machinery/chemical_dispenser/coffee,
+/obj/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "ZM" = (
@@ -38688,7 +38700,7 @@ at
 at
 at
 at
-iZ
+at
 at
 at
 at
@@ -39295,7 +39307,7 @@ at
 at
 at
 at
-OX
+MR
 OX
 OX
 OX

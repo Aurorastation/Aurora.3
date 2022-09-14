@@ -56,7 +56,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "ajL" = (
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
 /turf/simulated/floor,
@@ -522,7 +522,7 @@
 /area/ship/tramp_freighter)
 "dqq" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = list(203)
+	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -1293,7 +1293,7 @@
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "jIP" = (
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
 /turf/simulated/floor/shuttle/black,
@@ -1863,6 +1863,7 @@
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
 "uDF" = (

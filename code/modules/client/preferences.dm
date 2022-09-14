@@ -23,7 +23,7 @@ datum/preferences
 	var/list/be_special_role = list()		//Special role selection
 	var/UI_style = "Midnight"
 	var/toggles = TOGGLES_DEFAULT
-	var/asfx_togs = ASFX_DEFAULT
+	var/sfx_toggles = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
 	var/html_UI_style = "Nano"
@@ -608,6 +608,8 @@ datum/preferences
 	gen_record = ""
 	exploit_record = ""
 	ccia_record = ""
+
+	gear_list = list() //Dont copy the loadout
 
 	ZeroSkills(1)
 

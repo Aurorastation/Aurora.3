@@ -2065,7 +2065,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/suit/storage/fluff/quoro_suit //Skrellian Fancy Robes - Quoro Wurri'Til - witchbells
 	name = "skrellian fancy robes"
 	desc = "An elaborate yet functional set of robes favored by the upper echelons of skrellian society, with a silver belt attached. A star is embroidered on the back, \
-	symbolizing the Jargon Federation."
+	symbolizing the Nralakk Federation."
 	icon = 'icons/obj/custom_items/quoro_items.dmi'
 	icon_override = 'icons/obj/custom_items/quoro_items.dmi'
 	icon_state = "quoro_suit"
@@ -2073,9 +2073,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Jargon division cloak - Eden Li - Huntime
-	name = "Zeng-Hu cloak: Jargon Division"
-	desc = "A cloak worn by Zeng-Hu personnel who worked with or in the Jargon Federation."
+/obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Nralakk division cloak - Eden Li - Huntime
+	name = "Zeng-Hu cloak: Nralakk Division"
+	desc = "A cloak worn by Zeng-Hu personnel who worked with or in the Nralakk Federation."
 	icon = 'icons/obj/custom_items/eden_cloak.dmi'
 	icon_override = 'icons/obj/custom_items/eden_cloak.dmi'
 	icon_state = "ZH_cape_custom"
