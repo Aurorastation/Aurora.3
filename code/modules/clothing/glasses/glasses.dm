@@ -223,6 +223,11 @@ BLIND     // can't see anything
 	item_flags = AIRTIGHT|THICKMATERIAL
 	unacidable = 1
 
+/obj/item/clothing/glasses/safety/prescription
+	name = "prescription safety glasses"
+	desc = "A simple pair of safety glasses. Thinner than their goggle counterparts and comes with a prescription overlay."
+	prescription = 7
+
 /obj/item/clothing/glasses/safety/goggles
 	name = "safety goggles"
 	desc = "A simple pair of safety goggles. It's general chemistry all over again."
@@ -259,6 +264,11 @@ BLIND     // can't see anything
 	update_clothing_icon()
 	update_icon()
 	usr.update_action_buttons()
+
+/obj/item/clothing/glasses/safety/goggles/prescription
+	name = "prescription safety goggles"
+	desc = "A simple pair of safety goggles. It's general chemistry all over again. Comes with a prescription overlay."
+	prescription = 7
 
 /obj/item/clothing/glasses/safety/goggles/wasteland
 	name = "wasteland goggles"

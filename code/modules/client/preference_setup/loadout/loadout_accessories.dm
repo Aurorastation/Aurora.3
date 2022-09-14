@@ -152,7 +152,7 @@
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/pouches/black
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Investigator")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
@@ -168,7 +168,7 @@
 /datum/gear/accessory/overalls_mining
 	display_name = "overalls, mining"
 	path = /obj/item/clothing/accessory/storage/overalls/mining
-	allowed_roles = list("Shaft Miner")
+	allowed_roles = list("Shaft Miner, Xenoarchaeologist")
 	cost = 2
 
 /datum/gear/accessory/overalls_engineer
@@ -186,18 +186,26 @@
 /datum/gear/accessory/sweater/New()
 	..()
 	var/list/sweater = list()
+
+	// Sweaters
 	sweater["sweater"] = /obj/item/clothing/accessory/sweater
-	sweater["crewneck sweater"] = /obj/item/clothing/accessory/sweatercrewneck
-	sweater["v-neck sweater"] = /obj/item/clothing/accessory/sweatervneck
-	sweater["sweater vest"] = /obj/item/clothing/accessory/sweatervest
-	sweater["turtleneck sweater"] = /obj/item/clothing/accessory/sweaterturtleneck
-	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweatertubeneck
-	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
-	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/sweaterargylecrewneck
-	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/sweaterargylevneck
-	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweatervestargyle
-	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
-	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
+	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweater/tubeneck
+	sweater["turtleneck sweater"] = /obj/item/clothing/accessory/sweater/turtleneck
+	sweater["crewneck sweater"] = /obj/item/clothing/accessory/sweater/crewneck
+	sweater["v-neck sweater"] = /obj/item/clothing/accessory/sweater/v_neck
+	sweater["deep v-neck sweater"] = /obj/item/clothing/accessory/sweater/v_neck/deep
+
+	// Argyle Sweaters
+	sweater["argyle sweater"] = /obj/item/clothing/accessory/argyle_sweater
+	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/tubeneck
+	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/turtleneck
+	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/crewneck
+	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/argyle_sweater/v_neck
+
+	// Sweater Vests
+	sweater["sweater vest"] = /obj/item/clothing/accessory/sweater_vest
+	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/argyle_sweater_vest
+
 	gear_tweaks += new /datum/gear_tweak/path(sweater)
 
 /datum/gear/accessory/shirt

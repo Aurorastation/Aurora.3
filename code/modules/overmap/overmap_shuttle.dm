@@ -109,7 +109,7 @@
 			S.halt()
 			S.unhalt()
 
-/obj/structure/fuel_port
+/obj/structure/fuel_port //empty
 	name = "fuel port"
 	desc = "The fuel input port of the shuttle. Holds one fuel tank. Use a crowbar to open and close it."
 	icon = 'icons/turf/shuttle.dmi'
@@ -121,10 +121,6 @@
 	var/icon_full = "fuel_port_full"
 	var/opened = 0
 	var/parent_shuttle
-
-/obj/structure/fuel_port/Initialize()
-	. = ..()
-	new /obj/item/tank/phoron/shuttle(src) // Enough for four launches (one round trip)
 
 /obj/structure/fuel_port/attack_hand(mob/user)
 	if(!opened)
@@ -166,7 +162,13 @@
 /obj/structure/fuel_port/hide()
 	return
 
-/obj/structure/fuel_port/hydrogen // Not only does this work, It's more sensible for most factions without reasonable access to phoron, to use.
+/obj/structure/fuel_port/phoron // The best and most expensive fuel. Likely to be in the hands of corporate forces, though the well-off along with military forces throughout the Spur also have a good chance of using it.
+
+/obj/structure/fuel_port/phoron/Initialize()
+	. = ..()
+	new /obj/item/tank/phoron/shuttle(src) 
+
+/obj/structure/fuel_port/hydrogen // The most common and serviceable fuel for a shuttle. It's not as good as phoron, but it will still get you places. It's also not scarce! Used by practically everyone.
 
 /obj/structure/fuel_port/hydrogen/Initialize()
 	. = ..()

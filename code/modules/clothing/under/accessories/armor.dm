@@ -216,3 +216,16 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+
+/obj/item/clothing/accessory/arm_guard/kala
+	name = "kala arm guards"
+	desc = "These arm guards are made out of an advanced lightweight alloy."
+	icon_state = "armguards_sec_heavy"
+	item_state = "armguards_sec_heavy"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
