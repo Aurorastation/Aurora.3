@@ -2,6 +2,9 @@
 "aa" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/inflatable/door,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/space)
 "ab" = (
@@ -40,7 +43,15 @@
 /obj/machinery/atmospherics/valve{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/reinforced/airless,
+/area/space)
+"aj" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "aq" = (
 /obj/machinery/door/airlock,
@@ -634,6 +645,11 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
 /area/space)
+"fb" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor,
+/area/space)
 "fd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
@@ -648,6 +664,7 @@
 "fj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/inflatable/door,
+/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/tiled/steel/airless,
 /area/space)
 "fl" = (
@@ -915,7 +932,10 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/structure/closet/crate,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4;
+	layer = 2.8
+	},
 /obj/item/stack/material/steel,
 /obj/item/tape_roll,
 /obj/item/trash/cigbutt{
@@ -930,6 +950,14 @@
 	},
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-10"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"hd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/foamedmetal,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/space)
@@ -1044,6 +1072,9 @@
 "hO" = (
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
@@ -1684,6 +1715,9 @@
 	icon_state = "small";
 	pixel_x = -6
 	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/steel/airless{
 	icon_state = "damaged2"
 	},
@@ -1940,6 +1974,9 @@
 /obj/item/rig_module/foam_sprayer{
 	pixel_x = 2;
 	pixel_y = -4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 5
 	},
 /turf/simulated/floor/airless,
 /area/space)
@@ -2272,6 +2309,13 @@
 /obj/item/paper_bin,
 /obj/item/pen/multi,
 /turf/simulated/floor/tiled,
+/area/space)
+"rI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
 /area/space)
 "rN" = (
 /obj/effect/floor_decal/corner/beige{
@@ -2663,6 +2707,9 @@
 	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "vP" = (
@@ -2720,7 +2767,18 @@
 /turf/simulated/floor/airless,
 /area/space)
 "wd" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
+/area/space)
+"wf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel/airless,
 /area/space)
 "wh" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -2993,7 +3051,9 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/loot,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "xP" = (
@@ -3063,6 +3123,9 @@
 "yv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/wrench,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "yw" = (
@@ -3246,6 +3309,9 @@
 /area/space)
 "Ap" = (
 /obj/machinery/atmospherics/valve,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/space)
 "At" = (
@@ -3439,6 +3505,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/tiled/steel/airless,
 /area/space)
 "Cd" = (
@@ -3663,6 +3730,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/blocker,
 /turf/simulated/floor,
+/area/space)
+"DX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor/tiled/steel/airless,
 /area/space)
 "Ea" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3891,6 +3963,11 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"FS" = (
+/obj/machinery/atmospherics/valve,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/airless,
 /area/space)
 "FU" = (
 /obj/structure/railing/mapped{
@@ -4724,6 +4801,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"MC" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1380;
+	id_tag = "intrepid_shuttle_cargo_pump"
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "MD" = (
 /obj/item/material/shard/shrapnel{
 	icon_state = "shrapnelmedium"
@@ -5260,6 +5346,10 @@
 	id_tag = "tank_sensor_r_4"
 	},
 /turf/simulated/floor/reinforced/airless,
+/area/space)
+"Qu" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/turf/simulated/floor/airless,
 /area/space)
 "Qv" = (
 /obj/effect/floor_decal/corner/blue{
@@ -5973,6 +6063,15 @@
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
+"Wy" = (
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "WF" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -6266,6 +6365,14 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"YG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/space)
 "YM" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -6416,6 +6523,12 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"Zy" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor/airless,
 /area/space)
 "Zz" = (
 /obj/effect/floor_decal/corner/beige{
@@ -31275,7 +31388,7 @@ IG
 IG
 jx
 jx
-hO
+Wy
 TP
 jx
 fw
@@ -31793,7 +31906,7 @@ jx
 ML
 jx
 Sz
-Ap
+FS
 Nb
 Ht
 Ap
@@ -42594,7 +42707,7 @@ ly
 dm
 IG
 ih
-ih
+MC
 BV
 Wg
 BT
@@ -42850,9 +42963,9 @@ cD
 Nc
 Xn
 IG
-Yy
-ih
-BV
+Qu
+rI
+Zy
 fj
 ni
 ux
@@ -43111,7 +43224,7 @@ IG
 IG
 IG
 IG
-eO
+wf
 eO
 Pw
 yL
@@ -44139,9 +44252,9 @@ IG
 EG
 lk
 LO
-eO
+YG
 Cc
-Tv
+DX
 pk
 IG
 IG
@@ -45673,7 +45786,7 @@ qA
 VN
 aS
 Js
-Js
+fb
 aa
 FY
 qA
@@ -45931,7 +46044,7 @@ xF
 IM
 cr
 qA
-Dv
+aj
 Dv
 qA
 Dg
@@ -46188,7 +46301,7 @@ Yq
 hU
 cr
 qA
-ok
+hd
 OH
 AE
 Dg
