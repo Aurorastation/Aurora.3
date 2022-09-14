@@ -206,7 +206,8 @@
 		/obj/item/seeds/ambrosiadeusseed = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
-		/obj/item/reagent_containers/inhaler/space_drugs = 2
+		/obj/item/reagent_containers/inhaler/space_drugs = 2,
+		/obj/item/reagent_containers/inhaler/xuxigas = 1
 	)
 
 /obj/random/smokable
@@ -1657,8 +1658,8 @@
 		/obj/item/flag/hegemony/l,
 		/obj/item/flag/heph,
 		/obj/item/flag/heph/l,
-		/obj/item/flag/jargon,
-		/obj/item/flag/jargon/l,
+		/obj/item/flag/nralakk,
+		/obj/item/flag/nralakk/l,
 		/obj/item/flag/nanotrasen,
 		/obj/item/flag/nanotrasen/l,
 		/obj/item/flag/nka,

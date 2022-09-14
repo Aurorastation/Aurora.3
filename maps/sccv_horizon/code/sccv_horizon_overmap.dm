@@ -1,7 +1,7 @@
 /obj/effect/overmap/visitable/ship/sccv_horizon
 	class = "SCCV"
 	designation = "Horizon"
-	desc = "A line without compare, the Venator-series consists of one vessel so far: the SCCV Horizon, the lead ship of its class. Designed to be an entirely self-sufficient general-purpose surveying ship and to carry multiple replacement crews simultaneously, the Venator is equipped with both a bluespace and a warp drive and two different engines. Defying typical cruiser dimensions, the Venator is home to a sizable residential deck below the operations deck of the ship, where the crew is housed. It also features weapon hardpoints in its prominent wing nacelles. This one’s transponder identifies it, obviously, as the SCCV Horizon."
+	desc = "A line without compare, the Venator-series consists of one vessel so far: the SCCV Horizon, the lead ship of its class. Designed to be an entirely self-sufficient general-purpose surveying ship and to carry multiple replacement crews simultaneously, the Venator is equipped with both a bluespace and a warp drive and two different engines. Defying typical cruiser dimensions, the Venator is home to a sizable residential deck below the operations deck of the ship, where the crew is housed. It also features weapon hardpoints in its prominent wing nacelles. This one's transponder identifies it, obviously, as the SCCV Horizon."
 	fore_dir = SOUTH
 	vessel_mass = 100000
 	burn_delay = 2 SECONDS
@@ -15,7 +15,8 @@
 	initial_generic_waypoints = list(
 	"nav_hangar_horizon_1",
 	"nav_hangar_horizon_2",
-	"nav_hangar_horizon_3",
+	"nav_dock_horizon_1",
+	"nav_dock_horizon_2",
 	"deck_one_fore_of_horizon",
 	"deck_one_starboard_side",
 	"deck_one_port_side",
@@ -77,9 +78,16 @@
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/hangar/auxiliary
 
-/obj/effect/shuttle_landmark/horizon/nav3
+//external landmarks for overmap ships
+/obj/effect/shuttle_landmark/horizon/dock1
 	name = "Starboard Primary Docking Arm"
-	landmark_tag = "nav_hangar_horizon_3"
+	landmark_tag = "nav_dock_horizon_1"
+	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/horizon/dock2 //shares a spot with the TCFL ERT shuttle, but having multiple use cases is fine, ERTs are adminspawned only as well
+	name = "Port Primary Docking Arm"
+	landmark_tag = "nav_dock_horizon_2"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 

@@ -2409,16 +2409,14 @@
 	pixel_x = 5;
 	pixel_y = 6
 	},
-/obj/item/device/gps{
-	gpstag = "MED1";
-	pixel_x = 5
-	},
-/obj/item/device/gps{
-	gpstag = "MED0";
-	pixel_x = -7
-	},
 /obj/machinery/vending/wallmed2{
 	pixel_y = -29
+	},
+/obj/item/device/gps/medical{
+	pixel_x = 5
+	},
+/obj/item/device/gps/medical{
+	pixel_x = -7
 	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
@@ -3718,6 +3716,7 @@
 	name = "Hydroponics Maintenance";
 	req_access = list(35)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "bOI" = (
@@ -8688,7 +8687,7 @@
 /turf/simulated/floor/carpet,
 /area/horizon/crew_quarters/lounge/bar)
 "eDW" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations -  Upper Warehouse Port";
 	dir = 8
@@ -8740,7 +8739,7 @@
 	name = "Station Intercom (General)";
 	pixel_y = -25
 	},
-/obj/structure/closet/secure_closet/operation_manager,
+/obj/structure/closet/secure_closet/operations_manager,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
@@ -8799,10 +8798,10 @@
 "eGS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_two)
 "eGV" = (
@@ -14673,7 +14672,7 @@
 	},
 /obj/machinery/door/window/westleft{
 	name = "Pun Pun's Cage Access";
-	req_access = list(57)
+	req_access = list(25)
 	},
 /mob/living/carbon/human/monkey/punpun,
 /turf/simulated/floor/carpet,
@@ -23343,7 +23342,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "mqj" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -36446,7 +36445,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "tiD" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
@@ -46527,7 +46526,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "yeF" = (
-/obj/structure/closet/secure_closet/hangartech,
+/obj/structure/closet/secure_closet/hangar_tech,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28

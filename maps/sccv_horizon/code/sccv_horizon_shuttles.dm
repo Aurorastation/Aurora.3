@@ -65,7 +65,7 @@
 		)
 
 	landmark_transition = "nav_skipjack_interim"
-	announcer = "NDV Icarus"
+	announcer = "SCCV Horizon Sensor Array"
 	arrival_message = "Attention, the radar systems have detected a small spacecraft approaching the ship's perimeter."
 	departure_message = "Attention, the radar systems have detected a small spacecraft leaving the ship's perimeter. "
 
@@ -115,7 +115,7 @@
 		)
 
 	landmark_transition = "nav_merc_interim"
-	announcer = "NDV Icarus"
+	announcer = "SCCV Horizon Sensor Array"
 	arrival_message = "Attention, the radar systems have detected a spacecraft approaching the ship's perimeter."
 	departure_message = "Attention, the radar systems have detected a spacecraft leaving the ship's perimeter. "
 
