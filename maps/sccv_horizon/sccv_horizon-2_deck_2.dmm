@@ -4223,6 +4223,7 @@
 	},
 /obj/structure/table/rack,
 /obj/item/storage/bag/inflatable,
+/obj/item/device/suit_cooling_unit,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/mask/breath,
@@ -4278,6 +4279,7 @@
 /area/server)
 "caB" = (
 /obj/structure/table/standard,
+/obj/item/device/flashlight/heavy,
 /obj/item/device/flashlight/heavy,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
@@ -8850,9 +8852,6 @@
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "eIU" = (
-/obj/structure/table/standard,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
@@ -12576,6 +12575,7 @@
 	},
 /obj/structure/table/rack,
 /obj/item/storage/bag/inflatable,
+/obj/item/device/suit_cooling_unit,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/mask/breath,
@@ -15485,10 +15485,6 @@
 "ibx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -15496,6 +15492,11 @@
 	req_access = list(11);
 	name = "Engineering Voidsuit Access"
 	},
+/obj/item/device/suit_cooling_unit,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_eva)
 "ibE" = (
@@ -15881,10 +15882,6 @@
 "ilB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -15892,6 +15889,11 @@
 	name = "Engineering Voidsuit Access";
 	req_access = list(11)
 	},
+/obj/item/device/suit_cooling_unit,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_eva)
 "ilT" = (
@@ -17099,10 +17101,6 @@
 	pixel_y = -28
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -17111,6 +17109,11 @@
 	req_access = list(11)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/device/suit_cooling_unit,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_eva)
 "iVQ" = (
@@ -18352,6 +18355,7 @@
 	},
 /obj/item/storage/bag/circuits/basic,
 /obj/item/device/pipe_painter,
+/obj/item/device/floor_painter,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "jBw" = (
@@ -28767,10 +28771,6 @@
 /area/operations/break_room)
 "pfp" = (
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/void/engineering,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -28779,6 +28779,11 @@
 	name = "Engineering Voidsuit Access"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/device/suit_cooling_unit,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_eva)
 "pfB" = (
