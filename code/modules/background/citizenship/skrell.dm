@@ -1,12 +1,12 @@
-/datum/citizenship/jargon
-	name = CITIZENSHIP_JARGON
+/datum/citizenship/nralakk
+	name = CITIZENSHIP_NRALAKK
 	description = "Home of the Skrell, a centralized union of solar systems run by councilors of different ranks and positions. The capital of the Federation is located at the city of \
-	Kal'lo on the core planet Jargon IV, also known as Qerrbalak, within the Jargon system. While the majority of Skrell live within the Jargon Federation, a sizable portion live \
+	Kal'lo on the core planet Nralakk IV, also known as Qerrbalak, within the Nralakk system. While the majority of Skrell live within the Nralakk Federation, a sizable portion live \
 	abroad. The quality of life within Federation is considered to be the best in the galaxy due to their technological advances, allowing Federation Citizens access to a quality of \
 	life almost unmatched anywhere else in the Spur. \
 	A rogue artificial intelligence, Glorsh-Omega, has traumatized this nation for centuries to come. The Federation is very wary of humanity, who has acquired AI technology \
 	after a Federation tech leak provided them with the research required to create their own AI, as well as allowing them to create IPCs."
-	consular_outfit = /datum/outfit/job/representative/consular/jargon
+	consular_outfit = /datum/outfit/job/representative/consular/nralakk
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -31,7 +31,7 @@
 		)
 	)
 
-/datum/citizenship/jargon/get_objectives(mission_level, var/mob/living/carbon/human/H)
+/datum/citizenship/nralakk/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
 	switch(mission_level)
@@ -50,19 +50,19 @@
 
 	return rep_objectives
 
-/datum/outfit/job/representative/consular/jargon
-	name = "Jargon Consular Officer"
+/datum/outfit/job/representative/consular/nralakk
+	name = "Nralakk Consular Officer"
 
 	uniform = /obj/item/clothing/under/skrell
 
-/datum/outfit/job/representative/consular/jargon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H && !visualsOnly)
 		if(isvaurca(H)) // there should be a system for this but for now this will have to do i guess
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
-			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/jargon(H), slot_head)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder/jargon(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/nralakk(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder/nralakk(H), slot_shoes)
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/jargon(H), slot_wear_suit)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/nralakk(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
 		else
 			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
@@ -73,7 +73,7 @@
 	description =  "An independent nation on the edge of Skrell space, the Co-Operative Territories of Epsilon Ursae Minoris, \
 	also known as the CT-EUM, is a nation primarily comprised of Dionae with a minority of skrell mostly situated \
 	in the city of Nral'Daaq. The CT-EUM is compromised of a myriad of smaller nations and city-states that make up \
-	the whole of the nation. While the nation is independent it does have heavy ties to the Jargon Federation, \
+	the whole of the nation. While the nation is independent it does have heavy ties to the Nralakk Federation, \
 	being instrumental in the nations' founding and contact with the rest of the galaxy. "
 
 	job_species_blacklist = list(

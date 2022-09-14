@@ -252,23 +252,6 @@
 	new /obj/item/clothing/head/bandana/science(src)
 	return
 
-/obj/structure/closet/wardrobe/machinist
-	name = "machinist wardrobe"
-	icon_door = "black"
-
-/obj/structure/closet/wardrobe/robotics_black/fill()
-	..()
-	new /obj/item/clothing/under/rank/machinist/orion(src)
-	new /obj/item/clothing/under/rank/machinist/heph(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/shoes/black(src)
-	new /obj/item/clothing/shoes/black(src)
-	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/gloves/black(src)
-	return
-
-
 /obj/structure/closet/wardrobe/pharmacy_white
 	name = "pharmacy wardrobe"
 	icon_door = "white"

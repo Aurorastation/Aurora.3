@@ -1145,8 +1145,6 @@
 	req_access = list(access_robotics)
 	vend_id = "robo-tools"
 	products = list(
-		/obj/item/clothing/suit/storage/toggle/labcoat = 4,
-		/obj/item/clothing/under/rank/machinist = 4,
 		/obj/item/stack/cable_coil = 4,
 		/obj/item/device/flash/synthetic = 4,
 		/obj/item/cell/high = 12,
@@ -1155,8 +1153,6 @@
 		/obj/item/device/healthanalyzer = 3,
 		/obj/item/surgery/scalpel = 2,
 		/obj/item/surgery/circular_saw = 2,
-		/obj/item/tank/anesthetic = 2,
-		/obj/item/clothing/mask/breath/medical = 5,
 		/obj/item/screwdriver = 5,
 		/obj/item/crowbar = 5
 	)
@@ -1170,8 +1166,7 @@
 	restock_blocked_items = list(
 		/obj/item/stack/cable_coil,
 		/obj/item/device/flash,
-		/obj/item/light/tube,
-		/obj/item/tank/anesthetic
+		/obj/item/light/tube
 	)
 	restock_items = 1
 	random_itemcount = 0
