@@ -47,61 +47,55 @@
 	contained_sprite = TRUE
 
 // Argyle Sweater
-/obj/item/clothing/accessory/argyle_sweater
+/obj/item/clothing/accessory/sweater/argyle
 	name = "argyle sweater"
 	desc = "A warm, knit sweater with an argyle pattern."
-	icon = 'icons/obj/clothing/accessory/sweaters.dmi'
 	icon_state = "argyle_sweater"
 	item_state = "argyle_sweater"
-	contained_sprite = TRUE
 
 // Argyle Tubeneck Sweater
-/obj/item/clothing/accessory/argyle_sweater/tubeneck
+/obj/item/clothing/accessory/sweater/argyle_tubeneck
 	name = "argyle tubeneck sweater"
 	desc = "A warm, knit argyle tubeneck sweater."
 	icon_state = "argyle_sweater_tubeneck"
 	item_state = "argyle_sweater_tubeneck"
 
 // Argyle Turtleneck Sweater
-/obj/item/clothing/accessory/argyle_sweater/turtleneck
+/obj/item/clothing/accessory/sweater/argyle_turtleneck
 	name = "argyle turtleneck sweater"
 	desc = "A warm, knit argyle turtleneck sweater."
 	icon_state = "argyle_sweater_turtleneck"
 	item_state = "argyle_sweater_turtleneck"
 
 // Argyle Crewneck Sweater
-/obj/item/clothing/accessory/argyle_sweater/crewneck
+/obj/item/clothing/accessory/sweater/argyle_crewneck
 	name = "argyle crewneck sweater"
 	desc = "A sewn crewneck sweater featuring a collarless neckline and an argyle pattern."
 	icon_state = "argyle_sweater_crewneck"
 	item_state = "argyle_sweater_crewneck"
 
 // Argyle V-neck Sweater
-/obj/item/clothing/accessory/argyle_sweater/v_neck
+/obj/item/clothing/accessory/sweater/argyle_v_neck
 	name = "argyle v-neck sweater"
 	desc = "A sewn v-neck sweater featuring a collarless neckline and an argyle pattern."
 	icon_state = "argyle_sweater_v_neck"
 	item_state = "argyle_sweater_v_neck"
 
 // Sweater Vest
-/obj/item/clothing/accessory/sweater_vest
+/obj/item/clothing/accessory/sweater/vest
 	name = "sweater vest"
 	desc = "A warm, knit sweater vest."
 	desc_fluff = "Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
-	icon = 'icons/obj/clothing/accessory/sweaters.dmi'
 	icon_state = "sweater_vest"
 	item_state = "sweater_vest"
-	contained_sprite = TRUE
 
 // Argyle Sweater Vest
-/obj/item/clothing/accessory/argyle_sweater_vest
+/obj/item/clothing/accessory/sweater/argyle_vest
 	name = "argyle sweater vest"
 	desc = "A warm, knit sweater vest with an argyle pattern."
 	desc_fluff = "Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
-	icon = 'icons/obj/clothing/accessory/sweaters.dmi'
 	icon_state = "argyle_sweater_vest"
 	item_state = "argyle_sweater_vest"
-	contained_sprite = TRUE
 
 //
 // Shirts

@@ -196,15 +196,15 @@
 	sweater["deep v-neck sweater"] = /obj/item/clothing/accessory/sweater/v_neck/deep
 
 	// Argyle Sweaters
-	sweater["argyle sweater"] = /obj/item/clothing/accessory/argyle_sweater
-	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/tubeneck
-	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/turtleneck
-	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/crewneck
-	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/argyle_sweater/v_neck
+	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweater/argyle
+	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweater/argyle_tubeneck
+	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweater/argyle_turtleneck
+	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/sweater/argyle_crewneck
+	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/sweater/argyle_v_neck
 
 	// Sweater Vests
-	sweater["sweater vest"] = /obj/item/clothing/accessory/sweater_vest
-	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/argyle_sweater_vest
+	sweater["sweater vest"] = /obj/item/clothing/accessory/sweater/vest
+	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweater/argyle_vest
 
 	gear_tweaks += new /datum/gear_tweak/path(sweater)
 
