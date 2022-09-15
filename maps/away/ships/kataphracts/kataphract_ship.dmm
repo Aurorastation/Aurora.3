@@ -7059,10 +7059,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
-"tp" = (
-/obj/machinery/light/spot,
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/hangar)
 "tu" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -22341,7 +22337,7 @@ jB
 ki
 mJ
 ia
-tp
+aa
 bP
 aa
 aa
