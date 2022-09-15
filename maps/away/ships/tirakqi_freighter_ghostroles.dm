@@ -75,7 +75,7 @@
 		/obj/item/clothing/shoes/brown
 	)
 
-	back = /obj/item/storage/backpack/satchel/norm
+	back = /obj/item/storage/backpack/satchel
 
 	id = /obj/item/card/id
 
@@ -88,7 +88,7 @@
 
 /datum/outfit/admin/tirakqi_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	
+
 	H.h_style = pick("Headtails", "Headtails", "Long Headtails", "Short Headtails", "Very Short Headtails", "Short Headtails, tucked", "Short Headtails, slicked", "Headtails, behind")
 	H.f_style = pick("Shaved", "Shaved", "Shaved", "Shaved", "Tuux Chin Patch", "Tuux Chops", "Tuux Tri-Point", "Tuux Monotail")
 
