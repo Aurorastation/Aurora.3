@@ -1315,7 +1315,6 @@
 /area/kataphract_chapter/sparring_chamber)
 "dh" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/gloves/boxing/blue,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -1327,7 +1326,6 @@
 /area/kataphract_chapter/sparring_chamber)
 "di" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/gloves/boxing/green,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 5
@@ -1336,7 +1334,6 @@
 /area/kataphract_chapter/sparring_chamber)
 "dj" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/gloves/boxing/yellow,
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 5
@@ -1345,7 +1342,6 @@
 /area/kataphract_chapter/sparring_chamber)
 "dk" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/gloves/boxing,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -2926,30 +2922,6 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/item/device/radio,
-/obj/item/device/gps{
-	pixel_x = -6;
-	pixel_y = -3
-	},
-/obj/item/device/gps{
-	pixel_x = -6;
-	pixel_y = -3
-	},
-/obj/item/device/gps{
-	pixel_x = -6;
-	pixel_y = -3
-	},
-/obj/item/device/gps{
-	pixel_x = -6;
-	pixel_y = -3
-	},
-/obj/item/device/gps{
-	pixel_x = -6;
-	pixel_y = -3
-	},
-/obj/item/device/gps{
-	pixel_x = -6;
-	pixel_y = -3
-	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "gr" = (
@@ -3359,7 +3331,7 @@
 	id = "kata_armoury";
 	name = "Armoury Entrance Control";
 	pixel_x = 25;
-	req_one_access = list(115)
+	req_one_access = list(115, 113)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
@@ -3533,7 +3505,7 @@
 "hv" = (
 /obj/machinery/door/airlock/glass{
 	name = "Quartermaster";
-	req_one_access = list(115)
+	req_one_access = list(113, 115)
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -6062,7 +6034,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "mH" = (
-/obj/machinery/light,
+/obj/machinery/light/spot,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "mI" = (
@@ -6084,8 +6056,7 @@
 "mL" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armoury";
-	req_access = list(115);
-	req_one_access = null
+	req_one_access = list(113, 115)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6919,7 +6890,7 @@
 /obj/structure/sign/securearea{
 	pixel_x = 32
 	},
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -7375,13 +7346,13 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
 "yj" = (
-/obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/light/spot,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "yk" = (
@@ -7937,6 +7908,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/propulsion)
+"EK" = (
+/obj/machinery/door/airlock/glass{
+	name = "Quartermaster";
+	req_one_access = list(113, 115)
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/commissary)
 "EP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9101,6 +9079,7 @@
 /obj/structure/table/rack,
 /obj/item/melee/hammer/powered,
 /obj/item/melee/hammer/powered,
+/obj/item/material/twohanded/pike/flag/hegemony,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "TH" = (
@@ -9342,7 +9321,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/office)
 "Yg" = (
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -23451,7 +23430,7 @@ ab
 cl
 cp
 cf
-gu
+EK
 do
 sC
 Bi
