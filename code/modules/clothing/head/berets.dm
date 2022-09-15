@@ -1,7 +1,7 @@
 /obj/item/clothing/head/beret
 	name = "beret"
 	desc = "A baguette munching, cheese eating, wine drinking artist's favorite headwear. Hon hon!"
-	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon = 'icons/obj/item/clothing/hats/berets.dmi'
 	icon_state = "beret"
 	item_state = "beret"
 	item_flags = SHOWFLAVORTEXT

@@ -171,7 +171,7 @@
 /obj/item/clothing/ears/circuitry
 	name = "electronic earwear"
 	desc = "It's a wearable case for electronics. This one appears to be a technical-looking headset."
-	icon = 'icons/obj/clothing/ears.dmi'
+	icon = 'icons/obj/item/clothing/ears.dmi'
 	icon_state = "circuitry"
 	item_state = "circuitry"
 

@@ -2,7 +2,7 @@
 /obj/item/airbubble
 	name = "air bubble"
 	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate."
-	icon = 'icons/obj/airbubble.dmi'
+	icon = 'icons/obj/item/airbubble.dmi'
 	icon_state = "airbubble_fact_folded"
 	w_class = ITEMSIZE_NORMAL
 	var/used = FALSE
@@ -55,7 +55,7 @@
 /obj/structure/closet/airbubble
 	name = "air bubble"
 	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate."
-	icon = 'icons/obj/airbubble.dmi'
+	icon = 'icons/obj/structure/closet/airbubble.dmi'
 	icon_state = "airbubble"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'

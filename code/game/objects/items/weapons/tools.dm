@@ -83,8 +83,8 @@
 	transform = tf
 
 /obj/item/screwdriver/get_belt_overlay()
-	var/mutable_appearance/body = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver")
-	var/mutable_appearance/head = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver_head")
+	var/mutable_appearance/body = mutable_appearance('icons/obj/item/clothing/belt_overlays.dmi', "screwdriver")
+	var/mutable_appearance/head = mutable_appearance('icons/obj/item/clothing/belt_overlays.dmi', "screwdriver_head")
 	body.color = color
 	head.add_overlay(body)
 	return head
@@ -160,8 +160,8 @@
 	transform = tf
 
 /obj/item/wirecutters/get_belt_overlay()
-	var/mutable_appearance/body = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "wirecutters")
-	var/mutable_appearance/head = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "wirecutters_head")
+	var/mutable_appearance/body = mutable_appearance('icons/obj/item/clothing/belt_overlays.dmi', "wirecutters")
+	var/mutable_appearance/head = mutable_appearance('icons/obj/item/clothing/belt_overlays.dmi', "wirecutters_head")
 	body.color = color
 	head.add_overlay(body)
 	return head
@@ -210,7 +210,7 @@
 /obj/item/weldingtool
 	name = "welding tool"
 	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
-	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
+	icon = 'icons/obj/item/welding_tools.dmi'
 	icon_state = "welder"
 	item_state = "welder"
 	var/welding_state = "welding_sparks"
@@ -694,7 +694,7 @@
 	name = "experimental eyeshield"
 	desc = "An advanced eyeshield capable of dampening the welding glare produced when working on modern super-materials, removing the need for user-worn welding gear."
 	desc_info = "This can be attached to an experimental welder to give it welding protection, removing the need for welding goggles or masks."
-	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
+	icon = 'icons/obj/item/welding_tools.dmi'
 	icon_state = "eyeshield"
 	item_state = "eyeshield"
 	contained_sprite = TRUE
@@ -703,7 +703,7 @@
 	name = "experimental overcapacitor"
 	desc = "An advanced capacitor that injects a current into the welding stream, doubling the speed of welding tasks without sacrificing quality. Excess current burns up welding fuel, reducing fuel efficiency, however."
 	desc_info = "This can be attached to an experimental welder to double the speed it works at, at the cost of tripling the fuel cost of using it."
-	icon = 'icons/obj/contained_items/tools/welding_tools.dmi'
+	icon = 'icons/obj/item/welding_tools.dmi'
 	icon_state = "overcap"
 	item_state = "overcap"
 	contained_sprite = TRUE
@@ -865,7 +865,7 @@
 /obj/item/powerdrill
 	name = "impact wrench"
 	desc = "The screwdriver's big brother."
-	icon = 'icons/obj/contained_items/tools/impact_wrench.dmi'
+	icon = 'icons/obj/item/impact_wrench.dmi'
 	icon_state = "impact_wrench-screw"
 	item_state = "impact_wrench"
 	contained_sprite = TRUE

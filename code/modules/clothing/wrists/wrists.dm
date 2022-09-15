@@ -2,7 +2,7 @@
 /obj/item/clothing/wrists
 	name = "wrists"
 	w_class = ITEMSIZE_TINY
-	icon = 'icons/obj/clothing/wrists.dmi'
+	icon = 'icons/obj/item/clothing/wrists.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_wrists.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_wrists.dmi'

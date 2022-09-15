@@ -19,7 +19,7 @@ This spawner places pipe leading up to the interior door, you will need to finis
 /obj/effect/map_effect/airlock
 	name = "1 by 1 airlock spawner (interior north, exterior south)"
 	desc = "If you can see this, there's probably a missing airlock here. Better tell an admin and report this on the github."
-	icon = 'icons/obj/airlock_spawner.dmi'
+	icon = 'icons/obj/effect/airlock_spawner.dmi'
 	icon_state = "1x1_N_to_S"
 	layer = LIGHTING_LAYER //So we absolutely always appear above everything else. We delete ourself after spawning so this is fine
 	var/interior_direction = NORTH	//This is also the direction the spawner will send the pipe

@@ -14,7 +14,7 @@
 
 /obj/item/gun/bang/Initialize()
 	. = ..()
-	bang_flag = image('icons/obj/bang_flag.dmi', "bang_flag")
+	bang_flag = image('icons/obj/item/bang_flag.dmi', "bang_flag")
 	bang_flag.pixel_x = pixel_offset_x
 	bang_flag.pixel_y = pixel_offset_y
 

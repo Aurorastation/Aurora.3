@@ -1,7 +1,7 @@
 /obj/item/clothing/head/hardhat
 	name = "hard hat"
 	desc = "A piece of headgear used in dangerous working conditions to protect the head. Comes with a built-in flashlight."
-	icon = 'icons/obj/clothing/hats/hardhats.dmi'
+	icon = 'icons/obj/item/clothing/hats/hardhats.dmi'
 	icon_state = "hardhat_yellow"
 	item_state = "hardhat_yellow"
 	light_overlay = "hardhat_light"
@@ -52,7 +52,7 @@
 	name = "atmospheric firefighter helmet"
 	desc = "An atmospheric firefighter's helmet, able to keep the user protected from heat and fire."
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 15000
-	icon = 'icons/clothing/kit/firefighter.dmi'
+	icon = 'icons/obj/item/clothing/kit/firefighter.dmi'
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/fire.dmi'
 	)
@@ -74,7 +74,7 @@
 /obj/item/clothing/head/hardhat/firefighter
 	name = "firefighter helmet"
 	desc = "A complete, face covering helmet specially designed for firefighting. It is airtight and has a port for internals."
-	icon = 'icons/clothing/kit/firefighter.dmi'
+	icon = 'icons/obj/item/clothing/kit/firefighter.dmi'
 	icon_state = "helmet_firefighter"
 	item_state = "helmet_firefighter"
 	sprite_sheets = list(

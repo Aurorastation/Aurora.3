@@ -1,7 +1,7 @@
 /obj/item/clothing/head/acapcap
 	name = "acting captain's cap"
 	desc = "A headdress that signifies the wearer as the acting captain."
-	icon = 'icons/clothing/kit/acting_captain.dmi'
+	icon = 'icons/obj/item/clothing/kit/acting_captain.dmi'
 	icon_state = "acapcap"
 	item_state = "acapcap"
 	contained_sprite = TRUE
@@ -9,7 +9,7 @@
 /obj/item/clothing/suit/acapjacket
 	name = "acting captain's jacket"
 	desc = "A comfortable jacket that signifies the wearer as the acting captain."
-	icon = 'icons/clothing/kit/acting_captain.dmi'
+	icon = 'icons/obj/item/clothing/kit/acting_captain.dmi'
 	icon_state = "acapjacket"
 	item_state = "acapjacket"
 	contained_sprite = TRUE
@@ -18,7 +18,7 @@
 /obj/item/clothing/accessory/armband/acap
 	name = "acting captain's armband"
 	desc = "An armband worn by the acting captain, to look fancy, to wear less, or to be extra."
-	icon = 'icons/clothing/kit/acting_captain.dmi'
+	icon = 'icons/obj/item/clothing/kit/acting_captain.dmi'
 	icon_state = "acaparm"
 	item_state = "acaparm"
 	contained_sprite = TRUE

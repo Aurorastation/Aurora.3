@@ -211,7 +211,7 @@
 /obj/item/clothing/gloves/kala
 	name = "skrell gloves"
 	desc = "A sleek pair of gloves! They seem to be retaining moisture."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/skrell_armor.dmi'
 	icon_state = "kala_gloves"
 	item_state = "kala_gloves"
 	contained_sprite = TRUE

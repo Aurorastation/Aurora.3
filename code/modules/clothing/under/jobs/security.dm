@@ -12,7 +12,7 @@
 /obj/item/clothing/under/rank/security
 	name = "security officer's uniform"
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection."
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "nt_officer"
 	item_state = "nt_officer"
 	armor = list(
@@ -67,7 +67,7 @@
 /obj/item/clothing/under/rank/cadet
 	name = "security cadet's uniform"
 	desc = "It's made of a slightly sturdier material, to allow for robust protection."
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "nt_cadet"
 	item_state = "nt_cadet"
 	armor = list(
@@ -94,7 +94,7 @@
 /obj/item/clothing/under/rank/warden
 	name = "warden's uniform"
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection."
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "nt_warden"
 	item_state = "nt_warden"
 	armor = list(
@@ -134,7 +134,7 @@
 /obj/item/clothing/under/det
 	name = "investigator's uniform"
 	desc = "Someone who wears this means business."
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "nt_invest"
 	item_state = "nt_invest"
 	armor = list(
@@ -164,7 +164,7 @@
 /obj/item/clothing/under/rank/head_of_security
 	desc = "It's a jumpsuit worn by those few with the dedication to achieve the position of \"Head of Security\". It has additional armor to protect the wearer."
 	name = "head of security's uniform"
-	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "head_of_security"
 	item_state = "head_of_security"
 	contained_sprite = TRUE

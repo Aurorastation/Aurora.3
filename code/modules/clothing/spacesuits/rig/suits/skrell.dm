@@ -5,7 +5,7 @@
 /obj/item/rig/skrell
 	name = "nralakk suit control module"
 	desc = "A suit control module designed by the Nralakk Federation for JFSF operations. It is designed to be sleek and agile, equipped with best protection and technology the Federation has to offer for its elite."
-	icon = 'icons/clothing/rig/nralakk.dmi'
+	icon = 'icons/obj/item/clothing/rig/nralakk.dmi'
 	icon_state = "nralakk_rig"
 	suit_type = "nralakk suit"
 	armor = list(
@@ -53,7 +53,7 @@
 /obj/item/rig/skrell/tup
 	name = "outdated tupkala suit control module"
 	desc = "A suit control module designed by the Jargon Federation for Tup operations. The best of the best, albeit outdated now."
-	icon = 'icons/clothing/rig/tup.dmi'
+	icon = 'icons/obj/item/clothing/rig/tup.dmi'
 	icon_state = "tup_rig"
 	suit_type = "tup suit"
 	armor = list(

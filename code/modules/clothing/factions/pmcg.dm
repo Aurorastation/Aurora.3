@@ -5,7 +5,7 @@
 	desc_fluff = "The proprietary PMCG Modular Fatigue Jumpsuit, quickly dubbed the modsuit, is an innovation by the recently-formed PMCG to quickly outfit its scores of new \
 	hires and acquisitions at economic production costs. Designed to fit military contractors of a wide range of sizes, species, and operating environments with tolerable comfort, \
 	the modsuit features a number of smart-fabric connection points for the modern contractor to modify their uniform to a number of preset configurations."
-	icon = 'icons/clothing/under/uniforms/pmcg_modsuit.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/pmcg_modsuit.dmi'
 	icon_state = "pmcg_modsuit"
 	item_state = "pmcg_modsuit"
 	contained_sprite = TRUE
@@ -20,10 +20,10 @@
 /obj/item/clothing/under/pmc_modsuit/Initialize()
 	for(var/option in names)
 		if(!modsuit_mode)
-			names[option] = image('icons/clothing/under/uniforms/pmcg_modsuit.dmi', icon_state)
+			names[option] = image('icons/obj/item/clothing/under/uniforms/pmcg_modsuit.dmi', icon_state)
 			modsuit_mode = 1
 		else
-			names[option] = image('icons/clothing/under/uniforms/pmcg_modsuit.dmi', initial(icon_state) + "_[names.Find(option) - 1]")
+			names[option] = image('icons/obj/item/clothing/under/uniforms/pmcg_modsuit.dmi', initial(icon_state) + "_[names.Find(option) - 1]")
 	modsuit_mode = 0
 	.=..()
 

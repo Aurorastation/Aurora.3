@@ -1,7 +1,7 @@
 /obj/item/clothing/under/skrell
 	name = "federation uniform"
 	desc = "The uniform worn by Official Jagon Federation Representatives and Diplomats.  It looks pretty waterproof."
-	icon = 'icons/obj/contained_items/skrell/federation_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/skrell/federation_uniform.dmi'
 	icon_state = "skrell_formal"
 	item_state = "skrell_formal"
 	contained_sprite = TRUE
@@ -9,7 +9,7 @@
 /obj/item/clothing/under/skrell/qeblak
 	name = "qeblak ceremonial garment"
 	desc = "A traditional garment worn by Qeblak Star Keepers"
-	icon = 'icons/obj/contained_items/skrell/qeblak_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/skrell/qeblak_uniform.dmi'
 	icon_state = "qeblak_uniform"
 	item_state = "qeblak_uniform"
 	action_button_name = "Toggle Ceremonial Garment Lights"
@@ -46,7 +46,7 @@
 /obj/item/clothing/under/skrell/slugger
 	name = "prescient republic of the qar wetsuit"
 	desc = "A wetsuit worn by members of Prescient Republic of the Qar generational fleet."
-	icon = 'icons/obj/contained_items/skrell/slugger_wetsuit.dmi'
+	icon = 'icons/obj/item/clothing/under/skrell/slugger_wetsuit.dmi'
 	item_state = "slugger_wetsuit"
 	icon_state = "slugger_wetsuit"
 
@@ -55,9 +55,9 @@
 	name = "Ox research uniform"
 	desc = "A plain, utilitarian jumpsuit that signifies the wearer as a Tertiary Numerical working in a scientific field."
 	desc_fluff = "The Nralakk Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Nralakk Society."
-	icon = 'icons/obj/contained_items/skrell/nralakk_uniforms.dmi'
+	icon = 'icons/obj/clothing/under/skrell/nralakk_uniforms.dmi'
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/obj/contained_items/vaurca/bulwark/nralakk_uniforms.dmi'
+		BODYTYPE_VAURCA_BULWARK = 'icons/obj/clothing/under/skrell/nralakk_uniforms_bulwark.dmi'
 	)
 	item_state = "ox_sci"
 	icon_state = "ox_sci"
@@ -187,7 +187,7 @@
 	name = "Ox research jacket"
 	desc = "A plain, utilitarian jacket that signifies the wearer as a Tertiary Numerical in a scientific field."
 	desc_fluff = "The Nralakk Federation ranks its workers based on their social credit score, and provides workwear based on said score: Ox are those who are within the Tertiary Numerical band, and are provided with the bare essentials for adequate clothes. Tertiary Numericals are typically criminals, or Skrell who otherwise do not conform to the standards of Nralakk Society."
-	icon = 'icons/obj/contained_items/skrell/nralakk_jackets.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/skrell/nralakk_jackets.dmi'
 	item_state = "ox_sci_jacket"
 	icon_state = "ox_sci_jacket"
 	contained_sprite = TRUE
@@ -315,7 +315,7 @@
 /obj/item/clothing/under/skrell/wetsuit
 	name = "casual wetsuit"
 	desc = "A wetsuit intended as casualwear for Skrell. Can be worn on its own or under additional clothes."
-	icon = 'icons/obj/contained_items/skrell/wetsuit.dmi'
+	icon = 'icons/obj/item/clothing/under/skrell/wetsuit.dmi'
 	icon_state = "wetsuit"
 	item_state = "wetsuit"
 	var/additional_color = COLOR_GRAY
@@ -340,14 +340,13 @@
 	name = "star coat"
 	desc = "A very fashionable coat, that traps moisture and provides good insulation. Starry patterns have been woven into its fabric."
 	desc_fluff = "The patterns typically represent the constellations visible from the home system of the wearer. Coats like this one are usually very personal and custom made."
-	icon = 'icons/obj/contained_items/skrell/nralakk_jackets.dmi'
 	item_state = "starcoat"
 	icon_state = "starcoat"
 
 /obj/item/clothing/under/skrell/cthur
 	name = "cthur uniform"
 	desc = "This white vaurca wetsuit is often worn by C’thur working with the Kala, most often the Qukala. It has ablative materials woven in."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/skrell_armor.dmi'
 	icon_state = "cthur_uniform"
 	item_state = "cthur_uniform"
 	contained_sprite = TRUE
@@ -359,7 +358,7 @@
 /obj/item/clothing/under/skrell/qukala
 	name = "qukala uniform"
 	desc = "This combat-grade wetsuit is issued to the Qukala to be worn in the field. It has small kinetic dampeners woven in."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/skrell_armor.dmi'
 	icon_state = "qukala_uniform"
 	item_state = "qukala_uniform"
 	contained_sprite = TRUE
@@ -371,7 +370,7 @@
 /obj/item/clothing/under/skrell/nlomkala
 	name = "nlomkala uniform"
 	desc = "A robust wetsuit designed for police work, it is often worn by the Nlomkala. It has small kinetic dampeners woven in."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/skrell_armor.dmi'
 	icon_state = "nlom_uniform"
 	item_state = "nlom_uniform"
 	contained_sprite = TRUE
@@ -383,7 +382,7 @@
 /obj/item/clothing/under/skrell/ruupkala
 	name = "ruupkala uniform"
 	desc = "An uncommon sight in the Federation. This is a field-issue Ruupkala wetsuit equipped with small kinetic dampeners."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/skrell_armor.dmi'
 	icon_state = "ruup_uniform"
 	item_state = "ruup_uniform"
 	contained_sprite = TRUE
@@ -395,7 +394,7 @@
 /obj/item/clothing/under/skrell/sromkala
 	name = "sromkala uniform"
 	desc = "This comfortable and breathable wetsuit belongs to the Sromkala. It makes their extended times of slumber all the more cozy."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/skrell_armor.dmi'
 	icon_state = "srom_uniform"
 	item_state = "srom_uniform"
 	contained_sprite = TRUE
@@ -403,7 +402,7 @@
 /obj/item/clothing/under/skrell/tupkala
 	name = "tupkala uniform"
 	desc = "This purple wetsuit belongs to the infamous Tupkala. It is made of some kind of exotic material."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/skrell_armor.dmi'
 	icon_state = "tup_uniform"
 	item_state = "tup_uniform"
 	armor = list(

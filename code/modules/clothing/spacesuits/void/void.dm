@@ -19,7 +19,7 @@
 	min_pressure_protection = 0
 	siemens_coefficient = 0.5
 	contained_sprite = FALSE
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'icons/obj/item/clothing/hats.dmi'
 
 	//Species-specific stuff.
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
@@ -31,11 +31,11 @@
 		BODYTYPE_IPC = 'icons/mob/species/machine/helmet.dmi'
 	)
 	sprite_sheets_obj = list(
-		BODYTYPE_UNATHI = 'icons/obj/clothing/species/unathi/hats.dmi',
-		BODYTYPE_TAJARA = 'icons/obj/clothing/species/tajaran/hats.dmi',
-		BODYTYPE_SKRELL = 'icons/obj/clothing/species/skrell/hats.dmi',
-		BODYTYPE_VAURCA = 'icons/obj/clothing/species/vaurca/hats.dmi',
-		BODYTYPE_IPC = 'icons/obj/clothing/species/machine/hats.dmi'
+		BODYTYPE_UNATHI = 'icons/obj/item/clothing/species/unathi/hats.dmi',
+		BODYTYPE_TAJARA = 'icons/obj/item/clothing/species/tajaran/hats.dmi',
+		BODYTYPE_SKRELL = 'icons/obj/item/clothing/species/skrell/hats.dmi',
+		BODYTYPE_VAURCA = 'icons/obj/item/clothing/species/vaurca/hats.dmi',
+		BODYTYPE_IPC = 'icons/obj/item/clothing/species/machine/hats.dmi'
 	)
 
 	light_overlay = "helmet_light"
@@ -60,7 +60,7 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 	contained_sprite = FALSE
-	icon = 'icons/obj/clothing/suits.dmi'
+	icon = 'icons/obj/item/clothing/suits.dmi'
 
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 	sprite_sheets_refit = list(
@@ -71,11 +71,11 @@
 		BODYTYPE_IPC = 'icons/mob/species/machine/suit.dmi'
 	)
 	sprite_sheets_obj = list(
-		BODYTYPE_UNATHI = 'icons/obj/clothing/species/unathi/suits.dmi',
-		BODYTYPE_TAJARA = 'icons/obj/clothing/species/tajaran/suits.dmi',
-		BODYTYPE_SKRELL = 'icons/obj/clothing/species/skrell/suits.dmi',
-		BODYTYPE_VAURCA = 'icons/obj/clothing/species/vaurca/suits.dmi',
-		BODYTYPE_IPC= 'icons/obj/clothing/species/machine/suits.dmi'
+		BODYTYPE_UNATHI = 'icons/obj/item/clothing/species/unathi/suits.dmi',
+		BODYTYPE_TAJARA = 'icons/obj/item/clothing/species/tajaran/suits.dmi',
+		BODYTYPE_SKRELL = 'icons/obj/item/clothing/species/skrell/suits.dmi',
+		BODYTYPE_VAURCA = 'icons/obj/item/clothing/species/vaurca/suits.dmi',
+		BODYTYPE_IPC= 'icons/obj/item/clothing/species/machine/suits.dmi'
 	)
 
 	action_button_name = "Toggle Helmet"

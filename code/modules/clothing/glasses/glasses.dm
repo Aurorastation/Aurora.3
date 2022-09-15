@@ -11,7 +11,7 @@ BLIND     // can't see anything
 */
 /obj/item/clothing/glasses
 	name = "glasses"
-	icon = 'icons/obj/clothing/glasses.dmi'
+	icon = 'icons/obj/item/clothing/glasses.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_glasses.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_glasses.dmi'
@@ -567,7 +567,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/aug/welding
 	name = "glare dampeners"
 	desc = "A subdermal implant installed just above the brow line that deploys a thin sheath of hyperpolycarbonate that protects from eye damage associated with arc flash."
-	icon = 'icons/clothing/eyes/welding_goggles.dmi'
+	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
 	icon_state = "welding-aug"
 	item_state = "welding-aug"
 	contained_sprite = TRUE
@@ -596,7 +596,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/welding/emergency
 	name = "emergency welding goggles"
 	desc = "A cheaper version of standard welding goggles, approved for emergency use by the NanoTrasen Safety Board."
-	icon = 'icons/clothing/eyes/welding_goggles.dmi'
+	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
 	icon_state = "ewelding-g"
 	item_state = "ewelding-g"
 	contained_sprite = TRUE
@@ -892,7 +892,7 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 		var/mob/living/carbon/human/H = loc
 		if(H.glasses == src)
 			H.cut_overlay(mob_overlay, TRUE)
-	mob_overlay = image('icons/obj/clothing/glasses.dmi', "[icon_state]_eye")
+	mob_overlay = image('icons/obj/item/clothing/glasses.dmi', "[icon_state]_eye")
 	mob_overlay.appearance_flags = RESET_COLOR
 	mob_overlay.color = eye_color
 	mob_overlay.layer = LIGHTING_LAYER + 1
@@ -926,7 +926,7 @@ obj/item/clothing/glasses/sunglasses/sechud/aviator/visor
 /obj/item/clothing/glasses/eyepatch/hud/update_icon()
 	cut_overlays()
 	if(active)
-		var/image/eye = image('icons/obj/clothing/glasses.dmi', "[icon_state]_ovr")
+		var/image/eye = image('icons/obj/item/clothing/glasses.dmi', "[icon_state]_ovr")
 		eye.appearance_flags = RESET_COLOR
 		eye.color = eye_color
 		add_overlay(eye)

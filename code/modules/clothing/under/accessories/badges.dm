@@ -275,7 +275,7 @@
 	desc_fluff = "A passcard is a modern evolution of the state-issued identification card, with all the functionality of a driver's license, birth certificate, passport, or other document, \
 	updated as necessary or able by a central government. The concept was pioneered in the early days of the Sol Alliance, and continues in most human stellar nations to this day, owing to the availability \
 	and price of consumer plastics and self-powered microholograms."
-	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon = 'icons/obj/item/clothing/accessory/passcards.dmi'
 	icon_state = "passcard_ceti"
 	item_state = "passcard_ceti"
 	contained_sprite = TRUE
@@ -482,7 +482,7 @@
 /obj/item/clothing/accessory/badge/passport
 	name = "biesellite passport"
 	desc = "A passport issued to a citizen of the Republic of Biesel."
-	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon = 'icons/obj/item/clothing/accessory/passcards.dmi'
 	icon_state = "passport_ceti"
 	item_state = "passport_ceti"
 	contained_sprite = TRUE

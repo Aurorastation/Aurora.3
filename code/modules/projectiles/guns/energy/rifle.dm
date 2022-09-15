@@ -230,7 +230,7 @@
 	name = "geop cannon"
 	desc = "An advanced weapon of Skrell design, this Geop Cannon uses a tiny warp accelerator to super heat particles."
 	desc_fluff = ""
-	icon = 'icons/obj/contained_items/skrell/skrell_weaponry.dmi'
+	icon = 'icons/obj/item/gun/skrell_weaponry.dmi'
 	icon_state = "qukala_heavy"
 	item_state = "qukala_heavy"
 	max_shots = 10

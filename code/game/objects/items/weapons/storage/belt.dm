@@ -1,7 +1,7 @@
 /obj/item/storage/belt
 	name = "belt"
 	desc = "Can hold various things."
-	icon = 'icons/obj/clothing/belts.dmi'
+	icon = 'icons/obj/item/clothing/belts.dmi'
 	icon_state = "utilitybelt"
 	item_state = "utility"
 	force = 2
@@ -537,7 +537,7 @@
 /obj/item/storage/belt/fannypack
 	name = "fannypack"
 	desc = "A dorky fannypack for keeping small items in."
-	icon = 'icons/clothing/belts/fannypacks.dmi'
+	icon = 'icons/obj/item/clothing/belts/fannypacks.dmi'
 	icon_state = "fannypack"
 	item_state = "fannypack"
 	max_w_class = ITEMSIZE_SMALL

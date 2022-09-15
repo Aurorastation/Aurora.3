@@ -1,6 +1,6 @@
 /obj/item/clothing/accessory/dressshirt/skrell
     desc = "A formal wetshirt in Skrell style."
-    icon = 'icons/clothing/under/shirts/skrell_casual.dmi'
+    icon = 'icons/obj/item/clothing/under/shirts/skrell_casual.dmi'
 
 /obj/item/clothing/accessory/dressshirt/skrell/ocean
     name = "ocean formal wetshirt"
@@ -21,7 +21,7 @@
     item_state = "reef_dressshirt"
 
 /obj/item/clothing/accessory/tshirt/skrell
-    icon = 'icons/clothing/under/shirts/skrell_casual.dmi'
+    icon = 'icons/obj/item/clothing/under/shirts/skrell_casual.dmi'
     desc = "A wetshirt in Skrell style."
     contained_sprite = TRUE
 

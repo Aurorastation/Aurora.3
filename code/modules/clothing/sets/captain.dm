@@ -9,7 +9,7 @@
 		)
 
 /obj/item/clothing/head/caphat/scc
-	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "caphat"
 	item_state = "caphat"
 	contained_sprite = TRUE
@@ -17,7 +17,7 @@
 /obj/item/clothing/head/caphat/cap
 	name = "captain's cap"
 	desc = "You fear to wear it for the negligence it brings."
-	icon = 'icons/clothing/kit/captain.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain.dmi'
 	icon_state = "cap"
 	item_state = "cap"
 	item_state_slots = null
@@ -32,7 +32,7 @@
 /obj/item/clothing/under/rank/captain
 	name = "captain's jumpsuit"
 	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
-	icon = 'icons/clothing/kit/captain.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain.dmi'
 	icon_state = "uniform"
 	item_state = "uniform"
 	worn_state = "uniform"
@@ -65,7 +65,7 @@
 /obj/item/clothing/under/dress/dress_cap
 	name = "captain's dress uniform"
 	desc = "Feminine fashion for the style concious captain."
-	icon = 'icons/clothing/kit/captain.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain.dmi'
 	icon_state = "uniform_fem"
 	item_state = "uniform_fem"
 	worn_state = "uniform_fem"
@@ -99,7 +99,7 @@
 /obj/item/clothing/suit/captunic/capjacket
 	name = "captain's uniform jacket"
 	desc = "A less formal jacket for everyday captain use."
-	icon = 'icons/clothing/kit/captain.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain.dmi'
 	icon_state = "jacket"
 	item_state = "jacket"
 	contained_sprite = TRUE
@@ -109,7 +109,7 @@
 /obj/item/clothing/gloves/captain
 	name = "captain's gloves"
 	desc = "Regal blue gloves, with a nice gold trim. Swanky."
-	icon = 'icons/clothing/kit/captain.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain.dmi'
 	icon_state = "gloves"
 	item_state = "gloves"
 	contained_sprite = TRUE
@@ -117,7 +117,7 @@
 /obj/item/clothing/shoes/captain
 	name = "captain's shoes"
 	desc = "Super comfortable blue shoes, capable of keeping you on your feet during any station-wide disaster."
-	icon = 'icons/clothing/kit/captain.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain.dmi'
 	icon_state = "shoes"
 	item_state = "shoes"
 	contained_sprite = TRUE
@@ -140,35 +140,35 @@
 /obj/item/clothing/head/caphat/cap/beret
 	name = "captain's white beret"
 	desc = "A beret, worn to passively instill authority at the audacity of wearing a puffy hat."
-	icon = 'icons/clothing/kit/captain_white.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain_white.dmi'
 	icon_state = "beret"
 	item_state = "beret"
 
 /obj/item/clothing/head/caphat/cap/white
 	name = "captain's white cap"
 	desc = "No one in a commanding position should be without a perfect, white hat of ultimate authority."
-	icon = 'icons/clothing/kit/captain_white.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain_white.dmi'
 
 /obj/item/clothing/under/rank/captain/white
 	name = "captain's white jumpsuit"
 	desc = "It's a white jumpsuit with some gold markings denoting the rank of \"Captain\"."
-	icon = 'icons/clothing/kit/captain_white.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain_white.dmi'
 	is_open = -1
 
 /obj/item/clothing/gloves/captain/white
 	name = "captain's white gloves"
 	desc = "Shiny white gloves, with a nice gold trim. Swanky."
-	icon = 'icons/clothing/kit/captain_white.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain_white.dmi'
 
 /obj/item/clothing/shoes/captain/white
 	name = "captain's white shoes"
 	desc = "Super comfortable white shoes, capable of keeping you on your feet during any station-wide disaster."
-	icon = 'icons/clothing/kit/captain_white.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain_white.dmi'
 
 /obj/item/clothing/under/rank/captain/white_dress
 	name = "captain's white dress"
 	desc = "The white variant of feminine fashion for the style conscious captain."
-	icon = 'icons/clothing/kit/captain_white.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain_white.dmi'
 	icon_state = "uniform_fem"
 	item_state = "uniform_fem"
 	worn_state = "uniform_fem"
@@ -190,7 +190,7 @@
 /obj/item/clothing/under/captainformal
 	name = "captain's formal uniform"
 	desc = "A captain's formal-wear, for special occasions."
-	icon = 'icons/clothing/kit/captain_formal.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain_formal.dmi'
 	icon_state = "uniform"
 	item_state = "uniform"
 	worn_state = "uniform"
@@ -199,7 +199,7 @@
 /obj/item/clothing/suit/captunic
 	name = "captain's parade jacket"
 	desc = "Worn by a Captain to show their class."
-	icon = 'icons/clothing/kit/captain_formal.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain_formal.dmi'
 	icon_state = "jacket"
 	item_state = "jacket"
 	contained_sprite = TRUE
@@ -208,7 +208,7 @@
 /obj/item/clothing/shoes/captain/formal
 	name = "captain's formal boots"
 	desc = "Polished boots made of strong synthleather, capable of kicking through a wall without a scratch."
-	icon = 'icons/clothing/kit/captain_formal.dmi'
+	icon = 'icons/obj/item/clothing/kit/captain_formal.dmi'
 	icon_state = "boots"
 	item_state = "boots"
 	contained_sprite = TRUE
@@ -225,7 +225,7 @@
 /obj/item/clothing/under/scc_captain
 	name = "captain's jumpsuit"
 	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
-	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "captain"
 	item_state = "captain"
 	contained_sprite = TRUE

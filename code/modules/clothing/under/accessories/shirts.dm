@@ -7,7 +7,7 @@
 	name = "sweater"
 	desc = "A warm, knit sweater."
 	desc_fluff = "Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
-	icon = 'icons/obj/clothing/accessory/sweaters.dmi'
+	icon = 'icons/obj/item/clothing/accessory/sweaters.dmi'
 	icon_state = "sweater"
 	item_state = "sweater"
 	contained_sprite = TRUE
@@ -266,7 +266,7 @@
 /obj/item/clothing/accessory/haltertop
 	name = "halter top"
 	desc = "A sleeveless tank with straps tied behind the neck, commonly seen worn in Biesel."
-	icon = 'icons/obj/clothing/accessory/halter_top.dmi'
+	icon = 'icons/obj/item/clothing/accessory/halter_top.dmi'
 	icon_state = "haltertop"
 	item_state = "haltertop"
 	contained_sprite = TRUE
@@ -274,7 +274,7 @@
 /obj/item/clothing/accessory/silversun
 	name = "silversun floral shirt"
 	desc = "A stylish Solarian shirt of Silversun design. It bears a floral design. This one is cyan."
-	icon = 'icons/clothing/under/shirts/hawaiian.dmi'
+	icon = 'icons/obj/item/clothing/under/shirts/hawaiian.dmi'
 	icon_state = "hawaii"
 	item_state = "hawaii"
 	contained_sprite = TRUE
@@ -319,7 +319,7 @@
 /obj/item/clothing/accessory/silversun/wcoat
 	name = "waistcoat"
 	desc = "A slick waistcoat."
-	icon = 'icons/obj/clothing/ties.dmi'
+	icon = 'icons/obj/item/clothing/ties.dmi'
 	icon_state = "det_vest"
 	item_state = "det_vest"
 	contained_sprite = FALSE

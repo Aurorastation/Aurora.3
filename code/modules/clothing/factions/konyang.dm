@@ -2,7 +2,7 @@
 	name = "magenta hanbok"
 	desc = "A traditional Konyanger hanbok."
 	desc_fluff = "An ancient form of dress carried over from Earth by the initial Konyang colonists; the hanbok has since become a symbol of Konyang and its most iconic formalwear."
-	icon = 'icons/clothing/under/uniforms/konyang_femalehanbok.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/konyang_femalehanbok.dmi'
 	icon_state = "hanbok_magenta"
 	worn_state = "hanbok_magenta"
 	item_state = "hanbok_magenta"
@@ -36,7 +36,7 @@
 /obj/item/clothing/suit/storage/toggle/konyang
 	name = "konyanger jacket"
 	desc = "A remarkably breathable yet water-resistant jacket from Konyang."
-	icon = 'icons/clothing/suits/konyang_jacket.dmi'
+	icon = 'icons/obj/item/clothing/suits/konyang_jacket.dmi'
 	icon_state = "konyang_jacket"
 	item_state = "konyang_jacket"
 	contained_sprite = TRUE
@@ -67,7 +67,7 @@
 	name = "gat"
 	desc = "A traditional hat worn on Konyang and originating on Earth."
 	desc_fluff = "Although traditionally made from horsehair, many different types of fabrics, including water-resistant fibres from feathers are now used."
-	icon = 'icons/clothing/head/konyang_gat.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang_gat.dmi'
 	icon_state = "konyang_gat"
 	item_state = "konyang_gat"
 	contained_sprite = TRUE
@@ -78,7 +78,7 @@
 	desc_fluff = "Konyanger clothes are often designed to remain both water-resistant and breathable, made of light fabrics that can \
 	only be sourced on the planet. Not all clothes are made equal, however, and plant-derived plastics and cloth have found just as much use as the \
 	'miracle weave' in an attempt to keep costs down."
-	icon = 'icons/clothing/under/uniforms/konyang_dress.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/konyang_dress.dmi'
 	icon_state = "konyang_dress"
 	worn_state = "konyang_dress"
 	item_state = "konyang_dress"
@@ -87,7 +87,7 @@
 
 /obj/item/clothing/under/konyang/male/sleeveless
 	name = "sleeveless hanbok"
-	icon = 'icons/clothing/under/uniforms/konyang_malehanbok_colorable.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/konyang_malehanbok_colorable.dmi'
 	icon_state = "hanbok_male_sleeveless_colorable"
 	worn_state = "hanbok_male_sleeveless_colorable"
 	item_state = "hanbok_male_sleeveless_colorable"
@@ -95,7 +95,7 @@
 
 /obj/item/clothing/under/konyang/male/shortsleeve
 	name = "short sleeve hanbok"
-	icon = 'icons/clothing/under/uniforms/konyang_malehanbok_colorable.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/konyang_malehanbok_colorable.dmi'
 	icon_state = "hanbok_male_shortsleeve_colorable"
 	worn_state = "hanbok_male_shortsleeve_colorable"
 	item_state = "hanbok_male_shortsleeve_colorable"
@@ -104,7 +104,7 @@
 /obj/item/clothing/accessory/konyang
 	name = "male hanbok belt"
 	desc = "A traditional belt worn over hanbok typically tailored for men."
-	icon = 'icons/clothing/accessories/konyang_belt.dmi'
+	icon = 'icons/obj/item/clothing/accessory/konyang_belt.dmi'
 	icon_state = "konyang_belt"
 	item_state = "konyang_belt"
 	contained_sprite = TRUE
@@ -112,7 +112,7 @@
 /obj/item/clothing/shoes/konyang
 	name = "gomusin"
 	desc = "A traditional pair of shoes typically worn by men."
-	icon = 'icons/clothing/shoes/konyang_gomusin.dmi'
+	icon = 'icons/obj/item/clothing/shoes/konyang_gomusin.dmi'
 	icon_state = "gomusin"
 	item_state = "gomusin"
 	contained_sprite = TRUE
@@ -123,7 +123,7 @@
 	desc_fluff = "Carried over to Konyang from Earth, this dress was usually worn by shrine maidens of the Shinto faith back on Earth. \
 	It has since been appropriated by many Konyangers as a type of formal dress, and simply as a manner of fashion. The hot and humid climate of the planet however, has necessitated \
 	that most dresses of this type are made of lighter fabrics indigenous to the planet."
-	icon = 'icons/clothing/under/uniforms/konyang_dress_traditional.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/konyang_dress_traditional.dmi'
 	icon_state = "konyang_dress_traditional"
 	item_state = "konyang_dress_traditional"
 	slot_flags = SLOT_ICLOTHING

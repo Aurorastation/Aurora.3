@@ -6,7 +6,7 @@
 	active_power_usage = 20000 //20kW, appropriate for machine that keeps massive cross-Zlevel wireless network operational.
 	idle_power_usage = 100
 	icon_state = "ntnet"
-	icon = 'icons/obj/machines/telecomms.dmi'
+	icon = 'icons/obj/machinery/telecomms.dmi'
 	anchored = TRUE
 	density = TRUE
 	var/datum/ntnet/NTNet			// This is mostly for backwards reference and to allow varedit modifications from ingame.

@@ -364,7 +364,7 @@
 /obj/item/clothing/suit/storage/hazardvest/security
 	name = "cadet hazard vest"
 	desc = "A sturdy high-visibility vest intended for training security personnel."
-	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "hazard_cadet"
 	item_state = "hazard_cadet"
 	allowed = list(/obj/item/gun,/obj/item/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)
@@ -565,7 +565,7 @@
 /obj/item/clothing/suit/storage/vest/sol
 	name = "sol heavy armor vest"
 	desc = "A high-quality armor vest in a deep green. It is surprisingly flexible and light, even with the added webbing and armor plating."
-	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/sol_uniform.dmi'
 	icon_state = "solwebvest"
 	item_state = "solwebvest"
 	armor = list(
@@ -580,7 +580,7 @@
 /obj/item/clothing/suit/storage/vest/kala
 	name = "kala armor vest"
 	desc = "A simple armor vest issued to all of the Kala. It's made of an advanced lightweight alloy."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/skrell_armor.dmi'
 	icon_state = "kala_armor"
 	item_state = "kala_armor"
 	armor = list(

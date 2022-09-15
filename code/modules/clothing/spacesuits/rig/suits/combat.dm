@@ -1,7 +1,7 @@
 /obj/item/rig/combat
 	name = "combat hardsuit control module"
 	desc = "A sleek and dangerous hardsuit for active combat. This one is a Stellar Corporate Conglomerate design in color scheme and make."
-	icon = 'icons/clothing/rig/combat.dmi'
+	icon = 'icons/obj/item/clothing/rig/combat.dmi'
 	icon_state = "combat_rig"
 	icon_supported_species_tags = list("skr")
 	suit_type = "combat hardsuit"
@@ -43,7 +43,7 @@
 /obj/item/rig/military
 	name = "vampire hardsuit control module"
 	desc = "A Zavodskoi-manufactured hardsuit designed for the Solarian Armed Forces, the Type-9 \"Vampire\" is the suit issued to Alliance military specialists and team leaders."
-	icon = 'icons/clothing/rig/military.dmi'
+	icon = 'icons/obj/item/clothing/rig/military.dmi'
 	icon_state = "military_rig"
 	suit_type = "military hardsuit"
 	armor = list(
@@ -116,7 +116,7 @@
 /obj/item/rig/retro
 	name = "retrofitted military hardsuit control module"
 	desc = "An old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Foreign Legion."
-	icon = 'icons/clothing/rig/legion.dmi'
+	icon = 'icons/obj/item/clothing/rig/legion.dmi'
 	icon_state = "legion_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	suit_type = "retrofitted military hardsuit"
@@ -170,7 +170,7 @@
 /obj/item/rig/gunslinger
 	name = "gunslinger hardsuit control module"
 	desc = "A favorite of Coalition rangers, the Gunslinger suit is a sturdy hardsuit meant to provide the user absolute situational awareness."
-	icon = 'icons/clothing/rig/gunslinger.dmi'
+	icon = 'icons/obj/item/clothing/rig/gunslinger.dmi'
 	icon_state = "gunslinger"
 	suit_type = "gunslinger hardsuit"
 	armor = list(
@@ -219,7 +219,7 @@
 /obj/item/rig/strike
 	name = "strike hardsuit control module"
 	desc = "An expensive hardsuit utilized by Eridani security contractors to field heavy weapons and coordinate non-lethal takedowns directly. Usually seen spearheading police raids."
-	icon = 'icons/clothing/rig/strikesuit.dmi'
+	icon = 'icons/obj/item/clothing/rig/strikesuit.dmi'
 	icon_state = "strikesuit"
 	suit_type = "strike hardsuit"
 	armor = list(
@@ -287,7 +287,7 @@
 /obj/item/rig/elyran
 	name = "elyran battlesuit control module"
 	desc = "An advanced Elyran hardsuit specialized in scorched earth tactics."
-	icon = 'icons/clothing/rig/elyran_battlesuit.dmi'
+	icon = 'icons/obj/item/clothing/rig/elyran_battlesuit.dmi'
 	icon_state = "elyran_rig"
 	suit_type = "elyran battlesuit"
 	armor = list(
@@ -338,7 +338,7 @@
 /obj/item/rig/bunker
 	name = "bunker suit control module"
 	desc = "A powerful niche-function hardsuit utilized by Ceres' Lance to apprehend synthetics. Unstoppable in the right circumstances, and nothing more than a burden anywhere else."
-	icon = 'icons/clothing/rig/bunker.dmi'
+	icon = 'icons/obj/item/clothing/rig/bunker.dmi'
 	icon_state = "bunker"
 	suit_type = "bunker suit"
 	armor = list(
@@ -376,7 +376,7 @@
 /obj/item/rig/jinxiang
 	name = "jinxiang-pattern combat suit control module"
 	desc = "An off-shoot of the core Bunker Suit design, utilized by the Imperial Dominian military and painted accordingly. This is a powerful suit specializing in melee confrontations."
-	icon = 'icons/clothing/rig/dominia.dmi'
+	icon = 'icons/obj/item/clothing/rig/dominia.dmi'
 	icon_state = "dominia"
 	icon_supported_species_tags = list("una")
 	suit_type = "jinxiang combat suit"

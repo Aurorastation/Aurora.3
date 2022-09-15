@@ -7,7 +7,7 @@
 	gold-appearance clothing is now popular within many Golden Deep brands, but this was the first, and still carries considerable prestige (and a price tag to match)."
 	icon_state = "goldendeep_dress"
 	item_state = "goldendeep_dress"
-	icon = 'icons/clothing/under/uniforms/goldendeep_dress.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/goldendeep_dress.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/goldendeep/wrap
@@ -18,7 +18,7 @@
 	(and more poorly-designed) predecessors."
 	icon_state = "goldendeep_wrap"
 	item_state = "goldendeep_wrap"
-	icon = 'icons/clothing/under/uniforms/goldendeep_wrap.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/goldendeep_wrap.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/goldendeep/vest
@@ -29,7 +29,7 @@
 	may still be far out of the reach of the masses, but it barely approaches a fraction of the cost of a golden two piece, and is certainly far, far cheaper than the dresses made by Lux-Igmatic themself."
 	icon_state = "goldendeep_vest"
 	item_state = "goldendeep_vest"
-	icon = 'icons/clothing/under/uniforms/goldendeep_vest.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/goldendeep_vest.dmi'
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 	contained_sprite = TRUE
 
@@ -42,7 +42,7 @@
 	Golden Deep social circles."
 	icon_state = "goldendeep_suit"
 	item_state = "goldendeep_suit"
-	icon = 'icons/clothing/under/uniforms/goldendeep_suit.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/goldendeep_suit.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/goldendeep/skirtsuit
@@ -53,5 +53,5 @@
 	GD citizens and traders have been rekindled - necessitating the need to 'keep up appearances' even within exclusively Golden Deep social circles."
 	icon_state = "goldendeep_skirtsuit"
 	item_state = "goldendeep_skirtsuit"
-	icon = 'icons/clothing/under/uniforms/goldendeep_skirtsuit.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/goldendeep_skirtsuit.dmi'
 	contained_sprite = TRUE

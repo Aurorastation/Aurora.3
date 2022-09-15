@@ -263,7 +263,7 @@
 /obj/random/ammo
 	name = "Random Ammunition"
 	desc = "This is random ammunition."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'icons/obj/item/ammo.dmi'
 	icon_state = "45-10"
 	problist = list(
 		/obj/item/storage/box/beanbags = 6,
@@ -873,7 +873,7 @@
 /obj/random/colored_jumpsuit
 	name = "random colored jumpsuit"
 	desc = "This is a random colored jumpsuit."
-	icon = 'icons/obj/clothing/uniforms.dmi'
+	icon = 'icons/obj/item/clothing/uniforms.dmi'
 	icon_state = "black"
 	spawnlist = list(
 		/obj/item/clothing/under/color/black,
@@ -1069,7 +1069,7 @@
 /obj/random/chameleon
 	name = "random possible chameleon item"
 	desc = "A random possible chameleon item. What could possibly go wrong?"
-	icon = 'icons/obj/clothing/gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves.dmi'
 	icon_state = "yellow"
 	problist = list(
 
@@ -1104,7 +1104,7 @@
 /obj/random/gloves
 	name = "random gloves"
 	desc = "Random gloves, assorted usefulness."
-	icon = 'icons/obj/clothing/gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves.dmi'
 	icon_state = "yellow"
 	problist = list(
 		/obj/item/clothing/gloves/black = 1,
@@ -1123,7 +1123,7 @@
 /obj/random/watches
 	name = "random watches"
 	desc = "Random watches, probably able to tell the time."
-	icon = 'icons/obj/clothing/gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves.dmi'
 	icon_state = "watch"
 	problist = list(
 		/obj/item/clothing/wrists/watch = 1,
@@ -1153,7 +1153,7 @@
 /obj/random/bandana
 	name = "random bandana"
 	desc = "This is a random bandana."
-	icon = 'icons/obj/clothing/hats/bandanas.dmi'
+	icon = 'icons/obj/item/clothing/hats/bandanas.dmi'
 	icon_state = "bandana"
 	problist = list(
 		/obj/item/clothing/head/bandana/colorable/random = 5,
@@ -1171,7 +1171,7 @@
 /obj/random/softcap
 	name = "random softcap"
 	desc = "This is a random softcap."
-	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
+	icon = 'icons/obj/item/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
 	problist = list(
 		/obj/item/clothing/head/softcap/colorable/random = 5,
@@ -1189,7 +1189,7 @@
 /obj/random/beret
 	name = "random beret"
 	desc = "This is a random beret."
-	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon = 'icons/obj/item/clothing/hats/berets.dmi'
 	icon_state = "beret"
 	problist = list(
 		/obj/item/clothing/head/beret/colorable/random = 5,

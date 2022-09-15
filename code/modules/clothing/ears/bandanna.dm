@@ -5,7 +5,7 @@
 /obj/item/clothing/accessory/bandanna
 	name = "red bandanna"
 	desc = "A plain red bandanna."
-	icon = 'icons/obj/clothing/ears.dmi'
+	icon = 'icons/obj/item/clothing/ears.dmi'
 	icon_state = "band_r"
 	item_state = "band_r"
 	w_class = ITEMSIZE_TINY

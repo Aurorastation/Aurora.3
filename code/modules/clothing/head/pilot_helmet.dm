@@ -1,7 +1,7 @@
 /obj/item/clothing/head/helmet/pilot
 	name = "flight helmet"
 	desc = "A helmet with a toggleable pilot visor attached. The visor feeds its wearer in-flight information via an integrated heads-up display."
-	icon = 'icons/clothing/head/pilot_helmets.dmi'
+	icon = 'icons/obj/item/clothing/head/pilot_helmets.dmi'
 	icon_state = "pilot_helmet"
 	item_state = "pilot_helmet"
 	contained_sprite = TRUE
@@ -48,7 +48,7 @@
 	if(linked_helm)
 		linked_helm.linked_helmets -= src
 		linked_helm = null
-	
+
 	if(!isnull(C))
 		if(istype(C, /obj/machinery/computer/shuttle_control))
 			linked_console = C

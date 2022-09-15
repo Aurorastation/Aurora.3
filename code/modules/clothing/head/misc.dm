@@ -178,7 +178,7 @@
 /obj/item/clothing/head/flatcap
 	name = "flat cap"
 	desc = "A working man's hat."
-	icon = 'icons/obj/clothing/hats/flat_cap.dmi'
+	icon = 'icons/obj/item/clothing/hats/flat_cap.dmi'
 	icon_state = "flat_cap"
 	item_state = "flat_cap"
 	contained_sprite = TRUE
@@ -276,7 +276,7 @@
 /obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
-	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon = 'icons/obj/item/clothing/hijabs.dmi'
 	icon_state = "hijab_white"
 	item_state = "hijab_white"
 	flags_inv = BLOCKHAIR
@@ -337,7 +337,7 @@
 /obj/item/clothing/head/kippah
 	name = "kippah"
 	desc = "A head covering commonly worn by those of Jewish faith."
-	icon = 'icons/clothing/head/kippahs.dmi'
+	icon = 'icons/obj/item/clothing/head/kippahs.dmi'
 	icon_state = "kippah"
 	item_state = "kippah"
 	contained_sprite = 1
@@ -345,7 +345,7 @@
 /obj/item/clothing/head/turban
 	name = "turban"
 	desc = "A sturdy cloth, worn around the head."
-	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon = 'icons/obj/item/clothing/hijabs.dmi'
 	icon_state = "turban_black"
 	item_state = "turban_black"
 	flags_inv = BLOCKHEADHAIR
@@ -527,7 +527,7 @@
 /obj/item/clothing/head/sol
 	name = "sol navy utility cover"
 	desc = "A military cover issued to Sol Alliance navy members as part of their field uniform."
-	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/sol_uniform.dmi'
 	icon_state = "greyutility"
 	item_state = "greyutility"
 	contained_sprite = TRUE
@@ -573,7 +573,7 @@
 /obj/item/clothing/head/helmet/sol
 	name = "sol combat helmet"
 	desc = "A woodland colored helmet made from advanced ceramic."
-	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/sol_uniform.dmi'
 	icon_state = "helmet_tac_sol"
 	item_state = "helmet_tac_sol"
 	armor = list(

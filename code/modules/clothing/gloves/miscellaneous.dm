@@ -42,7 +42,7 @@
 /obj/item/clothing/ring/ninja
 	desc = "A pair of plain black infiltration gloves. Too thin to protect anything, but can fit underneath a hardsuit gauntlet."
 	name = "black slipgloves"
-	icon = 'icons/obj/clothing/gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves.dmi'
 	icon_state = "black"
 	item_state = "black"
 	siemens_coefficient = 0

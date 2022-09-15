@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory
 	name = "tie"
 	desc = "A neosilk clip-on tie."
-	icon = 'icons/obj/clothing/ties.dmi'
+	icon = 'icons/obj/item/clothing/ties.dmi'
 	icon_state = "bluetie"
 	item_state = ""	//no inhands
 	overlay_state = null
@@ -263,7 +263,7 @@
 /obj/item/clothing/accessory/rosary
 	name = "rosary"
 	desc = "A form of prayer psalter used in the Catholic Church, with a string of beads attached to it."
-	icon = 'icons/obj/clothing/chaplain.dmi'
+	icon = 'icons/obj/item/clothing/chaplain.dmi'
 	icon_state = "rosary"
 	overlay_state = "rosary"
 	flippable = 1
@@ -278,7 +278,7 @@
 	desc = "A common symbol of the Luceian faith abroad, this amulet featuring the religion's all-seeing eye and eight-pointed crest \
 	seems to be made of real gold and gemstones. While not as critical to faithful abroad as a warding sphere, it is considered good form \
 	to ensure one's amulet is well-maintained."
-	icon = 'icons/clothing/accessories/assunzione_amulet.dmi'
+	icon = 'icons/obj/item/clothing/accessory/assunzione_amulet.dmi'
 	item_state = "assunzione_amulet"
 	icon_state = "assunzione_amulet"
 	contained_sprite = TRUE
@@ -421,7 +421,7 @@
 	name = "yellow sash"
 	desc = "A yellow sash, designed to be worn over one shoulder and come down to the opposing hip."
 	desc_fluff = "Sashes such as this one are a common sight throughout the Empire of Dominia, though they are hardly as fashionable as the typical cape."
-	icon = 'icons/clothing/accessories/sash.dmi'
+	icon = 'icons/obj/item/clothing/accessory/sash.dmi'
 	item_state = "sash"
 	icon_state = "sash"
 	contained_sprite = TRUE
@@ -467,7 +467,7 @@
 	desc = "A sash, designed to be worn around the waist."
 	item_state = "sash_horizontal"
 	icon_state = "sash_horizontal"
-	icon = 'icons/clothing/accessories/sash_horizontal.dmi'
+	icon = 'icons/obj/item/clothing/accessory/sash_horizontal.dmi'
 
 /*
  * Cloak
@@ -638,8 +638,7 @@
 	desc_fluff = "A cloak given to senior level doctors and researchers for Zeng-Hu who has \
 	in the past been given the privilege of working within or in collaboration with the Nralakk Federation\
 	 as a show of goodwill between the corporation and federation."
-	icon = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
-	icon_override = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
+	icon = 'icons/obj/item/clothing/accessory/ZH_cape.dmi'
 	icon_state = "ZH_cape"
 	item_state = "ZH_cape"
 	flippable = FALSE
@@ -669,7 +668,7 @@
 /obj/item/clothing/accessory/poncho/assunzione
 	name = "assunzione robe"
 	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione."
-	icon = 'icons/clothing/suits/capes/assunzione_robe.dmi'
+	icon = 'icons/obj/item/clothing/suits/capes/assunzione_robe.dmi'
 	icon_override = null
 	icon_state = "assunzione_robe"
 	item_state = "assunzione_robe"
@@ -750,7 +749,7 @@
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
 	desc = "A pair of engraved metal identification tags."
-	icon = 'icons/clothing/accessories/dogtags.dmi'
+	icon = 'icons/obj/item/clothing/accessory/dogtags.dmi'
 	icon_state = "dogtags"
 	item_state = "dogtags"
 	contained_sprite = TRUE
@@ -822,7 +821,7 @@
 /obj/item/clothing/accessory/kneepads
 	name = "kneepads"
 	desc = "A pair of synthetic kneepads. Doesn't provide protection from more than arthritis."
-	icon = 'icons/clothing/accessories/kneepads.dmi'
+	icon = 'icons/obj/item/clothing/accessory/kneepads.dmi'
 	icon_state = "kneepads"
 	item_state = "kneepads"
 	contained_sprite = TRUE
@@ -831,7 +830,7 @@
 /obj/item/clothing/accessory/blood_patch
 	name = "O- blood patch"
 	desc = "An embroidered patch indicating the wearer's blood type as O NEGATIVE."
-	icon = 'icons/clothing/accessories/blood_patch.dmi'
+	icon = 'icons/obj/item/clothing/accessory/blood_patch.dmi'
 	icon_state = "onegtag"
 	contained_sprite = TRUE
 
@@ -875,7 +874,7 @@
 
 /obj/item/clothing/accessory/tie/corporate
 	name = "corporate tie"
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_tie"
 	item_state = "nt_tie"
 	contained_sprite = TRUE
@@ -907,7 +906,7 @@
 /obj/item/clothing/accessory/pin/corporate
 	name = "corporate badge"
 	desc = "A shiny button which reads, <i>'NanoTrasen - The leader in all things Phoron!'</i>"
-	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_liaison_badge"
 	item_state = "nt_liaison_badge"
 	drop_sound = 'sound/items/drop/ring.ogg'
@@ -948,10 +947,9 @@
 	name = "\improper Burzsian shoulder mantle"
 	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
 	desc_fluff = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
-	icon = 'icons/clothing/accessories/BZ_Gorget.dmi'
+	icon = 'icons/obj/item/clothing/accessory/BZ_Gorget.dmi'
 	icon_state = "Burz_gorget"
 	item_state = "Burz_gorget"
 	contained_sprite = TRUE
 	icon_override = null
 	body_parts_covered = UPPER_TORSO
-

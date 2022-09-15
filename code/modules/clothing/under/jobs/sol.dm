@@ -2,7 +2,7 @@
 /obj/item/clothing/under/rank/sol //regular sol navy uniform
 	name = "sol navy coveralls"
 	desc = "Fire-retardant naval utility coveralls, worn by Solarian naval personnel serving aboard ships and in the field."
-	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/sol_uniform.dmi'
 	icon_state = "sol_uniform"
 	item_state = "sol_uniform"
 	contained_sprite = TRUE

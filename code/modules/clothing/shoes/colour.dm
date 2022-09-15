@@ -101,7 +101,7 @@
 	item_state = "sneakers"
 
 /obj/item/clothing/shoes/sneakers/whitetip
-	icon = 'icons/clothing/shoes/recolorable.dmi'
+	icon = 'icons/obj/item/clothing/shoes/recolorable.dmi'
 	icon_state = "shoe"
 	item_state = "shoe"
 	worn_overlay = "over"
@@ -178,7 +178,7 @@
 /obj/item/clothing/shoes/flats
 	desc = "A pair of black, low-heeled women's flats."
 	name = "black dress flats"
-	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon = 'icons/obj/item/clothing/cheongsams.dmi'
 	icon_state = "blackdf"
 	item_state = "blackdf"
 	species_restricted = null
@@ -187,7 +187,7 @@
 /obj/item/clothing/shoes/flats/red
 	desc = "A pair of red, low-heeled women's flats."
 	name = "red dress flats"
-	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon = 'icons/obj/item/clothing/cheongsams.dmi'
 	icon_state = "reddf"
 	item_state = "reddf"
 

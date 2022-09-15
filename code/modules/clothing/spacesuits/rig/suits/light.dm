@@ -1,8 +1,8 @@
-// Light rigs are not space-capable, but don't suffer excessive slowdown or sight issues when depowered. 
+// Light rigs are not space-capable, but don't suffer excessive slowdown or sight issues when depowered.
 /obj/item/rig/light
 	name = "light suit control module"
 	desc = "A lighter, less armored hardsuit."
-	icon = 'icons/clothing/rig/light_ninja.dmi'
+	icon = 'icons/obj/item/clothing/rig/light_ninja.dmi'
 	icon_state = "ninja_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	suit_type = "light suit"
@@ -46,7 +46,7 @@
 	name = "cybersuit control module"
 	suit_type = "cyber"
 	desc = "An advanced powered armor suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
-	icon = 'icons/clothing/rig/light_hacker.dmi'
+	icon = 'icons/obj/item/clothing/rig/light_hacker.dmi'
 	icon_state = "hacker_rig"
 
 	req_access = list(access_syndicate)
@@ -105,7 +105,7 @@
 	name = "stealth suit control module"
 	suit_type = "stealth suit"
 	desc = "A unique, vacuum-proof suit of nano-enhanced armor designed specifically for stealth operations."
-	icon = 'icons/clothing/rig/light_ninja.dmi'
+	icon = 'icons/obj/item/clothing/rig/light_ninja.dmi'
 	icon_state = "ninja_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	armor = list(
@@ -180,7 +180,7 @@
 	name = "stealth suit control module"
 	suit_type = "stealth"
 	desc = "A highly advanced and expensive suit designed for covert operations."
-	icon = 'icons/clothing/rig/light_stealth.dmi'
+	icon = 'icons/obj/item/clothing/rig/light_stealth.dmi'
 	icon_state = "stealth_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
@@ -206,7 +206,7 @@
 	name = "exo-stellar skeleton module"
 	suit_type = "exo-stellar skeleton"
 	desc = "A compact exoskeleton that hugs the body tightly and has various inbuilt utilities for life support."
-	icon = 'icons/clothing/rig/offworlder.dmi'
+	icon = 'icons/obj/item/clothing/rig/offworlder.dmi'
 	icon_state = "offworlder_rig"
 	icon_supported_species_tags = null
 	allowed = list(/obj/item/tank, /obj/item/device/flashlight)
@@ -244,7 +244,7 @@
 /obj/item/rig/light/offworlder/frontier
 	name = "advanced mobility hardsuit control module"
 	desc = "Patterned off of the standard Exo-Stellar Skeleton, this sophisticated and light hardsuit is a staple of many armed forces throughout the Frontier. The mobility it grants compared to bulkier suits, while still packing the potential for a versatile toolset, has made it especially popular in the often cramped environments of ships and stations."
-	icon = 'icons/clothing/rig/frontier.dmi'
+	icon = 'icons/obj/item/clothing/rig/frontier.dmi'
 	icon_state = "frontier_rig"
 	suit_type = "advanced mobility hardsuit"
 	armor = list(

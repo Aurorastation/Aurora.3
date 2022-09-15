@@ -1,7 +1,7 @@
 /obj/item/clothing/ears/earmuffs
 	name = "earmuffs"
 	desc = "Protects your hearing from loud noises, and quiet ones as well."
-	icon = 'icons/obj/clothing/ears.dmi'
+	icon = 'icons/obj/item/clothing/ears.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
 	item_flags = SOUNDPROTECTION

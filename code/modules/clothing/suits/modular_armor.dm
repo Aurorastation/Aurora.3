@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/armor/carrier
 	name = "plate carrier"
 	desc = "A plate carrier that can be decked out with various armor plates and accessories."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "plate_carrier"
 	item_state = "plate_carrier"
@@ -91,7 +91,7 @@
 	name = "corporate armor plate"
 	desc = "A particularly light-weight armor plate in stylish corporate black. Unfortunately, not very good if you hold it with your hands."
 	desc_info = "These items must be hooked onto plate carriers for them to work!"
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor.dmi'
 	icon_state = "plate_sec"
 	item_state = "plate_sec"
 	contained_sprite = TRUE
@@ -198,7 +198,7 @@
 /obj/item/clothing/accessory/storage/modular_pouch
 	name = "plate carrier pouches"
 	desc = "A comfortable set of pouches that can be attached to a plate carrier, allowing the wearer to store some small items."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor.dmi'
 	icon_state = "modular_pouch"
 	item_state = "modular_pouch"
 	contained_sprite = TRUE
@@ -215,7 +215,7 @@
 /obj/item/clothing/accessory/holster/modular
 	name = "plate carrier holster"
 	desc = "A special holster with rigging able to attach to modern modular plate carriers."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor.dmi'
 	icon_state = "modular_holster"
 	item_state = "modular_holster"
 	contained_sprite = TRUE
@@ -238,7 +238,7 @@
 /obj/item/clothing/head/helmet/security
 	name = "corporate helmet"
 	desc = "A shiny helmet in corporate black! Goes well with the respective plate carrier."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_sec"
 	item_state = "helm_sec"
@@ -272,7 +272,7 @@
 /obj/item/clothing/head/helmet/military
 	name = "sol army helmet"
 	desc = "A helmet in drab olive. Standard-issue to the oft-forgotten Solarian Army. Comes with a fancy military HUDglass."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_military"
 	item_state = "helm_military"
@@ -290,7 +290,7 @@
 /obj/item/clothing/accessory/sec_commander_stripes
 	name = "head of security stripes"
 	desc = "A set of high visibility inserts for use in armour. This one declares the wearer as a Head of Security."
-	icon = 'icons/clothing/kit/modular_armor_accessories.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor_accessories.dmi'
 	icon_state = "sec_commander_stripes"
 	item_state = "sec_commander_stripes"
 	contained_sprite = TRUE
@@ -301,7 +301,7 @@
 	name = "flagpatch"
 	desc = "A simple strip of fabric attached to a vest or helmet typically used to denote the wearer's \
 	organization or nationality."
-	icon = 'icons/clothing/kit/modular_armor_accessories.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor_accessories.dmi'
 	icon_state = "flagpatch_colorable"
 	item_state = "flagpatch_colorable"
 	contained_sprite = TRUE

@@ -1,7 +1,7 @@
 /obj/item/vitals_monitor
 	name = "vitals monitor"
 	desc = "A vitals monitor, used to track a patient's vitality. It needs to be attached to a rollerbed to function."
-	icon = 'icons/obj/contained_items/tools/vitals_monitor.dmi'
+	icon = 'icons/obj/item/vitals_monitor.dmi'
 	icon_state = "vitals_monitor"
 	item_state = "vitals_monitor"
 	contained_sprite = TRUE

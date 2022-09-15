@@ -159,7 +159,7 @@
 
 /obj/machinery/airlock_sensor
 	name = "airlock sensor"
-	icon = 'icons/obj/airlock_machines.dmi'
+	icon = 'icons/obj/machinery/airlock_machines.dmi'
 	icon_state = "airlock_sensor_off"
 	layer = OBJ_LAYER
 
@@ -239,7 +239,7 @@
 
 /obj/machinery/access_button
 	name = "access button"
-	icon = 'icons/obj/airlock_machines.dmi'
+	icon = 'icons/obj/machinery/airlock_machines.dmi'
 	icon_state = "access_button_standby"
 	layer = OBJ_LAYER
 

@@ -1,7 +1,7 @@
 /obj/item/clothing/under/elyra_holo
 	name = "elyran holographic suit"
 	desc = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Persepolisean clothes respectively."
-	icon = 'icons/clothing/under/uniforms/elyra_holoclothes.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/elyra_holoclothes.dmi'
 	icon_state = "holosuit_fem"
 	item_state = "holosuit_fem"
 	contained_sprite = TRUE
@@ -39,10 +39,10 @@
 /obj/item/clothing/under/elyra_holo/Initialize()
 	for(var/option in names)
 		if(!clothing_mode)
-			names[option] = image('icons/clothing/under/uniforms/elyra_holoclothes.dmi', icon_state)
+			names[option] = image('icons/obj/item/clothing/under/uniforms/elyra_holoclothes.dmi', icon_state)
 			clothing_mode = 1
 		else
-			names[option] = image('icons/clothing/under/uniforms/elyra_holoclothes.dmi', initial(icon_state) + "_[names.Find(option) - 1]")
+			names[option] = image('icons/obj/item/clothing/under/uniforms/elyra_holoclothes.dmi', initial(icon_state) + "_[names.Find(option) - 1]")
 	clothing_mode = 0
 	.=..()
 

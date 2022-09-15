@@ -3,7 +3,7 @@
 	name = "corporate leg guards"
 	desc = "These will protect your legs and feet."
 	desc_info = "These items must be hooked onto plate carriers for them to work!"
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor.dmi'
 	icon_state = "legguards_sec"
 	item_state = "legguards_sec"
 	contained_sprite = TRUE
@@ -112,7 +112,7 @@
 /obj/item/clothing/accessory/arm_guard
 	name = "corporate arm guards"
 	desc = "These arm guards will protect your hands and arms."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor.dmi'
 	icon_state = "armguards_sec"
 	item_state = "armguards_sec"
 	contained_sprite = TRUE

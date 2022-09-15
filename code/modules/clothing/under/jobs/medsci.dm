@@ -4,7 +4,7 @@
 /obj/item/clothing/under/rank/research_director
 	desc = "It's a jumpsuit worn by those with the know-how to achieve the position of \"Research Director\". Its fabric provides minor protection from biological contaminants."
 	name = "research director's jumpsuit"
-	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "research_director"
 	item_state = "research_director"
 	contained_sprite = TRUE
@@ -16,7 +16,7 @@
 /obj/item/clothing/under/rank/scientist
 	name = "scientist's jumpsuit"
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a scientist."
-	icon = 'icons/obj/contained_items/department_uniforms/science.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/science.dmi'
 	icon_state = "nt_scientist"
 	item_state = "nt_scientist"
 	permeability_coefficient = 0.50
@@ -104,7 +104,7 @@
 /obj/item/clothing/under/rank/chief_medical_officer
 	desc = "It's a jumpsuit worn by those with the experience to be \"Chief Medical Officer\". It provides minor biological protection."
 	name = "chief medical officer's jumpsuit"
-	icon = 'icons/obj/contained_items/department_uniforms/command.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "chief_medical_officer"
 	item_state = "chief_medical_officer"
 	contained_sprite = TRUE
@@ -116,7 +116,7 @@
 /obj/item/clothing/under/rank/iacjumpsuit
 	desc = "It's a blue and white jumpsuit, the IAC logo plastered across the back."
 	name = "IAC uniform"
-	icon = 'icons/clothing/under/uniforms/iac_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/iac_uniform.dmi'
 	icon_state = "iac"
 	item_state = "iac"
 	contained_sprite = TRUE
@@ -130,7 +130,7 @@
 /obj/item/clothing/under/rank/medical
 	name = "physician's jumpsuit"
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It denotes that the wearer is a trained medical physician."
-	icon = 'icons/obj/contained_items/department_uniforms/medical.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
 	icon_state = "nt_phys"
 	item_state = "nt_phys"
 	contained_sprite = TRUE

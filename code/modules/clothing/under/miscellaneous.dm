@@ -81,7 +81,7 @@
 	name = "Stellar Corporate Conglomerate agent uniform"
 	desc = "A formal blue uniform worn by agents of the Stellar Corporate Conglomerate."
 	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
-	icon = 'icons/clothing/under/uniforms/scc.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/scc.dmi'
 	icon_state = "scc_agent"
 	item_state = "scc_agent"
 	worn_state = "scc_agent"
@@ -397,7 +397,7 @@
 /obj/item/clothing/under/cheongsam
 	name = "white cheongsam"
 	desc = "A Chinese dress that hugs the body. This one is white, embroidered with a bright golden dragon."
-	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon = 'icons/obj/item/clothing/cheongsams.dmi'
 	icon_state = "cheongsamwhite"
 	item_state = "cheongsamwhite"
 	worn_state = "cheongsamwhite"
@@ -505,7 +505,7 @@
 /obj/item/clothing/under/legion
 	name = "Tau Ceti Foreign Legion uniform"
 	desc = "A blue field uniform worn by Tau Ceti Foreign Legion forces."
-	icon = 'icons/clothing/under/uniforms/tcfl_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/tcfl_uniform.dmi'
 	icon_state = "tauceti_volunteer"
 	item_state = "tauceti_volunteer"
 	worn_state = "tauceti_volunteer"

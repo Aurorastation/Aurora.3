@@ -55,7 +55,7 @@
 /obj/item/clothing/head/helmet/hos
 	name = "head of security helmet"
 	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_sec_commander"
 	item_state = "helm_sec_commander"
@@ -81,7 +81,7 @@
 /obj/item/clothing/head/helmet/riot
 	name = "riot helmet"
 	desc = "It's a helmet specifically designed to protect against close range attacks."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_riot"
 	item_state = "helm_riot"
@@ -117,7 +117,7 @@
 /obj/item/clothing/head/helmet/ablative
 	name = "ablative helmet"
 	desc = "A helmet made from advanced materials which protects against concentrated energy weapons."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_ablative"
 	item_state = "helm_ablative"
@@ -132,7 +132,7 @@
 /obj/item/clothing/head/helmet/ballistic
 	name = "ballistic helmet"
 	desc = "A helmet with reinforced plating to protect against ballistic projectiles."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_ballistic"
 	item_state = "helm_ballistic"
@@ -147,7 +147,7 @@
 /obj/item/clothing/head/helmet/merc
 	name = "combat helmet"
 	desc = "A tan helmet made from advanced ceramic."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_heavy"
 	item_state = "helm_heavy"

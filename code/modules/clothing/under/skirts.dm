@@ -4,7 +4,7 @@
 	name = "casual skirt"
 	desc = "A short, colorful skirt."
 	desc_fluff = "Not to be mistaken with the similarly named cut of steak."
-	icon = 'icons/obj/clothing/skirts.dmi'
+	icon = 'icons/obj/item/clothing/skirts.dmi'
 	icon_state = "skirt_casual"
 	item_state = "skirt_casual"
 	worn_state = "skirt_casual"

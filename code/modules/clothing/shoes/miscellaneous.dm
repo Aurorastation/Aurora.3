@@ -75,7 +75,7 @@
 /obj/item/clothing/shoes/sandal/wooden
 	desc = "A pair of rather plain wooden sandals."
 	name = "wooden sandals"
-	icon = 'icons/clothing/shoes/woodensandal.dmi'
+	icon = 'icons/obj/item/clothing/shoes/woodensandal.dmi'
 	icon_state = "woodensandal"
 	item_state = "woodensandal"
 	contained_sprite = TRUE
@@ -300,7 +300,7 @@ obj/item/clothing/shoes/sandal/clogs
 /obj/item/clothing/shoes/jackboots/kala
 	name = "skrell boots"
 	desc = "A sleek pair of boots. They seem to be retaining moisture."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/kit/skrell_armor.dmi'
 	icon_state = "kala_boots"
 	item_state = "kala_boots"
 	contained_sprite = TRUE

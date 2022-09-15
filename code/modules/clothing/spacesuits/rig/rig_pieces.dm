@@ -11,7 +11,7 @@
 	cold_protection =    HEAD|FACE|EYES
 	brightness_on = 4
 	light_wedge = LIGHT_WIDE
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'icons/obj/item/clothing/hats.dmi'
 	contained_sprite = FALSE
 
 /obj/item/clothing/gloves/rig
@@ -48,7 +48,7 @@
 	resilience = 0.2
 	can_breach = 1
 	contained_sprite = FALSE
-	icon = 'icons/obj/clothing/suits.dmi'
+	icon = 'icons/obj/item/clothing/suits.dmi'
 
 	supporting_limbs = list()
 

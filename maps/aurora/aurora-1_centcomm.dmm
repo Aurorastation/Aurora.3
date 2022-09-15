@@ -12236,7 +12236,7 @@
 "eby" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/fake_object{
-	icon = 'icons/obj/airlock_machines.dmi';
+	icon = 'icons/obj/machinery/airlock_machines.dmi';
 	icon_state = "airlock_control_off";
 	name = "Port Airlock Controller";
 	pixel_x = -24;

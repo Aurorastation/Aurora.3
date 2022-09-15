@@ -1,7 +1,7 @@
 /obj/item/clothing/under/rank/scc2
 	name = "\improper SCC uniform"
 	desc = "A standardized uniform used by SCC personnel."
-	icon = 'icons/obj/contained_items/scc.dmi'
+	icon = 'icons/obj/item/clothing/scc.dmi'
 	icon_state = "scc_liaison"
 	item_state = "scc_liaison"
 	contained_sprite = TRUE
@@ -9,7 +9,7 @@
 /obj/item/clothing/suit/storage/toggle/armor/vest/scc
 	name = "\improper SCC vest"
 	desc = "A stylish vest worn by SCC personnel."
-	icon = 'icons/obj/contained_items/scc.dmi'
+	icon = 'icons/obj/item/clothing/scc.dmi'
 	icon_state = "scc_liaison_vest"
 	item_state = "scc_liaison_vest"
 	contained_sprite = TRUE
@@ -38,7 +38,7 @@
 /obj/item/clothing/accessory/tie/corporate/scc
 	name = "\improper SCC tie"
 	desc = "A sleek corporate tie, worn by SCC employees."
-	icon = 'icons/obj/contained_items/scc.dmi'
+	icon = 'icons/obj/item/clothing/scc.dmi'
 	icon_state = "scc_tie"
 	item_state = "scc_tie"
 	contained_sprite = TRUE
@@ -46,7 +46,7 @@
 /obj/item/clothing/head/beret/scc
 	name = "\improper SCC beret"
 	desc = "A corporate beret in the colours of the Stellar Corporate Conglomerate."
-	icon = 'icons/obj/contained_items/scc.dmi'
+	icon = 'icons/obj/item/clothing/scc.dmi'
 	icon_state = "scc_beret"
 	item_state = "scc_beret"
 	contained_sprite = TRUE

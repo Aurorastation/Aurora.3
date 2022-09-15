@@ -178,7 +178,7 @@
 /obj/item/melee/ceremonial_sword
 	name = "sol officer ceremonial sword"
 	desc = "A ceremonial sword issued to Sol navy officers as part of their dress uniform."
-	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/sol_uniform.dmi'
 	icon_state = "officersword"
 	item_state = "officersword"
 	contained_sprite = TRUE

@@ -1098,7 +1098,7 @@
 	desc = "No bother to sink or swim when you can just float!"
 	icon_state = "inflatable"
 	item_state = "inflatable"
-	icon = 'icons/obj/clothing/belts.dmi'
+	icon = 'icons/obj/item/clothing/belts.dmi'
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
@@ -1210,7 +1210,7 @@
 /obj/item/chess_piece
 	name = "white pawn"
 	desc = "A %NAME% chess piece, this one is worth %POINT% points."
-	icon = 'icons/obj/contained_items/misc/chess.dmi'
+	icon = 'icons/obj/item/chess.dmi'
 	icon_state = "white_pawn"
 	w_class = ITEMSIZE_HUGE // hugh mungus
 	var/piece_worth = 1

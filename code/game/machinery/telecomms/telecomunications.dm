@@ -16,7 +16,7 @@
 var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms
-	icon = 'icons/obj/machines/telecomms.dmi'
+	icon = 'icons/obj/machinery/telecomms.dmi'
 
 	var/list/links = list() // list of machines this machine is linked to
 	var/traffic = 0 // value increases as traffic increases
@@ -109,13 +109,13 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 //OVERMAP: Since telecomms is subspace, limit how far it goes. This prevents double-broadcasts across the entire overmap, and gives the ability to intrude on comms range of other ships
 /obj/machinery/telecomms/proc/check_receive_sector(datum/signal/signal)
-	if(isAdminLevel(z) || isAdminLevel(signal.data["level"])) //Messages to and from centcomm levels are not sector-restricted. 
+	if(isAdminLevel(z) || isAdminLevel(signal.data["level"])) //Messages to and from centcomm levels are not sector-restricted.
 		return TRUE
 	if(current_map.use_overmap)
 		if(!linked) //If we're using overmap and not associated with a sector, doesn't work.
 			return FALSE
 		var/obj/effect/overmap/visitable/S = signal.data["sector"]
-		if(istype(S)) //If our signal isn't sending a sector, it's something associated with telecomms_process_active(), which has their own limits. 
+		if(istype(S)) //If our signal isn't sending a sector, it's something associated with telecomms_process_active(), which has their own limits.
 			if(S != linked) //If we're not the same ship, check range
 				if(get_dist(S, linked) > overmap_range && !(S in view(overmap_range, linked)))
 					return FALSE

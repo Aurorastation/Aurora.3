@@ -153,7 +153,7 @@
 /obj/item/clothing/suit/golden_tailcoat
 	name = "golden tailcoat"
 	desc = "A brilliant looking golden tailcoat of sorts."
-	icon = 'icons/clothing/suits/goldendeep_tailcoat.dmi'
+	icon = 'icons/obj/item/clothing/suits/goldendeep_tailcoat.dmi'
 	icon_state = "tailcoat"
 	item_state = "tailcoat"
 	body_parts_covered = UPPER_TORSO|ARMS
@@ -291,7 +291,7 @@
 	name = "Stellar Corporate Conglomerate jacket"
 	desc = "A comfortable blue jacket. Tailored upon its back is a large Stellar Corporate Conglomerate logo."
 	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
-	icon = 'icons/clothing/suits/scc_jacket.dmi'
+	icon = 'icons/obj/item/clothing/suits/scc_jacket.dmi'
 	icon_state = "scc_jacket"
 	item_state = "scc_jacket"
 	contained_sprite = TRUE
@@ -373,7 +373,7 @@
 /obj/item/clothing/suit/storage/toggle/highvis
 	name = "high visibility jacket"
 	desc = "A loose-fitting, high visibility jacket to help crew be recognizable in high traffic areas with large industrial equipment."
-	icon = 'icons/clothing/suits/highvis.dmi'
+	icon = 'icons/obj/item/clothing/suits/highvis.dmi'
 	icon_state = "highvis"
 	item_state = "highvis"
 	body_parts_covered = UPPER_TORSO|ARMS
@@ -477,7 +477,7 @@
 /obj/item/clothing/suit/storage/toggle/highloft
 	name = "high loft jacket"
 	desc = "A high loft insulated jacket intended for long hours in cold station conditions."
-	icon = 'icons/clothing/suits/highloft.dmi'
+	icon = 'icons/obj/item/clothing/suits/highloft.dmi'
 	icon_state = "highloft"
 	item_state = "highloft"
 	worn_overlay = "over"

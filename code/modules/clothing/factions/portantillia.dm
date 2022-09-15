@@ -1,7 +1,7 @@
 /obj/item/clothing/under/antillean
 	name = "fetil dress"
 	desc = "A flowing dress from the Fetil islands on Port Antillia. Great for dancing."
-	icon = 'icons/clothing/under/uniforms/port_antillia.dmi'
+	icon = 'icons/obj/item/clothing/under/uniforms/port_antillia.dmi'
 	icon_state = "fetil_dress"
 	worn_state = "fetil_dress"
 	item_state = "fetil_dress"
