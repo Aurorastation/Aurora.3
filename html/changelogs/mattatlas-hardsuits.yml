@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Most combat hardsuits now have values equal to or comparable to heavy armour plating."
+  - balance: "Most combat hardsuits now have armor values equal to the crimson hardsuit, which means that they're really good at blocking damage now. The hazard hardsuit has been buffed to be comparable to heavy armour instead."
