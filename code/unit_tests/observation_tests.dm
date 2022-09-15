@@ -12,8 +12,6 @@ datum/unit_test/observation/moved_observer_shall_register_on_follow/start_test()
 	var/turf/T = locate(20,20,1)
 	var/mob/living/carbon/human/H = new(T)
 	var/mob/abstract/observer/O = new(T)
-	qdel(H.virtual_mob)
-	H.virtual_mob = null
 
 	O.ManualFollow(H)
 	if(is_listening_to_movement(H, O))
@@ -51,6 +49,8 @@ datum/unit_test/observation/moved_shall_not_register_on_enter_without_listeners/
 	var/turf/T = locate(20,20,1)
 	var/mob/living/carbon/human/H = new(T)
 	var/obj/structure/closet/C = new(T)
+	qdel(H.virtual_mob)
+	H.virtual_mob = null
 
 	H.forceMove(C)
 	if(!is_listening_to_movement(C, H))
