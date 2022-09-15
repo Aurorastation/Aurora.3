@@ -122,7 +122,7 @@
 				<br>
 				Special modified vacuum radiation sensors will help you evaluate radiation level and adjust power input of PSOS magnetic generators for best efficiency and power saving.
 				<br><br><br>
-				<i>rest of the book pages are gone</i>
+				<i>*The rest of the manual's pages are gone or otherwise faded out...*</i>
 				</body>
 			</html>
 			"}
