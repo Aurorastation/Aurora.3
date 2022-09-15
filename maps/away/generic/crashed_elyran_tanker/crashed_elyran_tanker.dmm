@@ -286,16 +286,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/engineering)
-"cT" = (
-/obj/machinery/atmospherics/valve,
-/obj/structure/lattice,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/crashed_elyran_tanker/tanks)
-"cV" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#f48221"
-	},
-/area/crashed_elyran_tanker/engineering)
 "cW" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -546,11 +536,6 @@
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/crashed_elyran_tanker/engineering)
-"fn" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#f48221"
-	},
-/area/crashed_elyran_tanker/bridge)
 "fq" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/airless,
@@ -581,14 +566,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/engineering)
-"fF" = (
-/obj/structure/lattice,
-/obj/item/weldingtool{
-	pixel_x = 4;
-	pixel_y = -7
-	},
-/turf/template_noop,
-/area/space)
 "fH" = (
 /turf/simulated/floor/tiled/full,
 /area/crashed_elyran_tanker/crew)
@@ -693,6 +670,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/engineering)
+"gL" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/random/junk{
+	pixel_x = 1;
+	pixel_y = -8
+	},
+/turf/simulated/floor/tiled,
+/area/crashed_elyran_tanker/crew)
 "gT" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -890,9 +877,6 @@
 	},
 /turf/template_noop,
 /area/crashed_elyran_tanker/tanks)
-"iW" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/crashed_elyran_tanker/tanks)
 "iY" = (
 /obj/machinery/door/airlock/hatch,
 /obj/structure/cable{
@@ -1029,6 +1013,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
+"kq" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#f48221"
+	},
+/area/crashed_elyran_tanker/bridge)
 "kE" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -1063,13 +1052,8 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "le" = (
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/crashed_elyran_tanker/crew)
-"lg" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/crashed_elyran_tanker/tanks)
 "lk" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -1092,6 +1076,15 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic{
 	pixel_x = 9
+	},
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/obj/item/ammo_casing/shotgun/pellet/used{
+	pixel_y = 1;
+	pixel_x = 3
+	},
+/obj/item/ammo_casing/shotgun/used{
+	pixel_x = -3;
+	pixel_y = -15
 	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/crew)
@@ -1247,7 +1240,8 @@
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/device/radio/phone{
-	frequency = 1280
+	frequency = 1280;
+	pixel_y = 11
 	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
@@ -1597,7 +1591,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "qN" = (
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/crashed_elyran_tanker/tanks)
 "qU" = (
 /obj/structure/sign/flag/elyra{
@@ -1937,8 +1931,6 @@
 "vr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/loot,
-/obj/random/junk,
-/obj/random/junk,
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
 "vH" = (
@@ -2388,6 +2380,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
+"zr" = (
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/crashed_elyran_tanker/tanks)
 "zu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
@@ -2667,9 +2662,13 @@
 	pixel_y = 8;
 	ammo_type = null
 	},
-/obj/effect/decal/cleanable/blood/gibs/body{
+/obj/effect/decal/cleanable/blood/gibs/core{
 	fleshcolor = "#91604d"
 	},
+/obj/effect/decal/cleanable/blood/gibs{
+	fleshcolor = "#91604d"
+	},
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/crew)
 "CC" = (
@@ -2984,6 +2983,11 @@
 	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
+"GS" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#f8ea25"
+	},
+/area/crashed_elyran_tanker/engineering)
 "GZ" = (
 /obj/structure/sign/flag/elyra{
 	pixel_y = -32;
@@ -3153,7 +3157,7 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/crashed_elyran_tanker/tanks)
 "IG" = (
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/space)
 "IM" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
@@ -3419,6 +3423,17 @@
 /obj/machinery/meter,
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
+"LC" = (
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/crashed_elyran_tanker/bridge)
+"LE" = (
+/obj/structure/lattice,
+/obj/item/weldingtool{
+	pixel_x = 4;
+	pixel_y = -7
+	},
+/turf/template_noop,
+/area/space)
 "LO" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
@@ -3562,6 +3577,7 @@
 	pixel_x = -5;
 	pixel_y = -8
 	},
+/obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/crew)
 "Nd" = (
@@ -3579,17 +3595,13 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
-"Np" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#f8ea25"
-	},
-/area/crashed_elyran_tanker/bridge)
 "Nt" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/match{
 	pixel_x = 10;
 	pixel_y = 3
 	},
+/obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/full,
 /area/crashed_elyran_tanker/crew)
 "Nz" = (
@@ -3915,6 +3927,11 @@
 	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/thruster)
+"Qe" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/crashed_elyran_tanker/tanks)
 "Qp" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 1441;
@@ -4088,7 +4105,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "Sq" = (
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/crashed_elyran_tanker/engineering)
 "Sr" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -4149,11 +4166,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
-"Tb" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#f8ea25"
-	},
-/area/crashed_elyran_tanker/engineering)
 "Th" = (
 /turf/simulated/wall/r_wall,
 /area/crashed_elyran_tanker/thruster)
@@ -4341,6 +4353,17 @@
 	},
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
+"UR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/random/junk{
+	pixel_y = 0;
+	pixel_x = -6
+	},
+/turf/simulated/floor/tiled,
+/area/crashed_elyran_tanker/crew)
 "Va" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -4391,6 +4414,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/thruster)
+"VD" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#f48221"
+	},
+/area/crashed_elyran_tanker/engineering)
 "VF" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
@@ -4448,6 +4476,11 @@
 "VZ" = (
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/airless,
+/area/crashed_elyran_tanker/tanks)
+"We" = (
+/obj/machinery/atmospherics/valve,
+/obj/structure/lattice,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "Wg" = (
 /obj/structure/inflatable/door,
@@ -4601,6 +4634,9 @@
 /obj/item/clothing/accessory/badge/passport/elyra,
 /obj/item/clothing/under/elyra_holo/masc,
 /obj/item/clothing/under/elyra_holo,
+/obj/item/ammo_casing/shotgun/pellet,
+/obj/item/ammo_casing/shotgun/pellet,
+/obj/item/ammo_casing/shotgun/pellet,
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/crew)
 "XQ" = (
@@ -4690,7 +4726,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "Yx" = (
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#f8ea25"
+	},
 /area/crashed_elyran_tanker/bridge)
 "Yy" = (
 /turf/simulated/floor/airless,
@@ -30737,7 +30775,7 @@ xC
 jj
 Nd
 xq
-lg
+Qe
 qu
 qu
 qu
@@ -30987,14 +31025,14 @@ fw
 xx
 Yh
 Wt
-iW
+zr
 yb
 XQ
 nF
 OU
 Ab
-iW
-lg
+zr
+Qe
 qu
 qu
 qu
@@ -31244,14 +31282,14 @@ Dk
 xx
 gl
 bi
-iW
+zr
 Dk
 wc
 qo
 mu
 RO
-iW
-lg
+zr
+Qe
 qu
 Dg
 Dg
@@ -31501,13 +31539,13 @@ bf
 ma
 xP
 xV
-cT
+We
 EF
 Dc
 jT
 BG
 sk
-iW
+zr
 ja
 Dg
 Dg
@@ -31758,7 +31796,7 @@ Id
 xx
 gl
 bi
-iW
+zr
 uc
 gc
 kg
@@ -39454,11 +39492,11 @@ Dg
 Dg
 Dg
 Dg
-Yx
+LC
 zk
 XU
 Tj
-Yx
+LC
 lB
 aj
 gc
@@ -39710,13 +39748,13 @@ Dg
 Dg
 Dg
 Dg
-Yx
-Yx
+LC
+LC
 KT
 iy
 Pb
-Yx
-Yx
+LC
+LC
 jY
 jz
 gc
@@ -39967,13 +40005,13 @@ Dg
 Dg
 Dg
 Dg
-Np
+Yx
 iG
 qU
 NM
 GZ
 ZH
-Np
+Yx
 rT
 gc
 gc
@@ -39988,7 +40026,7 @@ gc
 xQ
 gc
 As
-Tb
+GS
 yK
 Ts
 od
@@ -40224,13 +40262,13 @@ Dg
 Dg
 Dg
 Dg
-fn
+kq
 rG
 eW
 Zn
 Zn
 wo
-fn
+kq
 iL
 UM
 UM
@@ -40245,7 +40283,7 @@ UM
 tG
 UM
 oh
-cV
+VD
 Hi
 dQ
 Lf
@@ -40481,13 +40519,13 @@ Dg
 Dg
 Dg
 Dg
-Np
+Yx
 CP
 nw
 xK
 xK
 xK
-Np
+Yx
 RX
 zu
 mE
@@ -40502,7 +40540,7 @@ mE
 fS
 mE
 VT
-Tb
+GS
 Io
 uP
 Pu
@@ -40738,12 +40776,12 @@ Dg
 Dg
 Dg
 Dg
-Yx
-Yx
-Yx
-Yx
+LC
+LC
+LC
+LC
 JM
-Yx
+LC
 le
 le
 EK
@@ -40996,7 +41034,7 @@ Dg
 Dg
 DC
 RI
-Yx
+LC
 GA
 dn
 Zh
@@ -41253,7 +41291,7 @@ Dg
 Dg
 aQ
 BJ
-Yx
+LC
 kP
 Ma
 ZV
@@ -41510,7 +41548,7 @@ Dg
 Dg
 gD
 pn
-Yx
+LC
 rs
 Zz
 lk
@@ -43308,7 +43346,7 @@ Pl
 Pl
 Pl
 Pl
-wO
+gL
 Xd
 aH
 le
@@ -43851,7 +43889,7 @@ Bt
 pi
 Dd
 xM
-fF
+LE
 Dg
 Dg
 Dg
@@ -44337,7 +44375,7 @@ bk
 bk
 Pl
 wO
-PI
+UR
 Pl
 TU
 TU
