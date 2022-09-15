@@ -12,7 +12,6 @@
 	s["enter"] = config.enter_allowed
 	s["vote"] = config.allow_vote_mode
 	s["ai"] = config.allow_ai
-	s["host"] = host ? host : null
 	s["stationtime"] = worldtime2text()
 	s["roundduration"] = get_round_duration_formatted()
 	s["gameid"] = game_id
