@@ -5,7 +5,6 @@
 	suffix = "ships/kataphracts/kataphract_ship.dmm"
 	spawn_cost = 1
 	spawn_weight = 1
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA)
 
