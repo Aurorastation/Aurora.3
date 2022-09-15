@@ -12,6 +12,8 @@ datum/unit_test/observation/moved_observer_shall_register_on_follow/start_test()
 	var/turf/T = locate(20,20,1)
 	var/mob/living/carbon/human/H = new(T)
 	var/mob/abstract/observer/O = new(T)
+	qdel(H.virtual_mob)
+	H.virtual_mob = null
 
 	O.ManualFollow(H)
 	if(is_listening_to_movement(H, O))
