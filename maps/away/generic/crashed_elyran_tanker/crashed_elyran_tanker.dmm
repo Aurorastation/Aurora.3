@@ -286,6 +286,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/engineering)
+"cT" = (
+/obj/machinery/atmospherics/valve,
+/obj/structure/lattice,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/crashed_elyran_tanker/tanks)
+"cV" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#f48221"
+	},
+/area/crashed_elyran_tanker/engineering)
 "cW" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -536,6 +546,11 @@
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/crashed_elyran_tanker/engineering)
+"fn" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#f48221"
+	},
+/area/crashed_elyran_tanker/bridge)
 "fq" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/airless,
@@ -566,6 +581,14 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/engineering)
+"fF" = (
+/obj/structure/lattice,
+/obj/item/weldingtool{
+	pixel_x = 4;
+	pixel_y = -7
+	},
+/turf/template_noop,
+/area/space)
 "fH" = (
 /turf/simulated/floor/tiled/full,
 /area/crashed_elyran_tanker/crew)
@@ -700,11 +723,6 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/crashed_elyran_tanker/engineering)
-"hk" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#f48221"
-	},
-/area/crashed_elyran_tanker/engineering)
 "hm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -805,11 +823,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/crew)
-"iw" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#f8ea25"
-	},
-/area/crashed_elyran_tanker/bridge)
 "iy" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/decal/cleanable/dirt,
@@ -876,6 +889,9 @@
 	icon_state = "1-10"
 	},
 /turf/template_noop,
+/area/crashed_elyran_tanker/tanks)
+"iW" = (
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "iY" = (
 /obj/machinery/door/airlock/hatch,
@@ -1049,6 +1065,11 @@
 "le" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/crashed_elyran_tanker/crew)
+"lg" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/crashed_elyran_tanker/tanks)
 "lk" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -1151,7 +1172,7 @@
 	icon_state = "5-8";
 	dir = 4
 	},
-/turf/template_noop,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "mQ" = (
 /obj/effect/decal/cleanable/blood/oil{
@@ -1876,11 +1897,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
-"uF" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#f8ea25"
-	},
-/area/crashed_elyran_tanker/engineering)
 "uG" = (
 /turf/simulated/wall/r_wall,
 /area/crashed_elyran_tanker/engineering)
@@ -2104,7 +2120,7 @@
 /obj/machinery/portable_atmospherics/canister/empty/phoron{
 	icon_state = "orange-1"
 	},
-/turf/template_noop,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "xx" = (
 /turf/template_noop,
@@ -2343,7 +2359,7 @@
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/turf/template_noop,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "zh" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2427,11 +2443,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
-"An" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#f48221"
-	},
-/area/crashed_elyran_tanker/bridge)
 "Ap" = (
 /obj/machinery/atmospherics/valve,
 /obj/effect/floor_decal/industrial/warning/cee,
@@ -2519,7 +2530,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/template_noop,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "Bv" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -3130,7 +3141,7 @@
 	icon_state = "2-8";
 	dir = 1
 	},
-/turf/template_noop,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/engineering)
 "IE" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -3568,6 +3579,11 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
+"Np" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#f8ea25"
+	},
+/area/crashed_elyran_tanker/bridge)
 "Nt" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/match{
@@ -4133,6 +4149,11 @@
 	},
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
+"Tb" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#f8ea25"
+	},
+/area/crashed_elyran_tanker/engineering)
 "Th" = (
 /turf/simulated/wall/r_wall,
 /area/crashed_elyran_tanker/thruster)
@@ -4589,14 +4610,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
-"XR" = (
-/obj/structure/lattice,
-/obj/item/weldingtool{
-	pixel_x = 4;
-	pixel_y = -7
-	},
-/turf/template_noop,
-/area/space)
 "XU" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/bed/stool/chair/office/bridge/pilot{
@@ -30716,16 +30729,16 @@ mQ
 fw
 lB
 Yh
-Oi
-lB
+Wt
+CD
 HG
 TE
 xC
 jj
 Nd
 xq
-ja
-Dg
+lg
+qu
 qu
 qu
 qu
@@ -30973,17 +30986,17 @@ gc
 fw
 xx
 Yh
-Oi
-xx
+Wt
+iW
 yb
 XQ
 nF
 OU
 Ab
-xx
-ja
-Dg
-Dg
+iW
+lg
+qu
+qu
 qu
 qu
 qu
@@ -31231,15 +31244,15 @@ Dk
 xx
 gl
 bi
-xx
+iW
 Dk
 wc
 qo
 mu
 RO
-xx
-ja
-Dg
+iW
+lg
+qu
 Dg
 Dg
 qu
@@ -31488,13 +31501,13 @@ bf
 ma
 xP
 xV
-ma
+cT
 EF
 Dc
 jT
 BG
 sk
-xx
+iW
 ja
 Dg
 Dg
@@ -31745,7 +31758,7 @@ Id
 xx
 gl
 bi
-xx
+iW
 uc
 gc
 kg
@@ -39954,13 +39967,13 @@ Dg
 Dg
 Dg
 Dg
-iw
+Np
 iG
 qU
 NM
 GZ
 ZH
-iw
+Np
 rT
 gc
 gc
@@ -39975,7 +39988,7 @@ gc
 xQ
 gc
 As
-uF
+Tb
 yK
 Ts
 od
@@ -40211,13 +40224,13 @@ Dg
 Dg
 Dg
 Dg
-An
+fn
 rG
 eW
 Zn
 Zn
 wo
-An
+fn
 iL
 UM
 UM
@@ -40232,7 +40245,7 @@ UM
 tG
 UM
 oh
-hk
+cV
 Hi
 dQ
 Lf
@@ -40468,13 +40481,13 @@ Dg
 Dg
 Dg
 Dg
-iw
+Np
 CP
 nw
 xK
 xK
 xK
-iw
+Np
 RX
 zu
 mE
@@ -40489,7 +40502,7 @@ mE
 fS
 mE
 VT
-uF
+Tb
 Io
 uP
 Pu
@@ -43831,14 +43844,14 @@ Wv
 cP
 Kp
 Dg
-Dg
+qu
 yi
-Dg
+qu
 Bt
 pi
 Dd
 xM
-XR
+fF
 Dg
 Dg
 Dg
@@ -44088,9 +44101,9 @@ Wv
 cP
 Kp
 Dg
-Dg
-Dg
-Dg
+qu
+qu
+qu
 Kp
 aL
 ob
@@ -44345,8 +44358,8 @@ Wv
 cP
 Kp
 Dg
-Dg
-Dg
+qu
+qu
 Dg
 Kp
 YH
@@ -44601,9 +44614,9 @@ ze
 th
 cP
 Kp
-Dg
-Dg
-Dg
+qu
+qu
+qu
 Dg
 Kp
 QB
@@ -44858,8 +44871,8 @@ AE
 IX
 cP
 Kp
-Dg
-Dg
+qu
+qu
 Dg
 Dg
 Kp
