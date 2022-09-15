@@ -684,6 +684,7 @@
 	pixel_x = -1;
 	pixel_y = 2
 	},
+/obj/structure/closet/crate/tool,
 /turf/simulated/floor/tiled/dark,
 /area/crashed_elyran_tanker/thruster)
 "hb" = (
@@ -698,6 +699,11 @@
 "hj" = (
 /obj/structure/lattice,
 /turf/template_noop,
+/area/crashed_elyran_tanker/engineering)
+"hk" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#f48221"
+	},
 /area/crashed_elyran_tanker/engineering)
 "hm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -799,6 +805,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/crew)
+"iw" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#f8ea25"
+	},
+/area/crashed_elyran_tanker/bridge)
 "iy" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/decal/cleanable/dirt,
@@ -1751,11 +1762,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
-"tx" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#f48221"
-	},
-/area/crashed_elyran_tanker/bridge)
 "ty" = (
 /mob/living/simple_animal/carp,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -1870,6 +1876,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
+"uF" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#f8ea25"
+	},
+/area/crashed_elyran_tanker/engineering)
 "uG" = (
 /turf/simulated/wall/r_wall,
 /area/crashed_elyran_tanker/engineering)
@@ -2237,7 +2248,9 @@
 /area/crashed_elyran_tanker/tanks)
 "yv" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/wrench,
+/obj/item/wrench{
+	pixel_x = 6
+	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
@@ -2414,6 +2427,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
+"An" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#f48221"
+	},
+/area/crashed_elyran_tanker/bridge)
 "Ap" = (
 /obj/machinery/atmospherics/valve,
 /obj/effect/floor_decal/industrial/warning/cee,
@@ -2518,6 +2536,10 @@
 	icon_state = "1-10";
 	dir = 4
 	},
+/obj/item/device/radio{
+	pixel_x = 5;
+	pixel_y = -8
+	},
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/engineering)
 "Bx" = (
@@ -2529,11 +2551,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
-"Bz" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#f8ea25"
-	},
-/area/crashed_elyran_tanker/bridge)
 "BF" = (
 /obj/item/material/shard,
 /obj/structure/grille/broken,
@@ -2639,10 +2656,16 @@
 	pixel_y = 8;
 	ammo_type = null
 	},
+/obj/effect/decal/cleanable/blood/gibs/body{
+	fleshcolor = "#91604d"
+	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/crew)
 "CC" = (
-/obj/item/crowbar,
+/obj/item/crowbar{
+	pixel_y = 1;
+	pixel_x = -9
+	},
 /turf/simulated/floor/tiled/steel/airless{
 	icon_state = "damaged3"
 	},
@@ -3277,6 +3300,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/engineering)
 "KF" = (
@@ -3384,11 +3408,6 @@
 /obj/machinery/meter,
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
-"LJ" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#f8ea25"
-	},
-/area/crashed_elyran_tanker/engineering)
 "LO" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
@@ -3920,11 +3939,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/space)
-"QN" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#f48221"
-	},
-/area/crashed_elyran_tanker/engineering)
 "QQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/foamedmetal,
@@ -4575,6 +4589,14 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
+"XR" = (
+/obj/structure/lattice,
+/obj/item/weldingtool{
+	pixel_x = 4;
+	pixel_y = -7
+	},
+/turf/template_noop,
+/area/space)
 "XU" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/bed/stool/chair/office/bridge/pilot{
@@ -39932,13 +39954,13 @@ Dg
 Dg
 Dg
 Dg
-Bz
+iw
 iG
 qU
 NM
 GZ
 ZH
-Bz
+iw
 rT
 gc
 gc
@@ -39953,7 +39975,7 @@ gc
 xQ
 gc
 As
-LJ
+uF
 yK
 Ts
 od
@@ -40189,13 +40211,13 @@ Dg
 Dg
 Dg
 Dg
-tx
+An
 rG
 eW
 Zn
 Zn
 wo
-tx
+An
 iL
 UM
 UM
@@ -40210,7 +40232,7 @@ UM
 tG
 UM
 oh
-QN
+hk
 Hi
 dQ
 Lf
@@ -40446,13 +40468,13 @@ Dg
 Dg
 Dg
 Dg
-Bz
+iw
 CP
 nw
 xK
 xK
 xK
-Bz
+iw
 RX
 zu
 mE
@@ -40467,7 +40489,7 @@ mE
 fS
 mE
 VT
-LJ
+uF
 Io
 uP
 Pu
@@ -43816,7 +43838,7 @@ Bt
 pi
 Dd
 xM
-Kp
+XR
 Dg
 Dg
 Dg
