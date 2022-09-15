@@ -118,7 +118,7 @@
 				<h2>Best uses for PSOS</h2>
 				PSOS is intended for protecting exoplanets from high energy space radiation rays and particles in the interest of furthering research on this phenomena. Best used for planets lacking active geomagnetic field so PSOS would compensate its absence and provide more data.<br>
 				<h2>Applied Technologies</h2>
-				...is delivering you your new PSOS with set of four (4) high-strength magnetic field generators. Those devices use rotating supeconducter hands to create magnetic field with strength up to 5 Tesla effectively deflecting up to 99% of space radiation spectrum.<br>
+				...is delivering you your new PSOS with set of four (4) high-strength magnetic field generators. Those devices use rotating supeconducter hands to create magnetic field with strength up to 5 tesla effectively deflecting up to 99% of space radiation spectrum.<br>
 				<br>
 				Special modified vacuum radiation sensors will help you evaluate radiation level and adjust power input of PSOS magnetic generators for best efficiency and power saving.
 				<br><br><br>
