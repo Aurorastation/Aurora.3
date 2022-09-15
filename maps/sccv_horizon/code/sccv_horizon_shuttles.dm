@@ -155,12 +155,12 @@
 // Intrepid
 /datum/shuttle/autodock/overmap/intrepid
 	name = "Intrepid"
-	move_time = 20
+	move_time = 5
 	shuttle_area = list(/area/shuttle/intrepid/crew_compartment, /area/shuttle/intrepid/cargo_bay, /area/shuttle/intrepid/medical_compartment, /area/shuttle/intrepid/engine_compartment, /area/shuttle/intrepid/atmos_compartment, /area/shuttle/intrepid/cockpit)
 	dock_target = "intrepid_shuttle"
 	current_location = "nav_hangar_intrepid"
 	landmark_transition = "nav_transit_intrepid"
-	range = 2
+	range = 100
 	fuel_consumption = 4
 	logging_home_tag = "nav_hangar_intrepid"
 

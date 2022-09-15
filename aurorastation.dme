@@ -3157,6 +3157,8 @@
 #include "maps\away\generic\tajara_safehouse.dm"
 #include "maps\away\generic\tajara_safehouse_ghostroles.dm"
 #include "maps\away\generic\wrecked_nt_ship.dm"
+#include "maps\away\generic\blueriver\blueriver.dm"
+#include "maps\away\generic\blueriver\blueriver_areas.dm"
 #include "maps\away\romanovich\first_aurora.dm"
 #include "maps\away\romanovich\grand_romanovich.dm"
 #include "maps\away\romanovich\grand_romanovich_ghostroles.dm"

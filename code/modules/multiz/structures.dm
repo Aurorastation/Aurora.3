@@ -198,6 +198,9 @@
 	allowed_directions = UP|DOWN
 	icon_state = "ladder11"
 
+/obj/structure/ladder/away //looks like its going down without the need to have a hole or anything.
+	icon_state = "ladderawaydown"
+
 /obj/structure/stairs
 	name = "stairs"
 	desc = "Stairs leading to another level.  Not too useful if the gravity goes out."
