@@ -43,7 +43,7 @@
 /obj/item/clothing/accessory/poncho/dominia_cape
 	name = "dominian cape"
 	desc = "This is a cape in the style of Dominian nobility. It's the latest fashion across Dominian space."
-	icon = 'icons/obj/item/clothing/suits/capes/dominia.dmi'
+	icon = 'icons/obj/item/clothing/suit/capes/dominia.dmi'
 	icon_state = "dominian_cape"
 	item_state = "dominian_cape"
 	icon_override = null
@@ -84,25 +84,25 @@
 	desc = "A Dominian greatcoat issued to members of His Majesty's Diplomatic Service, designed in the typical Dominian fashion."
 	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though \
 	the Service also employs many commoners - as long as they can pass the rigorous examinations required to become a full member."
-	icon = 'icons/obj/item/clothing/suits/coats/dominia_consular_coat.dmi'
+	icon = 'icons/obj/item/clothing/suit/coats/dominia_consular_coat.dmi'
 	icon_state = "dominia_consular_coat"
 	item_state = "dominia_consular_coat"
 
 /obj/item/clothing/suit/storage/toggle/dominia
 	name = "dominia great coat"
 	desc = "This is a great coat in the style of Dominia nobility. It's the latest fashion across Dominian space."
-	icon = 'icons/obj/item/clothing/suits/coats/dominia_noble_red.dmi'
+	icon = 'icons/obj/item/clothing/suit/coats/dominia_noble_red.dmi'
 	icon_state = "dominia_noble_red"
 	item_state = "dominia_noble_red"
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/dominia/gold
-	icon = 'icons/obj/item/clothing/suits/coats/dominia_noble_gold.dmi'
+	icon = 'icons/obj/item/clothing/suit/coats/dominia_noble_gold.dmi'
 	icon_state = "dominia_noble_gold"
 	item_state = "dominia_noble_gold"
 
 /obj/item/clothing/suit/storage/toggle/dominia/black
-	icon = 'icons/obj/item/clothing/suits/coats/dominia_noble_black.dmi'
+	icon = 'icons/obj/item/clothing/suit/coats/dominia_noble_black.dmi'
 	icon_state = "dominia_noble_black"
 	item_state = "dominia_noble_black"
 
@@ -113,7 +113,7 @@
 	desc_fluff = "Fisanduhian fashion remains as rugged and steadfast as its people, as well as very distinctive from the usual Morozi fashions \
 	sourced from Moroz proper. Bomber jackets such as these were also frequently seen worn by members of the Fisanduh Freedom Front and came \
 	to be seen as an enduring symbol of their struggle for liberty."
-	icon = 'icons/obj/item/clothing/suits/coats/dominia_bomber.dmi'
+	icon = 'icons/obj/item/clothing/suit/coats/dominia_bomber.dmi'
 	icon_state = "dominia_bomber"
 	item_state = "dominia_bomber"
 
@@ -263,7 +263,7 @@
 	desc = "A simple red surcoat commonly worn by Dominian clergy members."
 	desc_fluff = "Spun with rough but hardy fabrics from the Dominian frontier, this surcoat is commonly worn by poorer Tribunal clergy as well as missionaries\
 	seeking protection from the elements. This garment was popularized by the Kael'kah sect and remains respected as a symbol of humility and poverty amongst priests."
-	icon = 'icons/obj/item/clothing/suits/capes/dominia_surcoat.dmi'
+	icon = 'icons/obj/item/clothing/suit/capes/dominia_surcoat.dmi'
 	icon_state = "dominian_surcoat"
 	item_state = "dominian_surcoat"
 	overlay_state = "dominian_surcoat"
@@ -275,7 +275,7 @@
 	desc_fluff = "This style of cape is among the most flashy and ornate of the Tribunal's garb. Its weight and impracticality of use means that \
 	it is often only worn by clergy of high station and on special occasions. Lower ranking members of the Tribunal or those who wear it frequently \
 	are often frowned upon as arrogant and vain."
-	icon = 'icons/obj/item/clothing/suits/capes/dominia_doublecape.dmi'
+	icon = 'icons/obj/item/clothing/suit/capes/dominia_doublecape.dmi'
 	icon_state = "dominian_doublecape"
 	item_state = "dominian_doublecape"
 	overlay_state = "dominian_doublecape"
@@ -287,7 +287,7 @@
 	desc_fluff = "Dominian priests and priestesses are traditionally expected to wear red or golden clothing when discharging \
 	their duties. Capes are worn as both a fashion statement to attract the attention of crowds and as a simple form of protection\
 	against the elements."
-	icon = 'icons/obj/item/clothing/suits/capes/dominia_red.dmi'
+	icon = 'icons/obj/item/clothing/suit/capes/dominia_red.dmi'
 	icon_state = "dominian_cape_red"
 	item_state = "dominian_cape_red"
 	overlay_state = "dominian_cape_red"
@@ -331,7 +331,7 @@
 	desc = "A truly majestic gold and red cape worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
 	desc_fluff = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also \
 	employs may commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
-	icon = 'icons/obj/item/clothing/suits/capes/dominia_consular_cape.dmi'
+	icon = 'icons/obj/item/clothing/suit/capes/dominia_consular_cape.dmi'
 	icon_state = "dominia_cape_consular"
 	item_state = "dominia_cape_consular"
 	overlay_state = "dominia_cape_consular"

@@ -244,7 +244,7 @@
 /obj/item/pickaxe/jackhammer
 	name = "sonic jackhammer"
 	desc = "Cracks rocks with sonic blasts, perfect for killing cave lizards."
-	icon = 'icons/obj/drills.dmi'
+	icon = 'icons/obj/item/drills.dmi'
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
 	contained_sprite = TRUE

@@ -282,7 +282,7 @@
 /obj/item/storage/bag/inflatable
 	name = "inflatable barrier box"
 	desc = "Contains inflatable walls and doors."
-	icon = 'icons/obj/inflatables.dmi'
+	icon = 'icons/obj/item/inflatable.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
 	contained_sprite = TRUE

@@ -668,7 +668,7 @@
 /obj/item/clothing/accessory/poncho/assunzione
 	name = "assunzione robe"
 	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione."
-	icon = 'icons/obj/item/clothing/suits/capes/assunzione_robe.dmi'
+	icon = 'icons/obj/item/clothing/suit/capes/assunzione_robe.dmi'
 	icon_override = null
 	icon_state = "assunzione_robe"
 	item_state = "assunzione_robe"

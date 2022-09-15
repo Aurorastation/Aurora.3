@@ -22,7 +22,7 @@
 
 /obj/item/device/analyzer/plant_analyzer
 	name = "plant analyzer"
-	icon = 'icons/obj/item/tools/plant_analyzer.dmi'
+	icon = 'icons/obj/item/device/plant_analyzer.dmi'
 	icon_state = "hydro"
 	item_state = "hydro"
 	contained_sprite = TRUE

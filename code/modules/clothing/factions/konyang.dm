@@ -36,7 +36,7 @@
 /obj/item/clothing/suit/storage/toggle/konyang
 	name = "konyanger jacket"
 	desc = "A remarkably breathable yet water-resistant jacket from Konyang."
-	icon = 'icons/obj/item/clothing/suits/konyang_jacket.dmi'
+	icon = 'icons/obj/item/clothing/suit/konyang_jacket.dmi'
 	icon_state = "konyang_jacket"
 	item_state = "konyang_jacket"
 	contained_sprite = TRUE

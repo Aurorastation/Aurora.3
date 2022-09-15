@@ -16,7 +16,7 @@
 	desc_fluff = "Due to the extremely hostile surface conditions of Gadpathur, overcoats such as this one are a common sight \
 	in order to protect against hazards. They are typically chemically treated to better resist chemicals and radiation, \
 	and are often the difference between life and death on the planet's surface."
-	icon = 'icons/obj/item/clothing/suits/coats/gadpathur_coat.dmi'
+	icon = 'icons/obj/item/clothing/suit/coats/gadpathur_coat.dmi'
 	icon_state = "gadpathur_coat"
 	item_state = "gadpathur_coat"
 	contained_sprite = TRUE
@@ -27,7 +27,7 @@
 	desc_fluff = "Due to the extremely hostile surface conditions of Gadpathur, overcoats such as this one are a common sight \
 	in order to protect against hazards. They are typically chemically treated to better resist chemicals and radiation, \
 	and are often the difference between life and death on the planet's surface."
-	icon = 'icons/obj/item/clothing/suits/coats/gadpathur_coat.dmi'
+	icon = 'icons/obj/item/clothing/suit/coats/gadpathur_coat.dmi'
 	icon_state = "gadpathurtrench"
 	item_state = "gadpathurtrench"
 	contained_sprite = TRUE
@@ -44,7 +44,7 @@
 	desc_fluff = "Due to the extremely hostile surface conditions of Gadpathur, overcoats such as this one are a common sight \
 	in order to protect against hazards. They are typically chemically treated to better resist chemicals and radiation, \
 	and are often the difference between life and death on the planet's surface."
-	icon = 'icons/obj/item/clothing/suits/coats/gadpathur_coat.dmi'
+	icon = 'icons/obj/item/clothing/suit/coats/gadpathur_coat.dmi'
 	icon_state = "gadpathurthermal"
 	item_state = "gadpathurthermal"
 	contained_sprite = TRUE

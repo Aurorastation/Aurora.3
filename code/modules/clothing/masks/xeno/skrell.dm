@@ -1,7 +1,7 @@
 /obj/item/clothing/mask/skrell
 	name = "pinhole mask"
 	desc = "Masks used within the Srom to hide the face, whether for cultural or personal reasons."
-	icon = 'icons/obj/clothing/mask/srom_masks.dmi'
+	icon = 'icons/obj/item/clothing/mask/srom_masks.dmi'
 	icon_state = "pinhole"
 	item_state = "pinhole"
 	w_class = ITEMSIZE_SMALL
