@@ -15,6 +15,7 @@
 	var/rupture_flags = SHIP_AMMO_RUPTURE_FLAG_EXPLODE
 	var/rupture_gas
 	var/obj/effect/overmap/origin
+	var/atom/overmap_target
 
 /obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
 	. = ..()
@@ -94,12 +95,13 @@
 /obj/item/ship_ammunition/proc/get_additional_info()
 	return
 
-/obj/item/ship_ammunition/touch_map_edge(var/new_z)	
-	transfer_to_overmap(new_z)
-
-	origin = map_sectors["[new_z]"]
-
-	return TRUE
+/obj/item/ship_ammunition/touch_map_edge(var/new_z)
+	if(isprojectile(loc))
+		transfer_to_overmap(new_z)
+		origin = map_sectors["[new_z]"]
+		return TRUE
+	else
+		. = ..()
 
 /obj/item/ship_ammunition/proc/transfer_to_overmap(var/new_z)
 	var/obj/effect/overmap/start_object = map_sectors["[new_z]"]
@@ -110,6 +112,7 @@
 	P.name = name
 	P.desc = desc
 	P.set_ammunition(src)
+	P.target = overmap_target
 	forceMove(P)
 	log_and_message_admins("A projectile has entered the Overmap! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
 	return TRUE

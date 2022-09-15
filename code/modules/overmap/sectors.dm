@@ -27,6 +27,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/has_called_distress_beacon = FALSE
 	var/image/applied_distress_overlay
 
+	var/list/obj/machinery/ship_weapon/ship_weapons
+
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)

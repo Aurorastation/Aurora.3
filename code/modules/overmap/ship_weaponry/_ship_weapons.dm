@@ -14,8 +14,8 @@
 	controller = null
 	return ..()
 
-/datum/ship_weapon/proc/pre_fire() //We can fire, so what do we do before that? Think like a laser charging up.
-	controller.fire()
+/datum/ship_weapon/proc/pre_fire(var/atom/target) //We can fire, so what do we do before that? Think like a laser charging up.
+	controller.fire(target)
 	on_fire()
 	return TRUE
 

@@ -19,6 +19,8 @@
 		var/my_sector = map_sectors["[z]"]
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
+	if(linked)
+		LAZYADD(linked.ship_weapons, src)
 	name = weapon.name
 	desc = weapon.desc
 	for(var/obj/structure/ship_weapon_dummy/SD in orange(1, src))
@@ -41,11 +43,11 @@
 	else
 		return FALSE
 
-/obj/machinery/ship_weapon/proc/firing_command()
+/obj/machinery/ship_weapon/proc/firing_command(var/atom/target)
 	if(firing_checks())
-		weapon.pre_fire()
+		weapon.pre_fire(target)
 
-/obj/machinery/ship_weapon/proc/fire()
+/obj/machinery/ship_weapon/proc/fire(var/atom/overmap_target)
 	var/obj/item/ship_ammunition/SA = consume_ammo()
 	if(!barrel)
 		crash_with("No barrel found for [src] at [x] [y] [z]! Cannot fire!")
@@ -55,6 +57,7 @@
 	projectile.desc = SA.desc
 	projectile.ammo = SA
 	projectile.shot_from = name
+	SA.overmap_target = overmap_target
 	var/turf/target = get_step(projectile, barrel.dir)
 	projectile.launch_projectile(target)
 	return TRUE
