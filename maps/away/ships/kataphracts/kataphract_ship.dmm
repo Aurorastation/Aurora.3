@@ -7210,6 +7210,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
+"vX" = (
+/obj/machinery/door/airlock/glass{
+	name = "Quartermaster";
+	req_one_access = list(113, 115)
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/commissary)
 "wh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7908,13 +7915,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/propulsion)
-"EK" = (
-/obj/machinery/door/airlock/glass{
-	name = "Quartermaster";
-	req_one_access = list(113, 115)
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/commissary)
 "EP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -23430,7 +23430,7 @@ ab
 cl
 cp
 cf
-EK
+vX
 do
 sC
 Bi
