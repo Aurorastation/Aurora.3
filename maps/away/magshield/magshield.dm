@@ -61,7 +61,7 @@
 
 /obj/structure/magshield/maggen/attack_hand(mob/user)
 	..()
-	to_chat(user, "<span class='notice'> You don't see how you could fix \the [src]. It would need some serious work.</span>")
+	to_chat(user, SPAN_NOTICE("You don't see how you could fix \the [src]. It would need some serious work."))
 
 /obj/structure/magshield/rad_sensor
 	name = "radiation sensor"
