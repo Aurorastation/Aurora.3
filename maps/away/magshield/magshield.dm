@@ -52,7 +52,7 @@
 //mainly props now, the gimmick of an infrequent emp pulse was kind of interesting but hard to port and might punish synths too hard for exploring
 /obj/structure/magshield/maggen 
 	name = "magnetic field generator"
-	desc = "A large three-handed generator with rotating top. It is used to create high-power magnetic fields in hard vacuum. It's spinning and that seems to be all It's good for at the moment."
+	desc = "A large three-handed generator with rotating top. It is used to create high-power magnetic fields in hard vacuum. It's spinning and that seems to be all it's good for at the moment."
 	icon = 'maps/away/magshield/magshield_sprites.dmi'
 	icon_state = "maggen"
 	anchored = TRUE
