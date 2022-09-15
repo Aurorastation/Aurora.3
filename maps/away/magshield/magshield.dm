@@ -93,7 +93,7 @@
 	set_light(1.2, 3, LIGHT_COLOR_RED)
 
 /obj/item/book/manual/magshield_manual
-	name = "SOP for Planetary Shield Orbital Station"
+	name = "SOP for Planetary Shield Orbital Stations"
 	icon = 'maps/away/magshield/magshield_sprites.dmi'
 	icon_state = "mg_guide"
 	author = "Unknown"
