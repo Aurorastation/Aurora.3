@@ -1,3 +1,18 @@
+/datum/map_template/ruin/away_site/blueriver
+	name = "Bluespace River"
+	id = "awaysite_blue"
+	spawn_cost = 1
+	spawn_weight = 1
+	description = "An arctic planet and an alien underground surface."
+	suffix = list("blueriver/blueriver-1.dmm", "blueriver/blueriver-2.dmm")
+	generate_mining_by_z = 2
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_GAKAL)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
+/decl/submap_archetype/blueriver
+	map = "bluespace river"
+	descriptor = "An arctic planet and an alien underground surface."
+
 /obj/effect/overmap/visitable/sector/arcticplanet
 	name = "arctic planetoid"
 	desc = "Sensor array detects an arctic planet with a small vessel on the planet's surface. Scans further indicate strange energy emissions from below the planet's surface."
@@ -14,14 +29,6 @@
 	name = "[generate_planet_name()], \a [name]"
 	..()
 
-/datum/map_template/ruin/away_site/blueriver
-	name = "Bluespace River"
-	id = "awaysite_blue"
-	spawn_cost = 1.5
-	description = "An arctic planet and an alien underground surface"
-	suffix = list("blueriver/blueriver-1.dmm", "blueriver/blueriver-2.dmm")
-	generate_mining_by_z = 2
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 //Ported from bay who ported it from vg and let's just say it was extremely buggy and strange. I chopped it up into a shell of its former self.
 /mob/living/simple_animal/hostile/hive_alien/defender
