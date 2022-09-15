@@ -97,7 +97,7 @@
 	icon = 'maps/away/magshield/magshield_sprites.dmi'
 	icon_state = "mg_guide"
 	author = "Unknown"
-	title = "Standard operating procedures for Planetary Shield Orbital Station"
+	title = "Standard operating procedures for Planetary Shield Orbital Stations"
 
 	dat = {"<html>
 				<head>
