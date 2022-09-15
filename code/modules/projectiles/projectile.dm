@@ -439,7 +439,6 @@
 	var/turf/T = trajectory.return_turf()
 
 	if (!T) // Nowhere to go. Just die.
-		to_world("dying here")
 		qdel(src)
 		return
 

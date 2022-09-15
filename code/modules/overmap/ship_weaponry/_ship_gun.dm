@@ -51,8 +51,12 @@
 		crash_with("No barrel found for [src] at [x] [y] [z]! Cannot fire!")
 	var/turf/firing_turf = get_step(barrel, barrel.dir)
 	var/obj/item/projectile/ship_ammo/projectile = new(firing_turf)
+	projectile.name = SA.name
+	projectile.desc = SA.desc
 	projectile.ammo = SA
-	projectile.launch_projectile(get_step(src, barrel.dir))
+	projectile.shot_from = name
+	var/turf/target = get_step(projectile, barrel.dir)
+	projectile.launch_projectile(target)
 	return TRUE
 
 /obj/machinery/ship_weapon/proc/consume_ammo()

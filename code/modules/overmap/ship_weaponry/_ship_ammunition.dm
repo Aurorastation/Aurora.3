@@ -94,18 +94,15 @@
 /obj/item/ship_ammunition/proc/get_additional_info()
 	return
 
-// Move to the overmap until we encounter a new z
-/obj/item/ship_ammunition/touch_map_edge()	
-	transfer_to_overmap()
+/obj/item/ship_ammunition/touch_map_edge(var/new_z)	
+	transfer_to_overmap(new_z)
 
-	origin = map_sectors["[z]"]
+	origin = map_sectors["[new_z]"]
 
-	// Abort walk
-	walk(src, 0)
-	transfer_to_overmap()
+	return TRUE
 
-/obj/item/ship_ammunition/proc/transfer_to_overmap()
-	var/obj/effect/overmap/start_object = map_sectors["[z]"]
+/obj/item/ship_ammunition/proc/transfer_to_overmap(var/new_z)
+	var/obj/effect/overmap/start_object = map_sectors["[new_z]"]
 	if(!start_object)
 		return FALSE
 	
@@ -126,17 +123,8 @@
 	range = 250
 	var/obj/item/ship_ammunition/ammo
 
-/obj/item/projectile/ship_ammo/Initialize()
-	. = ..()
-	to_world("Spawned! [x] [y] [z]")
-
-/obj/item/projectile/ship_ammo/pixel_move(moves, trajectory_multiplier, hitscanning)
-	. = ..()
-	to_world("Moving!")
-
 /obj/item/projectile/ship_ammo/touch_map_edge()
-	. = ..()
-	if(ammo.touch_map_edge())
+	if(ammo.touch_map_edge(z))
 		ammo = null
 		qdel(src)
 
