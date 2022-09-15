@@ -1,13 +1,19 @@
 /datum/map_template/ruin/away_site/magshield
 	name = "Magshield"
-	id = "awaysite_magshield"
+	id = "magshield"
 	description = "It's an orbital shield station."
-	suffix = "away/magshield/magshield.dmm"
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
+	suffix = "magshield/magshield.dmm"
+	spawn_weight = 1
 	spawn_cost = 1
+
+/decl/submap_archetype/magshield
+	map = "magshield"
+	descriptor = "It's an orbital shield station."
 
 /obj/effect/overmap/visitable/sector/magshield
 	name = "orbital station"
-	desc = "Sensors detect an orbital station above am exoplanet. Sporadic magentic impulses are registred inside it. Planet landing is impossible due to lower orbits being cluttered with chaotically moving metal chunks."
+	desc = "Sensors detect an orbital station above an exoplanet. Signs of past magentic impulses are registred from it. Planet landing is impossible due to lower orbits being cluttered with chaotically moving metal chunks."
 	icon_state = "object"
 
 	initial_generic_waypoints = list(
@@ -18,7 +24,6 @@
 		"nav_magshield_5",
 		"nav_magshield_6"
 	)
-
 
 /obj/effect/shuttle_landmark/nav_magshield/nav1
 	name = "Orbital Station Navpoint #1"
@@ -47,7 +52,7 @@
 //props
 /obj/structure/magshield/maggen 
 	name = "magnetic field generator"
-	desc = "A large three-handed generator with rotating top. It is used to create high-power magnetic fields in hard vacuum. Sadly, it seems broken."
+	desc = "A large three-handed generator with rotating top. It is used to create high-power magnetic fields in hard vacuum. It's spinning, but the machinary doesn't seem to work."
 	icon = 'maps/away/magshield/magshield_sprites.dmi'
 	icon_state = "maggen"
 	anchored = TRUE
@@ -56,7 +61,7 @@
 
 /obj/structure/magshield/maggen/attack_hand(mob/user)
 	..()
-	to_chat(user, "<span class='notice'> You don't see how you could turn on \the [src]. It's completely and utterly broken..</span>")
+	to_chat(user, "<span class='notice'> You don't see how you could fix \the [src]. It would need some serious work.</span>")
 
 /obj/structure/magshield/rad_sensor
 	name = "radiation sensor"
@@ -91,7 +96,7 @@
 	name = "SOP for Planetary Shield Orbital Station"
 	icon = 'maps/away/magshield/magshield_sprites.dmi'
 	icon_state = "mg_guide"
-	author = "Terraforms Industrial"
+	author = "Unknown"
 	title = "Standard operating procedures for Planetary Shield Orbital Station"
 
 	dat = {"<html>
@@ -109,11 +114,11 @@
 				<body>
 
 				<h1>Introduction</h1>
-				Terraforms Industrial is happy to see you as our customer! Please read this guide before using and operating with your custom PSOS - Planetary Shield Orbital Statiion.
+				...is happy to see you as our customer! Please read this guide before using and operating with your custom PSOS - Planetary Shield Orbital Statiion.
 				<h2>Best uses for PSOS</h2>
-				PSOS is intended for protecting exoplanets from high energy space radiation rays and particles. Best used for planets lacking active geomagnetic field so PSOS would compensate its absence.<br>
+				PSOS is intended for protecting exoplanets from high energy space radiation rays and particles in the interest of furthering research on this phenomena. Best used for planets lacking active geomagnetic field so PSOS would compensate its absence and provide more data.<br>
 				<h2> Applied technologies</h2>
-				Terraforms Industrial is delivering you your new PSOS with set of four (4) high-strength magnetic field generators. Those devices use rotating supeconducter hands to create magnetic field with strength up to 5 Tesla effectively deflecting up to 99% of space radiation spectrum.<br>
+				...is delivering you your new PSOS with set of four (4) high-strength magnetic field generators. Those devices use rotating supeconducter hands to create magnetic field with strength up to 5 Tesla effectively deflecting up to 99% of space radiation spectrum.<br>
 				<br>
 				Special modified vacuum radiation sensors will help you evaluate radiation level and adjust power input of PSOS magnetic generators for best efficiency and power saving.
 				<br><br><br>
