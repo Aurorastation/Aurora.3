@@ -2624,7 +2624,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/airless,
 /area/magshield/south)
 "hI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3695,7 +3695,7 @@
 /turf/simulated/floor/tiled,
 /area/magshield/south)
 "lq" = (
-/obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled,
 /area/magshield/south)
 "lr" = (
@@ -16706,7 +16706,7 @@ kN
 kV
 ip
 ip
-ip
+aa
 aa
 aa
 aa
@@ -16888,7 +16888,7 @@ kO
 jd
 lh
 ip
-ip
+aa
 aa
 aa
 aa
@@ -17070,7 +17070,7 @@ kP
 jd
 jd
 lq
-jd
+aa
 aa
 aa
 aa
@@ -17252,7 +17252,7 @@ kQ
 jd
 li
 ip
-ip
+aa
 aa
 aa
 aa
@@ -17434,7 +17434,7 @@ kR
 jd
 lj
 ip
-ip
+aa
 aa
 aa
 aa
@@ -17616,7 +17616,7 @@ jd
 jd
 jd
 lq
-jd
+aa
 aa
 aa
 aa
@@ -17798,7 +17798,7 @@ kS
 kW
 kW
 ip
-ip
+aa
 aa
 aa
 aa
