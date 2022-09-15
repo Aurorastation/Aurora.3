@@ -8,7 +8,7 @@
 	spawn_weight = 100000
 	spawn_cost = 1
 	id = "crashed_elyran_tanker"
-    // A medium-size tanker, emitting a very faint IFF signal of civilian vessels registered in Elyra. It seems to be partially embedded into an asteroid, and completely cold.
+    // A medium-size tanker, emitting a very faint IFF signal of civilian vessels registered in Elyra. It seems to be partially embedded into a small asteroid, and completely cold.
 
 /decl/submap_archetype/crashed_elyran_tanker
 	map = "crashed_elyran_tanker"
@@ -22,19 +22,24 @@
 /area/crashed_elyran_tanker/bridge
 	name = "bridge"
 	icon_state = "bridge"
+	requires_power = FALSE
 
 /area/crashed_elyran_tanker/crew
 	name = "crew area"
 	icon_state = "crew_area"
+	requires_power = FALSE
 
 /area/crashed_elyran_tanker/engineering
 	name = "engineering"
 	icon_state = "engineering"
+	requires_power = FALSE
 
 /area/crashed_elyran_tanker/thruster
 	name = "thruster maintenance"
 	icon_state = "engine"
+	requires_power = FALSE
 
 /area/crashed_elyran_tanker/tanks
 	name = "tanks"
 	icon_state = "atmos"
+	requires_power = FALSE
