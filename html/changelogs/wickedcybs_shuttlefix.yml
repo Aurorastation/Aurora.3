@@ -1,7 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "A solars wire on the kataphract ship bugged out and so the ship wasn't getting power from one of its arrays, that was fixed ."
-  - tweak: "Kataphract ship had its vessel mass increased, APCs upgraded and SMES tweaked as I didn't account for the power drain, which was making the engine compartment lose power mid flight."
