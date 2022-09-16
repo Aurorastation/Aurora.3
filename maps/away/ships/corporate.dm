@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/orion_express_ship
 	name = "Orion Express Mobile Station"
 	description = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation's fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it. This one's transponder identifies it as an Orion Express refueling station."
-	suffix = "ships/orion_express_ship.dmm"
+	suffixes = list("ships/orion_express_ship.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	spawn_cost = 1
@@ -108,7 +108,7 @@
 /datum/map_template/ruin/away_site/ee_spy_ship
 	name = "Einstein Engines Research Ship"
 	description = "A research ship belonging to Einstein Engines, the Stellar Corporate Conglomerate's main competitor."
-	suffix = "ships/ee_spy_ship.dmm"
+	suffixes = list("ships/ee_spy_ship.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	spawn_cost = 1

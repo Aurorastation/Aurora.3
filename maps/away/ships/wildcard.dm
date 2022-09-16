@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/tramp_freighter
 	name = "Tramp Freighter"
 	description = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space. This one's transponder identifies it as an independent vessel."
-	suffix = "ships/tramp_freighter.dmm"
+	suffixes = list("ships/tramp_freighter.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ)
 	spawn_weight = 1
 	spawn_cost = 1
@@ -108,7 +108,7 @@
 /datum/map_template/ruin/away_site/militia_ship
 	name = "Militia Ship"
 	description = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus. This one's transponder identifies it as a local militia vessel."
-	suffix = "ships/militia_ship.dmm"
+	suffixes = list("ships/militia_ship.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	spawn_cost = 1

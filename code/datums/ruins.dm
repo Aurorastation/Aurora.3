@@ -11,7 +11,7 @@
 	var/list/sectors = list() //This ruin can only spawn in the sectors in this list.
 
 	var/prefix = null
-	var/suffix = null
+	var/suffixes = null
 	template_flags = TEMPLATE_FLAG_NO_RUINS // Don't let ruins spawn on top of ruins
 
 	// !! Currently only implemented for away sites
@@ -20,7 +20,8 @@
 	var/list/ban_ruins   // Listed ruins are removed from the set of available spawns. Beats allowed.
 
 /datum/map_template/ruin/New()
-	if (suffix)
-		mappath += (prefix + suffix)
-
+	if (suffixes)
+		mappaths = list()
+		for (var/suffix in suffixes)
+			mappaths += (prefix + suffix)
 	..()
