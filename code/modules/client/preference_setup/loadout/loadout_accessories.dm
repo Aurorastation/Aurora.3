@@ -43,7 +43,6 @@
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["operations armband"] = /obj/item/clothing/accessory/armband/operations
-	armbands["first responder armband"] = /obj/item/clothing/accessory/armband/medgreen
 	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
 	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
 	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro

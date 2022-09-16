@@ -107,6 +107,7 @@
 	new /obj/item/clothing/suit/storage/toggle/fr_jacket(src)
 	new /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng(src)
 	new /obj/item/clothing/suit/storage/toggle/fr_jacket/pmc(src)
+	new /obj/item/clothing/accessory/armband/medgreen(src)
 
 
 /obj/structure/closet/secure_closet/CMO

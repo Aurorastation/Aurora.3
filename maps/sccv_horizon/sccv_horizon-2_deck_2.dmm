@@ -2393,19 +2393,19 @@
 	dir = 1;
 	pixel_y = -28
 	},
-/obj/item/device/radio{
+/obj/item/device/radio/med{
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/item/device/radio{
+/obj/item/device/radio/med{
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/item/device/radio{
+/obj/item/device/radio/med{
 	pixel_x = 5;
 	pixel_y = 6
 	},
-/obj/item/device/radio{
+/obj/item/device/radio/med{
 	pixel_x = 5;
 	pixel_y = 6
 	},
@@ -46059,9 +46059,11 @@
 /area/operations/lobby)
 "xWa" = (
 /obj/item/rig/medical/equipped{
+	pixel_x = -2;
 	pixel_y = -2
 	},
 /obj/item/rig/medical/equipped{
+	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/structure/window/reinforced{
