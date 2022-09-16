@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/casino
 	name = "Casino"
 	description = "A casino ship!"
-	suffixes = list("ships/casino/casino.dmm") 
+	suffix = list("ships/casino/casino.dmm") 
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 	spawn_weight = 1
 	spawn_cost = 1

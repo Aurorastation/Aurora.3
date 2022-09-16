@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/tcfl_peacekeeper_ship
 	name = "TCFL Peacekeeper Ship"
 	description = "Serving as the very foundation of the SCC's (And more specifically, NanoTrasen's) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design's interdiction counterpart - the Hydrus-class shuttle. This one's transponder identifies it as a Tau Ceti Foreign Legion patrol vessel, and as a Decanus-class Clipper - the TCFL designation for this design."
-	suffixes = list("ships/tcfl_peacekeeper_ship.dmm")
+	suffix = list("ships/tcfl_peacekeeper_ship.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	spawn_cost = 1

@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/tajara_safehouse
 	name = "abandoned outpost"
 	description = "A derelict space outpost."
-	suffix = "generic/tajara_safehouse.dmm"
+	suffix = list("generic/tajara_safehouse.dmm")
 	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	spawn_cost = 2

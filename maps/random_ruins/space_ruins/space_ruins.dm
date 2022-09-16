@@ -8,5 +8,5 @@
 	name = "Multi-ZAS Test"
 	id = "multi_zas_test"
 	description = "if this has vacuum in it, that's not good!"
-	suffix = "multi_zas_test.dmm"
+	suffix = list("multi_zas_test.dmm")
 	spawn_cost = 1

@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/first_aurora
 	name = "space station derelict"
 	description = "An abandoned space station."
-	suffix = "romanovich/first_aurora.dmm"
+	suffix = list("romanovich/first_aurora.dmm")
 	sectors = list(SECTOR_ROMANOVICH)
 	spawn_weight = 1
 	spawn_cost = 2

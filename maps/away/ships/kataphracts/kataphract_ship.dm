@@ -2,7 +2,7 @@
 	name = "kataphract ship"
 	id = "awaysite_kataphract_ship"
 	description = "Ship with lizard knights."
-	suffixes = list("ships/kataphracts/kataphract_ship.dmm")
+	suffix = list("ships/kataphracts/kataphract_ship.dmm")
 	spawn_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
