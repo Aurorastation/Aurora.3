@@ -66,13 +66,15 @@
 	spell_masters = null
 	zone_sel = null
 
+/mob/var/should_add_to_mob_list = TRUE
 /mob/Initialize()
 	. = ..()
-	mob_list += src
-	if(stat == DEAD)
-		dead_mob_list += src
-	else
-		living_mob_list += src
+	if(should_add_to_mob_list)
+		mob_list += src
+		if(stat == DEAD)
+			dead_mob_list += src
+		else
+			living_mob_list += src
 
 	if (!ckey && mob_thinks)
 		MOB_START_THINKING(src)
