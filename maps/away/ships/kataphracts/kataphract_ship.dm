@@ -108,4 +108,4 @@
 /obj/effect/shuttle_landmark/kataphract_transport/transit
 	name = "In transit"
 	landmark_tag = "nav_kataphract_transport_transit"
-	base_turf = /turf/space
+	base_turf = /turf/space/transit/east
