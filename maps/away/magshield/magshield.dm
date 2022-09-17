@@ -82,7 +82,6 @@
 	..()
 	set_light(1.2, 3, LIGHT_COLOR_GREEN)
 
-
 /obj/structure/magshield/nav_light/red
 	desc = "Large and bright light regularly emitting red flashes."
 	light_color = "#ee0000"
