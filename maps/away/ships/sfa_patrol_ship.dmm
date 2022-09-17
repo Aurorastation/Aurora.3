@@ -1635,7 +1635,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "lGR" = (
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
 /turf/simulated/floor/shuttle/black,
@@ -2606,15 +2606,15 @@
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "vPL" = (
-/obj/structure/fuel_port{
-	pixel_x = 10;
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/structure/sign/nosmoking_1{
 	pixel_x = -10;
+	pixel_y = 32
+	},
+/obj/structure/fuel_port/phoron{
+	pixel_x = 10;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,

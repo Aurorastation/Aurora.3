@@ -952,7 +952,7 @@
 /area/shuttle/tcfl_shuttle)
 "gmC" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = 29
 	},
 /turf/simulated/floor,
@@ -1434,10 +1434,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "jbc" = (
-/obj/structure/fuel_port{
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "jbQ" = (
@@ -1795,6 +1795,7 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "kQl" = (
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/shuttle_landmark/tcfl_shuttle/hangar,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
@@ -29441,7 +29442,7 @@ dcm
 dcm
 dcm
 wJV
-kQl
+pPl
 dfd
 sWY
 gMA
@@ -30213,7 +30214,7 @@ jyv
 jRX
 kJI
 lej
-dfd
+kQl
 sWY
 yjk
 hzX

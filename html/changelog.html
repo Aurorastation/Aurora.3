@@ -35,6 +35,154 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">16 September 2022</h2>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed mobs being unable to hear from inside machines or objects.</li>
+			</ul>
+			<h3 class="author">Omicega updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds the San Colettish accent tag for humans and appropriate IPCs.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">A solars wire on the kataphract ship bugged out and so the ship wasn&#x27;t getting power from one of its arrays, that was fixed .</li>
+				<li class="tweak">Kataphract ship had its vessel mass increased, APCs upgraded and SMES tweaked as I didn&#x27;t account for the power drain, which was making the engine compartment lose power mid flight.</li>
+			</ul>
+
+			<h2 class="date">15 September 2022</h2>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Bullets now gib limbs instead of cleanly delimbing them, as they were intended to.</li>
+				<li class="bugfix">Fixed lasers being unable to delimb most of the time.</li>
+			</ul>
+
+			<h2 class="date">14 September 2022</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Ti&#x27;Rakqi Freighter. Default/unmodified skrell now has random color, headtail and facial tuux style.</li>
+			</ul>
+			<h3 class="author">Tap0r & listerla updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Ported new GPS sprites from Tau Ceti Station, including a new medical GPS.</li>
+			</ul>
+			<h3 class="author">listerla updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Short reef headtail ties are no longer offset.</li>
+			</ul>
+
+			<h2 class="date">13 September 2022</h2>
+			<h3 class="author">SapphicOverload updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds prescription safety goggles/glasses.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">There was some metal foam behind walls that had walls underneath them or even space. Fixed it by making sure underplating was under the metal foam.</li>
+			</ul>
+			<h3 class="author">Yonnimer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Properly changes the name of somethings in the dionae loadout to ensure they don&#x27;t cause issues with items in the Unathi loadout.</li>
+			</ul>
+
+			<h2 class="date">12 September 2022</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a xu&#x27;xi gas inhaler.</li>
+				<li class="rscadd">Ti&#x27;Rakqi Freighter. Adds a hidden cargo compartment.</li>
+				<li class="bugfix">Ti&#x27;Rakqi Freighter. Fixes external waypoints.</li>
+				<li class="bugfix">Ti&#x27;Rakqi Freighter. Fixes the engineer role being named &#x27;medic&#x27;.</li>
+				<li class="tweak">Ti&#x27;Rakqi Freighter. Tweaks the shuttle so the rest of the hangar can be accessed.</li>
+				<li class="tweak">Ti&#x27;Rakqi Freighter. Reshuffles and tweaks the floors, decorations, and the like, rearranges some things.</li>
+			</ul>
+			<h3 class="author">Omicega updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Correctly labels D1 starboard maintenance as starboard maintenance, not port maintenance.</li>
+			</ul>
+			<h3 class="author">Yonnimer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Gets the Dionae loadout working, as well as ensure that all items in that used jargon use Nralakk instead.</li>
+			</ul>
+
+			<h2 class="date">11 September 2022</h2>
+			<h3 class="author">Omicega, Granodd updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds Granodd&#x27;s resprites for the Dominian voidsuit and RIGsuit, which now include an Unathi variant for each.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Music SFX toggle, to stop jukeboxes and areas from playing music.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The power line to the Intrepid&#x27;s SMES runs off of the main grid now, rather than a subgrid.</li>
+			</ul>
+			<h3 class="author">WickedCybs, Leudoberct updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new third party, the Kataphract Chapter Ship. Representing the Hegemony&#x27;s finest abroad, probably. They&#x27;re out for adventure and to prove themselves. Trade for supplies for the long road ahead, quest, act with honour.</li>
+				<li class="rscadd">The emergency services dock isn&#x27;t just limited to the ERT TCFL shuttle anymore. The OX ship, TCFL third party shuttle and Kataphract shuttle should be able to dock to it too now. It&#x27;s also been futureproofed and can be used by most ships with a south facing airlock.</li>
+				<li class="rscadd">Added two SMES subtypes for mappers. One is turned on and has a capacitance coil for autostarted solars, the other is a little less beefy SMES for shuttles. Should be nice for mappers.</li>
+				<li class="tweak">Had to make fuel ports by default spawn with nothing inside. A subtype with phoron already inside the hatch was made and should be replacing all the fuel ports as of now. This had to be done, as the way it was initalized, hydrogen ports would have 2 fuel tanks inside, one phoron one hydrogen.</li>
+				<li class="tweak">Moved the hangar landmarks for the OX and TCFL ship as well as the docking landmark on the Horizon for south facing ports. It&#x27;s placed below the airlocks in all cases to better accomodate ship design, as having it to the side was causing issues.</li>
+			</ul>
+			<h3 class="author">listerla updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Added a single pixel to the hijab sprite so that you can&#x27;t see the floor through it.</li>
+				<li class="tweak">All Himean items are now origin-locked.</li>
+				<li class="bugfix">Himean IPCs and Free Council Tajara may now access Himean-locked items.</li>
+			</ul>
+
+			<h2 class="date">10 September 2022</h2>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds teleporter access to the Command staff that didn&#x27;t have it. That would be the XO, CMO, HoS, OM</li>
+				<li class="rscadd">Adds teleporter access to the Bridge Crew.</li>
+			</ul>
+
+			<h2 class="date">09 September 2022</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes MREs not spawning in the emergency rations crate.</li>
+			</ul>
+			<h3 class="author">Omicega updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a new accent specifically for Xanu Prime, in addition to the existing Frontiersfolk accent.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Lets xenoarchaelogists pick hardhats and the mining overalls in the loadout. Adds a regular yellow hardhat to their lockers.</li>
+				<li class="bugfix">Fixes access on the xenoarcheologists locker not using their dedicated access.</li>
+				<li class="rscadd">Adds an alternative sweater that pairs well with a shirt underneath.</li>
+				<li class="rscadd">Adds two machinist&#x27;s lockers to the machinist workshop.</li>
+				<li class="rscadd">Adds a basic circuit kit, wiring tool, and debugging tool to the machinist workshop.</li>
+				<li class="maptweak">Tweaks the machinist workshop layout slightly.</li>
+			</ul>
+			<h3 class="author">WickedCybs updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added missing fire shutters to the maint between the library and security as well as the little gardening area underneath the kitchen.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Scrubs some Resomi stuff from code.</li>
+			</ul>
+			<h3 class="author">Yonnimer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a Dionae loadout selection, along with four dionae-specific items to it</li>
+				<li class="tweak">Adds select Skrell and Unathi items to the Dionae loadout</li>
+			</ul>
+			<h3 class="author">listerla updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">Fixed typos of &#x27;respiratory&#x27; in the breath analyzer.</li>
+				<li class="tweak">Made the white hijab the default, as to fix the colorable hijab&#x27;s name.</li>
+				<li class="rscadd">Buffed the xenoarch belt to have 9 slots.</li>
+				<li class="rscdel">Explorer&#x27;s belt and xenoarch&#x27;s belt may now hold ore detectors.</li>
+			</ul>
+			<h3 class="author">niennab updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added openable versions of the existing faction long labcoats</li>
+				<li class="tweak">Tweaked the shading on the faction long labcoats.</li>
+			</ul>
+
 			<h2 class="date">07 September 2022</h2>
 			<h3 class="author">MattAtlas updated:</h3>
 			<ul class="changes bgimages16">

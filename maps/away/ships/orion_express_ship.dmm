@@ -1601,11 +1601,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
-"mrO" = (
-/obj/effect/shuttle_landmark/orion_express_shuttle/hangar,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/ship/orion_express_ship)
 "mun" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
@@ -1742,7 +1737,7 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "nAQ" = (
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
 /turf/simulated/floor,
@@ -2657,6 +2652,7 @@
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_n_out"
 	},
+/obj/effect/shuttle_landmark/orion_express_shuttle/hangar,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "tEO" = (
@@ -35021,7 +35017,7 @@ sTK
 qjk
 dLy
 xuX
-mrO
+soM
 qBd
 qBd
 qBd

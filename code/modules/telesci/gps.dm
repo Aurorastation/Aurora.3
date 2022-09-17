@@ -4,7 +4,7 @@ var/list/GPS_list = list()
 	name = "global positioning system"
 	desc = "Helping lost spacemen find their way through the planets since 2016."
 	icon = 'icons/obj/telescience.dmi'
-	icon_state = "gps-c"
+	icon_state = "gps-com"
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
@@ -274,32 +274,38 @@ var/list/GPS_list = list()
 		. = next_initial_tag()
 
 /obj/item/device/gps/science
-	icon_state = "gps-s"
+	icon_state = "gps-sci"
 	gps_prefix = "SCI"
 	compass_color = "#993399"
 	gpstag = "SCI0"
 
 /obj/item/device/gps/engineering
-	icon_state = "gps-e"
+	icon_state = "gps-eng"
 	gps_prefix = "ENG"
 	compass_color = "#A66300"
 	gpstag = "ENG0"
 
 /obj/item/device/gps/mining
-	icon_state = "gps-m"
+	icon_state = "gps-min"
 	gps_prefix = "MIN"
 	compass_color = "#5F4519"
 	gpstag = "MIN0"
 	desc = "A positioning system helpful for rescuing trapped or injured miners, keeping one on you at all times while mining might just save your life."
 
 /obj/item/device/gps/janitor
-	icon_state = "gps-j"
+	icon_state = "gps-jan"
 	gps_prefix = "JAN"
 	compass_color = "#6eaa2c"
 	gpstag = "JAN0"
 
+/obj/item/device/gps/medical
+	icon_state = "gps-med"
+	gps_prefix = "MED"
+	compass_color = "#5EABEB"
+	gpstag = "MED0"
+
 /obj/item/device/gps/marooning_equipment
-	icon_state = "gps-e"
+	icon_state = "gps-mar"
 	gps_prefix = "MAROON"
 	compass_color = "#EAD152"
 	gpstag = "MAROON0"
@@ -347,7 +353,7 @@ var/list/GPS_list = list()
 /obj/item/device/gps/stationary/mining_shuttle
 	name = "static GPS (mining shuttle)"
 	desc = "A static global positioning system helpful for finding your way back to the mining shuttle."
-	icon_state = "gps-m"
+	icon_state = "gps-min"
 	anchored = TRUE
 	layer = 2.1
 	gps_prefix = "MIN"

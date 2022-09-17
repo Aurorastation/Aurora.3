@@ -534,7 +534,7 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "gHC" = (
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
 /turf/simulated/floor,
@@ -1012,7 +1012,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "pfE" = (
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
 /turf/simulated/floor/shuttle/black,

@@ -95,7 +95,7 @@
 	new /obj/item/device/flashlight/pen(src)
 	new /obj/item/clothing/accessory/stethoscope(src)
 	new /obj/item/storage/belt/medical/first_responder(src)
-	new /obj/item/device/gps(src)
+	new /obj/item/device/gps/medical(src)
 	new /obj/item/reagent_containers/hypospray(src)
 	new /obj/item/taperoll/medical(src)
 	new /obj/item/device/radio/med(src)

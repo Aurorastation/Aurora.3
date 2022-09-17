@@ -442,7 +442,7 @@
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "gHC" = (
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
 /turf/simulated/floor,
@@ -810,7 +810,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "pfE" = (
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
 /turf/simulated/floor/shuttle/black,
