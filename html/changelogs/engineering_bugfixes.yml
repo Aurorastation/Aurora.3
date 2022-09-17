@@ -1,0 +1,9 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - maptweak: "Maps in portable air conditioning units in engineering."
+  - bugfix: "Moves items mapped on top of engineering and atmos tech lockers from map to code."
+  - bugfix: "Gives engineers and atmos technicians floor- and pipe painters in their lockers."
+  - bugfix: "Fixes the portable air conditioning unit missing its sprite when mapping."
