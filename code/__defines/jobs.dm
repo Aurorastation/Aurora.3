@@ -14,9 +14,11 @@
 #define SCIENCE_ROLES list(/datum/job/scientist, /datum/job/xenoarchaeologist, /datum/job/xenobiologist, /datum/job/xenobotanist, /datum/job/intern_sci)
 #define SECURITY_ROLES list(/datum/job/warden, /datum/job/investigator, /datum/job/officer, /datum/job/intern_sec)
 #define EQUIPMENT_ROLES list(/datum/job/ai, /datum/job/cyborg)
+
+// Role Groups Miscellanous
 #define ALL_FACTION_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/representative)
-#define ADMIN_ROLES list(/datum/job/hra)
 #define ALL_JOBS list(COMMAND_ROLES, COMMAND_SUPPORT_ROLES, ENGINEERING_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, OPERATIONS_ROLES, MEDICAL_ROLES, SCIENCE_ROLES, SECURITY_ROLES, EQUIPMENT_ROLES)
+#define ADMIN_ROLES list(/datum/job/hra)
 
 // Role Factions
 // Used to know what factions host which roles.
@@ -27,5 +29,5 @@
 #define ZENG_ROLES list(SCIENCE_ROLES, MEDICAL_ROLES, ALL_FACTION_ROLES)
 #define HEPH_ROLES list(OPERATIONS_ROLES, ENGINEERING_ROLES, ALL_FACTION_ROLES)
 #define ORION_ROLES list(OPERATIONS_ROLES, ALL_FACTION_ROLES)
-#define SCC_ROLES list(COMMAND_ROLES, COMMAND_SUPPORT_ROLES, EQUIPMENT_ROLES)
-#define INDEP_ROLES list(CIVILIAN_ROLES, /datum/job/merchant, /datum/job/consular, /datum/job/journalist, /datum/job/chaplain)
+#define SCC_ROLES list(COMMAND_ROLES, COMMAND_SUPPORT_ROLES, EQUIPMENT_ROLES, ALL_FACTION_ROLES)
+#define INDEP_ROLES list(CIVILIAN_ROLES, /datum/job/merchant, /datum/job/consular, /datum/job/journalist, /datum/job/chaplain, ALL_FACTION_ROLES)
