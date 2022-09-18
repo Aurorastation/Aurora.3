@@ -5,7 +5,7 @@
 // Role Groups
 // Used to know what roles are part of which department or group.
 #define COMMAND_ROLES list(/datum/job/captain, /datum/job/xo, /datum/job/chief_engineer, /datum/job/cmo, /datum/job/rd, /datum/job/hos, /datum/job/operations_manager, /datum/job/visitor)
-#define COMMAND_SUPPORT_ROLES list(/datum/job/hra, /datum/job/representative, /datum/job/consular, /datum/job/bridge_crew)
+#define COMMAND_SUPPORT_ROLES list(/datum/job/hra, /datum/job/representative, /datum/job/bridge_crew) // Consular intentionally not included as they are independent.
 #define ENGINEERING_ROLES list(/datum/job/engineer, /datum/job/atmos, /datum/job/intern_eng)
 #define SERVICE_ROLES list(/datum/job/chaplain, /datum/job/bartender, /datum/job/chef, /datum/job/hydro, /datum/job/janitor, /datum/job/journalist, /datum/job/librarian)
 #define CIVILIAN_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/passenger)
