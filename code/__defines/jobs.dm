@@ -15,7 +15,7 @@
 #define SECURITY_ROLES list(/datum/job/warden, /datum/job/investigator, /datum/job/officer, /datum/job/intern_sec)
 #define EQUIPMENT_ROLES list(/datum/job/ai, /datum/job/cyborg)
 
-// Role Groups Miscellanous
+// Role Groups Miscellaneous
 #define ALL_FACTION_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/representative)
 #define ALL_JOBS list(COMMAND_ROLES, COMMAND_SUPPORT_ROLES, ENGINEERING_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, OPERATIONS_ROLES, MEDICAL_ROLES, SCIENCE_ROLES, SECURITY_ROLES, EQUIPMENT_ROLES)
 #define ADMIN_ROLES list(/datum/job/hra)
