@@ -1,4 +1,5 @@
-// Groups
+// Role Groups
+// Used to know what roles are part of which department or group.
 #define COMMAND_ROLES list(/datum/job/captain, /datum/job/xo, /datum/job/chief_engineer, /datum/job/cmo, /datum/job/rd, /datum/job/hos, /datum/job/operations_manager, /datum/job/visitor)
 #define COMMAND_SUPPORT_ROLES list(/datum/job/hra, /datum/job/representative, /datum/job/consular, /datum/job/bridge_crew)
 #define ENGINEERING_ROLES list(/datum/job/engineer, /datum/job/atmos, /datum/job/intern_eng)
@@ -13,7 +14,8 @@
 #define ADMIN_ROLES list(/datum/job/hra)
 #define ALL_JOBS list(COMMAND_ROLES, COMMAND_SUPPORT_ROLES, ENGINEERING_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, OPERATIONS_ROLES, MEDICAL_ROLES, SCIENCE_ROLES, SECURITY_ROLES, EQUIPMENT_ROLES)
 
-// Factions
+// Role Factions
+// Used to know what factions host which roles.
 #define IDRIS_ROLES list(SECURITY_ROLES, SERVICE_ROLES, ALL_FACTION_ROLES)
 #define ZAVOD_ROLES list(SECURITY_ROLES, SCIENCE_ROLES, ENGINEERING_ROLES, ALL_FACTION_ROLES)
 #define PMC_ROLES list(SECURITY_ROLES, MEDICAL_ROLES, ALL_FACTION_ROLES)
