@@ -194,7 +194,7 @@
 			"Operations" = cargo_positions,
 			"Service" = service_positions,
 			"Civilian" = civilian_positions,
-			"Synthetics" = nonhuman_positions
+			"Equipment" = nonhuman_positions
 		)
 
 	for(var/datum/record/general/R in SSrecords.records)
