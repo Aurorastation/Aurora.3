@@ -39,4 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
  - tweak: "Changed access on the Kataphract vessel to allow Hopeful's to open the armory. Additonally added a Hegemony flag to the armory, changed the hammers to hegemony power-hammers, added bins and changed the hanger lights to spotlights. Also removes the boxing gloves for lore reasons. "
- - bufix: "Fixed an incorrect amount of rods on the Kataphract vessel."
+ - bugfix: "Fixed an incorrect amount of rods on the Kataphract vessel."
