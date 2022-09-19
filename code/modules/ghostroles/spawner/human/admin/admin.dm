@@ -202,3 +202,27 @@
 				var/datum/ghostspawner/G = SSghostroles.get_spawner("checkpointsec")
 				G.enable()
 		return TRUE
+	
+/datum/ghostspawner/human/admin/peacekeeper
+	name = "SCC Oversight Agent"
+	short_name = "SCCPeacekeeper"
+	desc = "Following the events of the 18th of September, you have been deployed to the SCCV Horizon to oversee the ship for any lingering signs of mutiny, silence any sort of seditious behaviour and keep up crew morale."
+
+	enabled = TRUE
+	spawnpoints = list("SCCPeacekeeper")
+	jobban_job = "commanddept"
+	req_perms = null
+	req_perms_edit = R_ADMIN
+	max_count = 2
+
+	outfit = /datum/outfit/admin/scc/peacekeeper
+	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_SKRELL)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "SCC Oversight Agent"
+	special_role = "SCC Oversight Agent"
+	respawn_flag = null
+
+	mob_name = null
+	mob_name_prefix = "AGT. "
+	mob_name_pick_message = "Set your full name. You already have a prefix."

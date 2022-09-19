@@ -2515,8 +2515,8 @@
 "bRX" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "ops";
-	pixel_y = 20;
-	pixel_x = -13
+	pixel_x = -13;
+	pixel_y = 20
 	},
 /obj/machinery/light{
 	dir = 4
@@ -3179,9 +3179,9 @@
 	dir = 10
 	},
 /obj/machinery/computer/shuttle_control/lift/wall{
-	shuttle_tag = "Morgue Lift";
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	shuttle_tag = "Morgue Lift"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
@@ -8101,8 +8101,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/shutters{
 	dir = 4;
-	name = "Machinist Workshop Conveyor Shutter";
-	id = "machinistworkshop"
+	id = "machinistworkshop";
+	name = "Machinist Workshop Conveyor Shutter"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
@@ -11106,11 +11106,11 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/morgue/lower)
@@ -14279,11 +14279,11 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/emergency_storage)
@@ -15755,6 +15755,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "mtp" = (
@@ -23533,8 +23534,8 @@
 	},
 /obj/structure/sink/kitchen{
 	dir = 4;
-	pixel_x = -21;
-	name = "sink"
+	name = "sink";
+	pixel_x = -21
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
@@ -23641,6 +23642,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "sMm" = (

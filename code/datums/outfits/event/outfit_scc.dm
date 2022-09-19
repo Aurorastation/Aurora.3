@@ -2,7 +2,7 @@
 	name = "SCC Agent"
 
 	uniform = /obj/item/clothing/under/rank/scc
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/ert/ccia
 	glasses = /obj/item/clothing/glasses/sunglasses
@@ -14,11 +14,17 @@
 	id = /obj/item/card/id
 
 	backpack_contents = list(
-		/obj/item/storage/box/survival/engineer = 1
+		/obj/item/storage/box/survival/engineer = 1,
+		/obj/item/clipboard = 1,
+		/obj/item/pen = 1
 	)
 
 	id_icon = "centcom"
 	var/id_access = "SCC Agent"
+
+/datum/outfit/admin/scc/peacekeeper
+	name = "SCC Oversight Agent"
+	r_pocket = null
 
 /datum/outfit/admin/scc/get_id_access()
 	return get_all_station_access() | get_centcom_access(id_access)

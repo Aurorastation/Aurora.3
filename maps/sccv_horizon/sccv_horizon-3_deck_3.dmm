@@ -1829,6 +1829,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "dx" = (
@@ -2371,7 +2372,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/lawoffice/consular)
 "el" = (
 /obj/structure/disposalpipe/segment,
@@ -2877,6 +2881,8 @@
 	},
 /obj/structure/table/reinforced/wood,
 /obj/item/reagent_containers/food/drinks/teapot,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "fp" = (
@@ -2995,6 +3001,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/item/wrench,
+/obj/item/screwdriver,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "fC" = (
@@ -3737,7 +3746,9 @@
 	dir = 1;
 	pixel_y = 24
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	icon_state = "steel_broken3"
+	},
 /area/bridge/controlroom)
 "gW" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -3879,6 +3890,15 @@
 "hk" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/break_room)
+"hl" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	broken = 2;
+	icon_state = "steel_broken2"
+	},
+/area/bridge)
 "hm" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -4949,6 +4969,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/starboard)
+"iZ" = (
+/turf/simulated/floor/tiled{
+	broken = 3;
+	icon_state = "steel_broken3"
+	},
+/area/horizon/hallway/deck_three/primary/starboard)
 "ja" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -5127,9 +5153,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
-	},
-/obj/structure/railing/mapped{
-	dir = 1
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -6009,6 +6032,8 @@
 	},
 /obj/item/folder/red,
 /obj/item/folder/yellow,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "kS" = (
@@ -6700,7 +6725,9 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	icon_state = "lino_grey_broken1"
+	},
 /area/horizon/deck_three/cafeteria)
 "mi" = (
 /turf/simulated/wall,
@@ -7123,6 +7150,9 @@
 	dir = 6
 	},
 /obj/structure/closet/secure_closet/bridge_crew,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "nb" = (
@@ -7591,6 +7621,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "nR" = (
@@ -7809,9 +7840,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/structure/bed/stool/chair/wood{
-	dir = 8
-	},
+/obj/item/material/stool/chair/wood,
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "ol" = (
@@ -8029,6 +8058,9 @@
 	},
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "oE" = (
@@ -10360,6 +10392,9 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
 	},
+/obj/item/tape/engineering{
+	icon_state = "engineering_door"
+	},
 /turf/simulated/floor/tiled,
 /area/lawoffice/consular)
 "sZ" = (
@@ -10380,10 +10415,17 @@
 "tb" = (
 /obj/structure/table/reinforced/wood,
 /obj/machinery/chemical_dispenser/coffeemaster/full{
+	desc = "This valiant coffee machine that dispensed drinks to many a bored Horizon crewmembers has turned into arguably the worst casualty of the Free Solarian Fleets' carnage at the hands of the Kruger's Revenge fireteam. It has ten bullet holes and is no longer functional.";
+	name = "broken coffee machine";
 	pixel_x = -3;
-	pixel_y = 7
+	pixel_y = 7;
+	stat = 1
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/item/tape/engineering{
+	icon_state = "engineering_door";
+	pixel_y = 6
+	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "tc" = (
@@ -11107,6 +11149,8 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/bridge_crew,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
 "uq" = (
@@ -11383,9 +11427,6 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "uS" = (
@@ -11484,7 +11525,9 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	broken = 3
+	},
 /area/bridge/controlroom)
 "uZ" = (
 /obj/machinery/photocopier,
@@ -12000,6 +12043,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
+"vV" = (
+/obj/structure/bed/stool/bar/padded/red,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/lino/grey{
+	icon_state = "lino_grey_broken1"
+	},
+/area/horizon/deck_three/cafeteria)
 "vW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -12197,8 +12252,7 @@
 /area/medical/smoking)
 "wo" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "wp" = (
 /turf/simulated/wall/r_wall,
@@ -13286,7 +13340,9 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	icon_state = "steel_broken2"
+	},
 /area/bridge/controlroom)
 "yo" = (
 /obj/structure/cable/green{
@@ -14188,6 +14244,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "zY" = (
@@ -14552,7 +14609,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	broken = 1;
+	icon_state = "steel_broken2"
+	},
 /area/bridge/controlroom)
 "AK" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
@@ -14610,6 +14670,7 @@
 /area/bridge/minibar)
 "AP" = (
 /obj/structure/table/reinforced/wood,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "AQ" = (
@@ -14795,6 +14856,12 @@
 /obj/machinery/light,
 /obj/item/folder/blue,
 /obj/item/folder/white,
+/obj/item/ammo_magazine/c762/sol{
+	max_ammo = o
+	},
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
 "Bg" = (
@@ -14895,7 +14962,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/lawoffice/consular)
 "Bs" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -16011,6 +16081,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/pool)
+"DD" = (
+/turf/simulated/floor/tiled{
+	broken = 2;
+	icon_state = "steel_broken2"
+	},
+/area/horizon/hallway/deck_three/primary/starboard)
 "DE" = (
 /obj/effect/floor_decal/spline/fancy,
 /obj/machinery/computer/ship/sensors{
@@ -17271,7 +17347,9 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/grey{
+	icon_state = "lino_grey_broken1"
+	},
 /area/horizon/deck_three/cafeteria)
 "FT" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -17483,6 +17561,7 @@
 	dir = 4
 	},
 /obj/item/device/multitool,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "Gr" = (
@@ -17835,7 +17914,10 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	broken = 1;
+	icon_state = "steel_broken2"
+	},
 /area/bridge/controlroom)
 "GX" = (
 /obj/structure/disposalpipe/segment{
@@ -18233,7 +18315,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/security{
-	dir = 1
+	dir = 1;
+	stat = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -18314,7 +18397,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	broken = 2;
+	icon_state = "steel_broken2"
+	},
 /area/bridge)
 "HP" = (
 /obj/structure/cable/green{
@@ -19450,12 +19536,18 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/horizon/deck_three/cafeteria)
 "JO" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/horizon/deck_three/cafeteria)
 "JP" = (
 /obj/structure/cable/green{
@@ -20101,6 +20193,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/tiled/dark,
 /area/tcommsat/chamber)
+"KU" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled{
+	broken = 3;
+	icon_state = "steel_broken3"
+	},
+/area/bridge)
 "KV" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -20595,6 +20699,11 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/item/clipboard,
+/obj/item/ammo_magazine/c762/sol{
+	max_ammo = o
+	},
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "LO" = (
@@ -20891,6 +21000,10 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "Mr" = (
@@ -21872,7 +21985,10 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	broken = 1;
+	icon_state = "steel_broken3"
+	},
 /area/bridge/controlroom)
 "Oa" = (
 /obj/effect/floor_decal/corner/green{
@@ -22102,7 +22218,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/lawoffice/consular)
 "Ow" = (
 /obj/structure/railing/mapped,
@@ -22647,7 +22766,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/message_monitor{
-	dir = 1
+	dir = 1;
+	stat = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -23972,6 +24092,13 @@
 /area/security/forensics_office{
 	name = "Security - Investigations Office"
 	})
+"RM" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/lino/grey{
+	icon_state = "lino_grey_broken1"
+	},
+/area/horizon/deck_three/cafeteria)
 "RN" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -24021,6 +24148,15 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
+"RQ" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	broken = 2;
+	icon_state = "steel_broken2"
+	},
+/area/bridge)
 "RR" = (
 /obj/machinery/cryopod,
 /obj/effect/floor_decal/corner/green{
@@ -24151,7 +24287,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	broken = 2;
+	icon_state = "steel_broken2"
+	},
 /area/bridge/controlroom)
 "Sd" = (
 /obj/effect/floor_decal/corner/blue{
@@ -24162,6 +24301,15 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
+/area/bridge/controlroom)
+"Se" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	broken = 2;
+	icon_state = "steel_broken2"
+	},
 /area/bridge/controlroom)
 "Sf" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -24185,10 +24333,17 @@
 "Sh" = (
 /obj/structure/table/reinforced/wood,
 /obj/machinery/chemical_dispenser/bar_soft/full{
+	desc = "This valiant soda machine that dispensed drinks to many a bored Horizon crewmembers has turned into arguably the worst casualty of the Free Solarian Fleets' carnage at the hands of the Kruger's Revenge fireteam. It has ten bullet holes and is no longer functional.";
+	name = "broken soft drink dispenser";
 	pixel_x = 4;
-	pixel_y = 7
+	pixel_y = 7;
+	stat = 1
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/item/tape/engineering{
+	icon_state = "engineering_door";
+	pixel_y = 6
+	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "Si" = (
@@ -24369,8 +24524,14 @@
 "Sz" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/reinforced/wood,
-/obj/item/storage/box/fancy/donut,
 /obj/item/paper/fluff/microwave,
+/obj/item/storage/box/fancy/donut/empty{
+	desc = "The marines have stolen all the donuts.";
+	name = "depressingly empty donut box"
+	},
+/obj/item/ammo_magazine/c762/sol{
+	max_ammo = o
+	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "SA" = (
@@ -24508,6 +24669,15 @@
 	},
 /obj/machinery/recharger,
 /turf/simulated/floor/carpet/rubber,
+/area/bridge/controlroom)
+"SO" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	broken = 3;
+	icon_state = "steel_broken2"
+	},
 /area/bridge/controlroom)
 "SP" = (
 /obj/machinery/camera/motion{
@@ -25224,6 +25394,9 @@
 /obj/item/stack/wrapping_paper,
 /obj/item/device/hand_labeler,
 /obj/item/stack/packageWrap,
+/obj/item/ammo_magazine/c762/sol{
+	max_ammo = o
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "Ui" = (
@@ -25550,12 +25723,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/pool)
 "UL" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced{
+	desc = "It's a table, for putting things on. Or standing on, if you really want to. You could swear something was here before...";
+	name = "conspicuously empty table frame"
+	},
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
 	},
 /obj/machinery/recharger,
-/obj/item/aicard,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "UM" = (
@@ -25608,13 +25783,23 @@
 "UP" = (
 /obj/machinery/vending/coffee{
 	density = 0;
+	desc = "One of the many casualties of the Free Solarian Fleets fireteam, Kruger's Revenge, this coffee machine used to supply many officers, but no more. It has been killed in action.";
+	icon_state = "coffee-broken";
+	name = "destroyed hot drinks vending machine";
 	pixel_x = 5;
-	pixel_y = 24
+	pixel_y = 24;
+	stat = 1
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/item/tape/engineering{
+	icon_state = "engineering_door";
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled{
+	icon_state = "steel_broken3"
+	},
 /area/horizon/hallway/deck_three/primary/starboard)
 "UQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -26300,6 +26485,10 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "SCCPeacekeeper";
+	tag = "SCCPeacekeeper"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
 "Wg" = (
@@ -26398,7 +26587,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/lawoffice/consular)
 "Ws" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -26780,7 +26972,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/structure/bed/stool/chair,
+/obj/item/material/stool/chair,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "Xf" = (
@@ -26899,6 +27091,10 @@
 	},
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "Xp" = (
@@ -27558,6 +27754,12 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
+"Ys" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled{
+	icon_state = "steel_broken3"
+	},
+/area/horizon/hallway/deck_three/primary/starboard)
 "Yt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -27657,13 +27859,9 @@
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "YC" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
+/turf/simulated/floor/tiled{
+	icon_state = "steel_broken3"
 	},
-/obj/structure/bed/stool/chair/padded/brown{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "YD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -27977,10 +28175,6 @@
 	})
 "Zg" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/glass_jar{
-	desc = "A small empty jar that is mostly used for giving a tip.";
-	name = "tip jar"
-	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck - Cafe";
@@ -27990,6 +28184,7 @@
 	dir = 8;
 	pixel_x = 28
 	},
+/obj/item/material/shard,
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "Zh" = (
@@ -28440,7 +28635,10 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	broken = 2;
+	icon_state = "steel_broken3"
+	},
 /area/bridge/controlroom)
 "ZT" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -48623,7 +48821,7 @@ US
 Mq
 wd
 WX
-ym
+Se
 vg
 pS
 Qu
@@ -49419,14 +49617,14 @@ zs
 Dw
 VW
 VW
-VW
+KU
 Cb
 wJ
 kH
 wJ
 UJ
 dB
-dB
+RQ
 mI
 Hp
 NZ
@@ -49636,7 +49834,7 @@ Qu
 va
 iV
 pX
-pX
+SO
 VE
 Qu
 Rx
@@ -49821,7 +50019,7 @@ BW
 aH
 Gk
 EJ
-Ns
+hl
 BJ
 Qz
 Qz
@@ -50214,8 +50412,8 @@ UV
 in
 Ou
 mG
-uk
-uk
+iZ
+DD
 rk
 Ji
 xw
@@ -50819,7 +51017,7 @@ LR
 TN
 KO
 Ou
-uk
+iZ
 co
 EB
 Uq
@@ -51014,7 +51212,7 @@ FS
 Xd
 vt
 Td
-vt
+RM
 jo
 bL
 ZW
@@ -51214,7 +51412,7 @@ OZ
 vR
 Ug
 fY
-qx
+vV
 qx
 qx
 VV
@@ -52636,7 +52834,7 @@ xQ
 xs
 Em
 sk
-sk
+Ys
 CP
 rs
 ZR

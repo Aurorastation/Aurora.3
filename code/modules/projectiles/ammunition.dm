@@ -123,7 +123,7 @@
 	if(isnull(initial_ammo))
 		initial_ammo = max_ammo
 
-	if(initial_ammo)
+	if(initial_ammo && isnum(initial_ammo))
 		for(var/i in 1 to initial_ammo)
 			stored_ammo += new ammo_type(src)
 	update_icon()
