@@ -15,7 +15,7 @@
 	var/viewsize = 7
 
 /obj/item/device/binoculars/attack_self(mob/user)
-	zoom(user,tileoffset,viewsize)
+	zoom(user,tileoffset,viewsize, show_zoom_message = FALSE)
 
 /obj/item/device/binoculars/high_power
 	name = "high power binoculars"
