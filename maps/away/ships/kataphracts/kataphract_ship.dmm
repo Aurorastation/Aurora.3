@@ -7012,6 +7012,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
+"sH" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "sX" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -7104,12 +7113,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
-"uq" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
 "uy" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 32
@@ -7149,16 +7152,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
-"uG" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "corner_white"
-	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/sparring_chamber)
 "uN" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -7452,6 +7445,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
+"yF" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10;
+	icon_state = "corner_white"
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/sparring_chamber)
 "yK" = (
 /obj/machinery/computer/ship/engines,
 /obj/structure/window/reinforced{
@@ -7618,15 +7621,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
-"AN" = (
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = -32
-	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/wood,
-/area/kataphract_chapter/dorms)
 "AP" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -7933,6 +7927,15 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/propulsion)
+"EE" = (
+/obj/structure/sign/flag/hegemony/right{
+	pixel_y = -32
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/dorms)
 "EG" = (
 /obj/machinery/computer/guestpass{
 	pixel_y = 32
@@ -8024,6 +8027,12 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/trading_area)
+"Gc" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/warehouse)
 "Gj" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -8511,6 +8520,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/propulsion)
+"MS" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "MT" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -8959,6 +8974,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
+"Se" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/bridge)
 "Sf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -9054,15 +9075,8 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
-"SP" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/bridge)
 "SZ" = (
 /obj/structure/table/rack,
-/obj/item/stack/rods,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/stack/material/glass/full,
 /obj/item/stack/material/glass/full,
@@ -9071,6 +9085,7 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/wood/full,
 /obj/item/storage/box/lights/bulbs,
+/obj/item/stack/rods/full,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "Td" = (
@@ -9178,15 +9193,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
-"Uk" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
 "Ul" = (
 /obj/machinery/computer/shuttle_control/explore/kataphract_transport{
 	dir = 4
@@ -9250,12 +9256,6 @@
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
-"VV" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/warehouse)
 "VZ" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -19770,7 +19770,7 @@ pH
 pH
 ge
 ge
-AN
+EE
 fK
 hW
 jv
@@ -21226,7 +21226,7 @@ cf
 cf
 cN
 cf
-uq
+MS
 cf
 ia
 jH
@@ -22843,7 +22843,7 @@ fb
 ek
 ek
 ek
-uG
+yF
 cP
 cf
 cp
@@ -24449,7 +24449,7 @@ be
 br
 bC
 az
-SP
+Se
 jr
 cf
 cp
@@ -25775,7 +25775,7 @@ uR
 pf
 kJ
 iR
-VV
+Gc
 li
 ll
 lO
@@ -26566,7 +26566,7 @@ cL
 eM
 ch
 fp
-Uk
+sH
 fW
 np
 tw
