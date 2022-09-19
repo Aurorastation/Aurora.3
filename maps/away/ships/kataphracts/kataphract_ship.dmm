@@ -1498,6 +1498,9 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
 "dE" = (
@@ -3331,7 +3334,7 @@
 	id = "kata_armoury";
 	name = "Armoury Entrance Control";
 	pixel_x = 25;
-	req_one_access = list(115, 113)
+	req_one_access = list(115,113)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
@@ -3505,7 +3508,7 @@
 "hv" = (
 /obj/machinery/door/airlock/glass{
 	name = "Quartermaster";
-	req_one_access = list(113, 115)
+	req_one_access = list(113,115)
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -5524,6 +5527,9 @@
 /obj/structure/sign/flag/hegemony/right{
 	pixel_y = 32
 	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "lx" = (
@@ -6056,7 +6062,7 @@
 "mL" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armoury";
-	req_one_access = list(113, 115)
+	req_one_access = list(113,115)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7213,7 +7219,7 @@
 "vX" = (
 /obj/machinery/door/airlock/glass{
 	name = "Quartermaster";
-	req_one_access = list(113, 115)
+	req_one_access = list(113,115)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
@@ -7797,6 +7803,12 @@
 /obj/item/storage/box/zipties,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/office)
+"Dw" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/warehouse)
 "Dx" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -7952,6 +7964,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
+"FA" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "FC" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -8651,6 +8672,15 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/office)
+"Oz" = (
+/obj/structure/sign/flag/hegemony/right{
+	pixel_y = -32
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/dorms)
 "OA" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -8784,6 +8814,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/port_solars_array)
+"PV" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10;
+	icon_state = "corner_white"
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/sparring_chamber)
 "PW" = (
 /obj/effect/shuttle_landmark/kataphract_transport/transit,
 /turf/template_noop,
@@ -9193,6 +9233,12 @@
 	req_access = list(113);
 	req_one_access = null;
 	pixel_x = 27
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/bridge)
+"VI" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -19718,7 +19764,7 @@ pH
 pH
 ge
 ge
-hG
+Oz
 fK
 hW
 jv
@@ -22791,7 +22837,7 @@ fb
 ek
 ek
 ek
-nm
+PV
 cP
 cf
 cp
@@ -24397,7 +24443,7 @@ be
 br
 bC
 az
-aC
+VI
 jr
 cf
 cp
@@ -25723,7 +25769,7 @@ uR
 pf
 kJ
 iR
-lh
+Dw
 li
 ll
 lO
@@ -26514,7 +26560,7 @@ cL
 eM
 ch
 fp
-cD
+FA
 fW
 np
 tw
