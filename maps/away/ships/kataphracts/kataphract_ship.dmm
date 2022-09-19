@@ -7104,6 +7104,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
+"uq" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "uy" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 32
@@ -7143,6 +7149,16 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
+"uG" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10;
+	icon_state = "corner_white"
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/sparring_chamber)
 "uN" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -7301,16 +7317,6 @@
 /obj/item/storage/pill_bottle/dylovene,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
-"xc" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "corner_white"
-	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/sparring_chamber)
 "xC" = (
 /obj/structure/table/wood,
 /obj/machinery/button/switch/windowtint{
@@ -7612,6 +7618,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
+"AN" = (
+/obj/structure/sign/flag/hegemony/right{
+	pixel_y = -32
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/dorms)
 "AP" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -7918,15 +7933,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/propulsion)
-"EE" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
 "EG" = (
 /obj/machinery/computer/guestpass{
 	pixel_y = 32
@@ -8853,15 +8859,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
-"QH" = (
-/obj/structure/sign/flag/hegemony/right{
-	pixel_y = -32
-	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/wood,
-/area/kataphract_chapter/dorms)
 "QT" = (
 /obj/machinery/firealarm/east,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9057,6 +9054,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
+"SP" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/bridge)
 "SZ" = (
 /obj/structure/table/rack,
 /obj/item/stack/rods,
@@ -9175,6 +9178,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/main_compartment)
+"Uk" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "Ul" = (
 /obj/machinery/computer/shuttle_control/explore/kataphract_transport{
 	dir = 4
@@ -9238,6 +9250,12 @@
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
+"VV" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/warehouse)
 "VZ" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -9251,12 +9269,6 @@
 /obj/random/tech_supply,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
-"Wk" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/bridge)
 "Wr" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
@@ -9434,12 +9446,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/engine_compartment)
-"Zd" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/warehouse)
 "Ze" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -19764,7 +19770,7 @@ pH
 pH
 ge
 ge
-QH
+AN
 fK
 hW
 jv
@@ -21220,7 +21226,7 @@ cf
 cf
 cN
 cf
-cf
+uq
 cf
 ia
 jH
@@ -22837,7 +22843,7 @@ fb
 ek
 ek
 ek
-xc
+uG
 cP
 cf
 cp
@@ -24443,7 +24449,7 @@ be
 br
 bC
 az
-Wk
+SP
 jr
 cf
 cp
@@ -25769,7 +25775,7 @@ uR
 pf
 kJ
 iR
-Zd
+VV
 li
 ll
 lO
@@ -26560,7 +26566,7 @@ cL
 eM
 ch
 fp
-EE
+Uk
 fW
 np
 tw
