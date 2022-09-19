@@ -971,9 +971,10 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/blue/full,
 /obj/item/device/taperecorder,
+/obj/structure/table,
+/obj/item/material/shard/shrapnel,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "bP" = (
@@ -1189,7 +1190,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/structure/bed/stool/chair/sofa/left/red,
+/obj/item/tape/engineering{
+	icon_state = "engineering_door";
+	pixel_y = -5
+	},
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "cn" = (
@@ -1401,6 +1405,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
+/obj/item/material/shard/shrapnel,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "cG" = (
@@ -2114,7 +2119,7 @@
 	id = "shutters_deck3_cafedesk";
 	name = "Cafe Desk Shutter"
 	},
-/obj/structure/table/stone/marble,
+/obj/structure/table,
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/cafeteria)
 "dM" = (
@@ -3956,6 +3961,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
 "ht" = (
@@ -4127,6 +4133,12 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
+"hJ" = (
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
+/area/lawoffice/representative)
 "hK" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable/green{
@@ -4687,7 +4699,6 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
@@ -4698,6 +4709,8 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
+/obj/item/material/shard/shrapnel,
+/obj/structure/table,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "iD" = (
@@ -5299,10 +5312,10 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
+/obj/structure/table,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "jE" = (
@@ -5499,6 +5512,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
+/obj/item/material/shard,
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "jZ" = (
@@ -5930,7 +5944,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/lawoffice/representative)
 "kM" = (
 /obj/effect/floor_decal/corner/green{
@@ -7064,12 +7081,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "mS" = (
-/obj/structure/bed/stool/chair/padded/brown{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/item/material/stool/chair,
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative)
 "mT" = (
@@ -7395,7 +7410,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/lawoffice/representative)
 "nw" = (
 /obj/structure/bed/stool/chair{
@@ -7611,7 +7629,7 @@
 	name = "Cafe Desk Shutter"
 	},
 /obj/item/material/ashtray/bronze,
-/obj/structure/table/stone/marble,
+/obj/structure/table,
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/cafeteria)
 "nP" = (
@@ -8356,6 +8374,10 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_magazine/c762/sol{
+	max_ammo = o
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "pk" = (
@@ -13962,6 +13984,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
+"zv" = (
+/obj/item/material/stool/chair,
+/turf/simulated/floor/carpet,
+/area/lawoffice/representative)
 "zw" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/vending/cigarette,
@@ -14240,11 +14266,11 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
 /obj/item/ammo_casing/rifle/used,
+/obj/structure/table,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "zY" = (
@@ -14671,6 +14697,7 @@
 "AP" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/ammo_casing/rifle/used,
+/obj/item/material/shard/shrapnel,
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "AQ" = (
@@ -14985,6 +15012,13 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcommsat/entrance)
+"Bv" = (
+/obj/structure/window_frame,
+/obj/item/tape/engineering{
+	icon_state = "engineering_door"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/lawoffice/consular)
 "Bw" = (
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/decal/cleanable/cobweb,
@@ -15143,6 +15177,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
+/obj/item/material/shard,
 /turf/simulated/floor/wood,
 /area/horizon/deck_three/cafeteria)
 "BL" = (
@@ -16351,6 +16386,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
+"Eg" = (
+/obj/structure/window_frame,
+/obj/item/tape/engineering{
+	icon_state = "engineering_door"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/lawoffice/representative)
 "Eh" = (
 /turf/simulated/wall/r_wall,
 /area/medical/ward/isolation)
@@ -19462,8 +19504,10 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/mirror{
+	icon_state = "mirror_broke";
 	pixel_x = 25;
-	pixel_y = 8
+	pixel_y = 8;
+	shattered = 1
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
@@ -20077,7 +20121,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/bridge)
 "KH" = (
-/obj/structure/window/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 8;
@@ -20085,6 +20128,7 @@
 	name = "Cafe Desk Shutter"
 	},
 /obj/structure/table/stone/marble,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled,
 /area/horizon/deck_three/cafeteria)
 "KI" = (
@@ -20692,7 +20736,6 @@
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "LN" = (
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
@@ -20704,6 +20747,7 @@
 	},
 /obj/item/ammo_casing/rifle/used,
 /obj/item/ammo_casing/rifle/used,
+/obj/item/material/shard/shrapnel,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "LO" = (
@@ -20923,6 +20967,10 @@
 	},
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Mi" = (
@@ -24398,6 +24446,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
+/obj/item/material/shard/shrapnel,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "So" = (
@@ -24663,11 +24712,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "SN" = (
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
 /obj/machinery/recharger,
+/obj/structure/table,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "SO" = (
@@ -25723,14 +25772,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/pool)
 "UL" = (
-/obj/structure/table/reinforced{
-	desc = "It's a table, for putting things on. Or standing on, if you really want to. You could swear something was here before...";
-	name = "conspicuously empty table frame"
-	},
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
 	},
 /obj/machinery/recharger,
+/obj/structure/table,
+/obj/item/material/shard/shrapnel,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "UM" = (
@@ -25896,6 +25943,18 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/material/shard,
+/obj/item/material/shard,
+/obj/item/material/shard,
+/obj/item/ammo_magazine/c762/sol{
+	max_ammo = o
+	},
+/obj/item/ammo_magazine/c762/sol{
+	max_ammo = o
+	},
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Vc" = (
@@ -28185,6 +28244,7 @@
 	pixel_x = 28
 	},
 /obj/item/material/shard,
+/obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
 "Zh" = (
@@ -28566,7 +28626,14 @@
 	dir = 6
 	},
 /obj/machinery/light,
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/machinery/chemical_dispenser/coffee/full{
+	desc = "Another casualty of the events of September 18th. Not a very well known one, however.";
+	name = "broken coffee machine";
+	stat = 1
+	},
+/obj/item/tape/engineering{
+	icon_state = "engineering_door"
+	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "ZM" = (
@@ -51228,7 +51295,7 @@ Yg
 Yg
 sY
 Yg
-xw
+Bv
 xw
 xw
 Bh
@@ -52037,7 +52104,7 @@ VC
 Mt
 VC
 NB
-NB
+Eg
 NB
 xx
 xx
@@ -52442,7 +52509,7 @@ mS
 bg
 Wa
 wT
-bg
+zv
 Vi
 at
 at
@@ -52642,7 +52709,7 @@ VC
 GH
 ri
 to
-Wa
+hJ
 Dm
 to
 Vi
