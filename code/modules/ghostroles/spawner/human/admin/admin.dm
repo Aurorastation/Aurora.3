@@ -210,7 +210,6 @@
 
 	enabled = TRUE
 	spawnpoints = list("SCCPeacekeeper")
-	jobban_job = "commanddept"
 	req_perms = null
 	req_perms_edit = R_ADMIN
 	max_count = 2
