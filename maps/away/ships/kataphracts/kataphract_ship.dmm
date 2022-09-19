@@ -1315,7 +1315,6 @@
 /area/kataphract_chapter/sparring_chamber)
 "dh" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/gloves/boxing/blue,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -1327,7 +1326,6 @@
 /area/kataphract_chapter/sparring_chamber)
 "di" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/gloves/boxing/green,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 5
@@ -1336,7 +1334,6 @@
 /area/kataphract_chapter/sparring_chamber)
 "dj" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/gloves/boxing/yellow,
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 5
@@ -1345,7 +1342,6 @@
 /area/kataphract_chapter/sparring_chamber)
 "dk" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/gloves/boxing,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -1501,6 +1497,9 @@
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
@@ -2926,30 +2925,6 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/item/device/radio,
-/obj/item/device/gps{
-	pixel_x = -6;
-	pixel_y = -3
-	},
-/obj/item/device/gps{
-	pixel_x = -6;
-	pixel_y = -3
-	},
-/obj/item/device/gps{
-	pixel_x = -6;
-	pixel_y = -3
-	},
-/obj/item/device/gps{
-	pixel_x = -6;
-	pixel_y = -3
-	},
-/obj/item/device/gps{
-	pixel_x = -6;
-	pixel_y = -3
-	},
-/obj/item/device/gps{
-	pixel_x = -6;
-	pixel_y = -3
-	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "gr" = (
@@ -3358,7 +3333,7 @@
 	id = "kata_armoury";
 	name = "Armoury Entrance Control";
 	pixel_x = 25;
-	req_one_access = list(115)
+	req_one_access = list(115,113)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
@@ -3532,7 +3507,7 @@
 "hv" = (
 /obj/machinery/door/airlock/glass{
 	name = "Quartermaster";
-	req_one_access = list(115)
+	req_one_access = list(115,113)
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -5551,6 +5526,9 @@
 /obj/structure/sign/flag/hegemony/right{
 	pixel_y = 32
 	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "lx" = (
@@ -6055,13 +6033,13 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "mG" = (
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "mH" = (
-/obj/machinery/light,
+/obj/machinery/light/spot,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "mI" = (
@@ -6083,8 +6061,7 @@
 "mL" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armoury";
-	req_access = list(115);
-	req_one_access = null
+	req_one_access = list(115,113)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6918,7 +6895,7 @@
 /obj/structure/sign/securearea{
 	pixel_x = 32
 	},
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -7374,13 +7351,13 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/trading_area)
 "yj" = (
-/obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/light/spot,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "yk" = (
@@ -7599,6 +7576,16 @@
 "Aw" = (
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"AC" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10;
+	icon_state = "corner_white"
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/sparring_chamber)
 "AD" = (
 /obj/structure/sign/flag/hegemony/right{
 	dir = 4;
@@ -7774,10 +7761,23 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
+"CS" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "CW" = (
 /obj/effect/shuttle_landmark/nav_kataphract_ship/nav1,
 /turf/template_noop,
 /area/space)
+"CX" = (
+/obj/machinery/light,
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "CY" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/device/flashlight/lamp,
@@ -8025,6 +8025,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
+"Gk" = (
+/obj/structure/sign/flag/hegemony/right{
+	pixel_y = -32
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/dorms)
 "Gr" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
@@ -8341,6 +8350,16 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
+"KK" = (
+/obj/effect/floor_decal/corner/yellow{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/bridge)
 "KP" = (
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = -31
@@ -8630,6 +8649,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
+"NU" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/warehouse)
 "Oa" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -9096,8 +9121,8 @@
 "TF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/table/rack,
-/obj/item/melee/hammer/powered,
-/obj/item/melee/hammer/powered,
+/obj/item/melee/hammer/powered/hegemony,
+/obj/item/melee/hammer/powered/hegemony,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "TH" = (
@@ -9173,6 +9198,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/propulsion)
+"UC" = (
+/obj/effect/floor_decal/corner/yellow{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/trading_area)
 "UE" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -9339,7 +9374,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/office)
 "Yg" = (
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -19736,7 +19771,7 @@ pH
 pH
 ge
 ge
-hG
+Gk
 fK
 hW
 jv
@@ -22809,7 +22844,7 @@ fb
 ek
 ek
 ek
-nm
+AC
 cP
 cf
 cp
@@ -24901,7 +24936,7 @@ bc
 aZ
 bc
 VG
-bc
+KK
 ab
 cg
 ct
@@ -25081,7 +25116,7 @@ cf
 cN
 cf
 cf
-cf
+CS
 ly
 ly
 ly
@@ -25268,7 +25303,7 @@ mA
 lh
 la
 la
-lz
+UC
 kP
 mi
 Ez
@@ -25741,7 +25776,7 @@ uR
 pf
 kJ
 iR
-lh
+NU
 li
 ll
 lO
@@ -26370,7 +26405,7 @@ cu
 cu
 cg
 fo
-fI
+CX
 fW
 go
 gY
