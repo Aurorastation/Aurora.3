@@ -312,6 +312,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
+"aE" = (
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
+/area/lawoffice/representative)
 "aF" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -484,6 +490,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/mech_wreckage{
+	desc = "That definitely, DEFINITELY shouldn't be here. A casualty of the events of September 18th.";
+	name = "suspicious mech wreckage"
+	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "aV" = (
@@ -1224,7 +1234,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/horizon/hallway/deck_three/primary/starboard)
 "cp" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -4133,12 +4146,6 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
-"hJ" = (
-/turf/simulated/floor/wood{
-	broken = 1;
-	icon_state = "wood_broken1"
-	},
-/area/lawoffice/representative)
 "hK" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable/green{
@@ -9066,6 +9073,13 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/deck_three/cafeteria)
+"qy" = (
+/obj/structure/window_frame,
+/obj/item/tape/engineering{
+	icon_state = "engineering_door"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/lawoffice/representative)
 "qz" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
@@ -9098,7 +9112,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/horizon/hallway/deck_three/primary/starboard)
 "qD" = (
 /obj/structure/flora/pottedplant{
@@ -10124,13 +10141,13 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "sv" = (
-/obj/structure/bed/stool/chair/padded/brown{
-	dir = 4
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/horizon/hallway/deck_three/primary/starboard)
 "sw" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -11067,7 +11084,11 @@
 "ue" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood,
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/horizon/hallway/deck_three/primary/starboard)
 "uf" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -12273,9 +12294,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/smoking)
 "wo" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee,
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/starboard)
+/obj/structure/window_frame,
+/obj/item/tape/engineering{
+	icon_state = "engineering_door"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/lawoffice/consular)
 "wp" = (
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/heads/cmo)
@@ -13984,10 +14008,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
-"zv" = (
-/obj/item/material/stool/chair,
-/turf/simulated/floor/carpet,
-/area/lawoffice/representative)
 "zw" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/vending/cigarette,
@@ -15012,13 +15032,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcommsat/entrance)
-"Bv" = (
-/obj/structure/window_frame,
-/obj/item/tape/engineering{
-	icon_state = "engineering_door"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/lawoffice/consular)
 "Bw" = (
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/decal/cleanable/cobweb,
@@ -15881,11 +15894,14 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
 "Dc" = (
-/obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/horizon/hallway/deck_three/primary/starboard)
 "Dd" = (
 /turf/simulated/floor/wood,
@@ -16386,13 +16402,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"Eg" = (
-/obj/structure/window_frame,
-/obj/item/tape/engineering{
-	icon_state = "engineering_door"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/lawoffice/representative)
 "Eh" = (
 /turf/simulated/wall/r_wall,
 /area/medical/ward/isolation)
@@ -16640,13 +16649,13 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "EB" = (
-/obj/structure/bed/stool/chair/padded/brown{
-	dir = 8
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood{
+	broken = 1;
+	icon_state = "wood_broken1"
+	},
 /area/horizon/hallway/deck_three/primary/starboard)
 "EC" = (
 /turf/simulated/wall/r_wall,
@@ -21614,6 +21623,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
+"No" = (
+/obj/item/material/stool/chair,
+/turf/simulated/floor/carpet,
+/area/lawoffice/representative)
 "Np" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -51295,7 +51308,7 @@ Yg
 Yg
 sY
 Yg
-Bv
+wo
 xw
 xw
 Bh
@@ -51692,7 +51705,7 @@ HH
 Ou
 uK
 lL
-wo
+iZ
 jq
 Wk
 Hh
@@ -52104,7 +52117,7 @@ VC
 Mt
 VC
 NB
-Eg
+qy
 NB
 xx
 xx
@@ -52509,7 +52522,7 @@ mS
 bg
 Wa
 wT
-zv
+No
 Vi
 at
 at
@@ -52709,7 +52722,7 @@ VC
 GH
 ri
 to
-hJ
+aE
 Dm
 to
 Vi
