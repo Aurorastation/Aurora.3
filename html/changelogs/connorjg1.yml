@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Changed access on the Kataphract vessel to allow Hopeful's to open the armory. Additonally added a Hegemony flag to the armory and changed the hanger lights to spotlights. Also removes the boxing gloves for lore reasons."
+  - tweak: "Changed access on the Kataphract vessel to allow Hopeful's to open the armory. Additonally added a Hegemony flag to the armory, added bins and changed the hanger lights to spotlights. Also removes the boxing gloves for lore reasons. "
  
