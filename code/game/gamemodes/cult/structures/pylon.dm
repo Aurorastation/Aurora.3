@@ -152,9 +152,9 @@
 //If user is not cultist, then speaks cult-y gibberish
 /obj/structure/cult/pylon/proc/speak_to(var/mob/user, var/message)
 	if(iscult(user) || (all_languages[LANGUAGE_CULT] in user.languages))
-		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[message]</i></span>")
+		to_chat(user, "A voice speaks into your mind, "SPAN_CULT("<i>[message]</i>")"")
 	else
-		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[lang.scramble(message)]</i></span>")
+		to_chat(user, "A voice speaks into your mind, "SPAN_CULT("<i>[lang.scramble(message)]</i>")"")
 
 
 //Todo: Replace the messages here with better ones. Should display a proper message to cultists
@@ -390,7 +390,7 @@
 		var/obj/item/projectile/proj = source
 		if(proj.damage_type == BURN)
 			if(empowered <= 0)
-				visible_message(SPAN_CULT("The beam refracts inside the pylon, splitting into an indistinct violet glow. The crystal takes on a new, more ominous aura!"))
+				visible_message(SPAN_ALERT("The beam refracts inside the pylon, splitting into an indistinct violet glow. The crystal takes on a new, more ominous aura!"))
 			empowered += damage * 0.2
 			//When shot with a laser, the pylon absorbs the beam, becoming empowered for a while, glowing brighter
 			// and firing more powerful blasts which have some armor penetration

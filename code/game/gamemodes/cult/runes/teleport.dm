@@ -16,7 +16,7 @@
 /datum/rune/teleport/get_cultist_fluff_text()
 	. = ..()
 	if(network)
-		. += "This rune's network tag reads: <span class='cult'><b><i>[network]</i></b></span>."
+		. += "This rune's network tag reads: "SPAN_CULT("<b><i>[network]</i></b>.")"
 
 /datum/rune/teleport/proc/random_network()
 	if(!network) // check if it hasn't been assigned yet
@@ -59,9 +59,10 @@
 			to_chat(user, SPAN_CULT("The rune is still recharging!"))
 			return fizzle(user, A)
 		user.say("Sas'so c'arta forbici!")//Only you can stop auto-muting
-		user.visible_message("<span class='warning'>[user] disappears in a flash of red light!</span>", \
-		"<span class='cult'>You feel as if your body gets dragged through Redspace!</span>", \
-		"<span class='warning'>You hear a sickening crunch and sloshing of viscera.</span>")
+		user.visible_message(
+		SPAN_WARNING("[user] disappears in a flash of red light!"), \
+		SPAN_CULT("You feel as if your body gets dragged through Redspace!"), \
+		SPAN_WARNING("You hear a sickening crunch and sloshing of viscera."))
 		var/datum/rune/teleport/valid_rune = pick(possible_runes)
 		gibs(get_turf(user))
 		playsound(user, 'sound/magic/enter_blood.ogg', 50, 1)
@@ -71,5 +72,3 @@
 		valid_rune.last_tp_time = world.time
 		last_tp_time = world.time
 	return fizzle(user, A)
-
-

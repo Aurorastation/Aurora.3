@@ -2,7 +2,7 @@
 	name = "ragged hood"
 	icon_state = "culthood"
 	desc = "A torn, dust-caked hood."
-	desc_cult = "This can be reforged to become an eldritch voidsuit helmet."
+	desc_antag = "This can be reforged to become an eldritch voidsuit helmet."
 	flags_inv = HIDEFACE|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|EYES
 	armor = list(
@@ -27,7 +27,7 @@
 /obj/item/clothing/suit/cultrobes
 	name = "ragged robe"
 	desc = "A ragged, dusty robe."
-	desc_cult = "This can be reforged to become an eldritch voidsuit."
+	desc_antag = "This can be reforged to become an eldritch voidsuit."
 	icon_state = "cultrobes"
 	item_state = "cultrobes"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS

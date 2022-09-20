@@ -785,7 +785,7 @@
 			H.revive()
 			H.change_skin_color(r, g, b)
 			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
-			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
+			to_chat(H,FONT_LARGE(SPAN_CULT("You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.")))
 
 /decl/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"

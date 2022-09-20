@@ -28,7 +28,7 @@
 		return
 
 	if(stage < max_stage)
-		stage_ticker += infection_speed 
+		stage_ticker += infection_speed
 
 	if(stage_ticker >= stage*stage_interval)
 		stage = min(stage+1,max_stage)
@@ -301,7 +301,7 @@
 				owner.adjustBruteLoss(-30)
 				owner.adjustFireLoss(-30)
 			else
-				to_chat(owner, "<span class='cult'>You feel an insatiable hunger.</span>")
+				to_chat(owner, SPAN_CULT("You feel an insatiable hunger."))
 				owner.nutrition = -1
 
 	if(stage >= 4)
@@ -316,7 +316,7 @@
 						owner.remove_language(L.name)
 					to_chat(owner, "<span class='warning'>You feel life leaving your husk, but death rejects you...</span>")
 					playsound(src.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
-					to_chat(owner, "<font size='3'><span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>")
+					to_chat(owner, FONT_LARGE(SPAN_CULT("All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!")))
 					owner.set_species(owner.species.zombie_type, 0, 0, 0)
 					owner.change_skin_color(r, g, b)
 					owner.update_dna()

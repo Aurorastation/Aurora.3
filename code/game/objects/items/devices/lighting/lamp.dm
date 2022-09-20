@@ -1,7 +1,7 @@
 /obj/item/device/flashlight/lamp
 	name = "desk lamp"
 	desc = "A desk lamp with an adjustable mount."
-	desc_cult = "This can be reforged to become a pylon."
+	desc_antag = "This can be reforged to become a pylon."
 	icon_state = "lamp"
 	item_state = "lamp"
 	center_of_mass = list("x" = 13,"y" = 11)

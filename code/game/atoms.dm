@@ -30,11 +30,11 @@
 
 	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
 
-	// Extra descriptions.
-	var/desc_fluff = null // Text about the atom's fluff description, if any exists.
+	// Extra descriptions. // Regular descriptions typically reserved for dry, raw descriptions.
+	var/desc_fluff = null // Text about the atom's fluff description, if any exists. Reserved for funny jokes and snarky comments, mostly.
 	var/desc_info = null // Blue text (SPAN_NOTICE()), informing the user about how to use the item or about game controls.
 	var/desc_antag = null // Red text (SPAN_ALERT()), informing the user about how they can use an object to antagonize.
-	var/desc_cult = null // Purple text (SPAN_CULT()), telling the user, if they're a cultist, how they can use certain items related to being a cultist.
+	var/desc_lore = null // Purple text (SPAN_CULT()) that gives the atom's lore info, be it species, corporate or whatever.
 
 /atom/proc/reveal_blood()
 	return
@@ -227,7 +227,7 @@
 	to_chat(user, desc)	// Object description.
 
 	// Extra object descriptions examination code.
-	if(desc_fluff || desc_info || (desc_antag && player_is_antag(user.mind)) || (desc_cult && user.mind?.special_role == "Cultist")) // Checks if the object has a fluff description, a mechanics description, an antagonist description (and if the user is an antagonist), and/or a cultist description (and if the user is a cultist).
+	if(desc_fluff || desc_info || (desc_antag && player_is_antag(user.mind)) || desc_lore) // Checks if the object has a fluff description, a mechanics description, an antagonist description (and if the user is an antagonist), and/or a cultist description (and if the user is a cultist).
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine info. <a href=?src=\ref[src];examine_fluff=1>\[Show In Chat\]</a>"))) // If any of the above are true, show that the object has more information available.
 		if(desc_fluff) // If the item has a fluff description, show that it is available.
 			to_chat(user, FONT_SMALL("- This object has additional fluff info."))
@@ -235,8 +235,8 @@
 			to_chat(user, FONT_SMALL(SPAN_NOTICE("- This object has additional info about mechanics.")))
 		if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show that it is available.
 			to_chat(user, FONT_SMALL(SPAN_ALERT("- This object has additional info for antagonists.")))
-		if(desc_cult && user.mind?.special_role == "Cultist") // If the item has a cultist description and the user is a cultist, show that it is available.
-			to_chat(user, FONT_SMALL(SPAN_CULT("- This object has additional information for those within the veil...")))
+		if(desc_lore) // If the item has a cultist description and the user is a cultist, show that it is available.
+			to_chat(user, FONT_SMALL(SPAN_ALERT("- This object has additional lore info.")))
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -266,8 +266,8 @@
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("- [desc_info]")))
 	if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show it.
 		to_chat(user, FONT_SMALL(SPAN_ALERT("- [desc_antag]")))
-	if(desc_cult && user.mind?.special_role == "Cultist") // If the item has a cultist description and the user is a cultist, show it.
-		to_chat(user, FONT_SMALL(SPAN_CULT("- [desc_cult]")))
+	if(desc_lore) // If the item has a cultist description and the user is a cultist, show it.
+		to_chat(user, FONT_SMALL(SPAN_LORE("- [desc_lore]")))
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

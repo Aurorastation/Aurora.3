@@ -1,6 +1,6 @@
 /obj/item/book/tome
 	name = "arcane tome"
-	desc_cult = null
+	desc_antag = null
 	icon_state = "tome"
 	item_state = "tome"
 	throw_speed = 1
@@ -90,14 +90,14 @@
 				if(use_check_and_message(scribe))
 					return
 
-				scribe.visible_message(SPAN_CULT("[scribe] slices open their palm with a ceremonial knife, drawing arcane symbols with their blood..."))
+				scribe.visible_message(SPAN_ALERT("[scribe] slices open their palm with a ceremonial knife, drawing arcane symbols with their blood..."))
 				playsound(scribe, 'sound/weapons/bladeslice.ogg', 50, FALSE)
 				scribe.drip(4)
 
 				if(do_after(scribe, 50))
 					create_rune(scribe, chosen_rune)
 	else
-		to_chat(user, SPAN_CULT("The book seems full of illegible scribbles."))
+		to_chat(user, SPAN_ALERT("The book seems full of illegible scribbles."))
 
 /obj/item/book/tome/examine(mob/user)
 	..(user)
