@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - tweak: "Renames the \"desc_fluff\" variable on objects to \"desc_extended\" to better reflect its intended purpose."
+  - rscadd: "Adds a \"desc_humour\" variable on objects, where more humorous descriptions can be put."
