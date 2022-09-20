@@ -193,21 +193,21 @@
 	return sign_choices
 
 /obj/structure/sign/double/barsign/proc/set_sign()
-    var/list/sign_choices = get_sign_choices()
+	var/list/sign_choices = get_sign_choices()
 
-    var/list/sign_index = list()
-    for(var/sign in sign_choices)
-        var/decl/sign/double/B = decls_repository.get_decl(sign)
-        sign_index["[B.name]"] = B
+	var/list/sign_index = list()
+	for(var/sign in sign_choices)
+		var/decl/sign/double/B = decls_repository.get_decl(sign)
+		sign_index["[B.name]"] = B
 
-    var/sign_choice = input("What should the sign be changed to?") as null|anything in sign_index
-    if(!sign_choice)
-        return
-    var/decl/sign/double/signselect = sign_index[sign_choice]
+	var/sign_choice = input("What should the sign be changed to?") as null|anything in sign_index
+	if(!sign_choice)
+		return
+	var/decl/sign/double/signselect = sign_index[sign_choice]
 
-    name = signselect.name
-    desc = signselect.desc
-    desc_info = signselect.desc_info
+	name = signselect.name
+	desc = signselect.desc
+	desc_info = signselect.desc_info
 	desc_lore = signselect.desc_lore
-    icon_state = signselect.icon_state
-    update_icon()
+	icon_state = signselect.icon_state
+	update_icon()

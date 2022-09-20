@@ -568,7 +568,7 @@
 	contained_sprite = TRUE
 	storage_slots = 1
 	max_w_class = ITEMSIZE_SMALL
-	desc_fluff = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
+	desc_lore = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
 	Holy Village's most important buildings. When Mata'ke's original hunting party had done battle with the King of Rraknarr, her beloved was killed in the fighting. Ever since then \
 	she has resolved to be eternally chaste in dedication to him. She is an M'sai who is depicted wearing modest dresses and carrying a hammer on a belt. She is not known for having \
 	much combat prowess despite her position as head of the town watch but is a capable commander for defensive tactics."

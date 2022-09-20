@@ -112,6 +112,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
+	desc_fluff = "Drugs may or may not be included."
 	desc_lore = "Funded by the Stellar Corporate Conglomerate, produced by Zeng-Hu Pharmaceuticals, this autoinjector system was rebuilt from the ground up from the old variant to provide maximum user feedback."
 	desc_info = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Use in-hand, or click it while it's in your active hand to prepare it for reuse."
 	icon_state = "autoinjector"

@@ -357,7 +357,7 @@
 /obj/item/clothing/gloves/tesla
 	name = "tesla glove"
 	desc = "A weaponized gauntlet capable of firing lightning bolts."
-	desc_fluff = "A tesla-based weapon created by the People's Republic of Adhomai as part of their Tesla Brigade program. Because of its long recharge time, the gauntlet is commonly \
+	desc_lore = "A tesla-based weapon created by the People's Republic of Adhomai as part of their Tesla Brigade program. Because of its long recharge time, the gauntlet is commonly \
 	used as an ancillary weapon."
 	icon_state = "tesla_glove_on"
 	item_state = "tesla_glove_on"

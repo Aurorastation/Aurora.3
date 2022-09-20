@@ -327,7 +327,7 @@
 	desc = "A magazine specialized in publishing Tajaran Otherworldly Literature stories. The periodical magazine features texts submitted by amateur and established writers alike. \
 	Since it is printed using cheap, recycled paper, outlandish tales is sold for a couple of credits on the streets of Little Adhomai. The magazine also has a section dedicated to \
 	exploring the urban legends and mysteries of Mendell City."
-	desc_fluff = "Influenced by recent events and the growing interest in urban legends, Little Adhomai became the birthplace of Tajaran Otherworldly Literature. This literary genre combines \
+	desc_lore = "Influenced by recent events and the growing interest in urban legends, Little Adhomai became the birthplace of Tajaran Otherworldly Literature. This literary genre combines \
 	aspects of fantasy, horror, and speculative fiction alongside Adhomian paranormal elements, frequently reimagining mythological creatures and events. Tajaran Otherworldly texts are usually \
 	published in magazines or on extranet sites."
 	icon_state = "comicoutlandish"
@@ -1052,7 +1052,7 @@
 /obj/item/toy/plushie/ipc
 	name = "Aphy plushie"
 	desc = "A plushie of an old Hephaestus mascot, Aphy."
-	desc_fluff = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. While the original Aphy is on display in Hephaestus' Mars headquarters, the unit has become a cutesy mascot in recent years."
+	desc_lore = "Aphy, a play on the name Aphrodite, was Hephaestus Industries' first baseline prototype. While the original Aphy is on display in Hephaestus' Mars headquarters, the unit has become a cutesy mascot in recent years."
 	icon_state = "ipcplushie"
 	phrase = "Bwoop!"
 

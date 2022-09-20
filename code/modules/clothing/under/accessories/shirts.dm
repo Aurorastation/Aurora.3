@@ -102,7 +102,7 @@
 /obj/item/clothing/accessory/sweater/vest/argyle
 	name = "argyle sweater vest"
 	desc = "A warm, knit sweater vest with an argyle pattern. Commonly made out of cotton or wool, but sometimes polyester or acrylic as well."
-	desc_lore = "Reminds you of family picture day. Wearing this is entirely your own volition, unfortunately."
+	desc_fluff = "Reminds you of family picture day. Wearing this is entirely your own volition, unfortunately."
 	icon_state = "argyle_sweater_vest"
 	item_state = "argyle_sweater_vest"
 

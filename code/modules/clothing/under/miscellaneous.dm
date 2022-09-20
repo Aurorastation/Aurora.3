@@ -80,7 +80,7 @@
 /obj/item/clothing/under/rank/scc
 	name = "Stellar Corporate Conglomerate agent uniform"
 	desc = "A formal blue uniform worn by agents of the Stellar Corporate Conglomerate."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	desc_lore = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon = 'icons/clothing/under/uniforms/scc.dmi'
 	icon_state = "scc_agent"
 	item_state = "scc_agent"

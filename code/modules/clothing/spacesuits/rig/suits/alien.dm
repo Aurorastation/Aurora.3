@@ -110,7 +110,7 @@
 /obj/item/rig/tesla
 	name = "tesla suit control module"
 	desc = "A tajaran hardsuit designated to be used by the special forces of the Tesla Brigade."
-	desc_fluff = "Formed in 2461, the Tesla Brigade is an experimental force composed of augmented veterans. Created after the intense casualties of the Das'nrra campaign and the \
+	desc_lore = "Formed in 2461, the Tesla Brigade is an experimental force composed of augmented veterans. Created after the intense casualties of the Das'nrra campaign and the \
 	severe loss of Republican Guard units. Additional funding and focus was placed on a previously shelved proposal for heavily armed shock and high technology assault troopers. A \
 	special unit designated to withstand the numerical disadvantages and prolonged engagements special forces of the Republic often faces."
 	suit_type = "tesla suit"

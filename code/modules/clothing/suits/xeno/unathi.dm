@@ -37,7 +37,7 @@
 /obj/item/clothing/suit/unathi/wrapping
 	name = "Th'akhist body wrappings"
 	desc = "A bunch of stitched together clothing with bandages covering them. Looks tailored for a Unathi."
-	desc_fluff = "This is considered humble Sinta wear for Th'akh shamans— most Unathi don't wear these, barring Aut'akh."
+	desc_lore = "This is considered humble Sinta wear for Th'akh shamans— most Unathi don't wear these, barring Aut'akh."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "thakh_wrappings" //special thanks to Araskael
 	item_state = "thakh_wrappings"
