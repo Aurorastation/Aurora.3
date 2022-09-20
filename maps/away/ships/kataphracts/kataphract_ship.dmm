@@ -8165,6 +8165,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/port_solars_array)
+"Ip" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/clothing/glasses/sunglasses/blindfold/tape,
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/sparring_chamber)
 "Iw" = (
 /obj/effect/shuttle_landmark/nav_kataphract_ship/nav3,
 /turf/template_noop,
@@ -8932,6 +8947,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
+"RH" = (
+/obj/machinery/door/airlock/glass{
+	name = "Quartermaster";
+	req_one_access = list(115,113)
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/commissary)
 "RJ" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
@@ -9429,21 +9451,6 @@
 /obj/item/clothing/glasses/sunglasses,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
-"YQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/item/clothing/glasses/sunglasses/blindfold/tape,
-/turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/sparring_chamber)
 "YT" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/spacecash/c200,
@@ -23017,7 +23024,7 @@ cp
 cf
 cP
 dm
-YQ
+Ip
 ek
 eF
 fc
@@ -23501,7 +23508,7 @@ ab
 cl
 cp
 cf
-gu
+RH
 do
 sC
 Bi
