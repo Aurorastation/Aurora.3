@@ -1,8 +1,7 @@
 //CCIAA's tape recorder
 /obj/item/device/taperecorder/cciaa
 	name = "Human Resources Recorder"
-	desc = "A modified recorder used for interviews by human resources personnel around the galaxy."
-	desc_fluff = "This recorder is a modified version of a standard universal recorder. It features additional audit-proof records keeping, access controls and is tied to a central management system."
+	desc = "A modified recorder used for interviews by human resources personnel around the galaxy. It features additional audit-proof records keeping, access controls and is tied to a central management system."
 	desc_info = "This recorder records the fingerprints of the interviewee, to do so, interact with this recorder when asked."
 	w_class = ITEMSIZE_TINY
 	timestamp = list()	//This actually turns timestamp into a string later on

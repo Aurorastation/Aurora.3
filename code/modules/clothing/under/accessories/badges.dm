@@ -272,7 +272,7 @@
 /obj/item/clothing/accessory/badge/passcard
 	name = "republic of biesel passcard"
 	desc = "A passcard issued to citizens of the Republic of Biesel, typically from planets in Biesel proper and smaller territories."
-	desc_fluff = "A passcard is a modern evolution of the state-issued identification card, with all the functionality of a driver's license, birth certificate, passport, or other document, \
+	 = "A passcard is a modern evolution of the state-issued identification card, with all the functionality of a driver's license, birth certificate, passport, or other document, \
 	updated as necessary or able by a central government. The concept was pioneered in the early days of the Sol Alliance, and continues in most human stellar nations to this day, owing to the availability \
 	and price of consumer plastics and self-powered microholograms."
 	icon = 'icons/clothing/accessories/passcards.dmi'
@@ -291,7 +291,7 @@
 /obj/item/clothing/accessory/badge/passcard/synthetic
 	name = "synthetic residence card"
 	desc = "A passcard issued to free IPCs within the Republic of Biesel, providing resident status and allowing the owning of property, among other things."
-	desc_fluff = "Working alongside IPC tags within the Republic of Biesel, the synthetic residence card has a small RFID chip embedded in it which allows governmental authorities to confirm whether or not an IPC \
+	 = "Working alongside IPC tags within the Republic of Biesel, the synthetic residence card has a small RFID chip embedded in it which allows governmental authorities to confirm whether or not an IPC \
     is free and taking residency within the system. They were recently introduced in order to provide streamlined documentation for IPCs that have attained freedom but are not citizens."
 	icon_state = "passcard_ceti_m"
 	item_state = "passcard_ceti_m"
@@ -299,7 +299,7 @@
 /obj/item/clothing/accessory/badge/passcard/sol
 	name = "\improper ASSN passcard"
 	desc = "A passcard issued to citizens of the Alliance of Sovereign Solarian Nations, typically from planets such as the Jewel Worlds or smaller zones of authority."
-	desc_fluff = "A passcard is a modern evolution of the state-issued identification card, with all the functionality of a driver's license, birth certificate, passport, or other document, \
+	 = "A passcard is a modern evolution of the state-issued identification card, with all the functionality of a driver's license, birth certificate, passport, or other document, \
 	updated as necessary or able by a central government. The concept was pioneered in the early days of the Sol Alliance, and continues in most human stellar nations to this day, owing to the availability \
 	and price of consumer plastics and self-powered microholograms."
 	icon_state = "passcard_sol"

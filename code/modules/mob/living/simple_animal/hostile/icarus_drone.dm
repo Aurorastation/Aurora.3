@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/icarus_drone
 	name = "combat drone"
 	desc = "An automated combat drone armed with state of the art weaponry and shielding. This one has the markings of a drone carrier on the side."
-	desc_fluff = "Produced by NanoTrasen, these combat drones are often carried and deployed by NDV Drone Carriers to protect local assets."
+	desc_lore = "Produced by NanoTrasen, these combat drones are often carried and deployed by NDV Drone Carriers to protect local assets."
 	icon_state = "drone3"
 	icon_living = "drone3"
 	icon_dead = "drone_dead"
@@ -64,7 +64,7 @@
 	. = ..()
 
 	set_light(1.2, 3, LIGHT_COLOR_BLUE)
-	
+
 	if(prob(5))
 		projectiletype = /obj/item/projectile/beam/pulse/drone
 		projectilesound = 'sound/weapons/pulse2.ogg'

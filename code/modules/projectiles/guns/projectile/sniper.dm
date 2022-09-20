@@ -177,7 +177,7 @@
 	icon_state = "dragunov"
 	item_state = "dragunov"
 
-	desc_fluff = "The Ho'taki Marksman Rifle was created by the Shastar Technical University, created through the reverse engineering of captured Tsarrayut'yan rifle. \
+	desc_lore = "The Ho'taki Marksman Rifle was created by the Shastar Technical University, created through the reverse engineering of captured Tsarrayut'yan rifle. \
 	The rifle is commonly issued to the feared Das'nrra Marksmen."
 
 	w_class = ITEMSIZE_LARGE

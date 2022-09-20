@@ -390,7 +390,7 @@
 /obj/item/storage/belt/custodial
 	name = "custodial belt"
 	desc = "A utility belt designed for custodial use."
-	desc_fluff = "A custodial belt is similar to most utility belts, but designed with pockets and attachment points that can hold common custodial tools."
+	desc_info = "A custodial belt is similar to most utility belts, but designed with pockets and attachment points that can hold common custodial tools."
 	icon_state = "custodialbelt"
 	item_state = "custodialbelt"
 	storage_slots = 12
