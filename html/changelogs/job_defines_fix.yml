@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Fixes representative being allowed to be played as independent. This was unintentional."
+  - bugfix: "Fixes representative being allowed to be played as independent."
