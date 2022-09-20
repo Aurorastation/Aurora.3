@@ -3,4 +3,4 @@ author: listerla
 delete-after: True
 
 changes:
-  - bugfix: "Shifted the left-facing bobcurl one pixel right, to align with the right-facing version."
+  - bugfix: "Shifted the left-facing bobcurl one pixel left, to align with the right-facing version."
