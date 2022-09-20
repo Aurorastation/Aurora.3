@@ -56,7 +56,7 @@
 
 /obj/item/clothing/under/rank/security/pmc/epmc // Note: Item Icon placeholder
 	name = "EPMC security uniform"
-	desc_fluff = "The EPMC is a subsidiary of the PMCG."
+	desc_extended = "The EPMC is a subsidiary of the PMCG."
 	icon_state = "epmc"
 	item_state = "epmc"
 

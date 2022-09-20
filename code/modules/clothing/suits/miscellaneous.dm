@@ -290,7 +290,7 @@
 /obj/item/clothing/suit/storage/toggle/brown_jacket/scc
 	name = "Stellar Corporate Conglomerate jacket"
 	desc = "A comfortable blue jacket. Tailored upon its back is a large Stellar Corporate Conglomerate logo."
-	desc_fluff = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon = 'icons/clothing/suits/scc_jacket.dmi'
 	icon_state = "scc_jacket"
 	item_state = "scc_jacket"
@@ -538,21 +538,21 @@
 /obj/item/clothing/suit/storage/toggle/cardigan
 	name = "cardigan"
 	desc = "A cozy, warm knit cardigan."
-	desc_fluff = "Only slightly worse than a blanket."
+	desc_extended = "Only slightly worse than a blanket."
 	icon_state = "cardigan"
 	item_state = "cardigan"
 
 /obj/item/clothing/suit/storage/toggle/cardigan/sweater
 	name = "sweater cardigan"
 	desc = "A cozy, warm knit sweater cardigan."
-	desc_fluff = "Half as warm as a sweater, and half as fashionable as a cardigan. Not like it matters for coffee-house dwelling beatniks like yourself."
+	desc_extended = "Half as warm as a sweater, and half as fashionable as a cardigan. Not like it matters for coffee-house dwelling beatniks like yourself."
 	icon_state = "cardigansweater"
 	item_state = "cardigansweater"
 
 /obj/item/clothing/suit/storage/toggle/cardigan/argyle
 	name = "argyle cardigan"
 	desc = "A cozy, warm knit argyle cardigan."
-	desc_fluff = "You'll never get dumped if you never get in a relationship in the first place. With this, you'll never have to worry again."
+	desc_extended = "You'll never get dumped if you never get in a relationship in the first place. With this, you'll never have to worry again."
 	icon_state = "cardiganargyle"
 	item_state = "cardiganargyle"
 
@@ -567,7 +567,7 @@
 /obj/item/clothing/suit/caution
 	name = "wet floor sign"
 	desc = "Caution! Wet Floor!"
-	desc_fluff = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
+	desc_extended = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
 	desc_info = "Alt-click, or click in-hand to toggle the caution lights. It looks like you can wear it in your suit slot."
 	icon = 'icons/obj/janitor.dmi'
 	item_icons = list(
