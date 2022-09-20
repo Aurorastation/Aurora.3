@@ -17975,7 +17975,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/effect/floor_decal/plaque{
 	desc = "The Stellar Corporate Conglomerate Logo Engraved in bronze.";
-	desc_extended = "The unbreakable chainklink, the one thing holding the Orion Spur together...";
+	desc_extended = "The unbreakable chainlink, the one thing holding the Orion Spur together...";
 	name = "Commemorative SCC Plaque"
 	},
 /turf/simulated/floor/wood,
