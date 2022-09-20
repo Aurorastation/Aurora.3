@@ -529,6 +529,7 @@
 /obj/item/clothing/suit/armor/unathi/hegemony,
 /obj/item/clothing/head/helmet/unathi/hegemony,
 /obj/item/clothing/head/helmet/unathi/hegemony,
+/obj/item/clothing/glasses/sunglasses,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "bz" = (
@@ -7595,6 +7596,7 @@
 /obj/item/clothing/suit/armor/unathi/klax,
 /obj/item/clothing/head/helmet/unathi/klax,
 /obj/item/clothing/shoes/magboots/hegemony,
+/obj/item/clothing/glasses/sunglasses/blinders,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "AG" = (
@@ -9424,8 +9426,24 @@
 /obj/item/clothing/suit/armor/unathi/hegemony,
 /obj/item/clothing/head/helmet/unathi/hegemony,
 /obj/item/clothing/head/helmet/unathi/hegemony,
+/obj/item/clothing/glasses/sunglasses,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
+"YQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/clothing/glasses/sunglasses/blindfold/tape,
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/sparring_chamber)
 "YT" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/spacecash/c200,
@@ -22999,7 +23017,7 @@ cp
 cf
 cP
 dm
-dK
+YQ
 ek
 eF
 fc
