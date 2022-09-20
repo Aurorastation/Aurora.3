@@ -58,7 +58,7 @@
 		to_chat(user, SPAN_WARNING("You require a restless spirit which clings to this world. Beckon their prescence with the sacred chants of Nar-Sie."))
 		var/area/Ar = get_area(A)
 		for(var/mob/M in dead_mob_list)
-			to_chat(M, "[ghost_follow_link(user, M)] "SPAN_CULT("A cultist is attempting to revive a body in [Ar.name]!")"")
+			to_chat(M, "[ghost_follow_link(user, M)] [SPAN_CULT("A cultist is attempting to revive a body in [Ar.name]!")]")
 		return fizzle(user)
 
 	corpse_to_raise.revive()

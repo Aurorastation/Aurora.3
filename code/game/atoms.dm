@@ -267,7 +267,7 @@
 	if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show it.
 		to_chat(user, FONT_SMALL(SPAN_ALERT("- [desc_antag]")))
 	if(desc_lore) // If the item has a cultist description and the user is a cultist, show it.
-		to_chat(user, FONT_SMALL(SPAN_LORE("- [desc_lore]")))
+		to_chat(user, FONT_SMALL(SPAN_CULT("- [desc_lore]")))
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

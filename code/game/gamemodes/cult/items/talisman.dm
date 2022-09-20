@@ -17,7 +17,7 @@
 /obj/item/paper/talisman/examine(mob/user)
 	..()
 	if(iscultist(user) && rune)
-		to_chat(user, "The spell inscription reads: SPAN_CULT("<b><i>[rune.name]</i></b>")")
+		to_chat(user, "The spell inscription reads: [SPAN_CULT("<b><i>[rune.name]</i></b>")]")
 
 /obj/item/paper/talisman/attack_self(mob/living/user)
 	if(iscultist(user))

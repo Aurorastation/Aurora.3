@@ -120,9 +120,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(failed)
 		src.Weaken(rand(2,4))
 
-	for(var/mob/O in viewers(src, null))
-		if ((O.client && !( O.blinded )))
-			O.show_message(text(SPAN_DANGER("[] [failed ? "tried to tackle" : "has tackled"] down []!"), src, T), 1)
+	visible_message(SPAN_DANGER("[src] [failed ? "tried to tackle" : "has tackled"] down [T]!"))
 
 /mob/living/carbon/human/proc/leap(mob/living/T as mob in oview(4))
 	set category = "Abilities"
@@ -320,7 +318,7 @@ mob/living/carbon/human/proc/change_monitor()
 		if (istype(M, /mob/abstract/new_player))
 			continue
 		else if(M.stat == DEAD &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
-			to_chat(M,SPAN_NOTICE("[src] telepathically says to [target]:</span> [text]")
+			to_chat(M,"[SPAN_NOTICE("[src] telepathically says to [target]:")] [text]")
 
 	var/mob/living/carbon/human/H = target
 	if (target.can_commune())
@@ -328,7 +326,7 @@ mob/living/carbon/human/proc/change_monitor()
 	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 		to_chat(H,"<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]")
 	else
-		to_chat(H,SPAN_ALIEN("You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
+		to_chat(H,"[SPAN_ALIEN("You feel pressure behind your eyes as alien thoughts enter your mind:")] [text]")
 		if(istype(H))
 			if (target.can_commune())
 				return
@@ -767,7 +765,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	if (brokesomething)
 		playsound(get_turf(target), 'sound/weapons/heavysmash.ogg', 100, 1)
-		attack_log += "\[[time_stamp()]\]<span class='warning'>crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]) ")
+		attack_log += "\[[time_stamp()]\][SPAN_WARNING("crashed into [brokesomething] objects at ([target.x];[target.y];[target.z]")]"
 		msg_admin_attack("[key_name(src)] crashed into [brokesomething] objects at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)" )
 
 	if (!done && target.Enter(src, null))
@@ -792,7 +790,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	if (istype(A, /mob/living))
 		var/mob/living/M = A
-		attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed into [key_name(M)]")
+		attack_log += "\[[time_stamp()]\][SPAN_WARNING(" Crashed into [key_name(M)]")]"
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [key_name(src)]</font>"
 		msg_admin_attack("[key_name(src)] crashed into [key_name(M)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)" )
 

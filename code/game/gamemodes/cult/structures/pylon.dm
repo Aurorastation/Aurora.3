@@ -152,9 +152,9 @@
 //If user is not cultist, then speaks cult-y gibberish
 /obj/structure/cult/pylon/proc/speak_to(var/mob/user, var/message)
 	if(iscult(user) || (all_languages[LANGUAGE_CULT] in user.languages))
-		to_chat(user, "A voice speaks into your mind, "SPAN_CULT("<i>[message]</i>")"")
+		to_chat(user, "A voice speaks into your mind, [SPAN_CULT("<i>[message]</i>")]")
 	else
-		to_chat(user, "A voice speaks into your mind, "SPAN_CULT("<i>[lang.scramble(message)]</i>")"")
+		to_chat(user, "A voice speaks into your mind, [SPAN_CULT("<i>[lang.scramble(message)]</i>")]")
 
 
 //Todo: Replace the messages here with better ones. Should display a proper message to cultists
