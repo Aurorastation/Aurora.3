@@ -892,11 +892,11 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	fail_secure = 1;
 	icon_state = "pdoor0";
 	id = "xenobio";
 	name = "Xenobiology Blast Door";
-	opacity = 0;
-	fail_secure = 1
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
@@ -1831,8 +1831,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(11,24);
-	name = "Supermatter Reactor SMES"
+	name = "Supermatter Reactor SMES";
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes)
@@ -2418,6 +2418,10 @@
 /obj/item/device/gps/medical{
 	pixel_x = -7
 	},
+/obj/machinery/requests_console{
+	department = "First Responder Bay";
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "bdT" = (
@@ -2538,9 +2542,9 @@
 	req_one_access = list(29,47)
 	},
 /obj/machinery/computer/shuttle_control/lift/wall{
-	shuttle_tag = "Robotics Lift";
+	dir = 4;
 	pixel_x = -32;
-	dir = 4
+	shuttle_tag = "Robotics Lift"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
@@ -2890,8 +2894,8 @@
 	dir = 4;
 	id = "engineering_storage";
 	name = "Engineering Hard Storage";
-	pixel_y = 25;
-	pixel_x = -25
+	pixel_x = -25;
+	pixel_y = 25
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2980,8 +2984,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(11);
-	name = "Engineering Hard Storage Maintenance"
+	name = "Engineering Hard Storage Maintenance";
+	req_access = list(11)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -3180,9 +3184,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light_switch{
+	dir = 4;
 	pixel_x = -21;
-	pixel_y = -12;
-	dir = 4
+	pixel_y = -12
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
@@ -3670,8 +3674,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(11,24);
-	name = "Supermatter Reactor SMES"
+	name = "Supermatter Reactor SMES";
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes)
@@ -4490,11 +4494,11 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/icu)
@@ -5410,8 +5414,8 @@
 "cNU" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm{
-	pixel_x = -28;
-	dir = 4
+	dir = 4;
+	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
@@ -5570,9 +5574,9 @@
 	dir = 1
 	},
 /obj/machinery/computer/shuttle_control/lift/wall{
-	shuttle_tag = "Morgue Lift";
 	dir = 4;
-	pixel_x = -32
+	pixel_x = -32;
+	shuttle_tag = "Morgue Lift"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -5711,10 +5715,10 @@
 "cWG" = (
 /obj/structure/table/wood,
 /obj/machinery/button/switch/windowtint{
+	dir = 8;
 	id = "psych";
 	pixel_x = 24;
-	pixel_y = -9;
-	dir = 8
+	pixel_y = -9
 	},
 /obj/machinery/light{
 	dir = 4
@@ -6155,9 +6159,9 @@
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
 	id_tag = "engine_airlock_control";
 	name = "Supermatter Reactor Airlock Access Console";
+	pixel_x = 38;
 	tag_exterior_door = "engine_airlock_exterior";
-	tag_interior_door = "engine_airlock_interior";
-	pixel_x = 38
+	tag_interior_door = "engine_airlock_interior"
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/engine_airlock)
@@ -7883,11 +7887,11 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	fail_secure = 1;
 	icon_state = "pdoor0";
 	id = "xenobio";
 	name = "Xenobiology Blast Door";
-	opacity = 0;
-	fail_secure = 1
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
@@ -9252,11 +9256,11 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	fail_secure = 1;
 	icon_state = "pdoor0";
 	id = "xenobio";
 	name = "Xenobiology Blast Door";
-	opacity = 0;
-	fail_secure = 1
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
@@ -10385,23 +10389,23 @@
 /area/security/security_office)
 "fAK" = (
 /obj/machinery/button/remote/airlock{
+	dir = 8;
 	id = "CEdoor";
 	name = "Office Door Control";
 	pixel_x = 25;
-	req_access = list(56);
-	dir = 8;
-	pixel_y = -7
+	pixel_y = -7;
+	req_access = list(56)
 	},
 /obj/machinery/button/switch/windowtint{
+	dir = 8;
 	id = "ce";
 	pixel_x = 24;
 	pixel_y = 2;
-	range = 9;
-	dir = 8
+	range = 9
 	},
 /obj/machinery/light_switch{
-	pixel_x = 24;
 	dir = 8;
+	pixel_x = 24;
 	pixel_y = 9
 	},
 /turf/simulated/floor/carpet,
@@ -11611,12 +11615,12 @@
 	dir = 10
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "RDStorage";
 	name = "Storage Lockdown";
 	pixel_x = 7;
 	pixel_y = -25;
-	req_access = list(30);
-	dir = 1
+	req_access = list(30)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
@@ -12054,11 +12058,11 @@
 /obj/machinery/door/blast/regular{
 	closed_layer = 3.5;
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "RDStorage";
 	name = "Storage Lockdown Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -12068,8 +12072,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_research{
-	req_access = list(47);
-	name = "Research Storage"
+	name = "Research Storage";
+	req_access = list(47)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/dark/full,
@@ -12502,17 +12506,17 @@
 /area/maintenance/wing/port)
 "gzg" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(5);
-	name = "Examination Room Maintenance"
+	name = "Examination Room Maintenance";
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/exam)
@@ -12568,8 +12572,8 @@
 	dir = 8
 	},
 /obj/machinery/door/window/northleft{
-	req_access = list(24);
-	name = "Atmospherics Voidsuit Access"
+	name = "Atmospherics Voidsuit Access";
+	req_access = list(24)
 	},
 /obj/structure/table/rack,
 /obj/item/storage/bag/inflatable,
@@ -13365,15 +13369,15 @@
 /obj/machinery/button/remote/airlock{
 	id = "engine_electrical_maintenance";
 	name = "Door Bolt Control";
+	pixel_x = -7;
 	pixel_y = 32;
 	req_one_access = list(11,24);
-	specialfunctions = 4;
-	pixel_x = -7
+	specialfunctions = 4
 	},
 /obj/machinery/power/apc/low{
+	dir = 4;
 	name = "north bump";
-	pixel_x = 24;
-	dir = 4
+	pixel_x = 24
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -13783,11 +13787,11 @@
 "hfx" = (
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for engine core.";
+	dir = 4;
 	id = "EngineVent";
 	name = "Supermatter Reactor Emergency Ventilatory Control";
 	pixel_x = -25;
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
@@ -15143,8 +15147,8 @@
 "hPH" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(52);
-	name = "Xenobotany Maintenance"
+	name = "Xenobotany Maintenance";
+	req_access = list(52)
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -15490,8 +15494,8 @@
 	dir = 8
 	},
 /obj/machinery/door/window/northleft{
-	req_access = list(11);
-	name = "Engineering Voidsuit Access"
+	name = "Engineering Voidsuit Access";
+	req_access = list(11)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage_eva)
@@ -15657,8 +15661,8 @@
 	},
 /obj/effect/floor_decal/spline/plain,
 /obj/structure/sign/electricshock{
-	pixel_y = 32;
-	name = "\improper WARNING: HIGH VOLTAGE ELECTROMAGNETIC FIELDS IN USE sign"
+	name = "\improper WARNING: HIGH VOLTAGE ELECTROMAGNETIC FIELDS IN USE sign";
+	pixel_y = 32
 	},
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Telescience Test Chamber A"
@@ -16151,9 +16155,9 @@
 	dir = 6
 	},
 /obj/machinery/button/remote/blast_door{
+	id = "shutters_deck2_eng_frontdesk";
 	pixel_x = 6;
-	pixel_y = -2;
-	id = "shutters_deck2_eng_frontdesk"
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
@@ -17656,14 +17660,14 @@
 	},
 /obj/machinery/button/remote/airlock/screamer{
 	channel = "Science";
+	dir = 8;
 	id = "server_door_lock";
 	message = "The Server Room Airlock's ID lock toggle has been used.";
 	name = "Server Room Control";
 	pixel_x = 25;
 	pixel_y = -25;
 	req_access = list(47);
-	specialfunctions = 2;
-	dir = 8
+	specialfunctions = 2
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -18096,9 +18100,9 @@
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
 	id_tag = "engine_airlock_control";
 	name = "Supermatter Reactor Airlock Access Console";
+	pixel_x = 38;
 	tag_exterior_door = "engine_airlock_exterior";
-	tag_interior_door = "engine_airlock_interior";
-	pixel_x = 38
+	tag_interior_door = "engine_airlock_interior"
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/engine_airlock)
@@ -18224,8 +18228,8 @@
 "jxs" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/alarm{
-	pixel_x = 28;
-	dir = 8
+	dir = 8;
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
@@ -18353,8 +18357,8 @@
 /area/medical/main_storage)
 "jCk" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(17);
-	name = "Teleporter Maintenance"
+	name = "Teleporter Maintenance";
+	req_access = list(17)
 	},
 /turf/simulated/floor/tiled,
 /area/teleporter)
@@ -18946,14 +18950,14 @@
 	dir = 8
 	},
 /obj/machinery/door/window/southleft{
-	req_one_access = list(1,19);
-	name = "Marooning Equipment Access"
+	name = "Marooning Equipment Access";
+	req_one_access = list(1,19)
 	},
 /obj/structure/sign/securearea{
-	pixel_x = 16;
-	pixel_y = 32;
+	desc = "A warning sign which reads 'MAROONING EQUIPMENT' and 'MISUSE OF EQUIPMENT MAKES YOU GUILTY OF i206 'NEGLECT OF DUTY''.";
 	name = "\improper MAROONING EQUIPMENT sign";
-	desc = "A warning sign which reads 'MAROONING EQUIPMENT' and 'MISUSE OF EQUIPMENT MAKES YOU GUILTY OF i206 'NEGLECT OF DUTY''."
+	pixel_x = 16;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/brig)
@@ -19126,8 +19130,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(11);
-	name = "Tesla Reactor Maintenance"
+	name = "Tesla Reactor Maintenance";
+	req_access = list(11)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
@@ -20009,12 +20013,12 @@
 "kBY" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
-	pixel_y = 2;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 2
 	},
 /obj/item/pen{
-	pixel_y = 2;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 2
 	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
@@ -20949,11 +20953,11 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/psych)
@@ -22289,8 +22293,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/secure_closet/marooning_equipment,
 /obj/machinery/door/window/southright{
-	req_one_access = list(1,19);
-	name = "Marooning Equipment Access"
+	name = "Marooning Equipment Access";
+	req_one_access = list(1,19)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/brig)
@@ -23297,8 +23301,8 @@
 	dir = 8;
 	id = "engineering_storage";
 	name = "Engineering Hard Storage";
-	pixel_y = 25;
-	pixel_x = 25
+	pixel_x = 25;
+	pixel_y = 25
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_hard)
@@ -23643,38 +23647,38 @@
 /area/rnd/research)
 "mxs" = (
 /obj/machinery/button/remote/driver{
+	dir = 1;
 	id = "enginecore";
 	name = "Supermatter Reactor Emergency Crystal Ejection";
-	pixel_y = -34;
-	dir = 1;
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = -34
 	},
 /obj/item/modular_computer/console/preset/engineering/ce{
 	dir = 1
 	},
 /obj/machinery/light,
 /obj/machinery/keycard_auth{
-	pixel_y = -25;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = -25
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for engine core.";
+	dir = 1;
 	id = "EngineVent";
 	name = "Supermatter Reactor Emergency Ventilatory Control";
 	pixel_x = 7;
 	pixel_y = -25;
-	req_access = list(10);
-	dir = 1
+	req_access = list(10)
 	},
 /obj/machinery/button/remote/airlock{
 	desc = "A remote control-switch for the engine core airlock hatch bolts.";
+	dir = 1;
 	id = "engine_access_hatch";
 	name = "Supermatter Reactor Crystal Access Bolts Control";
 	pixel_x = 7;
 	pixel_y = -35;
 	req_access = list(10);
-	specialfunctions = 4;
-	dir = 1
+	specialfunctions = 4
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
@@ -23820,11 +23824,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/or1)
@@ -24517,8 +24521,8 @@
 "mUy" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(11);
-	name = "Engineering Locker Room Maintenance"
+	name = "Engineering Locker Room Maintenance";
+	req_access = list(11)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/locker_room)
@@ -26442,8 +26446,8 @@
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
 	locked = 1;
-	req_one_access = list(11,24);
-	name = "Supermatter Reactor Crystal Access"
+	name = "Supermatter Reactor Crystal Access";
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -27780,11 +27784,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/or2)
@@ -28161,8 +28165,8 @@
 	dir = 4
 	},
 /obj/structure/sign/radiation{
-	pixel_y = 32;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
@@ -28760,8 +28764,8 @@
 	dir = 8
 	},
 /obj/machinery/door/window/northleft{
-	req_access = list(11);
-	name = "Engineering Voidsuit Access"
+	name = "Engineering Voidsuit Access";
+	req_access = list(11)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -29089,12 +29093,12 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
+	fail_secure = 1;
 	icon_state = "pdoor0";
 	id = "xenobio";
 	name = "Xenobiology Blast Door";
-	opacity = 0;
-	fail_secure = 1;
-	dir = 4
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology)
@@ -29671,8 +29675,8 @@
 	dir = 5
 	},
 /obj/machinery/vending/mredispenser{
-	pixel_y = 24;
-	density = 0
+	density = 0;
+	pixel_y = 24
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/kitchen/hallway)
@@ -30694,8 +30698,8 @@
 "qgz" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/sign/radiation{
-	pixel_y = -32;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
@@ -32535,18 +32539,18 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "tesla_south";
 	name = "Tesla Reactor Storage Shutters";
 	pixel_x = 25;
-	pixel_y = -7;
-	dir = 8
+	pixel_y = -7
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "tesla_north";
 	name = "Tesla Reactor Storage Shutters";
 	pixel_x = 25;
-	pixel_y = 7;
-	dir = 8
+	pixel_y = 7
 	},
 /obj/structure/sign/electricshock/tesla{
 	pixel_x = 42
@@ -33411,8 +33415,8 @@
 	dir = 8
 	},
 /obj/structure/sign/radiation{
-	pixel_y = -32;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
@@ -33825,8 +33829,8 @@
 	dir = 1
 	},
 /obj/structure/sign/radiation{
-	pixel_y = 32;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
@@ -34793,11 +34797,11 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	fail_secure = 1;
 	icon_state = "pdoor0";
 	id = "xenobio";
 	name = "Xenobiology Blast Door";
-	opacity = 0;
-	fail_secure = 1
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
@@ -34871,9 +34875,9 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/driver{
+	dir = 8;
 	id = "enginecore";
 	name = "Supermatter Reactor Emergency Crystal Ejection";
-	dir = 8;
 	pixel_x = 23
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -37943,11 +37947,11 @@
 /obj/machinery/door/blast/regular{
 	closed_layer = 3.5;
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "RDStorage";
 	name = "Storage Lockdown Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/strongroom)
@@ -38015,11 +38019,11 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/psych)
@@ -39280,8 +39284,8 @@
 	id = "ringers_custodialaux";
 	name = "\improper Auxiliary Custodial Ringer Terminal";
 	pixel_x = 27;
-	req_access = list(26);
-	pixel_y = 5
+	pixel_y = 5;
+	req_access = list(26)
 	},
 /turf/simulated/floor/tiled,
 /area/janitor/stairs)
@@ -42882,8 +42886,8 @@
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
 	locked = 1;
-	req_one_access = list(11,24);
-	name = "Supermatter Reactor Crystal Access"
+	name = "Supermatter Reactor Crystal Access";
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -43536,8 +43540,8 @@
 /area/operations/break_room)
 "wGh" = (
 /obj/machinery/light_switch{
-	pixel_x = -24;
 	dir = 4;
+	pixel_x = -24;
 	pixel_y = 9
 	},
 /obj/machinery/newscaster{
@@ -43798,11 +43802,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "Medical Lockdown Shutters";
-	opacity = 0;
-	dir = 2
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/medical)
@@ -45288,9 +45292,6 @@
 "xBN" = (
 /obj/machinery/light{
 	dir = 1
-	},
-/obj/machinery/requests_console{
-	pixel_y = 32
 	},
 /obj/structure/closet/secure_closet/medical_fr,
 /turf/simulated/floor/tiled,
