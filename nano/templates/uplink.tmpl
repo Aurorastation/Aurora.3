@@ -39,7 +39,7 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
 {{else data.menu == 1}}
     <H2><span class="white">Request items:</span></H2>
     <span class="white"><i>Each item costs a number of tele-crystals as indicated by the number following their name.</i></span>
-	
+
 	{{for data.items}}
 		<div class="item">
 			{{:helper.link(value.name, 'gear', {'buy_item' : value.ref}, value.can_buy ? null : 'disabled')}} - <span class="white">{{:value.cost}}</span>
@@ -68,7 +68,6 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
             <div class="itemContent" style="width: 100%;">
                 {{if data.exploit_exists == 1}}
                     <span class="good">Name:		</span> <span class="average">{{:data.exploit.name}}		</span><br>
-                    <span class="good">Sex:			</span> <span class="average">{{:data.exploit.sex}}			</span><br>
                     <span class="good">Species:		</span> <span class="average">{{:data.exploit.species}}		</span><br>
                     <span class="good">Age:			</span> <span class="average">{{:data.exploit.age}}			</span><br>
                     <span class="good">Rank:		</span> <span class="average">{{:data.exploit.rank}}		</span><br>

@@ -17,9 +17,9 @@
 	density = 1
 	anchored = 1
 	var/static/list/accepted_items = list(
-		/obj/item/paper, 
-		/obj/item/folder, 
-		/obj/item/photo, 
+		/obj/item/paper,
+		/obj/item/folder,
+		/obj/item/photo,
 		/obj/item/paper_bundle,
 		/obj/item/sample,
 		/obj/item/book,
@@ -116,7 +116,6 @@
 				P.info = "<CENTER><B>Security Record</B></CENTER><BR>"
 				P.info += {"
 Name: [R.name] ID: [R.id]<BR>
-Sex: [R.sex]<BR>
 Age: [R.age]<BR>
 Fingerprint: [R.fingerprint]<BR>
 Physical Status: [R.physical_status]<BR>
@@ -158,7 +157,6 @@ Important Notes:<BR>
 				var/info = "<CENTER><B>Medical Record</B></CENTER><BR>"
 				info += {"
 Name: [R.name] ID: [R.id]<BR>
-Sex: [R.sex]<BR>
 Age: [R.age]<BR>
 Fingerprint: [R.fingerprint]<BR>
 Physical Status: [R.physical_status]<BR>

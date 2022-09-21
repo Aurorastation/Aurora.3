@@ -221,9 +221,9 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                     {{:helper.link('Science',data.pdafilter == 5? 'null': 'close', {'choice' : "Filter", 'option' : "5"}, null, 'fixedLeft')}}
                     {{:helper.link('Cargo',data.pdafilter == 6? 'null': 'close', {'choice' : "Filter", 'option' : "6"}, null, 'fixedLeft')}}
                     {{:helper.link('Service',data.pdafilter == 7? 'null': 'close', {'choice' : "Filter", 'option' : "7"}, null, 'fixedLeft')}}
-                    {{:helper.link('Medical',data.pdafilter == 8? 'null': 'close', {'choice' : "Filter", 'option' : "8"}, null, 'fixedLeft')}}             
+                    {{:helper.link('Medical',data.pdafilter == 8? 'null': 'close', {'choice' : "Filter", 'option' : "8"}, null, 'fixedLeft')}}
                 </div>
-            
+
         </div>
         {{if data.toff == 0}}
             <br><br>
@@ -544,8 +544,8 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 
     {{else data.mode == 433}}   <!-- Power monitor sensor display -->
         <H2>Power Monitor</H2>
-        {{if data.records.sensor_reading}}    
-            <h3>Network Information</h3>  
+        {{if data.records.sensor_reading}}
+            <h3>Network Information</h3>
             <div class="item">
                 <div class="itemLabel">
                     <b>Powernet Sensor</b>:
@@ -576,7 +576,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                 </div>
             </div>
             <h3>APC Sensor Readings</h3>
-            {{if data.records.sensor_reading.apc_data.length > 0}}  
+            {{if data.records.sensor_reading.apc_data.length > 0}}
             	<table>
                     <tr>
                         <th>APC Name</th><th>Cell Status</th><th>Power Usage</th>
@@ -628,7 +628,6 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                 <div class="itemContent" style="width: 100%;">
                     {{if data.records.general_exists == 1}}
                         <span class="good">Name:		</span> <span class="average">{{:data.records.general.name}}	</span><br>
-                        <span class="good">Sex:			</span> <span class="average">{{:data.records.general.sex}}		</span><br>
                         <span class="good">Age:			</span> <span class="average">{{:data.records.general.age}}		</span><br>
                         <span class="good">Rank:		</span> <span class="average">{{:data.records.general.rank}}	</span><br>
                         <span class="good">Fingerprint:		</span> <span class="average">{{:data.records.general.fingerprint}}	</span><br>
@@ -678,7 +677,6 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                 <div class="itemContent" style="width: 100%;">
                     {{if data.records.general_exists == 1}}
                         <span class="good">Name: </span> <span class="average"> {{:data.records.general.name}}</span><br>
-                        <span class="good">Sex: </span>  <span class="average">{{:data.records.general.sex}} </span><br>
                         <span class="good">Age: </span>  <span class="average">{{:data.records.general.age}} </span><br>
                         <span class="good">Rank: </span>  <span class="average">{{:data.records.general.rank}} </span><br>
                         <span class="good">Fingerprint:  </span> <span class="average">{{:data.records.general.fingerprint}} </span><br>
@@ -985,10 +983,10 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                         <span class="average">({{:value.x}} / {{:value.y}}) - {{:value.dir}} - Status: {{:value.status}}</span><br>
                     {{/if}}
                 {{/for}}
-                
+
     {{else data.mode == 6}}
         <H2><span class="white">InstaNews ED 2.0.9</span></H2>
-        
+
         <div class="item">
             <div class="itemLabelNarrow">
                 <b>Functions</b>:
@@ -998,7 +996,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                 {{:helper.link('Set news tone', 'comment', {'choice' : "Newstone"}, null, 'fixedLeftWide')}}
             </div>
         </div>
-		
+
 		<div class="item">
             <div class="itemContent">
                 {{for data.feedChannels}}
@@ -1013,9 +1011,9 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
             </div>
 		</div>
 
-    {{else data.mode == 61}}      
+    {{else data.mode == 61}}
         <H2><span class="white">{{:data.feed.channel}}</span></H2>
-        <span class="white">Created by: </span><span class="average">{{:data.feed.author}}<br></span>		
+        <span class="white">Created by: </span><span class="average">{{:data.feed.author}}<br></span>
         <div class="statusDisplay" style="overflow: auto;">
             <div class="item">
                 <div class="itemContent" style="width: 100%;">
@@ -1044,7 +1042,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
 				</div>
             </div>
         </div>
-        
+
     {{/if}}
 {{else}}
     <div class="wholeScreen">
