@@ -18,6 +18,10 @@
 	var/obj/effect/overmap/origin
 	var/atom/overmap_target
 
+/obj/item/ship_ammunition/Initialize()
+	. = ..()
+	update_status()
+
 /obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
 	. = ..()
 	if(I.ispen())
@@ -66,6 +70,9 @@
 		return TRUE
 	else
 		return FALSE
+
+/obj/item/ship_ammunition/proc/update_status()
+	return
 
 /obj/item/ship_ammunition/proc/eject_shell(var/obj/machinery/ship_weapon/SW) //do cool casing ejection effects here
 	return
