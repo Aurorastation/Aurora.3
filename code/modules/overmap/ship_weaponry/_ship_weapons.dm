@@ -3,6 +3,7 @@
 	var/desc = "You shouldn't see this."
 	var/heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg' //The sound in the immediate firing area. Very loud.
 	var/light_firing_sound = 'sound/effects/explosionfar.ogg' //The sound played when you're a few walls away. Kind of loud.
+	var/projectile_type = /obj/item/projectile/ship_ammo
 	var/charging_sound //The sound played when the gun is charging up.
 	var/caliber = SHIP_CALIBER_NONE
 	var/firing_effects

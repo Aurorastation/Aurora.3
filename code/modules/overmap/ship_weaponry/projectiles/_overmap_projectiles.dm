@@ -1,7 +1,8 @@
 /obj/effect/overmap/projectile
 	name = "projectile"
-	icon_state = "projectile"
-	sector_flags = OVERMAP_SECTOR_KNOWN //Technically in space, but you can't visit the missile during its flight.
+	icon = 'icons/obj/guns/ship/overmap_projectiles.dmi'
+	icon_state = "cannon"
+	sector_flags = OVERMAP_SECTOR_KNOWN //Technically in space, but you can't visit the ammo during its flight.
 	scannable = TRUE
 
 	var/obj/item/ship_ammunition/ammunition

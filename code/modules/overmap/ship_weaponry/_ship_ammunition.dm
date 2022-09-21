@@ -14,6 +14,7 @@
 	var/ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
 	var/rupture_flags = SHIP_AMMO_RUPTURE_FLAG_EXPLODE
 	var/rupture_gas
+	var/overmap_icon_state = "cannon"
 	var/obj/effect/overmap/origin
 	var/atom/overmap_target
 
@@ -113,6 +114,7 @@
 	P.desc = desc
 	P.set_ammunition(src)
 	P.target = overmap_target
+	P.icon_state = overmap_icon_state
 	forceMove(P)
 	log_and_message_admins("A projectile has entered the Overmap! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
 	return TRUE
@@ -122,7 +124,8 @@
 //The solution? Let's co-opt projectile code!
 /obj/item/projectile/ship_ammo
 	name = "ship ammunition"
-	icon_state = "missile"
+	icon = 'icons/obj/guns/ship/physical_projectiles.dmi'
+	icon_state = "small"
 	range = 250
 	var/obj/item/ship_ammunition/ammo
 

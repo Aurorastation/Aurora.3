@@ -2605,6 +2605,7 @@
 #include "code\modules\overmap\ship_weaponry\_ship_weapons.dm"
 #include "code\modules\overmap\ship_weaponry\projectiles\_overmap_projectiles.dm"
 #include "code\modules\overmap\ship_weaponry\weaponry\longbow.dm"
+#include "code\modules\overmap\ship_weaponry\weaponry\longbow_ammo.dm"
 #include "code\modules\overmap\ships\identification.dm"
 #include "code\modules\overmap\ships\landable.dm"
 #include "code\modules\overmap\ships\ship.dm"
