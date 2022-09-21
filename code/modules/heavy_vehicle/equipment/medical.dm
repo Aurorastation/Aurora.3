@@ -282,7 +282,7 @@
 /obj/item/device/healthanalyzer/mech/attack(mob/living/M, var/mob/living/heavy_vehicle/user)
 	if(!fullScan)
 		for(var/mob/pilot in user.pilots)
-			health_scan_mob(M, pilot, TRUE, TRUE)
+			health_scan_mob(M, pilot, TRUE, TRUE, sound_scan = sound_scan)
 	else
 		user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
 		if(do_after(user, 7 SECONDS, TRUE))

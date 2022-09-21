@@ -148,7 +148,7 @@
 
 /obj/item/modular_computer/attack(mob/living/M, mob/living/user)
 	if(scan_mode == SCANNER_MEDICAL)
-		health_scan_mob(M, user, TRUE)
+		health_scan_mob(M, user, TRUE, sound_scan = sound_scan)
 
 /obj/item/modular_computer/afterattack(atom/A, mob/user, proximity_flag, click_parameters)
 	. = ..()
