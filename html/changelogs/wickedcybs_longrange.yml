@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - tweak: "Long-range holopads can now call each other even if they're on the same connected Z-levels. That means if they dock at the Horizon they can still call a long range on any deck of it."
