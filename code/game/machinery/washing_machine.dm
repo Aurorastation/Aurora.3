@@ -108,10 +108,8 @@
 				to_chat(user, "<span class='notice'>You can't put the item in right now.</span>")
 		else
 			to_chat(user, "<span class='notice'>The washing machine is full.</span>")
-	else
-		return ..()
 	update_icon()
-	return TRUE
+	return ..()
 
 /obj/machinery/washing_machine/attack_hand(mob/user as mob)
 	switch(state)
