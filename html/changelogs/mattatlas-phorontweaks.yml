@@ -40,4 +40,3 @@ delete-after: True
 changes:
   - bugfix: "Holding phoron contaminated items no longer hurts you through voidsuits or gloves."
   - bugfix: "Washing machines can now wash everything and not just clothes."
-  - bugfix: "You can now actually tell if something is contaminated by examining it."

@@ -38,8 +38,7 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	var/N2O_HALLUCINATION_DESC = "Does being in sleeping gas cause you to hallucinate?"
 
 
-/atom/var/contaminated = 0
-
+/obj/var/contaminated = 0
 
 /obj/item/proc/can_contaminate()
 	if(flags & PHORONGUARD)

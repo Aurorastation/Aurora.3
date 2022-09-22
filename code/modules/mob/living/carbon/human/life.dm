@@ -665,7 +665,7 @@
 			move_delay_mod += -1.5 * chem_effects[CE_SPEEDBOOST]
 
 		var/obj/item/clothing/C = wear_suit
-		if(!(C.body_parts_covered & HANDS) && !(C.heat_protection & HANDS) && !gloves)
+		if(!(C && (C.body_parts_covered & HANDS) && !(C.heat_protection & HANDS)) && !gloves)
 			for(var/obj/item/I in src)
 				if(I.contaminated && !(species.flags & PHORON_IMMUNE))
 					if(I == r_hand)
