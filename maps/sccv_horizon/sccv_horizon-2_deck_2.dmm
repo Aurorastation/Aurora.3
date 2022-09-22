@@ -311,6 +311,13 @@
 /obj/machinery/optable,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
+"ahH" = (
+/obj/structure/disposaloutlet,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/rnd/xenobiology)
 "ahN" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -7872,7 +7879,7 @@
 /area/engineering/lobby)
 "egq" = (
 /obj/structure/disposaloutlet{
-	dir = 4
+	dir = 1
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 4
@@ -8816,7 +8823,7 @@
 /area/engineering/engine_room)
 "eGZ" = (
 /obj/structure/disposaloutlet{
-	dir = 8
+	dir = 1
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -34425,6 +34432,13 @@
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
+"rYR" = (
+/obj/structure/disposaloutlet,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/rnd/xenobiology)
 "rYW" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
@@ -76525,7 +76539,7 @@ kyX
 fOl
 dKE
 iwo
-egq
+rYR
 wbL
 iwo
 wbL
@@ -78949,7 +78963,7 @@ gqF
 gzU
 ahG
 iwo
-eGZ
+ahH
 mKS
 iwo
 mKS
