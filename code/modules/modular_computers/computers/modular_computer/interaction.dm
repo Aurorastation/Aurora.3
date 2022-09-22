@@ -146,7 +146,7 @@
 	else
 		to_chat(user, SPAN_WARNING("\The [src] does not have a card or item stored in the card slot."))
 
-/obj/item/modular_computer/attack(mob/living/M, mob/living/user)
+/obj/item/modular_computer/attack(mob/living/M, mob/living/user, var/sound_scan)
 	if(scan_mode == SCANNER_MEDICAL)
 		health_scan_mob(M, user, TRUE, sound_scan = sound_scan)
 
