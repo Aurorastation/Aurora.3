@@ -218,6 +218,8 @@
 			f_name = "some "
 		else
 			f_name = "a "
+		if(contaminated)
+			f_name += "<font color='C80DB0'>contaminated</font> "
 		if(blood_color != "#030303")
 			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
 		else
