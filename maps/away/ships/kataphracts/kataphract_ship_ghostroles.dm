@@ -47,6 +47,7 @@
 	spawnpoints = list("kataphract_knight")
 
 	outfit = /datum/outfit/admin/kataphract/knight
+	
 
 	assigned_role = "Kataphract Knight Captain"
 	special_role = "Kataphract Knight Captain"
@@ -74,7 +75,7 @@
 	belt = /obj/item/melee/energy/sword/hegemony
 	shoes = /obj/item/clothing/shoes/caligae
 	id = /obj/item/card/id/distress/kataphract
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/hegemony
 
 
 	l_ear = /obj/item/device/radio/headset/ship
@@ -97,7 +98,7 @@
 	belt = /obj/item/melee/energy/sword/hegemony
 	shoes = /obj/item/clothing/shoes/vaurca
 	id = /obj/item/card/id/distress/kataphract
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/hegemony
 
 	l_hand = /obj/item/martial_manual/vaurca
 
@@ -127,12 +128,16 @@
 	name = "Kataphract Knight"
 
 	suit = /obj/item/clothing/accessory/poncho/red
+	back = /obj/item/storage/backpack/satchel/hegemony
+	
 
 /datum/outfit/admin/kataphract/knight/get_id_access()
 	return list(access_kataphract, access_kataphract_knight, access_kataphract_quartermaster, access_kataphract_trader, access_external_airlocks)
 
 /datum/outfit/admin/kataphract/quartermaster
 	name = "Kataphract Quartermaster"
+	
+	back = /obj/item/storage/backpack/satchel/hegemony
 
 /datum/outfit/admin/kataphract/quartermaster/get_id_access()
 	return list(access_kataphract, access_kataphract_quartermaster, access_kataphract_trader, access_external_airlocks)
