@@ -8,7 +8,7 @@
       <vui-group-item label="ID:">{{ active.id }}</vui-group-item>
       <vui-group-item label="Name:"><view-records-field :editable="(editable & 1) > 0" path="active.name"/></vui-group-item>
       <vui-group-item label="Age:"><view-records-field :editable="(editable & 1) > 0" path="active.age"/></vui-group-item>
-      <vui-group-item label="Sex:"><view-records-field :editable="(editable & 1) > 0" path="active.sex"/></vui-group-item>
+      <vui-group-item label="Gender:"><view-records-field :editable="(editable & 1) > 0" path="active.sex"/></vui-group-item>
       <vui-group-item label="Rank:"><view-records-field :editable="(editable & 1) > 0" path="active.rank"/></vui-group-item>
       <vui-group-item label="Physical Status:">
         <view-records-field :editable="(editable & 1 || editable & 2) > 0" path="active.physical_status">
