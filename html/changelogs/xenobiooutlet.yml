@@ -1,0 +1,6 @@
+author: listerla
+
+delete-after: True
+
+changes:
+  - maptweak: "Changed xenobiology disposal outlets to face the wall, as to not break glass."
