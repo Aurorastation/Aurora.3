@@ -10615,7 +10615,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/fake_object{
-	name = "Air Alarm - Residential Deck Stairwell #2";
+	name = "Horizon - Residential Deck Stairwell Air Alarm";
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "alarm0";
 	desc = "A device that controls the local air regulation machinery and informs you when you're breathing vacuum.";
