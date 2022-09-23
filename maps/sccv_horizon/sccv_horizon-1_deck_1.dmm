@@ -10601,9 +10601,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/landmark{
-	name = "JoinLateStairs"
-	},
 /obj/effect/decal/fake_object{
 	name = "Air Alarm - Residential Deck Stairwell #2";
 	icon = 'icons/obj/monitors.dmi';
@@ -12938,9 +12935,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/status_display{
 	pixel_x = -32
-	},
-/obj/effect/landmark{
-	name = "JoinLateStairs"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
