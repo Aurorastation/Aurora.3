@@ -2485,6 +2485,8 @@
 	dir = 1
 	},
 /obj/machinery/firealarm/east,
+/obj/effect/floor_decal/spline/plain,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "bSo" = (
@@ -3095,7 +3097,7 @@
 	req_one_access = list(31,48,67)
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/outpost/mining_main/refinery)
 "ctX" = (
 /obj/structure/disposalpipe/junction{
@@ -6084,7 +6086,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/hangar/intrepid)
 "eKr" = (
 /obj/structure/cable{
@@ -6922,9 +6924,6 @@
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
@@ -7768,7 +7767,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/hangar/intrepid)
 "fWU" = (
 /obj/structure/cable{
@@ -10980,13 +10979,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Workshop";
 	req_access = list(29)
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
 "iAs" = (
 /obj/structure/railing/mapped{
@@ -13673,8 +13671,8 @@
 /obj/machinery/button/remote/blast_door{
 	id = "machinistworkshop";
 	name = "Conveyor Belt Shutter";
-	pixel_x = 24;
-	pixel_y = 24
+	pixel_x = 25;
+	pixel_y = 25
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 6
@@ -13841,7 +13839,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/hangar/intrepid)
 "kMG" = (
 /obj/structure/shuttle_part{
@@ -15538,7 +15536,7 @@
 	req_access = list(48);
 	req_one_access = null
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/outpost/mining_main/eva)
 "mkW" = (
 /obj/machinery/mech_recharger,
@@ -17149,7 +17147,7 @@
 	req_one_access = null
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/outpost/mining_main/eva)
 "nup" = (
 /obj/machinery/newscaster{
@@ -18279,10 +18277,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/white/full{
+/turf/simulated/floor/tiled/ramp{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "ozx" = (
 /obj/effect/floor_decal/corner/purple{
@@ -24617,9 +24614,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "tAP" = (
@@ -24687,7 +24681,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/outpost/mining_main/refinery)
 "tEr" = (
 /obj/machinery/light{
@@ -24733,8 +24727,7 @@
 	name = "Workshop";
 	req_access = list(29)
 	},
-/obj/effect/floor_decal/corner/white/diagonal,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
 "tGU" = (
 /obj/effect/floor_decal/corner/purple{
@@ -26090,9 +26083,6 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
 "uIL" = (
@@ -26429,6 +26419,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "uYW" = (
@@ -26519,7 +26510,7 @@
 	req_one_access = list(12,26,31,48,67)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/maintenance/operations)
 "vbv" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -27954,7 +27945,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/hangar/intrepid)
 "wkj" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
