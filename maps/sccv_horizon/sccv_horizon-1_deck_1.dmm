@@ -8842,8 +8842,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 1
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -12249,6 +12249,9 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "jCg" = (
@@ -15234,9 +15237,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "lWd" = (
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 8
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
 	},
+/obj/structure/table/steel,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "lWu" = (
@@ -19245,6 +19254,7 @@
 	pixel_y = -28;
 	dir = 1
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
 "pvn" = (
@@ -21201,6 +21211,7 @@
 /obj/structure/table/steel,
 /obj/item/ladder_mobile,
 /obj/item/ladder_mobile,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/eva)
 "qQE" = (
@@ -27184,11 +27195,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "vEd" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 1
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_hangarseccp";
+	name = "Security Checkpoint Shutter"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/storage/eva)
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/security/checkpoint)
 "vET" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -27991,21 +28005,17 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "wnc" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/turf/simulated/floor/tiled/dark,
+/area/storage/eva)
 "wng" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
 	dir = 8
@@ -29638,9 +29648,6 @@
 /area/hangar/auxiliary)
 "xCn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "xCD" = (
@@ -29796,9 +29803,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "xIh" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
@@ -52020,7 +52024,7 @@ jjZ
 oQa
 wRE
 xTb
-sOG
+cZw
 gzQ
 poO
 hdi
@@ -52229,7 +52233,7 @@ hdi
 hdi
 tSX
 hdi
-hdi
+vEd
 hdi
 aKo
 wif
@@ -52423,8 +52427,8 @@ usu
 bap
 geN
 pcw
-lWd
-vEd
+sOG
+cZw
 gzQ
 wUz
 hTa
@@ -52829,7 +52833,7 @@ geN
 lvq
 eFl
 dns
-hzK
+lWd
 mYX
 wRE
 fwF
@@ -53037,7 +53041,7 @@ wRE
 hTa
 aPY
 wRE
-wRE
+hTa
 wRE
 fQC
 vCG
@@ -54847,7 +54851,7 @@ fTy
 mVU
 wRE
 lNJ
-erd
+wnc
 eQI
 iTq
 rqB
@@ -55049,8 +55053,8 @@ fTy
 mVU
 wRE
 wRE
-aaZ
 wRE
+aaZ
 wRE
 wRE
 wRE
@@ -55250,9 +55254,9 @@ pwd
 lvP
 fep
 baq
+baq
 fIg
 bgR
-wnc
 jCf
 sFd
 bOv
