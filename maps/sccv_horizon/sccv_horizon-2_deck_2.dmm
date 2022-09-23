@@ -26074,6 +26074,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "nJQ" = (
