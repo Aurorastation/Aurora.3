@@ -593,4 +593,7 @@
 	name = "Horizon - Bar"
 	icon_state = "bar"
 	allow_nightmode = FALSE
+
+/area/horizon/bar/backroom
+	name = "Horizon - Bar - Backroom"
 /********** Unique End **********/
