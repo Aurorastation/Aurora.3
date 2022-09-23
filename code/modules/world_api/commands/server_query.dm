@@ -12,7 +12,6 @@
 	s["enter"] = config.enter_allowed
 	s["vote"] = config.allow_vote_mode
 	s["ai"] = config.allow_ai
-	s["host"] = host ? host : null
 	s["stationtime"] = worldtime2text()
 	s["roundduration"] = get_round_duration_formatted()
 	s["gameid"] = game_id
@@ -186,14 +185,16 @@
 /datum/topic_command/get_manifest/run_command(queryparams)
 	var/list/positions = list()
 	var/list/set_names = list(
-			"heads" = command_positions,
-			"sec" = security_positions,
-			"eng" = engineering_positions,
-			"med" = medical_positions,
-			"sci" = science_positions,
-			"ser" = service_positions,
-			"civ" = civilian_positions,
-			"bot" = nonhuman_positions
+			"Command" = command_positions,
+			"Command Support" = command_support_positions,
+			"Security" = security_positions,
+			"Engineering" = engineering_positions,
+			"Medical" = medical_positions,
+			"Science" = science_positions,
+			"Operations" = cargo_positions,
+			"Service" = service_positions,
+			"Civilian" = civilian_positions,
+			"Equipment" = nonhuman_positions
 		)
 
 	for(var/datum/record/general/R in SSrecords.records)

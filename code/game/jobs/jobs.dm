@@ -69,6 +69,13 @@ var/list/command_positions = list(
 	"Operations Manager"
 )
 
+var/list/command_support_positions = list(
+	"Human Resources Assistant",
+	"Corporate Liaison",
+	"Consular Officer",
+	"Bridge Crew"
+)
+
 var/list/engineering_positions = list(
 	"Chief Engineer",
 	"Engineer",
@@ -104,16 +111,13 @@ var/list/cargo_positions = list(
 
 var/list/service_positions = list(
 	"Executive Officer",
-	"Corporate Liaison",
-	"Consular Officer",
 	"Bartender",
 	"Gardener",
 	"Chef",
 	"Janitor",
 	"Librarian",
 	"Corporate Reporter",
-	"Chaplain",
-	"Bridge Crew"
+	"Chaplain"
 )
 
 var/list/civilian_positions = list(

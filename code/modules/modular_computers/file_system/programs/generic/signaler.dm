@@ -77,7 +77,7 @@
 
 	if(href_list["send"])
 		radio.send_signal("ACTIVATE")
-		computer.output_message("[icon2html(host, viewers(get_turf(src)))] *beep* *beep*", 1)
+		computer.output_message("[icon2html(computer, viewers(get_turf(src)))] *beep* *beep*", 1)
 		return TRUE
 
 	else if(href_list["freq"])
