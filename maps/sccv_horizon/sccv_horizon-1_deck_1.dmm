@@ -10729,7 +10729,8 @@
 	name = "Residential Deck Stairwell Security Shutter";
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	density = 1
+	density = 1;
+	desc = "That looks like it doesn't open easily."
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
@@ -13614,18 +13615,19 @@
 "kGf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/fake_object{
+	name = "Residential Deck Stairwell Security Shutter";
+	icon = 'icons/obj/doors/rapid_pdoor.dmi';
+	icon_state = "shutter0";
+	density = 1;
+	desc = "That looks like it doesn't open easily."
+	},
+/obj/effect/decal/fake_object{
 	name = "Residential Deck Stairwell";
 	icon = 'icons/obj/doors/Door2x1glass.dmi';
 	icon_state = "door_closed";
 	density = 1;
 	desc = "It opens and closes.";
 	dir = 4
-	},
-/obj/effect/decal/fake_object{
-	name = "Residential Deck Stairwell Security Shutter";
-	icon = 'icons/obj/doors/rapid_pdoor.dmi';
-	icon_state = "shutter0";
-	density = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
@@ -28806,10 +28808,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
-"wYe" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall,
-/area/maintenance/operations)
 "wYp" = (
 /obj/structure/sign/fire{
 	desc = "A caution sign which reads 'STARBOARD PROPULSION'.";
@@ -48195,7 +48193,7 @@ nnw
 aDv
 fUS
 txk
-wYe
+nnw
 qio
 vqU
 xmc
