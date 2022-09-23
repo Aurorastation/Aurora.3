@@ -4,39 +4,58 @@
 	icon = 'icons/obj/guns/ship/ship_ammo_longarm.dmi'
 	icon_state = "generic_casing"
 	item_state = "generic_casing_obj"
+	caliber = SHIP_CALIBER_406MM
 	var/obj/item/primer/primer
 	var/obj/item/warhead/warhead
 
 /obj/item/ship_ammunition/longbow/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/primer) && !primer)
-		var/obj/item/primer/P = I
-		visible_message(SPAN_NOTICE("You start connecting \the [P] to the casing..."), SPAN_NOTICE("[user] starts connecting \the [P] to the casing..."))
-		if(do_after(user, 3 SECONDS))
-			visible_message(SPAN_NOTICE("You connect \the [P] to the casing!"), SPAN_NOTICE("[user] connects \the [P] to the casing!"))
-			primer = P
-			P.forceMove(src)
-			var/image/OL = image(P.icon, P.primer_state, layer = layer - 0.01)
-			add_overlay(OL)
-	if(istype(I, /obj/item/warhead) && !warhead)
-		var/obj/item/warhead/W = I
-		visible_message(SPAN_NOTICE("You start connecting \the [W] to the casing..."), SPAN_NOTICE("[user] starts connecting \the [W] to the casing..."))
-		if(do_after(user, 5 SECONDS))
-			visible_message(SPAN_NOTICE("You connect \the [W] to the casing!"), SPAN_NOTICE("[user] connects \the [W] to the casing!"))
-			warhead = W
-			W.forceMove(src)
-			add_overlay(W.warhead_state)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(istype(I, /obj/item/primer) && !primer)
+			var/obj/item/primer/P = I
+			visible_message(SPAN_NOTICE("You start connecting \the [P] to the casing..."), SPAN_NOTICE("[H] starts connecting \the [P] to the casing..."))
+			if(do_after(H, 3 SECONDS))
+				visible_message(SPAN_NOTICE("You connect \the [P] to the casing!"), SPAN_NOTICE("[H] connects \the [P] to the casing!"))
+				H.drop_from_inventory(P)
+				add_primer(P)
+		if(istype(I, /obj/item/warhead) && !warhead)
+			var/obj/item/warhead/W = I
+			visible_message(SPAN_NOTICE("You start connecting \the [W] to the casing..."), SPAN_NOTICE("[H] starts connecting \the [W] to the casing..."))
+			if(do_after(H, 5 SECONDS))
+				visible_message(SPAN_NOTICE("You connect \the [W] to the casing!"), SPAN_NOTICE("[H] connects \the [W] to the casing!"))
+				H.drop_from_inventory(W)
+				add_warhead(W)
 	update_status()
+
+/obj/item/ship_ammunition/longbow/proc/add_primer(var/obj/item/primer/P)
+	if(P && !QDELETED(P))
+		primer = P
+		P.forceMove(src)
+		var/image/OL = image(P.icon, P.primer_state, layer = layer - 0.01)
+		add_overlay(OL)
+
+/obj/item/ship_ammunition/longbow/proc/add_warhead(var/obj/item/warhead/W)
+	if(W && !QDELETED(W))
+		warhead = W
+		W.forceMove(src)
+		add_overlay(W.warhead_state)
 
 /obj/item/ship_ammunition/longbow/update_status()
 	desc = initial(desc)
 	if(primer && !warhead)
 		desc += "It is loaded with [primer], but no warhead."
+		name = "longbow casing"
 	else if(warhead && !primer)
 		desc += "It has a [warhead], but no primer."
+		name = "longbow casing"
 	else if(warhead && primer)
 		desc += "It has a [warhead] and is loaded with [primer]! It's ready to go."
+		name = "longbow shell"
 	else
 		desc += "It isn't loaded with a warhead and has no primer."
+
+/obj/item/ship_ammunition/longbow/get_speed()
+	return primer ? primer.speed : 0
 
 /obj/item/primer
 	name = "primer"
@@ -44,21 +63,21 @@
 	icon = 'icons/obj/guns/ship/ship_ammo_longarm.dmi'
 	icon_state = "primer_med_obj"
 	var/primer_state = "primer_med" //This is the overlay state when it gets applied to the projectile.
-	var/speed = 2
+	var/speed = 20 //Somewhat of a misleading name. This is the lag in world ticks between each walk() called by the overmap projectile. Lower is better.
 
 /obj/item/primer/low
 	name = "low power primer"
 	desc = "This is a low power primer for Longbow warheads."
 	icon_state = "primer_low_obj"
 	primer_state = "primer_low"
-	speed = 1
+	speed = 40
 
 /obj/item/primer/high
 	name = "high power primer"
 	desc = "This is a high power primer for Longbow warheads."
 	icon_state = "primer_high_obj"
 	primer_state = "primer_high"
-	speed = 3
+	speed = 10
 
 /obj/item/warhead
 	name = "warhead"
@@ -90,3 +109,11 @@
 	icon_state = "bunker_buster_obj"
 	warhead_state = "bunker_buster"
 	warhead_type = SHIP_AMMO_IMPACT_BUNKERBUSTER
+
+/obj/item/ship_ammunition/longbow/preset_he/Initialize()
+	. = ..()
+	var/obj/item/primer/P = new()
+	add_primer(P)
+	var/obj/item/warhead/longbow/W = new()
+	add_warhead(W)
+	update_status()

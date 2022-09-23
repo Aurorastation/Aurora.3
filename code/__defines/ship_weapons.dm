@@ -1,6 +1,12 @@
 #define SHIP_CALIBER_NONE "none"
 #define SHIP_CALIBER_406MM "406mm"
 
+#define SHIP_GUN_FIRING_SUCCESSFUL "firing sequence completed"
+#define SHIP_GUN_ERROR_NO_AMMO "no ammunition loaded"
+
+#define SHIP_WEAPON_CAN_HIT_HAZARDS 1
+#define SHIP_WEAPON_CAN_HIT_SHIPS 2
+
 #define SHIP_AMMO_IMPACT_HE "high explosive"
 #define SHIP_AMMO_IMPACT_AP "armour-piercing"
 #define SHIP_AMMO_IMPACT_LASER "laser"

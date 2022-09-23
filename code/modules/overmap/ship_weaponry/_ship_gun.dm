@@ -43,11 +43,15 @@
 	else
 		return FALSE
 
-/obj/machinery/ship_weapon/proc/firing_command(var/atom/target)
+/obj/machinery/ship_weapon/proc/firing_command(var/atom/target, var/obj/effect/landmark/LM)
 	if(firing_checks())
-		weapon.pre_fire(target)
+		var/result = weapon.pre_fire(target, LM)
+		if(result)
+			return SHIP_GUN_FIRING_SUCCESSFUL
+	else
+		return SHIP_GUN_ERROR_NO_AMMO
 
-/obj/machinery/ship_weapon/proc/fire(var/atom/overmap_target)
+/obj/machinery/ship_weapon/proc/fire(var/atom/overmap_target, var/obj/effect/landmark/LM)
 	var/obj/item/ship_ammunition/SA = consume_ammo()
 	if(!barrel)
 		crash_with("No barrel found for [src] at [x] [y] [z]! Cannot fire!")
@@ -58,6 +62,14 @@
 	projectile.ammo = SA
 	projectile.shot_from = name
 	SA.overmap_target = overmap_target
+	SA.entry_point = LM
+	SA.origin = linked
+	if(istype(linked, /obj/effect/overmap/visitable/ship))
+		var/obj/effect/overmap/visitable/ship/SH = linked
+		SA.heading = SH.get_heading()
+	else
+		SA.heading = barrel.dir
+	SA.forceMove(projectile)
 	var/turf/target = get_step(projectile, barrel.dir)
 	projectile.launch_projectile(target)
 	return TRUE
@@ -110,3 +122,51 @@
 		if(!SD.connected)
 			SD.connect(SW)
 
+/obj/machinery/computer/gunnery
+	name = "gunnery console"
+	desc = "The console where all the fun happens. This is a WIP description, yell at Matt if this gets in game somehow."
+	icon_screen = "teleport"
+	icon_keyboard = "teal_key"
+	light_color = LIGHT_COLOR_CYAN
+
+/obj/machinery/computer/gunnery/Initialize()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/gunnery/LateInitialize()
+	if(current_map.use_overmap && !linked)
+		var/my_sector = map_sectors["[z]"]
+		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
+			attempt_hook_up(my_sector)
+
+/obj/machinery/computer/gunnery/attack_hand(mob/user)
+	. = ..()
+	var/obj/machinery/ship_weapon/big_gun = input(user, "Select a gun.") as anything in linked.ship_weapons
+	var/list/obj/effect/overmap/targets = list()
+	var/hazard_capable = big_gun.weapon.overmap_behaviour & SHIP_WEAPON_CAN_HIT_HAZARDS
+	var/ship_capable = big_gun.weapon.overmap_behaviour & SHIP_WEAPON_CAN_HIT_SHIPS
+	for(var/obj/effect/overmap/OM in range(3, linked))
+		if(OM == linked)
+			continue
+		if(OM in linked)
+			continue
+		if(hazard_capable)
+			if(istype(OM, /obj/effect/overmap/event))
+				targets += OM
+		if(ship_capable)
+			if(istype(OM, /obj/effect/overmap/visitable))
+				targets += OM
+	var/obj/effect/overmap/target = input(user, "Select target.") as anything in targets
+	var/obj/effect/landmark/LM 
+	if(istype(target, /obj/effect/overmap/visitable))
+		var/obj/effect/overmap/visitable/V = target
+		LM = input(user, "Select a point of entry.") as anything in V.generic_waypoints
+	if(target)
+		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Target acquired! Firing for effect...\""))
+		var/result = big_gun.firing_command(target, LM)
+		if(result == SHIP_GUN_ERROR_NO_AMMO)
+			visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Ammunition insufficient for firing sequence. Aborting.\""))
+			//todomatt: add sound here
+		if(result == SHIP_GUN_FIRING_SUCCESSFUL)
+			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Firing sequence completed!\""))
+			//todomatt: add sound here

@@ -20,14 +20,21 @@
 		crash_with("[src] at [x] [y] [z] has no weapon attached!")
 
 /obj/machinery/ammunition_loader/attackby(obj/item/W, mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/H = user
+		if(istype(W, /obj/item/ship_ammunition))
+			var/obj/item/ship_ammunition/SA = W
+			if(SA.caliber == weapon.get_caliber())
+				visible_message(SPAN_NOTICE("[H] begins loading \the [SA] into \the [src]..."))
+				if(do_after(H, weapon.load_time))
+					visible_message(SPAN_NOTICE("[H] loads \the [SA] into \the [src]."))
+					H.drop_from_inventory(SA)
+					weapon.load_ammunition(SA)
+					return
+			else
+				to_chat(H, SPAN_WARNING("That ammo doesn't fit here!"))
+				return
 	. = ..()
-	if(istype(W, /obj/item/ship_ammunition))
-		var/obj/item/ship_ammunition/SA = W
-		if(SA.caliber == weapon.get_caliber())
-			visible_message(SPAN_NOTICE("[user] begins loading \the [SA] into \the [src]..."))
-			if(do_after(user, weapon.load_time))
-				visible_message(SPAN_NOTICE("[user] loads \the [SA] into \the [src]."))
-				weapon.load_ammunition(SA)
 
 /obj/structure/viewport
 	name = "viewport"
@@ -40,5 +47,4 @@
 	atmos_canpass = CANPASS_DENSITY
 
 /obj/structure/viewport/zavod
-	icon = 'icons/obj/machines/ship_guns/ship_weapon_attachments.dmi'
 	icon_state = "viewport_zavod"

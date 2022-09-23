@@ -17,6 +17,9 @@
 	var/overmap_icon_state = "cannon"
 	var/obj/effect/overmap/origin
 	var/atom/overmap_target
+	var/obj/effect/landmark/entry_point
+	var/obj/item/projectile/original_projectile
+	var/heading = SOUTH
 
 /obj/item/ship_ammunition/Initialize()
 	. = ..()
@@ -103,6 +106,9 @@
 /obj/item/ship_ammunition/proc/get_additional_info()
 	return
 
+/obj/item/ship_ammunition/proc/get_speed() //Step size for the projectile.
+	return 4
+
 /obj/item/ship_ammunition/touch_map_edge(var/new_z)
 	if(isprojectile(loc))
 		transfer_to_overmap(new_z)
@@ -122,8 +128,9 @@
 	P.set_ammunition(src)
 	P.target = overmap_target
 	P.icon_state = overmap_icon_state
+	P.speed = get_speed()
 	forceMove(P)
-	log_and_message_admins("A projectile has entered the Overmap! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
+	log_and_message_admins("A projectile ([name]) has entered the Overmap! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
 	return TRUE
 
 //SNOWFLAKE CODE: ACTIVATE
@@ -138,8 +145,5 @@
 
 /obj/item/projectile/ship_ammo/touch_map_edge()
 	if(ammo.touch_map_edge(z))
-		ammo = null
-		qdel(src)
-
-/obj/item/ship_ammunition/longbow
-	caliber = SHIP_CALIBER_406MM //debug item
+		ammo.original_projectile = src
+		forceMove(ammo)

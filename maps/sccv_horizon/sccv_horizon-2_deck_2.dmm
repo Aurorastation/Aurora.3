@@ -2258,6 +2258,13 @@
 "baq" = (
 /turf/simulated/floor/tiled,
 /area/teleporter)
+"bav" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/computer/gunnery,
+/turf/simulated/floor/tiled,
+/area/maintenance/wing/starboard/far)
 "baJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
@@ -50578,7 +50585,7 @@ vuI
 vuI
 vuI
 vuI
-vPt
+bav
 vjc
 nox
 vFR
