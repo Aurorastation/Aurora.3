@@ -302,6 +302,7 @@
 /obj/item/clothing/accessory/storage/pouches/white,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/melee/telebaton,
+/obj/item/clothing/head/hijab/black,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "aXh" = (
@@ -1067,6 +1068,7 @@
 /obj/item/storage/box/zipties,
 /obj/item/gun/energy/taser,
 /obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/head/hijab/black,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "loD" = (
@@ -1436,6 +1438,7 @@
 /obj/item/storage/box/zipties,
 /obj/item/gun/energy/taser,
 /obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/head/hijab/black,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "qvs" = (
@@ -1792,6 +1795,7 @@
 /obj/item/stack/liquidbags/half_full,
 /obj/item/clothing/shoes/workboots,
 /obj/item/gun/energy/plasmacutter,
+/obj/item/clothing/head/hijab/black,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "wdF" = (
