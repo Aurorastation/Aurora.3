@@ -218,6 +218,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
 	},
+/obj/structure/closet/wardrobe/atmospherics_yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aeC" = (
@@ -5084,6 +5085,7 @@
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "cDE" = (
@@ -30839,9 +30841,7 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
 	},
-/obj/structure/table/standard,
-/obj/item/hoist_kit,
-/obj/item/ladder_mobile,
+/obj/structure/closet/wardrobe/engineering_yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "qlm" = (
@@ -39778,11 +39778,12 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
 	},
-/obj/item/device/hand_labeler,
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Locker Room";
 	dir = 4
 	},
+/obj/item/hoist_kit,
+/obj/item/ladder_mobile,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "uOV" = (
