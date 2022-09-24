@@ -146,7 +146,8 @@
 	else
 		to_chat(user, SPAN_WARNING("\The [src] does not have a card or item stored in the card slot."))
 
-/obj/item/modular_computer/attack(mob/living/M, mob/living/user, var/sound_scan = FALSE)
+/obj/item/modular_computer/attack(mob/living/M, mob/living/user, var/sound_scan)
+	sound_scan = FALSE
 	if(last_scan <= world.time - 20) //Spam limiter.
 		last_scan = world.time
 		sound_scan = TRUE
