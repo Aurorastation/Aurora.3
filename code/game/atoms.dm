@@ -32,10 +32,8 @@
 
 	// Extra descriptions.
 	var/desc_extended = null // Regular text about the atom's extended description, if any exists.
-	var/desc_humour = null // Italic text (SPAN_ITALIC()) that contains a quip, joke, and/or humour.
 	var/desc_info = null // Blue text (SPAN_NOTICE()), informing the user about how to use the item or about game controls.
 	var/desc_antag = null // Red text (SPAN_ALERT()), informing the user about how they can use an object to antagonize.
-	var/desc_cult = null // Purple text (SPAN_CULT()), telling the user, if they're a cultist, how they can use certain items related to being a cultist.
 
 /atom/proc/reveal_blood()
 	return
@@ -228,18 +226,14 @@
 	to_chat(user, desc)	// Object description.
 
 	// Extra object descriptions examination code.
-	if(desc_extended || desc_humour || desc_info || (desc_antag && player_is_antag(user.mind)) || (desc_cult && user.mind?.special_role == "Cultist")) // Checks if the object has a fluff description, a mechanics description, an antagonist description (and if the user is an antagonist), and/or a cultist description (and if the user is a cultist).
+	if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available. <a href=?src=\ref[src];examine_fluff=1>\[Show In Chat\]</a>"))) // If any of the above are true, show that the object has more information available.
 		if(desc_extended) // If the item has a extended description, show that it is available.
 			to_chat(user, FONT_SMALL("- This object has an extended description."))
-		if(desc_humour) // If the item has a quip, joke, and/or humour description, show that it is available.
-			to_chat(user, FONT_SMALL("- This object has an additional quip, joke, and/or humour description."))
 		if(desc_info) // If the item has a description regarding game mechanics, show that it is available.
 			to_chat(user, FONT_SMALL(SPAN_NOTICE("- This object has additional information about mechanics.")))
 		if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show that it is available.
 			to_chat(user, FONT_SMALL(SPAN_ALERT("- This object has additional information for antagonists.")))
-		if(desc_cult && user.mind?.special_role == "Cultist") // If the item has a cultist description and the user is a cultist, show that it is available.
-			to_chat(user, FONT_SMALL(SPAN_CULT("- This object has additional information for those within the veil...")))
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -265,14 +259,10 @@
 	to_chat(user, desc) // Object description.
 	if(desc_extended) // If the item has a extended description, show it.
 		to_chat(user, desc_extended)
-	if(desc_humour) // If the item has a quip, joke, and/or humour description, show it.
-		to_chat(user, SPAN_ITALIC(desc_humour))
 	if(desc_info) // If the item has a description regarding game mechanics, show it.
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("- [desc_info]")))
 	if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show it.
 		to_chat(user, FONT_SMALL(SPAN_ALERT("- [desc_antag]")))
-	if(desc_cult && user.mind?.special_role == "Cultist") // If the item has a cultist description and the user is a cultist, show it.
-		to_chat(user, FONT_SMALL(SPAN_CULT("- [desc_cult]")))
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
