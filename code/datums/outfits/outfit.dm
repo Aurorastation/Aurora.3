@@ -13,7 +13,7 @@
 #define OUTFIT_FACTIONSPECIFIC 3
 
 #define OUTFIT_NORMAL 2
-#define OUTFIT_THIN 3
+#define OUTFIT_THICK 3
 
 #define OUTFIT_BLUE 2
 #define OUTFIT_GREEN 3
