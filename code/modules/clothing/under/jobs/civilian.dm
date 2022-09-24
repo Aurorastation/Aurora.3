@@ -205,7 +205,7 @@
 /obj/item/clothing/under/rank/bridge_crew/sancolette
 	name = "bridge crew's uniform"
 	desc = "A command staff uniform in SCC colors but Colettish style, consisting of trousers and meant to be paired with a jacket. Fancy!"
-	desc_fluff = "This uniform is based upon an officer's uniform of the Civil Guard of San Colette. The blue-and-white \
+	desc_extended = "This uniform is based upon an officer's uniform of the Civil Guard of San Colette. The blue-and-white \
 	uniforms of the Civil Guard are one of the more striking uniforms found in the local military forces of the Alliance, and are often copied by both corporate and civil actors."
 	icon = 'icons/contained_items/clothing/bottomwear/bridge_crew_sancol.dmi'
 	icon_state = "bridge_crew_sancol"
@@ -215,7 +215,7 @@
 /obj/item/clothing/under/rank/bridge_crew/sancolette/alt
 	name = "bridge crew's uniform"
 	desc = "A command staff uniform in SCC colors but Colettish style, consisting of navy trousers and meant to be paired with a jacket. Fancy!"
-	desc_fluff = "This uniform is based upon an officer's uniform of the Civil Guard of San Colette. The blue-and-white \
+	desc_extended = "This uniform is based upon an officer's uniform of the Civil Guard of San Colette. The blue-and-white \
 	uniforms of the Civil Guard are one of the more striking uniforms found in the local military forces of the Alliance, and are often copied by both corporate and civil actors."
 	icon = 'icons/contained_items/clothing/bottomwear/bridge_crew_sancol.dmi'
 	icon_state = "bridge_crew_sancol_alt"
