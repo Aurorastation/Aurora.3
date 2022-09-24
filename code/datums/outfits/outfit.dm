@@ -217,9 +217,9 @@
 		switch (H.backbag_strap)
 			if (OUTFIT_NOTHING)
 				B.alpha_mask = "hidden"
-			if (OUTFIT_NORMAL)
+			if (OUTFIT_THICK)
 				B.alpha_mask = null
-			if (OUTFIT_THIN)
+			if (OUTFIT_NORMAL)
 				B.alpha_mask = "thin"
 		if(isvaurca(H, TRUE))
 			H.equip_or_collect(B, slot_r_hand)

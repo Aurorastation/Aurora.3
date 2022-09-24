@@ -37,13 +37,13 @@
 	if(use_check_and_message(usr))
 		return 0
 	switch(input(usr, "Choose your bag strap style.", "[src]") as null|anything in backbagstrap)
-		if("Normal")
+		if("Thick")
 			alpha_mask = null
-		if("Thin")
-			alpha_mask = "thin"
+		if("Normal")
+			alpha_mask = "normal"
 		if("Hidden")
 			alpha_mask = "hidden"
-	to_chat(usr, SPAN_NOTICE("You adjust your bag strap to be [alpha_mask ? "[alpha_mask]" : "normal"]."))
+	to_chat(usr, SPAN_NOTICE("You adjust your bag strap to be [alpha_mask ? "[alpha_mask]" : "thick"]."))
 	var/mob/living/carbon/human/H = src.loc
 	H.update_icon()
 	H.update_inv_back()
