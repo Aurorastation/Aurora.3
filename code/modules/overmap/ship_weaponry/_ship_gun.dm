@@ -165,9 +165,9 @@
 	var/landmark = input(user, "Select an entry point.", "Gunnery Control") as null|anything in possible_entry_points
 	if(!landmark && length(possible_entry_points)) //TODOMATT: Why the ACTUAL FUCK is this input not working
 		landmark = pick(possible_entry_points)
-	if(target)
+	if(linked.targeting) //Check if we're still targeting.
 		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Target acquired! Firing for effect...\""))
-		var/result = big_gun.firing_command(target, landmark)
+		var/result = big_gun.firing_command(linked.targeting, landmark)
 		if(result == SHIP_GUN_ERROR_NO_AMMO)
 			visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Ammunition insufficient for firing sequence. Aborting.\""))
 			//todomatt: add sound here

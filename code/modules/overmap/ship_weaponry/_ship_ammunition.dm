@@ -127,7 +127,7 @@
 	var/obj/effect/overmap/projectile/P = new(null, start_object.x, start_object.y)
 	P.name = name
 	P.desc = desc
-	P.set_ammunition(src)
+	P.ammunition = src
 	P.target = overmap_target
 	if(istype(origin, /obj/effect/overmap/visitable/ship))
 		var/obj/effect/overmap/visitable/ship/S = origin
