@@ -50,19 +50,32 @@
 			return
 		
 		if(V.check_ownership(entry_target)) //Target spotted!
-			//Todomatt: add a grace period maybe?
-			var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
-			widowmaker.ammo = ammunition
-			qdel(ammunition.original_projectile) //No longer needed.
-			ammunition.original_projectile = widowmaker
-			widowmaker.primed = TRUE
-			var/turf/visitor_turf = get_ranged_target_turf(entry_target, reverse_dir[ammunition.heading], round(min(world.maxx/4, world.maxy/4)))
-			widowmaker.forceMove(visitor_turf)
-			log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
-			widowmaker.dir = ammunition.heading
-			var/turf/target_turf = get_step(widowmaker, widowmaker.dir)
-			widowmaker.launch_projectile(target_turf)
-			qdel(src)
+			if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet))
+				//Todomatt: add a grace period maybe?
+				var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
+				widowmaker.ammo = ammunition
+				qdel(ammunition.original_projectile) //No longer needed.
+				ammunition.original_projectile = widowmaker
+				//TODOMATT: add the FSHWOWOOOOOOOOM sound here
+				widowmaker.primed = TRUE
+				widowmaker.forceMove(entry_target)
+				widowmaker.on_hit(get_turf(entry_target))
+				log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+				qdel(widowmaker)
+			else
+				//Todomatt: add a grace period maybe?
+				var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
+				widowmaker.ammo = ammunition
+				qdel(ammunition.original_projectile) //No longer needed.
+				ammunition.original_projectile = widowmaker
+				widowmaker.primed = TRUE
+				var/turf/visitor_turf = get_ranged_target_turf(entry_target, reverse_dir[ammunition.heading], round(min(world.maxx/4, world.maxy/4)))
+				widowmaker.forceMove(visitor_turf)
+				log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+				widowmaker.dir = ammunition.heading
+				var/turf/target_turf = get_step(widowmaker, widowmaker.dir)
+				widowmaker.launch_projectile(target_turf)
+				qdel(src)
 
 /obj/effect/overmap/projectile/proc/move_to()
 	if(isnull(target) || !speed)

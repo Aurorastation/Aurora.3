@@ -61,6 +61,7 @@
 	projectile.name = SA.name
 	projectile.desc = SA.desc
 	projectile.ammo = SA
+	projectile.dir = barrel.dir
 	projectile.shot_from = name
 	SA.overmap_target = overmap_target
 	SA.entry_point = landmark
