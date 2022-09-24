@@ -1,6 +1,6 @@
 /datum/ship_weapon/longbow
 	name = "longbow cannon"
-	desc = "A Zavodskoi high-velocity cannon that fires 406mm artillery rounds. Developed in 2461, this cannon truly packs a punch."
+	desc = "A Zavodskoi high-velocity cannon that fires 406mm warheads. It was developed in 2461 as an upgrade to its predecessor, the Ballista, and many critics argue that it has indeed delivered. A bigger payload and easier maintenance make this cannon one of the best in the Spur."
 	projectile_type = /obj/item/projectile/ship_ammo/longbow
 	caliber = SHIP_CALIBER_406MM
 	firing_effects = FIRING_EFFECT_FLAG_EXTREMELY_LOUD

@@ -64,7 +64,7 @@
 	icon = 'icons/obj/guns/ship/ship_ammo_longarm.dmi'
 	icon_state = "primer_med_obj"
 	var/primer_state = "primer_med" //This is the overlay state when it gets applied to the projectile.
-	var/speed = 20 //Somewhat of a misleading name. This is the lag in world ticks between each walk() called by the overmap projectile. Lower is better.
+	var/speed = 30 //Somewhat of a misleading name. This is the lag in world ticks between each walk() called by the overmap projectile. Lower is better.
 
 /obj/item/primer/low
 	name = "low power primer"
@@ -78,7 +78,7 @@
 	desc = "This is a high power primer for Longbow warheads."
 	icon_state = "primer_high_obj"
 	primer_state = "primer_high"
-	speed = 10
+	speed = 20
 
 /obj/item/warhead
 	name = "warhead"
@@ -91,7 +91,7 @@
 
 /obj/item/warhead/longbow
 	name = "longbow high-explosive warhead"
-	desc = "A high-explosive warhead for the Longbow cannon. <span class='danger'>Don't drop it!</span>"
+	desc = "A high-explosive warhead for the Longbow cannon. It packs a stronger punch than all the others, but does not penetrate through the hull on initial contact. <span class='danger'>Don't drop it!</span>"
 	icon_state = "high_ex_obj"
 	warhead_state = "high_ex"
 	caliber = SHIP_CALIBER_406MM
@@ -99,14 +99,14 @@
 
 /obj/item/warhead/longbow/ap
 	name = "longbow armor-piercing warhead"
-	desc = "An armor-piercing warhead for the Longbow cannon. <span class='danger'>Don't drop it!</span>"
+	desc = "An armor-piercing warhead for the Longbow cannon. It penetrates through the hull and then explodes inside the target, albeit at the cost of less explosive power. <span class='danger'>Don't drop it!</span>"
 	icon_state = "armor_piercing_obj"
 	warhead_state = "armor_piercing"
 	warhead_type = SHIP_AMMO_IMPACT_AP
 
 /obj/item/warhead/longbow/bunker
 	name = "longbow bunker-buster warhead"
-	desc = "A bunker-buster warhead for the Longbow cannon. <span class='danger'>Don't drop it!</span>"
+	desc = "A bunker-buster warhead for the Longbow cannon. This will pierce straight through anything, but won't explode! <span class='danger'>Don't drop it!</span>"
 	icon_state = "bunker_buster_obj"
 	warhead_state = "bunker_buster"
 	warhead_type = SHIP_AMMO_IMPACT_BUNKERBUSTER
@@ -116,5 +116,21 @@
 	var/obj/item/primer/P = new()
 	add_primer(P)
 	var/obj/item/warhead/longbow/W = new()
+	add_warhead(W)
+	update_status()
+
+/obj/item/ship_ammunition/longbow/preset_ap/Initialize()
+	. = ..()
+	var/obj/item/primer/P = new()
+	add_primer(P)
+	var/obj/item/warhead/longbow/ap/W = new()
+	add_warhead(W)
+	update_status()
+
+/obj/item/ship_ammunition/longbow/preset_bb/Initialize()
+	. = ..()
+	var/obj/item/primer/P = new()
+	add_primer(P)
+	var/obj/item/warhead/longbow/bunker/W = new()
 	add_warhead(W)
 	update_status()

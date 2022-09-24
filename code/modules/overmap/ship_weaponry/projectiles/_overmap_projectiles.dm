@@ -10,11 +10,9 @@
 	var/atom/target
 	var/obj/entry_target
 	var/range = OVERMAP_PROJECTILE_RANGE_ULTRAHIGH
-	var/speed = 0 //A projectile with 0 speed does not move. Note that this is the 'lag' variable on walk_towards!
+	var/speed = 0 //A projectile with 0 speed does not move. Note that this is the 'lag' variable on walk_towards! Lower speed is better.
 	
 	var/moving = FALSE //Is the projectile actively moving on the overmap?
-	var/dangerous = FALSE
-	var/should_enter_zs = FALSE
 
 /obj/effect/overmap/projectile/Initialize(var/maploading, var/sx, var/sy)
 	. = ..()
@@ -93,18 +91,6 @@
 		QDEL_NULL(ammunition)
 	ammunition = null
 	return ..()
-
-/obj/effect/overmap/projectile/proc/set_ammunition(var/obj/item/ship_ammunition/ammo)
-	ammunition = ammo
-
-/obj/effect/overmap/projectile/proc/set_dangerous(var/is_dangerous)
-	dangerous = is_dangerous
-
-/obj/effect/overmap/projectile/proc/set_moving(var/is_moving)
-	moving = is_moving
-
-/obj/effect/overmap/projectile/proc/set_enter_zs(var/enter_zs)
-	should_enter_zs = enter_zs
 
 /obj/effect/overmap/projectile/get_scan_data(mob/user)
 	. = ..()

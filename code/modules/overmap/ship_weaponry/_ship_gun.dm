@@ -126,7 +126,7 @@
 
 /obj/machinery/computer/gunnery
 	name = "gunnery console"
-	desc = "The console where all the fun happens. This is a WIP description, yell at Matt if this gets in game somehow."
+	desc = "From this console, you will be able to singlehandedly doom ships' worth of people to an instant and fiery death."
 	icon_screen = "teleport"
 	icon_keyboard = "teal_key"
 	light_color = LIGHT_COLOR_CYAN
@@ -147,27 +147,17 @@
 	if(!big_gun)
 		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Aborting.\""))
 		return
-	var/list/obj/effect/overmap/targets = list()
 	var/hazard_capable = big_gun.weapon.overmap_behaviour & SHIP_WEAPON_CAN_HIT_HAZARDS
 	var/ship_capable = big_gun.weapon.overmap_behaviour & SHIP_WEAPON_CAN_HIT_SHIPS
-	for(var/obj/effect/overmap/OM in range(3, linked))
-		if(OM == linked)
-			continue
-		if(OM in linked)
-			continue
-		if(hazard_capable)
-			if(istype(OM, /obj/effect/overmap/event))
-				targets += OM
-		if(ship_capable)
-			if(istype(OM, /obj/effect/overmap/visitable))
-				targets += OM
-	if(!targets)
-		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No targets detected.\""))
+	if(!linked.targeting)
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No target detected.\""))
 		return
-	var/obj/effect/overmap/target = input(user, "Select target.", "Gunnery Control") as null|anything in targets
+	if((istype(linked.targeting, /obj/effect/overmap/event) && !hazard_capable) || (!istype(linked.targeting, /obj/effect/overmap/event) && !ship_capable))
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"The \[src] is not suited for targets of this type. Aborting.\""))
+		return
 	var/list/obj/effect/possible_entry_points = list()
-	if(istype(target, /obj/effect/overmap/visitable))
-		var/obj/effect/overmap/visitable/V = target
+	if(istype(linked.targeting, /obj/effect/overmap/visitable))
+		var/obj/effect/overmap/visitable/V = linked.targeting
 		for(var/obj/effect/O in V.generic_waypoints)
 			possible_entry_points |= O
 		for(var/obj/effect/O in V.entry_points)
