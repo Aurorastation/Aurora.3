@@ -74,6 +74,6 @@
 	O.maptext_height = 32
 
 /obj/effect/overmap/visitable/proc/detarget(var/obj/effect/overmap/O)
-	O.cut_overlay(targeted_overlay)
+	O.cut_overlay(O.targeted_overlay)
 	O.maptext = null
 	targeting = null
