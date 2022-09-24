@@ -154,12 +154,14 @@
 	if(istype(linked.targeting, /obj/effect/overmap/visitable))
 		var/obj/effect/overmap/visitable/V = linked.targeting
 		for(var/obj/effect/O in V.generic_waypoints)
-			possible_entry_points |= O
+			possible_entry_points[O.name] = O
 		for(var/obj/effect/O in V.entry_points)
-			possible_entry_points |= O
-	var/landmark = input(user, "Select an entry point.", "Gunnery Control") as null|anything in possible_entry_points
-	if(!landmark && length(possible_entry_points)) //TODOMATT: Why the ACTUAL FUCK is this input not working
-		landmark = pick(possible_entry_points)
+			possible_entry_points[O.name] = O
+	var/targeted_landmark = input(user, "Select an entry point.", "Gunnery Control") as null|anything in possible_entry_points
+	if(!targeted_landmark)
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No entry point given. Aborting.\""))
+		return
+	var/obj/effect/landmark = possible_entry_points[targeted_landmark]
 	if(linked.targeting) //Check if we're still targeting.
 		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Target acquired! Firing for effect...\""))
 		var/result = big_gun.firing_command(linked.targeting, landmark)

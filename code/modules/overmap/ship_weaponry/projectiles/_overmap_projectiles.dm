@@ -67,8 +67,7 @@
 				qdel(ammunition.original_projectile) //No longer needed.
 				ammunition.original_projectile = widowmaker
 				widowmaker.primed = TRUE
-				var/turf/visitor_turf = get_ranged_target_turf(entry_target, reverse_dir[ammunition.heading], round(min(world.maxx/4, world.maxy/4)))
-				widowmaker.forceMove(visitor_turf)
+				widowmaker.forceMove(get_turf(entry_target))
 				log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
 				widowmaker.dir = ammunition.heading
 				var/turf/target_turf = get_step(widowmaker, widowmaker.dir)

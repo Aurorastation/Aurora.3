@@ -77,7 +77,7 @@
 	else
 		return FALSE
 
-/obj/ship_ammunition/proc/can_be_loaded()
+/obj/item/ship_ammunition/proc/can_be_loaded()
 	return FALSE
 
 /obj/item/ship_ammunition/proc/update_status()
