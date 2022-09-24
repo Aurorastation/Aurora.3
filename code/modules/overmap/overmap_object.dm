@@ -3,13 +3,12 @@
 	icon = 'icons/obj/overmap.dmi'
 	icon_state = "object"
 	color = "#fffffe"
-	layer = 3
 
 	var/list/map_z = list()
 
 	var/sector_flags = OVERMAP_SECTOR_KNOWN|OVERMAP_SECTOR_IN_SPACE
 
-	var/known = 1		//shows up on nav computers automatically
+	var/known = 0		//shows up on nav computers automatically
 	var/scannable       //if set to TRUE will show up on ship sensors for detailed scans
 
 //Overlay of how this object should look on other skyboxes
