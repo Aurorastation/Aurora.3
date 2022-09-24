@@ -6346,7 +6346,7 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "Third Deck - Teleporter";
+	c_tag = "Second Deck - Teleporter";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue{
