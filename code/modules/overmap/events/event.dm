@@ -174,6 +174,7 @@
 	var/list/event_icon_states = list("event")
 	var/difficulty = EVENT_LEVEL_MODERATE
 	var/list/victims //basically cached events on which Z level
+	var/can_be_destroyed = TRUE //Can this event be destroyed by ship guns?
 
 /obj/effect/overmap/event/Initialize()
 	. = ..()

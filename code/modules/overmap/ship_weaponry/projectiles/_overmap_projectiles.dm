@@ -7,8 +7,8 @@
 	layer = ABOVE_OBJ_LAYER
 
 	var/obj/item/ship_ammunition/ammunition
-	var/atom/target
-	var/obj/entry_target
+	var/atom/target //The target is the actual overmap object we're hitting.
+	var/obj/entry_target //The entry target is where the projectile itself is going to spawn in world.
 	var/range = OVERMAP_PROJECTILE_RANGE_ULTRAHIGH
 	var/speed = 0 //A projectile with 0 speed does not move. Note that this is the 'lag' variable on walk_towards! Lower speed is better.
 	
@@ -29,7 +29,7 @@
 
 /obj/effect/overmap/projectile/process()
 	if(target)
-		move_to(target)
+		move_to()
 	check_entry()
 
 /obj/effect/overmap/projectile/Destroy()
@@ -47,8 +47,8 @@
 		if(!length(V.map_z))
 			return
 		
-		if(V.check_ownership(entry_target)) //Target spotted!
-			if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet))
+		if((V.check_ownership(entry_target)) || (V == target)) //Target spotted!
+			if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
 				//Todomatt: add a grace period maybe?
 				var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 				widowmaker.ammo = ammunition
@@ -60,7 +60,7 @@
 				widowmaker.on_hit(get_turf(entry_target))
 				log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
 				qdel(widowmaker)
-			else
+			else if(istype(V, /obj/effect/overmap/visitable) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
 				//Todomatt: add a grace period maybe?
 				var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 				widowmaker.ammo = ammunition
@@ -73,6 +73,11 @@
 				widowmaker.dir = ammunition.heading
 				var/turf/target_turf = get_step(widowmaker, widowmaker.dir)
 				widowmaker.launch_projectile(target_turf)
+				qdel(src)
+			else if(istype(V, /obj/effect/overmap/event) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_HAZARDS))
+				var/obj/effect/overmap/event/EV = V
+				if(EV.can_be_destroyed)
+					qdel(EV)
 				qdel(src)
 
 /obj/effect/overmap/projectile/proc/move_to()

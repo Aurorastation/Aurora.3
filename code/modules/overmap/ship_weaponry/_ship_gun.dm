@@ -147,13 +147,8 @@
 	if(!big_gun)
 		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Aborting.\""))
 		return
-	var/hazard_capable = big_gun.weapon.overmap_behaviour & SHIP_WEAPON_CAN_HIT_HAZARDS
-	var/ship_capable = big_gun.weapon.overmap_behaviour & SHIP_WEAPON_CAN_HIT_SHIPS
 	if(!linked.targeting)
 		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No target detected.\""))
-		return
-	if((istype(linked.targeting, /obj/effect/overmap/event) && !hazard_capable) || (!istype(linked.targeting, /obj/effect/overmap/event) && !ship_capable))
-		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"The \[src] is not suited for targets of this type. Aborting.\""))
 		return
 	var/list/obj/effect/possible_entry_points = list()
 	if(istype(linked.targeting, /obj/effect/overmap/visitable))

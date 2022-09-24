@@ -13,6 +13,7 @@
 	var/ammunition_status = SHIP_AMMO_STATUS_GOOD
 	var/ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
 	var/ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE //Not a bitfield!
+	var/overmap_behaviour = SHIP_AMMO_CAN_HIT_HAZARDS|SHIP_AMMO_CAN_HIT_SHIPS //Whether or not the ammo can hit hazards or ships, or both.
 	var/rupture_flags = SHIP_AMMO_RUPTURE_FLAG_EXPLODE
 	var/rupture_gas
 	var/overmap_icon_state = "cannon"
@@ -75,6 +76,9 @@
 		return TRUE
 	else
 		return FALSE
+
+/obj/ship_ammunition/proc/can_be_loaded()
+	return FALSE
 
 /obj/item/ship_ammunition/proc/update_status()
 	return

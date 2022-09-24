@@ -10,6 +10,9 @@
 	weapon = /datum/ship_weapon/longbow
 	icon_state = "weapon_base"
 
+/obj/machinery/ammunition_loader/longbow
+	name = "longbow shell loader"
+
 /obj/item/projectile/ship_ammo/longbow
 	icon_state = "heavy"
 	damage = 1000

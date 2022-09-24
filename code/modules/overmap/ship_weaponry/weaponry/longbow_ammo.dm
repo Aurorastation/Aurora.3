@@ -28,6 +28,11 @@
 				add_warhead(W)
 	update_status()
 
+/obj/item/ship_ammunition/longbow/can_be_loaded()
+	if(primer && warhead)
+		return TRUE
+	return FALSE
+
 /obj/item/ship_ammunition/longbow/proc/add_primer(var/obj/item/primer/P)
 	if(P && !QDELETED(P))
 		primer = P

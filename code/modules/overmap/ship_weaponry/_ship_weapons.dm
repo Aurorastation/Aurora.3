@@ -7,7 +7,6 @@
 	var/charging_sound //The sound played when the gun is charging up.
 	var/caliber = SHIP_CALIBER_NONE
 	var/firing_effects
-	var/overmap_behaviour = SHIP_WEAPON_CAN_HIT_HAZARDS|SHIP_WEAPON_CAN_HIT_SHIPS //Whether or not the gun can hit hazards or ships, or both.
 	var/screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 	var/ammo_per_shot = 1
 	var/obj/machinery/ship_weapon/controller
