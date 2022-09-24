@@ -12,6 +12,7 @@
 	var/impact_type = SHIP_AMMO_IMPACT_HE //This decides what happens when the ammo hits. Is it a bunkerbuster? HE? AP?
 	var/ammunition_status = SHIP_AMMO_STATUS_GOOD
 	var/ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
+	var/ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE //Not a bitfield!
 	var/rupture_flags = SHIP_AMMO_RUPTURE_FLAG_EXPLODE
 	var/rupture_gas
 	var/overmap_icon_state = "cannon"
@@ -26,7 +27,6 @@
 	update_status()
 
 /obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
-	. = ..()
 	if(I.ispen())
 		var/obj/item/pen/P = I
 		if(use_check_and_message(user))
@@ -34,6 +34,8 @@
 			if(friendly_message)
 				written_message = friendly_message
 			visible_message(SPAN_NOTICE("[user] writes something on \the [src] with \the [P]."), SPAN_NOTICE("You leave a nice message on \the [src]!"))
+			return
+	return ..()
 
 /obj/item/ship_ammunition/examine(mob/user, distance)
 	. = ..()
@@ -127,6 +129,9 @@
 	P.desc = desc
 	P.set_ammunition(src)
 	P.target = overmap_target
+	if(istype(origin, /obj/effect/overmap/visitable/ship))
+		var/obj/effect/overmap/visitable/ship/S = origin
+		P.dir = S.dir
 	P.icon_state = overmap_icon_state
 	P.speed = get_speed()
 	P.entry_target = entry_point
@@ -143,8 +148,11 @@
 	icon_state = "small"
 	range = 250
 	var/obj/item/ship_ammunition/ammo
+	var/primed = FALSE //If primed, we interact touch map edges. Projectiles might spawn on a landmark at the edge of space, and we don't want them to get tp'd away.
 
 /obj/item/projectile/ship_ammo/touch_map_edge()
+	if(primed)
+		return
 	if(ammo.touch_map_edge(z))
 		ammo.original_projectile = src
 		forceMove(ammo)

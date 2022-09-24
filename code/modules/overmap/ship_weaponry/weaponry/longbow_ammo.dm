@@ -5,6 +5,7 @@
 	icon_state = "generic_casing"
 	item_state = "generic_casing_obj"
 	caliber = SHIP_CALIBER_406MM
+	ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE
 	var/obj/item/primer/primer
 	var/obj/item/warhead/warhead
 

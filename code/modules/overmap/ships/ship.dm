@@ -43,6 +43,9 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	SSshuttle.ships += src
 	START_PROCESSING(SSprocessing, src)
 
+/obj/effect/overmap/visitable/ship/find_z_levels(var/fore_direction)
+	. = ..(fore_dir)
+
 /obj/effect/overmap/visitable/ship/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	SSshuttle.ships -= src

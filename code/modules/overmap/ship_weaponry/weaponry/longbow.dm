@@ -28,7 +28,7 @@
 			if(SHIP_AMMO_IMPACT_AP)
 				if(!penetrated)
 					target.ex_act(1)
-					if(!QDELING(target))
+					if(!QDELING(target) && target.density)
 						qdel(target)
 					penetrated = TRUE
 				else
@@ -39,6 +39,6 @@
 				target.visible_message(SPAN_DANGER("<font size=5>\The [src] punches straight through \the [target]!</font>"))
 				explosion(target, 1, 2, 4)
 				target.ex_act(1)
-				if(!QDELING(target))
+				if(!QDELING(target) && target.density)
 					qdel(target)
-				
+		return TRUE				

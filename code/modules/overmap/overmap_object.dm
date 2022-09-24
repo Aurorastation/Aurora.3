@@ -3,6 +3,7 @@
 	icon = 'icons/obj/overmap.dmi'
 	icon_state = "object"
 	color = "#fffffe"
+	layer = 3
 
 	var/list/map_z = list()
 

@@ -10,6 +10,7 @@
 
 /obj/machinery/ship_weapon/Initialize(mapload)
 	..()
+	appearance_flags &= ~TILE_BOUND //NOT BOUND BY ANY LIMITS
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/ship_weapon/LateInitialize()
@@ -66,7 +67,7 @@
 	SA.origin = linked
 	if(istype(linked, /obj/effect/overmap/visitable/ship))
 		var/obj/effect/overmap/visitable/ship/SH = linked
-		SA.heading = SH.get_heading()
+		SA.heading = SH.dir
 	else
 		SA.heading = barrel.dir
 	SA.forceMove(projectile)
@@ -168,7 +169,9 @@
 		var/obj/effect/overmap/visitable/V = target
 		for(var/obj/effect/O in V.generic_waypoints)
 			possible_entry_points |= O
-	var/obj/effect/landmark = input(user, "Select an entry point.", "Gunnery Control") as null|anything in possible_entry_points
+		for(var/obj/effect/O in V.entry_points)
+			possible_entry_points |= O
+	var/landmark = input(user, "Select an entry point.", "Gunnery Control") as null|anything in possible_entry_points
 	if(!landmark && length(possible_entry_points)) //TODOMATT: Why the ACTUAL FUCK is this input not working
 		landmark = pick(possible_entry_points)
 	if(target)

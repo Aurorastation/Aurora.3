@@ -4,6 +4,7 @@
 	icon_state = "cannon"
 	sector_flags = OVERMAP_SECTOR_KNOWN //Technically in space, but you can't visit the ammo during its flight.
 	scannable = TRUE
+	layer = ABOVE_OBJ_LAYER
 
 	var/obj/item/ship_ammunition/ammunition
 	var/atom/target
@@ -48,10 +49,15 @@
 		if(!length(V.map_z))
 			return
 		
-		if(entry_target in V.generic_waypoints) //Target spotted!
+		if(V.check_ownership(entry_target)) //Target spotted!
 			//Todomatt: add a grace period maybe?
-			var/obj/item/projectile/ship_ammo/widowmaker = ammunition.original_projectile
-			widowmaker.forceMove(get_turf(entry_target))
+			var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
+			widowmaker.ammo = ammunition
+			qdel(ammunition.original_projectile) //No longer needed.
+			ammunition.original_projectile = widowmaker
+			widowmaker.primed = TRUE
+			var/turf/visitor_turf = get_ranged_target_turf(entry_target, reverse_dir[ammunition.heading], round(min(world.maxx/4, world.maxy/4)))
+			widowmaker.forceMove(visitor_turf)
 			log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
 			widowmaker.dir = ammunition.heading
 			var/turf/target_turf = get_step(widowmaker, widowmaker.dir)
@@ -63,8 +69,10 @@
 		walk(src, 0)
 		moving = FALSE
 		return
-
-	walk_towards(src, target, speed)
+	if(ammunition.ammunition_behaviour == SHIP_AMMO_BEHAVIOUR_DUMBFIRE)
+		walk_towards(src, get_step(src, dir), speed)
+	else if(ammunition.ammunition_behaviour == SHIP_AMMO_BEHAVIOUR_GUIDED)
+		walk_towards(src, target, speed)
 	moving = TRUE
 
 /obj/effect/overmap/projectile/Destroy()

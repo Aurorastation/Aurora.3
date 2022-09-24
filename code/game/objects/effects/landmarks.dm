@@ -273,3 +273,17 @@ var/list/ruin_landmarks = list()
 	ruin_landmarks -= src
 	ruin_template = null
 	. = ..()
+
+/obj/effect/landmark/entry_point
+	name = "entry point landmark"
+
+/obj/effect/landmark/entry_point/Initialize()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/landmark/entry_point/LateInitialize()
+	if(current_map.use_overmap)
+		var/my_sector = map_sectors["[z]"]
+		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
+			var/obj/effect/overmap/visitable/ship/S = my_sector
+			S.entry_points |= src	

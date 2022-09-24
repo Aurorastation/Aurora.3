@@ -23,6 +23,9 @@
 #define SHIP_AMMO_STATUS_RUPTURED 0
 #define SHIP_AMMO_STATUS_GOOD     1
 
+#define SHIP_AMMO_BEHAVIOUR_DUMBFIRE 1 //These are not flags! Dumbfire shells proceed along a straight path.
+#define SHIP_AMMO_BEHAVIOUR_GUIDED 2  //Guided towards the target.
+
 #define SHIP_AMMO_FLAG_INFLAMMABLE	 1 //Rupture when exposed to fire.
 #define SHIP_AMMO_FLAG_VERY_HEAVY	 2 //Cannot be lifted by a normal person.
 #define SHIP_AMMO_FLAG_VULNERABLE	 4 //Rupture from being shot at.
