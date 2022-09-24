@@ -14274,7 +14274,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_command{
 	name = "Expedition EVA Storage";
-	req_one_access = list(18, 47)
+	req_one_access = list(18,47)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
@@ -20184,6 +20184,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "qaK" = (
@@ -22227,7 +22228,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_command{
 	name = "Expedition EVA Storage";
-	req_one_access = list(18, 47)
+	req_one_access = list(18,47)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -27264,7 +27265,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_command{
 	name = "Expedition EVA Storage";
-	req_one_access = list(18, 29, 47)
+	req_one_access = list(18,29,47)
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
