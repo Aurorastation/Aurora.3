@@ -43,15 +43,15 @@
 	else
 		return FALSE
 
-/obj/machinery/ship_weapon/proc/firing_command(var/atom/target, var/obj/effect/landmark/LM)
+/obj/machinery/ship_weapon/proc/firing_command(var/atom/target, var/obj/landmark)
 	if(firing_checks())
-		var/result = weapon.pre_fire(target, LM)
+		var/result = weapon.pre_fire(target, landmark)
 		if(result)
 			return SHIP_GUN_FIRING_SUCCESSFUL
 	else
 		return SHIP_GUN_ERROR_NO_AMMO
 
-/obj/machinery/ship_weapon/proc/fire(var/atom/overmap_target, var/obj/effect/landmark/LM)
+/obj/machinery/ship_weapon/proc/fire(var/atom/overmap_target, var/obj/landmark)
 	var/obj/item/ship_ammunition/SA = consume_ammo()
 	if(!barrel)
 		crash_with("No barrel found for [src] at [x] [y] [z]! Cannot fire!")
@@ -62,7 +62,7 @@
 	projectile.ammo = SA
 	projectile.shot_from = name
 	SA.overmap_target = overmap_target
-	SA.entry_point = LM
+	SA.entry_point = landmark
 	SA.origin = linked
 	if(istype(linked, /obj/effect/overmap/visitable/ship))
 		var/obj/effect/overmap/visitable/ship/SH = linked
@@ -141,7 +141,10 @@
 
 /obj/machinery/computer/gunnery/attack_hand(mob/user)
 	. = ..()
-	var/obj/machinery/ship_weapon/big_gun = input(user, "Select a gun.") as anything in linked.ship_weapons
+	var/obj/machinery/ship_weapon/big_gun = input(user, "Select a gun.", "Gunnery Control") as null|anything in linked.ship_weapons
+	if(!big_gun)
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Aborting.\""))
+		return
 	var/list/obj/effect/overmap/targets = list()
 	var/hazard_capable = big_gun.weapon.overmap_behaviour & SHIP_WEAPON_CAN_HIT_HAZARDS
 	var/ship_capable = big_gun.weapon.overmap_behaviour & SHIP_WEAPON_CAN_HIT_SHIPS
@@ -156,17 +159,26 @@
 		if(ship_capable)
 			if(istype(OM, /obj/effect/overmap/visitable))
 				targets += OM
-	var/obj/effect/overmap/target = input(user, "Select target.") as anything in targets
-	var/obj/effect/landmark/LM 
+	if(!targets)
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No targets detected.\""))
+		return
+	var/obj/effect/overmap/target = input(user, "Select target.", "Gunnery Control") as null|anything in targets
+	var/list/obj/effect/possible_entry_points = list()
 	if(istype(target, /obj/effect/overmap/visitable))
 		var/obj/effect/overmap/visitable/V = target
-		LM = input(user, "Select a point of entry.") as anything in V.generic_waypoints
+		for(var/obj/effect/O in V.generic_waypoints)
+			possible_entry_points |= O
+	var/obj/effect/landmark = input(user, "Select an entry point.", "Gunnery Control") as null|anything in possible_entry_points
+	if(!landmark && length(possible_entry_points)) //TODOMATT: Why the ACTUAL FUCK is this input not working
+		landmark = pick(possible_entry_points)
 	if(target)
 		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Target acquired! Firing for effect...\""))
-		var/result = big_gun.firing_command(target, LM)
+		var/result = big_gun.firing_command(target, landmark)
 		if(result == SHIP_GUN_ERROR_NO_AMMO)
 			visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Ammunition insufficient for firing sequence. Aborting.\""))
 			//todomatt: add sound here
 		if(result == SHIP_GUN_FIRING_SUCCESSFUL)
 			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Firing sequence completed!\""))
 			//todomatt: add sound here
+	else
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No target given. Aborting.\""))

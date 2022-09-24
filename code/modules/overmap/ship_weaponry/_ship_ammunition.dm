@@ -17,7 +17,7 @@
 	var/overmap_icon_state = "cannon"
 	var/obj/effect/overmap/origin
 	var/atom/overmap_target
-	var/obj/effect/landmark/entry_point
+	var/obj/entry_point
 	var/obj/item/projectile/original_projectile
 	var/heading = SOUTH
 
@@ -129,6 +129,7 @@
 	P.target = overmap_target
 	P.icon_state = overmap_icon_state
 	P.speed = get_speed()
+	P.entry_target = entry_point
 	forceMove(P)
 	log_and_message_admins("A projectile ([name]) has entered the Overmap! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[P.x];Y=[P.y];Z=[P.z]'>JMP</a>)")
 	return TRUE

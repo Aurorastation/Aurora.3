@@ -16,8 +16,8 @@
 	controller = null
 	return ..()
 
-/datum/ship_weapon/proc/pre_fire(var/atom/target, var/obj/effect/landmark/LM) //We can fire, so what do we do before that? Think like a laser charging up.
-	controller.fire(target, LM)
+/datum/ship_weapon/proc/pre_fire(var/atom/target, var/obj/effect/landmark/landmark) //We can fire, so what do we do before that? Think like a laser charging up.
+	controller.fire(target, landmark)
 	on_fire()
 	return TRUE
 
