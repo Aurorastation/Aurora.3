@@ -45,6 +45,7 @@
 		warhead = W
 		W.forceMove(src)
 		add_overlay(W.warhead_state)
+		impact_type = W.warhead_type
 
 /obj/item/ship_ammunition/longbow/update_status()
 	desc = initial(desc)
