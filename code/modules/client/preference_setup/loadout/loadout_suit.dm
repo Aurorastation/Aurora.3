@@ -57,6 +57,10 @@ datum/gear/suit/colorvest
 
 	gear_tweaks += new /datum/gear_tweak/path(jackets)
 
+/datum/gear/suit/sancolette
+	display_name = "san colette bridge crew jacket"
+	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc/sancol
+
 /datum/gear/suit/hazard_vest
 	display_name = "hazard vest selection"
 	path = /obj/item/clothing/suit/storage/hazardvest

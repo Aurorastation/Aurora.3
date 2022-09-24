@@ -142,6 +142,13 @@
 /turf/simulated/wall/shuttle/scc/cardinal
 	smooth = SMOOTH_MORE
 
+//Corporate shuttle and ship walls//
+/turf/simulated/wall/shuttle/idris
+	icon = 'icons/turf/smooth/idris_ship.dmi'
+
+/turf/simulated/wall/shuttle/idris/cardinal
+	smooth = SMOOTH_MORE
+
 /turf/simulated/wall/shuttle/space_ship
 	icon = 'icons/turf/smooth/generic_shuttle.dmi'
 
