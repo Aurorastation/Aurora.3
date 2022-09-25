@@ -288,7 +288,11 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/racers)
 "aHw" = (
-/turf/simulated/floor/ice,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel/airless,
 /area/racers)
 "aIw" = (
 /obj/item/material/shard/wood,
@@ -2818,7 +2822,7 @@
 /area/racers)
 "nUG" = (
 /obj/structure/closet/secure_closet/miner,
-/turf/simulated/floor/ice,
+/turf/simulated/floor/tiled/steel/airless,
 /area/racers)
 "nVi" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2989,10 +2993,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/racers)
-"oCj" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/ice,
-/area/racers)
 "oDe" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light/colored/red,
@@ -3059,10 +3059,6 @@
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/steel/airless,
 /area/racers)
-"pdv" = (
-/obj/machinery/portable_atmospherics/powered/pump/filled,
-/turf/simulated/floor/ice,
-/area/racers)
 "pdE" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -3113,12 +3109,6 @@
 	name = "Hangar B"
 	},
 /turf/simulated/floor/plating,
-/area/racers)
-"pmy" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/ice,
 /area/racers)
 "pqv" = (
 /obj/item/spacecash/c1{
@@ -4027,7 +4017,7 @@
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
-/turf/simulated/floor/ice,
+/turf/simulated/floor/tiled/steel/airless,
 /area/racers)
 "tIy" = (
 /obj/structure/bed/stool/chair/padded/black{
@@ -4485,7 +4475,7 @@
 /area/racers)
 "vDS" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/ice,
+/turf/simulated/floor/tiled/steel/airless,
 /area/racers)
 "vFV" = (
 /obj/effect/decal/cleanable/blood/drip,
@@ -4908,7 +4898,7 @@
 /area/racers)
 "xLt" = (
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
-/turf/simulated/floor/ice,
+/turf/simulated/floor/tiled/steel/airless,
 /area/racers)
 "xLR" = (
 /obj/random/junk,
@@ -4926,7 +4916,7 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
-/turf/simulated/floor/ice,
+/turf/simulated/floor/tiled/steel/airless,
 /area/racers)
 "xOK" = (
 /obj/machinery/computer/ship/sensors{
@@ -5010,7 +5000,7 @@
 /area/racers)
 "xXR" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/ice,
+/turf/simulated/floor/tiled/steel/airless,
 /area/racers)
 "xYc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -22156,7 +22146,7 @@ huE
 huE
 huE
 huE
-xjB
+arY
 jFP
 jFP
 jFP
@@ -22680,9 +22670,9 @@ jFP
 jFP
 arm
 arm
-ctn
-ctn
-ctn
+arm
+arm
+arm
 arm
 arm
 arm
@@ -22938,8 +22928,8 @@ jFP
 arm
 arm
 jFP
-ctn
-ctn
+arm
+arm
 arm
 arm
 arm
@@ -23194,9 +23184,9 @@ arm
 arm
 arm
 arm
-ctn
-ctn
-ctn
+arm
+arm
+arm
 arm
 arm
 arm
@@ -23451,9 +23441,9 @@ arm
 arm
 thx
 thx
-ctn
-ctn
-ctn
+arm
+arm
+arm
 arm
 arm
 arm
@@ -23708,9 +23698,9 @@ arm
 arm
 thx
 qdx
-ctn
-lvc
-lvc
+arm
+thx
+thx
 arm
 arm
 arm
@@ -23965,9 +23955,9 @@ arm
 arm
 arm
 arm
-ctn
-lvc
-lvc
+arm
+thx
+thx
 arm
 arm
 arm
@@ -24222,9 +24212,9 @@ ctn
 nup
 nup
 nup
-ctn
-ctn
-ctn
+arm
+arm
+arm
 arm
 arm
 arm
@@ -24463,7 +24453,7 @@ ixi
 huE
 qHQ
 jko
-aHw
+arm
 arm
 arm
 arm
@@ -24480,8 +24470,8 @@ nup
 dDf
 kHp
 ink
-ctn
-ctn
+arm
+arm
 arm
 arm
 arm
@@ -24737,8 +24727,8 @@ vvs
 bGI
 mxN
 wvm
-ctn
-ctn
+arm
+arm
 arm
 arm
 arm
@@ -24994,8 +24984,8 @@ vps
 pOk
 xYv
 wvm
-ctn
-ctn
+arm
+arm
 arm
 qHQ
 thx
@@ -25233,7 +25223,7 @@ nfm
 xRX
 huE
 tIl
-aHw
+jko
 thx
 thx
 arm
@@ -25250,9 +25240,9 @@ vps
 vps
 jYS
 tlw
-lvc
-ctn
-ctn
+thx
+arm
+arm
 arm
 arm
 thx
@@ -25489,9 +25479,9 @@ xjB
 nfm
 xRX
 huE
-pdv
-aHw
-aHw
+rdH
+jko
+arm
 arm
 arm
 thx
@@ -25747,11 +25737,11 @@ nfm
 xRX
 huE
 xLt
-aHw
-aHw
+jko
+thx
 arm
 arm
-oCj
+thx
 hnS
 dYw
 ade
@@ -26005,8 +25995,8 @@ xRX
 huE
 vDS
 aHw
-aHw
-aHw
+arm
+arm
 arm
 arm
 hnS
@@ -26261,8 +26251,8 @@ nfm
 xRX
 huE
 xXR
-aHw
-aHw
+jko
+arm
 arm
 arm
 arm
@@ -26518,10 +26508,10 @@ nfm
 xRX
 huE
 xXR
-aHw
-oCj
+jko
 thx
-aHw
+thx
+arm
 thx
 tlw
 nhS
@@ -27032,7 +27022,7 @@ nfm
 xRX
 huE
 rdH
-pmy
+jko
 thx
 thx
 arm
@@ -27564,7 +27554,7 @@ nup
 nup
 nup
 arm
-ctn
+arm
 thx
 arm
 thx

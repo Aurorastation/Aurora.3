@@ -52,11 +52,6 @@
 /obj/item/modular_computer/console,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
-"aq" = (
-/turf/simulated/floor/wood{
-	icon_state = "wood_broken4"
-	},
-/area/derelict)
 "ar" = (
 /obj/random/energy,
 /turf/simulated/floor/airless,
@@ -64,18 +59,15 @@
 "as" = (
 /obj/structure/bookcase/manuals/engineering,
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/wood,
-/area/derelict)
-"at" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "au" = (
 /obj/structure/bookcase,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "av" = (
 /obj/structure/bookcase/manuals/xenoarchaeology,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "aw" = (
 /obj/random/coin,
@@ -96,11 +88,11 @@
 /area/derelict)
 "aA" = (
 /obj/machinery/bookbinder,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "aB" = (
 /obj/structure/filingcabinet/filingcabinet,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "aC" = (
 /obj/machinery/door/airlock/glass_command{
@@ -117,15 +109,15 @@
 "aE" = (
 /obj/structure/table/rack,
 /obj/random/loot,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "aF" = (
 /obj/structure/bookcase/manuals/medical,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "aG" = (
 /obj/structure/table/rack,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "aH" = (
 /obj/random/gloves,
@@ -138,12 +130,12 @@
 "aJ" = (
 /obj/structure/table/rack,
 /obj/random/tool,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "aK" = (
 /obj/structure/table/rack,
 /obj/random/junk,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "aL" = (
 /obj/random/junk,
@@ -151,19 +143,16 @@
 /area/derelict)
 "aM" = (
 /obj/machinery/light/small/emergency,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "aN" = (
 /obj/structure/table/standard,
 /obj/random/plushie,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "aO" = (
 /obj/structure/table,
-/turf/simulated/floor/wood,
-/area/derelict)
-"aP" = (
-/turf/simulated/floor/holofloor/tiled/dark,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "aQ" = (
 /obj/random/junk,
@@ -240,9 +229,7 @@
 	},
 /area/derelict)
 "bf" = (
-/turf/simulated/floor/wood{
-	icon_state = "wood_broken0"
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "bg" = (
 /obj/structure/grille/broken,
@@ -1015,7 +1002,7 @@
 /area/derelict)
 "dn" = (
 /obj/structure/closet/crate/loot,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "do" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -1138,11 +1125,6 @@
 /area/derelict)
 "dP" = (
 /turf/simulated/floor/bluegrid/airless,
-/area/derelict)
-"dQ" = (
-/turf/simulated/floor/wood{
-	icon_state = "wood_broken2"
-	},
 /area/derelict)
 "dR" = (
 /obj/machinery/iv_drip,
@@ -1359,11 +1341,6 @@
 /obj/structure/lattice,
 /obj/structure/girder,
 /turf/space,
-/area/derelict)
-"ew" = (
-/turf/simulated/floor/wood{
-	icon_state = "wood_broken6"
-	},
 /area/derelict)
 "ex" = (
 /obj/structure/cable/blue{
@@ -1645,11 +1622,6 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
-"fu" = (
-/turf/simulated/floor/wood{
-	icon_state = "wood_broken1"
-	},
-/area/derelict)
 "fv" = (
 /obj/structure/cable/blue{
 	d1 = 4;
@@ -1802,11 +1774,6 @@
 "gj" = (
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/airless,
-/area/derelict)
-"gk" = (
-/turf/simulated/floor/wood{
-	icon_state = "wood_broken5"
-	},
 /area/derelict)
 "gr" = (
 /mob/living/simple_animal/hostile/carp,
@@ -29711,7 +29678,7 @@ dO
 dO
 aE
 aJ
-at
+bf
 dO
 cQ
 be
@@ -29966,9 +29933,9 @@ fN
 dO
 dO
 aA
-gk
-fu
-at
+bf
+bf
+bf
 dO
 ju
 cQ
@@ -30221,11 +30188,11 @@ dO
 ju
 dO
 dO
-aq
-at
-at
-at
-ew
+bf
+bf
+bf
+bf
+bf
 aS
 ju
 be
@@ -30481,7 +30448,7 @@ as
 au
 au
 au
-at
+bf
 aM
 dO
 ju
@@ -30734,11 +30701,11 @@ ju
 jw
 ju
 dO
-at
-fu
-at
-at
-aq
+bf
+bf
+bf
+bf
+bf
 af
 ju
 ju
@@ -31248,11 +31215,11 @@ ju
 dO
 ju
 dO
-at
-at
-dQ
-at
-at
+bf
+bf
+bf
+bf
+bf
 af
 be
 cQ
@@ -31509,7 +31476,7 @@ av
 av
 au
 au
-at
+bf
 aO
 aT
 cQ
@@ -31762,11 +31729,11 @@ cD
 dO
 ju
 dO
-dQ
-at
-at
-fu
-at
+bf
+bf
+bf
+bf
+bf
 aN
 aU
 ju
@@ -32023,8 +31990,8 @@ au
 au
 au
 av
-aq
-at
+bf
+bf
 dO
 ju
 be
@@ -32278,10 +32245,10 @@ ju
 dO
 dO
 bf
-at
-at
-at
-ew
+bf
+bf
+bf
+bf
 aS
 ju
 cD
@@ -32537,8 +32504,8 @@ iK
 dO
 aB
 bf
-at
-at
+bf
+bf
 dO
 cQ
 cQ
@@ -33823,7 +33790,7 @@ cQ
 aC
 ju
 be
-aP
+cQ
 aV
 cQ
 ju
