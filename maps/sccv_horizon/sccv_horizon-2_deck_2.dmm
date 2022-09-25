@@ -24916,10 +24916,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/power/apc/super{
-	dir = 4;
-	pixel_x = 24
-	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "neT" = (
