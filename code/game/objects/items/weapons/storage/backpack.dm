@@ -27,6 +27,7 @@
 
 /obj/item/storage/backpack/Initialize()
 	if(straps == TRUE)
+		alpha_mask = "normal"
 		verbs += /obj/item/storage/backpack/proc/adjust_backpack_straps
 
 /obj/item/storage/backpack/proc/adjust_backpack_straps()
