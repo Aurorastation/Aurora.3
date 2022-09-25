@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes active edges on the \"bigderelict\", \"hivebot_hub\", \"racers\", and \"first_aurora\" away sites."
