@@ -692,7 +692,7 @@
 	anchored = 1;
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/magshield/engine)
 "ce" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -716,7 +716,7 @@
 "ch" = (
 /obj/structure/closet/crate/hydroponics/prespawned,
 /obj/random/gloves,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/magshield/smes_storage)
 "ci" = (
 /obj/effect/map_effect/airlock/e_to_w,
@@ -760,7 +760,7 @@
 /obj/machinery/power/generator{
 	anchored = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/magshield/engine)
 "cp" = (
 /obj/structure/cable{
@@ -861,7 +861,7 @@
 	anchored = 1;
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/magshield/engine)
 "cy" = (
 /obj/structure/cable{
