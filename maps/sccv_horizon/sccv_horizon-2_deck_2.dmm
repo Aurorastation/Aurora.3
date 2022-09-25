@@ -2832,7 +2832,7 @@
 	icon_state = "1-8"
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "bpF" = (
 /obj/machinery/vending/hydronutrients,
@@ -7813,7 +7813,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "eew" = (
 /obj/machinery/power/apc/low{
@@ -14857,7 +14857,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "hGJ" = (
 /obj/structure/railing/mapped{
@@ -23368,7 +23368,7 @@
 	pixel_x = -28;
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "mqR" = (
 /obj/structure/flora/pottedplant/random,
@@ -30862,7 +30862,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "qmy" = (
 /obj/item/modular_computer/console/preset/engineering,
@@ -31305,7 +31305,7 @@
 /area/rnd/chemistry)
 "qyA" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "qzF" = (
 /obj/machinery/light{
@@ -32450,7 +32450,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "rck" = (
 /obj/machinery/door/airlock/maintenance{
@@ -42033,7 +42033,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "vXn" = (
 /obj/machinery/light{
@@ -43465,7 +43465,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/firealarm/south,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "wDJ" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -46504,7 +46504,7 @@
 "yei" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "yej" = (
 /obj/effect/floor_decal/corner_wide/lime{
