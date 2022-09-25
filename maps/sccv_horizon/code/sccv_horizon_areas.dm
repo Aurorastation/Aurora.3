@@ -266,7 +266,6 @@
 /area/crew_quarters/lounge/meeting
 	name = "Auxiliary Meeting Room"
 	icon_state = "loungemeeting"
-	flags = RAD_SHIELDED
 
 // Maintenance
 
