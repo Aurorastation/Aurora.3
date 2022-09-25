@@ -24920,9 +24920,6 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "neT" = (
