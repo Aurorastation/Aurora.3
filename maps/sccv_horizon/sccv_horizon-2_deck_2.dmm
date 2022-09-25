@@ -465,13 +465,6 @@
 /obj/effect/landmark/engine_setup/pump_max,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
-"amz" = (
-/obj/effect/floor_decal/corner/mauve,
-/obj/effect/floor_decal/corner/brown{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/hallway)
 "amE" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1496,10 +1489,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard/far)
 "aKr" = (
-/obj/effect/floor_decal/corner/mauve,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "aKv" = (
@@ -1609,13 +1602,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"aNp" = (
-/obj/effect/floor_decal/corner/mauve,
-/obj/effect/floor_decal/corner/brown{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
 "aNL" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6213,16 +6199,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
-"doI" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/mauve,
-/obj/effect/floor_decal/corner/brown{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
 "doW" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 8;
@@ -7719,9 +7695,8 @@
 	name = "Station Intercom (General)";
 	pixel_x = 24
 	},
-/obj/effect/floor_decal/corner/mauve,
-/obj/effect/floor_decal/corner/brown{
-	dir = 4
+/obj/effect/floor_decal/corner/green{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
@@ -8167,6 +8142,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "evU" = (
@@ -8354,9 +8332,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/mining{
-	name = "Mech Bay and Recharging Station";
-	req_one_access = list(29,47)
+/obj/machinery/door/airlock{
+	name = "Mech Bay and Recharging Station"
 	},
 /turf/simulated/floor/tiled/full,
 /area/assembly/chargebay)
@@ -12989,10 +12966,6 @@
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
 	},
-/obj/effect/floor_decal/corner/mauve,
-/obj/effect/floor_decal/corner/brown{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/hallway)
 "gUB" = (
@@ -17278,11 +17251,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
 "jow" = (
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/firealarm/south,
+/obj/effect/floor_decal/corner/green/full,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
-/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "joH" = (
@@ -20345,15 +20319,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_two)
-"lcL" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/brown{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
 "ldk" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -20411,13 +20376,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
-"len" = (
-/obj/effect/floor_decal/corner/mauve,
-/obj/effect/floor_decal/corner/brown{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
 "leU" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -21145,15 +21103,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
-"lCX" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
 "lDb" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -23673,11 +23622,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "mQW" = (
-/obj/machinery/door/airlock/mining{
-	name = "Mech Bay and Recharging Station";
-	req_one_access = list(29,47)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock{
+	name = "Mech Bay and Recharging Station"
+	},
 /turf/simulated/floor/tiled/full,
 /area/assembly/chargebay)
 "mRr" = (
@@ -24137,9 +24085,6 @@
 /turf/simulated/floor/plating,
 /area/teleporter)
 "nen" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /obj/machinery/power/apc/super{
 	dir = 4;
 	pixel_x = 24
@@ -24156,6 +24101,12 @@
 	id = "shutters_mechbaywindows";
 	name = "Window Shutters";
 	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner/green/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
@@ -26369,6 +26320,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
@@ -30145,9 +30099,8 @@
 	name = "\improper MECH BAY AND RECHARGING STATION sign";
 	pixel_y = -32
 	},
-/obj/effect/floor_decal/corner/mauve,
-/obj/effect/floor_decal/corner/brown{
-	dir = 8
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
@@ -30242,6 +30195,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
@@ -32273,9 +32229,6 @@
 /turf/simulated/wall,
 /area/medical/main_storage)
 "rvf" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
-	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/hallway)
 "rvC" = (
@@ -39443,9 +39396,8 @@
 	name = "\improper MECH BAY AND RECHARGING STATION sign";
 	pixel_x = 32
 	},
-/obj/effect/floor_decal/corner/mauve,
-/obj/effect/floor_decal/corner/brown{
-	dir = 4
+/obj/effect/floor_decal/corner/green{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
@@ -39531,13 +39483,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"vtM" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/mauve,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
 "vua" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -40053,12 +39998,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
-"vIt" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_two)
 "vIz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -40101,9 +40040,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/mauve,
-/obj/effect/floor_decal/corner/brown{
-	dir = 8
+/obj/effect/floor_decal/corner/green{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
@@ -66476,13 +66414,13 @@ ayF
 uRe
 aFd
 mCE
-vIt
-vIt
-vIt
-vIt
-vIt
-vIt
-vIt
+aeR
+aeR
+aeR
+aeR
+aeR
+aeR
+aeR
 mUC
 lng
 qLT
@@ -66873,8 +66811,8 @@ iVp
 iVp
 nUN
 wgL
-vIt
-vIt
+aeR
+aeR
 cIr
 fhU
 hEF
@@ -68697,11 +68635,11 @@ qTB
 rUh
 avz
 aKr
-doI
+qIJ
 ejU
-len
+aeR
 vrd
-vtM
+aeR
 qIJ
 aeR
 aeR
@@ -68898,7 +68836,7 @@ gPM
 lFE
 ulB
 iWV
-aNp
+vXs
 qav
 qav
 doW
@@ -69302,7 +69240,7 @@ oBl
 vpk
 ulB
 tPq
-amz
+rnA
 hME
 xlK
 kGl
@@ -69511,7 +69449,7 @@ cxi
 cxi
 quT
 mQW
-lcL
+hEF
 mzL
 ayF
 ayF
@@ -69706,7 +69644,7 @@ soW
 rZU
 cNU
 byv
-amz
+rnA
 hME
 tlX
 tlX
