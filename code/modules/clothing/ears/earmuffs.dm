@@ -12,7 +12,7 @@
 /obj/item/clothing/ears/earmuffs/earphones
 	name = "earphones"
 	desc = "A pair of wired earphones. Good luck trying to find a headphone jack."
-	desc = "Has a tendency to snag itself on whatever furniture it can find at the most inopportune of times."
+	desc_fluff = "Has a tendency to snag itself on whatever furniture it can find at the most inopportune of times."
 	icon_state = "earphones"
 	item_state = "earphones"
 	build_from_parts = TRUE
