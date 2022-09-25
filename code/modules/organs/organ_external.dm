@@ -6,6 +6,7 @@
 #define DROPLIMB_THRESHOLD_EDGE 5
 #define DROPLIMB_THRESHOLD_TEAROFF 2
 #define DROPLIMB_THRESHOLD_DESTROY 1
+#define DROPLIMB_THRESHOLD_DESTROY_PROJECTILE 2
 
 #define FRACTURE_AND_TENDON_DAM_THRESHOLD 30 // if a weapon does more than this amount of damage, it's powerful enough to sever the tendon AND fracture the bone, if it's a sharp weapon
 
@@ -403,10 +404,11 @@
 				var/edge_eligible = FALSE
 				var/blunt_eligible = FALSE
 				var/maim_bonus = 0
-
+				var/dam_flags = 0
+				
 				if(isitem(used_weapon))
 					var/obj/item/W = used_weapon
-					var/dam_flags = W.damage_flags()
+					dam_flags = W.damage_flags()
 					if(isprojectile(W))
 						var/obj/item/projectile/P = W
 						if(dam_flags & DAM_BULLET)
@@ -417,9 +419,9 @@
 
 				if(!blunt_eligible && edge_eligible && (brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus)))
 					droplimb(0, DROPLIMB_EDGE)
-				else if(burn >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
+				else if(burn >= max_damage / ((dam_flags & DAM_LASER ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus))
 					droplimb(0, DROPLIMB_BURN)
-				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
+				else if(blunt_eligible && brute >= max_damage / ((dam_flags & DAM_BULLET ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus))
 					droplimb(0, DROPLIMB_BLUNT)
 				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus))
 					droplimb(0, DROPLIMB_EDGE)

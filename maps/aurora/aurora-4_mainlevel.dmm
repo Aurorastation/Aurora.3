@@ -8744,7 +8744,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/machinery/camera/network/engine{
+/obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Engine Fore";
 	dir = 4
 	},
@@ -10580,7 +10580,6 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
-	is_critical = 1;
 	name = "Reactor Blast Door";
 	opacity = 0
 	},
@@ -10597,7 +10596,6 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
-	is_critical = 1;
 	name = "Reactor Blast Door";
 	opacity = 0
 	},
@@ -10617,7 +10615,6 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
-	is_critical = 1;
 	name = "Reactor Blast Door";
 	opacity = 0
 	},
@@ -10676,7 +10673,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor" = "Engine Core")
+	sensors = list("engine_sensor"="Engine Core")
 	},
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
@@ -11470,7 +11467,7 @@
 	},
 /area/mine/unexplored)
 "avs" = (
-/obj/machinery/camera/network/engine{
+/obj/machinery/camera/network/reactor{
 	c_tag = "Engine Core West";
 	dir = 4
 	},
@@ -12401,7 +12398,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "EngineVent";
-	is_critical = 1;
 	name = "Reactor Vent"
 	},
 /turf/simulated/floor/airless{
@@ -12449,7 +12445,6 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
-	is_critical = 1;
 	name = "Reactor Blast Door";
 	opacity = 0
 	},
@@ -12510,7 +12505,7 @@
 /obj/structure/cable/orange{
 	icon_state = "1-2"
 	},
-/obj/machinery/camera/network/engine{
+/obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Engine Starboard";
 	dir = 8
 	},
@@ -13873,7 +13868,7 @@
 /obj/machinery/computer/general_air_control{
 	frequency = 1441;
 	name = "Tank Monitor";
-	sensors = list("n2_sensor" = "Nitrogen", "o2_sensor" = "Oxygen", "co2_sensor" = "Carbon Dioxide", "ph_sensor" = "Phoron", "air_sensor" = "Air Tank")
+	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon Dioxide","ph_sensor"="Phoron","air_sensor"="Air Tank")
 	},
 /obj/machinery/requests_console{
 	department = "Atmospherics";
@@ -13888,7 +13883,7 @@
 	frequency = 1441;
 	level = 3;
 	name = "Distribution and Waste Monitor";
-	sensors = list("mair_in_meter" = "Mixed Air In", "air_sensor" = "Mixed Air Supply Tank", "mair_out_meter" = "Mixed Air Out", "dloop_atm_meter" = "Distribution Line", "wloop_atm_meter" = "Waste Line")
+	sensors = list("mair_in_meter"="Mixed Air In","air_sensor"="Mixed Air Supply Tank","mair_out_meter"="Mixed Air Out","dloop_atm_meter"="Distribution Line","wloop_atm_meter"="Waste Line")
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/monitoring)
@@ -16670,7 +16665,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/machinery/camera/network/engine{
+/obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Engine Aft";
 	dir = 4
 	},
@@ -39202,7 +39197,6 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "bqv" = (
-/obj/structure/closet/wardrobe/robotics_black,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Mech Bay";
@@ -39210,6 +39204,7 @@
 	network = list("Research","Toxins Test Area");
 	pixel_x = 4
 	},
+/obj/structure/closet/secure_closet/machinist,
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "bqw" = (
@@ -59897,7 +59892,6 @@
 "eiB" = (
 /obj/machinery/door/blast/shutters{
 	dir = 2;
-	is_critical = 1;
 	name = "shutter"
 	},
 /obj/machinery/conveyor{

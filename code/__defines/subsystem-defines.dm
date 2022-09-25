@@ -115,6 +115,7 @@
 // - SSjobs --
 // departments
 #define DEPARTMENT_COMMAND "Command"
+#define DEPARTMENT_COMMAND_SUPPORT "Command Support"
 #define DEPARTMENT_SECURITY "Security"
 #define DEPARTMENT_ENGINEERING "Engineering"
 #define DEPARTMENT_MEDICAL "Medical"
@@ -126,6 +127,7 @@
 #define DEPARTMENT_MISCELLANEOUS "Miscellaneous"
 #define DEPARTMENTS_LIST_INIT list(\
 	DEPARTMENT_COMMAND = list(),\
+	DEPARTMENT_COMMAND_SUPPORT = list(),\
 	DEPARTMENT_SECURITY = list(),\
 	DEPARTMENT_ENGINEERING = list(),\
 	DEPARTMENT_MEDICAL = list(),\

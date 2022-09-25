@@ -54,6 +54,15 @@
 	icon_state = "bridge_crew_cap"
 	item_state = "bridge_crew_cap"
 
+/obj/item/clothing/head/caphat/bridge_crew/alt
+	name = "bridge crew cap"
+	desc = " A more formal in a Colettish style, authorized for the bridge crew of SCC vessels."
+	desc_fluff = "Designed to allow the wearer to wear both a peaked cap and a radio headset, Colettish 'crusher' caps are prized throughout the Alliance and Republic for their comfort."
+	icon = 'icons/contained_items/clothing/hats/bridge_crew_cap_alt.dmi'
+	contained_sprite = TRUE
+	icon_state = "bridge_crew_cap_alt"
+	item_state = "bridge_crew_cap_alt"
+
 //Chaplain
 /obj/item/clothing/head/chaplain_hood
 	name = "chaplain's hood"
@@ -160,7 +169,13 @@
 
 /obj/item/clothing/head/flatcap/bartender
 	name = "bartender flatcap"
-	desc = "An simple hat issued to bartenders."
+	desc = "A simple hat issued to bartenders to protect their eyes from the glare of crappy neo-contemporary hipster light installations."
+	desc_fluff = "The hat once associated with the chimney sweeps and coal miners of yesteryear. \
+	Now resigned to sit on the heads of snooty upper-class bartenders and baristas. \
+	You consider the irony. The service industry is equally as soul-crushing, just with minimum wage. \
+	Worker's rights tentatively grace your grey matter before you return to your job. \
+	Hey, at least it isn't as physically demanding. \
+	You should probably stop singing sixteen-tons when wearing this hat, though."
 	icon = 'icons/obj/contained_items/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_bartender_flatcap"

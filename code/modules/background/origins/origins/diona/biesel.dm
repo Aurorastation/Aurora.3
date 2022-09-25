@@ -13,7 +13,7 @@
 	desc = "Dionae who were grown in and largely influenced by the Republic of Biesel."
 	important_information = "While Dionae do still face some discrimination in the Republic, Dionae can expect to live a fairly comfortable life. The Republic itself does not apply any sort of \"debt\" to Dionae they uplift, however, a megacorp may rope them into a contract to work for them if they played any part in growing them."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
-	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
 
 /decl/origin_item/origin/diona_district_11
@@ -21,7 +21,7 @@
 	desc = "Dionae who were grown in and largely influenced by Mendel City's District 11 on Biesel. This includes both those grown in areas affected by the church and in the outskirts of its influence."
 	important_information = "Dionae originating from the Eternal Temple in D11 are not beholden to following the Eternal faith, however, the church still ensures that all Dionae grown within its walls are educated and made ready for the outside world."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
-	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
 
 /decl/origin_item/origin/titan_prime
@@ -37,5 +37,5 @@
 	desc = "Dionae who were originally considered wild Dionae before being uplifted and integrated by the Republic of Biesel or one of the megacorporations active within its borders."
 	important_information = "While Dionae do still face some discrimination in the Republic, Dionae can expect to live a fairly comfortable life. The Republic itself does not apply any sort of \"debt\" to Dionae they uplift, however, a megacorp may rope them into a contract to work for them if they played any part in uplifting them."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
-	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)

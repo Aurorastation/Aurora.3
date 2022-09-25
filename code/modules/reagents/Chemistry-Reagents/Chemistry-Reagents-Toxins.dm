@@ -166,6 +166,7 @@
 	taste_description = "cherry"
 	conflicting_reagent = /decl/reagent/toxin/phoron
 	strength = 1
+	touch_mul = 0.75
 
 /decl/reagent/toxin/cardox/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!istype(M))
@@ -481,11 +482,11 @@
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
-	if(prob(10))
-		to_chat(M, SPAN_DANGER("Your insides are burning!"))
-		M.add_chemical_effect(CE_TOXIN, rand(100, 300) * removed)
-	else if(prob(40))
-		M.heal_organ_damage(25 * removed, 0)
+
+	if(check_min_dose(M, 0.5))
+		M.adjustCloneLoss(10*removed)
+		M.add_chemical_effect(CE_OXYGENATED, 2) //strength of dexalin plus
+		M.heal_organ_damage(8 * removed, 8 * removed) //strength of butazoline/dermaline
 
 /decl/reagent/soporific
 	name = "Soporific"
@@ -542,6 +543,7 @@
 		M.eye_blurry = max(M.eye_blurry, 10)
 	else
 		M.sleeping = max(M.sleeping, 30)
+		M.eye_blurry = max(M.eye_blurry, 30)
 
 	if(dose > 1)
 		M.add_chemical_effect(CE_TOXIN, removed)
