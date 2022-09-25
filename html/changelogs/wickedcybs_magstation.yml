@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported the magshield station from Bay. You might see it pop up every now and then as a potential away site. Have fun."
