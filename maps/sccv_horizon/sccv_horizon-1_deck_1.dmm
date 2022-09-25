@@ -24271,6 +24271,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/device/floor_painter,
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "tlU" = (

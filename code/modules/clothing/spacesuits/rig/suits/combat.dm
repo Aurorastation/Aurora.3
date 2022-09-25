@@ -6,11 +6,11 @@
 	icon_supported_species_tags = list("skr")
 	suit_type = "combat hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_MAJOR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_RESISTANT,
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 	)
@@ -47,11 +47,11 @@
 	icon_state = "military_rig"
 	suit_type = "military hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_MAJOR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_RESISTANT,
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 	)
@@ -174,11 +174,11 @@
 	icon_state = "gunslinger"
 	suit_type = "gunslinger hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_MAJOR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_RESISTANT,
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 	)
@@ -223,11 +223,11 @@
 	icon_state = "strikesuit"
 	suit_type = "strike hardsuit"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_MAJOR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_RESISTANT,
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 	)
@@ -291,11 +291,11 @@
 	icon_state = "elyran_rig"
 	suit_type = "elyran battlesuit"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_MAJOR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_RESISTANT,
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 	)
@@ -381,11 +381,11 @@
 	icon_supported_species_tags = list("una")
 	suit_type = "jinxiang combat suit"
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_MAJOR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_RESISTANT,
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_REVOLVER,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 	)
