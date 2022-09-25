@@ -9917,7 +9917,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "QMLoad"
+	id = "QMLoad";
+	layer = 2.9
 	},
 /obj/structure/plasticflaps,
 /turf/simulated/floor/tiled,
@@ -10416,12 +10417,13 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "QMLoad"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
+	},
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "QMLoad";
+	layer = 2.9
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -10617,7 +10619,8 @@
 "igj" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "QMLoad"
+	id = "QMLoad";
+	layer = 2.9
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -15362,7 +15365,8 @@
 	},
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "QMLoad"
+	id = "QMLoad";
+	layer = 2.9
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -21437,7 +21441,8 @@
 "qZZ" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "QMLoad"
+	id = "QMLoad";
+	layer = 2.9
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
@@ -22209,7 +22214,8 @@
 "rJZ" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "QMLoad"
+	id = "QMLoad";
+	layer = 2.9
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -22332,7 +22338,8 @@
 	},
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "QMLoad"
+	id = "QMLoad";
+	layer = 2.9
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -44112,11 +44119,11 @@ qMM
 wos
 rcA
 pHy
-mwO
-mwO
-mwO
-mwO
 ujV
+mwO
+mwO
+mwO
+mwO
 mwO
 mwO
 mwO

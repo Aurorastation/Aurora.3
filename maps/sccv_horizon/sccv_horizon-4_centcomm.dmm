@@ -6003,17 +6003,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "ang" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "supply_shuttle";
-	pixel_x = 25;
-	req_one_access = list(13,31);
-	tag_door = "supply_shuttle_hatch"
+/obj/structure/window/reinforced/crescent{
+	dir = 1
 	},
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "QMLoad"
+/obj/effect/decal/fake_object{
+	name = "automatic shuttle mainframe";
+	desc = "An automatic shuttle's mainframe.";
+	density = 1;
+	icon = 'icons/obj/mainframe.dmi';
+	icon_state = "left"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
@@ -6024,26 +6022,50 @@
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "ani" = (
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "anj" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Operations Shuttle Cockpit";
-	req_access = list(108,109)
+/obj/effect/shuttle_landmark/supply/start,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cargo_shuttle_airlock";
+	locked = 1;
+	name = "Cargo Shuttle";
+	req_access = list(13)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "ank" = (
-/obj/structure/table/steel,
-/obj/machinery/light/small{
-	dir = 8
+/obj/structure/shuttle_part{
+	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
+	icon_state = "se2";
+	opacity = 1
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/reinforced,
 /area/supply/dock)
 "anl" = (
-/obj/structure/bed/stool/chair/office/bridge/pilot,
-/turf/simulated/floor/shuttle/black,
+/obj/structure/window/reinforced/crescent{
+	dir = 1
+	},
+/obj/effect/decal/fake_object{
+	name = "automatic shuttle mainframe";
+	desc = "An automatic shuttle's mainframe.";
+	density = 1;
+	icon = 'icons/obj/mainframe.dmi';
+	icon_state = "right-closed"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "anm" = (
 /turf/unsimulated/wall/fakepdoor{
@@ -6231,11 +6253,8 @@
 	},
 /area/centcom/evac)
 "anO" = (
-/obj/structure/table/steel,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "anZ" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -16447,37 +16466,35 @@
 /area/centcom/suppy)
 "aOX" = (
 /obj/machinery/conveyor{
-	id = "cargo_1"
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "supply_shuttle_hatch";
-	locked = 1;
-	name = "Shuttle Hatch";
-	req_access = list(13)
+	id = "cargo_1";
+	layer = 2.9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aOY" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "QMLoad"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "supply_shuttle_hatch";
+	id_tag = "cargo_shuttle_airlock";
 	locked = 1;
-	name = "Shuttle Hatch";
+	name = "Cargo Shuttle";
 	req_access = list(13)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aOZ" = (
-/obj/machinery/door/airlock/external{
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "supply_shuttle_hatch";
-	locked = 1;
-	name = "Shuttle Hatch";
-	req_access = list(13)
+	id_tag = "cargo_shuttle";
+	pixel_x = 25;
+	req_one_access = list(13,31);
+	tag_door = "cargo_shuttle_airlock";
+	name = "cargo shuttle docking controller"
 	},
 /obj/machinery/conveyor{
 	dir = 1;
@@ -16486,14 +16503,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aPb" = (
-/obj/structure/shuttle_part{
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "se2"
+/obj/machinery/conveyor{
+	id = "cargo_1"
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cargo_shuttle_airlock";
+	locked = 1;
+	name = "Cargo Shuttle";
+	req_access = list(13)
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aPc" = (
 /obj/machinery/light{
@@ -16623,10 +16645,9 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aPv" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/conveyor{
-	id = "cargo_1";
-	layer = 2.9
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/light/small{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
@@ -17171,7 +17192,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aQJ" = (
-/obj/effect/shuttle_landmark/supply/start,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aQK" = (
@@ -17430,8 +17451,17 @@
 /turf/simulated/floor,
 /area/tdome/tdome1)
 "aRx" = (
-/obj/structure/computerframe,
-/turf/simulated/floor/shuttle/black,
+/obj/structure/window/reinforced/crescent{
+	dir = 1
+	},
+/obj/effect/decal/fake_object{
+	name = "automatic shuttle mainframe";
+	desc = "An automatic shuttle's mainframe.";
+	density = 1;
+	icon = 'icons/obj/mainframe.dmi';
+	icon_state = "aimainframe"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aRz" = (
 /turf/simulated/wall/shuttle/scc/cardinal,
@@ -17469,8 +17499,16 @@
 	},
 /area/tdome/tdome1)
 "aRL" = (
-/turf/simulated/floor/plating,
-/area/centcom/suppy)
+/obj/structure/shuttle_part{
+	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
+	icon_state = "se2";
+	opacity = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced,
+/area/supply/dock)
 "aRM" = (
 /obj/effect/floor_decal/corner/red/full,
 /turf/unsimulated/floor{
@@ -53231,7 +53269,7 @@ aOA
 aOA
 aOA
 aOA
-aOA
+aNQ
 aNQ
 aNQ
 aNQ
@@ -53477,20 +53515,20 @@ aNt
 aJs
 aNR
 aOh
+aOU
+aOi
+aOi
+aOi
 aOi
 aOU
 aOi
 aOi
-aOU
 aOi
 aOi
 aOU
-aOi
-aOi
-aOU
-aOi
 aSm
 aNR
+aaa
 aaa
 aaa
 aaa
@@ -53734,20 +53772,20 @@ aNt
 aJs
 aNR
 aOi
-aOi
-aPb
+ank
 aRz
 aRz
 aQY
 aRz
 aQY
 aRz
+aQY
 aRz
-aRL
-aRL
+aRz
 aOi
 aOi
 aNR
+aaa
 aaa
 aaa
 aaa
@@ -53991,20 +54029,20 @@ aNt
 aNt
 aNR
 aOi
-aOi
 aRz
 aRz
 anh
-ani
+aQJ
 anh
-ani
+aQJ
+anh
+aQJ
+aPv
 aRz
 aRz
-aRz
-aOi
-aOi
 aOi
 aNR
+aaa
 aaa
 aaa
 aaa
@@ -54248,20 +54286,20 @@ axi
 aNt
 aNR
 aOi
-aOi
+aPb
 aOX
-aPv
 anf
-ani
+aQJ
 anf
-ani
-aRz
-ank
+aQJ
+anf
+aQJ
+anO
+ang
 aQY
-aQY
-aOi
 aOi
 aNR
+aaa
 aaa
 aaa
 aaa
@@ -54505,20 +54543,20 @@ axj
 aNt
 aNR
 aOh
-aOi
-aOY
-anf
-anf
-anf
-aQJ
-anf
 anj
-anl
+anf
+anf
+anf
+anf
+anf
+anf
+anf
+anO
 aRx
 aQY
-aOi
 aSm
 aNR
+aaa
 aaa
 aaa
 aaa
@@ -54762,20 +54800,20 @@ aMQ
 aNt
 aNR
 aOi
-aOi
+aOY
 aOZ
-ang
 anf
-ani
+aQJ
 anf
-ani
-aRz
+aQJ
+anf
+aQJ
 anO
+anl
 aQY
-aQY
-aOi
 aOi
 aNR
+aaa
 aaa
 aaa
 aaa
@@ -55019,20 +55057,20 @@ aMQ
 aNt
 aNR
 aOi
-aOi
 aRz
 aRz
 aQK
-ani
+aQJ
 aQK
+aQJ
+aQK
+aQJ
 ani
 aRz
 aRz
-aRz
-aOi
-aOi
 aOi
 aNR
+aaa
 aaa
 aaa
 aaa
@@ -55276,20 +55314,20 @@ aNt
 aNt
 aNR
 aOi
-aOi
-aPb
+aRL
 aRz
 aRz
 aQY
 aRz
 aQY
 aRz
+aQY
 aRz
-aRL
-aRL
+aRz
 aOi
 aOi
 aNR
+aaa
 aaa
 aaa
 aaa
@@ -55533,20 +55571,20 @@ aMS
 aNt
 aNR
 aOh
+aPc
+aOi
+aOi
+aOi
 aOi
 aPc
 aOi
 aOi
-aPc
 aOi
 aOi
 aPc
-aOi
-aOi
-aPc
-aOi
 aSm
 aNR
+aaa
 aaa
 aaa
 aaa
@@ -55803,7 +55841,7 @@ aNR
 aNR
 aNR
 aNR
-aNR
+aaa
 aaa
 aaa
 aaa
