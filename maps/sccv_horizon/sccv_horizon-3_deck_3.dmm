@@ -10149,6 +10149,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"sD" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard)
 "sE" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -52440,7 +52450,7 @@ YJ
 xs
 UV
 UV
-sh
+sD
 JX
 rs
 BI
