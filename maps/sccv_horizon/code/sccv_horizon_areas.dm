@@ -263,6 +263,11 @@
 	name = "Secondary Crew Lounge"
 	icon_state = "lounge2"
 
+/area/crew_quarters/lounge/meeting
+	name = "Auxiliary Meeting Room"
+	icon_state = "loungemeeting"
+	flags = RAD_SHIELDED
+
 // Maintenance
 
 /area/maintenance/operations
