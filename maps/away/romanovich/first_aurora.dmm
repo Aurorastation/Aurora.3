@@ -5777,10 +5777,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor{
-	dir = 2;
-	icon_state = "cmo"
-	},
+/turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "sB" = (
 /obj/structure/door_assembly/door_assembly_med{

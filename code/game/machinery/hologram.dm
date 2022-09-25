@@ -442,8 +442,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/long_range/can_connect(var/obj/machinery/hologram/holopad/HP)
 	if(HP.long_range != long_range)
 		return FALSE
-	if(AreConnectedZLevels(HP.z, z))
-		return FALSE
 	if(current_map.use_overmap)
 		if(!linked || !HP.linked)
 			return FALSE
