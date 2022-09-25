@@ -32369,8 +32369,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
-"qZi" = (
-)
 "qZj" = (
 /obj/structure/lattice,
 /obj/structure/cable{
@@ -71181,7 +71179,7 @@ qgN
 qgN
 qgN
 qgN
-qZi
+qgN
 "}
 (122,1,1) = {"
 qgN
