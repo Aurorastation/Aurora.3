@@ -1348,6 +1348,12 @@
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/tiled/white,
 /area/racers)
+"gps" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk,
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/simulated/floor/tiled/steel/airless,
+/area/racers)
 "gxE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -2738,7 +2744,7 @@
 /obj/item/card/mining_point_card{
 	points = 12309
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/steel/airless,
 /area/racers)
 "nxJ" = (
 /obj/structure/bed,
@@ -5051,7 +5057,7 @@
 /area/racers)
 "ycX" = (
 /obj/machinery/mineral/equipment_vendor,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/steel/airless,
 /area/racers)
 "yfC" = (
 /obj/machinery/door/airlock/glass_atmos{
@@ -24208,7 +24214,7 @@ arm
 arm
 arm
 arm
-ctn
+arm
 nup
 nup
 nup
@@ -24716,10 +24722,10 @@ arm
 arm
 arm
 arm
-ctn
-ctn
-lvc
-xvJ
+arm
+arm
+thx
+gps
 axm
 vps
 oTQ
@@ -27811,7 +27817,7 @@ arm
 arm
 arm
 arm
-ctn
+arm
 arm
 thx
 arm
@@ -28068,7 +28074,7 @@ arm
 arm
 arm
 arm
-ctn
+arm
 arm
 arm
 arm
@@ -28325,7 +28331,7 @@ arm
 arm
 arm
 arm
-ctn
+arm
 arm
 jFP
 jFP
