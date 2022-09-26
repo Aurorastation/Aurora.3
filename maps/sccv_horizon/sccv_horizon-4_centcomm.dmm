@@ -6039,7 +6039,7 @@
 	id_tag = "cargo_shuttle_airlock";
 	locked = 1;
 	name = "Cargo Shuttle";
-	req_access = list(13)
+	req_access = list(13,31)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
@@ -16483,19 +16483,11 @@
 	id_tag = "cargo_shuttle_airlock";
 	locked = 1;
 	name = "Cargo Shuttle";
-	req_access = list(13)
+	req_access = list(13,31)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aOZ" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "cargo_shuttle";
-	pixel_x = 25;
-	req_one_access = list(13,31);
-	tag_door = "cargo_shuttle_airlock";
-	name = "cargo shuttle docking controller"
-	},
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "QMLoad"
@@ -16512,7 +16504,7 @@
 	id_tag = "cargo_shuttle_airlock";
 	locked = 1;
 	name = "Cargo Shuttle";
-	req_access = list(13)
+	req_access = list(13,31)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -36612,6 +36604,18 @@
 	},
 /turf/simulated/floor/holofloor/grass/alt,
 /area/horizon/holodeck/source_wildlife)
+"enp" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "cargo_shuttle";
+	pixel_x = 25;
+	req_one_access = list(13,31);
+	tag_door = "cargo_shuttle_airlock";
+	name = "cargo shuttle docking controller";
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled/dark,
+/area/supply/dock)
 "eBq" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert0"
@@ -54802,7 +54806,7 @@ aNR
 aOi
 aOY
 aOZ
-anf
+enp
 aQJ
 anf
 aQJ
