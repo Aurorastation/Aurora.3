@@ -51,6 +51,13 @@
 	damage = 35
 	armor_penetration = 10
 
+/obj/item/projectile/beam/midlaser/skrell
+	armor_penetration = 0
+
+/obj/item/projectile/beam/midlaser/skrell/heavy
+	damage = 40
+	armor_penetration = 20
+
 /obj/item/projectile/beam/noctiluca
 	damage = 25
 	armor_penetration = 25

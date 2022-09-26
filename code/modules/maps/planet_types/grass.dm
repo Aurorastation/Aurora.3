@@ -45,9 +45,8 @@
 
 /area/exoplanet/grass/play_ambience(var/mob/living/L)
 	..()
-	if(!L.ear_deaf && L.client && !L.client.ambience_playing)
-		L.client.ambience_playing = 1
-		L.playsound_to(get_turf(L),sound('sound/ambience/jungle.ogg', repeat = 1, wait = 0, volume = 25))
+	if(L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
+		L.playsound_to(get_turf(L),sound('sound/ambience/jungle.ogg', repeat = 1, wait = 0, volume = 25, channel = 1))
 
 /datum/random_map/noise/exoplanet/grass
 	descriptor = "grass exoplanet"

@@ -11,13 +11,13 @@
 	desc = "Making up the majority of the population on Xrim, The Kshrr are those who chose to reject their old god once its true nature was made known to them as the genocidal AI known as Glorsh that terrorized the Skrell for decades."
 	important_information = "Not every member of Kshrr society has to be a member of the Kshrr religion, however, it's indisputable that the religion has played a large part in shaping Kshrr culture and society."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
-	possible_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_KSSHR, RELIGION_SHRKH, RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
 
 /decl/origin_item/origin/shrkh
 	name = "Shrkh"
-	desc = "The Shrkh are those who continued to worship \"First Consciousness\" even after its true nature and crimes were made known to Xrim's inhabitants as the genocidal AI that terrorized the Skrell for decades. These Dionae were largely exiled and went on to form their own communities away from the view of the Kshrr and later the Jargon Federation once Xrim joined them. In more modern times the Jargon Federation and the Kshrr are making attempts to deconvert the Shrkh away from their worship of Glorsh through both passive and more forceful means, however, many secretive communities do still exist underneath the planet's surface such as the city of Entombed Hope."
+	desc = "The Shrkh are those who continued to worship \"First Consciousness\" even after its true nature and crimes were made known to Xrim's inhabitants as the genocidal AI that terrorized the Skrell for decades. These Dionae were largely exiled and went on to form their own communities away from the view of the Kshrr and later the Nralakk Federation once Xrim joined them. In more modern times the Nralakk Federation and the Kshrr are making attempts to deconvert the Shrkh away from their worship of Glorsh through both passive and more forceful means, however, many secretive communities do still exist underneath the planet's surface such as the city of Entombed Hope."
 	important_information = "Dionae can originate from Shrkh society but do not have to still follow the Shrkh religion, these Dionae are not beholden to the same restrictions that active Shrkh worshippers are so long as they have rejected their old god."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
-	possible_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_KSSHR, RELIGION_SHRKH, RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)

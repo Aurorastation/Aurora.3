@@ -1,7 +1,34 @@
-effects/creatures/vannatusk_attack.ogg - "Monster 2.wav" by Sea Fury, licensed under CC BY 3.0. Obtained from https://freesound.org/people/Sea%20Fury/sounds/48673/
-effects/creatures/vannatusk_sound.ogg  - "Monster 3.wav" by Sea Fury, licensed under CC BY 3.0. Obtained from https://freesound.org/people/Sea%20Fury/sounds/48674/
-effects/creatures/vannatusk_sound_2.ogg - "Monster 6.wav" by Sea Fury, licensed under CC BY 3.0. Obtained from https://freesound.org/people/Sea%20Fury/sounds/48971/
+TEMPLATE
+SOUND PATH - ORIGINAL SOUND NAME/TITLE by CREATOR, licensed under LICENSE TYPE. Obtained from LINK
+
+ATTRIBUTIONS SECTION START
+effects/creatures/vannatusk_attack.ogg - "Monster 2.wav" by Sea Fury, licensed under CC BY 3.0. Obtained from https://freesound.org/people/Sea%20Fury/sounds/48673
+effects/creatures/vannatusk_sound.ogg  - "Monster 3.wav" by Sea Fury, licensed under CC BY 3.0. Obtained from https://freesound.org/people/Sea%20Fury/sounds/48674
+effects/creatures/vannatusk_sound_2.ogg - "Monster 6.wav" by Sea Fury, licensed under CC BY 3.0. Obtained from https://freesound.org/people/Sea%20Fury/sounds/48971
+
+No changes were made to the sounds, and all credit goes to Sea Fury.
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
 effects/metalhit.ogg - CM-SS13
 effects/woodhit.ogg - CM-SS13
 effects/barbed_wire_movement.ogg - CM-SS13
-No changes were made to the sounds, and all credit goes to Sea Fury
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/items/drop/casing6.ogg to 25
+sound/items/drop/casing_shotgun1.ogg to 5
+sound/items/drop/empty2.ogg to 6
+sound/weapons/empty/empty_revolver.ogg to 3
+sound/weapons/empty/empty_rifle1.ogg to 2
+sound/weapons/empty/empty_shotgun1.ogg
+sound/weapons/reloads/hmg_reload1 to 3
+sound/weapons/reloads/pistol_metal_slide1.ogg to 6
+sound/weapons/reloads/pistol_polymer_slide1.ogg to 3
+sound/weapons/reloads/reload_shell.ogg to 4
+sound/weapons/reloads/revolver_reload.ogg
+sound/weapons/reloads/rifle_slide.ogg to 5
+sound/weapons/reloads/shotgun_pump.ogg to 6
+
+All sounds listed above in this section part of "Valhalla", licensed under CC0 1.0 Universal (CC0 1.0). Obtained from https://freesound.org/people/FilmmakersManual
+ATTRIBUTIONS SECTION END

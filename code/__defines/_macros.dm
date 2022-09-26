@@ -52,6 +52,8 @@
 
 #define isbrain(A) istype(A, /mob/living/carbon/brain)
 
+#define isvirtualmob(A) istype(A, /mob/abstract/observer/virtual)
+
 #define iscarbon(A) istype(A, /mob/living/carbon)
 
 #define iscorgi(A) istype(A, /mob/living/simple_animal/corgi)

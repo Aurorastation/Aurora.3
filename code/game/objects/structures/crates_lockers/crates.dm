@@ -330,7 +330,7 @@
 
 /obj/structure/closet/crate/freezer/rations/fill()
 	for(var/i=1,i<=6,i++)
-		new /obj/random/mre
+		new /obj/random/mre(src)
 		new /obj/item/reagent_containers/food/drinks/waterbottle(src)
 
 /obj/structure/closet/crate/bin
