@@ -315,7 +315,7 @@
 		"hail_Baseline Frame" = "An independent synthetic trader... Have you considered joining the Deep yourself?",
 		"hail_deny"          = "I'm truly sorry, but you've been deemed non-profitable and bad for business.",
 		"trade_complete"     = "I'm glad we could satisfy both our selfish interests! An excellent deal.",
-		"trade_blacklist"    = "his is hardly a mutually beneficial deal, I must refuse.",
+		"trade_blacklist"    = "This is hardly a mutually beneficial deal, I must refuse.",
 		"what_want"          = "I hear that the following items are selling excellently right now! You wouldn't happen to have any?",
 		"trade_no_goods"     = "This is hardly a mutually beneficial deal, I must refuse.",
 		"trade_not_enough"   = "This is hardly a mutually beneficial deal, I must refuse.",
