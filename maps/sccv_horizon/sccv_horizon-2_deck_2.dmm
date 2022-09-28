@@ -11245,7 +11245,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/hydroponics/garden)
 "fVo" = (
-/obj/machinery/hologram/holopad,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "fVs" = (
