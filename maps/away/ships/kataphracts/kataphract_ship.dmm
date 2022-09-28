@@ -1056,7 +1056,6 @@
 	req_one_access = list(113)
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
 "cB" = (
@@ -6229,15 +6228,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
-"mV" = (
-/obj/machinery/door/airlock/glass{
-	name = "Chapter Engineering and Hangar";
-	req_access = null;
-	req_one_access = list(113)
-	},
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/aft_hall)
 "mW" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -6309,6 +6299,15 @@
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/janitorial)
+"nb" = (
+/obj/machinery/door/airlock/glass{
+	name = "Chapter Engineering and Hangar";
+	req_access = null;
+	req_one_access = list(113)
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/aft_hall)
 "nc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7201,9 +7200,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
 "uh" = (
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "ul" = (
@@ -7387,9 +7384,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "wl" = (
@@ -8201,9 +8196,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "Fc" = (
@@ -23594,7 +23587,7 @@ cP
 cf
 cp
 cf
-mV
+nb
 OT
 wl
 iK
@@ -23918,7 +23911,7 @@ cQ
 cf
 cp
 cf
-mV
+nb
 OT
 Aq
 Wt
