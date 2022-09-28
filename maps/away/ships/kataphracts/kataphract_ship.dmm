@@ -2474,20 +2474,13 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "fo" = (
-/obj/machinery/door/firedoor{
-	dir = 8
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	id = "egg_blastdoors"
 	},
-/obj/machinery/door/airlock/glass{
-	name = "Chapter Cafeteria and Knight's Office";
-	req_access = null;
-	req_one_access = list(113)
-	},
-/obj/machinery/alarm{
-	pixel_y = 25;
-	req_one_access = list(113)
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "fp" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -5644,6 +5637,12 @@
 	dir = 9;
 	pixel_y = 0
 	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24;
+	req_one_access = list(24,11,55)
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "lG" = (
@@ -8396,12 +8395,6 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "GX" = (
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24;
-	req_one_access = list(24,11,55)
-	},
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 6
@@ -9283,14 +9276,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
-"Qz" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/door/blast/regular/open{
-	id = "egg_blastdoors"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/kataphract_shuttle/main_compartment)
 "QD" = (
 /obj/structure/flora/pottedplant,
 /obj/effect/floor_decal/corner/red{
@@ -10092,6 +10077,16 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
+"ZO" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/alarm{
+	pixel_y = 25;
+	req_one_access = list(113)
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 
 (1,1,1) = {"
 iB
@@ -20556,11 +20551,11 @@ Yg
 aa
 aa
 aa
-Qz
-Qz
-Qz
-Qz
-Qz
+fo
+fo
+fo
+fo
+fo
 aa
 aa
 aa
@@ -22146,7 +22141,7 @@ bc
 bI
 aC
 ab
-cf
+cj
 cp
 cf
 cN
@@ -22794,7 +22789,7 @@ bb
 bJ
 Xy
 ab
-cj
+cf
 cp
 cf
 du
@@ -25716,7 +25711,7 @@ cf
 cN
 cf
 cf
-cf
+dG
 cf
 fl
 cf
@@ -25879,7 +25874,7 @@ nw
 nw
 cu
 cu
-fo
+eW
 gC
 eW
 fW
@@ -27013,7 +27008,7 @@ lI
 lI
 lI
 lI
-cg
+ZO
 fl
 CX
 fW
