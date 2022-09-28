@@ -1189,6 +1189,12 @@
 	layer = 2.98;
 	pixel_y = 34
 	},
+/obj/item/storage/box/fancy/cigarettes/cigar/prank{
+	pixel_x = -7
+	},
+/obj/item/flame/lighter/adhomai{
+	pixel_x = 7
+	},
 /turf/simulated/floor/tiled,
 /area/ship/adhomian_circus)
 "loe" = (
