@@ -38,7 +38,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/adhomian_circus/New()
-	designation = "[pick("Kalmykova", "")]"
+	designation = "[pick("Kalmykova", "Flying Rafama", "Harazhimir Brothers")]"
 	..()
 
 /obj/effect/shuttle_landmark/adhomian_circus/transit

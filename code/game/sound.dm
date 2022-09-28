@@ -851,3 +851,9 @@
 		'sound/items/tools/shovel2.ogg',
 		'sound/items/tools/shovel3.ogg'
 	)
+
+/decl/sound_category/clown_sound
+	sounds = list(
+		'sound/effects/clownstep1.ogg',
+		'sound/effects/clownstep2.ogg'
+	)

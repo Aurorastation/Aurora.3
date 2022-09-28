@@ -680,14 +680,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_SMALL
 
 
-/obj/item/spirit_board/fluff/klavdiya_board //Ghostly Board - Klavdiya Tikhomirov - alberyk
-	name = "ghostly board"
-	desc = "An adhomian ghostly board, used in divination rituals. This one is blue and has the symbol of a moon on it."
-	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
-	icon_override = 'icons/obj/custom_items/klavdiya_amulet.dmi'
-	icon_state = "klavdiya_board" //thanks to kyres1 for the sprites
-
-
 /obj/item/clothing/glasses/threedglasses/fluff/grunnus_glasses //3D glasses - Paul Grunnus - moom241
 	desc = "A pair of old, beat up looking glasses, with red and blue lenses. Pretty archaic, but some might call it fashionable."
 	icon = 'icons/obj/custom_items/grunnus_glasses.dmi'
