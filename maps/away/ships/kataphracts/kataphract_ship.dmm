@@ -6270,13 +6270,9 @@
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/starboard_solars_array)
 "mY" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 1;
-	icon_state = "pdoor0";
-	id = "katashroud";
-	name = "Sensor Shroud";
-	opacity = 0
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "katashroud"
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/bridge)
@@ -9515,14 +9511,15 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
-	req_access = list(113)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24;
+	req_access = list(113)
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/janitorial)
@@ -9969,6 +9966,15 @@
 /obj/item/clothing/glasses/sunglasses,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
+"YP" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "katabridgeshutter"
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/bridge)
 "YQ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -21941,7 +21947,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 aG
 aN
 bb
@@ -22103,7 +22109,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aO
 bc
@@ -22265,7 +22271,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 ay
 aP
 bd
@@ -22427,7 +22433,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aQ
 be
@@ -22911,7 +22917,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 FC
 bJ
 aI
@@ -23073,7 +23079,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aC
 aC
@@ -23235,7 +23241,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 hm
 aC
 aC
@@ -23397,7 +23403,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aC
 aC
@@ -23559,7 +23565,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 ay
 aC
 aC
@@ -23721,7 +23727,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aC
 aI
@@ -23883,7 +23889,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 ay
 aC
 aC
@@ -24045,7 +24051,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aC
 aC
@@ -24207,7 +24213,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 hm
 aC
 aC
@@ -24369,7 +24375,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aC
 aC
@@ -24531,7 +24537,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 Mk
 bI
 aI
@@ -25019,7 +25025,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aQ
 be
@@ -25181,7 +25187,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 ay
 aP
 bf
@@ -25343,7 +25349,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 az
 aR
 bb
@@ -25505,7 +25511,7 @@ iB
 iB
 iB
 iB
-ms
+YP
 aK
 aZ
 bc
