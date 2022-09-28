@@ -390,6 +390,9 @@
 	item_state = "Fpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/rugged
 
+/obj/item/storage/box/fancy/cigarettes/cigar/prank
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/cigar/prank
+
 /*
  * Vial Box
  */
