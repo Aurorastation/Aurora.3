@@ -74,8 +74,8 @@
 
 /obj/effect/shuttle_landmark/adhomian_circus_shuttle/hangar
 	name = "Adhomian Circus Shuttle"
-	landmark_tag = "nav_hangar_tcfl"
-	docking_controller = "adhomian_circus_shuttle_shuttle_dock"
+	landmark_tag = "nav_hangar_adhomian_circus_shuttle"
+	docking_controller = "adhomian_circus_shuttle_dock"
 	base_area = /area/ship/tcfl_peacekeeper_ship
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE

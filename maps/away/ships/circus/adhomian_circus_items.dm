@@ -93,8 +93,8 @@
 	name = "clown shoes"
 	desc = "The prankster's standard-issue clowning shoes."
 	icon = 'maps/away/ships/circus/circus_sprites.dmi'
-	icon_state = "clownhat"
-	item_state = "clownhat"
+	icon_state = "clownshoes"
+	item_state = "clownshoes"
 	contained_sprite = TRUE
 
 /obj/item/clothing/shoes/clown/handle_movement(var/turf/walking, var/running)
