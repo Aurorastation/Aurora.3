@@ -14,6 +14,8 @@ var/global/list/all_virtual_listeners = list()
 	virtual_mob = null
 	no_z_overlay = TRUE
 
+	should_add_to_mob_list = FALSE
+
 	var/atom/movable/host
 	var/host_type = /atom/movable
 	var/abilities = VIRTUAL_ABILITY_HEAR|VIRTUAL_ABILITY_SEE

@@ -1,13 +1,12 @@
 /datum/ghostspawner/human/kataphract
 	short_name = "kataphract_hop"
 	name = "Kataphract-Hopeful"
-	desc = "Display honour in everything you do. Be an excellent person."
+	desc = "A Zo'saa (squire) of the traveling Kataphract Guild. Display honour in everything you do. Be an excellent person. Listen to the Saa's (Knights). Remember, you serve the Izweski Hegemony."
 	tags = list("External")
 
-	enabled = FALSE
 	spawnpoints = list("kataphract")
 	req_perms = null
-	max_count = 2
+	max_count = 3
 	uses_species_whitelist = FALSE
 
 	mob_name_prefix = "Zosaa "
@@ -26,8 +25,9 @@
 /datum/ghostspawner/human/kataphract/klax
 	short_name = "kataphract_hop_klax"
 	name = "Kataphract-Hopeful Klaxan"
-	desc = "Display honour in everything you do. Be an excellent person. Learn how to be a proper Kataphract by your fellow Unathi."
+	desc = "A Zo'saa (squire) from the K'lax hive, here to learn what it means to be honourable. Remember, you serve the Izweski Hegemony on behalf of your K'laxan compatriots."
 	max_count = 1
+	uses_species_whitelist = TRUE
 
 	spawnpoints = list("kataphract_klax")
 
@@ -37,23 +37,25 @@
 
 /datum/ghostspawner/human/kataphract/knight
 	short_name = "kataphract_knight"
-	name = "Kataphract Knight"
-	desc = "Display honour in everything you do. Be an excellent person. Be a co-leader of the Kataphract Chapter, along with the other knight."
-	max_count = 2
+	name = "Kataphract Knight Captain"
+	desc = "A Saa (Knight) of the traveling Kataphract Guild. Display honour in everything you do. Be an excellent person. You are the foremost authority on your vessel. Lead by example."
+	max_count = 1
+	uses_species_whitelist = TRUE
 
 	mob_name_prefix = "Saa "
 
 	spawnpoints = list("kataphract_knight")
 
 	outfit = /datum/outfit/admin/kataphract/knight
+	
 
-	assigned_role = "Kataphract Knight"
-	special_role = "Kataphract Knight"
+	assigned_role = "Kataphract Knight Captain"
+	special_role = "Kataphract Knight Captain"
 
 /datum/ghostspawner/human/kataphract/quartermaster
 	short_name = "kataphract_quart"
-	name = "Kataphract Quartermaster"
-	desc = "Display honour in everything you do. Be an excellent person. Ensure the Kataphracts are well-stocked and ready for anything."
+	name = "Kataphract Knight Quartermaster"
+	desc = "A Saa (Knight) of the traveling Kataphract Guild. Display honour in everything you do. Be an excellent person. Ensure the Kataphracts are well-stocked and ready for anything. Lead by example with the Knight Captain. Remember, you serve the Izweski Hegemony."
 	max_count = 1
 
 	mob_name_prefix = "Saa "
@@ -62,23 +64,8 @@
 
 	outfit = /datum/outfit/admin/kataphract/quartermaster
 
-	assigned_role = "Kataphract Quartermaster"
-	special_role = "Kataphract Quartermaster"
-
-/datum/ghostspawner/human/kataphract/trader
-	short_name = "kataphract_trad"
-	name = "Kataphract Trader"
-	desc = "Display honour in everything you do. Be an excellent person. Buy and sell items on the market, ensure the Quartermaster has stock. Conduct trade with any visitors."
-	max_count = 1
-
-	mob_name_prefix = "Saa "
-
-	spawnpoints = list("kataphract_trader")
-
-	outfit = /datum/outfit/admin/kataphract/trader
-
-	assigned_role = "Kataphract Trader"
-	special_role = "Kataphract Trader"
+	assigned_role = "Kataphract Knight Quartermaster"
+	special_role = "Kataphract Knight Quartermaster"
 
 // Kataphract who are not combat ready
 /datum/outfit/admin/kataphract
@@ -86,9 +73,12 @@
 
 	uniform = /obj/item/clothing/under/unathi
 	belt = /obj/item/melee/energy/sword/hegemony
-	shoes = /obj/item/clothing/shoes/caligae/grey
+	shoes = /obj/item/clothing/shoes/caligae
 	id = /obj/item/card/id/distress/kataphract
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/hegemony
+
+
+	l_ear = /obj/item/device/radio/headset/ship
 
 	backpack_contents = list(
 		/obj/item/storage/box/donkpockets = 1
@@ -99,7 +89,7 @@
 		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
 
 /datum/outfit/admin/kataphract/get_id_access()
-	return list(access_kataphract)
+	return list(access_kataphract, access_kataphract_trader, access_external_airlocks)
 
 /datum/outfit/admin/kataphract/klax
 
@@ -108,7 +98,7 @@
 	belt = /obj/item/melee/energy/sword/hegemony
 	shoes = /obj/item/clothing/shoes/vaurca
 	id = /obj/item/card/id/distress/kataphract
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/hegemony
 
 	l_hand = /obj/item/martial_manual/vaurca
 
@@ -138,18 +128,22 @@
 	name = "Kataphract Knight"
 
 	suit = /obj/item/clothing/accessory/poncho/red
+	back = /obj/item/storage/backpack/satchel/hegemony
+	
 
 /datum/outfit/admin/kataphract/knight/get_id_access()
-	return list(access_kataphract, access_kataphract_knight)
+	return list(access_kataphract, access_kataphract_knight, access_kataphract_quartermaster, access_kataphract_trader, access_external_airlocks)
 
 /datum/outfit/admin/kataphract/quartermaster
 	name = "Kataphract Quartermaster"
+	
+	back = /obj/item/storage/backpack/satchel/hegemony
 
 /datum/outfit/admin/kataphract/quartermaster/get_id_access()
-	return list(access_kataphract, access_kataphract_quartermaster)
+	return list(access_kataphract, access_kataphract_quartermaster, access_kataphract_trader, access_external_airlocks)
 
-/datum/outfit/admin/kataphract/trader
+/datum/outfit/admin/kataphract/trader // Unused from an old trimmed out ghostrole, but handy to have still
 	name = "Kataphract Trader"
 
 /datum/outfit/admin/kataphract/trader/get_id_access()
-	return list(access_kataphract, access_kataphract_trader)
+	return list(access_kataphract, access_kataphract_trader, access_external_airlocks)
