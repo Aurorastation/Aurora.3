@@ -312,6 +312,21 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
+"aE" = (
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(5,12)
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/medical/ward)
 "aF" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -44959,7 +44974,7 @@ AC
 nr
 nr
 nr
-nr
+aE
 nr
 nr
 nr
