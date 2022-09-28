@@ -7075,6 +7075,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/propulsion)
+"tQ" = (
+/obj/structure/foamedmetal,
+/obj/item/modular_computer/handheld/pda,
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/starboard_solars_array)
 "ud" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
@@ -8207,6 +8212,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
+"IK" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/dorms)
 "Jg" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -9222,6 +9231,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/item/modular_computer/handheld/pda,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "UT" = (
@@ -20105,7 +20115,7 @@ he
 hl
 pH
 ge
-fZ
+IK
 fK
 ou
 ou
@@ -20755,7 +20765,7 @@ ge
 ge
 hG
 fK
-lb
+tQ
 Ea
 iS
 Kd
