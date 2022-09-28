@@ -7075,11 +7075,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/propulsion)
-"tQ" = (
-/obj/structure/foamedmetal,
-/obj/item/modular_computer/handheld/pda,
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/starboard_solars_array)
 "ud" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
@@ -20765,7 +20760,7 @@ ge
 ge
 hG
 fK
-tQ
+lb
 Ea
 iS
 Kd
