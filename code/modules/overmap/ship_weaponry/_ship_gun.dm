@@ -2,7 +2,7 @@
 	name = "ship weapon"
 	desc = "You shouldn't be seeing this."
 	icon = 'icons/obj/machines/ship_guns/zavod_longarm.dmi'
-	var/weapon_id //TODOMATT: Figure out if this is needed after all. Used to connect weapon systems to the relevant ammunition loader.
+	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
 	var/obj/structure/ship_weapon_dummy/barrel
 	var/list/obj/item/ship_ammunition/ammunition = list()
 	var/load_time = 5 SECONDS
@@ -146,9 +146,11 @@
 	var/obj/machinery/ship_weapon/big_gun = input(user, "Select a gun.", "Gunnery Control") as null|anything in linked.ship_weapons
 	if(!big_gun)
 		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Aborting.\""))
+		playsound(src, 'sound/machines/buzz-sigh.ogg')
 		return
 	if(!linked.targeting)
 		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No target detected.\""))
+		playsound(src, 'sound/machines/buzz-sigh.ogg')
 		return
 	var/list/obj/effect/possible_entry_points = list()
 	if(istype(linked.targeting, /obj/effect/overmap/visitable))
@@ -160,16 +162,19 @@
 	var/targeted_landmark = input(user, "Select an entry point.", "Gunnery Control") as null|anything in possible_entry_points
 	if(!targeted_landmark)
 		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No entry point given. Aborting.\""))
+		playsound(src, 'sound/machines/buzz-sigh.ogg')
 		return
 	var/obj/effect/landmark = possible_entry_points[targeted_landmark]
 	if(linked.targeting) //Check if we're still targeting.
 		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Target acquired! Firing for effect...\""))
+		playsound(src, 'sound/effects/alert.ogg')
 		var/result = big_gun.firing_command(linked.targeting, landmark)
 		if(result == SHIP_GUN_ERROR_NO_AMMO)
 			visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Ammunition insufficient for firing sequence. Aborting.\""))
-			//todomatt: add sound here
+			playsound(src, 'sound/machines/buzz-sigh.ogg')
 		if(result == SHIP_GUN_FIRING_SUCCESSFUL)
 			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Firing sequence completed!\""))
-			//todomatt: add sound here
+			playsound(src, 'sound/machines/buzz-sigh.ogg')
 	else
 		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No target given. Aborting.\""))
+		playsound(src, 'sound/machines/buzz-sigh.ogg')

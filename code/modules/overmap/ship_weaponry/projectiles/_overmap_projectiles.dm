@@ -46,19 +46,25 @@
 		
 		if((V.check_ownership(entry_target)) || (V == target)) //Target spotted!
 			if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
-				//Todomatt: add a grace period maybe?
+				//Manually stopping & going invisible because this proc needs to sleep for a bit.
+				invisibility = 100
+				moving = FALSE
+				STOP_PROCESSING(SSprocessing, src) //Also, don't sleep in process().
 				var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 				widowmaker.ammo = ammunition
 				qdel(ammunition.original_projectile) //No longer needed.
+				var/turf/laze = get_turf(entry_target)
 				ammunition.original_projectile = widowmaker
-				//TODOMATT: add the FSHWOWOOOOOOOOM sound here
+				playsound(laze, 'sound/weapons/gunshot/ship_weapons/orbital_travel.ogg')
+				laze.visible_message(SPAN_DANGER("<font size=6>A bright star is getting closer from the sky...!</font>"))
+				sleep(11 SECONDS) //Let the sound play!
 				widowmaker.primed = TRUE
 				widowmaker.forceMove(entry_target)
-				widowmaker.on_hit(get_turf(entry_target), is_landmark_hit = TRUE)
+				widowmaker.on_hit(laze, is_landmark_hit = TRUE)
 				log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
 				qdel(widowmaker)
+				qdel(src)
 			else if(istype(V, /obj/effect/overmap/visitable) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
-				//Todomatt: add a grace period maybe?
 				var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 				widowmaker.ammo = ammunition
 				qdel(ammunition.original_projectile) //No longer needed.
