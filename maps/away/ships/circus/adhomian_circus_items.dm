@@ -96,6 +96,7 @@
 	icon_state = "clownshoes"
 	item_state = "clownshoes"
 	contained_sprite = TRUE
+	species_restricted = null
 
 /obj/item/clothing/shoes/clown/handle_movement(var/turf/walking, var/running)
 	if(!running)
