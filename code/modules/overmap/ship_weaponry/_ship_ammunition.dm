@@ -152,7 +152,7 @@
 	icon_state = "small"
 	range = 250
 	var/obj/item/ship_ammunition/ammo
-	var/primed = FALSE //If primed, we interact touch map edges. Projectiles might spawn on a landmark at the edge of space, and we don't want them to get tp'd away.
+	var/primed = FALSE //If primed, we don't interact with map edges. Projectiles might spawn on a landmark at the edge of space, and we don't want them to get tp'd away.
 
 /obj/item/projectile/ship_ammo/touch_map_edge()
 	if(primed)
@@ -160,3 +160,9 @@
 	if(ammo.touch_map_edge(z))
 		ammo.original_projectile = src
 		forceMove(ammo)
+
+/obj/item/projectile/ship_ammo/on_hit(atom/target, blocked, def_zone, var/is_landmark_hit = FALSE) //is_landmark_hit is TRUE when we hit a landmark (e.g on a planet).
+	. = ..()
+
+/obj/item/projectile/ship_ammo/proc/on_translate(var/turf/entry_turf, var/target_turf) //This proc is called when the projectile enters a new ship's overmap zlevel.
+	return

@@ -44,9 +44,6 @@
 		if(V == ammunition.origin)
 			continue
 		
-		if(!length(V.map_z))
-			return
-		
 		if((V.check_ownership(entry_target)) || (V == target)) //Target spotted!
 			if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
 				//Todomatt: add a grace period maybe?
@@ -57,7 +54,7 @@
 				//TODOMATT: add the FSHWOWOOOOOOOOM sound here
 				widowmaker.primed = TRUE
 				widowmaker.forceMove(entry_target)
-				widowmaker.on_hit(get_turf(entry_target))
+				widowmaker.on_hit(get_turf(entry_target), is_landmark_hit = TRUE)
 				log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
 				qdel(widowmaker)
 			else if(istype(V, /obj/effect/overmap/visitable) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
@@ -67,10 +64,12 @@
 				qdel(ammunition.original_projectile) //No longer needed.
 				ammunition.original_projectile = widowmaker
 				widowmaker.primed = TRUE
-				widowmaker.forceMove(get_turf(entry_target))
-				log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+				var/turf/entry_turf = get_turf(entry_target)
+				widowmaker.forceMove(entry_turf)
 				widowmaker.dir = ammunition.heading
 				var/turf/target_turf = get_step(widowmaker, widowmaker.dir)
+				widowmaker.on_translate(entry_turf, target_turf)
+				log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
 				widowmaker.launch_projectile(target_turf)
 				qdel(src)
 			else if(istype(V, /obj/effect/overmap/event) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_HAZARDS))

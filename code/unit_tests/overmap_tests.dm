@@ -16,3 +16,14 @@
 		pass("All /obj/effect/overmap types have a valid color")
 
 	return TRUE
+
+/datum/unit_test/overmap_ships_shall_have_entrypoints
+	name = "OVERMAP: Ships shall have at least four valid entry points"
+
+/datum/unit_test/overmap_ships_shall_have_entrypoints/start_test()
+	for(var/obj/effect/overmap/visitable/ship/S in SSshuttle.ships)
+		if(length(S.entry_points) >= 4)
+			pass("[S.name] has at least four entry points.")
+		else
+			fail("[S.name] does not have at least four entry points!")
+	return TRUE

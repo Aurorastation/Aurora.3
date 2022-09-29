@@ -276,6 +276,7 @@ var/list/ruin_landmarks = list()
 
 /obj/effect/landmark/entry_point
 	name = "entry point landmark"
+	icon_state = "dir_arrow"
 
 /obj/effect/landmark/entry_point/Initialize()
 	..()
@@ -286,4 +287,4 @@ var/list/ruin_landmarks = list()
 		var/my_sector = map_sectors["[z]"]
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			var/obj/effect/overmap/visitable/ship/S = my_sector
-			S.entry_points |= src	
+			S.entry_points |= src

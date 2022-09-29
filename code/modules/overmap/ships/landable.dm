@@ -47,10 +47,6 @@
 		var/turf/visitor_turf = get_ranged_target_turf(center_loc, visitor_dir, round(min(world.maxx/4, world.maxy/4)))
 		var/obj/effect/shuttle_landmark/visiting_shuttle/visitor_landmark = new (visitor_turf, landmark, landmark_name)
 		add_landmark(visitor_landmark)
-		var/obj/effect/landmark/entry_point/EP = new(visitor_turf)
-		LAZYADD(entry_points, EP)
-		EP.dir = visitor_dir
-		EP.name = "Entry Point - [landmark_name]"
 		visitor_dir = turn(visitor_dir, 90)
 
 	if(multiz)

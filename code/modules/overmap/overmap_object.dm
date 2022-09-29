@@ -49,31 +49,41 @@
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		var/client/C = H.client
-		if(istype(C.eye, /obj/effect/overmap) && istype(H.machine, /obj/machinery/computer/ship/helm))
+		if(H.machine && istype(C.eye, /obj/effect/overmap) && istype(H.machine, /obj/machinery/computer/ship/helm) && H.machine.use_check_and_message(H)) //word vomit
 			var/my_sector = map_sectors["[H.z]"]
 			if(istype(my_sector, /obj/effect/overmap/visitable))
 				var/obj/effect/overmap/visitable/V = my_sector
-				if(V != src)
+				if(V != src && length(V.ship_weapons)) //no guns, no lockon
 					if(!V.targeting)
-						V.target(src)
+						V.target(src, C)
 					else
 						if(V.targeting == src)
-							V.detarget(src)
+							V.detarget(src, C)
 						else
-							V.detarget(V.targeting)
-							V.target(src)
+							V.detarget(V.targeting, C)
+							V.target(src, C)
 
-/obj/effect/overmap/visitable/proc/target(var/obj/effect/overmap/O)
+/obj/effect/overmap/visitable/proc/target(var/obj/effect/overmap/O, var/obj/machinery/computer/C)
 	targeting = O
 	O.targeted_overlay = icon('icons/obj/overmap_heads_up_display.dmi', "lock")
-	O.add_overlay(O.targeted_overlay)
-	O.maptext = SMALL_FONTS(6, "[class] [designation]")
+	if(!O.maptext)
+		O.maptext = SMALL_FONTS(6, "[class] [designation]")
+	else
+		O.maptext += SMALL_FONTS(6, " [class] [designation]")
 	O.maptext_y = 32
 	O.maptext_x = -10
 	O.maptext_width = 72
 	O.maptext_height = 32
+	playsound(C, 'sound/effects/ship_weapons/lock_on.ogg', 50)
+	C.visible_message(SPAN_WARNING("\The [C] beeps menacingly, \"Targeting systems engaged.\""))
+	if(istype(O, /obj/effect/overmap/visitable/ship))
+		var/obj/effect/overmap/visitable/ship/S = O
+		for(var/obj/machinery/computer/ship/SH in S.consoles)
+			if(istype(SH, /obj/machinery/computer/ship/sensors))
+				playsound(SH, 'sound/effects/ship_weapons/locked_on.ogg', 50)
+				SH.visible_message(SPAN_DANGER("<font size=4>\The [SH] beeps alarmingly, \"Lock-on detected!\"</font>"))
 
-/obj/effect/overmap/visitable/proc/detarget(var/obj/effect/overmap/O)
+/obj/effect/overmap/visitable/proc/detarget(var/obj/effect/overmap/O,  var/obj/machinery/computer/C)
 	O.cut_overlay(O.targeted_overlay)
 	O.maptext = null
 	targeting = null

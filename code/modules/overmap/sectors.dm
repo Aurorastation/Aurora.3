@@ -74,18 +74,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 /obj/effect/overmap/visitable/proc/get_areas()
 	return get_filtered_areas(list(/proc/area_belongs_to_zlevels = map_z))
 
-/obj/effect/overmap/visitable/proc/find_z_levels(var/fore_direction = SOUTH)
-	map_z = GetConnectedZlevels(z)
-
-	var/turf/center_loc = locate(round(world.maxx/2), round(world.maxy/2), world.maxz)
-	var/visitor_dir = fore_direction
-	for(var/landmark_name in list("FORE", "PORT", "AFT", "STARBOARD"))
-		var/turf/visitor_turf = get_ranged_target_turf(center_loc, visitor_dir, round(min(world.maxx/4, world.maxy/4)))
-		var/obj/effect/landmark/entry_point/EP = new(visitor_turf)
-		LAZYADD(entry_points, EP)
-		EP.dir = visitor_dir
-		EP.name = "Entry Point - [landmark_name]"
-		visitor_dir = turn(visitor_dir, 90)
+/obj/effect/overmap/visitable/proc/find_z_levels()
+	return
 
 /obj/effect/overmap/visitable/proc/register_z_levels()
 	for(var/zlevel in map_z)
