@@ -337,6 +337,11 @@
 	path = /obj/item/clothing/head/buckethat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/head/bridge_crew_cap_alt
+	display_name = "san colettish bridge crew cap"
+	path = /obj/item/clothing/head/caphat/bridge_crew/alt
+	allowed_roles = list("Bridge Crew", "Captain", "Executive Officer")
+
 /datum/gear/head/gadpathur
 	display_name = "gadpathurian headgear selection"
 	description = "A selection of headgear from Gadpathur."
