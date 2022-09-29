@@ -218,6 +218,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
 	},
+/obj/structure/closet/wardrobe/atmospherics_yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aeC" = (
@@ -425,7 +426,7 @@
 /area/medical/reception)
 "akn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/machinery/space_heater,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/lobby)
 "aky" = (
@@ -472,7 +473,7 @@
 "amk" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/lobby)
 "amt" = (
@@ -490,10 +491,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/hallway)
 "amE" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/shieldgen,
-/turf/simulated/floor/tiled/dark/full,
-/area/engineering/lobby)
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/tiled,
+/area/hallway/engineering)
 "amF" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -905,8 +907,7 @@
 	dir = 1
 	},
 /obj/structure/closet/walllocker/firecloset/medical{
-	pixel_x = -32;
-	pixel_y = 31
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
@@ -2565,6 +2566,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "bib" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
@@ -4366,6 +4368,9 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "cer" = (
@@ -5082,6 +5087,7 @@
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "cDE" = (
@@ -6344,7 +6350,7 @@
 	dir = 10
 	},
 /obj/machinery/camera/network/command{
-	c_tag = "Third Deck - Teleporter";
+	c_tag = "Second Deck - Teleporter";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -7862,8 +7868,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "ego" = (
-/obj/machinery/shieldgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/lobby)
 "egq" = (
@@ -10770,11 +10776,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"fKB" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/turf/simulated/floor/tiled/dark/full,
-/area/engineering/lobby)
 "fKG" = (
 /obj/structure/closet/crate,
 /obj/random/loot,
@@ -12347,7 +12348,7 @@
 	dir = 5
 	},
 /obj/structure/cable/yellow{
-	icon_state = "4-8"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -16532,11 +16533,6 @@
 /area/maintenance/wing/starboard)
 "iHQ" = (
 /obj/structure/closet/secure_closet/atmos_personal,
-/obj/item/storage/belt/utility,
-/obj/item/device/gps/engineering,
-/obj/item/pipewrench,
-/obj/item/crowbar/rescue_axe/red,
-/obj/item/device/pipe_painter,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
 	},
@@ -16544,7 +16540,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
 	},
-/obj/item/device/flashlight/heavy,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -17015,12 +17010,6 @@
 "iSx" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/disposal)
-"iSB" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_room)
 "iSG" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/carpet/rubber,
@@ -17694,10 +17683,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/item/storage/belt/utility,
-/obj/item/device/gps/engineering,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "jlQ" = (
@@ -19257,6 +19243,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -28887,6 +28876,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
+"piC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/space_heater,
+/turf/simulated/floor/tiled/dark/full,
+/area/hallway/engineering)
 "piE" = (
 /obj/machinery/cryopod/living_quarters{
 	pixel_y = 8
@@ -30837,9 +30831,7 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
 	},
-/obj/structure/table/standard,
-/obj/item/hoist_kit,
-/obj/item/ladder_mobile,
+/obj/structure/closet/wardrobe/engineering_yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "qlm" = (
@@ -32087,11 +32079,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/storage/belt/utility,
-/obj/item/device/gps/engineering,
-/obj/item/pipewrench,
-/obj/item/crowbar/rescue_axe/red,
-/obj/item/device/pipe_painter,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
@@ -32101,7 +32088,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
 	},
-/obj/item/device/flashlight/heavy,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -32716,9 +32702,6 @@
 	dir = 4
 	},
 /obj/structure/cable/yellow,
-/obj/structure/cable/yellow{
-	icon_state = "0-2"
-	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "riM" = (
@@ -32740,9 +32723,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/pharmacy)
 "rjk" = (
-/obj/machinery/shieldgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
+/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/lobby)
 "rju" = (
@@ -33948,13 +33931,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "rNR" = (
-/obj/machinery/atmospherics/valve/digital{
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
-	icon_state = "1-2"
+	icon_state = "2-8"
 	},
-/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "rNZ" = (
@@ -34495,6 +34478,9 @@
 "sbu" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -39776,11 +39762,12 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
 	},
-/obj/item/device/hand_labeler,
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Locker Room";
 	dir = 4
 	},
+/obj/item/hoist_kit,
+/obj/item/ladder_mobile,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "uOV" = (
@@ -42996,10 +42983,7 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
 	},
-/obj/item/storage/belt/utility,
-/obj/item/device/gps/engineering,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "wrK" = (
@@ -61158,8 +61142,8 @@ xIJ
 mxh
 sbu
 riG
-rNR
-iSB
+fMh
+sSY
 fas
 qFY
 uYK
@@ -61358,10 +61342,10 @@ sSY
 weu
 aAd
 vBp
-aAd
+bib
 xIJ
 jUH
-bib
+sSY
 jyd
 aSO
 uYK
@@ -61560,7 +61544,7 @@ fwS
 guv
 eGV
 iAF
-kaQ
+rNR
 kaQ
 cei
 guj
@@ -63999,9 +63983,9 @@ eZI
 idZ
 mKJ
 mqq
-mqq
 mzS
-mzS
+piC
+amE
 nkT
 rAw
 nTS
@@ -65624,7 +65608,7 @@ eMT
 fKi
 nbJ
 isH
-fKB
+akn
 oUt
 xWa
 auU
@@ -66028,7 +66012,7 @@ eMT
 fKi
 nbJ
 isH
-akn
+ego
 oUt
 auj
 axS
@@ -66635,7 +66619,7 @@ elz
 qFf
 uMn
 guQ
-amE
+akn
 ayF
 wTb
 pyc

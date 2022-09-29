@@ -25,6 +25,14 @@
 	name = "Kataphract Chapter - Main Ring"
 	icon_state = "yellow"
 
+/area/kataphract_chapter/aft_hall
+	name = "Kataphract Chapter - Aft Hall"
+	icon_state = "yellow"
+
+/area/kataphract_chapter/entry
+	name = "Kataphract Chapter - Entry"
+	icon_state = "yellow"
+
 /area/kataphract_chapter/medical
 	name = "Kataphract Chapter - Medicine Room"
 	icon_state = "law"
@@ -48,38 +56,50 @@
 	name = "Kataphract Chapter - Cafeteria"
 	icon_state = "kitchen"
 
+/area/kataphract_chapter/brig
+	name = "Kataphract Chapter - Brig"
+	icon_state = "security"
+
 /area/kataphract_chapter/engineering
 	name = "Kataphract Chapter - Engineering"
-	icon_state = "engineering_workshop"
-	ambience = AMBIENCE_ENGINEERING
-
-/area/kataphract_chapter/port_solars_array
-	name = "Kataphract Chapter - Port solars Array"
 	icon_state = "engineering_workshop"
 	ambience = AMBIENCE_ENGINEERING
 
 /area/kataphract_chapter/port_solars
 	name = "Kataphract Chapter - Port Solars"
 	icon_state = "panelsA"
+	ambience = AMBIENCE_ENGINEERING
+
+/area/kataphract_chapter/port_solars_array
+	name = "Kataphract Chapter - Port solars Array"
+	icon_state = "panelsA"
 	ambience = AMBIENCE_SPACE
 
 /area/kataphract_chapter/starboard_solars
 	name = "Kataphract Chapter - Starboard Solars"
 	icon_state = "panelsA"
-	ambience = AMBIENCE_SPACE
+	ambience = AMBIENCE_ENGINEERING
 
 /area/kataphract_chapter/starboard_solars_array
 	name = "Kataphract Chapter - Starboard Solars Array"
-	icon_state = "engineering_workshop"
-	ambience = AMBIENCE_ENGINEERING
+	icon_state = "panelsA"
+	ambience = AMBIENCE_SPACE
 
 /area/kataphract_chapter/trading_area
 	name = "Kataphract Chapter - Trading Area"
 	icon_state = "quartoffice"
 
-/area/kataphract_chapter/propulsion
-	name = "Kataphract Chapter - Propulsion"
+/area/kataphract_chapter/starboardpropulsion
+	name = "Kataphract Chapter - Starboard Propulsion"
 	icon_state = "engineering_workshop"
+
+/area/kataphract_chapter/portpropulsion
+	name = "Kataphract Chapter - Starboard Propulsion"
+	icon_state = "engineering_workshop"
+
+/area/kataphract_chapter/janitorial
+	name = "Kataphract Chapter - Janitorial"
+	icon_state = "janitor"
 
 /area/kataphract_chapter/warehouse
 	name = "Kataphract Chapter - Warehouse"
