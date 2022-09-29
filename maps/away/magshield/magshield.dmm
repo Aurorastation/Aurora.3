@@ -692,7 +692,7 @@
 	anchored = 1;
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/magshield/engine)
 "ce" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -716,7 +716,7 @@
 "ch" = (
 /obj/structure/closet/crate/hydroponics/prespawned,
 /obj/random/gloves,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/magshield/smes_storage)
 "ci" = (
 /obj/effect/map_effect/airlock/e_to_w,
@@ -760,7 +760,7 @@
 /obj/machinery/power/generator{
 	anchored = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/magshield/engine)
 "cp" = (
 /obj/structure/cable{
@@ -861,7 +861,7 @@
 	anchored = 1;
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/magshield/engine)
 "cy" = (
 /obj/structure/cable{
@@ -1076,7 +1076,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/airless,
 /area/magshield/west)
 "cV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1968,14 +1968,6 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/magshield/east)
-"fO" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/magshield/west)
 "fP" = (
 /obj/item/newspaper,
 /turf/simulated/floor/tiled/airless,
@@ -2342,10 +2334,10 @@
 	pixel_x = -24
 	},
 /obj/structure/cable,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/magshield/west)
 "gR" = (
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/magshield/west)
 "gS" = (
 /obj/structure/cable{
@@ -2395,13 +2387,13 @@
 "gZ" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/coffee,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/magshield/west)
 "ha" = (
 /obj/item/modular_computer/console{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/magshield/west)
 "hb" = (
 /obj/structure/table/steel,
@@ -2512,18 +2504,18 @@
 /obj/machinery/light_construct{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/magshield/west)
 "hp" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/magshield/west)
 "hq" = (
 /obj/item/paper/magshield/log,
 /obj/item/modular_computer/console{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/magshield/west)
 "hr" = (
 /obj/random/junk,
@@ -2563,7 +2555,7 @@
 "hx" = (
 /obj/structure/table/steel,
 /obj/item/material/ashtray/bronze,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/magshield/west)
 "hy" = (
 /obj/structure/table/steel,
@@ -2596,7 +2588,7 @@
 /area/magshield/west)
 "hD" = (
 /obj/item/book/manual/magshield_manual,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/white/airless,
 /area/magshield/west)
 "hE" = (
 /obj/structure/lattice,
@@ -3939,7 +3931,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/airless,
 /area/magshield/west)
 "Cq" = (
 /obj/structure/sign/vacuum{
@@ -17047,7 +17039,7 @@ bv
 bv
 bv
 gS
-fO
+bv
 bv
 bv
 bv
