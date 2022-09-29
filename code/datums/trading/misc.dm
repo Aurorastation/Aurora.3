@@ -305,9 +305,30 @@
 	name = "Ultra-Maz Trade Vessel 'Mutual Bounty'"
 	name_language = LANGUAGE_EAL
 	origin = "Primary Interhub Midas"
+	blacklisted_trade_items = null
 
 	possible_trading_items = list(
-
+		/obj/item/clothing/wrists/armchain  = TRADER_ALL,
+		/obj/item/clothing/wrists/goldbracer = TRADER_ALL,
+		/obj/item/clothing/head/headchain = TRADER_ALL,
+		/obj/item/clothing/head/crest = TRADER_ALL,
+		/obj/item/clothing/ring/engagement = TRADER_THIS_TYPE,
+		/obj/item/clothing/under/goldendeep = TRADER_ALL,
+		/obj/item/clothing/shoes/laceup = TRADER_ALL,
+		/obj/item/clothing/shoes/flats = TRADER_ALL,
+		/obj/item/clothing/wrists/watch = TRADER_ALL,
+		/obj/item/reagent_containers/food/drinks/bottle/whiskey = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/champagne = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/patron = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/vermouth = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/goldschlager = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/cognac = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/wine = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/melonliquor = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/bluecuracao = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/cremeyvette = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/drambuie = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = TRADER_THIS_TYPE
 	)
 
 	speech = list(
@@ -327,3 +348,13 @@
 		"bribe_refusal"      = "This is not a mutually beneficial deal.",
 		"bribe_accept"       = "This is enough to buy some extra time."
 	)
+
+	possible_wanted_items = list(
+		/obj/item/stack/material/gold = TRADER_THIS_TYPE,
+		/obj/item/stack/material/silver = TRADER_THIS_TYPE,
+		/obj/item/stack/material/platinum = TRADER_THIS_TYPE,
+		/obj/item/stack/material/diamond = TRADER_THIS_TYPE,
+		/obj/item/stack/material/phoron = TRADER_THIS_TYPE
+	)
+
+	mob_transfer_message = "You are transported to the ORIGIN. When the transportation dizziness wears off, you find you are surrounded by Golden Deep agents..."
