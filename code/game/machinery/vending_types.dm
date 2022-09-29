@@ -1127,7 +1127,7 @@
 	)
 
 	restock_blocked_items = list(
-		/obj/item/stack/cable_coil
+		/obj/item/stack/cable_coil,
 		/obj/item/weldingtool,
 		/obj/item/light/tube
 	)
