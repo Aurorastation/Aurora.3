@@ -75,6 +75,14 @@
 			</td>
 		  </tr>
 		  <tr>
+		  <th style="color: '#114DC1';">Command Support</th>
+			<td>
+			  {{for data.command_support_jobs}}
+				{{:helper.link(value.display_name, '', {'action' : 'assign', 'assign_target' : value.job}, data.id_rank == value.job ? 'disabled' : null)}}
+			  {{/for}}
+			</td>
+		  </tr>
+		  <tr>
 			<th style="color: '#FFA500';">Engineering</th>
 			<td>
 			  {{for data.engineering_jobs}}

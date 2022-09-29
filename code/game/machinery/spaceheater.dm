@@ -2,7 +2,7 @@
 	name = "portable air conditioning unit"
 	desc = "A portable air conditioning unit. It can heat or cool a room to your liking."
 	icon = 'icons/obj/atmos.dmi'
-	icon_state = "sheater0"
+	icon_state = "sheater-off"
 	anchored = FALSE
 	density = TRUE
 	use_power = POWER_USE_OFF
