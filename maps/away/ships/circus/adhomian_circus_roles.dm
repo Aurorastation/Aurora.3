@@ -79,7 +79,7 @@
 	special_role = "Adhomian Circus Strongzhan"
 
 /datum/outfit/admin/adhomian_circus/strongman
-	name = "Adhomian Circus Ringmaster"
+	name = "Adhomian Circus Strongzhan"
 
 	uniform = /obj/item/clothing/under/strongman
 	shoes = /obj/item/clothing/shoes/sandal/strongman
