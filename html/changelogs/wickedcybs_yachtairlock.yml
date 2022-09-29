@@ -1,7 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "Correctly tags and replaces the interior/exterior airlock buttons for the yacht so they should actually work now if anyone ever fixes that ship."
-  - tweak: "The yacht's airlock is being fed by an air canister as intended instead of an entire air pressure tank."
