@@ -49,6 +49,7 @@
 	icon_state = "strongsandal"
 	item_state = "strongsandal"
 	contained_sprite = TRUE
+	sprite_sheets = null
 
 //animal tamer
 
@@ -56,8 +57,8 @@
 	name = "tamer uniform"
 	desc = "An uniform used by Adhomian animal tamers. The fabric was already been mended in a couple of places."
 	icon = 'maps/away/ships/circus/circus_sprites.dmi'
-	icon_state = "beastrainer"
-	item_state = "beastrainer"
+	icon_state = "beasttrainer"
+	item_state = "beasttrainer"
 	contained_sprite = TRUE
 
 //fortune teller
@@ -209,6 +210,8 @@
 	slowdown = 4
 
 /obj/item/dumbbell/barbell/hundred/pickuptest(var/mob/living/carbon/human/user)
+	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
+		return TRUE
 	if(isunathi(user))
 		return TRUE
 	if(isvaurca(user))

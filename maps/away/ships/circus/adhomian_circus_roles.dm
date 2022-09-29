@@ -134,7 +134,7 @@
 
 /datum/ghostspawner/human/adhomian_circus/clown
 	short_name = "adhomian_circus_clown"
-	name = "Adhomian Circus clown"
+	name = "Adhomian Circus Clown"
 	desc = "Try to be funny (or annoying) as the circus clown."
 	tags = list("External")
 
