@@ -9,6 +9,30 @@
 /datum/outfit/admin/adhomian_circus/get_id_access()
 	return list(access_generic_away_site, access_external_airlocks)
 
+/datum/ghostspawner/human/adhomian_circus
+	short_name = "adhomian_circus_crew"
+	name = "Adhomian Circus Crew"
+	desc = "Crew the circus, help its crew, and serve the circus-goers."
+	tags = list("External")
+
+	spawnpoints = list("adhomian_circus_crew")
+	max_count = 3
+
+	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	outfit = /datum/outfit/admin/adhomian_circus/crew
+
+	assigned_role = "Adhomian Circus Crew"
+	special_role = "Adhomian Circus Crew"
+
+/datum/outfit/admin/adhomian_circus/crew
+	name = "Adhomian Circus Crew"
+
+	uniform = /obj/item/clothing/under/serviceoveralls
+	back = /obj/item/storage/backpack/satchel
+	shoes = /obj/item/clothing/shoes/tajara/jackboots
+
 /datum/ghostspawner/human/adhomian_circus/ringmaster
 	short_name = "adhomian_circus_ringmaster"
 	name = "Adhomian Circus Ringmaster"
@@ -17,9 +41,6 @@
 
 	spawnpoints = list("adhomian_circus_ringmaster")
 	max_count = 1
-
-	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	outfit = /datum/outfit/admin/adhomian_circus/ringmaster
 
@@ -49,7 +70,6 @@
 	max_count = 1
 
 	possible_species = list(SPECIES_TAJARA_ZHAN)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	outfit = /datum/outfit/admin/adhomian_circus/strongman
 
@@ -71,9 +91,6 @@
 
 	spawnpoints = list("adhomian_circus_tamer")
 	max_count = 1
-
-	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	outfit = /datum/outfit/admin/adhomian_circus/tamer
 
@@ -100,9 +117,6 @@
 	spawnpoints = list("adhomian_circus_fortune_teller")
 	max_count = 1
 
-	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-
 	outfit = /datum/outfit/admin/adhomian_circus/fortune_teller
 
 	assigned_role = "Adhomian Circus Fortune Teller"
@@ -125,9 +139,6 @@
 	spawnpoints = list("adhomian_circus_clown")
 	max_count = 1
 
-	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-
 	outfit = /datum/outfit/admin/adhomian_circus/clown
 
 	assigned_role = "Adhomian Circus Clown"
@@ -142,29 +153,4 @@
 	shoes = /obj/item/clothing/shoes/clown
 	mask = /obj/item/clothing/mask/clown
 	l_pocket = /obj/item/bikehorn
-
-
-/datum/ghostspawner/human/adhomian_circus/crew
-	short_name = "adhomian_circus_crew"
-	name = "Adhomian Circus Crew"
-	desc = "Crew the circus, help its crew, and serve the circus-goers."
-	tags = list("External")
-
-	spawnpoints = list("adhomian_circus_crew")
-	max_count = 3
-
-	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-
-	outfit = /datum/outfit/admin/adhomian_circus/ringmaster
-
-	assigned_role = "Adhomian Circus Crew"
-	special_role = "Adhomian Circus Crew"
-
-/datum/outfit/admin/adhomian_circus/crew
-	name = "Adhomian Circus Crew"
-
-	uniform = /obj/item/clothing/under/serviceoveralls
-	back = /obj/item/storage/backpack/satchel
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
 

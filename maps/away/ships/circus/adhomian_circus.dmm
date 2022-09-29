@@ -165,6 +165,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
+/obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/marble,
 /area/ship/adhomian_circus)
 "bkp" = (
@@ -203,6 +204,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
+/obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/marble,
 /area/ship/adhomian_circus)
 "bGH" = (
@@ -245,6 +247,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
+/obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/marble,
 /area/ship/adhomian_circus)
 "ciO" = (
@@ -448,6 +451,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
+/obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/marble,
 /area/ship/adhomian_circus)
 "ehW" = (
@@ -635,6 +639,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
+/obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/marble,
 /area/ship/adhomian_circus)
 "gdf" = (
@@ -1243,6 +1248,7 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
+/obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/marble,
 /area/ship/adhomian_circus)
 "luu" = (
@@ -1335,6 +1341,14 @@
 "mbY" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
+/area/ship/adhomian_circus)
+"mcf" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled,
 /area/ship/adhomian_circus)
 "mfs" = (
 /obj/structure/closet/crate,
@@ -1456,8 +1470,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/adhomian_circus)
 "nqs" = (
-/mob/living/carbon/human/farwa,
-/turf/simulated/floor/tiled,
+/turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/ship/adhomian_circus)
 "nts" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -1517,6 +1530,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
+/obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/marble,
 /area/ship/adhomian_circus)
 "nDF" = (
@@ -1836,6 +1850,7 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
+/obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/marble,
 /area/ship/adhomian_circus)
 "que" = (
@@ -2184,6 +2199,7 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
+/obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/marble,
 /area/ship/adhomian_circus)
 "tOW" = (
@@ -2614,12 +2630,14 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
+/obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/marble,
 /area/ship/adhomian_circus)
 "wWZ" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
+/obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/marble,
 /area/ship/adhomian_circus)
 "xqv" = (
@@ -2757,6 +2775,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
+/obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/marble,
 /area/ship/adhomian_circus)
 "ykc" = (
@@ -29842,17 +29861,17 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
-dhp
-dhp
-dhp
-dhp
-dhp
-dhp
-dhp
-dhp
-dhp
+nqs
+nqs
+nqs
+nqs
+nqs
+nqs
+nqs
+nqs
+nqs
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -30098,8 +30117,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 pbe
 sMW
 oHV
@@ -30109,8 +30128,8 @@ dGc
 wnc
 eRN
 jcV
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -30354,8 +30373,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 got
 mwS
 mwS
@@ -30367,8 +30386,8 @@ wKY
 wKY
 szu
 iiG
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -30610,8 +30629,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 jpL
 mwS
 mwS
@@ -30625,8 +30644,8 @@ nax
 qUF
 pdu
 dQs
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -30866,8 +30885,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 pOZ
 mwS
 mwS
@@ -30883,8 +30902,8 @@ qUF
 aSm
 pdu
 gVY
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -31122,8 +31141,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 bdW
 dUt
 jQR
@@ -31141,8 +31160,8 @@ aSm
 aSm
 pdu
 vUq
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -31378,8 +31397,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 gZS
 aSm
 aSm
@@ -31399,8 +31418,8 @@ aSm
 sBE
 cFk
 hHZ
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -31634,8 +31653,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 hlv
 eIS
 wKY
@@ -31657,8 +31676,8 @@ sRj
 urU
 dUt
 dUt
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -31890,8 +31909,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 cUR
 jAz
 fHU
@@ -31915,8 +31934,8 @@ lTp
 mwS
 mwS
 qIj
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -32146,8 +32165,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 gZS
 jAz
 aSm
@@ -32173,7 +32192,7 @@ mwS
 mwS
 mwS
 oEK
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -32430,7 +32449,7 @@ mwS
 mwS
 mwS
 sRN
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -32687,7 +32706,7 @@ mwS
 mwS
 mwS
 qxV
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -32944,7 +32963,7 @@ mwS
 mwS
 mwS
 tLl
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -33201,7 +33220,7 @@ sqB
 mwS
 mwS
 dTb
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -33458,7 +33477,7 @@ mwS
 mwS
 mwS
 kvj
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -33715,7 +33734,7 @@ mwS
 mwS
 mwS
 jzx
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -33945,7 +33964,7 @@ xRX
 xRX
 dhp
 enL
-dhp
+nqs
 dhp
 xVI
 yjk
@@ -33972,7 +33991,7 @@ mwS
 mwS
 mwS
 dRo
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -34202,9 +34221,9 @@ xRX
 xRX
 dhp
 enL
-dhp
-dhp
-dhp
+yjk
+nqs
+nqs
 leQ
 rKc
 dhp
@@ -34228,8 +34247,8 @@ lGG
 mwS
 mwS
 nPs
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -34461,8 +34480,8 @@ dhp
 uDE
 vwe
 lGK
-dhp
-dhp
+nqs
+nqs
 mBi
 dhp
 oAa
@@ -34484,9 +34503,9 @@ sRj
 urU
 dUt
 dUt
-dhp
-dhp
-dhp
+nqs
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -34719,8 +34738,8 @@ dhp
 dhp
 nts
 yjk
-dhp
-dhp
+nqs
+nqs
 dhp
 ltJ
 oAa
@@ -34740,10 +34759,10 @@ aSm
 wLA
 cFk
 hHZ
-dhp
-dhp
+nqs
+nqs
 bGH
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -34977,8 +34996,8 @@ dhp
 uDE
 vwe
 kvN
-dhp
-dhp
+nqs
+nqs
 nWS
 kbt
 dVf
@@ -34996,11 +35015,11 @@ aSm
 aSm
 tsl
 lVT
-dhp
-dhp
+nqs
+nqs
 bGH
 aSm
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -35235,8 +35254,8 @@ yjk
 yjk
 yjk
 rOy
-dhp
-dhp
+nqs
+nqs
 dhp
 dhp
 dhp
@@ -35252,12 +35271,12 @@ aSm
 aSm
 tsl
 kUW
-dhp
-dhp
+nqs
+nqs
 bGH
 aSm
 eJZ
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -35493,8 +35512,8 @@ yjk
 yjk
 yjk
 juq
-dhp
-dhp
+nqs
+nqs
 ntw
 iJi
 oAa
@@ -35508,13 +35527,13 @@ aSm
 aSm
 tsl
 wqU
-dhp
-dhp
+nqs
+nqs
 bGH
 aSm
 aSm
 iWN
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -35751,8 +35770,8 @@ yjk
 yjk
 yjk
 mJH
-dhp
-dhp
+nqs
+nqs
 nax
 oAa
 oAa
@@ -35764,14 +35783,14 @@ aSm
 aSm
 tsl
 lVT
-dhp
-dhp
+nqs
+nqs
 yhx
 aSm
 aSm
 nDF
 yhh
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -36000,7 +36019,7 @@ xRX
 xRX
 xRX
 xRX
-dhp
+xRX
 dhp
 yjk
 yjk
@@ -36009,8 +36028,8 @@ yjk
 yjk
 yjk
 mJH
-dhp
-dhp
+nqs
+nqs
 wqJ
 lmZ
 dhp
@@ -36020,15 +36039,15 @@ paq
 lKh
 dib
 tWs
-dhp
-dhp
+nqs
+nqs
 uMQ
 lFr
 lbX
 aSm
 aSm
 lMa
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -36256,7 +36275,7 @@ xRX
 xRX
 xRX
 xRX
-dhp
+xRX
 dhp
 dhp
 yjk
@@ -38071,7 +38090,7 @@ jix
 jix
 jix
 jix
-aSm
+eII
 aSm
 rVj
 jSm
@@ -38327,9 +38346,9 @@ jix
 jix
 jix
 jix
-jix
-aSm
-aSm
+cUS
+dhp
+fwf
 rVj
 jSm
 jSm
@@ -38585,7 +38604,7 @@ jix
 jix
 jix
 jix
-aSm
+mcf
 aSm
 eDb
 uXh
@@ -39613,7 +39632,7 @@ jix
 jix
 jix
 jix
-aSm
+eII
 aSm
 rVQ
 jSm
@@ -39869,9 +39888,9 @@ jix
 jix
 jix
 jix
-jix
-aSm
-aSm
+cUS
+dhp
+fwf
 rVQ
 jSm
 jSm
@@ -40127,7 +40146,7 @@ jix
 jix
 jix
 jix
-aSm
+mcf
 aSm
 rVQ
 jSm
@@ -41169,7 +41188,7 @@ dhp
 aSm
 aSm
 dhp
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -41426,7 +41445,7 @@ dhp
 aSm
 eJZ
 dhp
-dhp
+nqs
 tcN
 tcN
 tcN
@@ -42968,7 +42987,7 @@ dhp
 yjk
 qDL
 dhp
-dhp
+nqs
 tcN
 tcN
 tcN
@@ -43225,7 +43244,7 @@ dhp
 yjk
 yjk
 dhp
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -44239,7 +44258,7 @@ jix
 jix
 jix
 jix
-aSm
+eII
 aSm
 yka
 cQX
@@ -44495,9 +44514,9 @@ jix
 jix
 jix
 jix
-jix
-aSm
-aSm
+cUS
+dhp
+fwf
 myi
 jSm
 jSm
@@ -44753,7 +44772,7 @@ jix
 jix
 jix
 jix
-aSm
+mcf
 aSm
 myi
 jSm
@@ -45781,7 +45800,7 @@ jix
 jix
 jix
 jix
-aSm
+eII
 aSm
 ofA
 hUt
@@ -46037,9 +46056,9 @@ jix
 jix
 jix
 jix
-jix
-aSm
-aSm
+cUS
+dhp
+fwf
 efm
 vnQ
 vnQ
@@ -46295,7 +46314,7 @@ jix
 jix
 jix
 jix
-aSm
+mcf
 aSm
 tJT
 jSm
@@ -48078,7 +48097,7 @@ xRX
 xRX
 xRX
 xRX
-dhp
+xRX
 dhp
 dhp
 yjk
@@ -48336,7 +48355,7 @@ xRX
 xRX
 xRX
 xRX
-dhp
+xRX
 dhp
 yjk
 yjk
@@ -48345,8 +48364,8 @@ yjk
 yjk
 yjk
 mJH
-dhp
-dhp
+nqs
+nqs
 eQz
 xZX
 tuK
@@ -48601,8 +48620,8 @@ yjk
 yjk
 yjk
 mJH
-dhp
-dhp
+nqs
+nqs
 eQz
 msx
 aSm
@@ -48614,8 +48633,8 @@ mmv
 jSm
 oov
 dhp
-dhp
-dhp
+nqs
+nqs
 yjk
 yjk
 yjk
@@ -48857,8 +48876,8 @@ yjk
 yjk
 yjk
 jwF
-dhp
-dhp
+nqs
+nqs
 wvt
 msx
 aSm
@@ -48872,8 +48891,8 @@ jSm
 oov
 dhp
 vcn
-dhp
-dhp
+nqs
+nqs
 dhp
 dhp
 dhp
@@ -49113,8 +49132,8 @@ yjk
 yjk
 yjk
 knb
-dhp
-dhp
+nqs
+nqs
 eQz
 msx
 aSm
@@ -49130,8 +49149,8 @@ qjZ
 dhp
 aSm
 oOK
-dhp
-dhp
+nqs
+nqs
 hYj
 lSj
 irJ
@@ -49369,8 +49388,8 @@ dhp
 thx
 vwe
 kvN
-dhp
-dhp
+nqs
+nqs
 wrg
 msx
 aSm
@@ -49388,8 +49407,8 @@ dhp
 aSm
 aSm
 uXy
-dhp
-dhp
+nqs
+nqs
 mUm
 gzG
 dhp
@@ -49625,8 +49644,8 @@ dhp
 dhp
 liM
 bsf
-dhp
-dhp
+nqs
+nqs
 iXo
 tpo
 aSm
@@ -49646,8 +49665,8 @@ bzM
 aSm
 aSm
 xGS
-dhp
-dhp
+nqs
+nqs
 otI
 dhp
 xRX
@@ -49881,8 +49900,8 @@ dhp
 thx
 vwe
 mWN
-dhp
-dhp
+nqs
+nqs
 vhE
 msx
 mUv
@@ -49904,8 +49923,8 @@ iBt
 aSm
 aSm
 vLF
-dhp
-dhp
+nqs
+nqs
 dhp
 xRX
 xRX
@@ -50136,9 +50155,9 @@ xRX
 xRX
 dhp
 enL
-dhp
-dhp
-dhp
+nqs
+nqs
+nqs
 hES
 msx
 aSm
@@ -50162,7 +50181,7 @@ aSm
 aSm
 aSm
 qam
-dhp
+nqs
 dhp
 xRX
 xRX
@@ -50393,8 +50412,8 @@ xRX
 xRX
 dhp
 enL
-dhp
-dhp
+nqs
+nqs
 knl
 msx
 aSm
@@ -50650,7 +50669,7 @@ xRX
 xRX
 dhp
 enL
-dhp
+nqs
 pgu
 msx
 aSm
@@ -50907,7 +50926,7 @@ xRX
 dhp
 dhp
 enL
-dhp
+nqs
 iTP
 aSm
 aSm
@@ -50926,7 +50945,7 @@ euC
 tHx
 tHx
 uWs
-dhp
+nqs
 dhp
 dhp
 wdp
@@ -51164,7 +51183,7 @@ xRX
 qia
 lFH
 enL
-dhp
+nqs
 iTP
 aSm
 aSm
@@ -51421,7 +51440,7 @@ xRX
 qia
 ajL
 azG
-dhp
+nqs
 iTP
 aSm
 aSm
@@ -51678,7 +51697,7 @@ xRX
 dhp
 dhp
 dhp
-dhp
+nqs
 iTP
 aSm
 aSm
@@ -51697,7 +51716,7 @@ aSm
 aSm
 aSm
 kRw
-dhp
+nqs
 dhp
 dhp
 dhp
@@ -51935,7 +51954,7 @@ xRX
 xRX
 xRX
 xRX
-dhp
+nqs
 jmV
 jSL
 aSm
@@ -52192,8 +52211,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 xEn
 jSL
 aSm
@@ -52450,8 +52469,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 dEe
 jSL
 aSm
@@ -52474,9 +52493,9 @@ aSm
 aMI
 aSm
 aSm
+aSm
 nqs
-dhp
-dhp
+nqs
 xRX
 xRX
 xRX
@@ -52708,8 +52727,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 oEZ
 jSL
 ciO
@@ -52731,8 +52750,8 @@ aSm
 aSm
 aSm
 qOF
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -52966,8 +52985,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 aaA
 wbk
 aSm
@@ -52987,8 +53006,8 @@ aSm
 aSm
 aSm
 rjv
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -53224,8 +53243,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 tTc
 jSL
 aSm
@@ -53243,8 +53262,8 @@ dhp
 aSm
 aSm
 oTz
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -53482,8 +53501,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 xEn
 jSL
 ehW
@@ -53499,8 +53518,8 @@ aQh
 hAK
 aSm
 eII
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -53740,8 +53759,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 xEn
 ehW
 jSm
@@ -53755,8 +53774,8 @@ jSm
 aQh
 dhp
 aSm
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -53998,8 +54017,8 @@ xRX
 xRX
 xRX
 xRX
-dhp
-dhp
+nqs
+nqs
 lYX
 xqv
 nVx
@@ -54011,8 +54030,8 @@ nVx
 xqv
 uMY
 dhp
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
@@ -54256,6 +54275,7 @@ xRX
 xRX
 xRX
 xRX
+nqs
 dhp
 dhp
 dhp
@@ -54266,9 +54286,8 @@ dhp
 dhp
 dhp
 dhp
-dhp
-dhp
-dhp
+nqs
+nqs
 xRX
 xRX
 xRX
