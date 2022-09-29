@@ -534,16 +534,6 @@ var/const/access_kataphract_knight = 114
 	id = access_kataphract_knight
 	desc = "Kataphract Knight Access"
 
-var/const/access_kataphract_quartermaster = 115
-/datum/access/kataphract/quartermaster
-	id = access_kataphract_quartermaster
-	desc = "Kataphract Quartermaster Access"
-
-var/const/access_kataphract_trader = 116
-/datum/access/kataphract/trader
-	id = access_kataphract_trader
-	desc = "Kataphract Trader Access"
-
 /***************
 * Antag access *
 ***************/
