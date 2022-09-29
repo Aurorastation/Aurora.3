@@ -26,6 +26,8 @@
 	assigned_role = "Adhomian Circus Crew"
 	special_role = "Adhomian Circus Crew"
 
+	respawn_flag = null
+
 /datum/outfit/admin/adhomian_circus/crew
 	name = "Adhomian Circus Crew"
 

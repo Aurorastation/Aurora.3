@@ -114,6 +114,7 @@
 	icon = 'maps/away/ships/circus/circus_sprites.dmi'
 	icon_state = "clownmask"
 	item_state = "clownmask"
+	sprite_sheets = null
 	contained_sprite = TRUE
 
 //other objects
