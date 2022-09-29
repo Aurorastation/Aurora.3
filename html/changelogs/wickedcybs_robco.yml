@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Changes the robco vending machine selection and adds some more stuff to it while removing the horizon engineering clothing from it. It's more of a rarely seen all-in-one engineering vendor now. "
