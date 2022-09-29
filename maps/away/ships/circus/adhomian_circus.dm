@@ -65,7 +65,7 @@
 /datum/shuttle/autodock/overmap/adhomian_circus_shuttle
 	name = "Adhomian Circus Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/tcfl_shuttle)
+	shuttle_area = list(/area/shuttle/adhomian_circus_shuttle)
 	current_location = "nav_hangar_adhomian_circus_shuttle"
 	landmark_transition = "nav_transit_adhomian_circus_shuttle"
 	range = 1
@@ -77,7 +77,7 @@
 	name = "Adhomian Circus Shuttle"
 	landmark_tag = "nav_hangar_adhomian_circus_shuttle"
 	docking_controller = "adhomian_circus_shuttle_dock"
-	base_area = /area/ship/tcfl_peacekeeper_ship
+	base_area = /area/ship/adhomian_circus
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
