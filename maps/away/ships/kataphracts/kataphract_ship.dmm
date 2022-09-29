@@ -7394,6 +7394,11 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/engine_compartment)
+"wv" = (
+/obj/effect/step_trigger/teleporter,
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/east,
+/area/space)
 "wz" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7402,11 +7407,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
-"wv" = (
-/obj/effect/step_trigger/teleporter,
-/obj/effect/step_trigger/teleporter,
-/turf/space/transit/east,
-/area/space)
 "wI" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/photocopier/faxmachine{
@@ -9489,6 +9489,16 @@
 	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/starboard_solars_array)
+"SJ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/hangar)
 "SZ" = (
 /obj/structure/table/rack,
 /obj/item/stack/rods,
@@ -23447,7 +23457,7 @@ kN
 kN
 bk
 bk
-bk
+SJ
 bk
 bk
 bk
