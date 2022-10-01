@@ -27,6 +27,8 @@
 	new /obj/item/storage/box/goldstar(src)
 	new /obj/item/device/flashlight/marshallingwand(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
+	new /obj/item/clothing/head/deckhelmet(src)
+	new /obj/item/clothing/suit/storage/hazardvest(src)
 
 // Hangar Technician
 /obj/structure/closet/secure_closet/hangar_tech
@@ -47,6 +49,9 @@
 	new /obj/item/modular_computer/handheld/preset/supply/cargo_delivery(src)
 	new /obj/item/export_scanner(src)
 	new /obj/item/device/flashlight/marshallingwand(src)
+	new /obj/item/clothing/head/deckhelmet(src)
+	new /obj/item/clothing/head/deckhelmet/blue(src)
+	new /obj/item/clothing/suit/storage/hazardvest(src)
 
 // Machinist
 /obj/structure/closet/secure_closet/machinist

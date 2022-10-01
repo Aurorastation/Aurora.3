@@ -375,6 +375,21 @@
 	path = /obj/item/clothing/head/hairnet
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/head/deckhelmet
+	display_name = "deck helmet selection"
+	path = /obj/item/clothing/head/deckhelmet
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/deckhelmet/New()
+	..()
+	var/list/deckhelmet = list()
+	deckhelmet["deck helmet"] = /obj/item/clothing/head/deckhelmet
+	deckhelmet["green deck helmet"] = /obj/item/clothing/head/deckhelmet/green
+	deckhelmet["blue deck helmet"] = /obj/item/clothing/head/deckhelmet/blue
+	deckhelmet["yellow deck helmet"] = /obj/item/clothing/head/deckhelmet/yellow
+	deckhelmet["purple deck helmet"] = /obj/item/clothing/head/deckhelmet/purple
+	//deckhelmet["red deck helmet"] = /obj/item/clothing/head/deckhelmet/red //uncomment when we get shipguns
+	gear_tweaks += new /datum/gear_tweak/path(deckhelmet)
 /*
 	Block Hair Adjustment
 */
