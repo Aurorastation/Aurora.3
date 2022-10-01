@@ -7342,9 +7342,7 @@
 /area/maintenance/aft)
 "dNF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/singularity_beacon/emergency{
-	name = "emergency tesla beacon"
-	},
+/obj/machinery/power/portgen/basic,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "dOi" = (
@@ -11149,6 +11147,8 @@
 /area/crew_quarters/heads/chief)
 "fSA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/graphite/full,
+/obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "fSG" = (
