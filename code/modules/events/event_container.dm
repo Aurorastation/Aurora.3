@@ -227,8 +227,6 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Spider Infestation",		/datum/event/spider_infestation/moderate,	50,		list(ASSIGNMENT_SECURITY = 10)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Vermin Infestation",		/datum/event/infestation/moderate, 			30,		list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 10)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Drone Uprising",					/datum/event/rogue_maint_drones,			25,		list(ASSIGNMENT_ENGINEER = 30)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Rescue Pod",						/datum/event/rescue_pod, 					50,		list(ASSIGNMENT_MEDICAL = 10, ASSIGNMENT_SECURITY = 2), TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Burglar Pod",						/datum/event/rescue_pod/burglar, 			50,		list(ASSIGNMENT_SECURITY = 5), TRUE, excluded_roundtypes = list("Extended"))
 	)
 
 // Severity Level, Event Name, Event Type, Base Weight, Role Weight(s), One Shot (TRUE/FALSE), Min Weight, Max Weight. Last two only used if set and non-zero.

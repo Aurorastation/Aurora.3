@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "The rescue and burglar pods won't spawn as a random event anymore. They can still be manually spawned by an admin if desired for now."
