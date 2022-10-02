@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Adds deck helmets, for use by hanger techs, they have no armor rating. They can be found in the loadout and hanger tech lockers."
+  - rscadd: "Adds deck helmets, for use by hanger techs, with a very minor armor rating. They can be found in the loadout and hanger tech lockers."
   - rscadd: "Adds a hazard vest to the hanger tech lockers"

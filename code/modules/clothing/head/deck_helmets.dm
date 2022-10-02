@@ -6,6 +6,15 @@
 	item_state = "deckcrew"
 	flags_inv = BLOCKHEADHAIR
 	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_MINOR,
+		rad = ARMOR_RAD_MINOR
+	)
 
 /obj/item/clothing/head/deckhelmet/green
 	name = "green deck helmet"
