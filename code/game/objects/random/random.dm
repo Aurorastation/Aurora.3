@@ -1135,7 +1135,7 @@
 /obj/random/hoodie
 	name = "random winter coat"
 	desc = "This is a random winter coat."
-	icon = 'icons/obj/hoodies.dmi'
+	icon = 'icons/obj/clothing/hoodies.dmi'
 	icon_state = "coatwinter"
 	problist = list(
 		/obj/item/clothing/suit/storage/hooded/wintercoat = 5,
