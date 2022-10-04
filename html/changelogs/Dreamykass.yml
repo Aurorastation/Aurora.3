@@ -32,7 +32,6 @@ delete-after: True
 
 changes:
   - rscadd: "Adds a random suit item for mapping stuff."
-  - rscadd: "Adds a random suit item for mapping stuff."
   - rscadd: "Adds a cargo radio key pouch to OM's locker."
   - tweak: "Replaces XO's cargo radio key pouch with a security one."
   - rscadd: "Adds XO's white beret and gloves."
