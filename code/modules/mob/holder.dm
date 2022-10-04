@@ -589,6 +589,20 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "corgi"
 	w_class = ITEMSIZE_NORMAL
 
+/obj/item/holder/ian
+	name = "corgi"
+	icon = 'icons/mob/npc/pets.dmi'
+	icon_state = "ian"
+	item_state = "ian"
+	w_class = ITEMSIZE_NORMAL
+
+/obj/item/holder/lisa
+	name = "lisa"
+	icon = 'icons/mob/npc/pets.dmi'
+	icon_state = "lisa"
+	item_state = "lisa"
+	w_class = ITEMSIZE_NORMAL
+
 /obj/item/holder/fox
 	name = "fox"
 	icon = 'icons/mob/npc/pets.dmi'

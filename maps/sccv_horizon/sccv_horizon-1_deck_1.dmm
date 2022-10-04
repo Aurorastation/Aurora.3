@@ -682,8 +682,7 @@
 	dir = 4
 	},
 /obj/machinery/conveyor{
-	id = "cargo_1";
-	layer = 2.9
+	id = "cargo_1"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -2504,7 +2503,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "QMLoad";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/machinery/status_display/supply_display{
@@ -3604,8 +3602,7 @@
 "cOm" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "cargo_1";
-	layer = 2.9
+	id = "cargo_1"
 	},
 /obj/structure/railing/mapped{
 	dir = 1
@@ -5907,8 +5904,7 @@
 "eFe" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "cargo_1";
-	layer = 2.9
+	id = "cargo_1"
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
@@ -6940,8 +6936,7 @@
 /area/rnd/xenoarch_atrium)
 "fqE" = (
 /obj/machinery/conveyor{
-	id = "cargo_1";
-	layer = 2.9
+	id = "cargo_1"
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -9920,6 +9915,14 @@
 	id = "QMLoad"
 	},
 /obj/structure/plasticflaps,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cargo_shuttle_airlock";
+	locked = 1;
+	name = "Cargo Shuttle";
+	req_access = list(13,31)
+	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "hHv" = (
@@ -10416,12 +10419,12 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "QMLoad"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -13248,14 +13251,6 @@
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "cargo_bay";
-	name = "operations bay hatch controller";
-	pixel_y = 30;
-	req_one_access = list(13,31);
-	tag_door = "cargo_bay_door"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -21249,8 +21244,7 @@
 "qUK" = (
 /obj/machinery/conveyor{
 	dir = 9;
-	id = "cargo_1";
-	layer = 2.9
+	id = "cargo_1"
 	},
 /obj/structure/railing/mapped{
 	dir = 1
@@ -22169,8 +22163,7 @@
 "rHr" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "cargo_1";
-	layer = 2.9
+	id = "cargo_1"
 	},
 /obj/structure/plasticflaps,
 /obj/structure/railing/mapped{
@@ -23080,11 +23073,18 @@
 /area/engineering/atmos/propulsion/starboard)
 "srC" = (
 /obj/machinery/conveyor{
-	id = "cargo_1";
-	layer = 2.9
+	id = "cargo_1"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cargo_shuttle_airlock";
+	locked = 1;
+	name = "Cargo Shuttle";
+	req_access = list(13,31)
+	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "srN" = (
@@ -24143,8 +24143,7 @@
 /area/maintenance/disposal)
 "thU" = (
 /obj/machinery/conveyor{
-	id = "cargo_1";
-	layer = 2.9
+	id = "cargo_1"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -24271,6 +24270,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/device/floor_painter,
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "tlU" = (
@@ -27771,6 +27771,15 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "cargo_shuttle";
+	name = "cargo shuttle docking controller";
+	pixel_y = -25;
+	req_one_access = list(13,31);
+	tag_door = "cargo_shuttle_airlock";
+	pixel_x = -7
+	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "wic" = (
@@ -27903,8 +27912,7 @@
 "wlh" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "cargo_1";
-	layer = 2.9
+	id = "cargo_1"
 	},
 /obj/machinery/alarm{
 	dir = 1;
@@ -44111,11 +44119,11 @@ qMM
 wos
 rcA
 pHy
-mwO
-mwO
-mwO
-mwO
 ujV
+mwO
+mwO
+mwO
+mwO
 mwO
 mwO
 mwO
