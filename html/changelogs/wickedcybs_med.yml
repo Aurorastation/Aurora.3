@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "Medical's back entrance requires med access now. Formerly, it was all access"
