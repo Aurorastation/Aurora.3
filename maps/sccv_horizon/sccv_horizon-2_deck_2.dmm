@@ -4487,7 +4487,8 @@
 "chP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
-	name = "Intensive Care Unit"
+	name = "Intensive Care Unit";
+	req_access = list(5)
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
