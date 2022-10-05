@@ -206,7 +206,8 @@
 		/obj/item/seeds/ambrosiadeusseed = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
-		/obj/item/reagent_containers/inhaler/space_drugs = 2
+		/obj/item/reagent_containers/inhaler/space_drugs = 2,
+		/obj/item/reagent_containers/inhaler/xuxigas = 1
 	)
 
 /obj/random/smokable
@@ -1134,7 +1135,7 @@
 /obj/random/hoodie
 	name = "random winter coat"
 	desc = "This is a random winter coat."
-	icon = 'icons/obj/hoodies.dmi'
+	icon = 'icons/obj/clothing/hoodies.dmi'
 	icon_state = "coatwinter"
 	problist = list(
 		/obj/item/clothing/suit/storage/hooded/wintercoat = 5,
@@ -1236,7 +1237,7 @@
 		/obj/item/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/rig/military = 0.5,
 		/obj/item/rig/unathi/fancy = 0.5,
-		/obj/item/rig/vaurca/minimal = 0.5,
+		/obj/item/rig/vaurca = 0.5,
 		/obj/item/anomaly_core = 0.5,
 		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = 0.1
 	)
@@ -1250,6 +1251,7 @@
 		/obj/item/anomaly_core = 0.5,
 		/obj/item/rig/military = 0.2,
 		/obj/item/rig/unathi/fancy = 0.2,
+		/obj/item/rig/vaurca = 0.2,
 		/obj/item/stack/material/phoron/full = 0.1,
 		/obj/item/stack/material/plasteel/full = 0.8,
 		/obj/random/voidsuit = 1,
@@ -1259,6 +1261,12 @@
 		/obj/item/device/personal_shield = 0.1,
 		/obj/item/storage/secure/briefcase/money = 0.1
 		)
+
+/obj/random/highvalue/cash
+	problist = list(
+	/obj/item/storage/secure/briefcase/money = 1,
+	/obj/item/stack/material/phoron/full = 0.1
+	)
 
 /obj/random/junk
 	name = "random trash"
@@ -1650,8 +1658,8 @@
 		/obj/item/flag/hegemony/l,
 		/obj/item/flag/heph,
 		/obj/item/flag/heph/l,
-		/obj/item/flag/jargon,
-		/obj/item/flag/jargon/l,
+		/obj/item/flag/nralakk,
+		/obj/item/flag/nralakk/l,
 		/obj/item/flag/nanotrasen,
 		/obj/item/flag/nanotrasen/l,
 		/obj/item/flag/nka,

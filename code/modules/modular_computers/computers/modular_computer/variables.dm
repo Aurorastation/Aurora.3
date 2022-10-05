@@ -21,14 +21,16 @@
 	var/base_idle_power_usage = 5							// Power usage when the computer is idle and screen is off (currently only applies to laptops)
 	var/enrolled = 0										// Weather the computer is enrolled in the company device management or not. 0 - unconfigured 1 - enrolled (work device) 2 - unenrolled (private device)
 	var/_app_preset_type									// Used for specifying the software preset of the console
-	var/ambience_last_played								// Last time sound was played
+	var/ambience_last_played_time							// Last time sound was played
 	var/pAI_lock = FALSE									// Toggles whether pAI can interact with the modular computer while installed in it
 	var/obj/item/card/id/registered_id = null 				// ID used for chat client registering
 	var/scan_mode = null									// Mode used for health/reagent scanners
+	var/last_scan = 0										// Used for the PDA analyser spam detection
 	var/silent = FALSE
 	var/doorcode = "smindicate"
 	var/hidden = FALSE
 	var/initial_name
+	var/is_portable = FALSE									// Used to prevent the ambient beeps from playing.
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)
 	// must have it's own DMI file. Icon states must be called exactly the same in all files, but may look differently

@@ -393,7 +393,7 @@
 	desc_fluff = "A custodial belt is similar to most utility belts, but designed with pockets and attachment points that can hold common custodial tools."
 	icon_state = "custodialbelt"
 	item_state = "custodialbelt"
-	storage_slots = 8
+	storage_slots = 12
 	w_class = ITEMSIZE_NORMAL
 	max_w_class = ITEMSIZE_NORMAL
 	can_hold = list(
@@ -464,7 +464,8 @@
 		/obj/item/extraction_pack,
 		/obj/item/rfd/mining,
 		/obj/item/gun/custom_ka,
-		/obj/item/device/orbital_dropper
+		/obj/item/device/orbital_dropper,
+		/obj/item/ore_detector
 		)
 
 /obj/item/storage/belt/hydro

@@ -60,8 +60,8 @@
 //---- Lockers and closets
 
 /obj/structure/closet/secure_closet/xenoarchaeologist
-	name = "xenoarchaeologist locker"
-	req_access = list(access_tox_storage)
+	name = "xenoarchaeologist's locker"
+	req_access = list(access_xenoarch)
 	icon_state = "science"
 
 /obj/structure/closet/secure_closet/xenoarchaeologist/fill()
@@ -73,9 +73,10 @@
 	new /obj/item/storage/belt/archaeology(src)
 	new /obj/item/storage/box/excavation(src)
 	new /obj/item/taperoll/science(src)
+	new /obj/item/clothing/head/hardhat(src)
 
 /obj/structure/closet/excavation
-	name = "excavation tools"
+	name = "xenoarchaeology excavation tools"
 	icon_state = "eng"
 	icon_door = "eng_tool"
 
@@ -86,7 +87,7 @@
 	new /obj/item/device/ano_scanner(src)
 	new /obj/item/device/depth_scanner(src)
 	new /obj/item/device/core_sampler(src)
-	new /obj/item/device/gps(src)
+	new /obj/item/device/gps/science(src)
 	new /obj/item/device/beacon_locator(src)
 	new /obj/item/device/radio/beacon(src)
 	new /obj/item/pickaxe(src)

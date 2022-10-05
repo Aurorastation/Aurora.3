@@ -121,6 +121,10 @@
 	pda = /obj/item/modular_computer/handheld/pda/command/cciaa
 	id = /obj/item/card/id/ccia
 
+	backpack_contents = list(
+		/obj/item/device/memorywiper = 1
+	)
+
 	id_icon = "ccia"
 	id_access = "CCIA Agent"
 

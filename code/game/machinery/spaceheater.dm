@@ -1,16 +1,18 @@
 /obj/machinery/space_heater
-	anchored = 0
-	density = 1
+	name = "portable air conditioning unit"
+	desc = "A portable air conditioning unit. It can heat or cool a room to your liking."
 	icon = 'icons/obj/atmos.dmi'
-	icon_state = "sheater0"
-	name = "space A/C"
-	desc = "Made by Space Amish using traditional space techniques, this A/C unit can heat or cool a room to your liking."
-	var/obj/item/cell/apc/cell
-	var/on = 0
-	var/set_temperature = T0C + 50	//K
-	var/heating_power = 42000
-	emagged = FALSE
+	icon_state = "sheater-off"
+	anchored = FALSE
+	density = TRUE
+	use_power = POWER_USE_OFF
 	clicksound = /decl/sound_category/switch_sound
+	var/on = FALSE
+	var/active = 0
+	var/heating_power = 40 KILOWATTS
+	var/set_temperature = T0C + 20
+
+	var/obj/item/cell/apc/cell
 
 /obj/machinery/space_heater/Initialize()
 	. = ..()
@@ -19,7 +21,18 @@
 
 /obj/machinery/space_heater/update_icon()
 	cut_overlays()
-	icon_state = "sheater[on]"
+	if(!on)
+		icon_state = "sheater-off"
+		set_light(0)
+	else if(active > 0)
+		icon_state = "sheater-heat"
+		set_light(0.7, 1, COLOR_SEDONA)
+	else if(active < 0)
+		icon_state = "sheater-cool"
+		set_light(0.7, 1, COLOR_DEEP_SKY_BLUE)
+	else
+		icon_state = "sheater-standby"
+		set_light(0)
 	if(panel_open)
 		add_overlay("sheater-open")
 
@@ -35,8 +48,8 @@
 
 /obj/machinery/space_heater/powered()
 	if(cell && cell.charge)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/machinery/space_heater/emp_act(severity)
 	if(stat & (BROKEN|NOPOWER))
@@ -45,18 +58,6 @@
 	if(cell)
 		cell.emp_act(severity)
 	..(severity)
-
-/obj/machinery/space_heater/emag_act(var/remaining_charges, mob/user)
-	if(!emagged)
-		emagged = TRUE
-		to_chat(user, SPAN_WARNING("You disable \the [src]'s temperature safety checks!"))
-		spark(src, 3)
-		playsound(src, /decl/sound_category/spark_sound, 100, 1)
-		heating_power = 45000 //Overridden safeties make it stronger, and it needs to work more efficiently to make use of big temp ranges
-		return 1
-	else
-		to_chat(user, SPAN_DANGER("\The [src]'s temperature safety checks have already been disabled!"))
-		return 0
 
 /obj/machinery/space_heater/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/cell))
@@ -139,11 +140,8 @@
 			if("temp")
 				var/value = text2num(href_list["val"])
 
-				// limit to 0-90 degC unless emagged
-				if(!emagged)
-					set_temperature = dd_range(T0C, T0C + 90, set_temperature + value)
-				else
-					set_temperature = dd_range(T0C - 100, T0C + 150, set_temperature + value)
+				// limit to 0-90 degC
+				set_temperature = dd_range(T0C, T0C + 90, set_temperature + value)
 
 			if("off")
 				on = !on
@@ -172,33 +170,35 @@
 	if(on)
 		if(cell && cell.charge)
 			var/datum/gas_mixture/env = loc.return_air()
-			if(env && abs(env.temperature - set_temperature) > 0.1)
-				var/transfer_moles = 0.3 * env.total_moles
+			if(env && abs(env.temperature - set_temperature) <= 0.1)
+				active = FALSE
+			else
+				var/transfer_moles = 0.25 * env.total_moles
 				var/datum/gas_mixture/removed = env.remove(transfer_moles)
-				if(emagged)
-					transfer_moles = 0.4 * env.total_moles //Moves a little faster for big temperature swings
 				if(removed)
 					var/heat_transfer = removed.get_thermal_energy_change(set_temperature)
-					if(heat_transfer > 0)	//heating air
-						heat_transfer = min( heat_transfer , heating_power ) //limit by the power rating of the heater
+					var/power_draw
+					if(heat_transfer > 0) // Heating.
+						heat_transfer = min(heat_transfer , heating_power) // Limit by the power rating of the heater.
 
 						removed.add_thermal_energy(heat_transfer)
-						cell.use(heat_transfer*CELLRATE)
-					else	//cooling air
+						power_draw = heat_transfer
+					else // Cooling.
 						heat_transfer = abs(heat_transfer)
 
-						//Assume the heat is being pumped into the hull which is fixed at 20 C
-						var/cop = removed.temperature/T20C	//coefficient of performance from thermodynamics -> power used = heat_transfer/cop
-						heat_transfer = min(heat_transfer, cop * heating_power)	//limit heat transfer by available power
+						// Assume the heat is being pumped into the hull which is fixed at 20 C.
+						var/cop = removed.temperature/T20C	// Co-efficient of performance from thermodynamics -> power used = heat_transfer/cop.
+						heat_transfer = min(heat_transfer, cop * heating_power)	// Limit heat transfer by available power.
 
-						heat_transfer = removed.add_thermal_energy(-heat_transfer)	//get the actual heat transfer
+						heat_transfer = removed.add_thermal_energy(-heat_transfer)	// Get the actual heat transfer.
 
-						var/power_used = abs(heat_transfer)/cop
-						cell.use(power_used*CELLRATE)
+						power_draw = abs(heat_transfer)/cop
+					cell.use(power_draw * CELLRATE)
+					active = heat_transfer
 
 				env.merge(removed)
 		else
-			on = 0
-			src.visible_message("\The [src] clicks off and whirrs slowly as it powers down.")
+			on = FALSE
+			active = FALSE
 			power_change()
-			update_icon()
+		update_icon()

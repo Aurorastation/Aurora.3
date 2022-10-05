@@ -7,10 +7,10 @@
 /datum/accent/coc
 	name = ACCENT_COC
 	description = "The frontier is home to an unknowably vast amount of humans and settlements, covering everything from small outposts of only a few hundred to major planets such as \
-	Xanu Prime. The Frontiersfolk are as diverse as their accents are, but the most common \"frontier accent\" is generally regarded as that of Xanu Prime - the arguable capital of \
-	the massive Coalition of Colonies."
+	Xanu Prime. It is difficult to define a standard \"Coalition accent,\" or dialect due to the diversity and regionalism of the Coalition, along with its lack of a strong central government. \
+	Solarian linguists generally define the Coalition dialect as an umbrella encompassing all Freespeak native speakers not from a major settlement of the Coalition."
 	tag_icon = "coalition"
-	text_tag = "COC"
+	text_tag = "COA"
 
 /datum/accent/elyra
 	name = ACCENT_ELYRA
@@ -203,6 +203,14 @@
 	tag_icon = "earth"
 	text_tag = "EAR"
 
+/datum/accent/xanu
+	name = ACCENT_XANU
+	description = "The Xanu Standard dialect is arguably the most notable Freespeak dialect. Xanu Standard first emerged as an informal creole designed to make communication between the various nationalities \
+	who settled the planet more easily and possessed loan words from upwards of a half-dozen languages during this early period. Over time this creole would morph into the Xanu Standard dialect of Freespeak \
+	and is arguably the oldest and most widespread of the 25th century's common Freespeak dialects. Freespeak taught abroad, such as in the Serene Republic of Elyra and Republic of Biesel, is most often based upon the Xanu Standard dialect."
+	tag_icon = "xanu"
+	text_tag = "XAN"
+
 /datum/accent/ncf
 	name = ACCENT_NCF
 	description = "The non-Coalition frontier 'accent' is not a true accent in of itself, but is instead used as a catch-all term for human accents originating outside of the frontier controlled by the Coalition of Colonies. \
@@ -249,6 +257,13 @@
 	tag_icon = "visegrad"
 	text_tag = "VIS"
 
+/datum/accent/sancolette
+	name = ACCENT_SANCOLETTE
+	description = "The Colettish dialect belongs to the larger linguistic family of Tradeband but unlike many of its counterparts, it is descended from Earth-based Tradeband dialects rather than Luna-based dialects. \
+	It is easily distinguished from its Lunan contemporaries by its differences in pronunciation and tone, and still retains many of its linguistic roots from Earth."
+	tag_icon = "sancolette"
+	text_tag = "SAN"
+
 /datum/accent/valkyrie
 	name = ACCENT_VALKYRIE
 	description = "The Valkyrian accent is a difficult accent to replicate, mostly due to the cultural melting pot in which it exists. Influences from across the Orion Spur have impacted the development of the accent, with \
@@ -262,6 +277,12 @@
 	some youth may try to sound rebellious and conceal the softness of their voice, this musicality is still prevalent and universally recognizable."
 	tag_icon = "mictlan"
 	text_tag = "MIC"
+
+/datum/accent/antillia
+	name = ACCENT_ANTILLIA
+	description = "There are two distinct dialects present on the planet: one that sees heavy lifting from Tradeband and the other more influenced by Solarian Common. It is relatively easy to identify the differences between the two: Antilleans influenced by Tradeband sound more nasal and rhythmic, whereas those that grew up in regions where Solarian Common is the dominant language are more soft-spoken and enunciated."
+	tag_icon = "antillia"
+	text_tag = "PRT"
 
 /datum/accent/persepolis
 	name = ACCENT_PERSEPOLIS

@@ -2,7 +2,7 @@
 
 /area/mine
 	icon_state = "mining"
-	ambience = list('sound/music/ambimine.ogg', 'sound/music/song_game.ogg')
+	music = list('sound/music/ambimine.ogg', 'sound/music/song_game.ogg')
 	sound_env = ASTEROID
 
 /area/mine/explored
@@ -94,7 +94,7 @@
 	name = "Research Shuttle Dock"
 
 /area/outpost/research/eva
-	name = "Research - Xenoarcheology"
+	name = "Research - Xenoarchaeology"
 
 /area/outpost/research/analysis
 	name = "Research - Sample Analysis"
