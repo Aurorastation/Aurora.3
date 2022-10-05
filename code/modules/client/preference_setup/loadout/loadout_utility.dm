@@ -103,10 +103,17 @@
 	cost = 4
 
 /datum/gear/utility/business_card_holder
-	display_name = "business card holder"
-	description = "Comes in different materials."
+	display_name = "business card holder, business cards"
+	description = "Comes in different selections for both! And with four cards inside, so you are always ready to exchange cards with others."
 	path = /obj/item/storage/business_card_holder
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/utility/business_card_holder/spawn_item(var/location, var/metadata)
+	. = ..()
+	var/obj/item/storage/business_card_holder/spawned_holder = .
+	//new /obj/item/paper/business_card/rounded(spawned_holder)
+	//spawned_holder.contents[1].description = "bruh what"
+	spawned_holder.update_icon()
 
 /datum/gear/utility/business_card_holder/New()
 	..()
@@ -116,10 +123,12 @@
 	holders["business card holder, leather"] = /obj/item/storage/business_card_holder/leather
 	holders["business card holder, plastic"] = /obj/item/storage/business_card_holder/plastic
 	gear_tweaks += new /datum/gear_tweak/path(holders)
+	gear_tweaks += new /datum/gear_tweak/contents(business_cards())
+	gear_tweaks += new /datum/gear_tweak/paper_data()
 
 /datum/gear/utility/business_card
 	display_name = "business card"
-	description = "A selection of business cards." // I'm not smart enough to make it spawn inside the holders and carry over the text so we'll have to live with this
+	description = "A selection of business cards. Card holder not included."
 	path = /obj/item/paper/business_card
 	flags = GEAR_HAS_COLOR_SELECTION
 
@@ -135,7 +144,6 @@
 	cards["glass business card, silver flair"] = /obj/item/paper/business_card/glass/s
 	cards["glass business card, white flair"] = /obj/item/paper/business_card/glass/w
 	gear_tweaks += new /datum/gear_tweak/path(cards)
-	gear_tweaks += new /datum/gear_tweak/paper_data()
 
 /datum/gear/utility/pills
 	display_name = "pill bottle selection"

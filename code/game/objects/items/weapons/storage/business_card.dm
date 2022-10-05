@@ -1,7 +1,7 @@
 /obj/item/storage/business_card_holder
 	name = "business card holder"
 	desc = "A sleek holster for your business card. You wouldn't want it getting damaged in any way."
-	storage_slots = 5
+	storage_slots = 10
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "holder"
 	w_class = ITEMSIZE_TINY
@@ -33,9 +33,33 @@
 /obj/item/storage/business_card_holder/plastic
 	icon_state = "holder_plastic"
 
+// Business cards (copied from lunchbox code)
+var/list/business_cards_ = list(
+	/obj/item/paper/business_card,
+	/obj/item/paper/business_card/alt,
+	/obj/item/paper/business_card/rounded,
+	/obj/item/paper/business_card/glass,
+	/obj/item/paper/business_card/glass/b,
+	/obj/item/paper/business_card/glass/g,
+	/obj/item/paper/business_card/glass/s,
+	/obj/item/paper/business_card/glass/w
+	)
+
+/proc/business_cards()
+	if(!(business_cards_[business_cards_[1]]))
+		business_cards_ = init_cardable_list(business_cards_)
+	return business_cards_
+
+/proc/init_cardable_list(var/list/cardables)
+	. = list()
+	for(var/card in cardables)
+		var/obj/O = card
+		.[initial(O.name)] = card
+
+	sortTim(., /proc/cmp_text_asc)
 
 /obj/item/paper/business_card
-	name = "business card"
+	name = "business card, divided"
 	desc = "A small slip of paper, capable of elevating your status on the social hierachy between you and your co-workers, provided you picked the right font."
 	icon_state = "business_card"
 	var/last_flash = 0 //spam limiter
@@ -71,9 +95,11 @@
 	paper_win.open()
 
 /obj/item/paper/business_card/alt
+	name = "business card, plain"
 	icon_state = "business_card-alt"
 
 /obj/item/paper/business_card/rounded
+	name = "business card, rounded"
 	icon_state = "business_card-rounded"
 
 /obj/item/paper/business_card/glass
@@ -91,13 +117,17 @@
 	return ..(user, quality, complement)
 
 /obj/item/paper/business_card/glass/b
+	name = "glass business card, black flair"
 	worn_overlay = "business_card-glass-b"
 
 /obj/item/paper/business_card/glass/g
+	name = "glass business card, grey flair"
 	worn_overlay = "business_card-glass-g"
 
 /obj/item/paper/business_card/glass/s
+	name = "glass business card, silver flair"
 	worn_overlay = "business_card-glass-s"
 
 /obj/item/paper/business_card/glass/w
+	name = "glass business card, white flair"
 	worn_overlay = "business_card-glass-w"

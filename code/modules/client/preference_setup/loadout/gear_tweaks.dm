@@ -149,7 +149,7 @@ Content adjustment
 		else if(metadata[i] == "None")
 			continue
 		else
-			path = 	contents[metadata[i]]
+			path = contents[metadata[i]]
 		if(path)
 			new path(I)
 
@@ -216,7 +216,7 @@ var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 	var/datum/component/base_name/BN = I.GetComponent(/datum/component/base_name)
 	if(BN)
 		BN.rename(metadata)
-	
+
 /*
 Custom Description
 */
@@ -262,12 +262,15 @@ Paper Data
 /datum/gear_tweak/paper_data/get_metadata(var/user, var/metadata)
 	return sanitize(input(user, "Choose a pre-written message on the item.", "Pre-written Message", metadata) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
 
-/datum/gear_tweak/paper_data/tweak_item(var/obj/item/paper/P, var/metadata, var/mob/living/carbon/human/H)
-	if(!metadata || !istype(P))
+/datum/gear_tweak/paper_data/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
+	if(!metadata)
 		return
-	P.info = P.parsepencode(metadata)
-
-
+	var/obj/item/paper/P
+	if(istype(I, P))
+		P.info = P.parsepencode(metadata)
+	if(istype(I, /obj/item/storage))
+		for(P in I.contents)
+			P.info = P.parsepencode(metadata)
 
 // Buddy Tag Settings
 /datum/gear_tweak/buddy_tag_config/get_contents(var/metadata)
