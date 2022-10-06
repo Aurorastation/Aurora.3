@@ -104,15 +104,19 @@
 
 /datum/gear/utility/business_card_holder
 	display_name = "business card holder, business cards"
-	description = "Comes in different selections for both! And with four cards inside, so you are always ready to exchange cards with others."
+	description = "Comes in different selections for both! And with five cards inside, so you are always ready to show off and exchange the cards with others."
 	path = /obj/item/storage/business_card_holder
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/utility/business_card_holder/spawn_item(var/location, var/metadata)
 	. = ..()
 	var/obj/item/storage/business_card_holder/spawned_holder = .
-	//new /obj/item/paper/business_card/rounded(spawned_holder)
-	//spawned_holder.contents[1].description = "bruh what"
+	var/obj/item/paper/card_orig = locate() in spawned_holder
+	if (card_orig)
+		var/t = card_orig.type
+		for(var/i = 1 to 4)
+			var/obj/item/paper/card_new = new t(spawned_holder)
+			card_new.info = card_orig.info
 	spawned_holder.update_icon()
 
 /datum/gear/utility/business_card_holder/New()
