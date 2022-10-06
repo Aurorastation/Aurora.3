@@ -1,0 +1,7 @@
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds holsters to lockers of heads that did not have them."
+  - tweak: "Allows loadout holsters to be selected by all heads."
