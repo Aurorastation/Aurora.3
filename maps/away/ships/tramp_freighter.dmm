@@ -432,6 +432,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"cAV" = (
+/obj/effect/landmark/entry_point/port{
+	name = "mess hall"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/tramp_freighter)
 "cBb" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -808,6 +814,14 @@
 /obj/machinery/vending/coffee/free,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"fqs" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engine"
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "ftq" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -968,6 +982,12 @@
 "gqO" = (
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"gwv" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port hangar"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/tramp_freighter)
 "gxW" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -1288,6 +1308,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"jqJ" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, cargo"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/tramp_freighter)
 "jCz" = (
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor,
@@ -1349,6 +1375,12 @@
 /obj/item/storage/bag/inflatable,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"kCT" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, starboard side"
+	},
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/ship/tramp_freighter)
 "kMq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/vehicle/train/cargo/engine,
@@ -1397,6 +1429,9 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "sfa_patrol_ship_out"
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port airlock"
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -1490,6 +1525,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"nMu" = (
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/ship/tramp_freighter)
 "nQT" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms"
@@ -1504,6 +1543,14 @@
 /obj/structure/table/standard,
 /obj/item/device/binoculars,
 /turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
+"oil" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engine"
+	},
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "onP" = (
 /obj/machinery/door/airlock{
@@ -1560,6 +1607,13 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/tramp_freighter)
+"pdi" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "peu" = (
 /obj/structure/railing/mapped{
@@ -1757,6 +1811,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"sKL" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, cleaning room"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/tramp_freighter)
 "sLj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
@@ -1904,6 +1964,10 @@
 	pixel_y = -33
 	},
 /turf/simulated/floor/tiled/yellow,
+/area/ship/tramp_freighter)
+"vHR" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/unsimulated/wall/fakepdoor,
 /area/ship/tramp_freighter)
 "wci" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -30653,7 +30717,7 @@ ylV
 ylV
 ylV
 ylV
-ylV
+jqJ
 ylV
 ylV
 ylV
@@ -30899,7 +30963,7 @@ xRX
 xRX
 ylV
 ylV
-ylV
+sKL
 ylV
 ylV
 aHt
@@ -31920,7 +31984,7 @@ xRX
 xRX
 xRX
 xRX
-yjk
+oil
 aZQ
 vwF
 aac
@@ -31952,7 +32016,7 @@ gdk
 rVB
 rBU
 wCo
-wYA
+kCT
 xRX
 xRX
 xRX
@@ -34261,7 +34325,7 @@ wYA
 uCl
 rNF
 fhJ
-wYA
+nMu
 xRX
 xRX
 xRX
@@ -34490,7 +34554,7 @@ xRX
 xRX
 xRX
 xRX
-rtf
+vHR
 wZf
 wZf
 aAY
@@ -36063,7 +36127,7 @@ wTJ
 gHC
 iiZ
 ibU
-lXE
+pdi
 xRX
 xRX
 xRX
@@ -36566,7 +36630,7 @@ xRX
 xRX
 xRX
 ylV
-ylV
+cAV
 ylV
 ylV
 ylV
@@ -36803,7 +36867,7 @@ xRX
 xRX
 xRX
 xRX
-yjk
+fqs
 aZQ
 vwF
 akP
@@ -37068,7 +37132,7 @@ xto
 xto
 uYP
 ylV
-ylV
+gwv
 xRX
 xRX
 lXE

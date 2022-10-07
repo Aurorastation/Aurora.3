@@ -270,3 +270,35 @@ var/list/ruin_landmarks = list()
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			var/obj/effect/overmap/visitable/ship/S = my_sector
 			S.entry_points |= src
+	name += " [x], [y]"
+
+//The four entry point landmarks below are named assuming that fore is facing DOWNWARDS.
+/obj/effect/landmark/entry_point/aft
+	name = "aft"
+
+/obj/effect/landmark/entry_point/starboard
+	name = "starboard"
+	dir = 4
+
+/obj/effect/landmark/entry_point/port
+	name = "port"
+	dir = 8
+
+/obj/effect/landmark/entry_point/fore
+	name = "fore"
+	dir = 1
+
+/obj/effect/landmark/entry_point/south
+	name = "south"
+
+/obj/effect/landmark/entry_point/east
+	name = "east"
+	dir = 4
+
+/obj/effect/landmark/entry_point/west
+	name = "west"
+	dir = 8
+
+/obj/effect/landmark/entry_point/north
+	name = "north"
+	dir = 1

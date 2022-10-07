@@ -299,6 +299,9 @@
 	icon_state = "door_locked";
 	id_tag = "sfa_patrol_ship_out"
 	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, airlock"
+	},
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "cYw" = (
@@ -443,6 +446,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/militia_ship)
+"fJL" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/landmark/entry_point/port{
+	name = "port, quarters"
+	},
+/turf/simulated/floor/plating,
 /area/ship/militia_ship)
 "fNZ" = (
 /obj/structure/closet,
@@ -810,6 +820,12 @@
 /obj/item/toy/comic/stormman,
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
+"lcT" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, hangar"
+	},
+/turf/unsimulated/wall/fakepdoor,
+/area/ship/militia_ship)
 "lev" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/door/airlock/silver{
@@ -844,6 +860,14 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating,
+/area/ship/militia_ship)
+"lyd" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, brig"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary{
+	name = "military hull"
+	},
 /area/ship/militia_ship)
 "lFg" = (
 /obj/structure/table/steel,
@@ -929,6 +953,14 @@
 	},
 /turf/simulated/floor,
 /area/ship/militia_ship)
+"mZJ" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, hallway"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary{
+	name = "military hull"
+	},
+/area/ship/militia_ship)
 "ntt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1010,6 +1042,14 @@
 	pixel_y = 31
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/militia_ship)
+"pdv" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, mess hall"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary{
+	name = "military hull"
+	},
 /area/ship/militia_ship)
 "pfE" = (
 /obj/structure/fuel_port/phoron{
@@ -1121,11 +1161,26 @@
 /obj/effect/shuttle_landmark/militia_ship/transit,
 /turf/space/transit/south,
 /area/space)
+"qTN" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/ship/militia_ship)
 "rdB" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/militia_ship)
+"rnI" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engine"
+	},
+/turf/simulated/floor,
 /area/ship/militia_ship)
 "rtf" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1198,6 +1253,14 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
+/area/ship/militia_ship)
+"tqy" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, engine hallway"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary{
+	name = "military hull"
+	},
 /area/ship/militia_ship)
 "tra" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -1311,6 +1374,14 @@
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/ship/militia_ship)
+"vDJ" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engine"
+	},
+/turf/simulated/floor,
 /area/ship/militia_ship)
 "vJj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -31425,13 +31496,13 @@ yjk
 yjk
 yjk
 yjk
+pdv
 yjk
 yjk
 yjk
 yjk
 yjk
-yjk
-yjk
+lyd
 yjk
 xRX
 xRX
@@ -31672,7 +31743,7 @@ xRX
 xRX
 xRX
 xRX
-aaI
+vDJ
 aHt
 aJd
 aHv
@@ -31697,7 +31768,7 @@ yjk
 yjk
 yjk
 yjk
-yjk
+mZJ
 yjk
 yjk
 yjk
@@ -33730,7 +33801,7 @@ xRX
 xRX
 xRX
 xRX
-yjk
+tqy
 gxW
 mkb
 hiw
@@ -33764,7 +33835,7 @@ sGi
 spX
 fnE
 bci
-pAh
+qTN
 xRX
 xRX
 xRX
@@ -35300,7 +35371,7 @@ hQA
 wmd
 yjk
 yjk
-pAh
+fJL
 yjk
 yjk
 xRX
@@ -35784,7 +35855,7 @@ xRX
 xRX
 xRX
 xRX
-aaI
+rnI
 aHt
 aJd
 aou
@@ -36053,7 +36124,7 @@ vwF
 vwF
 vwF
 vwF
-vwF
+lcT
 vwF
 vwF
 vwF

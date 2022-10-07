@@ -10,7 +10,8 @@
 /obj/machinery/ship_weapon/leviathan
 	weapon = /datum/ship_weapon/leviathan
 	icon = 'icons/obj/machines/ship_guns/leviathan.dmi'
-	icon_state = "weapon_base"
+	icon_state = "weapon_off"
+	layer = ABOVE_MOB_LAYER
 
 /obj/item/projectile/ship_ammo/leviathan
 	name = "zero-point artillery beam"

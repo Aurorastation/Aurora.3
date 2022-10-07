@@ -246,6 +246,10 @@
 	name = "Bridge Helm"
 	icon_state = "bridge_helm"
 
+/area/bridge/longbow_compartment
+	name = "Longbow Compartment"
+	icon_state = "bridge_weapon"
+
 /area/crew_armory
 	name = "Crew Armory"
 	icon_state = "crew_armory"

@@ -110,6 +110,12 @@
 /obj/item/clothing/head/welding,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
+"axl" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, quarters"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/fsf_patrol_ship)
 "axB" = (
 /obj/effect/shuttle_landmark/fsf_patrol_ship/nav1,
 /turf/template_noop,
@@ -412,6 +418,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
+"cFK" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship)
 "cTN" = (
 /obj/structure/bed/roller,
 /obj/structure/curtain/open/medical,
@@ -426,6 +439,12 @@
 	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
+"drJ" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, bridge hall"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/ship/fsf_patrol_ship)
 "dHE" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -487,6 +506,12 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/carpet/blue,
+/area/ship/fsf_patrol_ship)
+"dYf" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engines"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/ship/fsf_patrol_ship)
 "dYq" = (
 /obj/effect/floor_decal/corner/red{
@@ -835,6 +860,12 @@
 /obj/machinery/floodlight,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
+"gpq" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, engines"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/fsf_patrol_ship)
 "gqw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -895,6 +926,12 @@
 	pixel_y = 25
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
+"gKK" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port side"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/ship/fsf_patrol_ship)
 "gXx" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -1101,6 +1138,9 @@
 	icon_state = "door_locked";
 	id_tag = "sfa_patrol_ship_out"
 	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, airlock"
+	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "inf" = (
@@ -1125,6 +1165,12 @@
 	pixel_x = 11
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/fsf_patrol_ship)
+"ixg" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, office"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/ship/fsf_patrol_ship)
 "iBZ" = (
 /obj/item/clothing/suit/storage/hazardvest,
@@ -1527,6 +1573,14 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/fsf_shuttle)
+"lIx" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, port"
+	},
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship)
 "lNu" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -1550,6 +1604,12 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/wood,
+/area/ship/fsf_patrol_ship)
+"lQT" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, mess hall"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/ship/fsf_patrol_ship)
 "lRa" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
@@ -1588,6 +1648,12 @@
 /obj/structure/table/steel,
 /obj/item/pen/drafting/blue,
 /turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
+"mbP" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, medbay"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/ship/fsf_patrol_ship)
 "mdc" = (
 /obj/structure/bed/stool/chair/office/dark,
@@ -1688,6 +1754,12 @@
 	},
 /obj/item/clothing/head/cone,
 /turf/simulated/floor,
+/area/ship/fsf_patrol_ship)
+"mXO" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, weapons control"
+	},
+/turf/unsimulated/wall/fakepdoor,
 /area/ship/fsf_patrol_ship)
 "ncb" = (
 /obj/structure/noticeboard{
@@ -1902,6 +1974,14 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
+"pnp" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, starboard"
+	},
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship)
 "pPS" = (
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
@@ -1967,6 +2047,12 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
+"qfj" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, equipment room"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/ship/fsf_patrol_ship)
 "qgw" = (
 /obj/machinery/door/airlock/security{
@@ -2048,6 +2134,12 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
+"ryY" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard side"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/fsf_patrol_ship)
 "rzy" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -2099,12 +2191,24 @@
 /obj/effect/overmap/visitable/ship/fsf_patrol_ship,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
+"sgx" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, hangar"
+	},
+/turf/unsimulated/wall/fakepdoor,
+/area/ship/fsf_patrol_ship)
 "srj" = (
 /obj/machinery/door/airlock/security{
 	name = "Bridge";
 	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
+"sBv" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, armoury"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/ship/fsf_patrol_ship)
 "sKE" = (
 /obj/machinery/door/airlock/security{
@@ -30601,6 +30705,13 @@ xRX
 yjk
 yjk
 yjk
+lQT
+yjk
+yjk
+yjk
+yjk
+yjk
+qfj
 yjk
 yjk
 yjk
@@ -30609,14 +30720,7 @@ yjk
 yjk
 yjk
 yjk
-yjk
-yjk
-yjk
-yjk
-yjk
-yjk
-yjk
-yjk
+drJ
 yjk
 yjk
 yjk
@@ -31140,7 +31244,7 @@ bFk
 obG
 sfM
 kmF
-qyG
+cFK
 xRX
 xRX
 xRX
@@ -31876,7 +31980,7 @@ yjk
 yjk
 yjk
 yjk
-yjk
+dYf
 yjk
 yjk
 yjk
@@ -32386,7 +32490,7 @@ xRX
 xRX
 xRX
 xRX
-aaI
+pnp
 aHt
 aJd
 aHv
@@ -32676,7 +32780,7 @@ vLp
 uCl
 lOH
 lOJ
-yjk
+ixg
 xRX
 xRX
 xRX
@@ -33931,7 +34035,7 @@ xRX
 xRX
 xRX
 xRX
-yjk
+ryY
 rrx
 wBq
 oqN
@@ -34724,7 +34828,7 @@ nBN
 oKX
 qjY
 quc
-uaE
+sgx
 xRX
 xRX
 xRX
@@ -35473,7 +35577,7 @@ xRX
 xRX
 xRX
 xRX
-yjk
+gKK
 qbP
 sSs
 mdc
@@ -36788,7 +36892,7 @@ gAS
 wTJ
 lfq
 oRr
-yjk
+sBv
 xRX
 xRX
 xRX
@@ -37012,7 +37116,7 @@ xRX
 xRX
 xRX
 xRX
-aaI
+lIx
 wha
 aJd
 oJN
@@ -37530,7 +37634,7 @@ yjk
 yjk
 yjk
 yjk
-yjk
+gpq
 yjk
 yjk
 yjk
@@ -38336,7 +38440,7 @@ agg
 woR
 lit
 kJp
-uaE
+mXO
 xRX
 xRX
 xRX
@@ -38824,13 +38928,13 @@ xRX
 xRX
 yjk
 yjk
+mbP
 yjk
 yjk
 yjk
 yjk
 yjk
-yjk
-yjk
+axl
 yjk
 yjk
 yjk

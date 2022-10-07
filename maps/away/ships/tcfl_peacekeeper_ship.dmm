@@ -1672,6 +1672,19 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
+"kkM" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "tcfl_defense";
+	name = "defense shutters"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, side bridge"
+	},
+/turf/simulated/floor/plating,
+/area/ship/tcfl_peacekeeper_ship)
 "kkV" = (
 /obj/structure/window/reinforced,
 /obj/machinery/door/firedoor,
@@ -2007,6 +2020,14 @@
 /obj/effect/shuttle_landmark/tcfl_shuttle/transit,
 /turf/space/transit/south,
 /area/space)
+"msG" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engine"
+	},
+/turf/simulated/floor,
+/area/ship/tcfl_peacekeeper_ship)
 "mtM" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2249,6 +2270,12 @@
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
+"ozV" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engine compartment"
+	},
+/turf/simulated/wall/shuttle/legion,
+/area/ship/tcfl_peacekeeper_ship)
 "oAp" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -2264,6 +2291,12 @@
 /area/ship/tcfl_peacekeeper_ship)
 "oAY" = (
 /turf/simulated/wall/shuttle/legion/cardinal,
+/area/ship/tcfl_peacekeeper_ship)
+"oCQ" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/unsimulated/wall/fakepdoor{
+	dir = 4
+	},
 /area/ship/tcfl_peacekeeper_ship)
 "oJg" = (
 /obj/machinery/door/airlock/external{
@@ -2309,6 +2342,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"pfg" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, quarters"
+	},
+/turf/simulated/floor/plating,
+/area/ship/tcfl_peacekeeper_ship)
 "pfE" = (
 /obj/machinery/appliance/cooker/fryer,
 /obj/machinery/light{
@@ -2329,6 +2370,14 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
+/area/ship/tcfl_peacekeeper_ship)
+"pjY" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/obj/effect/landmark/entry_point/port{
+	name = "port cargo"
+	},
+/turf/simulated/floor/plating,
 /area/ship/tcfl_peacekeeper_ship)
 "pke" = (
 /obj/machinery/computer/ship/navigation,
@@ -2382,6 +2431,12 @@
 	icon_state = "plant-04"
 	},
 /turf/simulated/floor/wood,
+/area/ship/tcfl_peacekeeper_ship)
+"pxq" = (
+/obj/effect/landmark/entry_point/port{
+	name = "por engine compartment"
+	},
+/turf/simulated/wall/shuttle/legion,
 /area/ship/tcfl_peacekeeper_ship)
 "pAh" = (
 /obj/structure/table/rack,
@@ -2664,6 +2719,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"riJ" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard side"
+	},
+/turf/unsimulated/wall/fakepdoor{
+	dir = 4
+	},
+/area/ship/tcfl_peacekeeper_ship)
+"rjf" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port side"
+	},
+/turf/unsimulated/wall/fakepdoor{
+	dir = 4
+	},
+/area/ship/tcfl_peacekeeper_ship)
 "rrF" = (
 /obj/structure/bed/stool,
 /obj/effect/decal/cleanable/dirt,
@@ -2769,6 +2840,9 @@
 	icon_state = "door_locked";
 	id_tag = "tcfl_peacekeeper_ship_out"
 	},
+/obj/effect/landmark/entry_point/port{
+	name = "port airlock"
+	},
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "spX" = (
@@ -2862,6 +2936,14 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/south,
 /area/space)
+"sPy" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engine"
+	},
+/turf/simulated/floor,
+/area/ship/tcfl_peacekeeper_ship)
 "sQT" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -2936,6 +3018,12 @@
 /obj/item/device/magnetic_lock/security/legion,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"tqn" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, kitchen"
+	},
+/turf/simulated/wall/shuttle/legion,
+/area/ship/tcfl_peacekeeper_ship)
 "tra" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Cockpit";
@@ -2950,6 +3038,19 @@
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
+"ttR" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "tcfl_defense";
+	name = "defense shutters"
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/ship/tcfl_peacekeeper_ship)
 "tuA" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/shuttle/tan,
@@ -2961,6 +3062,12 @@
 "tCH" = (
 /obj/structure/closet/firecloset/full,
 /turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
+"tGy" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port hangar"
+	},
+/turf/simulated/wall/shuttle/legion,
 /area/ship/tcfl_peacekeeper_ship)
 "tJH" = (
 /obj/structure/table/standard,
@@ -2989,6 +3096,14 @@
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
+/area/ship/tcfl_peacekeeper_ship)
+"tSB" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, armoury"
+	},
+/turf/simulated/floor/plating,
 /area/ship/tcfl_peacekeeper_ship)
 "tUb" = (
 /obj/effect/floor_decal/corner/blue{
@@ -3156,6 +3271,12 @@
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"vrh" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, hangar"
+	},
+/turf/simulated/wall/shuttle/legion,
+/area/ship/tcfl_peacekeeper_ship)
 "vrU" = (
 /obj/machinery/door/window/southleft,
 /obj/machinery/door/firedoor,
@@ -3283,6 +3404,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
 /area/ship/tcfl_peacekeeper_ship)
+"wns" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, bridge"
+	},
+/turf/simulated/wall/shuttle/legion,
+/area/ship/tcfl_peacekeeper_ship)
 "wuK" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -3375,6 +3502,19 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
+"yiy" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "tcfl_defense";
+	name = "defense shutters"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
 /area/ship/tcfl_peacekeeper_ship)
 "yjk" = (
 /turf/simulated/wall/shuttle/legion,
@@ -24566,7 +24706,7 @@ yjk
 yjk
 yjk
 yjk
-yjk
+ozV
 yjk
 yjk
 yjk
@@ -25075,7 +25215,7 @@ xRX
 xRX
 xRX
 xRX
-sBA
+msG
 qil
 gXh
 atj
@@ -26098,7 +26238,7 @@ xRX
 yjk
 yjk
 qtX
-qtX
+tSB
 yjk
 qtX
 qtX
@@ -26604,7 +26744,7 @@ xRX
 yjk
 yjk
 yjk
-yjk
+vrh
 yjk
 yjk
 yjk
@@ -26632,7 +26772,7 @@ yjk
 yjk
 yjk
 qtX
-qtX
+pfg
 qtX
 yjk
 yjk
@@ -27411,7 +27551,7 @@ xji
 rXT
 oAY
 yjk
-yjk
+wns
 yjk
 yjk
 xRX
@@ -28139,7 +28279,7 @@ xRX
 xRX
 xRX
 xRX
-xoc
+riJ
 sWY
 ive
 wJV
@@ -28957,7 +29097,7 @@ urZ
 xji
 vwF
 vMw
-dze
+yiy
 xRX
 xRX
 xRX
@@ -29681,7 +29821,7 @@ xRX
 xRX
 xRX
 xRX
-xoc
+oCQ
 sWY
 ive
 abb
@@ -31223,7 +31363,7 @@ xRX
 xRX
 xRX
 xRX
-xoc
+rjf
 sWY
 ive
 wJV
@@ -31269,7 +31409,7 @@ xji
 sKP
 vqr
 cnD
-dze
+kkM
 xRX
 xRX
 xRX
@@ -31780,7 +31920,7 @@ qYw
 yjk
 yjk
 dze
-dze
+ttR
 dze
 yjk
 yjk
@@ -32772,7 +32912,7 @@ xRX
 yjk
 yjk
 yjk
-yjk
+tGy
 yjk
 yjk
 yjk
@@ -32797,7 +32937,7 @@ yjk
 jrJ
 yjk
 yjk
-yjk
+tqn
 yjk
 yjk
 xRX
@@ -33295,7 +33435,7 @@ yjk
 yjk
 qtX
 qtX
-qtX
+pjY
 qtX
 qtX
 yjk
@@ -34327,7 +34467,7 @@ xRX
 xRX
 xRX
 xRX
-sBA
+sPy
 qil
 gXh
 fnS
@@ -34845,7 +34985,7 @@ yjk
 yjk
 yjk
 yjk
-yjk
+pxq
 yjk
 yjk
 yjk

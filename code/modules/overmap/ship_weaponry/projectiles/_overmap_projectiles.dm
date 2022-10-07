@@ -70,7 +70,7 @@
 				qdel(ammunition.original_projectile) //No longer needed.
 				ammunition.original_projectile = widowmaker
 				widowmaker.primed = TRUE
-				var/turf/entry_turf = get_turf(entry_target)
+				var/turf/entry_turf = get_ranged_target_turf(entry_target, reverse_dir[entry_target.dir], 20)
 				widowmaker.forceMove(entry_turf)
 				widowmaker.dir = ammunition.heading
 				var/turf/target_turf = get_step(widowmaker, widowmaker.dir)
