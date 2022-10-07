@@ -1,6 +1,7 @@
 #define SHIP_CALIBER_NONE "none"
 #define SHIP_CALIBER_406MM "406mm"
 #define SHIP_CALIBER_72MM "72mm"
+#define SHIP_CALIBER_ZTA "zero-point spatial beam"
 
 #define SHIP_GUN_FIRING_SUCCESSFUL "firing sequence completed"
 #define SHIP_GUN_ERROR_NO_AMMO "no ammunition loaded"

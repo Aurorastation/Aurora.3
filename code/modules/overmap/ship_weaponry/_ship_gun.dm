@@ -1,7 +1,7 @@
 /obj/machinery/ship_weapon
 	name = "ship weapon"
 	desc = "You shouldn't be seeing this."
-	icon = 'icons/obj/machines/ship_guns/zavod_longarm.dmi'
+	icon = 'icons/obj/machines/ship_guns/longbow.dmi'
 	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
 	var/obj/structure/ship_weapon_dummy/barrel
 	var/list/obj/item/ship_ammunition/ammunition = list()

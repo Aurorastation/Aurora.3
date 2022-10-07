@@ -7,7 +7,7 @@
 
 /obj/machinery/ship_weapon/francisca
 	weapon = /datum/ship_weapon/francisca
-	icon = 'icons/obj/machines/ship_guns/rotary_zavod.dmi'
+	icon = 'icons/obj/machines/ship_guns/francisca.dmi'
 	icon_state = "weapon_base"
 
 /obj/machinery/ammunition_loader/francisca

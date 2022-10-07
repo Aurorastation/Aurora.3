@@ -7,7 +7,7 @@
 
 /obj/machinery/ship_weapon/grauwolf
 	weapon = /datum/ship_weapon/grauwolf
-	icon = 'icons/obj/machines/ship_guns/flakbox_zavod.dmi'
+	icon = 'icons/obj/machines/ship_guns/grauwolf.dmi'
 	icon_state = "weapon_base"
 
 /obj/machinery/ammunition_loader/grauwolf

@@ -20,7 +20,7 @@
 	penetrating = 100
 	var/penetrated = FALSE
 
-/obj/item/projectile/ship_ammo/longbow/on_hit(atom/target, blocked, def_zone)
+/obj/item/projectile/ship_ammo/longbow/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
 	if(ismob(target))
 		var/mob/M = target
