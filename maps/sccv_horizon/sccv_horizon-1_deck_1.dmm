@@ -2845,6 +2845,10 @@
 	dir = 1;
 	pixel_y = -28
 	},
+/obj/item/device/binoculars/high_power{
+	pixel_x = -2;
+	pixel_y = -1
+	},
 /turf/simulated/floor/wood,
 /area/shuttle/intrepid/crew_compartment)
 "chW" = (
