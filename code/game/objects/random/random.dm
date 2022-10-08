@@ -206,7 +206,8 @@
 		/obj/item/seeds/ambrosiadeusseed = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
-		/obj/item/reagent_containers/inhaler/space_drugs = 2
+		/obj/item/reagent_containers/inhaler/space_drugs = 2,
+		/obj/item/reagent_containers/inhaler/xuxigas = 1
 	)
 
 /obj/random/smokable
@@ -1134,7 +1135,7 @@
 /obj/random/hoodie
 	name = "random winter coat"
 	desc = "This is a random winter coat."
-	icon = 'icons/obj/hoodies.dmi'
+	icon = 'icons/obj/clothing/hoodies.dmi'
 	icon_state = "coatwinter"
 	problist = list(
 		/obj/item/clothing/suit/storage/hooded/wintercoat = 5,

@@ -2,7 +2,7 @@
 	title = "Human Resources Assistant"
 	faction = "Station"
 	flag = HRA
-	departments = SIMPLEDEPT(DEPARTMENT_COMMAND)
+	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = ENGSEC
 	total_positions = 2
 	spawn_positions = 0

@@ -48,7 +48,7 @@
 			var/turf/T = get_turf(M)
 			if(T)
 				to_chat(M, msg)
-				if(message_sound && !isdeaf(M) && (M.client.prefs.asfx_togs & ASFX_VOX))
+				if(message_sound && !isdeaf(M) && (M.client.prefs.sfx_toggles & ASFX_VOX))
 					sound_to(M, message_sound)
 	if(do_newscast)
 		NewsCast(message, message_title)
