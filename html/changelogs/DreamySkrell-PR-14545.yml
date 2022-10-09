@@ -1,0 +1,6 @@
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a psionics firing pin. Fires only if the user is capable of psionics."
