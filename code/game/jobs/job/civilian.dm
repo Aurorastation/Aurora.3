@@ -400,9 +400,9 @@
 	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
-	tab_pda = /obj/item/modular_computer/handheld/pda/supply/qm
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/qm
-	tablet = /obj/item/modular_computer/handheld/preset/supply/qm
+	tab_pda = /obj/item/modular_computer/handheld/pda/supply/om
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/om
+	tablet = /obj/item/modular_computer/handheld/preset/supply/om
 
 	headset = /obj/item/device/radio/headset/operations_manager
 	bowman = /obj/item/device/radio/headset/operations_manager/alt
