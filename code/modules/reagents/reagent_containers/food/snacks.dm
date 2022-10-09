@@ -531,8 +531,8 @@
 	icon_state = "chips"
 	trash = /obj/item/trash/chips
 	filling_color = "#E8C31E"
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 3)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chips" = 3))
+	reagents_to_add = list(/decl/reagent/nutriment = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("chips" = 3))
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/cookie
@@ -1422,8 +1422,8 @@
 	trash = /obj/item/trash/raisins
 	filling_color = "#343834"
 	center_of_mass = list("x"=15, "y"=4)
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 6)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("dried raisins" = 6))
+	reagents_to_add = list(/decl/reagent/nutriment = 6)
+	reagent_data = list(/decl/reagent/nutriment = list("dried raisins" = 6))
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/spacetwinkie
@@ -1433,8 +1433,8 @@
 	trash = /obj/item/trash/space_twinkie
 	filling_color = "#FFE591"
 	center_of_mass = list("x"=15, "y"=11)
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 4)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("cake" = 3, "cream filling" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 4)
+	reagent_data = list(/decl/reagent/nutriment = list("cake" = 3, "cream filling" = 1))
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/cheesiehonkers
@@ -1444,8 +1444,8 @@
 	trash = /obj/item/trash/cheesie
 	filling_color = "#FFA305"
 	center_of_mass = list("x"=15, "y"=9)
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/nutriment/protein/cheese = 3, /decl/reagent/sodiumchloride = 6)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chips" = 2))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/nutriment/protein/cheese = 3, /decl/reagent/sodiumchloride = 6)
+	reagent_data = list(/decl/reagent/nutriment = list("chips" = 2))
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/syndicake
@@ -3825,8 +3825,8 @@
 	trash = /obj/item/trash/tastybread
 	filling_color = "#A66829"
 	center_of_mass = list("x"=17, "y"=16)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("stale bread" = 4))
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 6, /decl/reagent/sodiumchloride = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("stale bread" = 4))
+	reagents_to_add = list(/decl/reagent/nutriment = 6, /decl/reagent/sodiumchloride = 3)
 
 /obj/item/reagent_containers/food/snacks/meatcube
 	name = "cubed meat"
@@ -3927,13 +3927,13 @@
 
 /obj/item/reagent_containers/food/snacks/skrellsnacks
 	name = "\improper SkrellSnax"
-	desc = "Cured eki shipped all the way from Jargon 4, almost like jerky! Almost."
+	desc = "Cured eki shipped all the way from Nralakk IV, almost like jerky! Almost."
 	icon_state = "skrellsnacks"
 	trash = /obj/item/trash/skrellsnacks
 	filling_color = "#A66829"
 	center_of_mass = list("x"=15, "y"=12)
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 10)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("alien fungus" = 10))
+	reagents_to_add = list(/decl/reagent/nutriment = 10)
+	reagent_data = list(/decl/reagent/nutriment = list("alien fungus" = 10))
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/squidmeat
@@ -4012,7 +4012,7 @@
 /obj/item/reagent_containers/food/snacks/neaerakabob
 	name = "neaera-kabob"
 	icon_state = "neaera_skewer"
-	desc = "Neaera meat and organs that have been cooked on a skewer. Typical street vendor food in the Jargon Federation."
+	desc = "Neaera meat and organs that have been cooked on a skewer. Typical street vendor food in the Nralakk Federation."
 	trash = /obj/item/stack/rods
 	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 8)
 	reagent_data = list(/decl/reagent/nutriment/protein/seafood = list("fatty meat" = 2))
@@ -4186,8 +4186,8 @@
 	trash = /obj/item/trash/meatsnack
 	filling_color = "#631212"
 	bitesize = 5
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 2, /decl/reagent/nutriment/protein = 12, /decl/reagent/sodiumchloride = 4)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("pie crust" = 2))
+	reagents_to_add = list(/decl/reagent/nutriment = 2, /decl/reagent/nutriment/protein = 12, /decl/reagent/sodiumchloride = 4)
+	reagent_data = list(/decl/reagent/nutriment = list("pie crust" = 2))
 
 /obj/item/reagent_containers/food/snacks/maps
 	name = "maps salty ham"
@@ -4582,7 +4582,6 @@
 	reagent_data = list(/decl/reagent/nutriment = list("regret" = 6))
 	filling_color = "#B042FF"
 
-// Ligger food and also bacon
 /obj/item/reagent_containers/food/snacks/rawbacon
 	name = "raw bacon"
 	desc = "A very thin piece of raw meat, cut from beef."
@@ -4660,7 +4659,7 @@
 	filling_color = "#FC5647"
 
 /obj/item/reagent_containers/food/snacks/stuffed_meatball
-	name = "stuffed meatball" //YES
+	name = "stuffed meatball"
 	desc = "A meatball loaded with cheese."
 	icon_state = "stuffed_meatball"
 	reagents_to_add = list(/decl/reagent/nutriment/protein = 4)
@@ -5224,8 +5223,8 @@
 	filling_color = "#552200"
 	icon_state = "cb01"
 
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 2, "nougat" = 1, "caramel" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "nougat" = 1, "caramel" = 1))
 	bitesize = 2
 	w_class = ITEMSIZE_TINY
 
@@ -5235,8 +5234,8 @@
 	filling_color = "#552200"
 	icon_state = "cb02"
 
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 2, "caramel" = 1, "puffed rice" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "puffed rice" = 1))
 	bitesize = 2
 	w_class = ITEMSIZE_TINY
 
@@ -5245,8 +5244,8 @@
 	desc = "Bubbly milk chocolate."
 	filling_color = "#552200"
 	icon_state = "cb03"
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 4))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 4))
 	bitesize = 2
 	w_class = ITEMSIZE_TINY
 
@@ -5255,8 +5254,8 @@
 	desc = "An almond flake bar covered in milk chocolate."
 	filling_color = "#552200"
 	icon_state = "cb04"
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 3, "almonds" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 3, "almonds" = 1))
 	bitesize = 2
 	w_class = ITEMSIZE_TINY
 
@@ -5266,8 +5265,8 @@
 	filling_color = "#552200"
 	icon_state = "cb05"
 
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 3, /decl/reagent/sugar = 3)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 2, "vomit" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 3, /decl/reagent/sugar = 3)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "vomit" = 1))
 	bitesize = 3
 	w_class = ITEMSIZE_TINY
 
@@ -5276,8 +5275,8 @@
 	desc = "A large latte flavored wafer chocolate bar."
 	filling_color = "#552200"
 	icon_state = "cb06"
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 2, "coffee" = 1, "vanilla wafer" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "coffee" = 1, "vanilla wafer" = 1))
 	bitesize = 3
 	w_class = ITEMSIZE_TINY
 
@@ -5286,8 +5285,8 @@
 	desc = "Dark chocolate with a nougat and caramel center. Known as the first chocolate bar grown and produced on Mars."
 	filling_color = "#552200"
 	icon_state = "cb07"
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 2, "caramel" = 1, "nougat" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "nougat" = 1))
 	bitesize = 3
 	w_class = ITEMSIZE_TINY
 
@@ -5296,8 +5295,8 @@
 	desc = "A large puffed rice milk chocolate bar."
 	filling_color = "#552200"
 	icon_state = "cb08"
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 4, /decl/reagent/sugar = 1)
-	reagent_data = list(/decl/reagent/nutriment/synthetic = list("chocolate" = 2, "puffed rice" = 1))
+	reagents_to_add = list(/decl/reagent/nutriment = 4, /decl/reagent/sugar = 1)
+	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "puffed rice" = 1))
 	bitesize = 3
 	w_class = ITEMSIZE_TINY
 
@@ -5307,7 +5306,7 @@
 	filling_color = "#552200"
 	icon_state = "cb09"
 
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 6, /decl/reagent/sugar = 1)
+	reagents_to_add = list(/decl/reagent/nutriment = 6, /decl/reagent/sugar = 1)
 	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 3, "caramel" = 1, "peanuts" = 2))
 	bitesize = 3
 	w_class = ITEMSIZE_TINY
@@ -5318,7 +5317,7 @@
 	filling_color = "#552200"
 	icon_state = "cb10"
 
-	reagents_to_add = list(/decl/reagent/nutriment/synthetic = 5, /decl/reagent/sugar = 1)
+	reagents_to_add = list(/decl/reagent/nutriment = 5, /decl/reagent/sugar = 1)
 	reagent_data = list(/decl/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "peanuts" = 1, "nougat" = 1))
 	bitesize = 3
 	w_class = ITEMSIZE_TINY

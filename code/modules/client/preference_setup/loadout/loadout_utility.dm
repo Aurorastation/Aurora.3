@@ -95,6 +95,7 @@
 	display_name = "himean voidsuit kit"
 	path = /obj/item/voidsuit_modkit/himeo
 	allowed_roles = list("Shaft Miner", "Operations Manager", "Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	origin_restriction = list(/decl/origin_item/origin/himeo, /decl/origin_item/origin/ipc_himeo, /decl/origin_item/origin/free_council)
 
 /datum/gear/utility/wheelchair/color
 	display_name = "wheelchair"
@@ -155,6 +156,10 @@
 	display_name = "buddy tag"
 	path = /obj/item/clothing/accessory/buddytag
 	cost = 2
+
+/datum/gear/utility/plasticbag
+	display_name = "resealable plastic bag"
+	path = /obj/item/evidencebag/plasticbag
 
 /datum/gear/utility/buddy_tag/New()
 	..()

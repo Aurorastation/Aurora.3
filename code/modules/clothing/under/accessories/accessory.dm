@@ -633,10 +633,10 @@
 	flippable = FALSE
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
-	name = "Jargon Division Zeng-Hu cloak"
-	desc = "This cloak is given to Zeng-Hu employees who have assisted or worked in collaboration with the Jargon Federation."
+	name = "Nralakk Division Zeng-Hu cloak"
+	desc = "This cloak is given to Zeng-Hu employees who have assisted or worked in collaboration with the Nralakk Federation."
 	desc_fluff = "A cloak given to senior level doctors and researchers for Zeng-Hu who has \
-	in the past been given the privilege of working within or in collaboration with the Jargon Federation\
+	in the past been given the privilege of working within or in collaboration with the Nralakk Federation\
 	 as a show of goodwill between the corporation and federation."
 	icon = 'icons/obj/contained_items/accessories/ZH_cape.dmi'
 	icon_override = 'icons/obj/contained_items/accessories/ZH_cape.dmi'

@@ -271,3 +271,11 @@
 	icon_state = "jeansblackripped"
 	item_state = "jeansblackripped"
 	body_parts_covered = LOWER_TORSO
+
+/obj/item/clothing/under/pants/flared
+	name = "flared pants"
+	desc = "The peak of Biesellite fashion, these pants are flared at the ankle."
+	icon = 'icons/contained_items/clothing/bottomwear/flared_pants.dmi'
+	icon_state = "flaredpants"
+	item_state = "flaredpants"
+	contained_sprite = TRUE

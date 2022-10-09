@@ -274,6 +274,7 @@
 	name = "solar panel control"
 	desc = "A controller for solar panel arrays."
 	icon = 'icons/obj/modular_console.dmi'
+	icon_state = "computer"
 	light_color = LIGHT_COLOR_YELLOW
 	anchored = 1
 	density = 1

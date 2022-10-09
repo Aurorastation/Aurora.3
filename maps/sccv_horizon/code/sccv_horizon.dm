@@ -23,8 +23,8 @@
 
 	station_name = "SCCV Horizon"
 	station_short = "Horizon"
-	dock_name = "SCC Shipyard"
-	dock_short = "Shipyard"
+	dock_name = "SCC Sector Liaison Post"
+	dock_short = "Sector Liaison Post"
 	boss_name = "Stellar Corporate Conglomerate"
 	boss_short = "SCC"
 	company_name = "Stellar Corporate Conglomerate"
@@ -43,7 +43,7 @@
 
 	station_networks = list(
 		NETWORK_COMMAND,
-		NETWORK_ENGINE,
+		NETWORK_REACTOR,
 		NETWORK_ENGINEERING,
 		NETWORK_MEDICAL,
 		NETWORK_MINE,
@@ -114,7 +114,8 @@
 		/datum/shuttle/autodock/overmap/tcfl_shuttle,
 		/datum/shuttle/autodock/overmap/ee_shuttle,
 		/datum/shuttle/autodock/overmap/fsf_shuttle,
-		/datum/shuttle/autodock/overmap/freighter_shuttle
+		/datum/shuttle/autodock/overmap/freighter_shuttle,
+		/datum/shuttle/autodock/overmap/kataphract_transport
 	)
 
 	evac_controller_type = /datum/evacuation_controller/starship

@@ -921,6 +921,7 @@
 		/obj/item/reagent_containers/ladle = 4,
 		/obj/item/storage/toolbox/lunchbox/nt = 6,
 		/obj/item/reagent_containers/glass/rag = 8,
+		/obj/item/evidencebag/plasticbag = 20,
 		/obj/item/tray = 12,
 	)
 	contraband = list(
@@ -1097,24 +1098,25 @@
 	req_access = list(access_engine_equip)
 	vend_id = "tools"
 	products = list(
-		/obj/item/clothing/under/rank/chief_engineer = 4,
-		/obj/item/clothing/under/rank/engineer = 4,
-		/obj/item/clothing/shoes/orange = 4,
 		/obj/item/clothing/head/hardhat = 4,
-		/obj/item/storage/belt/utility = 4,
+		/obj/item/storage/belt/utility = 5,
 		/obj/item/clothing/glasses/safety/goggles = 4,
 		/obj/item/clothing/gloves/yellow = 4,
-		/obj/item/screwdriver = 12,
-		/obj/item/crowbar = 12,
-		/obj/item/wirecutters = 12,
-		/obj/item/device/multitool = 12,
-		/obj/item/wrench = 12,
-		/obj/item/device/t_scanner = 12,
-		/obj/item/stack/cable_coil/heavyduty = 8,
-		/obj/item/cell = 8,
+		/obj/item/screwdriver = 8,
+		/obj/item/crowbar = 8,
+		/obj/item/wirecutters = 8,
+		/obj/item/device/multitool = 8,
+		/obj/item/wrench = 8,
+		/obj/item/powerdrill = 4,
+		/obj/item/device/t_scanner = 8,
+		/obj/item/stack/cable_coil/random = 10,
+		/obj/item/cell = 5,
+		/obj/item/device/analyzer = 5,
+		/obj/item/cell/high = 2,
 		/obj/item/weldingtool = 8,
 		/obj/item/clothing/head/welding = 8,
 		/obj/item/light/tube = 10,
+		/obj/item/clothing/head/hardhat/firefighter = 4,
 		/obj/item/clothing/suit/fire = 4,
 		/obj/item/stock_parts/scanning_module = 5,
 		/obj/item/stock_parts/micro_laser = 5,
@@ -1123,11 +1125,9 @@
 		/obj/item/stock_parts/console_screen = 5,
 		/obj/item/tape_roll = 5
 	)
-	// There was an incorrect entry (cablecoil/power).  I improvised to cablecoil/heavyduty.
-	// Another invalid entry, /obj/item/circuitry.  I don't even know what that would translate to, removed it.
-	// The original products list wasn't finished.  The ones without given quantities became quantity 5.  -Sayu
+
 	restock_blocked_items = list(
-		/obj/item/stack/cable_coil/heavyduty,
+		/obj/item/stack/cable_coil,
 		/obj/item/weldingtool,
 		/obj/item/light/tube
 	)
@@ -1144,8 +1144,6 @@
 	req_access = list(access_robotics)
 	vend_id = "robo-tools"
 	products = list(
-		/obj/item/clothing/suit/storage/toggle/labcoat = 4,
-		/obj/item/clothing/under/rank/machinist = 4,
 		/obj/item/stack/cable_coil = 4,
 		/obj/item/device/flash/synthetic = 4,
 		/obj/item/cell/high = 12,
@@ -1154,8 +1152,6 @@
 		/obj/item/device/healthanalyzer = 3,
 		/obj/item/surgery/scalpel = 2,
 		/obj/item/surgery/circular_saw = 2,
-		/obj/item/tank/anesthetic = 2,
-		/obj/item/clothing/mask/breath/medical = 5,
 		/obj/item/screwdriver = 5,
 		/obj/item/crowbar = 5
 	)
@@ -1169,8 +1165,7 @@
 	restock_blocked_items = list(
 		/obj/item/stack/cable_coil,
 		/obj/item/device/flash,
-		/obj/item/light/tube,
-		/obj/item/tank/anesthetic
+		/obj/item/light/tube
 	)
 	restock_items = 1
 	random_itemcount = 0

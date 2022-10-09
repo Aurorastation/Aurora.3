@@ -1,3 +1,4 @@
+//Carpets
 /turf/simulated/floor/carpet
 	name = "carpet"
 	icon = 'icons/turf/flooring/carpet.dmi'
@@ -23,6 +24,43 @@
 	icon_state = "artcarpet"
 	initial_flooring = /decl/flooring/carpet/art
 
+/turf/simulated/floor/carpet/fancybrown
+	icon_state = "brown"
+	initial_flooring = /decl/flooring/carpet/fancybrown
+
+/turf/simulated/floor/carpet/red
+	icon_state = "red"
+	initial_flooring = /decl/flooring/carpet/red
+
+/turf/simulated/floor/carpet/darkblue
+	icon_state = "blue1"
+	initial_flooring = /decl/flooring/carpet/darkblue
+
+/turf/simulated/floor/carpet/lightblue
+	icon_state = "blue2"
+	initial_flooring = /decl/flooring/carpet/lightblue
+
+/turf/simulated/floor/carpet/aquablue
+	icon_state = "blue3"
+	initial_flooring = /decl/flooring/carpet/aquablue
+
+/turf/simulated/floor/carpet/green
+	icon_state = "green"
+	initial_flooring = /decl/flooring/carpet/green
+
+/turf/simulated/floor/carpet/magenta
+	icon_state = "magenta"
+	initial_flooring = /decl/flooring/carpet/magenta
+
+/turf/simulated/floor/carpet/purple
+	icon_state = "purple"
+	initial_flooring = /decl/flooring/carpet/purple
+
+/turf/simulated/floor/carpet/orange
+	icon_state = "orange"
+	initial_flooring = /decl/flooring/carpet/orange
+
+//Grids
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
@@ -35,6 +73,7 @@
 	icon_state = "gcircuit"
 	initial_flooring = /decl/flooring/reinforced/circuit/green
 
+//Wood Flooring
 /turf/simulated/floor/wood
 	name = "wooden floor"
 	icon = 'icons/turf/flooring/wood.dmi'
@@ -46,6 +85,32 @@
 	oxygen = 0
 	nitrogen = 0
 
+/turf/simulated/floor/wood/coloured
+	icon_state = "woodcolour"
+	initial_flooring = /decl/flooring/wood/coloured
+
+/turf/simulated/floor/wood/coloured/birch
+	color = WOOD_COLOR_BIRCH
+
+/turf/simulated/floor/wood/coloured/mahogany
+	color = WOOD_COLOR_RICH
+
+/turf/simulated/floor/wood/coloured/walnut
+	color = WOOD_COLOR_PALE
+
+/turf/simulated/floor/wood/coloured/bamboo
+	color = WOOD_COLOR_PALE2
+
+/turf/simulated/floor/wood/coloured/ebony
+	color = WOOD_COLOR_BLACK
+
+/turf/simulated/floor/wood/coloured/walnut
+	color = WOOD_COLOR_CHOCOLATE
+
+/turf/simulated/floor/wood/coloured/yew
+	color = WOOD_COLOR_YELLOW
+
+//Grass
 /turf/simulated/floor/grass
 	name = "grass patch"
 	icon = 'icons/turf/flooring/grass.dmi'
@@ -58,6 +123,7 @@
 	icon_state = "grass_alt"
 	initial_flooring = /decl/flooring/grass/alt
 
+//Tiles
 /turf/simulated/floor/tiled
 	name = "steel tiles"
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -89,6 +155,12 @@
 /turf/simulated/floor/reinforced/nitrogen
 	oxygen = 0
 	nitrogen = ATMOSTANK_NITROGEN
+
+// Reinforced Reactor Flooring
+/turf/simulated/floor/reinforced/reactor
+	name = "reinforced reactor floor"
+	oxygen = 0
+	nitrogen = MOLES_CELLSTANDARD // One atmosphere of nitrogen.
 
 /turf/simulated/floor/reinforced/oxygen
 	oxygen = ATMOSTANK_OXYGEN

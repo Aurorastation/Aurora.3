@@ -91,6 +91,8 @@
 		if(suppressing && victim.sleeping < 7)
 			victim.Sleeping(7 - victim.sleeping)
 			victim.willfully_sleeping = FALSE
+			if(victim.eye_blurry < 7)
+				victim.eye_blurry = (7 - victim.eye_blurry)
 		icon_state = victim.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
 		if(victim.stat == DEAD || victim.is_asystole() || victim.status_flags & FAKEDEATH)
 			icon_state = "[modify_state]-critical"
@@ -103,7 +105,7 @@
 
 /obj/machinery/optable/proc/take_victim(mob/living/carbon/C, mob/living/carbon/user)
 	if(C == user)
-		user.visible_message("\The [user] climbs on \the [src].","You climb on \the [src].")
+		user.visible_message("\The [user] climbs on \the [src].", "You climb on \the [src].")
 	else
 		visible_message(SPAN_NOTICE("\The [C] has been laid on \the [src] by \the [user]."))
 	if(C.client)
