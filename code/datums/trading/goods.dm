@@ -182,6 +182,11 @@
 		/obj/item/clothing/gloves/swat/bst              = TRADER_BLACKLIST,
 		/obj/item/clothing/wrists/watch/fluff           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/fluff                 = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/gloves/powerfist             = TRADER_BLACKLIST,
+		/obj/item/clothing/gloves/claws                 = TRADER_BLACKLIST,
+		/obj/item/clothing/gloves/brassknuckles         = TRADER_BLACKLIST,
+		/obj/item/clothing/gloves/ballistic             = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/gloves/tesla                 = TRADER_BLACKLIST,
 		/obj/item/clothing/head                         = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/head/beret/centcom           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/bio_hood                = TRADER_BLACKLIST_ALL,
@@ -269,7 +274,7 @@ Sells devices, odds and ends, and medical stuff
 	name = "Robot Seller"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Robot Store"
-	possible_origins = list("AI for the Straight Guy", "Mechanical Buddies", "Bot Chop Shop", "Omni Consumer Projects")
+	possible_origins = list("AI for the Straight Guy", "Mechanical Buddies", "Bot Chop Shop", "Omni Consumer Projects", "Hephaestus Industries Robotic Shop")
 
 	possible_wanted_items = list(
 		/obj/item/bucket_sensor         = TRADER_THIS_TYPE,
