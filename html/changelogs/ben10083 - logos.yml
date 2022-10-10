@@ -12,3 +12,4 @@ delete-after: True
 changes:
   - imageadd: "Added small variants to all corporate logos (and Eridani for the suits), use them by putting a _small after the usual command."
   - bugfix: "Paperwork for Nanotrasen now uses the correct new NT Logo."
+  - bugfix: "SCC logo downsized to scale with other logos."
