@@ -10,6 +10,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - imageadd: "Added small variants to all flags and logos (except goldendeep). It can be done by adding _small to the end of the command"
+  - imageadd: "Added small variants to all flags and logos. It can be done by adding _small to the end of the command"
+  - imageadd: "Golden deep logo replaced with properly sized version."
   - bugfix: "Paperwork for Nanotrasen now uses the correct new NT Logo."
   - bugfix: "SCC logo downsized to scale with other logos."

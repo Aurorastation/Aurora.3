@@ -576,6 +576,7 @@
 	t = replacetext(t, "\[flag_izweski\]", "<img src = izweskiflag.png>")
 	t = replacetext(t, "\[flag_izweski_small\]", "<img src = izweskiflag_small.png>")
 	t = replacetext(t, "\[logo_golden\]", "<img src = goldenlogo.png>")
+	t = replacetext(t, "\[logo_golden_small\]", "<img src = goldenlogo_small.png>")
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
