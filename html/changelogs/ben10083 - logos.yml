@@ -12,5 +12,6 @@ delete-after: True
 changes:
   - imageadd: "Added small variants to all flags and logos. It can be done by adding _small to the end of the command"
   - imageadd: "Golden deep logo replaced with properly sized version."
+  - imageadd: "[barcode] images properly formatted."
   - bugfix: "Paperwork for Nanotrasen now uses the correct new NT Logo."
   - bugfix: "SCC logo downsized to scale with other logos."
