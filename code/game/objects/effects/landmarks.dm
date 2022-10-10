@@ -269,7 +269,7 @@ var/list/ruin_landmarks = list()
 		var/my_sector = map_sectors["[z]"]
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			var/obj/effect/overmap/visitable/ship/S = my_sector
-			S.entry_points |= src
+			LAZYADD(S.entry_points, src)
 	name += " [x], [y]"
 
 //The four entry point landmarks below are named assuming that fore is facing DOWNWARDS.

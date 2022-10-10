@@ -62,6 +62,12 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	for(var/obj/machinery/telecomms/T in telecomms_list)
 		if(T.linked == src)
 			T.linked = null
+	if(entry_points)
+		entry_points.Cut()
+	for(var/obj/machinery/ship_weapon/SW in ship_weapons)
+		SW.linked = null
+	ship_weapons.Cut()
+	targeting = null
 	. = ..()
 
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.
@@ -75,7 +81,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	return get_filtered_areas(list(/proc/area_belongs_to_zlevels = map_z))
 
 /obj/effect/overmap/visitable/proc/find_z_levels()
-	return
+	map_z = GetConnectedZlevels(z)
 
 /obj/effect/overmap/visitable/proc/register_z_levels()
 	for(var/zlevel in map_z)

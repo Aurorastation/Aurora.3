@@ -49,23 +49,24 @@
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		var/client/C = H.client
-		if(H.machine && istype(C.eye, /obj/effect/overmap) && istype(H.machine, /obj/machinery/computer/ship/helm) && H.machine.use_check_and_message(H)) //word vomit
+		if(H.machine && istype(C.eye, /obj/effect/overmap) && istype(H.machine, /obj/machinery/computer/ship/helm))
 			var/my_sector = map_sectors["[H.z]"]
 			if(istype(my_sector, /obj/effect/overmap/visitable))
 				var/obj/effect/overmap/visitable/V = my_sector
 				if(V != src && length(V.ship_weapons)) //no guns, no lockon
 					if(!V.targeting)
-						V.target(src, C)
+						V.target(src, H.machine)
 					else
 						if(V.targeting == src)
-							V.detarget(src, C)
+							V.detarget(src, H.machine)
 						else
 							V.detarget(V.targeting, C)
-							V.target(src, C)
+							V.target(src, H.machine)
 
 /obj/effect/overmap/visitable/proc/target(var/obj/effect/overmap/O, var/obj/machinery/computer/C)
 	targeting = O
 	O.targeted_overlay = icon('icons/obj/overmap_heads_up_display.dmi', "lock")
+	O.add_overlay(O.targeted_overlay)
 	if(!O.maptext)
 		O.maptext = SMALL_FONTS(6, "[class] [designation]")
 	else

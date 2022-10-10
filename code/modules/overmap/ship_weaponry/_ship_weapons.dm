@@ -6,6 +6,7 @@
 	var/projectile_type = /obj/item/projectile/ship_ammo
 	var/charging_sound //The sound played when the gun is charging up.
 	var/caliber = SHIP_CALIBER_NONE
+	var/use_ammunition = TRUE //If we use physical ammo or not. Note that the creation of ammunition in pre_fire() is still REQUIRED! This just skips the initial check for ammunition.
 	var/firing_effects
 	var/screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 	var/ammo_per_shot = 1

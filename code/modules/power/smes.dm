@@ -162,22 +162,22 @@
 		return
 
 	if(inputting == 2)
-		add_overlay("smes-oc2")
+		add_overlay("[icon_state]-oc2")
 	else if (inputting == 1)
-		add_overlay("smes-oc1")
+		add_overlay("[icon_state]-oc1")
 	else if (input_attempt)
-		add_overlay("smes-oc0")
+		add_overlay("[icon_state]-oc0")
 
 	var/clevel = chargedisplay()
 	if(clevel)
-		add_overlay("smes-og[clevel]")
+		add_overlay("[icon_state]-og[clevel]")
 
 	if(outputting == 2)
-		add_overlay("smes-op2")
+		add_overlay("[icon_state]-op2")
 	else if (outputting == 1)
-		add_overlay("smes-op1")
+		add_overlay("[icon_state]-op1")
 	else
-		add_overlay("smes-op0")
+		add_overlay("[icon_state]-op0")
 
 /obj/machinery/power/smes/proc/chargedisplay()
 	return round(5.5*charge/(capacity ? capacity : 5e6))
@@ -525,6 +525,14 @@
 /obj/machinery/power/smes/magical/process()
 	charge = 5000000
 	..()
+
+/obj/machinery/power/smes/superconducting
+	name = "superconducting cryogenic capacitor"
+	desc = "An experimental, extremely high-capacity type of SMES. It uses integrated cryogenic cooling and superconducting cables to break conventional limits on power transfer."
+	icon_state = "cannon_smes"
+	capacity = 1000 GIGAWATTS
+	output_level = 100 GIGAWATTS
+	input_level = 100 GIGAWATTS
 
 #undef SMES_CLEVEL_1
 #undef SMES_CLEVEL_2

@@ -2,6 +2,7 @@
 	name = "ship weapon"
 	desc = "You shouldn't be seeing this."
 	icon = 'icons/obj/machines/ship_guns/longbow.dmi'
+	active_power_usage = 50000
 	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
 	var/obj/structure/ship_weapon_dummy/barrel
 	var/list/obj/item/ship_ammunition/ammunition = list()
@@ -39,7 +40,7 @@
 	SA.forceMove(src)
 
 /obj/machinery/ship_weapon/proc/firing_checks() //Check if we CAN fire.
-	if(length(ammunition))
+	if((!weapon.use_ammunition || length(ammunition)) && !stat)
 		return TRUE
 	else
 		return FALSE
@@ -48,6 +49,7 @@
 	if(firing_checks())
 		var/result = weapon.pre_fire(target, landmark)
 		if(result)
+			use_power_oneoff(active_power_usage)
 			return SHIP_GUN_FIRING_SUCCESSFUL
 	else
 		return SHIP_GUN_ERROR_NO_AMMO
@@ -146,10 +148,9 @@
 	var/obj/machinery/ship_weapon/big_gun = input(user, "Select a gun.", "Gunnery Control") as null|anything in linked.ship_weapons
 	if(!big_gun)
 		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Aborting.\""))
-		playsound(src, 'sound/machines/buzz-sigh.ogg')
 		return
 	if(!linked.targeting)
-		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No target detected.\""))
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No target designated.\""))
 		playsound(src, 'sound/machines/buzz-sigh.ogg')
 		return
 	var/list/obj/effect/possible_entry_points = list()
@@ -161,7 +162,7 @@
 			possible_entry_points[O.name] = O
 	var/targeted_landmark = input(user, "Select an entry point.", "Gunnery Control") as null|anything in possible_entry_points
 	if(!targeted_landmark)
-		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No entry point given. Aborting.\""))
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No entry point selected. Aborting.\""))
 		playsound(src, 'sound/machines/buzz-sigh.ogg')
 		return
 	var/obj/effect/landmark = possible_entry_points[targeted_landmark]
@@ -170,11 +171,10 @@
 		playsound(src, 'sound/effects/alert.ogg')
 		var/result = big_gun.firing_command(linked.targeting, landmark)
 		if(result == SHIP_GUN_ERROR_NO_AMMO)
-			visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Ammunition insufficient for firing sequence. Aborting.\""))
+			visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Ammunition or power insufficient for firing sequence. Aborting.\""))
 			playsound(src, 'sound/machines/buzz-sigh.ogg')
 		if(result == SHIP_GUN_FIRING_SUCCESSFUL)
 			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Firing sequence completed!\""))
-			playsound(src, 'sound/machines/buzz-sigh.ogg')
 	else
 		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No target given. Aborting.\""))
 		playsound(src, 'sound/machines/buzz-sigh.ogg')

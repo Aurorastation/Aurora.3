@@ -1,10 +1,13 @@
 #define SHIP_CALIBER_NONE "none"
 #define SHIP_CALIBER_406MM "406mm"
 #define SHIP_CALIBER_72MM "72mm"
+#define SHIP_CALIBER_90MM "90mm"
 #define SHIP_CALIBER_ZTA "zero-point spatial beam"
 
 #define SHIP_GUN_FIRING_SUCCESSFUL "firing sequence completed"
 #define SHIP_GUN_ERROR_NO_AMMO "no ammunition loaded"
+
+#define NO_PROJECTILE "no projectile"
 
 #define SHIP_AMMO_CAN_HIT_HAZARDS 1
 #define SHIP_AMMO_CAN_HIT_SHIPS 2
@@ -14,6 +17,7 @@
 #define SHIP_AMMO_IMPACT_LASER "laser"
 #define SHIP_AMMO_IMPACT_BUNKERBUSTER "bunker-buster"
 #define SHIP_AMMO_IMPACT_PLASMA "plasma"
+#define SHIP_AMMO_IMPACT_ZTA "zero-point artillery"
 
 #define FIRING_EFFECT_FLAG_THROW_MOBS  1
 #define FIRING_EFFECT_FLAG_EXTREMELY_LOUD 2 //Play the heavy firing sound to all mobs on connected zlevels.

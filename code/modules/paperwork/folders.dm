@@ -152,3 +152,77 @@
 /obj/item/folder/embedded/handle_post_remove()
 	if(!length(contents))
 		qdel(src)
+
+/obj/item/folder/envelope
+	name = "envelope"
+	desc = "A thick envelope. You can't see what's inside."
+	icon_state = "envelope_sealed"
+	var/sealed = 1
+
+/obj/item/folder/envelope/update_icon()
+	if(sealed)
+		icon_state = "envelope_sealed"
+	else
+		icon_state = "envelope[contents.len > 0]"
+
+/obj/item/folder/envelope/examine(mob/user)
+	. = ..()
+	to_chat(user, "The seal is [sealed ? "intact" : "broken"].")
+
+/obj/item/folder/envelope/proc/sealcheck(user)
+	var/ripperoni = alert("Are you sure you want to break the seal on \the [src]?", "Confirmation","Yes", "No")
+	if(ripperoni == "Yes")
+		visible_message(SPAN_NOTICE("[user] breaks the seal on \the [src], and opens it."))
+		sealed = FALSE
+		update_icon()
+		return TRUE
+
+/obj/item/folder/envelope/attack_self(mob/user)
+	if(sealed)
+		sealcheck(user)
+		return
+	else
+		..()
+
+/obj/item/folder/envelope/attackby(obj/item/W, mob/user)
+	if(sealed)
+		sealcheck(user)
+		return
+	else
+		..()
+
+/obj/item/folder/envelope/zta
+	name = "leviathan zero-time accelerator instructions"
+	desc = "A small envelope. This one reads 'SCC - CONFIDENTIAL'."
+
+/obj/item/folder/envelope/zta/Initialize()
+	. = ..()
+	var/obj/item/paper/R = new(src)
+	R.set_content("<table><cell><hr><small><center><img src=scclogo.png><br><b>Stellar Corporate Conglomerate<br>\
+	SCCV Horizon</b><hr><b>Form 0000<br>\
+	<large>Confidential Information Report</large></b></center><hr>\
+	<b>Classification Index:</b> <span class='danger'>TOP SECRET</spaN>, protect at all costs <field><hr><b>Entrusted Personnel:</b> Command, Engineering<br> <field>\
+	<b>Subject Designation:</b> \"Leviathan\" Prototype Warp Emitter Artillery <br><field>\
+	<b>Subject Specification:</b> The “Leviathan”-class Prototype Warp Emitter Artillery is the crowning achievement of the Chainlink's \
+	unified science and engineering arm. Nearly two-thousand tonnes and longer than fifty meters, the Leviathian is composed of two (2) arc batteries,\
+	six (6) hyper conductors, six (6) warp engine generators, four (4) warp field stabilizers, a thirty meter (30m) dampening rail-line and a full targeting\
+	acquisition/power management array.<br><field>\
+	<b>Subject Description:</b> The Leviathan's one and only intended purpose is to annihilate any single target\
+	that proves to be an existential threat to the SCCV Horizon and all of its valuable designs and crew. The subject achieves this by pushing and weaponizing \
+	already understood warp drive technology to a scale only currently matched by phoron fusion bombs.<br> \
+	In layman's terms, a ludicrous amount of energy is at first used by several high-level warp generators, which instead of bending space around the ship, \
+	create a 'warp funnel' around the outer half of the weapon. Every bit of energy remaning is then fired out through the 'warp tunnel', \
+	accelerating it into a powerful beam travelling at several times the speed of light. <br>No known hull and shield configuration is able to withstand the attack, \
+	and the beam is expected to inflict too much architectural damage for any one vessel to continue fighting. <br>\
+	The power draw of a single shot is greater than a single jump operation into bluespace, meaning each use will leave the Horizon vulnerable to any other threats that remain.<br>\
+	To date, the prototype has not been tested against stars, planets or other supermassive targets. While its use should be limited to catastrophic scenarios,\
+	the Horizon is expected to gather as much field data as possible throughout its journey.<field>")
+
+	//stamp the paper
+	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+	stampoverlay.icon_state = "paper_stamp-biesel"
+	if(!R.stamped)
+		R.stamped = new
+	R.stamped += /obj/item/stamp/biesel
+	R.overlays += stampoverlay
+	R.stamps += "<HR><i>This paper has been stamped as 'CONFIDENTIAL'.</i>"

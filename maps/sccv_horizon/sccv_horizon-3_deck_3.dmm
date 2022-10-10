@@ -180,7 +180,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "ahX" = (
 /obj/machinery/light{
 	dir = 8
@@ -1998,7 +1998,7 @@
 /area/engineering/break_room)
 "bKI" = (
 /turf/simulated/wall,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "bKW" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -2012,7 +2012,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "bLo" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
@@ -2563,7 +2563,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "cfd" = (
 /turf/simulated/wall/r_wall,
 /area/security/forensics_morgue)
@@ -2638,7 +2638,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "chQ" = (
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Captain's Office Aft"
@@ -3088,7 +3088,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "cwY" = (
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
@@ -3542,7 +3542,7 @@
 "cOV" = (
 /obj/machinery/ship_weapon/longbow,
 /turf/template_noop,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "cPa" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -3878,7 +3878,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "dcF" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -4001,7 +4001,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "djE" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -4091,7 +4091,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "dpn" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5693,7 +5693,7 @@
 	is_barrel = 1
 	},
 /turf/template_noop,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "eDd" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -5783,7 +5783,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "eFV" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5826,7 +5826,7 @@
 /obj/item/primer,
 /obj/item/primer/low,
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "eHJ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -6953,7 +6953,7 @@
 	icon_state = "viewport_zavod"
 	},
 /turf/simulated/floor/plating,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "fwI" = (
 /obj/structure/table/wood,
 /obj/item/pen,
@@ -7332,7 +7332,7 @@
 	pixel_x = 26
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "fNo" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7547,7 +7547,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "fWz" = (
 /obj/structure/table/standard,
 /obj/item/paper_scanner{
@@ -8045,7 +8045,7 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "guO" = (
 /obj/effect/floor_decal/spline/fancy,
 /obj/item/modular_computer/console/preset/research{
@@ -8312,7 +8312,7 @@
 "gCM" = (
 /obj/machinery/ammunition_loader/longbow,
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "gDg" = (
 /obj/structure/closet,
 /obj/effect/decal/cleanable/dirt,
@@ -8474,7 +8474,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "gMr" = (
 /obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/plain{
@@ -8613,7 +8613,7 @@
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "gTH" = (
 /obj/machinery/power/apc/low{
 	dir = 1;
@@ -9030,7 +9030,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "htW" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -10416,7 +10416,7 @@
 /obj/item/device/multitool,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "izz" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/cable/green{
@@ -10918,7 +10918,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "jca" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -10944,7 +10944,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "jcA" = (
 /obj/structure/flora/ausbushes/palebush,
 /turf/simulated/floor/grass/alt,
@@ -11074,7 +11074,7 @@
 /obj/structure/table/standard,
 /obj/item/device/binoculars,
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "jfY" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -11905,7 +11905,7 @@
 "jOz" = (
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "jPi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -12290,7 +12290,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "kfz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -13641,7 +13641,7 @@
 /area/bridge/aibunker)
 "ltl" = (
 /turf/template_noop,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "ltv" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -14351,7 +14351,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "lXi" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/disposal/small/west,
@@ -14557,7 +14557,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "mhH" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/vending/cola,
@@ -15233,7 +15233,7 @@
 /obj/item/warhead/longbow,
 /obj/item/warhead/longbow,
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "mFi" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -17877,7 +17877,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "oHl" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -18231,7 +18231,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "oUG" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -20216,7 +20216,7 @@
 /obj/item/ship_ammunition/longbow,
 /obj/item/ship_ammunition/longbow,
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "qOl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/closet/secure_closet/investigator,
@@ -20942,7 +20942,7 @@
 	},
 /obj/machinery/door/window/northright,
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "rrl" = (
 /obj/structure/bed/stool/padded,
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -21327,7 +21327,7 @@
 /area/maintenance/aux_atmospherics/deck_3)
 "rFS" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "rGR" = (
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
@@ -24242,7 +24242,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "tYI" = (
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Deck 3 Civilian Subgrid";
@@ -24598,7 +24598,7 @@
 	},
 /obj/item/storage/firstaid,
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "uqc" = (
 /obj/item/device/radio/beacon,
 /obj/effect/floor_decal/corner/yellow{
@@ -24982,7 +24982,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "uId" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
@@ -25038,7 +25038,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "uKI" = (
 /obj/structure/table/wood,
 /obj/machinery/button/remote/airlock{
@@ -25720,7 +25720,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "voG" = (
 /obj/machinery/status_display{
 	pixel_y = -32
@@ -26662,7 +26662,7 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "was" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -27012,7 +27012,7 @@
 "wrb" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "wri" = (
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 8
@@ -27158,7 +27158,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "wwd" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/yellow{
@@ -27400,8 +27400,12 @@
 	},
 /obj/structure/cable/green,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/power/apc{
+	dir = 8;
+	pixel_x = -24
+	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "wHZ" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
@@ -28188,7 +28192,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "xtD" = (
 /obj/machinery/telecomms/server/presets/engineering,
 /turf/simulated/floor/bluegrid,
@@ -28822,7 +28826,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/stairwell/bridge)
+/area/bridge/longbow_compartment)
 "yaG" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
@@ -52407,7 +52411,7 @@ xtd
 bKI
 bKI
 bKI
-bHh
+rFS
 jfO
 rFS
 rDa

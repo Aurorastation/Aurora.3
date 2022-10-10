@@ -184,6 +184,9 @@
 	icon_state = "quart"
 	sound_env = SMALL_SOFTFLOOR
 
+/area/operations/flak
+	name = "Flak Gun"
+
 //Wings
 
 /area/maintenance/substation/wing_starboard
@@ -304,6 +307,8 @@
 	name = "Atmos Compartment"
 /area/shuttle/intrepid/cockpit 
 	name = "Cockpit"
+/area/shuttle/intrepid/flak
+	name = "Intrepid Armament"
 
 //
 // Areas for the SCCV Horizon Map
@@ -597,4 +602,9 @@
 	name = "Horizon - Bar"
 	icon_state = "bar"
 	allow_nightmode = FALSE
+
+/area/horizon/zta
+	name = "Primary Armament Hold"
+	icon_state = "zta"
+	ambience = AMBIENCE_SINGULARITY
 /********** Unique End **********/
