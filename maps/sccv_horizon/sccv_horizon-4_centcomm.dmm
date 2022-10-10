@@ -5915,7 +5915,6 @@
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "amV" = (
-/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
@@ -5923,6 +5922,7 @@
 	id = "merchant_windows";
 	name = "viewing shutter"
 	},
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
 "amW" = (
@@ -6273,13 +6273,13 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "aoc" = (
-/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "merchant_windows";
 	name = "viewing shutter"
 	},
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
 "aoe" = (
@@ -7707,9 +7707,9 @@
 /turf/simulated/floor/wood,
 /area/merchant_station/warehouse)
 "asH" = (
-/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
 "asJ" = (
@@ -7753,13 +7753,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
 "asM" = (
-/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "merchant_bridge";
 	name = "viewing shutter"
 	},
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
 "asO" = (
@@ -9108,7 +9108,6 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant)
 "avZ" = (
-/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
@@ -9116,6 +9115,7 @@
 	id = "merchant_bridge";
 	name = "viewing shutter"
 	},
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
 "awa" = (
@@ -10795,13 +10795,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/merchant_station/warehouse)
 "aAg" = (
-/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "merchant_airlock";
 	name = "viewing shutter"
 	},
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
 "aAh" = (
@@ -11014,7 +11014,6 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "aAH" = (
-/obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
@@ -11022,6 +11021,7 @@
 	id = "merchant_bridge";
 	name = "viewing shutter"
 	},
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
 "aAI" = (
