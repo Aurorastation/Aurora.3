@@ -9922,7 +9922,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cargo_shuttle_airlock";
+	id_tag = "cargo_shuttle_dock_airlock";
 	locked = 1;
 	name = "Cargo Shuttle";
 	req_access = list(13,31)
@@ -23084,7 +23084,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cargo_shuttle_airlock";
+	id_tag = "cargo_shuttle_dock_airlock";
 	locked = 1;
 	name = "Cargo Shuttle";
 	req_access = list(13,31)
@@ -25424,7 +25424,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "ujV" = (
-/obj/effect/shuttle_landmark/supply/dock,
+/obj/effect/shuttle_landmark/supply/horizon/dock,
 /turf/simulated/floor/plating,
 /area/hangar/operations)
 "ukl" = (
@@ -27777,11 +27777,11 @@
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	id_tag = "cargo_shuttle";
+	id_tag = "cargo_shuttle_dock";
 	name = "cargo shuttle docking controller";
 	pixel_y = -25;
 	req_one_access = list(13,31);
-	tag_door = "cargo_shuttle_airlock";
+	tag_door = "cargo_shuttle_dock_airlock";
 	pixel_x = -7
 	},
 /turf/simulated/floor/tiled,
