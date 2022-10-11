@@ -2995,13 +2995,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
-"brM" = (
-/obj/machinery/power/apc/critical{
-	dir = 1;
-	pixel_y = 24
-	},
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/wing/port/far)
 "brZ" = (
 /obj/structure/cryofeed,
 /obj/structure/window/reinforced{
@@ -45742,16 +45735,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
-"wTD" = (
-/obj/structure/cable/orange{
-	icon_state = "1-2"
-	},
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/engineering/engine_room/tesla)
 "wTr" = (
 /obj/machinery/button/remote/airlock{
 	dir = 1;
@@ -45785,6 +45768,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
+"wTD" = (
+/obj/structure/cable/orange{
+	icon_state = "1-2"
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/tesla)
 "wTE" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -84146,7 +84139,7 @@ duk
 duk
 duk
 fuu
-brM
+ueH
 lBd
 lBd
 lBd

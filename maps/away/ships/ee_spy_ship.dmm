@@ -50,6 +50,9 @@
 	icon_state = "door_locked";
 	id_tag = "ee_spy_ship_out"
 	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, airlock"
+	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
 "aCd" = (
@@ -116,6 +119,12 @@
 /obj/machinery/papershredder,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
+"aMY" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, office"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/ee_spy_ship)
 "aOU" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -181,6 +190,20 @@
 	id_tag = "ee_spy_ship_in"
 	},
 /turf/simulated/floor,
+/area/ship/ee_spy_ship)
+"bPE" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/ship/ee_spy_ship)
+"cnH" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, central"
+	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/ee_spy_ship)
 "cLC" = (
 /obj/structure/table/steel,
@@ -261,6 +284,12 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
+"epB" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, crew compartment"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/ee_spy_ship)
 "etL" = (
 /turf/space/transit/south,
 /area/space)
@@ -323,6 +352,12 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/ee_spy_ship)
+"fif" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, cabin"
+	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/ee_spy_ship)
 "fnE" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
@@ -572,6 +607,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
+"iXb" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, shuttle"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/ee_spy_ship)
 "jEu" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 1
@@ -778,6 +819,12 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
+"nWf" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, central"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/ee_spy_ship)
 "ofY" = (
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
@@ -799,6 +846,14 @@
 	dir = 8;
 	frequency = 1380;
 	id_tag = "ee_spy_ship_pump"
+	},
+/turf/simulated/floor,
+/area/ship/ee_spy_ship)
+"oBX" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engines"
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -915,6 +970,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
+"rnD" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, shuttle"
+	},
+/turf/unsimulated/wall/fakepdoor,
+/area/ship/ee_spy_ship)
 "rtf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1026,6 +1087,12 @@
 /obj/item/storage/box/cups,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
+"uyM" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, bathroom"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/ee_spy_ship)
 "uCl" = (
 /obj/machinery/cryopod{
 	dir = 2
@@ -1069,6 +1136,14 @@
 /obj/effect/shuttle_landmark/ee_spy_ship/nav1,
 /turf/template_noop,
 /area/space)
+"vlF" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engines"
+	},
+/turf/simulated/floor,
+/area/ship/ee_spy_ship)
 "vwF" = (
 /turf/unsimulated/wall/fakepdoor,
 /area/ship/ee_spy_ship)
@@ -31083,12 +31158,12 @@ mkb
 yjk
 yjk
 yjk
+nWf
 yjk
 yjk
 yjk
 yjk
-yjk
-yjk
+iXb
 yjk
 yjk
 yjk
@@ -31332,7 +31407,7 @@ xRX
 xRX
 xRX
 xRX
-aaI
+vlF
 aHt
 aJd
 aHv
@@ -31353,13 +31428,13 @@ yjk
 yjk
 yjk
 yjk
+uyM
 yjk
 yjk
 yjk
 yjk
 yjk
-yjk
-yjk
+aMY
 yjk
 yjk
 yjk
@@ -33390,7 +33465,7 @@ xRX
 xRX
 xRX
 xRX
-yjk
+cnH
 gxW
 mkb
 hiw
@@ -33424,7 +33499,7 @@ sGi
 upC
 fnE
 bci
-pAh
+bPE
 xRX
 xRX
 xRX
@@ -34960,7 +35035,7 @@ hQA
 xbK
 yjk
 yjk
-yjk
+fif
 yjk
 yjk
 xRX
@@ -35444,7 +35519,7 @@ xRX
 xRX
 xRX
 xRX
-aaI
+oBX
 aHt
 aJd
 aou
@@ -35712,7 +35787,7 @@ vwF
 vwF
 vwF
 vwF
-vwF
+rnD
 vwF
 vwF
 vwF
@@ -35728,7 +35803,7 @@ eiR
 kfX
 yjk
 yjk
-yjk
+epB
 yjk
 xRX
 xRX

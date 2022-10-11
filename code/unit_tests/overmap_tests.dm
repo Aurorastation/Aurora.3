@@ -21,7 +21,7 @@
 	name = "OVERMAP: Ships shall have at least four valid entry points"
 
 /datum/unit_test/overmap_ships_shall_have_entrypoints/start_test()
-	for(var/obj/effect/overmap/visitable/S in SSshuttle.initialized_sectors)
+	for(var/obj/effect/overmap/visitable/ship/S in SSshuttle.initialized_sectors)
 		if(length(S.entry_points) >= 4)
 			pass("[S.name] has at least four entry points.")
 		else

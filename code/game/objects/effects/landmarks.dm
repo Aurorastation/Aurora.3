@@ -266,11 +266,30 @@ var/list/ruin_landmarks = list()
 
 /obj/effect/landmark/entry_point/LateInitialize()
 	if(current_map.use_overmap)
-		var/my_sector = map_sectors["[z]"]
-		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
-			var/obj/effect/overmap/visitable/ship/S = my_sector
+		var/obj/effect/overmap/visitable/ship/S = get_candidates()
+		if(istype(S))
 			LAZYADD(S.entry_points, src)
 	name += " [x], [y]"
+
+/obj/effect/landmark/entry_point/proc/get_candidates()
+	var/obj/effect/overmap/visitable/sector = map_sectors["[z]"]
+	if(!sector)
+		return
+	return attempt_hook_up_recursive(sector)
+
+/obj/effect/landmark/entry_point/proc/attempt_hook_up_recursive(var/obj/effect/overmap/visitable/sector)
+	if(attempt_hook_up(sector))
+		return sector
+	for(var/obj/effect/overmap/visitable/ship/candidate in sector)
+		if((. = .(candidate)))
+			return
+
+/obj/effect/landmark/entry_point/proc/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
+	if(!istype(sector))
+		return FALSE
+	if(sector.check_ownership(src))
+		return TRUE
+	return FALSE
 
 //The four entry point landmarks below are named assuming that fore is facing DOWNWARDS.
 /obj/effect/landmark/entry_point/aft
