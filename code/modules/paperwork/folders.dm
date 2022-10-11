@@ -192,17 +192,17 @@
 		..()
 
 /obj/item/folder/envelope/zta
-	name = "leviathan zero-time accelerator instructions"
+	name = "leviathan zero-point artillery instructions"
 	desc = "A small envelope. This one reads 'SCC - CONFIDENTIAL'."
 
 /obj/item/folder/envelope/zta/Initialize()
 	. = ..()
 	var/obj/item/paper/R = new(src)
-	R.set_content("<table><cell><hr><small><center><img src=scclogo.png><br><b>Stellar Corporate Conglomerate<br>\
+	R.set_content("leviathan zero-point artillery instructions", "<table><cell><hr><small><center><img src=scclogo.png><br><b>Stellar Corporate Conglomerate<br>\
 	SCCV Horizon</b><hr><b>Form 0000<br>\
 	<large>Confidential Information Report</large></b></center><hr>\
-	<b>Classification Index:</b> <span class='danger'>TOP SECRET</spaN>, protect at all costs <field><hr><b>Entrusted Personnel:</b> Command, Engineering<br> <field>\
-	<b>Subject Designation:</b> \"Leviathan\" Prototype Warp Emitter Artillery <br><field>\
+	<b>Classification Index:</b> <font color='red'>TOP SECRET</font>, protect at all costs <field><hr><b>Entrusted Personnel:</b> Command, Engineering<br> <field>\
+	<b>Subject Designation:</b> Leviathan Prototype Zero-Point Artillery <br><field>\
 	<b>Subject Specification:</b> The “Leviathan”-class Prototype Warp Emitter Artillery is the crowning achievement of the Chainlink's \
 	unified science and engineering arm. Nearly two-thousand tonnes and longer than fifty meters, the Leviathian is composed of two (2) arc batteries,\
 	six (6) hyper conductors, six (6) warp engine generators, four (4) warp field stabilizers, a thirty meter (30m) dampening rail-line and a full targeting\
@@ -215,8 +215,9 @@
 	accelerating it into a powerful beam travelling at several times the speed of light. <br>No known hull and shield configuration is able to withstand the attack, \
 	and the beam is expected to inflict too much architectural damage for any one vessel to continue fighting. <br>\
 	The power draw of a single shot is greater than a single jump operation into bluespace, meaning each use will leave the Horizon vulnerable to any other threats that remain.<br>\
-	To date, the prototype has not been tested against stars, planets or other supermassive targets. While its use should be limited to catastrophic scenarios,\
-	the Horizon is expected to gather as much field data as possible throughout its journey.<field>")
+	To date, the prototype has not been tested against stars, planets or other supermassive targets. While its use should be limited to catastrophic scenarios, \
+	the Horizon is expected to gather as much field data as possible throughout its journey.<br>\
+	In order to fire the Leviathan, the capacitors must first be coupled by lowering the activation lever. This coupling is, however, extremely energy intensive.<field>")
 
 	//stamp the paper
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')

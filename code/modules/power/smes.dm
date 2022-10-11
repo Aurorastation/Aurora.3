@@ -326,8 +326,7 @@
 	add_fingerprint(user)
 	ui_interact(user)
 
-
-/obj/machinery/power/smes/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/power/smes/attackby(var/obj/item/W, var/mob/user)
 	if(W.isscrewdriver())
 		if(!open_hatch)
 			if(is_badly_damaged())
@@ -530,9 +529,9 @@
 	name = "superconducting cryogenic capacitor"
 	desc = "An experimental, extremely high-capacity type of SMES. It uses integrated cryogenic cooling and superconducting cables to break conventional limits on power transfer."
 	icon_state = "cannon_smes"
-	capacity = 1000 GIGAWATTS
-	output_level = 100 GIGAWATTS
-	input_level = 100 GIGAWATTS
+	capacity = 100 GIGAWATTS
+	output_level = 10 GIGAWATTS
+	input_level = 10 GIGAWATTS
 
 #undef SMES_CLEVEL_1
 #undef SMES_CLEVEL_2

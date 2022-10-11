@@ -11,6 +11,7 @@
 	var/screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 	var/ammo_per_shot = 1
 	var/obj/machinery/ship_weapon/controller
+	var/firing = FALSE //Helper variable in case we need to track if we're firing or not. Must be set manually. Used for the Leviathan.
 
 /datum/ship_weapon/Destroy()
 	controller = null
@@ -39,7 +40,7 @@
 				playsound(H, light_firing_sound, 50)
 	if(screenshake_type == SHIP_GUN_SCREENSHAKE_ALL_MOBS)
 		var/list/connected_z_levels = GetConnectedZlevels(controller.z)
-		for(var/mob/living/carbon/human/H in player_list)
+		for(var/mob/living/H in living_mob_list)
 			if(H.z in connected_z_levels)
 				to_chat(H, SPAN_DANGER("<font size=4>Your legs buckle as the ground shakes beneath you!</font>"))
 				shake_camera(H, 10, 5)
@@ -50,7 +51,7 @@
 				shake_camera(H, 10, 5)
 	if(firing_effects & FIRING_EFFECT_FLAG_THROW_MOBS)
 		var/list/connected_z_levels = GetConnectedZlevels(controller.z)
-		for(var/mob/M in mob_list)
+		for(var/mob/M in living_mob_list)
 			if(M.z in connected_z_levels)
 				M.throw_at_random(FALSE, 7, 10)
 	flick("weapon_firing", controller)

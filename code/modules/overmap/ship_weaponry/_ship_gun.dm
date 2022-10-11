@@ -33,7 +33,14 @@
 	for(var/obj/O in ammunition)
 		qdel(O)
 	ammunition.Cut()
+	barrel = null
 	return ..()
+
+/obj/machinery/ship_weapon/proc/enable()
+	return
+
+/obj/machinery/ship_weapon/proc/disable()
+	return
 
 /obj/machinery/ship_weapon/proc/load_ammunition(var/obj/item/ship_ammunition/SA)
 	ammunition |= SA
