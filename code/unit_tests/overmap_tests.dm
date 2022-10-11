@@ -23,7 +23,7 @@
 /datum/unit_test/overmap_ships_shall_have_entrypoints/start_test()
 	for(var/obj/effect/overmap/visitable/ship/S in SSshuttle.initialized_sectors)
 		if(length(S.entry_points) >= 4)
-			pass("[S.name] has at least four entry points.")
+			pass("[S.name] ([S.type]) has at least four entry points.")
 		else
-			fail("[S.name] does not have at least four entry points!")
+			fail("[S.name] ([S.type]) does not have at least four entry points!")
 	return TRUE

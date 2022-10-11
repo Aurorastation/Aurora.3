@@ -266,12 +266,12 @@ var/list/ruin_landmarks = list()
 
 /obj/effect/landmark/entry_point/LateInitialize()
 	if(current_map.use_overmap)
-		var/obj/effect/overmap/visitable/ship/S = get_candidates()
+		var/obj/effect/overmap/visitable/ship/S = get_candidate()
 		if(istype(S))
 			LAZYADD(S.entry_points, src)
 	name += " [x], [y]"
 
-/obj/effect/landmark/entry_point/proc/get_candidates()
+/obj/effect/landmark/entry_point/proc/get_candidate()
 	var/obj/effect/overmap/visitable/sector = map_sectors["[z]"]
 	if(!sector)
 		return
