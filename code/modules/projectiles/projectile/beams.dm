@@ -75,9 +75,6 @@
 	damage = 25
 	armor_penetration = 10
 
-/obj/item/projectile/beam/midlaser/mech
-	armor_penetration = 35
-
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
@@ -87,6 +84,10 @@
 	muzzle_type = /obj/effect/projectile/muzzle/heavy_laser
 	tracer_type = /obj/effect/projectile/tracer/heavy_laser
 	impact_type = /obj/effect/projectile/impact/heavy_laser
+
+/obj/item/projectile/beam/heavylaser/mech
+	damage = 35
+	armor_penetration = 35
 
 /obj/item/projectile/beam/xray
 	name = "xray beam"
