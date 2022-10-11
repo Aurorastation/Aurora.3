@@ -2866,11 +2866,12 @@
 	dir = 1;
 	pixel_y = -28
 	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
+/obj/item/device/binoculars/high_power{
+	pixel_x = -2;
+	pixel_y = -1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/cockpit)
+/turf/simulated/floor/wood,
+/area/shuttle/intrepid/crew_compartment)
 "chW" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/camera/network/engineering{
