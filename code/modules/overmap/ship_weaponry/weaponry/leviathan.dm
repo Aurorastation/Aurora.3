@@ -1,7 +1,6 @@
 /obj/machinery/ship_weapon/leviathan
-	name = "leviathan zero-point artillery spatial emitter"
-	desc = "The Leviathan's exact construction date is not known, but it surfaced for the first time on the SCCV Horizon. The lack of any branding on it leads most to think that it was built by the SCC as a joint project, and its specifics are currently unknown. \
-			Zero-point artillery technology is, in a nutshell, the condensation of ludicrous amounts of energy into a zero-point field, which is then collapsed to create a beam capable of destroying just about anything. The Leviathan is untested on planetary grounds."
+	name = "leviathan zero-point artillery"
+	desc = "A hulking structure made up by an insane amount of moving parts, components and capacitors. It has no branding besides the \"ZAT\" inscription on the sides."
 	icon = 'icons/obj/machines/ship_guns/leviathan.dmi'
 	icon_state = "weapon_off"
 

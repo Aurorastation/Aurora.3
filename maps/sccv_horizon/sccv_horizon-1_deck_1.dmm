@@ -2870,7 +2870,10 @@
 	pixel_x = -2;
 	pixel_y = -1
 	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "chW" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -4784,10 +4787,6 @@
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/item/hoist_kit,
 /obj/item/device/multitool,
-/obj/item/device/binoculars{
-	pixel_x = 7;
-	pixel_y = 7
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "dKB" = (

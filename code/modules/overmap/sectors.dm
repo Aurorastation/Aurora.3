@@ -66,7 +66,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		entry_points.Cut()
 	for(var/obj/machinery/ship_weapon/SW in ship_weapons)
 		SW.linked = null
-	ship_weapons.Cut()
+	if(ship_weapons)
+		ship_weapons.Cut()
 	targeting = null
 	. = ..()
 
