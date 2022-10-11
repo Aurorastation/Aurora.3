@@ -2614,7 +2614,6 @@
 #include "code\modules\overmap\ship_weaponry\_ship_ammo_loader.dm"
 #include "code\modules\overmap\ship_weaponry\_ship_ammunition.dm"
 #include "code\modules\overmap\ship_weaponry\_ship_gun.dm"
-#include "code\modules\overmap\ship_weaponry\_ship_weapons.dm"
 #include "code\modules\overmap\ship_weaponry\projectiles\_overmap_projectiles.dm"
 #include "code\modules\overmap\ship_weaponry\weaponry\francisca.dm"
 #include "code\modules\overmap\ship_weaponry\weaponry\grauwolf.dm"

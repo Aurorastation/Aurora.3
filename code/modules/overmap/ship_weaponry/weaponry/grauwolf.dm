@@ -1,15 +1,12 @@
-/datum/ship_weapon/grauwolf
+/obj/machinery/ship_weapon/grauwolf
 	name = "grauwolf flak battery"
 	desc = "A Zavodskoi flak battery developed in 2461. While its barrels may be smaller than its significantly larger kin's, the Longbow's, don't let that fool you: this gun will shred through smaller ships."
-	projectile_type = /obj/item/projectile/ship_ammo/grauwolf
-	caliber = SHIP_CALIBER_72MM
-	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
-
-/obj/machinery/ship_weapon/grauwolf
-	weapon = /datum/ship_weapon/grauwolf
 	icon = 'icons/obj/machines/ship_guns/grauwolf.dmi'
 	icon_state = "weapon_base"
 
+	projectile_type = /obj/item/projectile/ship_ammo/grauwolf
+	caliber = SHIP_CALIBER_72MM
+	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 /obj/machinery/ammunition_loader/grauwolf
 	name = "grauwolf flak loader"
 

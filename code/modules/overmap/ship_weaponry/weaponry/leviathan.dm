@@ -1,50 +1,18 @@
-/datum/ship_weapon/leviathan
+/obj/machinery/ship_weapon/leviathan
 	name = "leviathan zero-point artillery spatial emitter"
 	desc = "The Leviathan's exact construction date is not known, but it surfaced for the first time on the SCCV Horizon. The lack of any branding on it leads most to think that it was built by the SCC as a joint project, and its specifics are currently unknown. \
 			Zero-point artillery technology is, in a nutshell, the condensation of ludicrous amounts of energy into a zero-point field, which is then collapsed to create a beam capable of destroying just about anything. The Leviathan is untested on planetary grounds."
+	icon = 'icons/obj/machines/ship_guns/leviathan.dmi'
+	icon_state = "weapon_off"
+
 	projectile_type = /obj/item/projectile/ship_ammo/leviathan
 	use_ammunition = FALSE
 	heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/leviathan_fire.ogg'
 	caliber = SHIP_CALIBER_ZTA
 	firing_effects = FIRING_EFFECT_FLAG_THROW_MOBS|FIRING_EFFECT_FLAG_EXTREMELY_LOUD
 	screenshake_type = SHIP_GUN_SCREENSHAKE_ALL_MOBS
-
-/datum/ship_weapon/leviathan/pre_fire(atom/target, obj/effect/landmark/landmark)
-	firing = TRUE
-	controller.icon_state = "weapon_on"
-	controller.visible_message(SPAN_DANGER("<font size=5>\The [controller] begins lighting up with a powerful hum...</font>"))
-	for(var/mob/M in living_mob_list)
-		if(AreConnectedZLevels(GET_Z(M), controller.z))
-			if(get_area(M) != get_area(controller))
-				to_chat(M, SPAN_DANGER("<font size=4>The ground below you starts shaking...</font>"))
-			sound_to(M, sound('sound/weapons/gunshot/ship_weapons/leviathan_chargeup.ogg'))
-	var/power_draw = controller.smes.draw_power(controller.active_power_usage)
-	if(power_draw >= controller.active_power_usage)
-		sleep(7 SECONDS)
-		var/obj/item/ship_ammunition/leviathan/L = new()
-		controller.ammunition |= L
-		if(!controller.stat)
-			flick("weapon_charge", controller)
-			controller.visible_message(SPAN_DANGER("<font size=6>\The [controller] fires, quaking the ground below you!</font>"))
-			for(var/mob/M in living_mob_list)
-				if(AreConnectedZLevels(M.z, controller.z) && (get_area(M) != get_area(controller)))
-					to_chat(M, SPAN_DANGER("<font size=4>A gigantic shock courses through the hull of the ship!</font>"))
-			. = ..()
-	controller.disable()
-	firing = FALSE
-
-/obj/item/ship_ammunition/leviathan
-	name = "zero-point artillery beam"
-	desc = "A beam of pure energy."
-	caliber = SHIP_CALIBER_ZTA
-	impact_type = SHIP_AMMO_IMPACT_ZTA
-	overmap_icon_state = "heavy_pulse"
-
-/obj/machinery/ship_weapon/leviathan
-	weapon = /datum/ship_weapon/leviathan
-	icon = 'icons/obj/machines/ship_guns/leviathan.dmi'
-	icon_state = "weapon_off"
 	layer = ABOVE_MOB_LAYER
+
 	use_power = POWER_USE_OFF //Start off.
 	idle_power_usage = 50 KILOWATTS
 	active_power_usage = 100 KILOWATTS
@@ -65,8 +33,32 @@
 		return FALSE
 	. = ..()
 
+/obj/machinery/ship_weapon/leviathan/pre_fire(atom/target, obj/effect/landmark/landmark)
+	firing = TRUE
+	icon_state = "weapon_on"
+	visible_message(SPAN_DANGER("<font size=5>\The [src] begins lighting up with a powerful hum...</font>"))
+	for(var/mob/M in living_mob_list)
+		if(AreConnectedZLevels(GET_Z(M), z))
+			if(get_area(M) != get_area(src))
+				to_chat(M, SPAN_DANGER("<font size=4>The ground below you starts shaking...</font>"))
+			sound_to(M, sound('sound/weapons/gunshot/ship_weapons/leviathan_chargeup.ogg'))
+	var/power_draw = smes.draw_power(active_power_usage)
+	if(power_draw >= active_power_usage)
+		sleep(7 SECONDS)
+		var/obj/item/ship_ammunition/leviathan/L = new()
+		ammunition |= L
+		if(!stat)
+			flick("weapon_charge", src)
+			visible_message(SPAN_DANGER("<font size=6>\The [src] fires, quaking the ground below you!</font>"))
+			for(var/mob/M in living_mob_list)
+				if(AreConnectedZLevels(M.z, z) && (get_area(M) != get_area(src)))
+					to_chat(M, SPAN_DANGER("<font size=4>A gigantic shock courses through the hull of the ship!</font>"))
+			. = ..()
+	disable()
+	firing = FALSE
+
 /obj/machinery/ship_weapon/leviathan/process()
-	if(weapon.firing)
+	if(firing)
 		for(var/mob/M in living_mob_list)
 			if(AreConnectedZLevels(GET_Z(M), z))
 				shake_camera(M, 3, 3)
@@ -96,6 +88,13 @@
 		if(istype(S))
 			smes = S
 			break
+
+/obj/item/ship_ammunition/leviathan
+	name = "zero-point artillery beam"
+	desc = "A beam of pure energy."
+	caliber = SHIP_CALIBER_ZTA
+	impact_type = SHIP_AMMO_IMPACT_ZTA
+	overmap_icon_state = "heavy_pulse"
 
 /obj/item/projectile/ship_ammo/leviathan
 	name = "zero-point artillery beam"

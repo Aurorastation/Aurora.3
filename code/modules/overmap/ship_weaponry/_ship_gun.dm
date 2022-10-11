@@ -3,11 +3,21 @@
 	desc = "You shouldn't be seeing this."
 	icon = 'icons/obj/machines/ship_guns/longbow.dmi'
 	active_power_usage = 50000
+	var/heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg' //The sound in the immediate firing area. Very loud.
+	var/light_firing_sound = 'sound/effects/explosionfar.ogg' //The sound played when you're a few walls away. Kind of loud.
+	var/projectile_type = /obj/item/projectile/ship_ammo
+	var/charging_sound //The sound played when the gun is charging up.
+	var/caliber = SHIP_CALIBER_NONE
+	var/use_ammunition = TRUE //If we use physical ammo or not. Note that the creation of ammunition in pre_fire() is still REQUIRED! This just skips the initial check for ammunition.
+	var/firing_effects
+	var/screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
+	var/ammo_per_shot = 1
+	var/firing = FALSE //Helper variable in case we need to track if we're firing or not. Must be set manually. Used for the Leviathan.
+	var/load_time = 5 SECONDS
+
 	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
 	var/obj/structure/ship_weapon_dummy/barrel
 	var/list/obj/item/ship_ammunition/ammunition = list()
-	var/load_time = 5 SECONDS
-	var/datum/ship_weapon/weapon
 
 /obj/machinery/ship_weapon/Initialize(mapload)
 	..()
@@ -15,26 +25,61 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/ship_weapon/LateInitialize()
-	weapon = new weapon()
-	weapon.controller = src
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
 	if(linked)
 		LAZYADD(linked.ship_weapons, src)
-	name = weapon.name
-	desc = weapon.desc
 	for(var/obj/structure/ship_weapon_dummy/SD in orange(1, src))
 		SD.connect(src)
 
 /obj/machinery/ship_weapon/Destroy()
-	QDEL_NULL(weapon)
 	for(var/obj/O in ammunition)
 		qdel(O)
 	ammunition.Cut()
 	barrel = null
 	return ..()
+
+/obj/machinery/ship_weapon/proc/pre_fire(var/atom/target, var/obj/effect/landmark/landmark) //We can fire, so what do we do before that? Think like a laser charging up.
+	fire(target, landmark)
+	on_fire()
+	return TRUE
+
+/obj/machinery/ship_weapon/proc/on_fire() //We just fired! Cool effects!
+	if(firing_effects & FIRING_EFFECT_FLAG_EXTREMELY_LOUD)
+		var/list/connected_z_levels = GetConnectedZlevels(z)
+		for(var/mob/living/carbon/human/H in player_list)
+			if(H.z in connected_z_levels)
+				playsound(H, heavy_firing_sound, 100)
+	else if(firing_effects & FIRING_EFFECT_FLAG_SILENT)
+		for(var/mob/living/carbon/human/H in get_area(src))
+			playsound(H, heavy_firing_sound, 100)
+	else
+		for(var/mob/living/carbon/human/H in get_area(src))
+			playsound(H, heavy_firing_sound, 100)
+		var/list/connected_z_levels = GetConnectedZlevels(z)
+		for(var/mob/living/carbon/human/H in player_list)
+			if(H.z in connected_z_levels)
+				playsound(H, light_firing_sound, 50)
+	if(screenshake_type == SHIP_GUN_SCREENSHAKE_ALL_MOBS)
+		var/list/connected_z_levels = GetConnectedZlevels(z)
+		for(var/mob/living/H in living_mob_list)
+			if(H.z in connected_z_levels)
+				to_chat(H, SPAN_DANGER("<font size=4>Your legs buckle as the ground shakes beneath you!</font>"))
+				shake_camera(H, 10, 5)
+	else if(screenshake_type == SHIP_GUN_SCREENSHAKE_SCREEN)
+		for(var/mob/living/carbon/human/H in get_area(src))
+			if(!H.buckled_to)
+				to_chat(H, SPAN_DANGER("<font size=4>Your legs buckle as the ground shakes beneath you!</font>"))
+				shake_camera(H, 10, 5)
+	if(firing_effects & FIRING_EFFECT_FLAG_THROW_MOBS)
+		var/list/connected_z_levels = GetConnectedZlevels(z)
+		for(var/mob/M in living_mob_list)
+			if(M.z in connected_z_levels)
+				M.throw_at_random(FALSE, 7, 10)
+	flick("weapon_firing", src)
+	return TRUE
 
 /obj/machinery/ship_weapon/proc/enable()
 	return
@@ -47,14 +92,14 @@
 	SA.forceMove(src)
 
 /obj/machinery/ship_weapon/proc/firing_checks() //Check if we CAN fire.
-	if((!weapon.use_ammunition || length(ammunition)) && !stat)
+	if((!use_ammunition || length(ammunition)) && !stat)
 		return TRUE
 	else
 		return FALSE
 
 /obj/machinery/ship_weapon/proc/firing_command(var/atom/target, var/obj/landmark)
 	if(firing_checks())
-		var/result = weapon.pre_fire(target, landmark)
+		var/result = pre_fire(target, landmark)
 		if(result)
 			use_power_oneoff(active_power_usage)
 			return SHIP_GUN_FIRING_SUCCESSFUL
@@ -66,7 +111,7 @@
 	if(!barrel)
 		crash_with("No barrel found for [src] at [x] [y] [z]! Cannot fire!")
 	var/turf/firing_turf = get_step(barrel, barrel.dir)
-	var/obj/item/projectile/ship_ammo/projectile = new weapon.projectile_type(firing_turf)
+	var/obj/item/projectile/ship_ammo/projectile = new projectile_type(firing_turf)
 	projectile.name = SA.name
 	projectile.desc = SA.desc
 	projectile.ammo = SA
@@ -93,7 +138,7 @@
 	return SA
 
 /obj/machinery/ship_weapon/proc/get_caliber()
-	return weapon.caliber
+	return caliber
 
 //The fake objects below handle things like density/opaqueness for empty tiles, since the icons for guns are larger than 32x32.
 //What kind of dinky ass gun is only 32x32?
@@ -125,8 +170,8 @@
 
 /obj/structure/ship_weapon_dummy/proc/connect(var/obj/machinery/ship_weapon/SW)
 	connected = SW
-	name = SW.weapon.name
-	desc = SW.weapon.name
+	name = SW.name
+	desc = SW.name
 	if(is_barrel)
 		SW.barrel = src
 	for(var/obj/structure/ship_weapon_dummy/SD in orange(1, src))
@@ -154,10 +199,10 @@
 	. = ..()
 	var/obj/machinery/ship_weapon/big_gun = input(user, "Select a gun.", "Gunnery Control") as null|anything in linked.ship_weapons
 	if(!big_gun)
-		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Aborting.\""))
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] displays an error message, \"Aborting.\""))
 		return
 	if(!linked.targeting)
-		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No target designated.\""))
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] displays an error message, \"No target designated.\""))
 		playsound(src, 'sound/machines/buzz-sigh.ogg')
 		return
 	var/list/obj/effect/possible_entry_points = list()
@@ -169,7 +214,7 @@
 			possible_entry_points[O.name] = O
 	var/targeted_landmark = input(user, "Select an entry point.", "Gunnery Control") as null|anything in possible_entry_points
 	if(!targeted_landmark)
-		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No entry point selected. Aborting.\""))
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] displays an error message, \"No entry point selected. Aborting.\""))
 		playsound(src, 'sound/machines/buzz-sigh.ogg')
 		return
 	var/obj/effect/landmark = possible_entry_points[targeted_landmark]
@@ -178,10 +223,10 @@
 		playsound(src, 'sound/effects/alert.ogg')
 		var/result = big_gun.firing_command(linked.targeting, landmark)
 		if(result == SHIP_GUN_ERROR_NO_AMMO)
-			visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Ammunition or power insufficient for firing sequence. Aborting.\""))
+			visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] displays an error message, \"Ammunition or power insufficient for firing sequence. Aborting.\""))
 			playsound(src, 'sound/machines/buzz-sigh.ogg')
 		if(result == SHIP_GUN_FIRING_SUCCESSFUL)
 			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Firing sequence completed!\""))
 	else
-		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"No target given. Aborting.\""))
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] displays an error message, \"No target given. Aborting.\""))
 		playsound(src, 'sound/machines/buzz-sigh.ogg')
