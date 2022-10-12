@@ -338,7 +338,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -1335,7 +1335,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -6688,6 +6688,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
+"mc" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/command{
+	id_tag = "conference_room";
+	name = "Conference Room";
+	req_one_access = list(19,38,72)
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/meeting_room)
 "md" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/captain)
@@ -14226,7 +14235,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	name = "Break Room";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -15972,7 +15981,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -16619,7 +16628,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor,
@@ -19516,7 +19525,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -28466,11 +28475,6 @@
 /area/tcommsat/chamber)
 "ZP" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/command{
-	id_tag = "conference_room";
-	name = "Conference Room";
-	req_one_access = list(19,38)
-	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
 "ZQ" = (
@@ -50294,7 +50298,7 @@ ca
 UF
 Bh
 Dg
-ZP
+mc
 Ll
 Ll
 Ll
