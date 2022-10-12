@@ -22,6 +22,7 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 	var/list/shuttles_to_initialize = list()     //A queue for shuttles to initialize at the appropriate time.
 	var/list/sectors_to_initialize               //Used to find all sector objects at the appropriate time.
 	var/list/initialized_sectors = list()
+	var/list/entry_points_to_initialize = list() //Entrypoints must initialize after the shuttles are done.
 	var/block_queue = TRUE
 
 	var/tmp/list/working_shuttles
@@ -59,6 +60,13 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 		return
 	initialize_shuttles()
 	initialize_sectors()
+	initialize_entrypoints()
+
+/datum/controller/subsystem/shuttle/proc/initialize_entrypoints()
+	for(var/obj/effect/landmark/entry_point/EP in entry_points_to_initialize)
+		var/obj/effect/overmap/visitable/ship/S = EP.get_candidate()
+		if(istype(S))
+			S.entry_points += EP
 
 /datum/controller/subsystem/shuttle/proc/initialize_shuttles()
 	var/list/shuttles_made = list()

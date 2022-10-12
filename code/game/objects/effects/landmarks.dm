@@ -266,9 +266,7 @@ var/list/ruin_landmarks = list()
 
 /obj/effect/landmark/entry_point/LateInitialize()
 	if(current_map.use_overmap)
-		var/obj/effect/overmap/visitable/ship/S = get_candidate()
-		if(istype(S))
-			LAZYADD(S.entry_points, src)
+		SSshuttle.entry_points_to_initialize += src
 	name += " [x], [y]"
 
 /obj/effect/landmark/entry_point/proc/get_candidate()
