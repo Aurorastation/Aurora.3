@@ -689,6 +689,12 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
+"liN" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/ee_shuttle)
 "lpe" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/ee_shuttle,
@@ -1144,6 +1150,17 @@
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
+"vmX" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "ee_shuttle_out"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor,
+/area/shuttle/ee_shuttle)
 "vwF" = (
 /turf/unsimulated/wall/fakepdoor,
 /area/ship/ee_spy_ship)
@@ -1235,6 +1252,9 @@
 "wZf" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/ee_shuttle)
 "xbK" = (
@@ -1255,6 +1275,15 @@
 "xRX" = (
 /turf/template_noop,
 /area/space)
+"xUv" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/ee_shuttle)
 "yjk" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/ee_spy_ship)
@@ -34246,7 +34275,7 @@ xoc
 xoc
 xoc
 heP
-heP
+vmX
 xoc
 xoc
 xoc
@@ -34765,7 +34794,7 @@ inf
 inf
 wfy
 ajL
-cQs
+xUv
 aow
 yjk
 exg
@@ -35274,7 +35303,7 @@ xoc
 xoc
 xoc
 xoc
-xoc
+liN
 xoc
 xoc
 xoc

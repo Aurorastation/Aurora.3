@@ -418,6 +418,14 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
+"czF" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engines"
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "cFy" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
@@ -588,6 +596,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
+"eBL" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, fore-side armoury"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/elyran_strike_craft)
 "eCG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -664,6 +678,18 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/elyran_shuttle)
+"fnv" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, aft-side armoury"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/elyran_strike_craft)
+"frM" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "aft, hangar"
+	},
+/turf/unsimulated/wall/fakepdoor,
+/area/ship/elyran_strike_craft)
 "fAD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
@@ -759,6 +785,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
+"grj" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "fore, port engines"
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "gxW" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
@@ -808,6 +842,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"hsY" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "hvT" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
@@ -943,6 +984,12 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/carpet,
 /area/ship/elyran_strike_craft)
+"jGh" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, bathroom"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/elyran_strike_craft)
 "jJJ" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
@@ -1012,6 +1059,12 @@
 	dir = 8
 	},
 /turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"kHe" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "aft, armoury"
+	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/elyran_strike_craft)
 "kNK" = (
 /obj/machinery/telecomms/allinone/ship,
@@ -1116,6 +1169,15 @@
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/ship/elyran_strike_craft)
+"lMU" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/elyran_shuttle)
 "lNt" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/food/drinks/waterbottle,
@@ -1203,6 +1265,9 @@
 /area/ship/elyran_strike_craft)
 "mXc" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/elyran_shuttle)
 "mXz" = (
@@ -1282,6 +1347,9 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "elyran_ship_out"
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, airlock"
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -1403,6 +1471,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"pZa" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, medbay"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/elyran_strike_craft)
 "pZC" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -1512,6 +1586,12 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
+"rxm" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, briefing room"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/elyran_strike_craft)
 "rBF" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/effect/floor_decal/spline/plain/corner{
@@ -1568,6 +1648,15 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_strike_craft)
+"shx" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, compartment"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/elyran_shuttle)
 "spD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1653,6 +1742,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"uih" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, hallway"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/elyran_strike_craft)
 "urK" = (
 /obj/effect/decal/fake_object{
 	desc = "An SUPB Pod, also know as a Single Use Personal Boarding Pod. These pods are utilized across the Spur for interdictions and hostile boarding actions across the Spur.";
@@ -1674,10 +1769,22 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"uvL" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, crew storage"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/elyran_strike_craft)
 "uDF" = (
 /obj/effect/shuttle_landmark/elyran_strike_craft/transit,
 /turf/space/transit/south,
 /area/space)
+"uNI" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, office"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/elyran_strike_craft)
 "uYO" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -1714,6 +1821,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
+"vxJ" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "freight_shuttle_out"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor,
+/area/shuttle/elyran_shuttle)
 "vFL" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -30634,16 +30752,16 @@ xRX
 xRX
 xRX
 lxP
+pZa
+lxP
+lxP
+lxP
+uih
 lxP
 lxP
 lxP
 lxP
-lxP
-lxP
-lxP
-lxP
-lxP
-lxP
+uNI
 lxP
 vOv
 fAD
@@ -31420,7 +31538,7 @@ vOv
 aHt
 hcd
 nrx
-fAD
+hsY
 xRX
 xRX
 xRX
@@ -32168,7 +32286,7 @@ xRX
 xRX
 xRX
 xRX
-rtf
+czF
 eIk
 aou
 wZf
@@ -34480,7 +34598,7 @@ xRX
 xRX
 xRX
 xRX
-lxP
+uvL
 aVx
 atj
 quk
@@ -34497,7 +34615,7 @@ mXz
 mXz
 mXz
 aXh
-aXh
+vxJ
 mXz
 mXz
 mXz
@@ -35016,10 +35134,10 @@ bgD
 bgD
 xpv
 hOg
-oFn
+lMU
 cWy
 pcX
-wui
+frM
 xRX
 xRX
 xRX
@@ -35525,7 +35643,7 @@ mXz
 mXz
 mXz
 mXz
-aeM
+shx
 aeM
 mXz
 mXz
@@ -35765,7 +35883,7 @@ xRX
 xRX
 xRX
 xRX
-lxP
+jGh
 aoJ
 aoJ
 aoJ
@@ -37822,7 +37940,7 @@ xRX
 xRX
 xRX
 xRX
-rtf
+grj
 efi
 eys
 vOv
@@ -38616,7 +38734,7 @@ aBb
 jPG
 aBb
 atP
-lxP
+kHe
 xRX
 xRX
 xRX
@@ -39371,7 +39489,7 @@ xRX
 xRX
 xRX
 xRX
-lxP
+rxm
 lxP
 lxP
 vOv
@@ -39380,10 +39498,10 @@ rLq
 xAg
 vOv
 lxP
+fnv
 lxP
 lxP
-lxP
-lxP
+eBL
 lxP
 lxP
 lxP

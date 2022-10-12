@@ -5,6 +5,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
+"aaJ" = (
+/obj/effect/landmark/entry_point/south{
+	name = "fore, central"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/ship/tirakqi_freighter)
 "abb" = (
 /obj/structure/mirror{
 	pixel_x = 32
@@ -38,8 +44,8 @@
 "auB" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell{
-	req_access = "208";
-	name = "Engineering"
+	name = "Engineering";
+	req_access = "208"
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
@@ -54,8 +60,8 @@
 /area/ship/tirakqi_freighter)
 "azW" = (
 /obj/machinery/door/airlock/skrell/grey{
-	req_access = "208";
-	name = "Maintenance"
+	name = "Maintenance";
+	req_access = "208"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -64,6 +70,12 @@
 /obj/structure/table/skrell,
 /obj/item/deck/cards,
 /turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"aKP" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, maintenance"
+	},
+/turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "aLZ" = (
 /turf/simulated/floor/tiled/freezer,
@@ -83,8 +95,8 @@
 /area/ship/tirakqi_freighter)
 "aWB" = (
 /obj/item/wrench{
-	pixel_y = 4;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -114,6 +126,25 @@
 /obj/random/keg,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
+"bll" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/skrell,
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"bnM" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "tirakqi_shuttle_out"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor,
+/area/shuttle/tirakqi_shuttle)
 "bsE" = (
 /obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -130,8 +161,8 @@
 "bQs" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell{
-	req_access = "208";
-	name = "Living Quarters"
+	name = "Living Quarters";
+	req_access = "208"
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
@@ -144,8 +175,8 @@
 /area/ship/tirakqi_freighter)
 "cqy" = (
 /obj/machinery/door/airlock/skrell/grey{
-	req_access = "208";
-	name = "Hangar"
+	name = "Hangar";
+	req_access = "208"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -350,8 +381,8 @@
 "exg" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell{
-	req_access = "208";
-	name = "Medbay"
+	name = "Medbay";
+	req_access = "208"
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
@@ -435,6 +466,15 @@
 /obj/structure/table/skrell,
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"fbE" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, port engines"
+	},
+/turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "fhi" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -568,6 +608,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
+"fZi" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, airlock"
+	},
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
 "fZq" = (
 /obj/machinery/light/skrell{
 	dir = 8
@@ -577,8 +623,8 @@
 "gcq" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/skrell/grey{
-	req_access = "208";
-	name = "Maintenance"
+	name = "Maintenance";
+	req_access = "208"
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -704,6 +750,12 @@
 /obj/structure/sign/flag/traverse/left,
 /turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
+"gTw" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, medbay"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/ship/tirakqi_freighter)
 "gWl" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -787,8 +839,8 @@
 "hAg" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell/grey{
-	req_access = "208";
-	name = "Bridge"
+	name = "Bridge";
+	req_access = "208"
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
@@ -875,8 +927,8 @@
 /area/shuttle/tirakqi_shuttle)
 "ifl" = (
 /obj/machinery/door/airlock/skrell/grey{
-	req_access = "208";
-	name = "Bridge"
+	name = "Bridge";
+	req_access = "208"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -1178,6 +1230,12 @@
 /obj/structure/window/shuttle/skrell,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
+"kVr" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, burn chamber"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/ship/tirakqi_freighter)
 "kWS" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/meter,
@@ -1325,8 +1383,8 @@
 "mwP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell{
-	req_access = "208";
-	name = "Mess Hall"
+	name = "Mess Hall";
+	req_access = "208"
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
@@ -1514,6 +1572,12 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
+"pkb" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, hangar fore side"
+	},
+/turf/unsimulated/wall/fakepdoor,
+/area/ship/tirakqi_freighter)
 "pke" = (
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/mechanical,
@@ -1535,6 +1599,12 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tirakqi_shuttle)
+"puh" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, bridge side"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/ship/tirakqi_freighter)
 "pwR" = (
 /obj/structure/bed/stool/chair/office/hover/command{
 	dir = 1
@@ -1560,6 +1630,15 @@
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
 /area/space)
+"pSj" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/tirakqi_shuttle)
 "pXP" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -1688,6 +1767,9 @@
 "rhz" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/skrell,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tirakqi_shuttle)
 "rnB" = (
@@ -1815,6 +1897,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
+"unD" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, bathroom"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/ship/tirakqi_freighter)
 "usf" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
@@ -1827,6 +1915,18 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
+"uAu" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, hangar central"
+	},
+/turf/unsimulated/wall/fakepdoor,
+/area/ship/tirakqi_freighter)
+"uHk" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, hangar aft side"
+	},
+/turf/unsimulated/wall/fakepdoor,
+/area/ship/tirakqi_freighter)
 "uWn" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
@@ -1836,6 +1936,15 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tirakqi_shuttle)
+"val" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, central engines"
+	},
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
 "vdz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
@@ -1915,8 +2024,8 @@
 "vUm" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell/grey{
-	req_access = "208";
-	name = "Hangar"
+	name = "Hangar";
+	req_access = "208"
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
@@ -1937,6 +2046,15 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
+"wuB" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
+	},
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/wall/shuttle/skrell/cardinal,
+/area/shuttle/tirakqi_shuttle)
 "wAC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1998,6 +2116,23 @@
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"ybz" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "north, starboard engines"
+	},
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"ycL" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/skrell,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "yge" = (
 /obj/structure/table/rack,
@@ -31165,12 +31300,12 @@ xRX
 xRX
 qUg
 dQZ
+kVr
 dQZ
 dQZ
 dQZ
 dQZ
-dQZ
-dQZ
+aKP
 dQZ
 dQZ
 dQZ
@@ -31671,7 +31806,7 @@ xRX
 xRX
 kPs
 qtX
-qtX
+fZi
 ina
 xRX
 xRX
@@ -32431,12 +32566,12 @@ xRX
 qUg
 dQZ
 dQZ
+unD
 dQZ
 dQZ
 dQZ
 dQZ
-dQZ
-dQZ
+gTw
 dQZ
 dQZ
 dQZ
@@ -32976,7 +33111,7 @@ xge
 qtX
 vdz
 fhi
-eCV
+fbE
 xRX
 xRX
 xRX
@@ -34480,7 +34615,7 @@ xRX
 xRX
 xRX
 xRX
-dQZ
+aaJ
 dQZ
 dJB
 fXm
@@ -34518,7 +34653,7 @@ dQZ
 spX
 vdz
 fhi
-eCV
+val
 xRX
 xRX
 xRX
@@ -35794,7 +35929,7 @@ hxC
 hxC
 hxC
 lEL
-lEL
+bnM
 hxC
 hxC
 hxC
@@ -36313,11 +36448,11 @@ euz
 euz
 jnS
 ibU
-arp
+pSj
 dQZ
 fko
 fhi
-eCV
+ybz
 xRX
 xRX
 xRX
@@ -36812,7 +36947,7 @@ ifl
 hAg
 dQZ
 dQZ
-pxn
+bll
 dQZ
 dQZ
 avA
@@ -36822,7 +36957,7 @@ hxC
 hxC
 hxC
 hxC
-hXr
+wuB
 hXr
 hxC
 hxC
@@ -37570,7 +37705,7 @@ xRX
 xRX
 xRX
 xRX
-pxn
+ycL
 eMT
 rrF
 oLC
@@ -38093,7 +38228,7 @@ dQZ
 dQZ
 dQZ
 dQZ
-dQZ
+puh
 dQZ
 ltf
 xRX
@@ -38105,11 +38240,11 @@ xRX
 kfX
 dQZ
 gvM
+pkb
 gvM
+uAu
 gvM
-gvM
-gvM
-gvM
+uHk
 gvM
 dQZ
 dQZ

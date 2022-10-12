@@ -991,6 +991,9 @@
 /area/ship/fsf_patrol_ship)
 "hjW" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/fsf_shuttle)
 "hsz" = (
@@ -1644,6 +1647,17 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/fsf_patrol_ship)
+"lVW" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "sfa_shuttle_out"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor,
+/area/shuttle/fsf_shuttle)
 "lXE" = (
 /obj/structure/table/steel,
 /obj/item/pen/drafting/blue,
@@ -1683,6 +1697,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
+"mme" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/fsf_shuttle)
 "msC" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
@@ -2824,6 +2847,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
+"xWV" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/fsf_shuttle)
 "yin" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -34307,7 +34336,7 @@ nic
 nic
 nic
 aEq
-aEq
+lVW
 nic
 nic
 nic
@@ -34826,7 +34855,7 @@ mET
 mET
 nBN
 oKX
-qjY
+mme
 quc
 sgx
 xRX
@@ -35335,7 +35364,7 @@ nic
 nic
 nic
 nic
-nic
+xWV
 nic
 nic
 nic

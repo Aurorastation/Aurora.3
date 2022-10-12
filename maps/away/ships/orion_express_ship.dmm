@@ -280,6 +280,12 @@
 	},
 /turf/template_noop,
 /area/ship/orion_express_ship)
+"bHV" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, misc storage"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/orion_express_ship)
 "bIQ" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -306,6 +312,9 @@
 	master_tag = "orion_traveler_n_port";
 	name = "exterior access button";
 	pixel_x = -32
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -554,6 +563,12 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
+"dwE" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, engine compartment"
+	},
+/turf/simulated/wall/shuttle/scc,
+/area/shuttle/orion_express_shuttle)
 "dGE" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -1405,6 +1420,15 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
+"kOl" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, starboard engines"
+	},
+/turf/simulated/floor,
+/area/shuttle/orion_express_shuttle)
 "kRQ" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms"
@@ -2230,6 +2254,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
+"qMt" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, port engines"
+	},
+/turf/simulated/floor,
+/area/shuttle/orion_express_shuttle)
 "qRJ" = (
 /obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/tiled/dark,
@@ -2384,6 +2417,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
+"scs" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, engine compartment"
+	},
+/turf/simulated/wall/shuttle/scc,
+/area/shuttle/orion_express_shuttle)
 "sfw" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -3198,6 +3237,12 @@
 	id = "orion_warehouse"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/orion_express_ship)
+"wNT" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, lounge"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/orion_express_ship)
 "wPe" = (
 /obj/machinery/appliance/cooker/stove,
@@ -33827,7 +33872,7 @@ xRX
 xRX
 xRX
 xRX
-xuX
+dwE
 xuX
 xuX
 xRX
@@ -34343,7 +34388,7 @@ mNJ
 aYD
 nAQ
 ccK
-yfz
+qMt
 xRX
 riA
 riA
@@ -34858,7 +34903,7 @@ xuX
 uzX
 xuX
 xuX
-riA
+wNT
 xsE
 xsE
 xsE
@@ -36400,7 +36445,7 @@ kLL
 kcS
 xuX
 soM
-riA
+bHV
 xzg
 mkT
 nYY
@@ -37170,7 +37215,7 @@ uVR
 aYD
 gjQ
 ccK
-yfz
+kOl
 xRX
 riA
 riA
@@ -37682,7 +37727,7 @@ xRX
 xRX
 xRX
 xRX
-xuX
+scs
 xuX
 xuX
 xRX

@@ -1076,6 +1076,9 @@
 /area/ship/sfa_patrol_ship)
 "hjW" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/sfa_shuttle)
 "hsz" = (
@@ -1398,6 +1401,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
+"jun" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "sfa_shuttle_out"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor,
+/area/shuttle/sfa_shuttle)
 "jxF" = (
 /obj/structure/bed/roller,
 /obj/structure/curtain/open/medical,
@@ -1693,6 +1707,15 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/sfa_shuttle)
+"lIM" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/sfa_shuttle)
 "lNu" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -1891,6 +1914,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
+"nsV" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/sfa_shuttle)
 "ntt" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol{
@@ -34445,7 +34474,7 @@ mLa
 mLa
 mLa
 aEq
-aEq
+jun
 mLa
 mLa
 mLa
@@ -34964,7 +34993,7 @@ mET
 mET
 nBN
 oKX
-qjY
+lIM
 mkb
 gtX
 xRX
@@ -35473,7 +35502,7 @@ mLa
 mLa
 mLa
 mLa
-mLa
+nsV
 mLa
 mLa
 mLa

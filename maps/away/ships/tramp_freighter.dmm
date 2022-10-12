@@ -122,6 +122,9 @@
 /area/shuttle/freighter_shuttle)
 "aAY" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "aBb" = (
@@ -764,6 +767,17 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
+"ePO" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "freight_shuttle_out"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor,
+/area/shuttle/freighter_shuttle)
 "eTq" = (
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor,
@@ -1811,6 +1825,15 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"sGP" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/freighter_shuttle)
 "sKL" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, cleaning room"
@@ -2030,6 +2053,15 @@
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"xeK" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
+	},
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/freighter_shuttle)
 "xok" = (
 /obj/structure/curtain/black{
 	name = "DO NOT ENTER"
@@ -34048,7 +34080,7 @@ phz
 phz
 phz
 hZq
-hZq
+ePO
 phz
 phz
 phz
@@ -34567,7 +34599,7 @@ gqO
 gqO
 bWO
 ctX
-dTw
+sGP
 lRa
 wZf
 aHt
@@ -35076,7 +35108,7 @@ phz
 phz
 phz
 phz
-bgD
+xeK
 bgD
 phz
 phz

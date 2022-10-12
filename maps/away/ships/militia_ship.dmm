@@ -201,6 +201,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
+"bdy" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/militia_shuttle)
 "bey" = (
 /obj/machinery/light{
 	dir = 8;
@@ -1123,6 +1132,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
+"pKf" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "militia_shuttle_out"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor,
+/area/shuttle/militia_shuttle)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
 /turf/template_noop,
@@ -1450,6 +1470,14 @@
 /obj/effect/shuttle_landmark/militia_shuttle/transit,
 /turf/space/transit/south,
 /area/space)
+"wtz" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary{
+	name = "military hull"
+	},
+/area/shuttle/militia_shuttle)
 "wxY" = (
 /obj/machinery/light{
 	dir = 8;
@@ -1497,6 +1525,9 @@
 /area/ship/militia_ship)
 "wZf" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/militia_shuttle)
 "xbK" = (
@@ -34582,7 +34613,7 @@ xoc
 xoc
 xoc
 heP
-heP
+pKf
 xoc
 xoc
 xoc
@@ -35101,7 +35132,7 @@ inf
 inf
 wfy
 ajL
-cQs
+bdy
 aow
 yjk
 yjk
@@ -35610,7 +35641,7 @@ xoc
 xoc
 xoc
 xoc
-xoc
+wtz
 xoc
 xoc
 xoc

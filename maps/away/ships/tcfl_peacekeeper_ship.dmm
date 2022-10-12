@@ -36,6 +36,12 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
+"agE" = (
+/obj/effect/landmark/entry_point/south{
+	name = "fore, storage"
+	},
+/turf/simulated/wall/shuttle/legion,
+/area/shuttle/tcfl_shuttle)
 "aiG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -1475,6 +1481,12 @@
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
+"jeJ" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, engines"
+	},
+/turf/simulated/wall/shuttle/legion,
+/area/shuttle/tcfl_shuttle)
 "jmw" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/table/rack,
@@ -1812,6 +1824,12 @@
 /obj/effect/shuttle_landmark/tcfl_shuttle/hangar,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
+"kSc" = (
+/obj/effect/landmark/entry_point/south{
+	name = "fore, medbay"
+	},
+/turf/simulated/wall/shuttle/legion,
+/area/shuttle/tcfl_shuttle)
 "kSQ" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/electrical,
@@ -1967,6 +1985,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
+"lWG" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tcfl_shuttle)
 "lXl" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -2756,6 +2782,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
+"rxR" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tcfl_shuttle)
 "ryh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/shuttle/tan,
@@ -2965,6 +2999,14 @@
 "sWY" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/tcfl_peacekeeper_ship)
+"sXa" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tcfl_shuttle)
 "taa" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -3195,6 +3237,12 @@
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"uCI" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, engines"
+	},
+/turf/simulated/wall/shuttle/legion,
+/area/shuttle/tcfl_shuttle)
 "uIP" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -27773,7 +27821,7 @@ pPl
 wJV
 wJV
 wJV
-wJV
+uCI
 pPl
 dfd
 sWY
@@ -28796,7 +28844,7 @@ xRX
 xoc
 sWY
 ive
-wJV
+kSc
 aOi
 cBz
 cBz
@@ -29062,7 +29110,7 @@ cdt
 wJV
 wJV
 abb
-abb
+sXa
 wJV
 jnu
 jrp
@@ -29824,7 +29872,7 @@ xRX
 oCQ
 sWY
 ive
-abb
+lWG
 beE
 cZd
 etY
@@ -30604,7 +30652,7 @@ cdt
 wJV
 wJV
 abb
-abb
+rxR
 wJV
 wJV
 wJV
@@ -30852,7 +30900,7 @@ xRX
 xoc
 sWY
 ive
-wJV
+agE
 btE
 dkC
 eGO
@@ -31885,7 +31933,7 @@ pPl
 wJV
 wJV
 wJV
-wJV
+jeJ
 pPl
 dfd
 sWY
