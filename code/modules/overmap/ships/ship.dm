@@ -27,6 +27,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	var/last_burn = 0                   // worldtime when ship last acceleated
 	var/burn_delay = 1 SECOND           // how often ship can do burns
 	var/fore_dir = NORTH                // what dir ship flies towards for purpose of moving stars effect procs
+	var/last_combat_roll = 0
 
 	var/list/engines = list()
 	var/engines_state = 0 //global on/off toggle for all engines
@@ -252,6 +253,25 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 /obj/effect/overmap/visitable/ship/proc/get_landed_info()
 	return "This ship cannot land."
+
+/obj/effect/overmap/visitable/ship/proc/can_combat_roll()
+	if(!can_burn())
+		return FALSE
+	var/cooldown = min(vessel_mass / 100, 100) SECONDS //max 100s for horizon, 30s for smaller ships
+	if(world.time >= (last_combat_roll + cooldown))
+		return TRUE
+
+/obj/effect/overmap/visitable/ship/proc/combat_roll(var/new_dir)
+	burn()
+	forceMove(get_step(src, new_dir))
+	for(var/mob/living/L in living_mob_list)
+		if(L.z in map_z)
+			to_chat(L, SPAN_DANGER("<font size=4>The ship rapidly inclines under your feet!</font>"))
+			var/turf/T = get_step_away(get_turf(L), get_step(L, new_dir), 10)
+			L.throw_at(T, 10, 10)
+			shake_camera(L, 2 SECONDS, 10)
+			sound_to(L, sound('sound/effects/combatroll.ogg'))
+	last_combat_roll = world.time
 
 #undef MOVING
 #undef SANITIZE_SPEED

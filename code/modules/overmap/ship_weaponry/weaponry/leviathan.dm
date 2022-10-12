@@ -95,6 +95,10 @@
 	impact_type = SHIP_AMMO_IMPACT_ZTA
 	overmap_icon_state = "heavy_pulse"
 
+/obj/item/ship_ammunition/leviathan/Initialize()
+	. = ..()
+	set_light(3, 3, LIGHT_COLOR_PURPLE)
+
 /obj/item/projectile/ship_ammo/leviathan
 	name = "zero-point artillery beam"
 	desc = "A concentrated stream of pure energy."

@@ -489,3 +489,4 @@ var/list/slot_equipment_priority = list( \
 //When you drop an extremely heavy 406mm shell onto your foot. Oops!
 /mob/living/carbon/proc/throw_fail_consequences(var/obj/item/I)
 	apply_damage(45, BRUTE, pick(list(BP_L_FOOT, BP_R_FOOT)), I, armor_pen = 30)
+	I.throw_fail_consequences(src)

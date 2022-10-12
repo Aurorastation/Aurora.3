@@ -7,7 +7,7 @@
 	caliber = SHIP_CALIBER_406MM
 	ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE
 	var/obj/item/primer/primer
-	var/obj/item/warhead/warhead
+	var/obj/item/warhead/longbow/warhead
 
 /obj/item/ship_ammunition/longbow/attackby(obj/item/I, mob/user)
 	if(ishuman(user))
@@ -64,6 +64,14 @@
 /obj/item/ship_ammunition/longbow/get_speed()
 	return primer ? primer.speed : 0
 
+/obj/item/ship_ammunition/longbow/throw_fail_consequences(var/mob/living/carbon/C)
+	. = ..()
+	if(warhead)
+		if(prob(25))
+			visible_message(SPAN_DANGER("\The [src] goes off!"))
+			warhead.cookoff()
+			qdel(src)
+
 /obj/item/primer
 	name = "primer"
 	desc = "This is a medium power primer for Longbow warheads."
@@ -102,6 +110,26 @@
 	warhead_state = "high_ex"
 	caliber = SHIP_CALIBER_406MM
 	warhead_type = SHIP_AMMO_IMPACT_HE
+	var/cookoff_devastation = 2
+	var/cookoff_heavy = 2
+	var/cookoff_light = 4
+
+/obj/item/warhead/longbow/throw_impact(atom/hit_atom)
+	. = ..()
+	if(prob(50))
+		cookoff()
+
+/obj/item/warhead/longbow/ex_act(severity)
+	cookoff()
+
+/obj/item/warhead/longbow/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+	if(exposed_temperature >= T0C+200)
+		cookoff()
+
+/obj/item/warhead/longbow/proc/cookoff()
+	visible_message(SPAN_DANGER("\The [src] cooks off and explodes!"))
+	explosion(get_turf(src), cookoff_devastation, cookoff_heavy, cookoff_light)
+	qdel(src)
 
 /obj/item/warhead/longbow/ap
 	name = "longbow armor-piercing warhead"
@@ -109,6 +137,9 @@
 	icon_state = "armor_piercing_obj"
 	warhead_state = "armor_piercing"
 	warhead_type = SHIP_AMMO_IMPACT_AP
+	cookoff_devastation = 1
+	cookoff_heavy = 2
+	cookoff_light = 6
 
 /obj/item/warhead/longbow/bunker
 	name = "longbow bunker-buster warhead"
@@ -116,6 +147,9 @@
 	icon_state = "bunker_buster_obj"
 	warhead_state = "bunker_buster"
 	warhead_type = SHIP_AMMO_IMPACT_BUNKERBUSTER
+	cookoff_devastation = 0
+	cookoff_heavy = 1
+	cookoff_light = 4
 
 /obj/item/ship_ammunition/longbow/preset_he/Initialize()
 	. = ..()

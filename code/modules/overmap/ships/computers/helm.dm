@@ -117,6 +117,7 @@
 		data["autopilot"] = autopilot
 		data["manual_control"] = viewing_overmap(user)
 		data["canburn"] = connected.can_burn()
+		data["cancombatroll"] = connected.can_combat_roll()
 		data["accellimit"] = accellimit*1000
 
 		var/speed = round(connected.get_speed()*1000, 0.01)
@@ -217,6 +218,14 @@
 	if (href_list["reset"])
 		dx = 0
 		dy = 0
+
+	if (href_list["roll"])
+		var/ndir = text2num(href_list["roll"])
+		if(ishuman(usr))
+			var/mob/living/carbon/human/H = usr
+			visible_message(SPAN_DANGER("[H] starts tilting the yoke all the way to the [ndir == WEST ? "right" : "left"]!"))
+			if(do_after(H, 1 SECOND))
+				connected.combat_roll(ndir)
 
 	if (href_list["manual"])
 		viewing_overmap(usr) ? unlook(usr) : look(usr)

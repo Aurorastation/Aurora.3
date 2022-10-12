@@ -203,27 +203,27 @@
 	<large>Confidential Information Report</large></b></center><hr>\
 	<b>Classification Index:</b> <font color='red'>TOP SECRET</font>, protect at all costs <field><hr><b>Entrusted Personnel:</b> Command, Engineering<br> <field>\
 	<b>Subject Designation:</b> Leviathan Prototype Zero-Point Artillery <br><field>\
-	<b>Subject Specification:</b> The “Leviathan”-class Prototype Warp Emitter Artillery is the crowning achievement of the Chainlink's \
+	<b>Subject Specification:</b> The Leviathan-class Prototype Warp Emitter Artillery is the crowning achievement of the Chainlink's \
 	unified science and engineering arm. Nearly two-thousand tonnes and longer than fifty meters, the Leviathian is composed of two (2) arc batteries,\
 	six (6) hyper conductors, six (6) warp engine generators, four (4) warp field stabilizers, a thirty meter (30m) dampening rail-line and a full targeting\
 	acquisition/power management array.<br><field>\
+	<b>Instructions:</b> In order to fire the Leviathan, the capacitors must first be coupled by lowering the activation lever. This coupling is, however, extremely energy intensive.<field><br>\
 	<b>Subject Description:</b> The Leviathan's one and only intended purpose is to annihilate any single target\
 	that proves to be an existential threat to the SCCV Horizon and all of its valuable designs and crew. The subject achieves this by pushing and weaponizing \
 	already understood warp drive technology to a scale only currently matched by phoron fusion bombs.<br> \
-	In layman's terms, a ludicrous amount of energy is at first used by several high-level warp generators, which instead of bending space around the ship, \
-	create a 'warp funnel' around the outer half of the weapon. Every bit of energy remaning is then fired out through the 'warp tunnel', \
-	accelerating it into a powerful beam travelling at several times the speed of light. <br>No known hull and shield configuration is able to withstand the attack, \
-	and the beam is expected to inflict too much architectural damage for any one vessel to continue fighting. <br>\
+	In layman's terms, an extreme amount of energy is at first used by several high-level warp generators, which instead of bending space around the ship, \
+	create a 'warp funnel' around the outer half of the weapon. Every bit of energy remaining is then fired out through the 'warp tunnel', \
+	accelerating it into a powerful beam travelling at several times the speed of light. <br>No currently known hull and shield configuration is able to withstand the attack: \
+	the beam is expected to inflict too much structural damage for any one vessel to continue fighting. <br>\
 	The power draw of a single shot is greater than a single jump operation into bluespace, meaning each use will leave the Horizon vulnerable to any other threats that remain.<br>\
 	To date, the prototype has not been tested against stars, planets or other supermassive targets. While its use should be limited to catastrophic scenarios, \
-	the Horizon is expected to gather as much field data as possible throughout its journey.<br>\
-	In order to fire the Leviathan, the capacitors must first be coupled by lowering the activation lever. This coupling is, however, extremely energy intensive.<field>")
+	the Horizon is expected to gather as much field data as possible throughout its journey.<br>")
 
 	//stamp the paper
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-biesel"
+	stampoverlay.icon_state = "paper_stamp-leland_stamp"
 	if(!R.stamped)
 		R.stamped = new
-	R.stamped += /obj/item/stamp/biesel
+	R.stamped += /obj/item/stamp
 	R.overlays += stampoverlay
-	R.stamps += "<HR><i>This paper has been stamped as 'CONFIDENTIAL'.</i>"
+	R.stamps += "<HR><i>This paper has been stamped as 'TOP SECRET'.</i>"

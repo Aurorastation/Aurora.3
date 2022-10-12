@@ -12500,13 +12500,13 @@
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "khs" = (
-/obj/structure/computerframe,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "khM" = (
@@ -26038,7 +26038,9 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "vCY" = (
-/obj/machinery/ship_weapon/longbow,
+/obj/machinery/ship_weapon/longbow{
+	weapon_id = "longbow_hrz"
+	},
 /turf/template_noop,
 /area/template_noop)
 "vDj" = (
@@ -28221,7 +28223,9 @@
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/starboard)
 "xyp" = (
-/obj/machinery/ammunition_loader/longbow,
+/obj/machinery/ammunition_loader/longbow{
+	weapon_id = "longbow_hrz"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "xyH" = (
