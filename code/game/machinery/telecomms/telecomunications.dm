@@ -41,7 +41,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	var/overmap_range = 2 //OVERMAP: Number of sectors out we can communicate
 
 	///Looping sounds for any servers
-	var/datum/looping_sound/server/soundloop
+//	var/datum/looping_sound/server/soundloop
 
 /obj/machinery/telecomms/proc/relay_information(datum/signal/signal, filter, copysig, amount = 20)
 	// relay signal to all linked machinery that are of type [filter]. If signal has been sent [amount] times, stop sending
@@ -129,7 +129,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/Initialize()
 	. = ..()
-	soundloop = new(list(src), on)
+//	soundloop = new(list(src), on)
 	if(autolinkers.len)
 		// Links nearby machines
 		if(!long_range_link)
@@ -153,7 +153,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 			attempt_hook_up(my_sector)
 
 /obj/machinery/telecomms/Destroy()
-	QDEL_NULL(soundloop)
+//	QDEL_NULL(soundloop)
 	telecomms_list -= src
 	for(var/obj/machinery/telecomms/comm in telecomms_list)
 		comm.links -= src
@@ -181,13 +181,13 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	if(toggled)
 		if(stat & (BROKEN|NOPOWER|EMPED) || integrity <= 0) // if powered, on. if not powered, off. if too damaged, off
 			on = FALSE
-			soundloop.stop(src)
+//			soundloop.stop(src)
 		else
 			on = TRUE
-			soundloop.start(src)
+//			soundloop.start(src)
 	else
 		on = FALSE
-		soundloop.stop(src)
+//		soundloop.stop(src)
 
 /obj/machinery/telecomms/process()
 	update_power()
