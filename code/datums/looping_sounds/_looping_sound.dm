@@ -19,13 +19,18 @@
 	var/list/atom/output_atoms
 	var/mid_sounds
 	var/mid_length
+	var/start_volume
 	var/start_sound
 	var/start_length
+	var/end_volume
 	var/end_sound
 	var/chance
 	var/volume = 100
+	var/vary = FALSE
 	var/max_loops
 	var/direct
+	var/extra_range
+	var/falloff
 
 	var/timerid
 
@@ -70,7 +75,7 @@
 	if(!timerid)
 		timerid = addtimer(CALLBACK(src, .proc/sound_loop, world.time), mid_length, TIMER_STOPPABLE | TIMER_LOOP)
 
-/datum/looping_sound/proc/play(soundfile)
+/datum/looping_sound/proc/play(soundfile, volume_override)
 	var/list/atoms_cache = output_atoms
 	var/sound/S = sound(soundfile)
 //	if(direct)
@@ -81,7 +86,7 @@
 	//	if(direct)
 	//		SEND_SOUND(thing, S)
 	//	else
-		playsound(thing, S, volume)
+		playsound(thing, S, volume_override || volume, vary, extra_range, falloff, required_preferences = ASFX_AMBIENCE) // you can turn it off, i guess.
 
 /datum/looping_sound/proc/get_sound(starttime, _mid_sounds)
 	. = _mid_sounds || mid_sounds
@@ -91,10 +96,10 @@
 /datum/looping_sound/proc/on_start()
 	var/start_wait = 0
 	if(start_sound)
-		play(start_sound)
+		play(start_sound, start_volume)
 		start_wait = start_length
 	addtimer(CALLBACK(src, .proc/sound_loop), start_wait)
 
 /datum/looping_sound/proc/on_stop()
 	if(end_sound)
-		play(end_sound)
+		play(end_sound, end_volume)
