@@ -66,7 +66,7 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 	for(var/obj/effect/landmark/entry_point/EP in entry_points_to_initialize)
 		var/obj/effect/overmap/visitable/ship/S = EP.get_candidate()
 		if(istype(S))
-			S.entry_points += EP
+			LAZYADD(S.entry_points, EP)
 
 /datum/controller/subsystem/shuttle/proc/initialize_shuttles()
 	var/list/shuttles_made = list()
