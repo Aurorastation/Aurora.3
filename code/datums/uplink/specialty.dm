@@ -34,7 +34,6 @@ Quick and easy list of all the occupations for farther expansion and addition.
 /datum/job/forensics
 /datum/job/officer
 /datum/job/ai
-/datum/job/cyborg
 /datum/job/intern_sec
 /datum/job/intern_med
 /datum/job/intern_sci

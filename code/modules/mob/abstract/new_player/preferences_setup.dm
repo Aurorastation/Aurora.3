@@ -208,7 +208,7 @@
 		var/list/leftovers = list()
 		var/list/used_slots = list()
 
-		if((equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && !(previewJob && (equip_preview_mob & EQUIP_PREVIEW_JOB) && (previewJob.type == /datum/job/ai || previewJob.type == /datum/job/cyborg)))
+		if((equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && !(previewJob && (equip_preview_mob & EQUIP_PREVIEW_JOB) && (previewJob.type == /datum/job/ai)))
 			SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
 
 		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)

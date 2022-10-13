@@ -16,7 +16,7 @@
 #define CIVILIAN_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/passenger)
 #define SECURITY_ROLES list(/datum/job/warden, /datum/job/investigator, /datum/job/officer, /datum/job/intern_sec)
 #define OPERATIONS_ROLES list(/datum/job/hangar_tech, /datum/job/mining, /datum/job/machinist)
-#define EQUIPMENT_ROLES list(/datum/job/ai, /datum/job/cyborg)
+#define EQUIPMENT_ROLES list(/datum/job/ai)
 
 #define ALL_ROLES list(COMMAND_ROLES, COMMAND_SUPPORT_ROLES, ENGINEERING_ROLES, SERVICE_ROLES, CIVILIAN_ROLES, OPERATIONS_ROLES, MEDICAL_ROLES, SCIENCE_ROLES, SECURITY_ROLES, EQUIPMENT_ROLES)
 #define ALL_FACTION_ROLES list(/datum/job/representative, /datum/job/assistant, /datum/job/visitor)
