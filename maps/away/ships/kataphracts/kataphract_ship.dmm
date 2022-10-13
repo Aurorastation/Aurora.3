@@ -9665,6 +9665,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/item/modular_computer/handheld/pda,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "UM" = (
