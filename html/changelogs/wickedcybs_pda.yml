@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - rscadd: "Adds one PDA to the Kataphract ship bridge. They can link it to their holopad to not worry about missing a call."
