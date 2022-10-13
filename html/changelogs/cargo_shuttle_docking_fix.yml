@@ -1,9 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes the cargo shuttle dock not working properly."
-  - bugfix: "Fixes conveyors layering over things."
-  - bugfix: "Fixes the merchant shuttle not using cardinal-directional windows."
-  - tweak: "Restores the old CCIA shuttle design."
