@@ -253,8 +253,7 @@
 	path = /obj/item/clothing/accessory/sleevepatch/erisec
 	slot = slot_tie
 	faction = "Private Military Contracting Group"
-	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden")
-
+	
 /datum/gear/faction/pmc_patch
 	display_name = "PMCG armband"
 	path = /obj/item/clothing/accessory/armband/pmc
