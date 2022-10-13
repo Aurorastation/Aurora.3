@@ -2072,14 +2072,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	add_overlay("card_display_fx")
 	add_overlay("card_display")
 
-	var/image/first_card_overlay = image(icon, null, "first_card")
+	var/image/first_card_overlay = image(icon, src, first_card)
 	first_card_overlay.x = -8
 	add_overlay(first_card_overlay)
 
-	var/image/second_card_overlay = image(icon, null, "second_card")
+	var/image/second_card_overlay = image(icon, src, second_card)
 	add_overlay(second_card_overlay)
 
-	var/image/third_card_overlay = image(icon, null, "third_card")
+	var/image/third_card_overlay = image(icon, src, third_card)
 	third_card_overlay.x = 8
 	add_overlay(third_card_overlay)
 
