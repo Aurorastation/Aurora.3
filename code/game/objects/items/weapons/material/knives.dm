@@ -69,6 +69,15 @@
 	item_state = "knife"
 	applies_material_colour = 0
 
+/obj/item/material/knife/raskariim
+	name = "adhomian ritual dagger"
+	desc = "An adhomian knife used in occult rituals."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "raskariim_dagger"
+	item_state = "raskariim_dagger"
+	contained_sprite = TRUE
+	applies_material_colour = FALSE
+
 /obj/item/material/knife/bayonet
 	name = "bayonet"
 	desc = "A sharp military knife, can be attached to a rifle."
