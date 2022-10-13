@@ -2073,14 +2073,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	add_overlay("card_display")
 
 	var/image/first_card_overlay = image(icon, src, first_card)
-	first_card_overlay.x = -8
+	first_card_overlay.pixel_x = -8
 	add_overlay(first_card_overlay)
 
 	var/image/second_card_overlay = image(icon, src, second_card)
 	add_overlay(second_card_overlay)
 
 	var/image/third_card_overlay = image(icon, src, third_card)
-	third_card_overlay.x = 8
+	third_card_overlay.pixel_x = 8
 	add_overlay(third_card_overlay)
 
 	addtimer(CALLBACK(src, .proc/reset_starfinder), 15 SECONDS)
