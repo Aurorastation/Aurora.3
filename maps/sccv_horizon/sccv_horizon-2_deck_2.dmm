@@ -14933,10 +14933,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
-"hEw" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/wall,
-/area/maintenance/wing/port)
 "hEF" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -78254,7 +78250,7 @@ tgp
 pXp
 kaT
 kaT
-hEw
+kaT
 rzC
 lVg
 mfN
@@ -78456,7 +78452,7 @@ mia
 erY
 kaT
 kaT
-hEw
+kaT
 wsW
 eqS
 kmx
