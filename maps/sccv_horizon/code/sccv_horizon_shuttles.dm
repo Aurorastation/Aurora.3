@@ -198,3 +198,24 @@
 /obj/effect/shuttle_landmark/mining/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_mining"
+
+// Cargo Shuttle
+/datum/shuttle/autodock/ferry/supply/horizon
+	name = "Horizon Cargo Shuttle"
+	location = 1
+	shuttle_area = /area/supply/dock
+	dock_target = "cargo_shuttle"
+	waypoint_station = "nav_cargo_shuttle_dock"
+	waypoint_offsite = "nav_cargo_shuttle_start"
+
+/obj/effect/shuttle_landmark/supply/horizon/start
+	name = "Horizon Cargo Shuttle Central Command Dock"
+	landmark_tag = "nav_cargo_shuttle_start"
+	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/centcom
+
+/obj/effect/shuttle_landmark/supply/horizon/dock
+	name = "Horizon Cargo Shuttle Dock"
+	landmark_tag = "nav_cargo_shuttle_dock"
+	docking_controller = "cargo_shuttle_dock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET

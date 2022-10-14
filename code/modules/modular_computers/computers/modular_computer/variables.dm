@@ -15,6 +15,8 @@
 	var/last_battery_percent = 0							// Used for deciding if battery percentage has chandged
 	var/last_world_time = "00:00"
 	var/list/last_header_icons
+	var/datum/looping_sound/computer/soundloop				// Looping sound for when the computer is on
+	var/looping_sound = TRUE								// Whether or not this modular computer uses the looping sound. Also handles ambience beeps.
 	var/computer_emagged = FALSE							// Whether the computer is emagged.
 	var/apc_powered = FALSE									// Set automatically. Whether the computer used APC power last tick.
 	var/base_active_power_usage = 50						// Power usage when the computer is open (screen is active) and can be interacted with. Remember hardware can use power too.
@@ -30,7 +32,6 @@
 	var/doorcode = "smindicate"
 	var/hidden = FALSE
 	var/initial_name
-	var/is_portable = FALSE									// Used to prevent the ambient beeps from playing.
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)
 	// must have it's own DMI file. Icon states must be called exactly the same in all files, but may look differently
