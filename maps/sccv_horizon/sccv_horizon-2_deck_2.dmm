@@ -4118,6 +4118,9 @@
 	},
 /obj/structure/table/standard,
 /obj/item/device/radio,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/reinforced,
 /area/horizon/zta)
 "bTy" = (

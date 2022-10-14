@@ -653,10 +653,6 @@
 /area/horizon/crew_quarters/fitness/gym)
 "avE" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/storage/toolbox/electrical,
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = -9
-	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -940,6 +936,8 @@
 "aGT" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "aHh" = (
@@ -10977,11 +10975,12 @@
 /obj/structure/window/reinforced,
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/warhead/longbow/ap,
-/obj/item/warhead/longbow/ap,
-/obj/item/warhead/longbow/bunker,
-/obj/item/warhead/longbow,
-/obj/item/warhead/longbow,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -3
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 10
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "iPT" = (

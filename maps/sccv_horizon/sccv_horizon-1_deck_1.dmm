@@ -13038,6 +13038,14 @@
 	},
 /turf/space/dynamic,
 /area/template_noop)
+"kje" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "kjv" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -14775,6 +14783,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
+"lyx" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/warhead/longbow,
+/obj/item/warhead/longbow,
+/obj/item/warhead/longbow,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "lyG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -18930,6 +18945,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"pas" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/item/warhead/longbow/ap,
+/obj/item/warhead/longbow/ap,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "pau" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 8
@@ -24421,6 +24449,10 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "tjl" = (
@@ -26718,6 +26750,11 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/operations)
+"vau" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/warhead/longbow/bunker,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "vbv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -40741,10 +40778,10 @@ giX
 qQa
 pcv
 tiV
-giX
+kje
 qdE
-giX
-qQa
+lyx
+pas
 gqW
 qdE
 rnz
@@ -41147,7 +41184,7 @@ sWr
 iQI
 giX
 qdE
-giX
+vau
 iQI
 sDJ
 qdE
