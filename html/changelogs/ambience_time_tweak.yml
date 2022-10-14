@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - tweak: "Changes ambience trigger from a possibility once every 30 seconds to once every 5 minutes."

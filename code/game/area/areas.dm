@@ -312,7 +312,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 // Play Ambience
 /area/proc/play_ambience(var/mob/living/L)
-	if((world.time >= L.client.ambience_last_played_time + 30 SECONDS) && prob(20))
+	if((world.time >= L.client.ambience_last_played_time + 5 MINUTES) && prob(20))
 		var/picked_ambience = pick(ambience)
 		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = 2)
 		L.client.ambience_last_played_time = world.time
