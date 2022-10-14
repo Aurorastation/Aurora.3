@@ -35934,7 +35934,7 @@
 "bLU" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
 /obj/effect/step_trigger/thrower/shuttle/south,
-/turf/space/transit/east,
+/turf/space/transit/north,
 /area/template_noop)
 "bLV" = (
 /obj/effect/shuttle_landmark/skipjack_ship/interim,
@@ -37291,10 +37291,10 @@
 /obj/structure/grille,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mercenary)
-"vgM" = (
+"vta" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
 /obj/effect/step_trigger/thrower/shuttle/south,
-/turf/space/transit/north,
+/turf/space/transit/east,
 /area/template_noop)
 "vEO" = (
 /obj/structure/shuttle_part/ccia{
@@ -43595,7 +43595,7 @@ aac
 aab
 bFg
 bFg
-bLU
+vta
 bHE
 bHE
 bHE
@@ -43603,7 +43603,7 @@ bHE
 bHE
 bHE
 bFg
-bLU
+vta
 bHE
 bHE
 bHE
@@ -45698,7 +45698,7 @@ aaa
 aaa
 aaa
 bFc
-bLU
+vta
 bHE
 bHE
 bHE
@@ -45706,7 +45706,7 @@ bHE
 bHE
 bHE
 bFg
-bLU
+vta
 bHE
 bHE
 bHE
@@ -47707,7 +47707,7 @@ aac
 aac
 aad
 aad
-vgM
+bLU
 aac
 aac
 aad
