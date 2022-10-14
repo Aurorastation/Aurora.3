@@ -6391,6 +6391,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion/starboard)
 "eVn" = (
@@ -22749,10 +22750,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
-"rVr" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/engineering/atmos/propulsion/starboard)
 "rVt" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -47636,7 +47633,7 @@ mNU
 tsn
 awJ
 awJ
-rVr
+awJ
 awJ
 wlT
 azl
