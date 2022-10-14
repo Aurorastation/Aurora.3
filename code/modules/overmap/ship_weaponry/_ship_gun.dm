@@ -6,18 +6,20 @@
 	var/heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg' //The sound in the immediate firing area. Very loud.
 	var/light_firing_sound = 'sound/effects/explosionfar.ogg' //The sound played when you're a few walls away. Kind of loud.
 	var/projectile_type = /obj/item/projectile/ship_ammo
+	var/special_firing_mechanism = FALSE //If set to TRUE, the gun won't show up on normal controls.
 	var/charging_sound //The sound played when the gun is charging up.
 	var/caliber = SHIP_CALIBER_NONE
 	var/use_ammunition = TRUE //If we use physical ammo or not. Note that the creation of ammunition in pre_fire() is still REQUIRED! This just skips the initial check for ammunition.
+	var/list/obj/item/ship_ammunition/ammunition = list()
+	var/ammo_per_shot = 1
+	var/max_ammo = 1
 	var/firing_effects
 	var/screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
-	var/ammo_per_shot = 1
 	var/firing = FALSE //Helper variable in case we need to track if we're firing or not. Must be set manually. Used for the Leviathan.
 	var/load_time = 5 SECONDS
 
 	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
 	var/obj/structure/ship_weapon_dummy/barrel
-	var/list/obj/item/ship_ammunition/ammunition = list()
 
 /obj/machinery/ship_weapon/Initialize(mapload)
 	..()
@@ -88,8 +90,11 @@
 	return
 
 /obj/machinery/ship_weapon/proc/load_ammunition(var/obj/item/ship_ammunition/SA)
+	if(length(ammunition) >= max_ammo)
+		return FALSE
 	ammunition |= SA
 	SA.forceMove(src)
+	return TRUE
 
 /obj/machinery/ship_weapon/proc/firing_checks() //Check if we CAN fire.
 	if((!use_ammunition || length(ammunition)) && !stat)
@@ -150,6 +155,7 @@
 	density = TRUE
 	opacity = FALSE
 	atmos_canpass = CANPASS_DENSITY
+	invisibility = 100
 	var/obj/machinery/ship_weapon/connected
 	var/is_barrel = FALSE //Ammo spawns in front of THIS dummy.
 
@@ -197,7 +203,11 @@
 
 /obj/machinery/computer/gunnery/attack_hand(mob/user)
 	. = ..()
-	var/obj/machinery/ship_weapon/big_gun = input(user, "Select a gun.", "Gunnery Control") as null|anything in linked.ship_weapons
+	var/list/obj/machinery/ship_weapon/ship_weapons
+	for(var/obj/machinery/ship_weapon/SW in linked.ship_weapons)
+		if(!SW.special_firing_mechanism)
+			ship_weapons += SW
+	var/obj/machinery/ship_weapon/big_gun = input(user, "Select a gun.", "Gunnery Control") as null|anything in ship_weapons
 	if(!big_gun)
 		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] displays an error message, \"Aborting.\""))
 		return

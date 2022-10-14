@@ -5425,12 +5425,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering/lower)
-"ejU" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/intrepid/cockpit)
 "ekb" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -9342,7 +9336,6 @@
 /area/maintenance/engineering)
 "hcE" = (
 /obj/machinery/ship_weapon/francisca,
-/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "hdi" = (
@@ -26565,8 +26558,8 @@
 /turf/space/dynamic,
 /area/horizon/exterior)
 "uVF" = (
-/obj/structure/computerframe,
 /obj/effect/floor_decal/corner/pink/diagonal,
+/obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "uVL" = (
@@ -49458,11 +49451,11 @@ ifw
 ewy
 aEw
 aHu
-bGE
-bGE
-bGE
-bGE
-bGE
+uko
+uko
+uko
+uko
+uko
 hcE
 cLV
 bSM
@@ -49665,7 +49658,7 @@ bGE
 bGE
 bGE
 mlc
-ejU
+uko
 cLV
 bSM
 cLV
@@ -49864,10 +49857,10 @@ aEw
 mSf
 bGE
 bGE
-bGE
-bGE
-bGE
-bGE
+uko
+uko
+uko
+uko
 cLV
 bSM
 cLV

@@ -10060,7 +10060,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "feY" = (
-/obj/structure/computerframe,
+/obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled/dark,
 /area/operations/flak)
 "ffe" = (
@@ -56900,7 +56900,7 @@ xkM
 jwB
 omg
 wMu
-fwW
+qgN
 qgN
 qgN
 qgN
@@ -82968,9 +82968,9 @@ fwW
 fwW
 fwW
 fwW
-fwW
-fwW
-fwW
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -83173,8 +83173,8 @@ fwW
 fwW
 fwW
 fwW
-fwW
-fwW
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -83577,8 +83577,8 @@ fwW
 fwW
 fwW
 fwW
-fwW
-fwW
+qgN
+qgN
 qgN
 qgN
 qgN
@@ -83776,9 +83776,9 @@ fwW
 fwW
 fwW
 fwW
-fwW
-fwW
-fwW
+qgN
+qgN
+qgN
 qgN
 qgN
 qgN

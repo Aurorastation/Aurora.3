@@ -4,7 +4,7 @@
 	icon = 'icons/obj/machines/ship_guns/francisca.dmi'
 	icon_state = "weapon_base"
 	projectile_type = /obj/item/projectile/ship_ammo/francisca
-	caliber = SHIP_CALIBER_90MM
+	caliber = SHIP_CALIBER_40MM
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 
 /obj/machinery/ammunition_loader/francisca

@@ -65,6 +65,14 @@
 				qdel(widowmaker)
 				qdel(src)
 			else if(istype(V, /obj/effect/overmap/visitable) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
+				if(istype(V, /obj/effect/overmap/visitable/ship))
+					var/obj/effect/overmap/visitable/ship/VS = V
+					if(istype(ammunition.origin, /obj/effect/overmap/visitable/ship))
+						var/obj/effect/overmap/visitable/ship/OR = ammunition.origin
+						if(VS.fore_dir != OR.fore_dir)
+							var/naval_heading = headings_to_naval[OR.fore_dir[ammunition.heading]]
+							var/corrected_heading = naval_to_dir[VS.fore_dir[naval_heading]]
+							ammunition.heading = corrected_heading
 				var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 				widowmaker.ammo = ammunition
 				qdel(ammunition.original_projectile) //No longer needed.

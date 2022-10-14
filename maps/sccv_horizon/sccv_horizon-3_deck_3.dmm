@@ -13553,6 +13553,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
+/obj/machinery/recharger,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "kVO" = (
@@ -16922,11 +16923,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
 "nSg" = (
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
-/obj/machinery/recharger,
+/obj/structure/table/reinforced,
+/obj/machinery/leviathan_button{
+	pixel_x = 1;
+	pixel_y = 5
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "nSx" = (
@@ -17452,6 +17456,9 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/item/clipboard,
+/obj/item/device/hand_labeler,
+/obj/item/stack/packageWrap,
+/obj/item/stack/wrapping_paper,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "omw" = (
@@ -26862,13 +26869,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
 "wpA" = (
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
 	},
-/obj/item/stack/wrapping_paper,
-/obj/item/device/hand_labeler,
-/obj/item/stack/packageWrap,
+/obj/machinery/leviathan_safeguard,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "wpD" = (
@@ -27870,6 +27874,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/item/leviathan_case,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "xmv" = (

@@ -529,9 +529,9 @@
 	name = "superconducting cryogenic capacitor"
 	desc = "An experimental, extremely high-capacity type of SMES. It uses integrated cryogenic cooling and superconducting cables to break conventional limits on power transfer."
 	icon_state = "cannon_smes"
-	capacity = 100 GIGAWATTS
-	output_level = 10 GIGAWATTS
-	input_level = 10 GIGAWATTS
+	capacity = 10 GIGAWATTS
+	output_level = 1 GIGAWATTS
+	input_level = 1 GIGAWATTS
 
 #undef SMES_CLEVEL_1
 #undef SMES_CLEVEL_2

@@ -865,6 +865,61 @@ var/global/list/common_tools = list(
 		if(NORTHWEST)
 			return SOUTHEAST
 
+//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
+var/list/naval_to_dir = list(
+	NORTH = list(
+		"starboard" = WEST,
+		"port" = EAST,
+		"fore" = SOUTH,
+		"aft" = NORTH
+	),
+	EAST = list(
+		"starboard" = NORTH,
+		"port" = SOUTH,
+		"fore" = WEST,
+		"aft" = EAST
+	),
+	WEST = list(
+		"starboard" = SOUTH,
+		"port" = NORTH,
+		"fore" = EAST,
+		"aft" = WEST
+	),
+	SOUTH = list(
+		"starboard" = EAST,
+		"port" = WEST,
+		"fore" = NORTH,
+		"aft" = SOUTH
+	)
+)
+
+var/list/headings_to_naval = list(
+	NORTH = list(
+		WEST = "starboard",
+		EAST = "port",
+		SOUTH = "fore",
+		NORTH = "aft"
+	),
+	EAST = list(
+		NORTH = "starboard",
+		SOUTH = "port",
+		WEST = "fore",
+		EAST = "aft"  
+	),
+	WEST = list(
+		SOUTH = "starboard",
+		NORTH = "port",
+		EAST = "fore",
+		WEST = "aft"
+	),
+	SOUTH = list(
+		EAST = "starboard",
+		WEST = "port",
+		NORTH = "fore",
+		SOUTH = "aft"
+	)
+)
+
 /*
 Checks if that loc and dir has a item on the wall
 */

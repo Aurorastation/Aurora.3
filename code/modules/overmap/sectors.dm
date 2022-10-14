@@ -30,6 +30,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/list/obj/machinery/ship_weapon/ship_weapons
 	var/list/obj/effect/landmark/entry_points
 	var/obj/effect/overmap/targeting
+	var/obj/machinery/leviathan_safeguard/levi_safeguard
 
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()

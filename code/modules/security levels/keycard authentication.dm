@@ -78,6 +78,7 @@
 		dat += "<li><A href='?src=\ref[src];triggerevent=Red alert'>Red alert</A></li>"
 		if(!config.ert_admin_call_only)
 			dat += "<li><A href='?src=\ref[src];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
+		dat += "<li><A href='?src=\ref[src];triggerevent=Leviathan'><font color='red'>Unlock Leviathan Safeties</font></A></li>"
 
 		dat += "</ul>"
 	if(screen == 2)
@@ -182,6 +183,12 @@
 			else
 				SSdistress.trigger_armed_response_team()
 			feedback_inc("alert_keycard_auth_ert",1)
+		if("Leviathan")
+			if(linked && linked.levi_safeguard)
+				if(!linked.levi_safeguard.opened)
+					linked.levi_safeguard.open()
+					command_announcement.Announce("Commencing connection of Leviathan warp field arrays. All personnel are reminded to seek out a fixed object they can \
+												   hold on to in preparation for the firing sequence.", "Leviathan Artillery Control", 'sound/effects/ship_weapons/leviathan_safetyoff.ogg')
 
 /obj/machinery/keycard_auth/proc/is_ert_blocked()
 	if(config.ert_admin_call_only)
