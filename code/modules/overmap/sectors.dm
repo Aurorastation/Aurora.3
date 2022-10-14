@@ -70,6 +70,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	if(ship_weapons)
 		ship_weapons.Cut()
 	targeting = null
+	levi_safeguard = null
 	. = ..()
 
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.

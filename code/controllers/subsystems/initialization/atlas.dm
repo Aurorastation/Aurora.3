@@ -20,7 +20,61 @@ var/datum/controller/subsystem/atlas/SSatlas
 	var/list/list/connected_z_cache = list()
 	var/z_levels = 0	// Each bit represents a connection between adjacent levels.  So the first bit means levels 1 and 2 are connected.
 	var/datum/space_sector/current_sector
-	var/list/possible_sectors = list ()
+	var/list/possible_sectors = list()
+	//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
+	var/list/naval_to_dir = list(
+		NORTH = list(
+			"starboard" = WEST,
+			"port" = EAST,
+			"fore" = SOUTH,
+			"aft" = NORTH
+		),
+		EAST = list(
+			"starboard" = NORTH,
+			"port" = SOUTH,
+			"fore" = WEST,
+			"aft" = EAST
+		),
+		WEST = list(
+			"starboard" = SOUTH,
+			"port" = NORTH,
+			"fore" = EAST,
+			"aft" = WEST
+		),
+		SOUTH = list(
+			"starboard" = EAST,
+			"port" = WEST,
+			"fore" = NORTH,
+			"aft" = SOUTH
+		)
+	)
+
+	var/list/headings_to_naval = list(
+		NORTH = list(
+			WEST = "starboard",
+			EAST = "port",
+			SOUTH = "fore",
+			NORTH = "aft"
+		),
+		EAST = list(
+			NORTH = "starboard",
+			SOUTH = "port",
+			WEST = "fore",
+			EAST = "aft"  
+		),
+		WEST = list(
+			SOUTH = "starboard",
+			NORTH = "port",
+			EAST = "fore",
+			WEST = "aft"
+		),
+		SOUTH = list(
+			EAST = "starboard",
+			WEST = "port",
+			NORTH = "fore",
+			SOUTH = "aft"
+		)
+	)
 
 /datum/controller/subsystem/atlas/stat_entry()
 	..("W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[z_levels]")

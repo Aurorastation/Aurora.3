@@ -6,8 +6,6 @@
 
 	var/list/map_z = list()
 
-	var/sector_flags = OVERMAP_SECTOR_KNOWN|OVERMAP_SECTOR_IN_SPACE
-
 	var/known = 0		//shows up on nav computers automatically
 	var/scannable       //if set to TRUE will show up on ship sensors for detailed scans
 	var/image/targeted_overlay

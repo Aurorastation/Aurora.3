@@ -34,19 +34,21 @@
 		return FALSE
 	if(!istype(smes))
 		return FALSE
+	if(firing)
+		return FALSE
 	. = ..()
 
 /obj/machinery/ship_weapon/leviathan/pre_fire(atom/target, obj/effect/landmark/landmark)
 	firing = TRUE
 	icon_state = "weapon_on"
 	visible_message(SPAN_DANGER("<font size=5>\The [src] begins lighting up with a powerful hum...</font>"))
-	for(var/mob/M in living_mob_list)
-		if(AreConnectedZLevels(GET_Z(M), z))
-			if(get_area(M) != get_area(src))
-				to_chat(M, SPAN_DANGER("<font size=4>The ground below you starts shaking...</font>"))
-			sound_to(M, sound('sound/weapons/gunshot/ship_weapons/leviathan_chargeup.ogg'))
-	var/power_draw = smes.draw_power(active_power_usage)
+	var/power_draw = smes.drain_power_simple(active_power_usage)
 	if(power_draw >= active_power_usage)
+		for(var/mob/M in living_mob_list)
+			if(AreConnectedZLevels(GET_Z(M), z))
+				if(get_area(M) != get_area(src))
+					to_chat(M, SPAN_DANGER("<font size=4>The ground below you starts shaking...</font>"))
+				sound_to(M, sound('sound/weapons/gunshot/ship_weapons/leviathan_chargeup.ogg'))
 		flick("weapon_charge", src)
 		sleep(10 SECONDS)
 		var/obj/item/ship_ammunition/leviathan/L = new()
@@ -57,6 +59,9 @@
 				if(AreConnectedZLevels(M.z, z) && (get_area(M) != get_area(src)))
 					to_chat(M, SPAN_DANGER("<font size=4>A gigantic shock courses through the hull of the ship!</font>"))
 			. = ..()
+	else
+		visible_message(SPAN_DANGER("<font size=4>\The [src]'s capacitors fizzle out!</font>"))
+		. = FALSE
 	disable()
 	firing = FALSE
 
@@ -91,7 +96,7 @@
 	icon_state = "weapon_on"
 
 /obj/machinery/ship_weapon/leviathan/proc/couple_to_smes()
-	if(!smes)
+	if(smes)
 		return
 	for(var/obj/machinery/power/smes/superconducting/S in get_area(src))
 		if(istype(S))
@@ -175,13 +180,14 @@
 
 /obj/item/leviathan_key
 	name = "leviathan activation key"
-	desc = "A key made of hardlight used to activate the Leviathan. It is a software-controlled morphing key with over a million layers of encryption: it cannot be replicated and, most importantly, if it is stolen, it can simply be deactivated."
+	desc = "A key made of hardlight used to activate the Leviathan. It is a software-controlled morphing key that uses self-replicating encryption: \
+			it cannot be replicated at all. Most importantly, if it is stolen, it can simply be deactivated by the SCC. A marvel of modern technology!"
 	icon = 'icons/obj/machines/ship_guns/zat_confirmation_terminals.dmi'
 	icon_state = "cannon_key"
 
 /obj/item/leviathan_case
 	name = "leviathan key case"
-	desc = "It contains the Leviathan's activation key."
+	desc = "It contains the Leviathan's activation key. The case is made out of authentic ebony wood, while the cushioning on the inside is made of silk."
 	icon = 'icons/obj/machines/ship_guns/zat_confirmation_terminals.dmi'
 	icon_state = "key_case"
 	var/open = FALSE
@@ -190,6 +196,10 @@
 /obj/item/leviathan_case/Initialize()
 	. = ..()
 	LK = new(src)
+
+/obj/item/leviathan_case/Destroy()
+	QDEL_NULL(LK)
+	return ..()
 
 /obj/item/leviathan_case/attack_self(mob/user)
 	if(use_check_and_message(user))
@@ -206,20 +216,38 @@
 		icon_state = "key_case"
 	
 /obj/item/leviathan_case/attack_hand(mob/user)
+	if(!open)
+		. = ..()
+		return
 	if(use_check_and_message(user))
 		return
-	if(LK && open)
+	if(LK)
 		user.visible_message(SPAN_NOTICE("[user] retrieves \the [LK]."))
 		user.put_in_hands(LK)
+		LK = null
 		icon_state = "key_case-e"
 
+/obj/item/leviathan_case/attackby(obj/item/I, mob/user)
+	. = ..()
+	if(use_check_and_message(user))
+		return
+	if(!LK && open)
+		if(istype(I, /obj/item/leviathan_key))
+			var/obj/item/leviathan_key/key = I
+			user.visible_message(SPAN_NOTICE("[user] puts \the [LK] back into \the [src]."))
+			LK = key
+			user.drop_from_inventory(key, src)
+			icon_state = "key_case-o"
+			
 /obj/machinery/leviathan_safeguard
 	name = "leviathan activation terminal"
 	desc = "The terminal used to confirm if you really want to wipe someone out."
 	icon = 'icons/obj/machines/ship_guns/zat_confirmation_terminals.dmi'
 	icon_state = "safeguard"
 	var/opened = FALSE
+	var/locked = FALSE
 	var/obj/item/leviathan_key/key
+	var/obj/machinery/leviathan_button/button
 
 /obj/machinery/leviathan_safeguard/Initialize(mapload, d, populate_components, is_internal)
 	..()
@@ -231,6 +259,12 @@
 /obj/machinery/leviathan_safeguard/emp_act(severity)
 	return
 
+/obj/machinery/leviathan_safeguard/Destroy()
+	QDEL_NULL(key)
+	button = null
+	return ..()
+	
+
 /obj/machinery/leviathan_safeguard/LateInitialize()
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
@@ -238,6 +272,9 @@
 			attempt_hook_up(my_sector)
 	if(linked)
 		linked.levi_safeguard = src
+	for(var/obj/machinery/leviathan_button/LB in range(3, src))
+		if(istype(LB))
+			button = LB
 
 /obj/machinery/leviathan_safeguard/proc/open()
 	opened = TRUE
@@ -245,15 +282,16 @@
 	icon_state = "safeguard_open"
 
 /obj/machinery/leviathan_safeguard/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/leviathan_key) && !key && !stat)
+	if(istype(I, /obj/item/leviathan_key) && !key && !stat && !locked)
 		var/obj/item/leviathan_key/LK = I
 		if(use_check_and_message(user))
 			return
 		if(do_after(user, 1 SECOND))
 			visible_message(SPAN_WARNING("[user] places \the [LK] inside \the [src]'s keyhole!"))
 			key = LK
-			key.forceMove(src)
+			user.drop_from_inventory(I, src)
 			icon_state = "safeguard_open"
+			playsound(src, 'sound/effects/ship_weapons/levi_key_insert.ogg')
 
 /obj/machinery/leviathan_safeguard/attack_hand(mob/user)
 	if(key && !stat)
@@ -263,9 +301,12 @@
 			visible_message(SPAN_WARNING("[user] twists \the [key]!"))
 			flick("safeguard_locking", src)
 			icon_state = "safeguard_locked"
+			locked = TRUE
+			playsound(src, 'sound/effects/ship_weapons/levi_key_twist.ogg')
+			button.open()
 
 /obj/machinery/leviathan_button
-	name = "leviathan firing control"
+	name = "leviathan fire button"
 	desc = "The button that controls the Leviathan's firing mechanism."
 	icon = 'icons/obj/machines/ship_guns/zat_confirmation_terminals.dmi'
 	icon_state = "button_closed"
@@ -292,6 +333,7 @@
 	open = TRUE
 
 /obj/machinery/leviathan_button/attack_hand(mob/user)
+	set waitfor = FALSE
 	if(open)
 		if(use_check_and_message(user))
 			return
@@ -304,13 +346,14 @@
 				for(var/obj/effect/O in V.entry_points)
 					possible_entry_points[O.name] = O
 			var/targeted_landmark = input(user, "Select an entry point.", "Leviathan Control") as null|anything in possible_entry_points
-			if(!targeted_landmark)
+			if(!targeted_landmark && length(possible_entry_points))
 				return
-			var/obj/effect/landmark = possible_entry_points[targeted_landmark]
-			if(do_after(user, 1 SECOND) && !use_check_and_message(user))
-				visible_message(SPAN_DANGER("[user] presses \the [src]!"))
-			for(var/obj/machinery/ship_weapon/leviathan/LT in linked.ship_weapons)
-				if(istype(LT))
-					LT.firing_command(linked.targeting, landmark)
-		else
-			to_chat(user, SPAN_WARNING("The button refuses to go down! You're not targeting anything."))
+			var/obj/effect/landmark
+			if(length(possible_entry_points))
+			 landmark = possible_entry_points[targeted_landmark]
+			if(do_after(user, 1 SECOND) && !use_check_and_message(user))		
+				for(var/obj/machinery/ship_weapon/leviathan/LT in linked.ship_weapons)
+					if(istype(LT))
+						LT.firing_command(linked.targeting, landmark)
+					visible_message(SPAN_DANGER("[user] presses \the [src]!"))
+					playsound(src, 'sound/effects/ship_weapons/levi_button_press.ogg')

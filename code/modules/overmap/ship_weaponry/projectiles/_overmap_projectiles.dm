@@ -2,7 +2,6 @@
 	name = "projectile"
 	icon = 'icons/obj/guns/ship/overmap_projectiles.dmi'
 	icon_state = "cannon"
-	sector_flags = OVERMAP_SECTOR_KNOWN //Technically in space, but you can't visit the ammo during its flight.
 	scannable = TRUE
 	layer = ABOVE_OBJ_LAYER
 
@@ -70,8 +69,8 @@
 					if(istype(ammunition.origin, /obj/effect/overmap/visitable/ship))
 						var/obj/effect/overmap/visitable/ship/OR = ammunition.origin
 						if(VS.fore_dir != OR.fore_dir)
-							var/naval_heading = headings_to_naval[OR.fore_dir[ammunition.heading]]
-							var/corrected_heading = naval_to_dir[VS.fore_dir[naval_heading]]
+							var/naval_heading = SSatlas.headings_to_naval[OR.fore_dir][ammunition.heading]
+							var/corrected_heading = SSatlas.naval_to_dir[VS.fore_dir][naval_heading]
 							ammunition.heading = corrected_heading
 				var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 				widowmaker.ammo = ammunition
@@ -112,7 +111,7 @@
 
 /obj/effect/overmap/projectile/get_scan_data(mob/user)
 	. = ..()
-	. += "<br>A high-velocity ballistic projectile."
+	. += "<br>A high-velocity projectile."
 	. += "<br>Additional information:<br>[get_additional_info()]"
 
 /obj/effect/overmap/projectile/proc/get_additional_info()

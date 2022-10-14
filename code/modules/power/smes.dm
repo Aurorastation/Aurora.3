@@ -85,6 +85,11 @@
 	charge -= smes_amt
 	return smes_amt / SMESRATE
 
+/obj/machinery/power/smes/proc/drain_power_simple(var/amount = 0)
+	var/power_drawn = between(0, amount, charge)
+	charge -= power_drawn
+	return power_drawn
+
 /obj/machinery/power/smes/Destroy()
 	QDEL_NULL(big_spark)
 	QDEL_NULL(small_spark)
