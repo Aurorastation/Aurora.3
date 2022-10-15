@@ -181,3 +181,21 @@
 	body_parts_covered = FEET
 	species_restricted = list(BODYTYPE_TAJARA)
 	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/tajara/armored
+	name = "adhomian armored boots"
+	icon = 'icons/obj/tajara_items.dmi'
+	desc = "A pair of armored adhomian boots."
+	icon_state = "armored_legs"
+	item_state = "armored_legs"
+	contained_sprite = TRUE
+
+	body_parts_covered = FEET|LEGS
+	species_restricted = list(BODYTYPE_TAJARA)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_MINOR
+	)

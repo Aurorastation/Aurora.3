@@ -215,6 +215,7 @@
 /datum/gear/head/hijab
 	display_name = "hijab selection"
 	path = /obj/item/clothing/head/hijab
+	slot = slot_r_ear
 
 /datum/gear/head/hijab/New()
 	..()
@@ -233,6 +234,7 @@
 	display_name = "colorable hijab"
 	path = /obj/item/clothing/head/hijab
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	slot = slot_r_ear
 
 /datum/gear/head/turban
 	display_name = "turban selection"
@@ -264,6 +266,7 @@
 	surgical["surgical cap, nanotrasen navy blue"] = /obj/item/clothing/head/surgery
 	surgical["surgical cap, zeng-hu purple"] = /obj/item/clothing/head/surgery/zeng
 	surgical["surgical cap, PMCG blue"] = /obj/item/clothing/head/surgery/pmc
+	surgical["surgical cap, PMCG grey"] = /obj/item/clothing/head/surgery/pmc/alt
 	surgical["surgical cap, zavodskoi black"] = /obj/item/clothing/head/surgery/zavod
 	surgical["surgical cap, idris green"] = /obj/item/clothing/head/surgery/idris
 	gear_tweaks += new /datum/gear_tweak/path(surgical)

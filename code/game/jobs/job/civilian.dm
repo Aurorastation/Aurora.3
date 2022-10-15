@@ -376,9 +376,9 @@
 	)
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
-						access_sec_doors, access_research, access_medical, access_robotics, access_engine, access_teleporter)
+						access_sec_doors, access_research, access_medical, access_robotics, access_engine, access_teleporter, access_eva, access_intrepid)
 	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_keycard_auth, access_RC_announce, access_heads,
-						access_sec_doors, access_research, access_medical, access_robotics, access_engine, access_teleporter)
+						access_sec_doors, access_research, access_medical, access_robotics, access_engine, access_teleporter, access_eva, access_intrepid)
 
 	ideal_character_age = list(
 		SPECIES_HUMAN = 40,
@@ -400,9 +400,9 @@
 	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
-	tab_pda = /obj/item/modular_computer/handheld/pda/supply/qm
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/qm
-	tablet = /obj/item/modular_computer/handheld/preset/supply/qm
+	tab_pda = /obj/item/modular_computer/handheld/pda/supply/om
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/supply/om
+	tablet = /obj/item/modular_computer/handheld/preset/supply/om
 
 	headset = /obj/item/device/radio/headset/operations_manager
 	bowman = /obj/item/device/radio/headset/operations_manager/alt

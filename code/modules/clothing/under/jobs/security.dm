@@ -158,6 +158,22 @@
 	icon_state = "pmc_invest"
 	item_state = "pmc_invest"
 
+/obj/item/clothing/under/det/zavod/alt
+	name = "zavodskoi interstellar detective's uniform"
+	icon_state = "zav_invest_alt"
+	item_state = "zav_invest_alt"
+
+/obj/item/clothing/under/det/idris/alt
+	name = "idris incorporated detective's uniform"
+	icon_state = "idris_invest_alt"
+	item_state = "idris_invest_alt"
+
+/obj/item/clothing/under/det/pmc/alt
+	name = "PMCG detective's uniform"
+	icon_state = "pmc_invest_alt"
+	item_state = "pmc_invest_alt"
+
+
 /*
  * Head of Security
  */

@@ -13,9 +13,15 @@
 	var/open = FALSE
 	var/power_output = 1
 	var/portgen_lightcolour = "#000000"
+	var/datum/looping_sound/generator/soundloop
 
 /obj/machinery/power/portgen/Initialize()
 	. = ..()
+	soundloop = new(list(src), active)
+
+/obj/machinery/power/portgen/Destroy()
+	QDEL_NULL(soundloop)
+	return ..()
 
 /obj/machinery/power/portgen/proc/IsBroken()
 	return (stat & (BROKEN|EMPED))
@@ -42,6 +48,7 @@
 	else
 		set_light(0)
 		active = FALSE
+		soundloop.stop(src)
 		icon_state = initial(icon_state)
 		handleInactive()
 
@@ -364,10 +371,12 @@
 			if(!active && HasFuel() && !IsBroken())
 				active = TRUE
 				update_icon()
+				soundloop.start(src)
 		if(href_list["action"] == "disable")
 			if (active)
 				active = FALSE
 				update_icon()
+				soundloop.stop(src)
 		if(href_list["action"] == "eject")
 			if(!active)
 				DropFuel()

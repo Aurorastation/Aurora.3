@@ -74,6 +74,10 @@
 	icon_state = "pmc_armband"
 	overlay_state = "pmc_armband"
 
+/obj/item/clothing/accessory/armband/pmc/alt
+	icon_state = "pmc_alt_armband"
+	overlay_state = "pmc_alt_armband"
+
 /obj/item/clothing/accessory/armband/colourable
 	name = "armband"
 	desc = "An armband in 16,777,216 designer colors."
