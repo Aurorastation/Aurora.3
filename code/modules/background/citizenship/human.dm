@@ -42,7 +42,7 @@
 		/obj/item/storage/box/tcfl_pamphlet = 1,
 		/obj/item/device/versebook/biesel = 1, //constitution
 		/obj/item/stamp/biesel = 1,
-		/obj/item/gun/energy/pistol = 1
+		/obj/item/gun/energy/blaster/revolver = 1
 	)
 
 
