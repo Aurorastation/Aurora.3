@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/colt
 	name = ".45 combat pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette.  Uses .45 rounds."
-	desc_fluff = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
+	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
@@ -63,7 +63,7 @@
 /obj/item/gun/projectile/automatic/lebman
 	name = "automatic .45 combat pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette.  Uses .45 rounds. This example has been modified to allow fully-automatic fire, and sports a prominent vertical grip and muzzle compensator to aid in control."
-	desc_fluff = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
+	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
 	magazine_type = /obj/item/ammo_magazine/c45m/lebman
 	icon = 'icons/obj/guns/coltauto.dmi'
