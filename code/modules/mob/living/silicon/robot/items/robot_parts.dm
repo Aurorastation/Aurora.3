@@ -288,37 +288,8 @@
 				return
 
 			else
-				if(jobban_isbanned(M.brainmob, "Cyborg"))
-					to_chat(user, SPAN_WARNING("\The [W] does not seem to fit. (The player has been banned from playing this role)"))
-					return
-
-				var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(src), TRUE)
-				if(!O)
-					return
-
-				user.drop_from_inventory(M, O)
-				O.mmi = W
-				O.invisibility = 0
-				O.custom_name = created_name
-				O.updatename("Default")
-
-				M.brainmob.mind.transfer_to(O)
-
-				O.job = "Cyborg"
-				O.cell = chest.cell
-				O.cell.forceMove(O)
-				W.forceMove(O) //Should fix cybros run time erroring when blown up. It got deleted before, along with the frame.
-
-				// Since we "magically" installed a cell, we also have to update the correct component.
-				if(O.cell)
-					var/datum/robot_component/cell_component = O.components["power cell"]
-					cell_component.wrapped = O.cell
-					cell_component.installed = TRUE
-
-				feedback_inc("cyborg_birth", 1)
-				callHook("borgify", list(O))
-				O.Namepick()
-				qdel(src)
+				to_chat(user, SPAN_WARNING("\The [W] does not seem to fit, the connections appear incompatible with this type of model."))
+				return
 		else
 			to_chat(user, SPAN_WARNING("\The [W] can only be inserted after everything else is installed."))
 		return
