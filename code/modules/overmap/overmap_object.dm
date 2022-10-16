@@ -82,7 +82,7 @@
 		O.maptext_width = 72
 		O.maptext_height = 32
 		playsound(C, 'sound/items/goggles_charge.ogg')
-		visible_message(SPAN_DANGER("[usr] engages the targeting systems, acquiring a lock on the target!"))
+		C.visible_message(SPAN_DANGER("[usr] engages the targeting systems, acquiring a lock on the target!"))
 		if(istype(O, /obj/effect/overmap/visitable/ship))
 			var/obj/effect/overmap/visitable/ship/S = O
 			for(var/obj/machinery/computer/ship/SH in S.consoles)

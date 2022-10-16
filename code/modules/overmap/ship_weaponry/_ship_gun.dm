@@ -205,7 +205,7 @@
 /obj/machinery/computer/ship/gunnery/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "machinery-gunnery", 400, 400, "Targeting Control")
+		ui = new(user, src, "machinery-gunnery", 400, 400, "Ajax Targeting Systems")
 		ui.auto_update_content = TRUE
 	ui.open()
 
@@ -271,8 +271,6 @@
 		return
 
 	playsound(src, clicksound, clickvol)
-	if(ui.data["new_ship_weapon"])
-		cannon = ui.data["new_ship_weapon"]
 	
 	if(href_list["fire"])
 		var/obj/effect/landmark/LM
