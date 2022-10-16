@@ -38,6 +38,7 @@
 					penetrated = TRUE
 				else
 					explosion(target, 4, 8, 12)
+					qdel(src)
 			if(SHIP_AMMO_IMPACT_HE)
 				explosion(target, 6, 8, 10)
 			if(SHIP_AMMO_IMPACT_BUNKERBUSTER)
