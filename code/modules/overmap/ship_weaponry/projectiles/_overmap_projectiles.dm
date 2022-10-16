@@ -69,8 +69,8 @@
 					if(istype(ammunition.origin, /obj/effect/overmap/visitable/ship))
 						var/obj/effect/overmap/visitable/ship/OR = ammunition.origin
 						if(VS.fore_dir != OR.fore_dir)
-							var/naval_heading = SSatlas.headings_to_naval[OR.fore_dir][ammunition.heading]
-							var/corrected_heading = SSatlas.naval_to_dir[VS.fore_dir][naval_heading]
+							var/naval_heading = SSatlas.headings_to_naval["[OR.fore_dir]"][ammunition.heading]
+							var/corrected_heading = SSatlas.naval_to_dir["[VS.fore_dir]"][naval_heading]
 							ammunition.heading = corrected_heading
 				var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 				widowmaker.ammo = ammunition

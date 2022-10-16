@@ -23,25 +23,25 @@ var/datum/controller/subsystem/atlas/SSatlas
 	var/list/possible_sectors = list()
 	//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
 	var/list/naval_to_dir = list(
-		NORTH = list(
+		"1" = list(
 			"starboard" = WEST,
 			"port" = EAST,
 			"fore" = SOUTH,
 			"aft" = NORTH
 		),
-		SOUTH = list(
+		"2" = list(
 			"starboard" = EAST,
 			"port" = WEST,
 			"fore" = NORTH,
 			"aft" = SOUTH
 		),
-		EAST = list(
+		"4" = list(
 			"starboard" = NORTH,
 			"port" = SOUTH,
 			"fore" = WEST,
 			"aft" = EAST
 		),
-		WEST = list(
+		"8" = list(
 			"starboard" = SOUTH,
 			"port" = NORTH,
 			"fore" = EAST,
@@ -50,25 +50,25 @@ var/datum/controller/subsystem/atlas/SSatlas
 	)
 
 	var/list/headings_to_naval = list(
-		NORTH = list(
+		"1" = list(
 			WEST = "starboard",
 			EAST = "port",
 			SOUTH = "fore",
 			NORTH = "aft"
 		),
-		SOUTH = list(
+		"2" = list(
 			EAST = "starboard",
 			WEST = "port",
 			NORTH = "fore",
 			SOUTH = "aft"
 		),
-		EAST = list(
+		"4" = list(
 			NORTH = "starboard",
 			SOUTH = "port",
 			WEST = "fore",
 			EAST = "aft"  
 		),
-		WEST = list(
+		"8" = list(
 			SOUTH = "starboard",
 			NORTH = "port",
 			EAST = "fore",

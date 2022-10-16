@@ -32,3 +32,9 @@ sound/weapons/reloads/shotgun_pump.ogg to 6
 
 All sounds listed above in this section part of "Valhalla", licensed under CC0 1.0 Universal (CC0 1.0). Obtained from https://freesound.org/people/FilmmakersManual
 ATTRIBUTIONS SECTION END
+
+sound\weapons\gunshot\ship_weapons\120mm_mortar.ogg - "Mortar", licensed under CC0. Obtained from https://freesound.org/people/Mozfoo/sounds/529239/
+sound\weapons\gunshot\ship_weapons\rotary_fire.ogg - "Minigun", licensed under CC0. Obtained and edited from https://freesound.org/people/Breviceps/sounds/557595/
+sound\weapons\gunshot\ship_weapons\flak_fire.ogg - "Minigun Fire", licensed under CC0. Obtained and edited from https://freesound.org/people/Bratish/sounds/500304/
+sound\weapons\gunshot\ship_weapons\orbital_travel.ogg - "orbital_travel.ogg". Obtained from CM-SS13
+sound\weapons\gunshot\ship_weapons\leviathan_chargeup.ogg - "Starship rail gun", licensed under CC BY 4.0. Obtained and edited from https://www.youtube.com/watch?v=EpaCJ75T3fo
