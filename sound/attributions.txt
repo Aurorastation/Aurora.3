@@ -38,3 +38,11 @@ sound\weapons\gunshot\ship_weapons\rotary_fire.ogg - "Minigun", licensed under C
 sound\weapons\gunshot\ship_weapons\flak_fire.ogg - "Minigun Fire", licensed under CC0. Obtained and edited from https://freesound.org/people/Bratish/sounds/500304/
 sound\weapons\gunshot\ship_weapons\orbital_travel.ogg - "orbital_travel.ogg". Obtained from CM-SS13
 sound\weapons\gunshot\ship_weapons\leviathan_chargeup.ogg - "Starship rail gun", licensed under CC BY 4.0. Obtained and edited from https://www.youtube.com/watch?v=EpaCJ75T3fo
+
+sound\effects\ship_weapons\levi_button_press.ogg - "Click_Electronic_15", licensed under CC BY 4.0. Obtained from https://freesound.org/people/LittleRobotSoundFactory/sounds/288964/
+sound\effects\ship_weapons\levi_key_insert.ogg - "Inserting a key into a padlock (Take B)", licensed under CC0. Obtained from https://freesound.org/people/ani_music/sounds/632482/
+sound\effects\ship_weapons\levi_key_twist.ogg - "Key Twist in Lock", licensed under CC0. Obtained from https://freesound.org/people/KieranKeegan/sounds/418846/
+sound\effects\ship_weapons\leviathan_powerdown.ogg - "CP_Power_Down01", licensed under CC0. Obtained and edited from https://freesound.org/people/stewdio2003/sounds/238367/
+sound\effects\ship_weapons\leviathan_powerup.ogg - "Device powering up", licensed under CC BY 4.0. Obtained and edited from https://freesound.org/people/spoonsandlessspoons/sounds/361339/
+sound/items/drop/shell_drop.ogg - "ANI Big Pipe Hit", licensed under CC0. Obtained from https://freesound.org/people/ani_music/sounds/244983/
+sound/effects/combatroll.ogg - "Starship landing sequence", licensed under CC BY 4.0. Obtained and edited from https://freesound.org/people/Hybrid_V/sounds/381679/

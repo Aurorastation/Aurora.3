@@ -51,28 +51,28 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	var/list/headings_to_naval = list(
 		"1" = list(
-			WEST = "starboard",
-			EAST = "port",
-			SOUTH = "fore",
-			NORTH = "aft"
+			"8" = "starboard",
+			"4" = "port",
+			"2" = "fore",
+			"1" = "aft"
 		),
 		"2" = list(
-			EAST = "starboard",
-			WEST = "port",
-			NORTH = "fore",
-			SOUTH = "aft"
+			"4" = "starboard",
+			"8" = "port",
+			"1" = "fore",
+			"2" = "aft"
 		),
 		"4" = list(
-			NORTH = "starboard",
-			SOUTH = "port",
-			WEST = "fore",
-			EAST = "aft"  
+			"1" = "starboard",
+			"2" = "port",
+			"8" = "fore",
+			"4" = "aft"  
 		),
 		"8" = list(
-			SOUTH = "starboard",
-			NORTH = "port",
-			EAST = "fore",
-			WEST = "aft"
+			"2" = "starboard",
+			"1" = "port",
+			"4" = "fore",
+			"8" = "aft"
 		)
 	)
 
