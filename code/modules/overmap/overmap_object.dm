@@ -47,7 +47,10 @@
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		var/client/C = H.client
-		if(H.machine && istype(C.eye, /obj/effect/overmap) && istype(H.machine, /obj/machinery/computer/ship/helm))
+		if(H.machine && istype(H.machine, /obj/machinery/computer/ship/gunnery) && istype(C.eye, /obj/effect/overmap))
+			var/obj/machinery/computer/ship/gunnery/GS = H.machine
+			if(GS.targeting)
+				return
 			var/my_sector = map_sectors["[H.z]"]
 			if(istype(my_sector, /obj/effect/overmap/visitable))
 				var/obj/effect/overmap/visitable/V = my_sector
@@ -60,29 +63,37 @@
 						else
 							V.detarget(V.targeting, C)
 							V.target(src, H.machine)
+			GS.targeting = FALSE //Extra safety.
 
-/obj/effect/overmap/visitable/proc/target(var/obj/effect/overmap/O, var/obj/machinery/computer/C)
-	targeting = O
-	O.targeted_overlay = icon('icons/obj/overmap_heads_up_display.dmi', "lock")
-	O.add_overlay(O.targeted_overlay)
-	if(!O.maptext)
-		O.maptext = SMALL_FONTS(6, "[class] [designation]")
+/obj/effect/overmap/visitable/proc/target(var/obj/effect/overmap/O, var/obj/machinery/computer/ship/C)
+	C.targeting = TRUE
+	usr.visible_message(SPAN_WARNING("[usr] starts calibrating the targeting systems, swiping around the holographic screen..."), SPAN_WARNING("You start calibrating the targeting systems, swiping around the screen as you focus..."))
+	if(do_after(usr, 5 SECONDS))
+		C.targeting = FALSE
+		targeting = O
+		O.targeted_overlay = icon('icons/obj/overmap_heads_up_display.dmi', "lock")
+		O.add_overlay(O.targeted_overlay)
+		if(!O.maptext)
+			O.maptext = SMALL_FONTS(6, "[class] [designation]")
+		else
+			O.maptext += SMALL_FONTS(6, " [class] [designation]")
+		O.maptext_y = 32
+		O.maptext_x = -10
+		O.maptext_width = 72
+		O.maptext_height = 32
+		playsound(C, 'sound/items/goggles_charge.ogg')
+		visible_message(SPAN_DANGER("[usr] engages the targeting systems, acquiring a lock on the target!"))
+		if(istype(O, /obj/effect/overmap/visitable/ship))
+			var/obj/effect/overmap/visitable/ship/S = O
+			for(var/obj/machinery/computer/ship/SH in S.consoles)
+				if(istype(SH, /obj/machinery/computer/ship/sensors))
+					playsound(SH, 'sound/effects/ship_weapons/locked_on.ogg')
+					SH.visible_message(SPAN_DANGER("<font size=4>\The [SH] beeps alarmingly, signaling an enemy lock-on!</font>"))
 	else
-		O.maptext += SMALL_FONTS(6, " [class] [designation]")
-	O.maptext_y = 32
-	O.maptext_x = -10
-	O.maptext_width = 72
-	O.maptext_height = 32
-	playsound(C, 'sound/effects/ship_weapons/lock_on.ogg', 50)
-	C.visible_message(SPAN_WARNING("\The [C] beeps menacingly, \"Targeting systems engaged.\""))
-	if(istype(O, /obj/effect/overmap/visitable/ship))
-		var/obj/effect/overmap/visitable/ship/S = O
-		for(var/obj/machinery/computer/ship/SH in S.consoles)
-			if(istype(SH, /obj/machinery/computer/ship/sensors))
-				playsound(SH, 'sound/effects/ship_weapons/locked_on.ogg', 50)
-				SH.visible_message(SPAN_DANGER("<font size=4>\The [SH] beeps alarmingly, \"Lock-on detected!\"</font>"))
+		C.targeting = FALSE
 
 /obj/effect/overmap/visitable/proc/detarget(var/obj/effect/overmap/O,  var/obj/machinery/computer/C)
+	playsound(C, 'sound/items/rfd_interrupt.ogg')
 	O.cut_overlay(O.targeted_overlay)
 	O.maptext = null
 	targeting = null

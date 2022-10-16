@@ -5520,9 +5520,7 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/structure/ship_weapon_dummy{
-	icon_state = "viewport_zavod"
-	},
+/obj/structure/viewport/zavod,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "exk" = (
@@ -26045,7 +26043,7 @@
 /area/hallway/medical/upper)
 "vCY" = (
 /obj/machinery/ship_weapon/longbow{
-	weapon_id = "longbow_hrz"
+	weapon_id = "Longbow Cannon"
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -28228,7 +28226,7 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "xyp" = (
 /obj/machinery/ammunition_loader/longbow{
-	weapon_id = "longbow_hrz"
+	weapon_id = "Longbow Cannon"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)

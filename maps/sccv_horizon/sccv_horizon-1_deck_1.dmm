@@ -9335,7 +9335,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "hcE" = (
-/obj/machinery/ship_weapon/francisca,
+/obj/structure/ship_weapon_dummy,
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "Francisca Rotary Gun"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "hdi" = (
@@ -23562,7 +23567,9 @@
 /turf/simulated/wall/shuttle/scc/cardinal,
 /area/shuttle/escape_pod/pod2)
 "syS" = (
-/obj/machinery/ammunition_loader/francisca,
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Francisca Rotary Gun"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "szM" = (
@@ -25703,9 +25710,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
-"uko" = (
-/turf/simulated/floor/plating,
-/area/shuttle/intrepid/cockpit)
 "ukE" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
@@ -49488,12 +49492,12 @@ ifw
 ewy
 aEw
 aHu
-uko
-uko
-uko
-uko
-uko
-hcE
+iRC
+iRC
+iRC
+iRC
+iRC
+iRC
 cLV
 bSM
 cLV
@@ -49695,7 +49699,7 @@ bGE
 bGE
 bGE
 mlc
-uko
+iRC
 cLV
 bSM
 cLV
@@ -49892,12 +49896,12 @@ hfm
 jyn
 aEw
 mSf
+hcE
 bGE
-bGE
-uko
-uko
-uko
-uko
+iRC
+iRC
+iRC
+iRC
 cLV
 bSM
 cLV
@@ -50098,7 +50102,7 @@ syS
 ock
 con
 con
-uko
+iRC
 iRC
 cLV
 bSM
@@ -50300,7 +50304,7 @@ qtp
 ncP
 dKn
 con
-uko
+iRC
 iRC
 cLV
 bSM
@@ -50502,7 +50506,7 @@ cIp
 cND
 uVF
 con
-uko
+iRC
 iRC
 cLV
 bSM

@@ -18,7 +18,7 @@
 	var/firing = FALSE //Helper variable in case we need to track if we're firing or not. Must be set manually. Used for the Leviathan.
 	var/load_time = 5 SECONDS
 
-	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
+	var/weapon_id //Used to identify a gun in the targeting consoles and connect weapon systems to the relevant ammunition loader. Must be unique!
 	var/obj/structure/ship_weapon_dummy/barrel
 
 /obj/machinery/ship_weapon/Initialize(mapload)
@@ -27,12 +27,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/ship_weapon/LateInitialize()
-	if(current_map.use_overmap && !linked)
-		var/my_sector = map_sectors["[z]"]
-		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
-			attempt_hook_up(my_sector)
-	if(linked)
-		LAZYADD(linked.ship_weapons, src)
+	SSshuttle.weapons_to_initialize += src
 	for(var/obj/structure/ship_weapon_dummy/SD in orange(1, src))
 		SD.connect(src)
 
@@ -89,10 +84,12 @@
 /obj/machinery/ship_weapon/proc/disable()
 	return
 
-/obj/machinery/ship_weapon/proc/load_ammunition(var/obj/item/ship_ammunition/SA)
+/obj/machinery/ship_weapon/proc/load_ammunition(var/obj/item/ship_ammunition/SA, var/mob/living/carbon/human/H)
 	if(length(ammunition) >= max_ammo)
 		return FALSE
 	ammunition |= SA
+	if(H)
+		H.drop_from_inventory(SA)
 	SA.forceMove(src)
 	return TRUE
 
@@ -185,13 +182,15 @@
 			SD.connect(SW)
 
 /obj/machinery/computer/ship/gunnery
-	name = "gunnery console"
-	desc = "From this console, you will be able to singlehandedly doom ships' worth of people to an instant and fiery death."
+	name = "targeting systems console"
+	desc = "A targeting systems console using Zavodskoi software."
 	icon_screen = "teleport"
 	icon_keyboard = "teal_key"
 	light_color = LIGHT_COLOR_CYAN
 	var/obj/machinery/ship_weapon/cannon
-	var/obj/effect/landmark/selected_entrypoint
+	var/selected_entrypoint
+	var/list/names_to_guns = list()
+	var/list/names_to_entries = list()
 
 /obj/machinery/computer/ship/gunnery/Initialize()
 	..()
@@ -206,74 +205,105 @@
 /obj/machinery/computer/ship/gunnery/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "machinery-gunnery", 1200, 800, "Targeting Control")
+		ui = new(user, src, "machinery-gunnery", 400, 400, "Targeting Control")
 		ui.auto_update_content = TRUE
 	ui.open()
 
+/obj/machinery/computer/ship/gunnery/proc/build_gun_lists()
+	for(var/obj/machinery/ship_weapon/SW in connected.ship_weapons)
+		if(!SW.special_firing_mechanism)
+			var/gun_name = capitalize_first_letters(SW.weapon_id)
+			names_to_guns[gun_name] = SW
+
 /obj/machinery/computer/ship/gunnery/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = list()
+	build_gun_lists()
+	if(!data)
+		data = list()
+		if(!cannon)
+			var/cannon_name = names_to_guns[1]
+			cannon = names_to_guns[cannon_name]
+			data["status"] = cannon.stat ? "MALFUNCTIONING" : "OK"
+			data["ammunition"] = length(cannon.ammunition) ? "Loaded, [length(cannon.ammunition)] shots" : "Unloaded"
+			data["caliber"] = cannon.caliber
+		data["new_ship_weapon"] = capitalize_first_letters(cannon.weapon_id)
+		data["entry_points"] = list()
+		data["entry_point"] = null
 	data["power"] = stat & (NOPOWER|BROKEN) ? FALSE : TRUE
 	data["linked"] = connected ? TRUE : FALSE
 
 	if(connected)
 		data["is_targeting"] = connected.targeting ? TRUE : FALSE
 		data["ship_weapons"] = list()
-		data["new_ship_weapon"] = null
-		for(var/obj/machinery/ship_weapon/SW in connected.ship_weapons)
-			if(!SW.special_firing_mechanism)
-				data["ship_weapons"] += SW
+		for(var/name in names_to_guns)
+			data["ship_weapons"] += name //Literally do not even ask me why the FUCK this is needed. I have ZERO, **ZERO** FUCKING CLUE why
+										 //this piece of shit UI takes a linked list and AUTOMATICALLY decides it wants to read the fucking linked objects
+										//instead of the actual elements of the list.
+		if(data["new_ship_weapon"])
+			var/new_cannon = data["new_ship_weapon"]
+			cannon = names_to_guns[new_cannon]
+		if(cannon)
+			data["status"] = cannon.stat ? "Unresponsive" : "OK"
+			var/ammunition_type = null
+			if(length(cannon.ammunition))
+				var/obj/item/ship_ammunition/SA = cannon.ammunition[1]
+				ammunition_type = capitalize_first_letters(SA.impact_type)
+			data["ammunition"] = length(cannon.ammunition) ? "[ammunition_type] Loaded, [length(cannon.ammunition)] shot(s) left" : "Unloaded"
+			data["caliber"] = cannon.caliber
 		if(connected.targeting)
-			data["target"] = connected.targeting.name
-			if(cannon)
-				data["status"] = cannon.stat
-				data["ammunition"] = length(cannon.ammunition)
-				data["caliber"] = cannon.caliber
+			data["target"] = ""
+			if(istype(connected.targeting, /obj/effect/overmap/visitable))
+				var/obj/effect/overmap/visitable/V = connected.targeting
+				if(V.class && V.designation)
+					data["target"] = "[V.class] [V.designation]"
+				else
+					data["target"] = capitalize_first_letters(connected.targeting.name)
+			else
+				data["target"] = capitalize_first_letters(connected.targeting.name)
+			data["dist"] = get_dist(connected, connected.targeting)
 			data["entry_points"] = copy_entrypoints()
+			if(data["entry_point"])
+				selected_entrypoint = data["entry_point"]
+	return data
+
+/obj/machinery/computer/ship/gunnery/Topic(href, href_list)
+	var/datum/vueui/ui = href_list["vueui"]
+	if(!istype(ui))
+		return
+
+	playsound(src, clicksound, clickvol)
+	if(ui.data["new_ship_weapon"])
+		cannon = ui.data["new_ship_weapon"]
+	
+	if(href_list["fire"])
+		var/obj/effect/landmark/LM
+		if(selected_entrypoint == "Automatic Hazard Targeting")
+			LM = null
+		else
+			LM = names_to_entries[selected_entrypoint]
+		var/result = cannon.firing_command(linked.targeting, LM)
+		if(isliving(usr) && !isAI(usr) && usr.Adjacent(src))
+			visible_message(SPAN_WARNING("[usr] presses the fire button!"))
+			playsound(src, 'sound/machines/compbeep1.ogg')
+		switch(result)
+			if(SHIP_GUN_ERROR_NO_AMMO)
+				to_chat(usr, SPAN_WARNING("The console shows an error screen: the weapon isn't loaded!"))
+			if(SHIP_GUN_FIRING_SUCCESSFUL)
+				to_chat(usr, SPAN_WARNING("The console shows a positive message: firing sequence successful!"))
+	
+	if(href_list["viewing"])
+		if(usr)
+			viewing_overmap(usr) ? unlook(usr) : look(usr)
 
 /obj/machinery/computer/ship/gunnery/proc/copy_entrypoints()
 	. = list()
 	if(istype(connected.targeting, /obj/effect/overmap/visitable))
 		var/obj/effect/overmap/visitable/V = linked.targeting
 		for(var/obj/effect/O in V.entry_points)
-			. += O
+			. += capitalize_first_letters(O.name)
+			names_to_entries[capitalize_first_letters(O.name)] = O
 		if(!istype(connected.targeting, /obj/effect/overmap/visitable/ship))
 			for(var/obj/effect/O in V.generic_waypoints)
-				. += O
-
-/*/obj/machinery/computer/ship/gunnery/attack_hand(mob/user)
-	. = ..()
-	var/list/obj/machinery/ship_weapon/ship_weapons
-
-	var/obj/machinery/ship_weapon/big_gun = input(user, "Select a gun.", "Gunnery Control") as null|anything in ship_weapons
-	if(!big_gun)
-		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] displays an error message, \"Aborting.\""))
-		return
-	if(!linked.targeting)
-		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] displays an error message, \"No target designated.\""))
-		playsound(src, 'sound/machines/buzz-sigh.ogg')
-		return
-	var/list/obj/effect/possible_entry_points = list()
-	if(istype(linked.targeting, /obj/effect/overmap/visitable))
-		var/obj/effect/overmap/visitable/V = linked.targeting
-		for(var/obj/effect/O in V.generic_waypoints)
-			possible_entry_points[O.name] = O
-		for(var/obj/effect/O in V.entry_points)
-			possible_entry_points[O.name] = O
-	var/targeted_landmark = input(user, "Select an entry point.", "Gunnery Control") as null|anything in possible_entry_points
-	if(!targeted_landmark)
-		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] displays an error message, \"No entry point selected. Aborting.\""))
-		playsound(src, 'sound/machines/buzz-sigh.ogg')
-		return
-	var/obj/effect/landmark = possible_entry_points[targeted_landmark]
-	if(linked.targeting) //Check if we're still targeting.
-		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Target acquired! Firing for effect...\""))
-		playsound(src, 'sound/effects/alert.ogg')
-		var/result = big_gun.firing_command(linked.targeting, landmark)
-		if(result == SHIP_GUN_ERROR_NO_AMMO)
-			visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] displays an error message, \"Ammunition or power insufficient for firing sequence. Aborting.\""))
-			playsound(src, 'sound/machines/buzz-sigh.ogg')
-		if(result == SHIP_GUN_FIRING_SUCCESSFUL)
-			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Firing sequence completed!\""))
-	else
-		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] displays an error message, \"No target given. Aborting.\""))
-		playsound(src, 'sound/machines/buzz-sigh.ogg')*/
+				. += capitalize_first_letters(O.name)
+				names_to_entries[capitalize_first_letters(O.name)] = O
+	if(!length(.))
+		. += "Automatic Hazard Targeting" //No entrypoints == hazard

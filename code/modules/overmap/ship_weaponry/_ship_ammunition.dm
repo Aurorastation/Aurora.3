@@ -92,9 +92,9 @@
 	. = ..()
 	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE)
 		drop_counter++
-		if(drop_counter == 2)
+		if(drop_counter == 3)
 			visible_message(SPAN_WARNING("\The [src] makes a weird noise..."))
-		if(drop_counter >= 3)
+		if(drop_counter >= 4)
 			cookoff(FALSE)
 
 /obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
@@ -118,7 +118,7 @@
 		qdel(src)
 
 /obj/item/ship_ammunition/proc/can_be_loaded()
-	return FALSE
+	return TRUE
 
 /obj/item/ship_ammunition/proc/update_status()
 	return

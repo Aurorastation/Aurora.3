@@ -28,9 +28,8 @@
 				if(SA.can_be_loaded())
 					visible_message(SPAN_NOTICE("[H] begins loading \the [SA] into \the [src]..."))
 					if(do_after(H, weapon.load_time))
-						if(weapon.load_ammunition(SA))
+						if(weapon.load_ammunition(SA, H))
 							visible_message(SPAN_NOTICE("[H] loads \the [SA] into \the [src]."))
-							H.drop_from_inventory(SA)
 							return
 						else
 							to_chat(H, SPAN_WARNING("The loader's full!"))

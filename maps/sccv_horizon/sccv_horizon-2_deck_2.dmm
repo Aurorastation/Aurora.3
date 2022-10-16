@@ -7230,7 +7230,8 @@
 "dEU" = (
 /obj/machinery/ship_weapon/leviathan{
 	pixel_x = -64;
-	pixel_y = -928
+	pixel_y = -928;
+	weapon_id = "Leviathan"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
@@ -18905,7 +18906,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "jwB" = (
-/obj/machinery/ammunition_loader/grauwolf,
+/obj/machinery/ammunition_loader/grauwolf{
+	weapon_id = "Grauwolf Flak Battery"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/flak)
 "jwY" = (
@@ -24076,7 +24079,9 @@
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "mkx" = (
-/obj/machinery/ship_weapon/grauwolf,
+/obj/machinery/ship_weapon/grauwolf{
+	weapon_id = "Grauwolf Flak Battery"
+	},
 /turf/template_noop,
 /area/template_noop)
 "mlD" = (
@@ -45450,9 +45455,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "wMu" = (
-/obj/structure/ship_weapon_dummy{
-	icon_state = "viewport_zavod"
-	},
+/obj/structure/viewport/zavod,
 /turf/simulated/floor/plating,
 /area/operations/flak)
 "wMv" = (
