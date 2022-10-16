@@ -1673,9 +1673,7 @@
 /area/medical/equipment)
 "bxL" = (
 /obj/effect/floor_decal/spline/fancy,
-/obj/item/modular_computer/console/preset/research{
-	dir = 1
-	},
+/obj/machinery/computer/ship/gunnery,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "byT" = (
@@ -7629,6 +7627,9 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/item/clipboard,
+/obj/item/stack/packageWrap,
+/obj/item/device/hand_labeler,
+/obj/item/stack/wrapping_paper,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "gsy" = (
@@ -9797,6 +9798,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/item/leviathan_case,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "hYL" = (
@@ -12665,11 +12667,14 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "kkS" = (
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
-/obj/machinery/recharger,
+/obj/structure/table/reinforced,
+/obj/machinery/leviathan_button{
+	pixel_x = 1;
+	pixel_y = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "kkZ" = (
@@ -16695,6 +16700,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
+/obj/machinery/recharger,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "nRT" = (
@@ -28571,13 +28577,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "xSF" = (
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
 	},
-/obj/item/stack/wrapping_paper,
-/obj/item/device/hand_labeler,
-/obj/item/stack/packageWrap,
+/obj/machinery/leviathan_safeguard,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "xSJ" = (

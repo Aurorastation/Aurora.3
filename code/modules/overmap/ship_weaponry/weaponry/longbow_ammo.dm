@@ -127,15 +127,7 @@
 
 /obj/item/warhead/longbow/throw_impact(atom/hit_atom)
 	. = ..()
-	if(prob(50))
-		cookoff(FALSE)
-
-/obj/item/warhead/longbow/dropped(mob/user)
-	. = ..()
-	drop_counter++
-	if(drop_counter == 2)
-		visible_message(SPAN_WARNING("\The [src] makes a weird noise..."))
-	if(drop_counter >= 3)
+	if(prob(10))
 		cookoff(FALSE)
 
 /obj/item/warhead/longbow/attackby(obj/item/I, mob/user)
