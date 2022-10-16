@@ -37748,6 +37748,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/light_switch{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/flak)
 "tiz" = (

@@ -23902,6 +23902,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/light_switch{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "tUB" = (

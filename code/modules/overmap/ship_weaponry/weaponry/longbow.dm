@@ -6,7 +6,7 @@
 	projectile_type = /obj/item/projectile/ship_ammo/longbow
 	caliber = SHIP_CALIBER_406MM
 	firing_effects = FIRING_EFFECT_FLAG_EXTREMELY_LOUD
-	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
+	screenshake_type = SHIP_GUN_SCREENSHAKE_ALL_MOBS
 
 /obj/machinery/ammunition_loader/longbow
 	name = "longbow shell loader"
@@ -15,8 +15,12 @@
 	icon_state = "heavy"
 	damage = 1000
 	armor_penetration = 1000
-	penetrating = 100
 	var/penetrated = FALSE
+
+/obj/item/projectile/ship_ammo/longbow/launch_projectile(atom/target, target_zone, mob/user, params, angle_override, forced_spread)
+	if(ammo.impact_type == SHIP_AMMO_IMPACT_AP)
+		penetrating = 1
+	. = ..()
 
 /obj/item/projectile/ship_ammo/longbow/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
@@ -33,13 +37,13 @@
 						qdel(target)
 					penetrated = TRUE
 				else
-					explosion(target, 8, 16, 32)
+					explosion(target, 4, 8, 12)
 			if(SHIP_AMMO_IMPACT_HE)
-				explosion(target, 10, 20, 30)
+				explosion(target, 6, 8, 10)
 			if(SHIP_AMMO_IMPACT_BUNKERBUSTER)
 				target.visible_message(SPAN_DANGER("<font size=5>\The [src] punches straight through \the [target]!</font>"))
 				explosion(target, 1, 2, 4)
 				target.ex_act(1)
 				if(!QDELING(target) && target.density)
 					qdel(target)
-		return TRUE				
+		return TRUE
