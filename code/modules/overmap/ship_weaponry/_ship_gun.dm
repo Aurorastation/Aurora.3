@@ -184,29 +184,66 @@
 		if(!SD.connected)
 			SD.connect(SW)
 
-/obj/machinery/computer/gunnery
+/obj/machinery/computer/ship/gunnery
 	name = "gunnery console"
 	desc = "From this console, you will be able to singlehandedly doom ships' worth of people to an instant and fiery death."
 	icon_screen = "teleport"
 	icon_keyboard = "teal_key"
 	light_color = LIGHT_COLOR_CYAN
+	var/obj/machinery/ship_weapon/cannon
+	var/obj/effect/landmark/selected_entrypoint
 
-/obj/machinery/computer/gunnery/Initialize()
+/obj/machinery/computer/ship/gunnery/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/computer/gunnery/LateInitialize()
+/obj/machinery/computer/ship/gunnery/LateInitialize()
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
 
-/obj/machinery/computer/gunnery/attack_hand(mob/user)
+/obj/machinery/computer/ship/gunnery/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "machinery-gunnery", 1200, 800, "Targeting Control")
+		ui.auto_update_content = TRUE
+	ui.open()
+
+/obj/machinery/computer/ship/gunnery/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = list()
+	data["power"] = stat & (NOPOWER|BROKEN) ? FALSE : TRUE
+	data["linked"] = connected ? TRUE : FALSE
+
+	if(connected)
+		data["is_targeting"] = connected.targeting ? TRUE : FALSE
+		data["ship_weapons"] = list()
+		data["new_ship_weapon"] = null
+		for(var/obj/machinery/ship_weapon/SW in connected.ship_weapons)
+			if(!SW.special_firing_mechanism)
+				data["ship_weapons"] += SW
+		if(connected.targeting)
+			data["target"] = connected.targeting.name
+			if(cannon)
+				data["status"] = cannon.stat
+				data["ammunition"] = length(cannon.ammunition)
+				data["caliber"] = cannon.caliber
+			data["entry_points"] = copy_entrypoints()
+
+/obj/machinery/computer/ship/gunnery/proc/copy_entrypoints()
+	. = list()
+	if(istype(connected.targeting, /obj/effect/overmap/visitable))
+		var/obj/effect/overmap/visitable/V = linked.targeting
+		for(var/obj/effect/O in V.entry_points)
+			. += O
+		if(!istype(connected.targeting, /obj/effect/overmap/visitable/ship))
+			for(var/obj/effect/O in V.generic_waypoints)
+				. += O
+
+/*/obj/machinery/computer/ship/gunnery/attack_hand(mob/user)
 	. = ..()
 	var/list/obj/machinery/ship_weapon/ship_weapons
-	for(var/obj/machinery/ship_weapon/SW in linked.ship_weapons)
-		if(!SW.special_firing_mechanism)
-			ship_weapons += SW
+
 	var/obj/machinery/ship_weapon/big_gun = input(user, "Select a gun.", "Gunnery Control") as null|anything in ship_weapons
 	if(!big_gun)
 		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] displays an error message, \"Aborting.\""))
@@ -239,4 +276,4 @@
 			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] beeps, \"Firing sequence completed!\""))
 	else
 		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] \The [src] displays an error message, \"No target given. Aborting.\""))
-		playsound(src, 'sound/machines/buzz-sigh.ogg')
+		playsound(src, 'sound/machines/buzz-sigh.ogg')*/

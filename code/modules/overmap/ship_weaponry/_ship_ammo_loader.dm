@@ -37,7 +37,7 @@
 				else
 					to_chat(H, SPAN_WARNING("That ammunition's not ready to be loaded!"))
 			else
-				to_chat(H, SPAN_WARNING("That ammo doesn't fit here!"))
+				to_chat(H, SPAN_WARNING("That ammunition doesn't fit here!"))
 				return
 	. = ..()
 

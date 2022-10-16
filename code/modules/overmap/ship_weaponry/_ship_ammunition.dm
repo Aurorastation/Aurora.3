@@ -23,6 +23,12 @@
 	var/obj/item/projectile/original_projectile
 	var/heading = SOUTH
 
+	//Cookofff variables.
+	var/drop_counter = 0
+	var/cookoff_devastation = 0
+	var/cookoff_heavy = 2
+	var/cookoff_light = 3
+
 /obj/item/ship_ammunition/Initialize()
 	. = ..()
 	update_status()
@@ -76,6 +82,40 @@
 		return TRUE
 	else
 		return FALSE
+
+/obj/item/ship_ammunition/throw_impact(atom/hit_atom)
+	. = ..()
+	if(prob(50) && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
+		cookoff(FALSE)
+
+/obj/item/ship_ammunition/dropped(mob/user)
+	. = ..()
+	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE)
+		drop_counter++
+		if(drop_counter == 2)
+			visible_message(SPAN_WARNING("\The [src] makes a weird noise..."))
+		if(drop_counter >= 3)
+			cookoff(FALSE)
+
+/obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
+	. = ..()
+	if(I.force > 10 && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
+		cookoff(FALSE)
+
+/obj/item/ship_ammunition/ex_act(severity)
+	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
+		cookoff(TRUE)
+
+/obj/item/ship_ammunition/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
+		if(exposed_temperature >= T0C+200)
+			cookoff(TRUE)
+
+/obj/item/ship_ammunition/proc/cookoff(var/caused_by_heat = TRUE)
+	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
+		visible_message(SPAN_DANGER("\The [src] [caused_by_heat ? "cooks" : "goes"] off and explodes!"))
+		explosion(get_turf(src), cookoff_devastation, cookoff_heavy, cookoff_light)
+		qdel(src)
 
 /obj/item/ship_ammunition/proc/can_be_loaded()
 	return FALSE

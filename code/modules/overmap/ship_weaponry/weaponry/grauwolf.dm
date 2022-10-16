@@ -2,11 +2,12 @@
 	name = "grauwolf flak battery"
 	desc = "A Zavodskoi flak battery developed in 2461. While its barrels may be smaller than its significantly larger kin's, the Longbow's, don't let that fool you: this gun will shred through smaller ships."
 	icon = 'icons/obj/machines/ship_guns/grauwolf.dmi'
+	heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/flak_fire.ogg'
 	icon_state = "weapon_base"
-
 	projectile_type = /obj/item/projectile/ship_ammo/grauwolf
 	caliber = SHIP_CALIBER_90MM
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
+
 /obj/machinery/ammunition_loader/grauwolf
 	name = "grauwolf flak loader"
 
@@ -36,7 +37,7 @@
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_HE)
 		explosion(target, 0, 2, 4)
 	else
-		explosion(target, 1, 2)
+		explosion(target, 0, 1, 2)
 
 /obj/item/projectile/ship_ammo/grauwolf/ap
 	name = "armor-piercing flak"
@@ -46,7 +47,7 @@
 
 /obj/item/projectile/ship_ammo/grauwolf/on_translate(var/turf/entry_turf, var/turf/target_turf)
 	for(var/i = 1 to 4)
-		var/turf/new_turf = get_random_turf_in_range(entry_turf, 7, 7, TRUE, TRUE)
+		var/turf/new_turf = get_random_turf_in_range(entry_turf, 5, 5, TRUE, TRUE)
 		var/obj/item/projectile/ship_ammo/grauwolf/burst = new(new_turf)
 		var/turf/front_turf = get_step(new_turf, dir)
 		burst.dir = dir

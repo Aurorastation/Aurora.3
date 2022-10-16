@@ -19,6 +19,7 @@
 				visible_message(SPAN_NOTICE("You connect \the [P] to the casing!"), SPAN_NOTICE("[H] connects \the [P] to the casing!"))
 				H.drop_from_inventory(P)
 				add_primer(P)
+				playsound(src, 'sound/machines/rig/rig_deploy.ogg')
 		if(istype(I, /obj/item/warhead) && !warhead)
 			var/obj/item/warhead/W = I
 			visible_message(SPAN_NOTICE("You start connecting \the [W] to the casing..."), SPAN_NOTICE("[H] starts connecting \the [W] to the casing..."))
@@ -26,6 +27,7 @@
 				visible_message(SPAN_NOTICE("You connect \the [W] to the casing!"), SPAN_NOTICE("[H] connects \the [W] to the casing!"))
 				H.drop_from_inventory(W)
 				add_warhead(W)
+				playsound(src, 'sound/machines/rig/rig_deploy.ogg')
 	update_status()
 
 /obj/item/ship_ammunition/longbow/can_be_loaded()
@@ -46,12 +48,19 @@
 		W.forceMove(src)
 		add_overlay(W.warhead_state)
 		impact_type = W.warhead_type
+		ammunition_flags = initial(ammunition_flags)
+		ammunition_flags |= SHIP_AMMO_FLAG_VERY_FRAGILE
+		ammunition_flags |= SHIP_AMMO_FLAG_INFLAMMABLE
+		cookoff_devastation = warhead.cookoff_devastation
+		cookoff_heavy = warhead.cookoff_heavy
+		cookoff_light = warhead.cookoff_light
 
 /obj/item/ship_ammunition/longbow/update_status()
 	desc = initial(desc)
 	if(primer && !warhead)
 		desc += "It is loaded with [primer], but no warhead."
 		name = "longbow casing"
+		ammunition_flags = initial(ammunition_flags)
 	else if(warhead && !primer)
 		desc += "It has a [warhead], but no primer."
 		name = "longbow casing"
@@ -60,6 +69,7 @@
 		name = "longbow shell"
 	else
 		desc += "It isn't loaded with a warhead and has no primer."
+		ammunition_flags = initial(ammunition_flags)
 
 /obj/item/ship_ammunition/longbow/get_speed()
 	return primer ? primer.speed : 0
@@ -67,7 +77,7 @@
 /obj/item/ship_ammunition/longbow/throw_fail_consequences(var/mob/living/carbon/C)
 	. = ..()
 	if(warhead)
-		if(prob(25))
+		if(prob(75))
 			visible_message(SPAN_DANGER("\The [src] goes off!"))
 			warhead.cookoff()
 			qdel(src)
@@ -105,11 +115,12 @@
 
 /obj/item/warhead/longbow
 	name = "longbow high-explosive warhead"
-	desc = "A high-explosive warhead for the Longbow cannon. It packs a stronger punch than all the others, but does not penetrate through the hull on initial contact. <span class='danger'>Don't drop it!</span>"
+	desc = "A high-explosive warhead for the Longbow cannon. It packs a stronger punch than all the others, but does not penetrate through the hull on initial contact. <span class='danger'>Handle with care!</span>"
 	icon_state = "high_ex_obj"
 	warhead_state = "high_ex"
 	caliber = SHIP_CALIBER_406MM
 	warhead_type = SHIP_AMMO_IMPACT_HE
+	var/drop_counter = 0
 	var/cookoff_devastation = 2
 	var/cookoff_heavy = 2
 	var/cookoff_light = 4
@@ -117,23 +128,36 @@
 /obj/item/warhead/longbow/throw_impact(atom/hit_atom)
 	. = ..()
 	if(prob(50))
-		cookoff()
+		cookoff(FALSE)
+
+/obj/item/warhead/longbow/dropped(mob/user)
+	. = ..()
+	drop_counter++
+	if(drop_counter == 2)
+		visible_message(SPAN_WARNING("\The [src] makes a weird noise..."))
+	if(drop_counter >= 3)
+		cookoff(FALSE)
+
+/obj/item/warhead/longbow/attackby(obj/item/I, mob/user)
+	. = ..()
+	if(I.force > 10)
+		cookoff(FALSE)
 
 /obj/item/warhead/longbow/ex_act(severity)
-	cookoff()
+	cookoff(TRUE)
 
 /obj/item/warhead/longbow/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature >= T0C+200)
-		cookoff()
+		cookoff(TRUE)
 
-/obj/item/warhead/longbow/proc/cookoff()
-	visible_message(SPAN_DANGER("\The [src] cooks off and explodes!"))
+/obj/item/warhead/longbow/proc/cookoff(var/caused_by_heat = TRUE)
+	visible_message(SPAN_DANGER("\The [src] [caused_by_heat ? "cooks" : "goes"] off and explodes!"))
 	explosion(get_turf(src), cookoff_devastation, cookoff_heavy, cookoff_light)
 	qdel(src)
 
 /obj/item/warhead/longbow/ap
 	name = "longbow armor-piercing warhead"
-	desc = "An armor-piercing warhead for the Longbow cannon. It penetrates through the hull and then explodes inside the target, albeit at the cost of less explosive power. <span class='danger'>Don't drop it!</span>"
+	desc = "An armor-piercing warhead for the Longbow cannon. It penetrates through the hull and then explodes inside the target, albeit at the cost of less explosive power. <span class='danger'>Handle with care!</span>"
 	icon_state = "armor_piercing_obj"
 	warhead_state = "armor_piercing"
 	warhead_type = SHIP_AMMO_IMPACT_AP
@@ -143,7 +167,7 @@
 
 /obj/item/warhead/longbow/bunker
 	name = "longbow bunker-buster warhead"
-	desc = "A bunker-buster warhead for the Longbow cannon. This will pierce straight through anything, but won't explode! <span class='danger'>Don't drop it!</span>"
+	desc = "A bunker-buster warhead for the Longbow cannon. This will pierce straight through anything, but won't explode! <span class='danger'>Handle with care!</span>"
 	icon_state = "bunker_buster_obj"
 	warhead_state = "bunker_buster"
 	warhead_type = SHIP_AMMO_IMPACT_BUNKERBUSTER
