@@ -675,10 +675,16 @@ BLIND     // can't see anything
 	desc = "Sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "sunhud_pmcg"
 
+/obj/item/clothing/glasses/sunglasses/sechud/pmc/alt
+	icon_state = "sunhud_pmcg_alt"
+
 /obj/item/clothing/glasses/sunglasses/sechud/big/pmc
 	name = "fat PMCG HUDsunglasses"
 	desc = "Fat sunglasses in the colours of the Private Military Contracting Group. They come with a blue-tinted HUD and a chrome finish."
 	icon_state = "bigsunglasses_hud_pmcg"
+
+/obj/item/clothing/glasses/sunglasses/sechud/big/pmc/alt
+	icon_state = "bigsunglasses_hud_pmcg_alt"
 
 /obj/item/clothing/glasses/sunglasses/sechud/idris
 	name = "Idris HUDsunglasses"
@@ -771,6 +777,10 @@ BLIND     // can't see anything
 	desc = "PMCG security aviator glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "aviator_sec_pmcg"
 	off_state = "aviator_sec_pmcg_off"
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc/alt
+	icon_state = "aviator_sec_pmcg_alt"
+	off_state = "aviator_sec_pmcg_alt_off"
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
 	name = "Idris HUD aviators"

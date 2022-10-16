@@ -8551,7 +8551,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/service{
 	name = "Chaplain's Office";
-	req_access = list(22)
+	req_access = list(22);
+	id_tag = "chapdoor"
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/dark,
@@ -15319,10 +15320,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai)
-"hEw" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/wall,
-/area/maintenance/wing/port)
 "hEF" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -31908,7 +31905,7 @@
 "qlm" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12,26)
+	req_one_access = list(12,26,31,48,67)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -69998,7 +69995,7 @@ mqn
 fbT
 bZu
 nlG
-lKI
+rNE
 iVp
 iVp
 iVp
@@ -79729,7 +79726,7 @@ tgp
 pXp
 kaT
 kaT
-hEw
+kaT
 rzC
 lVg
 mfN
@@ -79931,7 +79928,7 @@ mia
 erY
 kaT
 kaT
-hEw
+kaT
 wsW
 eqS
 kmx

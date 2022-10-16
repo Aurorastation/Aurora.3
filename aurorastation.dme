@@ -3181,6 +3181,8 @@
 #include "maps\away\ships\elyra_ship_ghostroles.dm"
 #include "maps\away\ships\sol.dm"
 #include "maps\away\ships\sol_ship_ghostroles.dm"
+#include "maps\away\ships\tajaran_smuggler.dm"
+#include "maps\away\ships\tajaran_smuggler_ghostroles.dm"
 #include "maps\away\ships\tirakqi_freighter.dm"
 #include "maps\away\ships\tirakqi_freighter_ghostroles.dm"
 #include "maps\away\ships\wildcard.dm"

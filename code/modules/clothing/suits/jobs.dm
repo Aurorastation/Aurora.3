@@ -323,6 +323,10 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "pmc_emt_jacket"
 	item_state = "pmc_emt_jacket"
 
+/obj/item/clothing/suit/storage/toggle/fr_jacket/pmc/alt
+	icon_state = "pmc_alt_emt_jacket"
+	item_state = "pmc_alt_emt_jacket"
+
 
 /obj/item/clothing/suit/storage/medical_chest_rig
 	name = "medic chest-rig"
