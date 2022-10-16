@@ -40,3 +40,6 @@ delete-after: True
 changes:
   - rscadd: "Added a ship to ship combat system! The basic functioning is that each ship has at least four entry points that can be targeted. Projectiles enter these entrypoints based on the heading of the ship that fired them. Ex: if you are facing the starboard of a ship, and you fire to hit the aft, you will miss."
   - rscadd: "The Horizon now has its own guns! They were fitted in the last few port calls. The Leviathan (accessible by Engineering & Command) is on the port ballast on Deck 2. The Grauwolf, a flak cannon, is fore of Operations. The Longbow, a 406mm artillery gun, is port of the Bridge. The Intrepid has been fitted with a 40mm rotary gun, the Francisca."
+  - rscadd: "To target an overmap object with a gun, go to a targeting console, open the targeting grid and then click an overmap object that you can see. You will then lock onto it."
+  - rscadd: "To load ammunition into a gun, load the respective shell or bundle or whatever you might need into the ammunition loader next to the gun."
+  - rscadd: "The Leviathan has a fairly complex activation sequence! All details can be found in the envelope found in its holding bay."

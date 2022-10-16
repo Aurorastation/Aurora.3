@@ -8550,9 +8550,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/service{
+	id_tag = "chapdoor";
 	name = "Chaplain's Office";
-	req_access = list(22);
-	id_tag = "chapdoor"
+	req_access = list(22)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/dark,
@@ -24076,11 +24076,14 @@
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "mkx" = (
+/obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/grauwolf{
+	pixel_x = -32;
+	pixel_y = -192;
 	weapon_id = "Grauwolf Flak Battery"
 	},
-/turf/template_noop,
-/area/template_noop)
+/turf/simulated/floor/plating,
+/area/operations/flak)
 "mlD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -56303,7 +56306,7 @@ kCC
 tZQ
 fwW
 qgN
-mkx
+qgN
 qgN
 qgN
 qgN
@@ -56499,7 +56502,7 @@ cpl
 vJR
 cyd
 oYn
-kCC
+mkx
 kCC
 kCC
 tZQ

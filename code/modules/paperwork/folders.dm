@@ -207,7 +207,12 @@
 	unified science and engineering arm. Nearly two-thousand tonnes and longer than fifty meters, the Leviathian is composed of two (2) arc batteries,\
 	six (6) hyper conductors, six (6) warp engine generators, four (4) warp field stabilizers, a thirty meter (30m) dampening rail-line and a full targeting\
 	acquisition/power management array.<br><field>\
-	<b>Instructions:</b> In order to fire the Leviathan, the capacitors must first be coupled by lowering the activation lever. This coupling is, however, extremely energy intensive.<field><br>\
+	<b>Instructions:</b> In order to fire the Leviathan, the capacitors must first be coupled by lowering the activation lever. This coupling is, however, extremely energy intensive. \
+	Long term activation thus requires a hefty supply of electricity in the APC. Firing the Leviathan itself takes energy directly from the superconducting SMES specially built \
+	for the gun. Its firing cost is around 3 megawatts per shot.<br> \
+	To activate the Leviathan itself, two command staff must first couple the warp fields to the firing array by unlocking the safeties on the keycard authentication device. \
+	Once that is done, the key must be retrieved from its case in the Captain's office. It must then be placed in the activation terminal in the bridge. \
+	The key must then be twisted and, finally, the button to fire the Leviathan will be uncovered and it may be pressed.<field><br>\
 	<b>Subject Description:</b> The Leviathan's one and only intended purpose is to annihilate any single target\
 	that proves to be an existential threat to the SCCV Horizon and all of its valuable designs and crew. The subject achieves this by pushing and weaponizing \
 	already understood warp drive technology to a scale only currently matched by phoron fusion bombs.<br> \

@@ -29,6 +29,12 @@ var/datum/controller/subsystem/atlas/SSatlas
 			"fore" = SOUTH,
 			"aft" = NORTH
 		),
+		SOUTH = list(
+			"starboard" = EAST,
+			"port" = WEST,
+			"fore" = NORTH,
+			"aft" = SOUTH
+		),
 		EAST = list(
 			"starboard" = NORTH,
 			"port" = SOUTH,
@@ -40,12 +46,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 			"port" = NORTH,
 			"fore" = EAST,
 			"aft" = WEST
-		),
-		SOUTH = list(
-			"starboard" = EAST,
-			"port" = WEST,
-			"fore" = NORTH,
-			"aft" = SOUTH
 		)
 	)
 
@@ -55,6 +55,12 @@ var/datum/controller/subsystem/atlas/SSatlas
 			EAST = "port",
 			SOUTH = "fore",
 			NORTH = "aft"
+		),
+		SOUTH = list(
+			EAST = "starboard",
+			WEST = "port",
+			NORTH = "fore",
+			SOUTH = "aft"
 		),
 		EAST = list(
 			NORTH = "starboard",
@@ -67,12 +73,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 			NORTH = "port",
 			EAST = "fore",
 			WEST = "aft"
-		),
-		SOUTH = list(
-			EAST = "starboard",
-			WEST = "port",
-			NORTH = "fore",
-			SOUTH = "aft"
 		)
 	)
 
