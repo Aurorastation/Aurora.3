@@ -22,6 +22,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 	var/datum/space_sector/current_sector
 	var/list/possible_sectors = list()
 	//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
+	//These are strings because otherwise the list indexes would be out of bounds. Thanks BYOND.
 	var/list/naval_to_dir = list(
 		"1" = list(
 			"starboard" = WEST,
