@@ -37,7 +37,7 @@
 		if(!length(S.class))
 			fail("[S.name] ([S.type]) does not have a class defined.")
 			failures++
-		else
+		if(!length(S.designation))
 			fail("[S.name] ([S.type]) does not have a designation defined.")
 			failures++
 	if(!failures)
