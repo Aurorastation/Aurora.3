@@ -80,6 +80,8 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tirakqi_shuttle
 	name = "Ti'Rakqi Shuttle"
+	class = "ISV"
+	designation = "Ku'ku"
 	desc = "A simple and fast transport shuttle. This one's transponder identifies it as belonging to an independent freighter."
 	shuttle = "Ti'Rakqi Shuttle"
 	max_speed = 1/(3 SECONDS)

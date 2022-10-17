@@ -70,6 +70,8 @@
 //shuttle 
 /obj/effect/overmap/visitable/ship/landable/kataphract_transport
 	name = "Kataphract Transport"
+	class = "IHKV"
+	designation = "Sasuna"
 	desc = "A small egg shaped shuttle of the 'Spearhead' class, commonly seen carried by Izweski Hegemony vessels. They're never far from their motherships and are a telltale sign of an Unathi presence within a sector. Affectionately called the 'Hatchling' by its operators. The transponder for this vessel identifies it as belonging to a traveling Kataphract Guild of the Hegemony."
 	shuttle = "Kataphract Transport"
 	icon_state = "shuttle_green"

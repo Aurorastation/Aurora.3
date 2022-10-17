@@ -66,6 +66,8 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/sfa_shuttle
 	name = "SFA Shuttle"
+	designation = "SFAV"
+	class = "Pickford"
 	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one's transponder identifies it as belonging to the Southern Fleet Administration, an all-but-defunct Solarian warlord state."
 	shuttle = "SFA Shuttle"
 	max_speed = 1/(3 SECONDS)

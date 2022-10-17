@@ -66,6 +66,8 @@ datum/map_template/ruin/away_site/tajaran_smuggler
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tajaran_smuggler_shuttle
 	name = "Adhomian Freight Shuttle"
+	class = "IFR"
+	designation = "Rafama"
 	desc = "An inefficient and rustic looking shuttle. This one's transponder identifies it as belonging to an independent freighter."
 	shuttle = "Adhomian Freight Shuttle"
 	max_speed = 1/(3 SECONDS)
