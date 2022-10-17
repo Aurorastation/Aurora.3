@@ -15,7 +15,7 @@
 
 	use_power = POWER_USE_OFF //Start off.
 	idle_power_usage = 100 KILOWATTS
-	active_power_usage = 10 MEGAWATTS
+	active_power_usage = 20 MEGAWATTS
 	var/obj/machinery/power/smes/buildable/smes
 
 /obj/machinery/ship_weapon/leviathan/Destroy()
