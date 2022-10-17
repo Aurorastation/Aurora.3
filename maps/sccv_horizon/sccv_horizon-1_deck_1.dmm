@@ -6506,6 +6506,9 @@
 	dir = 8
 	},
 /obj/machinery/door/window/southleft,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "eWN" = (
@@ -27381,12 +27384,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/door/window/southright,
 /obj/machinery/light/small{
 	dir = 1
 	},
+/mob/living/heavy_vehicle/premade/ripley,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "vse" = (
