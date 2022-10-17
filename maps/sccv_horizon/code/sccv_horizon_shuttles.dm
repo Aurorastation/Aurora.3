@@ -178,7 +178,7 @@
 
 // Mining Shuttle
 /datum/shuttle/autodock/overmap/mining
-	name = "Mining Shuttle"
+	name = "Pickaxe"
 	move_time = 20
 	shuttle_area = /area/shuttle/mining
 	dock_target = "mining_shuttle_controller"

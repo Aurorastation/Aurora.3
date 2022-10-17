@@ -45,4 +45,5 @@ changes:
   - rscadd: "The Leviathan has a fairly complex activation sequence! All details can be found in the envelope found in its holding bay."
   - rscadd: "Certain guns, like the Grauwolf, can be used to destroy some overmap hazards."
   - rscadd: "When targeting multi-z maps like the Horizon, you are able to select a z-level to filter the entry points."
+  - tweak: "The Mining Shuttle has officially been given the name of Pickaxe."
   - bugfix: "You can no longer see overmap objects through darkness."

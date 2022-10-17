@@ -51,7 +51,7 @@
 	name = "Escape pod - 4"
 
 /area/shuttle/mining
-	name = "Mining Shuttle"
+	name = "Pickaxe"
 	requires_power = TRUE
 
 /area/shuttle/transport1
