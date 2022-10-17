@@ -83,7 +83,7 @@
 				widowmaker.dir = ammunition.heading
 				var/turf/target_turf = get_step(widowmaker, widowmaker.dir)
 				widowmaker.on_translate(entry_turf, target_turf)
-				log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name], with direction [dir_name(widowmaker.dir)]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+				log_and_message_admins("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir_name(widowmaker.dir)]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
 				widowmaker.launch_projectile(target_turf)
 				qdel(src)
 			else if(istype(V, /obj/effect/overmap/event) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_HAZARDS))
