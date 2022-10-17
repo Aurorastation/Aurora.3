@@ -5795,7 +5795,8 @@
 	name = "Entrance Airlock Bolts";
 	pixel_x = 22;
 	pixel_y = -22;
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19, 11);
 	specialfunctions = 4
 	},
 /obj/structure/cable{
@@ -7297,7 +7298,8 @@
 	id_tag = "bolts_cannon_entrance";
 	locked = 1;
 	name = "Primary Armament";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19, 11)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor,
@@ -18549,7 +18551,8 @@
 	check_synth = 1;
 	name = "\improper Situational Control Armaments Turret Control";
 	pixel_x = 28;
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19, 11)
 	},
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads \"WARNING: BEWARE OF HIGH-YIELD DEFENSIVE TURRETS. DO NOT PASS WITHOUT PROPER AUTHORIZATION. EXTREME DANGER WITHIN THIS PERIMETER.\".";
@@ -18562,7 +18565,8 @@
 	name = "Entrance Airlock Bolts";
 	pixel_x = 22;
 	pixel_y = 12;
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19, 11);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/airlock{
@@ -18571,7 +18575,8 @@
 	name = "Primary Armament Exterior Bolts";
 	pixel_x = 22;
 	pixel_y = -13;
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19, 11);
 	specialfunctions = 4
 	},
 /obj/structure/cable{
@@ -30840,7 +30845,8 @@
 	check_synth = 1;
 	name = "\improper Situational Control Armaments Turret Control";
 	pixel_y = 32;
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19, 11)
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -34654,7 +34660,8 @@
 	name = "Primary Armament Interior Bolts";
 	pixel_x = 22;
 	pixel_y = -20;
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19, 11);
 	specialfunctions = 4
 	},
 /obj/structure/cable{
@@ -37775,7 +37782,8 @@
 	name = "Primary Armament Interior Bolts";
 	pixel_x = 22;
 	pixel_y = 22;
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19, 11);
 	specialfunctions = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -39258,7 +39266,8 @@
 /obj/machinery/door/airlock/hatch{
 	id_tag = "bolts_cannon_external";
 	name = "Primary Armament Exterior Airlock";
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19, 11);
 	secured_wires = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -39375,7 +39384,8 @@
 	name = "External Blast Doors";
 	pixel_x = 7;
 	pixel_y = -23;
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19, 11)
 	},
 /obj/machinery/light/small,
 /obj/structure/window/reinforced{
@@ -44625,7 +44635,8 @@
 	name = "Viewing Blast Doors";
 	pixel_x = 7;
 	pixel_y = -23;
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19, 11)
 	},
 /obj/structure/table/standard,
 /obj/item/device/binoculars,
@@ -45443,7 +45454,8 @@
 	id_tag = "bolts_cannon_internal";
 	locked = 1;
 	name = "Primary Armament Interior";
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19, 11);
 	secured_wires = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -45940,7 +45952,8 @@
 	name = "Primary Armament Exterior Bolts";
 	pixel_x = -6;
 	pixel_y = -38;
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19, 11);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/airlock{
@@ -45949,7 +45962,8 @@
 	name = "Entrance Airlock Bolts";
 	pixel_x = 6;
 	pixel_y = -38;
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19, 11);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/airlock{
@@ -45958,7 +45972,8 @@
 	name = "Primary Armament Interior Bolts";
 	pixel_x = -6;
 	pixel_y = -28;
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19, 11);
 	specialfunctions = 4
 	},
 /obj/structure/sign/nosmoking_2{

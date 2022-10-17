@@ -14,11 +14,11 @@
 
 /obj/machinery/ammunition_loader/LateInitialize()
 	for(var/obj/machinery/ship_weapon/SW in SSmachinery.machinery)
-		if(get_area(SW) == get_area(src))
-			if(SW.weapon_id == weapon_id)
+		if(SW.weapon_id == weapon_id)
+			if(get_area(SW) == get_area(src))
 				weapon = SW
-		else
-			crash_with("[src] is set to [weapon_id] of [SW] at [x] [y] [z], but areas mismatch!")
+			else
+				crash_with("[src] is set to [weapon_id] of [SW] at [x] [y] [z], but areas mismatch!")
 	if(!weapon)
 		crash_with("[src] at [x] [y] [z] has no weapon attached!")
 

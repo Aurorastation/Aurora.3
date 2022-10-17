@@ -36,5 +36,4 @@
 	name = "40mm AP bullet"
 	damage = 30
 	armor_penetration = 100
-	anti_materiel_potential = 3
 	penetrating = 4

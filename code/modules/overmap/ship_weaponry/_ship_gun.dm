@@ -2,6 +2,7 @@
 	name = "ship weapon"
 	desc = "You shouldn't be seeing this."
 	icon = 'icons/obj/machines/ship_guns/longbow.dmi'
+	idle_power_usage = 1500
 	active_power_usage = 50000
 	var/heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg' //The sound in the immediate firing area. Very loud.
 	var/light_firing_sound = 'sound/effects/explosionfar.ogg' //The sound played when you're a few walls away. Kind of loud.

@@ -51,6 +51,8 @@
 	for(var/i = 1 to 4)
 		var/turf/new_turf = get_random_turf_in_range(entry_turf, 5, 5, TRUE, TRUE)
 		var/obj/item/projectile/ship_ammo/grauwolf/burst = new(new_turf)
+		burst.ammo = new ammo.type
+		burst.ammo.impact_type = ammo.impact_type
 		var/turf/front_turf = get_step(new_turf, dir)
 		burst.dir = dir
 		burst.launch_projectile(front_turf)

@@ -1,6 +1,6 @@
 /obj/machinery/ship_weapon/leviathan
 	name = "leviathan zero-point artillery"
-	desc = "A hulking structure made up by an insane amount of moving parts, components and capacitors. It has no branding besides the \"ZAT\" inscription on the sides."
+	desc = "A hulking structure made up of an insane amount of moving parts, components and capacitors. It has no branding other than the \"ZAT\" inscription on the sides."
 	icon = 'icons/obj/machines/ship_guns/leviathan.dmi'
 	icon_state = "weapon_off"
 	special_firing_mechanism = TRUE

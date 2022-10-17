@@ -22099,11 +22099,14 @@
 /turf/simulated/floor/plating,
 /area/horizon/crew_quarters/fitness/hallway)
 "sgH" = (
+/obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/longbow{
+	pixel_x = -32;
+	pixel_y = -320;
 	weapon_id = "Longbow Cannon"
 	},
-/turf/template_noop,
-/area/template_noop)
+/turf/simulated/floor/plating,
+/area/bridge/longbow_compartment)
 "sgI" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -53326,7 +53329,7 @@ mVA
 mVA
 mVA
 mVA
-sgH
+dTY
 mBl
 mBl
 mBl
@@ -53518,7 +53521,7 @@ vdF
 bKa
 oIK
 crv
-aVi
+sgH
 aVi
 aVi
 mVA
