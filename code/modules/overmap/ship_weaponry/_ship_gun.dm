@@ -117,11 +117,13 @@
 /obj/machinery/ship_weapon/proc/disable()
 	return
 
-/obj/machinery/ship_weapon/proc/load_ammunition(var/obj/item/ship_ammunition/SA, var/mob/living/carbon/human/H)
+/obj/machinery/ship_weapon/proc/load_ammunition(var/obj/item/ship_ammunition/SA, var/mob/living/H, var/obj/item/mecha_equipment/clamp/clamp)
 	if(length(ammunition) >= max_ammo)
 		return FALSE
 	ammunition |= SA
-	if(H)
+	if(ismech(H))
+		clamp.drop_carrying()
+	else
 		H.drop_from_inventory(SA)
 	SA.forceMove(src)
 	return TRUE

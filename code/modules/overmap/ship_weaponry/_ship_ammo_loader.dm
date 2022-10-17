@@ -23,25 +23,18 @@
 		crash_with("[src] at [x] [y] [z] has no weapon attached!")
 
 /obj/machinery/ammunition_loader/attackby(obj/item/W, mob/user)
-	if(ishuman(user))
-		var/mob/living/carbon/H = user
+	if(isliving(user))
+		var/mob/living/carbon/human/H = user
 		if(istype(W, /obj/item/ship_ammunition))
 			var/obj/item/ship_ammunition/SA = W
-			if(SA.caliber == weapon.get_caliber())
-				if(SA.can_be_loaded())
-					visible_message(SPAN_NOTICE("[H] begins loading \the [SA] into \the [src]..."))
-					if(do_after(H, weapon.load_time))
-						if(weapon.load_ammunition(SA, H))
-							visible_message(SPAN_NOTICE("[H] loads \the [SA] into \the [src]!"))
-							playsound(src, 'sound/weapons/ammo_load.ogg')
-							return TRUE
-						else
-							to_chat(H, SPAN_WARNING("The loader's full!"))
-				else
-					to_chat(H, SPAN_WARNING("That ammunition's not ready to be loaded!"))
-			else
-				to_chat(H, SPAN_WARNING("That ammunition doesn't fit here!"))
-				return FALSE
+			return load_ammo(SA, H)
+	if(ismech(user))
+		var/mob/living/heavy_vehicle/HV = user
+		if(istype(W, /obj/item/mecha_equipment/clamp))
+			var/obj/item/mecha_equipment/clamp/CL = W
+			if(istype(CL.carrying[1], /obj/item/ship_ammunition))
+				var/obj/item/ship_ammunition/SA = CL.carrying[1]
+				return load_ammo(SA, HV, CL)
 		if(istype(W, /obj/item/device/multitool))
 			to_chat(user, SPAN_NOTICE("You hook up the tester's wires to \the [src]: its identification tag is <b>[weapon_id]</b>."))
 			var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id)
@@ -56,6 +49,23 @@
 					to_chat(user, SPAN_NOTICE("With some finicking, you change the identification tag to <b>[new_id]</b>."))
 					return TRUE
 	. = ..()
+
+/obj/machinery/ammunition_loader/proc/load_ammo(var/obj/item/ship_ammunition/SA, var/mob/living/H, var/obj/item/mecha_equipment/clamp/clamp)
+	if(SA.caliber == weapon.get_caliber())
+		if(SA.can_be_loaded())
+			visible_message(SPAN_NOTICE("[H] begins loading \the [SA] into \the [src]..."))
+			if(do_after(H, weapon.load_time))
+				if(weapon.load_ammunition(SA, H, clamp))
+					visible_message(SPAN_NOTICE("[H] loads \the [SA] into \the [src]!"))
+					playsound(src, 'sound/weapons/ammo_load.ogg')
+					return TRUE
+				else
+					to_chat(H, SPAN_WARNING("The loader's full!"))
+		else
+			to_chat(H, SPAN_WARNING("That ammunition's not ready to be loaded!"))
+	else
+		to_chat(H, SPAN_WARNING("That ammunition doesn't fit here!"))
+		return FALSE
 
 /obj/structure/viewport
 	name = "viewport"

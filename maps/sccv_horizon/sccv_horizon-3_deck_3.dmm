@@ -13955,6 +13955,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/mob/living/heavy_vehicle/premade/ripley,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/longbow_compartment)
 "lkb" = (
