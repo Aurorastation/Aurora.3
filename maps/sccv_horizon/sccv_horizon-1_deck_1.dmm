@@ -27388,7 +27388,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/mob/living/heavy_vehicle/premade/ripley,
+/mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "vse" = (

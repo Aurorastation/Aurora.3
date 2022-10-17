@@ -13955,7 +13955,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/mob/living/heavy_vehicle/premade/ripley,
+/mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/longbow_compartment)

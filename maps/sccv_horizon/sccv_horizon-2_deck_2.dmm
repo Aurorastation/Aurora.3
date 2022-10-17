@@ -48660,7 +48660,7 @@
 /turf/simulated/floor,
 /area/maintenance/wing/port/far)
 "ykx" = (
-/mob/living/heavy_vehicle/premade/ripley,
+/mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
 /area/operations/flak)
