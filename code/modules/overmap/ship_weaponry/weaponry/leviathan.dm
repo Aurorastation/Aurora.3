@@ -16,7 +16,7 @@
 	use_power = POWER_USE_OFF //Start off.
 	idle_power_usage = 100 KILOWATTS
 	active_power_usage = 2 MEGAWATTS
-	var/obj/machinery/power/smes/superconducting/smes
+	var/obj/machinery/power/smes/smes
 
 /obj/machinery/ship_weapon/leviathan/Destroy()
 	smes = null
@@ -82,15 +82,21 @@
 		disable()
 
 /obj/machinery/ship_weapon/leviathan/disable()
-	for(var/mob/living/L in get_area(src))
-		sound_to(L, 'sound/effects/ship_weapons/leviathan_powerdown.ogg')
+	for(var/mob/living/L in living_mob_list)
+		if(get_area(L) == get_area(src))
+			sound_to(L, 'sound/effects/ship_weapons/leviathan_powerdown.ogg')
 	visible_message(SPAN_DANGER("<font size=4>\The [src]'s humming comes to an abrupt halt.</font>"))
 	update_use_power(POWER_USE_OFF)
 	icon_state = "weapon_off"
 
 /obj/machinery/ship_weapon/leviathan/enable()
-	for(var/mob/living/L in get_area(src))
-		sound_to(L, 'sound/effects/ship_weapons/leviathan_powerup.ogg')
+	couple_to_smes()
+	if(!smes)
+		visible_message(SPAN_DANGER("\The [src] doesn't light up at all! Its maintenance display indicates there is no SMES to draw power from."))
+		return
+	for(var/mob/living/L in living_mob_list)
+		if(get_area(L) == get_area(src))
+			sound_to(L, 'sound/effects/ship_weapons/leviathan_powerup.ogg')
 	visible_message(SPAN_DANGER("<font size=4>\The [src] lights up with a powerful hum...</font>"))
 	update_use_power(POWER_USE_IDLE)
 	icon_state = "weapon_on"
@@ -98,10 +104,18 @@
 /obj/machinery/ship_weapon/leviathan/proc/couple_to_smes()
 	if(smes)
 		return
-	for(var/obj/machinery/power/smes/superconducting/S in get_area(src))
-		if(istype(S))
-			smes = S
-			break
+	var/list/obj/machinery/power/smes/candidates = list()
+	for(var/obj/machinery/power/smes/S in SSmachinery.machinery)
+		if(get_area(S) == get_area(src))
+			candidates += S
+	for(var/obj/machinery/power/smes/superconducting/SC in candidates)
+		if(istype(SC))
+			smes = SC
+			return
+	for(var/obj/machinery/power/smes/SM in candidates)
+		if(istype(SM))
+			smes = SM
+			return
 
 /obj/item/ship_ammunition/leviathan
 	name = "zero-point artillery beam"
@@ -244,6 +258,8 @@
 	desc = "The terminal used to confirm if you really want to wipe someone out."
 	icon = 'icons/obj/machines/ship_guns/zat_confirmation_terminals.dmi'
 	icon_state = "safeguard"
+	anchored = TRUE
+	density = TRUE
 	var/opened = FALSE
 	var/locked = FALSE
 	var/obj/item/leviathan_key/key
@@ -264,7 +280,6 @@
 	button = null
 	return ..()
 	
-
 /obj/machinery/leviathan_safeguard/LateInitialize()
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
@@ -294,7 +309,7 @@
 			playsound(src, 'sound/effects/ship_weapons/levi_key_insert.ogg')
 
 /obj/machinery/leviathan_safeguard/attack_hand(mob/user)
-	if(key && !stat)
+	if(key && !stat && !locked)
 		if(use_check_and_message(user))
 			return
 		if(do_after(user, 1 SECOND))
@@ -310,6 +325,7 @@
 	desc = "The button that controls the Leviathan's firing mechanism."
 	icon = 'icons/obj/machines/ship_guns/zat_confirmation_terminals.dmi'
 	icon_state = "button_closed"
+	anchored = TRUE
 	var/open = FALSE
 
 /obj/machinery/leviathan_button/Initialize()

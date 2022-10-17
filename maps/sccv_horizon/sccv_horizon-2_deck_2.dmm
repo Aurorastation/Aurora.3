@@ -8652,6 +8652,23 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
+"esY" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Security Lockdown";
+	name = "Security Blast Door";
+	opacity = 0
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, security"
+	},
+/turf/simulated/floor/plating,
+/area/security/prison)
 "etv" = (
 /obj/machinery/autolathe,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -11286,6 +11303,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research)
+"fMc" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "shutters_deck2_kitchenwindows";
+	name = "Viewing Shutter"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, kitchen"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/kitchen)
 "fMh" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4
@@ -14797,6 +14828,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
+"hrv" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, leviathan"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/wing/port/far)
 "hrC" = (
 /obj/structure/table/steel,
 /obj/machinery/camera/network/security{
@@ -16067,6 +16104,12 @@
 /obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/wood,
 /area/horizon/library)
+"icX" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, supermatter chamber"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/engineering/engine_room)
 "icZ" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/green/full{
@@ -17521,6 +17564,12 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
+"iPr" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, deck 2 airlock"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/aibunker)
 "iPv" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/reinforced,
@@ -18677,6 +18726,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "jri" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, AI airlock"
+	},
 /turf/simulated/floor/plating,
 /area/turret_protected/ai_upload)
 "jrr" = (
@@ -22417,6 +22469,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
+"ltP" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bar lounge"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/crew_quarters/lounge/bar)
 "ltQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -24713,6 +24774,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
+"mEL" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, ballast aft"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/wing/starboard/far)
 "mFc" = (
 /obj/machinery/power/apc/low{
 	dir = 1;
@@ -24935,6 +25002,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
+"mIJ" = (
+/obj/structure/shuttle_part/scc_space_ship{
+	icon_state = "d3-1"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, deck 2 maintenance"
+	},
+/turf/space/dynamic,
+/area/template_noop)
 "mIO" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner_wide/green{
@@ -25387,6 +25463,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/conference)
+"mTn" = (
+/obj/structure/shuttle_part/scc_space_ship{
+	icon_state = "d2-1-f"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, armoury"
+	},
+/turf/simulated/wall/r_wall,
+/area/security/armory)
 "mTY" = (
 /obj/machinery/computer/robotics{
 	dir = 4
@@ -26765,6 +26850,15 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"nBG" = (
+/obj/structure/shuttle_part/scc_space_ship{
+	icon_state = "d2-4-f"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, security maintenance"
+	},
+/turf/space/dynamic,
+/area/template_noop)
 "nCg" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -27159,6 +27253,15 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/horizon/crew_quarters/lounge/bar)
+"nNb" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/port{
+	name = "port, kitchen"
+	},
+/turf/simulated/floor/reinforced,
+/area/horizon/kitchen/freezer)
 "nNe" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
@@ -27694,6 +27797,20 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
+"ofY" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "shutters_deck2_hydroponicswindowssafety";
+	name = "Viewing Shutter"
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, hydroponics"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hydroponics)
 "ogd" = (
 /turf/simulated/floor/tiled/ramp{
 	dir = 8
@@ -28366,6 +28483,9 @@
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-6-f"
 	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, deck 2 maintenance airlock"
+	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/starboard)
 "oxr" = (
@@ -29017,6 +29137,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/chapel/main)
+"oMn" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bar"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/bar)
 "oMC" = (
 /turf/simulated/open,
 /area/horizon/stairwell/central)
@@ -31574,6 +31703,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"qaP" = (
+/obj/structure/shuttle_part/scc_space_ship{
+	icon_state = "d3-1-f"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, deck 2 maintenance"
+	},
+/turf/space/dynamic,
+/area/template_noop)
 "qbl" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -36307,6 +36445,12 @@
 "sru" = (
 /turf/simulated/wall,
 /area/operations/flak)
+"srT" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, tesla chamber"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/bridge/aibunker)
 "srY" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -36578,6 +36722,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
+"sCk" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, chapel"
+	},
+/turf/simulated/floor/plating,
+/area/chapel/office)
 "sCq" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -37316,6 +37469,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
+"sXP" = (
+/obj/structure/shuttle_part/scc_space_ship{
+	icon_state = "d2-3"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, tool storage"
+	},
+/turf/space/dynamic,
+/area/template_noop)
 "sXS" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
@@ -37692,6 +37854,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
+"tgy" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, ballast fore"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/wing/starboard/far)
 "tgT" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -42221,6 +42389,12 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
+"vsJ" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, visiting dock"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/security/checkpoint2)
 "vsM" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -44731,6 +44905,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
+"wyD" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, xenoflora"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/rnd/xenobiology/xenoflora)
 "wyK" = (
 /obj/structure/grille/diagonal,
 /obj/machinery/door/firedoor,
@@ -45027,6 +45207,15 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
+"wDT" = (
+/obj/structure/shuttle_part/scc_space_ship{
+	icon_state = "d2-3"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, grauwolf"
+	},
+/turf/space/dynamic,
+/area/template_noop)
 "wEc" = (
 /obj/machinery/door/blast/shutters{
 	dir = 2;
@@ -46699,6 +46888,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
+"xsG" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, tesla hallway"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/hallway/engineering/tesla)
 "xsH" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/pottedplant{
@@ -52843,6 +53038,7 @@ kDC
 kDC
 kDC
 kDC
+mEL
 kDC
 kDC
 kDC
@@ -52851,8 +53047,7 @@ kDC
 kDC
 kDC
 kDC
-kDC
-kDC
+tgy
 kDC
 kDC
 kDC
@@ -55487,7 +55682,7 @@ nDK
 nDK
 nDK
 nhE
-scx
+wDT
 qgN
 qgN
 qgN
@@ -56873,7 +57068,7 @@ qgN
 qgN
 qgN
 qgN
-dzL
+qaP
 oiL
 vIU
 wiD
@@ -59942,7 +60137,7 @@ kzO
 ydi
 fzh
 vfi
-scx
+sXP
 qgN
 qgN
 qgN
@@ -62099,7 +62294,7 @@ bxp
 lVd
 xPj
 oSQ
-wcr
+icX
 wcr
 hMy
 hMy
@@ -62165,7 +62360,7 @@ pNX
 ojV
 veP
 vbH
-wFj
+vsJ
 xer
 qgN
 qgN
@@ -64387,7 +64582,7 @@ uEu
 oKE
 jpf
 vYI
-lCF
+sCk
 xVu
 qgN
 qgN
@@ -66222,7 +66417,7 @@ aas
 rBi
 lIL
 rQO
-dLP
+ltP
 xer
 qgN
 qgN
@@ -68573,7 +68768,7 @@ nPG
 ecA
 jCY
 vbc
-lMD
+xsG
 hwH
 gci
 mFX
@@ -68647,7 +68842,7 @@ fCE
 rIZ
 vDh
 cwQ
-kvd
+oMn
 xer
 qgN
 qgN
@@ -70262,7 +70457,7 @@ dJV
 qVw
 tIB
 tjS
-vgh
+fMc
 xer
 qgN
 qgN
@@ -70782,7 +70977,7 @@ qgN
 qgN
 qgN
 bxp
-fgh
+iPr
 fgh
 fgh
 mzh
@@ -71388,7 +71583,7 @@ qgN
 qgN
 qgN
 qgN
-gXy
+srT
 pXV
 jeT
 jeT
@@ -71864,7 +72059,7 @@ dvw
 uma
 sKo
 idX
-idX
+ofY
 idX
 sKo
 sKo
@@ -72075,7 +72270,7 @@ kgp
 kgp
 kgp
 ilm
-vTk
+nNb
 vTk
 vTk
 vTk
@@ -74285,7 +74480,7 @@ aLq
 rLu
 ioW
 wRm
-jUx
+esY
 jPc
 dUw
 fdj
@@ -77918,7 +78113,7 @@ iiy
 noZ
 bOe
 vPj
-uiH
+mTn
 kmx
 qgN
 qgN
@@ -78484,7 +78679,7 @@ qgN
 qgN
 qgN
 dmK
-aAx
+wyD
 rKj
 fti
 ldu
@@ -80538,7 +80733,7 @@ jIj
 uvd
 fuu
 wqG
-mfN
+nBG
 qgN
 qgN
 qgN
@@ -81721,7 +81916,7 @@ qgN
 qgN
 qgN
 qgN
-vnz
+mIJ
 lUA
 fuu
 ebQ
@@ -84561,7 +84756,7 @@ tVu
 tVu
 tVu
 tVu
-tVu
+hrv
 tVu
 tVu
 leY

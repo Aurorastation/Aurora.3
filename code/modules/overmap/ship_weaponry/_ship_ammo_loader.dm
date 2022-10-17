@@ -14,8 +14,11 @@
 
 /obj/machinery/ammunition_loader/LateInitialize()
 	for(var/obj/machinery/ship_weapon/SW in SSmachinery.machinery)
-		if(SW.weapon_id == weapon_id)
-			weapon = SW
+		if(get_area(SW) == get_area(src))
+			if(SW.weapon_id == weapon_id)
+				weapon = SW
+		else
+			crash_with("[src] is set to [weapon_id] of [SW] at [x] [y] [z], but areas mismatch!")
 	if(!weapon)
 		crash_with("[src] at [x] [y] [z] has no weapon attached!")
 
@@ -31,14 +34,27 @@
 						if(weapon.load_ammunition(SA, H))
 							visible_message(SPAN_NOTICE("[H] loads \the [SA] into \the [src]!"))
 							playsound(src, 'sound/weapons/ammo_load.ogg')
-							return
+							return TRUE
 						else
 							to_chat(H, SPAN_WARNING("The loader's full!"))
 				else
 					to_chat(H, SPAN_WARNING("That ammunition's not ready to be loaded!"))
 			else
 				to_chat(H, SPAN_WARNING("That ammunition doesn't fit here!"))
-				return
+				return FALSE
+		if(istype(W, /obj/item/device/multitool))
+			to_chat(user, SPAN_NOTICE("You hook up the tester's wires to \the [src]: its identification tag is <b>[weapon_id]</b>."))
+			var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id)
+			if(length(new_id) && !use_check_and_message(user))
+				new_id = sanitizeSafe(new_id, 32)
+				for(var/obj/machinery/ship_weapon/SW in SSmachinery.machinery)
+					if(SW.weapon_id == new_id)
+						if(get_area(SW) != get_area(src))
+							to_chat(user, SPAN_WARNING("The loader returns an error message of two beeps: that weapon ID is invalid."))
+							return TRUE
+					weapon_id = new_id
+					to_chat(user, SPAN_NOTICE("With some finicking, you change the identification tag to <b>[new_id]</b>."))
+					return TRUE
 	. = ..()
 
 /obj/structure/viewport

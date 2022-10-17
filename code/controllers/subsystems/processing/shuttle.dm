@@ -69,14 +69,14 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 		var/obj/effect/overmap/visitable/ship/S = EP.get_candidate()
 		if(istype(S))
 			LAZYADD(S.entry_points, EP)
-	entry_points_to_initialize = null
+	entry_points_to_initialize.Cut()
 
 /datum/controller/subsystem/shuttle/proc/initialize_ship_weapons()
 	for(var/obj/machinery/ship_weapon/SW in weapons_to_initialize)
 		SW.sync_linked()
 		if(SW.linked)
 			LAZYADD(SW.linked.ship_weapons, SW)
-	weapons_to_initialize = null
+	weapons_to_initialize.Cut()
 
 /datum/controller/subsystem/shuttle/proc/initialize_shuttles()
 	var/list/shuttles_made = list()

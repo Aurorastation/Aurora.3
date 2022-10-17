@@ -25,6 +25,13 @@
             <div><span class="text">Target:</span> <span class="normal">{{target}}</span></div>
             <div><span class="text">Distance:</span> <span class="normal">{{dist}} clicks</span></div>
           </div>
+          <vui-item label="Deck Level Filter:">
+            <div v-if="show_z_list">
+              <select v-model="$root.$data.state.selected_z">
+                <option v-for="b in z_levels" :key="b" :value="b">{{ b }}</option>
+              </select>
+            </div>
+          </vui-item>
           <select v-model="$root.$data.state.entry_point">
             <option v-for="a in entry_points" :key="a" :value="a">{{ a }}</option>
           </select>

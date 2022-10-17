@@ -20,6 +20,12 @@
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/ship/tajaran_smuggler)
+"aci" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, maintenance"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/tajaran_smuggler)
 "acx" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/hardbread,
@@ -401,6 +407,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tajaran_smuggler)
+"dQy" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, bathroom"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/tajaran_smuggler)
 "dQZ" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms"
@@ -427,6 +439,9 @@
 /area/ship/tajaran_smuggler)
 "eeP" = (
 /obj/effect/map_effect/window_spawner/reinforced,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tajaran_smuggler)
 "eiX" = (
@@ -438,6 +453,15 @@
 "etL" = (
 /turf/space/transit/south,
 /area/space)
+"eEC" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/tajaran_smuggler)
 "eMY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -486,6 +510,14 @@
 	name = "Cockpit"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/tajaran_smuggler)
+"fjf" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, starboard"
+	},
+/turf/simulated/floor,
 /area/ship/tajaran_smuggler)
 "fji" = (
 /obj/structure/closet/cabinet,
@@ -543,9 +575,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cult/tome{
-	name = "altar";
+	desc = "A black stone altar dedicated to Minharrzka, the goddess of the waters and patroness of sailors.";
 	icon_state = "churchaltar";
-	desc = "A black stone altar dedicated to Minharrzka, the goddess of the waters and patroness of sailors."
+	name = "altar"
 	},
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
@@ -666,6 +698,12 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tajaran_smuggler)
+"gzB" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, crew quarters"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/tajaran_smuggler)
 "gAS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -678,6 +716,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"gRB" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, airlock"
+	},
+/turf/simulated/floor,
+/area/ship/tajaran_smuggler)
 "gXv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -700,6 +744,10 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor,
+/area/ship/tajaran_smuggler)
+"hgE" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/shuttle/raider,
 /area/ship/tajaran_smuggler)
 "hiw" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -755,6 +803,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
+"hTG" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, hangar"
+	},
+/turf/unsimulated/wall/fakepdoor,
+/area/ship/tajaran_smuggler)
 "hVU" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -779,8 +833,8 @@
 "irz" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead{
-	pixel_y = 5;
-	pixel_x = 6
+	pixel_x = 6;
+	pixel_y = 5
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
 	pixel_x = -5
@@ -810,6 +864,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tajaran_smuggler)
+"iCm" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "tajaran_smuggler_shuttle_out"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor,
+/area/shuttle/tajaran_smuggler)
 "iOh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/extinguisher_cabinet{
@@ -843,8 +908,8 @@
 	},
 /obj/structure/plasticflaps/mining,
 /obj/machinery/door/blast/shutters{
-	id = "smuggler_cargo";
-	dir = 2
+	dir = 2;
+	id = "smuggler_cargo"
 	},
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
@@ -929,6 +994,14 @@
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
+"koH" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, port"
+	},
+/turf/simulated/floor,
+/area/ship/tajaran_smuggler)
 "kpn" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot,
@@ -956,6 +1029,12 @@
 	dir = 4
 	},
 /turf/simulated/floor,
+/area/ship/tajaran_smuggler)
+"kJl" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, kitchen"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/ship/tajaran_smuggler)
 "kNX" = (
 /obj/item/holder/monkey/farwa,
@@ -1127,6 +1206,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
+"nsN" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, warehouse"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/tajaran_smuggler)
 "nvz" = (
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
@@ -1138,8 +1223,8 @@
 	},
 /obj/structure/plasticflaps/mining,
 /obj/machinery/door/blast/shutters{
-	id = "smuggler_cargo";
-	dir = 2
+	dir = 2;
+	id = "smuggler_cargo"
 	},
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
@@ -1285,6 +1370,21 @@
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
+/area/ship/tajaran_smuggler)
+"qPj" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
+	},
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/tajaran_smuggler)
+"rfR" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, captain's quarters"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/ship/tajaran_smuggler)
 "rgA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1522,6 +1622,12 @@
 /obj/random/spacecash,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tajaran_smuggler)
+"wrb" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, lounge"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/tajaran_smuggler)
 "wrJ" = (
 /obj/effect/shuttle_landmark/tajaran_smuggler_shuttle/transit,
 /turf/space/transit/south,
@@ -1572,6 +1678,13 @@
 	name = "igs - tajaran_smuggler"
 	},
 /turf/simulated/floor/wood,
+/area/ship/tajaran_smuggler)
+"xFq" = (
+/obj/effect/map_effect/window_spawner/reinforced,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor,
 /area/ship/tajaran_smuggler)
 "xKJ" = (
 /obj/structure/closet/cabinet,
@@ -30470,7 +30583,7 @@ xRX
 xRX
 xRX
 xRX
-lmO
+fjf
 frC
 kYY
 mwV
@@ -30733,14 +30846,14 @@ aSm
 mwV
 mwV
 mwV
-mwV
+aci
 mwV
 mwV
 bfG
 mwV
 mwV
 mwV
-mwV
+nsN
 mwV
 mwV
 mwV
@@ -31008,11 +31121,11 @@ mwV
 mwV
 mwV
 mwV
+kJl
 mwV
 mwV
 mwV
-mwV
-mwV
+wrb
 mwV
 xRX
 xRX
@@ -31532,7 +31645,7 @@ nTM
 taq
 mwV
 mwV
-mwV
+dQy
 mwV
 xRX
 xRX
@@ -32822,7 +32935,7 @@ eYX
 kjN
 fZq
 srj
-huE
+xFq
 xRX
 xRX
 xRX
@@ -33041,7 +33154,7 @@ xRX
 xRX
 xRX
 xRX
-mwV
+hgE
 vmq
 ttC
 tvp
@@ -34079,7 +34192,7 @@ bci
 bci
 bci
 mWk
-mWk
+iCm
 bci
 bci
 bci
@@ -34103,7 +34216,7 @@ mwV
 aHw
 sSs
 eOK
-mwV
+rfR
 xRX
 xRX
 xRX
@@ -34598,7 +34711,7 @@ hzg
 hzg
 lXE
 oie
-tKM
+eEC
 vTv
 mwV
 xmZ
@@ -34610,7 +34723,7 @@ xmZ
 mwV
 mwV
 mwV
-mwV
+gzB
 mwV
 mwV
 mwV
@@ -35107,7 +35220,7 @@ bci
 bci
 bci
 bci
-aBb
+qPj
 aBb
 bci
 bci
@@ -35117,7 +35230,7 @@ vTv
 mwV
 xmZ
 huE
-wBq
+gRB
 vtM
 huE
 xRX
@@ -35621,7 +35734,7 @@ bfG
 bfG
 bfG
 bfG
-bfG
+hTG
 bfG
 bfG
 bfG
@@ -35867,7 +35980,7 @@ xRX
 xRX
 xRX
 xRX
-lmO
+koH
 aSi
 vMq
 mwV

@@ -4,6 +4,7 @@
 	icon = 'icons/obj/machines/ship_guns/francisca.dmi'
 	heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/rotary_fire.ogg'
 	icon_state = "weapon_base"
+	max_ammo = 3
 	projectile_type = /obj/item/projectile/ship_ammo/francisca
 	caliber = SHIP_CALIBER_40MM
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN

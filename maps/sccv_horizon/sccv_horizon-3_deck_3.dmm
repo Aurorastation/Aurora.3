@@ -289,6 +289,9 @@
 	id = "shutters_deck3_bridgesafety";
 	name = "Safety Shutter"
 	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, captain's office"
+	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
 "aqF" = (
@@ -1092,6 +1095,22 @@
 /obj/item/storage/box/fancy/tray/autopsy,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_morgue)
+"aZp" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/port{
+	name = "port,bridge briefing room"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/meeting_room)
 "aZu" = (
 /obj/machinery/door/airlock{
 	name = "Showers"
@@ -1346,6 +1365,12 @@
 /obj/structure/bed/stool/chair/office/bridge,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
+"bjM" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, lounges starboard side"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/crew_quarters/lounge)
 "bli" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1979,6 +2004,28 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
+"bNw" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "shutters_deck3_bridgesafety";
+	name = "Safety Shutter"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge break room"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/minibar)
 "bNx" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -1990,6 +2037,34 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"bOd" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "shutters_deck3_bridgesafety";
+	name = "Safety Shutter"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/controlroom)
 "bOq" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3092,6 +3167,15 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/open/airless,
 /area/horizon/exterior)
+"cEp" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, lounges port side"
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/lounge/secondary)
 "cEu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
@@ -4890,6 +4974,23 @@
 "eeI" = (
 /turf/simulated/open,
 /area/turbolift/primary/deck_3)
+"eeN" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, medical bathrooms"
+	},
+/turf/simulated/floor/plating,
+/area/medical/washroom)
 "eeT" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -10572,6 +10673,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
+"ixR" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, deck 3 visiting docks"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/security_starboard)
 "ixX" = (
 /obj/structure/closet/wardrobe/xenos,
 /obj/item/clothing/shoes/footwraps,
@@ -11224,6 +11331,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/gym)
 "iYo" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, medical break room"
+	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/medical/equipment)
 "iYA" = (
@@ -12044,6 +12154,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"jDs" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Security Lockdown";
+	name = "Security Blast Door";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, autopsy"
+	},
+/turf/simulated/floor/plating,
+/area/security/forensics_morgue)
 "jDx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/firedoor,
@@ -13339,6 +13465,20 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
+"kLV" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 8;
+	id = "shutters_deck3_pool";
+	name = "Viewing Shutters"
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, pool"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/crew_quarters/fitness/pool)
 "kMb" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -15087,6 +15227,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
+"mpb" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, deck 3 docks hallway"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/hallway/secondary/entry/emergency)
 "mpc" = (
 /obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/tiled,
@@ -17084,6 +17230,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"oiV" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "shutters_deck3_gym";
+	name = "Viewing Shutters"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, gym"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/crew_quarters/fitness/gym)
 "ojk" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
@@ -17101,6 +17260,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
+"ojl" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, medical break room"
+	},
+/turf/simulated/floor/plating,
+/area/medical/smoking)
 "okf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -17124,6 +17300,22 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
+"olf" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "Security Lockdown";
+	name = "Security Blast Door";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/port{
+	name = "port, security briefing"
+	},
+/turf/simulated/floor/plating,
+/area/security/vacantoffice2)
 "olx" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -18495,6 +18687,9 @@
 	id = "bridge blast";
 	name = "Bridge Blast Doors";
 	opacity = 0
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, longbow"
 	},
 /turf/simulated/floor/plating,
 /area/bridge/longbow_compartment)
@@ -20207,6 +20402,19 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew_quarters/fitness/lounge)
+"qMb" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "shutters_deck3_pool";
+	name = "Viewing Shutters"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, pool"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/crew_quarters/fitness/pool)
 "qMm" = (
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres,
@@ -20609,6 +20817,15 @@
 /obj/item/device/radio,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
+"ren" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/port{
+	name = "port, deck 3 auxiliary atmospherics"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/aux_atmospherics/deck_3)
 "reu" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -20641,6 +20858,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
+"rfy" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, command bunker"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/bridge/aibunker)
 "rfz" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -22838,6 +23061,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
+"sXT" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, command bunker"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/bridge/aibunker)
 "sYh" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
@@ -23489,6 +23718,19 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
+"tzC" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/blast/shutters/open{
+	id = "shutters_deck3_lounge";
+	name = "Viewing Shutters"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, observation lounge"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/crew_quarters/fitness/lounge)
 "tzO" = (
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -24378,6 +24620,18 @@
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
+"urB" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/machinery/door/blast/shutters/open{
+	id = "shutters_deck3_engibreakwindows";
+	name = "Viewing Shutter"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, engineering break room"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/break_room)
 "urS" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor,
@@ -25127,6 +25381,12 @@
 	},
 /turf/simulated/floor/grass/alt,
 /area/horizon/hallway/deck_three/primary/starboard)
+"vcM" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, bathrooms"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/crew_quarters/fitness/showers)
 "vdr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/flag/sol/right{
@@ -25669,6 +25929,12 @@
 /obj/machinery/light,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/crew_quarters/fitness/gym)
+"vwL" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, crew armoury"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/engineering_ladder)
 "vxc" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -27207,6 +27473,12 @@
 	},
 /turf/simulated/floor,
 /area/crew_quarters/captain)
+"wLF" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, deck 3 docks"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "wMb" = (
 /turf/simulated/floor/reinforced,
 /area/bridge/selfdestruct)
@@ -27500,6 +27772,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
+"xfN" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, lounges"
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/lounge)
 "xfQ" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/industrial/warning{
@@ -28825,6 +29106,9 @@
 	pixel_x = -5;
 	pixel_y = 26;
 	req_one_access = list(13)
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, docks"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -39674,7 +39958,7 @@ toG
 toG
 toG
 toG
-kvi
+wLF
 kvi
 kvi
 kvi
@@ -41891,7 +42175,7 @@ beI
 beI
 aqT
 ubY
-ubY
+eeN
 ubY
 hZT
 ubY
@@ -41907,7 +42191,7 @@ exN
 exN
 exN
 oLF
-oLF
+xfN
 oLF
 oLF
 qiD
@@ -42485,7 +42769,7 @@ toG
 toG
 toG
 toG
-kIM
+ojl
 cdm
 frW
 bqO
@@ -42921,7 +43205,7 @@ eyf
 sLx
 vla
 bZR
-exN
+bjM
 toG
 iPW
 dTY
@@ -43274,7 +43558,7 @@ roW
 roW
 roW
 vWq
-roW
+kLV
 roW
 roW
 roW
@@ -43283,7 +43567,7 @@ vWq
 kKf
 kKf
 vZp
-kKf
+vcM
 nxW
 nxW
 nxW
@@ -43872,7 +44156,7 @@ toG
 toG
 toG
 toG
-taa
+qMb
 lpw
 yhM
 dUH
@@ -44739,7 +45023,7 @@ ejW
 wFv
 ouD
 cAD
-qgw
+cEp
 toG
 iPW
 dTY
@@ -45686,7 +45970,7 @@ nWw
 nWw
 nWw
 nxb
-vXG
+tzC
 hOL
 hOL
 hOL
@@ -48118,7 +48402,7 @@ gkb
 gkb
 gkb
 vEY
-aoh
+oiV
 qWV
 tLo
 tLo
@@ -49202,7 +49486,7 @@ czB
 xje
 wMc
 tox
-etN
+bOd
 toG
 iPW
 dTY
@@ -50340,7 +50624,7 @@ nHd
 gkb
 gkb
 vEY
-tCF
+urB
 spQ
 mPW
 khL
@@ -51424,7 +51708,7 @@ blQ
 blQ
 blQ
 dJx
-fqI
+bNw
 toG
 iPW
 dTY
@@ -52414,7 +52698,7 @@ tPe
 tPe
 ckO
 ckO
-ckO
+aZp
 tPe
 ckO
 ckO
@@ -53159,7 +53443,7 @@ vEY
 nWw
 nWw
 nWw
-dpP
+rfy
 mOk
 rec
 dcH
@@ -53791,13 +54075,13 @@ aEd
 aEd
 aEd
 sgI
-sgI
+ren
 sgI
 aEd
 aEd
 aEd
 lMF
-lMF
+mpb
 vFi
 vFi
 vFi
@@ -54181,7 +54465,7 @@ aGU
 jmG
 jmG
 jmG
-jmG
+vwL
 jmG
 jmG
 jmG
@@ -54980,7 +55264,7 @@ nWw
 dpP
 dpP
 dpP
-dpP
+sXT
 dpP
 dpP
 dpP
@@ -55643,7 +55927,7 @@ aZd
 iRH
 hdU
 rUL
-jyw
+jDs
 toG
 toG
 toG
@@ -57048,7 +57332,7 @@ vYG
 mbL
 mbL
 coa
-mbL
+olf
 coa
 mbL
 mbL
@@ -57442,7 +57726,7 @@ lMF
 lMF
 lMF
 lMF
-niU
+ixR
 niU
 niU
 vkr

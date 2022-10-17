@@ -9,7 +9,8 @@
 	var/special_firing_mechanism = FALSE //If set to TRUE, the gun won't show up on normal controls.
 	var/charging_sound //The sound played when the gun is charging up.
 	var/caliber = SHIP_CALIBER_NONE
-	var/use_ammunition = TRUE //If we use physical ammo or not. Note that the creation of ammunition in pre_fire() is still REQUIRED! This just skips the initial check for ammunition.
+	var/use_ammunition = TRUE //If we use physical ammo or not. Note that the creation of ammunition in pre_fire() is still REQUIRED! 
+							  //This just skips the initial check for ammunition.
 	var/list/obj/item/ship_ammunition/ammunition = list()
 	var/ammo_per_shot = 1
 	var/max_ammo = 1
@@ -19,6 +20,7 @@
 	var/load_time = 5 SECONDS
 
 	var/weapon_id //Used to identify a gun in the targeting consoles and connect weapon systems to the relevant ammunition loader. Must be unique!
+	var/list/obj/structure/ship_weapon_dummy/connected_dummies = list()
 	var/obj/structure/ship_weapon_dummy/barrel
 
 /obj/machinery/ship_weapon/Initialize(mapload)
@@ -28,15 +30,45 @@
 
 /obj/machinery/ship_weapon/LateInitialize()
 	SSshuttle.weapons_to_initialize += src
+	if(SSshuttle.init_state == SS_INITSTATE_DONE)
+		SSshuttle.initialize_ship_weapons()
 	for(var/obj/structure/ship_weapon_dummy/SD in orange(1, src))
 		SD.connect(src)
+	if(!weapon_id)
+		weapon_id = "[name] - [sequential_id(type)]"
 
 /obj/machinery/ship_weapon/Destroy()
 	for(var/obj/O in ammunition)
 		qdel(O)
+	destroy_dummies()
 	ammunition.Cut()
 	barrel = null
 	return ..()
+
+/obj/machinery/ship_weapon/examine(mob/user)
+	. = ..()
+	to_chat(user, "This gun's caliber is <b>[caliber]</b>.")
+
+/obj/machinery/ship_weapon/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/device/multitool))
+		to_chat(user, SPAN_NOTICE("You hook up the tester to \the [src]'s wires: its identification tag is <b>[weapon_id]></b>."))
+		var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id)
+		if(length(new_id) && !use_check_and_message(user))
+			new_id = sanitizeSafe(new_id, 32)
+			for(var/obj/machinery/ammunition_loader/SW in SSmachinery.machinery)
+				if(SW.weapon_id == new_id)
+					if(get_area(SW) != get_area(src))
+						to_chat(user, SPAN_WARNING("The loader returns an error message of two beeps: that weapon ID is invalid."))
+						return TRUE
+				weapon_id = new_id
+				to_chat(user, SPAN_NOTICE("With some finicking, you change the identification tag to <b>[new_id]</b>."))
+				return TRUE
+	return ..()
+
+/obj/machinery/ship_weapon/proc/destroy_dummies()
+	for(var/A in connected_dummies)
+		var/obj/structure/ship_weapon_dummy/dummy = A
+		qdel(dummy)
 
 /obj/machinery/ship_weapon/proc/pre_fire(var/atom/target, var/obj/effect/landmark/landmark) //We can fire, so what do we do before that? Think like a laser charging up.
 	fire(target, landmark)
@@ -171,8 +203,14 @@
 /obj/structure/ship_weapon_dummy/ex_act(severity)
 	connected.ex_act(severity)
 
+/obj/structure/ship_weapon_dummy/Destroy()
+	connected.connected_dummies -= src
+	connected = null
+	return ..()
+
 /obj/structure/ship_weapon_dummy/proc/connect(var/obj/machinery/ship_weapon/SW)
 	connected = SW
+	SW.connected_dummies |= src
 	name = SW.name
 	desc = SW.name
 	if(is_barrel)
@@ -202,6 +240,12 @@
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
 
+/obj/machinery/computer/ship/gunnery/Destroy()
+	cannon = null
+	names_to_guns.Cut()
+	names_to_entries.Cut()
+	return ..()
+
 /obj/machinery/computer/ship/gunnery/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
@@ -228,6 +272,8 @@
 		data["new_ship_weapon"] = capitalize_first_letters(cannon.weapon_id)
 		data["entry_points"] = list()
 		data["entry_point"] = null
+		data["show_z_list"] = FALSE
+		data["selected_z"] = 0
 	data["power"] = stat & (NOPOWER|BROKEN) ? FALSE : TRUE
 	data["linked"] = connected ? TRUE : FALSE
 
@@ -237,7 +283,7 @@
 		for(var/name in names_to_guns)
 			data["ship_weapons"] += name //Literally do not even ask me why the FUCK this is needed. I have ZERO, **ZERO** FUCKING CLUE why
 										 //this piece of shit UI takes a linked list and AUTOMATICALLY decides it wants to read the fucking linked objects
-										//instead of the actual elements of the list.
+										 //instead of the actual elements of the list.
 		if(data["new_ship_weapon"])
 			var/new_cannon = data["new_ship_weapon"]
 			cannon = names_to_guns[new_cannon]
@@ -257,10 +303,15 @@
 					data["target"] = "[V.class] [V.designation]"
 				else
 					data["target"] = capitalize_first_letters(connected.targeting.name)
+				if(length(V.map_z) > 1)
+					data["show_z_list"] = TRUE
+					data["z_levels"] = V.map_z.Copy()
+				else
+					data["selected_z"] = 0
 			else
 				data["target"] = capitalize_first_letters(connected.targeting.name)
 			data["dist"] = get_dist(connected, connected.targeting)
-			data["entry_points"] = copy_entrypoints()
+			data["entry_points"] = copy_entrypoints(data["selected_z"])
 			if(data["entry_point"])
 				selected_entrypoint = data["entry_point"]
 	return data
@@ -292,13 +343,14 @@
 		if(usr)
 			viewing_overmap(usr) ? unlook(usr) : look(usr)
 
-/obj/machinery/computer/ship/gunnery/proc/copy_entrypoints()
+/obj/machinery/computer/ship/gunnery/proc/copy_entrypoints(var/z_level_filter = 0)
 	. = list()
 	if(istype(connected.targeting, /obj/effect/overmap/visitable))
 		var/obj/effect/overmap/visitable/V = linked.targeting
 		for(var/obj/effect/O in V.entry_points)
-			. += capitalize_first_letters(O.name)
-			names_to_entries[capitalize_first_letters(O.name)] = O
+			if(!z_level_filter || (z_level_filter && O.z == z_level_filter))
+				. += capitalize_first_letters(O.name)
+				names_to_entries[capitalize_first_letters(O.name)] = O
 		if(!istype(connected.targeting, /obj/effect/overmap/visitable/ship))
 			for(var/obj/effect/O in V.generic_waypoints)
 				. += capitalize_first_letters(O.name)
