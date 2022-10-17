@@ -142,12 +142,16 @@
 	impact_type = /obj/effect/projectile/impact/pulse
 
 /obj/item/projectile/ship_ammo/leviathan/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
-	if(ismob(target))
-		var/mob/M = target
-		M.visible_message(SPAN_DANGER("<font size=6>[M] evaporates as they are engulfed by the beam!</font>"))
-		M.dust()
-		return
-	explosion(target, 6, 6, 6)
+	if(!is_landmark_hit)	
+		if(ismob(target))
+			var/mob/M = target
+			M.visible_message(SPAN_DANGER("<font size=6>[M] evaporates as they are engulfed by the beam!</font>"))
+			M.dust()
+			return
+		explosion(target, 6, 6, 6)
+	else
+		target.visible_message(SPAN_DANGER("<font size=6>A giant, purple laser descends from the sky!"))
+		explosion(target, 30, 30, 30)
 
 /obj/item/projectile/ship_ammo/leviathan/check_penetrate(atom/A)
 	on_hit(A)
