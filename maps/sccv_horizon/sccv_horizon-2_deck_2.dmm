@@ -28370,6 +28370,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/item/circuitboard/ship/targeting{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "otI" = (
