@@ -27,3 +27,19 @@
 		else
 			fail("[S.name] ([S.type]) does not have at least four entry points!")
 	return TRUE
+
+/datum/unit_test/overmap_ships_shall_have_class
+	name = "OVERMAP: Ships shall have class and designation"
+
+/datum/unit_test/overmap_ships_shall_have_class/start_test()
+	var/failures = 0
+	for(var/obj/effect/overmap/visitable/ship/S in SSshuttle.initialized_sectors)
+		if(!length(S.class))
+			fail("[S.name] ([S.type]) does not have a class defined.")
+			failures++
+		else
+			fail("[S.name] ([S.type]) does not have a designation defined.")
+			failures++
+	if(!failures)
+		pass("All ships have a class and designation.")
+	return TRUE

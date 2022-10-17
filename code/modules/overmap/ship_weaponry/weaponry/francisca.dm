@@ -14,23 +14,28 @@
 
 /obj/item/ship_ammunition/francisca
 	name = "40mm FMJ ammunition box"
+	name_override = "40mm FMJ burst"
 	desc = "A box of FMJ bullets for use in a Francisca rotary gun."
 	icon = 'icons/obj/guns/ship/ship_ammo_rotary.dmi'
 	icon_state = "box_fmj"
+	impact_type = SHIP_AMMO_IMPACT_FMJ
 	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY|SHIP_AMMO_FLAG_INFLAMMABLE
 	caliber = SHIP_CALIBER_40MM
 
 /obj/item/ship_ammunition/francisca/ap
 	name = "40mm AP ammunition box"
+	name_override = "40mm AP burst"
 	desc = "A box of AP bullets for use in a Francisca rotary gun."
 	icon_state = "box_ap"
+	impact_type = SHIP_AMMO_IMPACT_AP
+	projectile_type_override = /obj/item/projectile/ship_ammo/francisca/ap
 
 /obj/item/projectile/ship_ammo/francisca
 	name = "40mm FMJ bullet"
 	icon_state = "small"
 	damage = 50
 	armor_penetration = 50
-	penetrating = 2
+	penetrating = 1
 
 /obj/item/projectile/ship_ammo/francisca/ap
 	name = "40mm AP bullet"

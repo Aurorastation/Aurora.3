@@ -43,16 +43,20 @@
 
 /obj/effect/overmap/visitable/ship/landable/intrepid
 	name = "Intrepid"
+	class = "SCCV"
+	designation = "Intrepid"
 	desc = "A standard-sized unarmed exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid."
 	shuttle = "Intrepid"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 
 /obj/effect/overmap/visitable/ship/landable/mining_shuttle
 	name = "Mining Shuttle"
+	class = "SCCV"
+	designation = "Pickaxe"
 	desc = "A common, modestly-sized short-range shuttle manufactured by Hephaestus. Most frequently used as a mining platform, the Pickaxe-class is entirely reliant on a reasonably-sized mothership for anything but short-term functionality. This one's transponder identifies it as belonging to the Stellar Corporate Conglomerate."
 	shuttle = "Mining Shuttle"
 	max_speed = 1/(3 SECONDS)

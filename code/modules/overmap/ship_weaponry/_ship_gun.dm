@@ -146,7 +146,11 @@
 	if(!barrel)
 		crash_with("No barrel found for [src] at [x] [y] [z]! Cannot fire!")
 	var/turf/firing_turf = get_step(barrel, barrel.dir)
-	var/obj/item/projectile/ship_ammo/projectile = new projectile_type(firing_turf)
+	var/obj/item/projectile/ship_ammo/projectile
+	if(SA.projectile_type_override)
+		projectile = new SA.projectile_type_override(firing_turf)
+	else
+		projectile = new projectile_type(firing_turf)
 	projectile.name = SA.name
 	projectile.desc = SA.desc
 	projectile.ammo = SA

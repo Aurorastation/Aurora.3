@@ -6,7 +6,6 @@
 	heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/flak_fire.ogg'
 	icon_state = "weapon_base"
 	max_ammo = 5
-	projectile_type = /obj/item/projectile/ship_ammo/grauwolf
 	caliber = SHIP_CALIBER_90MM
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 
@@ -26,6 +25,7 @@
 	desc = "A bundle of armor-piercing flak shells."
 	icon_state = "bundle_ap"
 	impact_type = SHIP_AMMO_IMPACT_AP
+	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf/ap
 
 /obj/item/projectile/ship_ammo/grauwolf
 	name = "high-explosive flak"

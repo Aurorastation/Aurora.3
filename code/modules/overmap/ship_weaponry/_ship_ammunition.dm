@@ -6,6 +6,8 @@
 	w_class = ITEMSIZE_HUGE
 	slowdown = 2
 	drop_sound = 'sound/items/drop/shell_drop.ogg'
+	var/projectile_type_override //Override projectile type fired by the gun. This is because certain guns don't use ammo (the Leviathan) but with some we want the ammo to matter.
+	var/name_override //If set, this will override the ammunition name for the overmap effect.
 	var/written_message
 	var/wielded = FALSE
 	var/caliber = SHIP_CALIBER_NONE
@@ -169,7 +171,7 @@
 		return FALSE
 	
 	var/obj/effect/overmap/projectile/P = new(null, start_object.x, start_object.y)
-	P.name = name
+	P.name = name_override ? name_override : name
 	P.desc = desc
 	P.ammunition = src
 	P.target = overmap_target

@@ -15796,7 +15796,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "mlc" = (
-/obj/structure/ship_weapon_dummy,
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, weapon"
 	},
@@ -18798,6 +18800,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"oLi" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, cargo shuttle"
+	},
+/turf/unsimulated/wall/fakepdoor{
+	dir = 4
+	},
+/area/hangar/operations)
 "oLG" = (
 /obj/machinery/power/apc/low{
 	name = "east bump";
@@ -44610,7 +44620,7 @@ mwO
 mwO
 tNp
 htv
-tNp
+oLi
 eSV
 eSV
 eSV
