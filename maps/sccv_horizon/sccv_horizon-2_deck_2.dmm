@@ -4920,7 +4920,9 @@
 	icon_state = "0-2"
 	},
 /obj/structure/cable,
-/obj/machinery/power/smes/superconducting,
+/obj/machinery/power/smes/buildable/superconducting{
+	RCon_tag = "Leviathan"
+	},
 /turf/simulated/floor/plating,
 /area/horizon/zta)
 "cqS" = (
@@ -10317,7 +10319,9 @@
 /area/horizon/bar)
 "flv" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/power/breakerbox,
+/obj/machinery/power/breakerbox/activated{
+	RCon_tag = "Leviathan Substation"
+	},
 /turf/simulated/floor/plating,
 /area/horizon/zta)
 "flS" = (

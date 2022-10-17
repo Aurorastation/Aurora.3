@@ -15,8 +15,8 @@
 
 	use_power = POWER_USE_OFF //Start off.
 	idle_power_usage = 100 KILOWATTS
-	active_power_usage = 2 MEGAWATTS
-	var/obj/machinery/power/smes/smes
+	active_power_usage = 10 MEGAWATTS
+	var/obj/machinery/power/smes/buildable/smes
 
 /obj/machinery/ship_weapon/leviathan/Destroy()
 	smes = null
@@ -108,11 +108,11 @@
 	for(var/obj/machinery/power/smes/S in SSmachinery.machinery)
 		if(get_area(S) == get_area(src))
 			candidates += S
-	for(var/obj/machinery/power/smes/superconducting/SC in candidates)
+	for(var/obj/machinery/power/smes/buildable/superconducting/SC in candidates)
 		if(istype(SC))
 			smes = SC
 			return
-	for(var/obj/machinery/power/smes/SM in candidates)
+	for(var/obj/machinery/power/smes/buildable/SM in candidates)
 		if(istype(SM))
 			smes = SM
 			return

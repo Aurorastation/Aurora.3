@@ -530,14 +530,13 @@
 	charge = 5000000
 	..()
 
-/obj/machinery/power/smes/superconducting
+/obj/machinery/power/smes/buildable/superconducting
 	name = "superconducting cryogenic capacitor"
 	desc = "An experimental, extremely high-capacity type of SMES. It uses integrated cryogenic cooling and superconducting cables to break conventional limits on power transfer."
 	icon_state = "cannon_smes"
 	charge = 0
-	capacity = 1 GIGAWATTS
-	output_level = 50 MEGAWATTS
-	input_level = 50 MEGAWATTS
+	max_coils = 12
+	cur_coils = 12
 
 #undef SMES_CLEVEL_1
 #undef SMES_CLEVEL_2

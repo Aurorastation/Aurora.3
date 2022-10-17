@@ -27584,7 +27584,7 @@
 /area/maintenance/wing/port/deck1)
 "vFD" = (
 /obj/machinery/power/smes/buildable/horizon_shuttle{
-	RCon_tag = "Mining_Pod"
+	RCon_tag = "Spark"
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
