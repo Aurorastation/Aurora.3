@@ -54,6 +54,15 @@
 	icon_state = "pmc_officer"
 	item_state = "pmc_officer"
 
+/obj/item/clothing/under/rank/security/pmc/pmcsec
+	name = "PMCG security uniform"
+	icon_state = "pmc"
+	item_state = "pmc"
+
+/obj/item/clothing/under/rank/security/pmc/pmcsec/alt
+	icon_state = "pmc_alt"
+	item_state = "pmc_alt"
+
 /obj/item/clothing/under/rank/security/pmc/epmc // Note: Item Icon placeholder
 	name = "EPMC security uniform"
 	desc_fluff = "The EPMC is a subsidiary of the PMCG."
