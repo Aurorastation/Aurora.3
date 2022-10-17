@@ -32,7 +32,7 @@
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
 	vessel_size = SHIP_SIZE_SMALL
-	fore_dir = SOUTH
+	fore_dir = NORTH
 	initial_restricted_waypoints = list(
 		"Orion Express Shuttle" = list("nav_hangar_orion_express")
 	)

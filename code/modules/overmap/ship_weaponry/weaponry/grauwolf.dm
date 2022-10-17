@@ -19,6 +19,7 @@
 	icon_state = "bundle_he"
 	caliber = SHIP_CALIBER_90MM
 	ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE
+	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf
 
 /obj/item/ship_ammunition/grauwolf_bundle/ap
 	name = "grauwolf armor-piercing flak bundle"

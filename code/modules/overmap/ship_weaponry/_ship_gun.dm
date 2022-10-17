@@ -330,6 +330,8 @@
 	
 	if(href_list["fire"])
 		var/obj/effect/landmark/LM
+		if(!selected_entrypoint)
+			return
 		if(selected_entrypoint == "Automatic Hazard Targeting")
 			LM = null
 		else
