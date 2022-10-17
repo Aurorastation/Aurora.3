@@ -36081,7 +36081,8 @@
 /area/turret_protected/ai_upload_foyer)
 "shs" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Ship Flak Munitions Bay"
+	name = "Ship Flak Munitions Bay";
+	req_one_access = list(19, 11, 31)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
