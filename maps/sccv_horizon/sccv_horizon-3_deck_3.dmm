@@ -28473,10 +28473,6 @@
 /obj/machinery/telecomms/receiver/preset_right,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
-"ZP" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/bridge/meeting_room)
 "ZQ" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -51518,7 +51514,7 @@ er
 cf
 fn
 TK
-ZP
+mc
 Cd
 yR
 OH
