@@ -45,7 +45,8 @@
 	name = "Intrepid"
 	class = "SCCV"
 	designation = "Intrepid"
-	desc = "A standard-sized unarmed exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid."
+	desc = "A standard-sized exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid, which actually uses \
+			a specially modified Pathfinder-class chassis fitted with a 40mm Francisca rotary gun."
 	shuttle = "Intrepid"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
