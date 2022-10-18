@@ -44,8 +44,8 @@
 	slowdown = 1
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MEDIUM,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_RIFLE,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
