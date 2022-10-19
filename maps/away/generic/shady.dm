@@ -16,22 +16,18 @@
 	desc = "An asteroid with a hangar carved out inside it. Scans detect an unregistered structure within, with multiple lifeforms present."
 	icon_state = "object"
 
-
 /area/hideout
-	name="hideout outpost"
+	name = "hideout outpost"
 	icon_state = "outpost_mine_main"
 	requires_power = FALSE
-
 
 /obj/item/paper/shady/diarypage
 	name = "torn diary page"
 	info = "Some of the guys say they have been hearing a chittering sound from outside the walls lately. Bunch of delusional wimps, its a damn good thing every ship we've hit have been pushovers too. God knows I wouldn't wanna rely on this crew to get out of a hairy situation..."
 
-
 /obj/item/paper/shady/printedmessage
 	name = "printed paper"
 	info = "The target is an Orion Express transport vessel. And get this, our little bird says it has twenty canisters of phoron on it. Onboard security has already been bribed, easy in and out gig for you and your crew. We'll send you their schedule tomorrow, be ready."
-
 
 /obj/item/paper/shady/researchpaper
 	name = "paper"
