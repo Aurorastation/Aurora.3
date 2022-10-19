@@ -613,7 +613,9 @@
 /turf/simulated/floor/plating,
 /area/hideout)
 "hV" = (
-/mob/living/simple_animal/hostile/spider_queen,
+/mob/living/simple_animal/hostile/spider_queen{
+	health = 450
+	},
 /turf/simulated/floor/exoplanet/barren,
 /area/mine)
 "hW" = (
@@ -1235,10 +1237,6 @@
 /obj/item/trash/coffee,
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
-"sa" = (
-/obj/effect/spider/stickyweb,
-/turf/simulated/mineral,
-/area/mine)
 "sn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -29643,7 +29641,7 @@ Hk
 Hk
 Hk
 Nx
-Nx
+UI
 lf
 lf
 lf
@@ -48014,8 +48012,8 @@ Wr
 Wr
 Wr
 Wr
-sa
-sa
+Wr
+Wr
 Lc
 Lc
 NH
@@ -48267,7 +48265,7 @@ Wr
 Wr
 Wr
 Wr
-sa
+Wr
 xs
 NH
 xs
