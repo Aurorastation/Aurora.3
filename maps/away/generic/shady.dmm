@@ -156,11 +156,6 @@
 /obj/structure/punching_bag,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/hideout)
-"ce" = (
-/obj/effect/decal/cleanable/blood/tracks,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/asteroid,
-/area/hideout)
 "ci" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/plain{
@@ -196,10 +191,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino/grey,
 /area/hideout)
-"cw" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/barren,
-/area/mine)
 "cx" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/decal/cleanable/dirt,
@@ -761,7 +752,6 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/hideout)
 "kq" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
@@ -805,9 +795,9 @@
 /area/hideout)
 "kV" = (
 /obj/structure/bed/stool/chair/sofa,
-/obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,
-/turf/simulated/floor/plating,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/old_dark,
 /area/hideout)
 "kX" = (
 /obj/effect/floor_decal/spline/fancy/corner,
@@ -824,14 +814,6 @@
 /obj/structure/table/steel,
 /obj/item/circuitboard/comm_monitor,
 /turf/simulated/floor/plating,
-/area/hideout)
-"ll" = (
-/obj/effect/decal/cleanable/blood/tracks,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "lm" = (
 /obj/effect/decal/cleanable/dirt,
@@ -877,13 +859,11 @@
 /turf/simulated/floor/plating,
 /area/hideout)
 "lY" = (
-/obj/machinery/door/airlock/external,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/blood/no_dry,
 /turf/simulated/floor/tiled/asteroid,
 /area/mine)
-"mi" = (
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/tiled/asteroid,
-/area/hideout)
 "mj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
@@ -999,10 +979,6 @@
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/old_white,
 /area/hideout)
-"nQ" = (
-/obj/effect/shuttle_landmark/automatic,
-/turf/template_noop,
-/area/space)
 "nU" = (
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/exoplanet/barren,
@@ -1101,9 +1077,9 @@
 /area/hideout)
 "pD" = (
 /obj/structure/bed/stool/chair/sofa,
-/obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/effect/landmark/corpse/hideout,
-/turf/simulated/floor/plating,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/old_dark,
 /area/hideout)
 "pL" = (
 /obj/structure/window/reinforced{
@@ -1207,6 +1183,14 @@
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor/plating,
 /area/hideout)
+"rl" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/hideout)
 "rn" = (
 /mob/living/simple_animal/hostile/giant_spider,
 /obj/effect/decal/cleanable/dirt,
@@ -1217,9 +1201,8 @@
 /area/hideout)
 "rv" = (
 /obj/structure/bed/stool/chair/sofa,
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/gun/projectile/revolver/detective,
-/turf/simulated/floor/plating,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/old_dark,
 /area/hideout)
 "rw" = (
 /obj/structure/bed/stool/chair/folding{
@@ -1274,6 +1257,9 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "sx" = (
@@ -1292,6 +1278,14 @@
 	},
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/old_white,
+/area/hideout)
+"sN" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -23
+	},
+/turf/simulated/floor/plating,
 /area/hideout)
 "sT" = (
 /mob/living/simple_animal/hostile/giant_spider/hunter,
@@ -1332,6 +1326,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
+"tH" = (
+/obj/effect/decal/cleanable/blood/no_dry,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/asteroid,
+/area/mine)
 "tI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
@@ -1470,6 +1469,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/blood/no_dry,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "vA" = (
@@ -1934,14 +1934,6 @@
 	},
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
-"Dz" = (
-/obj/effect/decal/cleanable/blood/tracks,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/spline/plain/corner{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/asteroid,
-/area/hideout)
 "DC" = (
 /turf/template_noop,
 /area/space)
@@ -2109,11 +2101,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
 /obj/item/circuitboard/bodyscanner,
-/turf/simulated/floor/plating,
-/area/hideout)
-"Gx" = (
-/obj/structure/bed/stool/chair/sofa,
-/obj/structure/lattice/catwalk/indoor/grate/old,
 /turf/simulated/floor/plating,
 /area/hideout)
 "Gy" = (
@@ -2490,14 +2477,6 @@
 /obj/effect/decal/cleanable/blood/no_dry,
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
-"LZ" = (
-/obj/effect/decal/cleanable/blood/tracks,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/asteroid,
-/area/hideout)
 "Mc" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/effect/decal/cleanable/dirt,
@@ -2759,6 +2738,12 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/hideout)
+"Qv" = (
+/obj/effect/map_effect/airlock/long/square{
+	required_access = null
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/mine)
 "QD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/bar/padded,
@@ -2768,6 +2753,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/blood/no_dry,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "QF" = (
@@ -2804,6 +2790,10 @@
 	},
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
+"RA" = (
+/obj/effect/overmap/visitable/sector/shady,
+/turf/simulated/mineral,
+/area/space)
 "RB" = (
 /obj/effect/floor_decal/asteroid{
 	pixel_y = -9;
@@ -3177,6 +3167,9 @@
 /obj/machinery/photocopier/faxmachine,
 /turf/simulated/floor/plating,
 /area/hideout)
+"Yd" = (
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
 "Yk" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/structure/table/steel,
@@ -3243,16 +3236,6 @@
 "YQ" = (
 /obj/item/broken_device,
 /turf/simulated/floor/tiled/asteroid,
-/area/hideout)
-"YR" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/recharger/wallcharger{
-	pixel_x = -23
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
 /area/hideout)
 "YY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -19886,7 +19869,7 @@ DC
 DC
 DC
 DC
-nQ
+DC
 DC
 DC
 DC
@@ -21682,7 +21665,7 @@ DC
 DC
 DC
 DC
-nQ
+DC
 DC
 DC
 DC
@@ -28130,7 +28113,7 @@ Wr
 Wr
 Wr
 Lc
-Lc
+JT
 Wr
 Wr
 Wr
@@ -29702,6 +29685,8 @@ Wr
 Wr
 Wr
 Wr
+Lc
+Lc
 Wr
 Wr
 Wr
@@ -29717,9 +29702,7 @@ Wr
 Wr
 Wr
 Wr
-Wr
-Wr
-Wr
+Lc
 Wr
 Wr
 Wr
@@ -29953,42 +29936,42 @@ Wr
 Wr
 Wr
 Wr
+Lc
+Lc
+Lc
+Lc
+Lc
+Wr
+Lc
+Wr
+Lc
+Lc
+Lc
+Lc
+Wr
+Wr
+Lc
+Wr
+Lc
+Lc
+Lc
+Wr
+Lc
+Lc
+Lc
+Lc
+Lc
 Wr
 Wr
 Wr
 Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
+Lc
 Cu
+Lc
 Cu
-Cu
-Cu
-Cu
-Cu
+Lc
+Lc
+Lc
 Cu
 Cu
 Cu
@@ -30203,36 +30186,36 @@ Wr
 Wr
 Wr
 Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
 Lc
 Lc
 Lc
@@ -30455,35 +30438,35 @@ Wr
 Wr
 Wr
 Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
 Lc
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
 Lc
 Lc
 Lc
@@ -30706,35 +30689,35 @@ Wr
 Wr
 Wr
 Wr
-Wr
-Wr
-Wr
-Lc
-Lc
-Lc
-Wr
-Wr
-Lc
-Wr
-Wr
-Wr
-Lc
-Wr
-Wr
-Wr
-Wr
 Lc
 Lc
 Lc
 Lc
-Wr
-Wr
-Wr
 Lc
-Wr
-Wr
-Wr
-Wr
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
 Lc
 Lc
 Lc
@@ -31913,10 +31896,10 @@ lf
 OI
 OI
 WT
-Kg
+sN
 ux
 NX
-YR
+CC
 OI
 OI
 lf
@@ -33499,7 +33482,7 @@ Lc
 Lc
 Lc
 Lc
-Lc
+JQ
 Lc
 Lc
 Lc
@@ -33706,7 +33689,7 @@ Nx
 Hk
 Hk
 Hk
-Hk
+RA
 Hk
 Hk
 Hk
@@ -35487,11 +35470,11 @@ lf
 pY
 Ty
 GO
-GO
+rl
 lf
 lf
 LI
-LI
+Qv
 LI
 qr
 Lc
@@ -35732,21 +35715,22 @@ Ze
 La
 hb
 La
-ce
+La
 HP
 Up
 yv
 Up
-ll
-ll
+Up
+Up
 sw
-mi
+jh
 vy
 lY
+tH
 Sf
+Lc
 Sf
 Lc
-cw
 Lc
 Lc
 Lc
@@ -35769,7 +35753,6 @@ Lc
 Lc
 Lc
 Lc
-JQ
 Lc
 Lc
 Lc
@@ -35811,7 +35794,7 @@ DC
 DC
 DC
 DC
-nQ
+DC
 DC
 DC
 DC
@@ -35973,11 +35956,11 @@ La
 jP
 Rw
 Nn
-LZ
+Rw
 Rw
 BU
 Rw
-Dz
+CW
 La
 hb
 hb
@@ -35992,12 +35975,12 @@ Rw
 VG
 EB
 Fa
-mi
+jh
 QE
 lY
+tH
 Sf
 Sf
-Lc
 Lc
 Lc
 Lc
@@ -36181,7 +36164,7 @@ Wr
 Wr
 Wr
 lf
-Gx
+rv
 HB
 HB
 rw
@@ -38287,7 +38270,7 @@ Lc
 Lc
 Lc
 Lc
-Lc
+JQ
 Lc
 Lc
 Lc
@@ -41039,35 +41022,35 @@ Wr
 Wr
 Wr
 Wr
-Wr
-Wr
-Wr
-Lc
-Wr
-Wr
-Wr
-Lc
-Lc
-Lc
-Wr
-Wr
-Wr
-Lc
-Wr
-Wr
-Lc
-Lc
-Wr
-Wr
-Wr
-Wr
-Wr
 Lc
 Lc
 Lc
 Lc
-Wr
-Wr
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
 Lc
 Lc
 Lc
@@ -41291,35 +41274,35 @@ Wr
 Wr
 Wr
 Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
+Lc
 Lc
 Lc
 Lc
@@ -41546,39 +41529,39 @@ Wr
 Wr
 Wr
 Wr
+Lc
+Wr
+Wr
+Lc
+Lc
+Lc
+Lc
+Wr
+Wr
+Lc
+Lc
+Lc
 Wr
 Wr
 Wr
+Lc
+Lc
+Wr
+Lc
 Wr
 Wr
 Wr
+Lc
+Lc
+Lc
 Wr
 Wr
+Lc
 Wr
 Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Wr
-Cu
-Cu
+Lc
+Lc
+Lc
 Cu
 Cu
 Cu
@@ -41802,13 +41785,13 @@ Nx
 Nx
 Nx
 Nx
+Yd
+Nx
+Yd
 Nx
 Nx
 Nx
-Nx
-Nx
-Nx
-Nx
+Yd
 Nx
 Nx
 Nx
@@ -42041,46 +42024,46 @@ Hk
 Hk
 Hk
 Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
-Hk
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
+Nx
 Nx
 Nx
 Nx
@@ -51170,7 +51153,7 @@ DC
 DC
 DC
 DC
-nQ
+DC
 DC
 DC
 DC
@@ -51642,7 +51625,7 @@ DC
 DC
 DC
 DC
-nQ
+DC
 DC
 DC
 DC
