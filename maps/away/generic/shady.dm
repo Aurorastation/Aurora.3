@@ -22,7 +22,6 @@
 	icon_state = "outpost_mine_main"
 	requires_power = FALSE
 
-
 /obj/item/paper/shady/diarypage
 	name = "torn diary page"
 	info = "Some of the guys say they have been hearing a chittering sound from outside the walls lately. Bunch of delusional wimps, its a damn good thing every ship we've hit have been pushovers too. God knows I wouldn't wanna rely on this crew to get out of a hairy situation..."
