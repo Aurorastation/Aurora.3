@@ -1527,10 +1527,10 @@
 	},
 /obj/structure/table/steel,
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/gun/projectile/deagle,
-/obj/item/ammo_magazine/a50,
-/obj/item/ammo_magazine/a50,
-/obj/item/ammo_magazine/a50,
+/obj/item/gun/projectile/pistol,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/plating,
 /area/hideout)
 "wI" = (
