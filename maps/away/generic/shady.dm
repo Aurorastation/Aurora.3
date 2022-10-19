@@ -16,7 +16,6 @@
 	desc = "An asteroid with a hangar carved out inside it. Scans detect an unregistered structure within, with multiple lifeforms present."
 	icon_state = "object"
 
-
 /area/hideout
 	name="hideout outpost"
 	icon_state = "outpost_mine_main"
