@@ -9185,8 +9185,10 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
 "eTf" = (
-/obj/structure/table/rack,
-/obj/random/loot,
+/obj/structure/ladder/up,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/starboard)
 "eTQ" = (
@@ -15629,6 +15631,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_two)
+"ibo" = (
+/obj/structure/table/rack,
+/obj/random/loot,
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/horizon/maintenance/deck_two/fore/starboard)
 "ibx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -64316,7 +64324,7 @@ xHc
 ccl
 khK
 gVn
-eTf
+ibo
 iBa
 kYw
 gun
