@@ -17,7 +17,7 @@
 	icon_state = "object"
 
 /area/hideout
-	name="hideout outpost"
+	name = "hideout outpost"
 	icon_state = "outpost_mine_main"
 	requires_power = FALSE
 
