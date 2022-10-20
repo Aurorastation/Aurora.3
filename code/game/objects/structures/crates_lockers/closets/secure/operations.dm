@@ -13,6 +13,7 @@
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/device/radio/headset/operations_manager(src)
 	new /obj/item/device/radio/headset/operations_manager/alt(src)
+	new /obj/item/storage/box/fancy/keypouch/cargo(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/suit/fire(src)
 	new /obj/item/tank/emergency_oxygen(src)

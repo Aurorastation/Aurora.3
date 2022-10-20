@@ -39,7 +39,6 @@
 /datum/gear/accessory/armband/New()
 	..()
 	var/list/armbands = list()
-	armbands["Stellar Corporate Conglomerate armband"] = /obj/item/clothing/accessory/armband/scc
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["operations armband"] = /obj/item/clothing/accessory/armband/operations
@@ -343,11 +342,6 @@
 	display_name = "shoulder sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/accessory/scc_patch
-	display_name = "stellar corporate conglomerate sleeve patch"
-	path = /obj/item/clothing/accessory/sleevepatch/scc
-	flags = 0
 
 /datum/gear/accessory/whalebone
 	display_name = "europan bone charm"
