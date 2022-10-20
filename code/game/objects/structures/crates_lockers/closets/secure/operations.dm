@@ -28,6 +28,7 @@
 	new /obj/item/storage/box/goldstar(src)
 	new /obj/item/device/flashlight/marshallingwand(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
+	new /obj/item/clothing/accessory/holster/waist(src)
 
 // Hangar Technician
 /obj/structure/closet/secure_closet/hangar_tech
