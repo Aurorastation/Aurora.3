@@ -573,7 +573,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "bb" = (
-/obj/effect/shuttle_landmark/legion/green,
+/obj/effect/shuttle_landmark/legion/green{
+	docking_controller = "green_dock_aft_airlock";
+	special_dock_targets = "legion_shuttle"
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "bc" = (
@@ -3920,8 +3923,30 @@
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "ho" = (
-/obj/effect/map_effect/airlock/s_to_n/long/square,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1337;
+	id_tag = "starboard_dock_pump"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
+	frequency = 1337;
+	id_tag = "starboard_dock_airlock";
+	layer = 3.4;
+	master_tag = "starboard_dock_airlock";
+	pixel_x = -28;
+	tag_airpump = "starboard_dock_pump";
+	tag_chamber_sensor = "starboard_dock_sensor";
+	tag_exterior_door = "starboard_dock_exterior";
+	tag_interior_door = "starboard_dock_interior";
+	pixel_y = 6
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1337;
+	id_tag = "starboard_dock_sensor";
+	layer = 3.4;
+	pixel_x = -28;
+	pixel_y = -7
+	},
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "hp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6703,6 +6728,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
+"mc" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1337;
+	id_tag = "starboard_dock_pump"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "md" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/captain)
@@ -10460,6 +10492,20 @@
 	dir = 4
 	},
 /area/bridge)
+"tf" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "starboard_dock_interior";
+	locked = 1;
+	name = "Emergency Services Dock";
+	req_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "tg" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -10968,7 +11014,9 @@
 	name = "Emergency Services Dock";
 	req_access = list(13)
 	},
-/obj/effect/shuttle_landmark/horizon/dock2,
+/obj/effect/shuttle_landmark/horizon/dock2{
+	docking_controller = "green_dock_aft_airlock"
+	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
 "tX" = (
@@ -12041,6 +12089,30 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
+"vV" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "starboard_dock_interior";
+	locked = 1;
+	name = "Emergency Services Dock";
+	req_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1337;
+	layer = 3.4;
+	master_tag = "starboard_dock_airlock";
+	name = "interior access button";
+	pixel_x = -27;
+	pixel_y = -7;
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "vW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -19924,7 +19996,7 @@
 	frequency = 1337;
 	id_tag = "green_dock_aft_airlock";
 	layer = 3.4;
-	master_tag = "legion_shuttle_dock";
+	master_tag = "green_dock_aft_airlock";
 	pixel_x = 28;
 	tag_airpump = "green_dock_aft_pump";
 	tag_chamber_sensor = "green_dock_aft_sensor";
@@ -21277,7 +21349,17 @@
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "MR" = (
-/obj/effect/shuttle_landmark/horizon/dock1,
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "starboard_dock_exterior";
+	locked = 1;
+	name = "Emergency Services Dock";
+	req_access = list(13)
+	},
+/obj/effect/shuttle_landmark/horizon/dock1{
+	docking_controller = "starboard_dock_airlock"
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "MS" = (
@@ -24079,6 +24161,27 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
+"RQ" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "starboard_dock_exterior";
+	locked = 1;
+	name = "Emergency Services Dock";
+	req_access = list(13)
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1337;
+	layer = 3.4;
+	master_tag = "starboard_dock_airlock";
+	name = "exterior access button";
+	pixel_x = -27;
+	pixel_y = 7;
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "RR" = (
 /obj/machinery/cryopod,
 /obj/effect/floor_decal/corner/green{
@@ -38988,7 +39091,7 @@ at
 mP
 GQ
 GQ
-ho
+mP
 Tv
 Vr
 mP
@@ -39187,10 +39290,10 @@ at
 at
 at
 at
+RQ
 OX
-OX
-OX
-OX
+ho
+vV
 su
 gp
 GQ
@@ -39391,8 +39494,8 @@ at
 at
 MR
 OX
-OX
-OX
+mc
+tf
 Xv
 Zt
 GQ

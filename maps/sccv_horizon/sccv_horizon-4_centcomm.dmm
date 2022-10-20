@@ -20285,44 +20285,13 @@
 	},
 /area/shuttle/legion)
 "aXw" = (
-/obj/machinery/door/airlock/hatch{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "legion_shuttle_hatch";
-	locked = 1;
-	name = "Dropship Hatch";
-	req_access = list(111)
-	},
-/obj/machinery/door/blast/regular/open{
+/turf/unsimulated/wall/fakepdoor{
 	dir = 8;
-	id = "tcflblastport";
-	name = "Starboard Blast Door"
+	name = "Blast door"
 	},
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "tcflblastport";
-	name = "Port Blast Door";
-	pixel_x = -22;
-	req_access = list(111)
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
 "aXx" = (
-/obj/machinery/door/airlock/hatch{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "legion_shuttle_hatch";
-	locked = 1;
-	name = "Dropship Hatch";
-	req_access = list(111)
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 8;
-	id = "tcflblastport";
-	name = "Starboard Blast Door"
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/shuttle_landmark/legion/merchant,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
 "aXy" = (
@@ -96721,7 +96690,7 @@ aSB
 aWt
 aWR
 aUZ
-aXx
+aXw
 aYa
 aYa
 aYa
@@ -96982,7 +96951,7 @@ aXy
 aYb
 aYD
 aYa
-aYD
+aXx
 aZW
 baB
 aUZ
