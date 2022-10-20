@@ -898,6 +898,24 @@
 		/obj/item/clothing/under/color/darkred
 	)
 
+/obj/random/suit
+	name = "random suit"
+	desc = "This is a random suit."
+	icon = 'icons/obj/clothing/uniforms.dmi'
+	icon_state = "checkered_suit"
+	spawnlist = list(
+		/obj/item/clothing/under/suit_jacket/charcoal,
+		/obj/item/clothing/under/suit_jacket/navy,
+		/obj/item/clothing/under/suit_jacket/burgundy,
+		/obj/item/clothing/under/suit_jacket/checkered,
+		/obj/item/clothing/under/suit_jacket/tan,
+		/obj/item/clothing/under/sl_suit,
+		/obj/item/clothing/under/suit_jacket,
+		/obj/item/clothing/under/suit_jacket/really_black,
+		/obj/item/clothing/under/suit_jacket/red,
+		/obj/item/clothing/under/suit_jacket/white
+	)
+
 /obj/random/loot
 	name = "random maintenance loot items"
 	desc = "Stuff for the maint-dwellers."

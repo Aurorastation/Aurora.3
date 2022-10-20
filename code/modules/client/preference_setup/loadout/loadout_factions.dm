@@ -411,3 +411,35 @@
 	cost = 0
 	faction = "NanoTrasen"
 	allowed_roles = list("Janitor")
+
+/datum/gear/faction/scc_armband
+	display_name = "SCC armband"
+	path = /obj/item/clothing/accessory/armband/scc
+	slot = slot_tie
+	sort_category = "Factions"
+	cost = 1
+	faction = null
+
+/datum/gear/faction/scc_sleevepatch
+	display_name = "SCC sleeve patch"
+	path = /obj/item/clothing/accessory/sleevepatch/scc
+	slot = slot_tie
+	sort_category = "Factions"
+	cost = 1
+	faction = null
+
+/datum/gear/faction/scc_jacket
+	display_name = "SCC jacket"
+	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc
+	slot = slot_wear_suit
+	sort_category = "Factions"
+	cost = 1
+	faction = null
+
+/datum/gear/faction/scc_beret
+	display_name = "SCC beret"
+	path = /obj/item/clothing/head/beret/scc
+	slot = slot_head
+	sort_category = "Factions"
+	cost = 1
+	faction = null
