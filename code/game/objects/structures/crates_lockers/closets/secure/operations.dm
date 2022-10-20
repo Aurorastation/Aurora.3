@@ -50,10 +50,6 @@
 	new /obj/item/export_scanner(src)
 	new /obj/item/device/flashlight/marshallingwand(src)
 	new /obj/item/clothing/head/deckhelmet(src)
-	new /obj/item/clothing/head/deckhelmet/green(src)
-	new /obj/item/clothing/head/deckhelmet/blue(src)
-	new /obj/item/clothing/head/deckhelmet/yellow(src)
-	new /obj/item/clothing/head/deckhelmet/purple(src)
 	new /obj/item/clothing/suit/storage/hazardvest(src)
 
 // Machinist
