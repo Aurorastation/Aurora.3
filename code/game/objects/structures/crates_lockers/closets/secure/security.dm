@@ -57,7 +57,7 @@
 	//Supply
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/storage/box/ids(src)
-	new /obj/item/storage/box/fancy/keypouch/cargo(src)
+	new /obj/item/storage/box/fancy/keypouch/sec(src)
 	new /obj/item/storage/box/fancy/keypouch/service(src)
 	//Appearance
 	new /obj/item/clothing/glasses/sunglasses(src)
@@ -82,11 +82,14 @@
 /obj/structure/closet/secure_closet/xo2/fill()
 	..()
 	new /obj/item/clothing/under/rank/xo(src)
-	new /obj/item/clothing/under/lawyer/red(src)
+	new /obj/random/suit(src)
+	new /obj/random/suit(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)
 	new /obj/item/clothing/shoes/white(src)
+	new /obj/item/clothing/head/caphat/cap/beret/xo(src)
+	new /obj/item/clothing/gloves/captain/white/xo(src)
 
 /obj/structure/closet/secure_closet/hos
 	name = "head of security's locker"

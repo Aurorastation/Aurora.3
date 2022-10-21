@@ -2545,7 +2545,7 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "skrell_reef_short"
 			length = 3
 			chatname = "short headtails"
-			scrunchy_style = "reef"
+			scrunchy_style = "reef_short"
 
 		skr_tentacle_emo_l_l
 			name = "Long Headtails, emo (left)"

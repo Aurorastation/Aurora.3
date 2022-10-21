@@ -35,6 +35,7 @@
 	var/list/idris_sec_uniforms = list()
 	idris_sec_uniforms["idris uniform"] = /obj/item/clothing/under/rank/security/idris/idrissec
 	idris_sec_uniforms["idris uniform, alt"] = /obj/item/clothing/under/rank/security/idris/idrissec/alt
+	idris_sec_uniforms["idris detective uniform"] = /obj/item/clothing/under/det/idris/alt
 	gear_tweaks += new /datum/gear_tweak/path(idris_sec_uniforms)
 
 /datum/gear/faction/idris_armband
@@ -128,6 +129,7 @@
 	var/list/zavod_sec_uniforms = list()
 	zavod_sec_uniforms["zavodskoi uniform"] = /obj/item/clothing/under/rank/security/zavod/zavodsec
 	zavod_sec_uniforms["zavodskoi uniform, alt"] = /obj/item/clothing/under/rank/security/zavod/zavodsec/alt
+	zavod_sec_uniforms["zavodskoi detective uniform"] = /obj/item/clothing/under/det/zavod/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sec_uniforms)
 
 /datum/gear/faction/zavodskoi_labcoat
@@ -191,6 +193,9 @@
 	pmc_sunglasses["HUDsunglasses, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/pmc
 	pmc_sunglasses["fat HUDsunglasses, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/big/pmc
 	pmc_sunglasses["aviator sunglasses, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc
+	pmc_sunglasses["HUDsunglasses alt, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/pmc/alt
+	pmc_sunglasses["fat HUDsunglasses alt, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/big/pmc/alt
+	pmc_sunglasses["aviator sunglasses alt, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc/alt
 	gear_tweaks += new /datum/gear_tweak/path(pmc_sunglasses)
 
 /datum/gear/faction/pmc_labcoat
@@ -234,7 +239,7 @@
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/pmcg_sec_uniforms
-	display_name = "EPMC security uniform selection"
+	display_name = "PMCG/EPMC security uniform selection"
 	description = "A selection of PMCG and EPMC security uniforms."
 	path = /obj/item/clothing/under/rank/security/pmc/epmc
 	slot = slot_w_uniform
@@ -244,8 +249,11 @@
 /datum/gear/faction/pmcg_sec_uniforms/New()
 	..()
 	var/list/pmcg_sec_uniforms = list()
+	pmcg_sec_uniforms["PMCG uniform"] = /obj/item/clothing/under/rank/security/pmc/pmcsec
+	pmcg_sec_uniforms["PMCG uniform, alt"] = /obj/item/clothing/under/rank/security/pmc/pmcsec/alt
 	pmcg_sec_uniforms["EPMC uniform"] = /obj/item/clothing/under/rank/security/pmc/epmc
 	pmcg_sec_uniforms["EPMC uniform, alt"] = /obj/item/clothing/under/rank/security/pmc/epmc/alt
+	pmcg_sec_uniforms["EPMC detective uniform"] = /obj/item/clothing/under/det/pmc/alt
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
 
 /datum/gear/faction/erisec_patch
@@ -253,7 +261,6 @@
 	path = /obj/item/clothing/accessory/sleevepatch/erisec
 	slot = slot_tie
 	faction = "Private Military Contracting Group"
-	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden")
 
 /datum/gear/faction/pmc_patch
 	display_name = "PMCG armband"
@@ -261,12 +268,55 @@
 	slot = slot_tie
 	faction = "Private Military Contracting Group"
 
+/datum/gear/faction/pmc_patch/New()
+	..()
+	var/list/pmc_patch = list()
+	pmc_patch["PMCG armband"] = /obj/item/clothing/accessory/armband/pmc
+	pmc_patch["PMCG armband, alt"] = /obj/item/clothing/accessory/armband/pmc/alt
+	gear_tweaks += new /datum/gear_tweak/path(pmc_patch)
+
+/datum/gear/faction/epmc_uniform_phys_med
+	display_name = "PMCG physician uniform"
+	path = /obj/item/clothing/under/rank/medical/pmc/alt
+	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+	allowed_roles = list("Physician")
+
+/datum/gear/faction/epmc_uniform_pharm_med
+	display_name = "PMCG pharmacist uniform"
+	path = /obj/item/clothing/under/rank/medical/pharmacist/pmc/alt
+	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+	allowed_roles = list("Pharmacist")
+
+/datum/gear/faction/epmc_uniform_psych_med
+	display_name = "PMCG psychiatrist uniform"
+	path = /obj/item/clothing/under/rank/medical/psych/pmc/alt
+	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+	allowed_roles = list("Psychiatrist")
+
+/datum/gear/faction/epmc_uniform_intern_med
+	display_name = "PMCG medical intern uniform"
+	path = /obj/item/clothing/under/rank/medical/intern/pmc/alt
+	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+	allowed_roles = list("Medical Intern")
+
 /datum/gear/faction/epmc_uniform_fr_med
-	display_name = "EPMC first responder uniform"
+	display_name = "PMCG/EPMC first responder uniform"
 	path = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("First Responder")
+
+/datum/gear/faction/epmc_uniform_fr_med/New()
+	..()
+	var/list/epmc_uniform_fr_med = list()
+	epmc_uniform_fr_med["EPMC first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
+	epmc_uniform_fr_med["PMCG first responder uniform, alt"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/alt
+	epmc_uniform_fr_med["Sekhmet Intergalactic first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/sekh
+	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_fr_med)
 
 //Zeng-Hu
 /datum/gear/faction/zenghu_beret
@@ -361,3 +411,35 @@
 	cost = 0
 	faction = "NanoTrasen"
 	allowed_roles = list("Janitor")
+
+/datum/gear/faction/scc_armband
+	display_name = "SCC armband"
+	path = /obj/item/clothing/accessory/armband/scc
+	slot = slot_tie
+	sort_category = "Factions"
+	cost = 1
+	faction = null
+
+/datum/gear/faction/scc_sleevepatch
+	display_name = "SCC sleeve patch"
+	path = /obj/item/clothing/accessory/sleevepatch/scc
+	slot = slot_tie
+	sort_category = "Factions"
+	cost = 1
+	faction = null
+
+/datum/gear/faction/scc_jacket
+	display_name = "SCC jacket"
+	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc
+	slot = slot_wear_suit
+	sort_category = "Factions"
+	cost = 1
+	faction = null
+
+/datum/gear/faction/scc_beret
+	display_name = "SCC beret"
+	path = /obj/item/clothing/head/beret/scc
+	slot = slot_head
+	sort_category = "Factions"
+	cost = 1
+	faction = null

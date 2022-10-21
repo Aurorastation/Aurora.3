@@ -37,7 +37,8 @@
 "aaI" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
-	pixel_y = 32
+	pixel_y = 32;
+	req_access = list(207)
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -192,13 +193,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
-"aEE" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/ship/elyran_strike_craft)
 "aFo" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -295,6 +289,7 @@
 	desc = "A rectangular steel footlocker.";
 	name = "footlocker"
 	},
+/obj/item/clothing/head/hijab/black,
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/storage/belt/medical/first_responder,
 /obj/item/storage/belt/medical,
@@ -477,6 +472,7 @@
 	desc = "A rectangular steel footlocker.";
 	name = "footlocker"
 	},
+/obj/item/clothing/head/hijab/black,
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/clothing/shoes/magboots/rig,
 /obj/item/tank/oxygen,
@@ -816,6 +812,11 @@
 "hvT" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/shuttle/elyran_shuttle)
+"hMA" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
 "hOg" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/space_ship,
@@ -1055,6 +1056,7 @@
 	desc = "A rectangular steel footlocker.";
 	name = "footlocker"
 	},
+/obj/item/clothing/head/hijab/black,
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/storage/belt/security,
 /obj/item/clothing/accessory/storage/pouches/black,
@@ -1426,6 +1428,7 @@
 	desc = "A rectangular steel footlocker.";
 	name = "footlocker"
 	},
+/obj/item/clothing/head/hijab/black,
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/storage/belt/security,
 /obj/item/clothing/accessory/storage/pouches/black,
@@ -1768,6 +1771,7 @@
 	name = "footlocker"
 	},
 /obj/effect/floor_decal/corner/beige/full,
+/obj/item/clothing/head/hijab/black,
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/storage/belt/utility/full,
 /obj/item/clothing/accessory/storage/pouches/brown,
@@ -31659,7 +31663,7 @@ lxP
 aab
 sTj
 sTj
-aEE
+hMA
 afz
 mRb
 aap

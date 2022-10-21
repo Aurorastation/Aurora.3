@@ -19,7 +19,9 @@
 /obj/random/highvalue,
 /obj/random/rig_module,
 /obj/random/rig_module,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "arp" = (
 /obj/machinery/atmospherics/unary/engine{
@@ -39,7 +41,16 @@
 	req_access = "208";
 	name = "Engineering"
 	},
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"avn" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"avA" = (
+/obj/structure/closet/emcloset,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "azW" = (
 /obj/machinery/door/airlock/skrell/grey{
@@ -47,7 +58,7 @@
 	name = "Maintenance"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "aBD" = (
 /obj/structure/table/skrell,
@@ -70,17 +81,29 @@
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
+"aWB" = (
+/obj/item/wrench{
+	pixel_y = 4;
+	pixel_x = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
 "bdV" = (
 /obj/structure/table/skrell,
 /obj/random/medical,
 /obj/item/roller/hover,
-/obj/item/roller/hover,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "bge" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
 	layer = 2.8
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
@@ -90,6 +113,11 @@
 	},
 /obj/random/keg,
 /turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"bsE" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "btE" = (
 /obj/structure/window/shuttle/skrell,
@@ -105,7 +133,7 @@
 	req_access = "208";
 	name = "Living Quarters"
 	},
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "bYX" = (
 /turf/simulated/floor/shuttle/skrell,
@@ -120,33 +148,63 @@
 	name = "Hangar"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
+"ctj" = (
+/obj/effect/shuttle_landmark/tirakqi_freighter/nav2,
+/turf/template_noop,
+/area/space)
+"cAm" = (
+/obj/effect/shuttle_landmark/tirakqi_freighter/nav4,
+/turf/template_noop,
+/area/space)
 "cIZ" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
+"cND" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
 "cNY" = (
 /obj/structure/closet/toolcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "cPz" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "cTq" = (
 /obj/structure/closet/secure_closet/engineering_welding{
 	req_access = null
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
-"cZd" = (
-/obj/structure/dispenser/oxygen{
-	phorontanks = 2
+"cXF" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
 	},
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"cZd" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_freighter)
+"daL" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "dbt" = (
 /obj/structure/table/skrell,
@@ -158,6 +216,8 @@
 /obj/machinery/light/skrell{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "dfd" = (
@@ -168,7 +228,20 @@
 /area/ship/tirakqi_freighter)
 "dze" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"dJB" = (
+/obj/structure/closet/crate/secure/large{
+	req_access = "208"
+	},
+/obj/item/contraband/poster,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/syringe/drugs,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "dPD" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -180,9 +253,24 @@
 "dQZ" = (
 /turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
+"dRe" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
 "dTw" = (
 /obj/machinery/light/skrell,
-/turf/simulated/floor/shuttle/skrell/blue,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"ecR" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "egE" = (
 /obj/machinery/recharger/wallcharger{
@@ -200,7 +288,8 @@
 /area/ship/tirakqi_freighter)
 "eiL" = (
 /obj/machinery/vending/snack,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "eiR" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -208,17 +297,25 @@
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
+"epH" = (
+/obj/structure/sign/flag/traverse/right,
+/turf/simulated/wall/shuttle/skrell,
+/area/ship/tirakqi_freighter)
 "erL" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/light/skrell{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "ett" = (
 /obj/effect/ghostspawpoint{
 	identifier = "tirakqi_engineer";
 	name = "igs - tirakqi_engineer"
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
@@ -236,6 +333,9 @@
 	output_tag = "co2_out";
 	sensors = list("co2_sensor"="Tank")
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "ewZ" = (
@@ -244,6 +344,7 @@
 /obj/random/tech_supply,
 /obj/item/rig/eva,
 /obj/machinery/light/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "exg" = (
@@ -252,7 +353,7 @@
 	req_access = "208";
 	name = "Medbay"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "eyj" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
@@ -283,6 +384,7 @@
 /obj/item/clothing/accessory/holster/hip/brown,
 /obj/item/clothing/head/helmet/security/skrell,
 /obj/item/clothing/head/helmet/security/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "eKc" = (
@@ -309,7 +411,8 @@
 /obj/machinery/light/skrell{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "eMT" = (
 /obj/machinery/computer/ship/helm,
@@ -317,7 +420,9 @@
 /area/ship/tirakqi_freighter)
 "eOJ" = (
 /obj/structure/closet/emcloset,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "eQn" = (
 /obj/structure/window/shuttle/skrell,
@@ -335,14 +440,29 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
+"fko" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
 "fnS" = (
 /obj/structure/closet/crate/loot,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"fpm" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "fpQ" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle/skrell,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "frB" = (
 /obj/machinery/light/skrell,
@@ -365,6 +485,7 @@
 /obj/item/clothing/accessory/tshirt/skrell/ocean,
 /obj/item/clothing/under/skrell/slugger,
 /obj/item/clothing/under/skrell/qeblak,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "frC" = (
@@ -378,7 +499,12 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"fGH" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "fHl" = (
 /obj/structure/lattice,
@@ -393,7 +519,10 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "fRD" = (
-/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "fTp" = (
@@ -416,7 +545,28 @@
 /obj/item/clothing/under/skrell/nralakk/iqi/engineer,
 /obj/item/clothing/under/skrell/nralakk/iqi/med,
 /obj/item/clothing/under/skrell/nralakk/iqi/security,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"fUL" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"fXm" = (
+/obj/structure/closet/secure_closet/cabinet{
+	req_access = "208"
+	},
+/obj/item/clothing/gloves/black_leather,
+/obj/item/clothing/accessory/badge/passport/nralakk{
+	pixel_x = 4;
+	pixel_y = -5
+	},
+/obj/item/pen/fountain/black{
+	pixel_x = -1;
+	pixel_y = -8
+	},
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "fZq" = (
 /obj/machinery/light/skrell{
@@ -430,15 +580,20 @@
 	req_access = "208";
 	name = "Maintenance"
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "gec" = (
 /obj/structure/closet/radiation,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "ggZ" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 32
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
@@ -447,7 +602,7 @@
 /area/ship/tirakqi_freighter)
 "goI" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = list(201)
+	req_access = "208"
 	},
 /obj/item/reagent_containers/food/drinks/milk,
 /obj/item/reagent_containers/food/drinks/milk,
@@ -466,11 +621,12 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "grI" = (
-/obj/effect/shuttle_landmark/tirakqi_freighter/nav1,
-/turf/simulated/floor/plating,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "gvM" = (
 /turf/unsimulated/wall/fakepdoor,
@@ -487,13 +643,24 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/shuttle/skrell,
-/turf/simulated/floor/plating,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"gDK" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/dispenser/oxygen{
+	phorontanks = 2
+	},
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "gHC" = (
 /obj/machinery/light/skrell{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "gIX" = (
 /obj/machinery/shipsensors/weak,
@@ -505,18 +672,53 @@
 /area/ship/tirakqi_freighter)
 "gMA" = (
 /obj/machinery/pipedispenser,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "gNW" = (
 /obj/machinery/light/skrell{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/skrell,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
+"gPF" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/shuttle/tirakqi_shuttle)
 "gRK" = (
 /obj/structure/table/skrell,
 /obj/random/action_figure,
 /turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"gTr" = (
+/obj/structure/sign/flag/traverse/left,
+/turf/simulated/wall/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"gWl" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"gYh" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "hfR" = (
 /obj/item/clothing/head/collectable/petehat,
@@ -531,17 +733,35 @@
 /obj/item/clothing/ears/skrell/band/silver,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
+"htq" = (
+/obj/structure/bed/stool/hover,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
 "hud" = (
 /obj/machinery/computer/ship/helm{
 	req_access = null
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tirakqi_shuttle)
+"hup" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/ship/tirakqi_freighter)
 "hxm" = (
 /obj/machinery/iv_drip,
 /obj/machinery/light/skrell{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "hxC" = (
@@ -556,10 +776,11 @@
 /area/ship/tirakqi_freighter)
 "hzX" = (
 /obj/structure/table/skrell,
-/obj/item/storage/firstaid/adv,
-/obj/item/storage/firstaid/o2,
 /obj/machinery/light/skrell{
 	dir = 4
+	},
+/obj/item/reagent_containers/blood/OMinus{
+	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
@@ -569,7 +790,16 @@
 	req_access = "208";
 	name = "Bridge"
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"hBZ" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "hEj" = (
 /obj/structure/closet/crate,
@@ -592,11 +822,13 @@
 /obj/item/stack/material/glass{
 	amount = 50
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "hFX" = (
 /obj/machinery/vending/dinnerware,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "hLR" = (
 /turf/simulated/wall/shuttle/skrell,
@@ -624,16 +856,14 @@
 /turf/simulated/wall/shuttle/skrell/corner,
 /area/ship/tirakqi_freighter)
 "hUJ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "hXr" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
-/turf/simulated/wall/shuttle/skrell,
+/turf/simulated/wall/shuttle/skrell/cardinal,
 /area/shuttle/tirakqi_shuttle)
 "iaK" = (
 /obj/machinery/computer/ship/sensors,
@@ -641,7 +871,7 @@
 /area/ship/tirakqi_freighter)
 "ibU" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/wall/shuttle/skrell,
+/turf/simulated/wall/shuttle/skrell/cardinal,
 /area/shuttle/tirakqi_shuttle)
 "ifl" = (
 /obj/machinery/door/airlock/skrell/grey{
@@ -649,7 +879,7 @@
 	name = "Bridge"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "ijB" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -663,9 +893,22 @@
 /obj/effect/map_effect/airlock/e_to_w/long/square,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
+"iqd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/tirakqi_freighter)
 "iyR" = (
 /obj/structure/table/skrell,
-/obj/item/storage/firstaid/surgery,
+/obj/item/storage/firstaid/adv{
+	pixel_x = 7;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "iDc" = (
@@ -673,25 +916,16 @@
 /obj/random/desktoy,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
-"iNo" = (
-/obj/structure/table/skrell,
-/obj/item/reagent_containers/food/condiment/shaker/spacespice{
-	pixel_x = 3;
-	pixel_y = 1
-	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = -4;
-	pixel_y = 7
-	},
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_x = 8;
-	pixel_y = 7
-	},
-/obj/item/material/kitchen/rollingpin{
-	pixel_x = 6
+"iHP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
 	},
 /turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"iNo" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "iOJ" = (
 /obj/structure/bed/stool/chair/office/hover/command{
@@ -706,12 +940,23 @@
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "iQk" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"iZI" = (
+/obj/structure/table/skrell,
+/obj/item/storage/firstaid/surgery,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/tirakqi_freighter)
+"iZL" = (
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "jbc" = (
 /obj/structure/table/rack,
@@ -736,31 +981,29 @@
 "jcg" = (
 /obj/structure/table/skrell,
 /obj/machinery/cell_charger,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "jdc" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "jdB" = (
-/obj/machinery/shipsensors/weak,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/turf/simulated/floor/tiled/white,
+/area/ship/tirakqi_freighter)
+"jkC" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/skrell{
+	dir = 8
 	},
 /turf/simulated/floor,
-/area/shuttle/tirakqi_shuttle)
+/area/ship/tirakqi_freighter)
 "jmw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -787,6 +1030,14 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tirakqi_shuttle)
+"jpL" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/ship/tirakqi_freighter)
 "jrJ" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/tirakqi_freighter)
@@ -801,13 +1052,37 @@
 /area/ship/tirakqi_freighter)
 "jyv" = (
 /obj/machinery/autolathe,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "jAE" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/machinery/light/skrell{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/flour,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"jGO" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	layer = 2.8
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"jGV" = (
+/obj/structure/table/skrell,
+/obj/item/skrell_projector{
+	pixel_y = 9
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"jLN" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "jNr" = (
@@ -816,21 +1091,31 @@
 	pixel_y = 5
 	},
 /obj/structure/curtain/open/shower,
-/obj/random/glowstick,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/tirakqi_freighter)
 "jOw" = (
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
+"jPa" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
 "jRX" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
+"jXF" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
 "kaR" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/meter,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "kfX" = (
@@ -838,7 +1123,7 @@
 /area/ship/tirakqi_freighter)
 "kkV" = (
 /obj/machinery/cryopod,
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "kpn" = (
 /obj/structure/table/rack,
@@ -852,10 +1137,14 @@
 /area/ship/tirakqi_freighter)
 "ktN" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "kwe" = (
 /obj/structure/table/skrell,
+/obj/item/clothing/suit/chef/classic{
+	pixel_y = -6
+	},
 /obj/random/pizzabox,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
@@ -866,6 +1155,7 @@
 /obj/machinery/light/skrell{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "kJI" = (
@@ -881,12 +1171,27 @@
 /obj/machinery/light/skrell{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "kPs" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/skrell,
 /turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"kWS" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/meter,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"kZK" = (
+/obj/item/storage/secure/safe{
+	pixel_y = 31
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/mucus,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "lej" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -904,6 +1209,13 @@
 /obj/machinery/light/skrell{
 	dir = 8
 	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tirakqi_freighter)
+"loR" = (
+/obj/machinery/optable,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "lri" = (
@@ -912,7 +1224,11 @@
 	pixel_x = -32;
 	req_access = null
 	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 5
+	},
+/obj/structure/bed/roller/hover,
+/turf/simulated/floor/tiled/dark,
 /area/ship/tirakqi_freighter)
 "ltf" = (
 /turf/simulated/wall/shuttle/skrell/corner{
@@ -921,7 +1237,11 @@
 /area/ship/tirakqi_freighter)
 "lva" = (
 /obj/structure/table/skrell,
-/obj/item/storage/firstaid/combat,
+/obj/item/storage/box/masks{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "lwj" = (
@@ -933,12 +1253,15 @@
 /obj/item/clothing/accessory/holster/hip/brown,
 /obj/item/clothing/head/helmet/security/skrell,
 /obj/item/clothing/head/helmet/security/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "lAV" = (
-/obj/structure/table/skrell,
-/obj/item/skrell_projector,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "lCc" = (
 /obj/structure/bed/stool/hover,
@@ -957,8 +1280,35 @@
 /obj/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
+"mbI" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_freighter)
+"mgV" = (
+/obj/structure/table/skrell,
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 13
+	},
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = 6
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
 "mmq" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "mnC" = (
@@ -978,13 +1328,26 @@
 	req_access = "208";
 	name = "Mess Hall"
 	},
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "mEc" = (
 /obj/structure/janitorialcart/full{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"mFb" = (
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tirakqi_freighter)
+"mSY" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "nap" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -996,6 +1359,10 @@
 /obj/effect/shuttle_landmark/tirakqi_freighter/transit,
 /turf/space/transit/south,
 /area/space)
+"ndr" = (
+/obj/effect/shuttle_landmark/tirakqi_freighter/nav3,
+/turf/template_noop,
+/area/space)
 "ngE" = (
 /obj/structure/closet/crate/medical,
 /obj/random/medical,
@@ -1003,13 +1370,23 @@
 /obj/random/medical,
 /obj/item/reagent_containers/syringe/drugs,
 /obj/item/reagent_containers/syringe/drugs,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "nhU" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/tirakqi_shuttle,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tirakqi_shuttle)
+"nna" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
 "nsw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -1019,6 +1396,19 @@
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tirakqi_shuttle)
+"nZS" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"ocU" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_freighter)
 "oge" = (
 /obj/item/clothing/head/collectable/slime,
 /obj/machinery/light/skrell{
@@ -1037,37 +1427,92 @@
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/tirakqi_freighter)
+"orH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"oxk" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
 "oJg" = (
 /obj/structure/closet/crate,
 /obj/random/vault_weapon,
 /obj/random/projectile,
 /obj/random/ammo,
 /obj/random/ammo,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "oLC" = (
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_freighter)
+"oUx" = (
+/obj/structure/bookcase/libraryspawn/fiction,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "oYU" = (
 /obj/structure/table/skrell,
 /obj/machinery/light/skrell{
 	dir = 1
 	},
-/obj/machinery/recharger,
+/obj/machinery/recharger{
+	pixel_x = 5
+	},
+/obj/random/lavalamp{
+	pixel_x = -6
+	},
 /turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"pbG" = (
+/obj/effect/shuttle_landmark/tirakqi_freighter/nav1,
+/turf/template_noop,
+/area/space)
+"peX" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "pfE" = (
 /mob/living/bot/cleanbot,
-/turf/simulated/floor/shuttle/skrell,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"pfS" = (
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "pim" = (
-/obj/machinery/optable,
+/obj/structure/table/skrell,
+/obj/item/storage/firstaid/combat{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "piw" = (
 /obj/effect/overmap/visitable/ship/tirakqi_freighter,
 /turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_freighter)
+"piQ" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = -11
+	},
+/turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "pke" = (
 /obj/structure/table/rack,
@@ -1075,7 +1520,13 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/belt/utility,
 /obj/item/storage/belt/utility,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"pmX" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "ppZ" = (
 /obj/structure/closet/walllocker/emerglocker/west,
@@ -1093,20 +1544,17 @@
 "pxn" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/skrell,
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "pLb" = (
 /obj/random/animal_crate,
 /obj/machinery/light/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "pPl" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/skrell{
-	req_access = "208";
-	name = "Living Quarters"
-	},
-/turf/simulated/floor/tiled/freezer,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
@@ -1117,8 +1565,8 @@
 	frequency = 1380;
 	id_tag = "tirakqi_shuttle";
 	name = "Port docking controller";
-	pixel_x = 6;
-	pixel_y = 28;
+	pixel_x = -6;
+	pixel_y = 27;
 	tag_door = "tirakqi_shuttle_out"
 	},
 /obj/machinery/computer/ship/sensors{
@@ -1126,6 +1574,19 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tirakqi_shuttle)
+"qcW" = (
+/obj/structure/closet/crate,
+/obj/item/reagent_containers/pill/skrell_nootropic,
+/obj/item/reagent_containers/pill/skrell_nootropic,
+/obj/item/reagent_containers/pill/skrell_nootropic,
+/obj/item/reagent_containers/pill/skrell_nootropic,
+/obj/item/reagent_containers/inhaler/xuxigas,
+/obj/item/reagent_containers/inhaler/xuxigas,
+/obj/item/reagent_containers/inhaler/xuxigas,
+/obj/item/reagent_containers/inhaler/xuxigas,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
 "qds" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1133,7 +1594,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"qpc" = (
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "qtX" = (
 /turf/simulated/floor/plating,
@@ -1155,10 +1622,51 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
+"qzO" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/tiled/white,
+/area/ship/tirakqi_freighter)
+"qDH" = (
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_freighter)
+"qEM" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tirakqi_freighter)
+"qPw" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"qRP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
 "qUg" = (
 /turf/simulated/wall/shuttle/skrell/corner{
 	dir = 4
 	},
+/area/ship/tirakqi_freighter)
+"qVu" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "qXw" = (
 /obj/effect/ghostspawpoint{
@@ -1167,15 +1675,25 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
+"qXO" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
 "qYw" = (
 /obj/machinery/vending/tool,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "rhz" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/skrell,
 /turf/simulated/floor/plating,
 /area/shuttle/tirakqi_shuttle)
+"rnB" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
 "rrF" = (
 /obj/structure/bed/stool/chair/office/hover/command{
 	dir = 1
@@ -1195,8 +1713,18 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
+"rDm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/glowstick{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
 "rXT" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "sbb" = (
@@ -1205,6 +1733,7 @@
 	pixel_y = -8
 	},
 /obj/structure/curtain/open/shower,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/tirakqi_freighter)
 "soZ" = (
@@ -1230,7 +1759,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "sKP" = (
 /obj/structure/ore_box,
@@ -1245,26 +1776,25 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -27
 	},
-/turf/simulated/floor/shuttle/skrell,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "tnP" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/skrell/black,
-/obj/item/clothing/suit/space/void/skrell/black,
-/obj/item/clothing/head/helmet/space/void/skrell/black,
-/obj/item/clothing/head/helmet/space/void/skrell/black,
-/turf/simulated/floor/shuttle/skrell/blue,
+/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "twq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/grille,
 /obj/structure/window/shuttle/skrell,
-/turf/simulated/floor/plating,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "tNm" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	layer = 2.8
 	},
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "tOF" = (
@@ -1277,6 +1807,25 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"ufb" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"usf" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"usW" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "uWn" = (
 /obj/structure/extinguisher_cabinet{
@@ -1291,11 +1840,22 @@
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "vdX" = (
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/shuttle/skrell/blue,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"vgL" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"vqd" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "vqr" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1314,7 +1874,18 @@
 /area/shuttle/tirakqi_shuttle)
 "vxE" = (
 /obj/random/animal_crate,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_freighter)
+"vGC" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "vLQ" = (
 /obj/structure/closet/crate/freezer,
@@ -1322,12 +1893,15 @@
 /obj/random/contraband,
 /obj/random/contraband,
 /obj/random/contraband,
-/turf/simulated/floor/shuttle/skrell,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_freighter)
 "vMq" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "vRm" = (
@@ -1335,6 +1909,7 @@
 /obj/machinery/light/skrell{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "vUm" = (
@@ -1343,7 +1918,11 @@
 	req_access = "208";
 	name = "Hangar"
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"vWM" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "whf" = (
 /obj/structure/table/skrell,
@@ -1355,9 +1934,38 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "wji" = (
-/obj/structure/table/skrell,
-/obj/random/lavalamp,
-/turf/simulated/floor/shuttle/skrell,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"wAC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/tirakqi_freighter)
+"wCK" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"xbz" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"xge" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
+"xiM" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "xji" = (
 /obj/machinery/air_sensor{
@@ -1367,13 +1975,44 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/tirakqi_freighter)
+"xsx" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
 "xRX" = (
 /turf/template_noop,
 /area/space)
+"yak" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"yaG" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_freighter)
 "yge" = (
 /obj/structure/table/rack,
-/obj/item/tank/jetpack/carbondioxide,
-/turf/simulated/floor/shuttle/skrell/blue,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/suit/space/void/skrell/black,
+/obj/item/clothing/suit/space/void/skrell/black,
+/obj/item/clothing/head/helmet/space/void/skrell/black,
+/obj/item/clothing/head/helmet/space/void/skrell/black,
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"yiR" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "yjk" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -1381,7 +2020,7 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/shuttle/skrell,
-/turf/simulated/floor/plating,
+/turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 
 (1,1,1) = {"
@@ -27170,7 +27809,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+pbG
 xRX
 xRX
 xRX
@@ -30785,12 +31424,12 @@ dQZ
 dQZ
 jrJ
 yjk
-dze
+nZS
 bge
 fFA
 qtX
-qtX
-qtX
+oxk
+mSY
 dQZ
 dQZ
 soZ
@@ -31031,7 +31670,7 @@ xRX
 xRX
 xRX
 kPs
-grI
+qtX
 qtX
 ina
 xRX
@@ -31043,12 +31682,12 @@ hNy
 lmS
 gyl
 ewW
+rnB
+rnB
 qtX
-qtX
-qtX
-qtX
-qtX
-qtX
+oxk
+yaG
+pmX
 dQZ
 dQZ
 soZ
@@ -31067,7 +31706,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+cAm
 xRX
 xRX
 xRX
@@ -31302,8 +31941,8 @@ twq
 dze
 tNm
 kaR
-tNm
-kaR
+jGO
+kWS
 lej
 lej
 nap
@@ -31555,16 +32194,16 @@ dQZ
 dQZ
 jrJ
 jrJ
-kPs
-qtX
+pxn
+xbz
 quF
 qtX
 quF
-qtX
-qtX
-qtX
-ijB
-dQZ
+fUL
+qRP
+qRP
+peX
+spX
 dQZ
 fHl
 xRX
@@ -31817,11 +32456,11 @@ dQZ
 dQZ
 dQZ
 dQZ
-dQZ
+spX
 mmq
-qtX
+pfS
 vMq
-nap
+dRe
 dQZ
 fHl
 xRX
@@ -32048,37 +32687,37 @@ xRX
 qUg
 dQZ
 dQZ
-sbb
+hup
 sbb
 sbb
 jNr
 dQZ
 whf
-frC
+usW
 lri
 lnU
 dQZ
 iQk
 sBA
 qds
-hUJ
-bYX
+cND
+fpQ
 tdV
 tdV
-bYX
+pPl
 vxE
 dQZ
-bYX
-bYX
-bYX
+jLN
+hUJ
+iNo
 gMA
 jyv
 qYw
 dQZ
 erL
+daL
 qtX
-qtX
-vdz
+fko
 fhi
 eCV
 xRX
@@ -32311,29 +32950,29 @@ aLZ
 aOi
 dQZ
 bdV
-frC
-frC
-frC
+usW
+mFb
+qEM
 dQZ
-ryh
-bYX
-bYX
-bYX
-fnS
-fnS
-fnS
-bYX
+gHC
+pPl
+wji
+tnP
+tnP
+wCK
+nna
+wji
 pLb
 dQZ
 ryh
 bYX
-bYX
-bYX
-bYX
-bYX
+iNo
+fpm
+fpm
+bzd
 dQZ
 ktN
-qtX
+xge
 qtX
 vdz
 fhi
@@ -32563,35 +33202,35 @@ dQZ
 dQZ
 dQZ
 dQZ
-pPl
+bQs
 dQZ
 dQZ
 dQZ
-frC
-frC
-frC
-frC
+iqd
+yiR
+jdB
+jdB
 exg
-bYX
-bYX
-bYX
-bYX
-fnS
-fnS
-fnS
-bYX
-bYX
+wji
+wji
+wji
+vgL
+vqd
+bsE
+bsE
+wji
+wji
 auB
-bYX
-bYX
-bYX
-bYX
-bYX
-bYX
+wji
+qpc
+pPl
+wji
+qpc
+wji
 azW
-qtX
-qtX
-qtX
+xge
+xge
+daL
 vdz
 fhi
 eCV
@@ -32820,36 +33459,36 @@ dQZ
 dQZ
 krH
 qxR
-bYX
-bYX
+pPl
+grI
 fTp
 dQZ
 pim
 frC
-frC
-frC
+qzO
+wAC
 dQZ
-bYX
-bYX
-bYX
-bYX
+iHP
+wji
+qpc
+tnP
 fnS
 fnS
-fnS
-bYX
+vdX
+wji
 bYX
 dQZ
 cTq
 bYX
-bYX
-bYX
+wji
+pPl
 bYX
 jcg
 dQZ
+cXF
 qtX
-qtX
-qtX
-ijB
+xge
+hBZ
 dQZ
 fHl
 xRX
@@ -33077,35 +33716,35 @@ dQZ
 dQZ
 fQo
 bYX
-bYX
+wji
 bYX
 frB
 dQZ
 iyR
 frC
 frC
-frC
+jpL
 dQZ
 mEc
-bYX
-bYX
-bYX
-bYX
-bYX
-bYX
-bYX
-bYX
+wji
+wji
+wji
+wji
+pPl
+pPl
+qpc
+jXF
 dQZ
 cNY
 bYX
-bYX
-bYX
+wji
+pPl
 bYX
 hEj
 dQZ
 tYP
 jdc
-qtX
+pfS
 ijB
 dQZ
 fHl
@@ -33330,40 +33969,40 @@ xRX
 xRX
 qUg
 dQZ
-dQZ
-dQZ
+qcW
+spX
 krH
 qxR
-bYX
+wji
 bYX
 hsG
 dQZ
 lva
 frC
-frC
+vWM
 fRD
 dQZ
 bkQ
-bYX
-bYX
-bYX
-bYX
-bYX
-bYX
-bYX
+pPl
+wji
+lAV
+qVu
+qVu
+mbI
+wji
 lXl
 dQZ
 dcm
 bYX
-bYX
-bYX
-bYX
+pPl
+wji
+grI
 ewZ
 dQZ
 vRm
 jRX
-qtX
-ijB
+xge
+xiM
 dQZ
 fHl
 xRX
@@ -33586,40 +34225,40 @@ xRX
 xRX
 qUg
 dQZ
-dQZ
-dQZ
-dQZ
+kZK
+rDm
+oUx
+aWB
+grI
 wji
-bYX
-bYX
 bYX
 jnu
 dQZ
 hzX
-frC
-frC
+iZI
+loR
 hxm
 dQZ
 tOF
-bYX
-bYX
+pPl
+wji
 ngE
 vLQ
 oJg
 ado
-bYX
+wji
 sKP
 dQZ
 gec
-bYX
-bYX
-bYX
-bYX
+grI
+orH
+pPl
+grI
 pke
 dQZ
 cPz
-jRX
-qtX
+jPa
+xge
 vdz
 fhi
 eCV
@@ -33826,7 +34465,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+ndr
 xRX
 xRX
 xRX
@@ -33843,12 +34482,12 @@ xRX
 xRX
 dQZ
 dQZ
-dQZ
-hfR
-dQZ
+dJB
+fXm
+spX
 krH
 qxR
-bYX
+qpc
 bYX
 jbc
 dQZ
@@ -33859,9 +34498,9 @@ dQZ
 dQZ
 dQZ
 mwP
-fpQ
-fpQ
-fpQ
+pxn
+pxn
+pxn
 dQZ
 dQZ
 vUm
@@ -33876,7 +34515,7 @@ dQZ
 dQZ
 dQZ
 dQZ
-dQZ
+spX
 vdz
 fhi
 eCV
@@ -34105,7 +34744,7 @@ dQZ
 dQZ
 oYU
 bYX
-bYX
+pPl
 bYX
 kpn
 dQZ
@@ -34115,24 +34754,24 @@ jOw
 cnD
 bYX
 bYX
-bYX
+wji
 bYX
 mnC
-bYX
+grI
 dQZ
 yge
-bzd
+wji
 bzd
 rXT
+gDK
 bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-vdX
+wji
+wji
+iZL
+jkC
+qXO
+avn
+ecR
 dQZ
 vdz
 fhi
@@ -34358,40 +34997,40 @@ xRX
 xRX
 kfX
 dQZ
-dQZ
-dQZ
+hfR
+gTr
 krH
 eDP
+pPl
 bYX
-bYX
-bYX
+ggZ
 dQZ
+grI
 bYX
 bYX
 bYX
 bYX
-bYX
-eUC
-bYX
+mtM
+wji
 lCc
 dbt
 lCc
 pxn
 eKS
-bzd
-bzd
+wji
+fpm
 cZd
+ocU
 bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
+pPl
+wji
+iNo
+fGH
+iZL
+iZL
 dTw
 dQZ
-vdz
+fko
 fhi
 eCV
 xRX
@@ -34616,39 +35255,39 @@ xRX
 xRX
 dQZ
 dQZ
-dQZ
-lAV
-bYX
-bYX
-bYX
-bYX
-dQZ
-iNo
-stK
+epH
 mtM
+jGV
+wji
+bYX
+bYX
+dQZ
+eUC
+stK
+mgV
 kwe
 gRK
 iDc
-bYX
+wji
 lCc
 aBD
 lCc
 pxn
-tnP
+wji
+qpc
+fpm
+fpm
+fpm
 bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
+wji
+qpc
+iNo
+iNo
+iNo
+iZL
+yak
 dQZ
-ijB
+vGC
 dQZ
 fHl
 xRX
@@ -34876,22 +35515,22 @@ dQZ
 dQZ
 krH
 qXw
-bYX
+wji
 bYX
 bYX
 dQZ
 lCc
 lCc
 lCc
+htq
 lCc
-lCc
 bYX
-bYX
-bYX
+pPl
+grI
 lCc
 bYX
 dQZ
-bzd
+wji
 iQd
 dfd
 dfd
@@ -35133,36 +35772,36 @@ dQZ
 dQZ
 ehg
 bYX
-bYX
-bYX
-bYX
+wji
+pPl
+wji
 bQs
+wji
+pPl
+wji
+wji
+wji
+wji
+pPl
 bYX
-bYX
-bYX
-bYX
-bYX
-bYX
-bYX
-bYX
-bYX
-bYX
+grI
+grI
 dQZ
-bzd
+pPl
 rtf
 hLR
-hLR
-hLR
-hLR
+hxC
+hxC
+hxC
 lEL
 lEL
-hLR
-hLR
-hLR
-hLR
-hLR
+hxC
+hxC
+hxC
+hxC
+hxC
 dQZ
-ijB
+qPw
 dQZ
 fHl
 xRX
@@ -35390,25 +36029,25 @@ dQZ
 dQZ
 hyn
 ett
-bYX
-bYX
-bYX
+xsx
+gWl
+gYh
 bQs
-bYX
-bYX
-bYX
-bYX
-bYX
-pfE
-bYX
-bYX
-bYX
-bYX
-cqy
+orH
 bzd
-rtf
-hLR
-hLR
+bzd
+bzd
+wji
+pfE
+wji
+wji
+wji
+wji
+cqy
+wji
+ufb
+hxC
+hxC
 atj
 uWn
 euz
@@ -35419,7 +36058,7 @@ eKc
 ibU
 arp
 dQZ
-vdz
+fko
 fhi
 eCV
 xRX
@@ -35652,18 +36291,18 @@ kkV
 kkV
 dQZ
 eOJ
-gNW
+qDH
 eiL
 hFX
+wji
 bYX
 bYX
 bYX
 bYX
-bYX
-bYX
+pPl
 vUm
-bzd
-rtf
+wji
+ufb
 rhz
 hud
 pwR
@@ -35676,7 +36315,7 @@ jnS
 ibU
 arp
 dQZ
-vdz
+fko
 fhi
 eCV
 xRX
@@ -35912,17 +36551,17 @@ dQZ
 dQZ
 dQZ
 dQZ
-bYX
-bYX
-ggZ
+pPl
+pPl
+piQ
 ggZ
 eGO
 lwj
 dQZ
 gHC
-rtf
-hLR
-hLR
+ufb
+hxC
+hxC
 pXP
 iOJ
 hNH
@@ -35933,7 +36572,7 @@ nsw
 ibU
 arp
 dQZ
-vMq
+usf
 fhi
 eCV
 xRX
@@ -36173,22 +36812,22 @@ ifl
 hAg
 dQZ
 dQZ
-fpQ
+pxn
 dQZ
 dQZ
-vdX
-jdB
+avA
+rtf
+gPF
 hxC
-hLR
-hLR
-hLR
-hLR
+hxC
+hxC
+hxC
 hXr
 hXr
-hLR
-hLR
-hLR
-hLR
+hxC
+hxC
+hxC
+hxC
 dQZ
 gcq
 dQZ
@@ -36417,17 +37056,17 @@ xRX
 xRX
 xRX
 xRX
-fpQ
-fpQ
+pxn
+pxn
 pxn
 dQZ
 dQZ
 dQZ
 dQZ
 dQZ
-dQZ
-bzd
-bzd
+spX
+wji
+wji
 dQZ
 fHl
 fHl
@@ -36674,7 +37313,7 @@ xRX
 xRX
 xRX
 xRX
-fpQ
+pxn
 fBo
 fZq
 egE
@@ -36683,8 +37322,8 @@ bzd
 fZq
 bzd
 gkc
-bzd
-bzd
+pPl
+wji
 dQZ
 fHl
 fHl
@@ -36692,17 +37331,17 @@ fHl
 hRT
 dQZ
 dQZ
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
+iZL
+iZL
+iZL
+iZL
+iZL
+iZL
+iZL
+iZL
+iZL
+iZL
+iZL
 dQZ
 dQZ
 dQZ
@@ -36931,7 +37570,7 @@ xRX
 xRX
 xRX
 xRX
-fpQ
+pxn
 eMT
 rrF
 oLC
@@ -36940,8 +37579,8 @@ bzd
 bzd
 bzd
 gkc
-bzd
-kOF
+wji
+gNW
 dQZ
 xRX
 xRX
@@ -36950,15 +37589,15 @@ xRX
 kfX
 dQZ
 dQZ
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
+iZL
+iZL
+iZL
+iZL
+iZL
+iZL
+iZL
+iZL
+iZL
 dQZ
 dQZ
 dQZ
@@ -37188,7 +37827,7 @@ xRX
 xRX
 xRX
 xRX
-fpQ
+pxn
 iaK
 bzd
 bzd
@@ -37197,7 +37836,7 @@ gxW
 bzd
 bzd
 gkc
-bzd
+qpc
 spX
 dQZ
 xRX
@@ -37208,13 +37847,13 @@ xRX
 kfX
 dQZ
 kOF
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
-bzd
+iZL
+iZL
+iZL
+iZL
+iZL
+iZL
+iZL
 kOF
 dQZ
 dQZ
@@ -37445,8 +38084,8 @@ xRX
 xRX
 xRX
 xRX
-fpQ
-fpQ
+pxn
+pxn
 pxn
 dQZ
 dQZ
@@ -41054,7 +41693,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+ctj
 xRX
 xRX
 xRX

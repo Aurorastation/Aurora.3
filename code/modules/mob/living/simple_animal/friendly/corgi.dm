@@ -43,12 +43,17 @@
 	name = "Ian"
 	real_name = "Ian"	//Intended to hold the name without altering it.
 	gender = MALE
-	desc = "It's a corgi."
+	desc = "It's Ian the corgi."
+	icon = 'icons/mob/npc/pets.dmi'
+	icon_state = "ian"
+	icon_living = "ian"
+	icon_dead = "ian_dead"
 	named = TRUE
 	//var/obj/movement_target
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
+	holder_type = /obj/item/holder/ian
 
 /mob/living/simple_animal/corgi/Ian/think()
 	..()
@@ -111,6 +116,7 @@
 	icon_state = "puppy"
 	icon_living = "puppy"
 	icon_dead = "puppy_dead"
+	holder_type = /obj/item/holder/corgi
 
 	butchering_products = list(/obj/item/stack/material/animalhide/corgi = 1)
 
@@ -135,6 +141,7 @@
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
+	holder_type = /obj/item/holder/lisa
 	var/puppies = 0
 
 //Lisa already has a cute bow!

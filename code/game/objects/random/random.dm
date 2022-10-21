@@ -206,7 +206,8 @@
 		/obj/item/seeds/ambrosiadeusseed = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
-		/obj/item/reagent_containers/inhaler/space_drugs = 2
+		/obj/item/reagent_containers/inhaler/space_drugs = 2,
+		/obj/item/reagent_containers/inhaler/xuxigas = 1
 	)
 
 /obj/random/smokable
@@ -897,6 +898,24 @@
 		/obj/item/clothing/under/color/darkred
 	)
 
+/obj/random/suit
+	name = "random suit"
+	desc = "This is a random suit."
+	icon = 'icons/obj/clothing/uniforms.dmi'
+	icon_state = "checkered_suit"
+	spawnlist = list(
+		/obj/item/clothing/under/suit_jacket/charcoal,
+		/obj/item/clothing/under/suit_jacket/navy,
+		/obj/item/clothing/under/suit_jacket/burgundy,
+		/obj/item/clothing/under/suit_jacket/checkered,
+		/obj/item/clothing/under/suit_jacket/tan,
+		/obj/item/clothing/under/sl_suit,
+		/obj/item/clothing/under/suit_jacket,
+		/obj/item/clothing/under/suit_jacket/really_black,
+		/obj/item/clothing/under/suit_jacket/red,
+		/obj/item/clothing/under/suit_jacket/white
+	)
+
 /obj/random/loot
 	name = "random maintenance loot items"
 	desc = "Stuff for the maint-dwellers."
@@ -1134,7 +1153,7 @@
 /obj/random/hoodie
 	name = "random winter coat"
 	desc = "This is a random winter coat."
-	icon = 'icons/obj/hoodies.dmi'
+	icon = 'icons/obj/clothing/hoodies.dmi'
 	icon_state = "coatwinter"
 	problist = list(
 		/obj/item/clothing/suit/storage/hooded/wintercoat = 5,

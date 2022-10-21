@@ -20,7 +20,8 @@
 		/decl/origin_item/origin/konyang,
 		/decl/origin_item/origin/visegrad,
 		/decl/origin_item/origin/mictlan,
-		/decl/origin_item/origin/antillia
+		/decl/origin_item/origin/antillia,
+		/decl/origin_item/origin/sancolette
 	)
 
 /decl/origin_item/origin/sol_system
@@ -136,9 +137,22 @@
 	possible_religions = RELIGIONS_SOLARIAN
 
 /decl/origin_item/origin/antillia
-    name = "Port Antillia"
-    desc = "A former middle ring Solarian colony annexed into the Corporate Reconstruction Zone following the Solarian Collapse. Port Antillia is an under-developed ocean world with a unique, unstable geological profile and strong tradition of regional governance. Now with the formation of a unified planetary government within the Corporate Reconstruction Zone, Port Antillia looks forward to a hopeful, brighter future."
-    important_information = "Due to the rather insular and unstable history of Port Antillia as the singular colonisation attempt by the Caribbean Federation, <b>characters born on Port Antillia will have names and appearances consistent with the peoples of the Antilles.</b> Only those native to Port Antillia may take its accent. This is enforceable by server moderators and admins."
-    possible_accents = list(ACCENT_ANTILLIA)
-    possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
-    possible_religions = RELIGIONS_SOLARIAN
+	name = "Port Antillia"
+	desc = "A former middle ring Solarian colony annexed into the Corporate Reconstruction Zone following the Solarian Collapse. Port Antillia is an under-developed ocean world with a unique, unstable geological profile and strong tradition of regional governance. Now with the formation of a unified planetary government within the Corporate Reconstruction Zone, Port Antillia looks forward to a hopeful, brighter future."
+	important_information = "Due to the rather insular and unstable history of Port Antillia as the singular colonisation attempt by the Caribbean Federation, <b>characters born on Port Antillia will have names and appearances consistent with the peoples of the Antilles.</b> Only those native to Port Antillia may take its accent. This is enforceable by server moderators and admins."
+	possible_accents = list(ACCENT_ANTILLIA)
+	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
+	possible_religions = RELIGIONS_SOLARIAN
+
+/decl/origin_item/origin/sancolette
+	name = "San Colette"
+	desc = "The system of San Colette is the heartland of the Sovereign Solarian Republic of San Colette, a Solarian member state formerly located on the border between the Middle and Outer Rings and now located almost exactly in the middle of the Northern Wildlands. \
+	The Republic has historically been a major hub for warp gate travel between both rings and has become quite wealthy as a result of its trade. Unfortunately this has made it a target for the warlords of the Northern Wildlands: \
+	the Coalition-backed League of Independent Corporate-Free Systems and Solarian Navy-supported Solarian Restoration Front. Whether or not San Colette's own defensive alliance - the Middle Ring Shield Pact - will be able to weather the storm approaching its borders remains to be seen. \
+	Coletters are, by Outer and Middle Ring standards, a wealthy people with a high standard of living. Culturally they have a strong connection to service in their local military, the Civil Guard of the Sovereign Solarian Republic of San Colette, \
+	and are often viewed as martial and dutiful people by the broader Alliance. Most value family highly and hold onto cultural traditions from the colonial origin of Iberia. The vast majority of Coletters are concerned for the future, and many have adopted a fatalistic attitude \
+	towards what seems to be a steadily approaching war in the Northern Wildands."
+	important_information = "Because of the ethnic make-up of San Colette's original settlers and assimilation of immigrants into the native population during and following the Warp Gate Project, human characters born on San Colette will have appearances consistent with the people of the Iberian Peninsula. This is enforceable by server moderators and admins."
+	possible_accents = list(ACCENT_SANCOLETTE)
+	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
+	possible_religions = RELIGIONS_SOLARIAN
