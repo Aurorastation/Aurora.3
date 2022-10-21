@@ -1999,7 +1999,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/armband/fluff/ahzi_armband //Unathi Fleet Armband - Ankala Ahzi - captaingecko
 	name = "unathi fleet armband"
-	desc = "An armband bearing the easily recognizable inconography of Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
+	desc = "An armband bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
 	icon = 'icons/obj/custom_items/ahzi_items.dmi'
 	icon_override = 'icons/obj/custom_items/ahzi_items.dmi'
 	icon_state = "ahzi_armband"
