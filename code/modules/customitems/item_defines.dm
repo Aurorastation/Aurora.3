@@ -2009,7 +2009,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/deck/tarot/nralakk/fluff/ielia_tarot //Starfinder - Ielia Aliori-Quis'Naala - shestrying
 	name = "starfinder"
-	desc = "A small, bronze ball. It is heavy in the hand, and seems to have no switches or buttons on it. "
+	desc = "A small, bronze ball. It is heavy in the hand and seems to have no switches or buttons on it. "
 	icon = 'icons/obj/custom_items/ielia_tarot.dmi'
 	icon_override = 'icons/obj/custom_items/ielia_tarot.dmi'
 	icon_state = "ielia_tarot"
