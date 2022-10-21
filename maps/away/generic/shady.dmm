@@ -1439,9 +1439,8 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/item/storage/box/shotgunammo,
-/obj/item/storage/box/shotgunammo,
-/obj/item/storage/box/shotgunammo,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
 /turf/simulated/floor/plating,
 /area/hideout)
 "va" = (
