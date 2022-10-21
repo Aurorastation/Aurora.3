@@ -923,3 +923,9 @@
 				  'sound/machines/sm/accent/delam/32.ogg',
 				  'sound/machines/sm/accent/delam/33.ogg'
 				  )
+
+/decl/sound_category/clown_sound
+	sounds = list(
+		'sound/effects/clownstep1.ogg',
+		'sound/effects/clownstep2.ogg'
+	)
