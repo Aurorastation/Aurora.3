@@ -747,6 +747,7 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "kp" = (
+/obj/item/stack/material/steel,
 /turf/simulated/floor/exoplanet/barren,
 /area/hideout)
 "kB" = (
@@ -1170,6 +1171,10 @@
 	pixel_y = -9;
 	pixel_x = -2
 	},
+/obj/item/arrow/rod{
+	pixel_y = -7;
+	pixel_x = -3
+	},
 /turf/simulated/floor/plating,
 /area/hideout)
 "rd" = (
@@ -1541,6 +1546,10 @@
 /obj/effect/floor_decal/asteroid{
 	pixel_y = -5;
 	pixel_x = -5
+	},
+/obj/item/arrow/rod{
+	pixel_y = 17;
+	pixel_x = 7
 	},
 /turf/simulated/floor/plating,
 /area/hideout)
