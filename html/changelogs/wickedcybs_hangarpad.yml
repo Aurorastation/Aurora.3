@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "Moves the navpoint for the second horizon hangar navpoint (the one third parties use to go inside) up by one tile. This will stop the Orion Express shuttle from using the pad and destroying the hangar wires and floors, as it was perfectly sized to land in just barely."
