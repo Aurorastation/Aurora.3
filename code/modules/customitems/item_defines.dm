@@ -1967,7 +1967,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/suit/storage/fluff/aheke_coat //Hengsha Thermal Coat - Aheke Han'san - hawkington
 	name = "hengsha thermal coat"
 	desc = "A very heavy, well padded, and generally quite large grey overcoat, probably made for an Unathi, made out of a rather stiff, almost leathery type substance. With a brown synthetic fur \
-	collar and even more fleecing inside. Interestingly enough there does not seem to be an easy way of closing it. Emblazoned on the back in a large red letters is \"K6\""
+	collar and even more fleecing inside. Interestingly enough, there does not seem to be an easy way of closing it. Emblazoned on the back in large, red letters is \"K6\"."
 	icon = 'icons/obj/custom_items/aheke_coat.dmi'
 	icon_override = 'icons/obj/custom_items/aheke_coat.dmi'
 	icon_state = "aheke_coat"
