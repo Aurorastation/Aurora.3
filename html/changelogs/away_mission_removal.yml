@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscdel: "Removes the derelict.dm away site, i.e. the big, empty derelict."
