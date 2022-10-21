@@ -5,3 +5,5 @@ delete-after: True
 changes:
   - tweak: "Renames \"Syndicate Cyborg\" to \"Combat Robot\" to better reflect its purpose."
   - tweak: "Removes the on-death explosion from the combat robot."
+  - tweak: "Tweaks the mounted netgun from 1 to 2 shots. Reduces its recharge time slightly."
+  - tweak: "Tweaks the mounted submachinegun to do a bit more AP, so it is more usable against armoured opponents."
