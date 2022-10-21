@@ -1977,7 +1977,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/structure/sign/flag/unathi_fleet
 	name = "unathi fleet flag"
-	desc = "A flag bearing the easily recognizable inconography of Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
+	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
 	icon_state = "unathi_fleet"
 
 /obj/structure/sign/flag/unathi_fleet/left
