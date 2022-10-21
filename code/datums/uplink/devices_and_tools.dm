@@ -114,10 +114,10 @@
 	path = /obj/item/pinpointer/advpinpointer
 	desc = "An advanced pinpointer that can find any target with DNA along with various other items."
 
-/datum/uplink_item/item/tools/syndieborg
-	name = "Syndicate Cyborg Teleporter"
+/datum/uplink_item/item/tools/combat_robot
+	name = "Combat Robot Teleporter"
 	item_cost = 20
-	path = /obj/item/antag_spawner/borg_tele
+	path = /obj/item/antag_spawner/combat_robot
 
 /datum/uplink_item/item/tools/thermal_drill
 	name = "Thermal Safe Drill"

@@ -1,14 +1,13 @@
 var/global/list/robot_modules = list(
-	"Service" 		= /obj/item/robot_module/clerical/butler,
-	"Clerical" 		= /obj/item/robot_module/clerical/general,
-	"Research" 		= /obj/item/robot_module/research,
-	"Mining" 		= /obj/item/robot_module/miner,
-	"Rescue" 		= /obj/item/robot_module/medical/rescue,
-	"Medical" 		= /obj/item/robot_module/medical/general,
-	"Combat" 		= /obj/item/robot_module/combat,
-	"Engineering"	= /obj/item/robot_module/engineering/general,
-	"Construction"	= /obj/item/robot_module/engineering/construction,
-	"Custodial" 	= /obj/item/robot_module/janitor
+		"Service" 		= /obj/item/robot_module/clerical/butler,
+		"Clerical" 		= /obj/item/robot_module/clerical/general,
+		"Research" 		= /obj/item/robot_module/research,
+		"Mining" 		= /obj/item/robot_module/miner,
+		"Rescue" 		= /obj/item/robot_module/medical/rescue,
+		"Medical" 		= /obj/item/robot_module/medical/general,
+		"Engineering"	= /obj/item/robot_module/engineering/general,
+		"Construction"	= /obj/item/robot_module/engineering/construction,
+		"Custodial" 	= /obj/item/robot_module/janitor
 	)
 
 /obj/item/robot_module
@@ -837,8 +836,8 @@ var/global/list/robot_modules = list(
 	M.synths = list(metal)
 	modules += M
 
-/obj/item/robot_module/syndicate
-	name = "syndicate robot module"
+/obj/item/robot_module/combat
+	name = "combat robot module"
 	languages = list(
 					LANGUAGE_SOL_COMMON =  TRUE,
 					LANGUAGE_ELYRAN_STANDARD = TRUE,
@@ -878,7 +877,7 @@ var/global/list/robot_modules = list(
 			)
 
 
-/obj/item/robot_module/syndicate/Initialize(mapload, mob/living/silicon/robot/R)
+/obj/item/robot_module/combat/Initialize(mapload, mob/living/silicon/robot/R)
 	. = ..()
 
 	R.faction = "syndicate" // prevents viscerators from attacking us
@@ -903,30 +902,6 @@ var/global/list/robot_modules = list(
 
 	if(R.radio)
 		R.radio.recalculateChannels()
-
-/obj/item/robot_module/combat
-	name = "combat robot module"
-	channels = list(CHANNEL_SECURITY = TRUE)
-	networks = list(NETWORK_SECURITY)
-	sprites = list(
-		"Roller" = list(ROBOT_CHASSIS = "droid-combat", ROBOT_PANEL = "heavy_syndi", ROBOT_EYES = "droid-combat"),
-		"Squats" = list(ROBOT_CHASSIS = "squats", ROBOT_PANEL = "heavy_syndi", ROBOT_EYES = "squats")
-		)
-	can_be_pushed = FALSE
-	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
-
-/obj/item/robot_module/combat/Initialize()
-	. = ..()
-	modules += new /obj/item/gun/energy/laser/mounted(src)
-	modules += new /obj/item/melee/hammer/powered(src)
-	modules += new /obj/item/borg/combat/shield(src)
-	modules += new /obj/item/borg/combat/mobility(src)
-	modules += new /obj/item/handcuffs/cyborg(src)
-	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
-	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	emag = new /obj/item/gun/energy/lasercannon/mounted(src)
 
 /obj/item/robot_module/drone
 	name = "drone module"
