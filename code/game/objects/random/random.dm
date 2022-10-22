@@ -435,7 +435,7 @@
 		/obj/item/storage/backpack/cloak = 2,
 		/obj/item/storage/backpack/syndie = 1,
 		/obj/item/storage/backpack/satchel = 3,
-		/obj/item/storage/backpack/satchel/norm = 3,
+		/obj/item/storage/backpack/satchel/leather = 3,
 		/obj/item/storage/backpack/satchel/eng = 3,
 		/obj/item/storage/backpack/satchel/med = 3,
 		/obj/item/storage/backpack/satchel/pharm = 3,
