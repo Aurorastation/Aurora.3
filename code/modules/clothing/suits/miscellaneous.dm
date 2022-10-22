@@ -613,3 +613,4 @@
 		src.item_state = "caution"
 		usr.show_message("You turn the wet floor sign off.")
 	update_clothing_icon()
+
