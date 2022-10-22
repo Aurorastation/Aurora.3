@@ -1,6 +1,0 @@
-author: DreamySkrell
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes stun talisman not actually stunning."
