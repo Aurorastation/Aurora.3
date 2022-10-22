@@ -26,7 +26,6 @@ datum/gear/suit/colorvest
 	..()
 	var/list/jackets = list()
 	jackets["bomber jacket"] = /obj/item/clothing/suit/storage/toggle/bomber
-	jackets["Stellar Corporate Conglomerate jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc
 	jackets["NanoTrasen black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen
 	jackets["NanoTrasen brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	jackets["black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket

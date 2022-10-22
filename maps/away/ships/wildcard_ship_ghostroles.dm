@@ -23,7 +23,7 @@
 
 	uniform = /obj/item/clothing/under/syndicate/tracksuit
 	shoes = /obj/item/clothing/shoes/workboots
-	back = /obj/item/storage/backpack/satchel/norm
+	back = /obj/item/storage/backpack/satchel
 
 	id = /obj/item/card/id/freighter_crew_ship
 
@@ -111,7 +111,7 @@
 
 	uniform = /obj/item/clothing/under/tactical
 	shoes = /obj/item/clothing/shoes/workboots/dark
-	back = /obj/item/storage/backpack/satchel/norm
+	back = /obj/item/storage/backpack/satchel
 
 	id = /obj/item/card/id/militia_ship
 
