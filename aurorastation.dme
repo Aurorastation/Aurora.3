@@ -3154,6 +3154,7 @@
 #include "maps\away\generic\hivebot_hub.dm"
 #include "maps\away\generic\overgrown_mining_station.dm"
 #include "maps\away\generic\racers.dm"
+#include "maps\away\generic\shady.dm"
 #include "maps\away\generic\space_bar.dm"
 #include "maps\away\generic\space_bar_ghostroles.dm"
 #include "maps\away\generic\tajara_safehouse.dm"
