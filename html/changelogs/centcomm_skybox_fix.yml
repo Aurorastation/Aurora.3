@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - maptweak: "Fixes the ninja spawn area on the centcomm z-level having a buggy skybox by replacing it with a cool and edgy cave."
