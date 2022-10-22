@@ -112,7 +112,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
-/area/space)
+/area/template_noop)
 "adi" = (
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
@@ -363,7 +363,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
-/area/space)
+/area/template_noop)
 "anj" = (
 /obj/machinery/door/window/southright,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -409,7 +409,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
-/area/space)
+/area/template_noop)
 "apU" = (
 /obj/structure/lattice,
 /obj/effect/decal/fake_object{
@@ -427,7 +427,7 @@
 	name = "pipe"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "aqI" = (
 /obj/structure/table/rack,
 /obj/machinery/light,
@@ -466,7 +466,7 @@
 "asj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "asw" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -936,7 +936,7 @@
 	id = "private_office"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "aHr" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -1338,7 +1338,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "aWc" = (
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -1722,7 +1722,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "biv" = (
 /obj/structure/bed/stool/chair/office/bridge{
 	desc = "A seat for a lifeguard.";
@@ -1947,7 +1947,7 @@
 	name = "cable"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "bqk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
@@ -1987,7 +1987,7 @@
 	id = "reading_room"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "bra" = (
 /obj/random/arcade,
 /obj/random/arcade,
@@ -2371,7 +2371,7 @@
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
-/area/space)
+/area/template_noop)
 "bHf" = (
 /turf/unsimulated/beach/coastline{
 	dir = 4;
@@ -2437,7 +2437,7 @@
 	id = "reading_room"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "bME" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Living Hall Reception Desk";
@@ -2997,7 +2997,7 @@
 	name = "pipe"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "coN" = (
 /obj/structure/bed/stool/padded/red,
 /obj/machinery/light{
@@ -3192,7 +3192,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "cwW" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/stone/marble,
@@ -3360,7 +3360,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/lattice,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "cEF" = (
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/blue{
@@ -3378,7 +3378,7 @@
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
-/area/space)
+/area/template_noop)
 "cFa" = (
 /obj/structure/table/reinforced,
 /obj/random/contraband,
@@ -3579,7 +3579,7 @@
 	name = "pipe"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "cLH" = (
 /obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor{
@@ -3948,7 +3948,7 @@
 	name = "Fraudulent Fred"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "dax" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4134,7 +4134,7 @@
 	name = "pipe"
 	},
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "dgj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small{
@@ -4266,7 +4266,7 @@
 	id = "private_office"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "dlE" = (
 /obj/structure/flora/rock{
 	anchored = 1;
@@ -4678,7 +4678,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "dFH" = (
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/beach/sand{
@@ -4868,7 +4868,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "dSf" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/light{
@@ -5091,7 +5091,7 @@
 /obj/structure/lattice,
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "eeJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -5513,7 +5513,7 @@
 	name = "pipe"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "etQ" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -5555,7 +5555,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/space)
+/area/template_noop)
 "evA" = (
 /obj/machinery/light{
 	dir = 8
@@ -5807,7 +5807,7 @@
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
-/area/space)
+/area/template_noop)
 "eEo" = (
 /obj/machinery/recharge_station,
 /turf/unsimulated/floor{
@@ -6095,7 +6095,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "eVC" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -6313,7 +6313,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "fcB" = (
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/westleft,
@@ -6362,7 +6362,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "feC" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/unsimulated/floor{
@@ -7200,7 +7200,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
-/area/space)
+/area/template_noop)
 "fJY" = (
 /obj/structure/flora/grass/jungle{
 	icon_state = "bushb1"
@@ -7490,7 +7490,7 @@
 	},
 /mob/living/simple_animal/cosmozoan,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "fTK" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
@@ -7548,7 +7548,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
-/area/space)
+/area/template_noop)
 "fXe" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/pottedplant/random,
@@ -7816,7 +7816,7 @@
 "gfJ" = (
 /mob/living/simple_animal/cosmozoan,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "gga" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8007,7 +8007,7 @@
 	id = "reading_room"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "glz" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8104,7 +8104,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "gox" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -8196,7 +8196,7 @@
 "gqe" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "gqC" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/unsimulated/floor{
@@ -8339,7 +8339,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "gxB" = (
 /obj/structure/flora/grass/jungle{
 	icon_state = "bushb1"
@@ -8367,7 +8367,7 @@
 	name = "pipe"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "gAl" = (
 /obj/machinery/door/airlock{
 	id_tag = "jungle_1";
@@ -8783,7 +8783,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
-/area/space)
+/area/template_noop)
 "gPK" = (
 /obj/item/modular_computer/console/preset/security{
 	dir = 4
@@ -8934,7 +8934,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
-/area/space)
+/area/template_noop)
 "gWQ" = (
 /obj/machinery/computer/arcade/orion_trail,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -9482,7 +9482,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "hto" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -10038,7 +10038,7 @@
 /area/cruise/hangar)
 "hVz" = (
 /obj/effect/decal/remains{
-	desc = "A fake skeletal bone pile. Spooky. A bit out of place."";
+	desc = "A fake skeletal bone pile. Spooky. A bit out of place.";
 	name = "plastic skeleton"
 	},
 /turf/unsimulated/floor{
@@ -10143,7 +10143,7 @@
 	name = "cable"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "iaR" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
@@ -10320,7 +10320,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "igM" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
@@ -10476,7 +10476,7 @@
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
-/area/space)
+/area/template_noop)
 "imF" = (
 /obj/structure{
 	density = 1;
@@ -10607,7 +10607,7 @@
 	id = "reading_room"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "iqI" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/door/window/westleft,
@@ -10717,7 +10717,7 @@
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
-/area/space)
+/area/template_noop)
 "iuH" = (
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 1
@@ -10731,7 +10731,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "iuX" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/light{
@@ -10830,7 +10830,7 @@
 	id = "reading_room"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "iyS" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Personal Lockers"
@@ -10901,7 +10901,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
-/area/space)
+/area/template_noop)
 "iCX" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -11079,7 +11079,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "iNp" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin,
@@ -11422,7 +11422,7 @@
 /area/cruise/centerline)
 "iXJ" = (
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "iYa" = (
 /obj/structure/table/rack,
 /obj/item/gun/projectile/pistol,
@@ -11471,7 +11471,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "jbm" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 1
@@ -11619,7 +11619,7 @@
 	name = "pipe"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "jgQ" = (
 /obj/item/storage/box/frags,
 /obj/item/storage/box/frags,
@@ -11873,7 +11873,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platingdmg1"
 	},
-/area/space)
+/area/template_noop)
 "jqa" = (
 /obj/structure/bed/stool/chair/remote/human,
 /turf/simulated/floor/greengrid,
@@ -11962,7 +11962,7 @@
 	name = "pipe"
 	},
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "jtU" = (
 /obj/effect/decal/fake_object/light_source{
 	desc = "A cozy lamp.";
@@ -12605,7 +12605,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "kcs" = (
 /turf/simulated/wall/shuttle/idris/cardinal,
 /area/cruise/library)
@@ -12696,7 +12696,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "kfl" = (
 /obj/machinery/cryopod,
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -12911,7 +12911,7 @@
 	name = "pipe"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "knz" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/rifle/ionrifle{
@@ -13028,7 +13028,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platingdmg2"
 	},
-/area/space)
+/area/template_noop)
 "kqC" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -13240,7 +13240,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "kyu" = (
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
@@ -13334,7 +13334,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
-/area/space)
+/area/template_noop)
 "kCw" = (
 /obj/structure/table/rack,
 /obj/item/clothing/gloves/boxing,
@@ -13359,7 +13359,7 @@
 	dir = 1
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "kDG" = (
 /turf/unsimulated/floor{
 	icon_state = "carpet14-10"
@@ -14818,7 +14818,7 @@
 "lIu" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "lJi" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/railing/mapped,
@@ -14878,7 +14878,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "lKo" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
@@ -15129,7 +15129,7 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "lRF" = (
 /turf/unsimulated/floor{
 	dir = 6;
@@ -15281,7 +15281,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
-/area/space)
+/area/template_noop)
 "lXU" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
@@ -15305,7 +15305,7 @@
 	name = "pipe"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "lYA" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
@@ -15383,7 +15383,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "mes" = (
 /obj/structure/sign/goldenplaque{
 	pixel_y = 28
@@ -16031,7 +16031,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "mEF" = (
 /obj/structure/flora/grass/jungle{
 	icon_state = "bushb2";
@@ -16066,7 +16066,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "mFL" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/table/rack,
@@ -16177,7 +16177,7 @@
 	name = "pipe"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "mMJ" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -17273,7 +17273,7 @@
 "nFb" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "nFd" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -17779,7 +17779,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "oax" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -17888,7 +17888,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "odB" = (
 /obj/machinery/light{
 	dir = 8
@@ -17918,7 +17918,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "oeQ" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -18133,7 +18133,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platingdmg1"
 	},
-/area/space)
+/area/template_noop)
 "omS" = (
 /obj/structure/flora/pottedplant/random,
 /obj/structure/sign/flag/idris{
@@ -18169,7 +18169,7 @@
 	name = "pipe"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "oog" = (
 /turf/unsimulated/wall/steel,
 /area/cruise/virtual_reality)
@@ -18760,7 +18760,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "oQb" = (
 /obj/structure/flora/pottedplant/random,
 /turf/unsimulated/floor{
@@ -18811,7 +18811,7 @@
 /area/cruise/escort)
 "oSt" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "oTb" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/window/reinforced/crescent{
@@ -18873,7 +18873,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "oVS" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 4
@@ -19142,7 +19142,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "peE" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -19290,7 +19290,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "pmN" = (
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 8
@@ -19343,7 +19343,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "pod" = (
 /obj/effect/floor_decal/spline/fancy/corner{
 	dir = 1
@@ -20311,7 +20311,7 @@
 /area/cruise/fore)
 "qec" = (
 /turf/unsimulated/mineral,
-/area/space)
+/area/template_noop)
 "qfo" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -20326,7 +20326,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "qfG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -20475,7 +20475,7 @@
 	dir = 8
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "qot" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree4"
@@ -20807,7 +20807,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "qDe" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/stone/marble,
@@ -21107,7 +21107,7 @@
 	pixel_y = -128
 	},
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "qQa" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -21228,7 +21228,7 @@
 	name = "cable"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "qUf" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -21380,7 +21380,7 @@
 	dir = 8
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "rdQ" = (
 /obj/effect/decal/fake_object{
 	desc = "A descriptive sign.";
@@ -21643,7 +21643,7 @@
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
-/area/space)
+/area/template_noop)
 "rpv" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -21811,7 +21811,7 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "ruD" = (
 /turf/simulated/floor/tiled/ramp{
 	dir = 4
@@ -21853,7 +21853,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/remains,
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "rxO" = (
 /obj/effect/decal/fake_object{
 	desc = "A descriptive sign.";
@@ -22085,7 +22085,7 @@
 "rHZ" = (
 /obj/structure/window/reinforced/crescent,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "rIk" = (
 /obj/item/rfd_ammo,
 /obj/item/rfd_ammo,
@@ -22208,7 +22208,7 @@
 	dir = 1
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "rMj" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
@@ -22791,7 +22791,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "smT" = (
 /obj/structure/table/standard,
 /obj/item/paper_scanner,
@@ -22815,7 +22815,7 @@
 	name = "pipe"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "snf" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/stone/marble,
@@ -23760,7 +23760,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "tbe" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -24325,7 +24325,7 @@
 	},
 /obj/structure/window/reinforced/crescent,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "tys" = (
 /obj/item/storage/box/fancy/candle_box,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -24480,7 +24480,7 @@
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
-/area/space)
+/area/template_noop)
 "tAf" = (
 /obj/machinery/door/firedoor,
 /obj/structure/railing/mapped{
@@ -24798,7 +24798,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "tPq" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/grass/alt{
@@ -24826,7 +24826,7 @@
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
-/area/space)
+/area/template_noop)
 "tQP" = (
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/atm{
@@ -25089,7 +25089,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "tZP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -25098,7 +25098,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "uab" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -25257,7 +25257,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platingdmg1"
 	},
-/area/space)
+/area/template_noop)
 "udZ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
@@ -25270,7 +25270,7 @@
 	name = "high powered air cooler with RGB"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "ueu" = (
 /obj/structure/bed/stool,
 /turf/unsimulated/floor{
@@ -25514,7 +25514,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "uoE" = (
 /obj/structure/table/rack,
 /obj/item/plastique{
@@ -25618,7 +25618,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "usz" = (
 /turf/simulated/floor/tiled/ramp{
 	dir = 1
@@ -26056,7 +26056,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light,
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "uJc" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -26270,7 +26270,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
-/area/space)
+/area/template_noop)
 "uSS" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -27178,7 +27178,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "vIP" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/pottedplant/random,
@@ -27414,7 +27414,7 @@
 	},
 /obj/structure/lattice,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "vVL" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 1
@@ -27423,7 +27423,7 @@
 	dir = 8
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "vVQ" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -27508,7 +27508,7 @@
 	id = "private_office"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "vZc" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/structure/closet/secure_closet/custodial{
@@ -27653,7 +27653,7 @@
 	dir = 1
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "weA" = (
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor{
@@ -28098,7 +28098,7 @@
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
-/area/space)
+/area/template_noop)
 "wyk" = (
 /turf/unsimulated/beach/coastline{
 	dir = 8;
@@ -28458,7 +28458,7 @@
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
-/area/space)
+/area/template_noop)
 "wKP" = (
 /obj/structure/table/stone/marble,
 /turf/unsimulated/floor{
@@ -28596,7 +28596,7 @@
 	name = "cable"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "wSB" = (
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -29006,7 +29006,7 @@
 /area/cruise/centerline)
 "xiy" = (
 /turf/simulated/wall/shuttle/idris/cardinal,
-/area/space)
+/area/template_noop)
 "xiW" = (
 /obj/structure/flora/grass/jungle,
 /obj/structure/railing/mapped,
@@ -29058,7 +29058,7 @@
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
-/area/space)
+/area/template_noop)
 "xkU" = (
 /obj/effect/engine_exhaust{
 	dir = 1;
@@ -29075,7 +29075,7 @@
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
-/area/space)
+/area/template_noop)
 "xla" = (
 /obj/structure/window/shuttle/scc,
 /turf/unsimulated/floor{
@@ -29120,7 +29120,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/unsimulated/floor/plating,
-/area/space)
+/area/template_noop)
 "xmM" = (
 /obj/structure/closet/sol/marine,
 /obj/item/flag/sol,
@@ -29196,7 +29196,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "xpJ" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -29482,7 +29482,7 @@
 	id = "private_office"
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "xzN" = (
 /obj/effect/mist,
 /turf/simulated/floor/beach/water/pool,
@@ -29755,7 +29755,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
-/area/space)
+/area/template_noop)
 "xIc" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/unsimulated/floor{
@@ -30197,7 +30197,7 @@
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
-/area/space)
+/area/template_noop)
 "yeJ" = (
 /obj/machinery/door/window/southleft,
 /turf/unsimulated/floor{

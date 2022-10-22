@@ -56,7 +56,7 @@
 
 /obj/item/clothing/head/caphat/bridge_crew/alt
 	name = "bridge crew cap"
-	desc = " A more formal in a Colettish style, authorized for the bridge crew of SCC vessels."
+	desc = "A more formal hat in a Colettish style, authorized for the bridge crew of SCC vessels."
 	desc_extended = "Designed to allow the wearer to wear both a peaked cap and a radio headset, Colettish 'crusher' caps are prized throughout the Alliance and Republic for their comfort."
 	icon = 'icons/contained_items/clothing/hats/bridge_crew_cap_alt.dmi'
 	contained_sprite = TRUE

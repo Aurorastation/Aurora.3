@@ -20610,6 +20610,7 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
 "LK" = (
@@ -22652,7 +22653,6 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/hologram/holopad,
 /obj/structure/curtain/open/medical,
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
