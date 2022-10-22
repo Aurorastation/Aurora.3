@@ -184,6 +184,9 @@
 	icon_state = "quart"
 	sound_env = SMALL_SOFTFLOOR
 
+/area/operations/flak
+	name = "Flak Gun"
+
 //Wings
 
 /area/maintenance/substation/wing_starboard
@@ -246,6 +249,10 @@
 	name = "Bridge Helm"
 	icon_state = "bridge_helm"
 
+/area/bridge/longbow_compartment
+	name = "Longbow Compartment"
+	icon_state = "bridge_weapon"
+
 /area/crew_armory
 	name = "Crew Armory"
 	icon_state = "crew_armory"
@@ -300,6 +307,9 @@
 	name = "Atmos Compartment"
 /area/shuttle/intrepid/cockpit 
 	name = "Cockpit"
+
+/area/shuttle/intrepid/armament
+	name = "Intrepid Armament"
 
 //
 // Areas for the SCCV Horizon Map
@@ -593,4 +603,9 @@
 	name = "Horizon - Bar"
 	icon_state = "bar"
 	allow_nightmode = FALSE
+
+/area/horizon/zta
+	name = "Primary Armament Hold"
+	icon_state = "zta"
+	ambience = AMBIENCE_SINGULARITY
 /********** Unique End **********/

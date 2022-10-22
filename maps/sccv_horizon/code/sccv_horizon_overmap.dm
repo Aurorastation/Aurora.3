@@ -8,7 +8,7 @@
 	base = TRUE
 
 	initial_restricted_waypoints = list(
-		"Mining Shuttle" = list("nav_hangar_mining"), 	//can't have random shuttles popping inside the ship
+		"Spark" = list("nav_hangar_mining"), 	//can't have random shuttles popping inside the ship
 		"Intrepid" = list("nav_hangar_intrepid")
 	)
 
@@ -52,9 +52,11 @@
 	vessel_size = SHIP_SIZE_SMALL
 
 /obj/effect/overmap/visitable/ship/landable/mining_shuttle
-	name = "Mining Shuttle"
+	name = "Spark"
+	class = "SCCV"
+	designation = "Spark"
 	desc = "A common, modestly-sized short-range shuttle manufactured by Hephaestus. Most frequently used as a mining platform, the Pickaxe-class is entirely reliant on a reasonably-sized mothership for anything but short-term functionality. This one's transponder identifies it as belonging to the Stellar Corporate Conglomerate."
-	shuttle = "Mining Shuttle"
+	shuttle = "Spark"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
@@ -62,8 +64,8 @@
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/mining_shuttle
-	name = "mining shuttle control console"
-	shuttle_tag = "Mining Shuttle"
+	name = "spark control console"
+	shuttle_tag = "Spark"
 	req_access = list(access_mining)
 
 /obj/effect/shuttle_landmark/horizon/nav1

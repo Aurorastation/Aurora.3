@@ -156,7 +156,7 @@
 /datum/shuttle/autodock/overmap/intrepid
 	name = "Intrepid"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/intrepid/crew_compartment, /area/shuttle/intrepid/cargo_bay, /area/shuttle/intrepid/medical_compartment, /area/shuttle/intrepid/engine_compartment, /area/shuttle/intrepid/atmos_compartment, /area/shuttle/intrepid/cockpit)
+	shuttle_area = list(/area/shuttle/intrepid/crew_compartment, /area/shuttle/intrepid/cargo_bay, /area/shuttle/intrepid/medical_compartment, /area/shuttle/intrepid/engine_compartment, /area/shuttle/intrepid/atmos_compartment, /area/shuttle/intrepid/cockpit, /area/shuttle/intrepid/armament)
 	dock_target = "intrepid_shuttle"
 	current_location = "nav_hangar_intrepid"
 	landmark_transition = "nav_transit_intrepid"
@@ -178,7 +178,7 @@
 
 // Mining Shuttle
 /datum/shuttle/autodock/overmap/mining
-	name = "Mining Shuttle"
+	name = "Spark"
 	move_time = 20
 	shuttle_area = /area/shuttle/mining
 	dock_target = "mining_shuttle_controller"
