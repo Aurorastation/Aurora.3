@@ -7,7 +7,7 @@
 	body_parts_covered = HEAD|EYES
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_MEDIUM,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SMALL
@@ -34,7 +34,7 @@
 	allowed = list(/obj/item/book/tome, /obj/item/melee/cultblade)
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_MEDIUM,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SMALL
@@ -61,7 +61,7 @@
 	siemens_coefficient = 0.35 //antags don't get exceptions, it's just heavy armor by magical standards
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_MEDIUM,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SMALL
