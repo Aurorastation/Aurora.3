@@ -4921,8 +4921,8 @@
 	icon_state = "0-2"
 	},
 /obj/structure/cable,
-/obj/machinery/power/smes/buildable{
-	RCon_tag = "Leviathan"
+/obj/machinery/power/smes/buildable/superconducting{
+	RCon_tag = "Leviathan Substation"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/zta)
@@ -17652,6 +17652,7 @@
 	pixel_x = 32
 	},
 /obj/structure/table/standard,
+/obj/item/folder/envelope/zta,
 /turf/simulated/floor/reinforced,
 /area/horizon/zta)
 "iVg" = (
@@ -44438,7 +44439,6 @@
 	req_one_access = list(19, 11)
 	},
 /obj/structure/table/standard,
-/obj/item/device/binoculars,
 /obj/item/device/binoculars/high_power{
 	pixel_y = 8
 	},
@@ -56284,7 +56284,7 @@ sGN
 cdp
 cdp
 lNv
-oYn
+wMu
 tZQ
 qgN
 qgN
@@ -56486,7 +56486,7 @@ cyd
 oYn
 oYn
 oYn
-oYn
+wMu
 tZQ
 qgN
 qgN
@@ -56688,7 +56688,7 @@ cyd
 qEf
 ukM
 ukM
-oYn
+wMu
 tZQ
 qgN
 qgN
