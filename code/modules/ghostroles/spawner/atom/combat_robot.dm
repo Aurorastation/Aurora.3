@@ -1,4 +1,4 @@
-/datum/ghostspawner/combatrobot
+/datum/ghostspawner/combat_robot
 	name = "Combat Robot"
 	short_name = "combatrobot"
 	desc = "Join in as a Combat Robot, assist your summoner in their goals, try and make the round fun for the people you're equipped to deal with."

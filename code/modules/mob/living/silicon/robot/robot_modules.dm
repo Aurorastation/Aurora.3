@@ -5,7 +5,6 @@ var/global/list/robot_modules = list(
 	"Mining" 		= /obj/item/robot_module/miner,
 	"Rescue" 		= /obj/item/robot_module/medical/rescue,
 	"Medical" 		= /obj/item/robot_module/medical/general,
-	"Combat" 		= /obj/item/robot_module/combat,
 	"Engineering"	= /obj/item/robot_module/engineering/general,
 	"Construction"	= /obj/item/robot_module/engineering/construction,
 	"Custodial" 	= /obj/item/robot_module/janitor
@@ -837,8 +836,8 @@ var/global/list/robot_modules = list(
 	M.synths = list(metal)
 	modules += M
 
-/obj/item/robot_module/syndicate
-	name = "syndicate robot module"
+/obj/item/robot_module/combat
+	name = "combat robot module"
 	languages = list(
 		LANGUAGE_SOL_COMMON =  TRUE,
 		LANGUAGE_ELYRAN_STANDARD = TRUE,
@@ -878,7 +877,7 @@ var/global/list/robot_modules = list(
 	)
 
 
-/obj/item/robot_module/syndicate/Initialize(mapload, mob/living/silicon/robot/R)
+/obj/item/robot_module/combat/Initialize(mapload, mob/living/silicon/robot/R)
 	. = ..()
 
 	R.faction = "syndicate" // prevents viscerators from attacking us
@@ -904,8 +903,8 @@ var/global/list/robot_modules = list(
 	if(R.radio)
 		R.radio.recalculateChannels()
 
-/obj/item/robot_module/combat
-	name = "combat robot module"
+/obj/item/robot_module/military
+	name = "military robot module"
 	channels = list(CHANNEL_SECURITY = TRUE)
 	networks = list(NETWORK_SECURITY)
 	sprites = list(
@@ -915,7 +914,7 @@ var/global/list/robot_modules = list(
 	can_be_pushed = FALSE
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
-/obj/item/robot_module/combat/Initialize()
+/obj/item/robot_module/military/Initialize()
 	. = ..()
 	modules += new /obj/item/gun/energy/laser/mounted(src)
 	modules += new /obj/item/melee/hammer/powered(src)

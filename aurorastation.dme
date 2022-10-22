@@ -1839,7 +1839,7 @@
 #include "code\modules\ghostroles\spawner\base.dm"
 #include "code\modules\ghostroles\spawner\antagonist\revenant.dm"
 #include "code\modules\ghostroles\spawner\atom\borer.dm"
-#include "code\modules\ghostroles\spawner\atom\combat_cyborg.dm"
+#include "code\modules\ghostroles\spawner\atom\combat_robot.dm"
 #include "code\modules\ghostroles\spawner\atom\cult_construct.dm"
 #include "code\modules\ghostroles\spawner\atom\diona_nymph.dm"
 #include "code\modules\ghostroles\spawner\atom\golem.dm"

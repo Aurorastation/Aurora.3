@@ -1,4 +1,17 @@
 //cyborgs presets, mostly used for events/admin bus
+/mob/living/silicon/robot/military
+	mod_type = "Military"
+	spawn_module = /obj/item/robot_module/military
+	cell_type = /obj/item/cell/super
+
+/mob/living/silicon/robot/military/ert
+	scrambled_codes = TRUE
+	law_update = FALSE
+	law_preset = /datum/ai_laws/nanotrasen_aggressive
+	id_card_type = /obj/item/card/id/ert
+	key_type = /obj/item/device/encryptionkey/ert
+	has_jetpack = TRUE
+
 /mob/living/silicon/robot/scrambled //should not stand linked to the station or the ai
 	scrambled_codes = TRUE
 	law_update = FALSE
