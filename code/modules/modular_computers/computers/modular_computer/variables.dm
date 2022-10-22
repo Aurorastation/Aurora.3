@@ -82,4 +82,7 @@
 
 	var/listener/listener	//Listener needed for things
 
+	var/listening = FALSE //For listening to mob say.
+	var/registered_message = ""
+
 	charge_failure_message = " does not have a battery installed."
