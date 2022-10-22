@@ -31849,9 +31849,12 @@
 	},
 /area/antag/mercenary)
 "bvM" = (
-/obj/structure/lattice/catwalk/indoor/grate/light,
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/unsimulated/floor/plating,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/flooring/circuit.dmi';
+	icon_state = "bcircuit"
+	},
 /area/antag/ninja)
 "bvP" = (
 /obj/structure/table/steel,
@@ -32021,10 +32024,7 @@
 	},
 /area/antag/mercenary)
 "bwJ" = (
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1
-	},
+/turf/simulated/abyss,
 /area/antag/ninja)
 "bwK" = (
 /obj/effect/decal/fake_object{
@@ -32034,11 +32034,8 @@
 	icon_state = "mcorneroverlay1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "bwL" = (
@@ -32057,16 +32054,16 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "bwM" = (
-/obj/structure/lattice/catwalk/indoor/grate/light,
-/turf/unsimulated/floor/plating,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/flooring/circuit.dmi';
+	icon_state = "bcircuit"
+	},
 /area/antag/ninja)
 "bwN" = (
 /obj/effect/decal/fake_object{
@@ -32084,11 +32081,8 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "bwO" = (
@@ -32100,11 +32094,8 @@
 	icon_state = "mcorneroverlay1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "bwR" = (
@@ -32258,11 +32249,8 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "bxA" = (
@@ -32281,11 +32269,8 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "bxB" = (
@@ -32317,11 +32302,8 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "bxG" = (
@@ -32572,11 +32554,8 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "byH" = (
@@ -32596,11 +32575,8 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "byI" = (
@@ -32632,11 +32608,8 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "byN" = (
@@ -32800,11 +32773,8 @@
 	icon_state = "mcorneroverlay1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "bzo" = (
@@ -32824,11 +32794,8 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "bzp" = (
@@ -32848,11 +32815,8 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "bzq" = (
@@ -32864,21 +32828,13 @@
 	icon_state = "mcorneroverlay1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "bzr" = (
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
-	},
+/turf/simulated/abyss,
 /area/antag/ninja)
 "bzu" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -32940,11 +32896,8 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "bzO" = (
@@ -32956,11 +32909,8 @@
 	icon_state = "railing0-1";
 	name = "railing"
 	},
-/turf/simulated/floor/holofloor/space{
-	blocks_air = 1;
-	density = 1;
-	dynamic_lighting = 1;
-	icon_state = "black"
+/turf/simulated/abyss{
+	density = 1
 	},
 /area/antag/ninja)
 "bzR" = (
@@ -33262,9 +33212,6 @@
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
-"bAJ" = (
-/turf/space,
-/area/antag/ninja)
 "bAK" = (
 /obj/item/storage/toolbox/syndicate{
 	pixel_y = -11
@@ -33574,6 +33521,7 @@
 /area/antag/ninja)
 "bBS" = (
 /obj/effect/decal/fake_object/light_source/invisible,
+/obj/item/modular_computer/console/preset/command/teleporter/ninja,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -33794,12 +33742,6 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
-"bCB" = (
-/obj/item/modular_computer/console/preset/command/teleporter/ninja,
-/turf/unsimulated/floor{
-	icon_state = "new_reinforced"
-	},
-/area/antag/ninja)
 "bCC" = (
 /obj/machinery/teleport/pad/ninja,
 /turf/unsimulated/floor{
@@ -36761,6 +36703,9 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
+"goM" = (
+/turf/simulated/lava,
+/area/antag/ninja)
 "gwW" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert3"
@@ -86921,9 +86866,9 @@ bpd
 buk
 bzl
 bzL
-bhI
-aaa
-aaa
+baX
+aam
+aam
 aaa
 aaa
 aaa
@@ -87179,8 +87124,8 @@ buk
 blN
 bhI
 baX
-aaa
-aaa
+aam
+aam
 aaa
 aaa
 aaa
@@ -87435,13 +87380,13 @@ bpd
 byF
 bzm
 bzM
-bhI
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+baX
+aam
+aam
+aam
+aam
+aam
+aam
 aaa
 aaa
 aak
@@ -87693,12 +87638,12 @@ bun
 bun
 bun
 bun
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+buY
+buY
+buY
+buY
+buY
+aam
 aaa
 aaa
 aak
@@ -87943,19 +87888,19 @@ btL
 bun
 buY
 bun
-bwJ
+goM
 bxz
 bvM
 byG
 bwJ
 bwJ
 bwJ
-bAJ
-bwJ
-bwJ
-bwJ
-bwJ
-aaa
+goM
+goM
+goM
+goM
+buY
+aam
 aaa
 aaa
 aak
@@ -88207,12 +88152,12 @@ byG
 bwJ
 bwJ
 bwJ
-bAJ
 bwJ
-bwJ
-bwJ
-bwJ
-aaa
+goM
+goM
+goM
+buY
+aam
 aaa
 aaa
 aak
@@ -88464,12 +88409,12 @@ byH
 bzn
 bwJ
 bwJ
-bAJ
 bwJ
 bwJ
-bwJ
-bwJ
-aaa
+goM
+goM
+buY
+aam
 aaa
 aaa
 aak
@@ -88725,8 +88670,8 @@ bzN
 bzN
 bzN
 bzn
-bwJ
-aaa
+buY
+aam
 aaa
 aaa
 aak
@@ -88982,8 +88927,8 @@ bAK
 bBk
 bBQ
 byG
-bwJ
-aaa
+buY
+aam
 aaa
 aaa
 aak
@@ -89238,9 +89183,9 @@ bAl
 bAL
 bAm
 bBR
-bzo
-bzn
-aaa
+byG
+buY
+aam
 aaa
 aaa
 aak
@@ -89495,9 +89440,9 @@ bAm
 bAm
 bAm
 bAm
-bAm
 byG
-aaa
+buY
+aam
 aaa
 aaa
 aak
@@ -89752,9 +89697,9 @@ bAn
 bAm
 bAm
 bBS
-bCB
 byG
-aaa
+buY
+aam
 aaa
 aaa
 aak
@@ -90008,10 +89953,10 @@ bxz
 bAm
 bAm
 bAm
-bAm
 bCC
 byG
-aaa
+buY
+aam
 aaa
 aaa
 aak
@@ -90266,9 +90211,9 @@ bAo
 bAM
 bAm
 bBT
-bzp
-bzq
-aaa
+byG
+buY
+aam
 aaa
 aaa
 aak
@@ -90524,8 +90469,8 @@ bAN
 bBl
 bBU
 byG
-bwJ
-aaa
+buY
+aam
 aaa
 aaa
 aak
@@ -90781,8 +90726,8 @@ bzO
 bzO
 bzO
 bzq
-bwJ
-aaa
+buY
+aam
 aaa
 aaa
 aak
@@ -91034,12 +90979,12 @@ byK
 bzq
 bwJ
 bwJ
-bAJ
-bwJ
-bwJ
-bwJ
-bwJ
-aaa
+goM
+goM
+goM
+goM
+buY
+aam
 aaa
 aaa
 aak
@@ -91284,19 +91229,19 @@ brv
 bun
 buY
 bun
-bwJ
+goM
 bxz
 bwM
 byG
 bwJ
+goM
+goM
+goM
 bwJ
 bwJ
-bAJ
 bwJ
-bwJ
-bwJ
-bwJ
-aaa
+buY
+aam
 aaa
 aaa
 aak
@@ -91541,19 +91486,19 @@ bry
 bun
 buY
 bun
-bwJ
+goM
 bxz
 bvM
 byG
+goM
+goM
 bwJ
 bwJ
 bwJ
-bAJ
 bwJ
 bwJ
-bwJ
-bwJ
-aaa
+buY
+aam
 aaa
 aaa
 aak
@@ -91805,12 +91750,12 @@ bun
 bun
 bun
 bun
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+buY
+buY
+buY
+buY
+buY
+aam
 aaa
 aaa
 aak
@@ -92062,12 +92007,12 @@ bun
 aam
 aam
 aam
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aam
+aam
+aam
+aam
+aam
+aam
 aaa
 aaa
 aak
@@ -92311,13 +92256,13 @@ btd
 blU
 aaa
 aaa
-aaa
-aaa
+aam
+aam
 bun
 bun
 bun
-aaa
-aaa
+aam
+aam
 aaa
 aaa
 aaa
@@ -92569,11 +92514,11 @@ blU
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aam
+aam
+aam
+aam
+aam
 aaa
 aaa
 aaa
