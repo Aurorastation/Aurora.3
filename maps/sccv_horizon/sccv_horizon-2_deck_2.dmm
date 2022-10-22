@@ -11237,6 +11237,9 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "fLi" = (

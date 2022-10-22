@@ -36,8 +36,8 @@
 
 	back = list(
 		/obj/item/storage/backpack,
-		/obj/item/storage/backpack/satchel/norm,
 		/obj/item/storage/backpack/satchel,
+		/obj/item/storage/backpack/satchel/leather,
 		/obj/item/storage/backpack/duffel
 	)
 
@@ -86,4 +86,3 @@
 	l_ear = /obj/item/device/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/gun/projectile/silenced = 1, /obj/item/ammo_magazine/c45m = 2)
-

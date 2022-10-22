@@ -30466,7 +30466,7 @@
 /area/maintenance/medsublevel_port)
 "kTA" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/backpack/satchel,
+/obj/item/storage/backpack/satchel/leather,
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)

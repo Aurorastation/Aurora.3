@@ -693,7 +693,7 @@
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
 "gyL" = (
-/obj/structure/fuel_port{
+/obj/structure/fuel_port/phoron{
 	pixel_x = -32
 	},
 /turf/simulated/floor/shuttle/black,
@@ -1293,7 +1293,9 @@
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
 "phC" = (
-/obj/machinery/suit_cycler/engineering,
+/obj/machinery/suit_cycler/engineering{
+	req_access = null
+	},
 /turf/simulated/floor,
 /area/ship/tajaran_smuggler)
 "pPS" = (

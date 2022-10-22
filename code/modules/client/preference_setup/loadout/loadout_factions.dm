@@ -239,7 +239,7 @@
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/pmcg_sec_uniforms
-	display_name = "EPMC security uniform selection"
+	display_name = "PMCG/EPMC security uniform selection"
 	description = "A selection of PMCG and EPMC security uniforms."
 	path = /obj/item/clothing/under/rank/security/pmc/epmc
 	slot = slot_w_uniform
@@ -249,6 +249,8 @@
 /datum/gear/faction/pmcg_sec_uniforms/New()
 	..()
 	var/list/pmcg_sec_uniforms = list()
+	pmcg_sec_uniforms["PMCG uniform"] = /obj/item/clothing/under/rank/security/pmc/pmcsec
+	pmcg_sec_uniforms["PMCG uniform, alt"] = /obj/item/clothing/under/rank/security/pmc/pmcsec/alt
 	pmcg_sec_uniforms["EPMC uniform"] = /obj/item/clothing/under/rank/security/pmc/epmc
 	pmcg_sec_uniforms["EPMC uniform, alt"] = /obj/item/clothing/under/rank/security/pmc/epmc/alt
 	pmcg_sec_uniforms["EPMC detective uniform"] = /obj/item/clothing/under/det/pmc/alt
@@ -259,7 +261,7 @@
 	path = /obj/item/clothing/accessory/sleevepatch/erisec
 	slot = slot_tie
 	faction = "Private Military Contracting Group"
-	
+
 /datum/gear/faction/pmc_patch
 	display_name = "PMCG armband"
 	path = /obj/item/clothing/accessory/armband/pmc
@@ -409,3 +411,35 @@
 	cost = 0
 	faction = "NanoTrasen"
 	allowed_roles = list("Janitor")
+
+/datum/gear/faction/scc_armband
+	display_name = "SCC armband"
+	path = /obj/item/clothing/accessory/armband/scc
+	slot = slot_tie
+	sort_category = "Factions"
+	cost = 1
+	faction = null
+
+/datum/gear/faction/scc_sleevepatch
+	display_name = "SCC sleeve patch"
+	path = /obj/item/clothing/accessory/sleevepatch/scc
+	slot = slot_tie
+	sort_category = "Factions"
+	cost = 1
+	faction = null
+
+/datum/gear/faction/scc_jacket
+	display_name = "SCC jacket"
+	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc
+	slot = slot_wear_suit
+	sort_category = "Factions"
+	cost = 1
+	faction = null
+
+/datum/gear/faction/scc_beret
+	display_name = "SCC beret"
+	path = /obj/item/clothing/head/beret/scc
+	slot = slot_head
+	sort_category = "Factions"
+	cost = 1
+	faction = null
