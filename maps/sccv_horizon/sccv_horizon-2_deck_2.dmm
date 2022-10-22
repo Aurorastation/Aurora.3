@@ -9068,7 +9068,6 @@
 	dir = 5
 	},
 /obj/structure/table/rack,
-/obj/item/stack/rods,
 /obj/item/stack/material/steel{
 	amount = 50
 	},
@@ -9079,6 +9078,7 @@
 	amount = 50
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/rods/full,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "ePg" = (
@@ -18941,15 +18941,15 @@
 /area/engineering/storage_eva)
 "jNA" = (
 /obj/structure/table/rack,
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
-/obj/item/tank/phoron,
 /obj/item/tank/phoron,
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/tank/phoron,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
 /turf/simulated/floor/reinforced,
 /area/storage/secure)
 "jNY" = (
