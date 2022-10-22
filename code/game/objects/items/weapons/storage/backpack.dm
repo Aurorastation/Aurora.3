@@ -26,6 +26,7 @@
 	var/straps = FALSE // Only really used for the verb.
 
 /obj/item/storage/backpack/Initialize()
+	. = ..()
 	if(straps == TRUE)
 		alpha_mask = "normal"
 		verbs += /obj/item/storage/backpack/proc/adjust_backpack_straps
