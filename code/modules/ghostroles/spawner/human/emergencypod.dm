@@ -105,7 +105,7 @@
 	new /obj/item/pickaxe/drill(H.loc)
 	new /obj/item/device/gps(H.loc)
 	new /obj/item/device/flashlight/flare/mech(H.loc) // spawns an active flare
-	new /obj/item/clothing/suit/space/emergency(H.loc)        // weak softsuit, so if for whatever reason
+	new /obj/item/clothing/suit/space/emergency(H.loc)        // weak softsuit, so if for whatever reason 
 	new /obj/item/clothing/head/helmet/space/emergency(H.loc) // the survivor spawns with no EVA gear,
 	new /obj/item/tank/emergency_oxygen/double(H.loc)         // they can use this, and not just die in space
 
@@ -291,7 +291,7 @@
 	uniform = /obj/item/clothing/under/rank/sol/
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/storage/belt/military
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/norm
 	head = /obj/item/clothing/head/helmet/space/void/sol
 	suit = /obj/item/clothing/suit/space/void/sol
 	suit_store = /obj/item/tank/oxygen
@@ -321,10 +321,11 @@
 	name = "RescuePod - SCC"
 
 	uniform = /obj/item/clothing/under/rank/scc
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses
 	l_hand =  /obj/item/storage/briefcase
+	back = /obj/item/storage/backpack/satchel
 	accessory = /obj/item/clothing/accessory/holster/hip/
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
@@ -351,7 +352,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
     	/obj/item/device/camera = 1,
 		/obj/item/clothing/suit/storage/toggle/fib = 1,

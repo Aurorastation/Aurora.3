@@ -39,10 +39,6 @@
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
-	backpack_faction = /obj/item/storage/backpack/nt
-	satchel_faction = /obj/item/storage/backpack/satchel/nt
-	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
-	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/job/chef
 	title = "Chef"
@@ -84,11 +80,6 @@
 	bowman = /obj/item/device/radio/headset/headset_service/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
-
-	backpack_faction = /obj/item/storage/backpack/nt
-	satchel_faction = /obj/item/storage/backpack/satchel/nt
-	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
-	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	backpack_contents = list(
 		/obj/item/storage/box/produce = 1
@@ -137,13 +128,9 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
 	backpack = /obj/item/storage/backpack/hydroponics
-	backpack_faction = /obj/item/storage/backpack/nt
 	satchel = /obj/item/storage/backpack/satchel/hyd
-	satchel_faction = /obj/item/storage/backpack/satchel/nt
 	dufflebag = /obj/item/storage/backpack/duffel/hyd
-	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag = /obj/item/storage/backpack/messenger/hyd
-	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/outfit/job/hydro/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -187,11 +174,6 @@
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
-	backpack_faction = /obj/item/storage/backpack/nt
-	satchel_faction = /obj/item/storage/backpack/satchel/nt
-	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
-	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
-
 /datum/job/journalist
 	title = "Corporate Reporter"
 	flag = JOURNALIST
@@ -232,11 +214,6 @@
 	bowman = /obj/item/device/radio/headset/headset_service/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
-
-	backpack_faction = /obj/item/storage/backpack/nt
-	satchel_faction = /obj/item/storage/backpack/satchel/nt
-	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
-	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	backpack_contents = list(
 		/obj/item/clothing/accessory/badge/press = 1
@@ -295,11 +272,6 @@
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
 
-	backpack_faction = /obj/item/storage/backpack/nt
-	satchel_faction = /obj/item/storage/backpack/satchel/nt
-	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
-	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
-
 /datum/outfit/job/librarian/curator
 	name = "Curator"
 	jobtype = /datum/job/librarian
@@ -357,11 +329,6 @@
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/chaplain
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/chaplain
-
-	backpack_faction = /obj/item/storage/backpack/nt
-	satchel_faction = /obj/item/storage/backpack/satchel/nt
-	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
-	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/outfit/job/chaplain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -441,11 +408,6 @@
 	bowman = /obj/item/device/radio/headset/operations_manager/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/operations_manager
 	wrist_radio = /obj/item/device/radio/headset/wrist/cargo/operations_manager
-
-	backpack = /obj/item/storage/backpack/om
-	satchel = /obj/item/storage/backpack/satchel/om
-	dufflebag = /obj/item/storage/backpack/duffel/om
-	messengerbag = /obj/item/storage/backpack/messenger/om
 
 
 /datum/job/hangar_tech

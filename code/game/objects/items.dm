@@ -69,7 +69,6 @@
 	var/build_from_parts = FALSE // when it uses coloration and a part of it wants to remain uncolored. e.g., handle of the screwdriver is colored while the head is not.
 	var/worn_overlay = null // used similarly as above, except for inhands.
 	var/worn_overlay_color = null // When you want your worn overlay to have colors. So you can have more than one modular coloring.
-	var/alpha_mask // when you want to slice out a chunk from a sprite
 
 	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.

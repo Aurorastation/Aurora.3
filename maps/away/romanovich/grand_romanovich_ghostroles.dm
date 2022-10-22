@@ -23,7 +23,7 @@
 	uniform = /obj/item/clothing/under/tajaran/fancy
 	shoes = /obj/item/clothing/shoes/tajara/jackboots
 
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel
 
 	id = /obj/item/card/id/away_site
 	l_ear = /obj/item/device/radio/headset/ship
@@ -57,7 +57,7 @@
 	uniform = /obj/item/clothing/under/tajaran
 
 	shoes = /obj/item/clothing/shoes/tajara/jackboots
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel
 
 	id = /obj/item/card/id/away_site
 
@@ -94,7 +94,7 @@
 	head = /obj/item/clothing/head/fedora/grey
 
 	shoes = /obj/item/clothing/shoes/tajara/jackboots
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel
 
 	id = /obj/item/card/id/away_site
 

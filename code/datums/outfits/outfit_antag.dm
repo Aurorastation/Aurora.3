@@ -8,7 +8,7 @@
 	back = null
 	backpack = /obj/item/storage/backpack/syndie
 	satchel = /obj/item/storage/backpack/satchel/syndie
-	satchel_alt = /obj/item/storage/backpack/satchel/leather
+	satchel_alt = /obj/item/storage/backpack/satchel
 	dufflebag = /obj/item/storage/backpack/duffel/syndie
 	messengerbag = /obj/item/storage/backpack/messenger/syndie
 	belt = /obj/item/storage/belt/utility/full

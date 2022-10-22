@@ -81,7 +81,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/storage/backpack                    = TRADER_ALL,
 		/obj/item/storage/backpack/cultpack           = TRADER_BLACKLIST, // cult stuff
 		/obj/item/storage/backpack/holding            = TRADER_BLACKLIST_ALL, // research stuff
-		/obj/item/storage/backpack/satchel/leather/withwallet = TRADER_BLACKLIST, // money inside
+		/obj/item/storage/backpack/satchel/withwallet = TRADER_BLACKLIST, // money inside
 		/obj/item/storage/backpack/chameleon          = TRADER_BLACKLIST, // traitor stuff
 		/obj/item/storage/backpack/typec              = TRADER_BLACKLIST_ALL, // Vaurca-exclusive stuff
 		/obj/item/storage/backpack/fluff              = TRADER_BLACKLIST_ALL, // Custom items, let's not

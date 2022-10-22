@@ -42,7 +42,7 @@
 	else
 		canremove = FALSE
 	if(!chameleon_options)
-		var/list/blocked = list(/obj/item/storage/backpack/satchel/leather/withwallet) + typesof(/obj/item/technomancer_core)
+		var/list/blocked = list(/obj/item/storage/backpack/satchel/withwallet) + typesof(/obj/item/technomancer_core)
 		chameleon_options = list("Reset")
 		chameleon_options += generate_chameleon_choices(/obj/item/storage/backpack, blocked)
 

@@ -95,7 +95,7 @@
 	name = "Lance Operative"
 
 	uniform = /obj/item/clothing/under/dress/lance_dress/male
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel
 	gloves = /obj/item/clothing/gloves/latex
 	shoes = /obj/item/clothing/shoes/laceup
 	belt = /obj/item/storage/belt/utility/very_full

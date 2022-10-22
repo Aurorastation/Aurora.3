@@ -5,7 +5,7 @@
 	shoes = /obj/item/clothing/shoes/swat/ert
 	gloves = /obj/item/clothing/gloves/swat/ert
 	belt = /obj/item/storage/belt/military
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel/norm
 	head = /obj/item/clothing/head/helmet/space/void/sol/fsf
 	suit = /obj/item/clothing/suit/space/void/sol/fsf
 	suit_store = /obj/item/gun/projectile/automatic/rifle/sol

@@ -58,10 +58,11 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	tablet = /obj/item/modular_computer/handheld/preset/research/rd
 
-	backpack = /obj/item/storage/backpack/rd
-	satchel = /obj/item/storage/backpack/satchel/rd
-	dufflebag = /obj/item/storage/backpack/duffel/rd
-	messengerbag = /obj/item/storage/backpack/messenger/rd
+	backpack = /obj/item/storage/backpack/toxins
+	satchel = /obj/item/storage/backpack/satchel/tox
+	dufflebag = /obj/item/storage/backpack/duffel/tox
+	messengerbag = /obj/item/storage/backpack/messenger/tox
+
 
 /datum/job/scientist
 	title = "Scientist"
@@ -107,13 +108,9 @@
 	tablet = /obj/item/modular_computer/handheld/preset/research
 
 	backpack = /obj/item/storage/backpack/toxins
-	backpack_faction = /obj/item/storage/backpack/nt
 	satchel = /obj/item/storage/backpack/satchel/tox
-	satchel_faction = /obj/item/storage/backpack/satchel/nt
 	dufflebag = /obj/item/storage/backpack/duffel/tox
-	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag = /obj/item/storage/backpack/messenger/tox
-	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 /datum/job/xenoarchaeologist
 	title = "Xenoarchaeologist"
@@ -238,13 +235,9 @@
 	wrist_radio = /obj/item/device/radio/headset/wrist/sci
 
 	backpack = /obj/item/storage/backpack/toxins
-	backpack_faction = /obj/item/storage/backpack/nt
 	satchel = /obj/item/storage/backpack/satchel/tox
-	satchel_faction = /obj/item/storage/backpack/satchel/nt
 	dufflebag = /obj/item/storage/backpack/duffel/tox
-	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag = /obj/item/storage/backpack/messenger/tox
-	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research

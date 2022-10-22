@@ -23,7 +23,7 @@
 
 	uniform = /obj/item/clothing/under/rank/hangar_technician/orion/ship
 	shoes = /obj/item/clothing/shoes/brown
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel
 
 	id = /obj/item/card/id/orion_ship
 
@@ -111,7 +111,7 @@
 
 	uniform = /obj/item/clothing/under/rank/engineer/heph
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/norm
 	belt = /obj/item/storage/belt/utility/full
 	accessory = /obj/item/clothing/accessory/storage/pouches/black
 
@@ -147,7 +147,7 @@
 
 	uniform = /obj/item/clothing/under/rank/engineer/heph
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel
 	glasses = /obj/item/clothing/glasses/sunglasses
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	suit = /obj/item/clothing/suit/storage/vest

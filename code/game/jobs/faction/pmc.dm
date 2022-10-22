@@ -57,11 +57,6 @@
 	uniform = /obj/item/clothing/under/rank/security/pmc
 	id = /obj/item/card/id/pmc
 
-	backpack_faction = /obj/item/storage/backpack/pmcg
-	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
-	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
-	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
-
 /datum/outfit/job/warden/pmc
 	name = "Warden - PMC"
 
@@ -71,21 +66,11 @@
 	id = /obj/item/card/id/pmc
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc
 
-	backpack_faction = /obj/item/storage/backpack/pmcg
-	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
-	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
-	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
-
 /datum/outfit/job/intern_sec/pmc
 	name = "Security Cadet - PMC"
 
 	uniform = /obj/item/clothing/under/rank/cadet/pmc
 	id = /obj/item/card/id/pmc
-
-	backpack_faction = /obj/item/storage/backpack/pmcg
-	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
-	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
-	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
 
 /datum/outfit/job/forensics/pmc
 	name = "Investigator - PMC"
@@ -94,11 +79,6 @@
 	suit = /obj/item/clothing/suit/storage/det_jacket/pmc
 	id = /obj/item/card/id/pmc
 
-	backpack_faction = /obj/item/storage/backpack/pmcg
-	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
-	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
-	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
-
 /datum/outfit/job/doctor/pmc
 	name = "Physician - PMC"
 
@@ -106,22 +86,12 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	id = /obj/item/card/id/pmc
 
-	backpack_faction = /obj/item/storage/backpack/pmcg
-	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
-	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
-	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
-
 /datum/outfit/job/doctor/surgeon/pmc
 	name = "Surgeon - PMC"
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	id = /obj/item/card/id/pmc
-
-	backpack_faction = /obj/item/storage/backpack/pmcg
-	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
-	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
-	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
 
 /datum/outfit/job/doctor/surgeon/pmc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!isskrell(H))
@@ -134,21 +104,11 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
 	id = /obj/item/card/id/pmc
 
-	backpack_faction = /obj/item/storage/backpack/pmcg
-	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
-	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
-	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
-
 /datum/outfit/job/psychiatrist/pmc
 	name = "Psychiatrist - PMC"
 
 	uniform = /obj/item/clothing/under/rank/medical/psych/pmc
 	id = /obj/item/card/id/pmc
-
-	backpack_faction = /obj/item/storage/backpack/pmcg
-	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
-	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
-	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
 
 /datum/outfit/job/med_tech/pmc
 	name = "First Responder - PMC"
@@ -158,21 +118,11 @@
 	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/pmc
 	id = /obj/item/card/id/pmc
 
-	backpack_faction = /obj/item/storage/backpack/pmcg
-	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
-	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
-	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
-
 /datum/outfit/job/intern_med/pmc
 	name = "Medical Intern - PMC"
 
 	uniform = /obj/item/clothing/under/rank/medical/intern/pmc
 	id = /obj/item/card/id/pmc
-
-	backpack_faction = /obj/item/storage/backpack/pmcg
-	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
-	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
-	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
 
 /datum/outfit/job/representative/pmc
 	name = "PMC Corporate Liaison"
@@ -184,8 +134,3 @@
 	id = /obj/item/card/id/pmc
 	accessory = /obj/item/clothing/accessory/tie/corporate/pmc
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/pmc
-
-	backpack_faction = /obj/item/storage/backpack/pmcg
-	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
-	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
-	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg

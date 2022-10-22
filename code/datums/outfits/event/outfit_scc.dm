@@ -2,7 +2,7 @@
 	name = "SCC Agent"
 
 	uniform = /obj/item/clothing/under/rank/scc
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/ert/ccia
 	glasses = /obj/item/clothing/glasses/sunglasses

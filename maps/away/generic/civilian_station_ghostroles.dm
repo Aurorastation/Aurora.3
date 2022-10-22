@@ -21,7 +21,7 @@
 
 	uniform = /obj/item/clothing/under/sl_suit
 	shoes = /obj/item/clothing/shoes/laceup
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/norm
 
 	id = /obj/item/card/id/civilian_station
 
@@ -138,3 +138,4 @@
 /obj/item/card/id/civilian_station
 	name = "civilian station id"
 	access = list(access_external_airlocks, access_civilian_station)
+

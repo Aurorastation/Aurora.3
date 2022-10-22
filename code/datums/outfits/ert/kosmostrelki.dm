@@ -38,7 +38,7 @@
 						/obj/item/material/knife/trench = 1
 						)
 
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 						/obj/item/book/manual/pra_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1,
@@ -53,7 +53,7 @@
 /datum/outfit/admin/ert/pra_cosmonaut/commander
 	name = "Kosmostrelki Commander"
 
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel
 
 	belt_contents = list(
 						/obj/item/ammo_magazine/mc9mm = 2,
@@ -105,7 +105,7 @@
 
 	belt = /obj/item/storage/belt/medical/first_responder/combat
 
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel
 
 	backpack_contents = list(
 		/obj/item/gun/projectile/automatic/mini_uzi = 1,

@@ -59,11 +59,9 @@ var/global/list/chargen_disabilities_list = list()
 var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER, PLURAL)
 
 //Backpacks
-var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook")
-var/global/list/backbagstyles = list("Job-specific", "Generic", "Faction-specific")
-var/global/list/backbagcolors = list("None", "Blue", "Green", "Navy", "Tan", "Khaki", "Black", "Olive", "Auburn", "Brown")
-var/global/list/backbagstrap = list("Hidden", "Thick", "Normal")
-var/global/list/exclude_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/merchant)
+var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Leather satchel", "Duffel Bag", "Messenger Bag", "Black Rucksack", "Blue Rucksack", "Green Rucksack", "Navy Rucksack", "Tan Rucksack", "Khaki Satchel", "Black Satchel", "Navy Satchel", "Olive Satchel", "Auburn Satchel", "Black Pocketbook", "Brown Pocketbook", "Auburn Pocketbook", "Classic leather satchel")
+var/global/list/backbagstyles = list("Job-specific", "Grey")
+var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
 
 //PDA choice
 var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Tablet", "Wristbound")

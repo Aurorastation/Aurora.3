@@ -24,7 +24,7 @@
 
 	uniform = /obj/item/clothing/under/rank/elyran_fatigues
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/norm
 
 	id = /obj/item/card/id/elyran_naval_infantry_craft
 

@@ -42,9 +42,7 @@ datum/preferences
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = OUTFIT_BACKPACK		//backpack type (defines in outfit.dm)
-	var/backbag_style = OUTFIT_JOBSPECIFIC
-	var/backbag_color = OUTFIT_NOTHING
-	var/backbag_strap = OUTFIT_NORMAL
+	var/backbag_style = 1
 	var/pda_choice = OUTFIT_TAB_PDA
 	var/headset_choice = OUTFIT_HEADSET
 	var/primary_radio_slot = "Left Ear"
@@ -488,12 +486,10 @@ datum/preferences
 		else
 			all_underwear -= underwear_category_name
 
-	if(backbag > OUTFIT_POCKETBOOK || backbag < OUTFIT_NOTHING)
+	if(backbag > OUTFIT_CLASSICSATCHEL || backbag < OUTFIT_NOTHING)
 		backbag = OUTFIT_NOTHING //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style
-	character.backbag_color = backbag_color
-	character.backbag_strap = backbag_strap
 
 	if(pda_choice > OUTFIT_WRISTBOUND || pda_choice < OUTFIT_NOTHING)
 		pda_choice = OUTFIT_TAB_PDA

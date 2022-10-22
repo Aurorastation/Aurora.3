@@ -60,10 +60,10 @@
 		/obj/item/implant/mindshield
 	)
 
-	backpack = /obj/item/storage/backpack/hos
-	satchel = /obj/item/storage/backpack/satchel/hos
-	dufflebag = /obj/item/storage/backpack/duffel/hos
-	messengerbag = /obj/item/storage/backpack/messenger/hos
+	backpack = /obj/item/storage/backpack/security
+	satchel = /obj/item/storage/backpack/satchel/sec
+	dufflebag = /obj/item/storage/backpack/duffel/sec
+	messengerbag = /obj/item/storage/backpack/messenger/sec
 
 /datum/job/warden
 	title = "Warden"

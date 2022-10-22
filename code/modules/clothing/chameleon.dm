@@ -207,7 +207,7 @@
 /obj/item/storage/backpack/chameleon/fill()
 	..()
 	if(!clothing_choices)
-		var/blocked = list(src.type, /obj/item/storage/backpack/satchel/leather/withwallet)
+		var/blocked = list(src.type, /obj/item/storage/backpack/satchel/withwallet)
 		clothing_choices = generate_chameleon_choices(/obj/item/storage/backpack, blocked)
 
 /obj/item/storage/backpack/chameleon/emp_act(severity) //Because we don't have psych for all slots right now but still want a downside to EMP.  In this case your cover's blown.

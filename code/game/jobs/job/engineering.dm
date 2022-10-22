@@ -58,10 +58,10 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/ce
 	tablet = /obj/item/modular_computer/handheld/preset/engineering/ce
 
-	backpack = /obj/item/storage/backpack/ce
-	satchel = /obj/item/storage/backpack/satchel/ce
-	dufflebag = /obj/item/storage/backpack/duffel/ce
-	messengerbag = /obj/item/storage/backpack/messenger/ce
+	backpack = /obj/item/storage/backpack/industrial
+	satchel = /obj/item/storage/backpack/satchel/eng
+	dufflebag = /obj/item/storage/backpack/duffel/eng
+	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 /datum/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

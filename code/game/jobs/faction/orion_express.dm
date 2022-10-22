@@ -47,32 +47,17 @@
 	uniform = /obj/item/clothing/under/rank/hangar_technician/orion
 	id = /obj/item/card/id/orion
 
-	backpack_faction = /obj/item/storage/backpack/orion
-	satchel_faction = /obj/item/storage/backpack/satchel/orion
-	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
-	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
-
 /datum/outfit/job/machinist/orion
 	name = "Machinist - Orion Express"
 
 	uniform = /obj/item/clothing/under/rank/machinist/orion
 	id = /obj/item/card/id/orion
 
-	backpack_faction = /obj/item/storage/backpack/orion
-	satchel_faction = /obj/item/storage/backpack/satchel/orion
-	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
-	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
-
 /datum/outfit/job/mining/orion
 	name = "Shaft Miner - Orion Express"
 
 	uniform = /obj/item/clothing/under/rank/miner/orion
 	id = /obj/item/card/id/orion
-
-	backpack_faction = /obj/item/storage/backpack/orion
-	satchel_faction = /obj/item/storage/backpack/satchel/orion
-	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
-	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
 /datum/outfit/job/representative/orion
 	name = "Orion Express Corporate Liaison"
@@ -84,8 +69,3 @@
 	id = /obj/item/card/id/orion
 	accessory = /obj/item/clothing/accessory/tie/corporate/orion
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/orion
-
-	backpack_faction = /obj/item/storage/backpack/orion
-	satchel_faction = /obj/item/storage/backpack/satchel/orion
-	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
-	messengerbag_faction = /obj/item/storage/backpack/messenger/orion

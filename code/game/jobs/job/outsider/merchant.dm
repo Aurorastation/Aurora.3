@@ -84,7 +84,7 @@
 		/obj/item/clothing/suit/storage/toggle/trench,
 		/obj/item/clothing/suit/storage/hooded/wintercoat
 		)
-	back = /obj/item/storage/backpack/satchel/leather
+	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/wallet/random = 1
