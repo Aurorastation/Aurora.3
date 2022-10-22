@@ -35,11 +35,8 @@
 
 #define SHIP_AMMO_FLAG_INFLAMMABLE	 1 //Rupture when exposed to fire.
 #define SHIP_AMMO_FLAG_VERY_HEAVY	 2 //Cannot be lifted by a normal person.
-#define SHIP_AMMO_FLAG_VULNERABLE	 4 //Rupture from being shot at.
-#define SHIP_AMMO_FLAG_VERY_FRAGILE  8 //Rupture from being dropped.
-
-#define SHIP_AMMO_RUPTURE_FLAG_TOXIC   1 //Release toxic gas.
-#define SHIP_AMMO_RUPTURE_FLAG_EXPLODE 2 //Boom.
+#define SHIP_AMMO_FLAG_VULNERABLE	 4 //Rupture from being shot at, attacked.
+#define SHIP_AMMO_FLAG_VERY_FRAGILE  8 //Rupture from being thrown, dropped on harm intent.
 
 //Overmap projectiles.
 #define OVERMAP_PROJECTILE_RANGE_LOW 5

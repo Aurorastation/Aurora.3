@@ -34,7 +34,7 @@
 			var/obj/item/mecha_equipment/clamp/CL = W
 			if(istype(CL.carrying[1], /obj/item/ship_ammunition))
 				var/obj/item/ship_ammunition/SA = CL.carrying[1]
-				return load_ammo(SA, HV, CL)
+				return load_ammo(SA, HV)
 		if(istype(W, /obj/item/device/multitool))
 			to_chat(user, SPAN_NOTICE("You hook up the tester's wires to \the [src]: its identification tag is <b>[weapon_id]</b>."))
 			var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id)
@@ -50,12 +50,12 @@
 					return TRUE
 	. = ..()
 
-/obj/machinery/ammunition_loader/proc/load_ammo(var/obj/item/ship_ammunition/SA, var/mob/living/H, var/obj/item/mecha_equipment/clamp/clamp)
+/obj/machinery/ammunition_loader/proc/load_ammo(var/obj/item/ship_ammunition/SA, var/mob/living/H)
 	if(SA.caliber == weapon.get_caliber())
 		if(SA.can_be_loaded())
 			visible_message(SPAN_NOTICE("[H] begins loading \the [SA] into \the [src]..."))
 			if(do_after(H, weapon.load_time))
-				if(weapon.load_ammunition(SA, H, clamp))
+				if(weapon.load_ammunition(SA, H))
 					visible_message(SPAN_NOTICE("[H] loads \the [SA] into \the [src]!"))
 					playsound(src, 'sound/weapons/ammo_load.ogg')
 					return TRUE

@@ -4,6 +4,8 @@
 	icon = 'icons/obj/machines/ship_guns/longbow.dmi'
 	idle_power_usage = 1500
 	active_power_usage = 50000
+	var/damage = 0
+	var/max_damage = 1000
 	var/heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg' //The sound in the immediate firing area. Very loud.
 	var/light_firing_sound = 'sound/effects/explosionfar.ogg' //The sound played when you're a few walls away. Kind of loud.
 	var/projectile_type = /obj/item/projectile/ship_ammo
@@ -46,25 +48,80 @@
 	barrel = null
 	return ..()
 
+/obj/machinery/ship_weapon/ex_act(severity)
+	switch(severity)
+		if(1)
+			add_damage(250)
+		if(2)
+			add_damage(100)
+		if(3)
+			add_damage(75)
+
+/obj/machinery/ship_weapon/proc/add_damage(var/amount)
+	damage = max(0, min(damage + amount, max_damage))
+	update_damage()
+
+/obj/machinery/ship_weapon/proc/update_damage()
+	if(damage >= max_damage)
+		qdel(src)
+
+/obj/machinery/ship_weapon/proc/get_damage_description()
+	var/ratio = (damage / max_damage) * 100
+	switch(ratio)
+		if(1 to 10)
+			. = "It looks to be in tip top shape and not damaged at all."
+		if(10 to 20)
+			. = "It has some kinks and bends, here and there."
+		if(20 to 40)
+			. = "It has a few holes through which you can see some machinery."
+		if(40 to 60)
+			. = "<span class='warning'>Some fairly important parts are missing... but it should work anyway.</span>"
+		if(60 to 80)
+			. = "<span class='danger'>It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
+				pass inspection.</span>"
+		if(90 to 100)
+			. = "<span class='danger'>It's falling apart! Just touching it might make the whole thing collapse!</span>"
+		else //At roundstart, weapons start with 0 damage, so it'd be 0 / 1000 * 100 -> 0
+			return "It looks to be in tip top shape and not damaged at all."
+
 /obj/machinery/ship_weapon/examine(mob/user)
 	. = ..()
-	to_chat(user, "This gun's caliber is <b>[caliber]</b>.")
+	to_chat(user, get_damage_description())
 
 /obj/machinery/ship_weapon/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/device/multitool))
-		to_chat(user, SPAN_NOTICE("You hook up the tester to \the [src]'s wires: its identification tag is <b>[weapon_id]></b>."))
-		var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id)
-		if(length(new_id) && !use_check_and_message(user))
-			new_id = sanitizeSafe(new_id, 32)
-			for(var/obj/machinery/ammunition_loader/SW in SSmachinery.machinery)
-				if(SW.weapon_id == new_id)
-					if(get_area(SW) != get_area(src))
-						to_chat(user, SPAN_WARNING("The loader returns an error message of two beeps: that weapon ID is invalid."))
-						return TRUE
-				weapon_id = new_id
-				to_chat(user, SPAN_NOTICE("With some finicking, you change the identification tag to <b>[new_id]</b>."))
-				return TRUE
-	return ..()
+	var/obj/structure/ship_weapon_dummy/SWD = locate() in range(1, user)
+	if(SWD) //This means we're adjacent to the gun.
+		if(istype(W, /obj/item/device/multitool))
+			to_chat(user, SPAN_NOTICE("You hook up the tester to \the [src]'s wires: its identification tag is <b>[weapon_id]></b>."))
+			var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id)
+			if(length(new_id) && !use_check_and_message(user))
+				new_id = sanitizeSafe(new_id, 32)
+				for(var/obj/machinery/ammunition_loader/SW in SSmachinery.machinery)
+					if(SW.weapon_id == new_id)
+						if(get_area(SW) != get_area(src))
+							to_chat(user, SPAN_WARNING("The loader returns an error message of two beeps: that weapon ID is invalid."))
+							return TRUE
+					weapon_id = new_id
+					to_chat(user, SPAN_NOTICE("With some finicking, you change the identification tag to <b>[new_id]</b>."))
+					return TRUE
+		if(istype(W, /obj/item/weldingtool) && damage)
+			var/obj/item/weldingtool/WT = W
+			if(WT.get_fuel() >= 20)
+				user.visible_message(SPAN_NOTICE("[user] starts slowly welding kinks and holes in \the [src] back to working shape..."), 
+									SPAN_NOTICE("You start welding kinks and holes back to working shape. This'll take a long while..."))
+				if(do_after(user, 15 SECONDS))
+					add_damage(-max_damage)
+					user.visible_message(SPAN_NOTICE("[user] finally finishes patching up \the [src]'s exterior! Not a pretty job, but it'll do."),
+										SPAN_NOTICE("You finally finish patching up \the [src]'s exterior! It's not a pretty job, but it'll do."))
+					WT.use(20)
+					return TRUE
+				else
+					return FALSE
+			else
+				to_chat(user, SPAN_WARNING("You need at least 20 units of fuel with how big this thing is!"))
+				return FALSE
+		return ..()
+	return FALSE
 
 /obj/machinery/ship_weapon/proc/destroy_dummies()
 	for(var/A in connected_dummies)
@@ -122,7 +179,10 @@
 		return FALSE
 	ammunition |= SA
 	if(ismech(H))
-		clamp.drop_carrying()
+		var/mob/living/heavy_vehicle/mecha = H
+		var/obj/item/mecha_equipment/clamp/CL = mecha.selected_system
+		if(istype(CL))
+			CL.drop_carrying()
 	else
 		H.drop_from_inventory(SA)
 	SA.forceMove(src)
@@ -190,8 +250,8 @@
 	layer = OBJ_LAYER //Higher than the gun itself.
 	density = TRUE
 	opacity = FALSE
-	atmos_canpass = CANPASS_DENSITY
 	invisibility = 100
+	atmos_canpass = CANPASS_DENSITY
 	var/obj/machinery/ship_weapon/connected
 	var/is_barrel = FALSE //Ammo spawns in front of THIS dummy.
 

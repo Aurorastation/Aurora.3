@@ -119,3 +119,7 @@
 		return ammunition.get_additional_info()
 	return "N/A"
 
+/obj/effect/overmap/projectile/Bump(var/atom/A)
+	if(istype(A,/turf/unsimulated/map/edge))
+		qdel(src)
+	..()

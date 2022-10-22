@@ -4,6 +4,7 @@
 	icon = 'icons/obj/machines/ship_guns/leviathan.dmi'
 	icon_state = "weapon_off"
 	special_firing_mechanism = TRUE
+	max_damage = 10000
 
 	projectile_type = /obj/item/projectile/ship_ammo/leviathan
 	use_ammunition = FALSE
@@ -63,7 +64,6 @@
 		visible_message(SPAN_DANGER("<font size=4>\The [src]'s capacitors fizzle out!</font>"))
 		. = FALSE
 	disable()
-	firing = FALSE
 
 /obj/machinery/ship_weapon/leviathan/process()
 	if(firing)
@@ -82,6 +82,7 @@
 		disable()
 
 /obj/machinery/ship_weapon/leviathan/disable()
+	firing = FALSE
 	for(var/mob/living/L in living_mob_list)
 		if(get_area(L) == get_area(src))
 			sound_to(L, 'sound/effects/ship_weapons/leviathan_powerdown.ogg')
@@ -371,9 +372,9 @@
 			var/obj/effect/landmark
 			if(length(possible_entry_points))
 			 landmark = possible_entry_points[targeted_landmark]
-			if(do_after(user, 1 SECOND) && !use_check_and_message(user))		
+			if(do_after(user, 1 SECOND) && !use_check_and_message(user))
+				playsound(src, 'sound/effects/ship_weapons/levi_button_press.ogg')
+				visible_message(SPAN_DANGER("[user] presses \the [src]!"))
 				for(var/obj/machinery/ship_weapon/leviathan/LT in linked.ship_weapons)
 					if(istype(LT))
 						LT.firing_command(linked.targeting, landmark)
-					visible_message(SPAN_DANGER("[user] presses \the [src]!"))
-					playsound(src, 'sound/effects/ship_weapons/levi_button_press.ogg')

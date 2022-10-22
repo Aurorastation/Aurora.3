@@ -12,12 +12,10 @@
 	var/wielded = FALSE
 	var/caliber = SHIP_CALIBER_NONE
 	var/impact_type = SHIP_AMMO_IMPACT_HE //This decides what happens when the ammo hits. Is it a bunkerbuster? HE? AP?
-	var/ammunition_status = SHIP_AMMO_STATUS_GOOD
+	var/ammunition_status = SHIP_AMMO_STATUS_GOOD //Currently unused, but will be relevant for chemical ammo.
 	var/ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
 	var/ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE //Not a bitfield!
 	var/overmap_behaviour = SHIP_AMMO_CAN_HIT_HAZARDS|SHIP_AMMO_CAN_HIT_SHIPS //Whether or not the ammo can hit hazards or ships, or both.
-	var/rupture_flags = SHIP_AMMO_RUPTURE_FLAG_EXPLODE
-	var/rupture_gas
 	var/overmap_icon_state = "cannon"
 	var/obj/effect/overmap/origin
 	var/atom/overmap_target
@@ -38,7 +36,7 @@
 /obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
 	if(I.ispen())
 		var/obj/item/pen/P = I
-		if(use_check_and_message(user))
+		if(!use_check_and_message(user))
 			var/friendly_message = sanitizeSafe(input(user, "What do you want to write on \the [src]?", "Personal Message"), 32)
 			if(friendly_message)
 				written_message = friendly_message
@@ -87,12 +85,12 @@
 
 /obj/item/ship_ammunition/throw_impact(atom/hit_atom)
 	. = ..()
-	if(prob(50) && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
+	if(prob(50) && ((ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE) || (ammunition_flags & SHIP_AMMO_FLAG_VULNERABLE)))
 		cookoff(FALSE)
 
 /obj/item/ship_ammunition/dropped(mob/user)
 	. = ..()
-	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE)
+	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE && user.a_intent == I_HURT)
 		drop_counter++
 		if(drop_counter == 3)
 			visible_message(SPAN_WARNING("\The [src] makes a weird noise..."))
@@ -152,9 +150,14 @@
 	return TRUE
 
 /obj/item/ship_ammunition/proc/get_additional_info()
-	return
+	. += "<span class='danger'>[name_override ? name_override : name]</span><br>"
+	. += "[desc]<br>"
+	. += "Caliber: [caliber]<br>"
+	. += "Ammunition Type: [capitalize_first_letters(impact_type)]<br>"
+	if(written_message)
+		. += "This shell appears to have something inscribed. AI-assisted reconstruction: <b>[written_message]</b>"
 
-/obj/item/ship_ammunition/proc/get_speed() //Step size for the projectile.
+/obj/item/ship_ammunition/proc/get_speed() //Lag variable used for step_towards(). Lower is better.
 	return 4
 
 /obj/item/ship_ammunition/touch_map_edge(var/new_z)
