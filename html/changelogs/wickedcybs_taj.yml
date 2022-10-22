@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - bugfix: "The Taj smuggler ship fuel port will start with a fuel tank in it now. "
+  - bugfix: "The engineering cycler in the Taj smuggler ship should be access unrestricted now."
