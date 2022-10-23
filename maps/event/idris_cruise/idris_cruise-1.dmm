@@ -1633,7 +1633,6 @@
 	dir = 1
 	},
 /obj/structure/table/stone/marble,
-/obj/item/clothing/accessory/armband/idris,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -2337,6 +2336,11 @@
 	dir = 4
 	},
 /obj/machinery/door/window/westleft,
+/obj/item/reagent_containers/food/snacks/chilied_eggs,
+/obj/item/reagent_containers/food/snacks/chilied_eggs,
+/obj/item/reagent_containers/food/snacks/corn_dog,
+/obj/item/reagent_containers/food/snacks/corn_dog,
+/obj/item/reagent_containers/food/snacks/corn_dog,
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
 "bFr" = (
@@ -3046,6 +3050,15 @@
 	dir = 4
 	},
 /obj/machinery/door/window/westleft,
+/obj/item/reagent_containers/food/snacks/ricepudding,
+/obj/item/reagent_containers/food/snacks/ricepudding,
+/obj/item/reagent_containers/food/snacks/sliceable/cake/apple,
+/obj/item/reagent_containers/food/snacks/sliceable/cake/cheese,
+/obj/item/reagent_containers/food/snacks/sliceable/cake/chocolate,
+/obj/item/reagent_containers/food/snacks/sliceable/cake/lemon,
+/obj/item/reagent_containers/food/snacks/sliceable/cake/orange,
+/obj/item/reagent_containers/food/snacks/sliceable/creamcheesebread,
+/obj/item/reagent_containers/food/snacks/sliceable/creamcheesebread,
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
 "cpH" = (
@@ -4354,7 +4367,9 @@
 /area/cruise/escort)
 "dqf" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/mob/living/simple_animal/cat,
+/mob/living/simple_animal/cat{
+	name = "Herbert"
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -7328,7 +7343,6 @@
 /area/cruise/main_bar)
 "fQb" = (
 /obj/structure/table/wood,
-/obj/item/clothing/accessory/armband/idris,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -7989,7 +8003,6 @@
 	pixel_y = 14
 	},
 /obj/machinery/door/firedoor,
-/obj/item/clothing/accessory/armband/idris,
 /obj/machinery/door/blast/shutters/open{
 	id = "bar_east"
 	},
@@ -16122,6 +16135,9 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/reagent_containers/food/snacks/crab_legs,
+/obj/item/reagent_containers/food/snacks/crab_legs,
+/obj/item/reagent_containers/food/snacks/crab_legs,
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
 "mHB" = (
@@ -21175,7 +21191,6 @@
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/door/firedoor,
-/obj/item/clothing/accessory/armband/idris,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -21216,6 +21231,8 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/reagent_containers/food/snacks/bibimbap,
+/obj/item/reagent_containers/food/snacks/bibimbap,
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
 "qTw" = (
@@ -23840,7 +23857,6 @@
 	pixel_y = 16
 	},
 /obj/machinery/door/firedoor,
-/obj/item/clothing/accessory/armband/idris,
 /obj/machinery/door/blast/shutters/open{
 	id = "bar_west"
 	},
@@ -26422,6 +26438,8 @@
 	dir = 8
 	},
 /obj/machinery/door/window/eastright,
+/obj/item/reagent_containers/food/snacks/burger/cheese,
+/obj/item/reagent_containers/food/snacks/burger/cheese,
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
 "uXl" = (
@@ -28397,6 +28415,21 @@
 	dir = 8
 	},
 /obj/machinery/door/window/eastright,
+/obj/item/reagent_containers/food/snacks/burrito_cheese,
+/obj/item/reagent_containers/food/snacks/burrito_cheese,
+/obj/item/reagent_containers/food/snacks/burrito_cheese,
+/obj/item/reagent_containers/food/snacks/chilicheesefries,
+/obj/item/reagent_containers/food/snacks/chilicheesefries,
+/obj/item/reagent_containers/food/snacks/chilicheesefries,
+/obj/item/reagent_containers/food/snacks/chipplate/nachos,
+/obj/item/reagent_containers/food/snacks/chipplate/nachos,
+/obj/item/reagent_containers/food/snacks/chipplate/nachos,
+/obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl,
+/obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl,
+/obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl,
+/obj/item/reagent_containers/food/snacks/lasagna,
+/obj/item/reagent_containers/food/snacks/lasagna,
+/obj/item/reagent_containers/food/snacks/lasagna,
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
 "wJF" = (
