@@ -48,6 +48,7 @@ datum/gear/suit/colorvest
 	jackets["flannel jacket, purple"] = /obj/item/clothing/suit/storage/toggle/flannel/purple
 	jackets["flannel jacket, yellow"] = /obj/item/clothing/suit/storage/toggle/flannel/yellow
 	jackets["high visibility jacket"] = /obj/item/clothing/suit/storage/toggle/highvis
+	jackets["high visibility jacket alt"] = /obj/item/clothing/suit/storage/toggle/highvis_alt
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
 	jackets["leather coat"] = /obj/item/clothing/suit/storage/leathercoat

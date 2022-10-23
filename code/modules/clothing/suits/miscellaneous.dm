@@ -262,13 +262,6 @@
 	icon_state = "mold_alt"
 	item_state = "mold_alt"
 
-/obj/item/clothing/suit/storage/toggle/high_vis_jacket
-	name = "high visibility jacket"
-	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering and sometimes even law enforcement in cold and poor weather or when visibility is low."
-	icon_state = "jacket_hazard"
-	item_state = "jacket_hazard"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-
 //This one has buttons for some reason
 /obj/item/clothing/suit/storage/toggle/brown_jacket
 	name = "leather jacket"
@@ -393,7 +386,13 @@
 	item_state = "highvis"
 	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
-
+/obj/item/clothing/suit/storage/toggle/highvis_alt
+	name = "high visibility jacket"
+	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering and sometimes even law enforcement in cold and poor weather or when visibility is low."
+	icon_state = "highvis_alt"
+	item_state = "highvis_alt"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	contained_sprite = TRUE
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
 	desc = "a track jacket, for the athletic."
