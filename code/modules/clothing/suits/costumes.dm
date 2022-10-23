@@ -6,6 +6,7 @@
 	icon = 'icons/obj/clothing/halloween.dmi'
 	icon_state = "dog_costume"
 	item_state = "dog_costume"
+	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|HEAD|ARMS|LEGS
 	flags_inv = HIDEJUMPSUIT|HIDESHOES|HIDEGLOVES|HIDEEARS|HIDETAIL|HIDEWRISTS
 
@@ -15,6 +16,7 @@
 	icon = 'icons/obj/clothing/halloween.dmi'
 	icon_state = "carp_costume"
 	item_state = "carp_costume"
+	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|HEAD|ARMS
 	flags_inv = HIDEJUMPSUIT|HIDETAIL|HIDEWRISTS|HIDEEARS
 
@@ -24,6 +26,7 @@
 	icon = 'icons/obj/clothing/halloween.dmi'
 	icon_state = "zombie_costume"
 	item_state = "zombie_costume"
+	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|HEAD|ARMS|HANDS|LEGS|FEET
 	flags_inv = HIDEEARS|HIDEGLOVES|HIDEWRISTS|HIDESHOES|HIDEJUMPSUIT|HIDEMASK|HIDETAIL
 
@@ -33,6 +36,7 @@
 	icon = 'icons/obj/clothing/halloween.dmi'
 	icon_state = "dark_witch"
 	item_state = "dark_witch"
+	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	flags_inv = HIDEJUMPSUIT|HIDEWRISTS
 
@@ -42,5 +46,16 @@
 	icon = 'icons/obj/clothing/halloween.dmi'
 	icon_state = "lobster"
 	item_state = "lobster"
+	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	flags_inv = HIDEJUMPSUIT
+
+/obj/item/clothing/suit/knight_costume
+	name = "knigt armour"
+	desc = "A textile and plastic replica of a medieval knight armour."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "knight"
+	item_state = "knight"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	flags_inv = HIDEJUMPSUIT|HIDEWRISTS|HIDEGLOVES|HIDETAIL
