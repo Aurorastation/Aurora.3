@@ -220,7 +220,7 @@
 			if (OUTFIT_THICK)
 				B.alpha_mask = null
 			if (OUTFIT_NORMAL)
-				B.alpha_mask = "thin"
+				B.alpha_mask = "normal"
 		if(isvaurca(H, TRUE))
 			H.equip_or_collect(B, slot_r_hand)
 		else
