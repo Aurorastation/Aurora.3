@@ -389,9 +389,10 @@
 /obj/item/clothing/suit/storage/toggle/highvis_alt
 	name = "high visibility jacket"
 	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering and sometimes even law enforcement in cold and poor weather or when visibility is low."
+	icon = 'icons/clothing/suits/highvis.dmi'
 	icon_state = "highvis_alt"
 	item_state = "highvis_alt"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
