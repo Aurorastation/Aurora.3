@@ -262,6 +262,13 @@
 	icon_state = "mold_alt"
 	item_state = "mold_alt"
 
+/obj/item/clothing/suit/storage/toggle/high_vis_jacket
+	name = "high visibility jacket"
+	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering and sometimes even law enforcement in cold and poor weather or when visibility is low."
+	icon_state = "jacket_hazard"
+	item_state = "jacket_hazard"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
 //This one has buttons for some reason
 /obj/item/clothing/suit/storage/toggle/brown_jacket
 	name = "leather jacket"
@@ -304,7 +311,6 @@
 	icon = 'icons/contained_items/clothing/topwear/bridge_crew_jacket_sancol.dmi'
 	icon_state = "bridge_crew_jacket_sancol"
 	item_state = "bridge_crew_jacket_sancol"
-
 /obj/item/clothing/suit/storage/toggle/flannel
 	name = "green flannel shirt"
 	desc = "A flannel shirt, for all your space hipster needs."
