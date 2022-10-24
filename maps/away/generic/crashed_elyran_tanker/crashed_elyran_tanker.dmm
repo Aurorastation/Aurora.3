@@ -4320,10 +4320,6 @@
 	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/thruster)
-"Qb" = (
-/obj/machinery/portable_atmospherics/canister/phoron_scarce,
-/turf/template_noop,
-/area/space)
 "Qe" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
@@ -32253,7 +32249,7 @@ Dg
 Dg
 Dg
 Dg
-Qb
+Dg
 or
 lB
 uc
