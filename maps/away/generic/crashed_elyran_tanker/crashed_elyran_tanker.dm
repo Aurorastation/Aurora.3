@@ -1,22 +1,21 @@
 
 // ---------------- map defs
 /datum/map_template/ruin/away_site/crashed_elyran_tanker
-	name = "crashed elyran tanker"
-	description = "desc 1"
+	name = "Crashed Elyran Tanker"
+	description = "A small tanker, emitting a very faint IFF signal of civilian vessels registered in Elyra. It seems to be partially embedded into a small asteroid, and appears to be completely cold."
 	suffix = "generic/crashed_elyran_tanker/crashed_elyran_tanker.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ)
-	spawn_weight = 1000000
+	spawn_weight = 1
 	spawn_cost = 1
 	id = "crashed_elyran_tanker"
-    // A small tanker, emitting a very faint IFF signal of civilian vessels registered in Elyra. It seems to be partially embedded into a small asteroid, and appears to be completely cold.
 
 /decl/submap_archetype/crashed_elyran_tanker
 	map = "crashed_elyran_tanker"
-	descriptor = "desc 2"
+	descriptor = "A small tanker, emitting a very faint IFF signal of civilian vessels registered in Elyra. It seems to be partially embedded into a small asteroid, and appears to be completely cold."
 
 /obj/effect/overmap/visitable/crashed_elyran_tanker
-	name = "crashed elyran tanker"
-	desc = "desc 3"
+	name = "Crashed Elyran Tanker"
+	desc = "A small tanker, emitting a very faint IFF signal of civilian vessels registered in Elyra. It seems to be partially embedded into a small asteroid, and appears to be completely cold."
 	initial_generic_waypoints = list(
 		"nav_crashed_elyran_tanker_dock_aft",
 		"nav_crashed_elyran_tanker_dock_starboard",
@@ -31,31 +30,31 @@
 
 // ---------------- landmarks
 /obj/effect/shuttle_landmark/nav_crashed_elyran_tanker/dock_aft
-	name = "Crashed Tanker Aft Dock"
+	name = "Aft Dock"
 	landmark_tag = "nav_crashed_elyran_tanker_dock_aft"
 
 /obj/effect/shuttle_landmark/nav_crashed_elyran_tanker/dock_aft_intrepid
-	name = "Crashed Tanker Intrepid Aft Dock"
+	name = "Intrepid Aft Dock"
 	landmark_tag = "nav_crashed_elyran_tanker_dock_aft_intrepid"
 
 /obj/effect/shuttle_landmark/nav_crashed_elyran_tanker/dock_starboard
-	name = "Crashed Tanker Aft Dock"
+	name = "Aft Dock"
 	landmark_tag = "nav_crashed_elyran_tanker_dock_starboard"
 
 /obj/effect/shuttle_landmark/nav_crashed_elyran_tanker/east
-	name = "Crashed Tanker Navpoint East"
+	name = "Navpoint East"
 	landmark_tag = "nav_crashed_elyran_tanker_east"
 
 /obj/effect/shuttle_landmark/nav_crashed_elyran_tanker/north
-	name = "Crashed Tanker Navpoint North"
+	name = "Navpoint North"
 	landmark_tag = "nav_crashed_elyran_tanker_north"
 
 /obj/effect/shuttle_landmark/nav_crashed_elyran_tanker/south
-	name = "Crashed Tanker Navpoint South"
+	name = "Navpoint South"
 	landmark_tag = "nav_crashed_elyran_tanker_south"
 
 /obj/effect/shuttle_landmark/nav_crashed_elyran_tanker/west
-	name = "Crashed Tanker Navpoint West"
+	name = "Navpoint West"
 	landmark_tag = "nav_crashed_elyran_tanker_west"
 
 // ---------------- areas

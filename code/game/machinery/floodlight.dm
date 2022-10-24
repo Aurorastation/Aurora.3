@@ -134,3 +134,10 @@
 				to_chat(user, SPAN_NOTICE("You insert the power cell."))
 		return TRUE
 	update_icon()
+
+/obj/machinery/floodlight/randomcharge
+
+/obj/machinery/floodlight/Initialize()
+	. = ..()
+	if(cell)
+		cell.charge = rand(1, cell.maxcharge)
