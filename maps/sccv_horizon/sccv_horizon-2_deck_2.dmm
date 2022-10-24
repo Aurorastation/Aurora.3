@@ -5040,6 +5040,9 @@
 /area/security/brig)
 "czP" = (
 /obj/machinery/light/small,
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
 "czU" = (
@@ -8302,9 +8305,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/service{
+	id_tag = "chapdoor";
 	name = "Chaplain's Office";
-	req_access = list(22);
-	id_tag = "chapdoor"
+	req_access = list(22)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/dark,
@@ -27350,18 +27353,10 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
+/obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "opt" = (
@@ -37670,6 +37665,8 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "tHl" = (
