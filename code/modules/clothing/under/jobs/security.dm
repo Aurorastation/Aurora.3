@@ -54,6 +54,15 @@
 	icon_state = "pmc_officer"
 	item_state = "pmc_officer"
 
+/obj/item/clothing/under/rank/security/pmc/pmcsec
+	name = "PMCG security uniform"
+	icon_state = "pmc"
+	item_state = "pmc"
+
+/obj/item/clothing/under/rank/security/pmc/pmcsec/alt
+	icon_state = "pmc_alt"
+	item_state = "pmc_alt"
+
 /obj/item/clothing/under/rank/security/pmc/epmc // Note: Item Icon placeholder
 	name = "EPMC security uniform"
 	desc_fluff = "The EPMC is a subsidiary of the PMCG."
@@ -157,6 +166,22 @@
 	name = "PMCG investigator's uniform"
 	icon_state = "pmc_invest"
 	item_state = "pmc_invest"
+
+/obj/item/clothing/under/det/zavod/alt
+	name = "zavodskoi interstellar detective's uniform"
+	icon_state = "zav_invest_alt"
+	item_state = "zav_invest_alt"
+
+/obj/item/clothing/under/det/idris/alt
+	name = "idris incorporated detective's uniform"
+	icon_state = "idris_invest_alt"
+	item_state = "idris_invest_alt"
+
+/obj/item/clothing/under/det/pmc/alt
+	name = "PMCG detective's uniform"
+	icon_state = "pmc_invest_alt"
+	item_state = "pmc_invest_alt"
+
 
 /*
  * Head of Security

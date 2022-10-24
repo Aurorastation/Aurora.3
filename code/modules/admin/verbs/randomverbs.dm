@@ -16,32 +16,6 @@
 	message_admins("[key_name_admin(usr)] made [key_name_admin(M)] drop everything!", 1)
 	feedback_add_details("admin_verb","DEVR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cmd_admin_prison(mob/M as mob in mob_list)
-	set category = "Admin"
-	set name = "Prison"
-	if(!holder)
-		to_chat(src, "Only administrators may use this command.")
-		return
-	if (ismob(M))
-		if(istype(M, /mob/living/silicon/ai))
-			alert("The AI can't be sent to prison you jerk!", null, null, null, null, null)
-			return
-		//strip their stuff before they teleport into a cell :downs:
-		for(var/obj/item/W in M)
-			M.drop_from_inventory(W)
-		//teleport person to cell
-		M.Paralyse(5)
-		sleep(5)	//so they black out before warping
-		M.forceMove(pick(prisonwarp))
-		if(istype(M, /mob/living/carbon/human))
-			var/mob/living/carbon/human/prisoner = M
-			prisoner.equip_to_slot_or_del(new /obj/item/clothing/under/color/orange(prisoner), slot_w_uniform)
-			prisoner.equip_to_slot_or_del(new /obj/item/clothing/shoes/orange(prisoner), slot_shoes)
-		spawn(50)
-			to_chat(M, "<span class='danger'>You have been sent to the prison station!</span>")
-		log_admin("[key_name(usr)] sent [key_name(M)] to the prison station.",admin_key=key_name(usr),ckey=key_name(M))
-		message_admins("<span class='notice'>[key_name_admin(usr)] sent [key_name_admin(M)] to the prison station.</span>", 1)
-		feedback_add_details("admin_verb","PRISON") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_subtle_message(mob/M as mob in mob_list)
 	set category = "Special Verbs"

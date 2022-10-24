@@ -14,7 +14,6 @@
 	skybox_icon = "valley_hale"
 	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren)
 
-
 /datum/space_sector/new_ankara
 	name = SECTOR_NEW_ANKARA
 	description = "New Ankara is the home system of the Republic of Elyra. Its capital is Persepolis. The planet was originally an arid planet with a modest atmosphere and stubborn \
@@ -55,4 +54,3 @@
 	description = "The home of the Unathi race, Uueoa-Esa is a solar system with 4 rocky planets and 1 gas giant. Moghes is the homeworld of the Unathi species and third from its mother star. \
 	It is similar in density and composition to Earth and held host to varied and complex environments and local fauna and flora. It's surface area of salt water is much lower than most other habitable planets. \
 	Moghes is currently experiencing immense environmental degradation following a global nuclear war in the 2430's."
-

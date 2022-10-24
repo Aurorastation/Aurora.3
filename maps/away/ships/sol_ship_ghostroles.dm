@@ -24,7 +24,7 @@
 
 	uniform = /obj/item/clothing/under/rank/sol/
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = /obj/item/storage/backpack/satchel/norm
+	back = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/utility/full
 	head = /obj/item/clothing/head/sol
 	accessory = /obj/item/clothing/accessory/storage/brown_vest
@@ -62,7 +62,7 @@
 
 	uniform = /obj/item/clothing/under/rank/sol/dress/subofficer
 	shoes = /obj/item/clothing/shoes/laceup
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	head = /obj/item/clothing/head/sol/dress
 	accessory = /obj/item/clothing/accessory/holster/thigh
 
@@ -99,7 +99,7 @@
 
 	uniform = /obj/item/clothing/under/rank/sol/marine
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = /obj/item/storage/backpack/satchel/norm
+	back = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/military
 	head = /obj/item/clothing/head/sol/marine
 	accessory = /obj/item/clothing/accessory/storage/pouches/black
@@ -145,7 +145,7 @@
 
 	uniform = /obj/item/clothing/under/rank/sol/
 	shoes = /obj/item/clothing/shoes/jackboots
-	back = /obj/item/storage/backpack/satchel/norm
+	back = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/utility/full
 	head = /obj/item/clothing/head/sol
 	accessory = /obj/item/clothing/accessory/storage/brown_vest
@@ -183,7 +183,7 @@
 
 	uniform = /obj/item/clothing/under/rank/sol/dress/subofficer
 	shoes = /obj/item/clothing/shoes/laceup
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	head = /obj/item/clothing/head/sol/dress
 	accessory = /obj/item/clothing/accessory/holster/thigh
 

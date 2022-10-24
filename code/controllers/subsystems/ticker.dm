@@ -563,7 +563,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			continue
 		var/obj/screen/new_player/selection/join_game/JG = locate() in NP.client.screen
 		JG.update_icon(NP)
-	to_world("<span class='notice'><B>Enjoy the game!</B></span>")
+	to_world(SPAN_NOTICE("<b>Enjoy the round!</b>"))
 	sound_to(world, sound('sound/AI/welcome.ogg'))
 	//Holiday Round-start stuff	~Carn
 	Holiday_Game_Start()
