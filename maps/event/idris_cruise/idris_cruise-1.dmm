@@ -1175,12 +1175,10 @@
 /area/cruise/escort)
 "aPP" = (
 /obj/structure/window/reinforced/crescent{
-	dir = 8
+	dir = 4
 	},
-/obj/machinery/photocopier,
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/structure/table/stone/marble,
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -1366,6 +1364,8 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "bar_southwest"
 	},
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -1633,6 +1633,7 @@
 	dir = 1
 	},
 /obj/structure/table/stone/marble,
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -2184,6 +2185,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Kitchen"
 	},
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/decal/cleanable/cobweb,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -2454,6 +2457,7 @@
 /area/cruise/fore)
 "bNG" = (
 /obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/cobweb2,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -2513,6 +2517,7 @@
 /area/cruise/pool/sauna2)
 "bPI" = (
 /obj/structure/table/reinforced/wood,
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -2973,7 +2978,7 @@
 	},
 /area/cruise/fore_p)
 "cnk" = (
-/obj/structure/table/wood,
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
 	},
@@ -3092,6 +3097,12 @@
 	icon_state = "new_white"
 	},
 /area/cruise/pool)
+"cqk" = (
+/obj/item/clothing/head/pumpkin/lantern,
+/turf/unsimulated/floor{
+	icon_state = "asteroidplating"
+	},
+/area/cruise/beach)
 "cqp" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
@@ -3439,6 +3450,11 @@
 	icon_state = "wood"
 	},
 /area/cruise/jungle)
+"cGi" = (
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/wood,
+/area/cruise/dining_hall)
 "cGz" = (
 /obj/structure/barricade/metal{
 	dir = 1
@@ -3660,9 +3676,7 @@
 /area/cruise/centerline)
 "cOX" = (
 /obj/structure/table/wood,
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -3829,9 +3843,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/light/small{
-	dir = 1
-	},
 /turf/unsimulated/floor{
 	icon_state = "carpet10-8"
 	},
@@ -3951,6 +3962,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -4052,6 +4064,29 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/bee_costume,
+/obj/item/clothing/suit/bee_costume,
+/obj/item/clothing/suit/dark_witch_costume,
+/obj/item/clothing/suit/dark_witch_costume,
+/obj/item/clothing/suit/jester_costume,
+/obj/item/clothing/suit/jester_costume,
+/obj/item/clothing/suit/mummy_costume,
+/obj/item/clothing/suit/mummy_costume,
+/obj/item/clothing/suit/schoolgirl_costume,
+/obj/item/clothing/suit/schoolgirl_costume,
+/obj/item/clothing/suit/witch_hunter_costume,
+/obj/item/clothing/suit/witch_hunter_costume,
+/obj/item/clothing/head/bee_hat,
+/obj/item/clothing/head/bee_hat,
+/obj/item/clothing/head/mummy_hat,
+/obj/item/clothing/head/mummy_hat,
+/obj/item/clothing/head/scarecrow_hat,
+/obj/item/clothing/head/scarecrow_hat,
+/obj/item/clothing/head/witch_hunter_hat,
+/obj/item/clothing/head/witch_hunter_hat,
+/obj/item/clothing/suit/scarecrow,
+/obj/item/clothing/suit/scarecrow,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -4059,6 +4094,7 @@
 "ddC" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/table/stone/marble,
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -4249,6 +4285,12 @@
 	icon_state = "asteroidfloor"
 	},
 /area/cruise/beach_cave)
+"djM" = (
+/obj/effect/decal/cleanable/cobweb,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
+/area/cruise/aft)
 "dkj" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -5202,8 +5244,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/structure/table/stone/marble,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -5829,6 +5870,13 @@
 	icon_state = "freezerfloor"
 	},
 /area/cruise/washroom_fore)
+"eEt" = (
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/tiled/ramp{
+	dir = 8
+	},
+/area/cruise/centerline)
 "eFA" = (
 /mob/living/simple_animal/crab{
 	desc = "A rather large crab, about a couple feet in width. It seems pretty docile. It also possesses a little tag connected to its right claw, reading Gilbert.";
@@ -5872,11 +5920,11 @@
 /area/cruise/beach)
 "eGk" = (
 /obj/structure/table/stone/marble,
-/obj/item/material/ashtray/bronze,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "bar_southwest"
 	},
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -6240,9 +6288,6 @@
 "eZI" = (
 /obj/structure/sign/flag/idris{
 	pixel_y = 32
-	},
-/obj/machinery/light{
-	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
@@ -7023,6 +7068,14 @@
 	icon_state = "rub_carpet"
 	},
 /area/cruise/hydroponics)
+"fCn" = (
+/obj/item/flame/waxcandles/snowflake_candle{
+	pixel_y = 24
+	},
+/turf/unsimulated/floor{
+	icon_state = "turquoise"
+	},
+/area/cruise/aft)
 "fCr" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -7155,6 +7208,13 @@
 	icon_state = "dark2"
 	},
 /area/cruise/hangar)
+"fHn" = (
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/cruise/main_bar)
 "fHC" = (
 /obj/structure/table/steel,
 /obj/item/flag/idris,
@@ -7239,18 +7299,11 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/obj/item/paper{
-	info = "This stage is for the MEDAL OF VALOR 2 alpha gameplay demo! Please enter your respective team's chair for balance reasons. Do not use the enemy team's base ingame! Remember, sharing is caring!";
-	name = "medal of valor intro sheet"
-	},
-/obj/item/paper{
-	info = "This stage is for the MEDAL OF VALOR 2 alpha gameplay demo! Please enter your respective team's chair for balance reasons. Do not use the enemy team's base ingame! Remember, sharing is caring!";
-	name = "medal of valor intro sheet"
-	},
 /obj/structure/table/standard,
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -7346,6 +7399,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -7531,12 +7585,9 @@
 	},
 /area/cruise/virtual_reality)
 "fVi" = (
-/obj/machinery/door/airlock/freezer{
-	id_tag = "main_unit_2";
-	name = "Changing Room 2"
-	},
-/turf/unsimulated/floor{
-	icon_state = "new_white"
+/turf/unsimulated/wall/fakeairlock{
+	desc = "An off-limits room. It just says "private" on the front.";
+	name = "Private Area"
 	},
 /area/cruise/pool)
 "fWc" = (
@@ -7712,7 +7763,7 @@
 /area/cruise/beach)
 "gbW" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -7788,11 +7839,7 @@
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
-/obj/item/device/flashlight,
 /obj/structure/railing/mapped,
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -8330,6 +8377,17 @@
 	icon_state = "wood_light"
 	},
 /area/cruise/library)
+"gvZ" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "grassa2"
+	},
+/obj/item/flame/waxcandles/snowflake_candle,
+/turf/unsimulated/floor{
+	footstep_sound = /decl/sound_category/grass_footstep;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "gwa" = (
 /mob/living/simple_animal/cow,
 /obj/machinery/light{
@@ -9427,15 +9485,8 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/obj/item/paper{
-	info = "This stage is for the MEDAL OF VALOR 2 alpha gameplay demo! Please enter your respective team's chair for balance reasons. Do not use the enemy team's base ingame! Remember, sharing is caring!";
-	name = "medal of valor intro sheet"
-	},
-/obj/item/paper{
-	info = "This stage is for the MEDAL OF VALOR 2 alpha gameplay demo! Please enter your respective team's chair for balance reasons. Do not use the enemy team's base ingame! Remember, sharing is caring!";
-	name = "medal of valor intro sheet"
-	},
 /obj/structure/table/standard,
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -9893,7 +9944,6 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/small,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -9946,6 +9996,32 @@
 	name = "gloomy grass"
 	},
 /area/cruise/virtual_reality)
+"hRb" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/bunny_costume,
+/obj/item/clothing/suit/bunny_costume,
+/obj/item/clothing/suit/dog_costume,
+/obj/item/clothing/suit/dog_costume,
+/obj/item/clothing/suit/knight_costume,
+/obj/item/clothing/suit/knight_costume,
+/obj/item/clothing/suit/owl_costume,
+/obj/item/clothing/suit/owl_costume,
+/obj/item/clothing/suit/skeleton_costume,
+/obj/item/clothing/suit/skeleton_costume,
+/obj/item/clothing/suit/wizard_costume,
+/obj/item/clothing/suit/wizard_costume,
+/obj/item/clothing/head/bunny_hat,
+/obj/item/clothing/head/bunny_hat,
+/obj/item/clothing/head/bunny_hat2,
+/obj/item/clothing/head/bunny_hat2,
+/obj/item/clothing/head/knight_hat,
+/obj/item/clothing/head/knight_hat,
+/obj/item/clothing/head/collectable/wizard,
+/obj/item/clothing/head/collectable/wizard,
+/turf/unsimulated/floor{
+	icon_state = "wood_cherry"
+	},
+/area/cruise/centerline)
 "hRm" = (
 /turf/unsimulated/floor{
 	icon_state = "cafeteria"
@@ -10188,6 +10264,15 @@
 	name = "concrete"
 	},
 /area/cruise/virtual_reality)
+"icr" = (
+/obj/item/flame/waxcandles/snowflake_candle{
+	pixel_x = -3;
+	pixel_y = 22
+	},
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/cruise/pool)
 "icI" = (
 /obj/structure/undies_wardrobe,
 /obj/structure/railing/mapped{
@@ -10796,6 +10881,7 @@
 /area/cruise/jungle)
 "iwS" = (
 /obj/machinery/light,
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor"
 	},
@@ -11306,7 +11392,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/obj/item/material/ashtray/bronze,
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -11609,6 +11695,18 @@
 	icon_state = "lino_grey"
 	},
 /area/cruise/main_bar/aft)
+"jfK" = (
+/obj/structure/sign/flag/idris{
+	pixel_y = 32
+	},
+/obj/item/clothing/head/pumpkin/lantern,
+/obj/item/flame/waxcandles/snowflake_candle{
+	pixel_y = 19
+	},
+/turf/unsimulated/floor{
+	icon_state = "platebot"
+	},
+/area/cruise/fore_p)
 "jfO" = (
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/light/small,
@@ -12063,6 +12161,7 @@
 /area/cruise/beach_bar)
 "jxj" = (
 /obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/cobweb2,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -12138,7 +12237,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/toy/desk/fan,
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -12393,13 +12492,13 @@
 	},
 /area/cruise/pool/sauna1)
 "jRv" = (
-/obj/structure/flora/pottedplant/random,
 /obj/structure/sign/flag/idris{
 	pixel_y = 32
 	},
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
@@ -12437,6 +12536,12 @@
 "jSp" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/cruise/virtual_reality)
+"jTc" = (
+/obj/machinery/recharge_station,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/aft)
 "jTh" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -12553,9 +12658,6 @@
 "kaG" = (
 /obj/structure/railing/mapped{
 	dir = 4
-	},
-/obj/structure/bed/stool/chair/wood{
-	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
@@ -12925,6 +13027,15 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"kny" = (
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/item/flame/waxcandles/snowflake_candle{
+	pixel_y = 19
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/main_bar/aft)
 "knz" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/rifle/ionrifle{
@@ -13066,6 +13177,13 @@
 	icon_state = "dark2"
 	},
 /area/cruise/security)
+"ksx" = (
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled/ramp{
+	dir = 4
+	},
+/area/cruise/centerline)
 "ksy" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/pottedplant/random,
@@ -13266,6 +13384,13 @@
 	icon_state = "floor7"
 	},
 /area/cruise/escort)
+"kyR" = (
+/obj/item/clothing/head/pumpkin/lantern,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/cruise/library)
 "kyX" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -13304,6 +13429,10 @@
 /area/cruise/tcomms_sat)
 "kBc" = (
 /obj/structure/flora/grass/jungle,
+/obj/item/flame/waxcandles/snowflake_candle{
+	pixel_y = 9;
+	pixel_x = 5
+	},
 /turf/simulated/floor/grass/alt{
 	icon_state = "grass_stalk"
 	},
@@ -13637,6 +13766,12 @@
 "kPB" = (
 /turf/template_noop,
 /area/cruise/pool)
+"kPV" = (
+/obj/item/clothing/head/pumpkin/lantern,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/cruise/fore)
 "kQc" = (
 /obj/structure/railing/mapped,
 /obj/machinery/light/small,
@@ -13930,6 +14065,7 @@
 	name = "Starboard Primary Hall"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/cobweb,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -14214,6 +14350,8 @@
 /obj/machinery/door/airlock{
 	name = "VR Suite"
 	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/cobweb2,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -15227,6 +15365,7 @@
 	dir = 4
 	},
 /obj/structure/table/stone/marble,
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -16478,8 +16617,9 @@
 	pixel_x = 7;
 	pixel_y = 7
 	},
-/obj/machinery/light/small{
-	dir = 8
+/obj/item/flame/waxcandles/snowflake_candle{
+	pixel_y = 9;
+	pixel_x = -11
 	},
 /turf/unsimulated/floor{
 	icon_state = "alienvault"
@@ -16684,6 +16824,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "bar"
 	},
@@ -16879,6 +17020,18 @@
 	icon_state = "dark2"
 	},
 /area/cruise/hangar)
+"nnu" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "bar_east"
+	},
+/obj/item/clothing/head/pumpkin/lantern,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/cruise/main_bar/aft)
 "nnD" = (
 /obj/machinery/light/spot,
 /turf/unsimulated/floor{
@@ -16937,9 +17090,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -17024,8 +17175,14 @@
 	icon_state = "plating"
 	},
 /area/cruise/hangar)
+"nvn" = (
+/obj/structure/table/stone/marble,
+/obj/item/flame/waxcandles/snowflake_candle,
+/turf/unsimulated/floor{
+	icon_state = "wood_cherry"
+	},
+/area/cruise/dining_hall)
 "nvO" = (
-/obj/structure/flora/pottedplant/random,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -17034,6 +17191,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -17358,6 +17516,13 @@
 	icon_state = "new_white"
 	},
 /area/cruise/virtual_reality)
+"nHw" = (
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/cobweb,
+/turf/unsimulated/floor{
+	icon_state = "wood_cherry"
+	},
+/area/cruise/centerline)
 "nHT" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/spline/fancy,
@@ -17779,10 +17944,20 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
 /area/cruise/aft)
+"oae" = (
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/structure/closet/cabinet,
+/obj/effect/landmark/costume/holiday_priest,
+/obj/effect/landmark/costume/holiday_priest,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/centerline)
 "oaw" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -18019,10 +18194,10 @@
 	},
 /area/cruise/escort)
 "ojt" = (
-/obj/structure/flora/pottedplant/random,
 /obj/structure/sign/flag/idris{
 	pixel_y = 32
 	},
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
@@ -18076,9 +18251,19 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
+	},
+/area/cruise/library)
+"okU" = (
+/obj/structure/window/reinforced/crescent{
+	dir = 4
+	},
+/obj/item/flame/waxcandles/snowflake_candle,
+/turf/unsimulated/floor{
+	icon_state = "wood_light"
 	},
 /area/cruise/library)
 "ols" = (
@@ -18151,10 +18336,11 @@
 	},
 /area/template_noop)
 "omS" = (
-/obj/structure/flora/pottedplant/random,
 /obj/structure/sign/flag/idris{
 	pixel_y = 32
 	},
+/obj/item/clothing/head/pumpkin/lantern,
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
@@ -18399,13 +18585,14 @@
 	},
 /area/cruise/jungle)
 "ovI" = (
-/obj/machinery/light{
-	dir = 8
+/obj/item/flame/waxcandles/snowflake_candle{
+	pixel_y = 3;
+	pixel_x = -9
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
-/area/cruise/aft)
+/area/cruise/fore_s)
 "ovQ" = (
 /obj/item/towel_flat{
 	color = "#ff0000"
@@ -18777,8 +18964,16 @@
 	icon_state = "platebot"
 	},
 /area/template_noop)
+"oPP" = (
+/obj/item/flame/waxcandles/snowflake_candle,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/aft)
 "oQb" = (
-/obj/structure/flora/pottedplant/random,
+/obj/item/flame/waxcandles/snowflake_candle{
+	pixel_x = -19
+	},
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
 	},
@@ -18819,6 +19014,16 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/centerline)
+"oRQ" = (
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/item/flame/waxcandles/snowflake_candle{
+	pixel_y = 19;
+	pixel_x = -10
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/main_bar/aft)
 "oSc" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/unsimulated/floor{
@@ -19031,11 +19236,34 @@
 	},
 /area/cruise/centerline)
 "pau" = (
-/obj/machinery/light{
+/obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/ramp,
-/area/cruise/aft)
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/cheap_ghost_costume,
+/obj/item/clothing/suit/cheap_ghost_costume,
+/obj/item/clothing/suit/hacker_costume,
+/obj/item/clothing/suit/hacker_costume,
+/obj/item/clothing/suit/marisa_costume,
+/obj/item/clothing/suit/marisa_costume,
+/obj/item/clothing/suit/roman_costume,
+/obj/item/clothing/suit/roman_costume,
+/obj/item/clothing/suit/roman_costume,
+/obj/item/clothing/suit/roman_costume,
+/obj/item/clothing/suit/sumo_costume,
+/obj/item/clothing/suit/sumo_costume,
+/obj/item/clothing/suit/griffin_suit,
+/obj/item/clothing/suit/griffin_suit,
+/obj/item/clothing/head/griffin_hat,
+/obj/item/clothing/head/griffin_hat,
+/obj/item/clothing/head/marisa_hat,
+/obj/item/clothing/head/marisa_hat,
+/obj/item/clothing/head/roman_hat,
+/obj/item/clothing/head/roman_hat,
+/turf/unsimulated/floor{
+	icon_state = "wood_cherry"
+	},
+/area/cruise/centerline)
 "paL" = (
 /obj/structure/table/reinforced,
 /obj/random/contraband,
@@ -19350,6 +19578,30 @@
 	icon_state = "freezerfloor"
 	},
 /area/cruise/washroom_fore)
+"pnM" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/carp_costume,
+/obj/item/clothing/suit/carp_costume,
+/obj/item/clothing/suit/flash_costume,
+/obj/item/clothing/suit/flash_costume,
+/obj/item/clothing/suit/lobster_costume,
+/obj/item/clothing/suit/lobster_costume,
+/obj/item/clothing/suit/pharaoh_costume,
+/obj/item/clothing/suit/pharaoh_costume,
+/obj/item/clothing/suit/snowman_costume,
+/obj/item/clothing/suit/snowman_costume,
+/obj/item/clothing/head/flashsuit_hat,
+/obj/item/clothing/head/flashsuit_hat,
+/obj/item/clothing/head/lobster_hat,
+/obj/item/clothing/head/lobster_hat,
+/obj/item/clothing/head/pharaoh_hat,
+/obj/item/clothing/head/pharaoh_hat,
+/obj/item/clothing/head/snowman_hat,
+/obj/item/clothing/head/snowman_hat,
+/turf/unsimulated/floor{
+	icon_state = "wood_cherry"
+	},
+/area/cruise/centerline)
 "pnU" = (
 /obj/item/hullbeacon/red,
 /obj/structure/window/reinforced/polarized{
@@ -19681,6 +19933,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -19709,7 +19962,6 @@
 /area/cruise/escort)
 "pzR" = (
 /obj/structure/flora/grass/jungle/b,
-/obj/machinery/light/small,
 /turf/simulated/floor/grass/alt{
 	icon_state = "grass_stalk"
 	},
@@ -19918,6 +20170,27 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/closet/cabinet,
+/obj/item/clothing/head/plaguedoctorhat,
+/obj/item/clothing/head/plaguedoctorhat,
+/obj/item/clothing/mask/gas/plaguedoctor,
+/obj/item/clothing/mask/gas/plaguedoctor,
+/obj/item/clothing/suit/bio_suit/plaguedoctorsuit,
+/obj/item/clothing/suit/bio_suit/plaguedoctorsuit,
+/obj/item/clothing/suit/nun,
+/obj/item/clothing/suit/nun,
+/obj/item/clothing/head/nun_hood,
+/obj/item/clothing/head/nun_hood,
+/obj/item/clothing/suit/judgerobe,
+/obj/item/clothing/suit/judgerobe,
+/obj/item/clothing/head/judge_wig,
+/obj/item/clothing/head/judge_wig,
+/obj/effect/landmark/costume/gladiator,
+/obj/effect/landmark/costume/gladiator,
+/obj/effect/landmark/costume/chicken,
+/obj/effect/landmark/costume/chicken,
+/obj/effect/landmark/costume/highlander,
+/obj/effect/landmark/costume/highlander,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -21145,9 +21418,6 @@
 /obj/structure/sign/flag/idris{
 	pixel_y = 32
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
 	},
@@ -22202,7 +22472,6 @@
 	},
 /area/cruise/virtual_reality)
 "rLN" = (
-/obj/structure/bed/stool/chair/wood,
 /obj/effect/decal/fake_object{
 	desc = "A descriptive sign.";
 	icon = 'icons/effects/ship_idris_cruise.dmi';
@@ -22210,6 +22479,7 @@
 	name = "aft hall indicator";
 	pixel_y = 32
 	},
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
 	},
@@ -22292,6 +22562,14 @@
 	icon_state = "desert"
 	},
 /area/cruise/beach)
+"rPP" = (
+/obj/structure/table/rack,
+/obj/machinery/light,
+/obj/item/clothing/suit/zombie_costume,
+/turf/unsimulated/floor{
+	icon_state = "new_white"
+	},
+/area/cruise/pool)
 "rQy" = (
 /obj/structure/sink{
 	dir = 8;
@@ -23115,7 +23393,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/bed/stool/padded/red,
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -23159,7 +23437,7 @@
 "sFY" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/table/wood,
-/obj/machinery/recharger,
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -23234,6 +23512,16 @@
 	icon_state = "dark2"
 	},
 /area/cruise/aft)
+"sGX" = (
+/obj/machinery/door/airlock{
+	name = "VR Suite"
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/decal/cleanable/cobweb,
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/cruise/arcade)
 "sHN" = (
 /obj/structure/sign/flag/scc{
 	pixel_y = 32
@@ -23424,7 +23712,7 @@
 /area/cruise/central)
 "sQm" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/red,
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -23532,6 +23820,22 @@
 	icon_state = "bar"
 	},
 /area/cruise/beach)
+"sUi" = (
+/obj/structure/table/stone/marble,
+/obj/item/flame/candle{
+	pixel_x = 11;
+	pixel_y = 16
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "bar_east"
+	},
+/obj/item/clothing/head/pumpkin/lantern,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/cruise/main_bar/aft)
 "sUv" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -23707,6 +24011,7 @@
 	dir = 8
 	},
 /obj/structure/table/stone/marble,
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -23860,6 +24165,7 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "bar_west"
 	},
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -24063,16 +24369,12 @@
 	},
 /area/cruise/aft_p)
 "tmH" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 4
-	},
-/obj/structure/table/stone/marble,
-/obj/item/device/flashlight/lamp,
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/cobweb,
 /turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
+	icon_state = "lino_grey"
 	},
-/area/cruise/library)
+/area/cruise/main_bar)
 "tmJ" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/spline/fancy{
@@ -24593,6 +24895,13 @@
 	icon_state = "desert"
 	},
 /area/cruise/virtual_reality)
+"tFJ" = (
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/unsimulated/floor{
+	icon_state = "wood_cherry"
+	},
+/area/cruise/centerline)
 "tFS" = (
 /obj/structure/railing/mapped{
 	color = "#6e472b";
@@ -24844,7 +25153,6 @@
 	},
 /area/template_noop)
 "tQP" = (
-/obj/structure/flora/pottedplant/random,
 /obj/machinery/atm{
 	pixel_y = 28
 	},
@@ -26073,6 +26381,18 @@
 /obj/machinery/light,
 /turf/unsimulated/floor/plating,
 /area/template_noop)
+"uIG" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
+/obj/item/flame/waxcandles/snowflake_candle,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "uJc" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -26311,7 +26631,10 @@
 /area/cruise/library)
 "uTn" = (
 /obj/structure/table/standard,
-/obj/item/newspaper,
+/obj/item/flame/waxcandles/snowflake_candle{
+	pixel_y = 10;
+	pixel_x = -5
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -26611,18 +26934,12 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
-	pixel_y = 5
-	},
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -26918,6 +27235,13 @@
 	name = "dirt"
 	},
 /area/cruise/jungle)
+"vuH" = (
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/item/flame/waxcandles/snowflake_candle,
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/centerline)
 "vuJ" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
@@ -27199,7 +27523,7 @@
 /area/template_noop)
 "vIP" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -27248,8 +27572,9 @@
 	},
 /area/cruise/fore)
 "vMP" = (
-/obj/structure/bed/stool/chair/wood{
-	dir = 4
+/obj/item/flame/waxcandles/snowflake_candle{
+	pixel_x = -10;
+	pixel_y = -4
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -27383,10 +27708,10 @@
 	},
 /area/cruise/escort)
 "vSy" = (
-/obj/structure/flora/pottedplant/random,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -27422,6 +27747,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/item/clothing/head/pumpkin/lantern,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -27460,8 +27786,8 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/item/device/flashlight/lamp,
 /obj/structure/table/wood,
+/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -27870,6 +28196,16 @@
 	icon_state = "asteroidfloor"
 	},
 /area/cruise/beach)
+"wiU" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass{
+	name = "Main Bar"
+	},
+/obj/effect/decal/cleanable/cobweb,
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/cruise/main_bar/aft)
 "wjb" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -28191,7 +28527,6 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/structure/table/stone/marble,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -29633,6 +29968,16 @@
 /obj/structure/lattice/catwalk,
 /turf/unsimulated/floor/plating,
 /area/cruise/tcomms_sat)
+"xCr" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass{
+	name = "Main Bar"
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/cruise/main_bar/aft)
 "xCH" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Main Bar Suite Entry"
@@ -29715,6 +30060,7 @@
 	name = "Port Primary Hall"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/cobweb,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -56327,7 +56673,7 @@ vtQ
 hlE
 fgt
 bvH
-aqI
+rPP
 fgt
 nNd
 nNd
@@ -57283,7 +57629,7 @@ qzs
 qzs
 hfT
 fob
-qzs
+cqk
 bgj
 qzs
 qzs
@@ -57304,7 +57650,7 @@ lWQ
 lWQ
 lWQ
 wfr
-omS
+jfK
 kcK
 vzM
 tyZ
@@ -57627,8 +57973,8 @@ uQb
 uQb
 gVt
 fgt
+icr
 nYS
-fDY
 fgt
 fgt
 fgt
@@ -58059,7 +58405,7 @@ fLx
 fLx
 dyr
 weA
-qzs
+cqk
 dyr
 weA
 hfT
@@ -59177,7 +59523,7 @@ xhc
 iRT
 iRT
 iRT
-ovI
+iRT
 iRT
 jim
 pES
@@ -59690,7 +60036,7 @@ dwA
 sAV
 wLs
 snG
-kaG
+uIG
 iTT
 kaG
 nZN
@@ -60847,7 +61193,7 @@ gVc
 dxP
 dxP
 vSS
-aPP
+vFH
 soG
 cEJ
 cEJ
@@ -60985,9 +61331,9 @@ pLF
 pLF
 pLF
 pLF
-pau
+dme
 pES
-oQb
+cnk
 iOr
 iOr
 usu
@@ -61104,7 +61450,7 @@ hBF
 lOT
 lOT
 bUa
-eGW
+kyR
 soG
 soG
 lAG
@@ -61214,7 +61560,7 @@ oKp
 dwA
 dwA
 dwA
-btb
+eEt
 btb
 dwA
 dwA
@@ -61239,7 +61585,7 @@ iOr
 iOr
 iOr
 lQy
-jNh
+djM
 qcE
 lQy
 iOr
@@ -61498,7 +61844,7 @@ sck
 vUm
 bcx
 bcx
-vSy
+oPP
 vbP
 vbP
 vbP
@@ -61875,7 +62221,7 @@ eGW
 eGW
 eGW
 eGW
-eGW
+kyR
 soG
 tQP
 feP
@@ -62129,8 +62475,8 @@ kDq
 gjp
 aEl
 mXr
+aPP
 gIF
-tmH
 mXr
 npU
 soG
@@ -62207,7 +62553,7 @@ xiy
 erJ
 qrV
 kxc
-dek
+kny
 lux
 lux
 lux
@@ -62222,7 +62568,7 @@ lux
 sOX
 lux
 lux
-vHa
+wiU
 vgc
 eDB
 qWZ
@@ -62395,7 +62741,7 @@ soG
 feP
 feP
 rIw
-feP
+kPV
 qdK
 soG
 rrw
@@ -62465,7 +62811,7 @@ cXu
 cXu
 kxc
 kxc
-qdj
+lux
 lux
 lux
 fxw
@@ -62721,7 +63067,7 @@ oUq
 rzW
 qrV
 kxc
-dek
+oRQ
 lux
 lux
 lux
@@ -62736,7 +63082,7 @@ lux
 sUH
 lux
 lux
-vHa
+xCr
 vkp
 eDB
 qWZ
@@ -62754,7 +63100,7 @@ oZQ
 oZQ
 aaR
 esl
-qWZ
+hRb
 qWZ
 qWZ
 anI
@@ -63011,7 +63357,7 @@ lCi
 lCi
 pRn
 dwA
-qWZ
+pnM
 qWZ
 qWZ
 anI
@@ -63252,7 +63598,7 @@ gxb
 lIu
 asj
 esl
-vJi
+vuH
 jkn
 fWm
 hog
@@ -63268,7 +63614,7 @@ lCi
 lCi
 pRn
 dwA
-kTu
+pau
 kTu
 qWZ
 qWZ
@@ -63485,13 +63831,13 @@ aiT
 aiT
 clw
 kxc
-rrs
+sUi
 hdk
 fSl
 hRY
 rrs
 ktD
-hdk
+nnu
 era
 qAF
 qAF
@@ -63514,7 +63860,7 @@ vZG
 vZG
 vZG
 vZG
-igM
+cGi
 fvZ
 vZG
 vZG
@@ -63530,7 +63876,7 @@ vHO
 bAB
 qWZ
 pKY
-cOM
+oae
 dwA
 cwG
 fcA
@@ -63554,7 +63900,7 @@ ili
 cYE
 bcx
 bcx
-wDJ
+jTc
 ujX
 ujX
 ujX
@@ -63666,7 +64012,7 @@ iyo
 gvv
 eTR
 hZt
-hZt
+okU
 gWo
 bMD
 cEJ
@@ -63784,7 +64130,7 @@ qWZ
 dwA
 dwA
 dwA
-sFv
+ksx
 sFv
 dwA
 dwA
@@ -64548,7 +64894,7 @@ tXV
 xsl
 sPq
 sPq
-fhF
+nHw
 wXY
 sPq
 sPq
@@ -64791,7 +65137,7 @@ oSt
 oSt
 oXd
 gbW
-tQW
+vlL
 vlL
 tQW
 vlL
@@ -64805,7 +65151,7 @@ tXV
 igM
 sPq
 sPq
-fhF
+tFJ
 wXY
 sPq
 sPq
@@ -65097,7 +65443,7 @@ iOr
 wLs
 wLs
 iOr
-pES
+fCn
 pES
 pES
 iOr
@@ -65491,7 +65837,7 @@ qQP
 qQP
 qSc
 qQP
-sGy
+gvZ
 cLb
 jlw
 qQP
@@ -65788,7 +66134,7 @@ iBq
 wez
 lIu
 iUS
-tyZ
+tmH
 jMA
 hXW
 iUS
@@ -65828,7 +66174,7 @@ bgk
 mge
 uXl
 chu
-wKP
+nvn
 vZG
 oRK
 sPq
@@ -66117,7 +66463,7 @@ lQy
 lQy
 lQy
 iOr
-pES
+cnk
 pES
 kzw
 iOr
@@ -66127,7 +66473,7 @@ lQy
 lQy
 iOr
 tLR
-xDt
+cnk
 iOr
 iOr
 eeg
@@ -66333,7 +66679,7 @@ oSt
 oSt
 oXd
 gbW
-tYA
+sIH
 sIH
 tYA
 sIH
@@ -67587,7 +67933,7 @@ soC
 ojt
 xAz
 iUS
-tyZ
+fHn
 jMA
 iUS
 mUi
@@ -67614,7 +67960,7 @@ kxc
 loo
 bLx
 bLx
-loo
+ovI
 soC
 tul
 hWr
@@ -70964,7 +71310,7 @@ jUL
 jUL
 vQF
 sjz
-lmg
+sGX
 sjz
 sjz
 juG
