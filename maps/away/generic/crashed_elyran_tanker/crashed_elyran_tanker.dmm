@@ -52,6 +52,11 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
+"ag" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor,
+/area/crashed_elyran_tanker/crew)
 "ai" = (
 /obj/machinery/atmospherics/valve{
 	dir = 4
@@ -70,9 +75,9 @@
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
 "aq" = (
-/obj/machinery/door/airlock,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/full,
 /area/crashed_elyran_tanker/crew)
 "av" = (
@@ -257,12 +262,15 @@
 	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/thruster)
-"co" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/empty/air,
-/turf/simulated/floor/airless,
-/area/crashed_elyran_tanker/tanks)
 "cr" = (
+/obj/item/clothing/suit/space/emergency{
+	pixel_x = 1;
+	pixel_y = 8
+	},
+/obj/item/clothing/head/helmet/space/emergency{
+	pixel_y = 2;
+	pixel_x = -9
+	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
 "cw" = (
@@ -375,16 +383,18 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
 "dr" = (
-/obj/machinery/door/airlock,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/full,
 /area/crashed_elyran_tanker/crew)
 "du" = (
@@ -548,6 +558,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/closet/firecloset,
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/engineering)
 "eT" = (
@@ -793,18 +804,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
-"hP" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/crashed_elyran_tanker/crew)
 "hU" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /obj/effect/decal/cleanable/dirt,
@@ -989,6 +988,11 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
+"jG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/tiled,
+/area/crashed_elyran_tanker/bridge)
 "jH" = (
 /obj/structure/girder,
 /obj/effect/decal/cleanable/dirt,
@@ -1036,6 +1040,16 @@
 /obj/machinery/floodlight,
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
+"kf" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor,
+/area/crashed_elyran_tanker/crew)
 "kg" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1086,6 +1100,14 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
+/obj/item/device/flashlight/lamp{
+	pixel_y = 4;
+	pixel_x = -7
+	},
+/obj/item/device/gps{
+	pixel_x = 5;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
 "kR" = (
@@ -1098,6 +1120,11 @@
 "le" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/crashed_elyran_tanker/crew)
+"lh" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/empty/air,
+/turf/simulated/floor/reinforced/airless,
+/area/crashed_elyran_tanker/tanks)
 "lk" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -1160,17 +1187,6 @@
 /obj/item/stack/rods,
 /turf/template_noop,
 /area/crashed_elyran_tanker/tanks)
-"lU" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/firealarm/west,
-/turf/simulated/floor,
-/area/crashed_elyran_tanker/crew)
 "lX" = (
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1353,6 +1369,17 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/crashed_elyran_tanker/thruster)
+"oa" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/thruster)
 "od" = (
@@ -1543,6 +1570,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
+"pZ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor,
+/area/crashed_elyran_tanker/crew)
 "qg" = (
 /obj/structure/tank_wall{
 	density = 0;
@@ -1669,11 +1707,6 @@
 "qN" = (
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/crashed_elyran_tanker/tanks)
-"qQ" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/firealarm/west,
-/turf/simulated/floor,
-/area/crashed_elyran_tanker/crew)
 "qU" = (
 /obj/structure/sign/flag/elyra{
 	pixel_y = 32;
@@ -1703,6 +1736,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
+/obj/item/tank/emergency_oxygen/engi{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/machinery/recharger{
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
 "rD" = (
@@ -1921,16 +1961,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
-"ue" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/crashed_elyran_tanker/crew)
 "uf" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -1965,6 +1995,10 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/item/tank/emergency_oxygen/engi{
+	pixel_y = 6;
+	pixel_x = -5
 	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
@@ -2088,6 +2122,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/structure/closet/crate/solar,
 /turf/simulated/floor/tiled/dark/full,
 /area/crashed_elyran_tanker/thruster)
 "wh" = (
@@ -2167,8 +2202,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/crashed_elyran_tanker/thruster)
 "xe" = (
-/obj/machinery/door/airlock,
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/full,
 /area/crashed_elyran_tanker/crew)
 "xf" = (
@@ -2192,6 +2227,18 @@
 	},
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
+"xj" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/crashed_elyran_tanker/crew)
 "xq" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/portable_atmospherics/canister/empty/phoron{
@@ -2460,10 +2507,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "zj" = (
-/obj/structure/closet/crate/solar,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/airless,
 /area/crashed_elyran_tanker/engineering)
 "zk" = (
@@ -3150,6 +3197,7 @@
 	},
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/cobweb,
+/obj/item/modular_computer/handheld/pda,
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
 "GE" = (
@@ -3176,6 +3224,13 @@
 	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
+"GN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/crashed_elyran_tanker/bridge)
 "GS" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#f8ea25"
@@ -3282,7 +3337,7 @@
 /area/crashed_elyran_tanker/tanks)
 "HO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/full,
 /area/crashed_elyran_tanker/crew)
 "HT" = (
@@ -3492,10 +3547,10 @@
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
 "JM" = (
-/obj/machinery/door/airlock,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spider/stickyweb,
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/full,
 /area/crashed_elyran_tanker/bridge)
 "JP" = (
@@ -3685,7 +3740,7 @@
 "LO" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/firecloset,
+/obj/machinery/portable_atmospherics/canister/empty/oxygen,
 /turf/simulated/floor/tiled/airless,
 /area/crashed_elyran_tanker/engineering)
 "LR" = (
@@ -3794,11 +3849,6 @@
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/crashed_elyran_tanker/engineering)
-"MT" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/firealarm/east,
-/turf/simulated/floor/tiled,
-/area/crashed_elyran_tanker/bridge)
 "MV" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -3851,17 +3901,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
-"Nl" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/firealarm/north,
-/turf/simulated/floor,
-/area/crashed_elyran_tanker/thruster)
 "No" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor/airless,
@@ -3969,13 +4008,6 @@
 	},
 /turf/template_noop,
 /area/crashed_elyran_tanker/tanks)
-"Ok" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/crashed_elyran_tanker/bridge)
 "On" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -4243,16 +4275,6 @@
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
-"Qf" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor,
-/area/crashed_elyran_tanker/crew)
 "Qp" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 1441;
@@ -4349,15 +4371,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
-"Rn" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/storage/toolbox/emergency{
-	pixel_x = 14;
-	pixel_y = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/crashed_elyran_tanker/engineering)
 "Rp" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/computer/ship/engines{
@@ -4407,6 +4420,15 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
+"RZ" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/toolbox/emergency{
+	pixel_x = 14;
+	pixel_y = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/crashed_elyran_tanker/engineering)
 "Sc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic{
@@ -4472,6 +4494,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
+/turf/simulated/floor/airless,
+/area/crashed_elyran_tanker/tanks)
+"SX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
 "Th" = (
@@ -4620,6 +4647,16 @@
 /obj/effect/shuttle_landmark/nav_crashed_elyran_tanker/dock_aft_intrepid,
 /turf/template_noop,
 /area/space)
+"Uy" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/crashed_elyran_tanker/crew)
 "Uz" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
@@ -4658,11 +4695,6 @@
 	id_tag = "tank_sensor_r_3"
 	},
 /turf/simulated/floor/reinforced/phoron,
-/area/crashed_elyran_tanker/tanks)
-"UL" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/empty/air,
-/turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "UQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4779,6 +4811,15 @@
 	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency{
+	pixel_y = -3;
+	pixel_x = 6
+	},
+/obj/item/tank/emergency_oxygen/engi{
+	pixel_y = -2;
+	pixel_x = -10
+	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/thruster)
 "VT" = (
@@ -4905,13 +4946,13 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "WV" = (
-/obj/machinery/door/airlock,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/full,
 /area/crashed_elyran_tanker/crew)
 "WZ" = (
@@ -5257,6 +5298,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/bridge)
 "ZA" = (
@@ -28561,7 +28603,7 @@ Dg
 Dg
 qN
 dE
-co
+SX
 MM
 yN
 uZ
@@ -40893,14 +40935,14 @@ Dg
 Yx
 CP
 nw
-Ok
+GN
 xK
-MT
+jG
 Yx
 RX
 zu
 mE
-UL
+lh
 le
 le
 EK
@@ -42434,16 +42476,16 @@ Dg
 Dg
 le
 Am
-qQ
+ag
 Js
 JP
 tG
-Qf
+kf
 Rf
 tG
 tG
-hP
-lU
+xj
+pZ
 Bf
 Zk
 WV
@@ -42692,7 +42734,7 @@ Dg
 le
 Km
 Bg
-ue
+Uy
 cW
 lA
 PH
@@ -44243,7 +44285,7 @@ Dg
 Kp
 Th
 Th
-Nl
+oa
 rO
 wW
 xO
@@ -45021,7 +45063,7 @@ QQ
 OH
 gf
 dY
-Rn
+RZ
 Kp
 qu
 qu
