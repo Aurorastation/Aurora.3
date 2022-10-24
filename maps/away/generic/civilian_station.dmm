@@ -1710,6 +1710,7 @@
 /area/civilian_station)
 "pmw" = (
 /obj/structure/reagent_dispensers/watertank,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
 "pqp" = (
