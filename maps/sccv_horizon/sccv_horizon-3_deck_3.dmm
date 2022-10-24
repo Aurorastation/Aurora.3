@@ -6182,6 +6182,7 @@
 	dir = 4;
 	pixel_x = 32
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "lf" = (
@@ -14439,12 +14440,14 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/washroom)
 "Ap" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/flag/sol/right{
 	dir = 4;
 	pixel_x = 32
 	},
-/turf/simulated/floor,
+/obj/structure/ladder{
+	pixel_y = 10
+	},
+/turf/simulated/open,
 /area/maintenance/bridge)
 "Aq" = (
 /obj/structure/railing/mapped{

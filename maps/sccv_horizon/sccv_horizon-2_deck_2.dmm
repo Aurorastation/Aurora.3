@@ -9213,8 +9213,10 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
 "eTf" = (
-/obj/structure/table/rack,
-/obj/random/loot,
+/obj/structure/ladder/up{
+	pixel_y = 13
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/starboard)
 "eTQ" = (
@@ -26674,6 +26676,12 @@
 "nTS" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/engineering)
+"nUb" = (
+/obj/structure/table/rack,
+/obj/random/loot,
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/horizon/maintenance/deck_two/fore/starboard)
 "nUh" = (
 /obj/machinery/button/remote/blast_door{
 	id = "bar_starboard";
@@ -64429,7 +64437,7 @@ xHc
 ccl
 khK
 gVn
-eTf
+nUb
 iBa
 kYw
 gun
