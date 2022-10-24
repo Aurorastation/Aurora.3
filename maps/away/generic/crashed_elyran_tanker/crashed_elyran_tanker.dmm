@@ -1166,6 +1166,24 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/engineering)
+"lP" = (
+/obj/item/pipe{
+	pixel_y = 2;
+	pixel_x = 11
+	},
+/obj/item/pipe{
+	pixel_y = -1;
+	pixel_x = 5
+	},
+/obj/item/pipe{
+	pixel_y = -3
+	},
+/obj/item/device/transfer_valve{
+	pixel_x = -10;
+	pixel_y = 2
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/crashed_elyran_tanker/tanks)
 "lR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister/empty/air,
@@ -1634,6 +1652,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/crew)
+"qz" = (
+/obj/structure/lattice,
+/obj/item/pipewrench{
+	pixel_x = 7;
+	pixel_y = 6
+	},
+/turf/template_noop,
+/area/crashed_elyran_tanker/tanks)
 "qA" = (
 /turf/simulated/wall/r_wall,
 /area/space)
@@ -1923,6 +1949,15 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
+/area/crashed_elyran_tanker/tanks)
+"tN" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/valve{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "tS" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -2670,6 +2705,16 @@
 /obj/item/stack/material/steel,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
+"Bl" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/item/device/pipe_painter{
+	pixel_x = 4;
+	pixel_y = -6
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/crashed_elyran_tanker/tanks)
 "Bo" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -37103,7 +37148,7 @@ xx
 gl
 bi
 xx
-HG
+Bl
 gc
 gc
 Sk
@@ -37358,8 +37403,8 @@ vu
 fw
 lB
 Jl
-Jl
-lB
+xx
+qz
 HG
 gc
 gc
@@ -37615,10 +37660,10 @@ gc
 fw
 xx
 gl
-bi
+xx
 xx
 HG
-gc
+lP
 gc
 Sk
 fw
@@ -37872,7 +37917,7 @@ hb
 Dk
 xx
 gl
-bi
+lB
 xx
 Dk
 wc
@@ -39150,7 +39195,7 @@ Dg
 Dg
 qB
 LR
-HG
+tN
 gc
 mE
 mE
