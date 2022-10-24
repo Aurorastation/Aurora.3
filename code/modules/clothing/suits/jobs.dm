@@ -135,7 +135,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "pmc_jacket_alt"
 	item_state = "pmc_jacket_alt"
 
-/obj/item/clothing/suit/storage/security/hos
+/obj/item/clothing/suit/storage/security/officer/hos
 	name = "head of security's jacket"
 	desc = "This piece of clothing was specifically designed for asserting superior authority."
 	icon_state = "hosjacket"

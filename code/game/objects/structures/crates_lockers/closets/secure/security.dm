@@ -150,6 +150,7 @@
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/head/helmet/hos(src)
+	new /obj/item/clothing/suit/storage/security/officer/hos(src)
 	//Tools
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/device/radio/headset/heads/hos(src)
