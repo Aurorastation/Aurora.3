@@ -8,7 +8,7 @@
 	item_state = "dog_costume"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|HEAD|ARMS|LEGS
-	flags_inv = HIDEJUMPSUIT|HIDESHOES|HIDEGLOVES|HIDEEARS|HIDETAIL|HIDEWRISTS
+	flags_inv = HIDEJUMPSUIT|HIDESHOES|HIDEGLOVES|HIDEEARS|HIDETAIL|HIDEWRISTS|BLOCKHAIR
 
 /obj/item/clothing/suit/carp_costume
 	name = "carp costume"
@@ -18,7 +18,7 @@
 	item_state = "carp_costume"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|HEAD|ARMS
-	flags_inv = HIDEJUMPSUIT|HIDETAIL|HIDEWRISTS|HIDEEARS
+	flags_inv = HIDETAIL|HIDEWRISTS|HIDEEARS|BLOCKHAIR
 
 /obj/item/clothing/suit/zombie_costume
 	name = "zombie apparel"
@@ -78,7 +78,7 @@
 	item_state = "skeleton"
 	contained_sprite = TRUE
 	body_parts_covered = HEAD|UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
-	flags_inv = HIDEJUMPSUIT|HIDEWRISTS|HIDEFACE|HIDEEARS
+	flags_inv = HIDEJUMPSUIT|HIDEWRISTS|HIDEFACE|HIDEEARS|BLOCKHAIR
 
 /obj/item/clothing/suit/sumo_costume
 	name = "sumo costume"
@@ -167,7 +167,6 @@
 	item_state = "flashsuit"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/cheap_ghost_costume
 	name = "\"ghost\" costume"
@@ -177,7 +176,7 @@
 	item_state = "low_effort_ghost"
 	contained_sprite = TRUE
 	body_parts_covered = HEAD|UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE|HIDEJUMPSUIT|HIDEGLOVES|HIDEMASK|HIDESHOES|HIDEWRISTS
+	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE|HIDEJUMPSUIT|HIDEGLOVES|HIDEMASK|HIDESHOES|HIDEWRISTS|BLOCKHAIR
 
 /obj/item/clothing/suit/mummy_costume
 	name = "mummy costume"
@@ -258,3 +257,166 @@
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	flags_inv = HIDEJUMPSUIT
+
+// Hats
+
+/obj/item/clothing/head/judge_wig
+	name = "judge wig"
+	desc = "A cheaply made wig, making you look like a judge or philosopher."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "judge_wig"
+	item_state = "judge_wig"
+	contained_sprite = TRUE
+	flags_inv = BLOCKHAIR
+
+/obj/item/clothing/head/dark_witch_hat
+	name = "dark witch hat"
+	desc = "A sinister looking piece of headware, perfect for a witch."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "dark_witch_hat"
+	item_state = "dark_witch_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/bunny_hat
+	name = "bunny ears"
+	desc = "A piece of plastic, with some bunny ears attached to them."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "bunny_hat"
+	item_state = "bunny_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/bunny_hat2
+	name = "bunny mask"
+	desc = "A full head mask, depicting a friendly looking bunny."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "bunny_hat2"
+	item_state = "bunny_hat2"
+	contained_sprite = TRUE
+	body_parts_covered = HEAD|FACE|EYES
+	flags_inv = BLOCKHAIR
+
+/obj/item/clothing/head/witch_hunter_hat
+	name = "witch hunter hat"
+	desc = "A wide brimmed, black and red hat, donning a crucifix on the front to shield you from evil demons and witches."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "witch_hunter_hat"
+	item_state = "witch_hunter_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/pharaoh_hat
+	name = "pharaoh headpiece"
+	desc = "A piece of headgear, marking you as the great egyptian leader you always wanted to be."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "pharaoh_hat"
+	item_state = "pharaoh_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/marisa_hat
+	name = "quirky witch hat"
+	desc = "A black and white hat, to complete your look as the very dangerous witch absolutely are."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "marisa_hat"
+	item_state = "marisa_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/knight_hat
+	name = "knight helmet"
+	desc = "A plastic replica of a knight helmet minus the actual protection."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "knight_hat"
+	item_state = "knight_hat"
+	contained_sprite = TRUE
+	body_parts_covered = HEAD|FACE|EYES
+	flags_inv = BLOCKHAIR
+
+
+/obj/item/clothing/head/snowman_hat
+	name = "snowman headpiece"
+	desc = "The headpiece for the snowman costume. It looks a bit strange to you."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "snowman_hat"
+	item_state = "snowman_hat"
+	contained_sprite = TRUE
+	body_parts_covered = HEAD|FACE
+	flags_inv = BLOCKHAIR
+
+/obj/item/clothing/head/flashsuit_hat
+	name = "flashsuit hat"
+	desc = "The headpiece for the flash suit. Maybe if someone hits you on your head the flash will actually go off."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "flashsuit_hat"
+	item_state = "flashsuit_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/jester_hat
+	name = "jester hat"
+	desc = "A cheaply hat like one of a medieval jester, so you look like a proper fool."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "jester_hat"
+	item_state = "jester_hat"
+	contained_sprite = TRUE
+	flags_inv = BLOCKHAIR
+
+/obj/item/clothing/head/bee_hat
+	name = "bee antennae"
+	desc = "A pair of antennas, to complete your honeybee look."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "bee_hat"
+	item_state = "bee_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/roman_hat
+	name = "legionaire helmet"
+	desc = "The plastic helmet of a roman legionaire. Dying for Rome is a great honour, you were told."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "roman_hat"
+	item_state = "roman_hat"
+	contained_sprite = TRUE
+	flags_inv = BLOCKHAIR
+
+/obj/item/clothing/head/roman_centurion_helmet
+	name = "legionaire centurion helmet"
+	desc = "The plastic helmet of a roman legionaire officer. Roma Invicta!"
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "roman_centurion_hat"
+	item_state = "roman_centurion_hat"
+	contained_sprite = TRUE
+	flags_inv = BLOCKHAIR
+
+/obj/item/clothing/head/griffin_hat
+	name = "griffin costume headpiece"
+	desc = "The headpiece for the griffin costume. The beak is thankfully not sharpened."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "griffin_hat"
+	item_state = "griffin_hat"
+	contained_sprite = TRUE
+	body_parts_covered = HEAD|FACE|EYES
+	flags_inv = BLOCKHAIR
+
+/obj/item/clothing/head/scarecrow_hat
+	name = "scarecrow hat"
+	desc = "A rugged, brown hat to complete your scary scarecrow look."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "scarecrow_hat"
+	item_state = "scarecrow_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/lobster_hat
+	name = "lobster costume headpiece"
+	desc = "The rubber headpiece to the lobster costume."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "lobster_hat"
+	item_state = "lobster_hat"
+	contained_sprite = TRUE
+	body_parts_covered = HEAD|EYES|FACE
+	flags_inv = BLOCKHAIR
+
+/obj/item/clothing/head/mummy_hat
+	name = "mummy mask"
+	desc = "A full head mask for the real mummy look. Real bandages, real spooks."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "mummy_mask"
+	item_state = "mummy_mask"
+	contained_sprite = TRUE
+	body_parts_covered = HEAD|EYES
+	flags_inv = BLOCKHAIR
