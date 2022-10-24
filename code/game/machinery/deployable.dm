@@ -323,7 +323,8 @@ for reference:
 
 /obj/item/deployable_kit/legion_barrier
 	name = "legion barrier kit"
-	desc = "A quick assembly kit for deploying id-lockable barriers in the field. Most commonly seen used for crowd control by corporate security."
+	desc = "A quick assembly kit for deploying id-lockable barriers in the field. This one has the mark of the Tau Ceti Foreign Legion."
+	icon = 'icons/obj/storage.dmi'
 	icon_state = "barrier_kit"
 	w_class = ITEMSIZE_SMALL
 	kit_product = /obj/machinery/deployable/barrier/legion

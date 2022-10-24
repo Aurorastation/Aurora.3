@@ -76,7 +76,7 @@
 	moving_state = "shuttle_green_moving"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
-	vessel_mass = 4000 
+	vessel_mass = 6000 //Ship has a lot of thrusters, so if its too low the shuttle goes too fast. Also, imagine a hard egg flying towards you.
 	fore_dir = WEST
 	vessel_size = SHIP_SIZE_TINY
 
@@ -92,8 +92,8 @@
 	current_location = "nav_hangar_kataphract_shuttle"
 	dock_target = "kataphract_transport"
 	landmark_transition = "nav_kataphract_transport_transit"
-	range = 2
-	fuel_consumption = 3
+	range = 2 // It's a big boy
+	fuel_consumption = 4
 	logging_home_tag = "nav_hangar_kataphract_shuttle"
 	defer_initialisation = TRUE
 

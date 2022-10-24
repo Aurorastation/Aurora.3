@@ -257,6 +257,13 @@
 	tag_icon = "visegrad"
 	text_tag = "VIS"
 
+/datum/accent/sancolette
+	name = ACCENT_SANCOLETTE
+	description = "The Colettish dialect belongs to the larger linguistic family of Tradeband but unlike many of its counterparts, it is descended from Earth-based Tradeband dialects rather than Luna-based dialects. \
+	It is easily distinguished from its Lunan contemporaries by its differences in pronunciation and tone, and still retains many of its linguistic roots from Earth."
+	tag_icon = "sancolette"
+	text_tag = "SAN"
+
 /datum/accent/valkyrie
 	name = ACCENT_VALKYRIE
 	description = "The Valkyrian accent is a difficult accent to replicate, mostly due to the cultural melting pot in which it exists. Influences from across the Orion Spur have impacted the development of the accent, with \

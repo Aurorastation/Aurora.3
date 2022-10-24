@@ -18,6 +18,8 @@
 	var/wiresexposed = 0
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 	var/seclevel
+	///looping sound datum for our fire alarm siren.
+	var/datum/looping_sound/firealarm/soundloop
 
 /obj/machinery/firealarm/examine(mob/user)
 	. = ..()
@@ -226,6 +228,7 @@
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
 		fire_alarm.clearAlarm(loc, FA)
+		soundloop.stop(src)
 	update_icon()
 	return
 
@@ -235,7 +238,7 @@
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
 		fire_alarm.triggerAlarm(loc, FA, duration)
-		playsound(get_turf(FA), 'sound/ambience/firealarm.ogg', 75, FALSE)
+		soundloop.start(src)
 	update_icon()
 	return
 
@@ -260,6 +263,11 @@
 
 	if(isContactLevel(z))
 		set_security_level(security_level ? get_security_level() : "green")
+	soundloop = new(src, FALSE)
+
+/obj/machinery/firealarm/Destroy()
+	QDEL_NULL(soundloop)
+	. = ..()
 
 // Convenience subtypes for mappers.
 /obj/machinery/firealarm/north
