@@ -845,7 +845,7 @@
 			stat("Current Space Sector", SSatlas.current_sector.name)
 			var/current_month = text2num(time2text(world.realtime, "MM"))
 			var/current_day = text2num(time2text(world.realtime, "DD"))
-			stat("Current Date", "[current_day]/[current_month]/[game_year]")
+			stat("Current Date", "[game_year]-[current_month]-[current_day]")
 			stat("Station Time", worldtime2text())
 			stat("Round Duration", get_round_duration_formatted())
 			stat("Last Transfer Vote", SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never")
