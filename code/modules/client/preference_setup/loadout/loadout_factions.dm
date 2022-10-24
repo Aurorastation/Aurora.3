@@ -90,6 +90,8 @@
 	idris_labcoats["idris letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/letterman/alt
 	idris_labcoats["idris labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/idris
 	idris_labcoats["idris windbreaker"] = /obj/item/clothing/suit/storage/toggle/idris
+	idris_labcoats["idris officer coat"] = /obj/item/clothing/suit/storage/security/officer/idris
+	idris_labcoats["idris officer coat, alt"] = /obj/item/clothing/suit/storage/security/officer/idris/alt
 	gear_tweaks += new /datum/gear_tweak/path(idris_labcoats)
 
 /datum/gear/faction/idrissec_patch
@@ -133,7 +135,8 @@
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sec_uniforms)
 
 /datum/gear/faction/zavodskoi_labcoat
-	display_name = "zavodskoi labcoat"
+	display_name = "zavodskoi coat selection"
+	description = "A selection of Zavodskoi coats."
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	slot = slot_wear_suit
 	faction = "Zavodskoi Interstellar"
@@ -146,6 +149,8 @@
 	zavodskoi_labcoats["zavodskoi letterman labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman
 	zavodskoi_labcoats["zavodskoi letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman/alt
 	zavodskoi_labcoats["zavodskoi labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/zavodskoi
+	zavodskoi_labcoats["zavodskoi officer coat"] = /obj/item/clothing/suit/storage/security/officer/zav
+	zavodskoi_labcoats["zavodskoi officer coat, alt"] = /obj/item/clothing/suit/storage/security/officer/zav/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoi_labcoats)
 
 /datum/gear/faction/zavod_sunglasses
@@ -212,6 +217,8 @@
 	pmc_labcoats["PMCG labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/pmc/alt
 	pmc_labcoats["PMCG labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/pmc
 	pmc_labcoats["EPMC labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/epmc
+	pmc_labcoats["PMCG officer coat"] = /obj/item/clothing/suit/storage/security/officer/pmc
+	pmc_labcoats["PMCG officer coat, alt"] = /obj/item/clothing/suit/storage/security/officer/pmc/alt
 	gear_tweaks += new /datum/gear_tweak/path(pmc_labcoats)
 
 /datum/gear/faction/pmcg_headwear
@@ -320,7 +327,7 @@
 
 //Zeng-Hu
 /datum/gear/faction/zenghu_beret
-	display_name = "Zeng-Hu beret selection"
+	display_name = "zeng-Hu beret selection"
 	description = "A selection of Zeng-Hu berets."
 	path = /obj/item/clothing/head/beret/corporate/zeng
 	slot = slot_head
@@ -372,7 +379,8 @@
 
 //Hephaestus
 /datum/gear/faction/heph_labcoat
-	display_name = "hephaestus labcoat"
+	display_name = "hephaestus coat selection"
+	description = "A selection oh Hephaestus coats."
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/heph
 	slot = slot_wear_suit
 	faction = "Hephaestus Industries"
