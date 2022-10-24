@@ -84,7 +84,6 @@
 	name = "Engineer - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/engineer/heph
-	head = /obj/item/clothing/head/hardhat/green
 	id = /obj/item/card/id/hephaestus
 
 	backpack_faction = /obj/item/storage/backpack/heph
@@ -96,7 +95,6 @@
 	name = "Atmospheric Technician - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician/heph
-	head = /obj/item/clothing/head/hardhat/green
 	id = /obj/item/card/id/hephaestus
 
 	backpack_faction = /obj/item/storage/backpack/heph
@@ -108,7 +106,6 @@
 	name = "Engineering Apprentice - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice/heph
-	head = /obj/item/clothing/head/beret/corporate/heph
 	id = /obj/item/card/id/hephaestus
 
 	backpack_faction = /obj/item/storage/backpack/heph
@@ -119,7 +116,6 @@
 /datum/outfit/job/representative/hephaestus
 	name = "Hephaestus Corporate Liaison"
 
-	head = /obj/item/clothing/head/beret/corporate/heph
 	uniform = /obj/item/clothing/under/rank/liaison/heph
 	suit = /obj/item/clothing/suit/storage/liaison/heph
 	implants = null

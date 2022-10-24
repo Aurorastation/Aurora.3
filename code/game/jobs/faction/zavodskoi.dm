@@ -74,7 +74,6 @@
 /datum/outfit/job/warden/zavodskoi
 	name = "Warden - Zavodskoi Interstellar"
 
-	head = /obj/item/clothing/head/warden/zavod
 	uniform = /obj/item/clothing/under/rank/warden/zavod
 	suit = /obj/item/clothing/suit/storage/toggle/warden/zavod
 	id = /obj/item/card/id/zavodskoi/sec
@@ -166,7 +165,6 @@
 	name = "Engineer - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/engineer/zavod
-	head = /obj/item/clothing/head/hardhat/red
 	id = /obj/item/card/id/zavodskoi
 
 	backpack_faction = /obj/item/storage/backpack/zavod
@@ -178,7 +176,6 @@
 	name = "Atmospheric Technician - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician/zavod
-	head = /obj/item/clothing/head/hardhat/red
 	id = /obj/item/card/id/zavodskoi
 
 	backpack_faction = /obj/item/storage/backpack/zavod
@@ -190,7 +187,6 @@
 	name = "Engineering Apprentice - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice/zavod
-	head = /obj/item/clothing/head/beret/corporate/zavod
 	id = /obj/item/card/id/zavodskoi
 
 	backpack_faction = /obj/item/storage/backpack/zavod
@@ -201,7 +197,6 @@
 /datum/outfit/job/representative/zavodskoi
 	name = "Zavodskoi Interstellar Corporate Liaison"
 
-	head = /obj/item/clothing/head/beret/corporate/zavod
 	uniform = /obj/item/clothing/under/rank/liaison/zavod
 	suit = /obj/item/clothing/suit/storage/liaison/zavod
 	implants = null

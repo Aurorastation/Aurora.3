@@ -110,7 +110,6 @@
 /datum/outfit/job/med_tech/zeng_hu
 	name = "First Responder - Zeng-Hu"
 
-	head = /obj/item/clothing/head/softcap/zeng
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
 	id = /obj/item/card/id/zeng_hu
@@ -193,7 +192,6 @@
 /datum/outfit/job/representative/zeng_hu
 	name = "Zeng-Hu Corporate Liaison"
 
-	head = /obj/item/clothing/head/beret/corporate/zeng
 	uniform = /obj/item/clothing/under/rank/liaison/zeng
 	suit = /obj/item/clothing/suit/storage/liaison/zeng
 	implants = null

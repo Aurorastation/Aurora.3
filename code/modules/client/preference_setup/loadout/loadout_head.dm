@@ -340,8 +340,13 @@
 	path = /obj/item/clothing/head/buckethat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/head/bridge_crew_cap
+	display_name = "bridge crew cap"
+	path = /obj/item/clothing/head/caphat/bridge_crew
+	allowed_roles = list("Bridge Crew", "Captain", "Executive Officer")
+
 /datum/gear/head/bridge_crew_cap_alt
-	display_name = "san colettish bridge crew cap"
+	display_name = "bridge crew cap, san colettish"
 	path = /obj/item/clothing/head/caphat/bridge_crew/alt
 	allowed_roles = list("Bridge Crew", "Captain", "Executive Officer")
 

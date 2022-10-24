@@ -186,6 +186,8 @@
 	new /obj/item/clothing/under/rank/engineer/zavod(src)
 	new /obj/item/clothing/under/rank/engineer/apprentice/heph(src)
 	new /obj/item/clothing/under/rank/engineer/apprentice/zavod(src)
+	new /obj/item/clothing/head/hardhat/green(src)
+	new /obj/item/clothing/head/hardhat/red(src)
 	new /obj/item/clothing/shoes/orange(src)
 	new /obj/item/clothing/shoes/orange(src)
 	new /obj/item/clothing/shoes/orange(src)

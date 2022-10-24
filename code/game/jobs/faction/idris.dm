@@ -63,7 +63,6 @@
 /datum/outfit/job/warden/idris
 	name = "Warden - Idris"
 
-	head = /obj/item/clothing/head/warden/idris
 	uniform = /obj/item/clothing/under/rank/warden/idris
 	suit = /obj/item/clothing/suit/storage/toggle/warden/idris
 	id = /obj/item/card/id/idris/sec
@@ -101,7 +100,6 @@
 	name = "Bartender - Idris"
 
 	uniform = /obj/item/clothing/under/rank/bartender/idris
-	head = /obj/item/clothing/head/flatcap/bartender/idris
 	id = /obj/item/card/id/idris
 	suit = /obj/item/clothing/suit/storage/bartender/idris
 
@@ -115,7 +113,6 @@
 
 	uniform = /obj/item/clothing/under/rank/chef/idris
 	suit = /obj/item/clothing/suit/chef/idris
-	head = /obj/item/clothing/head/chefhat/idris
 	id = /obj/item/card/id/idris
 
 	backpack_faction = /obj/item/storage/backpack/idris
@@ -127,7 +124,6 @@
 	name = "Gardener - Idris"
 
 	uniform = /obj/item/clothing/under/rank/hydroponics/idris
-	head = /obj/item/clothing/head/bandana/hydro/idris
 	id = /obj/item/card/id/idris
 
 	backpack_faction = /obj/item/storage/backpack/idris
@@ -139,7 +135,6 @@
 	name = "Janitor - Idris"
 
 	uniform = /obj/item/clothing/under/rank/janitor/idris
-	head = /obj/item/clothing/head/softcap/idris/custodian
 	id = /obj/item/card/id/idris
 
 	backpack_faction = /obj/item/storage/backpack/idris
@@ -161,7 +156,6 @@
 /datum/outfit/job/representative/idris
 	name = "Idris Corporate Liaison"
 
-	head = /obj/item/clothing/head/beret/corporate/idris
 	uniform = /obj/item/clothing/under/rank/liaison/idris
 	suit = /obj/item/clothing/suit/storage/liaison/idris
 	implants = null

@@ -65,7 +65,6 @@
 /datum/outfit/job/warden/pmc
 	name = "Warden - PMC"
 
-	head = /obj/item/clothing/head/warden/pmc
 	uniform = /obj/item/clothing/under/rank/warden/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/warden/pmc
 	id = /obj/item/card/id/pmc
@@ -153,7 +152,6 @@
 /datum/outfit/job/med_tech/pmc
 	name = "First Responder - PMC"
 
-	head = /obj/item/clothing/head/softcap/pmc
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/pmc
 	id = /obj/item/card/id/pmc
@@ -177,7 +175,6 @@
 /datum/outfit/job/representative/pmc
 	name = "PMC Corporate Liaison"
 
-	head =  /obj/item/clothing/head/beret/corporate/pmc
 	uniform = /obj/item/clothing/under/rank/liaison/pmc
 	suit = /obj/item/clothing/suit/storage/liaison/pmc
 	implants = null

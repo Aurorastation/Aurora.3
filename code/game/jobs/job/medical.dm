@@ -285,7 +285,6 @@
 	base_name = "First Responder"
 	jobtype = /datum/job/med_tech
 
-	head = /obj/item/clothing/head/softcap/nt
 	uniform = /obj/item/clothing/under/rank/medical/first_responder
 	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket
 	shoes = /obj/item/clothing/shoes/jackboots

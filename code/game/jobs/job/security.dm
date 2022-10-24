@@ -37,7 +37,6 @@
 	jobtype = /datum/job/hos
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
-	head = /obj/item/clothing/head/hos
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/navy
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
@@ -245,7 +244,6 @@
 
 	uniform = /obj/item/clothing/under/rank/cadet
 	suit = /obj/item/clothing/suit/storage/hazardvest/security
-	head = /obj/item/clothing/head/beret/security
 	shoes = /obj/item/clothing/shoes/jackboots
 
 	headset = /obj/item/device/radio/headset/headset_sec

@@ -31,7 +31,6 @@
 	var/fax_department = "Representative's Office"
 	jobtype = /datum/job/representative
 
-	head = /obj/item/clothing/head/beret/corporate
 	uniform = /obj/item/clothing/under/rank/liaison
 	suit = /obj/item/clothing/suit/storage/liaison
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
@@ -132,7 +131,6 @@
 	jobtype = /datum/job/consular
 
 	uniform = /obj/item/clothing/under/suit_jacket/navy
-	head = null
 	suit = null
 	backpack_contents = list(
 		/obj/item/device/camera = 1,

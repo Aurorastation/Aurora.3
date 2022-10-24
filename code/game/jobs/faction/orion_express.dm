@@ -77,7 +77,6 @@
 /datum/outfit/job/representative/orion
 	name = "Orion Express Corporate Liaison"
 
-	head = /obj/item/clothing/head/beret/corporate/orion
 	uniform = /obj/item/clothing/under/rank/liaison/orion
 	suit = /obj/item/clothing/suit/storage/liaison/orion
 	implants = null

@@ -25,7 +25,6 @@
 	name = "Bartender"
 	jobtype = /datum/job/bartender
 
-	head = /obj/item/clothing/head/flatcap/bartender
 	uniform = /obj/item/clothing/under/rank/bartender
 	shoes = /obj/item/clothing/shoes/black
 	suit = /obj/item/clothing/suit/storage/bartender
@@ -73,7 +72,6 @@
 
 	uniform = /obj/item/clothing/under/rank/chef/nt
 	suit = /obj/item/clothing/suit/chef/nt
-	head = /obj/item/clothing/head/chefhat/nt
 	shoes = /obj/item/clothing/shoes/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
@@ -122,8 +120,6 @@
 	jobtype = /datum/job/hydro
 
 	uniform = /obj/item/clothing/under/rank/hydroponics
-//	suit = /obj/item/clothing/suit/apron
-	head = /obj/item/clothing/head/bandana/hydro/nt
 	shoes = /obj/item/clothing/shoes/black
 	suit_store = /obj/item/device/analyzer/plant_analyzer
 
@@ -175,7 +171,6 @@
 	jobtype = /datum/job/janitor
 
 	uniform = /obj/item/clothing/under/rank/janitor
-	head = /obj/item/clothing/head/softcap/nt/custodian
 	shoes = /obj/item/clothing/shoes/black
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/janitor

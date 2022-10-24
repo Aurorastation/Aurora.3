@@ -38,7 +38,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	uniform = /obj/item/clothing/under/scc_captain
 	shoes = /obj/item/clothing/shoes/laceup/brown
-	head = /obj/item/clothing/head/caphat/scc
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/gold
 
@@ -123,7 +122,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	name = "Executive Officer"
 	jobtype = /datum/job/xo
 
-	head = /obj/item/clothing/head/caphat/xo
 	uniform = /obj/item/clothing/under/rank/xo
 	shoes = /obj/item/clothing/shoes/laceup/brown
 	id = /obj/item/card/id/navy
@@ -179,7 +177,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	name = "Bridge Crew"
 	jobtype = /datum/job/bridge_crew
 
-	head = /obj/item/clothing/head/caphat/bridge_crew
 	uniform = /obj/item/clothing/under/rank/bridge_crew
 	shoes = /obj/item/clothing/shoes/laceup
 

@@ -43,7 +43,6 @@
 	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/chief_engineer
-	head = /obj/item/clothing/head/hardhat/white
 	belt = /obj/item/storage/belt/utility/ce
 	id = /obj/item/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
@@ -102,7 +101,6 @@
 	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/engineer
-	head = /obj/item/clothing/head/hardhat
 	belt = /obj/item/storage/belt/utility
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
@@ -217,7 +215,6 @@
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice
 	shoes = /obj/item/clothing/shoes/orange
-	head = /obj/item/clothing/head/beret/engineering
 	belt = /obj/item/storage/belt/utility
 
 	belt_contents = list(

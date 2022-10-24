@@ -1,0 +1,7 @@
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscdel: "Removes hats from starting/default uniforms. All the hats can still be selected in the loadout, or found in lockers."
+  - rscadd: "Adds uniform hats to relevant jobs' lockers, where missing"
