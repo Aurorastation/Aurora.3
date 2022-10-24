@@ -258,6 +258,14 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	flags_inv = HIDEJUMPSUIT
 
+/obj/item/clothing/under/ice_fairy_dress
+	name = "ice fairy dress"
+	desc = "A cold blue dress with a white rolled up button-up shirt underneath."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "ice_fairy_dress"
+	item_state = "ice_fairy_dress"
+	contained_sprite = TRUE
+
 // Hats
 
 /obj/item/clothing/head/judge_wig
@@ -420,3 +428,23 @@
 	contained_sprite = TRUE
 	body_parts_covered = HEAD|EYES
 	flags_inv = BLOCKHAIR
+
+/obj/item/clothing/head/ice_fairy_bow
+	name = "ice fairy bow"
+	desc = "A cold blue ribbon tied into a bow, with a clip on the back to attach to hair."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "ice_fairy_hairbow"
+	item_state = "ice_fairy_hairbow"
+	contained_sprite = TRUE
+
+// Accessory ⑨
+
+
+/obj/item/clothing/accessory/ice_fairy_wings
+	name = "ice fairy wings"
+	desc = "A set of translucent ice crystal wings. Ice cold."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "ice_fairy_wings"
+	item_state = "ice_fairy_wings"
+	contained_sprite = TRUE
+
