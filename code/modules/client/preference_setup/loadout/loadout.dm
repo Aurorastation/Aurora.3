@@ -199,6 +199,7 @@ var/list/gear_datums = list()
 		temp_html += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
 		temp_html += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
 		temp_html += "<td><font size=2><i>[G.description]</i><br>"
+		
 		if(G.allowed_roles)
 			temp_html += "</font><font size = 1>("
 			var/role_count = 0
@@ -206,11 +207,36 @@ var/list/gear_datums = list()
 				temp_html += "[role]"
 				role_count++
 				if(role_count == G.allowed_roles.len)
-					temp_html += ")"
+					temp_html += ") "
+					break
+				else
+					temp_html += ", "
+		if(G.culture_restriction)
+			temp_html += "</font><font size = 1>("
+			var/culture_count = 0
+			for(var/culture in G.culture_restriction)
+				var/decl/origin_item/C = decls_repository.get_decl(culture)
+				temp_html += "[C.name]"
+				culture_count++
+				if(culture_count == G.culture_restriction.len)
+					temp_html += ") "
+					break
+				else
+					temp_html += ", "
+		if(G.origin_restriction)
+			temp_html += "</font><font size = 1>("
+			var/origin_count = 0
+			for(var/origin in G.origin_restriction)
+				var/decl/origin_item/O = decls_repository.get_decl(origin)
+				temp_html += "[O.name]"
+				origin_count++
+				if(origin_count == G.origin_restriction.len)
+					temp_html += ") "
 					break
 				else
 					temp_html += ", "
 		temp_html += "</font></td></tr>"
+		
 		if(ticked)
 			temp_html += "<tr><td colspan=3>"
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
