@@ -184,6 +184,8 @@ var/list/gear_datums = list()
 		var/datum/gear/G = LC.gear[gear_name]
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
+		if(!(G.check_faction(pref.faction) && G.check_role(pref.return_chosen_high_job().title) && G.check_culture(pref.culture) && G.check_origin(pref.origin)))
+			style = "style='color: #B1B1B1;'"
 		if(ticked)
 			style = "style='color: #FF8000;'"
 		. += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
@@ -349,5 +351,25 @@ var/list/gear_datums = list()
 
 /datum/gear/proc/check_species_whitelist(mob/living/carbon/human/H)
 	if(whitelisted && (!(H.species.name in whitelisted)))
+		return FALSE
+	return TRUE
+
+/datum/gear/proc/check_faction(var/faction_)
+	if((faction && faction_ && faction_ != "None" && faction_ != "Stellar Corporate Conglomerate") && (faction != faction_))
+		return FALSE
+	return TRUE
+
+/datum/gear/proc/check_role(var/role)
+	if(role && allowed_roles && !(role in allowed_roles))
+		return FALSE
+	return TRUE
+
+/datum/gear/proc/check_culture(var/culture)
+	if(culture && culture_restriction && !(culture in culture_restriction))
+		return FALSE
+	return TRUE
+
+/datum/gear/proc/check_origin(var/origin)
+	if(origin && origin_restriction && !(origin in origin_restriction))
 		return FALSE
 	return TRUE
