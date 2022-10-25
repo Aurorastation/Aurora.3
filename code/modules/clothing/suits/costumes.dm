@@ -1,5 +1,4 @@
 //Main suit parts
-
 /obj/item/clothing/suit/dog_costume
 	name = "dog onesie"
 	desc = "An onesie, looking like a german shepard, a bit like Lt. Columbo, actually. Soft and comfy as well."
@@ -258,6 +257,14 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	flags_inv = HIDEJUMPSUIT
 
+/obj/item/clothing/suit/zombiedoc_apron
+	name = "zombie doctor apron"
+	desc = "A brown leather apron with some worrying stains on it."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "zombiedoc_apron"
+	item_state = "zombiedoc_apron"
+	contained_sprite = TRUE
+
 /obj/item/clothing/under/ice_fairy_dress
 	name = "ice fairy dress"
 	desc = "A cold blue dress with a white rolled up button-up shirt underneath."
@@ -266,8 +273,23 @@
 	item_state = "ice_fairy_dress"
 	contained_sprite = TRUE
 
-// Hats
+/obj/item/clothing/suit/storage/target_costume
+	name = "aiming target"
+	desc = "Sometimes you really feel like the entire universe is after you. With this costume at least you acknowledge it."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "target_costume"
+	item_state = "target_costume"
+	contained_sprite  = TRUE
 
+/obj/item/clothing/suit/storage/target_costume/Initialize()
+	. = ..()
+	hold.max_storage_space = 4
+	hold.can_hold = list(
+		/obj/item/material/kitchen/utensil/knife,
+		/obj/item/material/kitchen/utensil/knife/plastic,
+		/obj/item/material/knife,
+	)
+// Hats
 /obj/item/clothing/head/judge_wig
 	name = "judge wig"
 	desc = "A cheaply made wig, making you look like a judge or philosopher."
@@ -438,8 +460,6 @@
 	contained_sprite = TRUE
 
 // Accessory ⑨
-
-
 /obj/item/clothing/accessory/ice_fairy_wings
 	name = "ice fairy wings"
 	desc = "A set of translucent ice crystal wings. Ice cold."
@@ -448,3 +468,11 @@
 	item_state = "ice_fairy_wings"
 	contained_sprite = TRUE
 
+// Gloves
+/obj/item/clothing/gloves/zombiedoctor_gloves
+	name = "zombie doctor gloves"
+	desc = "A pair of rugged leather gloves, perfect for all your \"surgeries\" and experiments."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "zombiedoc_gloves"
+	item_state = "zombiedoc_gloves"
+	contained_sprite = TRUE
