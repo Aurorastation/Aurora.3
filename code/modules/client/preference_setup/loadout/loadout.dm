@@ -177,37 +177,49 @@ var/list/gear_datums = list()
 	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
+	var/unavailable_items_html = "" // to be added to the end/bottom of the list
+
 	var/list/player_valid_gear_choices = valid_gear_choices()
 	for(var/gear_name in LC.gear)
 		if(!(gear_name in player_valid_gear_choices))
 			continue
 		var/datum/gear/G = LC.gear[gear_name]
+		
+		var/temp_html = ""
+		var/available = (G.check_faction(pref.faction) && G.check_role(pref.return_chosen_high_job().title) && G.check_culture(pref.culture) && G.check_origin(pref.origin))
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
-		if(!(G.check_faction(pref.faction) && G.check_role(pref.return_chosen_high_job().title) && G.check_culture(pref.culture) && G.check_origin(pref.origin)))
+		
+		if(!available)
 			style = "style='color: #B1B1B1;'"
 		if(ticked)
 			style = "style='color: #FF8000;'"
-		. += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
-		. += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
-		. += "<td><font size=2><i>[G.description]</i><br>"
+		temp_html += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
+		temp_html += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
+		temp_html += "<td><font size=2><i>[G.description]</i><br>"
 		if(G.allowed_roles)
-			. += "</font><font size = 1>("
+			temp_html += "</font><font size = 1>("
 			var/role_count = 0
 			for(var/role in G.allowed_roles)
-				. += "[role]"
+				temp_html += "[role]"
 				role_count++
 				if(role_count == G.allowed_roles.len)
-					. += ")"
+					temp_html += ")"
 					break
 				else
-					. += ", "
-		. += "</font></td></tr>"
+					temp_html += ", "
+		temp_html += "</font></td></tr>"
 		if(ticked)
-			. += "<tr><td colspan=3>"
+			temp_html += "<tr><td colspan=3>"
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
-				. += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
-			. += "</td></tr>"
+				temp_html += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
+			temp_html += "</td></tr>"
+		if(!available)
+			. += temp_html
+		else
+			unavailable_items_html += temp_html
+	
+	. += unavailable_items_html
 	. += "</table>"
 	. = jointext(.,null)
 
