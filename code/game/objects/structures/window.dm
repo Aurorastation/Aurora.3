@@ -697,18 +697,10 @@
 	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message(SPAN_WARNING("\The [src] shatters!"))
-	if(dir == SOUTHWEST)
-		var/index = null
-		index = 0
-		while(index < 2)
-			new shardtype(loc)
-			if(reinf)
-				new /obj/item/stack/rods(loc)
-			index++
-	else
+	if(reinf)
+		new /obj/item/stack/rods(loc, 4)
+	for(var/i = 1 to 4)
 		new shardtype(loc)
-		if(reinf)
-			new /obj/item/stack/rods(loc)
 
 	qdel(src)
 	return
