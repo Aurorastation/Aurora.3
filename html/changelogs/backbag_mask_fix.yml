@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes bags' strap masks."
+  - bugfix: "Fixes parts of rucksacks becoming invisible if the strap wasn't set to thick."
