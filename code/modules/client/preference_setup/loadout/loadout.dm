@@ -188,7 +188,7 @@ var/list/gear_datums = list()
 		var/datum/gear/G = LC.gear[gear_name]
 		
 		var/temp_html = ""
-		var/var/datum/job/job = pref.return_chosen_high_job()
+		var/datum/job/job = pref.return_chosen_high_job()
 		var/available = (G.check_faction(pref.faction) && (job && G.check_role(job.title)) && G.check_culture(pref.culture) && G.check_origin(pref.origin))
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
