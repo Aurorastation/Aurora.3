@@ -177,6 +177,8 @@ var/list/gear_datums = list()
 	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
+
+	var/available_items_html = "" // to be added to the top/beginning of the list
 	var/unavailable_items_html = "" // to be added to the end/bottom of the list
 
 	var/list/player_valid_gear_choices = valid_gear_choices()
@@ -215,11 +217,12 @@ var/list/gear_datums = list()
 				temp_html += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
 			temp_html += "</td></tr>"
 		if(!available)
-			. += temp_html
+			available_items_html += temp_html
 		else
 			unavailable_items_html += temp_html
 	
 	. += unavailable_items_html
+	. += available_items_html
 	. += "</table>"
 	. = jointext(.,null)
 
