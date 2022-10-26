@@ -965,9 +965,9 @@
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS
 
-/obj/item/clothing/accessory/overalls/random/Initialize()
+/obj/item/clothing/accessory/overalls/random/Initialize() // Random colour.
 	. = ..()
 	color = get_random_colour(lower = 150)
 
-obj/item/clothing/suit/apron/overalls/blue
+/obj/item/clothing/suit/apron/overalls/blue // Used for hydroponics.
 	color = "#3429d1"
