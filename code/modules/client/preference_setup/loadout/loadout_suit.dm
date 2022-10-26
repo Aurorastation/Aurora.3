@@ -101,12 +101,6 @@ datum/gear/suit/colorvest
 	path = /obj/item/clothing/suit/storage/toggle/labcoat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/suit/overalls
-	display_name = "overalls"
-	path = /obj/item/clothing/accessory/overalls
-	cost = 1
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/suit/surgeryapron
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
