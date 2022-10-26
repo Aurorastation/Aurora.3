@@ -202,7 +202,7 @@ var/list/gear_datums = list()
 		temp_html += "<td><font size=2><i>[G.description]</i><br>"
 		
 		if(G.allowed_roles)
-			temp_html += "</font><font size = 1>("
+			temp_html += "</font><font size = 1>(Role: "
 			var/role_count = 0
 			for(var/role in G.allowed_roles)
 				temp_html += "[role]"
@@ -213,7 +213,7 @@ var/list/gear_datums = list()
 				else
 					temp_html += ", "
 		if(G.culture_restriction)
-			temp_html += "</font><font size = 1>("
+			temp_html += "</font><font size = 1>(Culture: "
 			var/culture_count = 0
 			for(var/culture in G.culture_restriction)
 				var/decl/origin_item/C = decls_repository.get_decl(culture)
@@ -225,7 +225,7 @@ var/list/gear_datums = list()
 				else
 					temp_html += ", "
 		if(G.origin_restriction)
-			temp_html += "</font><font size = 1>("
+			temp_html += "</font><font size = 1>(Origin: "
 			var/origin_count = 0
 			for(var/origin in G.origin_restriction)
 				var/decl/origin_item/O = decls_repository.get_decl(origin)
