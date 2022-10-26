@@ -137,7 +137,7 @@
 
 /obj/machinery/floodlight/randomcharge
 
-/obj/machinery/floodlight/Initialize()
+/obj/machinery/floodlight/randomcharge/Initialize()
 	. = ..()
 	if(cell)
 		cell.charge = rand(1, cell.maxcharge)
