@@ -189,7 +189,7 @@
 	allow_backbag_choice = FALSE
 
 	uniform = list(
-		/obj/item/clothing/under/serviceoveralls,
+		/obj/item/clothing/under/service_overalls,
 		/obj/item/clothing/under/det/zavod,
 		/obj/item/clothing/under/color/brown,
 		/obj/item/clothing/under/syndicate/tracksuit,
@@ -520,7 +520,7 @@
 	allow_backbag_choice = FALSE
 
 	head = /obj/item/clothing/head/culthood/alt
-	uniform = /obj/item/clothing/under/serviceoveralls
+	uniform = /obj/item/clothing/under/service_overalls
 	suit = /obj/item/clothing/suit/cultrobes/alt
 	back = /obj/item/storage/backpack/cultpack
 	belt = /obj/item/book/tome

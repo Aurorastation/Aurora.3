@@ -387,7 +387,7 @@
 	item_state = "lb_suit"
 	worn_state = "tan_suit"
 
-/obj/item/clothing/under/serviceoveralls
+/obj/item/clothing/under/service_overalls
 	name = "workman outfit"
 	desc = "The very image of a working man. Not that you're probably doing work."
 	icon_state = "mechanic"
