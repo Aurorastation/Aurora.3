@@ -969,5 +969,5 @@
 	. = ..()
 	color = get_random_colour(lower = 150)
 
-/obj/item/clothing/suit/apron/overalls/blue // Used for hydroponics.
+/obj/item/clothing/accessory/overalls/blue // Used for hydroponics.
 	color = "#3429d1"
