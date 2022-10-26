@@ -232,7 +232,7 @@
 		/obj/item/clothing/accessory/poncho/roles/cloak/cargo,
 		/obj/item/clothing/accessory/poncho/roles/cloak/mining,
 		/obj/item/clothing/accessory/poncho/roles/cloak/rd,
-		/obj/item/clothing/suit/apron/overalls/random,
+		/obj/item/clothing/accessory/overalls/random,
 		/obj/item/clothing/suit/captunic/capjacket,
 		/obj/item/clothing/suit/ianshirt,
 		/obj/item/clothing/suit/storage/toggle/fib,

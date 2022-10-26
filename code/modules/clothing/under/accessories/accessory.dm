@@ -955,3 +955,19 @@
 	icon_override = null
 	body_parts_covered = UPPER_TORSO
 
+// Overalls
+/obj/item/clothing/accessory/overalls
+	name = "overalls"
+	desc = "A set of denim overalls."
+	icon = 'icons/contained_items/clothing/bottomwear/overalls.dmi'
+	icon_state = "overalls"
+	item_state = "overalls"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS
+
+/obj/item/clothing/accessory/overalls/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
+
+obj/item/clothing/suit/apron/overalls/blue
+	color = "#3429d1"

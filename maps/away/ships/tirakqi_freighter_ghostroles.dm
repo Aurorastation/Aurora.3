@@ -38,7 +38,7 @@
 		/obj/item/clothing/suit/pirate,
 		/obj/item/clothing/suit/storage/toggle/bomber,
 		/obj/item/clothing/accessory/poncho,
-		/obj/item/clothing/suit/apron/overalls/random,
+		/obj/item/clothing/accessory/overalls/random,
 		/obj/item/clothing/suit/ianshirt,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
 		/obj/item/clothing/suit/storage/hooded/wintercoat,

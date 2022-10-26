@@ -21,19 +21,6 @@ obj/item/clothing/suit/apron/colored
 	item_state = "apron"
 	allowed = list (/obj/item/reagent_containers/food/drinks/shaker,/obj/item/material/kitchen/utensil, /obj/item/reagent_containers/food/condiment/, /obj/item/reagent_containers/food/drinks/bottle/)
 
-/obj/item/clothing/suit/apron/overalls
-	name = "coveralls"
-	desc = "A set of denim overalls."
-	icon_state = "overalls"
-	item_state = "overalls"
-
-/obj/item/clothing/suit/apron/overalls/random/Initialize()
-	. = ..()
-	color = get_random_colour(lower = 150)
-
-obj/item/clothing/suit/apron/overalls/blue
-	color = "#3429d1"
-
 /obj/item/clothing/suit/apron/surgery
 	name = "surgical apron"
 	desc = "To keep their blood off while you knife them."

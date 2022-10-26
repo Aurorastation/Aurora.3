@@ -103,7 +103,7 @@ datum/gear/suit/colorvest
 
 /datum/gear/suit/overalls
 	display_name = "overalls"
-	path = /obj/item/clothing/suit/apron/overalls
+	path = /obj/item/clothing/accessory/overalls
 	cost = 1
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
