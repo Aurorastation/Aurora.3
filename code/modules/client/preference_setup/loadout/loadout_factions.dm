@@ -90,7 +90,6 @@
 	idris_labcoats["idris letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/idris/letterman/alt
 	idris_labcoats["idris labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/idris
 	idris_labcoats["idris windbreaker"] = /obj/item/clothing/suit/storage/toggle/idris
-
 	gear_tweaks += new /datum/gear_tweak/path(idris_labcoats)
 
 /datum/gear/faction/idris_sec_coat
