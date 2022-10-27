@@ -165,7 +165,7 @@
 
 /datum/gear/faction/zavod_sec_coat
 	display_name = "zavodskoi security coat selection"
-	description = "A selection of zavodskoi security coats."
+	description = "A selection of Zavodskoi security coats."
 	path = /obj/item/clothing/suit/storage/security/officer/zav
 	slot = slot_wear_suit
 	faction = "Zavodskoi Interstellar"
