@@ -109,7 +109,7 @@
 	name = "Repair robotic organ"
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
-	/obj/item/surgery/bonegel = 30,
+	/obj/item/surgery/bone_gel = 30,
 	SCREWDRIVER = 70
 	)
 
@@ -406,7 +406,7 @@
 /decl/surgery_step/internal/attach_organ
 	name = "Attach organ"
 	allowed_tools = list(
-	/obj/item/surgery/FixOVein = 100, \
+	/obj/item/surgery/connective_knitter = 100, \
 	/obj/item/stack/cable_coil = 75
 	)
 

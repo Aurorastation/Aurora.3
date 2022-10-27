@@ -3,7 +3,7 @@
 //				GENERIC	RIBCAGE SURGERY							//
 //////////////////////////////////////////////////////////////////
 /decl/surgery_step/open_encased
-	name = "Saw through bone"
+	name = "Saw Through Bone"
 	priority = 2
 	can_infect = TRUE
 	blood_level = 1
@@ -65,7 +65,7 @@
 
 
 /decl/surgery_step/open_encased/retract
-	name = "Retract bone"
+	name = "Retract Sawed Bone"
 	allowed_tools = list(
 	/obj/item/surgery/retractor = 100, 	\
 	/obj/item/crowbar = 75
@@ -116,7 +116,7 @@
 	affected.fracture()
 
 /decl/surgery_step/open_encased/close
-	name = "Bend bone closed"
+	name = "Bend Sawed Bone Closed"
 	allowed_tools = list(
 	/obj/item/surgery/retractor = 100, 	\
 	/obj/item/crowbar = 75
@@ -172,3 +172,43 @@
 			var/obj/item/organ/O = pick(affected.internal_organs) //TODO weight by organ size
 			user.visible_message(SPAN_DANGER("A wayward piece of [target]'s [affected.encased] pierces [target.get_pronoun("his")] [O.name]!"))
 			O.bruise()
+
+/decl/surgery_step/open_encased/mend
+	name = "Repair Sawed Bone"
+	allowed_tools = list(
+	/obj/item/surgery/bone_gel = 100,	\
+	/obj/item/tape_roll = 60
+	)
+
+	min_duration = 20
+	max_duration = 40
+
+/decl/surgery_step/open_encased/mend/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected && affected.open == ORGAN_ENCASED_OPEN
+
+/decl/surgery_step/open_encased/mend/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!ishuman(target))
+		return
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+
+	var/msg = "[user] starts applying \the [tool] to [target]'s [affected.encased]."
+	var/self_msg = "You start applying \the [tool] to [target]'s [affected.encased]."
+	user.visible_message(msg, self_msg)
+	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
+	..()
+
+/decl/surgery_step/open_encased/mend/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!ishuman(target))
+		return
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+
+	var/msg = "<b>[user]</b> applies some of \the [tool] to [target]'s [affected.encased]."
+	var/self_msg = "You apply some of \the [tool] to [target]'s [affected.encased]."
+	user.visible_message(msg, SPAN_NOTICE(self_msg))
+	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
+	..()
+
+	affected.open = ORGAN_OPEN_RETRACTED
