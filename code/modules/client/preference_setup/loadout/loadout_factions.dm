@@ -327,7 +327,7 @@
 
 //Zeng-Hu
 /datum/gear/faction/zenghu_beret
-	display_name = "zeng-Hu beret selection"
+	display_name = "zeng-hu beret selection"
 	description = "A selection of Zeng-Hu berets."
 	path = /obj/item/clothing/head/beret/corporate/zeng
 	slot = slot_head
