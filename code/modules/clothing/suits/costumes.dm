@@ -265,6 +265,16 @@
 	item_state = "zombiedoc_apron"
 	contained_sprite = TRUE
 
+/obj/item/clothing/suit/maid_costume
+	name = "maid costume"
+	desc = "A detailed replica of the dress of a french maid, from the old times."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "maid"
+	item_state = "maid"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO
+	flags_inv = HIDEJUMPSUIT
+
 /obj/item/clothing/under/ice_fairy_dress
 	name = "ice fairy dress"
 	desc = "A cold blue dress with a white rolled up button-up shirt underneath."
@@ -476,6 +486,16 @@
 	item_state = "ice_fairy_hairbow"
 	contained_sprite = TRUE
 
+//Masks
+
+/obj/item/clothing/head/maid_hat
+	name = "maid dress headpiece"
+	desc = "The white headpiece, intended to be worn together with the maid dress."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "maid_hat"
+	item_state = "maid_hat"
+	contained_sprite = TRUE
+
 // Accessory ⑨
 /obj/item/clothing/accessory/ice_fairy_wings
 	name = "ice fairy wings"
@@ -483,6 +503,14 @@
 	icon = 'icons/obj/clothing/halloween.dmi'
 	icon_state = "ice_fairy_wings"
 	item_state = "ice_fairy_wings"
+	contained_sprite = TRUE
+
+/obj/item/clothing/ears/maid_ears
+	name = "konyang shell antennae"
+	desc = "A pair of specialized antennae for shells, resembling mechanical ears. For cuteness factors, you assume."
+	icon = 'icons/obj/clothing/halloween.dmi'
+	icon_state = "chobits_ears"
+	item_state = "chobits_ears"
 	contained_sprite = TRUE
 
 // Gloves

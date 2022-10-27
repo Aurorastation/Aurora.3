@@ -88,4 +88,4 @@
 
 /obj/item/flame/candle/waxcandles/Initialize()
 	. = ..()
-	wax = rand(1600, 2000)
+	light()
