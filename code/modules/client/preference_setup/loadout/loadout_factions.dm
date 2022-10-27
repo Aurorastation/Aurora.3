@@ -380,7 +380,7 @@
 //Hephaestus
 /datum/gear/faction/heph_labcoat
 	display_name = "hephaestus coat selection"
-	description = "A selection oh Hephaestus coats."
+	description = "A selection of Hephaestus coats."
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/heph
 	slot = slot_wear_suit
 	faction = "Hephaestus Industries"
