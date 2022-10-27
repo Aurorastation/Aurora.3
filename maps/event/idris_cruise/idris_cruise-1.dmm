@@ -184,12 +184,14 @@
 	},
 /area/cruise/aft_p)
 "afh" = (
-/obj/structure/table/wood,
-/obj/item/toy/desk/fan,
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
-/area/cruise/aft)
+/area/cruise/aft_s)
 "agB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -201,9 +203,6 @@
 /area/cruise/virtual_reality)
 "agC" = (
 /obj/structure/railing/mapped,
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
-	},
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -310,6 +309,17 @@
 	name = "dirt"
 	},
 /area/cruise/jungle)
+"akE" = (
+/obj/structure/closet/crate/bin,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "als" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 1
@@ -453,12 +463,18 @@
 	},
 /area/cruise/escort)
 "arM" = (
-/obj/structure/janitorialcart/full{
-	dir = 1
+/obj/item/clothing/suit/zombiedoc_apron,
+/obj/item/clothing/gloves/zombiedoctor_gloves,
+/obj/structure/closet/walllocker{
+	pixel_y = -32;
+	name = "\improper IPC 'Hazel #S-H12.06'"
 	},
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4.1;
+	opacity = 0
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -490,9 +506,6 @@
 	icon_state = "aft";
 	name = "aft hall indicator";
 	pixel_x = 32
-	},
-/obj/machinery/light{
-	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
@@ -871,14 +884,15 @@
 	},
 /area/cruise/security)
 "aFo" = (
-/obj/structure/railing/mapped,
-/obj/machinery/light{
+/obj/machinery/light/small,
+/obj/structure/sign/flag/halloween/left{
+	pixel_y = -32;
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "alienvault"
 	},
-/area/cruise/aft)
+/area/cruise/main_bar/aft)
 "aFz" = (
 /obj/structure/trash_pile,
 /turf/unsimulated/floor{
@@ -1132,15 +1146,6 @@
 	icon_state = "floor7"
 	},
 /area/cruise/fore)
-"aNq" = (
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
-	},
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/cruise/central)
 "aNx" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/exoplanet/water/shallow,
@@ -1178,7 +1183,7 @@
 	dir = 4
 	},
 /obj/structure/table/stone/marble,
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -1354,6 +1359,12 @@
 	icon_state = "dark2"
 	},
 /area/cruise/custodial_s)
+"aWx" = (
+/obj/structure/railing/mapped,
+/turf/unsimulated/floor{
+	icon_state = "turquoise"
+	},
+/area/cruise/aft)
 "aWF" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/shaker{
@@ -1524,6 +1535,9 @@
 	},
 /area/cruise/pool/sauna1)
 "bcx" = (
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Off-Duty Crew Member"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -1827,7 +1841,8 @@
 	},
 /area/cruise/hangar)
 "blU" = (
-/obj/structure/bed/stool/chair/wood,
+/obj/structure/bed/stool,
+/obj/machinery/light,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -2149,14 +2164,6 @@
 	icon_state = "dark"
 	},
 /area/cruise/central)
-"bxm" = (
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
-	},
-/turf/unsimulated/floor{
-	icon_state = "tiles_small"
-	},
-/area/cruise/central)
 "bxs" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 1
@@ -2356,16 +2363,14 @@
 	},
 /area/cruise/virtual_reality)
 "bFV" = (
-/obj/structure/table/steel,
-/obj/item/storage/box/lights/mixed,
-/obj/item/storage/box/lights/mixed,
-/obj/item/storage/box/lights,
-/obj/item/storage/box/lights,
-/obj/item/storage/box/lights,
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
-/area/cruise/custodial_p)
+/area/cruise/aft_s)
 "bGs" = (
 /obj/machinery/power/solar/fake,
 /obj/effect/floor_decal/industrial/warning{
@@ -2517,7 +2522,7 @@
 /area/cruise/pool/sauna2)
 "bPI" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -2771,14 +2776,6 @@
 	icon_state = "dark2"
 	},
 /area/cruise/pool)
-"ceU" = (
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Off-Duty Crew Member"
-	},
-/turf/unsimulated/floor{
-	icon_state = "tiles_small"
-	},
-/area/cruise/central)
 "ceX" = (
 /obj/structure/table/wood,
 /obj/machinery/recharger{
@@ -2966,6 +2963,18 @@
 	icon_state = "beach"
 	},
 /area/cruise/virtual_reality)
+"cmT" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
+	},
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
+/area/cruise/fore_s)
 "cna" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -2978,7 +2987,7 @@
 	},
 /area/cruise/fore_p)
 "cnk" = (
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
 	},
@@ -3240,6 +3249,14 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
+	},
+/obj/item/flame/candle/waxcandles{
+	pixel_x = -5;
+	pixel_y = 11
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -3276,18 +3293,12 @@
 	icon_state = "new_white"
 	},
 /area/cruise/main_bar)
-"cAw" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/beige/diagonal,
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Off-Duty Crew Member"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/cruise/centerline)
 "cBe" = (
 /obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -3390,9 +3401,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -3403,6 +3411,15 @@
 	icon_state = "plating"
 	},
 /area/template_noop)
+"cEX" = (
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/cruise/arcade)
 "cFa" = (
 /obj/structure/table/reinforced,
 /obj/random/contraband,
@@ -3438,6 +3455,9 @@
 	dir = 4;
 	name = "Station Intercom (General)";
 	pixel_x = -24
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Off-Duty Crew Member"
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
@@ -3676,7 +3696,7 @@
 /area/cruise/centerline)
 "cOX" = (
 /obj/structure/table/wood,
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -3883,9 +3903,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -4064,29 +4081,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/closet/cabinet,
-/obj/item/clothing/suit/bee_costume,
-/obj/item/clothing/suit/bee_costume,
-/obj/item/clothing/suit/dark_witch_costume,
-/obj/item/clothing/suit/dark_witch_costume,
-/obj/item/clothing/suit/jester_costume,
-/obj/item/clothing/suit/jester_costume,
-/obj/item/clothing/suit/mummy_costume,
-/obj/item/clothing/suit/mummy_costume,
-/obj/item/clothing/suit/schoolgirl_costume,
-/obj/item/clothing/suit/schoolgirl_costume,
-/obj/item/clothing/suit/witch_hunter_costume,
-/obj/item/clothing/suit/witch_hunter_costume,
-/obj/item/clothing/head/bee_hat,
-/obj/item/clothing/head/bee_hat,
-/obj/item/clothing/head/mummy_hat,
-/obj/item/clothing/head/mummy_hat,
-/obj/item/clothing/head/scarecrow_hat,
-/obj/item/clothing/head/scarecrow_hat,
-/obj/item/clothing/head/witch_hunter_hat,
-/obj/item/clothing/head/witch_hunter_hat,
-/obj/item/clothing/suit/scarecrow,
-/obj/item/clothing/suit/scarecrow,
+/obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -4341,12 +4336,12 @@
 	},
 /area/cruise/virtual_reality)
 "dlF" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
 	},
-/obj/effect/floor_decal/corner/beige/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "turquoise"
 	},
 /area/cruise/aft)
 "dlP" = (
@@ -4497,6 +4492,33 @@
 	icon_state = "asteroidfloor"
 	},
 /area/cruise/beach)
+"dxf" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/bunny_costume,
+/obj/item/clothing/suit/bunny_costume,
+/obj/item/clothing/suit/dog_costume,
+/obj/item/clothing/suit/dog_costume,
+/obj/item/clothing/suit/knight_costume,
+/obj/item/clothing/suit/knight_costume,
+/obj/item/clothing/suit/owl_costume,
+/obj/item/clothing/suit/owl_costume,
+/obj/item/clothing/suit/skeleton_costume,
+/obj/item/clothing/suit/skeleton_costume,
+/obj/item/clothing/suit/wizard_costume,
+/obj/item/clothing/suit/wizard_costume,
+/obj/item/clothing/head/bunny_hat,
+/obj/item/clothing/head/bunny_hat,
+/obj/item/clothing/head/bunny_hat2,
+/obj/item/clothing/head/bunny_hat2,
+/obj/item/clothing/head/knight_hat,
+/obj/item/clothing/head/knight_hat,
+/obj/item/clothing/head/collectable/wizard,
+/obj/item/clothing/head/collectable/wizard,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "dxi" = (
 /obj/structure/closet/crate/freezer/rations,
 /turf/unsimulated/floor{
@@ -4667,14 +4689,12 @@
 	icon_state = "dark2"
 	},
 /area/cruise/escort)
-"dDd" = (
-/obj/machinery/light{
-	dir = 8
-	},
+"dEj" = (
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
-	icon_state = "turquoise"
+	icon_state = "lino_grey"
 	},
-/area/cruise/aft)
+/area/cruise/pool)
 "dEl" = (
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
@@ -5047,7 +5067,8 @@
 "dXN" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
-	name = "Central Emergency Supplies Storage"
+	name = "Central Emergency Supplies Storage";
+	req_access = list(101)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -5107,14 +5128,6 @@
 	name = "dirt"
 	},
 /area/cruise/jungle)
-"ebS" = (
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Off-Duty Crew Member"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/cruise/centerline)
 "ecq" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
@@ -5244,7 +5257,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -5255,9 +5268,6 @@
 	dir = 8;
 	name = "Station Intercom (General)";
 	pixel_x = 24
-	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -5341,12 +5351,12 @@
 	},
 /area/cruise/hydroponics)
 "emS" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = 32;
+	dir = 4
 	},
-/obj/effect/floor_decal/corner/beige/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "turquoise"
 	},
 /area/cruise/aft)
 "enl" = (
@@ -5789,13 +5799,27 @@
 	},
 /area/cruise/jungle)
 "eBi" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/table/wood,
-/obj/machinery/recharger{
-	pixel_y = 4
-	},
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/carp_costume,
+/obj/item/clothing/suit/carp_costume,
+/obj/item/clothing/suit/flash_costume,
+/obj/item/clothing/suit/flash_costume,
+/obj/item/clothing/suit/lobster_costume,
+/obj/item/clothing/suit/lobster_costume,
+/obj/item/clothing/suit/pharaoh_costume,
+/obj/item/clothing/suit/pharaoh_costume,
+/obj/item/clothing/suit/snowman_costume,
+/obj/item/clothing/suit/snowman_costume,
+/obj/item/clothing/head/flashsuit_hat,
+/obj/item/clothing/head/flashsuit_hat,
+/obj/item/clothing/head/lobster_hat,
+/obj/item/clothing/head/lobster_hat,
+/obj/item/clothing/head/pharaoh_hat,
+/obj/item/clothing/head/pharaoh_hat,
+/obj/item/clothing/head/snowman_hat,
+/obj/item/clothing/head/snowman_hat,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -5963,6 +5987,16 @@
 	icon_state = "freezerfloor"
 	},
 /area/cruise/washroom_aft)
+"eII" = (
+/obj/effect/floor_decal/spline/fancy{
+	dir = 8
+	},
+/obj/item/flame/candle/waxcandles,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/cruise/centerline)
 "eKe" = (
 /obj/structure/sign/flag/idris/right{
 	pixel_y = 32
@@ -6080,6 +6114,10 @@
 /area/cruise/centerline)
 "ePu" = (
 /obj/structure/closet/emcloset,
+/obj/structure/sign/flag/halloween/left{
+	dir = 4;
+	pixel_x = 32
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_willow"
 	},
@@ -6312,6 +6350,9 @@
 	dir = 8;
 	name = "Station Intercom (General)";
 	pixel_x = 24
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Off-Duty Crew Member"
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
@@ -6854,6 +6895,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Passenger"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -7069,7 +7113,7 @@
 	},
 /area/cruise/hydroponics)
 "fCn" = (
-/obj/item/flame/waxcandles/snowflake_candle{
+/obj/item/flame/candle/waxcandles{
 	pixel_y = 24
 	},
 /turf/unsimulated/floor{
@@ -7179,6 +7223,15 @@
 	name = "dirt"
 	},
 /area/cruise/jungle)
+"fGm" = (
+/obj/item/flame/candle/waxcandles,
+/obj/item/clothing/head/pumpkin/lantern{
+	pixel_y = 12
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "fGs" = (
 /obj/structure/flora/grass/jungle,
 /obj/machinery/light{
@@ -7380,13 +7433,22 @@
 "fNT" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/light,
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
 /area/cruise/central)
+"fOF" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
+	},
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/cruise/arcade)
 "fPf" = (
 /obj/structure/bed/stool/chair/sofa/right/red,
 /turf/unsimulated/floor{
@@ -7415,7 +7477,7 @@
 /area/cruise/beach)
 "fQJ" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/structure/sign/flag/idris/right{
+/obj/structure/sign/flag/halloween/right{
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
@@ -7585,11 +7647,23 @@
 	},
 /area/cruise/virtual_reality)
 "fVi" = (
-/turf/unsimulated/wall/fakeairlock{
-	desc = "An off-limits room. It just says "private" on the front.";
-	name = "Private Area"
+/obj/machinery/door/airlock/freezer{
+	id_tag = "main_unit_2";
+	name = "Changing Room 2"
+	},
+/turf/unsimulated/floor{
+	icon_state = "new_white"
 	},
 /area/cruise/pool)
+"fVD" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/flame/candle/waxcandles,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/cruise/aft_p)
 "fWc" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
@@ -7601,6 +7675,10 @@
 "fWm" = (
 /obj/structure/bed/stool/chair/sofa/red{
 	dir = 8
+	},
+/obj/structure/sign/flag/halloween/left{
+	dir = 4;
+	pixel_x = 32
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -7763,7 +7841,7 @@
 /area/cruise/beach)
 "gbW" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -7821,6 +7899,17 @@
 	name = "dirt"
 	},
 /area/cruise/jungle)
+"geh" = (
+/obj/machinery/atm{
+	pixel_y = 30
+	},
+/obj/item/clothing/head/pumpkin/lantern{
+	pixel_y = 12
+	},
+/turf/unsimulated/floor{
+	icon_state = "turquoise"
+	},
+/area/cruise/aft)
 "geN" = (
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
@@ -8381,7 +8470,7 @@
 /obj/structure/flora/grass/jungle{
 	icon_state = "grassa2"
 	},
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	footstep_sound = /decl/sound_category/grass_footstep;
 	icon_state = "asteroid";
@@ -8808,6 +8897,9 @@
 /area/cruise/tcomms_sat)
 "gNa" = (
 /obj/machinery/hologram/holopad,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Off-Duty Crew Member"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -8821,9 +8913,6 @@
 /area/cruise/pool)
 "gNw" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -9022,6 +9111,16 @@
 	icon_state = "dark2"
 	},
 /area/cruise/aft)
+"gXG" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
+	},
+/turf/unsimulated/floor{
+	icon_state = "new_white"
+	},
+/area/cruise/pool)
 "gYk" = (
 /obj/structure/flora/grass/jungle/b,
 /obj/structure/flora/grass/jungle,
@@ -9370,6 +9469,10 @@
 	dir = 8
 	},
 /obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = 32;
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -9997,27 +10100,7 @@
 	},
 /area/cruise/virtual_reality)
 "hRb" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/suit/bunny_costume,
-/obj/item/clothing/suit/bunny_costume,
-/obj/item/clothing/suit/dog_costume,
-/obj/item/clothing/suit/dog_costume,
-/obj/item/clothing/suit/knight_costume,
-/obj/item/clothing/suit/knight_costume,
-/obj/item/clothing/suit/owl_costume,
-/obj/item/clothing/suit/owl_costume,
-/obj/item/clothing/suit/skeleton_costume,
-/obj/item/clothing/suit/skeleton_costume,
-/obj/item/clothing/suit/wizard_costume,
-/obj/item/clothing/suit/wizard_costume,
-/obj/item/clothing/head/bunny_hat,
-/obj/item/clothing/head/bunny_hat,
-/obj/item/clothing/head/bunny_hat2,
-/obj/item/clothing/head/bunny_hat2,
-/obj/item/clothing/head/knight_hat,
-/obj/item/clothing/head/knight_hat,
-/obj/item/clothing/head/collectable/wizard,
-/obj/item/clothing/head/collectable/wizard,
+/obj/structure/table/wood,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -10163,6 +10246,9 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = -33
 	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Off-Duty Crew Member"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -10265,7 +10351,7 @@
 	},
 /area/cruise/virtual_reality)
 "icr" = (
-/obj/item/flame/waxcandles/snowflake_candle{
+/obj/item/flame/candle/waxcandles{
 	pixel_x = -3;
 	pixel_y = 22
 	},
@@ -10351,6 +10437,17 @@
 	icon_state = "alienvault"
 	},
 /area/cruise/main_bar/aft)
+"ieT" = (
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/structure/flora/pottedplant/random,
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/centerline)
 "ieV" = (
 /obj/structure/flora/tree/jungle/small{
 	icon_state = "tree2";
@@ -10588,14 +10685,35 @@
 /turf/unsimulated/floor/plating,
 /area/cruise/escort)
 "imH" = (
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = 12
+/obj/structure/railing/mapped{
+	dir = 4
 	},
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/cheap_ghost_costume,
+/obj/item/clothing/suit/cheap_ghost_costume,
+/obj/item/clothing/suit/hacker_costume,
+/obj/item/clothing/suit/hacker_costume,
+/obj/item/clothing/suit/marisa_costume,
+/obj/item/clothing/suit/marisa_costume,
+/obj/item/clothing/suit/roman_costume,
+/obj/item/clothing/suit/roman_costume,
+/obj/item/clothing/suit/roman_costume,
+/obj/item/clothing/suit/roman_costume,
+/obj/item/clothing/suit/sumo_costume,
+/obj/item/clothing/suit/sumo_costume,
+/obj/item/clothing/suit/griffin_suit,
+/obj/item/clothing/suit/griffin_suit,
+/obj/item/clothing/head/griffin_hat,
+/obj/item/clothing/head/griffin_hat,
+/obj/item/clothing/head/marisa_hat,
+/obj/item/clothing/head/marisa_hat,
+/obj/item/clothing/head/roman_hat,
+/obj/item/clothing/head/roman_hat,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
-/area/cruise/custodial_p)
+/area/cruise/aft)
 "inK" = (
 /obj/effect/decal/fake_object{
 	desc = "A descriptive sign.";
@@ -10706,9 +10824,23 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"iqB" = (
+/obj/effect/decal/fake_object{
+	desc = "A descriptive sign.";
+	icon = 'icons/effects/ship_idris_cruise.dmi';
+	icon_state = "aft";
+	name = "costumes and changing room";
+	pixel_x = -32
+	},
+/turf/unsimulated/floor{
+	icon_state = "turquoise"
+	},
+/area/cruise/aft)
 "iqI" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/door/window/westleft,
+/obj/machinery/door/window/westleft{
+	req_access = list(101)
+	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -10953,12 +11085,10 @@
 	},
 /area/cruise/jungle)
 "iAG" = (
-/obj/machinery/door/airlock/service{
-	name = "Public Backup Custodial Closet"
-	},
-/obj/machinery/door/firedoor,
-/turf/unsimulated/floor{
-	icon_state = "dark2"
+/turf/unsimulated/wall/fakeairlock{
+	desc = "An off-limits room. It just says 'private' on the front.";
+	name = "Private Area";
+	icon_state = "door_locked"
 	},
 /area/cruise/custodial_p)
 "iBn" = (
@@ -11117,9 +11247,23 @@
 	},
 /area/cruise/arcade)
 "iKg" = (
-/obj/structure/railing/mapped,
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4.1;
+	opacity = 0
+	},
+/obj/structure/bed/stool,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
+	dir = 8
+	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "dark2"
 	},
 /area/cruise/aft)
 "iKx" = (
@@ -11599,6 +11743,20 @@
 	icon_state = "plating"
 	},
 /area/cruise/tcomms_sat)
+"jcv" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
+/obj/structure/table/wood,
+/obj/item/device/camera,
+/obj/item/device/camera,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "jcA" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/appliance/cooker/oven,
@@ -11700,7 +11858,7 @@
 	pixel_y = 32
 	},
 /obj/item/clothing/head/pumpkin/lantern,
-/obj/item/flame/waxcandles/snowflake_candle{
+/obj/item/flame/candle/waxcandles{
 	pixel_y = 19
 	},
 /turf/unsimulated/floor{
@@ -12374,7 +12532,6 @@
 /obj/structure/flora/rock/pile{
 	icon_state = "lavarocks2"
 	},
-/obj/item/banhammer,
 /turf/unsimulated/beach/sand{
 	icon_state = "desert"
 	},
@@ -12418,10 +12575,11 @@
 	},
 /area/cruise/pool)
 "jOx" = (
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -12471,7 +12629,8 @@
 /area/cruise/arcade)
 "jQV" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Emergency Vacuum Equipment"
+	name = "Emergency Vacuum Equipment";
+	req_access = list(101)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -12656,16 +12815,11 @@
 	},
 /area/cruise/pool/sauna3)
 "kaG" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/mob/living/simple_animal/cosmozoan{
+	name = "Gem"
 	},
-/obj/effect/floor_decal/spline/fancy{
-	dir = 4
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/cruise/aft)
+/turf/template_noop,
+/area/template_noop)
 "kaJ" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
@@ -12761,7 +12915,8 @@
 /area/cruise/main_bar)
 "kdk" = (
 /obj/machinery/door/airlock{
-	name = "Emergency Supplies Closet"
+	name = "Emergency Supplies Closet";
+	req_access = list(101)
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -12876,12 +13031,17 @@
 	},
 /area/cruise/pool)
 "kiR" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/table/rack,
-/obj/random/soap,
-/obj/item/device/lightreplacer/advanced,
-/obj/item/device/lightreplacer/advanced,
-/obj/item/device/lightreplacer/advanced,
+/obj/structure/closet/walllocker{
+	pixel_y = -32;
+	name = "\improper IPC 'Hazel'"
+	},
+/obj/item/clothing/suit/zombie_costume,
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4.1;
+	opacity = 0
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -12905,13 +13065,17 @@
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
 "kkc" = (
-/obj/structure/table/steel,
-/obj/item/device/hand_labeler,
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
+/obj/structure/closet/walllocker{
+	pixel_y = 32;
+	name = "\improper Anya Orlova"
 	},
-/obj/item/pen,
+/obj/item/clothing/suit/storage/target_costume,
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4.1;
+	opacity = 0
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -13029,7 +13193,7 @@
 /area/template_noop)
 "kny" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/item/flame/waxcandles/snowflake_candle{
+/obj/item/flame/candle/waxcandles{
 	pixel_y = 19
 	},
 /turf/unsimulated/floor{
@@ -13154,9 +13318,17 @@
 	},
 /area/template_noop)
 "kqC" = (
-/obj/effect/map_effect/window_spawner/reinforced/crescent,
-/turf/unsimulated/floor/plating,
-/area/cruise/custodial_p)
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/aft)
 "krr" = (
 /obj/item/storage/box/fancy/cigarettes/dromedaryco{
 	pixel_x = -4;
@@ -13429,7 +13601,7 @@
 /area/cruise/tcomms_sat)
 "kBc" = (
 /obj/structure/flora/grass/jungle,
-/obj/item/flame/waxcandles/snowflake_candle{
+/obj/item/flame/candle/waxcandles{
 	pixel_y = 9;
 	pixel_x = 5
 	},
@@ -13495,6 +13667,16 @@
 	name = "dirt"
 	},
 /area/cruise/jungle)
+"kDh" = (
+/obj/machinery/cryopod,
+/obj/structure/sign/flag/halloween/left{
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/aft)
 "kDq" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/window/reinforced/crescent{
@@ -13529,8 +13711,15 @@
 /turf/unsimulated/floor/plating,
 /area/cruise/arcade)
 "kEk" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/unsimulated/floor/plating,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/clothing/head/pumpkin/lantern{
+	pixel_y = 12
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
 /area/cruise/aft)
 "kEO" = (
 /obj/structure/window/reinforced/crescent,
@@ -14052,9 +14241,6 @@
 "lbj" = (
 /obj/structure/window/reinforced{
 	dir = 1
-	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Off-Duty Crew Member"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -14607,6 +14793,9 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Passenger"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
@@ -15552,9 +15741,13 @@
 /turf/simulated/floor/grass/alt,
 /area/cruise/hydroponics)
 "mfQ" = (
-/obj/machinery/stargazer,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/unsimulated/floor/plating,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/item/flame/candle/waxcandles,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
 /area/cruise/aft)
 "mfZ" = (
 /obj/structure/bed/stool/padded/red,
@@ -15586,6 +15779,12 @@
 	icon_state = "floor7"
 	},
 /area/cruise/arcade)
+"mha" = (
+/obj/structure/table/wood,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "mhg" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
@@ -15787,6 +15986,14 @@
 	icon_state = "wood_light"
 	},
 /area/cruise/pool/sauna2)
+"mnE" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "mnF" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
@@ -15936,7 +16143,7 @@
 /area/cruise/centerline)
 "mub" = (
 /obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
+	job_tag = "Off-Duty Crew Member"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
@@ -16093,6 +16300,10 @@
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -16617,7 +16828,7 @@
 	pixel_x = 7;
 	pixel_y = 7
 	},
-/obj/item/flame/waxcandles/snowflake_candle{
+/obj/item/flame/candle/waxcandles{
 	pixel_y = 9;
 	pixel_x = -11
 	},
@@ -17040,7 +17251,8 @@
 /area/cruise/hangar)
 "nov" = (
 /obj/machinery/door/airlock{
-	name = "Emergency Supplies Closet"
+	name = "Emergency Supplies Closet";
+	req_access = list(101)
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -17090,7 +17302,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -17177,25 +17389,20 @@
 /area/cruise/hangar)
 "nvn" = (
 /obj/structure/table/stone/marble,
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
 /area/cruise/dining_hall)
 "nvO" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/item/flame/waxcandles/snowflake_candle,
 /turf/unsimulated/floor{
-	icon_state = "wood_birch"
+	icon_state = "tiles_small"
 	},
-/area/cruise/aft)
+/area/cruise/aft_p)
 "nwn" = (
 /obj/machinery/light{
 	dir = 1
@@ -17370,6 +17577,10 @@
 "nAr" = (
 /obj/structure/closet/firecloset/full,
 /obj/item/crowbar/rescue_axe/red,
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = 32;
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_willow"
 	},
@@ -17390,6 +17601,9 @@
 	icon_state = "aft";
 	name = "aft hall indicator";
 	pixel_y = 32
+	},
+/obj/item/clothing/head/pumpkin/lantern{
+	pixel_y = 12
 	},
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
@@ -17413,9 +17627,6 @@
 	icon_state = "aft";
 	name = "aft hall indicator";
 	pixel_x = -32
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
@@ -17445,9 +17656,11 @@
 	},
 /area/cruise/central)
 "nFb" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/unsimulated/floor/plating,
-/area/template_noop)
+/obj/item/flame/candle/waxcandles,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "nFd" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -17730,11 +17943,11 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/obj/structure/sign/flag/idris/right{
-	pixel_y = 32
-	},
 /obj/machinery/light/small{
 	dir = 1
+	},
+/obj/structure/sign/flag/halloween/right{
+	pixel_y = 32
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -17742,9 +17955,6 @@
 /area/cruise/main_bar)
 "nQJ" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -17838,6 +18048,16 @@
 	name = "dirt"
 	},
 /area/cruise/jungle)
+"nTr" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/item/flame/candle/waxcandles,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "nTt" = (
 /obj/structure/window/reinforced/crescent,
 /obj/item/hullbeacon/red,
@@ -17944,16 +18164,18 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
 /area/cruise/aft)
 "oae" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/closet/cabinet,
-/obj/effect/landmark/costume/holiday_priest,
-/obj/effect/landmark/costume/holiday_priest,
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = 32;
+	dir = 4
+	},
+/obj/structure/flora/pottedplant/random,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -18060,10 +18282,23 @@
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/hammer,
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
 /area/cruise/centerline)
+"ocD" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/flame/candle/waxcandles,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/pool)
 "ocH" = (
 /obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor{
@@ -18179,6 +18414,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -18251,7 +18490,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -18261,7 +18500,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -18340,7 +18579,7 @@
 	pixel_y = 32
 	},
 /obj/item/clothing/head/pumpkin/lantern,
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
@@ -18585,7 +18824,7 @@
 	},
 /area/cruise/jungle)
 "ovI" = (
-/obj/item/flame/waxcandles/snowflake_candle{
+/obj/item/flame/candle/waxcandles{
 	pixel_y = 3;
 	pixel_x = -9
 	},
@@ -18710,6 +18949,9 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/sign/flag/halloween/right{
+	pixel_y = 32
+	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -18774,10 +19016,19 @@
 	},
 /area/cruise/pool)
 "oGu" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light_switch{
-	pixel_y = -24
+/obj/structure/closet/walllocker{
+	pixel_y = -32;
+	name = "\improper Aubrey Piper"
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4.1;
+	opacity = 0
+	},
+/obj/item/clothing/suit/maid_costume,
+/obj/item/clothing/head/maid_hat,
+/obj/item/clothing/ears/maid_ears,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -18849,6 +19100,15 @@
 	icon_state = "dark2"
 	},
 /area/cruise/pool)
+"oKc" = (
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
+	},
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
+/area/cruise/aft_p)
 "oKp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/bin,
@@ -18965,13 +19225,13 @@
 	},
 /area/template_noop)
 "oPP" = (
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
 /area/cruise/aft)
 "oQb" = (
-/obj/item/flame/waxcandles/snowflake_candle{
+/obj/item/flame/candle/waxcandles{
 	pixel_x = -19
 	},
 /turf/unsimulated/floor{
@@ -19016,7 +19276,7 @@
 /area/cruise/centerline)
 "oRQ" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/item/flame/waxcandles/snowflake_candle{
+/obj/item/flame/candle/waxcandles{
 	pixel_y = 19;
 	pixel_x = -10
 	},
@@ -19139,6 +19399,15 @@
 	icon_state = "new_white"
 	},
 /area/cruise/medical)
+"oWC" = (
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
+/area/cruise/fore_s)
 "oXd" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -19217,6 +19486,18 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
+"oYk" = (
+/obj/effect/decal/fake_object{
+	desc = "A descriptive sign.";
+	icon = 'icons/effects/ship_idris_cruise.dmi';
+	icon_state = "aft";
+	name = "costumes and changing room";
+	pixel_x = 32
+	},
+/turf/unsimulated/floor{
+	icon_state = "turquoise"
+	},
+/area/cruise/aft)
 "oZo" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
@@ -19236,34 +19517,34 @@
 	},
 /area/cruise/centerline)
 "pau" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/structure/closet/cabinet,
-/obj/item/clothing/suit/cheap_ghost_costume,
-/obj/item/clothing/suit/cheap_ghost_costume,
-/obj/item/clothing/suit/hacker_costume,
-/obj/item/clothing/suit/hacker_costume,
-/obj/item/clothing/suit/marisa_costume,
-/obj/item/clothing/suit/marisa_costume,
-/obj/item/clothing/suit/roman_costume,
-/obj/item/clothing/suit/roman_costume,
-/obj/item/clothing/suit/roman_costume,
-/obj/item/clothing/suit/roman_costume,
-/obj/item/clothing/suit/sumo_costume,
-/obj/item/clothing/suit/sumo_costume,
-/obj/item/clothing/suit/griffin_suit,
-/obj/item/clothing/suit/griffin_suit,
-/obj/item/clothing/head/griffin_hat,
-/obj/item/clothing/head/griffin_hat,
-/obj/item/clothing/head/marisa_hat,
-/obj/item/clothing/head/marisa_hat,
-/obj/item/clothing/head/roman_hat,
-/obj/item/clothing/head/roman_hat,
+/obj/item/clothing/suit/bee_costume,
+/obj/item/clothing/suit/bee_costume,
+/obj/item/clothing/suit/dark_witch_costume,
+/obj/item/clothing/suit/dark_witch_costume,
+/obj/item/clothing/suit/jester_costume,
+/obj/item/clothing/suit/jester_costume,
+/obj/item/clothing/suit/mummy_costume,
+/obj/item/clothing/suit/mummy_costume,
+/obj/item/clothing/suit/schoolgirl_costume,
+/obj/item/clothing/suit/schoolgirl_costume,
+/obj/item/clothing/suit/witch_hunter_costume,
+/obj/item/clothing/suit/witch_hunter_costume,
+/obj/item/clothing/head/bee_hat,
+/obj/item/clothing/head/bee_hat,
+/obj/item/clothing/head/mummy_hat,
+/obj/item/clothing/head/mummy_hat,
+/obj/item/clothing/head/scarecrow_hat,
+/obj/item/clothing/head/scarecrow_hat,
+/obj/item/clothing/head/witch_hunter_hat,
+/obj/item/clothing/head/witch_hunter_hat,
+/obj/item/clothing/suit/scarecrow,
+/obj/item/clothing/suit/scarecrow,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "wood_cherry"
+	icon_state = "dark2"
 	},
-/area/cruise/centerline)
+/area/cruise/aft)
 "paL" = (
 /obj/structure/table/reinforced,
 /obj/random/contraband,
@@ -19326,6 +19607,16 @@
 	icon_state = "rub_carpet"
 	},
 /area/cruise/beach)
+"pcb" = (
+/obj/effect/decal{
+	icon = 'icons/effects/crayondecal.dmi';
+	icon_state = "right";
+	color = "#A8E61D"
+	},
+/turf/unsimulated/floor{
+	icon_state = "turquoise"
+	},
+/area/cruise/aft)
 "pdj" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -19579,29 +19870,15 @@
 	},
 /area/cruise/washroom_fore)
 "pnM" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/suit/carp_costume,
-/obj/item/clothing/suit/carp_costume,
-/obj/item/clothing/suit/flash_costume,
-/obj/item/clothing/suit/flash_costume,
-/obj/item/clothing/suit/lobster_costume,
-/obj/item/clothing/suit/lobster_costume,
-/obj/item/clothing/suit/pharaoh_costume,
-/obj/item/clothing/suit/pharaoh_costume,
-/obj/item/clothing/suit/snowman_costume,
-/obj/item/clothing/suit/snowman_costume,
-/obj/item/clothing/head/flashsuit_hat,
-/obj/item/clothing/head/flashsuit_hat,
-/obj/item/clothing/head/lobster_hat,
-/obj/item/clothing/head/lobster_hat,
-/obj/item/clothing/head/pharaoh_hat,
-/obj/item/clothing/head/pharaoh_hat,
-/obj/item/clothing/head/snowman_hat,
-/obj/item/clothing/head/snowman_hat,
-/turf/unsimulated/floor{
-	icon_state = "wood_cherry"
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4.1;
+	opacity = 0
 	},
-/area/cruise/centerline)
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "pnU" = (
 /obj/item/hullbeacon/red,
 /obj/structure/window/reinforced/polarized{
@@ -19776,7 +20053,7 @@
 /area/cruise/central)
 "prP" = (
 /obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
+	job_tag = "Off-Duty Crew Member"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -19933,7 +20210,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -20141,6 +20418,18 @@
 	icon_state = "new_white"
 	},
 /area/cruise/virtual_reality)
+"pHU" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/aft)
 "pIS" = (
 /turf/unsimulated/mineral,
 /area/cruise/beach_bar)
@@ -20170,32 +20459,18 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/closet/cabinet,
-/obj/item/clothing/head/plaguedoctorhat,
-/obj/item/clothing/head/plaguedoctorhat,
-/obj/item/clothing/mask/gas/plaguedoctor,
-/obj/item/clothing/mask/gas/plaguedoctor,
-/obj/item/clothing/suit/bio_suit/plaguedoctorsuit,
-/obj/item/clothing/suit/bio_suit/plaguedoctorsuit,
-/obj/item/clothing/suit/nun,
-/obj/item/clothing/suit/nun,
-/obj/item/clothing/head/nun_hood,
-/obj/item/clothing/head/nun_hood,
-/obj/item/clothing/suit/judgerobe,
-/obj/item/clothing/suit/judgerobe,
-/obj/item/clothing/head/judge_wig,
-/obj/item/clothing/head/judge_wig,
-/obj/effect/landmark/costume/gladiator,
-/obj/effect/landmark/costume/gladiator,
-/obj/effect/landmark/costume/chicken,
-/obj/effect/landmark/costume/chicken,
-/obj/effect/landmark/costume/highlander,
-/obj/effect/landmark/costume/highlander,
+/obj/structure/sign/flag/halloween/left{
+	dir = 4;
+	pixel_x = 32
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
 /area/cruise/centerline)
 "pLF" = (
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Off-Duty Crew Member"
+	},
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -20207,7 +20482,9 @@
 /area/cruise/beach_bar)
 "pOp" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/door/window/westright,
+/obj/machinery/door/window/westright{
+	req_access = list(101)
+	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -20676,7 +20953,8 @@
 "qhe" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
-	name = "Emergency Tool Storage"
+	name = "Emergency Tool Storage";
+	req_access = list(101)
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor7"
@@ -20706,6 +20984,10 @@
 "qkr" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cookiesnack,
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -20825,7 +21107,17 @@
 	},
 /area/cruise/beach)
 "qpQ" = (
-/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4.1;
+	opacity = 0
+	},
+/obj/structure/bed/stool,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -20863,6 +21155,9 @@
 "qqX" = (
 /obj/machinery/atm{
 	pixel_y = 30
+	},
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Off-Duty Crew Member"
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
@@ -21120,14 +21415,6 @@
 	dir = 4
 	},
 /area/cruise/central)
-"qDN" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/unsimulated/floor{
-	icon_state = "turquoise"
-	},
-/area/cruise/aft)
 "qEi" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 4
@@ -21413,15 +21700,24 @@
 	},
 /area/cruise/centerline)
 "qQn" = (
-/obj/machinery/vending/cola,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/flag/idris{
 	pixel_y = 32
 	},
+/obj/machinery/vending/cola,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
 	},
 /area/cruise/aft)
+"qQI" = (
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
+/obj/item/flame/candle/waxcandles,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/pool)
 "qQP" = (
 /turf/unsimulated/floor{
 	footstep_sound = /decl/sound_category/grass_footstep;
@@ -21699,8 +21995,11 @@
 	},
 /area/cruise/pool)
 "rei" = (
-/obj/structure/table/wood,
-/obj/item/device/camera,
+/obj/effect/decal{
+	icon = 'icons/effects/crayondecal.dmi';
+	icon_state = "down";
+	color = "#A8E61D"
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -21756,6 +22055,7 @@
 	name = "Public Backup Custodial Closet"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/curtain/black,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -22479,7 +22779,7 @@
 	name = "aft hall indicator";
 	pixel_y = 32
 	},
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
 	},
@@ -22563,11 +22863,12 @@
 	},
 /area/cruise/beach)
 "rPP" = (
-/obj/structure/table/rack,
-/obj/machinery/light,
-/obj/item/clothing/suit/zombie_costume,
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
+	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "dark2"
 	},
 /area/cruise/pool)
 "rQy" = (
@@ -22634,12 +22935,6 @@
 	icon_state = "platebot"
 	},
 /area/cruise/jungle)
-"rUv" = (
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
-	},
-/turf/simulated/floor/tiled/ramp,
-/area/cruise/centerline)
 "rWa" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 4
@@ -22758,9 +23053,6 @@
 "rYu" = (
 /obj/structure/railing/mapped,
 /obj/structure/window/reinforced,
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Off-Duty Crew Member"
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -22918,6 +23210,10 @@
 /obj/structure/table/wood,
 /obj/machinery/recharger,
 /obj/structure/railing/mapped,
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = 32;
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -23081,12 +23377,12 @@
 	},
 /area/cruise/library)
 "slK" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/item/hullbeacon/red,
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "platebot"
+	icon_state = "dark2"
 	},
-/area/template_noop)
+/area/cruise/aft)
 "smT" = (
 /obj/structure/table/standard,
 /obj/item/paper_scanner,
@@ -23286,6 +23582,13 @@
 	icon_state = "plating"
 	},
 /area/cruise/tcomms_sat)
+"swY" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/personal,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "sxE" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -23346,6 +23649,10 @@
 "sCn" = (
 /obj/structure/table/wood,
 /obj/random/lavalamp,
+/obj/structure/sign/flag/halloween/right{
+	dir = 1;
+	pixel_y = -32
+	},
 /turf/unsimulated/floor{
 	icon_state = "alienvault"
 	},
@@ -23428,6 +23735,16 @@
 	icon_state = "wood_light"
 	},
 /area/cruise/pool/sauna2)
+"sFb" = (
+/obj/effect/decal{
+	icon = 'icons/effects/crayondecal.dmi';
+	icon_state = "left";
+	color = "#A8E61D"
+	},
+/turf/unsimulated/floor{
+	icon_state = "turquoise"
+	},
+/area/cruise/aft)
 "sFv" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/ramp{
@@ -23437,7 +23754,7 @@
 "sFY" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/table/wood,
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -23507,7 +23824,21 @@
 	},
 /area/cruise/hydroponics)
 "sGU" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4.1;
+	opacity = 0
+	},
+/obj/structure/bed/stool,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -23775,6 +24106,16 @@
 	icon_state = "wood"
 	},
 /area/cruise/jungle)
+"sSS" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/table/wood,
+/obj/item/clothing/head/pumpkin/lantern,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "sST" = (
 /obj/item/towel,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -23831,6 +24172,9 @@
 	id = "bar_east"
 	},
 /obj/item/clothing/head/pumpkin/lantern,
+/obj/structure/sign/flag/halloween/left{
+	pixel_y = 32
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -24284,6 +24628,18 @@
 	icon_state = "floor7"
 	},
 /area/cruise/arcade)
+"tjK" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft_s)
 "tjS" = (
 /obj/structure{
 	density = 1;
@@ -24313,6 +24669,16 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/cruise/arcade)
+"tlm" = (
+/obj/machinery/cryopod,
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = 32;
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/aft)
 "tlu" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -24611,7 +24977,13 @@
 	},
 /area/cruise/medical)
 "twp" = (
-/obj/structure/bed/stool/chair/office/dark,
+/mob/living/carbon/human{
+	name = "a mimir zzz";
+	real_name = "a mimir zzz"
+	},
+/obj/structure/bed,
+/obj/item/bedsheet/purple,
+/obj/item/clothing/under/pj/red,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -25034,6 +25406,10 @@
 "tLR" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/sign/flag/halloween/left{
+	dir = 4;
+	pixel_x = 32
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -25198,6 +25574,16 @@
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/cruise/pool)
+"tTY" = (
+/obj/item/flame/candle/waxcandles,
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = 32;
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "turquoise"
+	},
+/area/cruise/aft)
 "tUl" = (
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
@@ -25719,6 +26105,26 @@
 	icon_state = "wood"
 	},
 /area/cruise/library)
+"uiL" = (
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4.1;
+	opacity = 0
+	},
+/obj/structure/bed/stool,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = 32;
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "ujg" = (
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
@@ -25821,6 +26227,10 @@
 /obj/structure/sink{
 	dir = 8;
 	pixel_x = -12
+	},
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -26377,10 +26787,11 @@
 	},
 /area/cruise/virtual_reality)
 "uId" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light,
-/turf/unsimulated/floor/plating,
-/area/template_noop)
+/obj/structure/bed/stool,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "uIG" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -26388,7 +26799,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -26420,8 +26831,19 @@
 /turf/simulated/wall/shuttle/idris/cardinal,
 /area/cruise/hangar)
 "uJZ" = (
-/obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/closet/l3closet/janitor,
+/obj/structure/closet/walllocker{
+	pixel_y = 32;
+	name = "\improper Ava Hazel"
+	},
+/obj/item/clothing/accessory/ice_fairy_wings,
+/obj/item/clothing/under/ice_fairy_dress,
+/obj/item/clothing/head/ice_fairy_bow,
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4.1;
+	opacity = 0
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -26534,9 +26956,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -26631,7 +27050,7 @@
 /area/cruise/library)
 "uTn" = (
 /obj/structure/table/standard,
-/obj/item/flame/waxcandles/snowflake_candle{
+/obj/item/flame/candle/waxcandles{
 	pixel_y = 10;
 	pixel_x = -5
 	},
@@ -26798,6 +27217,17 @@
 	icon_state = "beachcorner"
 	},
 /area/cruise/jungle)
+"uZK" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/table/wood,
+/obj/item/device/camera,
+/obj/item/device/camera,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "vac" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
@@ -26939,7 +27369,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = -24
 	},
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -27237,7 +27667,7 @@
 /area/cruise/jungle)
 "vuH" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -27257,13 +27687,14 @@
 	},
 /area/cruise/arcade)
 "vvz" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "lino_grey"
 	},
-/area/cruise/aft)
+/area/cruise/arcade)
 "vwb" = (
 /turf/simulated/floor/beach/water/pool,
 /area/cruise/fore)
@@ -27327,6 +27758,15 @@
 	icon_state = "dark"
 	},
 /area/cruise/security)
+"vyP" = (
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/pool)
 "vzh" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/unsimulated/floor{
@@ -27443,12 +27883,14 @@
 	},
 /area/cruise/beach)
 "vDS" = (
-/obj/structure/table/steel,
-/obj/item/storage/toolbox/mechanical,
-/obj/item/storage/toolbox/mechanical,
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/structure/mirror{
+	pixel_x = -26;
+	pixel_y = -2
+	},
+/obj/structure/bed/stool/padded/beige,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -27523,7 +27965,7 @@
 /area/template_noop)
 "vIP" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -27533,6 +27975,10 @@
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/sign/flag/halloween/left{
+	dir = 4;
+	pixel_x = 32
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
@@ -27572,12 +28018,12 @@
 	},
 /area/cruise/fore)
 "vMP" = (
-/obj/item/flame/waxcandles/snowflake_candle{
-	pixel_x = -10;
-	pixel_y = -4
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
+	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "turquoise"
 	},
 /area/cruise/aft)
 "vNb" = (
@@ -27711,7 +28157,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -27787,7 +28233,7 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
-/obj/item/flame/waxcandles/snowflake_candle,
+/obj/item/flame/candle/waxcandles,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -27854,12 +28300,13 @@
 /turf/template_noop,
 /area/template_noop)
 "vZc" = (
-/obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/closet/secure_closet/custodial{
-	req_access = null
+/obj/machinery/light/small{
+	dir = 4
 	},
-/obj/structure/reagent_dispensers/peppertank/spacecleaner{
-	pixel_x = 32
+/obj/structure/bed/stool/padded/beige,
+/obj/structure/mirror{
+	pixel_x = 26;
+	pixel_y = -2
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -28009,7 +28456,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
+	job_tag = "Off-Duty Crew Member"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
@@ -28155,9 +28602,6 @@
 	},
 /area/cruise/pool)
 "whZ" = (
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
-	},
 /turf/simulated/floor/tiled/ramp,
 /area/cruise/central)
 "wid" = (
@@ -28319,7 +28763,7 @@
 /area/cruise/pool/sauna2)
 "wma" = (
 /obj/structure/bed/stool/chair/wood,
-/obj/structure/sign/flag/idris/left{
+/obj/structure/sign/flag/halloween/left{
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
@@ -28343,6 +28787,15 @@
 	icon_state = "desert"
 	},
 /area/cruise/beach)
+"wnR" = (
+/obj/structure/sign/flag/halloween/left{
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/unsimulated/floor{
+	icon_state = "turquoise"
+	},
+/area/cruise/aft)
 "wpY" = (
 /obj/effect/decal/fake_object{
 	desc = "A descriptive sign.";
@@ -28383,11 +28836,11 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/obj/structure/sign/flag/idris/left{
-	pixel_y = 32
-	},
 /obj/machinery/light/small{
 	dir = 1
+	},
+/obj/structure/sign/flag/halloween/left{
+	pixel_y = 32
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
@@ -28699,6 +29152,26 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/escort)
+"wGQ" = (
+/obj/structure/curtain/black{
+	icon_state = "open";
+	layer = 4.1;
+	opacity = 0
+	},
+/obj/structure/bed/stool,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/sign/flag/halloween/left{
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "wHq" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 4
@@ -29021,9 +29494,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Passenger"
-	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -29057,6 +29527,10 @@
 "wWc" = (
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -29250,6 +29724,14 @@
 	icon_state = "floor7"
 	},
 /area/cruise/arcade)
+"xcg" = (
+/obj/structure/closet/cabinet,
+/obj/effect/landmark/costume/holiday_priest,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "xdd" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/unsimulated/floor{
@@ -29297,6 +29779,15 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/escort)
+"xfb" = (
+/obj/machinery/light,
+/obj/item/clothing/head/pumpkin/lantern{
+	pixel_y = -10
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "xfu" = (
 /obj/structure/table/wood,
 /obj/machinery/recharger,
@@ -29998,6 +30489,34 @@
 	icon_state = "lino_grey"
 	},
 /area/cruise/hangar)
+"xCV" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/head/plaguedoctorhat,
+/obj/item/clothing/head/plaguedoctorhat,
+/obj/item/clothing/mask/gas/plaguedoctor,
+/obj/item/clothing/mask/gas/plaguedoctor,
+/obj/item/clothing/suit/bio_suit/plaguedoctorsuit,
+/obj/item/clothing/suit/bio_suit/plaguedoctorsuit,
+/obj/item/clothing/suit/nun,
+/obj/item/clothing/suit/nun,
+/obj/item/clothing/head/nun_hood,
+/obj/item/clothing/head/nun_hood,
+/obj/item/clothing/suit/judgerobe,
+/obj/item/clothing/suit/judgerobe,
+/obj/item/clothing/head/judge_wig,
+/obj/item/clothing/head/judge_wig,
+/obj/effect/landmark/costume/gladiator,
+/obj/effect/landmark/costume/gladiator,
+/obj/effect/landmark/costume/chicken,
+/obj/effect/landmark/costume/chicken,
+/obj/effect/landmark/costume/highlander,
+/obj/effect/landmark/costume/highlander,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "xDq" = (
 /obj/item/card/id/all_access,
 /obj/effect/floor_decal/industrial/hatch,
@@ -30006,6 +30525,10 @@
 /area/cruise/virtual_reality)
 "xDt" = (
 /obj/machinery/light,
+/obj/structure/sign/flag/halloween/left{
+	dir = 8;
+	pixel_x = -32
+	},
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
 	},
@@ -30256,6 +30779,16 @@
 	icon_state = "dark2"
 	},
 /area/cruise/main_bar/aft)
+"xNE" = (
+/obj/structure/closet/emcloset,
+/obj/structure/sign/flag/halloween/right{
+	pixel_x = -32;
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_birch"
+	},
+/area/cruise/centerline)
 "xNY" = (
 /obj/machinery/light{
 	dir = 4
@@ -30474,6 +31007,13 @@
 	icon_state = "platebot"
 	},
 /area/cruise/escort)
+"yae" = (
+/obj/structure/undies_wardrobe,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/cruise/aft)
 "yaB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -54104,7 +54644,7 @@ uQb
 uQb
 hUc
 uQb
-hUc
+ocD
 fgt
 xMs
 srw
@@ -54612,7 +55152,7 @@ lgh
 nHT
 fgt
 uQb
-uQb
+vyP
 wWc
 uQb
 uQb
@@ -55132,7 +55672,7 @@ flk
 flk
 flk
 flk
-flk
+qQI
 fgt
 mdJ
 tuR
@@ -55648,7 +56188,7 @@ jpA
 fgF
 gaM
 uov
-nNd
+gXG
 hcp
 fgt
 lCn
@@ -56673,7 +57213,7 @@ vtQ
 hlE
 fgt
 bvH
-rPP
+aqI
 fgt
 nNd
 nNd
@@ -57198,8 +57738,8 @@ iCX
 iCX
 xdd
 xdd
-uQb
-uQb
+vyP
+rPP
 pZO
 fgt
 uJc
@@ -57955,7 +58495,7 @@ ohc
 nYS
 nYS
 nYS
-nYS
+dEj
 fgt
 boC
 aet
@@ -58476,7 +59016,7 @@ cfA
 jIE
 fSJ
 fSJ
-mzj
+fVD
 uJc
 oSt
 oSt
@@ -59230,8 +59770,8 @@ shq
 ulC
 uRK
 sBc
-xTE
-xTE
+nvO
+oKc
 xTE
 ulC
 xTE
@@ -59276,7 +59816,7 @@ lQy
 lQy
 lQy
 iOr
-tLR
+akE
 xDt
 iOr
 iOr
@@ -59442,7 +59982,7 @@ lWQ
 lIu
 oSt
 oSt
-gfJ
+kaG
 oSt
 oSt
 oSt
@@ -59497,7 +60037,7 @@ xTE
 xTE
 jth
 uJZ
-uJZ
+bdT
 vDS
 bdT
 kiR
@@ -59752,7 +60292,7 @@ rkp
 mEY
 xTE
 xTE
-kqC
+jth
 twp
 bdT
 bdT
@@ -60011,9 +60551,9 @@ iwe
 uck
 jth
 kkc
-imH
+bdT
 vZc
-bFV
+bdT
 arM
 jth
 uck
@@ -60030,22 +60570,22 @@ dwA
 nsj
 wXO
 wXO
-wXO
+eII
 dwA
 dwA
 sAV
 wLs
 snG
-uIG
-iTT
-kaG
-nZN
+iRT
+iRT
+iRT
+jim
 pES
 pES
 asy
 pES
 pES
-qDN
+pES
 pES
 pES
 pES
@@ -60292,11 +60832,11 @@ vHO
 dwA
 vIP
 pES
-pES
-pES
-pES
-pES
-pES
+aWx
+iRT
+iRT
+iRT
+jim
 pES
 iRF
 iOr
@@ -60511,7 +61051,7 @@ oSt
 asj
 dwA
 mts
-rUv
+jHC
 cWJ
 lbW
 lbW
@@ -60549,11 +61089,11 @@ vHO
 dwA
 eZI
 pES
-pES
-pES
-pES
-pES
-pES
+aWx
+uIG
+iTT
+jcv
+nZN
 pES
 sAV
 iOr
@@ -60768,8 +61308,8 @@ oSt
 oSt
 esl
 ita
-cAw
-ebS
+jsi
+lbW
 lbW
 lbW
 lbW
@@ -61025,12 +61565,12 @@ oSt
 oSt
 esl
 tUm
-cAw
-ebS
+jsi
+lbW
 wTC
 wTC
 wTC
-ebS
+lbW
 rYu
 xil
 nhW
@@ -61056,7 +61596,7 @@ vHO
 dwA
 dwA
 esl
-esl
+dwA
 dwA
 dwA
 dwA
@@ -61282,7 +61822,7 @@ oSt
 asj
 dwA
 mts
-rUv
+jHC
 cEF
 nQJ
 nQJ
@@ -61313,18 +61853,18 @@ vHO
 dwA
 xiy
 asj
-asj
 xiy
-nFb
+yae
+iRT
 uId
-lQy
-rtq
-tLR
-ykB
-rtq
-qDN
+iOr
 pES
 pES
+oYk
+pcb
+pcb
+wnR
+emS
 pES
 hJs
 pLF
@@ -61475,12 +62015,12 @@ gxb
 xBF
 wOY
 whZ
-bxm
 mJD
-bxm
-bxm
-ceU
-ceU
+mJD
+mJD
+mJD
+mJD
+mJD
 xBF
 fTI
 knn
@@ -61570,16 +62110,16 @@ esl
 dwA
 rMe
 oSt
-oSt
-oSt
-nFb
-asj
-lQy
-iKg
-nvO
+xiy
+swY
 iRT
-jim
-lQy
+blU
+iOr
+iOr
+iOr
+iOr
+pnM
+pnM
 iOr
 iOr
 iOr
@@ -61734,10 +62274,10 @@ aHf
 lJi
 sht
 nyD
-bxm
-bxm
-ceU
-ceU
+mJD
+mJD
+mJD
+mJD
 ffg
 oSt
 lIu
@@ -61820,33 +62360,33 @@ vHO
 bAB
 qWZ
 cBe
-cOM
+ieT
 dwA
 cwG
 fcA
 smV
 oSt
 oSt
-oSt
-oSt
-slK
-asj
-lQy
-iKg
+xiy
+swY
 iRT
+uId
+yae
 qpQ
 qpQ
-vMP
+qpQ
+iRT
+iRT
 rei
-iOr
+pau
 sAV
 sck
 vUm
 bcx
 bcx
 oPP
-vbP
-vbP
+kqC
+pHU
 vbP
 gJA
 iOr
@@ -61989,9 +62529,9 @@ gxb
 xBF
 wOY
 whZ
-bxm
 mJD
-bxm
+mJD
+mJD
 agC
 gDZ
 wmZ
@@ -62042,7 +62582,7 @@ iQL
 wJF
 ezk
 ezk
-rzl
+aFo
 kxc
 gxb
 lIu
@@ -62084,18 +62624,18 @@ fcA
 apU
 iuV
 lIu
-iuV
-lIu
-nFb
-asj
-lQy
-iKg
+xiy
+slK
 iRT
-qpQ
-qpQ
-qpQ
 iRT
-iOr
+iRT
+iRT
+iRT
+iRT
+iRT
+iRT
+rei
+dxf
 iOr
 rWi
 prP
@@ -62341,18 +62881,18 @@ fcA
 smV
 oSt
 gfJ
-oSt
-oSt
-nFb
-asj
-lQy
-aFo
-vvz
-dlF
-dlF
-qpQ
-gXu
-iOr
+xiy
+jOx
+iRT
+iRT
+iRT
+iRT
+iRT
+iRT
+iRT
+iRT
+rei
+eBi
 iOr
 rWi
 prP
@@ -62598,18 +63138,18 @@ fcA
 smV
 oSt
 gfJ
-oSt
-oSt
-nFb
-asj
-lQy
-iKg
-sGU
-kEk
-kEk
-emS
+xiy
+slK
 iRT
-iOr
+iRT
+mha
+wGQ
+uiL
+qpQ
+iRT
+iRT
+rei
+imH
 iOr
 rWi
 prP
@@ -62844,7 +63384,7 @@ qWZ
 vuJ
 esl
 ddz
-qWZ
+cbC
 qWZ
 anI
 vHO
@@ -62855,17 +63395,17 @@ fdx
 apU
 iuV
 usu
-iuV
-usu
-nFb
-asj
-lQy
-iKg
-sGU
-mfQ
-kEk
-emS
+xiy
+slK
 iRT
+xfb
+iOr
+iOr
+iOr
+iOr
+kEk
+iRT
+gXu
 iOr
 iOr
 ftS
@@ -63101,7 +63641,7 @@ oZQ
 aaR
 esl
 hRb
-qWZ
+hRb
 qWZ
 anI
 vHO
@@ -63112,18 +63652,18 @@ fcA
 smV
 oSt
 oSt
-oSt
-oSt
-nFb
-asj
-lQy
+xiy
+slK
+iRT
+iRT
+mha
 iKg
 sGU
-kEk
-kEk
-emS
+qpQ
 iRT
-iOr
+iRT
+iRT
+mha
 iOr
 rWi
 prP
@@ -63357,8 +63897,8 @@ lCi
 lCi
 pRn
 dwA
-pnM
-qWZ
+cbC
+cbC
 qWZ
 anI
 vHO
@@ -63369,18 +63909,18 @@ fcA
 smV
 oSt
 oSt
-oSt
-oSt
-nFb
-asj
-lQy
-aFo
-eBi
+xiy
 jOx
-jOx
-qpQ
-gXu
-iOr
+iRT
+iRT
+iRT
+iRT
+iRT
+iRT
+iRT
+iRT
+rei
+xCV
 iOr
 rWi
 prP
@@ -63614,7 +64154,7 @@ lCi
 lCi
 pRn
 dwA
-pau
+kTu
 kTu
 qWZ
 qWZ
@@ -63626,18 +64166,18 @@ fcA
 apU
 iuV
 lIu
-iuV
-lIu
-nFb
-asj
-lQy
-iKg
-afh
-qpQ
-qpQ
-qpQ
+xiy
+slK
 iRT
-iOr
+iRT
+iRT
+iRT
+iRT
+iRT
+iRT
+iRT
+rei
+xcg
 iOr
 rWi
 prP
@@ -63790,9 +64330,9 @@ sMx
 jVy
 xAY
 crT
-bxm
-bxm
-bxm
+mJD
+mJD
+mJD
 mJD
 ffg
 cnT
@@ -63883,26 +64423,26 @@ fcA
 smV
 oSt
 oSt
-oSt
-oSt
+xiy
 slK
-asj
-lQy
-iKg
-blU
+iRT
+uId
+yae
+qpQ
 qpQ
 qpQ
 iRT
 iRT
-iOr
+nFb
+mha
 sAV
 ili
 cYE
 bcx
 bcx
 jTc
-ujX
-ujX
+kDh
+tlm
 ujX
 gJA
 iOr
@@ -64044,8 +64584,8 @@ qLX
 eNx
 xBF
 sMx
-aNq
-aNq
+jVy
+jVy
 cGS
 uNI
 gNw
@@ -64140,16 +64680,16 @@ esl
 dwA
 rMe
 oSt
-oSt
-oSt
-nFb
-asj
-lQy
-iKg
-nvO
+xiy
+slK
 iRT
-jim
-lQy
+blU
+iOr
+iOr
+iOr
+iOr
+pnM
+pnM
 iOr
 iOr
 iOr
@@ -64302,7 +64842,7 @@ eNx
 xBF
 rFd
 ejQ
-aNq
+jVy
 gPi
 wju
 wju
@@ -64385,7 +64925,7 @@ esl
 esl
 esl
 dwA
-eoi
+xNE
 ohX
 sPq
 sPq
@@ -64397,18 +64937,18 @@ vHO
 dwA
 xiy
 asj
-asj
 xiy
+yae
 nFb
 uId
-lQy
-snG
-tLR
-wLs
-snG
-dDd
+iOr
 pES
 pES
+iqB
+sFb
+sFb
+vMP
+dlF
 pES
 vtm
 pLF
@@ -64654,12 +65194,12 @@ eWm
 dwA
 dwA
 esl
-esl
 dwA
 dwA
 dwA
 dwA
-qru
+dwA
+geh
 pES
 pES
 pES
@@ -65175,11 +65715,11 @@ qWZ
 dwA
 qQn
 pES
-pES
-pES
-pES
-pES
-pES
+aWx
+mfQ
+sSS
+uZK
+nTr
 pES
 sAV
 iOr
@@ -65432,11 +65972,11 @@ sfH
 dwA
 glz
 pES
-pES
-pES
-pES
-pES
-pES
+aWx
+iRT
+iRT
+iRT
+jim
 pES
 iRF
 iOr
@@ -65688,18 +66228,18 @@ qQe
 dwA
 dwA
 sAV
-pES
-pES
-pES
-pES
-pES
-pES
+ykB
+rtq
+iRT
+iRT
+iRT
+jim
 pES
 pES
 nBY
 pES
 pES
-dDd
+pES
 pES
 pES
 pES
@@ -65945,12 +66485,12 @@ quM
 lbk
 iNw
 jrP
-pES
-pES
-pES
-pES
-pES
-pES
+iRT
+iRT
+iRT
+iRT
+iRT
+jim
 pES
 pES
 pES
@@ -66202,12 +66742,12 @@ quM
 bNG
 fWc
 vfK
-pES
-pES
-pES
-qDN
-pES
-pES
+iRT
+iRT
+iRT
+mnE
+iRT
+jim
 pES
 pES
 pES
@@ -66463,8 +67003,8 @@ lQy
 lQy
 lQy
 iOr
-cnk
-pES
+fGm
+jim
 kzw
 iOr
 lQy
@@ -66473,7 +67013,7 @@ lQy
 lQy
 iOr
 tLR
-cnk
+tTY
 iOr
 iOr
 eeg
@@ -67963,8 +68503,8 @@ bLx
 ovI
 soC
 tul
-hWr
-hWr
+afh
+bFV
 hWr
 ryN
 vPo
@@ -68487,8 +69027,8 @@ tMr
 cgq
 hWr
 cgq
-vPo
-hWr
+tjK
+bFV
 hWr
 hWr
 hWr
@@ -69749,8 +70289,8 @@ mUi
 mUi
 soC
 eDK
-kRc
-nlU
+oWC
+cmT
 kRc
 kRc
 ecq
@@ -71568,11 +72108,11 @@ jUL
 iVT
 iTc
 chC
+cEX
+vvz
 chC
-chC
-chC
-chC
-llz
+cEX
+fOF
 chC
 chC
 chC
