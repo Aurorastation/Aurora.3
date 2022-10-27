@@ -104,8 +104,8 @@ obj/item/clothing/suit/apron/overalls/blue
 //Security
 
 /obj/item/clothing/suit/storage/security/officer
-	name = "security officer's jacket"
-	desc = "This jacket is for those special occasions when a security officer actually feels safe."
+	name = "corporate security jacket"
+	desc = "This jacket is for those special occasions when corporate security actually feels safe."
 	icon = 'icons/obj/contained_items/department_uniforms/security.dmi'
 	contained_sprite = TRUE
 	blood_overlay_type = "coat"
@@ -138,8 +138,8 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/security/officer/hos
 	name = "head of security's jacket"
 	desc = "This piece of clothing was specifically designed for asserting superior authority."
-	icon_state = "hosjacket"
-	item_state = "hosjacket"
+	icon_state = "hos_jacket"
+	item_state = "hos_jacket"
 
 //Detective
 
