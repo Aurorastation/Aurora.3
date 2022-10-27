@@ -283,12 +283,29 @@
 
 /obj/item/clothing/suit/storage/target_costume/Initialize()
 	. = ..()
-	hold.max_storage_space = 4
-	hold.can_hold = list(
-		/obj/item/material/kitchen/utensil/knife,
-		/obj/item/material/kitchen/utensil/knife/plastic,
-		/obj/item/material/knife,
-	)
+	pockets.storage_slots = 2
+	pockets.max_w_class = ITEMSIZE_NORMAL
+	pockets.max_storage_space = 8
+
+/obj/item/clothing/suit/storage/target_costume/attack_hand(mob/user)
+	. = ..()
+	var/len = length(pockets.contents)
+	if(!len)
+		item_state = "target_costume"
+	if(len == 1)
+		item_state = "target_costume_one"
+	if(len == 2)
+		item_state = "target_costume_two"
+
+/obj/item/clothing/suit/storage/target_costume/attackby(obj/item/W, mob/user)
+	. = ..()
+	var/len = length(pockets.contents)
+	if(!len)
+		item_state = "target_costume"
+	if(len == 1)
+		item_state = "target_costume_one"
+	if(len == 2)
+		item_state = "target_costume_two"
 // Hats
 /obj/item/clothing/head/judge_wig
 	name = "judge wig"
