@@ -177,7 +177,6 @@
 	zavod_sec_coat["zavodskoi security coat, alt"] = /obj/item/clothing/suit/storage/security/officer/zav/alt
 	zavod_sec_coat += new /datum/gear_tweak/path(zavod_sec_coat)
 
-
 /datum/gear/faction/zavod_sunglasses
 	display_name = "zavodskoi security HUD selection"
 	description = "A selection of Zavodskoi security HUDs."
