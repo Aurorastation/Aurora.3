@@ -13,7 +13,8 @@
 #define OUTFIT_FACTIONSPECIFIC 3
 
 #define OUTFIT_NORMAL 2
-#define OUTFIT_THICK 3
+#define OUTFIT_NORMAL 3
+#define OUTFIT_THICK 4
 
 #define OUTFIT_BLUE 2
 #define OUTFIT_GREEN 3
@@ -214,13 +215,15 @@
 					B.color = "#3d2711"
 		else
 			B.color = null
-		switch (H.backbag_strap)
-			if (OUTFIT_NOTHING)
+		switch(H.backbag_strap)
+			if(OUTFIT_NOTHING)
 				B.alpha_mask = "hidden"
-			if (OUTFIT_THICK)
-				B.alpha_mask = null
-			if (OUTFIT_NORMAL)
+			if(OUTFIT_THIN)
+				B.alpha_mask = "thin"
+			if(OUTFIT_NORMAL)
 				B.alpha_mask = "normal"
+			if(OUTFIT_THICK)
+				B.alpha_mask = null
 		if(isvaurca(H, TRUE))
 			H.equip_or_collect(B, slot_r_hand)
 		else
