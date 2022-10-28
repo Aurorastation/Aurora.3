@@ -188,8 +188,8 @@ var/list/gear_datums = list()
 	. += "Search: "
 	. += "<input type='text' id='search_input' name='search_input' \
 			onchange='search_onchange()' value='[search_input_value]'>";
-	. += "<a href='#' onclick='search_onchange()'> Refresh</a>"
-	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'> Clear</a>"
+	. += "<a href='#' onclick='search_onchange()'>Refresh</a>"
+	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Clear</a>"
 	. += "</td></tr><tr><td colspan=3><hr></td></tr>"
 
 	var/available_items_html = "" // to be added to the top/beginning of the list
