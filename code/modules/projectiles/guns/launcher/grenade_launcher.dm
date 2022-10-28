@@ -62,17 +62,9 @@
 	icon_state = "grenadelauncher"
 	item_state = "grenadelauncher"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
-	slot_flags = SLOT_BACK
-	force = 10
 	max_grenades = 5
 	needspin = FALSE
 
-	fire_sound = 'sound/weapons/grenadelaunch.ogg'
-	fire_sound_text = "a metallic thunk"
-	recoil = 0
-	throw_distance = 7
-	release_force = 5
 	blacklisted_grenades = list(
 		/obj/item/grenade/flashbang/clusterbang,
 		/obj/item/grenade/frag
@@ -107,7 +99,7 @@
 		to_chat(user, SPAN_WARNING("[src] is empty."))
 	update_maptext()
 
-/obj/item/gun/launcher/grenade/unique_action(mob/user)
+/obj/item/gun/launcher/grenade/revolving/unique_action(mob/user)
 	pump(user)
 
 //revolves the magazine, allowing players to choose between multiple grenade types
@@ -155,15 +147,6 @@
 		chambered.det_time = 10
 		chambered.activate(null)
 	return chambered
-
-/obj/item/gun/launcher/grenade/handle_post_fire(mob/user)
-	message_admins("[key_name_admin(user)] fired a grenade ([chambered.name]) from a grenade launcher ([src.name]).")
-	log_game("[key_name_admin(user)] used a grenade ([chambered.name]).",ckey=key_name(user))
-	chambered = null
-	update_maptext()
-
-/obj/item/gun/launcher/grenade/get_ammo()
-	return grenades.len + (chambered? 1 : 0)
 
 //Underslung grenade launcher to be used with the Z8
 /obj/item/gun/launcher/grenade/underslung
