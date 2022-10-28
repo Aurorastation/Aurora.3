@@ -1,10 +1,12 @@
 /obj/item/gun/launcher/grenade
 	name = "grenade launcher"
 	desc = "A bulky pump-action grenade launcher. Holds up to 6 grenades in a revolving magazine."
-	icon = 'icons/obj/guns/grenade_launcher.dmi'
+	icon = 'icons/obj/contained_items/weapons/grenade_launcher.dmi'
 	icon_state = "grenadelauncher"
 	item_state = "grenadelauncher"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE
+	slot_flags = SLOT_BACK
 	force = 10
 
 	fire_sound = 'sound/weapons/grenadelaunch.ogg'
