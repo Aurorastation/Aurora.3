@@ -210,9 +210,28 @@ var/list/gear_datums = list()
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
 
-		if(!findtext(G.display_name, search_input_value))
-			available = FALSE
+		// ------------------------------------------------------------------
+		// ------------------------------------------------------------------
+		var/found_searched_text = FALSE
+
+		//to_chat(usr, SPAN_NOTICE("========="))
+		//to_chat(usr, SPAN_NOTICE(G.display_name))
+
+		if(findtext(G.display_name, search_input_value))
+			found_searched_text = TRUE
 		
+		for(var/datum/gear_tweak/tweak in G.gear_tweaks)
+			var/datum/gear_tweak/path/path = tweak
+			if(path && istype(path) && path.valid_paths)
+				for(var/x in path.valid_paths)
+					//to_chat(usr, SPAN_NOTICE(x))
+					if(findtext(x, search_input_value))
+						found_searched_text = TRUE
+		
+		available = available && found_searched_text
+		// ------------------------------------------------------------------
+		// ------------------------------------------------------------------
+
 		if(!available)
 			style = "style='color: #B1B1B1;'"
 		if(ticked)
