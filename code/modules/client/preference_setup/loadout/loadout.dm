@@ -163,7 +163,8 @@ var/list/gear_datums = list()
 		document.getElementById('search_refresh_link').click(); \
 		}</script>"
 
-	. += "<input type='text' id='search_input' name='search_input' onchange='search_onchange()'><br><br>";
+	. += "<input type='text' id='search_input' name='search_input' \
+			onchange='search_onchange()' value='[search_input_value]'><br><br>";
 	. += "<a href='?src=\ref[src];search_input_refresh=Abc' id='search_refresh_link'>Refresh</font></a>"
 
 	// <a href='?src=\ref[src];select_category=[category]'><font [style]>[category]</font></a>
