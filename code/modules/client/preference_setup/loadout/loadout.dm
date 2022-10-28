@@ -214,7 +214,6 @@ var/list/gear_datums = list()
 			var/datum/gear_tweak/path/path = tweak
 			if(path && istype(path) && path.valid_paths)
 				for(var/x in path.valid_paths)
-					//to_chat(usr, SPAN_NOTICE(x))
 					if(findtext(x, search_input_value))
 						found_searched_text = TRUE
 		available = available && found_searched_text
