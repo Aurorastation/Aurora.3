@@ -12844,7 +12844,6 @@
 /turf/simulated/wall,
 /area/horizon/hallway/deck_three/primary/starboard)
 "xt" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -12854,7 +12853,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew_quarters/fitness/hallway)
 "xu" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -13326,14 +13325,13 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "yl" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew_quarters/fitness/hallway)
 "ym" = (
 /obj/effect/floor_decal/corner/blue{
@@ -18950,7 +18948,7 @@
 	name = "Holodeck"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/fitness/hallway)
 "IN" = (
 /obj/structure/table/standard,
@@ -25553,7 +25551,7 @@
 /area/maintenance/aux_atmospherics/deck_3)
 "UD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew_quarters/fitness/hallway)
 "UE" = (
 /obj/effect/shuttle_landmark/horizon/deckthree/fore,
@@ -27206,7 +27204,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "XE" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -27216,7 +27213,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew_quarters/fitness/hallway)
 "XF" = (
 /obj/machinery/porta_turret/stationary{
@@ -27907,14 +27904,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
 "YO" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew_quarters/fitness/hallway)
 "YP" = (
 /obj/effect/decal/cleanable/cobweb2,
