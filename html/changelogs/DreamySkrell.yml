@@ -1,0 +1,6 @@
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - bugfix: "Ghostspawner whitelist check fix."
