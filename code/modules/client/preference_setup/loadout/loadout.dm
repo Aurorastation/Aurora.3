@@ -179,16 +179,17 @@ var/list/gear_datums = list()
 	. += "<tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
 
-	// search box
 	. += "<tr><td colspan=3>"
 	. += "<script>function search_onchange() { \
 		var val = document.getElementById('search_input').value; \
 		document.getElementById('search_refresh_link').href='?src=\ref[src];search_input_refresh=' + encodeURIComponent(val) + ''; \
 		document.getElementById('search_refresh_link').click(); \
 		}</script>"
+	. += "Search: "
 	. += "<input type='text' id='search_input' name='search_input' \
 			onchange='search_onchange()' value='[search_input_value]'>";
-	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Refresh</font></a>"
+	. += "<a href='#' onclick='search_onchange()'> Refresh</a>"
+	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'> Clear</a>"
 	. += "</td></tr><tr><td colspan=3><hr></td></tr>"
 
 	var/available_items_html = "" // to be added to the top/beginning of the list
@@ -350,10 +351,8 @@ var/list/gear_datums = list()
 	else if(href_list["clear_loadout"])
 		pref.gear.Cut()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
-	else if(href_list["search_input_refresh"] == null) // empty str is false
+	else if(href_list["search_input_refresh"] != null) // empty str is false
 		search_input_value = sanitize(href_list["search_input_refresh"], 100)
-		to_chat(usr, SPAN_NOTICE("search_input_refresh"))
-		to_chat(usr, SPAN_NOTICE(search_input_value))
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	return ..()
 
