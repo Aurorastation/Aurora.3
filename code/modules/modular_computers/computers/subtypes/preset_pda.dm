@@ -73,7 +73,7 @@
 /obj/item/modular_computer/handheld/pda/supply/miner
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
 
-/obj/item/modular_computer/handheld/pda/supply/qm
+/obj/item/modular_computer/handheld/pda/supply/om
 	icon_add = "q"
 
 /obj/item/modular_computer/handheld/pda/supply/qm/Initialize()

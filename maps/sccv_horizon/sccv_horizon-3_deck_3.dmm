@@ -312,6 +312,21 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
+"aE" = (
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(5,12)
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/medical/ward)
 "aF" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -338,7 +353,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -1314,6 +1329,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo/dormitories)
+"cy" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/light,
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard)
 "cz" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1335,7 +1360,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -3014,6 +3039,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "fF" = (
@@ -4268,6 +4299,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "hX" = (
@@ -4587,12 +4624,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "iv" = (
-/obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /obj/machinery/firealarm/east,
 /obj/machinery/light,
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge)
 "iw" = (
@@ -4758,6 +4797,9 @@
 	dir = 4
 	},
 /obj/structure/flora/pottedplant/random,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "iK" = (
@@ -5314,6 +5356,8 @@
 	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
 "jH" = (
@@ -5879,10 +5923,19 @@
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "kK" = (
@@ -6129,6 +6182,7 @@
 	dir = 4;
 	pixel_x = 32
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor,
 /area/maintenance/bridge)
 "lf" = (
@@ -6671,6 +6725,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
+"mc" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/command{
+	id_tag = "conference_room";
+	name = "Conference Room";
+	req_one_access = list(19,38,72)
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/meeting_room)
 "md" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/captain)
@@ -7538,10 +7601,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -8071,7 +8135,9 @@
 /area/security/forensics_morgue)
 "oI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
 "oJ" = (
@@ -9813,6 +9879,12 @@
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -14118,6 +14190,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "zQ" = (
@@ -14194,7 +14272,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	name = "Break Room";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -14362,12 +14440,14 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/washroom)
 "Ap" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/flag/sol/right{
 	dir = 4;
 	pixel_x = 32
 	},
-/turf/simulated/floor,
+/obj/structure/ladder{
+	pixel_y = 10
+	},
+/turf/simulated/open,
 /area/maintenance/bridge)
 "Aq" = (
 /obj/structure/railing/mapped{
@@ -15940,7 +16020,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -16087,11 +16167,11 @@
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/washroom)
@@ -16587,7 +16667,7 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor,
@@ -17363,6 +17443,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/fitness/hallway)
+"Ge" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/emergency)
 "Gf" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -19474,7 +19564,7 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -20553,6 +20643,7 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
 "LK" = (
@@ -21141,13 +21232,19 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/gun/projectile/sec/lethal,
-/obj/item/gun/projectile/sec/lethal,
-/obj/item/gun/projectile/sec/lethal,
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/clothing/accessory/holster/thigh,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
 "ML" = (
@@ -21266,6 +21363,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
@@ -22592,7 +22692,6 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/hologram/holopad,
 /obj/structure/curtain/open/medical,
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/white,
@@ -23993,9 +24092,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -24614,6 +24711,9 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "Tb" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
 "Tc" = (
@@ -25073,6 +25173,10 @@
 	pixel_x = 24;
 	specialfunctions = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
 "TT" = (
@@ -25192,6 +25296,12 @@
 	},
 /obj/structure/bed/stool/chair{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -25313,6 +25423,9 @@
 /obj/structure/mirror{
 	pixel_x = 26;
 	pixel_y = 3
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
@@ -27558,6 +27671,14 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
+"Ys" = (
+/obj/effect/floor_decal/corner/grey/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/medical/washroom)
 "Yt" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -28397,15 +28518,6 @@
 /obj/machinery/telecomms/receiver/preset_right,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
-"ZP" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/command{
-	id_tag = "conference_room";
-	name = "Conference Room";
-	req_one_access = list(19,38)
-	},
-/turf/simulated/floor/tiled,
-/area/bridge/meeting_room)
 "ZQ" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -41730,7 +41842,7 @@ lO
 TP
 wg
 DM
-TP
+Ys
 jG
 TS
 Ur
@@ -44959,7 +45071,7 @@ AC
 nr
 nr
 nr
-nr
+aE
 nr
 nr
 nr
@@ -45982,7 +46094,7 @@ Gc
 Gc
 Gc
 fc
-Pp
+Wi
 gd
 Lc
 vP
@@ -46998,7 +47110,7 @@ eB
 OO
 OO
 OW
-Wi
+Pp
 XJ
 hZ
 wA
@@ -49615,7 +49727,7 @@ fv
 JS
 uk
 uk
-fG
+cy
 US
 Gk
 US
@@ -50227,7 +50339,7 @@ ca
 UF
 Bh
 Dg
-ZP
+mc
 Ll
 Ll
 Ll
@@ -51447,7 +51559,7 @@ er
 cf
 fn
 TK
-ZP
+mc
 Cd
 yR
 OH
@@ -55456,7 +55568,7 @@ at
 at
 at
 Cu
-Wx
+uH
 Uf
 Gr
 Lo
@@ -55658,7 +55770,7 @@ at
 yP
 yP
 yP
-eS
+Ge
 iJ
 Gr
 Lo

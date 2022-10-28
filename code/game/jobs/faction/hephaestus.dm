@@ -53,17 +53,32 @@
 	uniform = /obj/item/clothing/under/rank/hangar_technician/heph
 	id = /obj/item/card/id/hephaestus
 
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
+
 /datum/outfit/job/machinist/hephaestus
 	name = "Machinist - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/machinist/heph
 	id = /obj/item/card/id/hephaestus
 
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
+
 /datum/outfit/job/mining/hephaestus
 	name = "Shaft Miner - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/miner/heph
 	id = /obj/item/card/id/hephaestus
+
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
 /datum/outfit/job/engineer/hephaestus
 	name = "Engineer - Hephaestus"
@@ -72,6 +87,11 @@
 	head = /obj/item/clothing/head/hardhat/green
 	id = /obj/item/card/id/hephaestus
 
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
+
 /datum/outfit/job/atmos/hephaestus
 	name = "Atmospheric Technician - Hephaestus"
 
@@ -79,12 +99,22 @@
 	head = /obj/item/clothing/head/hardhat/green
 	id = /obj/item/card/id/hephaestus
 
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
+
 /datum/outfit/job/intern_eng/hephaestus
 	name = "Engineering Apprentice - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice/heph
 	head = /obj/item/clothing/head/beret/corporate/heph
 	id = /obj/item/card/id/hephaestus
+
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
 /datum/outfit/job/representative/hephaestus
 	name = "Hephaestus Corporate Liaison"
@@ -96,6 +126,11 @@
 	id = /obj/item/card/id/hephaestus
 	accessory = /obj/item/clothing/accessory/tie/corporate/heph
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/heph
+
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
 	backpack_contents = list(
 		/obj/item/device/camera = 1,

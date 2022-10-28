@@ -378,6 +378,7 @@
 	name = "wristbound operations manager radio"
 	icon_state = "wristset_QM"
 	item_state = "wristset_QM"
+	ks2type = /obj/item/device/encryptionkey/headset_operations_manager
 
 /*
  * Medical
