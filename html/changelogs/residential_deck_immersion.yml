@@ -5,4 +5,4 @@ delete-after: True
 changes:
   - maptweak: "Moves the residential lifts to deck 1 next to the main elevator."
   - maptweak: "Adds a residential deck stairwell to the central stairwell on deck 1."
-  - maptweak: "Adds a relaxation- and socializing spot where the residential lifts used to be on deck 2."
+  - maptweak: "Moves the auxiliary custodial closet to where the residential lifts used to be on deck 2."
