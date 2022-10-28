@@ -9536,6 +9536,17 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/maintenance/disposal)
+"hnS" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/structure/sign/directions/custodial{
+	dir = 8;
+	pixel_y = 9;
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "hob" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/template_noop)
@@ -12052,6 +12063,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
+/obj/structure/sign/directions/custodial{
+	dir = 8;
+	pixel_y = 39
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "jvA" = (
@@ -13072,6 +13087,11 @@
 	},
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
+	},
+/obj/structure/sign/directions/custodial{
+	dir = 8;
+	pixel_y = 39;
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -15642,8 +15662,8 @@
 	},
 /obj/structure/disposalpipe/sortjunction/flipped{
 	dir = 8;
-	name = "Custodial";
-	sortType = "Custodial"
+	name = "Custodial Closet";
+	sortType = "Custodial Closet"
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -24035,6 +24055,33 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
+"sYR" = (
+/obj/machinery/door/airlock/hatch{
+	id_tag = "airlocks_deck1_elevatormaintenance";
+	name = "Elevator Maintenance";
+	locked = 1;
+	icon_state = "door_locked"
+	},
+/obj/machinery/button/remote/airlock{
+	specialfunctions = 4;
+	id = "airlocks_deck1_elevatormaintenance";
+	pixel_y = 25;
+	name = "\improper Elevator Maintenance Bolts";
+	dir = 8;
+	pixel_x = -7;
+	req_access = list(10)
+	},
+/obj/machinery/button/remote/airlock{
+	specialfunctions = 4;
+	id = "airlocks_deck1_elevatormaintenance";
+	pixel_y = 25;
+	name = "\improper Elevator Maintenance Bolts";
+	dir = 4;
+	pixel_x = 7;
+	req_access = list(10)
+	},
+/turf/simulated/floor/tiled/full,
+/area/hallway/primary/aft)
 "sYZ" = (
 /obj/machinery/light{
 	dir = 1
@@ -50558,7 +50605,7 @@ wXF
 bBD
 ygx
 bEk
-ygx
+hnS
 hDI
 uUZ
 ygx
@@ -50961,8 +51008,8 @@ oDB
 sWB
 rXW
 xQI
-tLM
 slH
+tLM
 slH
 rco
 ctX
@@ -51163,7 +51210,7 @@ oDB
 tny
 tny
 tny
-tny
+sYR
 tny
 tny
 jvl
