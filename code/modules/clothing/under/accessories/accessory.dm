@@ -971,3 +971,15 @@
 
 /obj/item/clothing/accessory/overalls/blue // Used for hydroponics.
 	color = "#3429d1"
+
+/obj/item/clothing/accessory/overalls/high_back
+	name = "high back overalls"
+	desc = "A set of denim overalls with a high back."
+	icon_state = "overalls_high"
+	item_state = "overalls_high"
+
+/obj/item/clothing/accessory/overalls/x_shaped_back
+	name = "\improper X-shaped back overalls"
+	desc = "A set of denim overalls with a high back."
+	icon_state = "overalls_x"
+	item_state = "overalls_x"

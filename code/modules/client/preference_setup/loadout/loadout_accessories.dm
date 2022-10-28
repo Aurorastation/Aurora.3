@@ -166,10 +166,18 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/overalls
-	display_name = "overalls"
+	display_name = "overalls selection (colourable)"
 	path = /obj/item/clothing/accessory/overalls
 	cost = 1
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/overalls/New()
+	..()
+	var/list/overalls = list()
+	overalls["overalls"] = /obj/item/clothing/accessory/overalls
+	overalls["overalls, high back"] = /obj/item/clothing/accessory/overalls/high_back
+	overalls["overalls, x-shaped back"] = /obj/item/clothing/accessory/overalls/x_shaped_back
+	gear_tweaks += new /datum/gear_tweak/path(overalls)
 
 /datum/gear/accessory/overalls_engineer
 	display_name = "overalls, engineering"

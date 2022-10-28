@@ -3,4 +3,5 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
+  - rscadd: "Adds a high back and X-shaped back version of the overalls."
   - tweak: "Turns the loadout overalls into an accessory."
