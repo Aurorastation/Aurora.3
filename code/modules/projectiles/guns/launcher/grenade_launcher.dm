@@ -50,8 +50,8 @@
 
 ///////////////////// Different Grenade Launcher Types /////////////////////
 /obj/item/gun/launcher/grenade/revolving
-	name = "grenade launcher"
-	desc = "A bulky pump-action grenade launcher. Holds up to 6 grenades in a revolving magazine."
+	name = "riot grenade launcher"
+	desc = "A bulky pump-action grenade launcher, made to pacify crowds. Holds up to 6 grenades in a revolving magazine."
 	icon = 'icons/obj/contained_items/weapons/grenade_launcher.dmi'
 	icon_state = "grenadelauncher"
 	item_state = "grenadelauncher"
@@ -176,3 +176,41 @@
 		to_chat(user, SPAN_WARNING("[src] is empty."))
 
 /obj/item/gun/launcher/grenade/break_action
+	name = "break-action grenade launcher"
+	desc = "A cheap, reliable weapon made out of wood and stamped metal. One barrel to shoot 40mm grenades."
+	desc_fluff = "Made by Zavodskoi for decades now, the SSGL-40, short for \"Single Shot Grenade Launcher Caliber 40 Millimeters\", is a break-action, cheap and reliable way to lob a variety of dangerous 40mm grenades towards your foes. Particularly popular in the Frontier and the Hegemony."
+	contained_sprite = TRUE
+	load_method = SINGLE_CASING
+
+	var/cover_open = 0
+
+/obj/item/gun/launcher/grenade/break_action/proc/toggle_cover(mob/user)
+	cover_open = !cover_open
+	to_chat(user, "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s break action.</span>")
+	if(cover_open)
+		playsound(user, 'sound/weapons/sawopen.ogg', 60, 1)
+	else
+		playsound(user, 'sound/weapons/sawclose.ogg', 60, 1)
+	update_icon()
+
+/obj/item/gun/launcher/grenade/break_action/special_check(mob/user)
+	if(cover_open)
+		to_chat(user, "<span class='warning'>[src]'s break action is open! Close it before firing!</span>")
+		return 0
+	return ..()
+
+/obj/item/gun/launcher/grenade/break_action/update_icon()
+	icon_state = "l6[cover_open ? "open" : "closed"]]"
+	..()
+
+/obj/item/gun/launcher/grenade/break_action/load_ammo(var/obj/item/A, mob/user)
+	if(!cover_open)
+		to_chat(user, "<span class='warning'>You need to open the break action to load [src].</span>")
+		return
+	..()
+
+/obj/item/gun/launcher/grenade/break_action/unload_ammo(mob/user)
+	if(!cover_open)
+		to_chat(user, "<span class='warning'>You need to open the break action to unload [src].</span>")
+		return
+	..()
