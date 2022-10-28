@@ -154,16 +154,6 @@ var/list/gear_datums = list()
 		. += "<tr><td colspan=3><center><i>Your loadout failed to load and will be reset if you save this slot.</i></center></td></tr>"
 	. += "<tr><td colspan=3><center><a href='?src=\ref[src];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=\ref[src];next_slot=1'>\>\></a><b><font color = '[fcolor]'>[total_cost]/[MAX_GEAR_COST]</font> loadout points spent.</b> \[<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
 
-	// search box stuff
-	. += "<script>function search_onchange() { \
-		var val = document.getElementById('search_input').value; \
-		document.getElementById('search_refresh_link').href='?src=\ref[src];search_input_refresh='+val+''; \
-		document.getElementById('search_refresh_link').click(); \
-		}</script>"
-	. += "<input type='text' id='search_input' name='search_input' \
-			onchange='search_onchange()' value='[search_input_value]'><br><br>";
-	. += "<a href='?src=\ref[src];search_input_refresh=Abc' id='search_refresh_link'>Refresh</font></a>"
-
 	. += "<tr><td colspan=3><center><b>"
 	var/firstcat = 1
 	for(var/category in loadout_categories)
@@ -188,6 +178,18 @@ var/list/gear_datums = list()
 	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
+
+	// search box
+	. += "<tr><td colspan=3>"
+	. += "<script>function search_onchange() { \
+		var val = document.getElementById('search_input').value; \
+		document.getElementById('search_refresh_link').href='?src=\ref[src];search_input_refresh=' + encodeURIComponent(val) + ''; \
+		document.getElementById('search_refresh_link').click(); \
+		}</script>"
+	. += "<input type='text' id='search_input' name='search_input' \
+			onchange='search_onchange()' value='[search_input_value]'>";
+	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Refresh</font></a>"
+	. += "</td></tr><tr><td colspan=3><hr></td></tr>"
 
 	var/available_items_html = "" // to be added to the top/beginning of the list
 	var/unavailable_items_html = "" // to be added to the end/bottom of the list
@@ -348,8 +350,8 @@ var/list/gear_datums = list()
 	else if(href_list["clear_loadout"])
 		pref.gear.Cut()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
-	else if(href_list["search_input_refresh"])
-		search_input_value = href_list["search_input_refresh"]
+	else if(href_list["search_input_refresh"] == null) // empty str is false
+		search_input_value = sanitize(href_list["search_input_refresh"], 100)
 		to_chat(usr, SPAN_NOTICE("search_input_refresh"))
 		to_chat(usr, SPAN_NOTICE(search_input_value))
 		return TOPIC_REFRESH_UPDATE_PREVIEW
