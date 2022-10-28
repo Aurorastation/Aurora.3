@@ -788,12 +788,20 @@
 /turf/simulated/wall,
 /area/maintenance/wing/port/far)
 "asr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/pen{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/device/hand_labeler,
+/turf/simulated/floor/tiled,
 /area/janitor/stairs)
 "asB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
