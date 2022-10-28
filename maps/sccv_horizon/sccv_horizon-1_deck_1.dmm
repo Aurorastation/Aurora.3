@@ -72,7 +72,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "adv" = (
 /obj/structure/shuttle_part{
 	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
@@ -347,7 +347,7 @@
 /area/maintenance/substation/civilian_west)
 "arr" = (
 /turf/simulated/wall,
-/area/janitor)
+/area/horizon/custodial)
 "ars" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -643,7 +643,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "aDv" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -906,7 +906,7 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "aNO" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/structure/cable/green{
@@ -2192,7 +2192,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "bHP" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2349,7 +2349,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "bMO" = (
 /obj/structure/table/standard,
 /obj/item/material/ashtray/bronze,
@@ -2729,7 +2729,7 @@
 	},
 /obj/effect/floor_decal/corner/purple/full,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "cen" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3209,7 +3209,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "cya" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3348,7 +3348,7 @@
 "cEl" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "cEv" = (
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
@@ -3889,7 +3889,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "dcs" = (
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -4771,7 +4771,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "dOc" = (
 /obj/structure/lattice,
 /obj/structure/grille/diagonal{
@@ -5559,7 +5559,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/janitor)
+/area/horizon/custodial)
 "eth" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5977,7 +5977,7 @@
 /area/engineering/atmos/air)
 "eIS" = (
 /turf/simulated/wall/r_wall,
-/area/janitor)
+/area/horizon/custodial)
 "eJu" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
@@ -6466,7 +6466,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/janitor)
+/area/horizon/custodial)
 "eZY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -7064,7 +7064,7 @@
 	req_access = list(26)
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "fyz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -7735,7 +7735,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "fVD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -7928,7 +7928,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
-/area/janitor)
+/area/horizon/custodial)
 "gds" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -8134,7 +8134,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "ghP" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/tiled/dark,
@@ -10461,7 +10461,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "iab" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -10498,7 +10498,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "iau" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -11794,7 +11794,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "jiU" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 5
@@ -13424,7 +13424,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "kzx" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp{
@@ -14289,7 +14289,7 @@
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "leL" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -15026,7 +15026,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "lNG" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/corner/brown{
@@ -15683,7 +15683,7 @@
 	sortType = "Custodial Closet"
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "mnL" = (
 /obj/structure/tank_wall/hydrogen{
 	icon_state = "h13"
@@ -17033,7 +17033,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "nmV" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -17063,7 +17063,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "noz" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -18125,7 +18125,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "ohC" = (
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 8
@@ -19432,7 +19432,7 @@
 	},
 /obj/item/pen,
 /turf/simulated/floor/tiled/dark/full,
-/area/janitor)
+/area/horizon/custodial)
 "pya" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -19793,7 +19793,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "pJx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -20983,7 +20983,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "qAI" = (
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/effect/floor_decal/corner/blue{
@@ -21101,7 +21101,7 @@
 "qDK" = (
 /obj/vehicle/train/cargo/engine/pussywagon,
 /turf/simulated/floor/tiled/dark,
-/area/janitor)
+/area/horizon/custodial)
 "qDN" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -21194,7 +21194,7 @@
 /obj/effect/floor_decal/corner/purple/full,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "qJg" = (
 /obj/machinery/light{
 	dir = 4
@@ -21778,7 +21778,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "rgo" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -21995,7 +21995,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "rqf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
@@ -23388,7 +23388,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/janitor)
+/area/horizon/custodial)
 "suT" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
@@ -23792,7 +23792,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "sLL" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -24249,7 +24249,7 @@
 	req_access = list(26)
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "teA" = (
 /obj/machinery/conveyor{
 	dir = 9;
@@ -24687,7 +24687,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "twq" = (
 /obj/structure/tank_wall/hydrogen{
 	icon_state = "h2"
@@ -25049,7 +25049,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "tLq" = (
 /obj/effect/floor_decal/corner_wide/purple/full{
 	dir = 4
@@ -25638,7 +25638,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "ujc" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency,
@@ -27534,7 +27534,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "vJT" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -27911,7 +27911,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "wbO" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -29592,7 +29592,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "xqo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -29750,7 +29750,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "xvP" = (
 /obj/machinery/portable_atmospherics/canister/phoron,
 /obj/machinery/door/window/northleft{
@@ -30417,7 +30417,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
-/area/janitor)
+/area/horizon/custodial)
 "xVn" = (
 /obj/structure/anomaly_container,
 /turf/simulated/floor/reinforced,

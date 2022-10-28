@@ -801,8 +801,11 @@
 	pixel_y = 8
 	},
 /obj/item/device/hand_labeler,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "asB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6795,7 +6798,7 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "dwP" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/table/standard,
@@ -11237,7 +11240,7 @@
 /area/turret_protected/ai_upload)
 "fTo" = (
 /turf/simulated/wall,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "fTZ" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -14541,7 +14544,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "hwH" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -17646,7 +17649,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "jjl" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/corner/grey{
@@ -22574,7 +22577,7 @@
 	name = "Auxiliary Custodial Closet Desk Shutter"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "lSn" = (
 /obj/structure/disposalpipe/up,
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
@@ -22756,7 +22759,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "lWB" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -25155,8 +25158,11 @@
 	pixel_y = -24;
 	dir = 1
 	},
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "ngA" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -27562,11 +27568,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/machinery/light/small{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "ozE" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -28407,7 +28410,7 @@
 	req_access = list(26)
 	},
 /turf/simulated/floor/tiled/full,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "oWm" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -33671,7 +33674,7 @@
 	req_access = list(26)
 	},
 /turf/simulated/floor/tiled,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "rEK" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -38218,7 +38221,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "ubZ" = (
 /obj/structure/sign/drop{
 	desc = "A warning sign which reads 'DANGER: FALLING HAZARD' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY'.";
@@ -39074,8 +39077,11 @@
 	c_tag = "Service - Auxiliary Custodial Closet";
 	dir = 8
 	},
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "usP" = (
 /obj/structure/table/rack,
 /obj/item/towel,
@@ -40980,7 +40986,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "vwc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -42472,7 +42478,7 @@
 	pixel_y = 23
 	},
 /turf/simulated/floor/tiled,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "wbL" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -44102,7 +44108,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/janitor/stairs)
+/area/horizon/custodial/auxiliary)
 "wNI" = (
 /turf/simulated/floor/lino/grey,
 /area/horizon/bar)
