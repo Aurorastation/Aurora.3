@@ -154,22 +154,15 @@ var/list/gear_datums = list()
 		. += "<tr><td colspan=3><center><i>Your loadout failed to load and will be reset if you save this slot.</i></center></td></tr>"
 	. += "<tr><td colspan=3><center><a href='?src=\ref[src];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=\ref[src];next_slot=1'>\>\></a><b><font color = '[fcolor]'>[total_cost]/[MAX_GEAR_COST]</font> loadout points spent.</b> \[<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
 
-	// ------------------------------------------------------------------
-	// ------------------------------------------------------------------
-	// search box
+	// search box stuff
 	. += "<script>function search_onchange() { \
 		var val = document.getElementById('search_input').value; \
 		document.getElementById('search_refresh_link').href='?src=\ref[src];search_input_refresh='+val+''; \
 		document.getElementById('search_refresh_link').click(); \
 		}</script>"
-
 	. += "<input type='text' id='search_input' name='search_input' \
 			onchange='search_onchange()' value='[search_input_value]'><br><br>";
 	. += "<a href='?src=\ref[src];search_input_refresh=Abc' id='search_refresh_link'>Refresh</font></a>"
-
-	// <a href='?src=\ref[src];select_category=[category]'><font [style]>[category]</font></a>
-	// ------------------------------------------------------------------
-	// ------------------------------------------------------------------
 
 	. += "<tr><td colspan=3><center><b>"
 	var/firstcat = 1
@@ -211,16 +204,9 @@ var/list/gear_datums = list()
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
 
-		// ------------------------------------------------------------------
-		// ------------------------------------------------------------------
 		var/found_searched_text = FALSE
-
-		//to_chat(usr, SPAN_NOTICE("========="))
-		//to_chat(usr, SPAN_NOTICE(G.display_name))
-
 		if(findtext(G.display_name, search_input_value))
 			found_searched_text = TRUE
-		
 		for(var/datum/gear_tweak/tweak in G.gear_tweaks)
 			var/datum/gear_tweak/path/path = tweak
 			if(path && istype(path) && path.valid_paths)
@@ -228,10 +214,7 @@ var/list/gear_datums = list()
 					//to_chat(usr, SPAN_NOTICE(x))
 					if(findtext(x, search_input_value))
 						found_searched_text = TRUE
-		
 		available = available && found_searched_text
-		// ------------------------------------------------------------------
-		// ------------------------------------------------------------------
 
 		if(!available)
 			style = "style='color: #B1B1B1;'"
