@@ -177,6 +177,9 @@
 	overalls["overalls"] = /obj/item/clothing/accessory/overalls
 	overalls["overalls, high back"] = /obj/item/clothing/accessory/overalls/high_back
 	overalls["overalls, x-shaped back"] = /obj/item/clothing/accessory/overalls/x_shaped_back
+	overalls["overall shorts"] = /obj/item/clothing/accessory/overalls/shorts
+	overalls["overall shorts, high back"] = /obj/item/clothing/accessory/overalls/shorts/high_back
+	overalls["overall shorts, x-shaped back"] = /obj/item/clothing/accessory/overalls/shorts/x_shaped_back
 	gear_tweaks += new /datum/gear_tweak/path(overalls)
 
 /datum/gear/accessory/overalls_engineer
