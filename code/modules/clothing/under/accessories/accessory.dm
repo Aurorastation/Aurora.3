@@ -955,6 +955,7 @@
 	icon_override = null
 	body_parts_covered = UPPER_TORSO
 
+/********** Overalls Start **********/
 // Overalls
 /obj/item/clothing/accessory/overalls
 	name = "overalls"
@@ -983,3 +984,24 @@
 	desc = "A set of denim overalls with a high back."
 	icon_state = "overalls_x"
 	item_state = "overalls_x"
+
+// Overall Shorts
+/obj/item/clothing/accessory/overalls/shorts
+	name = "overall shorts"
+	desc = "A set of denim overall shorts."
+	icon_state = "overall_shorts"
+	item_state = "overall_shorts"
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO
+
+/obj/item/clothing/accessory/overalls/shorts/high_back
+	name = "high back overall shorts"
+	desc = "A set of denim overall shorts with a high back."
+	icon_state = "overall_shorts_high"
+	item_state = "overall_shorts_high"
+
+/obj/item/clothing/accessory/overalls/shorts/x_shaped_back
+	name = "\improper X-shaped back overall shorts"
+	desc = "A set of denim overall shorts with a high back."
+	icon_state = "overall_shorts_x"
+	item_state = "overall_shorts_x"
+/********** Overalls End **********/
