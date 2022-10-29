@@ -164,7 +164,7 @@
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 
 /obj/item/surgery/connective_knitter
-	name = "connective tissue knitter"
+	name = "FixOVein"
 	desc = "A specialized surgical instrument capable of quickly and safely healing torn veins and arteries, being capable of repairing torn ligaments as well."
 	icon_state = "fixovein"
 	item_state = "fixovein"
