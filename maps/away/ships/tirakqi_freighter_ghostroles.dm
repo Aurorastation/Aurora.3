@@ -24,7 +24,7 @@
 		/obj/item/clothing/under/service_overalls,
 		/obj/item/clothing/under/color/brown,
 		/obj/item/clothing/under/syndicate/tracksuit,
-		/obj/item/clothing/under/pants,
+		/obj/item/clothing/under/pants/jeans,
 		/obj/item/clothing/under/pants/camo,
 		/obj/item/clothing/under/pants/khaki,
 		/obj/item/clothing/under/pants/musthang,
@@ -129,7 +129,7 @@
 	uniform = list(
 		/obj/item/clothing/under/service_overalls,
 		/obj/item/clothing/under/captainformal,
-		/obj/item/clothing/under/pants,
+		/obj/item/clothing/under/pants/jeans,
 		/obj/item/clothing/under/pants/camo,
 		/obj/item/clothing/under/pants/khaki,
 		/obj/item/clothing/under/pants/musthang,

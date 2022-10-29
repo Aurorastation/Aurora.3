@@ -1663,7 +1663,7 @@
 #include "code\modules\clothing\suits\xeno\vaurca.dm"
 #include "code\modules\clothing\under\color.dm"
 #include "code\modules\clothing\under\miscellaneous.dm"
-#include "code\modules\clothing\under\shorts.dm"
+#include "code\modules\clothing\under\pants_and_shorts.dm"
 #include "code\modules\clothing\under\skirts.dm"
 #include "code\modules\clothing\under\syndicate.dm"
 #include "code\modules\clothing\under\accessories\accessory.dm"

@@ -132,7 +132,7 @@
 		/obj/item/clothing/under/lawyer                          = TRADER_BLACKLIST,
 		/obj/item/clothing/under/pj                              = TRADER_BLACKLIST,
 		/obj/item/clothing/under/rank                            = TRADER_BLACKLIST,
-		/obj/item/clothing/under/shorts                          = TRADER_BLACKLIST,
+		/obj/item/clothing/under/shorts/black                    = TRADER_BLACKLIST,
 		/obj/item/clothing/under/swimsuit                        = TRADER_BLACKLIST,
 		/obj/item/clothing/under/syndicate                       = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/under/tactical                        = TRADER_BLACKLIST,
@@ -143,7 +143,7 @@
 		/obj/item/clothing/suit/storage/hooded/wintercoat/fluff  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/suit/storage/toggle/labcoat           = TRADER_ALL,
 		/obj/item/clothing/suit/storage/toggle/labcoat/fluff     = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/suit/storage/toggle/varsity                          = TRADER_ALL,
+		/obj/item/clothing/suit/storage/toggle/varsity           = TRADER_ALL,
 		/obj/item/clothing/suit/storage/toggle/track             = TRADER_ALL,
 		/obj/item/clothing/suit/jacket/puffer                    = TRADER_ALL,
 		/obj/item/clothing/suit/storage/toggle/flannel           = TRADER_ALL

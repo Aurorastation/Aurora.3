@@ -201,7 +201,7 @@
 		/obj/item/clothing/under/lance,
 		/obj/item/clothing/under/legion/pilot,
 		/obj/item/clothing/under/offworlder,
-		/obj/item/clothing/under/pants,
+		/obj/item/clothing/under/pants/jeans,
 		/obj/item/clothing/under/pants/camo,
 		/obj/item/clothing/under/pants/khaki,
 		/obj/item/clothing/under/pants/musthang,
