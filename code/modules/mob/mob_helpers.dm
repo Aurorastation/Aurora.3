@@ -1193,15 +1193,11 @@ proc/is_blind(A)
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		if(istype(a))
 			if(hearer && hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
-				return {"<a \
-					href='byond://?src=\ref[src];accent_tag=[url_encode(a)]' \
-					>([a.text_tag])</a>"}
+				return {"<a href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'>([a.text_tag])</a>"}
 			else
 				var/final_icon = a.tag_icon
 				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
-				return {"<span \
-					onclick="window.location.href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'" \
-					>[S.icon_tag(final_icon)]</span>"}
+				return {"<span onclick="window.location.href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'">[S.icon_tag(final_icon)]</span>"}
 				
 
 /mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
