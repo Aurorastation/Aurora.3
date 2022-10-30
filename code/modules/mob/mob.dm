@@ -687,11 +687,11 @@
 
 	if(href_list["flavor_more"])
 		var/datum/browser/flavor_win = new(usr, name, capitalize_first_letters(name), 500, 250)
-		var/html = replacetext(flavor_text, "\n", "<BR>")
 		var/icon/front = getFlatIcon(src, SOUTH, ignore_parent_dir = TRUE)
 		front.Scale(128, 128)
 		send_rsc(usr, front, "front.png")
-		html += "<img src=front.png height=128 width=128 border=4>"
+		var/html = {"<img src=front.png height=128 width=128 border=4 style="float:left">"}
+		html += replacetext(flavor_text, "\n", "<BR>")
 		flavor_win.set_content(html)
 		flavor_win.open()
 	if(href_list["flavor_change"])
