@@ -1,0 +1,8 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a uplink item limit mechanism."
+  - tweak: "Uplink personal shield can only be bought once."

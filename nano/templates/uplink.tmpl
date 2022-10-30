@@ -42,7 +42,11 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
 	
 	{{for data.items}}
 		<div class="item">
-			{{:helper.link(value.name, 'gear', {'buy_item' : value.ref}, value.can_buy ? null : 'disabled')}} - <span class="white">{{:value.cost}}</span>
+			{{:helper.link(value.name, 'gear', {'buy_item' : value.ref}, value.can_buy ? null : 'disabled')}} 
+			- <span class="white">{{:value.cost}}</span> 	
+			{{if value.left <= 10}}
+				- <span class="white">{{:value.left}} left</span> 
+            {{/if}}
 		</div>
 		<div class="item">
 			{{:value.description}}
