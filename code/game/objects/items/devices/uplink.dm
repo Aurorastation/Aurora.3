@@ -163,7 +163,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				items[++items.len] = list(
 						"name" = item.name,
 						"description" = replacetext(item.description(), "\n", "<br>"),
-						"can_buy" = item.can_buy(src),
+					"can_buy" = item.can_buy(src),
 						"cost" = cost,
 					"left" = item.items_left(src),
 					"ref" = "\ref[item]"
