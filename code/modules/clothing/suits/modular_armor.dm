@@ -125,7 +125,7 @@
 	item_state = "plate_ballistic"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_HEAVY,
+		bullet = ARMOR_BALLISTIC_RIFLE,
 		laser = ARMOR_LASER_MINOR,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED
