@@ -42,10 +42,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/medical_compartment)
 "acp" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
+/obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "acw" = (

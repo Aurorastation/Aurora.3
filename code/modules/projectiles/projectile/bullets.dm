@@ -127,8 +127,9 @@
 /obj/item/projectile/bullet/pistol/medium
 	damage = 30
 
-/obj/item/projectile/bullet/pistol/medium/mech
+/obj/item/projectile/bullet/pistol/medium/ap
 	armor_penetration = 35
+	penetrating = FALSE
 
 /obj/item/projectile/bullet/pistol/strong
 	damage = 45

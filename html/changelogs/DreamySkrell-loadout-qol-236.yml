@@ -1,0 +1,7 @@
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Unavailable items in the loadout (restricted for jobs, origins, cultures, or factions) are grayed out and appear at the bottom/end of the list."
+  - rscadd: "Culture and origin restrictions appear under items, same as job restrictions."

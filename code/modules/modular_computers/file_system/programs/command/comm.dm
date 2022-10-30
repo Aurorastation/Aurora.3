@@ -172,8 +172,11 @@
 				if(!input || !can_still_topic())
 					SSnanoui.update_uis(src)
 					return
+				program.computer.listening = TRUE
+				usr.say(input)
+				program.computer.listening = FALSE
 				var/affected_zlevels = GetConnectedZlevels(GET_Z(program.computer))
-				crew_announcement.Announce(input, zlevels = affected_zlevels)
+				crew_announcement.Announce(program.computer.registered_message, zlevels = affected_zlevels)
 				set_announcement_cooldown(TRUE)
 				addtimer(CALLBACK(src, .proc/set_announcement_cooldown, FALSE), 600) //One minute cooldown
 		if("message")

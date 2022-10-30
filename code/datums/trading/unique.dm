@@ -40,7 +40,7 @@
 	)
 
 	possible_trading_items = list (
-		/obj/item/antag_spawner/borg_tele            = TRADER_THIS_TYPE,
+		/obj/item/antag_spawner/combat_robot         = TRADER_THIS_TYPE,
 		/obj/item/storage/box/syndie_kit             = TRADER_SUBTYPES_ONLY,
 		/obj/item/syndie/c4explosive                 = TRADER_ALL,
 		/obj/item/melee/energy/sword                 = TRADER_ALL,
