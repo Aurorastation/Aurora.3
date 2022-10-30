@@ -6,10 +6,10 @@
 	item_state = "personal_shield"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_LARGE
+	w_class = ITEMSIZE_HUGE
 	action_button_name = "Toggle Shield"
 	var/next_recharge
-	var/uses = 5
+	var/uses = 4
 	var/obj/aura/personal_shield/device/shield
 
 /obj/item/device/personal_shield/examine(mob/user, distance)
@@ -26,7 +26,7 @@
 		uses = min(5, uses + 1)
 		if(uses == 1)
 			update_icon()
-		next_recharge = world.time + 1 MINUTE
+		next_recharge = world.time + 2 MINUTE
 
 /obj/item/device/personal_shield/attack_self(mob/living/user)
 	if(uses && !shield)
