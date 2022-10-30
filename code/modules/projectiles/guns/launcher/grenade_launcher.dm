@@ -15,10 +15,13 @@
 	throw_distance = 7
 	release_force = 5
 
+	var/ammo_type = null
+	var/list/loaded = list()
 	var/obj/item/grenade/chambered
 	var/list/grenades = new/list()
 	var/max_grenades = 1 // A single shot grenade launcher
 	var/blacklisted_grenades = list()
+	var/load_method
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 
 /obj/item/gun/launcher/grenade/attackby(obj/item/I, mob/user) // Loading one grenade at a time
@@ -178,7 +181,7 @@
 /obj/item/gun/launcher/grenade/break_action
 	name = "break-action grenade launcher"
 	desc = "A cheap, reliable weapon made out of wood and stamped metal. One barrel to shoot 40mm grenades."
-	desc_fluff = "Made by Zavodskoi for decades now, the SSGL-40, short for \"Single Shot Grenade Launcher Caliber 40 Millimeters\", is a break-action, cheap and reliable way to lob a variety of dangerous 40mm grenades towards your foes. Particularly popular in the Frontier and the Hegemony."
+	desc_fluff = "Made by Zavodskoi for decades now, the SSGL-40, short for \"Single Shot Grenade Launcher Caliber 40 Millimeters\", is a Frontier remake from Zavodskoi Interstellar, originally pioneered off of an early 20th century design for war. It's brutally simple and a little unoriginal, but deadly just the same."
 	contained_sprite = TRUE
 	load_method = SINGLE_CASING
 
@@ -186,16 +189,16 @@
 
 /obj/item/gun/launcher/grenade/break_action/proc/toggle_cover(mob/user)
 	cover_open = !cover_open
-	to_chat(user, "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s break action.</span>")
+	to_chat(user, SPAN_NOTICE("You [cover_open ? "open" : "close"] [src]'s breechface."))
 	if(cover_open)
-		playsound(user, 'sound/weapons/sawopen.ogg', 60, 1)
+		playsound(user, 'sound/weapons/grenade_launcher/launcher_open.ogg', 60, 1)
 	else
-		playsound(user, 'sound/weapons/sawclose.ogg', 60, 1)
+		playsound(user, 'sound/weapons/grenade_launcher/launcher_close.ogg', 60, 1)
 	update_icon()
 
 /obj/item/gun/launcher/grenade/break_action/special_check(mob/user)
 	if(cover_open)
-		to_chat(user, "<span class='warning'>[src]'s break action is open! Close it before firing!</span>")
+		to_chat(user, SPAN_WARNING("[src]'s breechface is open! Close it before firing!</span>"))
 		return 0
 	return ..()
 
@@ -203,14 +206,131 @@
 	icon_state = "l6[cover_open ? "open" : "closed"]]"
 	..()
 
+//Attempts to load A into src, depending on the type of thing being loaded and the load_method
+//Maybe this should be broken up into separate procs for each load method?
+/obj/item/gun/projectile/proc/load_ammo(var/obj/item/A, mob/user)
+	if(istype(A, /obj/item/ammo_magazine))
+		var/obj/item/ammo_magazine/AM = A
+		if(!(load_method & AM.mag_type) || caliber != AM.caliber || (allowed_magazines && !is_type_in_list(A, allowed_magazines)))
+			to_chat(user,"<span class='warning'>[AM] won't load into [src]!</span>")
+			return
+		switch(AM.mag_type)
+			if(MAGAZINE)
+				if(ammo_magazine)
+					to_chat(user,"<span class='warning'>[src] already has something loaded.</span>") //already a magazine here
+					return
+				user.remove_from_mob(AM)
+				AM.forceMove(src)
+				ammo_magazine = AM
+				user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] into [src].</span>")
+				playsound(src.loc, AM.insert_sound, 50, FALSE)
+			if(SPEEDLOADER)
+				if(loaded.len >= max_shells)
+					to_chat(user,"<span class='warning'>[src] is full!</span>")
+					return
+				var/count = 0
+				for(var/obj/item/ammo_casing/C in AM.stored_ammo)
+					if(loaded.len >= max_shells)
+						break
+					if(C.caliber == caliber)
+						C.forceMove(src)
+						loaded += C
+						AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
+						count++
+				if(count)
+					user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into [src] using \the [AM].</span>")
+					playsound(src.loc, AM.insert_sound, 50, FALSE)
+		AM.update_icon()
+	else if(istype(A, /obj/item/ammo_casing))
+		var/obj/item/ammo_casing/C = A
+		if(!(load_method & SINGLE_CASING))
+			to_chat(user,"<span class='warning'>[src] can not be loaded with single casings.</span>")
+			return //incompatible
+		if(caliber != C.caliber)
+			to_chat(user,"<span class='warning'>\The [C] does not fit.</span>")
+			return //incompatible
+		if(loaded.len >= max_shells)
+			to_chat(user,"<span class='warning'>[src] is full.</span>")
+			return
+
+		user.remove_from_mob(C)
+		C.forceMove(src)
+		loaded.Insert(1, C) //add to the head of the list
+		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
+		playsound(src.loc, C.reload_sound, 50, FALSE)
+	update_maptext()
+	update_icon()
+
+//attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
+/obj/item/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump = 1, var/drop_mag = FALSE)
+	if(ammo_magazine)
+		if(drop_mag)
+			ammo_magazine.forceMove(user.loc)
+		else
+			user.put_in_hands(ammo_magazine)
+		user.visible_message("[user] removes [ammo_magazine] from [src].", "<span class='notice'>You remove [ammo_magazine] from [src].</span>")
+		playsound(src.loc, ammo_magazine.eject_sound, 50, FALSE)
+		ammo_magazine.update_icon()
+		ammo_magazine = null
+	else if(loaded.len)
+		//presumably, if it can be speed-loaded, it can be speed-unloaded.
+		if(allow_dump && (load_method & SPEEDLOADER))
+			var/count = 0
+			var/turf/T = get_turf(user)
+			if(T)
+				for(var/obj/item/ammo_casing/C in loaded)
+					C.forceMove(T)
+					playsound(C, /decl/sound_category/casing_drop_sound, 50, FALSE)
+					count++
+				loaded.Cut()
+			if(count)
+				user.visible_message("[user] unloads [src].", "<span class='notice'>You unload [count] round\s from [src].</span>")
+		else if(load_method & SINGLE_CASING)
+			var/obj/item/ammo_casing/C = loaded[loaded.len]
+			loaded.len--
+			user.put_in_hands(C)
+			user.visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
+	else
+		to_chat(user, "<span class='warning'>[src] is empty.</span>")
+	update_maptext()
+	update_icon()
+
+/obj/item/gun/projectile/attackby(obj/item/A, mob/user)
+	. = ..()
+	load_ammo(A, user)
+
+/obj/item/gun/projectile/toggle_firing_mode(mob/user)
+	if(jam_num)
+		playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
+		jam_num--
+		if(!jam_num)
+			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"))
+			balloon_alert(user, SPAN_GREEN("CLEAR"))
+			playsound(src.loc, 'sound/weapons/unjam.ogg', 100, TRUE)
+			unjam_cooldown = world.time
+		else
+			balloon_alert(user, SPAN_YELLOW("CLICK"))
+	else if(unjam_cooldown + 2 SECONDS > world.time)
+		return
+	else if(firemodes.len > 1)
+		..()
+	else
+		unload_ammo(user)
+
+/obj/item/gun/projectile/attack_hand(mob/user)
+	if(user.get_inactive_hand() == src)
+		unload_ammo(user, allow_dump=0)
+	else
+		return ..()
+
 /obj/item/gun/launcher/grenade/break_action/load_ammo(var/obj/item/A, mob/user)
 	if(!cover_open)
-		to_chat(user, "<span class='warning'>You need to open the break action to load [src].</span>")
+		to_chat(user, SPAN_WARNING("You need to open the breechface to load [src].</span>"))
 		return
 	..()
 
 /obj/item/gun/launcher/grenade/break_action/unload_ammo(mob/user)
 	if(!cover_open)
-		to_chat(user, "<span class='warning'>You need to open the break action to unload [src].</span>")
+		to_chat(user, SPAN_WARNING("You need to open the breechface to unload [src].</span>"))
 		return
 	..()
