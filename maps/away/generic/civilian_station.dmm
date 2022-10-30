@@ -340,7 +340,7 @@
 /obj/item/clothing/under/pants/classic{
 	pixel_x = -5
 	},
-/obj/item/clothing/under/shorts/blue,
+/obj/item/clothing/under/shorts/athletic/blue,
 /obj/item/clothing/under/shorts/jeans/mustang{
 	pixel_x = -5;
 	pixel_y = 5

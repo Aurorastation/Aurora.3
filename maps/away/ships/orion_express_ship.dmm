@@ -1689,7 +1689,7 @@
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket,
 /obj/item/clothing/suit/storage/toggle/bomber,
 /obj/item/clothing/under/shorts/khaki,
-/obj/item/clothing/under/shorts/khaki/female,
+/obj/item/clothing/under/shorts/khaki/short,
 /obj/item/clothing/shoes/workboots/dark,
 /obj/item/clothing/shoes/workboots/toeless/dark,
 /obj/item/clothing/gloves/brown,
