@@ -75,7 +75,6 @@ var/datum/uplink/uplink
 /datum/uplink_item/proc/items_left(obj/item/device/uplink/U)
 	return item_limit - U.purchase_log[src]
 		
-
 /datum/uplink_item/proc/can_view(obj/item/device/uplink/U)
 	// Making the assumption that if no uplink was supplied, then we don't care about antag roles
 	if(!U || (!length(antag_roles) && !antag_job))
