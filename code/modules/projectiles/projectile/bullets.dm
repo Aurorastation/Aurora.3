@@ -207,23 +207,23 @@
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a762
-	damage = 40
-	armor_penetration = 20
+	damage = 30
+	armor_penetration = 25
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a556
-	damage = 40
-	armor_penetration = 15
+	damage = 25
+	armor_penetration = 30
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a556/ap
-	damage = 35
-	armor_penetration = 40
+	damage = 25
+	armor_penetration = 45
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a556/polymer
-	damage = 25
-	armor_penetration = 30
+	damage = 20
+	armor_penetration = 32
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a145
