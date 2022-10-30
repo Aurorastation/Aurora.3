@@ -7815,6 +7815,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"fUi" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, deck 1 port maintenance, starboard side"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/deck1)
 "fUm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -8598,6 +8607,12 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"gxy" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, weapons range"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/rnd/test_range)
 "gxJ" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -11973,7 +11988,7 @@
 /area/shuttle/intrepid/crew_compartment)
 "joF" = (
 /obj/effect/landmark/entry_point/port{
-	name = "port, d1 maintenance"
+	name = "port, deck 1 maintenance"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/port/deck1)
@@ -16658,6 +16673,12 @@
 	temperature = 278.15
 	},
 /area/medical/morgue/lower)
+"mSW" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engineering drone storage"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/substation/engineering/lower)
 "mTJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/firealarm/west,
@@ -17669,6 +17690,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
+"nEl" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, atmospherics"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/turret_protected/ai)
 "nEm" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/disposal)
@@ -17861,6 +17888,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
+"nPq" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, deck 1 port maintenance, port side"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/wing/starboard/deck1)
 "nPK" = (
 /obj/machinery/power/terminal{
 	dir = 4
@@ -24236,7 +24269,7 @@
 /area/shuttle/mining)
 "sVZ" = (
 /obj/effect/landmark/entry_point/aft{
-	name = "aft, weapons research"
+	name = "aft, weapons range"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/rnd/test_range)
@@ -41349,7 +41382,7 @@ eSV
 eSV
 eSV
 eSV
-hTk
+nPq
 dPJ
 fif
 fif
@@ -43166,7 +43199,7 @@ eSV
 eSV
 eSV
 eSV
-noz
+fUi
 ujc
 wVV
 bqi
@@ -44778,7 +44811,7 @@ tuP
 rxz
 rxz
 xur
-xur
+mSW
 xur
 xur
 bcG
@@ -58108,7 +58141,7 @@ qZp
 qZp
 qZp
 qZp
-qZp
+nEl
 qZp
 qZp
 mkW
@@ -61957,7 +61990,7 @@ ozE
 ozE
 ozE
 ozE
-ozE
+gxy
 ozE
 ozE
 ozE
