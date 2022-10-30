@@ -1,0 +1,7 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Flavor text window shows the front sprite of the examined mob."
