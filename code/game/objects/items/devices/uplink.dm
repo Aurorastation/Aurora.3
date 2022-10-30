@@ -161,7 +161,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				var/cost = item.cost(uses)
 				if(!cost) cost = "???"
 				items[++items.len] = list(
-						"name" = item.name,
+					"name" = item.name,
 					"description" = replacetext(item.description(), "\n", "<br>"),
 					"can_buy" = item.can_buy(src),
 					"cost" = cost,
