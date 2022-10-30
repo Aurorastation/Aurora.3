@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Nerfed 556, 762 and laser rifle damage."
+  - balance: "Nerfed 556, 762, shotgun slug and laser rifle damage."
   - balance: "Nerfed ballistic armour and ablative armour to compensate for the nerfs above. Specialised plates will now block around 10 more damage instead of blocking more than half of it."

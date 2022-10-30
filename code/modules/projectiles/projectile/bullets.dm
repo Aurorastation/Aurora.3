@@ -150,7 +150,7 @@
 
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
-	damage = 65
+	damage = 55
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
