@@ -29,6 +29,7 @@ var/datum/uplink/uplink
 	var/name
 	var/desc
 	var/item_cost = 0
+	var/item_limit = -1 // how many times can this item be bought from a uplink; -1 is no limit
 	var/datum/uplink_category/category		// Item category
 	var/list/datum/antagonist/antag_roles	// Antag roles this item is displayed to. If empty, display to all.
 	var/list/datum/antagonist/antag_job     // Antag job this item is displayed to, if empty, display to all.
@@ -64,6 +65,9 @@ var/datum/uplink/uplink
 
 /datum/uplink_item/proc/can_buy(obj/item/device/uplink/U)
 	if(cost(U.uses) > U.uses)
+		return 0
+
+	if(item_limit >= 0 && U.purchase_log[src] && U.purchase_log[src] >= item_limit)
 		return 0
 
 	return can_view(U)
