@@ -166,7 +166,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 						"can_buy" = item.can_buy(src),
 						"cost" = cost,
 						"left" = item.items_left(src),
-						"ref" = "\ref[item]"
+					"ref" = "\ref[item]"
 				)
 		nanoui_data["items"] = items
 	else if(nanoui_menu == 2)
