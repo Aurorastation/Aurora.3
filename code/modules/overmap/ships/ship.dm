@@ -273,6 +273,10 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 			sound_to(L, sound('sound/effects/combatroll.ogg'))
 	last_combat_roll = world.time
 
+/obj/effect/overmap/visitable/ship/signal_hit(var/list/hit_data)
+	for(var/obj/machinery/computer/ship/targeting/TR in consoles)
+		TR.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] Hit confirmed on [hit_data["target_name"]] in [hit_data["target_area"]] at coordinates [hit_data["coordinates"]]."), range = 2)
+
 #undef MOVING
 #undef SANITIZE_SPEED
 #undef CHANGE_SPEED_BY

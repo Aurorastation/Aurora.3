@@ -629,11 +629,13 @@
 /turf/simulated/wall,
 /area/bridge/bridge_crew)
 "aAl" = (
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
 	},
-/obj/machinery/recharger,
+/obj/structure/table/reinforced,
+/obj/machinery/leviathan_button{
+	pixel_y = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "aAu" = (
@@ -5888,6 +5890,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
+/obj/machinery/recharger,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "fiV" = (
@@ -6770,6 +6773,7 @@
 /obj/item/book/manual/medical_diagnostics_manual,
 /obj/item/book/manual/chef_recipes,
 /obj/item/book/manual/anomaly_spectroscopy,
+/obj/item/book/manual/wiki/security_space_law,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/captain)
 "fQB" = (
@@ -7102,9 +7106,7 @@
 /area/horizon/crew_quarters/fitness/hallway)
 "gcZ" = (
 /obj/effect/floor_decal/spline/fancy,
-/obj/item/modular_computer/console/preset/research{
-	dir = 1
-	},
+/obj/machinery/computer/ship/targeting,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "gdf" = (
@@ -8398,6 +8400,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
+/obj/item/device/taperecorder,
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/captain)
 "hhn" = (
@@ -19771,6 +19774,9 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/item/clipboard,
+/obj/item/stack/packageWrap,
+/obj/item/device/hand_labeler,
+/obj/item/stack/wrapping_paper,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "qxO" = (
@@ -20555,8 +20561,7 @@
 /area/bridge/controlroom)
 "rnj" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/book/manual/wiki/security_space_law,
-/obj/item/device/taperecorder,
+/obj/item/leviathan_case,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "rnu" = (
@@ -24976,13 +24981,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "uJu" = (
-/obj/structure/table/reinforced,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 10
 	},
-/obj/item/stack/wrapping_paper,
-/obj/item/device/hand_labeler,
-/obj/item/stack/packageWrap,
+/obj/machinery/leviathan_safeguard,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "uKi" = (

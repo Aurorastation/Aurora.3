@@ -290,7 +290,7 @@
 		if(!SD.connected)
 			SD.connect(SW)
 
-/obj/machinery/computer/ship/gunnery
+/obj/machinery/computer/ship/targeting
 	name = "targeting systems console"
 	desc = "A targeting systems console using Zavodskoi software."
 	icon_screen = "teleport"
@@ -301,36 +301,36 @@
 	var/list/names_to_guns = list()
 	var/list/names_to_entries = list()
 
-/obj/machinery/computer/ship/gunnery/Initialize()
+/obj/machinery/computer/ship/targeting/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/computer/ship/gunnery/LateInitialize()
+/obj/machinery/computer/ship/targeting/LateInitialize()
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
 
-/obj/machinery/computer/ship/gunnery/Destroy()
+/obj/machinery/computer/ship/targeting/Destroy()
 	cannon = null
 	names_to_guns.Cut()
 	names_to_entries.Cut()
 	return ..()
 
-/obj/machinery/computer/ship/gunnery/ui_interact(mob/user)
+/obj/machinery/computer/ship/targeting/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
 		ui = new(user, src, "machinery-gunnery", 400, 400, "Ajax Targeting Systems")
 		ui.auto_update_content = TRUE
 	ui.open()
 
-/obj/machinery/computer/ship/gunnery/proc/build_gun_lists()
+/obj/machinery/computer/ship/targeting/proc/build_gun_lists()
 	for(var/obj/machinery/ship_weapon/SW in connected.ship_weapons)
 		if(!SW.special_firing_mechanism)
 			var/gun_name = capitalize_first_letters(SW.weapon_id)
 			names_to_guns[gun_name] = SW
 
-/obj/machinery/computer/ship/gunnery/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+/obj/machinery/computer/ship/targeting/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	build_gun_lists()
 	if(!data)
 		data = list()
@@ -387,7 +387,7 @@
 				selected_entrypoint = data["entry_point"]
 	return data
 
-/obj/machinery/computer/ship/gunnery/Topic(href, href_list)
+/obj/machinery/computer/ship/targeting/Topic(href, href_list)
 	var/datum/vueui/ui = href_list["vueui"]
 	if(!istype(ui))
 		return
@@ -416,7 +416,7 @@
 		if(usr)
 			viewing_overmap(usr) ? unlook(usr) : look(usr)
 
-/obj/machinery/computer/ship/gunnery/proc/copy_entrypoints(var/z_level_filter = 0)
+/obj/machinery/computer/ship/targeting/proc/copy_entrypoints(var/z_level_filter = 0)
 	. = list()
 	if(istype(connected.targeting, /obj/effect/overmap/visitable))
 		var/obj/effect/overmap/visitable/V = linked.targeting

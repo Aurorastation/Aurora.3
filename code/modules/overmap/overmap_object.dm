@@ -40,15 +40,18 @@
 			SSskybox.rebuild_skyboxes(O.map_z)
 
 /obj/effect/overmap/update_icon()
-	filters = filter(type="drop_shadow", color = color + "F0", size = 2, offset = 1, x = 0, y = 0) 
+	filters = filter(type="drop_shadow", color = color + "F0", size = 2, offset = 1, x = 0, y = 0)
+
+/obj/effect/overmap/proc/signal_hit(var/list/hit_data)
+	return
 
 /obj/effect/overmap/Click(location, control, params)
 	. = ..()
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		var/client/C = H.client
-		if(H.machine && istype(H.machine, /obj/machinery/computer/ship/gunnery) && istype(C.eye, /obj/effect/overmap))
-			var/obj/machinery/computer/ship/gunnery/GS = H.machine
+		if(H.machine && istype(H.machine, /obj/machinery/computer/ship/targeting) && istype(C.eye, /obj/effect/overmap))
+			var/obj/machinery/computer/ship/targeting/GS = H.machine
 			if(GS.targeting)
 				return
 			var/my_sector = map_sectors["[H.z]"]
@@ -94,6 +97,7 @@
 
 /obj/effect/overmap/visitable/proc/detarget(var/obj/effect/overmap/O,  var/obj/machinery/computer/C)
 	playsound(C, 'sound/items/rfd_interrupt.ogg')
-	O.cut_overlay(O.targeted_overlay)
-	O.maptext = null
+	if(O)
+		O.cut_overlay(O.targeted_overlay)
+		O.maptext = null
 	targeting = null

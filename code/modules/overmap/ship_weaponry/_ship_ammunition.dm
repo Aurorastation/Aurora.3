@@ -23,7 +23,7 @@
 	var/obj/item/projectile/original_projectile
 	var/heading = SOUTH
 
-	//Cookofff variables.
+	//Cookoff variables.
 	var/drop_counter = 0
 	var/cookoff_devastation = 0
 	var/cookoff_heavy = 2
@@ -199,6 +199,12 @@
 	anti_materiel_potential = 3
 	var/obj/item/ship_ammunition/ammo
 	var/primed = FALSE //If primed, we don't interact with map edges. Projectiles might spawn on a landmark at the edge of space, and we don't want them to get tp'd away.
+	var/hit_target = FALSE //First target we hit. Used to report if a hit was successful.
+
+/obj/item/projectile/ship_ammo/Destroy()
+	ammo = null
+	hit_target = null
+	return ..()
 
 /obj/item/projectile/ship_ammo/touch_map_edge()
 	if(primed)
@@ -207,7 +213,16 @@
 		ammo.original_projectile = src
 		forceMove(ammo)
 
-/obj/item/projectile/ship_ammo/on_hit(atom/target, blocked, def_zone, var/is_landmark_hit = FALSE) //is_landmark_hit is TRUE when we hit a landmark (e.g on a planet).
+/obj/item/projectile/ship_ammo/on_hit(atom/target, blocked, def_zone, var/is_landmark_hit = FALSE) //is_landmark_hit is TRUE when we hit a landmark on a visitable non-ship overmap object.
+	if(target && !hit_target)
+		hit_target = TRUE
+		var/target_name = target.name
+		var/list/hit_data = list(
+			"target_name" = target_name,
+			"target_area" = get_area(target),
+			"coordinates" = "[target.x], [target.y], [target.z]"
+		)
+		ammo.origin.signal_hit(hit_data)
 	return ..()
 
 /obj/item/projectile/ship_ammo/proc/on_translate(var/turf/entry_turf, var/target_turf) //This proc is called when the projectile enters a new ship's overmap zlevel.

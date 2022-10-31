@@ -151,4 +151,4 @@
 /obj/item/circuitboard/ship/targeting
 	name = T_BOARD("Ajax Targeting Systems Console")
 	origin_tech = list(TECH_ENGINEERING = 3)
-	build_path = /obj/machinery/computer/ship/gunnery
+	build_path = /obj/machinery/computer/ship/targeting

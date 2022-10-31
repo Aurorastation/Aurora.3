@@ -26775,7 +26775,7 @@
 /area/horizon/exterior)
 "uVF" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
-/obj/machinery/computer/ship/gunnery,
+/obj/machinery/computer/ship/targeting,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/rotary)
 "uVL" = (
