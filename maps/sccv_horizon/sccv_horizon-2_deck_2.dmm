@@ -9156,6 +9156,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
+"eEl" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "eEr" = (
 /obj/machinery/door/window/brigdoor/northleft{
 	dir = 2;
@@ -9225,7 +9235,16 @@
 /obj/effect/landmark{
 	name = "Revenant"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/power/apc/low{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "eGh" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -43956,6 +43975,9 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "vYV" = (
@@ -84305,10 +84327,10 @@ duk
 duk
 fuu
 eFS
-lBd
-lBd
-lBd
-ihG
+oNE
+oNE
+oNE
+eEl
 ueH
 qMW
 aPN
