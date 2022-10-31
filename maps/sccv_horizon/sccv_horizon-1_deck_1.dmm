@@ -328,7 +328,7 @@
 /obj/structure/window/shuttle/scc,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "aqO" = (
 /turf/space,
 /turf/simulated/floor/plating,
@@ -800,7 +800,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "aHY" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/black{
@@ -825,7 +825,7 @@
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/scc/cardinal,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "aJa" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1552,7 +1552,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "bij" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -3470,7 +3470,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "cIU" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
@@ -3652,7 +3652,7 @@
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/effect/floor_decal/corner/pink/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "cOm" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -4451,7 +4451,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "duN" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4805,7 +4805,7 @@
 /obj/item/hoist_kit,
 /obj/item/device/multitool,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "dKB" = (
 /obj/machinery/cryopod/robot,
 /turf/simulated/floor/plating,
@@ -6515,7 +6515,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "eWN" = (
 /obj/machinery/power/apc/low{
 	name = "south bump";
@@ -9386,7 +9386,7 @@
 	weapon_id = "Francisca Rotary Gun"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "hdi" = (
 /turf/simulated/wall,
 /area/security/checkpoint)
@@ -15826,7 +15826,7 @@
 	name = "fore, weapon"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "mlw" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -16634,7 +16634,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "mSk" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/engineering)
@@ -17023,7 +17023,7 @@
 	pixel_x = -25
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "ndN" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -20797,7 +20797,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "qmn" = (
 /obj/machinery/power/apc/low{
 	name = "south bump";
@@ -21022,7 +21022,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "qtO" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -23740,7 +23740,7 @@
 	weapon_id = "Francisca Rotary Gun"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "szM" = (
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
@@ -24511,7 +24511,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "tgR" = (
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
@@ -25043,7 +25043,7 @@
 "tAU" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "tBF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -26777,7 +26777,7 @@
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/machinery/computer/ship/gunnery,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "uVL" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/atmos/propulsion)
@@ -27432,7 +27432,7 @@
 	},
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "vse" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, d3 airlock"
@@ -29645,7 +29645,7 @@
 	name = "fore, gunnery"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "xlb" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -29861,7 +29861,7 @@
 /area/janitor)
 "xqj" = (
 /turf/simulated/wall/shuttle/scc/cardinal,
-/area/shuttle/intrepid/flak)
+/area/shuttle/intrepid/rotary)
 "xqo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
