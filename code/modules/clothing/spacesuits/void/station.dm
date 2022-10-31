@@ -210,9 +210,9 @@
 		)
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_PISTOL,
-		bomb = ARMOR_BOMB_SHIELDED,
+		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
@@ -229,9 +229,9 @@
 	)
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_PISTOL,
-		bomb = ARMOR_BOMB_SHIELDED,
+		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
