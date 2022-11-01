@@ -152,7 +152,7 @@ for fileName in glob.glob(os.path.join(args.ymlDir, "*.yml")):
     print(' Reading {}...'.format(fileName))
     cl = {}
     with open(fileName, 'r') as f:
-        cl = yaml.load(f)
+        cl = yaml.load(f, Loader=yaml.SafeLoader)
         f.close()
     if cl['author'] == 'ChangeMe':
         print('  {0}: Invalid author {1}'.format(fileName, cl['author']), file=sys.stderr)
