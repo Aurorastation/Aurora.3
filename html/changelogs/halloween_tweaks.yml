@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Reverts the Idris cruise halloween map edits."
+  - tweak: "Puts the halloween costumes and props into a dedicated folder."
