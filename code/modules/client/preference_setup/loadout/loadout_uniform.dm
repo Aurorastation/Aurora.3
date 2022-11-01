@@ -183,26 +183,33 @@
 	pants["ripped jeans"] = /obj/item/clothing/under/pants/ripped
 	pants["black ripped jeans"] = /obj/item/clothing/under/pants/blackripped
 
+	// Athletic Shorts
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts/athletic/black
 	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/athletic/red
 	pants["athletic shorts, green"] = /obj/item/clothing/under/shorts/athletic/green
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts/athletic/black
 	pants["athletic shorts, grey"] = /obj/item/clothing/under/shorts/athletic/grey
 	pants["athletic shorts, SCC"] = /obj/item/clothing/under/shorts/athletic/scc
-	pants["jean shorts"] = /obj/item/clothing/under/shorts/jeans
-	pants["jean short shorts"] = /obj/item/clothing/under/shorts/jeans/short
-	pants["classic jeans shorts"] = /obj/item/clothing/under/shorts/jeans/classic
-	pants["classic jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/classic/short
-	pants["mustang jeans shorts"] = /obj/item/clothing/under/shorts/jeans/mustang
-	pants["mustang jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/mustang/short
-	pants["young folks jeans shorts"] = /obj/item/clothing/under/shorts/jeans/youngfolks
-	pants["young folks jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/youngfolks/short
-	pants["black jeans shorts"] = /obj/item/clothing/under/shorts/jeans/black
-	pants["black jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/black/short
-	pants["grey jeans shorts"] = /obj/item/clothing/under/shorts/jeans/grey
-	pants["grey jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/grey/short
+
+	// Shorts
+	pants["black shorts"] = /obj/item/clothing/under/shorts/black
+	pants["black short shorts"] = /obj/item/clothing/under/shorts/black/short
 	pants["khaki shorts"] = /obj/item/clothing/under/shorts/khaki
-	pants["khaki shorts shorts"] = /obj/item/clothing/under/shorts/khaki/short
+	pants["khaki short shorts"] = /obj/item/clothing/under/shorts/khaki/short
+
+	// Jeans Shorts
+	pants["jeans shorts"] = /obj/item/clothing/under/shorts/jeans
+	pants["jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/short
+	pants["classic jeans shorts"] = /obj/item/clothing/under/shorts/jeans/classic
+	pants["classic jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/classic/short
+	pants["mustang jeans shorts"] = /obj/item/clothing/under/shorts/jeans/mustang
+	pants["mustang jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/mustang/short
+	pants["young folks jeans shorts"] = /obj/item/clothing/under/shorts/jeans/youngfolks
+	pants["young folks jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/youngfolks/short
+	pants["black jeans shorts"] = /obj/item/clothing/under/shorts/jeans/black
+	pants["black jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/black/short
+	pants["grey jeans shorts"] = /obj/item/clothing/under/shorts/jeans/grey
+	pants["grey jeans short shorts"] = /obj/item/clothing/under/shorts/jeans/grey/short
 	gear_tweaks += new /datum/gear_tweak/path(pants)
 
 /datum/gear/uniform/colorpants
