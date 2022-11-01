@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - tweak: "The blackbox and the common server in telecomms had their positions swapped so people can repair the common server easier."
