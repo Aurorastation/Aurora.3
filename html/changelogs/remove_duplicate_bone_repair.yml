@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Removes the duplicate bone repair option from the bone gel."
+  - bugfix: "Renames the \"Begin bone repair\" surgery to \"Repair Broken Bone\". Renames the \"Mend closed bone\" surgery to \"Repair Sawed Bone\" to better reflect their purposes."
