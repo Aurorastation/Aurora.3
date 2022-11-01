@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Renames the \"Begin bone repair\" surgery to \"Repair Broken Bone\". Renames the \"Mend closed bone\" surgery to \"Repair Sawed Bone\" to better reflect their purposes."
+  - bugfix: "Renames the \"Begin bone repair\" surgery to \"Repair Broken Bone\" and renames the \"Mend closed bone\" surgery to \"Repair Sawed Bone\" to better reflect their purposes."
