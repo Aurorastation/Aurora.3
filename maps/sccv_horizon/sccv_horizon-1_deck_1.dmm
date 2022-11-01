@@ -13120,14 +13120,6 @@
 	},
 /turf/space/dynamic,
 /area/template_noop)
-"kje" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "kjv" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -14872,13 +14864,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
-"lyx" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/warhead/longbow,
-/obj/item/warhead/longbow,
-/obj/item/warhead/longbow,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "lyG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -18797,12 +18782,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
-"oGP" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "oJc" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -19088,19 +19067,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"pas" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
-	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/item/warhead/longbow/ap,
-/obj/item/warhead/longbow/ap,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "pau" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 8
@@ -22458,15 +22424,6 @@
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
-"rAE" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "rBf" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/visible/green,
@@ -24631,10 +24588,6 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "tjl" = (
@@ -26934,11 +26887,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/operations)
-"vau" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/warhead/longbow/bunker,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "vbv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -41004,10 +40952,10 @@ giX
 qQa
 pcv
 tiV
-kje
+giX
 qdE
-lyx
-pas
+giX
+qQa
 gqW
 qdE
 rnz
@@ -41407,10 +41355,10 @@ qdE
 giX
 iQI
 sWr
-rAE
-oGP
+iQI
+giX
 qdE
-vau
+giX
 iQI
 sDJ
 qdE

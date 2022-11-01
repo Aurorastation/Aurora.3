@@ -603,8 +603,16 @@
 	icon_state = "bar"
 	allow_nightmode = FALSE
 
+// ZTA
 /area/horizon/zta
-	name = "Primary Armament Hold"
+	name = "Horizon - Primary Armament Hold"
 	icon_state = "zta"
+	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
+
+// Secure Ammunition Storage
+/area/horizon/secure_ammunition_storage
+	name = "Horizon - Secure Ammunition Storage"
+	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_FOREBODING
 /********** Unique End **********/
