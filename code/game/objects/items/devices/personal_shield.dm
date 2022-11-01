@@ -6,15 +6,17 @@
 	item_state = "personal_shield"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_LARGE
+	w_class = ITEMSIZE_NORMAL
 	action_button_name = "Toggle Shield"
 	var/obj/item/cell/cell
+	var/charge_per_shot = 200
+	var/upkeep_cost = 50
 	var/obj/aura/personal_shield/device/shield
 
 /obj/item/device/personal_shield/examine(mob/user, distance)
 	..()
 	if(Adjacent(user))
-		to_chat(user, SPAN_NOTICE("\The [src] has [cell.charge] charge remaining. Shield upkeep costs 50 charge, and blocking a shot costs 250."))
+		to_chat(user, SPAN_NOTICE("\The [src] has [cell.charge] charge remaining. Shield upkeep costs [upkeep_cost] charge, and blocking a shot costs [charge_per_shot] charge."))
 
 /obj/item/device/personal_shield/Initialize()
 	. = ..()
@@ -27,7 +29,7 @@
 
 /obj/item/device/personal_shield/process()
 	if(shield)
-		cell.use(50)
+		cell.use(upkeep_cost)
 
 /obj/item/device/personal_shield/attack_self(mob/living/user)
 	if(cell.charge && !shield)
@@ -49,7 +51,7 @@
 	return ..()
 
 /obj/item/device/personal_shield/proc/take_charge()
-	cell.use(250)
+	cell.use(charge_per_shot)
 	if(cell.percent() == 0)
 		to_chat(shield.user, FONT_LARGE(SPAN_WARNING("\The [src] begins to spark as it breaks!")))
 		QDEL_NULL(shield)

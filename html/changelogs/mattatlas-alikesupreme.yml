@@ -38,5 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Nerfed 556, 762, shotgun slug and laser rifle damage."
-  - balance: "Nerfed ballistic armour and ablative armour to compensate for the nerfs above. Specialised plates will now block around 10 more damage instead of blocking more than half of it."
+  - balance: "Damage values of 7.62, 5.56 and midlasers have been all nerfed."
+  - balance: "Security's ballistic and ablative armour have been heavily nerfed. They now only block around 5 more damage, instead of blocking over half."
+  - balance: "Combat stims' chems have been compacted into one new chem, Kilosemine, with increased metabolisation rate (0.6u/tick) and without the effects of Oxycomorphine. Combat hyposprays start with ten units, which can be spread out across two injections."
+  - balance: "Personal shields no longer recharge on their own. They have a cell, which can be recharged and cannot be manually replaced. Passive upkeep is 50 charge per tick, whereas blocking a bullet is 200 charge per tick. Their size has been reduced to normal, so they can fit in backpacks."
