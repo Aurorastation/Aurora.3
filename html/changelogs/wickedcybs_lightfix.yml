@@ -1,7 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - tweak: "Extended the fore hallway area to the spot between the bar and kitchen. It used to all be considered a bar area, so those lights would start off and It'd all be enveloped in darkness."
-  - tweak: "The central primary hallway was considered a singular area all way from the entrance to operations to the giant room with the stargazer. The stargazer area in particular is now considered a different area, which will stress out the poor singular APC that's been powering it all far less, as it has its own APC now."
