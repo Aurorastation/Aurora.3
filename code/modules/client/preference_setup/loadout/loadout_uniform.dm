@@ -184,12 +184,11 @@
 	pants["black ripped jeans"] = /obj/item/clothing/under/pants/blackripped
 
 	// Athletic Shorts
-	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts/athletic/black
-	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/athletic/red
-	pants["athletic shorts, green"] = /obj/item/clothing/under/shorts/athletic/green
-	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts/athletic/black
-	pants["athletic shorts, grey"] = /obj/item/clothing/under/shorts/athletic/grey
-	pants["athletic shorts, SCC"] = /obj/item/clothing/under/shorts/athletic/scc
+	pants["black athletic shorts"] = /obj/item/clothing/under/shorts/athletic/black
+	pants["red athletic shorts"] = /obj/item/clothing/under/shorts/athletic/red
+	pants["green athletic shorts"] = /obj/item/clothing/under/shorts/athletic/green
+	pants["grey athletic shorts"] = /obj/item/clothing/under/shorts/athletic/grey
+	pants["SCC athletic shorts"] = /obj/item/clothing/under/shorts/athletic/scc
 
 	// Shorts
 	pants["black shorts"] = /obj/item/clothing/under/shorts/black
