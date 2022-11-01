@@ -188,7 +188,7 @@
 	pants["red athletic shorts"] = /obj/item/clothing/under/shorts/athletic/red
 	pants["green athletic shorts"] = /obj/item/clothing/under/shorts/athletic/green
 	pants["grey athletic shorts"] = /obj/item/clothing/under/shorts/athletic/grey
-	pants["SCC athletic shorts"] = /obj/item/clothing/under/shorts/athletic/scc
+	pants["SCC-branded athletic shorts"] = /obj/item/clothing/under/shorts/athletic/scc
 
 	// Shorts
 	pants["black shorts"] = /obj/item/clothing/under/shorts/black
