@@ -3146,6 +3146,7 @@
 #include "maps\aurora\code\aurora_shuttles.dm"
 #include "maps\aurora\code\aurora_unittest.dm"
 #include "maps\away\away_sites.dm"
+#include "maps\away\generic\crashed_elyran_tanker\crashed_elyran_tanker.dm"
 #include "maps\away\generic\bigderelict.dm"
 #include "maps\away\generic\bunker.dm"
 #include "maps\away\generic\civilian_station.dm"
