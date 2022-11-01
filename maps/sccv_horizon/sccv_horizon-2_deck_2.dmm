@@ -4095,12 +4095,12 @@
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "bQW" = (
-/obj/structure/sign/securearea{
-	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
-	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
-	pixel_x = 32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 24
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "bRe" = (
@@ -9703,12 +9703,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "eUZ" = (
-/obj/structure/sign/fire{
-	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
-	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
-	pixel_x = 32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "eVf" = (
@@ -25367,6 +25363,16 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/structure/sign/fire{
+	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
+	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
+	pixel_y = 32
+	},
+/obj/structure/sign/securearea{
+	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
+	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "mLU" = (
@@ -26596,6 +26602,16 @@
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
+	},
+/obj/structure/sign/fire{
+	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
+	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
+	pixel_y = -32
+	},
+/obj/structure/sign/securearea{
+	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
+	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
@@ -36469,11 +36485,6 @@
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
 "slS" = (
-/obj/structure/sign/fire{
-	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
-	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/table/rack,
 /obj/item/warhead/longbow/bunker,
@@ -41663,11 +41674,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "uRo" = (
-/obj/structure/sign/securearea{
-	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
-	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/francisca{
