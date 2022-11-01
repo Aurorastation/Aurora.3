@@ -1575,7 +1575,8 @@
 
 /decl/reagent/kilosemine
 	name = "Kilosemine"
-	description = "An illegal stimulant. Nobody knows where and how this is created: some speculate that its origins lie in underground Fisanduhian cells, whereas some speculate that it was created by Einstein Engines."
+	description = "An illegal stimulant, known by specialists for its properties that somehow mix the effects of Synaptizine and Hyperzine without the immediate side \
+				   effects. It is unknown how and where this chemical was created; some speculate that it was created in Fisanduh for use by radical terrorist cells."
 	reagent_state = SOLID
 	scannable = TRUE
 	color = "#EE4B2B"
@@ -1614,9 +1615,9 @@
 		else
 			if(prob(50))
 				to_chat(H, SPAN_DANGER("Your joints lock up!"))
-				H.AdjustParalysis(1)
+				H.AdjustParalysis(3)
 			else
 				var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
 				if(heart)
 					to_chat(H, SPAN_DANGER("Your heart skips a beat and screams out in pain!"))
-					heart.take_internal_damage(1)
+					heart.take_internal_damage(10)
