@@ -137,7 +137,7 @@
 
 /obj/item/projectile/bullet/pistol/revolver
 	damage = 40
-	armor_penetration = 10
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
@@ -222,7 +222,7 @@
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a556/polymer
-	damage = 20
+	damage = 24
 	armor_penetration = 32
 	penetrating = FALSE
 
@@ -276,7 +276,7 @@
 	weaken = 0
 	drowsy = 0
 	eyeblur = 0
-	damage_type = TOX
+	damage_type = BRUTE
 	speed = 0.3
 
 /obj/item/projectile/bullet/rifle/tranq/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
