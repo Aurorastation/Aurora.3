@@ -163,7 +163,7 @@
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 
-/obj/item/surgery/connective_knitter
+/obj/item/surgery/fix_o_vein
 	name = "FixOVein"
 	desc = "A specialized surgical instrument capable of quickly and safely healing torn veins and arteries, being capable of repairing torn ligaments as well."
 	icon_state = "fixovein"
@@ -209,7 +209,7 @@
 		/obj/item/surgery/scalpel,
 		/obj/item/surgery/surgicaldrill,
 		/obj/item/surgery/bone_gel,
-		/obj/item/surgery/connective_knitter,
+		/obj/item/surgery/fix_o_vein,
 		/obj/item/stack/medical/advanced/bruise_pack,
 		/obj/item/stack/nanopaste
 		)
@@ -223,7 +223,7 @@
 		/obj/item/surgery/scalpel = 1,
 		/obj/item/surgery/surgicaldrill = 1,
 		/obj/item/surgery/bone_gel = 1,
-		/obj/item/surgery/connective_knitter = 1,
+		/obj/item/surgery/fix_o_vein = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 	)
 
@@ -243,7 +243,7 @@
 		/obj/item/surgery/scalpel/manager = "tray_scalpel_manager",
 		/obj/item/surgery/surgicaldrill = "tray_drill",
 		/obj/item/surgery/bone_gel = "tray_bone-gel",
-		/obj/item/surgery/connective_knitter = "tray_fixovein",
+		/obj/item/surgery/fix_o_vein = "tray_fixovein",
 		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack",
 		/obj/item/autopsy_scanner = "tray_autopsy_scanner",
 		/obj/item/device/mass_spectrometer = "tray_mass_spectrometer",

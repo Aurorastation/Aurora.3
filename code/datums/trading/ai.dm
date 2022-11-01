@@ -167,7 +167,7 @@
 		/obj/item/surgery/scalpel                              = TRADER_ALL,
 		/obj/item/surgery/circular_saw                         = TRADER_THIS_TYPE,
 		/obj/item/surgery/bone_gel                             = TRADER_THIS_TYPE,
-		/obj/item/surgery/connective_knitter                   = TRADER_THIS_TYPE,
+		/obj/item/surgery/fix_o_vein                   = TRADER_THIS_TYPE,
 		/obj/item/surgery/bonesetter                           = TRADER_THIS_TYPE,
 		/obj/item/storage/box/syringes                         = TRADER_THIS_TYPE,
 		/obj/item/storage/box/syringegun                       = TRADER_THIS_TYPE,

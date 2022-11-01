@@ -8,7 +8,7 @@
 	name = "Repair arterial bleeding"
 	priority = 3
 	allowed_tools = list(
-	/obj/item/surgery/connective_knitter = 100, \
+	/obj/item/surgery/fix_o_vein = 100, \
 	/obj/item/stack/cable_coil = 75
 	)
 	can_infect = TRUE
@@ -187,7 +187,7 @@
 	name = "Repair tendons"
 	priority = 2
 	allowed_tools = list(
-		/obj/item/surgery/connective_knitter = 100, \
+		/obj/item/surgery/fix_o_vein = 100, \
 		/obj/item/stack/cable_coil = 75
 	)
 	can_infect = TRUE

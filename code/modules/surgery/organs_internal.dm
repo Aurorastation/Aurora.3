@@ -406,7 +406,7 @@
 /decl/surgery_step/internal/attach_organ
 	name = "Attach organ"
 	allowed_tools = list(
-	/obj/item/surgery/connective_knitter = 100, \
+	/obj/item/surgery/fix_o_vein = 100, \
 	/obj/item/stack/cable_coil = 75
 	)
 
