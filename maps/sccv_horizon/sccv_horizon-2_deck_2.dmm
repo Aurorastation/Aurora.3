@@ -10280,7 +10280,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/button/remote/airlock/screamer{
-	channel = list("Command","Engineering","Operations");
+	channel = "Command";
 	id = "airlocks_deck2_ammostorage_fore";
 	message = "The secure ammunition storage fore door bolts have been activated or deactivated.";
 	name = "Door Bolt Control";
@@ -11765,7 +11765,7 @@
 	id = "shutters_deck1_ammostorage_aft"
 	},
 /obj/machinery/button/remote/airlock/screamer{
-	channel = list("Command","Engineering","Operations");
+	channel = "Command";
 	id = "airlocks_deck2_ammostorage_aft";
 	message = "The secure ammunition storage aft door bolts have been activated or deactivated.";
 	name = "Door Bolt Control";
