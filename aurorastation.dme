@@ -490,7 +490,6 @@
 #include "code\game\gamemodes\cult\runes\blind_others.dm"
 #include "code\game\gamemodes\cult\runes\blood_boil.dm"
 #include "code\game\gamemodes\cult\runes\blood_drain.dm"
-#include "code\game\gamemodes\cult\runes\communicate.dm"
 #include "code\game\gamemodes\cult\runes\convert.dm"
 #include "code\game\gamemodes\cult\runes\create_construct.dm"
 #include "code\game\gamemodes\cult\runes\create_talisman.dm"
