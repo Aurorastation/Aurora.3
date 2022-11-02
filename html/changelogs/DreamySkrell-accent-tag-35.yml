@@ -1,7 +1,0 @@
-
-author: DreamySkrell
-
-delete-after: True
-
-changes:
-  - rscadd: "Accent tags in the chat are now clickable, and show a window with the accent name and description."
