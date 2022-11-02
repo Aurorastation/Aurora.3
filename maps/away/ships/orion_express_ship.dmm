@@ -3193,27 +3193,27 @@
 	pixel_y = 5
 	},
 /obj/item/clothing/head/surgery{
-	desc = s"A cap worn during showers. Keeps your hair save from horrible water.";
+	desc = "A cap worn during showers. Keeps your hair save from horrible water.";
 	name = "shower cap"
 	},
 /obj/item/clothing/head/surgery{
-	desc = s"A cap worn during showers. Keeps your hair save from horrible water.";
+	desc = "A cap worn during showers. Keeps your hair save from horrible water.";
 	name = "shower cap"
 	},
 /obj/item/clothing/head/surgery{
-	desc = s"A cap worn during showers. Keeps your hair save from horrible water.";
+	desc = "A cap worn during showers. Keeps your hair save from horrible water.";
 	name = "shower cap"
 	},
 /obj/item/clothing/head/surgery{
-	desc = s"A cap worn during showers. Keeps your hair save from horrible water.";
+	desc = "A cap worn during showers. Keeps your hair save from horrible water.";
 	name = "shower cap"
 	},
 /obj/item/clothing/head/surgery{
-	desc = s"A cap worn during showers. Keeps your hair save from horrible water.";
+	desc = "A cap worn during showers. Keeps your hair save from horrible water.";
 	name = "shower cap"
 	},
 /obj/item/clothing/head/surgery{
-	desc = s"A cap worn during showers. Keeps your hair save from horrible water.";
+	desc = "A cap worn during showers. Keeps your hair save from horrible water.";
 	name = "shower cap"
 	},
 /turf/simulated/floor/tiled/dark,

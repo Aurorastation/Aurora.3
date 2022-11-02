@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes 6 faulty variables in the \"orion_express_ship.dmm\" file."
