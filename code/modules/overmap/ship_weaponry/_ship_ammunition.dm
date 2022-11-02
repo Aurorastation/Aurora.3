@@ -24,7 +24,6 @@
 	var/heading = SOUTH
 
 	//Cookoff variables.
-	var/drop_counter = 0
 	var/cookoff_devastation = 0
 	var/cookoff_heavy = 2
 	var/cookoff_light = 3
@@ -87,15 +86,6 @@
 	. = ..()
 	if(prob(50) && ((ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE) || (ammunition_flags & SHIP_AMMO_FLAG_VULNERABLE)))
 		cookoff(FALSE)
-
-/obj/item/ship_ammunition/dropped(mob/user)
-	. = ..()
-	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE && user.a_intent == I_HURT)
-		drop_counter++
-		if(drop_counter == 3)
-			visible_message(SPAN_WARNING("\The [src] makes a weird noise..."))
-		if(drop_counter >= 4)
-			cookoff(FALSE)
 
 /obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
 	. = ..()

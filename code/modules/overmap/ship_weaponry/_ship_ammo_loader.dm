@@ -43,7 +43,7 @@
 				for(var/obj/machinery/ship_weapon/SW in SSmachinery.machinery)
 					if(SW.weapon_id == new_id)
 						if(get_area(SW) != get_area(src))
-							to_chat(user, SPAN_WARNING("The loader returns an error message of two beeps: that weapon ID is invalid."))
+							to_chat(user, SPAN_WARNING("The loader returns an error message of two beeps, indicating that the weapon ID is invalid."))
 							return TRUE
 					weapon_id = new_id
 					to_chat(user, SPAN_NOTICE("With some finicking, you change the identification tag to <b>[new_id]</b>."))
@@ -60,11 +60,11 @@
 					playsound(src, 'sound/weapons/ammo_load.ogg')
 					return TRUE
 				else
-					to_chat(H, SPAN_WARNING("The loader's full!"))
+					to_chat(H, SPAN_WARNING("The loader is full!"))
 		else
-			to_chat(H, SPAN_WARNING("That ammunition's not ready to be loaded!"))
+			to_chat(H, SPAN_WARNING("That ammunition is not ready to be loaded!"))
 	else
-		to_chat(H, SPAN_WARNING("That ammunition doesn't fit here!"))
+		to_chat(H, SPAN_WARNING("That ammunition does not fit here!"))
 		return FALSE
 
 /obj/structure/viewport

@@ -165,6 +165,7 @@
 	icon_state = "lever1"
 	var/obj/machinery/ship_weapon/leviathan/ZTA
 	var/toggled = FALSE
+	var/cooldown = 0
 
 /obj/machinery/zta_lever/Initialize(mapload, d, populate_components, is_internal)
 	..()
@@ -180,7 +181,7 @@
 	return..()
 
 /obj/machinery/zta_lever/attack_hand(mob/user)
-	if(!use_check_and_message(user, USE_DISALLOW_SILICONS) && !stat)
+	if(!use_check_and_message(user, USE_DISALLOW_SILICONS) && !stat && (cooldown > world.time + 1 SECOND))
 		if(do_after(user, 1 SECOND))
 			visible_message(SPAN_DANGER("[user] pulls \the [src] [toggled ? "up" : "down"]!"))
 			toggled = !toggled
@@ -196,6 +197,7 @@
 					sleep(2)
 					icon_state = "lever_down"
 			playsound(src, 'sound/effects/spring.ogg', 100)
+			cooldown = world.time
 
 /obj/item/leviathan_key
 	name = "leviathan activation key"

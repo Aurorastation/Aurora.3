@@ -97,7 +97,7 @@
 			for(var/obj/machinery/ammunition_loader/SW in SSmachinery.machinery)
 				if(SW.weapon_id == new_id)
 					if(get_area(SW) != get_area(src))
-						to_chat(user, SPAN_WARNING("The loader returns an error message of two beeps: that weapon ID is invalid."))
+						to_chat(user, SPAN_WARNING("The loader returns an error message of two beeps, indicating that the weapon ID is invalid."))
 						return TRUE
 				weapon_id = new_id
 				to_chat(user, SPAN_NOTICE("With some finicking, you change the identification tag to <b>[new_id]</b>."))

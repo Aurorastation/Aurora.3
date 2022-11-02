@@ -39,7 +39,7 @@
 /obj/effect/overmap/visitable/ship/landable/tajara_safehouse_shuttle
 	name = "Unmarked Civilian Shuttle"
 	class = "Unmarked"
-	designation = "Civilian Shuttle" //lol
+	designation = "Civilian Shuttle"
 	desc = "A civilian shuttle without any kind of identification."
 	shuttle = "Unmarked Civilian Shuttle"
 	max_speed = 1/(3 SECONDS)
