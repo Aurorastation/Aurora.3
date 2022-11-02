@@ -145,7 +145,7 @@
 	. += "Caliber: [caliber]<br>"
 	. += "Ammunition Type: [capitalize_first_letters(impact_type)]<br>"
 	if(written_message)
-		. += "This shell appears to have something inscribed. AI-assisted reconstruction: <b>[written_message]</b>"
+		. += "Sensor readings indicate the presence of a message written on the shell: <b>[written_message]</b>"
 
 /obj/item/ship_ammunition/proc/get_speed() //Lag variable used for step_towards(). Lower is better.
 	return 4
