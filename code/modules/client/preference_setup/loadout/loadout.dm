@@ -175,11 +175,11 @@ var/list/gear_datums = list()
 	. += "</b></center></td></tr>"
 
 	var/datum/loadout_category/LC = loadout_categories[current_tab]
-	. += "<tr><td colspan=3><hr></td></tr>"
-	. += "<tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
-	. += "<tr><td colspan=3><hr></td></tr>"
 
+	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3>"
+	. += "<div style='left:0;position:absolute;width:10%;margin-left:45%;'><b><center>[LC.category]</center></b></div>"
+	. += "<span style='float:left;'>"
 	. += "<script>function search_onchange() { \
 		var val = document.getElementById('search_input').value; \
 		document.getElementById('search_refresh_link').href='?src=\ref[src];search_input_refresh=' + encodeURIComponent(val) + ''; \
@@ -190,7 +190,9 @@ var/list/gear_datums = list()
 			onchange='search_onchange()' value='[search_input_value]'>";
 	. += "<a href='#' onclick='search_onchange()'>Refresh</a>"
 	. += "<a href='?src=\ref[src];search_input_refresh=' id='search_refresh_link'>Clear</a>"
-	. += "</td></tr><tr><td colspan=3><hr></td></tr>"
+	. += "</span>"
+	. += "</td></tr>"
+	. += "<tr><td colspan=3><hr></td></tr>"
 
 	var/available_items_html = "" // to be added to the top/beginning of the list
 	var/unavailable_items_html = "" // to be added to the end/bottom of the list
