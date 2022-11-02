@@ -20,7 +20,7 @@
 //				CHEST INTERNAL ORGAN SURGERY					//
 //////////////////////////////////////////////////////////////////
 /decl/surgery_step/internal/fix_organ
-	name = "Repair internal organs"
+	name = "Repair Internal Organs"
 	allowed_tools = list(
 	/obj/item/stack/medical/advanced/bruise_pack= 100,		\
 	/obj/item/stack/medical/bruise_pack = 20
@@ -106,7 +106,7 @@
 			I.take_damage(dam_amt,0)
 
 /decl/surgery_step/internal/fix_organ_robotic //For artificial organs
-	name = "Repair robotic organ"
+	name = "Repair Robotic Organ"
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
 	/obj/item/surgery/bone_gel = 30,
@@ -175,7 +175,7 @@
 
 
 /decl/surgery_step/internal/detach_organ
-	name = "Separate organ"
+	name = "Separate Organ"
 	priority = 1
 	allowed_tools = list(
 	/obj/item/surgery/scalpel = 100,
@@ -239,7 +239,7 @@
 	target.apply_damage(rand(30, 50), BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/internal/remove_organ
-	name = "Remove organ"
+	name = "Remove Organ"
 	allowed_tools = list(
 	/obj/item/surgery/hemostat = 100,	\
 	WIRECUTTER = 75,	\
@@ -300,7 +300,7 @@
 	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/internal/replace_organ
-	name = "Replace organ"
+	name = "Replace Organ"
 	allowed_tools = list(
 	/obj/item/organ = 100
 	)
@@ -404,7 +404,7 @@
 		I.take_damage(rand(3,5),0)
 
 /decl/surgery_step/internal/attach_organ
-	name = "Attach organ"
+	name = "Attach Organ"
 	allowed_tools = list(
 	/obj/item/surgery/fix_o_vein = 100, \
 	/obj/item/stack/cable_coil = 75
