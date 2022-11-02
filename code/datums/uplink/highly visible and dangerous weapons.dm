@@ -191,7 +191,7 @@
 
 /datum/uplink_item/item/visible_weapons/pulse_carbine
 	name = "Pulse Carbine"
-	item_cost = 15
+	item_cost = 16
 	path = /obj/item/gun/energy/pulse
 
 /datum/uplink_item/item/visible_weapons/gyrojet_pistol
