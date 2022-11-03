@@ -1,5 +1,3 @@
-//space bar
-
 /datum/ghostspawner/human/space_bar_bartender
 	short_name = "space_bar_bartender"
 	name = "Space Bar Bartender"

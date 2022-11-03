@@ -1,4 +1,3 @@
-
 /datum/ghostspawner/human/ee_crewman
 	short_name = "ee_crewman"
 	name = "Einstein Engines Crewman"

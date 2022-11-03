@@ -1,5 +1,3 @@
-//sfa patrol ship
-
 /datum/ghostspawner/human/sfa_navy_crewman
 	short_name = "sfa_navy_crewman"
 	name = "SFA Navy Crewman"

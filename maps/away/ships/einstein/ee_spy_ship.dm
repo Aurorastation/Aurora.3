@@ -1,4 +1,3 @@
-
 /datum/map_template/ruin/away_site/ee_spy_ship
 	name = "Einstein Engines Research Ship"
 	description = "A research ship belonging to Einstein Engines, the Stellar Corporate Conglomerate's main competitor."
