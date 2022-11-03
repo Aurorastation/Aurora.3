@@ -1,8 +1,0 @@
-
-author: DreamySkrell
-
-delete-after: True
-
-
-changes:
-  - bugfix: "Fixes loadout culture and origin check always failing, making it so culture and origin restricted items were always grayed out."
