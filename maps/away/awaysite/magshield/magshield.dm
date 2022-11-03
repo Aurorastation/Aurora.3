@@ -66,14 +66,14 @@
 /obj/structure/magshield/rad_sensor
 	name = "radiation sensor"
 	desc = "Very sensitive vacuum radiation sensor. On top of the metal stand two modified Wilson cloud chambers filled with deuterium and tritium water."
-	icon = 'maps/away/magshield/magshield_sprites.dmi'
+	icon = 'maps/away/awaysite/magshield/magshield_sprites.dmi'
 	icon_state = "rad_sensor"
 	anchored = TRUE
 
 /obj/structure/magshield/nav_light
 	name = "navigation light"
 	desc = "Large and bright light regularly emitting green flashes."
-	icon = 'maps/away/magshield/magshield_sprites.dmi'
+	icon = 'maps/away/awaysite/magshield/magshield_sprites.dmi'
 	icon_state = "nav_light_green"
 	anchored = TRUE
 	density = TRUE
