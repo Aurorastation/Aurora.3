@@ -1,6 +1,6 @@
 /obj/machinery/ship_weapon/leviathan
 	name = "leviathan zero-point artillery"
-	desc = "A hulking structure made up of an insane amount of moving parts, components and capacitors. It has no branding other than the \"ZAT\" inscription on the sides."
+	desc = "A hulking structure made up of an uncalculable amount of moving parts, components and capacitors. It has no branding other than the \"ZAT\" inscription on the sides."
 	icon = 'icons/obj/machines/ship_guns/leviathan.dmi'
 	icon_state = "weapon_off"
 	special_firing_mechanism = TRUE
@@ -160,7 +160,7 @@
 
 /obj/machinery/zta_lever
 	name = "activation lever"
-	desc = "An old-style lever that couples the Leviathan's capacitors. <span class='danger'>Flicking this will cause extreme power usage!</span>"
+	desc = "An old-style lever that couples the Leviathan's capacitors. <span class='danger'>Flicking this will result in extreme power usage!</span>"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "lever1"
 	var/obj/machinery/ship_weapon/leviathan/ZTA
@@ -181,7 +181,7 @@
 	return..()
 
 /obj/machinery/zta_lever/attack_hand(mob/user)
-	if(!use_check_and_message(user, USE_DISALLOW_SILICONS) && !stat && (cooldown < world.time + 1 SECOND))
+	if(!use_check_and_message(user, USE_DISALLOW_SILICONS) && !stat && (cooldown + 10 SECONDS < world.time))
 		if(do_after(user, 1 SECOND))
 			visible_message(SPAN_DANGER("[user] pulls \the [src] [toggled ? "up" : "down"]!"))
 			toggled = !toggled
@@ -237,10 +237,10 @@
 		icon_state = "key_case"
 	
 /obj/item/leviathan_case/attack_hand(mob/user)
-	if(!open)
+	if(!open || !LK || !ishuman(loc))
 		. = ..()
 		return
-	if(use_check_and_message(user))
+	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
 		return
 	if(LK)
 		user.visible_message(SPAN_NOTICE("[user] retrieves \the [LK]."))
@@ -255,7 +255,7 @@
 	if(!LK && open)
 		if(istype(I, /obj/item/leviathan_key))
 			var/obj/item/leviathan_key/key = I
-			user.visible_message(SPAN_NOTICE("[user] puts \the [LK] back into \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] puts \the [key] back into \the [src]."))
 			LK = key
 			user.drop_from_inventory(key, src)
 			icon_state = "key_case-o"

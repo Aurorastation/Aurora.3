@@ -18,7 +18,7 @@
 #define SHIP_AMMO_IMPACT_LASER "laser"
 #define SHIP_AMMO_IMPACT_BUNKERBUSTER "bunker-buster"
 #define SHIP_AMMO_IMPACT_PLASMA "plasma"
-#define SHIP_AMMO_IMPACT_ZTA "zero-point artillery"
+#define SHIP_AMMO_IMPACT_ZTA "zero-point warp beam"
 
 #define FIRING_EFFECT_FLAG_THROW_MOBS  1
 #define FIRING_EFFECT_FLAG_EXTREMELY_LOUD 2 //Play the heavy firing sound to all mobs on connected zlevels.
