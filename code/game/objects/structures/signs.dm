@@ -1129,21 +1129,3 @@
 
 /obj/structure/sign/flag/konyang/right
 	icon_state = "konyang_r"
-
-//Halloween Banner
-/obj/structure/sign/flag/halloween
-	name = "large halloween flag"
-	desc = "A bright, purple flag with an orange rim, spelling out \"HAPPY HALLOWEEN\"."
-	icon = 'icons/obj/contained_items/halloween_decorations.dmi'
-	icon_state = "halloween"
-
-/obj/item/flag/halloween/l
-	name = "large halloween flag"
-	flag_size = 1
-
-/obj/structure/sign/flag/halloween/left
-	icon_state = "halloween_l"
-
-/obj/structure/sign/flag/halloween/right
-	icon_state = "halloween_r"
-

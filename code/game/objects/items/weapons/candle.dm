@@ -74,18 +74,3 @@
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		update_icon()
 		set_light(0)
-
-// Halloween candle pile
-
-/obj/item/flame/candle/waxcandles
-	name = "candle pile"
-	desc = "A pile of half molten white wax candles, that seem to burn on forever."
-	icon = 'icons/obj/contained_items/halloween_decorations.dmi'
-	icon_state = "candles"
-	item_state = "candles"
-	light_color = "#E09D37"
-	wax = 40000
-
-/obj/item/flame/candle/waxcandles/Initialize()
-	. = ..()
-	light()
