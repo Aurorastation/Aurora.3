@@ -181,7 +181,7 @@
 	return..()
 
 /obj/machinery/zta_lever/attack_hand(mob/user)
-	if(!use_check_and_message(user, USE_DISALLOW_SILICONS) && !stat && (cooldown > world.time + 1 SECOND))
+	if(!use_check_and_message(user, USE_DISALLOW_SILICONS) && !stat && (cooldown < world.time + 1 SECOND))
 		if(do_after(user, 1 SECOND))
 			visible_message(SPAN_DANGER("[user] pulls \the [src] [toggled ? "up" : "down"]!"))
 			toggled = !toggled
