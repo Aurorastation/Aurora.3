@@ -53,7 +53,7 @@
 /obj/structure/magshield/maggen 
 	name = "magnetic field generator"
 	desc = "A large three-handed generator with rotating top. It is used to create high-power magnetic fields in hard vacuum. It's spinning and that seems to be all it's good for at the moment."
-	icon = 'maps/away/magshield/magshield_sprites.dmi'
+	icon = 'maps/away/awaysite/magshield/magshield_sprites.dmi'
 	icon_state = "maggen"
 	anchored = TRUE
 	density = TRUE
@@ -93,7 +93,7 @@
 
 /obj/item/book/manual/magshield_manual
 	name = "SOP for Planetary Shield Orbital Stations"
-	icon = 'maps/away/magshield/magshield_sprites.dmi'
+	icon = 'maps/away/awaysite/magshield/magshield_sprites.dmi'
 	icon_state = "mg_guide"
 	author = "Unknown"
 	title = "Standard operating procedures for Planetary Shield Orbital Stations"

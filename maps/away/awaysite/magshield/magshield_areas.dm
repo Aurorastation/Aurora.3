@@ -1,5 +1,5 @@
 /area/magshield
-	icon = 'maps/away/magshield/magshield_sprites.dmi'
+	icon = 'maps/away/awaysite/magshield/magshield_sprites.dmi'
 
 /area/magshield/south
 	name = "Orbital Station South Wing"
