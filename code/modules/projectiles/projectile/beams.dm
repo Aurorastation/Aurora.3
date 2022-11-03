@@ -48,8 +48,8 @@
 	impact_type = /obj/effect/projectile/impact/hegemony
 
 /obj/item/projectile/beam/midlaser
-	damage = 25
-	armor_penetration = 22
+	damage = 30
+	armor_penetration = 14
 
 /obj/item/projectile/beam/midlaser/skrell
 	armor_penetration = 0
