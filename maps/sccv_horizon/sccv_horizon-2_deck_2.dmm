@@ -3573,7 +3573,7 @@
 	name = "Primary Armament Exterior Bolts";
 	pixel_x = 22;
 	pixel_y = 22;
-	req_access = list(19);
+	req_access = list(19, 11);
 	specialfunctions = 4
 	},
 /obj/structure/cable{
@@ -10259,16 +10259,16 @@
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/highsecurity{
-	name = "Secure Ammunition Storage";
-	req_one_access = list(10,19,20,36,74);
-	locked = 1;
+	icon_state = "door_locked";
 	id_tag = "airlocks_deck2_ammostorage_fore";
-	icon_state = "door_locked"
+	locked = 1;
+	name = "Secure Ammunition Storage";
+	req_one_access = list(10,19,20,36,74)
 	},
 /obj/machinery/door/blast/regular{
 	dir = 8;
-	name = "Secure Ammunition Storage Blast Door";
-	id = "shutters_deck1_ammostorage_fore"
+	id = "shutters_deck1_ammostorage_fore";
+	name = "Secure Ammunition Storage Blast Door"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -10277,22 +10277,22 @@
 	},
 /obj/machinery/button/remote/airlock/screamer{
 	channel = "Command";
+	dir = 8;
 	id = "airlocks_deck2_ammostorage_fore";
 	message = "The secure ammunition storage fore door bolts have been activated or deactivated.";
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = -7;
-	specialfunctions = 4;
 	req_one_access = list(10,19,20,36,74);
-	dir = 8
+	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 8;
 	id = "shutters_deck1_ammostorage_fore";
-	pixel_y = 7;
-	pixel_x = 25;
 	name = "Blast Door Control";
-	req_one_access = list(10,19,20,36,74);
-	dir = 8
+	pixel_x = 25;
+	pixel_y = 7;
+	req_one_access = list(10,19,20,36,74)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/secure_ammunition_storage)
@@ -11748,35 +11748,35 @@
 "fTo" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
-	name = "Secure Ammunition Storage";
-	req_one_access = list(10,19,20,36,74);
-	locked = 1;
+	icon_state = "door_locked";
 	id_tag = "airlocks_deck2_ammostorage_aft";
-	icon_state = "door_locked"
+	locked = 1;
+	name = "Secure Ammunition Storage";
+	req_one_access = list(10,19,20,36,74)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	name = "Secure Ammunition Storage Blast Door";
-	id = "shutters_deck1_ammostorage_aft"
+	id = "shutters_deck1_ammostorage_aft";
+	name = "Secure Ammunition Storage Blast Door"
 	},
 /obj/machinery/button/remote/airlock/screamer{
 	channel = "Command";
+	dir = 4;
 	id = "airlocks_deck2_ammostorage_aft";
 	message = "The secure ammunition storage aft door bolts have been activated or deactivated.";
 	name = "Door Bolt Control";
 	pixel_x = -25;
 	pixel_y = 7;
-	specialfunctions = 4;
 	req_one_access = list(10,19,20,36,74);
-	dir = 4
+	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "shutters_deck1_ammostorage_aft";
-	pixel_y = -7;
-	pixel_x = -25;
-	name = "Blast Door Control";
 	dir = 4;
+	id = "shutters_deck1_ammostorage_aft";
+	name = "Blast Door Control";
+	pixel_x = -25;
+	pixel_y = -7;
 	req_one_access = list(10,19,20,36,74)
 	},
 /turf/simulated/floor/tiled/full,
@@ -19895,9 +19895,6 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/machinery/newscaster{
-	pixel_y = 32
-	},
 /obj/structure/table/wood,
 /obj/item/device/paicard,
 /turf/simulated/floor/tiled,
@@ -25364,8 +25361,8 @@
 	dir = 9
 	},
 /obj/structure/sign/fire{
-	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
 	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
+	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
 	pixel_y = 32
 	},
 /obj/structure/sign/securearea{
@@ -26604,8 +26601,8 @@
 	dir = 10
 	},
 /obj/structure/sign/fire{
-	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
 	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
+	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
 	pixel_y = -32
 	},
 /obj/structure/sign/securearea{
@@ -29983,8 +29980,8 @@
 	dir = 4
 	},
 /obj/machinery/light_switch{
-	pixel_y = 24;
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
@@ -30201,6 +30198,9 @@
 	},
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
+	},
+/obj/machinery/newscaster{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)

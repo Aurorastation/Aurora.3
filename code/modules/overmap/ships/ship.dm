@@ -28,6 +28,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	var/burn_delay = 1 SECOND           // how often ship can do burns
 	var/fore_dir = NORTH                // what dir ship flies towards for purpose of moving stars effect procs
 	var/last_combat_roll = 0
+	var/last_combat_turn = 0
 
 	var/list/engines = list()
 	var/engines_state = 0 //global on/off toggle for all engines
@@ -260,6 +261,15 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	var/cooldown = min(vessel_mass / 100, 100) SECONDS //max 100s for horizon, 30s for smaller ships
 	if(world.time >= (last_combat_roll + cooldown))
 		return TRUE
+	return FALSE
+
+/obj/effect/overmap/visitable/ship/proc/can_combat_turn()
+	if(!can_burn())
+		return FALSE
+	var/cooldown = min(vessel_mass / 200, 20) SECONDS //max 20s for horizon, 15s for smaller ships
+	if(world.time >= (last_combat_turn + cooldown))
+		return TRUE
+	return FALSE
 
 /obj/effect/overmap/visitable/ship/proc/combat_roll(var/new_dir)
 	burn()
@@ -267,11 +277,27 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	for(var/mob/living/L in living_mob_list)
 		if(L.z in map_z)
 			to_chat(L, SPAN_DANGER("<font size=4>The ship rapidly inclines under your feet!</font>"))
-			var/turf/T = get_step_away(get_turf(L), get_step(L, new_dir), 10)
-			L.throw_at(T, 10, 10)
+			if(!L.buckled_to)
+				var/turf/T = get_step_away(get_turf(L), get_step(L, new_dir), 10)
+				L.throw_at(T, 10, 10)
 			shake_camera(L, 2 SECONDS, 10)
 			sound_to(L, sound('sound/effects/combatroll.ogg'))
 	last_combat_roll = world.time
+
+/obj/effect/overmap/visitable/ship/proc/combat_turn(var/new_dir)
+	burn()
+	var/angle = 45
+	if(new_dir == WEST)
+		angle = -45
+	dir = turn(dir, angle)
+	for(var/mob/living/L in living_mob_list)
+		if(L.z in map_z)
+			to_chat(L, SPAN_DANGER("The ship rapidly turns under your feet!"))
+			if(!L.buckled_to)
+				L.Weaken(3)
+			shake_camera(L, 1 SECOND, 2)
+			L.playsound_simple(soundin = 'sound/machines/thruster.ogg', volume = 50)
+	last_combat_turn = world.time
 
 /obj/effect/overmap/visitable/ship/signal_hit(var/list/hit_data)
 	for(var/obj/machinery/computer/ship/targeting/TR in consoles)

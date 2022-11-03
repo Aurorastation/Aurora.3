@@ -198,22 +198,22 @@
 /obj/item/folder/envelope/zta/Initialize()
 	. = ..()
 	var/obj/item/paper/R = new(src)
-	R.set_content("leviathan zero-point artillery instructions", "<table><cell><hr><small><center><img src=scclogo.png><br><b>Stellar Corporate Conglomerate<br>\
-	SCCV Horizon</b><hr><b>Form 0000<br>\
-	<large>Confidential Information Report</large></b></center><hr>\
+	R.set_content("leviathan zero-point artillery instructions", "<table><cell><hr><small><center><img src=scclogo.png><br><b>Stellar Corporate Conglomerate<br> \
+	SCCV Horizon</b><hr><b>Form 0000<br> \
+	<large>Confidential Information Report</large></b></center><hr> \
 	<b>Classification Index:</b> <font color='red'>TOP SECRET</font>, protect at all costs <field><hr><b>Entrusted Personnel:</b> Command, Engineering<br> <field>\
-	<b>Subject Designation:</b> Leviathan Prototype Zero-Point Artillery <br><field>\
+	<b>Subject Designation:</b> Leviathan Prototype Zero-Point Artillery <br><field> \
 	<b>Subject Specification:</b> The Leviathan-class Prototype Warp Emitter Artillery is the crowning achievement of the Chainlink's \
 	unified science and engineering arm. Nearly two-thousand tonnes and longer than fifty meters, the Leviathian is composed of two (2) arc batteries, \
 	six (6) hyper conductors, six (6) warp engine generators, four (4) warp field stabilizers, a thirty meter (30m) dampening rail-line, and a full targeting \
-	acquisition andpower management array.<br><field>\
+	acquisition and power management array.<br><field> \
 	<b>Instructions:</b> In order to fire the Leviathan, the capacitors must first be coupled by lowering the activation lever. This coupling is, however, extremely energy intensive. \
 	Long term activation thus requires a hefty supply of electricity in the APC. Firing the Leviathan itself takes energy directly from the superconducting SMES specially built \
 	for the gun. Its firing cost is around 20 megawatts per shot, not counting power taken from the APC in idle mode.<br> \
 	To activate the Leviathan itself, two command staff must first couple the warp fields to the firing array by unlocking the safeties on the keycard authentication device. \
 	Once that is done, the key must be retrieved from its case in the Captain's office. It must then be placed in the activation terminal in the bridge. \
 	The key must then be twisted and, finally, the button to fire the Leviathan will be uncovered and it may be pressed.<field><br> \
-	<b>Subject Description:</b> The Leviathan's one and only intended purpose is to annihilate any single target\
+	<b>Subject Description:</b> The Leviathan's one and only intended purpose is to annihilate any single target \
 	that proves to be an existential threat to the SCCV Horizon and all of its valuable designs and crew. The weapon achieves this by pushing and weaponizing \
 	already understood warp drive technology to a scale only currently matched by phoron fusion bombs.<br> \
 	In layman's terms, an extreme amount of energy is at first used by several high-level warp generators, which instead of bending space around the ship, \

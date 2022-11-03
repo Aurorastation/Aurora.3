@@ -1,7 +1,7 @@
 /obj/machinery/ship_weapon/grauwolf
 	name = "grauwolf flak battery"
-	desc = "A Zavodskoi flak battery developed in 2461. While its barrels may be smaller than its significantly larger kin's, the Longbow's, don't let that fool you: \
-			this gun will shred through smaller ships."
+	desc = "A Zavodskoi flak battery developed in 2461 as part of the same <i>\"Chivalry\"</i> line of the Longbow. Its barrels may look smaller than its significantly larger kin's, \
+			but don't let that fool you: this gun will shred through smaller ships."
 	icon = 'icons/obj/machines/ship_guns/grauwolf.dmi'
 	heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/flak_fire.ogg'
 	icon_state = "weapon_base"

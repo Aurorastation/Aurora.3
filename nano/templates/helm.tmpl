@@ -68,8 +68,12 @@
 		</div>
 		<div class='item'>
 			<div class="itemLabel">
-				Evasion
+				Maneuvers
 			</div><br>
+			<div class="itemContent">
+				{{:helper.link('', 'arrowstop-1-w', {'turn' : 8}, data.cancombatturn ? null : 'disabled', null)}}
+				{{:helper.link('', 'arrowstop-1-e', {'turn' : 4}, data.cancombatturn ? null : 'disabled', null)}}
+			</div>
 			<div class="itemContent">
 				{{:helper.link('', 'arrowreturnthick-1-w', {'roll' : 8}, data.cancombatroll ? null : 'disabled', null)}}
 				{{:helper.link('', 'arrowreturnthick-1-e', {'roll' : 4}, data.cancombatroll ? null : 'disabled', null)}}
