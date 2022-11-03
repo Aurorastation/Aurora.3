@@ -3,7 +3,7 @@
 /datum/map_template/ruin/away_site/crashed_elyran_tanker
 	name = "Crashed Elyran Tanker"
 	description = "A small tanker, emitting a very faint IFF signal of civilian vessels registered in Elyra. It seems to be partially embedded into a small asteroid, and appears to be completely cold."
-	suffix = "generic/crashed_elyran_tanker/crashed_elyran_tanker.dmm"
+	suffix = "awaysite/crashed_elyran_tanker/crashed_elyran_tanker.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ)
 	spawn_weight = 1
 	spawn_cost = 1

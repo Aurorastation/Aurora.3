@@ -3,7 +3,7 @@
 	id = "magshield"
 	description = "It's an orbital shield station."
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
-	suffix = "magshield/magshield.dmm"
+	suffix = "awaysite/magshield/magshield.dmm"
 	spawn_weight = 1
 	spawn_cost = 1
 

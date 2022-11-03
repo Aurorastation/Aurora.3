@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/shady
 	name = "shady asteroid"
 	description = "An asteroid with a hangar carved out inside it. Scans detect an unregistered structure within, with multiple lifeforms present."
-	suffix = "generic/shady.dmm"
+	suffix = "awaysite/shady/shady.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	spawn_cost = 1

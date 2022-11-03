@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/wrecked_nt_ship
 	name = "wrecked NT ship"
 	description = "A wrecked ship once owned by NanoTrasen."
-	suffix = "generic/wrecked_nt_ship.dmm"
+	suffix = "awausote/wrecked_nt_ship/wrecked_nt_ship.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	spawn_cost = 2

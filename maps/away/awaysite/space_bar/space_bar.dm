@@ -1,7 +1,7 @@
 /datum/map_template/ruin/away_site/space_bar
 	name = "space bar"
 	description = "An abandoned space structure."
-	suffix = "generic/space_bar.dmm"
+	suffix = "awaysite/space_bar/space_bar.dmm"
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	spawn_weight = 1
 	spawn_cost = 2
