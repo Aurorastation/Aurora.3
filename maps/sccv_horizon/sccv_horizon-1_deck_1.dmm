@@ -5789,7 +5789,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "ezF" = (
@@ -8878,6 +8880,15 @@
 /obj/machinery/mineral/equipment_vendor,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
+"gLs" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/disposal)
 "gMp" = (
 /obj/effect/shuttle_landmark/lift/morgue_bottom,
 /turf/simulated/floor/plating,
@@ -11822,9 +11833,7 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "joz" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
+/obj/structure/cable/green,
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/maintenance/disposal)
@@ -13342,10 +13351,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/maintenance/disposal)
 "kxl" = (
@@ -15114,6 +15123,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/dark/full,
 /area/maintenance/disposal)
 "lRu" = (
@@ -15609,9 +15619,6 @@
 "mmh" = (
 /obj/structure/closet/walllocker/emerglocker/south,
 /obj/effect/floor_decal/corner/purple/full{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -48367,7 +48374,7 @@ rOV
 fzU
 oYG
 lRh
-ozx
+gLs
 ezt
 mmh
 aJB
@@ -48569,9 +48576,9 @@ prb
 lVH
 oxT
 rOV
-joz
-kvq
 pNf
+kvq
+joz
 aJB
 iXY
 mlw
