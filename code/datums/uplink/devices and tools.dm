@@ -99,8 +99,10 @@
 
 /datum/uplink_item/item/tools/ai_module
 	name = "Hacked AI Upload Module"
-	item_cost = 4
+	item_cost = 2
 	path = /obj/item/aiModule/syndicate
+	desc = "A hacked AI law module able to subvert a shipbound intelligence when appropriately configured. It must be installed through a special upload console \
+			-- a circuitboard for which can be found in the secure technical storage areas of most SCC facilities."
 
 /datum/uplink_item/item/tools/supply_beacon
 	name = "Hacked Supply Beacon (DANGER!)"
