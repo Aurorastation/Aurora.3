@@ -46,5 +46,6 @@ changes:
   - rscadd: "Certain guns, like the Grauwolf, can be used to destroy some overmap hazards."
   - rscadd: "When targeting multi-z maps like the Horizon, you are able to select a z-level to filter the entry points."
   - rscadd: "Ship ammunition can be very heavy. If it is, it can only be lifted by G2s/G1s/Vaurca Breeders/Bulwarks, by a human in a rig or by a mech clamp. Ripleys spawn in the Longbow, Francisca and Grauwolf's compartments."
+  - rscadd: "The helm console has four new buttons under the Maneuvers section. The two that look like turning arrows will perform an emergency combat dodge which moves the ship by one tile to the left or right, a fairly dangerous maneuver that throws everyone on the ship around, unless buckled. The second set that looks like arrows with a line at the end will instead turn the ship 45 degrees to the left or right, useful for turning to face enemy ships to shoot them. This is markedly less dangerous and only puts unbuckled people on the floor. It's also not as loud."
   - tweak: "The Mining Shuttle has officially been given the name of SCCV Spark."
   - bugfix: "You can no longer see overmap objects through darkness."

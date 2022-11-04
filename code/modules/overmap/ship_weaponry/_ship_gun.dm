@@ -69,9 +69,9 @@
 	var/ratio = (damage / max_damage) * 100
 	switch(ratio)
 		if(1 to 10)
-			. = "It looks to be in tip top shape and not damaged at all."
+			. = "It looks to be in tip top shape."
 		if(10 to 20)
-			. = "It has some kinks and bends, here and there."
+			. = "It has some kinks and bends here and there."
 		if(20 to 40)
 			. = "It has a few holes through which you can see some machinery."
 		if(40 to 60)
@@ -91,7 +91,7 @@
 /obj/machinery/ship_weapon/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/device/multitool))
 		to_chat(user, SPAN_NOTICE("You hook up the tester to \the [src]'s wires: its identification tag is <b>[weapon_id]></b>."))
-		var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id)
+		var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id) as text|null
 		if(length(new_id) && !use_check_and_message(user))
 			new_id = sanitizeSafe(new_id, 32)
 			for(var/obj/machinery/ammunition_loader/SW in SSmachinery.machinery)
@@ -109,7 +109,7 @@
 								SPAN_NOTICE("You start welding kinks and holes back to working shape. This'll take a long while..."))
 			if(do_after(user, 15 SECONDS))
 				add_damage(-max_damage)
-				user.visible_message(SPAN_NOTICE("[user] finally finishes patching up \the [src]'s exterior! Not a pretty job, but it'll do."),
+				user.visible_message(SPAN_NOTICE("[user] finally finishes patching up \the [src]'s exterior! It's not a pretty job, but it'll do."),
 									SPAN_NOTICE("You finally finish patching up \the [src]'s exterior! It's not a pretty job, but it'll do."))
 				WT.use(20)
 				return TRUE
