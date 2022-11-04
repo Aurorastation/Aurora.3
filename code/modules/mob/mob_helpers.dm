@@ -1290,3 +1290,15 @@ proc/is_blind(A)
 
 /mob/proc/get_talk_bubble()
 	return 'icons/mob/talk.dmi'
+
+/datum/proc/get_client()
+	return null
+
+/client/get_client()
+	return src
+
+/mob/get_client()
+	return client
+
+/mob/abstract/observer/virtual/get_client()
+	return host.get_client()

@@ -139,7 +139,7 @@
 	if (required_preferences && (client.prefs.toggles & required_preferences) != required_preferences)
 		return FALSE
 
-	if (required_asfx_toggles && (client.prefs.asfx_togs & required_asfx_toggles) != required_asfx_toggles)
+	if (required_asfx_toggles && (client.prefs.sfx_toggles & required_asfx_toggles) != required_asfx_toggles)
 		return FALSE
 
 	return TRUE

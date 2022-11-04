@@ -2,10 +2,14 @@
 // Areas
 //
 
+#define VOLUME_AMBIENCE 30
+#define VOLUME_AMBIENT_HUM 35
+#define VOLUME_MUSIC 30
+
 /area
 	var/global/global_uid = 0
 	var/uid
-	var/holomap_color	// Color of this area on the holomap. Must be a hex color (as string) or null.
+	var/holomap_color // Color of this area on the holomap. Must be a hex color (as string) or null.
 	var/fire = null
 	var/atmosalm = 0
 	var/poweralm = 1
@@ -18,6 +22,10 @@
 	layer = 10
 	luminosity = 0
 	mouse_opacity = 0
+
+	var/obj/machinery/power/apc/apc = null
+	var/turf/base_turf // The base turf type of the area, which can be used to override the z-level's base turf.
+
 	var/lightswitch = FALSE
 
 	var/eject = null
@@ -35,30 +43,31 @@
 	var/oneoff_light 	= 0
 	var/oneoff_environ 	= 0
 
+	var/has_gravity = TRUE
 	var/alwaysgravity = 0
 	var/nevergravity = 0
 
-	var/has_gravity = 1
-	var/obj/machinery/power/apc/apc = null
-//	var/list/lights				// list of all lights on this area
-	var/list/all_doors = list()		//Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
-	var/air_doors_activated = 0
+	var/list/all_doors = list() //Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
+	var/air_doors_activated = FALSE
+
 	var/list/ambience = list()
 	var/list/forced_ambience = null
+	var/list/music = list()
 	var/sound_env = STANDARD_STATION
-	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
-	var/no_light_control = 0		// if 1, lights in area cannot be toggled with light controller
-	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
-	var/emergency_lights = FALSE 
-	var/station_area = 0
-	var/centcomm_area = 0
+
+	var/no_light_control = FALSE // If TRUE, lights in area cannot be toggled with light controller.
+	var/allow_nightmode = FALSE // If TRUE, lights in area will be darkened by the night mode controller.
+	var/emergency_lights = FALSE
+
+	var/station_area = FALSE
+	var/centcomm_area = FALSE
 
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
 	// DMMS hook - Required for areas to work properly.
 	if (!areas_by_type[type])
 		areas_by_type[type] = src
-	// Atmos code needs this, so we need to make sure this is done by the time they init.
+	// Atmos code needs this, so we need to make sure this is done by the time they initialize.
 	uid = ++global_uid
 	. = ..()
 
@@ -91,7 +100,7 @@
 		power_environ = 0
 
 	if (!mapload)
-		power_change()		// all machines set to current power level
+		power_change()		// All machines set to current power level.
 
 	. = ..()
 
@@ -118,7 +127,7 @@
 		if (!isturf(C.loc))
 			continue
 
-		if (C.loc.loc == src) //what the fuck is this
+		if (C.loc.loc == src) // What the fuck is this?
 			. += C
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
@@ -277,43 +286,50 @@ var/list/mob/living/forced_ambiance_list = new
 	L.lastarea = newarea
 
 	// Start playing ambience.
-	if(L && L.client && (L.client.prefs.asfx_togs & ASFX_AMBIENCE) && !L.ear_deaf)
+	if(src.ambience.len && L && L.client && (L.client.prefs.sfx_toggles & ASFX_AMBIENCE) && !L.ear_deaf)
 		play_ambience(L)
 	else
 		stop_ambience(L)
 
 	// The dreaded ship ambience hum.
-	// Explanation for the "if" clause: If the mob exists, has a client, the client has the hum ASFX toggled on, the area the mob is in is a station area,
+	// Explanation for the "if" clause: If the area has ambience, the mob exists, has a client, the client has the hum ASFX toggled on, the area the mob is in is a station area,
 	// the mob isn't deaf, and the client doesn't already have the ambient hum playing, then start playing the ambient hum.
-	if(L && L.client && (L.client.prefs.asfx_togs & ASFX_HUM) && newarea.station_area && !L.ear_deaf)
+	if(L && L.client && (L.client.prefs.sfx_toggles & ASFX_HUM) && newarea.station_area && !L.ear_deaf)
 		if(!L.client.ambient_hum_playing)
 			L.client.ambient_hum_playing = TRUE
-			L << sound('sound/ambience/shipambience.ogg', repeat = 1, volume = 35, channel = 2)
+			L << sound('sound/ambience/shipambience.ogg', repeat = 1, volume = VOLUME_AMBIENT_HUM, channel = 3)
 	// Otherwise, stop playing the ambient hum.
 	else
-		L << sound(null, channel = 2)
+		L << sound(null, channel = 3)
 		L.client.ambient_hum_playing = FALSE
 
+	// Start playing music, if it exists.
+	if(src.music.len && L && L.client && (L.client.prefs.sfx_toggles & ASFX_MUSIC))
+		play_music(L)
+	// Stop playing music.
+	else
+		stop_music(L)
+
+// Play Ambience
 /area/proc/play_ambience(var/mob/living/L)
-	// If we previously were in an area with force played ambience, stop it.
-	if(L in forced_ambiance_list)
-		L << sound(null, channel = 1)
-		forced_ambiance_list -= L
+	if((world.time >= L.client.ambience_last_played_time + 30 SECONDS) && prob(20))
+		var/picked_ambience = pick(ambience)
+		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = 2)
+		L.client.ambience_last_played_time = world.time
 
-	if(forced_ambience)
-		if(forced_ambience.len)
-			forced_ambiance_list |= L
-			L << sound(pick(forced_ambience), repeat = 1, volume = 30, channel = 1)
-		else
-			L << sound(null, channel = 1)
-	else if(src.ambience.len)
-		if((world.time >= L.client.ambience_last_played_time + 30 SECONDS))
-			var/sound = pick(ambience)
-			L << sound(sound, volume = 30, channel = 1)
-			L.client.ambience_last_played_time = world.time
-
+// Stop Ambience
 /area/proc/stop_ambience(var/mob/living/L)
-	L << sound(null, channel = 1)
+	L << sound(null, channel = 2)
+
+// Play Music
+/area/proc/play_music(var/mob/living/L)
+	if(src.music.len)
+		var/picked_music = pick(music)
+		L << sound(picked_music, volume = VOLUME_MUSIC, channel = 4)
+
+// Stop Music
+/area/proc/stop_music(var/mob/living/L)
+	L << sound(null, channel = 4)
 
 /area/proc/gravitychange(var/gravitystate = 0)
 	has_gravity = gravitystate
@@ -322,8 +338,8 @@ var/list/mob/living/forced_ambiance_list = new
 		if(has_gravity())
 			thunk(M)
 		else
-			to_chat(M, SPAN_NOTICE("The sudden lack of gravity makes you feel weightless and float cluelessly!"))
-		M.update_floating( M.Check_Dense_Object() )
+			to_chat(M, SPAN_NOTICE("The sudden lack of gravity makes you feel weightless and float cluelessly."))
+		M.update_floating(M.Check_Dense_Object())
 
 /area/proc/thunk(mob)
 	if(istype(get_turf(mob), /turf/space)) // Can't fall onto nothing.
@@ -446,3 +462,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 	for(var/obj/machinery/M in T)
 		M.shuttle_move(T)
+
+#undef VOLUME_AMBIENCE
+#undef VOLUME_AMBIENT_HUM
+#undef VOLUME_MUSIC

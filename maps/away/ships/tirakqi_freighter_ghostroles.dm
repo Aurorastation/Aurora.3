@@ -86,6 +86,23 @@
 /datum/outfit/admin/tirakqi_crew/get_id_access()
 	return list(access_skrell, access_external_airlocks)
 
+/datum/outfit/admin/tirakqi_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	
+	H.h_style = pick("Headtails", "Headtails", "Long Headtails", "Short Headtails", "Very Short Headtails", "Short Headtails, tucked", "Short Headtails, slicked", "Headtails, behind")
+	H.f_style = pick("Shaved", "Shaved", "Shaved", "Shaved", "Tuux Chin Patch", "Tuux Chops", "Tuux Tri-Point", "Tuux Monotail")
+
+	H.r_skin = pick(50, 80, 100, 120, 140, 170)
+	H.g_skin = pick(50, 80, 100, 120, 140, 170)
+	H.b_skin = pick(50, 80, 100, 120, 140, 170)
+
+	H.r_hair = H.r_skin - pick(0, 10, 20, 30)
+	H.g_hair = H.g_skin - pick(0, 10, 20, 30)
+	H.b_hair = H.b_skin - pick(0, 10, 20, 30)
+
+	H.r_facial = H.r_hair
+	H.g_facial = H.g_hair
+	H.b_facial = H.b_hair
 
 /datum/ghostspawner/human/tirakqi_captain
 	short_name = "tirakqi_captain"
@@ -141,7 +158,7 @@
 	uses_species_whitelist = TRUE
 
 /datum/outfit/admin/tirakqi_crew/medic
-	name = "Ti'Rakqi Medic "
+	name = "Ti'Rakqi Medic"
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
@@ -150,8 +167,8 @@
 
 /datum/ghostspawner/human/tirakqi_engineer
 	short_name = "tirakqi_engineer"
-	name = "Ti'Rakqi Medic"
-	desc = "You're a trained doctor serving with the Ti'Rakqi! Try to keep the crew alive or you may find yourself stranded in space."
+	name = "Ti'Rakqi Engineer"
+	desc = "You're a trained engineer serving with the Ti'Rakqi! Try to keep the ship functioning or you may find yourself stranded in space."
 	tags = list("External")
 
 	spawnpoints = list("tirakqi_engineer")
@@ -168,7 +185,7 @@
 	uses_species_whitelist = TRUE
 
 /datum/outfit/admin/tirakqi_crew/engineer
-	name = "Ti'Rakqi Medic "
+	name = "Ti'Rakqi Engineer"
 
 	uniform = /obj/item/clothing/under/serviceoveralls
 	suit = /obj/item/clothing/accessory/storage/overalls

@@ -16,10 +16,6 @@
 
 /obj/effect/landmark/proc/do_landmark_effect()
 	switch(name)			//some of these are probably obsolete
-		if("monkey")
-			monkeystart += loc
-			delete_me = 1
-			return
 		if("start")
 			newplayer_start = get_turf(loc)
 			delete_me = 1
@@ -55,12 +51,6 @@
 			latejoin_merchant += loc
 			delete_me = 1
 			return
-		if("prisonwarp")
-			prisonwarp += loc
-			delete_me = 1
-			return
-		if("Holding Facility")
-			holdingfacility += loc
 		if("tdome1")
 			tdome1 += loc
 		if("tdome2")
@@ -69,14 +59,6 @@
 			tdomeadmin += loc
 		if("tdomeobserve")
 			tdomeobserve += loc
-		if("prisonsecuritywarp")
-			prisonsecuritywarp += loc
-			delete_me = 1
-			return
-		if("xeno_spawn")
-			xeno_spawn += loc
-			delete_me = 1
-			return
 		if("endgame_exit")
 			endgame_safespawns += loc
 			delete_me = 1

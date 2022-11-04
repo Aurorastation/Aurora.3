@@ -288,7 +288,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/derelict)
 "aF" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -317,7 +317,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/derelict)
 "aG" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -328,7 +328,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/derelict)
 "aH" = (
 /obj/structure/cable{
@@ -428,7 +428,7 @@
 /area/derelict)
 "aU" = (
 /obj/structure/closet/crate/solar,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/derelict)
 "aV" = (
 /obj/machinery/atmospherics/binary/pump/on{
@@ -440,7 +440,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/derelict)
 "aW" = (
 /obj/machinery/power/terminal,
@@ -451,7 +451,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/derelict)
 "aX" = (
 /obj/structure/cable{
@@ -567,7 +567,7 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/derelict)
 "br" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
@@ -581,7 +581,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/derelict)
 "bs" = (
 /obj/machinery/power/smes/buildable{
@@ -594,7 +594,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/derelict)
 "bt" = (
 /obj/machinery/light{

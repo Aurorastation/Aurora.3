@@ -325,6 +325,7 @@
 	display_name = "himean cap"
 	path = /obj/item/clothing/head/softcap/himeo
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/decl/origin_item/origin/himeo, /decl/origin_item/origin/ipc_himeo, /decl/origin_item/origin/free_council)
 
 /datum/gear/head/vysoka
 	display_name = "vysokan fur cap"
@@ -335,6 +336,11 @@
 	display_name = "bucket hat"
 	path = /obj/item/clothing/head/buckethat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/bridge_crew_cap_alt
+	display_name = "san colettish bridge crew cap"
+	path = /obj/item/clothing/head/caphat/bridge_crew/alt
+	allowed_roles = list("Bridge Crew", "Captain", "Executive Officer")
 
 /datum/gear/head/gadpathur
 	display_name = "gadpathurian headgear selection"
