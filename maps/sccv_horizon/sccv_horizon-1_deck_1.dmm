@@ -3714,12 +3714,11 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/sign/kiddieplaque/janitor{
-	name = "wooden plaque";
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
+	},
+/obj/item/modular_computer/telescreen/preset/trashcompactor{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
@@ -5787,6 +5786,10 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "ezF" = (
@@ -7698,6 +7701,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "fUm" = (
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -7826,7 +7830,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "fZr" = (
-/obj/random/junk,
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -10232,7 +10236,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/service{
 	name = "Disposals and Recycling";
 	req_one_access = list(26,67)
 	},
@@ -11817,6 +11821,13 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
+"joz" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/maintenance/disposal)
 "joW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -13327,6 +13338,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/eva)
+"kvq" = (
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/maintenance/disposal)
 "kxl" = (
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/westright,
@@ -15494,15 +15515,16 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "mik" = (
-/obj/item/modular_computer/telescreen/preset/trashcompactor{
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
 /obj/machinery/camera/network/service{
 	c_tag = "Custodial - Disposals Fore";
 	dir = 4
+	},
+/obj/structure/sign/kiddieplaque/janitor{
+	name = "wooden plaque";
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
@@ -15589,8 +15611,8 @@
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
@@ -18632,7 +18654,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "oWg" = (
-/obj/random/junk,
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -19718,10 +19740,10 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_a)
 "pLc" = (
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/maintenance/disposal)
 "pLU" = (
@@ -19777,12 +19799,16 @@
 /turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmos)
 "pNf" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	id_tag = "crusher";
-	name = "Compactor Access";
-	req_access = list(26)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/hatch{
+	name = "Compactor Access";
+	req_one_access = list(26,67);
+	id_tag = "compactor_access";
+	secured_wires = 1;
+	locked = 1;
+	icon_state = "door_locked"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/maintenance/disposal)
 "pNv" = (
@@ -22513,6 +22539,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "rSW" = (
@@ -23672,7 +23701,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "sMx" = (
-/obj/random/junk,
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -24365,7 +24394,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/operations/lower/machinist)
 "trc" = (
-/obj/random/junk,
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -48540,8 +48569,8 @@ prb
 lVH
 oxT
 rOV
-cYs
-cYs
+joz
+kvq
 pNf
 aJB
 iXY
