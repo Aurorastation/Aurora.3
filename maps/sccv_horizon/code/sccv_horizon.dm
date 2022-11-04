@@ -98,7 +98,7 @@
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod2,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod4,
-		/datum/shuttle/autodock/ferry/supply/aurora,
+		/datum/shuttle/autodock/ferry/supply/horizon,
 		/datum/shuttle/autodock/ferry/specops/ert_aurora,
 		/datum/shuttle/autodock/multi/antag/skipjack_ship,
 		/datum/shuttle/autodock/multi/antag/burglar_ship,

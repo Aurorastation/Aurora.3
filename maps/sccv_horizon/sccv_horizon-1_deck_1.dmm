@@ -42,10 +42,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/medical_compartment)
 "acp" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
+/obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "acw" = (
@@ -2784,10 +2784,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	name = "Operations Bay Warehouse Maintenance";
-	req_access = list(26,31,48,67)
+	req_one_access = list(26,31,48,67)
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/operations/storage)
 "ceG" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -2844,6 +2843,10 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -28
+	},
+/obj/item/device/binoculars/high_power{
+	pixel_x = -2;
+	pixel_y = -1
 	},
 /turf/simulated/floor/wood,
 /area/shuttle/intrepid/crew_compartment)
@@ -4095,7 +4098,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
 /area/operations/storage)
 "dim" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -9918,7 +9922,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cargo_shuttle_airlock";
+	id_tag = "cargo_shuttle_dock_airlock";
 	locked = 1;
 	name = "Cargo Shuttle";
 	req_access = list(13,31)
@@ -10732,7 +10736,8 @@
 	id = "warehouse3";
 	name = "Warehouse Shutter"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
 /area/operations/storage)
 "iln" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -10999,6 +11004,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
+"iAX" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/large_stock_marker,
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "iBe" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -11015,6 +11026,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"iBu" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "iBL" = (
 /obj/item/material/shard{
 	icon_state = "medium"
@@ -13403,6 +13418,13 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
+"kzD" = (
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "kzH" = (
 /obj/machinery/door/window/eastright,
 /obj/structure/window/reinforced,
@@ -17790,12 +17812,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/maintenance{
-	name = "Cargo Bay Maintenance";
-	req_access = list(26,31,48,67)
-	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(26,31,48,67)
+	},
+/turf/simulated/floor/tiled/full,
 /area/operations/loading)
 "nYA" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -22562,7 +22583,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/operations/storage)
 "rWM" = (
 /obj/structure/cable/green{
@@ -23080,7 +23101,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cargo_shuttle_airlock";
+	id_tag = "cargo_shuttle_dock_airlock";
 	locked = 1;
 	name = "Cargo Shuttle";
 	req_access = list(13,31)
@@ -24765,7 +24786,8 @@
 	id = "warehouse2";
 	name = "Warehouse Shutter"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
 /area/operations/storage)
 "tJg" = (
 /obj/effect/decal/cleanable/dirt,
@@ -25420,7 +25442,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "ujV" = (
-/obj/effect/shuttle_landmark/supply/dock,
+/obj/effect/shuttle_landmark/supply/horizon/dock,
 /turf/simulated/floor/plating,
 /area/hangar/operations)
 "ukl" = (
@@ -25755,7 +25777,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/operations/storage)
 "uuZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -26538,10 +26560,9 @@
 "vdZ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	name = "Operations Bay Warehouse Maintenance";
-	req_access = list(26,31,48,67)
+	req_one_access = list(26,31,48,67)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/operations/storage)
 "ver" = (
 /obj/structure/cable/green{
@@ -27175,7 +27196,8 @@
 	id = "warehouse4";
 	name = "Warehouse Shutter"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
 /area/operations/storage)
 "vGQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
@@ -27773,11 +27795,11 @@
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	id_tag = "cargo_shuttle";
+	id_tag = "cargo_shuttle_dock";
 	name = "cargo shuttle docking controller";
 	pixel_y = -25;
 	req_one_access = list(13,31);
-	tag_door = "cargo_shuttle_airlock";
+	tag_door = "cargo_shuttle_dock_airlock";
 	pixel_x = -7
 	},
 /turf/simulated/floor/tiled,
@@ -40667,13 +40689,13 @@ lVt
 vtn
 fif
 qdE
-nCV
+iBu
 iJJ
 ccU
 kAn
 nCV
 qdE
-nCV
+iBu
 nCV
 tFO
 qdE
@@ -41879,7 +41901,7 @@ qdE
 odO
 tFO
 nCV
-iNW
+iAX
 qdE
 ubg
 kLu
@@ -42483,7 +42505,7 @@ wVV
 rot
 qdE
 iNW
-nCV
+kzD
 nCV
 iNW
 qdE
@@ -57049,8 +57071,8 @@ moI
 moI
 nYD
 bJa
-bJa
 dTk
+bJa
 bJa
 bJa
 bJa

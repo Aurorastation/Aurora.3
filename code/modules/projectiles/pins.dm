@@ -105,6 +105,18 @@ Pins Below.
 	else
 		return 0
 
+// Psionics pin, checks for psionics (psi aug not included)
+/obj/item/device/firing_pin/psionic
+	name = "psionics firing pin"
+	desc = "This is a psionics-locked firing pin which only authorizes users who are capable of psionics."
+	fail_message = "<span class='warning'>PSIONICS CHECK FAILED.</span>"
+
+/obj/item/device/firing_pin/psionic/pin_auth(mob/living/user)
+	if(user.can_commune())
+		return 1
+	else
+		return 0
+
 // Implant pin, checks for implant
 /obj/item/device/firing_pin/implant
 	name = "implant-keyed firing pin"

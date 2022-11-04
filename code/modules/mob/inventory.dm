@@ -401,7 +401,7 @@ var/list/slot_equipment_priority = list( \
 			I.forceMove(T)
 			return TRUE
 
-	if(!unEquip(item))
+	if(!unEquip(item) && !ismob(item)) //ismob override is here for grab throwing mobs
 		return TRUE
 
 	if(is_pacified())

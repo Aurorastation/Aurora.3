@@ -19,8 +19,7 @@
 			C.flash_eyes()
 			if(C.stuttering < 1 && !(HULK in C.mutations))
 				C.stuttering = 1
-			if(is_rune)
-				C.Weaken(3)
+			C.Weaken(3)
 			C.confused = 10
 			C.Stun(3)
 			C.silent += 15

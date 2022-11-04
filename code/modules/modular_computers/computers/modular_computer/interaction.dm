@@ -146,9 +146,13 @@
 	else
 		to_chat(user, SPAN_WARNING("\The [src] does not have a card or item stored in the card slot."))
 
-/obj/item/modular_computer/attack(mob/living/M, mob/living/user)
+/obj/item/modular_computer/attack(mob/living/M, mob/living/user, var/sound_scan)
+	sound_scan = FALSE
+	if(last_scan <= world.time - 20) //Spam limiter.
+		last_scan = world.time
+		sound_scan = TRUE
 	if(scan_mode == SCANNER_MEDICAL)
-		health_scan_mob(M, user, TRUE)
+		health_scan_mob(M, user, TRUE, sound_scan = sound_scan)
 
 /obj/item/modular_computer/afterattack(atom/A, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -330,3 +334,5 @@
 			return
 		if(P.focused_conv)
 			P.focused_conv.cl_send(P, text, M)
+	if(listening)
+		registered_message = text

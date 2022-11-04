@@ -177,35 +177,82 @@ var/list/gear_datums = list()
 	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
+
+	var/available_items_html = "" // to be added to the top/beginning of the list
+	var/unavailable_items_html = "" // to be added to the end/bottom of the list
+
 	var/list/player_valid_gear_choices = valid_gear_choices()
 	for(var/gear_name in LC.gear)
 		if(!(gear_name in player_valid_gear_choices))
 			continue
 		var/datum/gear/G = LC.gear[gear_name]
+		
+		var/temp_html = ""
+		var/datum/job/job = pref.return_chosen_high_job()
+		var/available = (G.check_faction(pref.faction) \
+			&& (job && G.check_role(job.title)) \
+			&& G.check_culture(text2path(pref.culture)) \
+			&& G.check_origin(text2path(pref.origin)))
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
+		
+		if(!available)
+			style = "style='color: #B1B1B1;'"
 		if(ticked)
 			style = "style='color: #FF8000;'"
-		. += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
-		. += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
-		. += "<td><font size=2><i>[G.description]</i><br>"
+		temp_html += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
+		temp_html += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
+		temp_html += "<td><font size=2><i>[G.description]</i><br>"
+		
 		if(G.allowed_roles)
-			. += "</font><font size = 1>("
+			temp_html += "</font><font size = 1>(Role: "
 			var/role_count = 0
 			for(var/role in G.allowed_roles)
-				. += "[role]"
+				temp_html += "[role]"
 				role_count++
 				if(role_count == G.allowed_roles.len)
-					. += ")"
+					temp_html += ") "
 					break
 				else
-					. += ", "
-		. += "</font></td></tr>"
+					temp_html += ", "
+		if(G.culture_restriction)
+			temp_html += "</font><font size = 1>(Culture: "
+			var/culture_count = 0
+			for(var/culture in G.culture_restriction)
+				var/decl/origin_item/C = decls_repository.get_decl(culture)
+				temp_html += "[C.name]"
+				culture_count++
+				if(culture_count == G.culture_restriction.len)
+					temp_html += ") "
+					break
+				else
+					temp_html += ", "
+		if(G.origin_restriction)
+			temp_html += "</font><font size = 1>(Origin: "
+			var/origin_count = 0
+			for(var/origin in G.origin_restriction)
+				var/decl/origin_item/O = decls_repository.get_decl(origin)
+				temp_html += "[O.name]"
+				origin_count++
+				if(origin_count == G.origin_restriction.len)
+					temp_html += ") "
+					break
+				else
+					temp_html += ", "
+		temp_html += "</font></td></tr>"
+		
 		if(ticked)
-			. += "<tr><td colspan=3>"
+			temp_html += "<tr><td colspan=3>"
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
-				. += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
-			. += "</td></tr>"
+				temp_html += " <a href='?src=\ref[src];gear=[G.display_name];tweak=\ref[tweak]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
+			temp_html += "</td></tr>"
+		if(!available)
+			available_items_html += temp_html
+		else
+			unavailable_items_html += temp_html
+	
+	. += unavailable_items_html
+	. += available_items_html
 	. += "</table>"
 	. = jointext(.,null)
 
@@ -349,5 +396,29 @@ var/list/gear_datums = list()
 
 /datum/gear/proc/check_species_whitelist(mob/living/carbon/human/H)
 	if(whitelisted && (!(H.species.name in whitelisted)))
+		return FALSE
+	return TRUE
+
+// arg should be a faction name string
+/datum/gear/proc/check_faction(var/faction_)
+	if((faction && faction_ && faction_ != "None" && faction_ != "Stellar Corporate Conglomerate") && (faction != faction_))
+		return FALSE
+	return TRUE
+
+// arg should be a role name string
+/datum/gear/proc/check_role(var/role)
+	if(role && allowed_roles && !(role in allowed_roles))
+		return FALSE
+	return TRUE
+
+// arg should be a culture path
+/datum/gear/proc/check_culture(var/culture)
+	if(culture && culture_restriction && !(culture in culture_restriction))
+		return FALSE
+	return TRUE
+
+// arg should be a origin path
+/datum/gear/proc/check_origin(var/origin)
+	if(origin && origin_restriction && !(origin in origin_restriction))
 		return FALSE
 	return TRUE

@@ -126,8 +126,8 @@
 		/obj/item/surgery/retractor = 1,
 		/obj/item/surgery/scalpel = 1,
 		/obj/item/surgery/surgicaldrill = 1,
-		/obj/item/surgery/bonegel = 1,
-		/obj/item/surgery/FixOVein = 1,
+		/obj/item/surgery/bone_gel = 1,
+		/obj/item/surgery/fix_o_vein = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/reagent_containers/inhaler/soporific = 2
 	)
