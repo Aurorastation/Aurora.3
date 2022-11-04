@@ -74,7 +74,7 @@
 	dat += "<br><hr><br>"
 
 	if(screen == 1)
-		dat += "Select an event to trigger:<ul>"z
+		dat += "Select an event to trigger:<ul>"
 		dat += "<li><A href='?src=\ref[src];triggerevent=Red alert'>Red alert</A></li>"
 		if(!config.ert_admin_call_only)
 			dat += "<li><A href='?src=\ref[src];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
