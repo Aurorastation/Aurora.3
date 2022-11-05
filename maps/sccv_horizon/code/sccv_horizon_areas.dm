@@ -35,13 +35,13 @@
 	name = "Engineering Substation - Lower Deck"
 
 /area/hallway/engineering
-	name = "Engineering hallway"
+	name = "Engineering - Main Hallway"
 	icon_state = "engineering"
 	ambience = AMBIENCE_ENGINEERING
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/hallway/engineering/tesla
-	name = "Tesla hallway"
+	name = "Engineering - Tesla Hallway"
 
 //Medical
 
