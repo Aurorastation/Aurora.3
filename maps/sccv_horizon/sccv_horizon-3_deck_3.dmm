@@ -564,12 +564,10 @@
 /area/maintenance/bridge)
 "awM" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet{
-	name = "Evidence Closet"
-	},
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/structure/closet/secure_closet/evidence,
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
 "axw" = (
@@ -11433,7 +11431,6 @@
 	req_access = null;
 	req_one_access = list(2,4,68)
 	},
-/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
@@ -14948,9 +14945,7 @@
 /area/template_noop)
 "muO" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet{
-	name = "Evidence Closet"
-	},
+/obj/structure/closet/secure_closet/evidence,
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
 "mvx" = (
@@ -18730,9 +18725,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet{
-	name = "Evidence Closet"
-	},
+/obj/structure/closet/secure_closet/evidence,
 /turf/simulated/floor/tiled,
 /area/security/investigations_storage)
 "pMj" = (
@@ -19065,6 +19058,13 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 36;
 	pixel_y = -10
+	},
+/obj/machinery/camera/motion{
+	alarm_on = 1;
+	c_tag = "Third Deck - Crew Armoury Port";
+	dir = 8;
+	name = "security";
+	network = list("Command, Security")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_armory)
@@ -21370,13 +21370,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/cmo)
 "rPg" = (
-/obj/machinery/camera/motion{
-	alarm_on = 1;
-	c_tag = "Third Deck - Crew Armoury Port";
-	dir = 1;
-	name = "security";
-	network = list("Command, Security")
-	},
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},

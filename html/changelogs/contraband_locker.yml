@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a contraband locker and evidence storage locker to the code."
+  - maptweak: "Tweaks the armoury layout. Maps in the contraband locker and the evidence storage lockers."
