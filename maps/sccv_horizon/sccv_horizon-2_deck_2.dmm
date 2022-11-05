@@ -14717,10 +14717,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hor)
 "hzY" = (
-/obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/machinery/disposal/small/east,
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "hAh" = (
