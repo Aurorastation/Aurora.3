@@ -219,6 +219,7 @@
 	dir = 4
 	},
 /obj/structure/closet/wardrobe/atmospherics_yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aeC" = (
@@ -4366,7 +4367,12 @@
 /area/server)
 "caB" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/heavy,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "ccl" = (
@@ -8444,11 +8450,11 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_two/fore)
 "eui" = (
-/obj/structure/closet/walllocker/medical{
-	pixel_y = 32
+/obj/structure/closet/secure_closet/engineering_personal,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
-/obj/item/storage/firstaid/regular,
-/obj/effect/floor_decal/industrial/outline/medical,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "euT" = (
@@ -8976,10 +8982,12 @@
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "eIU" = (
-/obj/structure/table/standard,
-/obj/item/device/suit_cooling_unit,
-/obj/item/device/suit_cooling_unit,
 /obj/machinery/firealarm/south,
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 10
+	},
+/obj/structure/closet/secure_closet/engineering_personal,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "eJl" = (
@@ -9588,7 +9596,8 @@
 /area/turret_protected/ai_upload_foyer)
 "fas" = (
 /obj/machinery/atmospherics/binary/pump{
-	dir = 8
+	dir = 8;
+	target_pressure = 15000
 	},
 /obj/effect/landmark/engine_setup/pump_max,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -15559,6 +15568,11 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"hVu" = (
+/obj/machinery/suit_cycler/engineering,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/engineering/storage_eva)
 "hWo" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
@@ -18347,6 +18361,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
+"jua" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/item/storage/firstaid/regular,
+/turf/simulated/floor/tiled,
+/area/hallway/engineering)
 "juh" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -18551,7 +18579,8 @@
 /area/rnd/telesci)
 "jBj" = (
 /obj/machinery/atmospherics/binary/pump{
-	dir = 4
+	dir = 4;
+	target_pressure = 15000
 	},
 /obj/effect/landmark/engine_setup/pump_max,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -18562,11 +18591,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 9
-	},
 /obj/item/storage/bag/circuits/basic,
-/obj/item/device/pipe_painter,
+/obj/item/device/flashlight/heavy,
+/obj/effect/floor_decal/corner_wide/yellow/full,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "jBw" = (
@@ -22783,6 +22810,10 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
 	},
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "lSV" = (
@@ -24785,6 +24816,7 @@
 	name = "Engineering Locker Room Maintenance";
 	req_access = list(11)
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/locker_room)
 "mUz" = (
@@ -28536,12 +28568,8 @@
 /turf/simulated/floor/tiled,
 /area/security/main)
 "oTE" = (
-/obj/structure/closet/radiation,
 /obj/machinery/light{
 	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 6
 	},
 /obj/machinery/power/apc{
 	dir = 4;
@@ -28549,6 +28577,10 @@
 	},
 /obj/structure/cable/green,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/engineering_personal,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "oTK" = (
@@ -29366,7 +29398,8 @@
 /area/rnd/xenobiology)
 "pmK" = (
 /obj/machinery/atmospherics/binary/pump{
-	dir = 4
+	dir = 4;
+	target_pressure = 15000
 	},
 /obj/effect/landmark/engine_setup/pump_max,
 /obj/machinery/status_display{
@@ -29406,6 +29439,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
 "pnY" = (
@@ -30925,11 +30959,18 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "qek" = (
-/obj/machinery/suit_cycler/engineering,
-/obj/effect/floor_decal/corner/yellow/full{
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/window/northright{
+	name = "Engineering Voidsuit Access";
+	req_access = list(11)
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/head/helmet/space/void/engineering,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "qen" = (
@@ -31159,6 +31200,7 @@
 	dir = 9
 	},
 /obj/structure/closet/wardrobe/engineering_yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "qlm" = (
@@ -31450,7 +31492,8 @@
 "quD" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	name = "Cooling Array to Generators"
+	name = "Cooling Array to Generators";
+	target_pressure = 15000
 	},
 /obj/effect/landmark/engine_setup/pump_max,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -32060,7 +32103,8 @@
 /area/engineering/storage/tech)
 "qFY" = (
 /obj/machinery/atmospherics/binary/pump{
-	dir = 8
+	dir = 8;
+	target_pressure = 15000
 	},
 /obj/effect/landmark/engine_setup/pump_max,
 /obj/machinery/camera/network/reactor{
@@ -40468,6 +40512,13 @@
 "uYK" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_airlock)
+"uYS" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	target_pressure = 15000
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_room)
 "uYW" = (
 /obj/machinery/door/window/westleft,
 /obj/structure/lattice/catwalk,
@@ -43581,7 +43632,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "wzD" = (
-/obj/structure/flora/pottedplant/random,
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Hallway 3";
 	dir = 1
@@ -43589,6 +43639,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/structure/closet/firecloset,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/wood,
 /area/hallway/engineering)
 "wzN" = (
@@ -61760,7 +61812,7 @@ vBp
 bib
 xIJ
 jUH
-sSY
+uYS
 jyd
 aSO
 uYK
@@ -62374,7 +62426,7 @@ tYj
 gWf
 tYj
 tYj
-eZI
+jua
 dYl
 arb
 laB
@@ -63188,7 +63240,7 @@ vAh
 jvV
 gCj
 xeT
-mfE
+hVu
 mfE
 wTU
 mfE
