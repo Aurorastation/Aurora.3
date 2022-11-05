@@ -120,15 +120,24 @@
 	warhead_state = "high_ex"
 	caliber = SHIP_CALIBER_406MM
 	warhead_type = SHIP_AMMO_IMPACT_HE
+	slowdown = 2
 	var/drop_counter = 0
 	var/cookoff_devastation = 2
 	var/cookoff_heavy = 2
 	var/cookoff_light = 4
 
+/obj/item/warhead/longbow/too_heavy_to_throw()
+	return TRUE
+
 /obj/item/warhead/longbow/throw_impact(atom/hit_atom)
 	. = ..()
 	if(prob(10))
 		cookoff(FALSE)
+
+/obj/item/warhead/longbow/bullet_act(obj/item/projectile/P, def_zone)
+	. = ..()
+	if(P.damage > 5)
+		cookoff(TRUE)
 
 /obj/item/warhead/longbow/attackby(obj/item/I, mob/user)
 	. = ..()
