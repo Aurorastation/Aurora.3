@@ -65,6 +65,9 @@
 		lightlevel = rand(1,7)/10
 	..()
 
+/obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_planet_image()
+	return skybox_image = image('icons/skybox/lore_planets.dmi', "adhomai")
+
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_atmosphere()
 	..()
 	if(atmosphere)
