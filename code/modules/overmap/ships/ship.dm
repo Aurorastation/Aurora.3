@@ -258,7 +258,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship/proc/can_combat_roll()
 	if(!can_burn())
 		return FALSE
-	var/cooldown = min(vessel_mass / 100, 100) SECONDS //max 100s for horizon, 30s for smaller ships
+	var/cooldown = min(vessel_mass / 100, 100) SECONDS //max 100s for horizon, 50s for Intrepid
 	if(world.time >= (last_combat_roll + cooldown))
 		return TRUE
 	return FALSE
@@ -266,7 +266,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship/proc/can_combat_turn()
 	if(!can_burn())
 		return FALSE
-	var/cooldown = min(vessel_mass / 200, 20) SECONDS //max 20s for horizon, 15s for smaller ships
+	var/cooldown = min(vessel_mass / 200, 20) SECONDS //max 20s for horizon
 	if(world.time >= (last_combat_turn + cooldown))
 		return TRUE
 	return FALSE
