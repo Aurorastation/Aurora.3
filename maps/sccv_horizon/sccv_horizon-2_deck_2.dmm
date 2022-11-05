@@ -16596,11 +16596,8 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "iiy" = (
-/obj/machinery/porta_turret{
-	name = "Amanda"
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/reinforced,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/armory)
 "ijb" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -43720,17 +43717,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
 "vPH" = (
-/obj/machinery/porta_turret{
-	name = "Bob"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/tiled/dark/full,
 /area/security/armory)
 "vQd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -48173,11 +48166,6 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
-	},
-/obj/machinery/turretid/stun{
-	pixel_y = 26;
-	pixel_x = -30;
-	name = "\improper Armoury Turrets Control Console"
 	},
 /turf/simulated/floor/tiled,
 /area/security/armory)
