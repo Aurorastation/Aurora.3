@@ -3,4 +3,4 @@ author: Alberyk
 delete-after: True
 
 changes:
-  - rscadd: "Fixed the abyss icon."
+  - bugfix: "Fixed the abyss icon."
