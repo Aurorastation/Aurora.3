@@ -10595,7 +10595,7 @@
 	dir = 5
 	},
 /obj/machinery/camera/network/security{
-	c_tag = "Security - Armoury Foyer
+	c_tag = "Security - Armoury Foyer"
 	},
 /turf/simulated/floor/tiled,
 /area/security/armory)
