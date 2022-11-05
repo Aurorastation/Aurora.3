@@ -61,7 +61,7 @@
 /obj/effect/shuttle_landmark/elyran_strike_craft/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_elyran_strike_craft"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/elyran_shuttle
@@ -103,4 +103,4 @@
 /obj/effect/shuttle_landmark/elyran_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_elyran_shuttle"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north

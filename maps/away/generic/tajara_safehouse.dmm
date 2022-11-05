@@ -78,7 +78,7 @@
 "bS" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "bV" = (
 /obj/machinery/computer/shuttle_control/explore/tajara_safehouse_shuttle{
@@ -565,11 +565,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "rl" = (
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "rr" = (
 /obj/effect/step_trigger/teleporter,
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "rA" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1116,7 +1116,7 @@
 /area/tajara_safehouse)
 "Ms" = (
 /obj/effect/shuttle_landmark/tajara_safehouse_shuttle/transit,
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "MY" = (
 /obj/effect/floor_decal/corner/grey/diagonal,

@@ -61,7 +61,7 @@ datum/map_template/ruin/away_site/tajaran_smuggler
 /obj/effect/shuttle_landmark/tajaran_smuggler/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tajaran_smuggler"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tajaran_smuggler_shuttle
@@ -103,4 +103,4 @@ datum/map_template/ruin/away_site/tajaran_smuggler
 /obj/effect/shuttle_landmark/tajaran_smuggler_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tajaran_smuggler_shuttle"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north

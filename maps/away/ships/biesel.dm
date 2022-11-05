@@ -61,7 +61,7 @@
 /obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tcfl_peacekeeper_ship"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tcfl_shuttle
@@ -103,4 +103,4 @@
 /obj/effect/shuttle_landmark/tcfl_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tcfl_shuttle"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
