@@ -184,16 +184,6 @@
 	item_cost = 2
 	path = /obj/item/gun/energy/pistol
 
-/datum/uplink_item/item/visible_weapons/pulse_pistol
-	name = "Pulse Pistol"
-	item_cost = 12
-	path = /obj/item/gun/energy/pulse/pistol
-
-/datum/uplink_item/item/visible_weapons/pulse_carbine
-	name = "Pulse Carbine"
-	item_cost = 16
-	path = /obj/item/gun/energy/pulse
-
 /datum/uplink_item/item/visible_weapons/gyrojet_pistol
 	name = "Gyrojet Pistol"
 	item_cost = 20
@@ -203,11 +193,6 @@
 	name = "Bullpup Assault Carbine"
 	item_cost = 12
 	path = /obj/item/gun/projectile/automatic/rifle/z8
-
-/datum/uplink_item/item/visible_weapons/bullpup_scout_carbine
-	name = "Bullpup Scout Carbine"
-	item_cost = 20
-	path = /obj/item/gun/projectile/automatic/rifle/w556
 
 /datum/uplink_item/item/visible_weapons/assault_shotgun
 	name = "Assault Shotgun"
@@ -219,20 +204,10 @@
 	item_cost = 40
 	path = /obj/item/gun/energy/vaurca/gatlinglaser
 
-/datum/uplink_item/item/visible_weapons/laser_sniper_rifle
-	name = "Laser Sniper Rifle"
-	item_cost = 20
-	path = /obj/item/gun/energy/sniperrifle
-
 /datum/uplink_item/item/visible_weapons/laser_shotgun
 	name = "Laser Shotgun"
 	item_cost = 10
 	path = /obj/item/gun/energy/laser/shotgun
-
-/datum/uplink_item/item/visible_weapons/sniper_rifle
-	name = "Sniper Rifle"
-	item_cost = 16
-	path = /obj/item/gun/projectile/dragunov
 
 /datum/uplink_item/item/visible_weapons/xray_laser
 	name = "X-Ray Laser Rifle"
@@ -266,7 +241,7 @@
 
 /datum/uplink_item/item/visible_weapons/derringer
 	name = "Derringer"
-	item_cost = 2
+	item_cost = 1
 	path = /obj/item/gun/projectile/revolver/derringer
 
 /datum/uplink_item/item/visible_weapons/gauss_thumper
@@ -274,17 +249,12 @@
 	item_cost = 10
 	path = /obj/item/gun/projectile/gauss
 
-/datum/uplink_item/item/visible_weapons/bolt_slinger
-	name = "Bolt Slinger"
-	item_cost = 15
-	path = /obj/item/gun/energy/blaster/rifle
-
 /datum/uplink_item/item/visible_weapons/railgun
 	name = "Railgun"
-	item_cost = 35
+	item_cost = 30
 	path = /obj/item/gun/projectile/automatic/railgun
 
 /datum/uplink_item/item/visible_weapons/deagle
 	name = ".50 Pistol"
-	item_cost = 6
+	item_cost = 5
 	path = /obj/item/gun/projectile/deagle/adhomai
