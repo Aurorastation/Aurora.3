@@ -1,0 +1,80 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor,
+/area/space)
+"b" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/stack/material/phoron/full,
+/obj/structure/table/steel,
+/turf/simulated/floor,
+/area/space)
+"d" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/space)
+"e" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/turf/simulated/floor,
+/area/space)
+"m" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/portable_atmospherics/canister/phoron,
+/turf/simulated/floor,
+/area/space)
+"C" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/machinery/portable_atmospherics/canister/phoron,
+/turf/simulated/floor,
+/area/space)
+"G" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/turf/simulated/floor,
+/area/space)
+"N" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/bed,
+/turf/simulated/floor,
+/area/space)
+"O" = (
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/turf/simulated/floor,
+/area/space)
+"V" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/portable_atmospherics/canister/phoron,
+/turf/simulated/floor,
+/area/space)
+
+(1,1,1) = {"
+m
+m
+O
+N
+"}
+(2,1,1) = {"
+C
+G
+d
+e
+"}
+(3,1,1) = {"
+m
+b
+d
+d
+"}
+(4,1,1) = {"
+V
+d
+d
+a
+"}

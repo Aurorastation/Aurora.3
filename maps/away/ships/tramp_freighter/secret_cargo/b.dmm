@@ -1,0 +1,92 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/bed,
+/turf/simulated/floor,
+/area/space)
+"e" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/table/standard,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/masks{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/surgery/retractor,
+/turf/simulated/floor,
+/area/space)
+"q" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/deployable_kit/surgery_table,
+/turf/simulated/floor,
+/area/space)
+"r" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/space)
+"t" = (
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/turf/simulated/floor,
+/area/space)
+"x" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray,
+/obj/item/surgery/scalpel/manager,
+/turf/simulated/floor,
+/area/space)
+"K" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/space)
+"N" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/storage/firstaid/surgery,
+/turf/simulated/floor,
+/area/space)
+"Q" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/snacks/liquidfood,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/turf/simulated/floor,
+/area/space)
+"S" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/machinery/optable,
+/obj/item/surgery/retractor,
+/turf/simulated/floor,
+/area/space)
+"X" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor,
+/area/space)
+
+(1,1,1) = {"
+q
+N
+t
+a
+"}
+(2,1,1) = {"
+X
+x
+e
+Q
+"}
+(3,1,1) = {"
+K
+S
+K
+K
+"}
+(4,1,1) = {"
+r
+K
+K
+X
+"}
