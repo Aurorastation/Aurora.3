@@ -48,6 +48,7 @@
 	var/habitability_class
 
 	var/list/mobs_to_tolerate = list()
+	var/generated_name = TRUE
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
 	var/roll = rand(1,100)
@@ -67,7 +68,8 @@
 	maxy = max_y ? max_y : world.maxy
 	planetary_area = new planetary_area()
 
-	name = "[generate_planet_name()], \a [name]"
+	if(generated_name)
+		name = "[generate_planet_name()], \a [name]"
 
 	world.maxz++
 	forceMove(locate(1,1,world.maxz))

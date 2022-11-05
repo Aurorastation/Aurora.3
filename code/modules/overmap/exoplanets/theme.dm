@@ -32,6 +32,18 @@
 	for(var/zlevel in E.map_z)
 		new /datum/random_map/automata/cave_system/mountains/breathable(null,TRANSITIONEDGE,TRANSITIONEDGE,zlevel,E.maxx-TRANSITIONEDGE,E.maxy-TRANSITIONEDGE,0,1,1, E.planetary_area, rock_color)
 
+/datum/exoplanet_theme/mountains/breathable/before_map_generation(obj/effect/overmap/visitable/sector/exoplanet/E)
+	if(E.rock_colors)
+		rock_color = pick(E.rock_colors)
+	for(var/zlevel in E.map_z)
+		new /datum/random_map/automata/cave_system/mountains/breathable(null,TRANSITIONEDGE,TRANSITIONEDGE,zlevel,E.maxx-TRANSITIONEDGE,E.maxy-TRANSITIONEDGE,0,1,1, E.planetary_area, rock_color)
+
+/datum/exoplanet_theme/mountains/adhomai/before_map_generation(obj/effect/overmap/visitable/sector/exoplanet/E)
+	if(E.rock_colors)
+		rock_color = pick(E.rock_colors)
+	for(var/zlevel in E.map_z)
+		new /datum/random_map/automata/cave_system/mountains/adhomai(null,TRANSITIONEDGE,TRANSITIONEDGE,zlevel,E.maxx-TRANSITIONEDGE,E.maxy-TRANSITIONEDGE,0,1,1, E.planetary_area, rock_color)
+
 
 /datum/random_map/automata/cave_system/mountains
 	iterations = 2
@@ -49,6 +61,13 @@
 	mineral_sparse =  /turf/simulated/mineral/random/exoplanet
 	mineral_rich = /turf/simulated/mineral/random/high_chance/exoplanet
 	floor_type = /turf/simulated/floor/exoplanet/mineral
+	use_area = FALSE
+
+/datum/random_map/automata/cave_system/mountains/adhomai
+	wall_type = /turf/simulated/mineral/adhomai
+	mineral_sparse =  /turf/simulated/mineral/random/adhomai
+	mineral_rich = /turf/simulated/mineral/random/high_chance/adhomai
+	floor_type = /turf/simulated/floor/exoplanet/mineral/adhomai
 	use_area = FALSE
 
 /datum/random_map/automata/cave_system/mountains/New(var/seed, var/tx, var/ty, var/tz, var/tlx, var/tly, var/do_not_apply, var/do_not_announce, var/never_be_priority = 0, var/used_area, var/_rock_color)

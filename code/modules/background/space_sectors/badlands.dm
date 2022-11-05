@@ -34,7 +34,12 @@
 /datum/space_sector/srandmarr
 	name = SECTOR_SRANDMARR
 	description = "S'rand'marr is the star system home to Adhomai, the homeworld of the Tajara species. Adhomai is the fourth planet from S'rendarr. It is a cold and icy world, suffering from \
-	almost perpetual snowfall and extremely low temperatures. Adhomai is the only habitable world in its system and has a mass one quarter larger than Earth's."
+	almost perpetual snowfall and extremely low temperatures."
+	skybox_icon = "srandmarr"
+//	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir,
+//							/obj/effect/overmap/visitable/sector/exoplanet/barren/raskara, /obj/effect/overmap/visitable/sector/exoplanet/adhomai)
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/adhomai)
+	cargo_price_coef = list("nt" = 1.2, "hpi" = 1.2, "zhu" = 1.2, "een" = 1.2, "get" = 1.2, "arz" = 1.2, "blm" = 1.2, "iac" = 1.2, "zsc" = 0.5, "vfc" = 1.2, "bis" = 1.2, "xmg" = 1.2, "npi" = 1.2)
 
 /datum/space_sector/nrrahrahul
 	name = SECTOR_NRRAHRAHUL

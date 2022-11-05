@@ -505,6 +505,11 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/random/exoplanet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
+/turf/simulated/mineral/random/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+
 /turf/simulated/mineral/random/high_chance
 	mineralSpawnChanceList = list(
 		ORE_URANIUM = 2,
@@ -530,6 +535,11 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/random/high_chance/exoplanet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
+/turf/simulated/mineral/random/high_chance/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/random/higher_chance
 	mineralSpawnChanceList = list(
@@ -574,6 +584,11 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/planet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
+/turf/simulated/mineral/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /**********************Asteroid**************************/
 
