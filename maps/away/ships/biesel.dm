@@ -66,6 +66,8 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tcfl_shuttle
 	name = "TCFL Shuttle"
+	designation = "BLV"
+	class = "Stake"
 	desc = "A large and unusually-shaped shuttle, the Hydrus-class is deceptively fast and is designed to operate out of a Cetus-class corvette's rear hangar bay, interdicting targets that its mothership intercepts. This one's transponder identifies it as a Tau Ceti Foreign Legion shuttle, and as a Velite-class Interceptor - the TCFL designation for this design."
 	shuttle = "TCFL Shuttle"
 	max_speed = 1/(3 SECONDS)

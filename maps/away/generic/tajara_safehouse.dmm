@@ -155,6 +155,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
+"ec" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, side"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary{
+	name = "military hull"
+	},
+/area/shuttle/tajara_safehouse_shuttle)
 "eQ" = (
 /obj/machinery/light{
 	brightness_color = "#FA8282";
@@ -1061,6 +1069,17 @@
 "Kn" = (
 /turf/template_noop,
 /area/space)
+"KI" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "tajara_safehouse_shuttle_out"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, airlock"
+	},
+/turf/simulated/floor,
+/area/shuttle/tajara_safehouse_shuttle)
 "Lb" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light/small{
@@ -1149,6 +1168,15 @@
 /obj/item/ammo_magazine/boltaction,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
+"Pl" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/tajara_safehouse_shuttle)
 "Pp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -1291,6 +1319,9 @@
 /area/tajara_safehouse)
 "Vc" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tajara_safehouse_shuttle)
 "Vl" = (
@@ -28204,7 +28235,7 @@ iI
 iI
 iI
 nY
-nY
+KI
 iI
 iI
 iI
@@ -28723,7 +28754,7 @@ fi
 fi
 Pp
 Wp
-Ke
+Pl
 cJ
 RX
 RX
@@ -29232,7 +29263,7 @@ iI
 iI
 iI
 iI
-iI
+ec
 iI
 iI
 iI

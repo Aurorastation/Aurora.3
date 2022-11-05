@@ -66,6 +66,8 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/orion_express_shuttle
 	name = "Orion Express Shuttle"
+	class = "OEV"
+	designation = "Packmaster"
 	desc = "The Troubadour-class skiff is not quite an independent design, and is instead essentially a component of the larger Traveler-class station as a whole, seamlessly attaching and detaching for operations as is necessary. This one's transponder identifies it as part of an Orion Express refueling station."
 	shuttle = "Orion Express Shuttle"
 	max_speed = 1/(3 SECONDS)
@@ -173,6 +175,8 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/ee_shuttle
 	name = "Einstein Engines Shuttle"
+	class = "EEV"
+	designation = "Canary"
 	desc = "A shuttle used by Einstein Engines. For research purposes only."
 	shuttle = "Einstein Engines Shuttle"
 	max_speed = 1/(3 SECONDS)

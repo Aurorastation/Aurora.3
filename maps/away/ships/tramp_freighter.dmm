@@ -122,6 +122,9 @@
 /area/shuttle/freighter_shuttle)
 "aAY" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "aBb" = (
@@ -431,6 +434,12 @@
 	tag_interior_door = "freight_ship_in"
 	},
 /turf/simulated/floor,
+/area/ship/tramp_freighter)
+"cAV" = (
+/obj/effect/landmark/entry_point/port{
+	name = "mess hall"
+	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "cBb" = (
 /obj/structure/railing/mapped,
@@ -758,6 +767,17 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
+"ePO" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "freight_shuttle_out"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor,
+/area/shuttle/freighter_shuttle)
 "eTq" = (
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor,
@@ -806,6 +826,14 @@
 "fkL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/vending/coffee/free,
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
+"fqs" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engine"
+	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "ftq" = (
@@ -968,6 +996,12 @@
 "gqO" = (
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"gwv" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port hangar"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/tramp_freighter)
 "gxW" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -1288,6 +1322,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"jqJ" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, cargo"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/tramp_freighter)
 "jCz" = (
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor,
@@ -1349,6 +1389,12 @@
 /obj/item/storage/bag/inflatable,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
+"kCT" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, starboard side"
+	},
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/ship/tramp_freighter)
 "kMq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/vehicle/train/cargo/engine,
@@ -1397,6 +1443,9 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "sfa_patrol_ship_out"
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port airlock"
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -1490,6 +1539,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"nMu" = (
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/wall/shuttle/space_ship/cardinal,
+/area/ship/tramp_freighter)
 "nQT" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms"
@@ -1504,6 +1557,14 @@
 /obj/structure/table/standard,
 /obj/item/device/binoculars,
 /turf/simulated/floor/tiled/dark,
+/area/ship/tramp_freighter)
+"oil" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engine"
+	},
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "onP" = (
 /obj/machinery/door/airlock{
@@ -1560,6 +1621,13 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/tramp_freighter)
+"pdi" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor,
 /area/ship/tramp_freighter)
 "peu" = (
 /obj/structure/railing/mapped{
@@ -1757,6 +1825,21 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"sGP" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/freighter_shuttle)
+"sKL" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, cleaning room"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/tramp_freighter)
 "sLj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
@@ -1905,6 +1988,10 @@
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
+"vHR" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/unsimulated/wall/fakepdoor,
+/area/ship/tramp_freighter)
 "wci" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/vending/cola,
@@ -1966,6 +2053,15 @@
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"xeK" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 24
+	},
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/freighter_shuttle)
 "xok" = (
 /obj/structure/curtain/black{
 	name = "DO NOT ENTER"
@@ -30653,7 +30749,7 @@ ylV
 ylV
 ylV
 ylV
-ylV
+jqJ
 ylV
 ylV
 ylV
@@ -30899,7 +30995,7 @@ xRX
 xRX
 ylV
 ylV
-ylV
+sKL
 ylV
 ylV
 aHt
@@ -31920,7 +32016,7 @@ xRX
 xRX
 xRX
 xRX
-yjk
+oil
 aZQ
 vwF
 aac
@@ -31952,7 +32048,7 @@ gdk
 rVB
 rBU
 wCo
-wYA
+kCT
 xRX
 xRX
 xRX
@@ -33984,7 +34080,7 @@ phz
 phz
 phz
 hZq
-hZq
+ePO
 phz
 phz
 phz
@@ -34261,7 +34357,7 @@ wYA
 uCl
 rNF
 fhJ
-wYA
+nMu
 xRX
 xRX
 xRX
@@ -34490,7 +34586,7 @@ xRX
 xRX
 xRX
 xRX
-rtf
+vHR
 wZf
 wZf
 aAY
@@ -34503,7 +34599,7 @@ gqO
 gqO
 bWO
 ctX
-dTw
+sGP
 lRa
 wZf
 aHt
@@ -35012,7 +35108,7 @@ phz
 phz
 phz
 phz
-bgD
+xeK
 bgD
 phz
 phz
@@ -36063,7 +36159,7 @@ wTJ
 gHC
 iiZ
 ibU
-lXE
+pdi
 xRX
 xRX
 xRX
@@ -36566,7 +36662,7 @@ xRX
 xRX
 xRX
 ylV
-ylV
+cAV
 ylV
 ylV
 ylV
@@ -36803,7 +36899,7 @@ xRX
 xRX
 xRX
 xRX
-yjk
+fqs
 aZQ
 vwF
 akP
@@ -37068,7 +37164,7 @@ xto
 xto
 uYP
 ylV
-ylV
+gwv
 xRX
 xRX
 lXE
