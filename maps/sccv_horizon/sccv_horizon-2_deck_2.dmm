@@ -10283,7 +10283,7 @@
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = -7;
-	req_one_access = list(10,19,20,36,74);
+	req_one_access = list(10,19,20,31,74);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -10292,7 +10292,7 @@
 	name = "Blast Door Control";
 	pixel_x = 25;
 	pixel_y = 7;
-	req_one_access = list(10,19,20,36,74)
+	req_one_access = list(10,19,20,31,74)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/secure_ammunition_storage)
@@ -11768,7 +11768,7 @@
 	name = "Door Bolt Control";
 	pixel_x = -25;
 	pixel_y = 7;
-	req_one_access = list(10,19,20,36,74);
+	req_one_access = list(10,19,20,31,74);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
@@ -11777,7 +11777,7 @@
 	name = "Blast Door Control";
 	pixel_x = -25;
 	pixel_y = -7;
-	req_one_access = list(10,19,20,36,74)
+	req_one_access = list(10,19,20,31,74)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/secure_ammunition_storage)
