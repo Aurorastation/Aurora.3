@@ -1157,7 +1157,7 @@
 	dir = 1
 	},
 /obj/machinery/flasher{
-	id = "permflash";
+	id = "cell_3";
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
@@ -2612,7 +2612,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_security{
-	id_tag = "prisonexit";
 	name = "Brig Exterior";
 	req_access = list(2)
 	},
@@ -3633,8 +3632,9 @@
 	opacity = 0
 	},
 /obj/machinery/door/airlock/glass_security{
-	id_tag = "Cell 3";
-	name = "Cell 3"
+	id_tag = "cell_2";
+	name = "Cell B";
+	autoclose = 0
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
@@ -4268,7 +4268,7 @@
 	dir = 4
 	},
 /obj/machinery/flasher{
-	id = "permflash";
+	id = "cell_2";
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -8533,7 +8533,7 @@
 "elh" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled/ramp,
-/area/security/investigations)
+/area/security/brig)
 "elm" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -12841,7 +12841,7 @@
 	},
 /obj/machinery/door/blast/shutters/open{
 	name = "Safety Shutter";
-	id = "shutters_deck2_seclobbydesk";
+	id = "shutters_deck2_seclobby";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -13959,7 +13959,7 @@
 	name = "Security Maintenance";
 	req_access = list(63)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/security/brig)
 "gKC" = (
 /obj/effect/floor_decal/corner/green/full{
@@ -17698,7 +17698,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
-/area/security/investigations)
+/area/security/brig)
 "iJq" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -17730,7 +17730,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_security{
-	id_tag = "prisonentry";
 	name = "Brig Interior";
 	req_access = list(2)
 	},
@@ -18431,7 +18430,7 @@
 	dir = 4
 	},
 /obj/machinery/flasher{
-	id = "permflash";
+	id = "cell_1";
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
@@ -19220,7 +19219,7 @@
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
-/area/security/investigations)
+/area/security/brig)
 "jrH" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/machinery/door/blast/shutters{
@@ -19494,13 +19493,12 @@
 	name = "Brig Lockdown Door";
 	opacity = 0
 	},
-/obj/machinery/door/window/brigdoor/northright{
-	dir = 8;
-	id = "Cell 2";
-	name = "Cell 2";
-	req_access = list(2)
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass_security{
+	id_tag = "cell_3";
+	name = "Cell C";
+	autoclose = 0
+	},
 /turf/simulated/floor/tiled/full,
 /area/security/prison)
 "jAS" = (
@@ -23284,7 +23282,9 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_x = 32
 	},
-/obj/structure/closet/secure_closet/brig,
+/obj/structure/closet/secure_closet/brig{
+	id = "cell_1"
+	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
@@ -23603,16 +23603,15 @@
 	name = "Brig Lockdown Door";
 	opacity = 0
 	},
-/obj/machinery/door/window/brigdoor/northright{
-	dir = 8;
-	id = "Cell 1";
-	name = "Cell 1";
-	req_access = list(2)
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass_security{
+	id_tag = "cell_4";
+	name = "Cell D";
+	autoclose = 0
+	},
 /turf/simulated/floor/tiled/full,
 /area/security/prison)
 "lLj" = (
@@ -24385,7 +24384,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/security/brig)
 "mdn" = (
 /obj/structure/cable/green{
@@ -25731,7 +25730,7 @@
 /obj/structure/cable/green,
 /obj/machinery/door/blast/shutters/open{
 	name = "Safety Shutter";
-	id = "shutters_deck2_seclobbydesk";
+	id = "shutters_deck2_seclobby";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -27147,14 +27146,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "nrr" = (
-/obj/machinery/door_timer/cell_3{
-	pixel_y = -32
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
+	},
+/obj/machinery/door_timer/cell_2{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -27388,14 +27387,14 @@
 	c_tag = "Security - Corridor Camera 4";
 	dir = 1
 	},
-/obj/machinery/door_timer/cell_4{
-	pixel_y = -32
-	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
+	},
+/obj/machinery/door_timer/cell_1{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -30835,27 +30834,6 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
-/obj/machinery/button/flasher{
-	id = "permentryflash";
-	name = "entry flash";
-	pixel_x = 38;
-	pixel_y = 26;
-	req_access = list(2)
-	},
-/obj/machinery/button/remote/airlock{
-	id = "prisonexit";
-	name = "Entry Doors";
-	pixel_x = 28;
-	pixel_y = 36;
-	req_access = list(2)
-	},
-/obj/machinery/button/remote/airlock{
-	id = "prisonentry";
-	name = "Entry Doors";
-	pixel_x = 28;
-	pixel_y = 26;
-	req_access = list(2)
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -33970,7 +33948,7 @@
 /area/horizon/library)
 "qPI" = (
 /turf/simulated/floor/tiled/ramp,
-/area/security/investigations)
+/area/security/brig)
 "qPJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -34412,12 +34390,12 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
-/obj/machinery/door_timer/cell_1{
-	pixel_x = 32
-	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/alarm{
 	pixel_y = 28
+	},
+/obj/machinery/door_timer/cell_3{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -37965,10 +37943,10 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/machinery/door_timer/cell_2{
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/door_timer/cell_4{
 	pixel_x = 32
 	},
-/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "sRF" = (
@@ -38956,6 +38934,19 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/tiled/dark/airless,
 /area/horizon/exterior)
+"tsy" = (
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 32
+	},
+/obj/structure/closet/secure_closet/brig{
+	id = "cell_2"
+	},
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "tsA" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -42088,9 +42079,6 @@
 	temperature = 253.15
 	},
 /area/horizon/kitchen/freezer)
-"uNK" = (
-/turf/simulated/wall/r_wall,
-/area/security/investigations)
 "uOb" = (
 /obj/structure/table/standard,
 /obj/item/cell/high,
@@ -43556,7 +43544,7 @@
 	req_access = list(63)
 	},
 /turf/simulated/floor/tiled/full,
-/area/maintenance/wing/port)
+/area/security/brig)
 "vCQ" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -44733,7 +44721,7 @@
 	dir = 1
 	},
 /obj/machinery/flasher{
-	id = "permflash";
+	id = "cell_4";
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
@@ -44907,7 +44895,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "wdF" = (
-/obj/structure/closet/secure_closet/brig,
+/obj/structure/closet/secure_closet/brig{
+	id = "cell_3"
+	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
@@ -46876,7 +46866,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/closet/secure_closet/brig,
+/obj/structure/closet/secure_closet/brig{
+	id = "cell_4"
+	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
@@ -47842,13 +47834,12 @@
 	name = "Brig Lockdown Door";
 	opacity = 0
 	},
-/obj/machinery/door/window/brigdoor/eastright{
-	dir = 1;
-	id = "Cell 4";
-	name = "Cell 4";
-	req_access = list(2)
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass_security{
+	id_tag = "cell_1";
+	name = "Cell A";
+	autoclose = 0
+	},
 /turf/simulated/floor/tiled/full,
 /area/security/prison)
 "xxm" = (
@@ -75946,7 +75937,7 @@ kGX
 pXp
 ijc
 kZv
-uNK
+vsS
 elh
 qPI
 jrz
@@ -76148,7 +76139,7 @@ kGX
 pXp
 hps
 kaT
-uNK
+vsS
 elh
 qPI
 iIX
@@ -76157,7 +76148,7 @@ lCC
 kbZ
 nrr
 aac
-lDQ
+tsy
 bUm
 aac
 mbh
@@ -76350,10 +76341,10 @@ kGX
 pXp
 pyV
 kaT
-uNK
-uNK
-uNK
-uNK
+vsS
+vsS
+vsS
+vsS
 sGm
 tuD
 rXd
@@ -76757,7 +76748,7 @@ kaT
 kaT
 nvF
 uXV
-bzh
+vsS
 jUq
 mvM
 gqy
@@ -76959,7 +76950,7 @@ wsW
 kaT
 kaT
 uUz
-bzh
+vsS
 lMT
 bTy
 lGQ

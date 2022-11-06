@@ -3,28 +3,21 @@
 #define FONT_COLOR "#09f"
 #define FONT_STYLE "Arial Black"
 
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
-
-///////////////////////////////////////////////////////////////////////////////////////////////
-// Brig Door control displays.
-//  Description: This is a controls the timer for the brig doors, displays the timer on itself and
-//               has a popup window when used, allowing to set the timer.
-//  Code Notes: Combination of old brigdoor.dm code from rev4407 and the status_display.dm code
-//  Date: 01/September/2010
-//  Programmer: Veryinky
-/////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Brig Door Control Displays
+//
 /obj/machinery/door_timer
-	name = "Door Timer"
+	name = "door timer"
+	desc = "A remote control for a door."
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
-	desc = "A remote control for a door."
 	req_access = list(access_brig)
 	layer = OBJ_LAYER
-	anchored = 1.0    		// can't pick it up
-	density = 0       		// can walk through it.
+	anchored = TRUE
+	density = FALSE
 	var/id = null     		// id of door it controls.
 	var/releasetime = 0		// when world.timeofday reaches it - release the prisoner
-	var/timing = 1    		// boolean, true/1 timer is on, false/0 means it's not timing
+	var/timing = TRUE    		// boolean, true/1 timer is on, false/0 means it's not timing
 	var/picture_state		// icon_state of alert picture, if not displaying text/numbers
 	var/list/obj/machinery/targets = list()
 	var/timetoset = 0		// Used to set releasetime upon starting the timer
@@ -36,17 +29,20 @@
 	maptext_height = 26
 	maptext_width = 32
 
-	var/datum/browser/menu = new( null, "brig_timer", "Brig Timer", 400, 300 )
+	var/datum/browser/menu = new(null, "brig_timer", "Brig Timer", 400, 300)
 
 /obj/machinery/door_timer/Initialize()
 	..()
-
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/door_timer/LateInitialize()
-	for(var/obj/machinery/door/window/brigdoor/M in SSmachinery.machinery)
-		if (M.id == src.id)
-			targets += M
+	for(var/obj/machinery/door/airlock/glass_security/D in SSmachinery.machinery)
+		if(D.id_tag == src.id) // Airlocks use "id_tag" instead of "id".
+			targets += D
+
+	for(var/obj/machinery/door/window/brigdoor/D2 in SSmachinery.machinery)
+		if(D2.id == src.id)
+			targets += D2
 
 	for(var/obj/machinery/flasher/F in SSmachinery.machinery)
 		if(F.id == src.id)
@@ -83,7 +79,7 @@
 			src.releasetime = 0
 
 		if(world.timeofday > src.releasetime)
-			if(src.timer_end(broadcast = TRUE))// open doors, reset timer, clear status screen
+			if(src.timer_end(broadcast = TRUE)) // Open doors, reset timer, and clear status screen.
 				var/message = "Criminal sentence complete. The criminal is free to go."
 				ping( "\The [src] pings, \"[message]\"" )
 
@@ -108,45 +104,63 @@
 	// Set releasetime
 	releasetime = world.timeofday + timetoset
 
-	for(var/obj/machinery/door/window/brigdoor/door in targets)
-		if(door.density)	continue
+	// Airlocks
+	for(var/obj/machinery/door/airlock/D in targets)
+		if(D.density)
+			continue
 		spawn(0)
-			door.close()
+			D.close()
+
+	// Windoors
+	for(var/obj/machinery/door/window/D2 in targets)
+		if(D2.density)
+			continue
+		spawn(0)
+			D2.close()
 
 	for(var/obj/structure/closet/secure_closet/brig/C in targets)
-		if(C.broken)	continue
-		if(C.opened && !C.close())	continue
-		C.locked = 1
+		if(C.broken)
+			continue
+		if(C.opened && !C.close())
+			continue
+		C.locked = TRUE
 		C.update_icon()
 
-	timing = 1
+	timing = TRUE
 
-	return 1
-
+	return TRUE
 
 // Opens and unlocks doors, power check
 /obj/machinery/door_timer/proc/timer_end(var/early = 0, var/broadcast)
 	if(stat & (NOPOWER|BROKEN))
-		return 0
+		return FALSE
 
-	timing = 0
+	timing = FALSE
 
 	// Reset releasetime
 	releasetime = 0
-	timeset( 0 )
+	timeset(0)
 
-	for(var/obj/machinery/door/window/brigdoor/door in targets)
-		if(!door.density)
+	// Airlocks
+	for(var/obj/machinery/door/airlock/D in targets)
+		if(!D.density)
 			continue
 		spawn(0)
-			door.open()
+			D.open()
+
+	// Windoors
+	for(var/obj/machinery/door/window/D2 in targets)
+		if(!D2.density)
+			continue
+		spawn(0)
+			D2.open()
 
 	for(var/obj/structure/closet/secure_closet/brig/C in targets)
 		if(C.broken)
 			continue
 		if(C.opened)
 			continue
-		C.locked = 0
+		C.locked = FALSE
 		C.update_icon()
 
 	if(broadcast)
@@ -190,7 +204,7 @@
 	return
 
 //Allows AIs to use door_timer, see human attack_hand function below
-/obj/machinery/door_timer/attack_ai(var/mob/user as mob)
+/obj/machinery/door_timer/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
@@ -198,7 +212,7 @@
 // Allows humans to use door_timer
 // Opens dialog window when someone clicks on door timer
 // Flasher activation limited to 150 seconds
-/obj/machinery/door_timer/attack_hand(var/mob/user as mob)
+/obj/machinery/door_timer/attack_hand(var/mob/user)
 	if(..())
 		return
 
@@ -220,14 +234,14 @@
 
 	return
 
-/obj/machinery/door_timer/proc/menu_timer( var/mob/user as mob )
+/obj/machinery/door_timer/proc/menu_timer(var/mob/user)
 	// Used for the 'time left' display
 	var/second = round(timeleft() % 60)
 	var/minute = round((timeleft() - second) / 60)
 	. = "<h2>Timer System:</h2>"
 	. += "<b>Controls [src.id]</b><hr>"
 
-	if( !incident )
+	if(!incident)
 		. += "Insert a Securty Incident Report to load a criminal sentence<br>"
 	else
 		// Time Left display (uses releasetime)
@@ -280,48 +294,48 @@
 
 	return .
 
-/obj/machinery/door_timer/attackby(obj/item/O as obj, var/mob/user as mob)
-	if( istype( O, /obj/item/paper/incident ))
-		if( !incident )
-			if( import( O, user ))
+/obj/machinery/door_timer/attackby(obj/item/O, var/mob/user)
+	if(istype(O, /obj/item/paper/incident))
+		if(!incident )
+			if(import(O, user))
 				ping( "\The [src] pings, \"Successfully imported incident report!\"" )
 				user.drop_from_inventory(O,get_turf(src))
 				qdel(O)
 				src.updateUsrDialog()
 		else
-			to_chat(user,  "<span class='alert'>\The [src] buzzes, \"There's already an active sentence!\"</span>")
+			to_chat(user, SPAN_ALERT("\The [src] buzzes, \"There's already an active sentence!\""))
 		return TRUE
-	else if( istype( O, /obj/item/paper ))
-		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\"</span>")
+	else if(istype(O, /obj/item/paper))
+		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\""))
 		return TRUE
 
 	return ..()
 
 /obj/machinery/door_timer/proc/import( var/obj/item/paper/incident/I, var/user )
-	if( !istype( I ))
-		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"Could not import the incident report.\"</span>")
+	if(!istype(I))
+		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"Could not import the incident report.\""))
 		return 0
 
-	if( !istype( I.incident ))
-		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"Report has no incident encoded!\"</span>")
+	if(!istype(I.incident))
+		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"Report has no incident encoded!\""))
 		return 0
 
-	if( !I.sentence )
-		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"Report does not contain a guilty sentence!\"</span>")
+	if(!I.sentence)
+		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"Report does not contain a guilty sentence!\""))
 		return 0
 
 	var/datum/crime_incident/crime = I.incident
 
-	if( !istype( crime.criminal ))
-		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"Report has no criminal encoded!\"</span>")
+	if(!istype(crime.criminal))
+		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"Report has no criminal encoded!\""))
 		return 0
 
-	if( !crime.brig_sentence )
-		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"Report had no brig sentence.\"</span>")
+	if(!crime.brig_sentence)
+		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"Report had no brig sentence.\""))
 		return 0
 
-	if( crime.brig_sentence >= PERMABRIG_SENTENCE )
-		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"The criminal has a HUT sentence and needs to be detained until transfer.\"</span>")
+	if(crime.brig_sentence >= PERMABRIG_SENTENCE)
+		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"The criminal has a HuT sentence and needs to be detained until transfer.\""))
 		return 0
 
 	var/addtime = timetoset
@@ -350,20 +364,20 @@
 	usr.set_machine(src)
 
 	switch(href_list["button"])
-		if( "menu_mode" )
+		if("menu_mode")
 			menu_mode = href_list["menu_choice"]
 
-		if( "activate" )
+		if("activate")
 			src.timer_start()
 			var/mob/living/carbon/human/C = incident.criminal.resolve()
 			var/datum/record/general/R = SSrecords.find_record("name", C.name)
 			if(R && R.security)
 				R.security.criminal = "Incarcerated"
 
-		if ("early_release")
+		if("early_release")
 			src.timer_end(1)
 
-		if( "flash" )
+		if("flash")
 			for(var/obj/machinery/flasher/F in targets)
 				F.flash()
 
@@ -427,30 +441,30 @@
 		I.add_overlay(ID)
 	return I
 
-
+// Door Timers
 /obj/machinery/door_timer/cell_1
-	name = "Cell 1"
-	id = "Cell 1"
+	name = "Cell A"
+	id = "cell_1"
 
 /obj/machinery/door_timer/cell_2
-	name = "Cell 2"
-	id = "Cell 2"
+	name = "Cell B"
+	id = "cell_2"
 
 /obj/machinery/door_timer/cell_3
-	name = "Cell 3"
-	id = "Cell 3"
+	name = "Cell C"
+	id = "cell_3"
 
 /obj/machinery/door_timer/cell_4
-	name = "Cell 4"
-	id = "Cell 4"
+	name = "Cell D"
+	id = "cell_4"
 
 /obj/machinery/door_timer/cell_5
-	name = "Cell 5"
-	id = "Cell 5"
+	name = "Cell E"
+	id = "cell_5"
 
 /obj/machinery/door_timer/cell_6
-	name = "Cell 6"
-	id = "Cell 6"
+	name = "Cell F"
+	id = "cell_6"
 
 #undef FONT_SIZE
 #undef FONT_COLOR
