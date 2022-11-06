@@ -242,7 +242,7 @@
 	. += "<b>Controls [src]</b><hr>"
 
 	if(!incident)
-		. += "Insert a \"Encoded Security Incident Report\" to start a sentencing.<br>"
+		. += "Insert a \"Encoded SCC Security Incident Report\" to start a sentencing.<br>"
 	else
 		// Time Left display (uses releasetime)
 		var/obj/item/card/id/card = incident.card.resolve()
