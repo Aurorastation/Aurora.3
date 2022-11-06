@@ -1019,7 +1019,7 @@
 	icon_state = "overall_skirt_high"
 	item_state = "overall_skirt_high"
 
-/obj/item/clothing/accessory/overalls/shorts/skirt/x_shaped_back
+/obj/item/clothing/accessory/overalls/skirt/x_shaped_back
 	name = "\improper X-shaped back overall skirt"
 	desc = "A denim overall skirt with a high back."
 	icon_state = "overall_shorts_x"
