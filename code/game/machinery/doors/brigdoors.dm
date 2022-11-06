@@ -238,8 +238,8 @@
 	// Used for the 'time left' display
 	var/second = round(timeleft() % 60)
 	var/minute = round((timeleft() - second) / 60)
-	. = "<h2>Timer System:</h2>"
-	. += "<b>Controls [src]</b><hr>"
+	. = "<h2>Timer System</h2>"
+	. += "<b>[src]</b><hr>"
 
 	if(!incident)
 		. += "Insert a encoded SCC security incident report to start sentencing.<br>"
@@ -247,23 +247,23 @@
 		// Time Left display (uses releasetime)
 		var/obj/item/card/id/card = incident.card.resolve()
 		. += "<b>Detainee</b>: [card]\t"
-		. += "<a href='?src=\ref[src];button=menu_mode;menu_choice=menu_charges'>Charges</a><br>"
-		. += "<b>Sentence</b>: [add_zero("[minute]", 2)]:[add_zero("[second]", 2)]\t"
+		. += "<b>Charges:</b> <a href='?src=\ref[src];button=menu_mode;menu_choice=menu_charges'>CHARGES</a><br>"
+		. += "<b>Sentence Length</b>: [add_zero("[minute]", 2)]:[add_zero("[second]", 2)]\t"
 		// Start/Stop timer
 		if(!src.timing)
-			. += "<a href='?src=\ref[src];button=activate'>(!) ACTIVATE</a><br>"
+			. += "<a href='?src=\ref[src];button=activate'>ACTIVATE</a><br>"
 		else
 			. += "<a href='?src=\ref[src];button=early_release'>(!) EARLY RELEASE</a><br>"
 		. += "<br>"
 
 
-	// Mounted flash controls
+	// Mounted Flash Controls
 	for(var/obj/machinery/flasher/F in targets)
-		. += "<br><b>Cell Flash</b>: "
+		. += "<b>Cell Flash</b>: "
 		if(F.last_flash && (F.last_flash + 150) > world.time)
 			. += "Charging..."
 		else
-			. += "<A href='?src=\ref[src];button=flash'>ACTIVATE</A>"
+			. += "<A href='?src=\ref[src];button=flash'>(!) ACTIVATE</A>"
 
 	. += "<br><hr>"
 	. += "<center><a href='?src=\ref[user];mach_close=brig_timer'>CLOSE</a></center>"
@@ -285,7 +285,7 @@
 			. += "<tr>"
 			. += "<td><b>[L.name]</b></td>"
 			. += "<td><i>[L.desc]</i></td>"
-			. += "<td>[L.min_brig_time] - [L.max_brig_time] minutes</td>"
+			. += "<td>[L.min_brig_time]-[L.max_brig_time] minutes</td>"
 			. += "</tr>"
 		. += "</table>"
 
@@ -298,45 +298,45 @@
 	if(istype(O, /obj/item/paper/incident))
 		if(!incident)
 			if(import(O, user))
-				ping("\The [src] pings, \"Successfully imported incident report!\"")
+				ping("\The <b>[src]</b> states, \"Successfully imported incident report!\"")
 				user.drop_from_inventory(O,get_turf(src))
 				qdel(O)
 				src.updateUsrDialog()
 		else
-			to_chat(user, SPAN_ALERT("\The [src] buzzes, \"There's already an active sentence!\""))
+			to_chat(user, SPAN_ALERT("\The <b>[src]</b> states, \"There's already an active sentence.\""))
 		return TRUE
 	else if(istype(O, /obj/item/paper))
-		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\""))
+		to_chat(user, SPAN_ALERT("\The <b>[src]</b> states, \"This console only accepts authentic incident reports. Copies are invalid.\""))
 		return TRUE
 
 	return ..()
 
 /obj/machinery/door_timer/proc/import(var/obj/item/paper/incident/I, var/user)
 	if(!istype(I))
-		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"Could not import the incident report.\""))
-		return 0
+		to_chat(user, SPAN_ALERT("\The <b>[src]</b> states, \"Could not import the incident report.\""))
+		return FALSE
 
 	if(!istype(I.incident))
-		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"Report has no incident encoded!\""))
-		return 0
+		to_chat(user, SPAN_ALERT("\The <b>[src]</b> states, \"Report has no incident encoded.\""))
+		return FALSE
 
 	if(!I.sentence)
-		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"Report does not contain a guilty sentence!\""))
-		return 0
+		to_chat(user, SPAN_ALERT("\The <b>[src]</b> states, \"Report does not contain a guilty sentence.\""))
+		return FALSE
 
 	var/datum/crime_incident/crime = I.incident
 
 	if(!istype(crime.criminal))
-		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"Report has no criminal encoded!\""))
-		return 0
+		to_chat(user, SPAN_ALERT("\The <b>[src]</b> states, \"Report has no detainee encoded.\""))
+		return FALSE
 
 	if(!crime.brig_sentence)
-		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"Report had no brig sentence.\""))
-		return 0
+		to_chat(user, SPAN_ALERT("\The <b>[src]</b> states, \"Report has no brig sentence.\""))
+		return FALSE
 
 	if(crime.brig_sentence >= PERMABRIG_SENTENCE)
-		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"The criminal has a HuT sentence and needs to be detained until transfer.\""))
-		return 0
+		to_chat(user, SPAN_ALERT("\The <b>[src]</b> states, \"The detainee has a HuT sentence and needs to be detained until transfer.\""))
+		return FALSE
 
 	var/addtime = timetoset
 	addtime += crime.brig_sentence MINUTES
@@ -402,9 +402,9 @@
 	if(src.timing)
 		var/disp1 = src
 		var/timeleft = timeleft()
-		var/disp2 = "[add_zero(num2text((timeleft / 60) % 60),2)]~[add_zero(num2text(timeleft % 60), 2)]"
+		var/disp2 = "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"
 		if(length(disp2) > CHARS_PER_LINE)
-			disp2 = "Error"
+			disp2 = "ERROR"
 		update_display(disp1, disp2)
 	else
 		if(maptext)	maptext = ""
