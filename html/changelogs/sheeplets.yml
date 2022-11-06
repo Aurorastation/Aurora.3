@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - maptweak: "Made various mapping tweaks to the Medical Bay."
+  - maptweak: "Made various mapping tweaks to the Medical Bay. Allows Rescue Hardsuits to hold blood bags in their suit storage. Nerfs the stasis factor on lifeform stasis units. 10X, down from 15X."
