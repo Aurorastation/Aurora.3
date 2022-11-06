@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - tweak: "Makes Tricordrazine no longer mix in your bloodstream if you inject inaprovaline and dylovene at the same time."
+  - tweak: "Tricordrazine now needs water to react, which makes Tricordrazine no longer mix in your bloodstream if you inject inaprovaline and dylovene at the same time."
