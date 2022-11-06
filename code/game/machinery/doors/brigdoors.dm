@@ -80,8 +80,8 @@
 
 		if(world.timeofday > src.releasetime)
 			if(src.timer_end(broadcast = TRUE)) // Open doors, reset timer, and clear status screen.
-				var/message = "Criminal sentence complete. The criminal is free to go."
-				ping( "\The [src] pings, \"[message]\"" )
+				var/message = "Sentencing complete. The detainee is free to leave."
+				ping("\The [src] pings, \"[message]\"")
 
 		updateUsrDialog()
 		update_icon()
@@ -175,7 +175,7 @@
 			else
 				R.security.criminal = "Released"
 
-	qdel( incident )
+	qdel(incident)
 	incident = null
 
 	src.updateUsrDialog()
@@ -187,10 +187,10 @@
 /obj/machinery/door_timer/proc/timeleft()
 	var/timeleft = timetoset
 
-	if( src.timing )
+	if(src.timing)
 		timeleft = releasetime - world.timeofday
 
-	. = round( timeleft/10 )
+	. = round(timeleft/10)
 	if(. < 0)
 		. = 0
 
@@ -216,18 +216,18 @@
 	if(..())
 		return
 
-	user.set_machine( src )
+	user.set_machine(src)
 
 	. = ""
 
-	switch( menu_mode )
-		if( "menu_charges" )
+	switch(menu_mode)
+		if("menu_charges")
 			. = menu_charges()
 		else
-			. = menu_timer( user )
+			. = menu_timer(user)
 
-	menu.set_user( user )
-	menu.set_content( . )
+	menu.set_user(user)
+	menu.set_content(.)
 	menu.open()
 
 	onclose(user, "brig_timer")
@@ -242,18 +242,18 @@
 	. += "<b>Controls [src]</b><hr>"
 
 	if(!incident)
-		. += "Insert a \"Encoded SCC Security Incident Report\" to start a sentencing.<br>"
+		. += "Insert a encoded SCC security incident report to start sentencing.<br>"
 	else
 		// Time Left display (uses releasetime)
 		var/obj/item/card/id/card = incident.card.resolve()
-		. += "<b>Criminal</b>: [card]\t"
+		. += "<b>Detainee</b>: [card]\t"
 		. += "<a href='?src=\ref[src];button=menu_mode;menu_choice=menu_charges'>Charges</a><br>"
-		. += "<b>Sentence</b>: [add_zero( "[minute]", 2 )]:[add_zero( "[second]", 2 )]\t"
+		. += "<b>Sentence</b>: [add_zero("[minute]", 2)]:[add_zero("[second]", 2)]\t"
 		// Start/Stop timer
 		if(!src.timing)
-			. += "<a href='?src=\ref[src];button=activate'>Activate</a><br>"
+			. += "<a href='?src=\ref[src];button=activate'>(!) ACTIVATE</a><br>"
 		else
-			. += "<a href='?src=\ref[src];button=early_release'>Early Release</a><br>"
+			. += "<a href='?src=\ref[src];button=early_release'>(!) EARLY RELEASE</a><br>"
 		. += "<br>"
 
 
@@ -266,22 +266,22 @@
 			. += "<A href='?src=\ref[src];button=flash'>ACTIVATE</A>"
 
 	. += "<br><hr>"
-	. += "<center><a href='?src=\ref[user];mach_close=brig_timer'>Close</a></center>"
+	. += "<center><a href='?src=\ref[user];mach_close=brig_timer'>CLOSE</a></center>"
 
 	return .
 
 /obj/machinery/door_timer/proc/menu_charges()
 	. = ""
 
-	if( !incident )
-		. += "Insert a Securty Incident Report to load a criminal sentence<br>"
+	if(!incident)
+		. += "Insert a encoded SCC security incident report to start sentencing.<br>"
 	else
 		// Charges list
 		. += "<table class='border'>"
 		. += "<tr>"
 		. += "<th colspan='3'>Charges</th>"
 		. += "</tr>"
-		for( var/datum/law/L in incident.charges )
+		for(var/datum/law/L in incident.charges)
 			. += "<tr>"
 			. += "<td><b>[L.name]</b></td>"
 			. += "<td><i>[L.desc]</i></td>"
@@ -290,15 +290,15 @@
 		. += "</table>"
 
 	. += "<br><hr>"
-	. += "<center><A href='?src=\ref[src];button=menu_mode;menu_choice=menu_timer'>Return</a></center>"
+	. += "<center><A href='?src=\ref[src];button=menu_mode;menu_choice=menu_timer'>RETURN</a></center>"
 
 	return .
 
 /obj/machinery/door_timer/attackby(obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/paper/incident))
-		if(!incident )
+		if(!incident)
 			if(import(O, user))
-				ping( "\The [src] pings, \"Successfully imported incident report!\"" )
+				ping("\The [src] pings, \"Successfully imported incident report!\"")
 				user.drop_from_inventory(O,get_turf(src))
 				qdel(O)
 				src.updateUsrDialog()
@@ -311,7 +311,7 @@
 
 	return ..()
 
-/obj/machinery/door_timer/proc/import( var/obj/item/paper/incident/I, var/user )
+/obj/machinery/door_timer/proc/import(var/obj/item/paper/incident/I, var/user)
 	if(!istype(I))
 		to_chat(user, SPAN_ALERT("\The [src] buzzes, \"Could not import the incident report.\""))
 		return 0
@@ -400,7 +400,7 @@
 		set_picture("ai_bsod")
 		return
 	if(src.timing)
-		var/disp1 = id
+		var/disp1 = src
 		var/timeleft = timeleft()
 		var/disp2 = "[add_zero(num2text((timeleft / 60) % 60),2)]~[add_zero(num2text(timeleft % 60), 2)]"
 		if(length(disp2) > CHARS_PER_LINE)
