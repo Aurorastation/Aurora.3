@@ -101,7 +101,6 @@
 /obj/machinery/vending/wallmed2{
 	pixel_x = 28
 	},
-/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "abz" = (
@@ -989,19 +988,19 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
 /obj/item/reagent_containers/hypospray{
-	pixel_x = 5
+	pixel_x = -2;
+	pixel_y = 5
 	},
 /obj/item/reagent_containers/hypospray{
 	layer = 2.99;
-	pixel_x = 5;
+	pixel_x = 4;
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/item/storage/toolbox/mechanical{
-	pixel_x = -1;
-	pixel_y = 5
+	pixel_y = -11
 	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
@@ -2099,10 +2098,19 @@
 /obj/machinery/firealarm/south,
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/toxin{
-	pixel_x = 4;
-	pixel_y = 4
+	pixel_x = -3;
+	pixel_y = 5
 	},
-/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/o2{
+	pixel_x = -3
+	},
+/obj/item/storage/firstaid/adv{
+	pixel_x = 13;
+	pixel_y = 5
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 13
+	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "aTI" = (
@@ -2138,6 +2146,9 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
@@ -2393,20 +2404,9 @@
 "aZR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
+/obj/item/roller,
 /obj/item/roller{
-	pixel_x = -1;
 	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_x = -1;
-	pixel_y = 14
-	},
-/obj/item/storage/firstaid/adv{
-	pixel_x = -12;
-	pixel_y = 4
-	},
-/obj/item/storage/firstaid/fire{
-	pixel_x = -15
 	},
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
@@ -3573,7 +3573,7 @@
 	name = "Primary Armament Exterior Bolts";
 	pixel_x = 22;
 	pixel_y = 22;
-	req_access = list(19, 11);
+	req_access = list(19,11);
 	specialfunctions = 4
 	},
 /obj/structure/cable{
@@ -7618,11 +7618,11 @@
 	},
 /obj/structure/table/standard,
 /obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 5
+	pixel_y = 2
 	},
-/obj/item/pen,
-/obj/item/storage/box/cups,
+/obj/item/pen{
+	pixel_y = 1
+	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
@@ -10062,9 +10062,11 @@
 /obj/item/storage/pill_bottle/mortaphenyl,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/pill_bottle/dylovene,
+/obj/item/storage/pill_bottle/bicaridine,
 /obj/item/reagent_containers/syringe/antibiotic,
 /obj/item/reagent_containers/syringe/antibiotic,
 /obj/effect/floor_decal/corner/white/diagonal,
+/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
 /obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
 /obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
 /obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
@@ -12231,18 +12233,20 @@
 /area/rnd/hallway)
 "gei" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/freezer/organcooler,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 4
 	},
-/obj/item/storage/box/rxglasses,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
 	},
 /obj/item/storage/toolbox/mechanical{
-	pixel_x = -1;
-	pixel_y = 5
+	pixel_x = 2;
+	pixel_y = 12
+	},
+/obj/item/storage/box/freezer/organcooler{
+	pixel_y = 3;
+	pixel_x = -1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -14417,15 +14421,17 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "hed" = (
-/obj/structure/table/standard,
-/obj/item/storage/firstaid/adv{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/storage/firstaid/adv,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
+/obj/structure/closet/crate,
+/obj/item/cane/crutch,
+/obj/item/cane/crutch,
+/obj/item/cane/crutch,
+/obj/item/cane/crutch,
+/obj/item/cane,
+/obj/item/cane,
+/obj/item/storage/box/rxglasses,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "heg" = (
@@ -14715,8 +14721,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "hkn" = (
-/obj/structure/bed/roller,
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/stasis_bed,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "hkt" = (
@@ -14949,7 +14955,6 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/cups,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "hpG" = (
@@ -15325,9 +15330,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hor)
 "hzY" = (
-/obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
+	},
+/obj/machinery/disposal/small{
+	dir = 4;
+	pixel_x = -12
 	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
@@ -15375,7 +15383,6 @@
 /obj/machinery/vending/wallmed2{
 	pixel_x = -28
 	},
-/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "hBz" = (
@@ -15607,13 +15614,26 @@
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 8
 	},
-/obj/item/device/mass_spectrometer,
+/obj/item/device/mass_spectrometer{
+	pixel_x = -7;
+	pixel_y = 1
+	},
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
 	},
-/obj/item/auto_cpr,
-/obj/item/auto_cpr,
+/obj/item/auto_cpr{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/obj/item/auto_cpr{
+	pixel_x = 6;
+	pixel_y = -1
+	},
+/obj/item/auto_cpr{
+	pixel_x = 6;
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "hFF" = (
@@ -16103,22 +16123,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/vitals_monitor{
-	pixel_x = 2;
-	pixel_y = 4
-	},
-/obj/item/vitals_monitor{
-	pixel_x = 2;
-	pixel_y = 4
-	},
-/obj/item/vitals_monitor{
-	pixel_x = 2;
-	pixel_y = 4
-	},
-/obj/item/vitals_monitor{
-	pixel_x = 2;
-	pixel_y = 4
-	},
 /obj/machinery/requests_console{
 	department = "Medical Bay";
 	pixel_x = -32
@@ -16129,6 +16133,13 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
+/obj/item/storage/box/sharps{
+	pixel_y = 9
+	},
+/obj/item/vitals_monitor,
+/obj/item/vitals_monitor,
+/obj/item/vitals_monitor,
+/obj/item/vitals_monitor,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "hUs" = (
@@ -18331,6 +18342,12 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/adv{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/storage/firstaid/adv,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "jeT" = (
@@ -18758,6 +18775,7 @@
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/pill_bottle/dermaline,
+/obj/item/storage/pill_bottle/bicaridine,
 /obj/item/reagent_containers/glass/bottle/antitoxin,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
@@ -20003,13 +20021,13 @@
 /turf/simulated/floor/plating,
 /area/security/prison)
 "jUB" = (
-/obj/structure/bed/roller,
 /obj/item/device/radio/intercom{
 	dir = 8;
 	pixel_x = 20;
 	pixel_y = 1
 	},
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/stasis_bed,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "jUG" = (
@@ -21700,6 +21718,11 @@
 	pixel_x = -28
 	},
 /obj/item/storage/box/masks,
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves{
+	pixel_x = 4;
+	pixel_y = 4
+	},
 /obj/item/storage/box/gloves{
 	pixel_x = 4;
 	pixel_y = 4
@@ -25574,22 +25597,21 @@
 /area/rnd/xenobiology/xenoflora)
 "mPo" = (
 /obj/structure/table/standard,
-/obj/item/roller{
-	pixel_x = -1;
-	pixel_y = 14
-	},
-/obj/item/roller{
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/obj/item/storage/box/sharps{
-	pixel_x = -14
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -17;
+	pixel_y = 2
+	},
+/obj/item/roller{
+	pixel_y = 3
+	},
+/obj/item/roller{
+	pixel_y = 3
+	},
+/obj/item/roller{
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
@@ -27966,10 +27988,20 @@
 /area/storage/secure)
 "obQ" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/cups,
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 9
 	},
+/obj/structure/closet/walllocker/medical{
+	pixel_x = -32
+	},
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/ointment/full,
+/obj/item/stack/medical/ointment/full,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
+/obj/item/reagent_containers/hypospray/autoinjector/dylovene,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "obZ" = (
@@ -28539,11 +28571,13 @@
 	pixel_x = -32
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
 /obj/machinery/light,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "osY" = (
@@ -30582,11 +30616,9 @@
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 1
 	},
-/obj/structure/table/rack,
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/clothing/glasses/safety/goggles,
 /turf/simulated/floor/tiled/white,
 /area/medical/or2)
 "pqE" = (
@@ -32654,7 +32686,6 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "quV" = (
-/obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -38362,12 +38393,7 @@
 "toA" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/spray/cleaner{
-	pixel_x = -7;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/spray/cleaner{
-	pixel_x = 2;
-	pixel_y = 4
+	pixel_y = 3
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -38907,7 +38933,11 @@
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/bodybags{
-	pixel_y = 3
+	pixel_y = -1
+	},
+/obj/item/storage/box/bodybags{
+	pixel_y = 4;
+	pixel_x = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
@@ -39536,7 +39566,6 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
 /obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
 	pixel_y = 32
@@ -39915,11 +39944,9 @@
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
 	},
-/obj/structure/table/rack,
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/clothing/glasses/safety/goggles,
 /turf/simulated/floor/tiled/white,
 /area/medical/or1)
 "ucY" = (
@@ -43152,20 +43179,38 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
-/obj/item/cane/crutch,
-/obj/item/cane/crutch,
-/obj/item/cane/crutch,
-/obj/item/cane,
-/obj/item/cane,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
-/obj/item/storage/box/bloodpacks,
-/obj/item/storage/box/bloodpacks,
-/obj/item/storage/box/syringes,
-/obj/item/storage/box/syringes,
-/obj/item/auto_cpr,
+/obj/item/storage/box/syringes{
+	pixel_x = -2;
+	pixel_y = 10
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 13;
+	pixel_y = 10
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 13;
+	pixel_y = 8
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 13;
+	pixel_y = 5
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 13;
+	pixel_y = 2
+	},
+/obj/item/storage/box/bloodpacks{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/obj/item/storage/box/syringes{
+	pixel_x = -2;
+	pixel_y = 7
+	},
+/obj/item/storage/box/bloodpacks{
+	pixel_x = -5;
+	pixel_y = -1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "vHy" = (
@@ -43765,15 +43810,9 @@
 /turf/simulated/open/airless,
 /area/template_noop)
 "vTY" = (
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 5
-	},
-/obj/machinery/ringer_button{
-	id = "medbay_ringer";
-	pixel_y = 19
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/reception)
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/medical/icu)
 "vUd" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -45239,11 +45278,11 @@
 /area/horizon/maintenance/deck_two/fore/starboard)
 "wAa" = (
 /obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 6;
+	pixel_x = 5;
 	pixel_y = 5
 	},
 /obj/item/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = -4;
+	pixel_x = -6;
 	pixel_y = 5
 	},
 /obj/structure/table/steel,
@@ -47143,10 +47182,6 @@
 "xva" = (
 /obj/machinery/recharger,
 /obj/structure/table/standard,
-/obj/item/reagent_containers/spray/cleaner{
-	pixel_x = -7;
-	pixel_y = 4
-	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
@@ -48526,9 +48561,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/lounge/bar)
 "ycV" = (
-/obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
+	},
+/obj/machinery/ringer_button{
+	id = "medbay_ringer";
+	pixel_y = 17
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
@@ -66413,7 +66451,7 @@ ljk
 hkn
 jUB
 xQB
-wia
+vTY
 dLo
 cGJ
 ond
@@ -66625,7 +66663,7 @@ abD
 seZ
 seZ
 rWq
-rWq
+seZ
 seZ
 rWq
 dDp
@@ -68041,7 +68079,7 @@ eqR
 hiz
 ctz
 bzY
-vTY
+gDq
 fOp
 nLG
 xjC
