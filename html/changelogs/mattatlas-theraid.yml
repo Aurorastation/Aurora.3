@@ -43,4 +43,5 @@ changes:
   - bugfix: "Ship weapons can no longer fire if the ship is not on the overmap."
   - bugfix: "You can no longer target overmap objects if you're not on the overmap."
   - bugfix: "Entry point landmarks now properly move with shuttles."
+  - bugfix: "Fixed the Leviathan activation terminal. You can no longer interact with it before unlocking the safeties."
   - bugfix: "Fixed some chat messages."
