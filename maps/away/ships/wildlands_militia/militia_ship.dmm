@@ -546,17 +546,17 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 30
 	},
-/obj/item/ammo_casing/a762,
-/obj/item/ammo_casing/a762,
-/obj/item/ammo_casing/shotgun/pellet,
-/obj/item/ammo_casing/shotgun/pellet,
-/obj/item/ammo_casing/shotgun/pellet,
-/obj/item/ammo_casing/shotgun/pellet,
-/obj/item/storage/box/beanbags,
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
 /obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/material/knife/trench,
-/obj/item/material/knife/trench,
+/obj/item/storage/box/beanbags,
+/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "goI" = (
@@ -983,14 +983,16 @@
 /area/ship/militia_ship)
 "mZJ" = (
 /obj/effect/landmark/entry_point/starboard{
-	name = "starboard, hallway"
+	name = "starboard, weapon"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary{
 	name = "military hull"
 	},
 /area/ship/militia_ship)
 "nmZ" = (
-/obj/machinery/ammunition_loader/francisca,
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Militia Francisca Rotary Gun"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "ntt" = (
@@ -1323,16 +1325,26 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
 	},
+/obj/item/material/knife/trench,
+/obj/item/material/knife/trench,
 /obj/item/ammo_magazine/mc10mm/leyon,
 /obj/item/ammo_magazine/mc10mm/leyon,
 /obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
 /obj/item/ammo_magazine/mc10mm,
-/obj/item/gun/projectile/leyon,
-/obj/item/gun/projectile/leyon,
-/obj/item/gun/projectile/leyon,
+/obj/item/ammo_magazine/mc10mm,
+/obj/item/ammo_magazine/mc10mm,
+/obj/item/ammo_magazine/mc10mm,
 /obj/item/gun/projectile/tanto,
-/obj/item/material/knife/trench,
-/obj/item/material/knife/trench,
+/obj/item/gun/projectile/tanto,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "tCH" = (
@@ -1345,6 +1357,13 @@
 "uaE" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/ship/militia_ship)
+"ubN" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/machinery/computer/ship/targeting{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "uwT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -1373,6 +1392,16 @@
 	pixel_y = -32
 	},
 /obj/structure/table/rack,
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "uNN" = (
@@ -31848,7 +31877,7 @@ yjk
 yjk
 yjk
 yjk
-yjk
+mhS
 nmZ
 mZJ
 yjk
@@ -32879,7 +32908,7 @@ hBd
 yjk
 vRq
 wmd
-xti
+ubN
 yjk
 mET
 fNZ

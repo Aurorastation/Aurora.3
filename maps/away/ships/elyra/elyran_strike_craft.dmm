@@ -256,6 +256,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"aOc" = (
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "aOo" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/effect/floor_decal/spline/plain{
@@ -263,6 +273,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"aPk" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/space)
 "aTr" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -495,6 +509,8 @@
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/gun/projectile/colt/super,
 /obj/item/ammo_magazine/c45m,
+/obj/item/gun/projectile/plasma/bolter,
+/obj/item/ammo_magazine/plasma/light,
 /turf/simulated/floor/carpet,
 /area/ship/elyran_strike_craft)
 "dBa" = (
@@ -504,6 +520,11 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"dIZ" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "dJo" = (
@@ -620,6 +641,24 @@
 /obj/structure/bed/stool/padded/black,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"eNh" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/table/rack,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/machinery/door/window{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
 "eNl" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -650,6 +689,10 @@
 	dir = 4
 	},
 /turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"eXC" = (
+/obj/structure/viewport,
+/turf/template_noop,
 /area/ship/elyran_strike_craft)
 "eYX" = (
 /obj/effect/floor_decal/corner/beige/full{
@@ -835,6 +878,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/item/ammo_magazine/plasma/light,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "hmO" = (
@@ -885,6 +929,13 @@
 	dir = 8
 	},
 /turf/simulated/floor,
+/area/ship/elyran_strike_craft)
+"iqt" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "iuw" = (
 /obj/machinery/light/small/emergency{
@@ -1061,10 +1112,9 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "kHe" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "aft, armoury"
-	},
-/turf/simulated/wall/shuttle/space_ship,
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "kNK" = (
 /obj/machinery/telecomms/allinone/ship,
@@ -1226,6 +1276,8 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/item/gun/projectile/plasma,
+/obj/item/ammo_magazine/plasma,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "moG" = (
@@ -1437,6 +1489,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"pwt" = (
+/obj/structure/ship_weapon_dummy,
+/obj/effect/landmark/entry_point/fore{
+	name = "aft, weapon bay"
+	},
+/turf/template_noop,
+/area/ship/elyran_strike_craft)
 "pxF" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/sink{
@@ -1515,6 +1574,13 @@
 /obj/item/clothing/accessory/holster/thigh,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"qve" = (
+/obj/machinery/ammunition_loader/grauwolf{
+	weapon_id = "Elyran Grauwolf Flak Battery"
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
 "qvs" = (
 /obj/structure/sink{
 	pixel_y = 21
@@ -1528,6 +1594,10 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"qEp" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/ship/elyran_strike_craft)
 "qJg" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1624,6 +1694,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"rXd" = (
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "sbA" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/elyran_shuttle,
@@ -1698,6 +1778,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"tsx" = (
+/obj/machinery/ship_weapon/grauwolf{
+	pixel_x = -32;
+	pixel_y = -192;
+	weapon_id = "Elyran Grauwolf Flak Battery"
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"txR" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/computer/ship/targeting{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
 "tAW" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -1741,6 +1838,21 @@
 	pixel_y = -2
 	},
 /turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"tVw" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"tWS" = (
+/obj/machinery/door/airlock/security{
+	name = "Fire Control";
+	req_access = list(207)
+	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/elyran_strike_craft)
 "uih" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -1928,6 +2040,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
+"woT" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/structure/table/steel,
+/obj/item/clothing/ears/earmuffs,
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"wqn" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
 "wrJ" = (
 /obj/effect/shuttle_landmark/elyran_shuttle/transit,
 /turf/space/transit/north,
@@ -1977,6 +2105,12 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"xfM" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, weapon bay"
+	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/elyran_strike_craft)
 "xhB" = (
 /obj/machinery/computer/ship/engines{
@@ -2120,6 +2254,12 @@
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/ship/elyran_strike_craft)
+"ykB" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/template_noop,
+/area/space)
 
 (1,1,1) = {"
 xRX
@@ -35121,7 +35261,7 @@ hmO
 atj
 xkT
 vOv
-pcX
+kHe
 aTV
 pcX
 mXc
@@ -35378,7 +35518,7 @@ eNl
 atj
 gLp
 vOv
-pcX
+aOc
 aTV
 pcX
 hvT
@@ -35635,7 +35775,7 @@ mKd
 atj
 qNi
 vOv
-pcX
+rXd
 aTV
 fkv
 hvT
@@ -37964,11 +38104,11 @@ lxP
 lxP
 lxP
 lxP
-xRX
-xRX
-xRX
-xRX
-xRX
+lxP
+lxP
+lxP
+lxP
+lxP
 xRX
 xRX
 xRX
@@ -38221,13 +38361,13 @@ dBa
 xAw
 dBa
 lxP
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+woT
+txR
+aAY
+tVw
+qEp
+aPk
+aPk
 xRX
 xRX
 xRX
@@ -38478,13 +38618,13 @@ mOy
 fLL
 ajL
 lxP
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+aAY
+wqn
+tsx
+dIZ
+qEp
+ykB
+aPk
 xRX
 xRX
 xRX
@@ -38734,14 +38874,14 @@ aBb
 jPG
 aBb
 atP
-kHe
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+lxP
+aAY
+aAY
+dIZ
+dIZ
+pwt
+aPk
+aPk
 xRX
 xRX
 xRX
@@ -38991,12 +39131,12 @@ jab
 aOo
 jab
 aOo
-lxP
-xRX
-xRX
-xRX
-xRX
-xRX
+tWS
+aAY
+aAY
+qve
+aAY
+eXC
 xRX
 xRX
 xRX
@@ -39249,11 +39389,11 @@ cQX
 mgE
 cQX
 lxP
-xRX
-xRX
-xRX
-xRX
-xRX
+eNh
+aAY
+aAY
+iqt
+lxP
 xRX
 xRX
 xRX
@@ -39506,11 +39646,11 @@ lxP
 lxP
 lxP
 lxP
-xRX
-xRX
-xRX
-xRX
-xRX
+lxP
+lxP
+xfM
+lxP
+lxP
 xRX
 xRX
 xRX

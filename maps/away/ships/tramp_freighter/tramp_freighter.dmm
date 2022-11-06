@@ -1305,6 +1305,18 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/gun/projectile/tanto,
 /obj/item/ammo_magazine/mc10mm,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
 "jgW" = (
