@@ -61,11 +61,13 @@
 /obj/effect/shuttle_landmark/orion_express_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_orion_express_ship"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/orion_express_shuttle
 	name = "Orion Express Shuttle"
+	class = "OEV"
+	designation = "Packmaster"
 	desc = "The Troubadour-class skiff is not quite an independent design, and is instead essentially a component of the larger Traveler-class station as a whole, seamlessly attaching and detaching for operations as is necessary. This one's transponder identifies it as part of an Orion Express refueling station."
 	shuttle = "Orion Express Shuttle"
 	max_speed = 1/(3 SECONDS)
@@ -101,7 +103,7 @@
 /obj/effect/shuttle_landmark/orion_express_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_orion_express"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //ee ship
 
@@ -168,11 +170,13 @@
 /obj/effect/shuttle_landmark/ee_spy_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_ee_spy_ship"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/ee_shuttle
 	name = "Einstein Engines Shuttle"
+	class = "EEV"
+	designation = "Canary"
 	desc = "A shuttle used by Einstein Engines. For research purposes only."
 	shuttle = "Einstein Engines Shuttle"
 	max_speed = 1/(3 SECONDS)
@@ -208,4 +212,4 @@
 /obj/effect/shuttle_landmark/ee_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_ee_shuttle"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north

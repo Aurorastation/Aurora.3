@@ -117,6 +117,8 @@
 		data["autopilot"] = autopilot
 		data["manual_control"] = viewing_overmap(user)
 		data["canburn"] = connected.can_burn()
+		data["cancombatroll"] = connected.can_combat_roll()
+		data["cancombatturn"] = connected.can_combat_turn()
 		data["accellimit"] = accellimit*1000
 
 		var/speed = round(connected.get_speed()*1000, 0.01)
@@ -197,14 +199,14 @@
 			qdel(R)
 
 	if (href_list["setx"])
-		var/newx = input("Input new destiniation x coordinate", "Coordinate input", dx) as num|null
+		var/newx = input("Input new destination x coordinate", "Coordinate input", dx) as num|null
 		if(!CanInteract(usr, physical_state))
 			return
 		if (newx)
 			dx = Clamp(newx, 1, world.maxx)
 
 	if (href_list["sety"])
-		var/newy = input("Input new destiniation y coordinate", "Coordinate input", dy) as num|null
+		var/newy = input("Input new destination y coordinate", "Coordinate input", dy) as num|null
 		if(!CanInteract(usr, physical_state))
 			return
 		if (newy)
@@ -217,6 +219,22 @@
 	if (href_list["reset"])
 		dx = 0
 		dy = 0
+
+	if (href_list["roll"])
+		var/ndir = text2num(href_list["roll"])
+		if(ishuman(usr))
+			var/mob/living/carbon/human/H = usr
+			visible_message(SPAN_DANGER("[H] starts tilting the yoke all the way to the [ndir == WEST ? "right" : "left"]!"))
+			if(do_after(H, 1 SECOND))
+				connected.combat_roll(ndir)
+
+	if (href_list["turn"])
+		var/ndir = text2num(href_list["turn"])
+		if(ishuman(usr))
+			var/mob/living/carbon/human/H = usr
+			visible_message(SPAN_DANGER("[H] starts twisting the yoke all the way to the [ndir == WEST ? "right" : "left"]!"))
+			if(do_after(H, 1 SECOND))
+				connected.combat_turn(ndir)
 
 	if (href_list["manual"])
 		viewing_overmap(usr) ? unlook(usr) : look(usr)

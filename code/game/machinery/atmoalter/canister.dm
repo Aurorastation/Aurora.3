@@ -92,6 +92,11 @@
 	start_pressure = 0
 	can_label = 1
 
+/obj/machinery/portable_atmospherics/canister/empty/air
+	name = "Canister: \[Air\]"
+	icon_state = "grey"
+	canister_color = "grey"
+
 /obj/machinery/portable_atmospherics/canister/empty/oxygen
 	name = "Canister: \[O2\]"
 	icon_state = "blue"

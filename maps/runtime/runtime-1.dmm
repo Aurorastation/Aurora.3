@@ -1590,6 +1590,10 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"qx" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/r_wall,
+/area/shuttle/runtime)
 "tT" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1683,6 +1687,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"Eu" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/r_wall,
+/area/maintenance/maintcentral)
 "EN" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
@@ -1798,6 +1806,13 @@
 /area/maintenance/maintcentral)
 "Qe" = (
 /turf/simulated/wall/r_wall,
+/area/shuttle/runtime)
+"Qn" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
 /area/shuttle/runtime)
 "QV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
@@ -2156,12 +2171,12 @@ aa
 aa
 cK
 de
-Qe
+qx
 Vm
 lV
 eQ
 Hn
-dH
+Qn
 de
 cK
 aa
@@ -2290,12 +2305,12 @@ aa
 aa
 cK
 de
-Qe
+qx
 fq
 yE
 Tq
 JW
-dH
+Qn
 de
 cK
 aa
@@ -2741,7 +2756,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 af
 af
@@ -2942,7 +2957,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 af
 ak
@@ -3880,7 +3895,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 ah
 ap
@@ -4215,7 +4230,7 @@ aa
 aa
 ab
 aa
-ac
+Eu
 ae
 ai
 at

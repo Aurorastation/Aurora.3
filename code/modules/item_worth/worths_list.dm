@@ -325,8 +325,8 @@ var/list/worths = list(
 					/obj/item/surgery/scalpel/manager = 1200,
 					/obj/item/surgery/scalpel = 60,
 					/obj/item/surgery/circular_saw = 140,
-					/obj/item/surgery/bonegel = 300,
-					/obj/item/surgery/FixOVein = 500,
+					/obj/item/surgery/bone_gel = 300,
+					/obj/item/surgery/fix_o_vein = 500,
 					/obj/item/surgery/bonesetter = 150,
 					/obj/item/locator = 100,
 					/obj/item/wrench = 30,
@@ -868,5 +868,15 @@ var/list/worths = list(
 					/obj/machinery/wish_granter = - 1000000,
 					/obj/machinery = -1000,
 					/obj/vehicle/bike = 1500,
-					/obj/vehicle = 1000
+					/obj/vehicle = 1000,
+					//Ammunition
+					/obj/item/warhead/longbow/ap = 15000,
+					/obj/item/warhead/longbow/bunker = 25000,
+					/obj/item/warhead/longbow = 10000,
+					/obj/item/ship_ammunition/longbow = 2500,
+					/obj/item/primer/low = 2000,
+					/obj/item/primer/high = 9500,
+					/obj/item/primer = 5500,
+					/obj/item/ship_ammunition/grauwolf_bundle/ap = 12000,
+					/obj/item/ship_ammunition/grauwolf_bundle = 10000
 					) //Must be in descending order. Child before parents, otherwise it doesn't work.,

@@ -28,7 +28,6 @@
 
 /obj/item/mecha_equipment/clamp/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
-
 	if(.)
 		if(istype(target, /obj/machinery/door/firedoor))
 			var/obj/machinery/door/firedoor/FD = target

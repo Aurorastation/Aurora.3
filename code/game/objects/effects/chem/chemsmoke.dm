@@ -226,7 +226,7 @@
 
 /datum/effect/effect/system/smoke_spread/chem/spores/start()
 	..()
-	if(seed.get_trait(TRAIT_SPREAD))
+	if(seed && seed.get_trait(TRAIT_SPREAD))
 		var/sporecount = 0
 		for(var/turf/T in targetTurfs)
 			var/bad_turf = 0
@@ -265,7 +265,8 @@
 
 /datum/effect/effect/system/smoke_spread/chem/spores/spawnSmoke(var/turf/T, var/icon/I, var/smoke_duration, var/dist = 1)
 	var/obj/effect/effect/smoke/chem/spores = new /obj/effect/effect/smoke/chem(location)
-	spores.name = "cloud of [seed.seed_name] [seed.seed_noun]"
+	if(spores)
+		spores.name = "cloud of [seed.seed_name] [seed.seed_noun]"
 	..(T, I, smoke_duration, dist, spores)
 
 
