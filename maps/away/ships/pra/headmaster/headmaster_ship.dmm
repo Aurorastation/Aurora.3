@@ -3563,6 +3563,8 @@
 	dir = 10
 	},
 /obj/machinery/light,
+/obj/structure/table/standard,
+/obj/machinery/media/jukebox/phonograph,
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/mess_hall)
 "qg" = (
