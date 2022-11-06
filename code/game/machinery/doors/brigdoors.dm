@@ -242,7 +242,7 @@
 	. += "<b>Controls [src]</b><hr>"
 
 	if(!incident)
-		. += "Insert a Securty Incident Report to load a criminal sentence<br>"
+		. += "Insert a \"Encoded Security Incident Report\" to start a sentencing.<br>"
 	else
 		// Time Left display (uses releasetime)
 		var/obj/item/card/id/card = incident.card.resolve()
@@ -250,7 +250,7 @@
 		. += "<a href='?src=\ref[src];button=menu_mode;menu_choice=menu_charges'>Charges</a><br>"
 		. += "<b>Sentence</b>: [add_zero( "[minute]", 2 )]:[add_zero( "[second]", 2 )]\t"
 		// Start/Stop timer
-		if( !src.timing )
+		if(!src.timing)
 			. += "<a href='?src=\ref[src];button=activate'>Activate</a><br>"
 		else
 			. += "<a href='?src=\ref[src];button=early_release'>Early Release</a><br>"
@@ -259,11 +259,11 @@
 
 	// Mounted flash controls
 	for(var/obj/machinery/flasher/F in targets)
-		. += "<br><b>Flash</b>: "
+		. += "<br><b>Cell Flash</b>: "
 		if(F.last_flash && (F.last_flash + 150) > world.time)
-			. += "Charging"
+			. += "Charging..."
 		else
-			. += "<A href='?src=\ref[src];button=flash'>Activate</A>"
+			. += "<A href='?src=\ref[src];button=flash'>ACTIVATE</A>"
 
 	. += "<br><hr>"
 	. += "<center><a href='?src=\ref[user];mach_close=brig_timer'>Close</a></center>"
