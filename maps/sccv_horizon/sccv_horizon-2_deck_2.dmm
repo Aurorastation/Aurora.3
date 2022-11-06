@@ -2460,7 +2460,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "bbI" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -5815,7 +5815,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "cOC" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -6482,7 +6482,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "dim" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/plain/cee{
@@ -9379,7 +9379,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "eGl" = (
 /obj/structure/railing/mapped,
 /obj/structure/lattice,
@@ -10726,7 +10726,7 @@
 	c_tag = "Security - Armoury Foyer"
 	},
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "frL" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
@@ -13171,7 +13171,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "gtw" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -13200,6 +13200,7 @@
 	dir = 8;
 	network = list("Security","Armory")
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/armory)
 "guh" = (
@@ -18556,6 +18557,10 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/machinery/door/window/brigdoor/eastright{
+	name = "Heavy Armour Storage";
+	req_access = list(3)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/armory)
 "jeo" = (
@@ -19125,6 +19130,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled,
 /area/security/armory)
 "jpO" = (
@@ -19994,7 +20000,7 @@
 /obj/effect/floor_decal/corner/paleblue/full,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "jMO" = (
 /obj/machinery/door/airlock/glass_security{
 	desc = "It opens and closes. Hazardous lifeforms ahead. Caution advised!";
@@ -31407,7 +31413,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
-/area/security/armory)
+/area/security/main)
 "pDn" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -32325,7 +32331,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "pZX" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
@@ -36057,7 +36063,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "rOw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -36230,7 +36236,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "rSG" = (
 /turf/simulated/open,
 /area/operations/office)
@@ -36797,8 +36803,11 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "shR" = (
 /obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Tesla Room 2"
@@ -38763,6 +38772,9 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
+/obj/structure/fireaxecabinet{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/armory)
 "tmG" = (
@@ -40247,8 +40259,11 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "tYK" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -48713,7 +48728,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "xSP" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -49294,7 +49309,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
-/area/security/armory)
+/area/security/main)
 "yeY" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8;
@@ -77160,9 +77175,9 @@ cxO
 ucq
 cxO
 sOd
-vPj
-vPj
-vPj
+sOd
+sOd
+sOd
 vPj
 vPj
 vPj
@@ -77362,7 +77377,7 @@ jih
 cwL
 xtR
 ebT
-ouo
+ifU
 yeT
 jMB
 qtN
@@ -77564,7 +77579,7 @@ oTr
 gem
 nCg
 ijp
-ouo
+ifU
 shI
 gtn
 xLE
@@ -77766,7 +77781,7 @@ kbn
 aIH
 rvM
 ngB
-ouo
+ifU
 eGh
 pZV
 qtN
@@ -78170,7 +78185,7 @@ kbn
 sBR
 wcv
 oJm
-ouo
+ifU
 fqS
 baJ
 vPj
@@ -78372,7 +78387,7 @@ kbn
 kbn
 lMO
 xIH
-ouo
+ifU
 tYB
 dhZ
 kHb
@@ -78574,7 +78589,7 @@ bUE
 aQR
 qQt
 sqE
-ouo
+ifU
 rSE
 rOt
 kHb
