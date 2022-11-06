@@ -470,9 +470,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "fCv" = (
-/obj/machinery/computer/ship/engines{
-	dir = 1
-	},
+/obj/machinery/computer/ship/targeting,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "fJL" = (
@@ -520,6 +518,7 @@
 /obj/item/spacecash/c200,
 /obj/item/spacecash/c20,
 /obj/item/spacecash/c20,
+/obj/item/grenade/smokebomb,
 /obj/item/ammo_magazine/c762,
 /obj/item/gun/projectile/automatic/rifle/shorty,
 /turf/simulated/floor/carpet/rubber,
@@ -707,6 +706,12 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
+/obj/item/melee/classic_baton,
+/obj/item/melee/baton/cattleprod,
+/obj/item/handcuffs/cable/random,
+/obj/item/handcuffs/cable/random,
+/obj/item/handcuffs/cable/random,
+/obj/item/gun/energy/taser,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "hWh" = (
@@ -957,8 +962,9 @@
 /turf/simulated/floor/plating,
 /area/ship/militia_ship)
 "mwP" = (
-/obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "mxc" = (
@@ -1384,13 +1390,6 @@
 "uaE" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/ship/militia_ship)
-"ubN" = (
-/obj/effect/decal/cleanable/blood/oil,
-/obj/machinery/computer/ship/targeting{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "uwT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -32932,7 +32931,7 @@ hBd
 yjk
 vRq
 wmd
-ubN
+xti
 yjk
 mET
 fNZ
