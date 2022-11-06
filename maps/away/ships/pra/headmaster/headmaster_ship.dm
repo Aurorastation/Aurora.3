@@ -59,12 +59,11 @@
 //shuttle
 /obj/effect/overmap/visitable/ship/landable/headmaster_shuttle
 	name = "Orbital Fleet Shuttle"
+	desc = "A simple and reliable shuttle design used by the Orbital Fleet."
 	icon_state = "shuttle_grey"
 	moving_state = "shuttle_grey_moving"
 	class = "PRAMV"
 	designation = "Yve'kha"
-	desc = "A simple and reliable shuttle design used by the Orbital Fleet."
-	shuttle = "Orbital Fleet Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
@@ -89,7 +88,7 @@
 
 /obj/effect/shuttle_landmark/headmaster_shuttle/hangar
 	name = "Adhomian Freight Shuttle Hangar"
-	landmark_tag = "nav_headmaster_shuttle"
+	landmark_tag = "nav_hangar_headmaster_shuttle"
 	docking_controller = "headmaster_shuttle_dock"
 	base_area = /area/headmaster_ship/hangar
 	base_turf = /turf/simulated/floor/plating
