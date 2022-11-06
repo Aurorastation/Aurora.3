@@ -23289,9 +23289,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "lDQ" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 32
-	},
 /obj/structure/closet/secure_closet/brig{
 	id = "cell_1"
 	},
@@ -38945,9 +38942,6 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/horizon/exterior)
 "tsy" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 32
-	},
 /obj/structure/closet/secure_closet/brig{
 	id = "cell_2"
 	},
