@@ -11,6 +11,7 @@
 	var/written_message
 	var/wielded = FALSE
 	var/caliber = SHIP_CALIBER_NONE
+	var/burst = 0 //If set to a number, this many projectiles will spawn to the side of the main projectile.
 	var/impact_type = SHIP_AMMO_IMPACT_HE //This decides what happens when the ammo hits. Is it a bunkerbuster? HE? AP?
 	var/ammunition_status = SHIP_AMMO_STATUS_GOOD //Currently unused, but will be relevant for chemical ammo.
 	var/ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
@@ -216,4 +217,13 @@
 	return ..()
 
 /obj/item/projectile/ship_ammo/proc/on_translate(var/turf/entry_turf, var/target_turf) //This proc is called when the projectile enters a new ship's overmap zlevel.
-	return
+	if(ammo.burst)
+		for(var/i = 1 to ammo.burst)
+			var/turf/new_turf = get_random_turf_in_range(entry_turf, ammo.burst + rand(0, ammo.burst),  ammo.burst + rand(0, ammo.burst), TRUE, TRUE)
+			var/obj/item/projectile/ship_ammo/pellet = new type(new_turf)
+			pellet.ammo = new ammo.type
+			pellet.ammo.origin = ammo.origin
+			pellet.ammo.impact_type = ammo.impact_type
+			pellet.dir = dir
+			var/turf/front_turf = get_step(pellet, pellet.dir)
+			pellet.launch_projectile(front_turf)

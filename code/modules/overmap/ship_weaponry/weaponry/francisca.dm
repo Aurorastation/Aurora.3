@@ -21,6 +21,7 @@
 	impact_type = SHIP_AMMO_IMPACT_FMJ
 	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY|SHIP_AMMO_FLAG_INFLAMMABLE
 	caliber = SHIP_CALIBER_40MM
+	burst = 6
 
 /obj/item/ship_ammunition/francisca/ap
 	name = "40mm AP ammunition box"
@@ -35,7 +36,7 @@
 	icon_state = "small"
 	damage = 50
 	armor_penetration = 50
-	penetrating = 1
+	penetrating = 2
 
 /obj/item/projectile/ship_ammo/francisca/ap
 	name = "40mm AP bullet"
