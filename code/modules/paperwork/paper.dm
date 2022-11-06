@@ -679,16 +679,16 @@
 	icon_state = "pamphlet"
 
 /obj/item/paper/sentencing/New()
-	var/T = parsepencode({"\[center\]\[logo_scc_small\]\[/center\]
+	var/T = parsepencode(
+		{"\[center\]\[logo_scc_small\]\[/center\]
 		\[center\]\[b\]\[i\]Operation of Sentencing Consoles\[/b\]\[/i\]\[hr\]
 		\[small\]In compliance with SCC criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing consoles. The operation of these consoles, or computers, is quite simple:
 		While preparing a convicted individual, remove their ID and have the console scan it.\[br\]
 		Next, select all applicable charges from the menu available. The console will calculate the sentence based on the minimum recommended sentence - any variables such as repeat offense will need to be manually accounted for.\[br\]
 		After all the charges have been applied, the processing officer is invited to add a short description of the incident, any related evidence, and any witness testimonies.\[br\]
 		Simply press the option "Render Guilty", and the sentence is complete! The convict's records will be automatically updated to reflect their crimes. You should now insert the printed receipt into the cell timer, and begin processing.\[br\]
-		\[hr\]
-		Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form report inserted into them.
-		\[small\]FOR USE BY SCC SECURITY ONLY\[/small\]\[br\]"})
+		\[hr\]Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident form report inserted into them."}
+	)
 	info = T
 
 	..()
