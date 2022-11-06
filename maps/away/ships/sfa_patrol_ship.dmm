@@ -36,6 +36,10 @@
 "acx" = (
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "aej" = (
@@ -2238,10 +2242,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "qcp" = (
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
-	},
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/red,
 /mob/living/heavy_vehicle/premade/ripley/loader,
@@ -2434,11 +2434,16 @@
 /turf/template_noop,
 /area/space)
 "sAC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/suit/space/void/sol/sfa,
+/obj/item/clothing/head/helmet/space/void/sol/sfa,
 /obj/machinery/light{
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "sBA" = (
@@ -32512,7 +32517,7 @@ vfY
 lwj
 sBA
 lwj
-lwj
+sAC
 yjk
 sBA
 shH
@@ -32769,7 +32774,7 @@ sBA
 sBA
 sBA
 sBA
-sAC
+shH
 yjk
 fva
 shH
