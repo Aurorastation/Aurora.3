@@ -431,5 +431,6 @@
 			for(var/obj/effect/O in V.generic_waypoints)
 				. += capitalize_first_letters(O.name)
 				names_to_entries[capitalize_first_letters(O.name)] = O
+		. = sortList(.)
 	if(!length(.))
 		. += SHIP_HAZARD_TARGET //No entrypoints == hazard
