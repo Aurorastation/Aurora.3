@@ -61,11 +61,13 @@
 /obj/effect/shuttle_landmark/fsf_patrol_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_fsf_patrol_ship"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/fsf_shuttle
 	name = "FSF Shuttle"
+	class = "FSFV"
+	designation = "Condottiere"
 	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one's transponder identifies it as belonging to the Free Solarian Fleets, a Solarian warlord's mercenary fleet."
 	shuttle = "FSF Shuttle"
 	max_speed = 1/(3 SECONDS)
@@ -101,4 +103,4 @@
 /obj/effect/shuttle_landmark/fsf_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_fsf_shuttle"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
