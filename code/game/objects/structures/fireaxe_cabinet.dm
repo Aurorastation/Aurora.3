@@ -141,6 +141,3 @@
 		to_chat(user, SPAN_NOTICE("You [unlocked ? "disable" : "enable"] the maglock."))
 
 	update_icon()
-
-/obj/structure/fireaxecabinet/armoury
-	name = "armoury fire axe cabinet"
