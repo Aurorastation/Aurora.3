@@ -154,9 +154,6 @@
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "aUf" = (
@@ -249,6 +246,10 @@
 	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/tcfl_shuttle)
+"cwQ" = (
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "cBz" = (
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/tcfl_shuttle)
@@ -982,9 +983,6 @@
 	dir = 6
 	},
 /obj/structure/table/rack,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
@@ -2049,7 +2047,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "mmq" = (
-/obj/machinery/light/small{
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3030,6 +3028,12 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
 /area/space)
+"sOz" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "sPy" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
@@ -33317,7 +33321,7 @@ hNy
 hNy
 hNy
 lmS
-xji
+cwQ
 yjk
 xRX
 xRX
@@ -34086,7 +34090,7 @@ yjk
 tis
 yjk
 yjk
-xji
+mmq
 mwP
 fsa
 tWw
@@ -34343,7 +34347,7 @@ dTd
 oge
 bYX
 yjk
-mmq
+xji
 fsa
 fsa
 hSW
@@ -34857,9 +34861,9 @@ jWO
 jWO
 jWO
 yjk
+sOz
 xji
-xji
-xji
+cwQ
 yjk
 xRX
 xRX

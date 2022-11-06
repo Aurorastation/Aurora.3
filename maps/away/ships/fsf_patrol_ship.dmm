@@ -819,9 +819,6 @@
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "fXG" = (
@@ -1514,6 +1511,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
+"kTl" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, workshop"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/fsf_patrol_ship)
 "kTD" = (
 /obj/structure/table/steel,
 /obj/item/folder/white,
@@ -2103,9 +2106,6 @@
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "qcz" = (
@@ -2390,6 +2390,12 @@
 	pixel_y = -30
 	},
 /turf/simulated/floor,
+/area/ship/fsf_patrol_ship)
+"tJH" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, weapons control"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/ship/fsf_patrol_ship)
 "tKM" = (
 /obj/machinery/light{
@@ -39021,13 +39027,13 @@ qyG
 yjk
 yjk
 yjk
+kTl
 yjk
 yjk
 yjk
 yjk
 yjk
-yjk
-yjk
+tJH
 yjk
 yjk
 yjk

@@ -353,9 +353,6 @@
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "bxR" = (
@@ -1645,6 +1642,12 @@
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship)
+"kXS" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, workshop"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/sfa_patrol_ship)
 "kYY" = (
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship)
@@ -1914,6 +1917,12 @@
 "nit" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, equipment room"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/sfa_patrol_ship)
+"niu" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, weapons control"
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship)
@@ -2681,9 +2690,6 @@
 /area/ship/sfa_patrol_ship)
 "vyZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
@@ -39160,13 +39166,13 @@ pBY
 yjk
 yjk
 yjk
+kXS
 yjk
 yjk
 yjk
 yjk
 yjk
-yjk
-yjk
+niu
 yjk
 yjk
 yjk

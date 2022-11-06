@@ -34,9 +34,6 @@
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
-/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "ajL" = (
@@ -523,6 +520,8 @@
 /obj/item/spacecash/c200,
 /obj/item/spacecash/c20,
 /obj/item/spacecash/c20,
+/obj/item/ammo_magazine/c762,
+/obj/item/gun/projectile/automatic/rifle/shorty,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "fQq" = (
@@ -1109,6 +1108,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
+"ome" = (
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor,
+/area/ship/militia_ship)
 "pdv" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, mess hall"
@@ -1467,9 +1471,6 @@
 "voc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
-/obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
@@ -33427,7 +33428,7 @@ mkb
 yjk
 abh
 wmd
-vRq
+ome
 yjk
 yjk
 iGK
