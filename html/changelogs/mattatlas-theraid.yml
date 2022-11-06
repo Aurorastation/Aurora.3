@@ -45,3 +45,4 @@ changes:
   - bugfix: "Entry point landmarks now properly move with shuttles."
   - bugfix: "Fixed the Leviathan activation terminal. You can no longer interact with it before unlocking the safeties."
   - bugfix: "Fixed some chat messages."
+  - bugfix: "Entry point lists are now sorted."

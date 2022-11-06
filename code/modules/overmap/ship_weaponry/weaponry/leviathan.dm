@@ -370,6 +370,7 @@
 					possible_entry_points[O.name] = O
 				for(var/obj/effect/O in V.entry_points)
 					possible_entry_points[O.name] = O
+				possible_entry_points = sortList(possible_entry_points)
 			if(istype(linked.targeting, /obj/effect/overmap/event))
 				possible_entry_points += SHIP_HAZARD_TARGET
 			var/targeted_landmark = input(user, "Select an entry point.", "Leviathan Control") as null|anything in possible_entry_points
