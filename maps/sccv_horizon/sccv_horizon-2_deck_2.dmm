@@ -1159,8 +1159,10 @@
 	id = "cell_3";
 	pixel_x = 32
 	},
-/obj/item/bedsheet/blue,
-/obj/structure/bed/padded,
+/obj/structure/closet/secure_closet/brig{
+	id = "cell_3"
+	},
+/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "ayc" = (
@@ -4271,8 +4273,10 @@
 	id = "cell_2";
 	pixel_y = -32
 	},
-/obj/item/bedsheet/blue,
-/obj/structure/bed/padded,
+/obj/structure/closet/secure_closet/brig{
+	id = "cell_2"
+	},
+/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "bUE" = (
@@ -6333,11 +6337,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -18437,8 +18441,10 @@
 	id = "cell_1";
 	pixel_y = -32
 	},
-/obj/item/bedsheet/blue,
-/obj/structure/bed/padded,
+/obj/structure/closet/secure_closet/brig{
+	id = "cell_1"
+	},
+/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "jbB" = (
@@ -19890,16 +19896,15 @@
 /turf/simulated/floor/tiled/ramp,
 /area/maintenance/wing/starboard)
 "jJY" = (
-/obj/machinery/disposal/small/north,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /obj/item/device/radio/intercom{
 	pixel_y = -24;
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
@@ -23288,16 +23293,6 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
-"lDQ" = (
-/obj/structure/closet/secure_closet/brig{
-	id = "cell_1"
-	},
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/security,
-/turf/simulated/floor/tiled,
-/area/security/prison)
 "lDT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -31072,16 +31067,15 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/storage/tech)
 "psg" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
@@ -38942,13 +38936,11 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/horizon/exterior)
 "tsy" = (
-/obj/structure/closet/secure_closet/brig{
-	id = "cell_2"
-	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/security,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "tsA" = (
@@ -44727,8 +44719,13 @@
 	id = "cell_4";
 	pixel_x = 32
 	},
-/obj/item/bedsheet/blue,
-/obj/structure/bed/padded,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/structure/closet/secure_closet/brig{
+	id = "cell_4"
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "way" = (
@@ -44900,13 +44897,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "wdF" = (
-/obj/structure/closet/secure_closet/brig{
-	id = "cell_3"
-	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/security,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "wdY" = (
@@ -46224,12 +46219,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "wJh" = (
-/obj/machinery/firealarm/south,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
+	},
+/obj/item/device/radio/intercom{
+	pixel_y = -24;
+	dir = 1
+	},
+/obj/machinery/disposal/small/north,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
@@ -46681,11 +46680,13 @@
 	dir = 8;
 	pixel_x = 8
 	},
-/obj/machinery/newscaster/security_unit{
-	pixel_x = 32
-	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
+	},
+/obj/machinery/firealarm/east,
+/obj/machinery/newscaster/security_unit{
+	pixel_x = 32;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
@@ -46861,16 +46862,18 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "wWS" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "1-8"
 	},
-/obj/structure/closet/secure_closet/brig{
-	id = "cell_4"
-	},
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "wXp" = (
@@ -48228,11 +48231,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "xHB" = (
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
@@ -74331,12 +74335,12 @@ aaa
 wDa
 xHB
 wJh
-plL
+aaa
 wdF
 gGI
 pvS
-amI
-wWS
+aac
+wdF
 ddH
 bYu
 pSv
@@ -74533,13 +74537,13 @@ vCs
 plb
 psg
 jJY
-aaa
+plL
 aya
 pNG
 qlU
-aac
+amI
 vZY
-pNG
+wWS
 dDo
 pSv
 xer
@@ -76954,7 +76958,7 @@ bTy
 lGQ
 nzv
 aac
-lDQ
+tsy
 jbo
 aac
 sYY
