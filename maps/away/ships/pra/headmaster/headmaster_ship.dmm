@@ -35,7 +35,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/gun_deck)
 "aj" = (
 /obj/structure/bed/stool/chair/shuttle{

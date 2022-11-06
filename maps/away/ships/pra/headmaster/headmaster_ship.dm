@@ -93,7 +93,7 @@
 
 /obj/effect/shuttle_landmark/headmaster_shuttle/hangar
 	name = "Orbital Fleet Shuttle Hangar"
-	landmark_tag = "nav_hangar_headmaster_shuttle"
+	landmark_tag = "nav_headmaster_shuttle"
 	docking_controller = "headmaster_shuttle_dock"
 	base_area = /area/headmaster_ship/hangar
 	base_turf = /turf/simulated/floor/plating
