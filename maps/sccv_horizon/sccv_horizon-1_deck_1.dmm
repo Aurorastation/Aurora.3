@@ -14599,7 +14599,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "intrepid_cockpit";
 	name = "Close-in Weapons System Bay";
-	req_access = list(73)
+	req_access = null;
+	req_one_access = list(73, 31)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -20754,7 +20755,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/door/window/eastright,
+/obj/machinery/door/window/eastright{
+	req_access = list(73)
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},

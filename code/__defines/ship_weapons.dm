@@ -8,6 +8,7 @@
 #define SHIP_GUN_ERROR_NO_AMMO "no ammunition loaded"
 
 #define NO_PROJECTILE "no projectile"
+#define SHIP_HAZARD_TARGET "Automatic Hazard Targeting"
 
 #define SHIP_AMMO_CAN_HIT_HAZARDS 1
 #define SHIP_AMMO_CAN_HIT_SHIPS 2

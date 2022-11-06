@@ -14,7 +14,7 @@
 		var/mob/living/carbon/human/H = user
 		if(istype(I, /obj/item/primer) && !primer)
 			var/obj/item/primer/P = I
-			visible_message(SPAN_NOTICE("You start connecting \the [P] to the casing..."), SPAN_NOTICE("[H] starts connecting \the [P] to the casing..."))
+			user.visible_message(SPAN_NOTICE("[H] starts connecting \the [P] to the casing..."), SPAN_NOTICE("You start connecting \the [P] to the casing..."))
 			if(do_after(H, 3 SECONDS))
 				visible_message(SPAN_NOTICE("You connect \the [P] to the casing!"), SPAN_NOTICE("[H] connects \the [P] to the casing!"))
 				H.drop_from_inventory(P)
@@ -22,7 +22,7 @@
 				playsound(src, 'sound/machines/rig/rig_deploy.ogg')
 		if(istype(I, /obj/item/warhead) && !warhead)
 			var/obj/item/warhead/W = I
-			visible_message(SPAN_NOTICE("You start connecting \the [W] to the casing..."), SPAN_NOTICE("[H] starts connecting \the [W] to the casing..."))
+			user.visible_message( SPAN_NOTICE("[H] starts connecting \the [W] to the casing..."), SPAN_NOTICE("You start connecting \the [W] to the casing..."))
 			if(do_after(H, 5 SECONDS))
 				visible_message(SPAN_NOTICE("You connect \the [W] to the casing!"), SPAN_NOTICE("[H] connects \the [W] to the casing!"))
 				H.drop_from_inventory(W)
@@ -122,8 +122,8 @@
 	warhead_type = SHIP_AMMO_IMPACT_HE
 	slowdown = 2
 	var/drop_counter = 0
-	var/cookoff_devastation = 2
-	var/cookoff_heavy = 2
+	var/cookoff_devastation = 0
+	var/cookoff_heavy = 3
 	var/cookoff_light = 4
 
 /obj/item/warhead/longbow/too_heavy_to_throw()
@@ -162,7 +162,7 @@
 	icon_state = "armor_piercing_obj"
 	warhead_state = "armor_piercing"
 	warhead_type = SHIP_AMMO_IMPACT_AP
-	cookoff_devastation = 1
+	cookoff_devastation = 0
 	cookoff_heavy = 2
 	cookoff_light = 6
 

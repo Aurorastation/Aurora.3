@@ -398,7 +398,10 @@
 		var/obj/effect/landmark/LM
 		if(!selected_entrypoint)
 			return
-		if(selected_entrypoint == "Automatic Hazard Targeting")
+		if(!istype(connected.loc, /turf/unsimulated/map))
+			to_chat(usr, SPAN_WARNING("The safeties are engaged! You need to be undocked in order to fire."))
+			return
+		if(selected_entrypoint == SHIP_HAZARD_TARGET || !selected_entrypoint)
 			LM = null
 		else
 			LM = names_to_entries[selected_entrypoint]
@@ -428,5 +431,6 @@
 			for(var/obj/effect/O in V.generic_waypoints)
 				. += capitalize_first_letters(O.name)
 				names_to_entries[capitalize_first_letters(O.name)] = O
+		. = sortList(.)
 	if(!length(.))
-		. += "Automatic Hazard Targeting" //No entrypoints == hazard
+		. += SHIP_HAZARD_TARGET //No entrypoints == hazard
