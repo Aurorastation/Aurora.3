@@ -1008,7 +1008,7 @@
 /obj/structure/closet,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/storage/belt/security,
+/obj/item/storage/belt/security/full,
 /obj/item/storage/belt/security,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -1187,9 +1187,14 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(203)
 	},
-/obj/item/gun/energy/taser,
-/obj/item/gun/energy/taser,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/grenade/frag,
+/obj/item/storage/box/flashshells,
+/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shotgunshells,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/item/ammo_magazine/c762/sol,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "hZq" = (
@@ -2126,6 +2131,11 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/smokebomb,
+/obj/item/gun/energy/taser,
+/obj/item/gun/energy/taser,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "oSU" = (
@@ -2742,12 +2752,6 @@
 	req_access = list(203)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/flashshells,
-/obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/gun/projectile/automatic/rifle/sol,
-/obj/item/ammo_magazine/c762/sol,
 /obj/item/gun/projectile/automatic/c20r/sol,
 /obj/item/gun/projectile/automatic/c20r/sol,
 /obj/item/gun/projectile/automatic/c20r/sol,

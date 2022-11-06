@@ -2603,6 +2603,8 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/belt/security,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "pUq" = (
@@ -2615,6 +2617,8 @@
 /obj/item/storage/box/zipties,
 /obj/item/device/flash,
 /obj/item/reagent_containers/spray/pepper,
+/obj/item/storage/box/smokebombs,
+/obj/item/storage/belt/security,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "pVN" = (

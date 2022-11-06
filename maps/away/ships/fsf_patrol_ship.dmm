@@ -964,8 +964,8 @@
 /obj/structure/closet,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/storage/belt/security,
-/obj/item/storage/belt/security,
+/obj/item/storage/belt/security/full,
+/obj/item/storage/belt/security/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "gAS" = (
@@ -1146,11 +1146,16 @@
 /area/ship/fsf_patrol_ship)
 "hZe" = (
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (rifles)";
 	req_access = list(203)
 	},
-/obj/item/gun/energy/taser,
-/obj/item/gun/energy/taser,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/grenade/frag,
+/obj/item/grenade/frag,
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/item/ammo_magazine/c762/sol,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "hZq" = (
@@ -2025,6 +2030,7 @@
 /area/ship/fsf_patrol_ship)
 "oRr" = (
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (LTL)";
 	req_access = list(203)
 	},
 /obj/item/storage/box/zipties,
@@ -2036,6 +2042,10 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/smokebombs,
+/obj/item/gun/energy/taser,
+/obj/item/gun/energy/taser,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "oSU" = (
@@ -2594,6 +2604,7 @@
 /area/ship/fsf_patrol_ship)
 "vAi" = (
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (SMGs)";
 	req_access = list(203)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2606,10 +2617,6 @@
 /obj/item/ammo_magazine/a10mm,
 /obj/item/ammo_magazine/a10mm,
 /obj/item/ammo_magazine/a10mm,
-/obj/item/gun/projectile/automatic/rifle/sol,
-/obj/item/gun/projectile/automatic/rifle/sol,
-/obj/item/ammo_magazine/c762/sol,
-/obj/item/ammo_magazine/c762/sol,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "vCD" = (
@@ -2761,6 +2768,7 @@
 /area/ship/fsf_patrol_ship)
 "wTJ" = (
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (sidearms)";
 	req_access = list(203)
 	},
 /obj/item/gun/projectile/pistol/sol,

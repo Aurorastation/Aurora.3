@@ -1174,7 +1174,7 @@
 	},
 /obj/item/clothing/head/hijab/black,
 /obj/item/clothing/accessory/badge/passcard/elyra,
-/obj/item/storage/belt/security,
+/obj/item/storage/belt/security/full,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/melee/telebaton,
 /obj/machinery/light{
@@ -1183,6 +1183,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/item/storage/box/zipties,
+/obj/item/storage/box/flashbangs,
 /obj/item/gun/energy/taser,
 /obj/item/clothing/accessory/holster/thigh,
 /turf/simulated/floor/tiled,
@@ -1289,6 +1290,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/item/grenade/frag,
 /obj/item/gun/projectile/plasma,
 /obj/item/ammo_magazine/plasma,
 /turf/simulated/floor/tiled,
@@ -1599,13 +1601,14 @@
 	},
 /obj/item/clothing/head/hijab/black,
 /obj/item/clothing/accessory/badge/passcard/elyra,
-/obj/item/storage/belt/security,
+/obj/item/storage/belt/security/full,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
 /obj/item/melee/telebaton,
 /obj/item/storage/box/zipties,
+/obj/item/storage/box/smokebombs,
 /obj/item/gun/energy/taser,
 /obj/item/clothing/accessory/holster/thigh,
 /turf/simulated/floor/tiled,
