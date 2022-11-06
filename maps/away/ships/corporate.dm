@@ -61,7 +61,7 @@
 /obj/effect/shuttle_landmark/orion_express_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_orion_express_ship"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/orion_express_shuttle
@@ -103,7 +103,7 @@
 /obj/effect/shuttle_landmark/orion_express_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_orion_express"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //ee ship
 
@@ -170,7 +170,7 @@
 /obj/effect/shuttle_landmark/ee_spy_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_ee_spy_ship"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/ee_shuttle
@@ -212,4 +212,4 @@
 /obj/effect/shuttle_landmark/ee_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_ee_shuttle"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north

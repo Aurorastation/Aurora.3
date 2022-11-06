@@ -385,7 +385,7 @@
 /area/ship/sfa_patrol_ship)
 "bNj" = (
 /obj/effect/shuttle_landmark/sfa_patrol_ship/transit,
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "bOZ" = (
 /obj/machinery/constructable_frame/temp_deco,
@@ -608,7 +608,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "etL" = (
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "ewW" = (
 /obj/machinery/cryopod{
@@ -2233,7 +2233,7 @@
 /area/ship/sfa_patrol_ship)
 "que" = (
 /obj/effect/step_trigger/teleporter,
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "qwc" = (
 /obj/machinery/access_button{
@@ -2383,7 +2383,7 @@
 "sOb" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "sSs" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2788,7 +2788,7 @@
 /area/ship/sfa_patrol_ship)
 "wrJ" = (
 /obj/effect/shuttle_landmark/sfa_shuttle/transit,
-/turf/space/transit/south,
+/turf/space/transit/north,
 /area/space)
 "wxY" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -3278,7 +3278,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (2,1,1) = {"
 xRX
@@ -3535,7 +3535,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (3,1,1) = {"
 xRX
@@ -3792,7 +3792,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (4,1,1) = {"
 xRX
@@ -4049,7 +4049,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (5,1,1) = {"
 xRX
@@ -4306,7 +4306,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (6,1,1) = {"
 xRX
@@ -4563,7 +4563,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (7,1,1) = {"
 xRX
@@ -4820,7 +4820,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (8,1,1) = {"
 xRX
@@ -5077,7 +5077,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (9,1,1) = {"
 xRX
@@ -5334,7 +5334,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (10,1,1) = {"
 xRX
@@ -5591,7 +5591,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (11,1,1) = {"
 xRX
@@ -5848,7 +5848,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (12,1,1) = {"
 xRX
@@ -6105,7 +6105,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (13,1,1) = {"
 xRX
@@ -6362,7 +6362,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (14,1,1) = {"
 xRX
@@ -6619,7 +6619,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (15,1,1) = {"
 xRX
@@ -6876,7 +6876,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (16,1,1) = {"
 xRX
@@ -7133,7 +7133,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (17,1,1) = {"
 xRX
@@ -7390,7 +7390,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (18,1,1) = {"
 xRX
@@ -7647,7 +7647,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (19,1,1) = {"
 xRX
@@ -7904,7 +7904,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (20,1,1) = {"
 xRX
@@ -8161,7 +8161,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (21,1,1) = {"
 xRX
@@ -8418,7 +8418,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (22,1,1) = {"
 xRX
@@ -8675,7 +8675,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (23,1,1) = {"
 xRX
@@ -8932,7 +8932,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (24,1,1) = {"
 xRX
@@ -9189,7 +9189,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (25,1,1) = {"
 xRX
@@ -9446,7 +9446,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (26,1,1) = {"
 xRX
@@ -9703,7 +9703,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (27,1,1) = {"
 xRX
@@ -9960,7 +9960,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (28,1,1) = {"
 xRX
@@ -10217,7 +10217,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (29,1,1) = {"
 xRX
@@ -10474,7 +10474,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (30,1,1) = {"
 xRX
@@ -10731,7 +10731,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (31,1,1) = {"
 xRX
@@ -10988,7 +10988,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (32,1,1) = {"
 xRX
@@ -11245,7 +11245,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (33,1,1) = {"
 xRX
@@ -11502,7 +11502,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (34,1,1) = {"
 xRX
@@ -11759,7 +11759,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (35,1,1) = {"
 xRX
@@ -12016,7 +12016,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (36,1,1) = {"
 xRX
@@ -12273,7 +12273,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (37,1,1) = {"
 xRX
@@ -12530,7 +12530,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (38,1,1) = {"
 xRX
@@ -12787,7 +12787,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (39,1,1) = {"
 xRX
@@ -13044,7 +13044,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (40,1,1) = {"
 xRX
@@ -13301,7 +13301,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (41,1,1) = {"
 xRX
@@ -13558,7 +13558,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (42,1,1) = {"
 xRX
@@ -13815,7 +13815,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (43,1,1) = {"
 xRX
@@ -14072,7 +14072,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (44,1,1) = {"
 xRX
@@ -14329,7 +14329,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (45,1,1) = {"
 xRX
@@ -14586,7 +14586,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (46,1,1) = {"
 xRX
@@ -14843,7 +14843,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (47,1,1) = {"
 xRX
@@ -15100,7 +15100,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (48,1,1) = {"
 xRX
@@ -15357,7 +15357,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (49,1,1) = {"
 xRX
@@ -15614,7 +15614,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (50,1,1) = {"
 xRX
@@ -15871,7 +15871,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (51,1,1) = {"
 xRX
@@ -16128,7 +16128,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (52,1,1) = {"
 xRX
@@ -16385,7 +16385,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (53,1,1) = {"
 xRX
@@ -16642,7 +16642,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (54,1,1) = {"
 xRX
@@ -16899,7 +16899,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (55,1,1) = {"
 xRX
@@ -17156,7 +17156,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (56,1,1) = {"
 xRX
@@ -17413,7 +17413,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (57,1,1) = {"
 xRX
@@ -17670,7 +17670,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (58,1,1) = {"
 xRX
@@ -17927,7 +17927,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (59,1,1) = {"
 xRX
@@ -18184,7 +18184,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (60,1,1) = {"
 xRX
@@ -18441,7 +18441,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (61,1,1) = {"
 xRX
@@ -18698,7 +18698,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (62,1,1) = {"
 xRX
@@ -18955,7 +18955,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (63,1,1) = {"
 xRX
@@ -19212,7 +19212,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (64,1,1) = {"
 xRX
@@ -19469,7 +19469,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (65,1,1) = {"
 xRX
@@ -19726,7 +19726,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (66,1,1) = {"
 xRX
@@ -19983,7 +19983,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (67,1,1) = {"
 xRX
@@ -20240,7 +20240,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (68,1,1) = {"
 xRX
@@ -20497,7 +20497,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (69,1,1) = {"
 xRX
@@ -20754,7 +20754,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (70,1,1) = {"
 xRX
@@ -21011,7 +21011,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (71,1,1) = {"
 xRX
@@ -21268,7 +21268,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (72,1,1) = {"
 xRX
@@ -21525,7 +21525,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (73,1,1) = {"
 xRX
@@ -21782,7 +21782,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (74,1,1) = {"
 xRX
@@ -22039,7 +22039,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (75,1,1) = {"
 xRX
@@ -22296,7 +22296,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (76,1,1) = {"
 xRX
@@ -22553,7 +22553,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (77,1,1) = {"
 xRX
@@ -22810,7 +22810,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (78,1,1) = {"
 xRX
@@ -23067,7 +23067,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (79,1,1) = {"
 xRX
@@ -23324,7 +23324,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (80,1,1) = {"
 xRX
@@ -23581,7 +23581,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (81,1,1) = {"
 xRX
@@ -23838,7 +23838,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (82,1,1) = {"
 xRX
@@ -24095,7 +24095,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (83,1,1) = {"
 xRX
@@ -24352,7 +24352,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (84,1,1) = {"
 xRX
@@ -24609,7 +24609,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (85,1,1) = {"
 xRX
@@ -24866,7 +24866,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (86,1,1) = {"
 xRX
@@ -25123,7 +25123,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (87,1,1) = {"
 xRX
@@ -25380,7 +25380,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (88,1,1) = {"
 xRX
@@ -25637,7 +25637,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (89,1,1) = {"
 xRX
@@ -25894,7 +25894,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (90,1,1) = {"
 xRX
@@ -26151,7 +26151,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (91,1,1) = {"
 xRX
@@ -26408,7 +26408,7 @@ etL
 etL
 etL
 etL
-xRX
+etL
 "}
 (92,1,1) = {"
 xRX

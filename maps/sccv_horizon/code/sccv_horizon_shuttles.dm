@@ -29,7 +29,7 @@
 /obj/effect/shuttle_landmark/burglar_ship/interim
 	name = "In Transit"
 	landmark_tag = "nav_burglar_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/burglar_ship/hangar
 	name = "Port Hangar"
@@ -79,7 +79,7 @@
 /obj/effect/shuttle_landmark/skipjack_ship/interim
 	name = "In Transit"
 	landmark_tag = "nav_skipjack_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/skipjack_ship/third_deck
 	name = "Third Deck"
@@ -129,7 +129,7 @@
 /obj/effect/shuttle_landmark/merc_ship/interim
 	name = "In Transit"
 	landmark_tag = "nav_merc_interim"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/merc_ship/dock
 	name = "Third Deck Dock"
@@ -174,7 +174,7 @@
 /obj/effect/shuttle_landmark/intrepid/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_intrepid"
-	base_turf = /turf/space/transit
+	base_turf = /turf/space/transit/north
 
 // Mining Shuttle
 /datum/shuttle/autodock/overmap/mining

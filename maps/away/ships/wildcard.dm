@@ -61,7 +61,7 @@
 /obj/effect/shuttle_landmark/tramp_freighter/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tramp_freighter"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/freighter_shuttle
@@ -103,7 +103,7 @@
 /obj/effect/shuttle_landmark/freighter_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_freighter_shuttle"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //militia
 
@@ -170,7 +170,7 @@
 /obj/effect/shuttle_landmark/militia_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_militia_ship"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/militia_shuttle
@@ -212,4 +212,4 @@
 /obj/effect/shuttle_landmark/militia_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_militia_shuttle"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
