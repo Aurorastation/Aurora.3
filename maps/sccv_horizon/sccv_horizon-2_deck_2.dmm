@@ -6444,6 +6444,9 @@
 	dir = 9
 	},
 /obj/item/book/manual/wiki/security_space_law,
+/obj/item/book/manual/wiki/security_space_law,
+/obj/item/paper/sentencing,
+/obj/item/paper/sentencing,
 /obj/item/folder/sec,
 /obj/item/stamp/warden,
 /turf/simulated/floor/tiled/dark,
@@ -15259,6 +15262,10 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
+/obj/item/paper/sentencing{
+	pixel_y = 6;
+	pixel_x = 6
+	},
 /turf/simulated/floor/tiled,
 /area/security/brig/processing)
 "hrN" = (
@@ -20626,6 +20633,10 @@
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
+	},
+/obj/item/paper/sentencing{
+	pixel_y = 6;
+	pixel_x = -5
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig/processing_secondary)
