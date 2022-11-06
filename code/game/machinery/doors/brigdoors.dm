@@ -254,12 +254,11 @@
 			. += "<a href='?src=\ref[src];button=activate'>ACTIVATE</a><br>"
 		else
 			. += "<a href='?src=\ref[src];button=early_release'>(!) EARLY RELEASE</a><br>"
-		. += "<br>"
 
 
 	// Mounted Flash Controls
 	for(var/obj/machinery/flasher/F in targets)
-		. += "<b>Cell Flash</b>: "
+		. += "<br><b>Cell Flash</b>: "
 		if(F.last_flash && (F.last_flash + 150) > world.time)
 			. += "Charging..."
 		else
