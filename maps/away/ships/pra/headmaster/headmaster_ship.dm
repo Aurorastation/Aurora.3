@@ -6,7 +6,6 @@
 	spawn_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/headmaster_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 
 /decl/submap_archetype/headmaster_ship

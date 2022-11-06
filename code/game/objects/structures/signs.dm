@@ -1140,4 +1140,3 @@
 	name = "President Hadii portrait"
 	desc = "A portrait of President Hadii. An essential item in any Hadiist household ."
 	icon_state = "hadii_painting"
-	w_class = ITEMSIZE_SMALL
