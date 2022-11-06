@@ -1152,7 +1152,6 @@
 	c_tag = "Security - Brig Cell 2";
 	dir = 8
 	},
-/obj/structure/bed,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
@@ -1161,6 +1160,7 @@
 	pixel_x = 32
 	},
 /obj/item/bedsheet/blue,
+/obj/structure/bed/padded,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "ayc" = (
@@ -4260,7 +4260,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "bUm" = (
-/obj/structure/bed,
 /obj/machinery/camera/network/prison{
 	c_tag = "Security - Brig Cell 3";
 	dir = 1
@@ -4273,6 +4272,7 @@
 	pixel_y = -32
 	},
 /obj/item/bedsheet/blue,
+/obj/structure/bed/padded,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "bUE" = (
@@ -18426,7 +18426,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring)
 "jbo" = (
-/obj/structure/bed,
 /obj/machinery/camera/network/prison{
 	c_tag = "Security - Brig Cell 4";
 	dir = 1
@@ -18439,6 +18438,7 @@
 	pixel_y = -32
 	},
 /obj/item/bedsheet/blue,
+/obj/structure/bed/padded,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "jbB" = (
@@ -44720,7 +44720,6 @@
 	c_tag = "Security - Brig Cell 1";
 	dir = 8
 	},
-/obj/structure/bed,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
@@ -44729,6 +44728,7 @@
 	pixel_x = 32
 	},
 /obj/item/bedsheet/blue,
+/obj/structure/bed/padded,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "way" = (
