@@ -668,7 +668,7 @@
 /obj/item/paper/incident/New()
 	var/T = parsepencode({"\[center\]\[logo_scc_small\]\[/center\]
 \[center\]\[b\]\[i\]Encoded SCC Security Incident Report\[/b\]\[/i\]\[hr\]
-\[small\]FOR USE BY <b>SCCV HORIZON<b/> SECURITY ONLY\[/small\]\[br\]
+\[small\]FOR USE BY <b>SCCV HORIZON</b> SECURITY ONLY\[/small\]\[br\]
 \[barcode\]\[/center\]"})
 	info = T
 
