@@ -2,7 +2,7 @@
 	name = "headmaster pra ship"
 	id = "awaysite_headmaster_ship"
 	description = "A People's Republic Orbital Fleet ship."
-	suffix = "ships/kataphracts/kataphract_ship.dmm"
+	suffix = "ships/pra/headmaster/headmaster_ship.dmm"
 	spawn_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
@@ -19,16 +19,13 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_generic_waypoints = list(
-		"nav_kataphract_ship_1",
-		"nav_kataphract_ship_2",
-		"nav_kataphract_ship_3",
-		"nav_kataphract_ship_4",
-		"nav_kataphract_ship_5",
-		"nav_kataphract_ship_portdock",
+		"nav_headmaster_ship_1",
+		"nav_headmaster_ship_2",
+		"nav_headmaster_ship_3",
+		"nav_headmaster_ship_4"
 	)
 	initial_restricted_waypoints = list(
-		"Orbital Fleet Shuttle" = list("nav_hangar_headmaster_shuttle"),
-		"Intrepid" = list("nav_headmaster_ship_dockintrepid")
+		"Orbital Fleet Shuttle" = list("nav_hangar_headmaster_shuttle")
 	)
 
 /obj/effect/overmap/visitable/ship/headmaster_ship/New()
@@ -43,28 +40,20 @@
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/nav_headmaster_ship/nav1
-	name = "Kataphract Ship Navpoint #1"
-	landmark_tag = "nav_kataphract_ship_1"
+	name = "Headmaster Ship Navpoint #1"
+	landmark_tag = "nav_headmaster_ship_1"
 
 /obj/effect/shuttle_landmark/nav_headmaster_ship/nav2
-	name = "Kataphract Ship Navpoint #2"
-	landmark_tag = "nav_kataphract_ship_2"
+	name = "Headmaster Ship Navpoint #2"
+	landmark_tag = "nav_headmaster_ship_2"
 
 /obj/effect/shuttle_landmark/nav_headmaster_ship/nav3
-	name = "Kataphract Ship Navpoint #3"
-	landmark_tag = "nav_kataphract_ship_3"
+	name = "Headmaster Ship Navpoint #3"
+	landmark_tag = "nav_headmaster_ship_3"
 
 /obj/effect/shuttle_landmark/nav_headmaster_ship/nav4
-	name = "Kataphract Ship Navpoint #4"
-	landmark_tag = "nav_kataphract_ship_4"
-
-/obj/effect/shuttle_landmark/nav_kataphract_ship/starboarddock //any ship with a docking port on their left side assuming they have their landmark mapped in properly
-	name = "Kataphract Ship Starboard Docking"
-	landmark_tag = "nav_kataphract_ship_starboarddock"
-
-/obj/effect/shuttle_landmark/nav_kataphract_ship/dockintrepid // restricted for the intrepid only or else other ships will be able to use this point, and not properly dock
-	name = "Kataphract Ship Intrepid Starboard Docking"
-	landmark_tag = "nav_kataphract_ship_dockintrepid"
+	name = "Headmaster Ship Navpoint #4"
+	landmark_tag = "nav_headmaster_ship_4"
 
 //shuttle
 /obj/effect/overmap/visitable/ship/landable/headmaster_shuttle
