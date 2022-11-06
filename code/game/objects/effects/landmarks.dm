@@ -259,6 +259,7 @@ var/list/ruin_landmarks = list()
 /obj/effect/landmark/entry_point
 	name = "entry point landmark"
 	icon_state = "dir_arrow"
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/landmark/entry_point/Initialize()
 	..()
