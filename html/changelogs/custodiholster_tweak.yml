@@ -1,0 +1,7 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Adds a hip variant of the custodial holster. Removes superfluous items from the custodians' lockers. Removes superfluous items from the custodial cart."
+  - bugfix: "Turns the utility holsters into a contained sprite."
