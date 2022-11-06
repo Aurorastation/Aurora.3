@@ -5,8 +5,9 @@
 	suffix = "ships/pra/headmaster/headmaster_ship.dmm"
 	spawn_cost = 1
 	spawn_weight = 1
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA)
+	shuttles_to_initialise = list(/obj/effect/overmap/visitable/ship/landable/headmaster_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 
 /obj/effect/overmap/visitable/ship/headmaster_ship
 	name = "orbital fleet headmaster"
@@ -90,11 +91,11 @@
 	name = "Adhomian Freight Shuttle Hangar"
 	landmark_tag = "nav_headmaster_shuttle"
 	docking_controller = "headmaster_shuttle_dock"
-	base_area = /area/ship/tajaran_smuggler
+	base_area = /area/headmaster_ship/hangar
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/headmaster_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_headmaster_shuttle"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
