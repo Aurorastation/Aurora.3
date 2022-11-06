@@ -479,7 +479,8 @@
 /area/engineering/lobby)
 "amt" = (
 /obj/machinery/atmospherics/binary/pump{
-	name = "Reactor to Scrubbers"
+	name = "Reactor to Scrubbers";
+	target_pressure = 15000
 	},
 /obj/effect/landmark/engine_setup/pump_max,
 /turf/simulated/floor/plating,
@@ -2600,14 +2601,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
 "bhR" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/closet/secure_closet/engineering_personal,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "bhT" = (
@@ -5490,6 +5488,13 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
+"cNo" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/locker_room)
 "cNz" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -8450,11 +8455,12 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/deck_two/fore)
 "eui" = (
-/obj/structure/closet/secure_closet/engineering_personal,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/disposal/small/south,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "euT" = (
@@ -13326,7 +13332,8 @@
 "gNQ" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
-	name = "Reactor to Mix"
+	name = "Reactor to Mix";
+	target_pressure = 15000
 	},
 /obj/effect/landmark/engine_setup/pump_max,
 /turf/simulated/floor/plating,
@@ -14634,6 +14641,8 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
 "hwI" = (
@@ -17422,7 +17431,6 @@
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "iWO" = (
-/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -17916,11 +17924,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 6
-	},
 /obj/machinery/alarm{
 	pixel_y = 28
+	},
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
@@ -29168,9 +29176,12 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "pgM" = (
-/obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "pgQ" = (
@@ -36309,10 +36320,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
 "sUw" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -40513,12 +40520,11 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/engine_airlock)
 "uYS" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 8;
-	target_pressure = 15000
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_room)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/engineering/locker_room)
 "uYW" = (
 /obj/machinery/door/window/westleft,
 /obj/structure/lattice/catwalk,
@@ -43639,8 +43645,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/closet/firecloset,
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/wood,
 /area/hallway/engineering)
 "wzN" = (
@@ -61812,7 +61817,7 @@ vBp
 bib
 xIJ
 jUH
-uYS
+sSY
 jyd
 aSO
 uYK
@@ -62026,7 +62031,7 @@ eyk
 omf
 pKy
 acw
-pgM
+uYS
 pgM
 iWO
 sUw
@@ -62229,7 +62234,7 @@ dWZ
 mKJ
 laB
 eui
-bHe
+cNo
 piz
 iRm
 bHe
