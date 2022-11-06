@@ -4,4 +4,6 @@ delete-after: True
 
 changes:
   - rscadd: "Adds a high back and X-shaped back version of the overalls."
-  - tweak: "Turns the loadout overalls into an accessory."
+  - rscadd: "Adds a shorts and skirt version of the overalls and its variants."
+  - tweak: "Turns the loadout overalls into an accessory to allow for layering."
+  - tweak: "Turns the shorts into a contained sprite and cleans up the code."

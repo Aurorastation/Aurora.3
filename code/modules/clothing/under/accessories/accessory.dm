@@ -1004,4 +1004,24 @@
 	desc = "A set of denim overall shorts with a high back."
 	icon_state = "overall_shorts_x"
 	item_state = "overall_shorts_x"
+
+// Overall Skirt
+/obj/item/clothing/accessory/overalls/skirt
+	name = "overall skirt"
+	desc = "A denim overall skirt."
+	icon_state = "overall_skirt"
+	item_state = "overall_skirt"
+	body_parts_covered = UPPER_TORSO | LOWER_TORSO
+
+/obj/item/clothing/accessory/overalls/skirt/high_back
+	name = "high back overall skirt"
+	desc = "A denim overall skirt with a high back."
+	icon_state = "overall_skirt_high"
+	item_state = "overall_skirt_high"
+
+/obj/item/clothing/accessory/overalls/shorts/skirt/x_shaped_back
+	name = "\improper X-shaped back overall skirt"
+	desc = "A denim overall skirt with a high back."
+	icon_state = "overall_shorts_x"
+	item_state = "overall_shorts_x"
 /********** Overalls End **********/
