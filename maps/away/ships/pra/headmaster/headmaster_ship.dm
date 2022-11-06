@@ -1,16 +1,20 @@
 /datum/map_template/ruin/away_site/headmaster_ship
-	name = "headmaster pra ship"
-	id = "awaysite_headmaster_ship"
+	name = "Headmaster Ship"
+	id = "headmaster_ship"
 	description = "A People's Republic Orbital Fleet ship."
 	suffix = "ships/pra/headmaster/headmaster_ship.dmm"
 	spawn_cost = 1
 	spawn_weight = 1
-	shuttles_to_initialise = list(/obj/effect/overmap/visitable/ship/landable/headmaster_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/headmaster_shuttle)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 
+/decl/submap_archetype/headmaster_ship
+	map = "Headmaster Ship"
+	descriptor = "The second heaviest ship created by the People's Republic of Adhomai. As of now, it's the lightest heavy ship ever designed, barely staying above the classification of a cruiser."
+
 /obj/effect/overmap/visitable/ship/headmaster_ship
-	name = "orbital fleet headmaster"
+	name = "Headmaster Ship"
 	desc = "The second heaviest ship created by the People's Republic of Adhomai. As of now, it's the lightest heavy ship ever designed, barely staying above the classification of a cruiser."
 	class = "PRAMV" //People's Republic of Adhomai Vessel
 	icon_state = "ship_grey"
@@ -30,7 +34,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/headmaster_ship/New()
-	if(50)
+	if (prob(50))
 		designation = "Hadii"
 	else
 		designation = "[pick("Al'mari Hadii", "Adhomai's Shield", "Loyal Comrade", "People's Guardian", "Visionary", "Great Future", "Fearless Pioneer", "Adhomian Dream")]"
@@ -64,6 +68,7 @@
 	moving_state = "shuttle_grey_moving"
 	class = "PRAMV"
 	designation = "Yve'kha"
+	shuttle = "Orbital Fleet Shuttle"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
@@ -79,7 +84,7 @@
 	name = "Orbital Fleet Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/headmaster_shuttle)
-	current_location = "nav_headmaster_shuttlee"
+	current_location = "nav_headmaster_shuttle"
 	landmark_transition = "nav_transit_headmaster_shuttle"
 	range = 1
 	fuel_consumption = 2
@@ -87,7 +92,7 @@
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/headmaster_shuttle/hangar
-	name = "Adhomian Freight Shuttle Hangar"
+	name = "Orbital Fleet Shuttle Hangar"
 	landmark_tag = "nav_hangar_headmaster_shuttle"
 	docking_controller = "headmaster_shuttle_dock"
 	base_area = /area/headmaster_ship/hangar
