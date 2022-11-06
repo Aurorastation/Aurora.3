@@ -1846,7 +1846,8 @@
 	name = "Fire Control";
 	req_access = list(207)
 	},
-/turf/simulated/wall/shuttle/space_ship,
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "uih" = (
 /obj/effect/landmark/entry_point/starboard{
