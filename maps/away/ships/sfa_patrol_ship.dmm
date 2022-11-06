@@ -1185,6 +1185,7 @@
 /area/ship/sfa_patrol_ship)
 "hZe" = (
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (rifles)";
 	req_access = list(203)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2120,6 +2121,7 @@
 /area/ship/sfa_patrol_ship)
 "oRr" = (
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (LTL)";
 	req_access = list(203)
 	},
 /obj/item/storage/box/zipties,
@@ -2749,6 +2751,7 @@
 /area/ship/sfa_patrol_ship)
 "vAi" = (
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (SMGs)";
 	req_access = list(203)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2920,6 +2923,7 @@
 /area/ship/sfa_patrol_ship)
 "wTJ" = (
 /obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (sidearms)";
 	req_access = list(203)
 	},
 /obj/item/gun/projectile/pistol/sol,
