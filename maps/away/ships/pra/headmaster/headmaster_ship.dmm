@@ -507,7 +507,7 @@
 /area/headmaster_ship/commissar_quarters)
 "bU" = (
 /obj/machinery/ammunition_loader/longbow{
-	weapon_id = "Longbow Cannon"
+	weapon_id = "Headmaster Longbow Cannon"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/gun_deck)
