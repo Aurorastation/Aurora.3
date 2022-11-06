@@ -1160,6 +1160,7 @@
 	id = "cell_3";
 	pixel_x = 32
 	},
+/obj/item/bedsheet/blue,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "ayc" = (
@@ -4271,6 +4272,7 @@
 	id = "cell_2";
 	pixel_y = -32
 	},
+/obj/item/bedsheet/blue,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "bUE" = (
@@ -18436,6 +18438,7 @@
 	id = "cell_1";
 	pixel_y = -32
 	},
+/obj/item/bedsheet/blue,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "jbB" = (
@@ -44731,6 +44734,7 @@
 	id = "cell_4";
 	pixel_x = 32
 	},
+/obj/item/bedsheet/blue,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "way" = (

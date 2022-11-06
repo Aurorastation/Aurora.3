@@ -81,7 +81,7 @@
 		if(world.timeofday > src.releasetime)
 			if(src.timer_end(broadcast = TRUE)) // Open doors, reset timer, and clear status screen.
 				var/message = "Sentencing complete. The detainee is free to leave."
-				ping("\The [src] pings, \"[message]\"")
+				ping("\The <b>[src]</b> pings, \"[message]\"")
 
 		updateUsrDialog()
 		update_icon()
