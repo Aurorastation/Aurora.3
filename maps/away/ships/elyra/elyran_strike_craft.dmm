@@ -732,6 +732,14 @@
 /area/ship/elyran_strike_craft)
 "fAD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "elyra bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/structure/grille,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "fKm" = (
@@ -888,6 +896,14 @@
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "elyra bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -1416,6 +1432,17 @@
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
+"ojJ" = (
+/obj/structure/table/standard,
+/obj/item/device/binoculars,
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/button/remote/blast_door{
+	id = "elyra bridge blast";
+	name = "Bridge Lockdown";
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
 "oom" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -1548,6 +1575,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/ship/elyran_strike_craft)
+"qnG" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "elyra bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/turf/simulated/floor,
+/area/ship/elyran_strike_craft)
 "que" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
@@ -1627,6 +1666,14 @@
 	layer = 4;
 	name = "EXTERNAL AIRLOCK"
 	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "elyra bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/structure/grille,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "rbA" = (
@@ -30899,10 +30946,10 @@ lxP
 uNI
 lxP
 vOv
-fAD
-fAD
-fAD
-fAD
+qnG
+qnG
+qnG
+qnG
 xRX
 xRX
 xRX
@@ -31159,7 +31206,7 @@ vOv
 xhB
 hcd
 nHo
-fAD
+qnG
 xRX
 xRX
 xRX
@@ -31413,10 +31460,10 @@ mAv
 iIw
 aAY
 vOv
-usR
+ojJ
 xPN
 usR
-fAD
+qnG
 xRX
 xRX
 xRX
@@ -31930,7 +31977,7 @@ wvR
 aAY
 aAY
 aAY
-fAD
+qnG
 xRX
 xRX
 xRX
@@ -32187,7 +32234,7 @@ vOv
 pea
 nDF
 tjN
-fAD
+qnG
 xRX
 xRX
 xRX
@@ -32443,8 +32490,8 @@ lxP
 lxP
 lxP
 lxP
-fAD
-fAD
+qnG
+qnG
 xRX
 xRX
 xRX

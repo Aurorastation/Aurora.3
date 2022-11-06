@@ -424,6 +424,14 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "fsf bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "cTN" = (
@@ -1803,6 +1811,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "fsf bridge blast";
+	name = "Bridge Lockdown";
+	pixel_x = -28
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "mHp" = (
@@ -2169,6 +2182,14 @@
 /area/ship/fsf_patrol_ship)
 "qyG" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "fsf bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/structure/grille,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "qBC" = (
@@ -2403,6 +2424,18 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
+"tPE" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "fsf bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "tWo" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -30809,10 +30842,10 @@ yjk
 yjk
 yjk
 yjk
-qyG
-qyG
-qyG
-qyG
+tPE
+tPE
+tPE
+tPE
 xRX
 xRX
 xRX
@@ -31069,7 +31102,7 @@ bgD
 kMV
 hBs
 ftq
-qyG
+tPE
 xRX
 xRX
 xRX
@@ -31582,8 +31615,8 @@ sSs
 cdD
 kMV
 hBs
-qyG
-qyG
+tPE
+tPE
 xRX
 xRX
 xRX
@@ -31838,8 +31871,8 @@ sSs
 sSs
 bfg
 ldz
-qyG
-qyG
+tPE
+tPE
 xRX
 xRX
 xRX
@@ -32094,8 +32127,8 @@ qgw
 yjk
 yjk
 yjk
-qyG
-qyG
+tPE
+tPE
 xRX
 xRX
 xRX

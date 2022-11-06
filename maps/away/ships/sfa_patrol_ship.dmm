@@ -1749,6 +1749,14 @@
 /area/ship/sfa_patrol_ship)
 "lNz" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "sfa bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "lOH" = (
@@ -1859,6 +1867,14 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "sfa bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "mEc" = (
@@ -1893,6 +1909,12 @@
 "mGs" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "sfa bridge blast";
+	name = "Bridge Lockdown";
+	pixel_x = -28;
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -2144,7 +2166,14 @@
 /area/ship/sfa_patrol_ship)
 "pBY" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "sfa bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/structure/grille,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "pIa" = (
@@ -2285,6 +2314,14 @@
 /area/ship/sfa_patrol_ship)
 "qyG" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "sfa bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship)
 "qBC" = (
@@ -30948,10 +30985,10 @@ yjk
 yjk
 yjk
 yjk
-pBY
-pBY
-pBY
-pBY
+lNz
+lNz
+lNz
+lNz
 xRX
 xRX
 xRX
@@ -31208,7 +31245,7 @@ bgD
 kMV
 hBs
 ftq
-pBY
+lNz
 xRX
 xRX
 xRX
@@ -31977,8 +32014,8 @@ sBA
 sBA
 bfg
 ldz
-pBY
-pBY
+lNz
+lNz
 xRX
 xRX
 xRX
@@ -32233,8 +32270,8 @@ qgw
 yjk
 yjk
 yjk
-pBY
-pBY
+lNz
+lNz
 xRX
 xRX
 xRX
