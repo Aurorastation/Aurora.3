@@ -245,7 +245,7 @@
 		. += "Insert a encoded SCC security incident report to start sentencing.<br>"
 	else
 		// Time Left display (uses releasetime)
-		var/obj/item/card/id/card = incident.card.resolve()
+		var/obj/item/card/id/card = incident.card.registered_name
 		. += "<b>Detainee</b>: [card]\t"
 		. += "<b>Charges:</b> <a href='?src=\ref[src];button=menu_mode;menu_choice=menu_charges'>CHARGES</a><br>"
 		. += "<b>Sentence Length</b>: [add_zero("[minute]", 2)]:[add_zero("[second]", 2)]\t"
