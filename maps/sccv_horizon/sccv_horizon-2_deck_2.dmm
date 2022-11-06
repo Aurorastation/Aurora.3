@@ -9783,11 +9783,11 @@
 	dir = 8
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 4;
+	pixel_y = 2;
 	pixel_x = -28
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_y = -11;
+	pixel_y = -9;
 	pixel_x = -28
 	},
 /obj/structure/table/steel,
@@ -41823,14 +41823,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "uRu" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, armoury"
-	},
-/obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d2-2-f"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, armoury"
+	},
+/turf/simulated/wall/r_wall,
 /area/security/armory)
 "uRz" = (
 /obj/machinery/bodyscanner{
@@ -77968,7 +77967,7 @@ gBH
 oiD
 rqZ
 vPj
-uRu
+oDg
 mfN
 qgN
 qgN
@@ -78774,7 +78773,7 @@ sNx
 sNx
 bOe
 fBN
-hqd
+uRu
 mfN
 qgN
 qgN
