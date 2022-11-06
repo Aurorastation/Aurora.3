@@ -27,6 +27,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
+"abh" = (
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/turf/simulated/floor/tiled/dark,
+/area/ship/militia_ship)
 "ajL" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/space_ship/mercenary{
@@ -348,6 +360,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
+"dWR" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/template_noop,
+/area/ship/militia_ship)
 "eiL" = (
 /obj/machinery/washing_machine{
 	pixel_x = -9
@@ -410,6 +428,10 @@
 "eMT" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
+/area/ship/militia_ship)
+"eNs" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/ship/militia_ship)
 "eTH" = (
 /obj/structure/table/steel,
@@ -861,9 +883,6 @@
 /area/ship/militia_ship)
 "lwj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
@@ -970,6 +989,10 @@
 	name = "military hull"
 	},
 /area/ship/militia_ship)
+"nmZ" = (
+/obj/machinery/ammunition_loader/francisca,
+/turf/simulated/floor/tiled/dark,
+/area/ship/militia_ship)
 "ntt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1010,6 +1033,15 @@
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/ship/militia_ship)
+"nPr" = (
+/obj/structure/ship_weapon_dummy,
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "Militia Francisca Rotary Gun"
+	},
+/turf/template_noop,
 /area/ship/militia_ship)
 "nSy" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -1151,6 +1183,11 @@
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/ship/militia_ship)
+"qcd" = (
+/obj/structure/ship_weapon_dummy,
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/ship/militia_ship)
 "qil" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1335,6 +1372,7 @@
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "uNN" = (
@@ -1373,6 +1411,19 @@
 	req_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/ship/militia_ship)
+"voc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
+/turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "vwF" = (
 /turf/unsimulated/wall/fakepdoor,
@@ -31284,11 +31335,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+eNs
+qcd
+eNs
+eNs
+dWR
 xRX
 xRX
 xRX
@@ -31541,8 +31592,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+nPr
+eNs
 xRX
 xRX
 xRX
@@ -31798,7 +31849,7 @@ yjk
 yjk
 yjk
 yjk
-yjk
+nmZ
 mZJ
 yjk
 yjk
@@ -33322,7 +33373,7 @@ yjk
 vxN
 mkb
 yjk
-vRq
+abh
 wmd
 vRq
 yjk
@@ -33579,7 +33630,7 @@ yjk
 vLp
 mkb
 yjk
-iDc
+voc
 wLs
 iDc
 vTv
