@@ -239,7 +239,7 @@
 	var/second = round(timeleft() % 60)
 	var/minute = round((timeleft() - second) / 60)
 	. = "<h2>Timer System:</h2>"
-	. += "<b>Controls [src.id]</b><hr>"
+	. += "<b>Controls [src]</b><hr>"
 
 	if(!incident)
 		. += "Insert a Securty Incident Report to load a criminal sentence<br>"
