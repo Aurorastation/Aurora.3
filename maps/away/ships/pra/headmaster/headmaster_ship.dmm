@@ -693,7 +693,7 @@
 /obj/machinery/ship_weapon/longbow{
 	pixel_x = -32;
 	pixel_y = -320;
-	weapon_id = "Longbow Cannon"
+	weapon_id = "Headmaster Longbow Cannon"
 	},
 /turf/simulated/floor/plating,
 /area/headmaster_ship/gun_deck)
