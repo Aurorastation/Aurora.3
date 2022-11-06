@@ -2097,7 +2097,7 @@
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
-	weapon_id = "FSF Grauwolf Flak Battery"
+	weapon_id = "TCFL Grauwolf Flak Battery"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/tiled/dark,
@@ -2291,7 +2291,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "nNA" = (
-/obj/machinery/ammunition_loader/grauwolf,
+/obj/machinery/ammunition_loader/grauwolf{
+	weapon_id = "TCFL Grauwolf Flak Battery"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "nTM" = (
