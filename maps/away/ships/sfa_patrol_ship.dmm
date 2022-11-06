@@ -1798,7 +1798,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/item/receivergun{
-	desc = "A reliable assault rifle manufactured by Zavodskoi Interstellar, the M469 is the standard service rifle of the Solarian Armed Forces, most commonly associated with its ground forces. Though the design is old, it continues to see widespread use in the Alliance and its breakaway states and likely will for years to come. Chambered in 7.62mm. This one's been broken awhile, only thing useful on it now is the reciever.";
+	desc = "A reliable assault rifle manufactured by Zavodskoi Interstellar, the M469 is the standard service rifle of the Solarian Armed Forces, most commonly associated with its ground forces. Though the design is old, it continues to see widespread use in the Alliance and its breakaway states and likely will for years to come. Chambered in 7.62mm. This one's been broken awhile, only thing useful on it now is the receiver.";
 	drop_sound = 'sound/items/drop/gun.ogg';
 	icon = 'icons/obj/guns/sol_rifle.dmi';
 	icon_state = "battlerifle";

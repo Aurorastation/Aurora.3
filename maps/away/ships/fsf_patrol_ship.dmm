@@ -1702,14 +1702,6 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/item/receivergun{
-	desc = "A compact combat shotgun manufactured by Zavodskoi Interstellar for the Solarian Armed Forces, the M63 is most frequently employed by assaulters fighting in close-quarters environments, though it is also uncommonly used as a defensive weapon by Navy crewmen. Chambered in 12 gauge.";
-	drop_sound = 'sound/items/drop/gun.ogg';
-	icon = 'icons/obj/guns/sol_shotgun.dmi';
-	icon_state = "malella";
-	name = "solarian combat shotgun";
-	pickup_sound = 'sound/items/pickup/gun.ogg'
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "lUH" = (
