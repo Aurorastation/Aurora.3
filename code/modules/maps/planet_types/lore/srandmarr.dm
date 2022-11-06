@@ -9,9 +9,39 @@
 	features_budget = 2
 	surface_color = "#B1A69B"
 	generated_name = FALSE
+	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/get_surface_color()
 	return "#B1A69B"
+
+//Az'Mar
+/obj/effect/overmap/visitable/sector/exoplanet/barren/azmar
+	name = "Az'Mar"
+	desc = "A small planet with a caustic shale crust. The surface is extremely hot and dense."
+	color = "#B1A69B"
+	rock_colors = list("#4a3f41")
+	possible_themes = list(/datum/exoplanet_theme/mountains)
+	map_generators = list(/datum/random_map/noise/exoplanet/barren, /datum/random_map/noise/ore)
+	features_budget = 2
+	surface_color = "#4a3f41"
+	generated_name = FALSE
+	ring_chance = 0
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/get_surface_color()
+	return "#4a3f41"
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/generate_atmosphere()
+	..()
+	if(atmosphere)
+		atmosphere.temperature = T0C + 500
+		atmosphere.update_values()
+
+//Sahul
+/obj/effect/overmap/visitable/sector/exoplanet/lava/sahul
+	name = "lava exoplanet"
+	desc = "Az'mar's moon is a celestial body composed primarily of molten metals."
+	generated_name = FALSE
+	ring_chance = 0
 
 //Raskara
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara
@@ -25,6 +55,7 @@
 	features_budget = 2
 	surface_color = "#373737"
 	generated_name = FALSE
+	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/get_surface_color()
 	return "#B1A69B"
@@ -66,7 +97,7 @@
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_planet_image()
-	return skybox_image = image('icons/skybox/lore_planets.dmi', "adhomai")
+	skybox_image = image('icons/skybox/lore_planets.dmi', "adhomai")
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_atmosphere()
 	..()
@@ -91,9 +122,11 @@
 		small_flora_types += chosen_seed
 
 /area/exoplanet/adhomai
-	name = "Adhomai Wilderness"
+	name = "Adhomian Wilderness"
 	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/snow
 
 /turf/simulated/floor/exoplanet/mineral/adhomai
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "asteroid"
 	temperature = T0C - 5

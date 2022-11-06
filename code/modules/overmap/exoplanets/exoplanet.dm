@@ -49,6 +49,7 @@
 
 	var/list/mobs_to_tolerate = list()
 	var/generated_name = TRUE
+	var/ring_chance = 20 //the chance of this exoplanet spawning with a ring on its sprite
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
 	var/roll = rand(1,100)
