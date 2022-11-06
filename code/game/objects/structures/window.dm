@@ -641,7 +641,8 @@
 
 /obj/structure/window/full/Destroy()
 	var/obj/structure/window_frame/WF = locate(/obj/structure/window_frame) in get_turf(src)
-	WF.has_glass_installed = FALSE
+	if(WF)
+		WF.has_glass_installed = FALSE
 	return ..()
 
 /obj/structure/window/full/attackby(obj/item/W, mob/user)

@@ -61,11 +61,13 @@
 /obj/effect/shuttle_landmark/elyran_strike_craft/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_elyran_strike_craft"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/elyran_shuttle
 	name = "Elyran Naval Shuttle"
+	class = "ENV"
+	designation = "Colibri"
 	desc = "Easily mistaken for a Wisp-class (which it is almost identical to), this shuttle is in fact an Elyran Dromedary-class, which is an unlicensed copy of the Hephaestus Wisp-class, and one of the designs slated for retirement in the ongoing military modernization program. Hephaestus Industries has attempted to sue the Elyran government many times for the navy's unlicensed production of its intellectual property, and Elyran courts have, unsurprisingly, always ruled in favor of the government - much to the frustration of the megacorporation, which has no other method of recourse. An inefficient design of ultra-light shuttle. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. This one's transponder identifies it as an Elyran Naval Infantry recovery shuttle."
 	shuttle = "Elyran Naval Shuttle"
 	max_speed = 1/(3 SECONDS)
@@ -101,4 +103,4 @@
 /obj/effect/shuttle_landmark/elyran_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_elyran_shuttle"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north

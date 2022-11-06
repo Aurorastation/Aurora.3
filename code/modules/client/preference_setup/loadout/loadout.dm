@@ -189,7 +189,10 @@ var/list/gear_datums = list()
 		
 		var/temp_html = ""
 		var/datum/job/job = pref.return_chosen_high_job()
-		var/available = (G.check_faction(pref.faction) && (job && G.check_role(job.title)) && G.check_culture(pref.culture) && G.check_origin(pref.origin))
+		var/available = (G.check_faction(pref.faction) \
+			&& (job && G.check_role(job.title)) \
+			&& G.check_culture(text2path(pref.culture)) \
+			&& G.check_origin(text2path(pref.origin)))
 		var/ticked = (G.display_name in pref.gear)
 		var/style = ""
 		
@@ -396,21 +399,25 @@ var/list/gear_datums = list()
 		return FALSE
 	return TRUE
 
+// arg should be a faction name string
 /datum/gear/proc/check_faction(var/faction_)
 	if((faction && faction_ && faction_ != "None" && faction_ != "Stellar Corporate Conglomerate") && (faction != faction_))
 		return FALSE
 	return TRUE
 
+// arg should be a role name string
 /datum/gear/proc/check_role(var/role)
 	if(role && allowed_roles && !(role in allowed_roles))
 		return FALSE
 	return TRUE
 
+// arg should be a culture path
 /datum/gear/proc/check_culture(var/culture)
 	if(culture && culture_restriction && !(culture in culture_restriction))
 		return FALSE
 	return TRUE
 
+// arg should be a origin path
 /datum/gear/proc/check_origin(var/origin)
 	if(origin && origin_restriction && !(origin in origin_restriction))
 		return FALSE

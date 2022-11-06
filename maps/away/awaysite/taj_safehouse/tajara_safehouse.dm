@@ -38,6 +38,8 @@
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tajara_safehouse_shuttle
 	name = "Unmarked Civilian Shuttle"
+	class = "Unmarked"
+	designation = "Civilian Shuttle"
 	desc = "A civilian shuttle without any kind of identification."
 	shuttle = "Unmarked Civilian Shuttle"
 	max_speed = 1/(3 SECONDS)
@@ -73,4 +75,4 @@
 /obj/effect/shuttle_landmark/tajara_safehouse_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_tajara_safehouse"
-	base_turf = /turf/space/transit/south
+	base_turf = /turf/space/transit/north

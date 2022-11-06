@@ -521,7 +521,6 @@ Class Procs:
 		if((. = .(candidate)))
 			return
 
-
 /obj/machinery/proc/on_user_login(mob/M)
 	return
 
