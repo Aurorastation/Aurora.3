@@ -10,4 +10,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Tweaked/added various things to engineering. Fixed lowercase area names, added some fire closets, an extra voidsuit, some more lockers to the equipment room, and some other QOL mapping stuff."
+  - maptweak: "Tweaked/added various things to engineering. Fixed lowercase area names, added some fire closets, an extra voidsuit, some more lockers to the equipment room, and some other QOL mapping stuff."
