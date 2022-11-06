@@ -175,7 +175,7 @@
 	var/list/zavod_sec_coat = list()
 	zavod_sec_coat["zavodskoi security coat"] = /obj/item/clothing/suit/storage/security/officer/zav
 	zavod_sec_coat["zavodskoi security coat, alt"] = /obj/item/clothing/suit/storage/security/officer/zav/alt
-	zavod_sec_coat += new /datum/gear_tweak/path(zavod_sec_coat)
+	gear_tweaks += new /datum/gear_tweak/path(zavod_sec_coat)
 
 /datum/gear/faction/zavod_sunglasses
 	display_name = "zavodskoi security HUD selection"
