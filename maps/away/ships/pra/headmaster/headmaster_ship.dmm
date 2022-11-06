@@ -505,6 +505,9 @@
 /obj/machinery/ammunition_loader/longbow{
 	weapon_id = "Headmaster Longbow Cannon"
 	},
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/gun_deck)
 "bV" = (
@@ -707,6 +710,9 @@
 "cH" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
+	},
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/bridge)
@@ -955,6 +961,9 @@
 "ds" = (
 /obj/structure/table/wood,
 /obj/item/pen/fountain,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_x = -32
+	},
 /turf/simulated/floor/wood,
 /area/headmaster_ship/commissar_quarters)
 "du" = (
@@ -3455,6 +3464,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship)
+"oL" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/headmaster_ship/mess_hall)
 "oT" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 10
@@ -4959,6 +4977,9 @@
 "RP" = (
 /obj/structure/table/wood,
 /obj/item/pen/fountain,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_x = -32
+	},
 /turf/simulated/floor/wood,
 /area/headmaster_ship/captain_quarters)
 "RS" = (
@@ -5034,6 +5055,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
+	},
+/obj/structure/sign/painting_frame/hadii{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/barracks)
@@ -16936,7 +16960,7 @@ cf
 cf
 cf
 gM
-kF
+oL
 RC
 RC
 RC
