@@ -124,31 +124,31 @@
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3, TECH_POWER = 5)
 
 /obj/item/circuitboard/telesci_console
-	name = T_BOARD("Telescience Console")
+	name = T_BOARD("telescience Console")
 	build_path = /obj/machinery/computer/telescience
 	origin_tech = list(TECH_DATA = 3, TECH_BLUESPACE = 2)
 
 /obj/item/circuitboard/slot_machine
-	name = T_BOARD("Slot Machine")
+	name = T_BOARD("slot machine")
 	build_path = /obj/machinery/computer/slot_machine
 	origin_tech = list(TECH_DATA = 2)
 
 /obj/item/circuitboard/ship/helm
-	name = T_BOARD("Helm Control Console")
+	name = T_BOARD("helm control console")
 	origin_tech = list(TECH_ENGINEERING = 3)
 	build_path = /obj/machinery/computer/ship/helm
 
 /obj/item/circuitboard/ship/sensors
-	name = T_BOARD("Ship Sensors Console")
+	name = T_BOARD("ship sensors console")
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 2)
 	build_path = /obj/machinery/computer/ship/sensors
 
 /obj/item/circuitboard/ship/engines
-	name = T_BOARD("Ship Engines Control Console")
+	name = T_BOARD("ship engines control console")
 	origin_tech = list(TECH_ENGINEERING = 3)
 	build_path = /obj/machinery/computer/ship/engines
 
 /obj/item/circuitboard/ship/targeting
-	name = T_BOARD("Ajax Targeting Systems Console")
+	name = T_BOARD("Ajax targeting systems console")
 	origin_tech = list(TECH_ENGINEERING = 3)
 	build_path = /obj/machinery/computer/ship/targeting
