@@ -527,7 +527,7 @@
 	},
 /obj/item/circuitboard/borgupload{
 	pixel_x = -1;
-	pixel_y = 1
+	pixel_y = 3
 	},
 /obj/item/circuitboard/aiupload{
 	pixel_x = 2;
@@ -537,6 +537,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/circuitboard/robotics{
+	pixel_x = -4;
+	pixel_y = -5
+	},
 /turf/simulated/floor/reinforced,
 /area/engineering/storage/tech)
 "anJ" = (
@@ -3573,7 +3577,7 @@
 	name = "Primary Armament Exterior Bolts";
 	pixel_x = 22;
 	pixel_y = 22;
-	req_access = list(19, 11);
+	req_access = list(19,11);
 	specialfunctions = 4
 	},
 /obj/structure/cable{
@@ -15767,12 +15771,14 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/circuitboard/robotics{
-	pixel_x = -2;
-	pixel_y = 2
-	},
 /obj/effect/floor_decal/corner_wide/blue/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/circuitboard/ship/targeting{
+	pixel_x = 3
+	},
+/obj/item/circuitboard/ship/engines,
+/obj/item/circuitboard/ship/sensors,
+/obj/item/circuitboard/ship/helm,
 /turf/simulated/floor/reinforced,
 /area/engineering/storage/tech)
 "hIV" = (
@@ -28603,18 +28609,12 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/item/circuitboard/ship/helm,
-/obj/item/circuitboard/ship/sensors,
-/obj/item/circuitboard/ship/engines,
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/item/circuitboard/ship/targeting{
-	pixel_x = 3
-	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "otI" = (
