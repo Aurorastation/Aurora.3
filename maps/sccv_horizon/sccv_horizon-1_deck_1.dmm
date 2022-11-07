@@ -22214,6 +22214,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
+"rpB" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/item/material/stool/chair/folding,
+/turf/template_noop,
+/area/template_noop)
 "rpK" = (
 /obj/structure/janitorialcart/full,
 /obj/machinery/camera/network/service{
@@ -66063,7 +66072,7 @@ eSV
 eSV
 eSV
 eSV
-wKE
+rpB
 eSV
 eSV
 eSV
