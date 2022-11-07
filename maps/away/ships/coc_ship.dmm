@@ -27,6 +27,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"abS" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, quarters"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/area/space)
 "ahw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -69,6 +75,12 @@
 "apW" = (
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
+/area/space)
+"aqg" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, airlock"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/space)
 "atj" = (
 /obj/structure/closet/crate{
@@ -282,6 +294,9 @@
 /area/space)
 "aWY" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/landmark/entry_point/south{
+	name = "fore, bridge"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "aXs" = (
@@ -652,6 +667,12 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"cWW" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/area/shuttle/freighter_shuttle)
 "cXe" = (
 /obj/structure/sign/vacuum{
 	pixel_y = 32
@@ -1008,6 +1029,9 @@
 /area/space)
 "eJH" = (
 /obj/structure/viewport,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, grauwulf array"
+	},
 /turf/template_noop,
 /area/space)
 "eMT" = (
@@ -1240,6 +1264,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"fMr" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, barracks"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/space)
 "fNZ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -1578,6 +1608,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"htW" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, voidsuit storage"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/area/space)
 "huE" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -1629,6 +1665,10 @@
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/door/firedoor/noid,
+/obj/structure/grille,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
 /turf/simulated/floor,
 /area/space)
 "hZq" = (
@@ -1646,6 +1686,17 @@
 "iaK" = (
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"iaR" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "freight_shuttle_out"
+	},
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/floor,
+/area/shuttle/freighter_shuttle)
 "iiZ" = (
 /obj/structure/sign/directions/com{
 	dir = 4;
@@ -1656,6 +1707,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
+"ijH" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, medbay"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/area/space)
+"iln" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/freighter_shuttle)
 "imy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1726,6 +1792,12 @@
 "iPL" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
+/area/space)
+"iSc" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, mess hall"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/space)
 "iUY" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1832,6 +1904,12 @@
 "jrQ" = (
 /turf/simulated/floor/carpet/red,
 /area/space)
+"juG" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, engines"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/area/space)
 "jEu" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -1849,10 +1927,13 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/gun/energy/pistol/hegemony,
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/gun/energy/blaster/revolver,
+/obj/item/gun/projectile/colt/super{
+	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette.  Uses .45 rounds. This example sports a short slide, wood-paneled grips, and various other modifications. While it seems to have originally been a very expensive pistol, this one has seen constant and heavy use, and is now thoroughly worn - though it still functions well.";
+	name = "worn-out ornamental .45 combat pistol"
+	},
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/gun/energy/blaster,
 /obj/item/gun/projectile/revolver/lemat,
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
@@ -2283,6 +2364,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"mCm" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engines"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/area/space)
 "mEc" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
@@ -2391,6 +2478,12 @@
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor,
+/area/space)
+"nkz" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, bathroom"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/space)
 "nly" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2671,6 +2764,15 @@
 /obj/item/clothing/accessory/badge/passcard/coalition,
 /obj/item/clothing/accessory/badge/passcard/coalition,
 /obj/item/clothing/accessory/badge/passcard/coalition,
+/obj/item/flag/fisanduh,
+/obj/item/clothing/head/ushanka/dominia,
+/obj/item/clothing/suit/storage/toggle/dominia/bomber,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
+/obj/item/device/flashlight/maglight,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "oyj" = (
@@ -2697,7 +2799,9 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/item/grenade/frag,
+/obj/item/grenade/frag{
+	desc = "A military fragmentation grenade, designed to explode in a deadly shower of fragments. This one has the word 'CATCH!!' written on it in white paint."
+	},
 /turf/simulated/floor/reinforced,
 /area/space)
 "oHa" = (
@@ -2850,6 +2954,7 @@
 	dir = 10;
 	pixel_y = 0
 	},
+/obj/machinery/suit_cycler,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "pJZ" = (
@@ -2951,6 +3056,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"pYp" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular/open{
+	id = "coc_bridge";
+	name = "blast door"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/structure/grille,
+/obj/effect/landmark/entry_point/port{
+	name = "port, bridge"
+	},
+/turf/simulated/floor,
+/area/space)
 "pYB" = (
 /turf/simulated/floor/wood,
 /area/space)
@@ -2981,6 +3099,12 @@
 	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"qdg" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/template_noop,
 /area/space)
 "qfq" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3060,17 +3184,12 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "qMe" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/shoes/magboots,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/suit/space/void/coalition,
-/obj/item/clothing/head/helmet/space/void/coalition,
-/obj/machinery/alarm{
-	pixel_y = 32;
-	req_one_access = null
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, starboard"
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor,
 /area/space)
 "qPn" = (
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -3108,6 +3227,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"rlC" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, hallway"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/space)
 "rqG" = (
 /obj/structure/table/rack,
@@ -3295,8 +3420,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "skU" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
 	},
 /turf/template_noop,
 /area/space)
@@ -3307,6 +3433,10 @@
 	name = "blast door"
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/grille,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, bridge"
+	},
 /turf/simulated/floor,
 /area/space)
 "sph" = (
@@ -3387,6 +3517,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/space)
+"sHu" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, munitions bay, armory"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/space)
 "sIn" = (
 /obj/structure/sign/securearea{
@@ -3515,6 +3651,12 @@
 	dir = 4
 	},
 /turf/simulated/floor,
+/area/space)
+"tIl" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, cryogenics"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/space)
 "tKH" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -3812,6 +3954,25 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"vdR" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, brig"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/area/space)
+"vdW" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/shoes/magboots,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/suit/space/void/coalition,
+/obj/item/clothing/head/helmet/space/void/coalition,
+/obj/machinery/alarm{
+	pixel_y = 32;
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "vdX" = (
 /obj/effect/shuttle_landmark/ee_spy_ship/nav1,
 /turf/template_noop,
@@ -3830,6 +3991,12 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
+/area/space)
+"vkq" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, weapons bay"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/space)
 "vkW" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -3886,6 +4053,14 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"vMd" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, port"
+	},
+/turf/simulated/floor,
+/area/space)
 "vMq" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -3906,6 +4081,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"waT" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, equipment room"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
 /area/space)
 "wfy" = (
 /obj/structure/railing/mapped,
@@ -4023,6 +4204,16 @@
 "wGl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
+/area/space)
+"wGp" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular/open{
+	id = "coc_bridge";
+	name = "blast door"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/structure/grille,
+/turf/simulated/floor,
 /area/space)
 "wLs" = (
 /obj/machinery/appliance/cooker/stove,
@@ -4153,6 +4344,7 @@
 	name = "blast door"
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/grille,
 /turf/simulated/floor,
 /area/space)
 "xgZ" = (
@@ -33713,12 +33905,12 @@ xRX
 xRX
 aHt
 aHt
+mCm
 aHt
 aHt
 aHt
 aHt
-aHt
-aHt
+mCm
 kpR
 kpR
 xRX
@@ -33726,13 +33918,13 @@ xRX
 xRX
 kpR
 kpR
+sHu
 aHt
 aHt
 aHt
 aHt
 aHt
-aHt
-aHt
+vkq
 aHt
 ntI
 ntI
@@ -33993,7 +34185,7 @@ oli
 laB
 iPL
 aay
-skU
+qdg
 apW
 xRX
 xRX
@@ -34482,7 +34674,7 @@ xRX
 xRX
 xRX
 xRX
-aaI
+qMe
 aou
 sBA
 aHt
@@ -35007,7 +35199,7 @@ aHt
 aHt
 aHt
 aHt
-aHt
+tIl
 aHt
 aHt
 jKH
@@ -35022,7 +35214,7 @@ aHt
 aHt
 aHt
 aHt
-aHt
+fMr
 aHt
 aHt
 aHt
@@ -35289,7 +35481,7 @@ kpR
 kpR
 aHt
 aHt
-aHt
+vdR
 aHt
 kpR
 kpR
@@ -35552,7 +35744,7 @@ mJE
 kpR
 kpR
 aHt
-aHt
+waT
 aHt
 aHt
 kpR
@@ -35769,7 +35961,7 @@ xRX
 xRX
 xRX
 xRX
-aHt
+rlC
 aUz
 nDV
 awG
@@ -35818,7 +36010,7 @@ kpR
 aHt
 kpR
 snj
-snj
+wGp
 kpR
 kpR
 xRX
@@ -37052,7 +37244,7 @@ xRX
 xRX
 xRX
 xRX
-eiL
+skU
 eiL
 aHt
 aHt
@@ -37568,7 +37760,7 @@ xRX
 xRX
 xRX
 xRX
-aHt
+htW
 eMT
 eMT
 eMT
@@ -37873,8 +38065,8 @@ kpR
 kpR
 aHt
 kpR
-snj
-snj
+pYp
+wGp
 kpR
 kpR
 xRX
@@ -38083,7 +38275,7 @@ xRX
 xRX
 xRX
 aHt
-qMe
+vdW
 iOV
 mVa
 rtf
@@ -38122,7 +38314,7 @@ fkV
 kpR
 kpR
 aHt
-aHt
+abS
 aHt
 aHt
 kpR
@@ -38373,7 +38565,7 @@ kpR
 kpR
 aHt
 aHt
-aHt
+ijH
 aHt
 kpR
 kpR
@@ -38605,22 +38797,22 @@ iaK
 tGq
 aHt
 aHt
+nkz
 aHt
 aHt
 aHt
-aHt
-aHt
+nkz
 aHt
 aHt
 ewW
 kzm
-aHt
+aqg
 aHt
 fNZ
 fNZ
 fNZ
 aHt
-aHt
+iSc
 aHt
 aHt
 aHt
@@ -38869,7 +39061,7 @@ vwF
 vwF
 vwF
 vwF
-lpe
+iaR
 lpe
 vwF
 vwF
@@ -39108,7 +39300,7 @@ xRX
 xRX
 xRX
 xRX
-aaI
+vMd
 aou
 sBA
 aHt
@@ -39389,7 +39581,7 @@ pAh
 pAh
 pCa
 opS
-huE
+iln
 xRX
 xRX
 xRX
@@ -39881,12 +40073,12 @@ xRX
 xRX
 aHt
 aHt
+juG
 aHt
 aHt
 aHt
 aHt
-aHt
-aHt
+juG
 kpR
 kpR
 xRX
@@ -39897,7 +40089,7 @@ vwF
 vwF
 vwF
 vwF
-vwF
+cWW
 kaR
 kaR
 vwF
