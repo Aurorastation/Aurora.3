@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "The Elyran strike craft, FSF and SFA corvettes, and TCFL corvette now all have grauwolf flak batteries. The militia ship has a 40mm rotary cannon. The civilian station has a large amount of ammunition to sell."
+  - maptweak: "The Elyran strike craft, FSF and SFA corvettes, and TCFL corvette now all have grauwolf flak batteries. The militia ship has a 40mm rotary cannon. The civilian station has a large amount of ammunition to sell."
   - balance: "Some third party ships and away sites have had their small arms to be more substantial. The civilian station now has an autolathe."
