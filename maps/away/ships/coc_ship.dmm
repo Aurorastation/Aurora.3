@@ -44,9 +44,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -61,8 +61,8 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -118,9 +118,9 @@
 	dir = 1
 	},
 /obj/structure/sign/fire{
-	pixel_x = -32;
+	desc = "A danger sign which reads \"DANGER: EXPLOSIVES\".";
 	name = "\improper DANGER: EXPLOSIVES sign";
-	desc = "A danger sign which reads \"DANGER: EXPLOSIVES\"."
+	pixel_x = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -166,8 +166,8 @@
 	pixel_x = 6
 	},
 /obj/structure/bedsheetbin{
-	pixel_y = 16;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 16
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -343,9 +343,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/firealarm/south,
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -477,10 +477,10 @@
 	pixel_x = 6
 	},
 /obj/item/receivergun{
-	name = "anti-material rifle";
+	desc = "The PTR-7 is man-portable anti-armor rifle fitted with a high-powered scope, capable of penetrating through most windows, airlocks, and non-reinforced walls with ease. Fires armor piercing 14.5mm shells. This one has suffered extensive wear and battle damage - the most noteworthy of which being a shot to the receiver that has destroyed it, rendering it useful as a paperweight at most.";
 	icon = 'icons/obj/guns/heavysniper.dmi';
 	icon_state = "heavysniper";
-	desc = "The PTR-7 is man-portable anti-armor rifle fitted with a high-powered scope, capable of penetrating through most windows, airlocks, and non-reinforced walls with ease. Fires armor piercing 14.5mm shells. This one looked FUBAR, only the reciever is of any use anymore.";
+	name = "anti-material rifle";
 	pixel_y = 14
 	},
 /turf/simulated/floor/tiled/dark,
@@ -502,8 +502,8 @@
 /obj/machinery/button/remote/blast_door{
 	id = "coc_fore";
 	name = "fore blast door-control";
-	pixel_y = 6;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 6
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "coc_midship";
@@ -572,9 +572,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -680,9 +680,9 @@
 	dir = 1
 	},
 /obj/structure/sign/securearea{
+	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
 	name = "\improper WARNING: BLAST DOOR sign";
-	pixel_x = 32;
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\"."
+	pixel_x = 32
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -936,8 +936,8 @@
 "epw" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/sign/flag/vysoka{
-	pixel_y = 32;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 32
 	},
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
@@ -999,6 +999,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/badge/passcard/coalition,
+/obj/item/gun/projectile/revolver/derringer,
+/obj/item/ammo_casing/a357,
+/obj/item/ammo_casing/a357,
+/obj/item/ammo_casing/a357,
+/obj/item/ammo_casing/a357,
 /turf/simulated/floor,
 /area/space)
 "eJH" = (
@@ -1048,8 +1053,8 @@
 /area/space)
 "eYX" = (
 /obj/structure/closet/crate{
-	name = "surplus gadpathurian uniforms";
-	desc = "A rectangular steel crate. Due to a requisitions error a crate of these got sent here."
+	desc = "A rectangular steel crate. Due to a requisitions error a crate of these got sent here.";
+	name = "surplus gadpathurian uniforms"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/item/clothing/under/uniform/gadpathur,
@@ -1193,14 +1198,14 @@
 "fum" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey{
+	layer = 3.1;
 	pixel_x = 2;
-	pixel_y = 17;
-	layer = 3.1
+	pixel_y = 17
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	layer = 3.2;
 	pixel_x = -5;
-	pixel_y = 11;
-	layer = 3.2
+	pixel_y = 11
 	},
 /turf/simulated/floor/carpet/fancybrown,
 /area/space)
@@ -1272,8 +1277,8 @@
 	pixel_y = 8
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_y = 32;
-	pixel_x = 4
+	pixel_x = 4;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1364,8 +1369,8 @@
 "gya" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/sign/flag/heph{
-	ripped = 1;
-	pixel_y = 32
+	pixel_y = 32;
+	ripped = 1
 	},
 /obj/structure/bed/stool/padded,
 /obj/effect/decal/cleanable/dirt,
@@ -1404,9 +1409,9 @@
 /area/space)
 "gBo" = (
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -1524,9 +1529,9 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1565,8 +1570,8 @@
 "htI" = (
 /obj/structure/sign/directions/engineering{
 	dir = 1;
-	pixel_y = -14;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = -14
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -1619,8 +1624,8 @@
 "hVF" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	name = "blast door";
-	id = "coc_bridge"
+	id = "coc_bridge";
+	name = "blast door"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/door/firedoor/noid,
@@ -1632,9 +1637,9 @@
 /area/space)
 "iay" = (
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 4;
-	pixel_x = -32
+	pixel_x = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1727,9 +1732,9 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/reinforced,
 /area/space)
@@ -1772,6 +1777,23 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/item/gun/projectile/automatic/rifle/shorty,
+/obj/item/gun/projectile/automatic/rifle/shorty,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/gun/projectile/shotgun/pump/combat,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/flashshells,
+/obj/item/storage/box/beanbags,
+/obj/item/gun/projectile/automatic/tommygun,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/gun/projectile/tanto,
+/obj/item/ammo_magazine/mc10mm,
+/obj/item/ammo_magazine/mc10mm,
+/obj/item/ammo_magazine/mc10mm,
+/obj/item/gun/projectile/gauss,
+/obj/item/ammo_magazine/gauss,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "jjA" = (
@@ -1784,9 +1806,9 @@
 "jkc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 4;
-	pixel_x = -32
+	pixel_x = -32;
+	req_one_access = null
 	},
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/tiled/dark,
@@ -1799,8 +1821,8 @@
 	pixel_y = 5
 	},
 /obj/item/reagent_containers/food/drinks/pitcher{
-	reagents_to_add = list(/decl/reagent/drink/coffee = 30);
-	pixel_x = -5
+	pixel_x = -5;
+	reagents_to_add = list(/decl/reagent/drink/coffee = 30)
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
 	pixel_x = 6
@@ -1823,6 +1845,18 @@
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/gun/energy/pistol/hegemony,
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/gun/energy/blaster/revolver,
+/obj/item/gun/projectile/revolver/lemat,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/gun/energy/retro,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "jQe" = (
@@ -1927,9 +1961,9 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1949,9 +1983,9 @@
 	dir = 4
 	},
 /obj/structure/sign/securearea{
+	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
 	name = "\improper WARNING: BLAST DOOR sign";
-	pixel_x = 32;
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\"."
+	pixel_x = 32
 	},
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled/dark,
@@ -2008,8 +2042,8 @@
 "kPs" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	name = "blast door";
-	id = "coc_bridge"
+	id = "coc_bridge";
+	name = "blast door"
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/door/blast/regular/open{
@@ -2034,7 +2068,7 @@
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
-	weapon_id = "Grauwolf Flak Battery"
+	weapon_id = "COC Grauwolf Flak Battery"
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
@@ -2147,13 +2181,13 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/media/jukebox,
 /obj/item/disk/tech_disk{
-	name = "\improper Greatest Hits of The 2450's disk";
-	desc = "A disk for storing data. This one is labeled, Greatest Hits of 2450."
+	desc = "A disk for storing data. This one is labeled, Greatest Hits of 2450.";
+	name = "\improper Greatest Hits of The 2450's disk"
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 4;
-	pixel_x = -32
+	pixel_x = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -2163,9 +2197,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 4;
-	pixel_x = -32
+	pixel_x = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor,
 /area/space)
@@ -2237,9 +2271,9 @@
 /area/space)
 "mBK" = (
 /obj/structure/sign/securearea{
+	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
 	name = "\improper WARNING: BLAST DOOR sign";
-	pixel_x = -32;
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\"."
+	pixel_x = -32
 	},
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 4
@@ -2417,6 +2451,8 @@
 /obj/machinery/door/window/eastright{
 	dir = 1
 	},
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/reinforced,
 /area/space)
 "nDn" = (
@@ -2443,9 +2479,9 @@
 "nOf" = (
 /obj/structure/bed/stool/chair,
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -2466,6 +2502,9 @@
 /obj/machinery/door/window/eastright{
 	dir = 2
 	},
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
 /turf/simulated/floor/reinforced,
 /area/space)
 "nUu" = (
@@ -2590,6 +2629,48 @@
 /obj/structure/closet{
 	name = "mixed equipment closet"
 	},
+/obj/item/material/knife/butterfly,
+/obj/item/material/knife/butterfly,
+/obj/item/material/knife/tacknife,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/item/material/knife/trench,
+/obj/item/material/hatchet,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/white_vest,
+/obj/item/clothing/accessory/storage/white_vest,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/storage/pouches/colour,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/very_full,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical/first_responder/combat/full,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/flag/konyang,
+/obj/item/flag/konyang,
+/obj/item/flag/gadpathur,
+/obj/item/flag/gadpathur,
+/obj/item/flag/vysoka,
+/obj/item/flag/vysoka,
+/obj/item/flag/gadpathur,
+/obj/item/flag/gadpathur,
+/obj/item/flag/coalition,
+/obj/item/flag/coalition,
+/obj/item/flag/coalition,
+/obj/item/flag/coalition,
+/obj/item/clothing/accessory/badge/passcard/coalition,
+/obj/item/clothing/accessory/badge/passcard/coalition,
+/obj/item/clothing/accessory/badge/passcard/coalition,
+/obj/item/clothing/accessory/badge/passcard/coalition,
+/obj/item/clothing/accessory/badge/passcard/coalition,
+/obj/item/clothing/accessory/badge/passcard/coalition,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "oyj" = (
@@ -2616,6 +2697,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/item/grenade/frag,
 /turf/simulated/floor/reinforced,
 /area/space)
 "oHa" = (
@@ -2639,7 +2721,7 @@
 /area/shuttle/freighter_shuttle)
 "oMS" = (
 /obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "Grauwolf Flak Battery"
+	weapon_id = "COC Grauwolf Flak Battery"
 	},
 /turf/simulated/floor/reinforced,
 /area/space)
@@ -2805,9 +2887,9 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/firealarm/east,
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -2846,9 +2928,9 @@
 	layer = 2.71
 	},
 /obj/structure/sign/securearea{
+	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
 	name = "\improper WARNING: BLAST DOOR sign";
-	pixel_x = 32;
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\"."
+	pixel_x = 32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2895,8 +2977,8 @@
 	pixel_y = -4
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_y = 10;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -2980,11 +3062,14 @@
 "qMe" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/rig/gunslinger,
-/obj/item/rig_module/ai_container,
-/obj/item/rig_module/maneuvering_jets,
-/obj/item/rig_module/vision/meson,
-/obj/item/rig/gunslinger,
+/obj/item/clothing/shoes/magboots,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/suit/space/void/coalition,
+/obj/item/clothing/head/helmet/space/void/coalition,
+/obj/machinery/alarm{
+	pixel_y = 32;
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "qPn" = (
@@ -3033,6 +3118,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/reinforced,
 /area/space)
 "rqO" = (
@@ -3040,9 +3126,9 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 4;
-	pixel_x = -32
+	pixel_x = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/reinforced,
 /area/space)
@@ -3058,10 +3144,10 @@
 "rue" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/clothing/head/beret/janitor{
-	pixel_y = 9;
-	pixel_x = 3;
+	desc = "A beret with the janitorial insignia emblazoned on it. Be proud to serve the great Corps of Custodial Technicians!";
 	name = "custodial officer beret";
-	desc = "A beret with the janitorial insignia emblazoned on it. Be proud to serve the great Corps of Custodial Technicians!"
+	pixel_x = 3;
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -3089,9 +3175,9 @@
 	dir = 1
 	},
 /obj/structure/sign/securearea{
+	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
 	name = "\improper WARNING: BLAST DOOR sign";
-	pixel_x = 32;
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\"."
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -3103,9 +3189,9 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 1;
-	pixel_y = -32
+	pixel_y = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -3122,9 +3208,9 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -3209,17 +3295,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "skU" = (
-/obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/template_noop,
 /area/space)
 "snj" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/door/blast/regular/open{
-	name = "blast door";
-	id = "coc_bridge"
+	id = "coc_bridge";
+	name = "blast door"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
@@ -3305,8 +3390,8 @@
 /area/space)
 "sIn" = (
 /obj/structure/sign/securearea{
-	name = "\improper WARNING: BLAST DOOR sign";
 	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3343,9 +3428,9 @@
 "sUH" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/sign/securearea{
+	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
 	name = "\improper WARNING: BLAST DOOR sign";
-	pixel_x = -32;
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\"."
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -3361,9 +3446,9 @@
 	dir = 8
 	},
 /obj/structure/sign/securearea{
+	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
 	name = "\improper WARNING: BLAST DOOR sign";
-	pixel_x = -32;
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\"."
+	pixel_x = -32
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3401,6 +3486,24 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
 	},
+/obj/item/handcuffs/cable/random,
+/obj/item/handcuffs/cable/random,
+/obj/item/handcuffs/cable/random,
+/obj/item/handcuffs/ziptie,
+/obj/item/handcuffs/ziptie,
+/obj/item/handcuffs/ziptie,
+/obj/item/handcuffs/ziptie,
+/obj/item/handcuffs/ziptie,
+/obj/item/melee/baton/cattleprod,
+/obj/item/melee/baton/cattleprod,
+/obj/item/melee/classic_baton,
+/obj/item/melee/classic_baton,
+/obj/item/gun/energy/taser,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/flashbang,
+/obj/item/grenade/smokebomb,
+/obj/item/storage/belt/security,
+/obj/item/storage/belt/security,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "tGq" = (
@@ -3442,8 +3545,8 @@
 	},
 /obj/item/bedsheet/black,
 /obj/item/clothing/head/bearpelt{
-	name = "bear pelt blanket";
-	layer = 4
+	layer = 4;
+	name = "bear pelt blanket"
 	},
 /turf/simulated/floor/carpet/red,
 /area/space)
@@ -3474,9 +3577,9 @@
 "ujR" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -3507,9 +3610,9 @@
 /area/space)
 "urk" = (
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 4;
-	pixel_x = -32
+	pixel_x = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/carpet/red,
 /area/space)
@@ -3602,27 +3705,27 @@
 "uON" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/sign/directions/com{
-	pixel_y = -12;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = -12
 	},
 /obj/structure/sign/directions/tcom{
-	pixel_y = -6;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = -6
 	},
 /obj/structure/sign/directions/security{
 	pixel_x = -32
 	},
 /obj/structure/sign/directions/medical{
-	pixel_y = 6;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/structure/sign/directions/engineering{
 	dir = 1;
-	pixel_y = 12;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = 12
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3717,14 +3820,14 @@
 /obj/structure/window/basic,
 /obj/item/holomenu{
 	name = "holo-display";
-	req_one_access = null;
-	pixel_y = 5
+	pixel_y = 5;
+	req_one_access = null
 	},
 /obj/structure/table/wood,
 /obj/structure/sign/kiddieplaque{
-	pixel_y = 32;
 	desc = "A plaque commemorating some kind of achievement, this one comes straight from the Chief Representative! At least that's what it says.";
-	name = "\improper Frontier Protection Bureau achievement plaque"
+	name = "\improper Frontier Protection Bureau achievement plaque";
+	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
 /area/space)
@@ -3763,6 +3866,7 @@
 /obj/structure/table/standard,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/clothing/head/hardhat,
+/obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "vyz" = (
@@ -3781,10 +3885,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
-/area/space)
-"vMd" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/reinforced,
 /area/space)
 "vMq" = (
 /obj/machinery/appliance/cooker/oven,
@@ -3841,8 +3941,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+	pixel_y = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -3872,8 +3972,8 @@
 /area/space)
 "wsT" = (
 /obj/structure/sign/directions/com{
-	pixel_y = -12;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = -12
 	},
 /obj/structure/sign/directions/tcom{
 	dir = 1;
@@ -4010,15 +4110,15 @@
 "xeA" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	name = "blast door";
-	id = "coc_bridge"
+	id = "coc_bridge";
+	name = "blast door"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	name = "blast door";
-	id = "coc_bridge"
+	id = "coc_bridge";
+	name = "blast door"
 	},
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
@@ -4049,8 +4149,8 @@
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	name = "blast door";
-	id = "coc_bridge"
+	id = "coc_bridge";
+	name = "blast door"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
@@ -4076,9 +4176,9 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -4220,9 +4320,9 @@
 	pixel_y = 32
 	},
 /obj/machinery/alarm{
-	req_one_access = null;
 	dir = 4;
-	pixel_x = -32
+	pixel_x = -32;
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -33893,7 +33993,7 @@ oli
 laB
 iPL
 aay
-apW
+skU
 apW
 xRX
 xRX
@@ -34663,7 +34763,7 @@ mYG
 gyB
 sUv
 iUY
-vMd
+aHt
 xRX
 xRX
 xRX
@@ -37726,7 +37826,7 @@ xRX
 xRX
 xRX
 aHt
-skU
+eMT
 iOV
 mNs
 aHt
@@ -37983,7 +38083,7 @@ xRX
 xRX
 xRX
 aHt
-eMT
+qMe
 iOV
 mVa
 rtf
@@ -38240,7 +38340,7 @@ xRX
 xRX
 xRX
 aHt
-qMe
+eMT
 iOV
 gEb
 aHt
