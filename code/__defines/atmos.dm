@@ -113,6 +113,8 @@
 #define GAS_HYDROGEN            "hydrogen"
 #define GAS_ALIEN				"aliether"
 #define GAS_STEAM				"water"
+#define GAS_SULFUR				"sulfurdioxide"
+#define GAS_CHLORINE			"chlorine"
 
 #define	PIPE_COLOR_GREY		"#ffffff"	//yes white is grey
 #define	PIPE_COLOR_RED		"#ff0000"

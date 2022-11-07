@@ -11,6 +11,12 @@
 	generated_name = FALSE
 	ring_chance = 0
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/generate_atmosphere()
+	..()
+	if(atmosphere)
+		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
+		atmosphere.update_values()
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/get_surface_color()
 	return "#B1A69B"
 
@@ -19,6 +25,10 @@
 	name = "Az'Mar"
 	desc = "A small planet with a caustic shale crust. The surface is extremely hot and dense."
 	color = "#B1A69B"
+	color = "#dcdcdc"
+	planetary_area = /area/exoplanet/adhomai
+	rock_colors = null
+	plant_colors = null
 	rock_colors = list("#4a3f41")
 	possible_themes = list(/datum/exoplanet_theme/mountains)
 	map_generators = list(/datum/random_map/noise/exoplanet/barren, /datum/random_map/noise/ore)
@@ -26,19 +36,22 @@
 	surface_color = "#4a3f41"
 	generated_name = FALSE
 	ring_chance = 0
-
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/get_surface_color()
 	return "#4a3f41"
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/get_atmosphere_color()
+	return "#D8E2E9"
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/generate_atmosphere()
 	..()
 	if(atmosphere)
+		atmosphere.adjust_gas(GAS_CHLORINE, MOLES_O2STANDARD)
 		atmosphere.temperature = T0C + 500
 		atmosphere.update_values()
 
 //Sahul
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul
-	name = "lava exoplanet"
+	name = "Sahul"
 	desc = "Az'mar's moon is a celestial body composed primarily of molten metals."
 	generated_name = FALSE
 	ring_chance = 0
@@ -58,7 +71,7 @@
 	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/get_surface_color()
-	return "#B1A69B"
+	return "#373737"
 
 /datum/random_map/noise/exoplanet/barren/raskara
 	land_type = /turf/simulated/floor/exoplanet/barren/raskara
@@ -90,6 +103,10 @@
 	surface_color = "#e8faff"
 	water_color = "#b5dfeb"
 	generated_name = FALSE
+	habitability_class = HABITABILITY_IDEAL
+
+/obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_habitability()
+	return HABITABILITY_IDEAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_map()
 	if(prob(50))
@@ -130,3 +147,4 @@
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "asteroid"
 	temperature = T0C - 5
+

@@ -15,6 +15,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/grass/generate_atmosphere()
 	..()
 	if(atmosphere)
+		atmosphere.adjust_gas(GAS_CHLORINE, MOLES_O2STANDARD)
 		atmosphere.temperature = T20C + rand(10, 30)
 		atmosphere.update_values()
 
