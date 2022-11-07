@@ -2058,7 +2058,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/fluff/ielia_tarot/examine(mob/user)
 	if(..(user, 1))
 		if(first_card && second_card && third_card)
-			to_chat(user, "These constelations are displayed on the starfinder: [first_card], [second_card] and [third_card].")
+			to_chat(user, "The following constellations are displayed on the starfinder: [first_card], [second_card], and [third_card].")
 
 /obj/item/fluff/ielia_tarot/proc/finish_selection(var/mob/user)
 	cut_overlays()
