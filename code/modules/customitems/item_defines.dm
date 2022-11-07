@@ -2098,7 +2098,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/suit/storage/fluff/osborne_suit //Osborne Strelitz - Osborne Strelitz - sirtoast
 	name = "dominian officers trench coat"
-	desc = "An Imperial army trench coat that is used by Dominian officers in colder environments. this one is missing the unit insignia and has the symbol of a military count on its rank collar."
+	desc = "An Imperial Army trench coat that is used by Dominian officers in colder environments. This one is missing the unit insignia and has the symbol of a military count on its rank collar."
 	icon = 'icons/obj/custom_items/osborne_suit.dmi'
 	icon_override = 'icons/obj/custom_items/osborne_suit.dmi'
 	icon_state = "osborne_suit"
