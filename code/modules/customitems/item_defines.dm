@@ -2007,19 +2007,26 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/deck/tarot/nralakk/fluff/ielia_tarot //Starfinder - Ielia Aliori-Quis'Naala - shestrying
+/obj/item/fluff/ielia_tarot //Starfinder - Ielia Aliori-Quis'Naala - shestrying
 	name = "starfinder"
 	desc = "A small, bronze ball. It is heavy in the hand and seems to have no switches or buttons on it. "
 	icon = 'icons/obj/custom_items/ielia_tarot.dmi'
 	icon_override = 'icons/obj/custom_items/ielia_tarot.dmi'
 	icon_state = "ielia_tarot"
 	contained_sprite = TRUE
+	var/list/possible_cards = list("Island","Hatching Egg","Star Chanter","Jiu'x'klua","Stormcloud","Gnarled Tree","Poet","Bloated Toad","Void","Qu'Poxii","Fisher","Mountain","Sraso","Nioh")
 	var/activated = FALSE
 	var/first_card
 	var/second_card
 	var/third_card
 
-/obj/item/deck/tarot/nralakk/fluff/ielia_tarot/verb/start_starfinder()
+/obj/item/fluff/ielia_tarot/attack_self(var/mob/user)
+	if(activated)
+		reset_starfinder()
+	else
+		start_starfinder()
+
+/obj/item/fluff/ielia_tarot/verb/start_starfinder()
 	set name = "Start the Starfinder"
 	set category = "Object"
 	set src in view(1)
@@ -2028,11 +2035,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
-		return
-	if(!iscarbon(usr))
-		to_chat(usr, SPAN_WARNING("Your simple form can't operate \the [src]."))
-	if(!cards.len)
-		to_chat(usr, SPAN_WARNING("There are no cards in \the [src]."))
 		return
 
 	first_card = null
@@ -2050,23 +2052,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 	add_overlay("card_spin_fx")
 	addtimer(CALLBACK(src, .proc/finish_selection, usr), 3 SECONDS)
 
-/obj/item/deck/tarot/nralakk/fluff/ielia_tarot/proc/finish_selection(var/mob/user)
+/obj/item/fluff/ielia_tarot/examine(mob/user)
+	if(..(user, 1))
+		if(first_card && second_card && third_card)
+			to_chat(user, "These constelations are displayed on the starfinder: [first_card], [second_card] and [third_card].")
+
+/obj/item/fluff/ielia_tarot/proc/finish_selection(var/mob/user)
 	cut_overlays()
 	flick("card_spin_stop",src)
 	icon_state = "ielia_tarot_on"
 	for(var/i = 1 to 3)
-		var/obj/item/hand/H = new(get_turf(src))
-		H.cards += cards[1]
-		cards -= cards[1]
-		H.concealed = 1
-		var/datum/playingcard/P = cards[1]
-		H.update_icon()
+		var/P = pick(possible_cards)
 		if(!first_card)
-			first_card = "[P.name]"
+			first_card = P
 		else if(first_card && !second_card)
-			second_card = "[P.name]"
+			second_card = P
 		else if(first_card && second_card)
-			third_card = "[P.name]"
+			third_card = P
 
 	cut_overlays()
 	add_overlay("card_display_fx")
@@ -2083,7 +2085,18 @@ All custom items with worn sprites must follow the contained sprite system: http
 	third_card_overlay.pixel_x = 8
 	add_overlay(third_card_overlay)
 
-	addtimer(CALLBACK(src, .proc/reset_starfinder), 15 SECONDS)
-
-/obj/item/deck/tarot/nralakk/fluff/ielia_tarot/proc/reset_starfinder()
+/obj/item/fluff/ielia_tarot/proc/reset_starfinder()
+	if(!activated)
+		return
+	cut_overlays()
+	icon_state = "ielia_tarot"
 	activated = FALSE
+
+/obj/item/clothing/suit/storage/fluff/osborne_suit //Osborne Strelitz - Osborne Strelitz - sirtoast
+	name = "dominian officers trench coat"
+	desc = "An Imperial army trench coat that is used by Dominian officers in colder environments. this one is missing the unit insignia and has the symbol of a military count on its rank collar."
+	icon = 'icons/obj/custom_items/osborne_suit.dmi'
+	icon_override = 'icons/obj/custom_items/osborne_suit.dmi'
+	icon_state = "osborne_suit"
+	item_state = "osborne_suit"
+	contained_sprite = TRUE
