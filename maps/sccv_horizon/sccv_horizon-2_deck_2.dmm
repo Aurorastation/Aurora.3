@@ -716,9 +716,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "aqX" = (
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -3573,7 +3570,7 @@
 	name = "Primary Armament Exterior Bolts";
 	pixel_x = 22;
 	pixel_y = 22;
-	req_access = list(19, 11);
+	req_access = list(19,11);
 	specialfunctions = 4
 	},
 /obj/structure/cable{
@@ -4100,6 +4097,10 @@
 	dir = 8;
 	name = "Station Intercom (General)";
 	pixel_x = 24
+	},
+/obj/machinery/camera/network/command{
+	dir = 8;
+	c_tag = "Command - Deck 2 - Secure Ammunition Storage"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
@@ -14294,9 +14295,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/hydroponics/garden)
 "gZD" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/power/apc{
 	dir = 1;
 	pixel_y = 24
@@ -14306,6 +14304,9 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/operations/flak)
