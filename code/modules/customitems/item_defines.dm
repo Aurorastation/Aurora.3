@@ -2026,6 +2026,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		start_starfinder()
 
+/obj/item/fluff/ielia_tarot/AltClick(mob/user)
+	attack_self(user)
+
 /obj/item/fluff/ielia_tarot/verb/start_starfinder()
 	set name = "Start the Starfinder"
 	set category = "Object"
@@ -2091,6 +2094,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	cut_overlays()
 	icon_state = "ielia_tarot"
 	activated = FALSE
+
 
 /obj/item/clothing/suit/storage/fluff/osborne_suit //Osborne Strelitz - Osborne Strelitz - sirtoast
 	name = "dominian officers trench coat"
