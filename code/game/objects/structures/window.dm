@@ -180,10 +180,10 @@
 			M.turf_collision(src, speed, /decl/sound_category/glasscrack_sound)
 			return
 		else
-			visible_message(SPAN_DANGER("[src] was hit by [AM]."))
+			visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
 		tforce = 40
 	else if(isobj(AM))
-		visible_message(SPAN_DANGER("[src] was hit by [AM]."))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
 		var/obj/item/I = AM
 		tforce = I.throwforce
 	if(reinf)

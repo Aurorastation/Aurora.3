@@ -534,4 +534,4 @@ Class Procs:
 		M.turf_collision(src, speed)
 		return
 	else
-		visible_message("<span class='danger'>[src.name] was hit by [AM].</span>")
+		visible_message(SPAN_DANGER("\The [src.name] was hit by \the [AM]."))
