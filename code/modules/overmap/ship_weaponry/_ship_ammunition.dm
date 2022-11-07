@@ -189,6 +189,7 @@
 	range = 250
 	anti_materiel_potential = 3
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
+	accuracy = 100
 	var/obj/item/ship_ammunition/ammo
 	var/primed = FALSE //If primed, we don't interact with map edges. Projectiles might spawn on a landmark at the edge of space, and we don't want them to get tp'd away.
 	var/hit_target = FALSE //First target we hit. Used to report if a hit was successful.
@@ -220,8 +221,9 @@
 /obj/item/projectile/ship_ammo/proc/on_translate(var/turf/entry_turf, var/target_turf) //This proc is called when the projectile enters a new ship's overmap zlevel.
 	if(ammo.burst)
 		for(var/i = 1 to ammo.burst)
-			var/turf/new_turf = get_random_turf_in_range(entry_turf, ammo.burst + rand(0, ammo.burst),  ammo.burst + rand(0, ammo.burst), TRUE, TRUE)
-			var/obj/item/projectile/ship_ammo/pellet = new type(new_turf)
+			var/turf/new_turf = get_random_turf_in_range(entry_turf, ammo.burst + rand(0, ammo.burst),  0, TRUE, FALSE)
+			var/obj/item/projectile/ship_ammo/pellet = new type
+			pellet.forceMove(new_turf)
 			pellet.ammo = new ammo.type
 			pellet.ammo.origin = ammo.origin
 			pellet.ammo.impact_type = ammo.impact_type
