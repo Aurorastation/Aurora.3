@@ -171,16 +171,23 @@
 		return 0
 	return 1
 
-/obj/structure/window/hitby(AM as mob|obj)
+/obj/structure/window/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
 	..()
-	visible_message(SPAN_DANGER("[src] was hit by [AM]."))
 	var/tforce = 0
 	if(ismob(AM))
+		if(isliving(AM))
+			var/mob/living/M = AM
+			M.turf_collision(src, speed, /decl/sound_category/glasscrack_sound)
+			return
+		else
+			visible_message(SPAN_DANGER("[src] was hit by [AM]."))
 		tforce = 40
 	else if(isobj(AM))
+		visible_message(SPAN_DANGER("[src] was hit by [AM]."))
 		var/obj/item/I = AM
 		tforce = I.throwforce
-	if(reinf) tforce *= 0.25
+	if(reinf)
+		tforce *= 0.25
 	if(health - tforce <= 7 && !reinf)
 		anchored = 0
 		update_nearby_icons()

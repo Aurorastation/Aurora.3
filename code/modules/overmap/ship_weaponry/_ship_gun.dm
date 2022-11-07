@@ -265,8 +265,13 @@
 /obj/structure/ship_weapon_dummy/attackby(obj/item/W, mob/user)
 	connected.attackby(W, user)
 
-/obj/structure/ship_weapon_dummy/hitby(atom/movable/AM)
+/obj/structure/ship_weapon_dummy/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
 	connected.hitby(AM)
+	if(ismob(AM))
+		if(isliving(AM))
+			var/mob/living/M = AM
+			M.turf_collision(src, speed)
+			return
 
 /obj/structure/ship_weapon_dummy/bullet_act(obj/item/projectile/P, def_zone)
 	connected.bullet_act(P)
