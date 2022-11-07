@@ -273,7 +273,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 /obj/effect/overmap/visitable/ship/proc/combat_roll(var/new_dir)
 	burn()
-	forceMove(get_step(src, new_dir))
+	var/dir_to_move = turn(dir, new_dir == WEST ? 90 : -90)
+	forceMove(get_step(src, dir_to_move))
 	for(var/mob/living/L in living_mob_list)
 		if(L.z in map_z)
 			to_chat(L, SPAN_DANGER("<font size=4>The ship rapidly inclines under your feet!</font>"))
@@ -286,10 +287,26 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 /obj/effect/overmap/visitable/ship/proc/combat_turn(var/new_dir)
 	burn()
-	var/angle = 45
+	var/angle = -45
 	if(new_dir == WEST)
-		angle = -45
-	dir = turn(dir, angle)
+		angle = 45
+	var/direction = turn(dir, angle)
+	accelerate(direction, 1000)
+	if(direction & EAST)
+		speed[1] = abs(speed[1])
+	else if(direction & WEST)
+		if(speed[1] > 0)
+			speed[1] = -speed[1]
+	else
+		speed[1] = 0
+	if(direction & NORTH)
+		speed[2] = abs(speed[2])
+	else if(direction & SOUTH)
+		if(speed[2] > 0)
+			speed[2] = -speed[2]
+	else
+		speed[2] = 0
+	update_icon()
 	for(var/mob/living/L in living_mob_list)
 		if(L.z in map_z)
 			to_chat(L, SPAN_DANGER("The ship rapidly turns under your feet!"))
