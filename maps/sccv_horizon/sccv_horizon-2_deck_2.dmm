@@ -3573,8 +3573,8 @@
 	name = "Primary Armament Exterior Bolts";
 	pixel_x = 22;
 	pixel_y = 22;
-	req_access = list(19, 11);
-	specialfunctions = 4
+	specialfunctions = 4;
+	req_one_access = list(19,43)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3622,6 +3622,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
+"bGe" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
 "bGg" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6381,6 +6389,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
+"dhU" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/item/hullbeacon/red,
+/turf/template_noop,
+/area/template_noop)
 "dhZ" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Ammunition (Longarms)"
@@ -6546,7 +6563,7 @@
 	pixel_x = 22;
 	pixel_y = -20;
 	req_access = null;
-	req_one_access = list(19,11);
+	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
 /obj/structure/cable{
@@ -13743,6 +13760,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
+"gKf" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/template_noop,
+/area/template_noop)
 "gKh" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -14662,7 +14688,6 @@
 /area/hallway/engineering)
 "hiY" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -15645,6 +15670,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
+"hGn" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
 "hGx" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -20603,7 +20636,7 @@
 	name = "\improper Situational Control Armaments Turret Control";
 	pixel_y = 32;
 	req_access = null;
-	req_one_access = list(19,11)
+	req_one_access = list(19,43)
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -21427,7 +21460,6 @@
 /area/medical/psych)
 "kLZ" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -23161,7 +23193,7 @@
 	locked = 1;
 	name = "Primary Armament";
 	req_access = null;
-	req_one_access = list(19,11)
+	req_one_access = list(19,43)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor,
@@ -26251,7 +26283,7 @@
 	name = "\improper Situational Control Armaments Turret Control";
 	pixel_x = 28;
 	req_access = null;
-	req_one_access = list(19,11)
+	req_one_access = list(19,43)
 	},
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads \"WARNING: BEWARE OF HIGH-YIELD DEFENSIVE TURRETS. DO NOT PASS WITHOUT PROPER AUTHORIZATION. EXTREME DANGER WITHIN THIS PERIMETER.\".";
@@ -26265,7 +26297,7 @@
 	pixel_x = 22;
 	pixel_y = 12;
 	req_access = null;
-	req_one_access = list(19,11);
+	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/airlock{
@@ -26275,7 +26307,7 @@
 	pixel_x = 22;
 	pixel_y = -13;
 	req_access = null;
-	req_one_access = list(19,11);
+	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
 /obj/structure/cable{
@@ -26587,6 +26619,15 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/full,
 /area/medical/or1)
+"nlC" = (
+/obj/structure/ladder{
+	pixel_y = 16
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/open/airless,
+/area/template_noop)
 "nlG" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/atmos/storage)
@@ -28431,6 +28472,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
+"opx" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
 "opF" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -29514,6 +29562,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
+"oPQ" = (
+/obj/structure/ladder{
+	pixel_y = 16
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/open/airless,
+/area/template_noop)
 "oQy" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -32558,7 +32615,7 @@
 	locked = 1;
 	name = "Primary Armament Interior";
 	req_access = null;
-	req_one_access = list(19,11);
+	req_one_access = list(19,43);
 	secured_wires = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -37977,7 +38034,7 @@
 	pixel_x = 22;
 	pixel_y = 22;
 	req_access = null;
-	req_one_access = list(19,11);
+	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -39476,9 +39533,9 @@
 "tQB" = (
 /obj/machinery/door/airlock/hatch{
 	id_tag = "bolts_cannon_external";
-	name = "Primary Armament Exterior Airlock";
+	name = "Primary Armament Exterior";
 	req_access = null;
-	req_one_access = list(19,11);
+	req_one_access = list(19,43);
 	secured_wires = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -40397,6 +40454,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
+"unO" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/open/airless,
+/area/template_noop)
 "unV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/blue{
@@ -43301,6 +43365,13 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/morgue_lift)
+"vLl" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
 "vLu" = (
 /obj/structure/closet/secure_closet/guncabinet/sci,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -47432,7 +47503,7 @@
 	pixel_x = 22;
 	pixel_y = -22;
 	req_access = null;
-	req_one_access = list(19,11);
+	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
 /obj/structure/cable{
@@ -48820,7 +48891,7 @@
 	pixel_x = -6;
 	pixel_y = -38;
 	req_access = null;
-	req_one_access = list(19,11);
+	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/airlock{
@@ -48830,7 +48901,7 @@
 	pixel_x = 6;
 	pixel_y = -38;
 	req_access = null;
-	req_one_access = list(19,11);
+	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/airlock{
@@ -48840,7 +48911,7 @@
 	pixel_x = -6;
 	pixel_y = -28;
 	req_access = null;
-	req_one_access = list(19,11);
+	req_one_access = list(19,43);
 	specialfunctions = 4
 	},
 /obj/structure/sign/nosmoking_2{
@@ -83006,9 +83077,9 @@ rId
 aPN
 fmk
 kuh
-fdj
-qgN
-qgN
+unO
+vLl
+hGn
 qgN
 qgN
 qgN
@@ -83209,8 +83280,8 @@ aPN
 fmk
 rdi
 kLZ
-qgN
-qgN
+nlC
+gKf
 qgN
 qgN
 qgN
@@ -84421,8 +84492,8 @@ aPN
 fmk
 rdi
 hiY
-qgN
-qgN
+oPQ
+dhU
 qgN
 qgN
 qgN
@@ -84622,9 +84693,9 @@ ewx
 ptE
 pcx
 kuh
-fdj
-qgN
-qgN
+unO
+opx
+bGe
 qgN
 qgN
 qgN
