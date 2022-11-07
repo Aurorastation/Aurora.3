@@ -21,7 +21,8 @@
 	impact_type = SHIP_AMMO_IMPACT_FMJ
 	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY|SHIP_AMMO_FLAG_INFLAMMABLE
 	caliber = SHIP_CALIBER_40MM
-	burst = 6
+	burst = 8
+	cookoff_heavy = 0
 
 /obj/item/ship_ammunition/francisca/ap
 	name = "40mm AP ammunition box"

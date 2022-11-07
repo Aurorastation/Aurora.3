@@ -188,6 +188,7 @@
 	icon_state = "small"
 	range = 250
 	anti_materiel_potential = 3
+	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	var/obj/item/ship_ammunition/ammo
 	var/primed = FALSE //If primed, we don't interact with map edges. Projectiles might spawn on a landmark at the edge of space, and we don't want them to get tp'd away.
 	var/hit_target = FALSE //First target we hit. Used to report if a hit was successful.
