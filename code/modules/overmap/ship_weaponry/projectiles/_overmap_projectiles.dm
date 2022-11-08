@@ -64,6 +64,7 @@
 					widowmaker.forceMove(entry_target)
 					widowmaker.on_hit(laze, is_landmark_hit = TRUE)
 					log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+					say_dead_direct("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=usr;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
 					qdel(widowmaker)
 					qdel(src)
 				else if(istype(V, /obj/effect/overmap/visitable) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
@@ -81,12 +82,14 @@
 					ammunition.original_projectile = widowmaker
 					widowmaker.primed = TRUE
 					var/turf/entry_turf_initial = get_ranged_target_turf(entry_target, reverse_dir[entry_target.dir], 20)
-					var/turf/entry_turf = get_ranged_target_turf(entry_turf_initial, pick(list(EAST, WEST)), 5)
+					var/entry_dir_choice = (dir & NORTH) || (dir & SOUTH) ? list(EAST, WEST) : list(NORTH, SOUTH)
+					var/turf/entry_turf = get_ranged_target_turf(entry_turf_initial, entry_dir_choice, 5)
 					widowmaker.forceMove(entry_turf)
 					widowmaker.dir = ammunition.heading
 					var/turf/target_turf = get_step(widowmaker, widowmaker.dir)
 					widowmaker.on_translate(entry_turf, target_turf)
-					log_and_message_admins("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir_name(widowmaker.dir)]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+					log_and_message_admins("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir2text(widowmaker.dir)]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+					say_dead_direct("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir2text(widowmaker.dir)]! (<A HREF='?_src_=usr;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
 					widowmaker.launch_projectile(target_turf)
 					qdel(src)
 		if(istype(A, /obj/effect/overmap/event))
