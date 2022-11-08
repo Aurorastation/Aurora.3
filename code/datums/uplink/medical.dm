@@ -16,8 +16,9 @@
 
 /datum/uplink_item/item/medical/sanasomnum
 	name = "Sanasomnum Injector"
-	item_cost = 2
+	item_cost = 9
 	path = /obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
+	desc = "An autoinjector for Sanasomnum, a miracle drug that can recover extreme injuries regardless of their source at the cost of being unconscious for a few minutes. Not a foolproof revival if you end up getting too injured, and can't remove foreign bodies."
 
 /datum/uplink_item/item/medical/combathypo
 	name = "Combat Hypospray"
