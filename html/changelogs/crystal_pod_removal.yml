@@ -1,0 +1,6 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - rscdel: "Removes the depreciated crystal therapy pod and its console from the codebase."
