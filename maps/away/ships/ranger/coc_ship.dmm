@@ -723,7 +723,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor,
 /area/shuttle/freighter_shuttle)
 "dfe" = (
 /obj/machinery/computer/shuttle_control/explore/freighter_shuttle{
@@ -3386,9 +3386,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
-"rTe" = (
-/turf/simulated/floor/airless,
-/area/shuttle/freighter_shuttle)
 "rWO" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -3739,7 +3736,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor,
 /area/shuttle/freighter_shuttle)
 "upC" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -39316,7 +39313,7 @@ aHt
 xRX
 xRX
 xRX
-rTe
+kzm
 csU
 csU
 dfe
@@ -39573,7 +39570,7 @@ aHt
 xRX
 xRX
 xRX
-rTe
+kzm
 aWY
 fEx
 rIo
@@ -39830,7 +39827,7 @@ kpR
 xRX
 xRX
 xRX
-rTe
+kzm
 csU
 csU
 oIn
