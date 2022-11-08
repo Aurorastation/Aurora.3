@@ -91,6 +91,7 @@
 /obj/item/ship_ammunition/attackby(obj/item/I, mob/user)
 	. = ..()
 	if(I.force > 10 && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
+		log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [I]!", user)
 		cookoff(FALSE)
 
 /obj/item/ship_ammunition/ex_act(severity)
@@ -191,7 +192,7 @@
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	accuracy = 100
 	var/obj/item/ship_ammunition/ammo
-	var/primed = FALSE //If primed, we don't interact with map edges. Projectiles might spawn on a landmark at the edge of space, and we don't want them to get tp'd away.
+	var/primed = FALSE
 	var/hit_target = FALSE //First target we hit. Used to report if a hit was successful.
 
 /obj/item/projectile/ship_ammo/Destroy()
@@ -201,7 +202,12 @@
 
 /obj/item/projectile/ship_ammo/touch_map_edge()
 	if(primed)
-		return
+		for(var/mob/living/carbon/human/H in human_mob_list)
+			if(AreConnectedZLevels(H.z, z))
+				to_chat(H, SPAN_WARNING("The flooring below you vibrates a little as shells fly by the hull of the ship!"))
+				H.playsound_simple(null, 'sound/effects/explosionfar.ogg', 25)
+				shake_camera(H, 2, 2)
+		..()
 	if(ammo.touch_map_edge(z))
 		ammo.original_projectile = src
 		forceMove(ammo)

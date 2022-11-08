@@ -414,6 +414,7 @@
 				to_chat(usr, SPAN_WARNING("The console shows an error screen: the weapon isn't loaded!"))
 			if(SHIP_GUN_FIRING_SUCCESSFUL)
 				to_chat(usr, SPAN_WARNING("The console shows a positive message: firing sequence successful!"))
+				log_and_message_admins("[usr] has fired [cannon] with target [linked.targeting] and entry point [LM]!", location = get_turf(usr))
 	
 	if(href_list["viewing"])
 		if(usr)

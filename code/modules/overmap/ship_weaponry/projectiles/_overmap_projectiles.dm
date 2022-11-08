@@ -29,7 +29,13 @@
 /obj/effect/overmap/projectile/process()
 	if(target)
 		move_to()
-	check_entry()
+	if(!moving)
+		check_entry()
+
+/obj/effect/overmap/projectile/Move()
+	. = ..()
+	if(.)
+		check_entry()
 
 /obj/effect/overmap/projectile/Destroy()
 	ammunition = null
@@ -42,16 +48,16 @@
 		return
 	var/turf/T = get_turf(src)
 	for(var/obj/effect/overmap/A in T)
-		if(A == ammunition.origin)
+		if(ammunition && A == ammunition.origin)
 			continue
 		if(istype(A, /obj/effect/overmap/visitable))
 			var/obj/effect/overmap/visitable/V = A
 			if((V.check_ownership(entry_target)) || (V == target)) //Target spotted!
 				if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
 					//Manually stopping & going invisible because this proc needs to sleep for a bit.
+					STOP_PROCESSING(SSprocessing, src) //Also, don't sleep in process().
 					invisibility = 100
 					moving = FALSE
-					STOP_PROCESSING(SSprocessing, src) //Also, don't sleep in process().
 					var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 					widowmaker.ammo = ammunition
 					qdel(ammunition.original_projectile) //No longer needed.
@@ -64,18 +70,16 @@
 					widowmaker.forceMove(entry_target)
 					widowmaker.on_hit(laze, is_landmark_hit = TRUE)
 					log_and_message_admins("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
-					say_dead_direct("A projectile ([name]) has entered a z-level at [entry_target.name]! (<A HREF='?_src_=usr;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+					say_dead_direct("A projectile ([name]) has entered a z-level at [entry_target.name]!")
 					qdel(widowmaker)
 					qdel(src)
 				else if(istype(V, /obj/effect/overmap/visitable) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_SHIPS))
 					if(istype(V, /obj/effect/overmap/visitable/ship))
 						var/obj/effect/overmap/visitable/ship/VS = V
 						if(istype(ammunition.origin, /obj/effect/overmap/visitable/ship))
-							var/obj/effect/overmap/visitable/ship/OR = ammunition.origin
-							if(VS.fore_dir != OR.fore_dir)
-								var/naval_heading = SSatlas.headings_to_naval["[OR.fore_dir]"]["[ammunition.heading]"]
-								var/corrected_heading = SSatlas.naval_to_dir["[VS.fore_dir]"][naval_heading]
-								ammunition.heading = corrected_heading
+							var/naval_heading = SSatlas.headings_to_naval["[VS.dir]"]["[ammunition.heading]"]
+							var/corrected_heading = SSatlas.naval_to_dir["[VS.fore_dir]"][naval_heading]
+							ammunition.heading = corrected_heading
 					var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 					widowmaker.ammo = ammunition
 					qdel(ammunition.original_projectile) //No longer needed.
@@ -89,7 +93,7 @@
 					var/turf/target_turf = get_step(widowmaker, widowmaker.dir)
 					widowmaker.on_translate(entry_turf, target_turf)
 					log_and_message_admins("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir2text(widowmaker.dir)]! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
-					say_dead_direct("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir2text(widowmaker.dir)]! (<A HREF='?_src_=usr;adminplayerobservecoodjump=1;X=[widowmaker.x];Y=[widowmaker.y];Z=[widowmaker.z]'>JMP</a>)")
+					say_dead_direct("A projectile ([widowmaker.name]) has entered a z-level at [entry_target.name], with direction [dir2text(widowmaker.dir)]!")
 					widowmaker.launch_projectile(target_turf)
 					qdel(src)
 		if(istype(A, /obj/effect/overmap/event))
@@ -103,10 +107,11 @@
 		walk(src, 0)
 		moving = FALSE
 		return
-	if(ammunition.ammunition_behaviour == SHIP_AMMO_BEHAVIOUR_DUMBFIRE)
-		walk_towards(src, get_step(src, dir), speed)
-	else if(ammunition.ammunition_behaviour == SHIP_AMMO_BEHAVIOUR_GUIDED)
-		walk_towards(src, target, speed)
+	if(!moving)
+		if(ammunition.ammunition_behaviour == SHIP_AMMO_BEHAVIOUR_DUMBFIRE)
+			walk(src, ammunition.heading, speed)
+		else if(ammunition.ammunition_behaviour == SHIP_AMMO_BEHAVIOUR_GUIDED)
+			walk_towards(src, target, speed)
 	moving = TRUE
 
 /obj/effect/overmap/projectile/Destroy()
