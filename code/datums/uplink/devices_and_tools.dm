@@ -73,7 +73,7 @@
 	desc = "A personal shield that, when kept in your hand and activated, will protect its user from five projectile shots. \
 	        This can only be bought once."
 	item_cost = 1
-	item_limit = 4
+	item_limit = 1
 	path = /obj/item/device/personal_shield
 
 /datum/uplink_item/item/tools/hacking_tool
