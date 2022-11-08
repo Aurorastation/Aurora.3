@@ -2701,7 +2701,8 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/tiled/ramp,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "vns" = (
 /obj/effect/decal/cleanable/dirt,
