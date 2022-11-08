@@ -3573,7 +3573,7 @@
 	name = "Primary Armament Exterior Bolts";
 	pixel_x = 22;
 	pixel_y = 22;
-	req_access = list(19, 11);
+	req_access = list(19,11);
 	specialfunctions = 4
 	},
 /obj/structure/cable{
@@ -17683,14 +17683,12 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard)
 "iMo" = (
-/obj/structure/closet/crate/trashcart,
-/obj/effect/floor_decal/corner/purple/full{
-	dir = 1
-	},
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/industrial/outline/custodial,
+/obj/effect/floor_decal/corner/green/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "iMG" = (
@@ -24103,7 +24101,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room)
 "mep" = (
-/obj/effect/floor_decal/corner/purple{
+/obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -25129,11 +25127,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/purple/full{
-	dir = 4
-	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-33"
+	},
+/obj/effect/floor_decal/corner/green/full{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
@@ -26439,11 +26437,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "niM" = (
-/obj/effect/floor_decal/corner/purple{
-	dir = 6
-	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
