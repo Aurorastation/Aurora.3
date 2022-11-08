@@ -43,3 +43,4 @@ changes:
   - rscadd: "Added useful ship combat information for deadchat when bullets enter a zlevel."
   - bugfix: "Ghosts can now jump to the Overmap by using the Teleport verb and going to System Map."
   - bugfix: "Added missing admin logs."
+  - rscadd: "Added notifications for people inside a ship when ship projectiles miss it."
