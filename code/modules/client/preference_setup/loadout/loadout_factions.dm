@@ -111,7 +111,7 @@
 	path = /obj/item/clothing/accessory/sleevepatch/idrissec
 	faction = "Idris Incorporated"
 	slot = slot_tie
-	allowed_roles = list("Security Officer","Investigator")
+	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet")
 
 //Zavodskoi
 /datum/gear/faction/zavodskoi_headwear
@@ -136,7 +136,7 @@
 	path = /obj/item/clothing/under/rank/security/zavod/zavodsec
 	slot = slot_w_uniform
 	faction = "Zavodskoi Interstellar"
-	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden")
+	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet")
 
 /datum/gear/faction/zavod_sec_uniforms/New()
 	..()
@@ -169,6 +169,7 @@
 	path = /obj/item/clothing/suit/storage/security/officer/zav
 	slot = slot_wear_suit
 	faction = "Zavodskoi Interstellar"
+	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet")
 
 /datum/gear/faction/zavod_sec_coat/New()
 	..()
@@ -182,8 +183,8 @@
 	description = "A selection of Zavodskoi security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/zavod
 	slot = slot_glasses
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
 	faction = "Zavodskoi Interstellar"
+	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet")
 
 /datum/gear/faction/zavod_sunglasses/New()
 	..()
@@ -192,7 +193,6 @@
 	zavod_sunglasses["fat HUDsunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/big/zavod
 	zavod_sunglasses["aviator sunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/zavod
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sunglasses)
-
 
 /datum/gear/faction/zavodskoi_patch
 	display_name = "zavodskoi sleeve patch"
@@ -205,7 +205,7 @@
 	path = /obj/item/clothing/accessory/sleevepatch/zavodskoisec
 	slot = slot_tie
 	faction = "Zavodskoi Interstellar"
-	allowed_roles = list("Security Officer","Investigator","Warden")
+	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet")
 
 // PMCG
 /datum/gear/faction/pmc_sunglasses
