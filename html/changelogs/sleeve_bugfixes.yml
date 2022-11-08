@@ -1,6 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes the Idris and Zavodskoi security sleeve patches being esoterically role restricted."
