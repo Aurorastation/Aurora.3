@@ -1,0 +1,73 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/plating,
+/area/space)
+"m" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/space)
+"p" = (
+/turf/simulated/wall/shuttle/palepurple/cardinal,
+/area/space)
+"S" = (
+/obj/machinery/door/airlock/palepurple,
+/turf/simulated/floor/plating,
+/area/space)
+
+(1,1,1) = {"
+p
+p
+S
+p
+p
+"}
+(2,1,1) = {"
+p
+m
+a
+m
+p
+"}
+(3,1,1) = {"
+p
+m
+a
+m
+p
+"}
+(4,1,1) = {"
+p
+m
+a
+m
+p
+"}
+(5,1,1) = {"
+p
+m
+a
+m
+p
+"}
+(6,1,1) = {"
+p
+m
+a
+m
+p
+"}
+(7,1,1) = {"
+p
+m
+a
+m
+p
+"}
+(8,1,1) = {"
+p
+p
+S
+p
+p
+"}

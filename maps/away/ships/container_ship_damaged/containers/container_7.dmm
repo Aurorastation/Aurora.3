@@ -1,0 +1,116 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/plating,
+/area/space)
+"d" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/o2,
+/turf/simulated/floor/plating,
+/area/space)
+"e" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/item/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
+/turf/simulated/floor/plating,
+/area/space)
+"j" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/iv_drip,
+/turf/simulated/floor/plating,
+/area/space)
+"q" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/roller,
+/obj/item/roller{
+	pixel_y = 16
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"r" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/roller,
+/turf/simulated/floor/plating,
+/area/space)
+"E" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/regular,
+/turf/simulated/floor/plating,
+/area/space)
+"F" = (
+/obj/machinery/door/airlock/palepurple,
+/turf/simulated/floor/plating,
+/area/space)
+"J" = (
+/turf/simulated/wall/shuttle/palepurple/cardinal,
+/area/space)
+"R" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/item/deployable_kit/surgery_table,
+/obj/item/deployable_kit/surgery_table,
+/turf/simulated/floor/plating,
+/area/space)
+
+(1,1,1) = {"
+J
+J
+F
+J
+J
+"}
+(2,1,1) = {"
+J
+a
+a
+a
+J
+"}
+(3,1,1) = {"
+J
+j
+j
+a
+J
+"}
+(4,1,1) = {"
+J
+e
+E
+a
+J
+"}
+(5,1,1) = {"
+J
+R
+d
+a
+J
+"}
+(6,1,1) = {"
+J
+r
+q
+a
+J
+"}
+(7,1,1) = {"
+J
+a
+a
+a
+J
+"}
+(8,1,1) = {"
+J
+J
+F
+J
+J
+"}
