@@ -15,7 +15,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	var/nanoui_menu = 0					// The current menu we are in
 	var/list/nanoui_data = new 			// Additional data for NanoUI use
 
-	var/list/purchase_log = new
+	var/list/purchase_log = new			// 
 	var/datum/mind/uplink_owner = null
 	var/used_TC = 0
 

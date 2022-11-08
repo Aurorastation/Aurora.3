@@ -54,6 +54,14 @@ var/datum/uplink/uplink
 	if(!goods)
 		return
 
+	var/obj/item/implanter/implanter = goods
+	if(istype(implanter))
+		var/obj/item/implant/uplink/uplink_implant = implanter.imp
+		if(istype(uplink_implant))
+			var/obj/item/device/uplink/hidden/hidden_uplink = uplink_implant.hidden_uplink
+			if(istype(hidden_uplink))
+				hidden_uplink.purchase_log = U.purchase_log
+	
 	purchase_log(U)
 	U.uses -= cost
 	U.used_TC += cost
