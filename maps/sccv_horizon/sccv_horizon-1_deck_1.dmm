@@ -7731,7 +7731,7 @@
 	dir = 8
 	},
 /obj/item/hullbeacon/red,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "fRj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -15298,7 +15298,7 @@
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "lPL" = (
 /obj/item/modular_computer/console/preset/ai,
@@ -22221,7 +22221,7 @@
 	},
 /obj/structure/railing/mapped,
 /obj/item/material/stool/chair/folding,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "rpK" = (
 /obj/structure/janitorialcart/full,
@@ -28923,7 +28923,7 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "wKW" = (
 /obj/structure/cable/green{

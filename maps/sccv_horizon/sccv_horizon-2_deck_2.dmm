@@ -3622,14 +3622,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
-"bGe" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "bGg" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6396,7 +6388,7 @@
 	dir = 8
 	},
 /obj/item/hullbeacon/red,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "dhZ" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -13767,7 +13759,7 @@
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "gKh" = (
 /obj/machinery/alarm{
@@ -15670,14 +15662,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
-"hGn" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/template_noop,
-/area/template_noop)
 "hGx" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -28477,7 +28461,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/simulated/open/airless,
 /area/template_noop)
 "opF" = (
 /obj/structure/cable{
@@ -43365,13 +43349,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/morgue_lift)
-"vLl" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/template_noop,
-/area/template_noop)
 "vLu" = (
 /obj/structure/closet/secure_closet/guncabinet/sci,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -83078,8 +83055,8 @@ aPN
 fmk
 kuh
 unO
-vLl
-hGn
+eje
+mnU
 qgN
 qgN
 qgN
@@ -84695,7 +84672,7 @@ pcx
 kuh
 unO
 opx
-bGe
+hod
 qgN
 qgN
 qgN
