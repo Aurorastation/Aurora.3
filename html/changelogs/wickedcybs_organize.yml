@@ -1,7 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - backend: "Organizes all the away site and ship files. They each have their own folders. The generic folder was renamed to awaysite."
-  - backend: "Seperates the wildcard and corporate ship file as it was being shared by the tramp freighter + milita and the ox ship and ee ship respectively."
