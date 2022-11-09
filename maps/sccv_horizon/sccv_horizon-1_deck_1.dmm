@@ -3278,11 +3278,11 @@
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
 "cxG" = (
-/obj/structure/janitorialcart/full,
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/structure/janitorialcart,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "cya" = (
@@ -14600,7 +14600,7 @@
 	id_tag = "intrepid_cockpit";
 	name = "Close-in Weapons System Bay";
 	req_access = null;
-	req_one_access = list(73, 31)
+	req_one_access = list(73,31)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -22188,7 +22188,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "rpK" = (
-/obj/structure/janitorialcart/full,
 /obj/machinery/camera/network/service{
 	c_tag = "Custodial - Main Storage";
 	dir = 1
@@ -22197,6 +22196,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
+/obj/structure/janitorialcart,
 /turf/simulated/floor/tiled,
 /area/janitor)
 "rqf" = (
