@@ -104,7 +104,7 @@
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/ranger_corvette/nav2
-	name = "Ranger Gunboat - Port Airlock"
+	name = "Ranger Gunboat - Dock Airlock"
 	landmark_tag = "nav_ranger_corvette_2"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
@@ -135,22 +135,22 @@
 	name = "Ranger Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/ranger_shuttle)
-	current_location = "nav_hangar_Ranger"
-	landmark_transition = "nav_transit_Ranger_shuttle"
+	current_location = "nav_hangar_ranger"
+	landmark_transition = "nav_transit_ranger_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_Ranger"
+	logging_home_tag = "nav_hangar_ranger"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/Ranger_shuttle/hangar
 	name = "Ranger Shuttle Hangar"
-	landmark_tag = "nav_hangar_Ranger"
-	docking_controller = "Ranger_shuttle_dock"
+	landmark_tag = "nav_hangar_ranger"
+	docking_controller = "ranger_shuttle_dock"
 	base_area = /area/ship/ranger_corvette
-	base_turf = /turf/simulated/floor/plating
+	base_turf = /turf/space/dynamic
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/Ranger_shuttle/transit
 	name = "In transit"
-	landmark_tag = "nav_transit_Ranger_shuttle"
+	landmark_tag = "nav_transit_ranger_shuttle"
 	base_turf = /turf/space/transit/north
