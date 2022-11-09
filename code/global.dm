@@ -55,6 +55,7 @@ var/list/kickoffsloc           = list()
 var/list/virtual_reality_spawn = list()
 
 var/list/asteroid_spawn     = list() // Asteroid "Dungeons" spawn at these.
+// var/list/dungeon_generic_landmarks 	= list() // For the generic "dungeons"
 var/list/tdome1             = list()
 var/list/tdome2             = list()
 var/list/tdomeobserve       = list()

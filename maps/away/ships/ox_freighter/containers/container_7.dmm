@@ -4,17 +4,20 @@
 /area/space)
 "d" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
 /obj/item/storage/firstaid/combat,
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/o2,
+/obj/structure/closet/crate/medical,
 /turf/simulated/floor/plating,
 /area/space)
 "e" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
 /obj/item/storage/firstaid/surgery,
 /obj/item/storage/firstaid/surgery,
+/obj/structure/closet/crate/medical,
+/obj/structure/sign/flag/zenghu/left{
+	pixel_y = 32
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "j" = (
@@ -37,14 +40,29 @@
 /area/space)
 "E" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/brute,
 /obj/item/storage/firstaid/regular,
+/obj/structure/closet/crate/medical,
 /turf/simulated/floor/plating,
 /area/space)
 "F" = (
 /obj/machinery/door/airlock/palepurple,
+/turf/simulated/floor/plating,
+/area/space)
+"G" = (
+/obj/structure/closet/crate/medical,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/storage/backpack/duffel/zeng,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
 /turf/simulated/floor/plating,
 /area/space)
 "J" = (
@@ -52,9 +70,31 @@
 /area/space)
 "R" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
 /obj/item/deployable_kit/surgery_table,
 /obj/item/deployable_kit/surgery_table,
+/obj/structure/closet/crate/medical,
+/obj/structure/sign/flag/zenghu/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Z" = (
+/obj/structure/closet/crate/medical,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/storage/box/bloodpacks,
+/obj/item/reagent_containers/blood/OMinus{
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/blood/OMinus{
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/blood/OMinus{
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/blood/OMinus{
+	pixel_y = 0;
+	pixel_x = 5
+	},
 /turf/simulated/floor/plating,
 /area/space)
 
@@ -67,7 +107,7 @@ J
 "}
 (2,1,1) = {"
 J
-a
+G
 a
 a
 J
@@ -102,7 +142,7 @@ J
 "}
 (7,1,1) = {"
 J
-a
+Z
 a
 a
 J

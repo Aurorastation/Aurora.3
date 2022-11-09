@@ -1,0 +1,215 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/plating,
+/area/space)
+"f" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/closet/crate/secure,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/clothing/accessory/arm_guard/ballistic,
+/obj/item/clothing/accessory/arm_guard/ballistic,
+/obj/item/clothing/accessory/leg_guard/ballistic,
+/obj/item/clothing/accessory/leg_guard/ballistic,
+/obj/item/clothing/suit/armor/carrier/ballistic,
+/obj/item/clothing/suit/armor/carrier/ballistic,
+/turf/simulated/floor/plating,
+/area/space)
+"k" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/plating,
+/area/space)
+"s" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/closet/crate/secure,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/head/helmet/ballistic,
+/turf/simulated/floor/plating,
+/area/space)
+"v" = (
+/obj/structure/closet/crate,
+/obj/structure/sign/flag/zavodskoi{
+	pixel_y = -32
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"z" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/closet/crate/secure,
+/obj/structure/window/reinforced,
+/obj/item/ammo_magazine/gauss,
+/obj/item/ammo_magazine/gauss,
+/obj/item/ammo_magazine/gauss{
+	pixel_x = -6
+	},
+/obj/item/ammo_magazine/gauss{
+	pixel_y = 0;
+	pixel_x = -6
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"F" = (
+/obj/machinery/door/airlock/palepurple,
+/turf/simulated/floor/plating,
+/area/space)
+"J" = (
+/turf/simulated/wall/shuttle/palepurple/cardinal,
+/area/space)
+"K" = (
+/obj/structure/closet/crate,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"L" = (
+/obj/structure/closet/secure_closet,
+/turf/simulated/floor/plating,
+/area/space)
+"M" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/under/rank/security/zavod{
+	pixel_y = -4;
+	pixel_x = 4
+	},
+/obj/item/clothing/under/rank/security/zavod{
+	pixel_y = 0
+	},
+/obj/item/clothing/under/det/zavod/alt{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"N" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/closet/crate/secure,
+/obj/structure/window/reinforced,
+/obj/item/gun/projectile/gauss/carbine{
+	pixel_y = -3
+	},
+/obj/item/gun/projectile/gauss/carbine{
+	pixel_y = -3
+	},
+/obj/item/gun/projectile/gauss/carbine{
+	pixel_y = 4
+	},
+/obj/item/gun/projectile/gauss/carbine{
+	pixel_y = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"V" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/plating,
+/area/space)
+"X" = (
+/obj/structure/sign/flag/zavodskoi{
+	pixel_y = 32
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/under/rank/security/zavod,
+/obj/item/clothing/under/rank/warden/zavod{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/clothing/suit/storage/toggle/warden/zavod{
+	pixel_x = 4;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Z" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/mask/gas/alt{
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/obj/item/clothing/mask/gas/alt{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+
+(1,1,1) = {"
+J
+J
+F
+J
+J
+"}
+(2,1,1) = {"
+J
+M
+a
+V
+J
+"}
+(3,1,1) = {"
+J
+X
+a
+k
+J
+"}
+(4,1,1) = {"
+J
+s
+a
+N
+J
+"}
+(5,1,1) = {"
+J
+f
+a
+z
+J
+"}
+(6,1,1) = {"
+J
+L
+a
+v
+J
+"}
+(7,1,1) = {"
+J
+Z
+a
+K
+J
+"}
+(8,1,1) = {"
+J
+J
+F
+J
+J
+"}

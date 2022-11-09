@@ -2,11 +2,6 @@
 "a" = (
 /turf/simulated/floor/plating,
 /area/space)
-"c" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor/plating,
-/area/space)
 "F" = (
 /obj/machinery/door/airlock/palepurple,
 /turf/simulated/floor/plating,
@@ -31,29 +26,29 @@ J
 "}
 (3,1,1) = {"
 J
-c
-c
+a
+a
 a
 J
 "}
 (4,1,1) = {"
 J
-c
-c
+a
+a
 a
 J
 "}
 (5,1,1) = {"
 J
-c
-c
+a
+a
 a
 J
 "}
 (6,1,1) = {"
 J
-c
-c
+a
+a
 a
 J
 "}
