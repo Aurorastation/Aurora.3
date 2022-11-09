@@ -14145,7 +14145,10 @@
 /area/engineering/storage/tech)
 "gVh" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/disposaloutlet,
+/obj/structure/disposaloutlet{
+	spread_point = 2;
+	spread = 180
+	},
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
@@ -36196,6 +36199,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
+"sbP" = (
+/obj/structure/railing/mapped{
+	dir = 1;
+	icon_state = "railing0-0";
+	density = 0
+	},
+/turf/simulated/open,
+/area/maintenance/disposal)
 "sbW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -67476,7 +67487,7 @@ boU
 gsz
 iSx
 gVh
-xZI
+sbP
 xZI
 iSx
 jsA
