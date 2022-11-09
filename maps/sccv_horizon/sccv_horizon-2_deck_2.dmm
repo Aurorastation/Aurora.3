@@ -9288,11 +9288,16 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
+/obj/structure/table/steel,
+/obj/item/material/stool/chair/folding{
+	pixel_y = 20
 	},
-/obj/structure/bed/stool/padded/red,
+/obj/item/material/stool/chair/folding{
+	pixel_y = 22
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "eGS" = (
@@ -9730,10 +9735,17 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "eVm" = (
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/turf/simulated/open,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "eVu" = (
 /turf/simulated/wall,
@@ -14143,17 +14155,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
-"gVh" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/disposaloutlet{
-	spread_point = 2;
-	spread = 90
-	},
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/turf/simulated/open,
-/area/maintenance/disposal)
 "gVl" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -26582,7 +26583,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "nkd" = (
@@ -28507,15 +28510,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
-"opx" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/open,
-/area/maintenance/disposal)
 "opF" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -36199,14 +36193,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
-"sbP" = (
-/obj/structure/railing/mapped{
-	dir = 1;
-	icon_state = "railing0-0";
-	density = 0
-	},
-/turf/simulated/open,
-/area/maintenance/disposal)
 "sbW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -42292,14 +42278,24 @@
 /turf/simulated/floor/plating,
 /area/horizon/kitchen)
 "vgt" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/structure/disposaloutlet{
+	spread_point = 2;
+	spread = 90;
+	dir = 1
 	},
-/obj/structure/table/steel,
-/obj/random/loot,
-/obj/random/loot,
-/turf/simulated/open,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1;
+	icon_state = "railing0-0";
+	density = 0
+	},
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "vgz" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -44686,10 +44682,13 @@
 	pixel_x = 32;
 	pixel_y = -32
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "wle" = (
@@ -67284,8 +67283,8 @@ omQ
 gNQ
 bHW
 iSx
-vgt
-opx
+xZI
+xZI
 eVm
 iSx
 jsA
@@ -67486,9 +67485,9 @@ gsz
 boU
 gsz
 iSx
-gVh
-sbP
 xZI
+xZI
+vgt
 iSx
 jsA
 uyq
