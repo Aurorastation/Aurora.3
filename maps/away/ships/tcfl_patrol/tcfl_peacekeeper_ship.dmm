@@ -149,9 +149,12 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/tcfl_shuttle)
 "aSN" = (
-/obj/structure/closet/crate/loot,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "aUf" = (
 /obj/structure/closet/crate/medical,
@@ -243,6 +246,10 @@
 	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/tcfl_shuttle)
+"cwQ" = (
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "cBz" = (
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/tcfl_shuttle)
@@ -771,6 +778,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"fsa" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "fws" = (
 /obj/machinery/light{
 	dir = 4;
@@ -968,10 +979,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "grI" = (
-/obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "gvM" = (
@@ -1267,6 +1281,10 @@
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"hSW" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/ship/tcfl_peacekeeper_ship)
 "hUJ" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -1428,6 +1446,12 @@
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
+"iSW" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/template_noop,
+/area/space)
 "iVq" = (
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
@@ -1937,6 +1961,10 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
+"lwQ" = (
+/obj/structure/viewport/zavod,
+/turf/space,
+/area/ship/tcfl_peacekeeper_ship)
 "lAV" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/table/rack,
@@ -1994,10 +2022,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/tcfl_shuttle)
 "lXl" = (
-/obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "lYs" = (
@@ -2019,12 +2047,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "mmq" = (
-/obj/machinery/light/small{
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/structure/closet/crate/loot,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "mnC" = (
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -2055,14 +2081,24 @@
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "mtM" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
+/obj/machinery/door/airlock/hatch{
+	name = "Weapon Bay";
+	req_access = list(204)
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/ship/tcfl_peacekeeper_ship)
 "mwP" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/extinguisher_cartridges,
-/turf/simulated/floor,
+/obj/machinery/ship_weapon/grauwolf{
+	pixel_x = -32;
+	pixel_y = -192;
+	weapon_id = "TCFL Grauwolf Flak Battery"
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "mxc" = (
 /obj/structure/closet/crate/secure/legion{
@@ -2149,6 +2185,12 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/tcfl_peacekeeper_ship)
+"nas" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, weapon bay"
+	},
+/turf/simulated/wall/shuttle/legion,
 /area/ship/tcfl_peacekeeper_ship)
 "naU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -2245,6 +2287,12 @@
 	pixel_x = 25
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/tcfl_peacekeeper_ship)
+"nNA" = (
+/obj/machinery/ammunition_loader/grauwolf{
+	weapon_id = "TCFL Grauwolf Flak Battery"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "nTM" = (
 /obj/structure/plasticflaps/airtight,
@@ -2555,6 +2603,8 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/belt/security,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "pUq" = (
@@ -2567,6 +2617,8 @@
 /obj/item/storage/box/zipties,
 /obj/item/device/flash,
 /obj/item/reagent_containers/spray/pepper,
+/obj/item/storage/box/smokebombs,
+/obj/item/storage/belt/security,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
 "pVN" = (
@@ -2761,6 +2813,12 @@
 	dir = 4
 	},
 /area/ship/tcfl_peacekeeper_ship)
+"rkM" = (
+/obj/machinery/light/small,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor,
+/area/ship/tcfl_peacekeeper_ship)
 "rrF" = (
 /obj/structure/bed/stool,
 /obj/effect/decal/cleanable/dirt,
@@ -2775,6 +2833,10 @@
 /obj/item/board,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"ruj" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/space)
 "rxc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -2970,6 +3032,12 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
 /area/space)
+"sOz" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/tcfl_peacekeeper_ship)
 "sPy" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
@@ -3160,6 +3228,14 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
+"tWw" = (
+/obj/effect/landmark/entry_point/port{
+	dir = 1;
+	name = "port, weapon bay"
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/ship/tcfl_peacekeeper_ship)
 "tYP" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
@@ -3170,6 +3246,10 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(204)
 	},
+/obj/item/gun/energy/blaster,
+/obj/item/gun/energy/blaster,
+/obj/item/gun/energy/blaster,
+/obj/item/gun/energy/blaster,
 /obj/item/gun/energy/blaster,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
@@ -3209,7 +3289,6 @@
 	pixel_y = 24
 	},
 /obj/structure/table/standard,
-/obj/item/gun/energy/blaster/pilot_special,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "usV" = (
@@ -3219,7 +3298,7 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
-/obj/machinery/computer/ship/navigation{
+/obj/machinery/computer/ship/targeting{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3285,6 +3364,12 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/ammo_magazine/gauss,
+/obj/item/ammo_magazine/gauss,
+/obj/item/ammo_magazine/gauss,
+/obj/item/ammo_magazine/gauss,
+/obj/item/gun/projectile/gauss,
+/obj/item/gun/projectile/gauss,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "vdX" = (
@@ -25016,7 +25101,7 @@ pPl
 yjk
 dCR
 mxc
-bYX
+rkM
 yjk
 xRX
 xRX
@@ -32973,7 +33058,7 @@ jWO
 jWO
 rCW
 jWO
-ghV
+aSN
 yjk
 yjk
 yjk
@@ -32982,7 +33067,7 @@ yjk
 yjk
 yjk
 yjk
-jrJ
+mtM
 yjk
 yjk
 tqn
@@ -33240,7 +33325,7 @@ hNy
 hNy
 hNy
 lmS
-xji
+cwQ
 yjk
 xRX
 xRX
@@ -33498,7 +33583,7 @@ xji
 xji
 xji
 xji
-qtX
+yjk
 xRX
 xRX
 xRX
@@ -33751,13 +33836,13 @@ dQZ
 jOw
 krH
 dQZ
-kPs
 lXl
 xji
 xji
-qtX
-xRX
-xRX
+fsa
+hSW
+ruj
+ruj
 xRX
 xRX
 xRX
@@ -34009,12 +34094,12 @@ yjk
 tis
 yjk
 yjk
-aSN
-xji
-xji
-yjk
-xRX
-xRX
+mmq
+mwP
+fsa
+tWw
+iSW
+ruj
 xRX
 xRX
 xRX
@@ -34266,12 +34351,12 @@ dTd
 oge
 bYX
 yjk
-mmq
 xji
-xji
-yjk
-xRX
-xRX
+fsa
+fsa
+hSW
+ruj
+ruj
 xRX
 xRX
 xRX
@@ -34523,10 +34608,10 @@ oYU
 kgv
 jWO
 yjk
-mtM
 xji
+nNA
 xji
-yjk
+lwQ
 xRX
 xRX
 xRX
@@ -34780,9 +34865,9 @@ jWO
 jWO
 jWO
 yjk
-mwP
+sOz
 xji
-bYX
+cwQ
 yjk
 xRX
 xRX
@@ -35038,7 +35123,7 @@ yjk
 yjk
 yjk
 yjk
-yjk
+nas
 yjk
 yjk
 xRX
