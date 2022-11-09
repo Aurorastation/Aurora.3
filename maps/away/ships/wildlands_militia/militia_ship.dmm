@@ -581,6 +581,7 @@
 /obj/item/storage/box/beanbags,
 /obj/item/storage/box/shotgunshells,
 /obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/flashshells,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "goI" = (
@@ -1368,19 +1369,20 @@
 /obj/item/ammo_magazine/mc10mm/leyon,
 /obj/item/ammo_magazine/mc10mm/leyon,
 /obj/item/ammo_magazine/mc10mm/leyon,
-/obj/item/ammo_magazine/mc10mm/leyon,
-/obj/item/ammo_magazine/mc10mm/leyon,
-/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
 /obj/item/gun/projectile/leyon,
+/obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/projectile/leyon,
-/obj/item/gun/projectile/leyon,
-/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/pistol,
 /obj/item/ammo_magazine/mc10mm,
 /obj/item/ammo_magazine/mc10mm,
 /obj/item/ammo_magazine/mc10mm,
 /obj/item/ammo_magazine/mc10mm,
 /obj/item/gun/projectile/tanto,
 /obj/item/gun/projectile/tanto,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "tCH" = (
