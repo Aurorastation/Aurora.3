@@ -421,7 +421,7 @@ datum/gear/suit/colorvest
 // Apron
 /datum/gear/suit/apron_colourable
 	display_name = "apron (colourable)"
-	path = /obj/item/clothing/accessory/apron/coloured
+	path = /obj/item/clothing/accessory/apron
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 // Overalls Selection
