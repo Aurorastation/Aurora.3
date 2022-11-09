@@ -2815,8 +2815,10 @@
 /area/ship/tcfl_peacekeeper_ship)
 "rkM" = (
 /obj/machinery/light/small,
-/mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/combatripley{
+	h_r_hand = /obj/item/mecha_equipment/clamp
+	},
 /turf/simulated/floor,
 /area/ship/tcfl_peacekeeper_ship)
 "rrF" = (
