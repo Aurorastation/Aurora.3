@@ -770,7 +770,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/ranger_shuttle)
 "dfe" = (
 /obj/machinery/computer/shuttle_control/explore/ranger_shuttle{
@@ -2343,7 +2343,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
 "kzm" = (
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/ranger_shuttle)
 "kzy" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -4277,7 +4277,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/shuttle/ranger_shuttle)
 "upC" = (
 /obj/effect/floor_decal/industrial/warning{
