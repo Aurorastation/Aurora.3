@@ -195,9 +195,9 @@
 "aE" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4
+	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/gun_deck)
 "aF" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -449,6 +449,13 @@
 /area/headmaster_ship/hangar)
 "bK" = (
 /obj/structure/closet/cabinet,
+/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/under/tajaran/cosmonaut/commissar,
+/obj/item/clothing/head/tajaran/cosmonaut_commissar,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/storage/backpack/satchel/leather,
+/obj/item/device/radio/headset/ship,
+/obj/item/clothing/accessory/badge/pra_passport,
 /turf/simulated/floor/carpet/art,
 /area/headmaster_ship/commissar_quarters)
 "bL" = (
@@ -502,11 +509,11 @@
 /turf/simulated/floor/carpet/art,
 /area/headmaster_ship/commissar_quarters)
 "bU" = (
-/obj/machinery/ammunition_loader/longbow{
-	weapon_id = "Headmaster Longbow Cannon"
-	},
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
+	},
+/obj/machinery/ammunition_loader/grauwolf{
+	weapon_id = "Headmaster Grauwolf Flak Battery"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/gun_deck)
@@ -550,6 +557,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/machinery/light/small,
+/obj/item/book/manual/pra_manifesto,
 /turf/simulated/floor/carpet/art,
 /area/headmaster_ship/captain_quarters)
 "cc" = (
@@ -603,10 +611,6 @@
 	},
 /obj/machinery/light{
 	dir = 1
-	},
-/obj/machinery/light_switch{
-	pixel_x = -9;
-	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/bridge)
@@ -700,12 +704,15 @@
 /area/headmaster_ship/captain_quarters)
 "cG" = (
 /obj/structure/ship_weapon_dummy,
-/obj/machinery/ship_weapon/longbow{
+/obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
-	pixel_y = -320;
-	weapon_id = "Headmaster Longbow Cannon"
+	pixel_y = -192;
+	weapon_id = "Headmaster Grauwolf Flak Battery"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/gun_deck)
 "cH" = (
 /obj/effect/floor_decal/corner/red{
@@ -982,8 +989,7 @@
 /area/headmaster_ship/engine)
 "dy" = (
 /obj/machinery/vending/engivend{
-	req_access = null;
-	req_one_access = list(113)
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/engineering)
@@ -1276,6 +1282,7 @@
 /obj/structure/sign/flag/pra{
 	pixel_y = 32
 	},
+/obj/item/clothing/accessory/badge/pra_passport,
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/barracks)
 "eD" = (
@@ -1591,7 +1598,7 @@
 /area/headmaster_ship/armory)
 "fV" = (
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/gun_deck)
 "fY" = (
 /obj/structure/curtain/open/bed,
@@ -1606,6 +1613,7 @@
 /obj/structure/sign/flag/pra{
 	pixel_y = -32
 	},
+/obj/item/clothing/accessory/badge/pra_passport,
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/barracks)
 "ga" = (
@@ -1706,14 +1714,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/mess_hall)
 "gv" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
+/obj/item/hullbeacon/red,
+/obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/gun_deck)
 "gw" = (
@@ -1929,8 +1934,7 @@
 /area/headmaster_ship/engineering)
 "hz" = (
 /obj/machinery/vending/tool{
-	req_access = null;
-	req_one_access = list(113)
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/engineering)
@@ -1984,6 +1988,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/bridge)
 "hK" = (
@@ -2085,6 +2090,7 @@
 	dir = 4;
 	icon_state = "rwindow"
 	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/bridge)
 "ie" = (
@@ -2230,6 +2236,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/armory)
 "iv" = (
@@ -2257,6 +2266,7 @@
 	dir = 4
 	},
 /obj/machinery/light,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/bridge)
 "iB" = (
@@ -2748,9 +2758,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/item/warhead/longbow,
-/obj/item/warhead/longbow,
-/obj/item/warhead/longbow,
 /obj/structure/window/reinforced{
 	dir = 1;
 	icon_state = "rwindow"
@@ -2758,6 +2765,9 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/gun_deck)
 "kC" = (
@@ -3426,6 +3436,13 @@
 /area/headmaster_ship/mess_hall)
 "nE" = (
 /obj/structure/closet/cabinet,
+/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/under/tajaran/cosmonaut/captain,
+/obj/item/clothing/head/tajaran/orbital_captain,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/storage/backpack/satchel/leather,
+/obj/item/device/radio/headset/ship,
+/obj/item/clothing/accessory/badge/pra_passport,
 /turf/simulated/floor/carpet/art,
 /area/headmaster_ship/captain_quarters)
 "nO" = (
@@ -3446,10 +3463,13 @@
 /turf/simulated/wall/shuttle/raider,
 /area/headmaster_ship/engineering)
 "ol" = (
-/obj/structure/sign/securearea{
-	pixel_y = -32
+/obj/machinery/light/small{
+	dir = 1
 	},
-/turf/simulated/wall/shuttle/raider,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/gun_deck)
 "ou" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3677,11 +3697,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/hangar)
 "sn" = (
-/obj/structure/sign/securearea{
-	pixel_y = -32
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
 	},
-/turf/simulated/wall/shuttle/raider,
-/area/headmaster_ship/armory)
+/obj/structure/sign/painting_frame/hadii{
+	pixel_x = 32
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/headmaster_shuttle)
 "so" = (
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/engineering)
@@ -3823,6 +3846,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/bridge)
+"vb" = (
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	id = "headmaster_gun";
+	icon_state = "pdoor0"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/headmaster_ship/gun_deck)
 "vj" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/red{
@@ -3966,6 +3998,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/armory)
+"ye" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
 "yr" = (
 /obj/structure/closet/walllocker/medical/secure{
 	name = "O- Blood Locker";
@@ -3992,18 +4034,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship)
 "yy" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/light_switch{
-	pixel_x = 9;
-	pixel_y = 24
+/obj/effect/map_effect/window_spawner/reinforced/firedoor,
+/obj/machinery/door/blast/regular{
+	id = "headmaster_gun";
+	icon_state = "pdoor0";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/headmaster_ship/bridge)
+/area/headmaster_ship/gun_deck)
 "yD" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning,
@@ -4141,12 +4179,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/primer/high,
-/obj/item/primer,
-/obj/item/primer,
-/obj/item/primer,
-/obj/item/primer,
-/obj/item/primer/low,
+/obj/item/device/binoculars,
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/gun_deck)
 "Cx" = (
@@ -4203,21 +4236,18 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced/airless,
 /area/headmaster_ship/gun_deck)
 "DE" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/ship_ammunition/longbow,
-/obj/item/ship_ammunition/longbow,
-/obj/item/ship_ammunition/longbow,
-/obj/item/ship_ammunition/longbow,
-/obj/item/ship_ammunition/longbow,
 /obj/structure/window/reinforced{
 	dir = 4;
 	icon_state = "rwindow"
 	},
+/obj/item/device/multitool,
+/obj/item/device/multitool,
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/gun_deck)
 "DJ" = (
@@ -4368,8 +4398,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/item/warhead/longbow/bunker,
-/obj/item/warhead/longbow/bunker,
 /obj/structure/window/reinforced{
 	dir = 4;
 	icon_state = "rwindow"
@@ -4378,6 +4406,9 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/gun_deck)
 "Gr" = (
@@ -4433,6 +4464,7 @@
 /obj/machinery/computer/ship/engines{
 	dir = 1
 	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/bridge)
 "Hr" = (
@@ -4521,10 +4553,6 @@
 /turf/simulated/floor/wood,
 /area/headmaster_ship/captain_quarters)
 "JX" = (
-/obj/machinery/vending/wallmed2{
-	pixel_x = 28;
-	req_access = null
-	},
 /obj/machinery/sleeper{
 	dir = 8
 	},
@@ -4990,6 +5018,13 @@
 /obj/effect/shuttle_landmark/headmaster_shuttle/hangar,
 /turf/simulated/floor,
 /area/headmaster_ship/hangar)
+"RT" = (
+/obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/headmaster_ship/gun_deck)
 "RY" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
@@ -5040,8 +5075,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/item/warhead/longbow/ap,
-/obj/item/warhead/longbow/ap,
 /obj/structure/window/reinforced{
 	dir = 1;
 	icon_state = "rwindow"
@@ -5049,6 +5082,10 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/gun_deck)
 "SV" = (
@@ -5220,7 +5257,11 @@
 /obj/structure/table/steel{
 	pixel_x = 1
 	},
-/obj/item/device/binoculars,
+/obj/machinery/button/remote/blast_door{
+	id = "headmaster_gun";
+	name = "Gun Deck Blastdoor";
+	req_access = list(209)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/gun_deck)
 "We" = (
@@ -5357,8 +5398,7 @@
 /area/headmaster_ship/gun_deck)
 "YT" = (
 /obj/machinery/vending/engineering{
-	req_access = null;
-	req_one_access = list(113)
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/headmaster_ship/engineering)
@@ -14223,13 +14263,13 @@ Ru
 Ru
 Ru
 Ru
-gv
-kN
-kN
-kN
-kN
 kN
 dq
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -14381,16 +14421,16 @@ NZ
 fi
 je
 Mm
+ol
 Dx
-Dx
-Dx
 ei
 ei
 ei
-ei
-ei
-ei
-ei
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -14545,14 +14585,14 @@ je
 Mm
 cG
 fV
-fV
-ei
-ei
-ei
-ei
-ei
 ei
 FC
+ei
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -14706,16 +14746,16 @@ Mm
 je
 Mm
 aE
-aE
-aE
+RT
 ei
-Er
-Ru
-Ru
-kN
-kN
-kN
-dq
+ei
+ei
+iB
+iB
+iB
+iB
+iB
+iB
 iB
 iB
 iB
@@ -14871,9 +14911,9 @@ bU
 ai
 Ul
 EC
-zi
-je
-hh
+ye
+gv
+pi
 iB
 iB
 iB
@@ -15006,7 +15046,7 @@ ls
 Jn
 Jn
 fq
-aj
+sn
 mF
 aj
 aX
@@ -15032,8 +15072,8 @@ Mm
 jI
 dc
 Mm
-cB
-cB
+vb
+yy
 cB
 ll
 iB
@@ -16005,9 +16045,9 @@ Mm
 Mm
 Mm
 Mm
-ol
+Mm
 hf
-yy
+cl
 Bq
 Bq
 Vv
@@ -16653,7 +16693,7 @@ ha
 ha
 ha
 ha
-sn
+ha
 hf
 cl
 Bq
