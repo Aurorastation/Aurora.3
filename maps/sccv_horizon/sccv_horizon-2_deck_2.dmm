@@ -14147,7 +14147,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/disposaloutlet{
 	spread_point = 2;
-	spread = 180
+	spread = 90
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 8
