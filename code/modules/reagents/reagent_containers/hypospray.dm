@@ -328,7 +328,6 @@
 	desc = "An autoinjector loaded with bicaridine, a chemical used to treat physical trauma."
 	volume = 15
 	amount_per_transfer_from_this = 15
-
 	reagents_to_add = list(/decl/reagent/bicaridine = 15)
 
 
