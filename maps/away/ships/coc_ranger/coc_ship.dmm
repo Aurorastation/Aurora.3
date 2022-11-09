@@ -2342,9 +2342,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
-"kzm" = (
-/turf/simulated/floor/airless,
-/area/shuttle/ranger_shuttle)
 "kzy" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -39951,7 +39948,7 @@ stl
 xRX
 xRX
 xRX
-kzm
+xRX
 csU
 csU
 dfe
@@ -40208,7 +40205,7 @@ stl
 xRX
 xRX
 xRX
-kzm
+xRX
 aWY
 fEx
 rIo
@@ -40465,7 +40462,7 @@ maM
 xRX
 xRX
 xRX
-kzm
+xRX
 csU
 csU
 oIn
