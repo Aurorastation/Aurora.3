@@ -1107,6 +1107,10 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "ranger";
+	name = "igs - ranger"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
 "eIb" = (
@@ -1274,6 +1278,10 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cryofeed/pipes{
 	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "ranger";
+	name = "igs - ranger"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
@@ -1506,6 +1514,10 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "ranger";
+	name = "igs - ranger"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
@@ -3127,6 +3139,10 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "ranger";
+	name = "igs - ranger"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
 "oIn" = (
@@ -3798,6 +3814,10 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "ranger_leader";
+	name = "igs - ranger_leader"
+	},
 /turf/simulated/floor,
 /area/ship/ranger_corvette/leader)
 "sdU" = (
@@ -4140,6 +4160,10 @@
 /obj/structure/cryofeed/pipes{
 	dir = 2;
 	pixel_y = 24
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "ranger";
+	name = "igs - ranger"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
