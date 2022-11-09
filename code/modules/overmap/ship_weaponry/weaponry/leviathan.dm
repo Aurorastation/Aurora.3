@@ -137,6 +137,7 @@
 	armor_penetration = 1000
 	penetrating = 100
 	hitscan = TRUE
+	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
 
 	muzzle_type = /obj/effect/projectile/muzzle/pulse
 	tracer_type = /obj/effect/projectile/tracer/pulse
@@ -304,7 +305,9 @@
 	icon_state = "safeguard_open"
 
 /obj/machinery/leviathan_safeguard/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/leviathan_key) && !key && !stat && !locked)
+	if(!opened || locked)
+		return
+	if(istype(I, /obj/item/leviathan_key) && !key && !stat)
 		var/obj/item/leviathan_key/LK = I
 		if(use_check_and_message(user))
 			return
@@ -316,7 +319,7 @@
 			playsound(src, 'sound/effects/ship_weapons/levi_key_insert.ogg')
 
 /obj/machinery/leviathan_safeguard/attack_hand(mob/user)
-	if(key && !stat && !locked)
+	if(key && !stat && opened && !locked)
 		if(use_check_and_message(user))
 			return
 		if(do_after(user, 1 SECOND))
@@ -368,12 +371,15 @@
 					possible_entry_points[O.name] = O
 				for(var/obj/effect/O in V.entry_points)
 					possible_entry_points[O.name] = O
+				possible_entry_points = sortList(possible_entry_points)
+			if(istype(linked.targeting, /obj/effect/overmap/event))
+				possible_entry_points += SHIP_HAZARD_TARGET
 			var/targeted_landmark = input(user, "Select an entry point.", "Leviathan Control") as null|anything in possible_entry_points
 			if(!targeted_landmark && length(possible_entry_points))
 				return
 			var/obj/effect/landmark
-			if(length(possible_entry_points))
-			 landmark = possible_entry_points[targeted_landmark]
+			if(length(possible_entry_points) && !(targeted_landmark == SHIP_HAZARD_TARGET))
+				landmark = possible_entry_points[targeted_landmark]
 			if(do_after(user, 1 SECOND) && !use_check_and_message(user))
 				playsound(src, 'sound/effects/ship_weapons/levi_button_press.ogg')
 				visible_message(SPAN_DANGER("[user] presses \the [src]!"))
