@@ -20,6 +20,7 @@
 	caliber = SHIP_CALIBER_90MM
 	ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE
 	projectile_type_override = /obj/item/projectile/ship_ammo/grauwolf
+	burst = 4
 
 /obj/item/ship_ammunition/grauwolf_bundle/ap
 	name = "grauwolf armor-piercing flak bundle"
@@ -47,13 +48,3 @@
 	damage = 50
 	armor_penetration = 50
 	penetrating = 2
-
-/obj/item/projectile/ship_ammo/grauwolf/on_translate(var/turf/entry_turf, var/turf/target_turf)
-	for(var/i = 1 to 4)
-		var/turf/new_turf = get_random_turf_in_range(entry_turf, 5, 5, TRUE, TRUE)
-		var/obj/item/projectile/ship_ammo/grauwolf/burst = new(new_turf)
-		burst.ammo = new ammo.type
-		burst.ammo.impact_type = ammo.impact_type
-		var/turf/front_turf = get_step(new_turf, dir)
-		burst.dir = dir
-		burst.launch_projectile(front_turf)

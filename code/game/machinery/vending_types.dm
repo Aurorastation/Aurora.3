@@ -1017,8 +1017,9 @@
 	products = list(
 		/obj/item/device/multitool = 4,
 		/obj/item/powerdrill = 2,
+		/obj/item/taperoll/engineering = 4,
 		/obj/item/clothing/glasses/safety/goggles = 4,
-		/obj/item/airlock_electronics = 10,
+		/obj/item/airlock_electronics = 20,
 		/obj/item/module/power_control = 10,
 		/obj/item/airalarm_electronics = 10,
 		/obj/item/firealarm_electronics = 10,
