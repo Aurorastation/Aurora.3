@@ -765,7 +765,9 @@
 /turf/simulated/floor,
 /area/shuttle/ranger_shuttle)
 "dfe" = (
-/obj/machinery/computer/shuttle_control/explore/ranger_shuttle,
+/obj/machinery/computer/shuttle_control/explore/ranger_shuttle{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/ranger_shuttle)
 "dgC" = (
@@ -1148,6 +1150,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/cryo)
+"eOE" = (
+/obj/effect/shuttle_landmark/ranger_corvette/nav2,
+/turf/simulated/floor,
+/area/ship/ranger_corvette)
 "eTH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/sign/directions/cryo{
@@ -2491,10 +2497,6 @@
 "lJr" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/crew)
-"lLY" = (
-/obj/effect/shuttle_landmark/ranger_corvette/nav2,
-/turf/simulated/floor,
-/area/ship/ranger_corvette)
 "lTl" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4;
@@ -3280,6 +3282,14 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
+"pyo" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/machinery/iff_beacon,
+/turf/simulated/floor/airless,
+/area/ship/ranger_corvette)
 "pzF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -4267,6 +4277,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/leader)
+"uGW" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/airless,
+/area/ship/ranger_corvette)
 "uHi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/coffee/free,
@@ -36303,7 +36321,7 @@ bRR
 bRR
 cfy
 cfy
-xRX
+pyo
 xRX
 xRX
 xRX
@@ -38873,7 +38891,7 @@ syl
 syl
 arU
 arU
-xRX
+uGW
 xRX
 xRX
 xRX
@@ -39359,7 +39377,7 @@ nkz
 ghq
 ghq
 ewW
-lLY
+eOE
 aqg
 aHt
 fNZ
