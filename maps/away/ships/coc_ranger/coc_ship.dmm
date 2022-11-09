@@ -2985,6 +2985,10 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/machinery/button/distress{
+	pixel_x = 5;
+	pixel_y = 25
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "ofY" = (
