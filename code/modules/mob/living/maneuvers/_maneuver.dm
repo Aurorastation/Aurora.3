@@ -30,7 +30,7 @@
 		return FALSE
 	if (target && user.z != target.z)
 		if (!silent)
-			to_chat(user, SPAN_WARNING("You cannot manuever to a different z-level!"))
+			to_chat(user, SPAN_WARNING("You cannot maneuver to a different z-level!"))
 		return FALSE
 	return TRUE
 
