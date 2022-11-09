@@ -9282,15 +9282,17 @@
 	pixel_x = 32;
 	pixel_y = 32
 	},
-/obj/structure/table/steel,
 /obj/structure/sign/flag/sol{
 	pixel_y = 32
 	},
-/obj/random/loot,
-/obj/random/loot,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "eGS" = (
@@ -14143,8 +14145,9 @@
 /area/engineering/storage/tech)
 "gVh" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/structure/disposaloutlet,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
 /turf/simulated/open,
 /area/maintenance/disposal)
@@ -26576,7 +26579,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/bed/stool/padded/red,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "nkd" = (
@@ -28505,7 +28508,9 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
 /turf/simulated/open,
 /area/maintenance/disposal)
 "opF" = (
@@ -42277,12 +42282,12 @@
 /area/horizon/kitchen)
 "vgt" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/disposaloutlet{
-	dir = 1
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
+/obj/structure/table/steel,
+/obj/random/loot,
+/obj/random/loot,
 /turf/simulated/open,
 /area/maintenance/disposal)
 "vgz" = (
@@ -44673,10 +44678,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/disposal)
 "wle" = (
@@ -67271,9 +67273,9 @@ omQ
 gNQ
 bHW
 iSx
-eVm
+vgt
 opx
-gVh
+eVm
 iSx
 jsA
 lBj
@@ -67473,9 +67475,9 @@ gsz
 boU
 gsz
 iSx
+gVh
 xZI
 xZI
-vgt
 iSx
 jsA
 uyq
