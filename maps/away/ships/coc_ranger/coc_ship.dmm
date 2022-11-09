@@ -21,7 +21,7 @@
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine1)
 "aaJ" = (
-/obj/machinery/vending/tool,
+/obj/machinery/vending/engivend,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
@@ -928,6 +928,10 @@
 /area/ship/ranger_corvette/canteen)
 "dTw" = (
 /obj/structure/table/steel,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/emergency{
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "dVc" = (
@@ -3373,6 +3377,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/vending/engineering,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine2)
 "pFV" = (
@@ -3423,6 +3428,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "pMN" = (
@@ -4151,6 +4157,8 @@
 /obj/item/grenade/smokebomb,
 /obj/item/storage/belt/security,
 /obj/item/storage/belt/security,
+/obj/item/cell,
+/obj/item/cell,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "tGq" = (
